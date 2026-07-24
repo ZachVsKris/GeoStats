@@ -1,6 +1,6 @@
 {
   "name": "geostats",
-  "version": "12.1.1",
+  "version": "13.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,7 +9,9 @@
     "test": "node scripts/test-invariants.mjs",
     "check": "npm test && npm run build",
     "verify-worldbank": "node scripts/verify-worldbank.mjs",
-    "import-faostat": "python scripts/import-faostat.py"
+    "import-faostat": "python scripts/import-faostat.py",
+    "import-who": "python scripts/import-who.py",
+    "test-importers": "python scripts/test-data-pipeline.py && python scripts/test-who-importer.py"
   },
   "dependencies": {
     "next": "16.2.10",

@@ -1,56 +1,84 @@
-# GeoStats v12.1.1 — Strict Data Intake
+# GeoStats v13.0 — Unified Importers + WHO
 
-This release begins the multi-source expansion without lowering GeoStats' data standard.
-It adds the first full external-source pipeline: **FAOSTAT crop and livestock production
-(QCL)**, imported into a quarantine and editorial review workflow.
+v13.0 adds the first reusable multi-source importer framework and a complete WHO Global Health Observatory importer. It preserves the strict quarantine introduced in v12: imported data never becomes playable without automated qualification and explicit administrator approval.
 
 ## What this release adds
 
-- A generic candidate-data intake model shared by future FAOSTAT, WHO, UNESCO,
-  Comtrade, energy, climate, and other importers
-- A GitHub Actions FAOSTAT bulk importer that can process the large official dataset
-  without relying on a short-lived Vercel function
-- Strict automated checks for:
-  - common-year coverage
-  - freshness
-  - official versus estimated/imputed observations
-  - severe ties or clustering
-  - year-to-year ranking stability
-- An evidence tier and 0–100 quality score for every candidate
-- A review quarantine: **imports never become playable automatically**
-- Admin inspection of the top and bottom rankings before approval
-- Approve, reject, and reset actions with an audit trail
+- A shared Python ingestion framework under `scripts/data_pipeline/`
+- Dynamic WHO indicator discovery against WHO's current Indicator catalog
+- 55 curated, player-readable health concepts
+- Country-total filtering for the canonical 195-state GeoStats universe
+- Common-year coverage, freshness, clustering, evidence, and ranking-stability scoring
+- WHO observations stored with source dimensions and evidence status
+- A canonical GeoStats category layer that separates player-facing concepts from provider-specific indicators
+- Source priority and fallback relationships, without switching an approved preferred source automatically
+- Dedicated GitHub Actions for FAOSTAT and WHO, updated to the current Node 24 action runtime
+- A two-job **Import all source data** workflow
+- Source-agnostic bulk review controls in Admin
+- Coverage and quality sorting/filtering in the Category Library
 
-Missing country reports are always kept missing. The importer never converts them to
-zero, even where a zero might seem plausible.
+WHO's official Global Health Observatory API is OData-based. The importer uses the official Indicator catalog and indicator entity endpoints documented by WHO.
 
 ## Required deployment order
 
-1. In Supabase SQL Editor, run `RUN_THIS_IN_SUPABASE_FIRST.sql`
-   (the same migration is stored as `supabase/migrations/010_candidate_intake_and_reviews.sql`).
-2. Upload the extracted project files to GitHub.
-3. Wait for Vercel to show **Ready**.
-4. Open GitHub → **Actions** → **Import FAOSTAT candidates** → **Run workflow**.
-5. After the workflow completes, open `/admin` and filter the Category Library to
-   **FAOSTAT** and **Needs review**.
-6. Inspect surprising rankings before approving any category.
+1. In Supabase SQL Editor, run `RUN_THIS_IN_SUPABASE_FIRST.sql`.
+2. Extract this ZIP.
+3. Upload the **contents** into the root of the existing `ZachVsKris/Geohunter` repository, replacing matching files.
+4. Commit the changes and wait for Vercel to show **Ready**.
+5. Open GitHub → **Actions** → **Import WHO candidates** → **Run workflow**.
+6. After it finishes, open `/admin`, choose source **WHO**, and review the quarantined categories.
 
-The GitHub workflow uses the existing repository secrets:
+The existing GitHub secrets are reused:
 
 - `SUPABASE_URL`
-- `SUPABASE_SECRET_KEY`
+- `SUPABASE_SECRET_KEY` or `SUPABASE_SERVICE_ROLE_KEY`
 
-## Important scope boundary
+## Workflows
 
-v12.1.1 loads and reviews FAOSTAT candidates in the warehouse. It does **not** yet make
-the puzzle engine dynamically read external categories. Approval marks a category as
-eligible in the warehouse; the next integration step will make the generator consume
-approved warehouse categories rather than only the original hardcoded catalog.
+- `.github/workflows/import-faostat.yml` — FAOSTAT only
+- `.github/workflows/import-who.yml` — WHO only
+- `.github/workflows/main.yml` — FAOSTAT and WHO in parallel
 
-## Existing v12 features retained
+The old broken Admin link to `import-faostat.yml` is now valid because that workflow file actually exists.
 
-- UN-recognized country registry
-- World Bank category scoring
-- Puzzle Intelligence optimizer and diagnostics
-- Persistent authentication
-- One saved Daily attempt per mode and date
+## WHO selection behavior
+
+The importer does not expose WHO's entire 1,000-plus-indicator catalog. It resolves a curated list of understandable concepts such as:
+
+- life expectancy and healthy life expectancy
+- maternal, infant, neonatal, and under-five mortality
+- obesity, tobacco use, alcohol consumption, and physical inactivity
+- tuberculosis, malaria, HIV, and hepatitis
+- doctors, nurses, dentists, pharmacists, and hospital beds
+- vaccination coverage
+- universal health coverage
+- clean cooking, water, sanitation, handwashing, and air pollution
+
+Catalog matching is dynamic. If WHO renames or replaces an indicator, the importer looks for the best current match. If it cannot find a defensible match, it logs the concept as unmatched instead of inventing data.
+
+## Quarantine rules
+
+- Missing values remain missing; they are never converted to zero.
+- Sex-, age-, residence-, and subgroup-specific rows are excluded unless a rule explicitly allows them.
+- The newest sparse year cannot automatically displace a slightly older broadly covered year.
+- A successful import does not mean approval.
+- `auto_qualified=true` advances a category only to `needs_review`.
+- Approval remains an administrator decision.
+
+## Canonical categories
+
+A canonical category is the stable GeoStats concept shown to players. Source categories are linked underneath it.
+
+Example:
+
+```text
+Highest life expectancy
+├── WHO GHO indicator (priority 10)
+└── World Bank indicator (priority 40)
+```
+
+The preferred source changes only when a linked source category is both approved and enabled.
+
+## Scope boundary
+
+v13.0 loads WHO into the warehouse and creates the canonical source layer. The live puzzle generator still uses its existing approved-category integration. WHO categories remain unavailable to Daily until they pass review and the existing generator eligibility rules.

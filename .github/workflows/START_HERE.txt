@@ -1,0 +1,21 @@
+GEOSTATS v13.1 — CORRECTIVE PATCH
+
+The main.yml currently in your repository is the older v13.0 version.
+The previous simplified upload package also omitted four test files required by the new workflow.
+
+1. In GitHub, open:
+   .github/workflows
+   Upload and replace:
+   main.yml
+   from folder 1_UPLOAD_TO_DOT_GITHUB_WORKFLOWS
+
+2. In GitHub, open:
+   scripts
+   Upload all four files from folder 2_UPLOAD_TO_SCRIPTS
+
+3. Commit the changes.
+
+4. Go to GitHub → Actions → Import all source data → Run workflow.
+
+The new run should display five jobs:
+FAOSTAT, WHO, UNESCO UIS, ILOSTAT, and Natural Earth.

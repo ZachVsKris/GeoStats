@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import gzip
+import io
 import json
 import time
 from typing import Any
@@ -8,26 +10,46 @@ from urllib.parse import urljoin
 from urllib.request import Request, urlopen
 
 
-class JsonHttpClient:
-    def __init__(self, *, timeout: int = 90, retries: int = 4, user_agent: str = "GeoStats/13.0") -> None:
+class HttpClient:
+    """Small retrying client shared by JSON, CSV, and archive importers."""
+
+    def __init__(self, *, timeout: int = 120, retries: int = 5, user_agent: str = "GeoStats/13.1") -> None:
         self.timeout = timeout
         self.retries = retries
         self.user_agent = user_agent
 
-    def get_json(self, url: str) -> Any:
+    def get_bytes(self, url: str, *, accept: str = "*/*") -> bytes:
         last_error: Exception | None = None
         for attempt in range(self.retries):
-            request = Request(url, headers={"Accept": "application/json", "User-Agent": self.user_agent})
+            request = Request(url, headers={"Accept": accept, "User-Agent": self.user_agent})
             try:
                 with urlopen(request, timeout=self.timeout) as response:
-                    return json.loads(response.read().decode("utf-8"))
-            except (HTTPError, URLError, TimeoutError, json.JSONDecodeError) as error:
+                    payload = response.read()
+                    encoding = str(response.headers.get("Content-Encoding") or "").lower()
+                    content_type = str(response.headers.get("Content-Type") or "").lower()
+                    if encoding == "gzip" or payload[:2] == b"\x1f\x8b" or "application/gzip" in content_type:
+                        return gzip.decompress(payload)
+                    return payload
+            except (HTTPError, URLError, TimeoutError, OSError) as error:
                 last_error = error
                 if attempt + 1 >= self.retries:
                     break
-                time.sleep(2 ** attempt)
-        raise RuntimeError(f"Could not retrieve JSON from {url}: {last_error}")
+                time.sleep(min(20, 2 ** attempt))
+        raise RuntimeError(f"Could not retrieve {url}: {last_error}")
 
+    def get_text(self, url: str, *, accept: str = "text/plain,*/*") -> str:
+        return self.get_bytes(url, accept=accept).decode("utf-8-sig", errors="replace")
+
+    def get_json(self, url: str) -> Any:
+        raw = self.get_bytes(url, accept="application/json")
+        try:
+            return json.loads(raw.decode("utf-8-sig"))
+        except json.JSONDecodeError as error:
+            preview = raw[:300].decode("utf-8", errors="replace")
+            raise RuntimeError(f"Could not parse JSON from {url}: {preview}") from error
+
+
+class JsonHttpClient(HttpClient):
     def get_odata(self, url: str, *, max_pages: int = 200) -> list[dict[str, Any]]:
         rows: list[dict[str, Any]] = []
         next_url: str | None = url

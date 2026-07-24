@@ -93,6 +93,9 @@ const REPO_ACTIONS = "https://github.com/ZachVsKris/Geohunter/actions/workflows"
 const WORKFLOWS: Record<string, string> = {
   faostat: `${REPO_ACTIONS}/import-faostat.yml`,
   who: `${REPO_ACTIONS}/import-who.yml`,
+  unesco: `${REPO_ACTIONS}/import-unesco.yml`,
+  ilostat: `${REPO_ACTIONS}/import-ilostat.yml`,
+  climate: `${REPO_ACTIONS}/import-natural-earth.yml`,
   all: `${REPO_ACTIONS}/main.yml`,
 };
 
@@ -429,6 +432,12 @@ export default function AdminDashboard() {
                   <a href={WORKFLOWS.faostat} target="_blank" rel="noreferrer" style={{ ...button, display: "inline-block", textDecoration: "none" }}>Run FAOSTAT in GitHub ↗</a>
                 ) : key === "who" ? (
                   <a href={WORKFLOWS.who} target="_blank" rel="noreferrer" style={{ ...button, display: "inline-block", textDecoration: "none" }}>Run WHO in GitHub ↗</a>
+                ) : key === "unesco" ? (
+                  <a href={WORKFLOWS.unesco} target="_blank" rel="noreferrer" style={{ ...button, display: "inline-block", textDecoration: "none" }}>Run UNESCO in GitHub ↗</a>
+                ) : key === "ilostat" ? (
+                  <a href={WORKFLOWS.ilostat} target="_blank" rel="noreferrer" style={{ ...button, display: "inline-block", textDecoration: "none" }}>Run ILOSTAT in GitHub ↗</a>
+                ) : key === "climate" ? (
+                  <a href={WORKFLOWS.climate} target="_blank" rel="noreferrer" style={{ ...button, display: "inline-block", textDecoration: "none" }}>Run Natural Earth in GitHub ↗</a>
                 ) : (
                   <button style={mutedButton} disabled>Not available yet</button>
                 )}

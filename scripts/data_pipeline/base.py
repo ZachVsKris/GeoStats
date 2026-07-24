@@ -187,7 +187,7 @@ class WarehouseImporter(ABC):
                 **candidate.metadata,
                 "source_indicator_name": candidate.source_indicator_name,
                 "canonical_slug": rule.canonical_slug,
-                "import_framework": "v13.0",
+                "import_framework": "v13.1",
             },
         }
 

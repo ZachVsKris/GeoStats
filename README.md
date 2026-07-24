@@ -1,5 +1,5 @@
-# GeoStats v13.0.1 admin contrast fix
+# GeoStats v13.1 overlay
 
-Upload `app/admin/AdminDashboard.tsx` to the same path in the GitHub repository and replace the existing file.
+Adds UNESCO UIS, ILOSTAT, and Natural Earth geography importers to the v13 unified warehouse.
 
-This fixes the dark-on-dark text on the GeoStats Admin page while keeping the header buttons readable.
+Read `INSTALL_V13_1.md` before uploading.

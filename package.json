@@ -1,6 +1,6 @@
 {
   "name": "geostats",
-  "version": "13.0.0",
+  "version": "13.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,7 +11,10 @@
     "verify-worldbank": "node scripts/verify-worldbank.mjs",
     "import-faostat": "python scripts/import-faostat.py",
     "import-who": "python scripts/import-who.py",
-    "test-importers": "python scripts/test-data-pipeline.py && python scripts/test-who-importer.py"
+    "import-unesco": "python scripts/import-unesco.py",
+    "import-ilostat": "python scripts/import-ilostat.py",
+    "import-natural-earth": "python scripts/import-natural-earth.py",
+    "test-importers": "python scripts/test-data-pipeline.py && python scripts/test-who-importer.py && python scripts/test-unesco-importer.py && python scripts/test-ilostat-importer.py && python scripts/test-natural-earth-importer.py"
   },
   "dependencies": {
     "next": "16.2.10",

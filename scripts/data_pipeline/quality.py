@@ -7,7 +7,7 @@ from statistics import mean
 
 from .models import IndicatorRule, QualityResult, SourceObservation
 
-QUALITY_STANDARD_VERSION = "geostats-v13.0-strict"
+QUALITY_STANDARD_VERSION = "geostats-v13.1-strict"
 
 
 def _average_ranks(values: dict[str, float], *, high: bool) -> dict[str, float]:
@@ -64,7 +64,6 @@ def score_observations(rule: IndicatorRule, observations: list[SourceObservation
 
     now_year = datetime.now(timezone.utc).year
     latest_year = max(by_year)
-    # Favor recent years, but do not select a nearly empty newest year over a complete prior release.
     common_year = max(by_year, key=lambda year: (min(len(by_year[year]), 150) * 3 - max(0, now_year - year) * 8, year))
     common_rows = list(by_year[common_year].values())
     coverage = len(common_rows)

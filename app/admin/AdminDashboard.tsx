@@ -349,6 +349,18 @@ export default function AdminDashboard() {
 
   return (
     <>
+      <style>{`
+        .adminShell {
+          color: #f4f7ef !important;
+        }
+        .adminShell .adminHeaderActions > a,
+        .adminShell .adminHeaderActions button {
+          color: #17231d !important;
+        }
+        .adminShell input[type="checkbox"] {
+          accent-color: #b9f45a;
+        }
+      `}</style>
       {error && <div className="adminError" style={{ ...card, borderColor: "rgba(255,100,100,.6)", marginBottom: 14 }}>{error}</div>}
       {notice && <div style={{ ...card, borderColor: "rgba(185,244,90,.55)", marginBottom: 14 }}>{notice}</div>}
 

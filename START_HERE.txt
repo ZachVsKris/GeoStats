@@ -1,0 +1,25 @@
+GEOSTATS v13.1 — EXACT FILES TO ADD
+
+1. SUPABASE
+Open folder:
+  3_RUN_IN_SUPABASE
+Run:
+  RUN_THIS_IN_SUPABASE_FIRST.sql
+
+2. GITHUB REPOSITORY ROOT
+Open folder:
+  1_UPLOAD_TO_REPOSITORY_ROOT
+Upload its CONTENTS to the root of your GeoStats repository.
+Replace matching files.
+
+3. GITHUB WORKFLOWS
+In GitHub, open:
+  .github/workflows
+Upload all four files from:
+  2_UPLOAD_TO_DOT_GITHUB_WORKFLOWS
+Replace main.yml if prompted.
+
+4. Commit the changes, wait for Vercel, then run:
+  GitHub → Actions → Import all source data
+
+No hidden folders are included in this package.

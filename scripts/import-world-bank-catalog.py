@@ -15,7 +15,7 @@ from data_pipeline.http import HttpClient
 from data_pipeline.models import CandidateDefinition, IndicatorRule, SourceObservation
 from data_pipeline.supabase import SupabaseWarehouse
 
-CATALOG_URL = "https://api.worldbank.org/v2/indicator?format=json&per_page=25000"
+CATALOG_URL = "https://api.worldbank.org/v2/indicator?format=json&per_page=25000&source=2"
 INDICATOR_PAGE = "https://data.worldbank.org/indicator/{code}"
 API_TEMPLATE = "https://api.worldbank.org/v2/country/all/indicator/{code}?format=json&per_page=20000&date={start}:{end}"
 METADATA_TEMPLATE = "https://databank.worldbank.org/metadataglossary/world-development-indicators/series/{code}"
@@ -280,7 +280,11 @@ class WorldBankCatalogImporter(WarehouseImporter):
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Import a broad objective World Development Indicators candidate catalog.")
     parser.add_argument("--dry-run", action="store_true")
-    parser.add_argument("--limit", type=int, default=500, help="Maximum candidates per run; use 0 for all discovered candidates.")
+    parser.add_argument("--limit", type=int, default=None, help="Legacy maximum candidates to scan; 0 means no limit.")
+    parser.add_argument("--scan-limit", type=int, default=2000, help="Maximum new catalog indicators to inspect in this run; 0 means all.")
+    parser.add_argument("--target-successes", type=int, default=500, help="Stop after this many usable new candidates have been inserted; 0 disables the target.")
+    parser.add_argument("--minimum-successes", type=int, default=1, help="Exit nonzero if fewer usable candidates are inserted.")
+    parser.add_argument("--offset", type=int, default=0, help="Skip this many sorted, not-yet-imported catalog indicators before scanning.")
     parser.add_argument("--rule", action="append", default=[])
     return parser.parse_args()
 
@@ -294,10 +298,24 @@ def main() -> int:
         if not url or not key:
             raise SystemExit("SUPABASE_URL and SUPABASE_SECRET_KEY (or SUPABASE_SERVICE_ROLE_KEY) are required.")
         warehouse = SupabaseWarehouse(url, key)
-    limit = None if args.limit == 0 else args.limit
-    result = WorldBankCatalogImporter(warehouse, dry_run=args.dry_run).run(limit=limit, only_keys=set(args.rule) or None)
+    if args.limit is not None:
+        scan_limit = None if args.limit == 0 else args.limit
+    else:
+        scan_limit = None if args.scan_limit == 0 else args.scan_limit
+    target_successes = None if args.target_successes == 0 else args.target_successes
+    result = WorldBankCatalogImporter(warehouse, dry_run=args.dry_run).run(
+        scan_limit=scan_limit,
+        target_successes=target_successes,
+        offset=max(0, args.offset),
+        only_keys=set(args.rule) or None,
+    )
     print(result, flush=True)
-    return 1 if result["failures"] and result["categories_processed"] == 0 else 0
+    successes = int(result["categories_processed"])
+    minimum = max(0, args.minimum_successes)
+    if successes < minimum:
+        print(f"World Bank expansion failed its minimum-success gate: {successes} < {minimum}.", flush=True)
+        return 1
+    return 0
 
 
 if __name__ == "__main__":

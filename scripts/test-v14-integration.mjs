@@ -15,8 +15,8 @@ const reviewRoute = read("../app/api/admin/categories/review/route.ts");
 const workflow = read("../.github/workflows/main.yml");
 const packageJson = JSON.parse(read("../package.json"));
 
-assert.match(version, /APP_VERSION = "14\.0\.0"/);
-assert.equal(packageJson.version, "14.0.0");
+assert.match(version, /APP_VERSION = "14\.0\.1"/);
+assert.equal(packageJson.version, "14.0.1");
 assert.match(sourcePanel, /Source & all data/);
 assert.match(sourcePanel, /All available country values/);
 assert.match(sourcePanel, /exact country snapshot GeoStats used/);
@@ -45,7 +45,7 @@ assert.match(admin, /Player quality/);
 assert.match(admin, /Approve strict-pass/);
 assert.match(reviewRoute, /v14 editorial review queue/);
 assert.match(workflow, /world-bank-catalog:/);
-assert.match(workflow, /import-world-bank-catalog\.py --limit 500/);
+assert.match(workflow, /import-world-bank-catalog\.py --target-successes 500 --scan-limit 2000 --minimum-successes 100/);
 assert.match(workflow, /natural-earth:/);
 assert.match(workflow, /comtrade:/);
 

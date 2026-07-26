@@ -120,6 +120,22 @@ class SupabaseWarehouse:
     def apply_category_governance(self, category_id: str) -> None:
         self._request("POST", "rpc/apply_category_governance", {"p_category_id": category_id})
 
+
+    def get_import_health(self) -> list[dict[str, Any]]:
+        rows = self._request(
+            "GET",
+            "v14_import_health?select=*&order=source_organization.asc",
+        )
+        return [dict(row) for row in rows] if isinstance(rows, list) else []
+
+    def list_recent_import_runs(self, *, limit: int = 30) -> list[dict[str, Any]]:
+        rows = self._request(
+            "GET",
+            "stat_import_runs?select=id,source_organization,source_dataset,status,started_at,completed_at,categories_processed,observations_inserted,error_message,details"
+            f"&order=started_at.desc&limit={max(1, min(limit, 100))}",
+        )
+        return [dict(row) for row in rows] if isinstance(rows, list) else []
+
     def mark_source_success(self, slug: str) -> None:
         self._request(
             "PATCH",

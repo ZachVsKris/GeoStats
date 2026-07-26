@@ -505,6 +505,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Import reproducible Natural Earth country and physical-geography candidates.")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--limit", type=int, default=None)
+    parser.add_argument("--minimum-successes", type=int, default=len(RULES), help="Exit nonzero if fewer categories are imported.")
     parser.add_argument("--rule", action="append", default=[])
     return parser.parse_args()
 
@@ -520,7 +521,13 @@ def main() -> int:
         warehouse = SupabaseWarehouse(url, key)
     result = NaturalEarthImporter(warehouse, dry_run=args.dry_run).run(limit=args.limit, only_keys=set(args.rule) or None)
     print(result, flush=True)
-    return 1 if result["failures"] and result["categories_processed"] == 0 else 0
+    requested = len(set(args.rule)) if args.rule else (len(RULES) if args.limit is None else min(args.limit, len(RULES)))
+    minimum = min(max(0, args.minimum_successes), requested)
+    successes = int(result["categories_processed"])
+    if successes < minimum:
+        print(f"Natural Earth import failed its completeness gate: {successes} < {minimum}.", flush=True)
+        return 1
+    return 0
 
 
 if __name__ == "__main__":

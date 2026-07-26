@@ -33,12 +33,31 @@ class WarehouseImporter(ABC):
     def category_id(self, candidate: CandidateDefinition) -> str:
         raise NotImplementedError
 
-    def run(self, *, limit: int | None = None, only_keys: set[str] | None = None) -> dict[str, object]:
+    def run(
+        self,
+        *,
+        limit: int | None = None,
+        only_keys: set[str] | None = None,
+        offset: int = 0,
+        scan_limit: int | None = None,
+        target_successes: int | None = None,
+    ) -> dict[str, object]:
+        """Import candidates while keeping broad catalog runs observable and resumable.
+
+        ``limit`` remains the backwards-compatible maximum number of candidates to scan.
+        ``scan_limit`` is the preferred explicit name. ``target_successes`` lets broad
+        catalog importers keep scanning past stale or empty indicators until they have
+        inserted the requested number of usable candidates.
+        """
         candidates = self.discover()
+        discovered_count = len(candidates)
         if only_keys:
             candidates = [candidate for candidate in candidates if candidate.rule.key in only_keys]
-        if limit is not None:
-            candidates = candidates[:limit]
+        if offset > 0:
+            candidates = candidates[offset:]
+        effective_scan_limit = scan_limit if scan_limit is not None else limit
+        if effective_scan_limit is not None:
+            candidates = candidates[:effective_scan_limit]
 
         run_id: int | None = None
         if not self.dry_run:
@@ -50,15 +69,24 @@ class WarehouseImporter(ABC):
                 {
                     "quality_standard": QUALITY_STANDARD_VERSION,
                     "candidate_count": len(candidates),
-                    "started_by": "generic-importer-framework",
+                    "candidates_discovered_before_filters": discovered_count,
+                    "offset": offset,
+                    "scan_limit": effective_scan_limit,
+                    "target_successes": target_successes,
+                    "started_by": "generic-importer-framework-v14.0.1",
                 },
             )
 
         category_count = 0
         observation_count = 0
+        attempted_count = 0
+        successful_keys: list[str] = []
         failures: list[dict[str, str]] = []
         try:
             for index, candidate in enumerate(candidates, start=1):
+                if target_successes is not None and category_count >= target_successes:
+                    break
+                attempted_count += 1
                 print(f"[{index}/{len(candidates)}] {candidate.rule.title} ({candidate.source_indicator_code})", flush=True)
                 try:
                     observations = self.fetch_observations(candidate)
@@ -89,6 +117,7 @@ class WarehouseImporter(ABC):
                         self.warehouse.link_canonical(self.canonical_payload(candidate, category_id))
                         self.warehouse.apply_category_governance(category_id)
                     category_count += 1
+                    successful_keys.append(candidate.rule.key)
                 except Exception as error:  # keep a long source import moving while preserving failure details
                     failures.append({"key": candidate.rule.key, "error": str(error)[:1200]})
                     print(f"  failed: {error}", flush=True)
@@ -105,6 +134,12 @@ class WarehouseImporter(ABC):
                     details={
                         "quality_standard": QUALITY_STANDARD_VERSION,
                         "candidate_count": len(candidates),
+                        "candidates_discovered_before_filters": discovered_count,
+                        "attempted_count": attempted_count,
+                        "successful_count": category_count,
+                        "target_successes": target_successes,
+                        "target_reached": target_successes is None or category_count >= target_successes,
+                        "successful_keys": successful_keys,
                         "failures": failures,
                     },
                 )
@@ -119,14 +154,26 @@ class WarehouseImporter(ABC):
                     categories_processed=category_count,
                     observations_inserted=observation_count,
                     error_message=str(error)[:2000],
-                    details={"failures": failures},
+                    details={
+                        "candidates_discovered_before_filters": discovered_count,
+                        "attempted_count": attempted_count,
+                        "successful_count": category_count,
+                        "target_successes": target_successes,
+                        "successful_keys": successful_keys,
+                        "failures": failures,
+                    },
                 )
             raise
 
         return {
-            "candidates_discovered": len(candidates),
+            "candidates_discovered": discovered_count,
+            "candidates_selected": len(candidates),
+            "candidates_attempted": attempted_count,
             "categories_processed": category_count,
             "observations_inserted": observation_count,
+            "target_successes": target_successes,
+            "target_reached": target_successes is None or category_count >= target_successes,
+            "successful_keys": successful_keys,
             "failures": failures,
         }
 
@@ -234,7 +281,7 @@ class WarehouseImporter(ABC):
                 **candidate.metadata,
                 "source_indicator_name": candidate.source_indicator_name,
                 "canonical_slug": rule.canonical_slug,
-                "import_framework": "v14.0",
+                "import_framework": "v14.0.1",
                 "plainLanguageDescription": player_description,
                 "technicalDefinition": rule.technical_definition or candidate.source_indicator_name,
                 "unitExplanation": rule.unit_explanation or rule.unit,

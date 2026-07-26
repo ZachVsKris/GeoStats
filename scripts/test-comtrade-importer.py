@@ -4,6 +4,7 @@ from __future__ import annotations
 import importlib.util
 import sys
 from pathlib import Path
+from urllib.parse import parse_qs, urlparse
 
 MODULE = Path(__file__).with_name("import-comtrade.py")
 spec = importlib.util.spec_from_file_location("import_comtrade", MODULE)
@@ -18,23 +19,33 @@ def test_rows_and_numbers() -> None:
     assert module._rows({"results": [{"x": 2}]}) == [{"x": 2}]
     assert module._number("1,234.5") == 1234.5
     assert module._number("not available") is None
+    assert module._api_error({"error": "bad request"}) == "bad request"
 
 
 def test_url_modes() -> None:
     importer = module.ComtradeImporter(None, dry_run=True)
     importer.subscription_key = ""
-    url = importer._url("0901", 2024)
-    assert "/public/v1/preview/" in url
-    assert "cmdCode=0901" in url
-    assert "reporterCode=all" in url
+    try:
+        importer._url("0901", 2024)
+    except RuntimeError as error:
+        assert "COMTRADE_API_KEY" in str(error)
+    else:
+        raise AssertionError("Global Comtrade import must require a subscription key")
+
     importer.subscription_key = "secret"
     url = importer._url("0901", 2024)
+    query = parse_qs(urlparse(url).query, keep_blank_values=True)
     assert "/data/v1/get/" in url
-    assert "subscription-key=secret" in url
+    assert query["reporterCode"] == [""]
+    assert query["maxRecords"] == ["250000"]
+    assert query["subscription-key"] == ["secret"]
+    assert query["breakdownMode"] == ["classic"]
+    assert "partner2Code" not in query and "customsCode" not in query and "motCode" not in query
 
 
 def test_catalog_is_curated() -> None:
     importer = module.ComtradeImporter(None, dry_run=True)
+    importer.subscription_key = "secret"
     candidates = importer.discover()
     keys = {candidate.rule.key for candidate in candidates}
     assert "most-coffee-exported" in keys

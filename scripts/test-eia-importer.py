@@ -18,6 +18,7 @@ def test_facet_parsing() -> None:
     assert module._facet_entries(payload) == [{"id": "57", "name": "Crude oil including lease condensate"}]
     data, total = module._data_rows({"response": {"total": "1", "data": [{"period": "2024"}]}})
     assert total == 1 and data[0]["period"] == "2024"
+    assert module._api_error({"error": "invalid key"}) == "invalid key"
 
 
 def test_resolution_prefers_specific_product() -> None:
@@ -52,6 +53,40 @@ def test_api_key_requirement_and_url() -> None:
     assert "facets%5BproductId%5D%5B%5D=57" in url
     assert "data%5B%5D=value" in url
 
+
+def test_empty_facet_falls_back_to_recent_data_catalog() -> None:
+    importer = module.EiaImporter(None, dry_run=True)
+    importer.api_key = "abc"
+
+    class FakeHttp:
+        def get_json(self, url):
+            if "/facet/" in url:
+                return {"response": {"totalFacets": "0", "facets": []}}
+            return {
+                "response": {
+                    "total": "2",
+                    "data": [
+                        {
+                            "productId": "57",
+                            "productName": "Crude oil including lease condensate",
+                            "activityId": "1",
+                            "activityName": "Production",
+                        },
+                        {
+                            "productId": "4413",
+                            "productName": "Renewable electricity",
+                            "activityId": "2",
+                            "activityName": "Consumption",
+                        },
+                    ],
+                }
+            }
+
+    importer.http = FakeHttp()
+    products = importer._facet("productId")
+    activities = importer._facet("activityId")
+    assert {row["id"] for row in products} == {"57", "4413"}
+    assert {row["id"] for row in activities} == {"1", "2"}
 
 
 def test_one_unit_is_selected_for_entire_category() -> None:
@@ -99,6 +134,7 @@ def test_one_unit_is_selected_for_entire_category() -> None:
     assert candidate.metadata["selected_unit"] == "thousand barrels per day"
     assert all(row.metadata["unit"] == "thousand barrels per day" for row in observations)
 
+
 def test_rule_catalog() -> None:
     keys = {spec.rule.key for spec in module.SPECS}
     assert "most-crude-oil-produced" in keys
@@ -111,6 +147,7 @@ if __name__ == "__main__":
     test_facet_parsing()
     test_resolution_prefers_specific_product()
     test_api_key_requirement_and_url()
+    test_empty_facet_falls_back_to_recent_data_catalog()
     test_one_unit_is_selected_for_entire_category()
     test_rule_catalog()
     print("EIA importer tests passed.")

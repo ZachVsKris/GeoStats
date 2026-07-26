@@ -88,6 +88,26 @@ def _number(value: Any) -> float | None:
     return number if math.isfinite(number) else None
 
 
+def _api_error(payload: Any) -> str | None:
+    if not isinstance(payload, dict):
+        return None
+    for key in ("error", "error_description", "message"):
+        value = payload.get(key)
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+        if isinstance(value, dict):
+            nested = value.get("message") or value.get("description") or value.get("error")
+            if nested not in (None, ""):
+                return str(nested)
+    validation = payload.get("validation")
+    if isinstance(validation, dict):
+        status = validation.get("status")
+        message = validation.get("message") or validation.get("description")
+        if status not in (None, True, "OK", "ok", "valid") and message:
+            return str(message)
+    return None
+
+
 def _rows(payload: Any) -> list[dict[str, Any]]:
     if isinstance(payload, list):
         return [row for row in payload if isinstance(row, dict)]
@@ -119,10 +139,18 @@ class ComtradeImporter(WarehouseImporter):
 
     def __init__(self, warehouse: SupabaseWarehouse | None, *, dry_run: bool = False) -> None:
         super().__init__(warehouse, dry_run=dry_run)
-        self.http = HttpClient(timeout=120, retries=5, user_agent="GeoStats/13.3 UN-Comtrade importer")
+        self.http = HttpClient(timeout=120, retries=5, user_agent="GeoStats/13.3.1 UN-Comtrade importer")
         self.subscription_key = os.environ.get("COMTRADE_API_KEY", "").strip()
 
+    def _require_key(self) -> None:
+        if not self.subscription_key:
+            raise RuntimeError(
+                "COMTRADE_API_KEY is required for GeoStats global country rankings. "
+                "The public preview endpoint requires a specific reporter and cannot supply the all-country extract used here."
+            )
+
     def discover(self) -> list[CandidateDefinition]:
+        self._require_key()
         return [
             CandidateDefinition(
                 rule=spec.rule,
@@ -134,27 +162,30 @@ class ComtradeImporter(WarehouseImporter):
                     "flow_code": "X",
                     "partner_code": "0",
                     "classification": "HS",
-                    "api_mode": "keyed" if self.subscription_key else "preview",
+                    "api_mode": "keyed",
                 },
             )
             for spec in SPECS
         ]
 
     def _url(self, commodity_code: str, year: int) -> str:
-        base = COMTRADE_DATA if self.subscription_key else COMTRADE_PREVIEW
+        self._require_key()
+        base = COMTRADE_DATA
+        # UN Comtrade uses an empty reporter selector for an all-reporter query.
+        # The literal value "all" is invalid and returns HTTP 400. Keep optional
+        # breakdown facets out of the request unless they are actually needed.
         params: list[tuple[str, str]] = [
             ("period", str(year)),
-            ("reporterCode", "all"),
+            ("reporterCode", ""),
             ("flowCode", "X"),
             ("partnerCode", "0"),
-            ("partner2Code", "0"),
             ("cmdCode", commodity_code),
-            ("customsCode", "C00"),
-            ("motCode", "0"),
-            ("maxRecords", "500"),
+            ("maxRecords", "250000"),
+            ("format", "JSON"),
+            ("breakdownMode", "classic"),
+            ("includeDesc", "true"),
         ]
-        if self.subscription_key:
-            params.append(("subscription-key", self.subscription_key))
+        params.append(("subscription-key", self.subscription_key))
         return f"{base}?{urlencode(params)}"
 
     def fetch_observations(self, candidate: CandidateDefinition) -> list[SourceObservation]:
@@ -167,7 +198,12 @@ class ComtradeImporter(WarehouseImporter):
             for code in codes:
                 url = self._url(code, year)
                 payload = self.http.get_json(url)
+                error = _api_error(payload)
+                if error:
+                    raise RuntimeError(f"UN Comtrade rejected HS {code} for {year}: {error}")
                 data = _rows(payload)
+                if not data:
+                    print(f"UN Comtrade returned no rows for HS {code} in {year}.", flush=True)
                 for index, row in enumerate(data):
                     iso3 = normalize_iso3(_first(row, "reporterISO", "reporterIso", "reporterISO3", "reporterCodeISOAlpha3"))
                     if not iso3:

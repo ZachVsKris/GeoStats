@@ -104,11 +104,31 @@ def _extract_response(payload: Any) -> dict[str, Any]:
     return payload if isinstance(payload, dict) else {}
 
 
+def _api_error(payload: Any) -> str | None:
+    if not isinstance(payload, dict):
+        return None
+    for key in ("error", "error_description", "message"):
+        value = payload.get(key)
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+        if isinstance(value, dict):
+            nested = value.get("message") or value.get("description") or value.get("error")
+            if nested not in (None, ""):
+                return str(nested)
+    response = payload.get("response")
+    if isinstance(response, dict):
+        for key in ("error", "error_description", "message"):
+            value = response.get(key)
+            if value not in (None, ""):
+                return str(value)
+    return None
+
+
 def _facet_entries(payload: Any) -> list[dict[str, str]]:
     response = _extract_response(payload)
     raw = response.get("facets") or response.get("data") or response.get("items") or []
     if isinstance(raw, dict):
-        raw = raw.get("facets") or raw.get("data") or []
+        raw = raw.get("facets") or raw.get("data") or raw.get("items") or []
     rows: list[dict[str, str]] = []
     if not isinstance(raw, list):
         return rows
@@ -171,18 +191,86 @@ class EiaImporter(WarehouseImporter):
     def __init__(self, warehouse: SupabaseWarehouse | None, *, dry_run: bool = False) -> None:
         super().__init__(warehouse, dry_run=dry_run)
         self.api_key = os.environ.get("EIA_API_KEY", "").strip()
-        self.http = HttpClient(timeout=120, retries=5, user_agent="GeoStats/13.3 EIA importer")
+        self.http = HttpClient(timeout=120, retries=5, user_agent="GeoStats/13.3.1 EIA importer")
+        self._catalog_cache: dict[str, list[dict[str, str]]] | None = None
 
     def _require_key(self) -> None:
         if not self.api_key:
             raise RuntimeError("EIA_API_KEY is required. Register for a free EIA Open Data API key and add it as a GitHub Actions repository secret.")
 
+    def _catalog_url(self, *, offset: int, length: int) -> str:
+        now = datetime.now(timezone.utc).year
+        params: list[tuple[str, str]] = [
+            ("api_key", self.api_key),
+            ("frequency", "annual"),
+            ("data[]", "value"),
+            ("start", str(max(2022, now - 4))),
+            ("sort[0][column]", "period"),
+            ("sort[0][direction]", "desc"),
+            ("offset", str(offset)),
+            ("length", str(length)),
+        ]
+        return f"{EIA_ROUTE}/?{urlencode(params)}"
+
+    def _catalog_facets_from_data(self) -> dict[str, list[dict[str, str]]]:
+        if self._catalog_cache is not None:
+            return self._catalog_cache
+        products: dict[str, str] = {}
+        activities: dict[str, str] = {}
+        offset = 0
+        length = 5000
+        unchanged_pages = 0
+        previous_counts = (-1, -1)
+        while offset < 50000:
+            payload = self.http.get_json(self._catalog_url(offset=offset, length=length))
+            error = _api_error(payload)
+            if error:
+                raise RuntimeError(f"EIA catalog request failed: {error}")
+            rows, total = _data_rows(payload)
+            for row in rows:
+                product_id = row.get("productId") or row.get("productid")
+                product_name = row.get("productName") or row.get("productDescription")
+                activity_id = row.get("activityId") or row.get("activityid")
+                activity_name = row.get("activityName") or row.get("activityDescription")
+                if product_id not in (None, "") and product_name not in (None, ""):
+                    products[str(product_id)] = str(product_name)
+                if activity_id not in (None, "") and activity_name not in (None, ""):
+                    activities[str(activity_id)] = str(activity_name)
+            counts = (len(products), len(activities))
+            unchanged_pages = unchanged_pages + 1 if counts == previous_counts else 0
+            previous_counts = counts
+            offset += len(rows)
+            if not rows or len(rows) < length or (total is not None and offset >= total):
+                break
+            # The current international catalog has only a few dozen products and
+            # activities. Once two full pages add no new values, more history will
+            # not improve concept resolution.
+            if unchanged_pages >= 2 and len(products) >= 20 and len(activities) >= 8:
+                break
+        self._catalog_cache = {
+            "productId": [{"id": key, "name": value} for key, value in sorted(products.items())],
+            "activityId": [{"id": key, "name": value} for key, value in sorted(activities.items())],
+        }
+        return self._catalog_cache
+
     def _facet(self, name: str) -> list[dict[str, str]]:
         self._require_key()
         url = f"{EIA_ROUTE}/facet/{name}/?{urlencode({'api_key': self.api_key, 'offset': 0, 'length': 5000})}"
-        entries = _facet_entries(self.http.get_json(url))
+        payload = self.http.get_json(url)
+        error = _api_error(payload)
+        if error:
+            raise RuntimeError(f"EIA {name} facet request failed: {error}")
+        entries = _facet_entries(payload)
+        if entries:
+            return entries
+        print(f"EIA returned no {name} facet entries; deriving the catalog from recent international data rows.", flush=True)
+        entries = self._catalog_facets_from_data().get(name, [])
         if not entries:
-            raise RuntimeError(f"EIA returned no {name} facet entries.")
+            response = _extract_response(payload)
+            raise RuntimeError(
+                f"EIA returned no {name} facet entries and no fallback values. "
+                f"Response fields: {sorted(response.keys())}"
+            )
         return entries
 
     def discover(self) -> list[CandidateDefinition]:

@@ -72,7 +72,7 @@ const CATEGORY_COLUMNS = [
 ].join(",");
 
 type BoardRow = { difficulty: "easy" | "normal" | "expert" };
-type CategoryRow = { review_status?: "candidate" | "needs_review" | "approved" | "rejected" };
+type CategoryRow = { review_status?: "candidate" | "needs_review" | "approved" | "rejected"; curation_status?: "pending" | "approved" | "excluded" | null };
 
 export async function GET() {
   const auth = await requireAdmin();
@@ -117,11 +117,12 @@ export async function GET() {
     if (board.difficulty in boardMap) boardMap[board.difficulty] = true;
   }
 
-  const reviewCounts = { candidate: 0, needs_review: 0, approved: 0, rejected: 0 };
+  const reviewCounts = { candidate: 0, needs_review: 0, approved: 0, rejected: 0, pending_editorial: 0 };
   for (const category of categoryRows) {
     if (category.review_status && category.review_status in reviewCounts) {
       reviewCounts[category.review_status] += 1;
     }
+    if (category.curation_status === "pending") reviewCounts.pending_editorial += 1;
   }
 
   return NextResponse.json({

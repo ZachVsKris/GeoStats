@@ -94,7 +94,7 @@ type SourceRow = {
 
 type Dashboard = {
   stats: { categories: number; observations: number; countries: number };
-  reviewCounts: Record<ReviewStatus, number>;
+  reviewCounts: Record<ReviewStatus, number> & { pending_editorial: number };
   sources: SourceRow[];
   imports: ImportRow[];
   categories: CategoryRow[];
@@ -139,7 +139,7 @@ const WORKFLOWS: Record<string, string> = {
   comtrade: `${REPO_ACTIONS}/import-comtrade.yml`,
   eia: `${REPO_ACTIONS}/import-eia.yml`,
   unhcr: `${REPO_ACTIONS}/import-unhcr.yml`,
-  all: `${REPO_ACTIONS}/main.yml`,
+  all: `${REPO_ACTIONS}/repair-v14-expansion.yml`,
 };
 
 const card: React.CSSProperties = {
@@ -428,8 +428,9 @@ export default function AdminDashboard() {
           ["Observations", data.stats.observations],
           ["Countries", data.stats.countries],
           ["Approved", data.reviewCounts.approved],
-          ["Need review", data.reviewCounts.needs_review],
-          ["Quarantined", data.reviewCounts.candidate],
+          ["Pending editorial", data.reviewCounts.pending_editorial],
+          ["Needs review", data.reviewCounts.needs_review],
+          ["Candidates", data.reviewCounts.candidate],
         ].map(([label, value]) => (
           <article key={String(label)} style={card}>
             <div style={{ opacity: .7, fontSize: 13 }}>{label}</div>
@@ -467,9 +468,9 @@ export default function AdminDashboard() {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "end", gap: 16, flexWrap: "wrap", marginBottom: 10 }}>
           <div>
             <h2 style={{ marginBottom: 4 }}>Data sources</h2>
-            <div style={{ opacity: .72 }}>Heavy imports run in GitHub Actions and enter quarantine.</div>
+            <div style={{ opacity: .72 }}>Heavy imports run in GitHub Actions and enter the editorial review queue.</div>
           </div>
-          <a href={WORKFLOWS.all} target="_blank" rel="noreferrer" style={{ ...button, textDecoration: "none" }}>Run all source imports ↗</a>
+          <a href={WORKFLOWS.all} target="_blank" rel="noreferrer" style={{ ...button, textDecoration: "none" }}>Repair + expand v14 imports ↗</a>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(230px,1fr))", gap: 12 }}>
           {data.sources.map((item) => {

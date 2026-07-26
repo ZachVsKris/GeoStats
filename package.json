@@ -1,6 +1,6 @@
 {
   "name": "geostats",
-  "version": "13.4.3",
+  "version": "13.4.4",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -26,7 +26,9 @@
     "test-v13-4-2": "python scripts/test-v13-4-2-curation.py && node scripts/test-v13-4-2-integration.mjs",
     "check-v13-4-2": "npm run test-importers && npm run test-v13-4 && npm run test-v13-4-1 && npm run test-v13-4-2 && npm test && npm run build",
     "test-v13-4-3": "python scripts/test-v13-4-3-curation.py && node scripts/test-v13-4-3-integration.mjs",
-    "check-v13-4-3": "npm run test-importers && npm run test-v13-4 && npm run test-v13-4-1 && npm run test-v13-4-2 && npm run test-v13-4-3 && npm test && npm run build"
+    "check-v13-4-3": "npm run test-importers && npm run test-v13-4 && npm run test-v13-4-1 && npm run test-v13-4-2 && npm run test-v13-4-3 && npm test && npm run build",
+    "test-v13-4-4": "python scripts/test-v13-4-4-playability.py",
+    "check-v13-4-4": "npm run test-importers && npm run test-v13-4 && npm run test-v13-4-1 && npm run test-v13-4-2 && npm run test-v13-4-3 && npm run test-v13-4-4 && npm test && npm run build"
   },
   "dependencies": {
     "next": "16.2.10",

@@ -15,8 +15,8 @@ const reviewRoute = read("../app/api/admin/categories/review/route.ts");
 const workflow = read("../.github/workflows/main.yml");
 const packageJson = JSON.parse(read("../package.json"));
 
-assert.match(version, /APP_VERSION = "14\.0\.1"/);
-assert.equal(packageJson.version, "14.0.1");
+assert.match(version, /APP_VERSION = "14\.0\.2"/);
+assert.equal(packageJson.version, "14.0.2");
 assert.match(sourcePanel, /Source & all data/);
 assert.match(sourcePanel, /All available country values/);
 assert.match(sourcePanel, /exact country snapshot GeoStats used/);

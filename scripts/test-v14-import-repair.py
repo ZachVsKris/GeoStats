@@ -90,4 +90,4 @@ assert "create or replace view public.v14_import_health" in migration
 assert "pending_review_count" in migration
 assert "apply_category_governance" in migration
 
-print("v14.0.1 import-repair checks passed")
+print("v14.0.2 import-repair checks passed")

@@ -1,18 +1,21 @@
-GEOSTATS v13.5.0 — TRUST, RANDOM TESTING, AUTH, AND LEADERBOARD
+GEOSTATS v14.0.0 — DATA TRANSPARENCY AND CATEGORY EXPANSION
 
 THIS IS A COMPLETE REPOSITORY REPLACEMENT.
 
 INSTALL
 1. Upload this folder's contents to the GitHub repository root.
-2. In Supabase SQL Editor, run RUN_THIS_IN_SUPABASE_FOR_V13_5.sql once.
-3. Run VERIFY_V13_5.sql. Queries marked “must return zero rows” should be empty.
-4. Follow AUTH_BRANDING_SETUP_V13_5.md.
+2. Confirm the v13.5 Supabase migration has already been applied.
+3. Run RUN_THIS_IN_SUPABASE_FOR_V14.sql in Supabase SQL Editor.
+4. Run VERIFY_V14.sql. Every zero-row check should be empty.
 5. Deploy through Vercel.
-6. Test /daily, /daily/adventurer, /daily/expert, /random/easy, /random, and /random/expert.
+6. Run GitHub Actions > Import all source data.
+7. Review new candidates in /admin. Unseen categories remain disabled until manually approved.
 
 IMPORTANT
-- Random seed games are unranked and reproducible.
-- Internet-use percentage and other quarantined categories cannot enter boards.
-- Exact source and methodology links are shown in results.
-- Custom SMTP is a one-time Supabase dashboard setting and cannot be completed by repository code alone.
-- No manual category approval is required.
+- Results now open a Source & all data panel with the exact country snapshot used by GeoStats.
+- Every playable category must pass credibility, objectivity, verifiability, clarity, fun, duplicate, and editorial-review gates.
+- Plain-language descriptions appear beneath category titles.
+- The all-source workflow expands World Bank, FAOSTAT, WHO, UNESCO UIS, ILOSTAT, Natural Earth, UN Comtrade, EIA, and UNHCR candidates.
+- COMTRADE_API_KEY and EIA_API_KEY are optional source-specific GitHub secrets.
+
+READ START_HERE_V14.md FOR THE COMPLETE CHECKLIST.

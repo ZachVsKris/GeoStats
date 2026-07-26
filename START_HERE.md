@@ -1,10 +1,12 @@
-# GeoStats v13.4.2 — install
+# GeoStats v13.5.0 — start here
 
+This is a complete repository replacement.
 
-1. Replace the GitHub repository with the contents of this folder.
-2. Wait for Vercel to deploy successfully.
-3. In Supabase SQL Editor, run RUN_THIS_IN_SUPABASE_FOR_V13_4_2.sql.
-4. Run VERIFY_V13_4_2.sql. Every violation count must be 0.
-5. In GitHub Actions, run Import ILOSTAT candidates once. This replaces projected 2026/2027 rows with the latest completed-year observations.
+1. Replace the GitHub repository contents with this build.
+2. In Supabase SQL Editor, run `RUN_THIS_IN_SUPABASE_FOR_V13_5.sql` once.
+3. Run `VERIFY_V13_5.sql`; every query marked “must return zero rows” should be empty.
+4. Follow `AUTH_BRANDING_SETUP_V13_5.md` to configure the GeoStats sender, custom SMTP, and branded token-hash email links.
+5. Deploy through Vercel.
+6. Test all Daily and Random routes listed in `START_HERE_V13_5.md`.
 
-No manual category approval is required. The migration immediately curates the existing library. FAOSTAT does not need to be rerun solely for this release.
+No manual category approval is required. The trust policy applies immediately to the existing catalog and after future importer governance runs.

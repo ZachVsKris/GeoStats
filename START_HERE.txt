@@ -1,19 +1,18 @@
-GEOSTATS v13.4.3 — COMPLETE CATALOG CURATION
+GEOSTATS v13.5.0 — TRUST, RANDOM TESTING, AUTH, AND LEADERBOARD
 
-This is a complete repository replacement.
+THIS IS A COMPLETE REPOSITORY REPLACEMENT.
 
 INSTALL
-1. Upload the contents of this folder to the GitHub repository root.
-2. Wait for Vercel to deploy.
-3. In Supabase SQL Editor, run:
-   RUN_THIS_IN_SUPABASE_FOR_V13_4_3.sql
-4. Then run:
-   VERIFY_V13_4_3.sql
+1. Upload this folder's contents to the GitHub repository root.
+2. In Supabase SQL Editor, run RUN_THIS_IN_SUPABASE_FOR_V13_5.sql once.
+3. Run VERIFY_V13_5.sql. Queries marked “must return zero rows” should be empty.
+4. Follow AUTH_BRANDING_SETUP_V13_5.md.
+5. Deploy through Vercel.
+6. Test /daily, /daily/adventurer, /daily/expert, /random/easy, /random, and /random/expert.
 
-EXPECTED VERIFICATION
-- Registry totals: 726 reviewed, 252 approved, 474 excluded
-- Every violation count in result set 3: 0
-- Rainfall result: rain is curated approved; dry is curated excluded
-
-NO IMPORT RERUN IS REQUIRED JUST FOR THIS CURATION RELEASE.
-Existing categories are re-evaluated immediately by the migration. Future importer runs use the same complete registry and fail closed for unseen indicators.
+IMPORTANT
+- Random seed games are unranked and reproducible.
+- Internet-use percentage and other quarantined categories cannot enter boards.
+- Exact source and methodology links are shown in results.
+- Custom SMTP is a one-time Supabase dashboard setting and cannot be completed by repository code alone.
+- No manual category approval is required.

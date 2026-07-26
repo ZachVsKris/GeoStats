@@ -52,13 +52,13 @@ assert.match(rulesText, /path: "\/daily\/adventurer"/);
 assert.match(componentText, /buildDailyTrio/);
 assert.match(componentText, /overlapBanks/);
 assert.match(componentText, /overlapBanks,\n\s*1,/);
-assert.match(componentText, /Scout Daily/);
-assert.match(componentText, /Adventurer Daily/);
-assert.match(componentText, /Expert Daily/);
-assert.match(componentText, /href="\/daily"/);
-assert.match(componentText, /href="\/daily\/adventurer"/);
-assert.match(componentText, /href="\/daily\/expert"/);
-assert.doesNotMatch(componentText, /New random round|Seeded challenge|playRandom/);
+assert.match(componentText, /ROUND_CONFIGS\[nextDifficulty\]\.label/);
+assert.match(componentText, /Daily/);
+assert.match(componentText, /ROUND_CONFIGS\.easy\.path/);
+assert.match(componentText, /ROUND_CONFIGS\.normal\.path/);
+assert.match(componentText, /ROUND_CONFIGS\.expert\.path/);
+assert.match(componentText, /Random Test · Unranked/);
+assert.match(componentText, /loadRandomRound/);
 assert.match(componentText, /Each category has a different winner/);
 assert.doesNotMatch(componentText, /The two Dailies stay fresh/);
 
@@ -68,7 +68,7 @@ assert.match(dailyPageText, /initialDifficulty="easy"/);
 assert.match(adventurerPageText, /initialDifficulty="normal"/);
 assert.match(legacyNormalPageText, /redirect\("\/daily\/adventurer"\)/);
 assert.match(expertPageText, /initialDifficulty="expert"/);
-assert.equal(fs.existsSync(new URL("../app/random/page.tsx", import.meta.url)), false, "Random route should be removed");
+assert.equal(fs.existsSync(new URL("../app/random/page.tsx", import.meta.url)), true, "Random test route should exist");
 
 assert.match(cssText, /dailyModeButton\.active/);
 assert.match(cssText, /compactRound/);
@@ -106,4 +106,4 @@ assert.match(adminGenerateText, /validDate/);
 assert.match(adminDashboardRouteText, /newYorkDate/);
 assert.match(adminDashboardRouteText, /todayScoreCount/);
 
-console.log(`Invariant tests passed (${ids.length} definitions; Scout, Adventurer, and Expert Dailies with separate scoring and leaderboards).`);
+console.log(`Invariant tests passed (${ids.length} definitions; trusted Dailies plus unranked random seeds).`);

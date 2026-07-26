@@ -3,6 +3,7 @@ import type { CategoryDataset } from "./worldBank";
 import { fetchWorldBankCategory } from "./worldBank";
 import { fetchFaostatCategory } from "./faostat";
 import { fetchDistributedIndicator } from "./distributedIndicators";
+import { fetchWarehouseCategory } from "./warehouseCategories";
 
 export async function fetchCategory(category: Category): Promise<CategoryDataset> {
   if (!category.certified || category.enabled === false) {
@@ -17,6 +18,10 @@ export async function fetchCategory(category: Category): Promise<CategoryDataset
     case "unesco":
     case "untourism":
       return fetchDistributedIndicator(category);
+    case "comtrade":
+    case "eia":
+    case "unhcr":
+      return fetchWarehouseCategory(category);
     case "naturalearth":
       throw new Error("Natural Earth has no playable categories under the 2022+ observation rule.");
     default: {

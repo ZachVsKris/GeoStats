@@ -96,6 +96,9 @@ const WORKFLOWS: Record<string, string> = {
   unesco: `${REPO_ACTIONS}/import-unesco.yml`,
   ilostat: `${REPO_ACTIONS}/import-ilostat.yml`,
   climate: `${REPO_ACTIONS}/import-natural-earth.yml`,
+  comtrade: `${REPO_ACTIONS}/import-comtrade.yml`,
+  eia: `${REPO_ACTIONS}/import-eia.yml`,
+  unhcr: `${REPO_ACTIONS}/import-unhcr.yml`,
   all: `${REPO_ACTIONS}/main.yml`,
 };
 
@@ -439,6 +442,12 @@ export default function AdminDashboard() {
                   <a href={WORKFLOWS.ilostat} target="_blank" rel="noreferrer" style={{ ...button, display: "inline-block", textDecoration: "none" }}>Run ILOSTAT in GitHub ↗</a>
                 ) : key === "climate" ? (
                   <a href={WORKFLOWS.climate} target="_blank" rel="noreferrer" style={{ ...button, display: "inline-block", textDecoration: "none" }}>Run Natural Earth in GitHub ↗</a>
+                ) : key === "comtrade" ? (
+                  <a href={WORKFLOWS.comtrade} target="_blank" rel="noreferrer" style={{ ...button, display: "inline-block", textDecoration: "none" }}>Run UN Comtrade in GitHub ↗</a>
+                ) : key === "eia" ? (
+                  <a href={WORKFLOWS.eia} target="_blank" rel="noreferrer" style={{ ...button, display: "inline-block", textDecoration: "none" }}>Run EIA in GitHub ↗</a>
+                ) : key === "unhcr" ? (
+                  <a href={WORKFLOWS.unhcr} target="_blank" rel="noreferrer" style={{ ...button, display: "inline-block", textDecoration: "none" }}>Run UNHCR in GitHub ↗</a>
                 ) : (
                   <button style={mutedButton} disabled>Not available yet</button>
                 )}

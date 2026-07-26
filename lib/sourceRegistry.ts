@@ -56,6 +56,30 @@ export const SOURCE_REGISTRY: Record<DataSourceId, SourceDefinition> = {
     playable: false,
     note: "Integrated as a source, but no physical-geography category is playable because timeless geometry cannot satisfy the 2022+ observation rule",
   },
+  comtrade: {
+    id: "comtrade",
+    name: "UN Comtrade",
+    homepage: "https://comtradeplus.un.org/",
+    verifier: "scripts/test-comtrade-importer.py",
+    playable: true,
+    note: "Approved categories are served from the GeoStats warehouse common-year snapshot",
+  },
+  eia: {
+    id: "eia",
+    name: "U.S. Energy Information Administration",
+    homepage: "https://www.eia.gov/international/",
+    verifier: "scripts/test-eia-importer.py",
+    playable: true,
+    note: "Approved categories are served from the GeoStats warehouse common-year snapshot",
+  },
+  unhcr: {
+    id: "unhcr",
+    name: "UNHCR Refugee Data Finder",
+    homepage: "https://www.unhcr.org/refugee-statistics/",
+    verifier: "scripts/test-unhcr-importer.py",
+    playable: true,
+    note: "Approved categories are served from the GeoStats warehouse common-year snapshot",
+  },
 };
 
 export function categorySourceUrl(source: DataSourceId, indicator: string) {
@@ -65,5 +89,8 @@ export function categorySourceUrl(source: DataSourceId, indicator: string) {
   if (source === "unesco") return `https://data.worldbank.org/indicator/${indicator}?name_desc=false`;
   if (source === "untourism") return `https://data.worldbank.org/indicator/${indicator}?name_desc=false`;
   if (source === "naturalearth") return "https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/";
+  if (source === "comtrade") return "https://comtradeplus.un.org/";
+  if (source === "eia") return "https://www.eia.gov/opendata/browser/international";
+  if (source === "unhcr") return "https://www.unhcr.org/refugee-statistics/";
   throw new Error(`Unsupported source: ${source satisfies never}`);
 }

@@ -51,6 +51,26 @@ type CategoryRow = {
   evidence_label?: string | null;
   comparability_risk?: "low" | "medium" | "high" | null;
   corroboration_status?: string | null;
+  plain_language_description?: string | null;
+  technical_definition?: string | null;
+  unit_explanation?: string | null;
+  source_page_url?: string | null;
+  exact_query_url?: string | null;
+  download_url?: string | null;
+  api_url?: string | null;
+  dataset_release?: string | null;
+  retrieved_at?: string | null;
+  license_name?: string | null;
+  license_url?: string | null;
+  derivation_method?: string | null;
+  derivation_version?: string | null;
+  verifiability_score?: number | null;
+  verifiability_status?: string | null;
+  understandability_score?: number | null;
+  fun_score?: number | null;
+  objective_status?: string | null;
+  player_quality_status?: string | null;
+  player_quality_reason?: string | null;
 };
 
 type ImportRow = {
@@ -110,6 +130,7 @@ type CategoryDetail = {
 
 const REPO_ACTIONS = "https://github.com/ZachVsKris/Geohunter/actions/workflows";
 const WORKFLOWS: Record<string, string> = {
+  worldbank: `${REPO_ACTIONS}/import-world-bank-catalog.yml`,
   faostat: `${REPO_ACTIONS}/import-faostat.yml`,
   who: `${REPO_ACTIONS}/import-who.yml`,
   unesco: `${REPO_ACTIONS}/import-unesco.yml`,
@@ -369,7 +390,18 @@ export default function AdminDashboard() {
   if (!data) return <section className="adminLoading">{error || "Loading warehouse…"}</section>;
 
   const sources = Array.from(new Set(data.categories.map((category) => category.source_organization))).sort();
-  const approveableSelected = selectedRows.filter((category) => category.auto_qualified && category.provenance_status === "approved" && category.independent_validation && category.curation_status === "approved" && category.review_status !== "approved");
+  const approveableSelected = selectedRows.filter((category) => category.auto_qualified
+    && category.provenance_status === "approved"
+    && category.independent_validation
+    && category.curation_status !== "excluded"
+    && category.credibility_status !== "quarantined"
+    && (category.credibility_score ?? 0) >= 75
+    && category.objective_status === "objective"
+    && category.player_quality_status !== "blocked"
+    && (category.verifiability_score ?? 100) >= 80
+    && (category.understandability_score ?? 100) >= 70
+    && (category.fun_score ?? 100) >= 55
+    && category.review_status !== "approved");
   const resettableSelected = selectedRows.filter((category) => category.review_status === "rejected" || category.review_status === "approved");
   const dailyModeLabels: Record<DailyMode, string> = { easy: "Scout", normal: "Adventurer", expert: "Expert" };
 
@@ -555,7 +587,7 @@ export default function AdminDashboard() {
               <tr>
                 <th style={{ padding: 8 }}><input type="checkbox" checked={allVisibleSelected} onChange={toggleAllVisible} aria-label="Select all visible categories" /></th>
                 {[
-                  "Review", "Category", "Source", "Quality", "Trust", "Curation", "Provenance", "Duplicate", "Evidence", "Common year", "Official", "Modeled", "Cluster", "Stability", "Recognizable", "Specific", "Actions",
+                  "Review", "Category", "Source", "Quality", "Trust", "Player quality", "Verify", "Clear", "Fun", "Curation", "Provenance", "Duplicate", "Evidence", "Common year", "Official", "Modeled", "Cluster", "Stability", "Recognizable", "Specific", "Actions",
                 ].map((heading) => <th key={heading} style={{ textAlign: "left", padding: 8, borderBottom: "1px solid rgba(255,255,255,.12)" }}>{heading}</th>)}
               </tr>
             </thead>
@@ -571,6 +603,10 @@ export default function AdminDashboard() {
                   <td style={{ padding: 8 }}>{category.source_organization}</td>
                   <td style={{ padding: 8 }}><strong>{category.quality_score}</strong>{category.auto_qualified && <div style={{ fontSize: 11, opacity: .72 }}>quality + provenance pass</div>}</td>
                   <td style={{ padding: 8, maxWidth: 250 }}><strong>{category.credibility_score ?? "—"} · {category.credibility_status ?? "unscored"}</strong>{category.credibility_reason && <div style={{ fontSize: 11, opacity: .72 }}>{category.credibility_reason}</div>}</td>
+                  <td style={{ padding: 8, maxWidth: 250 }}><strong>{category.player_quality_status ?? "unscored"}</strong><div style={{ fontSize: 11, opacity: .72 }}>{category.objective_status ?? "objective"}</div>{category.player_quality_reason && <div style={{ fontSize: 11, opacity: .72 }}>{category.player_quality_reason}</div>}</td>
+                  <td style={{ padding: 8 }}><strong>{category.verifiability_score ?? "—"}</strong><div style={{ fontSize: 11, opacity: .72 }}>{category.verifiability_status ?? ""}</div></td>
+                  <td style={{ padding: 8 }}>{category.understandability_score ?? "—"}</td>
+                  <td style={{ padding: 8 }}>{category.fun_score ?? "—"}</td>
                   <td style={{ padding: 8, maxWidth: 240 }}><strong>{category.curation_status ?? "pending"}</strong>{category.curation_reason && <div style={{ fontSize: 11, opacity: .72 }}>{category.curation_reason}</div>}</td>
                   <td style={{ padding: 8 }}><strong>{category.provenance_status ?? "—"}</strong><div style={{ fontSize: 11, opacity: .72 }}>{category.government_assertion_risk ? `${category.government_assertion_risk} assertion risk` : ""}</div></td>
                   <td style={{ padding: 8 }}><strong>{category.duplicate_status ?? "—"}</strong>{category.superseded_by && <div style={{ fontSize: 11, opacity: .72 }}>by {category.superseded_by}</div>}</td>
@@ -586,7 +622,7 @@ export default function AdminDashboard() {
                     <div style={{ display: "flex", gap: 6 }}>
                       <button style={mutedButton} disabled={detailLoading} onClick={() => inspectCategory(category.id)}>Inspect</button>
                       {category.review_status !== "rejected" && <button style={dangerButton} disabled={reviewing} onClick={() => decide([category.id], "rejected")}>Reject</button>}
-                      {category.auto_qualified && category.curation_status === "approved" && category.review_status !== "approved" && <button style={button} disabled={reviewing} onClick={() => decide([category.id], "approved")}>Approve</button>}
+                      {category.auto_qualified && category.curation_status !== "excluded" && category.player_quality_status !== "blocked" && category.objective_status === "objective" && (category.verifiability_score ?? 100) >= 80 && (category.understandability_score ?? 100) >= 70 && (category.fun_score ?? 100) >= 55 && category.review_status !== "approved" && <button style={button} disabled={reviewing} onClick={() => decide([category.id], "approved")}>Approve</button>}
                       {(category.review_status === "approved" || category.review_status === "rejected") && <button style={mutedButton} disabled={reviewing} onClick={() => decide([category.id], "reset")}>Reset</button>}
                     </div>
                   </td>
@@ -610,6 +646,9 @@ export default function AdminDashboard() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: 10, margin: "16px 0" }}>
               <div style={card}>Quality <strong>{detail.category.quality_score}</strong></div>
               <div style={card}>Credibility <strong>{detail.category.credibility_score ?? "—"}</strong><div style={{ opacity: .72, marginTop: 6 }}>{detail.category.credibility_status ?? "unscored"} · {detail.category.evidence_label ?? ""}</div></div>
+              <div style={card}>Verifiability <strong>{detail.category.verifiability_score ?? "—"}</strong><div style={{ opacity: .72, marginTop: 6 }}>{detail.category.verifiability_status ?? "unscored"}</div></div>
+              <div style={card}>Clarity <strong>{detail.category.understandability_score ?? "—"}</strong><div style={{ opacity: .72, marginTop: 6 }}>{detail.category.plain_language_description ?? ""}</div></div>
+              <div style={card}>Fun <strong>{detail.category.fun_score ?? "—"}</strong><div style={{ opacity: .72, marginTop: 6 }}>{detail.category.player_quality_status ?? "unscored"} · {detail.category.objective_status ?? "objective"}</div></div>
               <div style={card}>Coverage <strong>{detail.category.common_year_coverage || detail.category.country_coverage}</strong></div>
               <div style={card}>Year <strong>{detail.year ?? detail.category.common_year ?? "—"}</strong></div>
               <div style={card}>Modeled <strong>{percentage(detail.category.modeled_observation_share)}</strong></div>

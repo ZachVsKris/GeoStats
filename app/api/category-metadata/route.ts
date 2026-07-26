@@ -22,14 +22,36 @@ const SAFE_ID = /^[A-Za-z0-9:'._-]{1,180}$/;
 
 type CategoryRow = {
   id: string;
+  plain_language_description?: string | null;
+  technical_definition?: string | null;
+  unit_explanation?: string | null;
   source_url: string | null;
   methodology_url?: string | null;
+  source_page_url?: string | null;
+  exact_query_url?: string | null;
+  download_url?: string | null;
+  api_url?: string | null;
+  dataset_release?: string | null;
+  retrieved_at?: string | null;
+  license_name?: string | null;
+  license_url?: string | null;
+  source_query?: Record<string, unknown> | string | null;
+  derivation_method?: string | null;
+  derivation_version?: string | null;
+  input_datasets?: Array<Record<string, unknown> | string> | null;
   official_observation_share?: number | null;
   modeled_observation_share?: number | null;
   credibility_score?: number | null;
   credibility_status?: string | null;
   credibility_reason?: string | null;
   evidence_label?: string | null;
+  verifiability_score?: number | null;
+  verifiability_status?: string | null;
+  understandability_score?: number | null;
+  fun_score?: number | null;
+  objective_status?: string | null;
+  player_quality_status?: string | null;
+  player_quality_reason?: string | null;
 };
 
 type AdminClient = NonNullable<ReturnType<typeof createSupabaseAdminClient>>;
@@ -48,22 +70,48 @@ function serialize(row: CategoryRow, requestedId?: string) {
   return {
     requestedId,
     categoryId: row.id,
+    plainLanguageDescription: row.plain_language_description ?? null,
+    technicalDefinition: row.technical_definition ?? null,
+    unitExplanation: row.unit_explanation ?? null,
     sourceUrl: row.source_url,
     methodologyUrl: row.methodology_url ?? null,
+    sourcePageUrl: row.source_page_url ?? null,
+    exactQueryUrl: row.exact_query_url ?? null,
+    downloadUrl: row.download_url ?? null,
+    apiUrl: row.api_url ?? null,
+    datasetRelease: row.dataset_release ?? null,
+    retrievedAt: row.retrieved_at ?? null,
+    licenseName: row.license_name ?? null,
+    licenseUrl: row.license_url ?? null,
+    sourceQuery: row.source_query ?? null,
+    derivationMethod: row.derivation_method ?? null,
+    derivationVersion: row.derivation_version ?? null,
+    inputDatasets: row.input_datasets ?? null,
     officialObservationShare: row.official_observation_share ?? null,
     modeledObservationShare: row.modeled_observation_share ?? null,
     evidenceLabel: evidenceLabel(row),
     credibilityScore: row.credibility_score ?? null,
     trustStatus: row.credibility_status ?? null,
     trustReason: row.credibility_reason ?? null,
+    verifiabilityScore: row.verifiability_score ?? null,
+    verifiabilityStatus: row.verifiability_status ?? null,
+    understandabilityScore: row.understandability_score ?? null,
+    funScore: row.fun_score ?? null,
+    objectiveStatus: row.objective_status ?? null,
+    playerQualityStatus: row.player_quality_status ?? null,
+    playerQualityReason: row.player_quality_reason ?? null,
   };
 }
 
-const MODERN_SELECT = "id,source_url,methodology_url,official_observation_share,modeled_observation_share,credibility_score,credibility_status,credibility_reason,evidence_label";
+const V14_SELECT = "id,plain_language_description,technical_definition,unit_explanation,source_url,methodology_url,source_page_url,exact_query_url,download_url,api_url,dataset_release,retrieved_at,license_name,license_url,source_query,derivation_method,derivation_version,input_datasets,official_observation_share,modeled_observation_share,credibility_score,credibility_status,credibility_reason,evidence_label,verifiability_score,verifiability_status,understandability_score,fun_score,objective_status,player_quality_status,player_quality_reason";
+const V13_SELECT = "id,source_url,methodology_url,official_observation_share,modeled_observation_share,credibility_score,credibility_status,credibility_reason,evidence_label";
 const LEGACY_SELECT = "id,source_url,methodology_url,official_observation_share,modeled_observation_share";
 
 async function selectRows(admin: AdminClient, configure: (select: string) => any) {
-  let result: any = await configure(MODERN_SELECT);
+  let result: any = await configure(V14_SELECT);
+  if (result.error && /source_page_url|exact_query_url|verifiability_|player_quality_|objective_status|input_datasets|dataset_release/i.test(result.error.message)) {
+    result = await configure(V13_SELECT);
+  }
   if (result.error && /credibility_|evidence_label/i.test(result.error.message)) {
     result = await configure(LEGACY_SELECT);
   }
@@ -97,9 +145,7 @@ export async function GET(request: NextRequest) {
     const directRows = (Array.isArray(direct.data) ? direct.data : []) as CategoryRow[];
     const byRequestedId = new Map<string, CategoryRow>(directRows.map((row) => [row.id, row]));
 
-    // Encoded Daily boards use stable application IDs, while some warehouse rows
-    // use importer IDs. Resolve any misses by the source organization + indicator
-    // pair so exact links survive persisted-board decoding as well as live imports.
+    // Resolve any misses by the source organization and stable indicator code so old encoded boards keep their source metadata.
     for (const requestedId of ids.filter((id) => !byRequestedId.has(id))) {
       const staticCategory = CATEGORIES.find((category) => category.id === requestedId);
       if (!staticCategory) continue;

@@ -1,8 +1,8 @@
-# GeoStats v14.0.1
+# GeoStats v14.0.2
 
-GeoStats is a strategy geography game built with Next.js and Supabase. v14 adds exact-value source snapshots, plain-language category descriptions, objective-only governance, and broad candidate imports. v14.0.1 repairs the expansion workflow so a partial or skipped import can no longer look successful.
+GeoStats is a strategy geography game built with Next.js and Supabase. v14 adds exact-value source snapshots, plain-language category descriptions, objective-only governance, and broad candidate imports. v14.0.2 packages and verifies the expansion workflow, source viewer, descriptions, and candidate importers so the hidden GitHub workflow cannot be silently omitted.
 
-## What v14.0.1 fixes
+## What v14.0.2 fixes
 
 - Adds one **Repair and expand v14 imports** GitHub Action
 - Imports all **24 Natural Earth** vector-derived candidates and fails if any are missed

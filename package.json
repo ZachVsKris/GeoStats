@@ -1,6 +1,6 @@
 {
   "name": "geostats",
-  "version": "14.0.1",
+  "version": "14.0.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -32,7 +32,7 @@
     "test-v13-5": "node scripts/test-v13-5-integration.mjs && python scripts/test-v13-5-trust.py",
     "check-v13-5": "npm run test-importers && npm run test-v13-4 && npm run test-v13-4-1 && npm run test-v13-4-2 && npm run test-v13-4-3 && npm run test-v13-4-4 && npm run test-v13-5 && npm test && npm run build",
     "import-world-bank-catalog": "python scripts/import-world-bank-catalog.py --target-successes 500 --scan-limit 2000 --minimum-successes 100",
-    "test-v14": "python scripts/test-v14-transparency.py && python scripts/test-v14-import-repair.py && node scripts/test-v14-integration.mjs && node scripts/test-ts-syntax.mjs",
+    "test-v14": "python scripts/test-v14-transparency.py && python scripts/test-v14-import-repair.py && python scripts/verify-v14-repository.py && node scripts/test-v14-integration.mjs && node scripts/test-ts-syntax.mjs",
     "check-v14": "npm run test-importers && npm run test-v13-5 && npm run test-v14 && npm test && npm run build",
     "test-ts-syntax": "node scripts/test-ts-syntax.mjs"
   },

@@ -247,7 +247,7 @@ class UnhcrImporter(WarehouseImporter):
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Import curated UNHCR displacement categories into GeoStats quarantine.")
+    parser = argparse.ArgumentParser(description="Import curated UNHCR displacement categories through GeoStats automatic governance.")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--rule", action="append", default=[])

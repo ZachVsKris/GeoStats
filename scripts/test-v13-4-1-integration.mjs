@@ -31,5 +31,5 @@ for (const token of [
 if (!verify.includes("enabled_without_documented_evidence")) throw new Error("Verification SQL is missing provenance validation");
 if (!verify.includes("enabled_not_preferred")) throw new Error("Verification SQL is missing duplicate validation");
 if (!workflow.includes("Test adaptive FAOSTAT importer logic")) throw new Error("FAOSTAT workflow still describes the old strict gate");
-if (!/APP_VERSION = "13\.4\.[12]"/.test(version)) throw new Error("App version is older than v13.4.1");
+if (!/APP_VERSION = "13\.4\.[123]"/.test(version)) throw new Error("App version is older than v13.4.1");
 console.log("GeoStats v13.4.1 integration tests passed.");

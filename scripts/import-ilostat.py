@@ -289,6 +289,7 @@ class IlostatImporter(WarehouseImporter):
         normalized: dict[tuple[str, int], SourceObservation] = {}
         max_year = 0
         current_year = datetime.now(timezone.utc).year
+        completed_year = current_year - 1
         for index, row in enumerate(rows):
             iso3 = normalize_iso3(_first(row, "ref_area", "ref_area.code", "ref_area_code"))
             if not iso3 or not self._aggregate_row(row, candidate.rule):
@@ -302,7 +303,7 @@ class IlostatImporter(WarehouseImporter):
                 value = float(str(_first(row, "obs_value", "value", "obs.value") or "").replace(",", ""))
             except (TypeError, ValueError):
                 continue
-            if not math.isfinite(value) or year > current_year + 1:
+            if not math.isfinite(value) or year > completed_year:
                 continue
             max_year = max(max_year, year)
             country_name = str(_first(row, "ref_area.label", "ref_area_label") or iso3).strip()
@@ -324,6 +325,7 @@ class IlostatImporter(WarehouseImporter):
                     "classif1": _first(row, "classif1", "classif1.label", "classif1_label"),
                     "classif2": _first(row, "classif2", "classif2.label", "classif2_label"),
                     "obs_status": _first(row, "obs_status", "obs_status.label", "obs_status_label"),
+                    "completed_year_cap": completed_year,
                     "note_source": _first(row, "note_source", "note_indicator", "note_classif"),
                 },
             )

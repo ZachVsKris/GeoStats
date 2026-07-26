@@ -1,0 +1,12 @@
+GEOSTATS v13.4.1 — INSTALL IN THIS ORDER
+
+1. Upload the CONTENTS of this folder to the ROOT of the GeoStats GitHub repository, replacing matching files.
+2. Wait for the Vercel deployment to finish.
+3. Open Supabase > SQL Editor and run RUN_THIS_IN_SUPABASE_FOR_V13_4_1.sql.
+4. Run VERIFY_V13_4_1.sql.
+   - In the second result, every violation count must be 0.
+   - In the first result, faostat_enabled should be greater than 0.
+5. Open GitHub > Actions > Import FAOSTAT candidates > Run workflow > main.
+6. Wait for the green check, then inspect FAOSTAT in geostats.xyz/admin.
+
+Do not manually bulk-approve the 549 FAOSTAT records. The adaptive gate approves only categories that pass coverage, freshness, year alignment, documented evidence, distribution, stability, and duplicate arbitration.

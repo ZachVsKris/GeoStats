@@ -1,0 +1,23 @@
+# GeoStats v13.4.3
+
+```
+GEOSTATS v13.4.3 — COMPLETE CATALOG CURATION
+
+This is a complete repository replacement.
+
+INSTALL
+1. Upload the contents of this folder to the GitHub repository root.
+2. Wait for Vercel to deploy.
+3. In Supabase SQL Editor, run:
+   RUN_THIS_IN_SUPABASE_FOR_V13_4_3.sql
+4. Then run:
+   VERIFY_V13_4_3.sql
+
+EXPECTED VERIFICATION
+- Registry totals: 726 reviewed, 252 approved, 474 excluded
+- Every violation count in result set 3: 0
+- Rainfall result: rain is curated approved; dry is curated excluded
+
+NO IMPORT RERUN IS REQUIRED JUST FOR THIS CURATION RELEASE.
+Existing categories are re-evaluated immediately by the migration. Future importer runs use the same complete registry and fail closed for unseen indicators.
+```

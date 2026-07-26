@@ -1,5 +1,4 @@
-# GeoStats v13.4.2 — install
-
+GeoStats v13.4.2 — install
 
 1. Replace the GitHub repository with the contents of this folder.
 2. Wait for Vercel to deploy successfully.

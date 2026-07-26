@@ -48,13 +48,21 @@ export const SOURCE_REGISTRY: Record<DataSourceId, SourceDefinition> = {
     playable: true,
     note: "Official UN Tourism series distributed through the World Bank WDI API",
   },
+  ilostat: {
+    id: "ilostat",
+    name: "ILOSTAT",
+    homepage: "https://rshiny.ilo.org/dataexplorer/",
+    verifier: "scripts/test-ilostat-importer.py",
+    playable: true,
+    note: "Only the latest completed-year aggregate estimates are eligible",
+  },
   naturalearth: {
     id: "naturalearth",
     name: "Natural Earth",
     homepage: "https://www.naturalearthdata.com/",
-    verifier: "scripts/verify-natural-earth.mjs",
-    playable: false,
-    note: "Integrated as a source, but no physical-geography category is playable because timeless geometry cannot satisfy the 2022+ observation rule",
+    verifier: "scripts/test-natural-earth-importer.py",
+    playable: true,
+    note: "Five curated geometry-derived categories are served from the warehouse snapshot",
   },
   comtrade: {
     id: "comtrade",
@@ -88,6 +96,7 @@ export function categorySourceUrl(source: DataSourceId, indicator: string) {
   if (source === "who") return `https://data.worldbank.org/indicator/${indicator}?name_desc=false`;
   if (source === "unesco") return `https://data.worldbank.org/indicator/${indicator}?name_desc=false`;
   if (source === "untourism") return `https://data.worldbank.org/indicator/${indicator}?name_desc=false`;
+  if (source === "ilostat") return "https://rshiny.ilo.org/dataexplorer/";
   if (source === "naturalearth") return "https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/";
   if (source === "comtrade") return "https://comtradeplus.un.org/";
   if (source === "eia") return "https://www.eia.gov/opendata/browser/international";

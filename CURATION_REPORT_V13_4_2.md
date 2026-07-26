@@ -1,0 +1,168 @@
+# GeoStats v13.4.2 editorial curation report
+
+The supplied approved-category export contained **453 categories**. Every row was reviewed using source, concept, title, year, coverage, and measure type. The retained library is fail-closed for every source and automatically enforced after future imports. All 453 reviewed rows are stored as explicit approved or excluded rules.
+
+| Source | Reviewed | Retained | Curated out |
+|---|---:|---:|---:|
+| FAOSTAT | 365 | 133 | 232 |
+| ILOSTAT | 5 | 5 | 0 |
+| Natural Earth | 6 | 5 | 1 |
+| UN Comtrade | 7 | 7 | 0 |
+| UNESCO UIS | 6 | 2 | 4 |
+| UNHCR | 6 | 4 | 2 |
+| WHO | 5 | 5 | 0 |
+| World Bank | 53 | 44 | 9 |
+
+**Total retained: 205 of 453.**
+
+The complete row-by-row decision log is included in `CURATION_DECISIONS_V13_4_2.csv`.
+
+## Editorial rules applied
+
+- Stored explicit decisions for all 453 reviewed categories: 205 approved and 248 excluded
+- Retained only 133 explicitly reviewed FAOSTAT item/measure combinations
+- Removed every harvested-area variant
+- Removed producing-animal, laying-animal, carcass-input, hides, offal, fat, equivalent, and “n.e.c.” categories
+- Kept production and yield together only when they provide meaningfully different comparisons; they share a similarity group and cannot appear in the same round
+- Removed absolute rural/urban population categories and weaker trade/consumption duplicates
+- Reduced UNESCO to primary and upper-secondary completion
+- Removed asylum-seeker stock duplicates while retaining refugee stocks and asylum-application flows
+- Removed ambiguous Natural Earth diagonal span
+- Blocked ILOSTAT years later than the last completed calendar year
+- Preserved quality, provenance, coverage, stability, and manual-rejection safeguards
+
+## FAOSTAT retained categories
+
+- Highest apricot yield (`QCL:'01343:5412`)
+- Highest cauliflower and broccoli yield (`QCL:'01213:5412`)
+- Highest coconuts yield (`QCL:'01460:5412`)
+- Highest dry peas yield (`QCL:'01705:5412`)
+- Highest eggplants yield (`QCL:'01233:5412`)
+- Highest green peas yield (`QCL:'01242:5412`)
+- Highest lettuce and chicory yield (`QCL:'01214:5412`)
+- Highest mandarins and tangerines yield (`QCL:'01324:5412`)
+- Highest melons yield (`QCL:'01229:5412`)
+- Highest millet yield (`QCL:'0118:5412`)
+- Highest oats yield (`QCL:'0117:5412`)
+- Highest peaches and nectarines yield (`QCL:'01345:5412`)
+- Highest peanuts yield (`QCL:'0142:5412`)
+- Highest pears yield (`QCL:'01342.01:5412`)
+- Highest plums and sloes yield (`QCL:'01346:5412`)
+- Highest pumpkins, squash, and gourds yield (`QCL:'01235:5412`)
+- Highest sesame seeds yield (`QCL:'01444:5412`)
+- Highest sorghum yield (`QCL:'0114:5412`)
+- Highest strawberries yield (`QCL:'01354:5412`)
+- Highest sunflower seeds yield (`QCL:'01445:5412`)
+- Highest watermelons yield (`QCL:'01221:5412`)
+- Largest almonds production (`QCL:'01371:5510`)
+- Largest apricot production (`QCL:'01343:5510`)
+- Largest bee population (`QCL:'02196:5114`)
+- Largest cauliflower and broccoli production (`QCL:'01213:5510`)
+- Largest cherries production (`QCL:'01344.02:5510`)
+- Largest coconuts production (`QCL:'01460:5510`)
+- Largest dry peas production (`QCL:'01705:5510`)
+- Largest eggplants production (`QCL:'01233:5510`)
+- Largest eggs production (`QCL:'0231:5513`)
+- Largest figs production (`QCL:'01315:5510`)
+- Largest green peas production (`QCL:'01242:5510`)
+- Largest honey production (`QCL:'02910:5510`)
+- Largest lettuce and chicory production (`QCL:'01214:5510`)
+- Largest mandarins and tangerines production (`QCL:'01324:5510`)
+- Largest melons production (`QCL:'01229:5510`)
+- Largest millet production (`QCL:'0118:5510`)
+- Largest mushrooms and truffles production (`QCL:'01270:5510`)
+- Largest oats production (`QCL:'0117:5510`)
+- Largest papaya production (`QCL:'01317:5510`)
+- Largest peaches and nectarines production (`QCL:'01345:5510`)
+- Largest peanuts production (`QCL:'0142:5510`)
+- Largest pears production (`QCL:'01342.01:5510`)
+- Largest plums and sloes production (`QCL:'01346:5510`)
+- Largest pulses, total production (`QCL:'F1726:5510`)
+- Largest pumpkins, squash, and gourds production (`QCL:'01235:5510`)
+- Largest roots and tubers production (`QCL:'F1720:5510`)
+- Largest sesame seeds production (`QCL:'01444:5510`)
+- Largest sorghum production (`QCL:'0114:5510`)
+- Largest strawberries production (`QCL:'01354:5510`)
+- Largest sunflower seeds production (`QCL:'01445:5510`)
+- Largest tobacco production (`QCL:'01970:5510`)
+- Largest tree nuts production (`QCL:'F1729:5510`)
+- Largest walnuts production (`QCL:'01376:5510`)
+- Largest watermelons production (`QCL:'01221:5510`)
+- Largest wine production (`QCL:'24212.02:5510`)
+- Highest barley yield (`QCL:'0115:5412`)
+- Highest cassava yield (`QCL:'01520.01:5412`)
+- Highest coffee yield (`QCL:'01610:5412`)
+- Highest corn yield (`QCL:'0112:5412`)
+- Highest dry beans yield (`QCL:'01701:5412`)
+- Highest potatoes yield (`QCL:'01510:5412`)
+- Highest rice yield (`QCL:'0113:5412`)
+- Highest soybeans yield (`QCL:'0141:5412`)
+- Highest sugarcane yield (`QCL:'01802:5412`)
+- Highest sweet potatoes yield (`QCL:'01530:5412`)
+- Highest wheat yield (`QCL:'0111:5412`)
+- Largest barley production (`QCL:'0115:5510`)
+- Largest beer production (`QCL:'24310.01:5510`)
+- Largest cane and beet sugar production (`QCL:'2351f:5510`)
+- Largest cassava production (`QCL:'01520.01:5510`)
+- Largest cereals production (`QCL:'F1717:5510`)
+- Largest coffee production (`QCL:'01610:5510`)
+- Largest corn production (`QCL:'0112:5510`)
+- Largest cotton production (`QCL:'01921.02:5510`)
+- Largest dry beans production (`QCL:'01701:5510`)
+- Largest potatoes production (`QCL:'01510:5510`)
+- Largest rice production (`QCL:'0113:5510`)
+- Largest soybeans production (`QCL:'0141:5510`)
+- Largest sugar beets production (`QCL:'01801:5510`)
+- Largest sugarcane production (`QCL:'01802:5510`)
+- Largest sweet potatoes production (`QCL:'01530:5510`)
+- Largest wheat production (`QCL:'0111:5510`)
+- Largest butter and ghee production (`QCL:'F1811:5510`)
+- Largest cheese production (`QCL:'F1745:5510`)
+- Highest apples yield (`QCL:'01341:5412`)
+- Highest avocado yield (`QCL:'01311:5412`)
+- Highest bananas yield (`QCL:'01312:5412`)
+- Highest grapefruits and pomelos yield (`QCL:'01321:5412`)
+- Highest grapes yield (`QCL:'01330:5412`)
+- Highest lemons and limes yield (`QCL:'01322:5412`)
+- Highest mangoes, guavas, and mangosteens yield (`QCL:'01316:5412`)
+- Highest oranges yield (`QCL:'01323:5412`)
+- Highest pineapple yield (`QCL:'01318:5412`)
+- Largest apples production (`QCL:'01341:5510`)
+- Largest avocado production (`QCL:'01311:5510`)
+- Largest bananas production (`QCL:'01312:5510`)
+- Largest fruit production (`QCL:'F1738:5510`)
+- Largest grapefruits and pomelos production (`QCL:'01321:5510`)
+- Largest grapes production (`QCL:'01330:5510`)
+- Largest lemons and limes production (`QCL:'01322:5510`)
+- Largest mangoes, guavas, and mangosteens production (`QCL:'01316:5510`)
+- Largest oranges production (`QCL:'01323:5510`)
+- Largest pineapple production (`QCL:'01318:5510`)
+- Highest milk yield per cow (`QCL:'02211:5417`)
+- Largest beef and buffalo meat production (`QCL:'F1806:5510`)
+- Largest buffalo population (`QCL:'02112:5111`)
+- Largest cattle population (`QCL:'02111:5111`)
+- Largest chicken meat production (`QCL:'21121:5510`)
+- Largest chicken population (`QCL:'02151:5112`)
+- Largest cow's milk production (`QCL:'02211:5510`)
+- Largest duck population (`QCL:'02154:5112`)
+- Largest goat milk production (`QCL:'02292:5510`)
+- Largest goat population (`QCL:'02123:5111`)
+- Largest horse population (`QCL:'02131:5111`)
+- Largest pig population (`QCL:'02140:5111`)
+- Largest pork production (`QCL:'21113.01:5510`)
+- Largest sheep and goat meat production (`QCL:'F1807:5510`)
+- Largest sheep population (`QCL:'02122:5111`)
+- Largest turkey population (`QCL:'02152:5112`)
+- Highest cabbage yield (`QCL:'01212:5412`)
+- Highest carrots and turnips yield (`QCL:'01251:5412`)
+- Highest cucumbers and gherkins yield (`QCL:'01232:5412`)
+- Highest green chilies and peppers yield (`QCL:'01231:5412`)
+- Highest onions and shallots yield (`QCL:'01253.02:5412`)
+- Highest tomatoes yield (`QCL:'01234:5412`)
+- Largest cabbage production (`QCL:'01212:5510`)
+- Largest carrots and turnips production (`QCL:'01251:5510`)
+- Largest cucumbers and gherkins production (`QCL:'01232:5510`)
+- Largest green chilies and peppers production (`QCL:'01231:5510`)
+- Largest onions and shallots production (`QCL:'01253.02:5510`)
+- Largest tomatoes production (`QCL:'01234:5510`)
+- Largest vegetables production (`QCL:'F1735:5510`)

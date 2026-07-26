@@ -40,6 +40,9 @@ const CATEGORY_COLUMNS = [
   "duplicate_status",
   "superseded_by",
   "auto_decision_reason",
+  "curation_status",
+  "curation_reason",
+  "curation_version",
 ].join(",");
 
 type BoardRow = { difficulty: "easy" | "normal" | "expert" };

@@ -9,6 +9,8 @@ export async function fetchCategory(category: Category): Promise<CategoryDataset
   if (!category.certified || category.enabled === false) {
     throw new Error(`${category.shortName} is not certified for playable rounds.`);
   }
+  if (category.warehouseBacked) return fetchWarehouseCategory(category);
+
   switch (category.source) {
     case "worldbank":
       return fetchWorldBankCategory(category);
@@ -23,7 +25,8 @@ export async function fetchCategory(category: Category): Promise<CategoryDataset
     case "unhcr":
       return fetchWarehouseCategory(category);
     case "naturalearth":
-      throw new Error("Natural Earth has no playable categories under the 2022+ observation rule.");
+    case "ilostat":
+      throw new Error(`${category.shortName} must be loaded from the curated warehouse snapshot.`);
     default: {
       const exhaustive: never = category.source;
       throw new Error(`Unsupported data source: ${exhaustive}`);

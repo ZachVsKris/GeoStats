@@ -24,6 +24,8 @@ type CategorySnapshot = {
   independent_validation: boolean;
   concept_group: string | null;
   duplicate_status: string | null;
+  curation_status: string | null;
+  curation_reason: string | null;
 };
 
 type ReviewBody = {
@@ -51,14 +53,14 @@ export async function POST(request: Request) {
 
   const { data: categories, error } = await auth.admin
     .from("stat_categories")
-    .select("id,title,auto_qualified,quality_score,review_status,evidence_tier,common_year,common_year_coverage,official_observation_share,modeled_observation_share,clustering_score,stability_score,quality_details,canonical_category_id,provenance_status,independent_validation,concept_group,duplicate_status")
+    .select("id,title,auto_qualified,quality_score,review_status,evidence_tier,common_year,common_year_coverage,official_observation_share,modeled_observation_share,clustering_score,stability_score,quality_details,canonical_category_id,provenance_status,independent_validation,concept_group,duplicate_status,curation_status,curation_reason")
     .in("id", categoryIds);
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
   const rows = (categories ?? []) as CategorySnapshot[];
   const found = new Set(rows.map((category) => category.id));
   const missing = categoryIds.filter((id) => !found.has(id));
-  const blocked = decision === "approved" ? rows.filter((category) => !category.auto_qualified || category.provenance_status !== "approved" || !category.independent_validation) : [];
+  const blocked = decision === "approved" ? rows.filter((category) => !category.auto_qualified || category.provenance_status !== "approved" || !category.independent_validation || category.curation_status !== "approved") : [];
 
   if (blocked.length) {
     return NextResponse.json({
@@ -119,6 +121,8 @@ export async function POST(request: Request) {
         independentValidation: category.independent_validation,
         conceptGroup: category.concept_group,
         duplicateStatus: category.duplicate_status,
+        curationStatus: category.curation_status,
+        curationReason: category.curation_reason,
         bulkActionSize: categoryIds.length,
       },
     });

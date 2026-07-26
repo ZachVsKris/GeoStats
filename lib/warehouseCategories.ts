@@ -16,9 +16,14 @@ type WarehousePayload = {
 };
 
 export async function fetchWarehouseCategory(category: Category): Promise<CategoryDataset> {
-  const response = await fetch(`/api/warehouse-category?category=${encodeURIComponent(category.id)}`, {
-    cache: "no-store",
-  });
+  const params = new URLSearchParams();
+  if (category.warehouseSourceIndicatorCode) {
+    params.set("source", category.source);
+    params.set("indicator", category.warehouseSourceIndicatorCode);
+  } else {
+    params.set("category", category.id);
+  }
+  const response = await fetch(`/api/warehouse-category?${params.toString()}`, { cache: "no-store" });
   const payload = await response.json().catch(() => ({})) as WarehousePayload;
   if (!response.ok) throw new Error(payload.error || `${category.shortName} warehouse data could not be loaded.`);
 
@@ -35,7 +40,7 @@ export async function fetchWarehouseCategory(category: Category): Promise<Catego
     throw new Error(`${category.shortName} has only ${observations.length} approved common-year countries; ${category.coverageFloor} are required.`);
   }
   return {
-    category: payload.unit && category.source === "eia" ? { ...category, unit: payload.unit } : category,
+    category: payload.unit ? { ...category, unit: payload.unit } : category,
     observations,
     year: String(payload.commonYear ?? observations[0]?.year ?? "Latest available"),
   };

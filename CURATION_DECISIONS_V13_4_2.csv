@@ -1,0 +1,454 @@
+source,source_indicator_code,original_title,decision,player_title,reason
+World Bank,SP.POP.TOTL,Largest population,approved,Largest population,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,SP.RUR.TOTL,Largest rural population,excluded,,Near-duplicate of total population and rural population share.
+World Bank,SP.URB.TOTL,Largest urban population,excluded,,Near-duplicate of total population and urbanization measures.
+World Bank,TX.VAL.MRCH.CD.WT,Largest merchandise exports,approved,Largest merchandise exports,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,TM.VAL.MRCH.CD.WT,Largest merchandise imports,approved,Largest merchandise imports,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,NY.GDP.MKTP.CD,Largest economy,approved,Largest economy,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,SP.POP.GROW,Fastest population growth,approved,Fastest population growth,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,NY.GDP.PCAP.CD,Highest GDP per person,approved,Highest GDP per person,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,SP.POP.65UP.TO.ZS,Oldest population,approved,Oldest population,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,SP.RUR.TOTL.ZS,Highest rural population share,approved,Highest rural population share,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,SP.POP.0014.TO.ZS,Youngest population,approved,Youngest population,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,NY.GDP.MKTP.KD.ZG,Fastest economic growth,approved,Fastest economic growth,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,NV.AGR.TOTL.CD,Largest agricultural economy,approved,Largest agricultural economy,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,ER.LND.PTLD.ZS,Highest protected-land share,approved,Highest protected-land share,Retained after full editorial review; quality and provenance gates still apply.
+UNHCR,asylum-applications:coo:applied,Most asylum applications by origin,approved,Most asylum applications by origin,Retained after full editorial review; quality and provenance gates still apply.
+UNHCR,population:coo:asylum_seekers,Most asylum seekers originating,excluded,,Stock measure is too similar to refugees originating and asylum-application flows.
+UNHCR,population:coo:refugees,Most refugees originating,approved,Most refugees originating,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,NV.IND.MANF.CD,Largest manufacturing output,approved,Largest manufacturing output,Retained after full editorial review; quality and provenance gates still apply.
+UNHCR,population:coa:refugees,Most refugees hosted,approved,Most refugees hosted,Retained after full editorial review; quality and provenance gates still apply.
+FAOSTAT,QCL:'01212:5412,Highest Cabbages yield,approved,Highest cabbage yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01251:5412,Highest Carrots and turnips yield,approved,Highest carrots and turnips yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'0111:5412,Highest Wheat yield,approved,Highest wheat yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'0115:5510,Largest Barley production,approved,Largest barley production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'0115:5412,Highest Barley yield,approved,Highest barley yield,"Recognizable, clear measure, and no stronger duplicate."
+World Bank,IT.MLT.MAIN.P2,Highest fixed telephone subscriptions per 100 people,approved,Highest fixed telephone subscriptions per 100 people,Retained after full editorial review; quality and provenance gates still apply.
+WHO,WHS4_117,Highest hepatitis B vaccination rate,approved,Highest hepatitis B vaccination rate,Retained after full editorial review; quality and provenance gates still apply.
+WHO,WHS8_110,Highest measles vaccination rate,approved,Highest measles vaccination rate,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,SH.XPD.CHEX.PC.CD,Highest health spending per person,approved,Highest health spending per person,Retained after full editorial review; quality and provenance gates still apply.
+UNESCO UIS,ROFST.MOD.3,Lowest upper-secondary out-of-school rate,excluded,,Near-inverse of upper-secondary completion and too similar to other school-attainment categories.
+UNESCO UIS,ROFST.MOD.2,Lowest lower-secondary out-of-school rate,excluded,,Near-inverse of lower-secondary completion and too similar to other school-attainment categories.
+FAOSTAT,QCL:'F1738:5412,Highest Fruit Primary yield,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+World Bank,NV.IND.TOTL.ZS,Highest industry share of GDP,approved,Highest industry share of GDP,Retained after full editorial review; quality and provenance gates still apply.
+FAOSTAT,QCL:'F1720:5412,"Highest Roots and Tubers, Total yield",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'F1735:5412,Highest Vegetables Primary yield,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+ILOSTAT,SDG_0821_NOC_RT_A,Fastest labor-productivity growth,approved,Fastest labor-productivity growth,Retained after full editorial review; quality and provenance gates still apply.
+ILOSTAT,EMP_2WAP_SEX_AGE_RT_A,Highest employment-to-population ratio,approved,Highest employment-to-population ratio,Retained after full editorial review; quality and provenance gates still apply.
+ILOSTAT,SDG_1041_NOC_RT_A,Highest labor-income share of GDP,approved,Highest labor-income share of GDP,Retained after full editorial review; quality and provenance gates still apply.
+ILOSTAT,GDP_205U_NOC_NB_A,Highest output per worker,approved,Highest output per worker,Retained after full editorial review; quality and provenance gates still apply.
+ILOSTAT,UNE_2EAP_SEX_AGE_RT_A,Lowest unemployment rate,approved,Lowest unemployment rate,Retained after full editorial review; quality and provenance gates still apply.
+FAOSTAT,QCL:'02211:5417,Highest Raw milk of cattle yield,approved,Highest milk yield per cow,"Recognizable, clear measure, and no stronger duplicate."
+World Bank,NE.EXP.GNFS.CD,Largest exports,excluded,,Superseded by the broader-coverage merchandise-exports category.
+World Bank,NE.IMP.GNFS.CD,Largest imports,excluded,,Superseded by the broader-coverage merchandise-imports category.
+UNESCO UIS,CR.MOD.1,Highest primary-school completion rate,approved,Highest primary-school completion rate,Retained after full editorial review; quality and provenance gates still apply.
+UNESCO UIS,CR.MOD.2,Highest lower-secondary completion rate,excluded,,Middle-stage completion is redundant when primary and upper-secondary completion are retained.
+UNESCO UIS,CR.MOD.3,Highest upper-secondary completion rate,approved,Highest upper-secondary completion rate,Retained after full editorial review; quality and provenance gates still apply.
+UNHCR,population:coa:asylum_seekers,Most asylum seekers hosted,excluded,,Stock measure is too similar to refugees hosted and asylum applications received.
+FAOSTAT,QCL:'0112:5412,Highest Maize (corn) yield,approved,Highest corn yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01510:5412,Highest Potatoes yield,approved,Highest potatoes yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01253.02:5412,"Highest Onions and shallots, dry (excluding dehydrated) yield",approved,Highest onions and shallots yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'F1723:5412,Highest Sugar Crops Primary yield,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01232:5412,Highest Cucumbers and gherkins yield,approved,Highest cucumbers and gherkins yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01231:5412,"Highest Chillies and peppers, green (Capsicum spp. and Pimenta spp.) yield",approved,Highest green chilies and peppers yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'0111:5312,Largest Wheat harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'0111:5510,Largest Wheat production,approved,Largest wheat production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'0113:5412,Highest Rice yield,approved,Highest rice yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'0115:5312,Largest Barley harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01252:5412,Highest Green garlic yield,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01322:5412,Highest Lemons and limes yield,approved,Highest lemons and limes yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01214:5412,Highest Lettuce and chicory yield,approved,Highest lettuce and chicory yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01241.90:5412,"Highest Other beans, green yield",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'0141:5412,Highest Soya beans yield,approved,Highest soybeans yield,"Recognizable, clear measure, and no stronger duplicate."
+World Bank,IT.NET.BBND.P2,Highest fixed broadband subscriptions per 100 people,approved,Highest fixed broadband subscriptions per 100 people,Retained after full editorial review; quality and provenance gates still apply.
+FAOSTAT,QCL:'F1720:5510,"Largest Roots and Tubers, Total production",approved,Largest roots and tubers production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'F1806:5417,"Highest Beef and Buffalo Meat, primary yield",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'02111:5111,Largest Cattle stocks,approved,Largest cattle population,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'21111.01:5417,"Highest Meat of cattle with the bone, fresh or chilled yield",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'21121:5424,"Highest Meat of chickens, fresh or chilled yield",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'F1808:5424,"Highest Meat, Poultry yield",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'F1780:5417,"Highest Milk, Total yield",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'02211:5510,Largest Raw milk of cattle production,approved,Largest cow's milk production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'F1717:5312,"Largest Cereals, primary harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'F1717:5510,"Largest Cereals, primary production",approved,Largest cereals production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'F1717:5412,"Highest Cereals, primary yield",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'02122:5111,Largest Sheep stocks,approved,Largest sheep population,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01290.90:5412,"Highest Other vegetables, fresh n.e.c. yield",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'0112:5510,Largest Maize (corn) production,approved,Largest corn production,"Recognizable, clear measure, and no stronger duplicate."
+World Bank,NE.CON.GOVT.CD,Highest government consumption,excluded,,Absolute consumption mostly repeats economy size and is weak for gameplay.
+World Bank,NE.CON.PRVT.CD,Highest household consumption,excluded,,Absolute consumption mostly repeats economy size and is weak for gameplay.
+FAOSTAT,QCL:'01234:5510,Largest Tomatoes production,approved,Largest tomatoes production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01234:5412,Highest Tomatoes yield,approved,Highest tomatoes yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01510:5312,Largest Potatoes harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01510:5510,Largest Potatoes production,approved,Largest potatoes production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01212:5510,Largest Cabbages production,approved,Largest cabbage production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01253.02:5312,"Largest Onions and shallots, dry (excluding dehydrated) harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01253.02:5510,"Largest Onions and shallots, dry (excluding dehydrated) production",approved,Largest onions and shallots production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01232:5510,Largest Cucumbers and gherkins production,approved,Largest cucumbers and gherkins production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01232:5312,Largest Cucumbers and gherkins harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'F1804:5412,"Highest Citrus Fruit, Total yield",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01251:5510,Largest Carrots and turnips production,approved,Largest carrots and turnips production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01231:5510,"Largest Chillies and peppers, green (Capsicum spp. and Pimenta spp.) production",approved,Largest green chilies and peppers production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'F1729:5312,"Largest Treenuts, Total harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01235:5510,"Largest Pumpkins, squash and gourds production",approved,"Largest pumpkins, squash, and gourds production","Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01235:5312,"Largest Pumpkins, squash and gourds harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01235:5412,"Highest Pumpkins, squash and gourds yield",approved,"Highest pumpkins, squash, and gourds yield","Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01221:5412,Highest Watermelons yield,approved,Highest watermelons yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'F1729:5412,"Highest Treenuts, Total yield",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'0114:5510,Largest Sorghum production,approved,Largest sorghum production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01312:5412,Highest Bananas yield,approved,Highest bananas yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01323:5412,Highest Oranges yield,approved,Highest oranges yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01709.90:5312,Largest Other pulses n.e.c. harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'0142:5412,"Highest Groundnuts, excluding shelled yield",approved,Highest peanuts yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01252:5510,Largest Green garlic production,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01214:5510,Largest Lettuce and chicory production,approved,Largest lettuce and chicory production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'02292:5417,Highest Raw milk of goats yield,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01252:5312,Largest Green garlic harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01705:5312,"Largest Peas, dry harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01705:5412,"Highest Peas, dry yield",approved,Highest dry peas yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01213:5412,Highest Cauliflowers and broccoli yield,approved,Highest cauliflower and broccoli yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01341:5412,Highest Apples yield,approved,Highest apples yield,"Recognizable, clear measure, and no stronger duplicate."
+World Bank,NV.SRV.TOTL.ZS,Highest services share of GDP,excluded,,Complementary near-duplicate of industry share of GDP.
+FAOSTAT,QCL:'F1738:5312,Largest Fruit Primary harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'F1738:5510,Largest Fruit Primary production,approved,Largest fruit production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'F1765:5510,"Largest Meat, Total production",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'F1735:5510,Largest Vegetables Primary production,approved,Largest vegetables production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'F1720:5312,"Largest Roots and Tubers, Total harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'F1735:5312,Largest Vegetables Primary harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'F1806:5510,"Largest Beef and Buffalo Meat, primary production",approved,Largest beef and buffalo meat production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'F1746:5111,Largest Cattle and Buffaloes stocks,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'21121:5510,"Largest Meat of chickens, fresh or chilled production",approved,Largest chicken meat production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'F1808:5510,"Largest Meat, Poultry production",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'F1806:5320,"Most Beef and Buffalo Meat, primary producing animals",excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'21111.01:5510,"Largest Meat of cattle with the bone, fresh or chilled production",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'21512:5320,"Most Cattle fat, unrendered producing animals",excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'21151:5320,"Most Edible offal of cattle, fresh, chilled or frozen producing animals",excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'21111.01:5320,"Most Meat of cattle with the bone, fresh or chilled producing animals",excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'02951.01:5320,Most Raw hides and skins of cattle producing animals,excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'F1807:5510,Largest Sheep and Goat Meat production,approved,Largest sheep and goat meat production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'F1749:5111,Largest Sheep and Goats stocks,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'F1780:5510,"Largest Milk, Total production",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'F1780:5318,"Most Milk, Total milk-producing animals",excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'02211:5318,Most Raw milk of cattle milk-producing animals,excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'0231:5513,"Largest Hen eggs in shell, fresh production",approved,Largest eggs production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'02123:5111,Largest Goats stocks,approved,Largest goat population,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'21115:5510,"Largest Meat of sheep, fresh or chilled production",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'F1726:5312,"Largest Pulses, Total harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'F1726:5510,"Largest Pulses, Total production",approved,"Largest pulses, total production","Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'F1726:5412,"Highest Pulses, Total yield",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'0112:5312,Largest Maize (corn) harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'02140:5111,Largest Swine / pigs stocks,approved,Largest pig population,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'21113.01:5510,"Largest Meat of pig with the bone, fresh or chilled production",approved,Largest pork production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'21153:5320,"Most Edible offal of pigs, fresh, chilled or frozen producing animals",excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'21511.01:5320,Most Fat of pigs producing animals,excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'21113.01:5320,"Most Meat of pig with the bone, fresh or chilled producing animals",excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'F1783:5424,Highest Eggs Primary yield,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'0231:5424,"Highest Hen eggs in shell, fresh yield",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01234:5312,Largest Tomatoes harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'F1732:5412,"Highest Oilcrops, Oil Equivalent yield",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'F1841:5412,"Highest Oilcrops, Cake Equivalent yield",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'01212:5312,Largest Cabbages harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'F1723:5312,Largest Sugar Crops Primary harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'F1723:5510,Largest Sugar Crops Primary production,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'02131:5111,Largest Horses stocks,approved,Largest horse population,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'0113:5312,Largest Rice harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'0113:5510,Largest Rice production,approved,Largest rice production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01221:5510,Largest Watermelons production,approved,Largest watermelons production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01221:5312,Largest Watermelons harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01251:5312,Largest Carrots and turnips harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01231:5312,"Largest Chillies and peppers, green (Capsicum spp. and Pimenta spp.) harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'F1729:5510,"Largest Treenuts, Total production",approved,Largest tree nuts production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01970:5412,Highest Unmanufactured tobacco yield,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'0114:5312,Largest Sorghum harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'02292:5510,Largest Raw milk of goats production,approved,Largest goat milk production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'0142:5510,"Largest Groundnuts, excluding shelled production",approved,Largest peanuts production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01709.90:5510,Largest Other pulses n.e.c. production,excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'0141:5312,Largest Soya beans harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'0114:5412,Highest Sorghum yield,approved,Highest sorghum yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'0142:5312,"Largest Groundnuts, excluding shelled harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'0141:5510,Largest Soya beans production,approved,Largest soybeans production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01530:5412,Highest Sweet potatoes yield,approved,Highest sweet potatoes yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01530:5510,Largest Sweet potatoes production,approved,Largest sweet potatoes production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01701:5412,"Highest Beans, dry yield",approved,Highest dry beans yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01701:5312,"Largest Beans, dry harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01701:5510,"Largest Beans, dry production",approved,Largest dry beans production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01241.90:5510,"Largest Other beans, green production",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01229:5510,Largest Cantaloupes and other melons production,approved,Largest melons production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01241.90:5312,"Largest Other beans, green harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'02292:5318,Most Raw milk of goats milk-producing animals,excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'01229:5312,Largest Cantaloupes and other melons harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01214:5312,Largest Lettuce and chicory harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01233:5510,Largest Eggplants (aubergines) production,approved,Largest eggplants production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01316:5412,"Highest Mangoes, guavas and mangosteens yield",approved,"Highest mangoes, guavas, and mangosteens yield","Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01213:5510,Largest Cauliflowers and broccoli production,approved,Largest cauliflower and broccoli production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01330:5312,Largest Grapes harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01705:5510,"Largest Peas, dry production",approved,Largest dry peas production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01330:5510,Largest Grapes production,approved,Largest grapes production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01229:5412,Highest Cantaloupes and other melons yield,approved,Highest melons yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01330:5412,Highest Grapes yield,approved,Highest grapes yield,"Recognizable, clear measure, and no stronger duplicate."
+World Bank,SP.DYN.TFRT.IN,Highest fertility rate,approved,Highest fertility rate,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,IP.JRN.ARTC.SC,Most scientific journal articles,approved,Most scientific journal articles,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,IT.CEL.SETS.P2,Highest mobile subscriptions per 100 people,approved,Highest mobile subscriptions per 100 people,Retained after full editorial review; quality and provenance gates still apply.
+Natural Earth,largest-geographic-span,Largest geographic span,excluded,,Ambiguous diagonal extent; north-south span is clearer and retained.
+Natural Earth,largest-north-south-span,Largest north-south span,approved,Largest north-south span,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,SP.DYN.IMRT.IN,Lowest infant mortality,approved,Lowest infant mortality,Retained after full editorial review; quality and provenance gates still apply.
+Natural Earth,northernmost-country,Northernmost country,approved,Northernmost country,Retained after full editorial review; quality and provenance gates still apply.
+Natural Earth,southernmost-country,Southernmost country,approved,Southernmost country,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,SH.XPD.CHEX.GD.ZS,Highest health spending share,approved,Highest health spending share,Retained after full editorial review; quality and provenance gates still apply.
+FAOSTAT,QCL:'21121:5321,"Most Meat of chickens, fresh or chilled producing animals",excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'F1808:5321,"Most Meat, Poultry producing animals",excluded,,Technical animal-input count removed.
+World Bank,SL.TLF.CACT.FE.ZS,Highest female labor participation,approved,Highest female labor participation,Retained after full editorial review; quality and provenance gates still apply.
+FAOSTAT,QCL:'F1807:5320,Most Sheep and Goat Meat producing animals,excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'01290.90:5510,"Largest Other vegetables, fresh n.e.c. production",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'01290.90:5312,"Largest Other vegetables, fresh n.e.c. harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'02151:5112,Largest Chickens stocks,approved,Largest chicken population,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'F2029:5112,Largest Poultry Birds stocks,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'21155:5320,"Most Edible offal of sheep, fresh, chilled or frozen producing animals",excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'21115:5320,"Most Meat of sheep, fresh or chilled producing animals",excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'02953:5320,Most Raw hides and skins of sheep or lambs producing animals,excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'21514:5320,"Most Sheep fat, unrendered producing animals",excluded,,Technical animal-input count removed.
+World Bank,NE.EXP.GNFS.ZS,Highest exports share of GDP,approved,Highest exports share of GDP,Retained after full editorial review; quality and provenance gates still apply.
+FAOSTAT,QCL:'21156:5320,"Most Edible offal of goat, fresh, chilled or frozen producing animals",excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'21515:5320,"Most Goat fat, unrendered producing animals",excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'21116:5320,"Most Meat of goat, fresh or chilled producing animals",excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'02954:5320,Most Raw hides and skins of goats or kids producing animals,excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'21116:5510,"Largest Meat of goat, fresh or chilled production",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'F1783:5510,Largest Eggs Primary production,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'21113.01:5417,"Highest Meat of pig with the bone, fresh or chilled yield",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'F1804:5312,"Largest Citrus Fruit, Total harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'F1804:5510,"Largest Citrus Fruit, Total production",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01312:5312,Largest Bananas harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01312:5510,Largest Bananas production,approved,Largest bananas production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01323:5510,Largest Oranges production,approved,Largest oranges production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01359.90:5412,"Highest Other fruits, n.e.c. yield",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'01323:5312,Largest Oranges harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01970:5312,Largest Unmanufactured tobacco harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01970:5510,Largest Unmanufactured tobacco production,approved,Largest tobacco production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01322:5510,Largest Lemons and limes production,approved,Largest lemons and limes production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01322:5312,Largest Lemons and limes harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'02910:5510,Largest Natural honey production,approved,Largest honey production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01709.90:5412,Highest Other pulses n.e.c. yield,excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'01530:5312,Largest Sweet potatoes harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'02132:5111,Largest Asses stocks,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'F17530:5412,"Highest Fibre Crops, Fibre Equivalent yield",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'01233:5312,Largest Eggplants (aubergines) harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01316:5510,"Largest Mangoes, guavas and mangosteens production",approved,"Largest mangoes, guavas, and mangosteens production","Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01213:5312,Largest Cauliflowers and broccoli harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01341:5510,Largest Apples production,approved,Largest apples production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01802:5412,Highest Sugar cane yield,approved,Highest sugarcane yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01341:5312,Largest Apples harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01520.01:5412,"Highest Cassava, fresh yield",approved,Highest cassava yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01233:5412,Highest Eggplants (aubergines) yield,approved,Highest eggplants yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01520.01:5510,"Largest Cassava, fresh production",approved,Largest cassava production,"Recognizable, clear measure, and no stronger duplicate."
+World Bank,AG.LND.FRST.K2,Largest forest area,approved,Largest forest area,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,AG.LND.TOTL.K2,Largest land area,approved,Largest land area,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,AG.LND.AGRI.K2,Largest agricultural land area,excluded,,Near-duplicate of land area and arable-land totals.
+Natural Earth,longest-coastline,Longest coastline,approved,Longest coastline,Retained after full editorial review; quality and provenance gates still apply.
+FAOSTAT,QCL:'F1783:5313,Most Eggs Primary laying animals,excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'0231:5313,"Most Hen eggs in shell, fresh laying animals",excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'F1732:5312,"Largest Oilcrops, Oil Equivalent harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'F1732:5510,"Largest Oilcrops, Oil Equivalent production",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'21512:5510,"Largest Cattle fat, unrendered production",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'21151:5510,"Largest Edible offal of cattle, fresh, chilled or frozen production",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'F1841:5312,"Largest Oilcrops, Cake Equivalent harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'F1841:5510,"Largest Oilcrops, Cake Equivalent production",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'02951.01:5510,Largest Raw hides and skins of cattle production,excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'21155:5510,"Largest Edible offal of sheep, fresh, chilled or frozen production",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'02953:5510,Largest Raw hides and skins of sheep or lambs production,excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'21514:5510,"Largest Sheep fat, unrendered production",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'21156:5510,"Largest Edible offal of goat, fresh, chilled or frozen production",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'21515:5510,"Largest Goat fat, unrendered production",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'02954:5510,Largest Raw hides and skins of goats or kids production,excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'21153:5510,"Largest Edible offal of pigs, fresh, chilled or frozen production",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'21511.01:5510,Largest Fat of pigs production,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01359.90:5312,"Largest Other fruits, n.e.c. harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01359.90:5510,"Largest Other fruits, n.e.c. production",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'F17530:5510,"Largest Fibre Crops, Fibre Equivalent production",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'22241.01:5510,Largest Butter of cow milk production,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'F17530:5312,"Largest Fibre Crops, Fibre Equivalent harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'02196:5114,Largest Bees stocks,approved,Largest bee population,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01316:5312,"Largest Mangoes, guavas and mangosteens harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01802:5510,Largest Sugar cane production,approved,Largest sugarcane production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01520.01:5312,"Largest Cassava, fresh harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01346:5510,Largest Plums and sloes production,approved,Largest plums and sloes production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01346:5412,Highest Plums and sloes yield,approved,Highest plums and sloes yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01342.01:5412,Highest Pears yield,approved,Highest pears yield,"Recognizable, clear measure, and no stronger duplicate."
+World Bank,SP.DYN.LE00.IN,Highest life expectancy,approved,Highest life expectancy,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,EN.POP.DNST,Highest population density,approved,Highest population density,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,AG.LND.ARBL.HA,Most arable land,approved,Most arable land,Retained after full editorial review; quality and provenance gates still apply.
+FAOSTAT,QCL:'F1807:5417,Highest Sheep and Goat Meat yield,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'21115:5417,"Highest Meat of sheep, fresh or chilled yield",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+UNHCR,asylum-applications:coa:applied,Most asylum applications received,approved,Most asylum applications received,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,TX.VAL.FOOD.ZS.UN,Highest food share of exports,approved,Highest food share of exports,Retained after full editorial review; quality and provenance gates still apply.
+FAOSTAT,QCL:'F1811:5510,Largest Butter and Ghee production,approved,Largest butter and ghee production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'F1745:5510,Largest Cheese (All Kinds) production,approved,Largest cheese production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'22251.01:5510,Largest Cheese from whole cow milk production,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01311:5312,Largest Avocados harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01311:5510,Largest Avocados production,approved,Largest avocado production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01319:5510,"Largest Other tropical fruits, n.e.c. production",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'01802:5312,Largest Sugar cane harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01345:5312,Largest Peaches and nectarines harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01345:5510,Largest Peaches and nectarines production,approved,Largest peaches and nectarines production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01346:5312,Largest Plums and sloes harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01342.01:5510,Largest Pears production,approved,Largest pears production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01342.01:5312,Largest Pears harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'02291:5510,Largest Raw milk of sheep production,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01318:5412,Highest Pineapples yield,approved,Highest pineapple yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01318:5510,Largest Pineapples production,approved,Largest pineapple production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01242:5412,"Highest Peas, green yield",approved,Highest green peas yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01354:5412,Highest Strawberries yield,approved,Highest strawberries yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'0117:5510,Largest Oats production,approved,Largest oats production,"Recognizable, clear measure, and no stronger duplicate."
+World Bank,AG.LND.FRST.ZS,Highest forest coverage,approved,Highest forest coverage,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,AG.LND.AGRI.ZS,Highest farmland share,excluded,,Near-duplicate of arable-land share.
+Natural Earth,longest-land-border,Longest total land border,approved,Longest total land border,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,AG.LND.ARBL.ZS,Highest arable-land share,approved,Highest arable-land share,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,NE.GDI.TOTL.ZS,Highest investment share,approved,Highest investment share,Retained after full editorial review; quality and provenance gates still apply.
+FAOSTAT,QCL:'21116:5417,"Highest Meat of goat, fresh or chilled yield",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'24310.01:5510,"Largest Beer of barley, malted production",approved,Largest beer production,"Recognizable, clear measure, and no stronger duplicate."
+World Bank,TX.VAL.TECH.CD,Largest high-tech exports,approved,Largest high-tech exports,Retained after full editorial review; quality and provenance gates still apply.
+WHO,WHS4_543,Highest tuberculosis vaccination rate,approved,Highest tuberculosis vaccination rate,Retained after full editorial review; quality and provenance gates still apply.
+FAOSTAT,QCL:'F1809:5510,"Largest Skim Milk & Buttermilk, Dry production",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'02951.01:5417,Highest Raw hides and skins of cattle yield,excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'22230.04:5510,"Largest Buttermilk, dry production",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'22110.02:5510,Largest Skim milk of cows production,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'2351f:5510,Largest Raw cane or beet sugar (centrifugal only) production,approved,Largest cane and beet sugar production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'23540:5510,Largest Molasses production,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01319:5312,"Largest Other tropical fruits, n.e.c. harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01321:5510,Largest Pomelos and grapefruits production,approved,Largest grapefruits and pomelos production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01321:5312,Largest Pomelos and grapefruits harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01324:5510,"Largest Tangerines, mandarins, clementines production",approved,Largest mandarins and tangerines production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01242:5510,"Largest Peas, green production",approved,Largest green peas production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01921.01:5412,"Highest Seed cotton, unginned yield",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01242:5312,"Largest Peas, green harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01318:5312,Largest Pineapples harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01354:5510,Largest Strawberries production,approved,Largest strawberries production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01445:5312,Largest Sunflower seed harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01354:5312,Largest Strawberries harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01445:5510,Largest Sunflower seed production,approved,Largest sunflower seeds production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01345:5412,Highest Peaches and nectarines yield,approved,Highest peaches and nectarines yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'0117:5312,Largest Oats harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'0117:5412,Highest Oats yield,approved,Highest oats yield,"Recognizable, clear measure, and no stronger duplicate."
+World Bank,TM.VAL.FOOD.ZS.UN,Highest food share of imports,approved,Highest food share of imports,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,NY.GNS.ICTR.ZS,Highest gross savings rate,approved,Highest gross savings rate,Retained after full editorial review; quality and provenance gates still apply.
+FAOSTAT,QCL:'23913:5510,"Largest Green tea (not fermented), black tea (fermented) and partly fermented tea, in immediate packings of a content not exceeding 3 kg production",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'2161:5510,Largest Soya bean oil production,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01324:5312,"Largest Tangerines, mandarins, clementines harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01921.01:5510,"Largest Seed cotton, unginned production",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01921.01:5312,"Largest Seed cotton, unginned harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01460:5412,"Highest Coconuts, in shell yield",approved,Highest coconuts yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'02291:5318,Most Raw milk of sheep milk-producing animals,excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'01343:5510,Largest Apricots production,approved,Largest apricot production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01319:5412,"Highest Other tropical fruits, n.e.c. yield",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'01445:5412,Highest Sunflower seed yield,approved,Highest sunflower seeds yield,"Recognizable, clear measure, and no stronger duplicate."
+UN Comtrade,85,Largest electrical-equipment exports,approved,Largest electrical-equipment exports,Retained after full editorial review; quality and provenance gates still apply.
+UN Comtrade,30,Largest pharmaceutical exports,approved,Largest pharmaceutical exports,Retained after full editorial review; quality and provenance gates still apply.
+FAOSTAT,QCL:'0143:5510,Largest Cotton seed production,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'21700.02:5510,Largest Margarine and shortening production,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01460:5510,"Largest Coconuts, in shell production",approved,Largest coconuts production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01379.90:5510,"Largest Other nuts (excluding wild edible nuts and groundnuts), in shell, n.e.c. production",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'01343:5312,Largest Apricots harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'0118:5312,Largest Millet harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'0118:5510,Largest Millet production,approved,Largest millet production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01610:5412,"Highest Coffee, green yield",approved,Highest coffee yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'02291:5417,Highest Raw milk of sheep yield,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01610:5312,"Largest Coffee, green harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01311:5412,Highest Avocados yield,approved,Highest avocado yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01324:5412,"Highest Tangerines, mandarins, clementines yield",approved,Highest mandarins and tangerines yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01215:5412,Highest Spinach yield,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01443:5312,Largest Rape or colza seed harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01443:5510,Largest Rape or colza seed production,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01443:5412,Highest Rape or colza seed yield,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'0116:5412,Highest Rye yield,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+UNESCO UIS,GER.1,Highest primary-school enrollment,excluded,,Gross enrollment can exceed 100 percent and is less intuitive than completion rates.
+World Bank,SH.H2O.BASW.ZS,Highest basic drinking-water access,approved,Highest basic drinking-water access,Retained after full editorial review; quality and provenance gates still apply.
+UN Comtrade,88,Largest aircraft exports,approved,Largest aircraft exports,Retained after full editorial review; quality and provenance gates still apply.
+UN Comtrade,8703,Largest car exports,approved,Largest car exports,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,MS.MIL.XPND.CD,Highest military spending,approved,Highest military spending,Retained after full editorial review; quality and provenance gates still apply.
+FAOSTAT,QCL:'01921.02:5510,"Largest Cotton lint, ginned production",approved,Largest cotton production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01379.90:5312,"Largest Other nuts (excluding wild edible nuts and groundnuts), in shell, n.e.c. harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01460:5312,"Largest Coconuts, in shell harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01610:5510,"Largest Coffee, green production",approved,Largest coffee production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01321:5412,Highest Pomelos and grapefruits yield,approved,Highest grapefruits and pomelos yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01317:5510,Largest Papayas production,approved,Largest papaya production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01444:5510,Largest Sesame seed production,approved,Largest sesame seeds production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01215:5510,Largest Spinach production,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01344.02:5510,Largest Cherries production,approved,Largest cherries production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01343:5412,Highest Apricots yield,approved,Highest apricot yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01344.02:5312,Largest Cherries harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01702:5412,"Highest Broad beans and horse beans, dry yield",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'0116:5312,Largest Rye harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'0116:5510,Largest Rye production,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01801:5312,Largest Sugar beet harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01801:5510,Largest Sugar beet production,approved,Largest sugar beets production,"Recognizable, clear measure, and no stronger duplicate."
+UN Comtrade,0901,Largest coffee exports,approved,Largest coffee exports,Retained after full editorial review; quality and provenance gates still apply.
+FAOSTAT,QCL:'2162:5510,Largest Groundnut oil production,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'2168:5510,Largest Cottonseed oil production,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'24212.02:5510,Largest Wine production,approved,Largest wine production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'21122:5510,"Largest Meat of ducks, fresh or chilled production",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'21122:5321,"Most Meat of ducks, fresh or chilled producing animals",excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'0118:5412,Highest Millet yield,approved,Highest millet yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01449.90:5312,"Largest Other oil seeds, n.e.c. harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'02941:5510,"Largest Shorn wool, greasy, including fleece-washed shorn wool production",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01444:5412,Highest Sesame seed yield,approved,Highest sesame seeds yield,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01444:5312,Largest Sesame seed harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'21122:5424,"Highest Meat of ducks, fresh or chilled yield",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01317:5412,Highest Papayas yield,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01317:5312,Largest Papayas harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01215:5312,Largest Spinach harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01702:5312,"Largest Broad beans and horse beans, dry harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01702:5510,"Largest Broad beans and horse beans, dry production",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01376:5312,"Largest Walnuts, in shell harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+World Bank,EG.ELC.ACCS.ZS,Highest electricity access,approved,Highest electricity access,Retained after full editorial review; quality and provenance gates still apply.
+UN Comtrade,1006,Largest rice exports,approved,Largest rice exports,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,MS.MIL.XPND.GD.ZS,Highest military spending share,approved,Highest military spending share,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,EG.USE.ELEC.KH.PC,Highest electricity use per person,approved,Highest electricity use per person,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,EG.USE.PCAP.KG.OE,Highest energy use per person,approved,Highest energy use per person,Retained after full editorial review; quality and provenance gates still apply.
+FAOSTAT,QCL:'02154:5112,Largest Ducks stocks,approved,Largest duck population,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'21631.01:5510,"Largest Sunflower-seed oil, crude production",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01329:5312,"Largest Other citrus fruit, n.e.c. harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'F1816:5510,Largest Evaporated & Condensed Milk production,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01329:5510,"Largest Other citrus fruit, n.e.c. production",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'22120:5510,"Largest Cream, fresh production",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01449.90:5510,"Largest Other oil seeds, n.e.c. production",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'01270:5510,Largest Mushrooms and truffles production,approved,Largest mushrooms and truffles production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'21159.01:5320,"Most Edible offals of horses and other equines, fresh, chilled or frozen producing animals",excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'21118.01:5320,"Most Horse meat, fresh or chilled producing animals",excluded,,Technical animal-input count removed.
+FAOSTAT,QCL:'01449.90:5412,"Highest Other oil seeds, n.e.c. yield",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'01243:5510,"Largest Broad beans and horse beans, green production",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01344.02:5412,Highest Cherries yield,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01243:5312,"Largest Broad beans and horse beans, green harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01199.90:5312,Largest Cereals n.e.c. harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'21124:5510,"Largest Meat of turkeys, fresh or chilled production",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01376:5510,"Largest Walnuts, in shell production",approved,Largest walnuts production,"Recognizable, clear measure, and no stronger duplicate."
+WHO,MDG_0000000026,Lowest maternal mortality,approved,Lowest maternal mortality,Retained after full editorial review; quality and provenance gates still apply.
+WHO,PHE_HHAIR_POP_CLEAN_FUELS,Highest clean-cooking-fuel access,approved,Highest clean-cooking-fuel access,Retained after full editorial review; quality and provenance gates still apply.
+UN Comtrade,2204,Largest wine exports,approved,Largest wine exports,Retained after full editorial review; quality and provenance gates still apply.
+FAOSTAT,QCL:'02152:5112,Largest Turkeys stocks,approved,Largest turkey population,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01379.90:5412,"Highest Other nuts (excluding wild edible nuts and groundnuts), in shell, n.e.c. yield",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'01315:5510,Largest Figs production,approved,Largest figs production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'01315:5312,Largest Figs harvested area,excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01199.90:5510,Largest Cereals n.e.c. production,excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'21124:5321,"Most Meat of turkeys, fresh or chilled producing animals",excluded,,Technical animal-input count removed.
+World Bank,ER.H2O.INTR.K3,Most renewable freshwater,approved,Most renewable freshwater,Retained after full editorial review; quality and provenance gates still apply.
+World Bank,IS.AIR.PSGR,Most airline passengers,approved,Most airline passengers,Retained after full editorial review; quality and provenance gates still apply.
+FAOSTAT,QCL:'21521:5510,"Largest Pig fat, rendered production",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'21641.01:5510,"Largest Rapeseed or canola oil, crude production",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'02133:5111,Largest Mules and hinnies stocks,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01699:5412,"Highest Other stimulant, spice and aromatic crops, n.e.c. yield",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'01699:5312,"Largest Other stimulant, spice and aromatic crops, n.e.c. harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01699:5510,"Largest Other stimulant, spice and aromatic crops, n.e.c. production",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'01371:5312,"Largest Almonds, in shell harvested area",excluded,,Harvested-area variant removed in favor of production or yield.
+FAOSTAT,QCL:'01371:5510,"Largest Almonds, in shell production",approved,Largest almonds production,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'21124:5424,"Highest Meat of turkeys, fresh or chilled yield",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'21118.01:5510,"Largest Horse meat, fresh or chilled production",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'22211:5510,Largest Whole milk powder production,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'22212:5510,Largest Skim milk and whey powder production,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'02112:5111,Largest Buffalo stocks,approved,Largest buffalo population,"Recognizable, clear measure, and no stronger duplicate."
+FAOSTAT,QCL:'21523:5510,Largest Tallow production,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'22222.01:5510,"Largest Whole milk, condensed production",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'22221.01:5510,"Largest Whole milk, evaporated production",excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'2166:5510,Largest Coconut oil production,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'21691.07:5510,Largest Oil of sesame seed production,excluded,,"Obscure, redundant, narrowly processed, or weaker than a retained measure."
+FAOSTAT,QCL:'01199.90:5412,Highest Cereals n.e.c. yield,excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'01599.10:5412,"Highest Edible roots and tubers with high starch or inulin content, n.e.c., fresh yield",excluded,,Obscure or technical commodity definition removed.
+FAOSTAT,QCL:'01599.10:5312,"Largest Edible roots and tubers with high starch or inulin content, n.e.c., fresh harvested area",excluded,,Harvested-area variant removed in favor of production or yield.

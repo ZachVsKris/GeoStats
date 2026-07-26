@@ -42,6 +42,9 @@ type CategoryRow = {
   duplicate_status?: "pending" | "preferred" | "superseded" | "not_eligible";
   superseded_by?: string | null;
   auto_decision_reason?: string | null;
+  curation_status?: "pending" | "approved" | "excluded";
+  curation_reason?: string | null;
+  curation_version?: string | null;
 };
 
 type ImportRow = {
@@ -360,7 +363,7 @@ export default function AdminDashboard() {
   if (!data) return <section className="adminLoading">{error || "Loading warehouse…"}</section>;
 
   const sources = Array.from(new Set(data.categories.map((category) => category.source_organization))).sort();
-  const approveableSelected = selectedRows.filter((category) => category.auto_qualified && category.provenance_status === "approved" && category.independent_validation && category.review_status !== "approved");
+  const approveableSelected = selectedRows.filter((category) => category.auto_qualified && category.provenance_status === "approved" && category.independent_validation && category.curation_status === "approved" && category.review_status !== "approved");
   const resettableSelected = selectedRows.filter((category) => category.review_status === "rejected" || category.review_status === "approved");
   const dailyModeLabels: Record<DailyMode, string> = { easy: "Scout", normal: "Adventurer", expert: "Expert" };
 
@@ -546,7 +549,7 @@ export default function AdminDashboard() {
               <tr>
                 <th style={{ padding: 8 }}><input type="checkbox" checked={allVisibleSelected} onChange={toggleAllVisible} aria-label="Select all visible categories" /></th>
                 {[
-                  "Review", "Category", "Source", "Quality", "Provenance", "Duplicate", "Evidence", "Common year", "Official", "Modeled", "Cluster", "Stability", "Recognizable", "Specific", "Actions",
+                  "Review", "Category", "Source", "Quality", "Curation", "Provenance", "Duplicate", "Evidence", "Common year", "Official", "Modeled", "Cluster", "Stability", "Recognizable", "Specific", "Actions",
                 ].map((heading) => <th key={heading} style={{ textAlign: "left", padding: 8, borderBottom: "1px solid rgba(255,255,255,.12)" }}>{heading}</th>)}
               </tr>
             </thead>
@@ -561,6 +564,7 @@ export default function AdminDashboard() {
                   </td>
                   <td style={{ padding: 8 }}>{category.source_organization}</td>
                   <td style={{ padding: 8 }}><strong>{category.quality_score}</strong>{category.auto_qualified && <div style={{ fontSize: 11, opacity: .72 }}>quality + provenance pass</div>}</td>
+                  <td style={{ padding: 8, maxWidth: 240 }}><strong>{category.curation_status ?? "pending"}</strong>{category.curation_reason && <div style={{ fontSize: 11, opacity: .72 }}>{category.curation_reason}</div>}</td>
                   <td style={{ padding: 8 }}><strong>{category.provenance_status ?? "—"}</strong><div style={{ fontSize: 11, opacity: .72 }}>{category.government_assertion_risk ? `${category.government_assertion_risk} assertion risk` : ""}</div></td>
                   <td style={{ padding: 8 }}><strong>{category.duplicate_status ?? "—"}</strong>{category.superseded_by && <div style={{ fontSize: 11, opacity: .72 }}>by {category.superseded_by}</div>}</td>
                   <td style={{ padding: 8 }}>{category.evidence_tier ?? "—"}</td>
@@ -575,7 +579,7 @@ export default function AdminDashboard() {
                     <div style={{ display: "flex", gap: 6 }}>
                       <button style={mutedButton} disabled={detailLoading} onClick={() => inspectCategory(category.id)}>Inspect</button>
                       {category.review_status !== "rejected" && <button style={dangerButton} disabled={reviewing} onClick={() => decide([category.id], "rejected")}>Reject</button>}
-                      {category.auto_qualified && category.review_status !== "approved" && <button style={button} disabled={reviewing} onClick={() => decide([category.id], "approved")}>Approve</button>}
+                      {category.auto_qualified && category.curation_status === "approved" && category.review_status !== "approved" && <button style={button} disabled={reviewing} onClick={() => decide([category.id], "approved")}>Approve</button>}
                       {(category.review_status === "approved" || category.review_status === "rejected") && <button style={mutedButton} disabled={reviewing} onClick={() => decide([category.id], "reset")}>Reset</button>}
                     </div>
                   </td>
@@ -601,11 +605,13 @@ export default function AdminDashboard() {
               <div style={card}>Coverage <strong>{detail.category.common_year_coverage || detail.category.country_coverage}</strong></div>
               <div style={card}>Year <strong>{detail.year ?? detail.category.common_year ?? "—"}</strong></div>
               <div style={card}>Modeled <strong>{percentage(detail.category.modeled_observation_share)}</strong></div>
+              <div style={card}>Curation <strong>{detail.category.curation_status ?? "pending"}</strong><div style={{ opacity: .72, marginTop: 6 }}>{detail.category.curation_version ?? ""}</div></div>
               <div style={card}>Provenance <strong>{detail.category.provenance_status ?? "—"}</strong><div style={{ opacity: .72, marginTop: 6 }}>{detail.category.provenance_class ?? ""}</div></div>
               <div style={card}>Duplicate status <strong>{detail.category.duplicate_status ?? "—"}</strong><div style={{ opacity: .72, marginTop: 6 }}>{detail.category.concept_group ?? ""}</div></div>
             </div>
-            {(detail.category.provenance_reason || detail.category.auto_decision_reason) && (
+            {(detail.category.curation_reason || detail.category.provenance_reason || detail.category.auto_decision_reason) && (
               <div style={{ ...card, marginBottom: 16 }}>
+                {detail.category.curation_reason && <div><strong>Curation:</strong> {detail.category.curation_reason}</div>}
                 {detail.category.provenance_reason && <div><strong>Provenance:</strong> {detail.category.provenance_reason}</div>}
                 {detail.category.auto_decision_reason && <div style={{ marginTop: 8 }}><strong>Decision:</strong> {detail.category.auto_decision_reason}</div>}
                 {detail.category.methodology_url && <div style={{ marginTop: 8 }}><a href={detail.category.methodology_url} target="_blank" rel="noreferrer">Methodology source</a></div>}

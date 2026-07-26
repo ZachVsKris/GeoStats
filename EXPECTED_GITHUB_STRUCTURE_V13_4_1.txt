@@ -1,0 +1,21 @@
+GEOSTATS v13.4.1 EXPECTED GITHUB ROOT
+
+Upload the contents of the geostats-v13.4.1-faostat-adaptive-governance-complete folder so the repository root directly contains:
+
+.github/
+app/
+components/
+lib/
+scripts/
+supabase/
+package.json
+README.md
+RUN_THIS_IN_SUPABASE_FOR_V13_4.sql
+RUN_THIS_IN_SUPABASE_FOR_V13_4_1.sql
+VERIFY_V13_4.sql
+VERIFY_V13_4_1.sql
+START_HERE.txt
+
+Do not upload the containing folder as a second nested project directory.
+Correct: repository/app, repository/scripts, repository/package.json
+Incorrect: repository/geostats-v13.4.1-faostat-adaptive-governance-complete/app

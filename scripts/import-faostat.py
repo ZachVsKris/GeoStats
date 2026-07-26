@@ -2,9 +2,9 @@
 """Import and automatically govern FAOSTAT QCL categories for GeoStats.
 
 The importer uses the canonical 195-country universe, never converts missing reports
-to zero, retains FAOSTAT reporting flags, and enables only categories that pass both
-the strict numerical gate and the v13.4 provenance gate. Near-duplicates are resolved
-by the shared database governance function.
+to zero, retains FAOSTAT reporting flags, and applies a commodity-aware quality gate.
+Official records and transparent FAO estimates/imputations count as documented evidence;
+unknown reporting does not. Near-duplicates are resolved by shared governance.
 """
 from __future__ import annotations
 
@@ -32,7 +32,6 @@ from pathlib import Path
 from typing import Any, Iterable, Iterator, Mapping, Sequence
 
 from data_pipeline.canonical_countries import canonical_country_name
-from data_pipeline.governance import GOVERNANCE_VERSION
 
 try:
     import pycountry
@@ -47,11 +46,17 @@ FALLBACK_ZIP_URL = (
     "https://bulks-faostat.fao.org/production/"
     "Production_Crops_Livestock_E_All_Data_(Normalized).zip"
 )
-QUALITY_VERSION = "geostats-v13.4-strict"
+QUALITY_VERSION = "geostats-v13.4.1-faostat-adaptive"
+FAOSTAT_GOVERNANCE_VERSION = "geostats-v13.4.1-faostat-adaptive-v1"
 RECENT_YEAR_WINDOW = 6
 MIN_CANDIDATE_COVERAGE = 25
-STRICT_COVERAGE = 175
-STRICT_SCORE = 85
+MIN_PLAYABLE_COVERAGE = 60
+QUALITY_SCORE_THRESHOLD = 75
+MAX_COMMON_YEAR_AGE = 4
+MIN_COMMON_YEAR_ALIGNMENT = 0.85
+MIN_DOCUMENTED_SHARE = 0.75
+MIN_CLUSTERING_SCORE = 65
+MIN_STABILITY_SCORE = 50
 BATCH_SIZE = 400
 
 # 193 UN members plus the Holy See and State of Palestine.
@@ -386,6 +391,41 @@ def category_family(item: str, element: str) -> str:
     return "Agriculture"
 
 
+def element_class(element: str) -> str:
+    lower = element.lower().strip()
+    if "area harvested" in lower:
+        return "harvested-area"
+    if "yield" in lower:
+        return "yield"
+    if "producing animals" in lower:
+        return "producing-animals"
+    if "animals slaughtered" in lower or "slaughter" in lower:
+        return "animals-slaughtered"
+    if "milk animals" in lower:
+        return "milk-animals"
+    if "laying" in lower:
+        return "laying-animals"
+    if "stocks" in lower:
+        return "stocks"
+    if "production" in lower:
+        return "production"
+    return slug(lower, 32)
+
+
+def faostat_concept_group(item: str, element: str) -> str:
+    """Group exact semantic duplicates while keeping distinct measures playable."""
+    item_slug = slug(item, 70)
+    measure = element_class(element)
+    normalized_item = re.sub(r"[^a-z0-9]+", " ", item.lower()).strip()
+    # Prefer the direct FAOSTAT series over World Bank's republished cereal series.
+    if normalized_item in {"cereals primary", "cereals primary total", "cereals"}:
+        if measure == "production":
+            return "cerealProduction"
+        if measure == "yield":
+            return "cerealYield"
+    return f"faostat-qcl-{item_slug}-{measure}"
+
+
 def value_type(unit: str) -> str:
     lower = unit.lower()
     if "%" in unit or "percent" in lower:
@@ -396,14 +436,30 @@ def value_type(unit: str) -> str:
 
 
 def classify_flag(flag: str, description: str) -> str:
+    """Classify FAOSTAT flags without treating transparent estimates as bad data.
+
+    GeoStats distinguishes official national-statistical records from FAO estimates and
+    imputations, but both are documented evidence classes. Blank or unrecognized flags
+    remain unknown and can prevent automatic approval.
+    """
     code = (flag or "").strip().upper()
     text = (description or "").lower()
-    if code == "A" or "official data" in text:
-        return "official"
-    if code in {"E", "I", "X"} or any(token in text for token in ("estimate", "imput", "calculated", "model", "forecast")):
-        return "modeled"
     if code in {"M", "O"} or "missing" in text:
         return "missing"
+    if code == "A" or "official data" in text:
+        return "official"
+    if code in {"E", "I", "X"} or any(
+        token in text
+        for token in (
+            "estimate",
+            "imput",
+            "calculated",
+            "model",
+            "forecast",
+            "international organization",
+        )
+    ):
+        return "modeled"
     return "other"
 
 
@@ -461,55 +517,83 @@ def score_candidate(
     *,
     common_coverage: int,
     max_coverage: int,
-    latest_year: int,
+    common_year: int,
     official_share: float,
     modeled_share: float,
     cluster: int,
     stability: int,
+    stability_comparison_year: int | None,
 ) -> tuple[int, bool, dict[str, Any]]:
+    """Score FAOSTAT using an agriculture-specific, evidence-aware gate.
+
+    Commodity statistics should not be expected to cover all 195 countries. Coverage is
+    therefore scored against 100 countries and has a 60-country hard floor. Transparent
+    FAO estimates and imputations count as documented evidence; only unknown/unclassified
+    reporting is treated as a provenance weakness.
+    """
     current_year = datetime.now(timezone.utc).year
-    age = max(0, current_year - latest_year)
-    coverage_points = 30 * min(1, common_coverage / 195)
-    freshness_points = 15 * max(0, 1 - max(0, age - 1) / 5)
+    age = max(0, current_year - common_year)
     alignment_ratio = common_coverage / max_coverage if max_coverage else 0
+    documented_share = min(1.0, official_share + modeled_share)
+    unknown_share = max(0.0, 1.0 - documented_share)
+
+    coverage_points = 25 * min(1, common_coverage / 100)
+    freshness_points = 15 * max(0, 1 - max(0, age - 1) / 5)
     alignment_points = 15 * min(1, alignment_ratio)
-    official_points = 15 * official_share
+    evidence_points = 15 * documented_share + 5 * official_share
     cluster_points = 15 * cluster / 100
     stability_points = 10 * stability / 100
-    score = round(coverage_points + freshness_points + alignment_points + official_points + cluster_points + stability_points)
-    auto = (
-        score >= STRICT_SCORE
-        and common_coverage >= STRICT_COVERAGE
-        and age <= 3
-        and alignment_ratio >= 0.90
-        and official_share >= 0.70
-        and modeled_share <= 0.20
-        and cluster >= 70
-        and stability >= 60
+    score = round(
+        coverage_points
+        + freshness_points
+        + alignment_points
+        + evidence_points
+        + cluster_points
+        + stability_points
     )
+
+    checks = {
+        "qualityScore": score >= QUALITY_SCORE_THRESHOLD,
+        "coverage": common_coverage >= MIN_PLAYABLE_COVERAGE,
+        "freshness": age <= MAX_COMMON_YEAR_AGE,
+        "commonYearAlignment": alignment_ratio >= MIN_COMMON_YEAR_ALIGNMENT,
+        "documentedEvidence": documented_share >= MIN_DOCUMENTED_SHARE,
+        "distribution": cluster >= MIN_CLUSTERING_SCORE,
+        "stability": stability >= MIN_STABILITY_SCORE,
+    }
+    auto = all(checks.values())
+    failed_checks = [name for name, passed in checks.items() if not passed]
     details = {
         "standard": QUALITY_VERSION,
         "score": score,
         "autoQualified": auto,
         "thresholds": {
-            "score": STRICT_SCORE,
-            "coverage": STRICT_COVERAGE,
-            "maximumAgeYears": 3,
-            "minimumCommonYearAlignment": 0.90,
-            "minimumOfficialShare": 0.70,
-            "maximumModeledShare": 0.20,
-            "minimumClusteringScore": 70,
-            "minimumStabilityScore": 60,
+            "score": QUALITY_SCORE_THRESHOLD,
+            "coverage": MIN_PLAYABLE_COVERAGE,
+            "coverageScoreFullCredit": 100,
+            "maximumCommonYearAgeYears": MAX_COMMON_YEAR_AGE,
+            "minimumCommonYearAlignment": MIN_COMMON_YEAR_ALIGNMENT,
+            "minimumDocumentedObservationShare": MIN_DOCUMENTED_SHARE,
+            "minimumClusteringScore": MIN_CLUSTERING_SCORE,
+            "minimumStabilityScore": MIN_STABILITY_SCORE,
+            "maximumModeledShare": None,
         },
         "components": {
             "coverage": round(coverage_points, 1),
             "freshness": round(freshness_points, 1),
             "commonYearAlignment": round(alignment_points, 1),
-            "officialReporting": round(official_points, 1),
+            "documentedEvidence": round(evidence_points, 1),
             "distribution": round(cluster_points, 1),
             "stability": round(stability_points, 1),
         },
         "commonYearAlignment": round(alignment_ratio, 4),
+        "documentedObservationShare": round(documented_share, 6),
+        "unknownObservationShare": round(unknown_share, 6),
+        "officialObservationShare": round(official_share, 6),
+        "modeledObservationShare": round(modeled_share, 6),
+        "stabilityComparisonYear": stability_comparison_year,
+        "checks": checks,
+        "failedChecks": failed_checks,
     }
     return score, auto, details
 
@@ -638,7 +722,12 @@ def category_candidates(connection: sqlite3.Connection) -> list[dict[str, Any]]:
             (key,),
         ).fetchall()
         max_coverage = max(count for _, count in year_counts)
-        eligible_years = [(year, count) for year, count in year_counts if count >= max(30, math.ceil(max_coverage * 0.90))]
+        required_common_coverage = (
+            max(MIN_PLAYABLE_COVERAGE, math.ceil(max_coverage * MIN_COMMON_YEAR_ALIGNMENT))
+            if max_coverage >= MIN_PLAYABLE_COVERAGE
+            else max(1, math.ceil(max_coverage * MIN_COMMON_YEAR_ALIGNMENT))
+        )
+        eligible_years = [(year, count) for year, count in year_counts if count >= required_common_coverage]
         common_year, common_coverage = max(eligible_years or year_counts, key=lambda pair: pair[0])
         common_rows = connection.execute(
             "select iso3, country_name, value, flag, flag_description, note from observations where category_key=? and year=?",
@@ -650,25 +739,54 @@ def category_candidates(connection: sqlite3.Connection) -> list[dict[str, Any]]:
         modeled_share = classifications.count("modeled") / len(classifications) if classifications else 0
         cluster = clustering_score(values)
 
-        previous_rows = connection.execute(
-            "select iso3, value from observations where category_key=? and year=?",
-            (key, common_year - 1),
-        ).fetchall()
+        previous_year_row = connection.execute(
+            """
+            select year, count(distinct iso3) as coverage
+            from observations
+            where category_key=? and year<?
+            group by year
+            having count(distinct iso3)>=30
+            order by year desc
+            limit 1
+            """,
+            (key, common_year),
+        ).fetchone()
+        stability_comparison_year = int(previous_year_row[0]) if previous_year_row else None
+        previous_rows = (
+            connection.execute(
+                "select iso3, value from observations where category_key=? and year=?",
+                (key, stability_comparison_year),
+            ).fetchall()
+            if stability_comparison_year is not None
+            else []
+        )
         correlation = spearman(
             {observation[0]: float(observation[2]) for observation in common_rows},
             {observation[0]: float(observation[1]) for observation in previous_rows},
         )
-        stability = 50 if correlation is None else max(0, min(100, round((correlation + 1) * 50)))
+        # Neutral-but-passing fallback when no comparable earlier year exists. This does
+        # not add confidence, but it also avoids rejecting a broad new series solely for
+        # lacking a predecessor year.
+        stability = 55 if correlation is None else max(0, min(100, round((correlation + 1) * 50)))
         quality_score, auto_qualified, quality_details = score_candidate(
             common_coverage=common_coverage,
             max_coverage=max_coverage,
-            latest_year=int(latest_year),
+            common_year=int(common_year),
             official_share=official_share,
             modeled_share=modeled_share,
             cluster=cluster,
             stability=stability,
+            stability_comparison_year=stability_comparison_year,
         )
-        evidence_tier = "A" if official_share >= 0.85 and modeled_share <= 0.10 else "B" if official_share >= 0.60 and modeled_share <= 0.25 else "C"
+        documented_share = min(1.0, official_share + modeled_share)
+        unknown_share = max(0.0, 1.0 - documented_share)
+        evidence_tier = (
+            "A"
+            if documented_share >= 0.95 and official_share >= 0.40
+            else "B"
+            if documented_share >= MIN_DOCUMENTED_SHARE
+            else "C"
+        )
         cat_id = category_id(item_code, element_code, item, element, unit)
         candidates.append(
             {
@@ -692,21 +810,24 @@ def category_candidates(connection: sqlite3.Connection) -> list[dict[str, Any]]:
                 "max_coverage": int(max_coverage),
                 "official_share": official_share,
                 "modeled_share": modeled_share,
+                "documented_share": documented_share,
+                "unknown_share": unknown_share,
                 "cluster": cluster,
                 "stability": stability,
+                "stability_comparison_year": stability_comparison_year,
                 "quality_score": quality_score,
                 "auto_qualified": auto_qualified,
                 "evidence_tier": evidence_tier,
                 "quality_details": quality_details,
-                "provenance_status": "approved" if evidence_tier in {"A", "B"} and official_share >= 0.60 else "uncertain",
+                "provenance_status": "approved" if documented_share >= MIN_DOCUMENTED_SHARE else "uncertain",
                 "provenance_class": "internationally_harmonized_fao_production_statistics",
                 "provenance_reason": (
-                    "FAOSTAT QCL uses standardized definitions, validation flags, and national statistical or administrative production records; unsupported political assertions are not sufficient for automatic approval."
-                    if evidence_tier in {"A", "B"} and official_share >= 0.60
-                    else "Insufficient officially classified observations for automatic provenance approval."
+                    "FAOSTAT QCL uses standardized definitions and validation flags. Official records and transparent FAO estimates or imputations count as documented evidence; missing or unclassified records do not. Unsupported political assertions alone are never sufficient."
+                    if documented_share >= MIN_DOCUMENTED_SHARE
+                    else "Too much of the common-year snapshot has missing or unclassified provenance for automatic approval."
                 ),
                 "methodology_url": "https://www.fao.org/faostat/en/#definitions",
-                "concept_group": f"faostat-qcl-{item_code}-{element_code}",
+                "concept_group": faostat_concept_group(item, element),
             }
         )
         if index % 100 == 0:
@@ -779,7 +900,7 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
                 "modeled_observation_share": round(candidate["modeled_share"], 6),
                 "clustering_score": candidate["cluster"],
                 "stability_score": candidate["stability"],
-                "methodology_notes": "Physical production measure from FAOSTAT QCL. National reporting flags are retained. Missing observations remain missing and are never inferred as zero. " + candidate["provenance_reason"],
+                "methodology_notes": "Physical production measure from FAOSTAT QCL. National reporting flags are retained. Official observations and transparent FAO estimates/imputations are distinguished but both count as documented evidence. Missing observations remain missing and are never inferred as zero. " + candidate["provenance_reason"],
                 "quality_standard_version": QUALITY_VERSION,
                 "provenance_status": candidate["provenance_status"],
                 "provenance_class": candidate["provenance_class"],
@@ -789,9 +910,13 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
                 "government_assertion_risk": "low" if candidate["provenance_status"] == "approved" else "unknown",
                 "concept_group": candidate["concept_group"],
                 "governance_priority": 11,
-                "governance_version": GOVERNANCE_VERSION,
+                "governance_version": FAOSTAT_GOVERNANCE_VERSION,
                 "duplicate_status": "pending",
-                "auto_decision_reason": "Automatically approved: quality and FAOSTAT provenance gates passed; duplicate arbitration may still supersede it." if governance_pass else "Quarantined because quality or provenance did not pass.",
+                "auto_decision_reason": (
+                    "Automatically approved under the FAOSTAT adaptive quality and documented-evidence gates; duplicate arbitration may still supersede it."
+                    if governance_pass
+                    else "Quarantined: " + ", ".join(candidate["quality_details"].get("failedChecks") or ["provenanceEvidence"])
+                ),
                 "metadata": {
                     "domainCode": "QCL",
                     "itemCode": candidate["item_code"],
@@ -801,9 +926,14 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
                     "unit": candidate["unit"],
                     "generatedCandidate": True,
                     "reviewRequired": False,
-                    "governanceVersion": GOVERNANCE_VERSION,
+                    "governanceVersion": FAOSTAT_GOVERNANCE_VERSION,
                     "conceptGroup": candidate["concept_group"],
                     "maximumRecentCoverage": candidate["max_coverage"],
+                    "coverageFloor": MIN_PLAYABLE_COVERAGE,
+                    "documentedObservationShare": round(candidate["documented_share"], 6),
+                    "unknownObservationShare": round(candidate["unknown_share"], 6),
+                    "stabilityComparisonYear": candidate["stability_comparison_year"],
+                    "adaptiveFaostatGate": True,
                 },
             }
         )
@@ -891,6 +1021,8 @@ def run() -> None:
             "details": {
                 "qualityStandard": QUALITY_VERSION,
                 "automaticGovernance": True,
+                "faostatAdaptiveCoverageFloor": MIN_PLAYABLE_COVERAGE,
+                "documentedEstimatesAllowed": True,
                 "missingValuesBecomeZero": False,
                 "countryUniverse": "193 UN members plus two UN observer states",
                 "trigger": "GitHub Actions",
@@ -911,7 +1043,7 @@ def run() -> None:
             connection, staged = build_sqlite(zip_path, database_path)
             candidates = category_candidates(connection)
             qualified = sum(1 for candidate in candidates if candidate["auto_qualified"])
-            log(f"Strict gate result: {qualified:,} pass numerical review; {len(candidates) - qualified:,} fail the numerical gate")
+            log(f"Adaptive gate result: {qualified:,} pass numerical review; {len(candidates) - qualified:,} fail the numerical gate")
             category_count, observation_count = import_candidates(client, connection, candidates, run_id)
             connection.close()
         completed = utc_now()
@@ -926,6 +1058,8 @@ def run() -> None:
                 "details": {
                     "qualityStandard": QUALITY_VERSION,
                     "automaticGovernance": True,
+                    "faostatAdaptiveCoverageFloor": MIN_PLAYABLE_COVERAGE,
+                    "documentedEstimatesAllowed": True,
                     "missingValuesBecomeZero": False,
                     "stagedObservations": staged,
                     "candidateCategories": category_count,

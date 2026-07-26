@@ -1,9 +1,7 @@
-# GeoStats v13.4
+# GeoStats v13.4.1
 
 GeoStats is a daily country-ranking game backed by a governed, multi-source statistics warehouse.
 
-The default Daily is **Scout**, followed by **Adventurer** and **Expert**. Internal database difficulty keys remain `easy`, `normal`, and `expert` for backward compatibility.
+Version 13.4.1 fixes FAOSTAT automatic governance. Commodity categories are no longer required to cover almost every country, and transparent FAO estimates or imputations are no longer treated as inherently invalid. The importer remains fail-closed for missing or unclassified provenance, stale or narrow series, unusable distributions, unstable rankings, and semantic duplicates.
 
-Version 13.4 adds canonical country-name enforcement, automatic category approval based on numerical quality and indicator-level provenance, a complete World Bank re-review, and cross-source duplicate arbitration.
-
-See `START_HERE_V13_4.txt` for installation instructions.
+See `START_HERE_V13_4_1.txt` for installation instructions.

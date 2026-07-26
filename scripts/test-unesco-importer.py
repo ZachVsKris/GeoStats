@@ -10,6 +10,14 @@ spec.loader.exec_module(module)
 
 assert len(module.RULES) >= 30
 assert len({rule.key for rule in module.RULES}) == len(module.RULES)
+for rule in module.RULES:
+    for field in ("include", "prefer", "exclude"):
+        patterns = getattr(rule, field)
+        assert isinstance(patterns, tuple), (rule.key, field, type(patterns))
+        for pattern in patterns:
+            module.re.compile(pattern, module.re.IGNORECASE)
+outbound = next(rule for rule in module.RULES if rule.key == "highest-outbound-student-mobility")
+assert outbound.include == (r"outbound mobility ratio|outbound mobile students.*percentage",)
 assert all(rule.title.startswith(("Highest ", "Lowest ", "Most ")) for rule in module.RULES)
 rows = module._records({"data": {"records": [{"geoUnit": "USA", "year": 2024, "value": 1.0}]}})
 assert rows[0]["geoUnit"] == "USA"
@@ -19,9 +27,6 @@ fake = object.__new__(module.UnescoImporter)
 adult = next(rule for rule in module.RULES if rule.key == "highest-adult-literacy")
 assert fake._match_score(adult, "Adult literacy rate, population 15 years and older, both sexes (%)", {}) is not None
 assert fake._match_score(adult, "Adult literacy rate, female (%)", {}) is None
-print("UNESCO importer tests passed.")
-
-
 class FakeHttp:
     def get_json(self, url):
         if url.endswith("/definitions/indicators"):
@@ -40,3 +45,4 @@ fake_importer.http = FakeHttp()
 discovered = fake_importer.discover()
 assert discovered
 assert discovered[0].source_indicator_code == "LR.AG15T99"
+print("UNESCO importer tests passed.")

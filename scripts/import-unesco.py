@@ -20,6 +20,16 @@ UIS_DOCS = "https://api.uis.unesco.org/api/public/documentation/"
 UIS_BROWSER = "https://databrowser.uis.unesco.org/"
 
 
+def _patterns(value: tuple[str, ...] | str, *, field: str, key: str) -> tuple[str, ...]:
+    patterns = (value,) if isinstance(value, str) else tuple(value)
+    for pattern in patterns:
+        try:
+            re.compile(pattern, re.IGNORECASE)
+        except re.error as exc:
+            raise ValueError(f"Invalid {field} regex for {key}: {pattern!r}: {exc}") from exc
+    return patterns
+
+
 def rule(
     key: str,
     title: str,
@@ -28,10 +38,10 @@ def rule(
     unit: str,
     value_type: str,
     direction: str,
-    include: tuple[str, ...],
+    include: tuple[str, ...] | str,
     *,
-    prefer: tuple[str, ...] = (),
-    exclude: tuple[str, ...] = (),
+    prefer: tuple[str, ...] | str = (),
+    exclude: tuple[str, ...] | str = (),
     min_coverage: int = 70,
     evidence: str = "A",
     specificity: int = 90,
@@ -46,9 +56,9 @@ def rule(
         unit=unit,
         value_type=value_type,  # type: ignore[arg-type]
         ranking_direction=direction,  # type: ignore[arg-type]
-        include=include,
-        prefer=prefer,
-        exclude=exclude,
+        include=_patterns(include, field="include", key=key),
+        prefer=_patterns(prefer, field="prefer", key=key),
+        exclude=_patterns(exclude, field="exclude", key=key),
         min_coverage=min_coverage,
         evidence_tier=evidence,  # type: ignore[arg-type]
         source_priority=12,
@@ -100,7 +110,7 @@ RULES: tuple[IndicatorRule, ...] = (
     rule("highest-stem-graduate-share", "Highest STEM graduate share", "Education", "🧬", "% of graduates", "percentage", "high", (r"graduates", r"science.*technology.*engineering.*mathematics|stem", r"percentage|share"), exclude=COMMON_EXCLUDES + (r"number",), min_coverage=50),
     rule("highest-vocational-enrollment-share", "Highest vocational enrollment share", "Education", "🛠️", "% of secondary students", "percentage", "high", (r"vocational", r"secondary", r"percentage|share"), exclude=COMMON_EXCLUDES + (r"number",), min_coverage=55),
     rule("most-international-students-hosted", "Most international students hosted", "Education", "🌍", "students", "total", "high", (r"internationally mobile students", r"host|inbound|destination"), exclude=COMMON_EXCLUDES + (r"percentage|ratio",), min_coverage=50, specificity=82),
-    rule("highest-outbound-student-mobility", "Highest outbound student mobility", "Education", "✈️", "% of tertiary students", "percentage", "high", (r"outbound mobility ratio|outbound mobile students.*percentage"), exclude=COMMON_EXCLUDES, min_coverage=55),
+    rule("highest-outbound-student-mobility", "Highest outbound student mobility", "Education", "✈️", "% of tertiary students", "percentage", "high", (r"outbound mobility ratio|outbound mobile students.*percentage",), exclude=COMMON_EXCLUDES, min_coverage=55),
 )
 
 BAD_NAME = re.compile(

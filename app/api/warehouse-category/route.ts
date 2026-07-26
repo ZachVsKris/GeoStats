@@ -27,6 +27,14 @@ type CategoryRow = {
   common_year: number | null;
   common_year_coverage: number | null;
   unit: string | null;
+  source_url?: string | null;
+  methodology_url?: string | null;
+  official_observation_share?: number | null;
+  modeled_observation_share?: number | null;
+  credibility_score?: number | null;
+  credibility_status?: string | null;
+  credibility_reason?: string | null;
+  evidence_label?: string | null;
 };
 
 type ObservationRow = {
@@ -35,6 +43,9 @@ type ObservationRow = {
   data_year: number;
   value: number;
 };
+
+const MODERN_SELECT = "id,title,review_status,enabled,eligible_daily,curation_status,common_year,common_year_coverage,unit,source_url,methodology_url,official_observation_share,modeled_observation_share,credibility_score,credibility_status,credibility_reason,evidence_label";
+const LEGACY_SELECT = "id,title,review_status,enabled,eligible_daily,curation_status,common_year,common_year_coverage,unit,source_url,methodology_url,official_observation_share,modeled_observation_share";
 
 export async function GET(request: NextRequest) {
   const categoryId = request.nextUrl.searchParams.get("category") ?? "";
@@ -50,18 +61,24 @@ export async function GET(request: NextRequest) {
   const admin = createSupabaseAdminClient();
   if (!admin) return NextResponse.json({ error: "Supabase is not configured." }, { status: 503 });
 
-  let query = admin
-    .from("stat_categories")
-    .select("id,title,review_status,enabled,eligible_daily,curation_status,common_year,common_year_coverage,unit");
-  query = bySourceIndicator
-    ? query.eq("source_organization", sourceOrganization).eq("source_indicator_code", indicator)
-    : query.eq("id", categoryId);
-  const { data: categoryData, error: categoryError } = await query.maybeSingle();
-  if (categoryError) return NextResponse.json({ error: categoryError.message }, { status: 500 });
+  const runCategoryQuery = async (select: string) => {
+    let query = admin.from("stat_categories").select(select);
+    query = bySourceIndicator
+      ? query.eq("source_organization", sourceOrganization!).eq("source_indicator_code", indicator)
+      : query.eq("id", categoryId);
+    return query.maybeSingle();
+  };
 
-  const category = categoryData as CategoryRow | null;
-  if (!category || category.review_status !== "approved" || !category.enabled || !category.eligible_daily || (category.curation_status && category.curation_status !== "approved")) {
-    return NextResponse.json({ error: "This category has not passed GeoStats quality, provenance, curation, and duplicate review." }, { status: 404 });
+  let categoryResult: any = await runCategoryQuery(MODERN_SELECT);
+  if (categoryResult.error && /credibility_|evidence_label/i.test(categoryResult.error.message)) {
+    categoryResult = await runCategoryQuery(LEGACY_SELECT);
+  }
+  if (categoryResult.error) return NextResponse.json({ error: categoryResult.error.message }, { status: 500 });
+
+  const category = categoryResult.data as CategoryRow | null;
+  const trustFailed = category?.credibility_status === "quarantined" || (category?.credibility_score != null && category.credibility_score < 75);
+  if (!category || category.review_status !== "approved" || !category.enabled || !category.eligible_daily || trustFailed || (category.curation_status && category.curation_status !== "approved")) {
+    return NextResponse.json({ error: "This category has not passed GeoStats quality, provenance, credibility, curation, and duplicate review." }, { status: 404 });
   }
   if (!category.common_year) {
     return NextResponse.json({ error: "This category has no verified common comparison year." }, { status: 409 });
@@ -89,6 +106,14 @@ export async function GET(request: NextRequest) {
     commonYear: category.common_year,
     commonYearCoverage: category.common_year_coverage,
     unit: category.unit,
+    sourceUrl: category.source_url ?? null,
+    methodologyUrl: category.methodology_url ?? null,
+    officialObservationShare: category.official_observation_share ?? null,
+    modeledObservationShare: category.modeled_observation_share ?? null,
+    credibilityScore: category.credibility_score ?? null,
+    trustStatus: category.credibility_status ?? null,
+    trustReason: category.credibility_reason ?? null,
+    evidenceLabel: category.evidence_label ?? (Number(category.modeled_observation_share ?? 0) >= .8 ? "Modeled estimate" : Number(category.modeled_observation_share ?? 0) >= .2 ? "Mixed observed and modeled" : "Internationally harmonized"),
     observations,
   }, {
     headers: { "Cache-Control": "public, s-maxage=900, stale-while-revalidate=3600" },

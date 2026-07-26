@@ -43,6 +43,12 @@ const CATEGORY_COLUMNS = [
   "curation_status",
   "curation_reason",
   "curation_version",
+  "credibility_score",
+  "credibility_status",
+  "credibility_reason",
+  "evidence_label",
+  "comparability_risk",
+  "corroboration_status",
 ].join(",");
 
 type BoardRow = { difficulty: "easy" | "normal" | "expert" };

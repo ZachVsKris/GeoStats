@@ -5,6 +5,8 @@ import { decodeRound, type Round } from "../../../../lib/challengeCodec";
 import { fetchCountries, type CountryInfo } from "../../../../lib/worldBank";
 import { DAILY_DIFFICULTIES, ROUND_CONFIGS, type DailyDifficulty } from "../../../../lib/gameRules";
 import { CATEGORY_SET_VERSION, DATASET_VERSION, RULES_VERSION } from "../../../../lib/version";
+import { loadServerPlayableCategoryCatalog } from "../../../../lib/serverPlayableCatalog";
+import type { Category } from "../../../../lib/categories";
 
 function validDate(value: string) { return /^\d{4}-\d{2}-\d{2}$/.test(value); }
 type PackedBoard = { seed?: string; encodedBoard?: string };
@@ -40,12 +42,12 @@ function trioIsDistinct(rounds: Record<DailyDifficulty, Round>) {
   return true;
 }
 
-function validateStoredRows(rows: StoredRow[], countries: CountryInfo[]) {
+function validateStoredRows(rows: StoredRow[], countries: CountryInfo[], categoryCatalog: Category[]) {
   const decoded: RoundShape = {};
   const rowByDifficulty = new Map<DailyDifficulty, StoredRow>();
   for (const row of rows) {
     try {
-      const round = decodeRound(row.encoded_board, countries);
+      const round = decodeRound(row.encoded_board, countries, categoryCatalog);
       if (!hasExpectedDimensions(round, row.difficulty)) continue;
       decoded[row.difficulty] = round;
       rowByDifficulty.set(row.difficulty, row);
@@ -88,8 +90,8 @@ export async function GET(_request: Request, context: { params: Promise<{ date: 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
   try {
-    const countries = await fetchCountries();
-    const validated = validateStoredRows(rows, countries);
+    const [countries, categoryCatalog] = await Promise.all([fetchCountries(), loadServerPlayableCategoryCatalog()]);
+    const validated = validateStoredRows(rows, countries, categoryCatalog);
     const result = shape(validated.rows);
     return NextResponse.json({ found: Boolean(result.easy && result.normal && result.expert), ...result }, {
       headers: { "Cache-Control": "private, no-store, max-age=0" },
@@ -115,8 +117,8 @@ export async function POST(request: Request, context: { params: Promise<{ date: 
   if (storedError) return NextResponse.json({ error: storedError.message }, { status: 500 });
 
   try {
-    const countries = await fetchCountries();
-    const validatedExisting = validateStoredRows(storedRows, countries);
+    const [countries, categoryCatalog] = await Promise.all([fetchCountries(), loadServerPlayableCategoryCatalog()]);
+    const validatedExisting = validateStoredRows(storedRows, countries, categoryCatalog);
     const existing = shape(validatedExisting.rows);
     if (existing.easy && existing.normal && existing.expert) {
       return NextResponse.json({ created: false, repaired: false, ...existing });
@@ -128,7 +130,7 @@ export async function POST(request: Request, context: { params: Promise<{ date: 
     ])) as Record<DailyDifficulty, string>;
     const rounds = Object.fromEntries(DAILY_DIFFICULTIES.map((difficulty) => [
       difficulty,
-      decodeRound(packed[difficulty], countries),
+      decodeRound(packed[difficulty], countries, categoryCatalog),
     ])) as Record<DailyDifficulty, Round>;
 
     for (const difficulty of DAILY_DIFFICULTIES) {
@@ -176,7 +178,7 @@ export async function POST(request: Request, context: { params: Promise<{ date: 
 
     const latest = await readStored(date);
     if (latest.error) return NextResponse.json({ error: latest.error.message }, { status: 500 });
-    const validatedLatest = validateStoredRows(latest.rows, countries);
+    const validatedLatest = validateStoredRows(latest.rows, countries, categoryCatalog);
     const result = shape(validatedLatest.rows);
     if (!result.easy || !result.normal || !result.expert) {
       return NextResponse.json({ error: "The repaired Daily trio could not be verified." }, { status: 500 });

@@ -1,9 +1,30 @@
 import { NextResponse } from "next/server";
 import { createSupabaseServerClient } from "../../../lib/supabase/server";
 
-function safeNext(value: string | null) {
-  if (!value || !value.startsWith("/") || value.startsWith("//")) return "/daily";
+function safeRelativePath(value: string | null) {
+  if (!value || !value.startsWith("/") || value.startsWith("//")) return null;
   return value;
+}
+
+function safeNext(incoming: URL) {
+  const direct = safeRelativePath(incoming.searchParams.get("next"));
+  if (direct) return direct;
+
+  // GeoStats-branded token-hash email templates pass the original redirect
+  // URL back through this endpoint. Only accept its nested destination when it
+  // belongs to the same public origin, then reduce it to a relative path.
+  const redirectTo = incoming.searchParams.get("redirect_to");
+  if (redirectTo) {
+    try {
+      const redirect = new URL(redirectTo);
+      if (redirect.origin === incoming.origin || redirect.hostname === "geostats.xyz" || redirect.hostname.endsWith(".vercel.app")) {
+        return safeRelativePath(redirect.searchParams.get("next")) ?? "/daily";
+      }
+    } catch {
+      // Invalid nested redirects fail closed to the default Daily route.
+    }
+  }
+  return "/daily";
 }
 
 function redirectOrigin(request: Request, origin: string) {
@@ -14,7 +35,7 @@ function redirectOrigin(request: Request, origin: string) {
 
 export async function GET(request: Request) {
   const incoming = new URL(request.url);
-  const next = safeNext(incoming.searchParams.get("next"));
+  const next = safeNext(incoming);
   const origin = redirectOrigin(request, incoming.origin);
   const queryError = incoming.searchParams.get("error_description") || incoming.searchParams.get("error");
 

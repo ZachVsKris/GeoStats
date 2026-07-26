@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { createSupabaseBrowserClient } from "../lib/supabase/browser";
 
-type Leader = { username: string; displayName: string | null; games: number; average: number; rating: number };
+type Leader = { username: string; displayName: string | null; games: number; average: number; normalizedPerformance?: number; rating: number };
 
 export default function AccountLeaderboard({ challengeDate, assignments, completed, difficulty = "normal" }: { challengeDate: string; assignments: Record<string,string>; completed: boolean; difficulty?: "easy" | "normal" | "expert" }) {
   const [userEmail, setUserEmail] = useState<string | null>(null);
@@ -50,6 +50,6 @@ export default function AccountLeaderboard({ challengeDate, assignments, complet
       <button onClick={()=>setOpen(!open)}>{open ? "Hide leaderboard" : "Leaderboard"}</button>
     </div>
     {message && <p>{message}</p>}
-    {open && <div className="leaderboardTable"><div className="leaderboardTableHeader"><span>#</span><span>Player</span><span>Average</span><span>Dailies</span><span>Rating</span></div>{leaders.length ? leaders.map((leader,index)=><div key={leader.username}><b>{index+1}</b><span>{leader.displayName || leader.username}</span><span>{leader.average}</span><span>{leader.games}</span><strong>{leader.rating}</strong></div>) : <p>No one has qualified yet. Five completed Dailies are required.</p>}</div>}
+    {open && <div className="leaderboardTable"><div className="leaderboardTableHeader"><span>#</span><span>Player</span><span>Raw avg.</span><span>Dailies</span><span>Rating</span></div>{leaders.length ? leaders.map((leader,index)=><div key={leader.username}><b>{index+1}</b><span>{leader.displayName || leader.username}</span><span>{leader.average}</span><span>{leader.games}</span><strong>{leader.rating}</strong></div>) : <p>No one has qualified yet. Five completed Dailies are required.</p>}</div>}
   </section>;
 }

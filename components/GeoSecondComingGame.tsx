@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { CATEGORIES, type Category } from "../lib/categories";
+import type { Category } from "../lib/categories";
+import { fetchPlayableCategoryCatalog } from "../lib/playableCatalog";
 import { fetchCountries, type CountryInfo } from "../lib/worldBank";
-import { fetchCategory } from "../lib/dataSources";
+import { fetchCategory, hydrateRoundMetadata } from "../lib/dataSources";
 import { SOURCE_REGISTRY } from "../lib/sourceRegistry";
 import { canonicalizeDataset, formatValue, poolLeaderboard, scorePlacements, validateRound } from "../lib/dataEngine";
 import { scoreCategoryQuality } from "../lib/categoryQuality";
@@ -30,6 +31,7 @@ type SavedDailyScore = {
 };
 type GeoSecondComingGameProps = {
   initialDifficulty?: DailyDifficulty;
+  mode?: "daily" | "random";
 };
 type DailyTrio = Record<DailyDifficulty, Round>;
 type Rng = () => number;
@@ -63,6 +65,19 @@ function shuffle<T>(items: T[], rng: Rng) {
   return copy;
 }
 
+
+
+function normalizeRandomSeed(value: string) {
+  return value.trim().toUpperCase().replace(/[^A-Z0-9-]/g, "").slice(0, 24);
+}
+
+function createRandomSeed() {
+  const alphabet = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  const bytes = new Uint8Array(8);
+  if (typeof crypto !== "undefined" && crypto.getRandomValues) crypto.getRandomValues(bytes);
+  else for (let index = 0; index < bytes.length; index += 1) bytes[index] = Math.floor(Math.random() * 256);
+  return Array.from(bytes, (value) => alphabet[value % alphabet.length]).join("");
+}
 
 function dailySeed(difficulty: DailyDifficulty, date = new Date()) {
   return `DAILY-${difficulty.toUpperCase()}-${newYorkDate(date)}`;
@@ -222,7 +237,8 @@ function findDistinctWinners(
 
 async function loadCandidateDatasets(seed: string, targetCount = 20): Promise<RoundCategory[]> {
   const rng = seededRandom(`${seed}:datasets`);
-  const shuffled = shuffle(CATEGORIES.filter((category) => category.enabled !== false), rng);
+  const catalog = await fetchPlayableCategoryCatalog();
+  const shuffled = shuffle(catalog.filter((category) => category.enabled !== false), rng);
   const loaded: RoundCategory[] = [];
   const loadedIds = new Set<string>();
   const typeCounts = new Map<string, number>();
@@ -267,7 +283,7 @@ function chooseDiverseCategories(
   const selected: RoundCategory[] = [];
   while (selected.length < config.categoryCount) {
     const options = ordered.filter((dataset) =>
-      !selected.includes(dataset) && canAddCategory(selected.map((item) => item.category), dataset.category),
+      !selected.includes(dataset) && canAddCategory(selected.map((item) => item.category), dataset.category, config),
     );
     if (!options.length) return null;
     const selectedTypes = new Set(selected.map((item) => roundType(item.category)));
@@ -402,7 +418,7 @@ async function buildDailyTrio(
   throw new Error("Today’s Scout, Adventurer, and Expert boards could not be built with enough variety. Please try again.");
 }
 
-export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFICULTY }: GeoSecondComingGameProps = {}) {
+export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFICULTY, mode = "daily" }: GeoSecondComingGameProps = {}) {
   const [countries, setCountries] = useState<CountryInfo[]>([]);
   const [round, setRound] = useState<Round | null>(null);
   const [assignments, setAssignments] = useState<Assignment>({});
@@ -413,6 +429,7 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
   const [error, setError] = useState("");
   const [showRules, setShowRules] = useState(false);
   const [seed, setSeed] = useState("");
+  const [seedInput, setSeedInput] = useState("");
   const [difficulty, setDifficulty] = useState<DailyDifficulty>(initialDifficulty);
   const [copied, setCopied] = useState(false);
   const [savedCompletion, setSavedCompletion] = useState(false);
@@ -428,13 +445,17 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
   const roundMaxScore = activeConfig.maxScore;
   const topFinishRank = activeConfig.topFinishRank;
   const unusedCount = Math.max(0, poolSize - categoryTarget);
+  const isRandom = mode === "random";
 
-  function challengeUrl(nextDifficulty = difficulty) {
-    return new URL(ROUND_CONFIGS[nextDifficulty].path, window.location.origin).toString();
+  function challengeUrl(nextDifficulty = difficulty, nextSeed = seed) {
+    const path = isRandom ? ROUND_CONFIGS[nextDifficulty].randomPath : ROUND_CONFIGS[nextDifficulty].path;
+    const url = new URL(path, window.location.origin);
+    if (isRandom && nextSeed) url.searchParams.set("seed", nextSeed);
+    return url.toString();
   }
 
-  function syncUrl(nextDifficulty: DailyDifficulty) {
-    window.history.replaceState({}, "", challengeUrl(nextDifficulty));
+  function syncUrl(nextDifficulty: DailyDifficulty, nextSeed = seed) {
+    window.history.replaceState({}, "", challengeUrl(nextDifficulty, nextSeed));
   }
 
   function resetRoundState(nextSeed: string, nextDifficulty: DailyDifficulty) {
@@ -482,6 +503,7 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
     syncUrl(nextDifficulty);
     setStatus(`Loading today’s ${ROUND_CONFIGS[nextDifficulty].label} Daily…`);
     try {
+      const categoryCatalog = await fetchPlayableCategoryCatalog();
       let fixed: Partial<DailyTrio> = {};
       try {
         const response = await fetch(`/api/daily-trio/${date}`);
@@ -489,13 +511,14 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
         for (const candidate of DAILY_DIFFICULTIES) {
           const packed = saved?.[candidate]?.encoded_board;
           if (!packed) continue;
-          const restored = decodeRound(packed, existingCountries);
+          const restored = decodeRound(packed, existingCountries, categoryCatalog);
           if (roundMatchesDifficulty(restored, candidate)) fixed[candidate] = restored;
         }
         const restored = fixed[nextDifficulty];
         if (restored) {
-          setRound(restored);
-          await restoreSavedCompletion(restored, nextDifficulty, date);
+          const hydrated = await hydrateRoundMetadata(restored);
+          setRound(hydrated);
+          await restoreSavedCompletion(hydrated, nextDifficulty, date);
           setStatus("");
           return;
         }
@@ -521,7 +544,7 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
           for (const candidate of DAILY_DIFFICULTIES) {
             const packed = saved?.[candidate]?.encoded_board;
             if (!packed) continue;
-            const board = decodeRound(packed, existingCountries);
+            const board = decodeRound(packed, existingCountries, categoryCatalog);
             if (roundMatchesDifficulty(board, candidate)) restored[candidate] = board;
           }
           if (restored.easy && restored.normal && restored.expert) finalTrio = restored as DailyTrio;
@@ -533,11 +556,38 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
       if (!roundMatchesDifficulty(finalRound, nextDifficulty)) {
         throw new Error(`The ${ROUND_CONFIGS[nextDifficulty].label} Daily could not be verified with the correct board size. Reload and try again.`);
       }
-      setRound(finalRound);
-      await restoreSavedCompletion(finalRound, nextDifficulty, date);
+      const hydratedFinalRound = await hydrateRoundMetadata(finalRound);
+      setRound(hydratedFinalRound);
+      await restoreSavedCompletion(hydratedFinalRound, nextDifficulty, date);
       setStatus("");
     } catch (e) {
       setError(e instanceof Error ? e.message : "The Daily boards could not be generated.");
+      setStatus("");
+    }
+  }
+
+  async function loadRandomRound(nextDifficulty: DailyDifficulty, requestedSeed: string, existingCountries = countries) {
+    const nextSeed = normalizeRandomSeed(requestedSeed) || createRandomSeed();
+    resetRoundState(nextSeed, nextDifficulty);
+    setSeedInput(nextSeed);
+    syncUrl(nextDifficulty, nextSeed);
+    setStatus(`Building unranked ${ROUND_CONFIGS[nextDifficulty].label} test board…`);
+    try {
+      const available = await loadCandidateDatasets(`RANDOM-${nextDifficulty}-${nextSeed}`, 36);
+      const generated = composeRound(
+        available,
+        existingCountries,
+        `RANDOM-${nextDifficulty}-${nextSeed}:board`,
+        ROUND_CONFIGS[nextDifficulty],
+      );
+      if (!generated || !roundMatchesDifficulty(generated, nextDifficulty)) {
+        throw new Error("That seed could not produce a valid board under the current trust and variety rules. Generate another seed.");
+      }
+      const hydrated = await hydrateRoundMetadata(generated);
+      setRound(hydrated);
+      setStatus("");
+    } catch (caught) {
+      setError(caught instanceof Error ? caught.message : "The random board could not be generated.");
       setStatus("");
     }
   }
@@ -548,7 +598,12 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
         const list = await fetchCountries();
         setCountries(list);
         const nextDifficulty = difficultyFromPath(window.location.pathname);
-        await loadDailyRound(nextDifficulty, list);
+        if (isRandom) {
+          const requestedSeed = new URLSearchParams(window.location.search).get("seed") ?? createRandomSeed();
+          await loadRandomRound(nextDifficulty, requestedSeed, list);
+        } else {
+          await loadDailyRound(nextDifficulty, list);
+        }
       } catch (e) {
         setError(e instanceof Error ? e.message : "Official data could not be loaded.");
         setStatus("");
@@ -557,7 +612,31 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
   }, []);
 
   function retryCurrentRound() {
-    loadDailyRound(difficulty);
+    if (isRandom) loadRandomRound(difficulty, seed || createRandomSeed());
+    else loadDailyRound(difficulty);
+  }
+
+  function generateNewRandomRound() {
+    loadRandomRound(difficulty, createRandomSeed());
+  }
+
+  function loadEnteredSeed() {
+    const requested = normalizeRandomSeed(seedInput);
+    if (!requested) {
+      setError("Enter a seed using letters, numbers, or hyphens.");
+      return;
+    }
+    loadRandomRound(difficulty, requested);
+  }
+
+  async function copyRandomLink() {
+    try {
+      await navigator.clipboard.writeText(challengeUrl(difficulty, seed));
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1800);
+    } catch {
+      setError("The link could not be copied automatically.");
+    }
   }
 
   async function shareScore() {
@@ -566,14 +645,15 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
     const seconds = scores.filter((row) => row.rank === 2).length;
     const thirds = scores.filter((row) => row.rank === 3).length;
     const topFinish = scores.filter((row) => row.rank <= topFinishRank).length;
-    const text = `🌍 GeoStats ${ROUND_CONFIGS[difficulty].label} Daily
+    const gameLabel = isRandom ? `${ROUND_CONFIGS[difficulty].label} Test · ${seed}` : `${ROUND_CONFIGS[difficulty].label} Daily`;
+    const text = `🌍 GeoStats ${gameLabel}
 ${total} / ${roundMaxScore}
 
 🥇 ${firsts}   🥈 ${seconds}   🥉 ${thirds}
 ⭐ Top ${topFinishRank}: ${topFinish}/${categoryTarget}
 
 Can you beat my score?`;
-    const url = challengeUrl();
+    const url = challengeUrl(difficulty, seed);
 
     try {
       if (navigator.share) {
@@ -585,7 +665,7 @@ Can you beat my score?`;
       }
     } catch (error) {
       if (error instanceof DOMException && error.name === "AbortError") return;
-      setError("The score could not be shared automatically. Copy the Daily link from your browser instead.");
+      setError(`The score could not be shared automatically. Copy the ${isRandom ? "seed" : "Daily"} link from your browser instead.`);
     }
   }
 
@@ -675,12 +755,30 @@ Can you beat my score?`;
   return <div className={`shell ${round && !scores ? "activePlay" : ""} ${scores ? "resultsView" : ""} ${difficulty}Round ${difficulty === "expert" ? "expertRound" : ""} ${difficulty === "easy" ? "compactRound" : ""}`}>
     {!scores && <header>
       <div className="brand"><span className="logo">🌍</span><div><h1>GeoStats</h1><p>Geography, with strategy.</p></div></div>
-      <div className="headerButtons"><a href="/audit" className="headerLink">Data audit</a><button onClick={() => setShowRules(true)}>How it works</button><a href="/daily" className={`dailyModeButton ${difficulty === "easy" ? "active" : ""}`} aria-current={difficulty === "easy" ? "page" : undefined}>Scout Daily</a><a href="/daily/adventurer" className={`dailyModeButton ${difficulty === "normal" ? "active" : ""}`} aria-current={difficulty === "normal" ? "page" : undefined}>Adventurer Daily</a><a href="/daily/expert" className={`dailyModeButton ${difficulty === "expert" ? "active" : ""}`} aria-current={difficulty === "expert" ? "page" : undefined}>Expert Daily</a><AccountControls difficulty={difficulty} /></div>
+      <div className="headerButtons">
+        <a href="/audit" className="headerLink">Data audit</a>
+        <button onClick={() => setShowRules(true)}>How it works</button>
+        <a href="/daily" className={`dailyModeButton ${!isRandom ? "active" : ""}`}>Daily</a>
+        <a href="/random" className={`dailyModeButton ${isRandom ? "active" : ""}`}>Random test</a>
+        <a href={isRandom ? ROUND_CONFIGS.easy.randomPath : ROUND_CONFIGS.easy.path} className={`dailyModeButton ${difficulty === "easy" ? "active" : ""}`}>Scout</a>
+        <a href={isRandom ? ROUND_CONFIGS.normal.randomPath : ROUND_CONFIGS.normal.path} className={`dailyModeButton ${difficulty === "normal" ? "active" : ""}`}>Adventurer</a>
+        <a href={isRandom ? ROUND_CONFIGS.expert.randomPath : ROUND_CONFIGS.expert.path} className={`dailyModeButton ${difficulty === "expert" ? "active" : ""}`}>Expert</a>
+        {!isRandom && <AccountControls difficulty={difficulty} />}
+      </div>
     </header>}
 
-    <section className="challengeBar">
-      <div><span className="kicker">{ROUND_CONFIGS[difficulty].label} Daily</span><strong>{dailyDateFromSeed(seed)}</strong></div>
-      <div className="challengeActions"><span className="mobileProgress">{Object.keys(assignments).length}/{categoryTarget} assigned</span>{scores && <button className="resultsRulesLink" onClick={() => setShowRules(true)}>Rules</button>}</div>
+    <section className={`challengeBar ${isRandom ? "randomChallengeBar" : ""}`}>
+      <div><span className="kicker">{isRandom ? `${ROUND_CONFIGS[difficulty].label} Random Test · Unranked` : `${ROUND_CONFIGS[difficulty].label} Daily`}</span><strong>{isRandom ? seed : dailyDateFromSeed(seed)}</strong></div>
+      <div className="challengeActions">
+        {isRandom && <div className="seedControls">
+          <label><span>Seed</span><input value={seedInput} onChange={(event) => setSeedInput(normalizeRandomSeed(event.target.value))} onKeyDown={(event) => event.key === "Enter" && loadEnteredSeed()} aria-label="Random seed" /></label>
+          <button onClick={loadEnteredSeed}>Load seed</button>
+          <button onClick={generateNewRandomRound}>New seed</button>
+          <button onClick={copyRandomLink}>{copied ? "Link copied ✓" : "Copy link"}</button>
+        </div>}
+        <span className="mobileProgress">{Object.keys(assignments).length}/{categoryTarget} assigned</span>
+        {scores && <button className="resultsRulesLink" onClick={() => setShowRules(true)}>Rules</button>}
+      </div>
     </section>
 
     {!scores && <section className="hero">
@@ -702,17 +800,17 @@ Can you beat my score?`;
       </section>
     </main>}
 
-    {round && scores && <section className="panel results"><div className="score"><span>Final score</span>{savedCompletion && <p className="savedDailyNotice">Completed earlier today. This is the score saved to your account.</p>}<div className="scoreValue"><strong>{total}</strong><b>/ {roundMaxScore}</b></div><div className="scoreInsights"><div><strong>{averagePlacement}</strong><span>Average placement</span></div><div><strong>{bestPossibleCount}</strong><span>Best possible</span></div><div><strong>{topFinishCount}/{categoryTarget}</strong><span>Top {topFinishRank}</span></div></div><div className="scoreBreakdown">{[1,2,3].map((rank)=><span key={rank}>{rank===1?"🥇":rank===2?"🥈":"🥉"} {scores.filter((row)=>row.rank===rank).length}</span>)}</div><p>{total>=roundMaxScore*.8125?"Elite allocation.":total>=roundMaxScore*.65?"Strong draft with room to optimize.":"A few specialists were spent in the wrong places."}</p><div className="scoreActions"><button className="shareScore" onClick={shareScore}>{copied ? "Score copied ✓" : "Share score"}</button><AccountControls results difficulty={difficulty} pendingScore={savedCompletion ? undefined : { challengeDate: dailyDateFromSeed(seed), difficulty, assignments }} /></div></div>
+    {round && scores && <section className="panel results"><div className="score"><span>Final score</span>{savedCompletion && <p className="savedDailyNotice">Completed earlier today. This is the score saved to your account.</p>}<div className="scoreValue"><strong>{total}</strong><b>/ {roundMaxScore}</b></div><div className="scoreInsights"><div><strong>{averagePlacement}</strong><span>Average placement</span></div><div><strong>{bestPossibleCount}</strong><span>Best possible</span></div><div><strong>{topFinishCount}/{categoryTarget}</strong><span>Top {topFinishRank}</span></div></div><div className="scoreBreakdown">{[1,2,3].map((rank)=><span key={rank}>{rank===1?"🥇":rank===2?"🥈":"🥉"} {scores.filter((row)=>row.rank===rank).length}</span>)}</div><p>{total>=roundMaxScore*.8125?"Elite allocation.":total>=roundMaxScore*.65?"Strong draft with room to optimize.":"A few specialists were spent in the wrong places."}</p><div className="scoreActions"><button className="shareScore" onClick={shareScore}>{copied ? "Score copied ✓" : "Share score"}</button>{isRandom ? <button onClick={generateNewRandomRound}>Generate another board</button> : <AccountControls results difficulty={difficulty} pendingScore={savedCompletion ? undefined : { challengeDate: dailyDateFromSeed(seed), difficulty, assignments }} />}</div></div>
       <div className="resultsHeading"><div><span className="kicker">Your placements</span><h3>Placement and points earned</h3></div><small>Open a ranking to compare all {poolSize} countries</small></div>
-      {scores.map((row)=>{ const leaderboard=poolLeaderboard(row.category,round.bank); return <div className={`resultWrap theme-${row.category.category.family.toLowerCase().replace(/[^a-z0-9]+/g,"-")}`} key={row.category.category.id}><div className="result"><div className="resultMain"><span>{row.category.category.icon}</span><div><strong>{row.category.category.name}</strong><small className="statTip" tabIndex={0}>{row.country.flag} {row.country.name} · {formatValue(row.value,row.category.category)} · {row.category.byCountry.get(row.country.id)?.year}<span className="tooltip">{SOURCE_REGISTRY[row.category.category.source].name} list: #{row.globalRank} globally<br/>Actual value: {formatValue(row.value,row.category.category)}<br/>Indicator: {row.category.category.indicator}<br/><a href={row.category.sourceUrl} target="_blank" rel="noreferrer" onClick={(e)=>e.stopPropagation()}>Open official source ↗</a></span></small></div></div><div className="placementSummary"><b>{ordinal(row.rank)} of {poolSize}</b><strong>{row.points} pts earned</strong>{row.rank===1&&<span>Best possible</span>}</div><button className="leaderboardButton" onClick={()=>setOpenLeaderboard(openLeaderboard===row.category.category.id?null:row.category.category.id)} aria-expanded={openLeaderboard===row.category.category.id}>{openLeaderboard===row.category.category.id?"Hide rankings":"View rankings"}</button></div>{openLeaderboard===row.category.category.id&&<div className="leaderboard"><div className="leaderboardHeader"><div className="leaderboardTitle"><h4>{row.category.category.name}</h4><span>All {poolSize} countries</span></div><div className="leaderboardSource"><span className="sourceBadge">{row.category.category.source === "worldbank" ? "World Bank" : SOURCE_REGISTRY[row.category.category.source].name}</span><a href={row.category.sourceUrl} target="_blank" rel="noreferrer" onClick={(e)=>e.stopPropagation()}>Official source ↗</a></div></div>{leaderboard.map(item=><div key={item.country.id} className={item.country.id===row.country.id?"current":""}><b>#{item.poolRank}</b><span>{item.country.flag} {item.country.name}</span><span>{formatValue(item.observation.value,row.category.category)}</span><small>{item.observation.year}</small><strong>{item.points} pts</strong></div>)}</div>}</div>})}
+      {scores.map((row)=>{ const leaderboard=poolLeaderboard(row.category,round.bank); return <div className={`resultWrap theme-${row.category.category.family.toLowerCase().replace(/[^a-z0-9]+/g,"-")}`} key={row.category.category.id}><div className="result"><div className="resultMain"><span>{row.category.category.icon}</span><div><strong>{row.category.category.name}</strong><small className="statTip" tabIndex={0}>{row.country.flag} {row.country.name} · {formatValue(row.value,row.category.category)} · {row.category.byCountry.get(row.country.id)?.year}<span className="tooltip">{SOURCE_REGISTRY[row.category.category.source].name} list: #{row.globalRank} globally<br/>Actual value: {formatValue(row.value,row.category.category)}<br/>Indicator: {row.category.category.indicator}<br/>Evidence: {row.category.evidenceLabel ?? row.category.category.evidenceLabel ?? "Internationally harmonized"}<br/>Credibility: {row.category.credibilityScore ?? row.category.category.credibilityScore ?? "reviewed"}/100<br/>Why trusted: {row.category.trustReason ?? row.category.category.trustReason ?? "Passed GeoStats provenance and credibility review."}<br/><a href={row.category.sourceUrl} target="_blank" rel="noreferrer" onClick={(e)=>e.stopPropagation()}>Open exact source ↗</a>{row.category.methodologyUrl && <><br/><a href={row.category.methodologyUrl} target="_blank" rel="noreferrer" onClick={(e)=>e.stopPropagation()}>Methodology ↗</a></>}</span></small></div></div><div className="placementSummary"><b>{ordinal(row.rank)} of {poolSize}</b><strong>{row.points} pts earned</strong>{row.rank===1&&<span>Best possible</span>}</div><button className="leaderboardButton" onClick={()=>setOpenLeaderboard(openLeaderboard===row.category.category.id?null:row.category.category.id)} aria-expanded={openLeaderboard===row.category.category.id}>{openLeaderboard===row.category.category.id?"Hide rankings":"View rankings"}</button></div>{openLeaderboard===row.category.category.id&&<div className="leaderboard"><div className="leaderboardHeader"><div className="leaderboardTitle"><h4>{row.category.category.name}</h4><span>All {poolSize} countries</span></div><div className="leaderboardSource"><span className="sourceBadge">{row.category.category.source === "worldbank" ? "World Bank" : SOURCE_REGISTRY[row.category.category.source].name}</span><a href={row.category.sourceUrl} target="_blank" rel="noreferrer" onClick={(e)=>e.stopPropagation()}>Exact source ↗</a>{row.category.methodologyUrl && <a href={row.category.methodologyUrl} target="_blank" rel="noreferrer" onClick={(e)=>e.stopPropagation()}>Methodology ↗</a>}</div></div>{leaderboard.map(item=><div key={item.country.id} className={item.country.id===row.country.id?"current":""}><b>#{item.poolRank}</b><span>{item.country.flag} {item.country.name}</span><span>{formatValue(item.observation.value,row.category.category)}</span><small>{item.observation.year}</small><strong>{item.points} pts</strong></div>)}</div>}</div>})}
       <div className="perfect"><div className="resultsHeading"><div><span className="kicker">🏆 Perfect Round</span><h3>The optimal allocation</h3></div><small>Each category’s best country among these {poolSize}</small></div>
-      <div className="perfectGrid">{scores.map((row)=><div className="perfectRow" key={`perfect-${row.category.category.id}`}><span>{row.category.category.icon}</span><div><strong>{row.category.category.name}</strong><small className="statTip" tabIndex={0}>{row.best.flag} {row.best.name} · {formatValue(row.bestValue,row.category.category)}<span className="tooltip">{SOURCE_REGISTRY[row.category.category.source].name} list: #{row.bestGlobalRank} globally<br/>Actual value: {formatValue(row.bestValue,row.category.category)}<br/><a href={row.category.sourceUrl} target="_blank" rel="noreferrer" onClick={(e)=>e.stopPropagation()}>Open official source ↗</a></span></small></div><b>100 pts</b></div>)}</div></div>
-      <div className="lock"><span>Maximum score: {roundMaxScore}</span><div className="resultActions"><a className="resultModeLink" href="/daily">Scout Daily</a><a className="resultModeLink" href="/daily/adventurer">Adventurer Daily</a><a className="resultModeLink" href="/daily/expert">Expert Daily</a></div></div></section>}
+      <div className="perfectGrid">{scores.map((row)=><div className="perfectRow" key={`perfect-${row.category.category.id}`}><span>{row.category.category.icon}</span><div><strong>{row.category.category.name}</strong><small className="statTip" tabIndex={0}>{row.best.flag} {row.best.name} · {formatValue(row.bestValue,row.category.category)}<span className="tooltip">{SOURCE_REGISTRY[row.category.category.source].name} list: #{row.bestGlobalRank} globally<br/>Actual value: {formatValue(row.bestValue,row.category.category)}<br/>Evidence: {row.category.evidenceLabel ?? row.category.category.evidenceLabel ?? "Internationally harmonized"}<br/>Why trusted: {row.category.trustReason ?? row.category.category.trustReason ?? "Passed GeoStats provenance and credibility review."}<br/><a href={row.category.sourceUrl} target="_blank" rel="noreferrer" onClick={(e)=>e.stopPropagation()}>Open exact source ↗</a>{row.category.methodologyUrl && <><br/><a href={row.category.methodologyUrl} target="_blank" rel="noreferrer" onClick={(e)=>e.stopPropagation()}>Methodology ↗</a></>}</span></small></div><b>100 pts</b></div>)}</div></div>
+      <div className="lock"><span>Maximum score: {roundMaxScore}{isRandom ? " · Unranked test" : ""}</span><div className="resultActions"><a className="resultModeLink" href={isRandom ? ROUND_CONFIGS.easy.randomPath : ROUND_CONFIGS.easy.path}>Scout {isRandom ? "Random" : "Daily"}</a><a className="resultModeLink" href={isRandom ? ROUND_CONFIGS.normal.randomPath : ROUND_CONFIGS.normal.path}>Adventurer {isRandom ? "Random" : "Daily"}</a><a className="resultModeLink" href={isRandom ? ROUND_CONFIGS.expert.randomPath : ROUND_CONFIGS.expert.path}>Expert {isRandom ? "Random" : "Daily"}</a></div></div></section>}
 
     {touchDrag && round && <div className="touchGhost" style={{ left: touchDrag.x, top: touchDrag.y }}><span>{round.bank.find((country)=>country.id===touchDrag.countryId)?.flag}</span><strong>{round.bank.find((country)=>country.id===touchDrag.countryId)?.name}</strong></div>}
 
-    {!scores && <section className="dataNote"><strong>Atlas index · {CATEGORIES.length} official categories</strong><p><a href="/data">Data & methodology</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p><p>Population, economy, land, rainfall, agriculture, forests, energy, health, education, labor, transport, technology, and environment. Approved categories draw from the World Bank, FAOSTAT, WHO, UNESCO UIS, ILOSTAT, and Natural Earth. New source data enters quarantine first and reaches the Daily only after review.</p></section>}
+    {!scores && <section className="dataNote"><strong>Atlas index · trusted category library</strong><p><a href="/data">Data & methodology</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p><p>Population, economy, land, agriculture, energy, health, education, labor, trade, displacement, transport, technology, and environment. Approved categories draw from the World Bank, FAOSTAT, WHO, UNESCO UIS, ILOSTAT, Natural Earth, UN Comtrade, UNHCR, and the U.S. EIA. New source data stays out of play until it passes automated quality, provenance, credibility, and duplicate checks.</p></section>}
 
-    {showRules&&<div className="modal" onClick={(e)=>e.currentTarget===e.target&&setShowRules(false)}><div><h2>How GeoStats works</h2><p><strong>Progress through the Dailies:</strong> Scout has 5 countries and 4 categories, Adventurer has 8 and 6, and Expert has 10 and 8.</p><ol><li><strong>Each category has a different winner.</strong> Among today’s countries, every category’s #1 country is unique.</li><li><strong>Match countries to categories.</strong> Assign one country to each category, and use each country only once.</li><li><strong>Score as many points as possible.</strong> Higher-ranked countries earn more points. A perfect game matches every category with its #1 country.</li></ol><p>New Scout, Adventurer, and Expert challenges unlock every day.</p><button onClick={()=>setShowRules(false)}>Start drafting</button></div></div>}
+    {showRules&&<div className="modal" onClick={(e)=>e.currentTarget===e.target&&setShowRules(false)}><div><h2>How GeoStats works</h2><p><strong>{isRandom ? "Choose a test difficulty:" : "Progress through the Dailies:"}</strong> Scout has 5 countries and 4 categories, Adventurer has 8 and 6, and Expert has 10 and 8.</p><ol><li><strong>Each category has a different winner.</strong> Among today’s countries, every category’s #1 country is unique.</li><li><strong>Match countries to categories.</strong> Assign one country to each category, and use each country only once.</li><li><strong>Score as many points as possible.</strong> Higher-ranked countries earn more points. A perfect game matches every category with its #1 country.</li></ol><p>{isRandom ? "Random tests are unranked, repeatable, and reproducible from the seed in the URL." : "New Scout, Adventurer, and Expert challenges unlock every day."}</p><button onClick={()=>setShowRules(false)}>Start drafting</button></div></div>}
   </div>;
 }

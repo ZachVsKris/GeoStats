@@ -942,3 +942,26 @@ header{display:flex;align-items:center;justify-content:space-between;padding:6px
 .adminModalBackdrop{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:24px;background:rgba(10,20,16,.76);backdrop-filter:blur(3px)}.adminModal{position:relative;width:min(980px,100%);max-height:90vh;overflow:auto;padding:28px;border:1px solid #b8b09e;border-radius:14px;background:#fffdf6;color:#17231d;box-shadow:8px 8px 0 rgba(0,0,0,.22)}.adminModal h2{margin:4px 42px 8px 0}.adminModal>p{line-height:1.5;color:#5f5a50}.modalClose{position:absolute;right:16px;top:14px;width:36px;height:36px;border:1px solid #aaa18f;border-radius:50%;background:#fff;color:#17231d;font-size:1.5rem;cursor:pointer}.qualityAuditGrid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;margin:18px 0}.qualityAuditGrid span{padding:12px;border:1px solid #d0c8b8;border-radius:8px;background:#f7f1e5;font-size:.75rem}.qualityAuditGrid strong{display:block;font-size:1.2rem}.rankingColumns{display:grid;grid-template-columns:1fr 1fr;gap:18px}.rankingColumns>div{border:1px solid #d0c8b8;border-radius:10px;overflow:hidden}.rankingColumns h3{margin:0;padding:12px;background:#f2ecdf}.rankingColumns p{display:flex;justify-content:space-between;gap:12px;margin:0;padding:8px 12px;border-top:1px solid #e1dacd;font-size:.82rem}.rankingColumns p strong{text-align:right;white-space:nowrap}.reviewWarning{padding:10px 12px;border-left:4px solid #c7a95e;background:#fff0bd;color:#4d4430!important}.modalActions{display:flex;justify-content:flex-end;gap:8px;margin-top:16px}.modalActions button{padding:10px 13px;border:1px solid #17231d;border-radius:7px;background:#fffdf6;color:#17231d;font-weight:800;cursor:pointer}.modalActions .adminPrimary{background:#17231d;color:#fff}
 @media(max-width:1100px){.adminStatGrid{grid-template-columns:repeat(3,1fr)}.qualityAuditGrid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.adminStatGrid{grid-template-columns:repeat(2,1fr)}.rankingColumns{grid-template-columns:1fr}.qualityAuditGrid{grid-template-columns:repeat(2,1fr)}.adminModalBackdrop{padding:10px}.adminModal{padding:20px}.categoryFilters select,.categoryFilters input{width:100%}}
+
+/* v13.5 random testing, username onboarding, and board-adjusted ratings */
+.seedControls{display:flex;align-items:center;justify-content:flex-end;gap:7px;flex-wrap:wrap}
+.seedControls input{width:150px;min-height:35px;padding:6px 9px;border:1px solid var(--line);border-radius:2px;background:var(--surface-3);color:var(--ink);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase}
+.randomChallengeBar{border-color:rgba(120,185,154,.36);background:linear-gradient(100deg,rgba(120,185,154,.08),transparent 52%),var(--surface-2)}
+.randomChallengeBar .kicker{color:var(--accent-2)}
+.accountModalActions{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:0 0 15px}
+.accountModalActions .quietButton{border-color:var(--line);color:var(--muted)}
+.usernameRequired{padding:11px 13px;border-left:3px solid var(--accent);background:rgba(212,191,114,.08);color:var(--ink)!important}
+.ratingExplainer{display:flex;gap:16px;align-items:flex-start;padding:13px 20px;border-bottom:1px solid var(--line);background:rgba(120,185,154,.055)}
+.ratingExplainer strong{flex:0 0 auto;color:var(--accent-2);font-family:var(--label);font-size:9px;letter-spacing:.1em;text-transform:uppercase}
+.ratingExplainer span{color:var(--muted);font-size:12px;line-height:1.45}
+.publicLeaderboard.allTimeLeaderboard>div{grid-template-columns:54px minmax(160px,1fr) 90px 90px 72px 86px}
+
+@media(max-width:720px){
+  .randomChallengeBar{align-items:flex-start;flex-direction:column}
+  .randomChallengeBar .challengeActions{width:100%;margin-left:0}
+  .seedControls{width:100%;justify-content:flex-start}
+  .seedControls input{flex:1;min-width:112px;width:auto}
+  .ratingExplainer{flex-direction:column;gap:5px;padding:12px}
+  .publicLeaderboard.allTimeLeaderboard{overflow-x:auto}
+  .publicLeaderboard.allTimeLeaderboard>div{min-width:560px;grid-template-columns:32px minmax(140px,1fr) 64px 72px 58px 70px}
+}

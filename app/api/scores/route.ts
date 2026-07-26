@@ -4,6 +4,7 @@ import { decodeRound } from "../../../lib/challengeCodec";
 import { fetchCountries } from "../../../lib/worldBank";
 import { scorePlacements } from "../../../lib/dataEngine";
 import { ROUND_CONFIGS, type DailyDifficulty } from "../../../lib/gameRules";
+import { loadServerPlayableCategoryCatalog } from "../../../lib/serverPlayableCatalog";
 
 function parseDifficulty(value: unknown): DailyDifficulty {
   return value === "normal" || value === "expert" ? value : "easy";
@@ -82,8 +83,8 @@ export async function POST(request: Request) {
     .single();
   if (challengeError || !challenge) return NextResponse.json({ error: "Daily challenge not found." }, { status: 404 });
   try {
-    const countries = await fetchCountries();
-    const round = decodeRound(challenge.encoded_board, countries);
+    const [countries, categoryCatalog] = await Promise.all([fetchCountries(), loadServerPlayableCategoryCatalog()]);
+    const round = decodeRound(challenge.encoded_board, countries, categoryCatalog);
     const config = ROUND_CONFIGS[difficulty];
     if (round.categories.length !== config.categoryCount || round.bank.length !== config.countryCount) {
       return NextResponse.json({ error: "This Daily board has the wrong dimensions and must be reloaded before scoring." }, { status: 409 });

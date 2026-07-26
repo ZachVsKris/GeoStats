@@ -1,7 +1,7 @@
 import type { Category } from "./categories";
 import type { CategoryDataset, CountryInfo, Observation } from "./worldBank";
 import { MAX_YEAR_SPREAD } from "./version";
-import { categorySourceUrl } from "./sourceRegistry";
+import { categoryMethodologyUrl, categorySourceUrl } from "./sourceRegistry";
 import { ROUND_CONFIGS, configForDimensions, pointsForBankSize } from "./gameRules";
 
 export type RankedObservation = Observation & { globalRank: number };
@@ -10,6 +10,11 @@ export type CanonicalDataset = CategoryDataset & {
   ranked: RankedObservation[];
   byCountry: Map<string, RankedObservation>;
   sourceUrl: string;
+  methodologyUrl?: string;
+  evidenceLabel?: string;
+  credibilityScore?: number;
+  trustStatus?: string;
+  trustReason?: string;
 };
 
 export type PoolRow = {
@@ -55,7 +60,12 @@ export function canonicalizeDataset(dataset: CategoryDataset): CanonicalDataset 
     ...dataset,
     ranked,
     byCountry: new Map(ranked.map((row) => [row.countryId, row])),
-    sourceUrl: sourceUrl(dataset.category.indicator, dataset.category.source),
+    sourceUrl: dataset.sourceUrl ?? dataset.category.sourceUrl ?? sourceUrl(dataset.category.indicator, dataset.category.source),
+    methodologyUrl: dataset.methodologyUrl ?? dataset.category.methodologyUrl ?? categoryMethodologyUrl(dataset.category.source, dataset.category.indicator),
+    evidenceLabel: dataset.evidenceLabel ?? dataset.category.evidenceLabel,
+    credibilityScore: dataset.credibilityScore ?? dataset.category.credibilityScore,
+    trustStatus: dataset.trustStatus ?? dataset.category.trustStatus,
+    trustReason: dataset.trustReason ?? dataset.category.trustReason,
   };
 }
 

@@ -1,9 +1,5 @@
-# GeoStats v13.4.4
+# GeoStats v13.5.0
 
-See `START_HERE_V13_4_4.md` for installation and `PLAYABILITY_REPORT_V13_4_4.md` for the final category review.
+GeoStats is a strategy geography game built with Next.js and Supabase. It includes three trusted Daily difficulties, unranked reproducible random seeds, exact source and methodology links, board-relative all-time ratings, a database-driven playable catalog and automated category credibility governance, and GeoStats-owned username onboarding.
 
-# GeoStats v13.4.2
-
-Complete repository replacement with automated country-data governance and full editorial curation of the approved category library.
-
-Start with `START_HERE_V13_4_2.txt`. The summary is in `CURATION_REPORT_V13_4_2.md`; all 453 row-by-row decisions are in `CURATION_DECISIONS_V13_4_2.csv`.
+Start with [`START_HERE_V13_5.md`](START_HERE_V13_5.md).

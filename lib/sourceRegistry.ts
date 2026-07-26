@@ -103,3 +103,17 @@ export function categorySourceUrl(source: DataSourceId, indicator: string) {
   if (source === "unhcr") return "https://www.unhcr.org/refugee-statistics/";
   throw new Error(`Unsupported source: ${source satisfies never}`);
 }
+
+export function categoryMethodologyUrl(source: DataSourceId, indicator: string) {
+  if (source === "worldbank") return `https://databank.worldbank.org/metadataglossary/world-development-indicators/series/${indicator}`;
+  if (source === "faostat") return "https://www.fao.org/faostat/en/#definitions";
+  if (source === "who") return "https://www.who.int/data/gho/indicator-metadata-registry";
+  if (source === "unesco") return "https://uis.unesco.org/en/methodology";
+  if (source === "untourism") return "https://www.unwto.org/methodology";
+  if (source === "ilostat") return "https://ilostat.ilo.org/resources/concepts-and-definitions/";
+  if (source === "naturalearth") return "https://www.naturalearthdata.com/about/terms-of-use/";
+  if (source === "comtrade") return "https://unstats.un.org/unsd/trade/eg-imts/IMTS%202010%20(English).pdf";
+  if (source === "eia") return "https://www.eia.gov/opendata/documentation.php";
+  if (source === "unhcr") return "https://www.unhcr.org/refugee-statistics/methodology/";
+  throw new Error(`Unsupported source: ${source satisfies never}`);
+}

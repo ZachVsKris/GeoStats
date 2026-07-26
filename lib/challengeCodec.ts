@@ -1,5 +1,6 @@
-import { CATEGORIES } from "./categories";
+import { CATEGORIES, type Category } from "./categories";
 import { sourceUrl, validateRound, type CanonicalDataset } from "./dataEngine";
+import { categoryMethodologyUrl } from "./sourceRegistry";
 import type { CountryInfo } from "./worldBank";
 
 export type RoundCategory = CanonicalDataset;
@@ -78,7 +79,7 @@ export function encodeRound(round: Round) {
   return bytesToBase64Url(bytes);
 }
 
-export function decodeRound(value: string, countryList: CountryInfo[]): Round {
+export function decodeRound(value: string, countryList: CountryInfo[], categoryCatalog: Category[] = CATEGORIES): Round {
   let bytes: Uint8Array;
   try {
     bytes = base64UrlToBytes(value);
@@ -132,7 +133,7 @@ export function decodeRound(value: string, countryList: CountryInfo[]): Round {
     throw new Error("This challenge contains an unexpected amount of board data.");
   }
 
-  const categoryById = new Map(CATEGORIES.map((category) => [category.id, category]));
+  const categoryById = new Map(categoryCatalog.map((category) => [category.id, category]));
   const countryById = new Map(countryList.map((country) => [country.id, country]));
   const bank = countryIds.map((id) => countryById.get(id));
   if (bank.some((country) => !country)) throw new Error("This challenge includes a country that is no longer available.");
@@ -162,7 +163,12 @@ export function decodeRound(value: string, countryList: CountryInfo[]): Round {
       year: ranked.map((row) => row.year).sort().reverse()[0] ?? "",
       ranked,
       byCountry: new Map(ranked.map((row) => [row.countryId, row])),
-      sourceUrl: sourceUrl(category.indicator, category.source),
+      sourceUrl: category.sourceUrl ?? sourceUrl(category.indicator, category.source),
+      methodologyUrl: category.methodologyUrl ?? categoryMethodologyUrl(category.source, category.indicator),
+      evidenceLabel: category.evidenceLabel,
+      credibilityScore: category.credibilityScore,
+      trustStatus: category.trustStatus,
+      trustReason: category.trustReason,
     };
   });
 

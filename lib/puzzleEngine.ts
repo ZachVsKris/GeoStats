@@ -28,7 +28,7 @@ async function loadCandidateDatasets(seed:string,targetCount=52):Promise<RoundCa
 function chooseDiverseCategories(available:RoundCategory[],rng:Rng,config:RoundConfig,forbidden=new Set<string>()){
  const ordered=shuffle(available.filter(d=>!forbidden.has(d.category.id)),rng); const selected:RoundCategory[]=[];
  while(selected.length<config.categoryCount){
-  const options=ordered.filter(d=>!selected.includes(d)&&canAddCategory(selected.map(x=>x.category),d.category)); if(!options.length)return null;
+  const options=ordered.filter(d=>!selected.includes(d)&&canAddCategory(selected.map(x=>x.category),d.category,config)); if(!options.length)return null;
   const types=new Set(selected.map(x=>roundType(x.category))); const measures=new Set(selected.map(x=>measureKind(x.category)));
   const scored=options.map(d=>({d,score:(types.has(roundType(d.category))?0:14)+(measures.has(measureKind(d.category))?0:4)+scoreCategoryQuality(d).score/25+rng()})).sort((a,b)=>b.score-a.score);
   selected.push(scored[0].d);

@@ -1,10 +1,21 @@
 import type { Category } from "./categories";
 import { isUnRecognizedCountry } from "./playableCountries";
 import { canonicalCountryName } from "./canonicalCountries";
+import { fetchCategorySourceMetadata } from "./categoryMetadata";
 
 export type CountryInfo = { id: string; name: string; region: string; flag: string };
 export type Observation = { countryId: string; countryName: string; value: number; year: string };
-export type CategoryDataset = { category: Category; observations: Observation[]; year: string };
+export type CategoryDataset = {
+  category: Category;
+  observations: Observation[];
+  year: string;
+  sourceUrl?: string;
+  methodologyUrl?: string;
+  evidenceLabel?: string;
+  credibilityScore?: number;
+  trustStatus?: string;
+  trustReason?: string;
+};
 
 const COUNTRY_OVERRIDES: Record<string, string> = { XKX: "🇽🇰" };
 let playableCountriesPromise: Promise<CountryInfo[]> | null = null;
@@ -55,9 +66,10 @@ export async function fetchCountries(): Promise<CountryInfo[]> {
 }
 
 export async function fetchWorldBankCategory(category: Category): Promise<CategoryDataset> {
-  const [countries, json] = await Promise.all([
+  const [countries, json, metadata] = await Promise.all([
     fetchCountries(),
-    fetchJsonWithRetry(`https://api.worldbank.org/v2/country/all/indicator/${category.indicator}?format=json&per_page=20000&mrnev=8`)
+    fetchJsonWithRetry(`https://api.worldbank.org/v2/country/all/indicator/${category.indicator}?format=json&per_page=20000&mrnev=8`),
+    fetchCategorySourceMetadata(category),
   ]);
   const playableIds = new Set(countries.map((country) => country.id));
   const rows = json?.[1] ?? [];
@@ -88,5 +100,23 @@ export async function fetchWorldBankCategory(category: Category): Promise<Catego
     throw new Error(`${category.shortName} has only ${observations.length} playable countries with ${minimumYear}+ data; ${category.coverageFloor} are required.`);
   }
   const year = observations.map((o) => o.year).sort().reverse()[0] ?? `${minimumYear}+`;
-  return { category, observations, year };
+  return {
+    category: metadata ? {
+      ...category,
+      credibilityScore: metadata.credibilityScore ?? category.credibilityScore,
+      trustStatus: (metadata.trustStatus as Category["trustStatus"]) ?? category.trustStatus,
+      trustReason: metadata.trustReason ?? category.trustReason,
+      evidenceLabel: (metadata.evidenceLabel as Category["evidenceLabel"]) ?? category.evidenceLabel,
+      sourceUrl: metadata.sourceUrl ?? category.sourceUrl,
+      methodologyUrl: metadata.methodologyUrl ?? category.methodologyUrl,
+    } : category,
+    observations,
+    year,
+    sourceUrl: metadata?.sourceUrl,
+    methodologyUrl: metadata?.methodologyUrl,
+    evidenceLabel: metadata?.evidenceLabel,
+    credibilityScore: metadata?.credibilityScore,
+    trustStatus: metadata?.trustStatus,
+    trustReason: metadata?.trustReason,
+  };
 }

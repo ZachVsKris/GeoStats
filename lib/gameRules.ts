@@ -6,12 +6,15 @@ export type RoundConfig = {
   difficulty: DailyDifficulty;
   label: string;
   path: string;
+  randomPath: string;
   categoryCount: number;
   countryCount: number;
   decoyCount: number;
   maxScore: number;
   topFinishRank: number;
   minRoundTypes: number;
+  maxSameSource: number;
+  maxAgricultureCategories: number;
   pointsByRank: readonly number[];
 };
 
@@ -22,36 +25,45 @@ export const ROUND_CONFIGS: Record<DailyDifficulty, RoundConfig> = {
     difficulty: "easy",
     label: "Scout",
     path: "/daily",
+    randomPath: "/random/easy",
     categoryCount: 4,
     countryCount: 5,
     decoyCount: 1,
     maxScore: 400,
     topFinishRank: 2,
     minRoundTypes: 3,
+    maxSameSource: 2,
+    maxAgricultureCategories: 1,
     pointsByRank: [100, 75, 50, 25, 0],
   },
   normal: {
     difficulty: "normal",
     label: "Adventurer",
     path: "/daily/adventurer",
+    randomPath: "/random",
     categoryCount: 6,
     countryCount: 8,
     decoyCount: 2,
     maxScore: 600,
     topFinishRank: 3,
     minRoundTypes: 4,
+    maxSameSource: 2,
+    maxAgricultureCategories: 2,
     pointsByRank: [100, 85, 70, 55, 40, 25, 10, 0],
   },
   expert: {
     difficulty: "expert",
     label: "Expert",
     path: "/daily/expert",
+    randomPath: "/random/expert",
     categoryCount: 8,
     countryCount: 10,
     decoyCount: 2,
     maxScore: 800,
     topFinishRank: 5,
     minRoundTypes: 5,
+    maxSameSource: 3,
+    maxAgricultureCategories: 2,
     pointsByRank: [100, 90, 80, 70, 60, 50, 40, 30, 20, 10],
   },
 };
@@ -93,14 +105,50 @@ const SIMILARITY_GROUPS: Record<string, string> = {
   exports: "general-exports", merchExports: "general-exports", exportsShare: "general-exports",
   foodExportsShare: "food-trade", foodImportsShare: "food-trade",
   oilRents: "resource-rents", gasRents: "resource-rents", mineralRents: "resource-rents",
+  basicWater: "drinking-water-access",
 };
+
+const COMMODITY_WORDS = [
+  "coffee", "tea", "rice", "wheat", "cocoa", "chocolate", "banana", "wine", "crude oil", "gold",
+  "corn", "barley", "soybean", "potato", "cassava", "sugarcane", "cotton", "tobacco", "apple",
+  "orange", "lemon", "grape", "avocado", "pineapple", "coconut", "peanut", "sesame", "sunflower",
+];
 
 export function roundType(category: Category) {
   return category.roundType ?? ROUND_TYPE_OVERRIDES[category.id] ?? category.family;
 }
 
+function faostatItemCode(category: Category) {
+  if (category.source !== "faostat") return null;
+  const value = category.warehouseSourceIndicatorCode ?? category.indicator;
+  const match = value.match(/QCL:'?([^:]+):/i);
+  return match?.[1]?.toLowerCase().replace(/[^a-z0-9]+/g, "-") ?? null;
+}
+
 export function similarityGroup(category: Category) {
+  const faoItem = faostatItemCode(category);
+  if (faoItem) return `faostat-item-${faoItem}`;
   return category.similarityGroup ?? SIMILARITY_GROUPS[category.id] ?? `indicator:${category.indicator}`;
+}
+
+function commodityKey(category: Category) {
+  const text = `${category.name} ${category.shortName}`.toLowerCase().replace(/-/g, " ");
+  const word = COMMODITY_WORDS.find((candidate) => text.includes(candidate));
+  return word ? word.replace(/\s+/g, "-") : null;
+}
+
+function aggregateCluster(category: Category) {
+  if (category.source !== "faostat") return null;
+  const code = faostatItemCode(category) ?? "";
+  const isAggregate = /^f\d+/.test(code);
+  const text = category.name.toLowerCase();
+  let cluster: string | null = null;
+  if (/cereal|wheat|corn|maize|rice|barley|oats|millet|sorghum/.test(text)) cluster = "cereals";
+  else if (/fruit|apple|orange|lemon|lime|grape|banana|mango|guava|mangosteen|avocado|pineapple|apricot|peach|nectarine|pear|plum|cherr|fig|grapefruit|pomelo|mandarin|tangerine|strawberr|watermelon|melon/.test(text)) cluster = "fruit";
+  else if (/vegetable|tomato|cabbage|carrot|turnip|cucumber|gherkin|pepper|onion|shallot|lettuce|chicory|cauliflower|broccoli|eggplant|pumpkin|squash|gourd|pea|mushroom|truffle/.test(text)) cluster = "vegetables";
+  else if (/pulse|bean|pea/.test(text)) cluster = "pulses";
+  else if (/root|tuber|potato|cassava/.test(text)) cluster = "roots-tubers";
+  return cluster ? { cluster, isAggregate } : null;
 }
 
 export function isTradeCategory(category: Category) {
@@ -109,6 +157,10 @@ export function isTradeCategory(category: Category) {
 
 export function isGeneralTradeCategory(category: Category) {
   return roundType(category) === "Trade" && category.productSpecificTrade !== true;
+}
+
+export function isAgricultureCategory(category: Category) {
+  return category.source === "faostat" || ["Agriculture", "Crops", "Fruit", "Vegetables", "Livestock", "Dairy"].includes(category.family);
 }
 
 export function measureKind(category: Category) {
@@ -120,13 +172,35 @@ export function measureKind(category: Category) {
   return "other";
 }
 
-export function canAddCategory(selected: Category[], category: Category) {
+function hasAggregateConflict(selected: Category[], category: Category) {
+  const next = aggregateCluster(category);
+  if (!next) return false;
+  return selected.some((item) => {
+    const prior = aggregateCluster(item);
+    return prior?.cluster === next.cluster && (prior.isAggregate || next.isAggregate);
+  });
+}
+
+function hasCommodityConflict(selected: Category[], category: Category) {
+  const next = commodityKey(category);
+  if (!next) return false;
+  return selected.some((item) => {
+    if (commodityKey(item) !== next) return false;
+    return item.source !== category.source || isTradeCategory(item) !== isTradeCategory(category);
+  });
+}
+
+export function canAddCategory(selected: Category[], category: Category, config: RoundConfig = ROUND_CONFIGS.normal) {
+  if (category.enabled === false || category.trustStatus === "quarantined" || (category.credibilityScore ?? 100) < 75) return false;
   const type = roundType(category);
   if (selected.filter((item) => roundType(item) === type).length >= MAX_PER_ROUND_TYPE) return false;
   const group = similarityGroup(category);
   if (selected.some((item) => similarityGroup(item) === group)) return false;
+  if (selected.filter((item) => item.source === category.source).length >= config.maxSameSource) return false;
+  if (isAgricultureCategory(category) && selected.filter(isAgricultureCategory).length >= config.maxAgricultureCategories) return false;
   if (isGeneralTradeCategory(category) && selected.filter(isGeneralTradeCategory).length >= MAX_GENERAL_TRADE) return false;
   if (isTradeCategory(category) && selected.filter(isTradeCategory).length >= MAX_TOTAL_TRADE) return false;
+  if (hasAggregateConflict(selected, category) || hasCommodityConflict(selected, category)) return false;
   return true;
 }
 
@@ -136,7 +210,14 @@ export function roundHasRequiredDiversity(categories: Category[], config: RoundC
   if (types.size < config.minRoundTypes) return false;
   if (categories.filter(isGeneralTradeCategory).length > MAX_GENERAL_TRADE) return false;
   if (categories.filter(isTradeCategory).length > MAX_TOTAL_TRADE) return false;
+  if (categories.filter(isAgricultureCategory).length > config.maxAgricultureCategories) return false;
+  for (const source of new Set(categories.map((category) => category.source))) {
+    if (categories.filter((category) => category.source === source).length > config.maxSameSource) return false;
+  }
   if (new Set(categories.map(similarityGroup)).size !== categories.length) return false;
+  for (let index = 0; index < categories.length; index += 1) {
+    if (!canAddCategory(categories.slice(0, index), categories[index], config)) return false;
+  }
   return true;
 }
 
@@ -150,7 +231,7 @@ export function pointsForBankSize(countryCount: number) {
 }
 
 export function difficultyFromPath(pathname: string): DailyDifficulty {
-  if (pathname.startsWith("/daily/expert")) return "expert";
-  if (pathname.startsWith("/daily/adventurer") || pathname.startsWith("/daily/normal")) return "normal";
+  if (pathname.includes("/expert")) return "expert";
+  if (pathname.includes("/adventurer") || pathname.includes("/normal") || pathname === "/random") return "normal";
   return "easy";
 }

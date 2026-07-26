@@ -1,3 +1,4 @@
+import { applyCategoryTrustPolicy, type EvidenceLabel, type TrustStatus } from "./categoryTrust";
 export type Direction = "high" | "low";
 export type DataSourceId =
   | "worldbank"
@@ -40,6 +41,13 @@ export type Category = {
   // Warehouse-backed categories are loaded from the curated Supabase common-year snapshot.
   warehouseBacked?: boolean;
   warehouseSourceIndicatorCode?: string;
+  // Trust and source metadata are filled by the v13.5 policy and can be overridden by warehouse metadata.
+  sourceUrl?: string;
+  methodologyUrl?: string;
+  evidenceLabel?: EvidenceLabel;
+  credibilityScore?: number;
+  trustStatus?: TrustStatus;
+  trustReason?: string;
 };
 
 
@@ -371,9 +379,9 @@ const CURATED_EXTERNAL_CATEGORIES: Category[] = [
   warehouseExternal({ id: "faostat:01253.02:5510", name: "Largest onions and shallots production", shortName: "onions and shallots production", indicator: "QCL:'01253.02:5510", warehouseSourceIndicatorCode: "QCL:'01253.02:5510", icon: "🥕", unit: "tonnes", family: "Vegetables", direction: "high", description: "Annual production, total physical quantity", coverageFloor: 60, roundType: "Agriculture", similarityGroup: "faostat-item-01253-02" }),
   warehouseExternal({ id: "faostat:01234:5510", name: "Largest tomatoes production", shortName: "tomatoes production", indicator: "QCL:'01234:5510", warehouseSourceIndicatorCode: "QCL:'01234:5510", icon: "🥕", unit: "tonnes", family: "Vegetables", direction: "high", description: "Annual production, total physical quantity", coverageFloor: 60, roundType: "Agriculture", similarityGroup: "faostat-item-01234" }),
   warehouseExternal({ id: "faostat:F1735:5510", name: "Largest vegetables production", shortName: "vegetables production", indicator: "QCL:'F1735:5510", warehouseSourceIndicatorCode: "QCL:'F1735:5510", icon: "🥕", unit: "tonnes", family: "Vegetables", direction: "high", description: "Annual production, total physical quantity", coverageFloor: 60, roundType: "Agriculture", similarityGroup: "faostat-item-f1735" }),
-  warehouseExternal({ id: "who:WHS4_117", name: "Highest hepatitis B vaccination rate", shortName: "Hepatitis B vaccination", indicator: "WHS4_117", warehouseSourceIndicatorCode: "WHS4_117", icon: "💉", unit: "%", family: "Health", direction: "high", description: "Share of the target population vaccinated", coverageFloor: 150, similarityGroup: "vaccination-coverage" }),
-  warehouseExternal({ id: "who:WHS8_110", name: "Highest measles vaccination rate", shortName: "Measles vaccination", indicator: "WHS8_110", warehouseSourceIndicatorCode: "WHS8_110", icon: "💉", unit: "%", family: "Health", direction: "high", description: "Share of the target population vaccinated", coverageFloor: 150, similarityGroup: "vaccination-coverage" }),
-  warehouseExternal({ id: "who:WHS4_543", name: "Highest tuberculosis vaccination rate", shortName: "TB vaccination", indicator: "WHS4_543", warehouseSourceIndicatorCode: "WHS4_543", icon: "💉", unit: "%", family: "Health", direction: "high", description: "Share of the target population vaccinated", coverageFloor: 120, similarityGroup: "vaccination-coverage" }),
+  warehouseExternal({ id: "who:WHS4_117", name: "Highest HepB3 vaccination coverage", shortName: "HepB3 coverage", indicator: "WHS4_117", warehouseSourceIndicatorCode: "WHS4_117", icon: "💉", unit: "%", family: "Health", direction: "high", description: "WHO HepB3 immunization coverage among 1-year-olds", coverageFloor: 150, similarityGroup: "vaccination-coverage" }),
+  warehouseExternal({ id: "who:WHS8_110", name: "Highest MCV1 vaccination coverage", shortName: "MCV1 coverage", indicator: "WHS8_110", warehouseSourceIndicatorCode: "WHS8_110", icon: "💉", unit: "%", family: "Health", direction: "high", description: "WHO MCV1 immunization coverage among 1-year-olds", coverageFloor: 150, similarityGroup: "vaccination-coverage" }),
+  warehouseExternal({ id: "who:WHS4_543", name: "Highest BCG vaccination coverage", shortName: "BCG coverage", indicator: "WHS4_543", warehouseSourceIndicatorCode: "WHS4_543", icon: "💉", unit: "%", family: "Health", direction: "high", description: "WHO BCG immunization coverage among 1-year-olds", coverageFloor: 120, similarityGroup: "vaccination-coverage" }),
   warehouseExternal({ id: "who:MDG_0000000026", name: "Lowest maternal mortality", shortName: "Maternal mortality", indicator: "MDG_0000000026", warehouseSourceIndicatorCode: "MDG_0000000026", icon: "🩺", unit: "per 100,000 births", family: "Health", direction: "low", description: "Maternal deaths per 100,000 live births", coverageFloor: 150, similarityGroup: "maternal-mortality" }),
   warehouseExternal({ id: "who:PHE_HHAIR_POP_CLEAN_FUELS", name: "Highest clean-cooking-fuel access", shortName: "Clean cooking access", indicator: "PHE_HHAIR_POP_CLEAN_FUELS", warehouseSourceIndicatorCode: "PHE_HHAIR_POP_CLEAN_FUELS", icon: "🔥", unit: "%", family: "Infrastructure", direction: "high", description: "Share of population with primary reliance on clean cooking fuels and technologies", coverageFloor: 150, similarityGroup: "clean-cooking-access" }),
   warehouseExternal({ id: "unesco:CR.MOD.1", name: "Highest primary-school completion rate", shortName: "Primary completion", indicator: "CR.MOD.1", warehouseSourceIndicatorCode: "CR.MOD.1", icon: "🎓", unit: "%", family: "Education", direction: "high", description: "Primary-school completion rate", coverageFloor: 130, similarityGroup: "education-completion" }),
@@ -391,7 +399,7 @@ const CURATED_EXTERNAL_CATEGORIES: Category[] = [
   warehouseExternal({ id: "natural-earth:land-neighbors", name: "Most land-border neighbors", shortName: "Border neighbors", indicator: "most-land-neighbors", warehouseSourceIndicatorCode: "most-land-neighbors", icon: "🧩", unit: "neighbors", family: "Geography", direction: "high", description: "Number of countries sharing a land border, derived consistently from Natural Earth geometry", coverageFloor: 150, similarityGroup: "land-border-neighbors" }),
 ];
 
-export const CATEGORIES: Category[] = [
+const RAW_CATEGORIES: Category[] = [
   ...WAREHOUSE_CATEGORIES,
   ...CURATED_EXTERNAL_CATEGORIES,
   wb({id:"population",name:"Largest population",shortName:"Population",indicator:"SP.POP.TOTL",icon:"👥",unit:"people",family:"Population",direction:"high",description:"Total resident population, people"}),
@@ -474,3 +482,6 @@ export const CATEGORIES: Category[] = [
 
 
 ];
+
+export const CATEGORIES: Category[] = RAW_CATEGORIES.map(applyCategoryTrustPolicy);
+

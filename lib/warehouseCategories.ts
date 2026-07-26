@@ -6,6 +6,12 @@ type WarehousePayload = {
   commonYear?: number;
   commonYearCoverage?: number;
   unit?: string | null;
+  sourceUrl?: string | null;
+  methodologyUrl?: string | null;
+  evidenceLabel?: string | null;
+  credibilityScore?: number | null;
+  trustStatus?: string | null;
+  trustReason?: string | null;
   observations?: Array<{
     country_iso3: string;
     country_name: string;
@@ -39,9 +45,25 @@ export async function fetchWarehouseCategory(category: Category): Promise<Catego
   if (observations.length < category.coverageFloor) {
     throw new Error(`${category.shortName} has only ${observations.length} approved common-year countries; ${category.coverageFloor} are required.`);
   }
+  const enrichedCategory: Category = {
+    ...category,
+    ...(payload.unit ? { unit: payload.unit } : {}),
+    sourceUrl: payload.sourceUrl ?? category.sourceUrl,
+    methodologyUrl: payload.methodologyUrl ?? category.methodologyUrl,
+    evidenceLabel: (payload.evidenceLabel as Category["evidenceLabel"]) ?? category.evidenceLabel,
+    credibilityScore: payload.credibilityScore ?? category.credibilityScore,
+    trustStatus: (payload.trustStatus as Category["trustStatus"]) ?? category.trustStatus,
+    trustReason: payload.trustReason ?? category.trustReason,
+  };
   return {
-    category: payload.unit ? { ...category, unit: payload.unit } : category,
+    category: enrichedCategory,
     observations,
     year: String(payload.commonYear ?? observations[0]?.year ?? "Latest available"),
+    sourceUrl: payload.sourceUrl ?? undefined,
+    methodologyUrl: payload.methodologyUrl ?? undefined,
+    evidenceLabel: payload.evidenceLabel ?? undefined,
+    credibilityScore: payload.credibilityScore ?? undefined,
+    trustStatus: payload.trustStatus ?? undefined,
+    trustReason: payload.trustReason ?? undefined,
   };
 }

@@ -157,7 +157,7 @@ class UnescoImporter(WarehouseImporter):
         for concept in RULES:
             ranked: list[tuple[int, dict[str, Any], str, str]] = []
             for row in catalog:
-                code = str(_pick(row, "indicatorId", "indicator_id", "id", "code") or "").strip()
+                code = str(_pick(row, "indicatorCode", "indicatorId", "indicator_id", "id", "code") or "").strip()
                 name = str(_pick(row, "indicatorName", "indicator_name", "name", "label", "title") or "").strip()
                 if not code or not name or code in used:
                     continue
@@ -185,6 +185,14 @@ class UnescoImporter(WarehouseImporter):
         print(f"Resolved {len(discovered)} UNESCO concepts; {len(unmatched)} unmatched.", flush=True)
         if unmatched:
             print("Unmatched UNESCO concepts: " + ", ".join(unmatched), flush=True)
+        if catalog and not discovered:
+            sample_keys = sorted({str(key) for row in catalog[:3] for key in row.keys()})
+            raise RuntimeError(
+                "UNESCO returned an indicator catalog, but no concepts could be resolved. "
+                f"Catalog rows: {len(catalog)}; sample fields: {sample_keys}."
+            )
+        if not catalog:
+            raise RuntimeError("UNESCO returned an empty or unrecognized indicator catalog.")
         return discovered
 
     def _load_entities(self, rows: list[dict[str, Any]]) -> None:
@@ -209,7 +217,7 @@ class UnescoImporter(WarehouseImporter):
             score -= 40
         availability = _pick(row, "dataAvailability", "data_availability")
         if isinstance(availability, dict):
-            count = availability.get("recordCount") or availability.get("total") or 0
+            count = availability.get("totalRecordCount") or availability.get("recordCount") or availability.get("total") or 0
             try:
                 score += min(12, int(count) // 1000)
             except (TypeError, ValueError):
@@ -219,7 +227,7 @@ class UnescoImporter(WarehouseImporter):
 
     def fetch_observations(self, candidate: CandidateDefinition) -> list[SourceObservation]:
         current_year = datetime.now(timezone.utc).year
-        params = urlencode({"indicator": candidate.source_indicator_code, "start": 1995, "end": current_year})
+        params = urlencode({"indicator": candidate.source_indicator_code})
         payload = self.http.get_json(f"{UIS_API}/data/indicators?{params}")
         rows = _records(payload)
         normalized: dict[tuple[str, int], SourceObservation] = {}

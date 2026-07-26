@@ -2,14 +2,36 @@ import type { Category } from "./categories";
 
 export type CategorySourceMetadata = {
   categoryId?: string;
+  plainLanguageDescription?: string;
+  technicalDefinition?: string;
+  unitExplanation?: string;
   sourceUrl?: string;
   methodologyUrl?: string;
+  sourcePageUrl?: string;
+  exactQueryUrl?: string;
+  downloadUrl?: string;
+  apiUrl?: string;
+  datasetRelease?: string;
+  retrievedAt?: string;
+  licenseName?: string;
+  licenseUrl?: string;
+  sourceQuery?: Record<string, unknown> | string;
+  derivationMethod?: string;
+  derivationVersion?: string;
+  inputDatasets?: Array<Record<string, unknown> | string>;
   evidenceLabel?: string;
   credibilityScore?: number;
   trustStatus?: string;
   trustReason?: string;
   modeledObservationShare?: number | null;
   officialObservationShare?: number | null;
+  verifiabilityScore?: number;
+  verifiabilityStatus?: string;
+  understandabilityScore?: number;
+  funScore?: number;
+  objectiveStatus?: string;
+  playerQualityStatus?: string;
+  playerQualityReason?: string;
 };
 
 export async function fetchCategorySourceMetadata(category: Category): Promise<CategorySourceMetadata | null> {

@@ -48,6 +48,29 @@ export type Category = {
   credibilityScore?: number;
   trustStatus?: TrustStatus;
   trustReason?: string;
+  // v14 transparency, reproducibility, and player-quality metadata.
+  plainLanguageDescription?: string;
+  technicalDefinition?: string;
+  unitExplanation?: string;
+  sourcePageUrl?: string;
+  exactQueryUrl?: string;
+  downloadUrl?: string;
+  apiUrl?: string;
+  datasetRelease?: string;
+  retrievedAt?: string;
+  licenseName?: string;
+  licenseUrl?: string;
+  sourceQuery?: Record<string, unknown> | string;
+  derivationMethod?: string;
+  derivationVersion?: string;
+  inputDatasets?: Array<Record<string, unknown> | string>;
+  verifiabilityScore?: number;
+  verifiabilityStatus?: string;
+  understandabilityScore?: number;
+  funScore?: number;
+  objectiveStatus?: "objective" | "composite" | "subjective" | "uncertain";
+  playerQualityStatus?: "approved" | "caution" | "blocked" | "review";
+  playerQualityReason?: string;
 };
 
 

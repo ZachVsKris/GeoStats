@@ -8,10 +8,29 @@ type WarehousePayload = {
   unit?: string | null;
   sourceUrl?: string | null;
   methodologyUrl?: string | null;
+  sourcePageUrl?: string | null;
+  exactQueryUrl?: string | null;
+  downloadUrl?: string | null;
+  apiUrl?: string | null;
+  datasetRelease?: string | null;
+  retrievedAt?: string | null;
+  licenseName?: string | null;
+  licenseUrl?: string | null;
+  sourceQuery?: Record<string, unknown> | string | null;
+  derivationMethod?: string | null;
+  derivationVersion?: string | null;
+  inputDatasets?: Array<Record<string, unknown> | string> | null;
   evidenceLabel?: string | null;
   credibilityScore?: number | null;
   trustStatus?: string | null;
   trustReason?: string | null;
+  verifiabilityScore?: number | null;
+  verifiabilityStatus?: string | null;
+  understandabilityScore?: number | null;
+  funScore?: number | null;
+  objectiveStatus?: string | null;
+  playerQualityStatus?: string | null;
+  playerQualityReason?: string | null;
   observations?: Array<{
     country_iso3: string;
     country_name: string;
@@ -50,10 +69,29 @@ export async function fetchWarehouseCategory(category: Category): Promise<Catego
     ...(payload.unit ? { unit: payload.unit } : {}),
     sourceUrl: payload.sourceUrl ?? category.sourceUrl,
     methodologyUrl: payload.methodologyUrl ?? category.methodologyUrl,
+    sourcePageUrl: payload.sourcePageUrl ?? category.sourcePageUrl,
+    exactQueryUrl: payload.exactQueryUrl ?? category.exactQueryUrl,
+    downloadUrl: payload.downloadUrl ?? category.downloadUrl,
+    apiUrl: payload.apiUrl ?? category.apiUrl,
+    datasetRelease: payload.datasetRelease ?? category.datasetRelease,
+    retrievedAt: payload.retrievedAt ?? category.retrievedAt,
+    licenseName: payload.licenseName ?? category.licenseName,
+    licenseUrl: payload.licenseUrl ?? category.licenseUrl,
+    sourceQuery: payload.sourceQuery ?? category.sourceQuery,
+    derivationMethod: payload.derivationMethod ?? category.derivationMethod,
+    derivationVersion: payload.derivationVersion ?? category.derivationVersion,
+    inputDatasets: payload.inputDatasets ?? category.inputDatasets,
     evidenceLabel: (payload.evidenceLabel as Category["evidenceLabel"]) ?? category.evidenceLabel,
     credibilityScore: payload.credibilityScore ?? category.credibilityScore,
     trustStatus: (payload.trustStatus as Category["trustStatus"]) ?? category.trustStatus,
     trustReason: payload.trustReason ?? category.trustReason,
+    verifiabilityScore: payload.verifiabilityScore ?? category.verifiabilityScore,
+    verifiabilityStatus: payload.verifiabilityStatus ?? category.verifiabilityStatus,
+    understandabilityScore: payload.understandabilityScore ?? category.understandabilityScore,
+    funScore: payload.funScore ?? category.funScore,
+    objectiveStatus: (payload.objectiveStatus as Category["objectiveStatus"]) ?? category.objectiveStatus,
+    playerQualityStatus: (payload.playerQualityStatus as Category["playerQualityStatus"]) ?? category.playerQualityStatus,
+    playerQualityReason: payload.playerQualityReason ?? category.playerQualityReason,
   };
   return {
     category: enrichedCategory,
@@ -61,9 +99,28 @@ export async function fetchWarehouseCategory(category: Category): Promise<Catego
     year: String(payload.commonYear ?? observations[0]?.year ?? "Latest available"),
     sourceUrl: payload.sourceUrl ?? undefined,
     methodologyUrl: payload.methodologyUrl ?? undefined,
+    sourcePageUrl: payload.sourcePageUrl ?? undefined,
+    exactQueryUrl: payload.exactQueryUrl ?? undefined,
+    downloadUrl: payload.downloadUrl ?? undefined,
+    apiUrl: payload.apiUrl ?? undefined,
+    datasetRelease: payload.datasetRelease ?? undefined,
+    retrievedAt: payload.retrievedAt ?? undefined,
+    licenseName: payload.licenseName ?? undefined,
+    licenseUrl: payload.licenseUrl ?? undefined,
+    sourceQuery: payload.sourceQuery ?? undefined,
+    derivationMethod: payload.derivationMethod ?? undefined,
+    derivationVersion: payload.derivationVersion ?? undefined,
+    inputDatasets: payload.inputDatasets ?? undefined,
     evidenceLabel: payload.evidenceLabel ?? undefined,
     credibilityScore: payload.credibilityScore ?? undefined,
     trustStatus: payload.trustStatus ?? undefined,
     trustReason: payload.trustReason ?? undefined,
+    verifiabilityScore: payload.verifiabilityScore ?? undefined,
+    verifiabilityStatus: payload.verifiabilityStatus ?? undefined,
+    understandabilityScore: payload.understandabilityScore ?? undefined,
+    funScore: payload.funScore ?? undefined,
+    objectiveStatus: payload.objectiveStatus ?? undefined,
+    playerQualityStatus: payload.playerQualityStatus ?? undefined,
+    playerQualityReason: payload.playerQualityReason ?? undefined,
   };
 }

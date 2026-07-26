@@ -15,6 +15,25 @@ export type CategoryDataset = {
   credibilityScore?: number;
   trustStatus?: string;
   trustReason?: string;
+  sourcePageUrl?: string;
+  exactQueryUrl?: string;
+  downloadUrl?: string;
+  apiUrl?: string;
+  datasetRelease?: string;
+  retrievedAt?: string;
+  licenseName?: string;
+  licenseUrl?: string;
+  sourceQuery?: Record<string, unknown> | string;
+  derivationMethod?: string;
+  derivationVersion?: string;
+  inputDatasets?: Array<Record<string, unknown> | string>;
+  verifiabilityScore?: number;
+  verifiabilityStatus?: string;
+  understandabilityScore?: number;
+  funScore?: number;
+  objectiveStatus?: string;
+  playerQualityStatus?: string;
+  playerQualityReason?: string;
 };
 
 const COUNTRY_OVERRIDES: Record<string, string> = { XKX: "🇽🇰" };
@@ -109,6 +128,25 @@ export async function fetchWorldBankCategory(category: Category): Promise<Catego
       evidenceLabel: (metadata.evidenceLabel as Category["evidenceLabel"]) ?? category.evidenceLabel,
       sourceUrl: metadata.sourceUrl ?? category.sourceUrl,
       methodologyUrl: metadata.methodologyUrl ?? category.methodologyUrl,
+      sourcePageUrl: metadata.sourcePageUrl ?? category.sourcePageUrl,
+      exactQueryUrl: metadata.exactQueryUrl ?? category.exactQueryUrl,
+      downloadUrl: metadata.downloadUrl ?? category.downloadUrl,
+      apiUrl: metadata.apiUrl ?? category.apiUrl,
+      datasetRelease: metadata.datasetRelease ?? category.datasetRelease,
+      retrievedAt: metadata.retrievedAt ?? category.retrievedAt,
+      licenseName: metadata.licenseName ?? category.licenseName,
+      licenseUrl: metadata.licenseUrl ?? category.licenseUrl,
+      sourceQuery: metadata.sourceQuery ?? category.sourceQuery,
+      derivationMethod: metadata.derivationMethod ?? category.derivationMethod,
+      derivationVersion: metadata.derivationVersion ?? category.derivationVersion,
+      inputDatasets: metadata.inputDatasets ?? category.inputDatasets,
+      verifiabilityScore: metadata.verifiabilityScore ?? category.verifiabilityScore,
+      verifiabilityStatus: metadata.verifiabilityStatus ?? category.verifiabilityStatus,
+      understandabilityScore: metadata.understandabilityScore ?? category.understandabilityScore,
+      funScore: metadata.funScore ?? category.funScore,
+      objectiveStatus: (metadata.objectiveStatus as Category["objectiveStatus"]) ?? category.objectiveStatus,
+      playerQualityStatus: (metadata.playerQualityStatus as Category["playerQualityStatus"]) ?? category.playerQualityStatus,
+      playerQualityReason: metadata.playerQualityReason ?? category.playerQualityReason,
     } : category,
     observations,
     year,
@@ -118,5 +156,24 @@ export async function fetchWorldBankCategory(category: Category): Promise<Catego
     credibilityScore: metadata?.credibilityScore,
     trustStatus: metadata?.trustStatus,
     trustReason: metadata?.trustReason,
+    sourcePageUrl: metadata?.sourcePageUrl,
+    exactQueryUrl: metadata?.exactQueryUrl,
+    downloadUrl: metadata?.downloadUrl,
+    apiUrl: metadata?.apiUrl,
+    datasetRelease: metadata?.datasetRelease,
+    retrievedAt: metadata?.retrievedAt,
+    licenseName: metadata?.licenseName,
+    licenseUrl: metadata?.licenseUrl,
+    sourceQuery: metadata?.sourceQuery,
+    derivationMethod: metadata?.derivationMethod,
+    derivationVersion: metadata?.derivationVersion,
+    inputDatasets: metadata?.inputDatasets,
+    verifiabilityScore: metadata?.verifiabilityScore,
+    verifiabilityStatus: metadata?.verifiabilityStatus,
+    understandabilityScore: metadata?.understandabilityScore,
+    funScore: metadata?.funScore,
+    objectiveStatus: metadata?.objectiveStatus,
+    playerQualityStatus: metadata?.playerQualityStatus,
+    playerQualityReason: metadata?.playerQualityReason,
   };
 }

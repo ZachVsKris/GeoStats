@@ -19,12 +19,6 @@
 - Added evidence type, credibility score, and “Why trusted” explanation to results.
 - Persisted Daily boards are rehydrated with current warehouse metadata.
 
-## Automated playable catalog
-
-- Added a server-backed playable-category catalog so every currently approved, enabled warehouse category can enter board generation without a new hardcoded application release.
-- Existing static IDs are preserved when possible so older Daily boards remain decodable; warehouse-only categories use their governed database IDs.
-- The application falls back to the bundled catalog when Supabase is temporarily unavailable.
-
 ## Board diversity
 
 - Added per-difficulty source caps.

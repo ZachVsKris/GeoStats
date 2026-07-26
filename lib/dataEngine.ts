@@ -15,6 +15,25 @@ export type CanonicalDataset = CategoryDataset & {
   credibilityScore?: number;
   trustStatus?: string;
   trustReason?: string;
+  sourcePageUrl?: string;
+  exactQueryUrl?: string;
+  downloadUrl?: string;
+  apiUrl?: string;
+  datasetRelease?: string;
+  retrievedAt?: string;
+  licenseName?: string;
+  licenseUrl?: string;
+  sourceQuery?: Record<string, unknown> | string;
+  derivationMethod?: string;
+  derivationVersion?: string;
+  inputDatasets?: Array<Record<string, unknown> | string>;
+  verifiabilityScore?: number;
+  verifiabilityStatus?: string;
+  understandabilityScore?: number;
+  funScore?: number;
+  objectiveStatus?: string;
+  playerQualityStatus?: string;
+  playerQualityReason?: string;
 };
 
 export type PoolRow = {
@@ -66,6 +85,25 @@ export function canonicalizeDataset(dataset: CategoryDataset): CanonicalDataset 
     credibilityScore: dataset.credibilityScore ?? dataset.category.credibilityScore,
     trustStatus: dataset.trustStatus ?? dataset.category.trustStatus,
     trustReason: dataset.trustReason ?? dataset.category.trustReason,
+    sourcePageUrl: dataset.sourcePageUrl ?? dataset.category.sourcePageUrl,
+    exactQueryUrl: dataset.exactQueryUrl ?? dataset.category.exactQueryUrl,
+    downloadUrl: dataset.downloadUrl ?? dataset.category.downloadUrl,
+    apiUrl: dataset.apiUrl ?? dataset.category.apiUrl,
+    datasetRelease: dataset.datasetRelease ?? dataset.category.datasetRelease,
+    retrievedAt: dataset.retrievedAt ?? dataset.category.retrievedAt,
+    licenseName: dataset.licenseName ?? dataset.category.licenseName,
+    licenseUrl: dataset.licenseUrl ?? dataset.category.licenseUrl,
+    sourceQuery: dataset.sourceQuery ?? dataset.category.sourceQuery,
+    derivationMethod: dataset.derivationMethod ?? dataset.category.derivationMethod,
+    derivationVersion: dataset.derivationVersion ?? dataset.category.derivationVersion,
+    inputDatasets: dataset.inputDatasets ?? dataset.category.inputDatasets,
+    verifiabilityScore: dataset.verifiabilityScore ?? dataset.category.verifiabilityScore,
+    verifiabilityStatus: dataset.verifiabilityStatus ?? dataset.category.verifiabilityStatus,
+    understandabilityScore: dataset.understandabilityScore ?? dataset.category.understandabilityScore,
+    funScore: dataset.funScore ?? dataset.category.funScore,
+    objectiveStatus: dataset.objectiveStatus ?? dataset.category.objectiveStatus,
+    playerQualityStatus: dataset.playerQualityStatus ?? dataset.category.playerQualityStatus,
+    playerQualityReason: dataset.playerQualityReason ?? dataset.category.playerQualityReason,
   };
 }
 

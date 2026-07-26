@@ -7,7 +7,7 @@ from statistics import mean
 
 from .models import IndicatorRule, QualityResult, SourceObservation
 
-QUALITY_STANDARD_VERSION = "geostats-v13.1-strict"
+QUALITY_STANDARD_VERSION = "geostats-v13.4-strict"
 
 
 def _average_ranks(values: dict[str, float], *, high: bool) -> dict[str, float]:
@@ -111,7 +111,7 @@ def score_observations(rule: IndicatorRule, observations: list[SourceObservation
     notes = (
         f"Common-year gate: {common_year}; {coverage} countries; "
         f"clustering {clustering}; stability {stability}; evidence {rule.evidence_tier}. "
-        "Imports remain quarantined until administrator approval."
+        "Categories are auto-approved only when the separate provenance and duplicate-governance gates also pass."
     )
     return QualityResult(
         score=score,

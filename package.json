@@ -1,6 +1,6 @@
 {
   "name": "geostats",
-  "version": "13.3.0",
+  "version": "13.4.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -14,11 +14,13 @@
     "import-unesco": "python scripts/import-unesco.py",
     "import-ilostat": "python scripts/import-ilostat.py",
     "import-natural-earth": "python scripts/import-natural-earth.py",
-    "test-importers": "python scripts/test-data-pipeline.py && python scripts/test-who-importer.py && python scripts/test-unesco-importer.py && python scripts/test-ilostat-importer.py && python scripts/test-natural-earth-importer.py && python scripts/test-comtrade-importer.py && python scripts/test-eia-importer.py && python scripts/test-unhcr-importer.py",
+    "test-importers": "python scripts/test-data-pipeline.py && python scripts/test-who-importer.py && python scripts/test-unesco-importer.py && python scripts/test-ilostat-importer.py && python scripts/test-natural-earth-importer.py && python scripts/test-comtrade-importer.py && python scripts/test-eia-importer.py && python scripts/test-unhcr-importer.py && python scripts/test-faostat-importer.py",
     "import-comtrade": "python scripts/import-comtrade.py",
     "import-eia": "python scripts/import-eia.py",
     "import-unhcr": "python scripts/import-unhcr.py",
-    "test-v13-3": "node scripts/test-v13-3-integration.mjs"
+    "test-v13-3": "node scripts/test-v13-3-integration.mjs",
+    "test-v13-4": "python scripts/test-v13-4-governance.py && node scripts/test-v13-4-integration.mjs",
+    "check-v13-4": "npm run test-importers && npm run test-v13-4 && npm test && npm run build"
   },
   "dependencies": {
     "next": "16.2.10",

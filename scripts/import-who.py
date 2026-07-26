@@ -5,7 +5,7 @@ Official API documentation:
 https://www.who.int/data/gho/info/gho-odata-api
 
 The importer resolves player-facing concepts against WHO's current Indicator catalog,
-then imports country totals only. Nothing is enabled automatically.
+then imports country totals only. Categories are enabled only after automatic quality, provenance, and duplicate gates pass.
 """
 from __future__ import annotations
 
@@ -339,7 +339,7 @@ class WhoImporter(WarehouseImporter):
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Import curated WHO GHO indicators into GeoStats quarantine.")
+    parser = argparse.ArgumentParser(description="Import curated WHO GHO indicators through GeoStats automatic governance.")
     parser.add_argument("--dry-run", action="store_true", help="Resolve and score data without writing to Supabase.")
     parser.add_argument("--limit", type=int, default=None, help="Import only the first N resolved concepts.")
     parser.add_argument("--rule", action="append", default=[], help="Import only the named canonical rule key; repeatable.")

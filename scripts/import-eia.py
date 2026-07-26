@@ -421,7 +421,7 @@ class EiaImporter(WarehouseImporter):
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Import curated EIA international energy categories into GeoStats quarantine.")
+    parser = argparse.ArgumentParser(description="Import curated EIA international energy categories through GeoStats automatic governance.")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--rule", action="append", default=[])

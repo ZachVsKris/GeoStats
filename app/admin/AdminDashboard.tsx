@@ -32,6 +32,16 @@ type CategoryRow = {
   recognizability_score?: number | null;
   specificity_score?: number | null;
   canonical_match_status?: string;
+  provenance_status?: "approved" | "uncertain" | "blocked";
+  provenance_class?: string | null;
+  provenance_reason?: string | null;
+  methodology_url?: string | null;
+  independent_validation?: boolean;
+  government_assertion_risk?: string;
+  concept_group?: string | null;
+  duplicate_status?: "pending" | "preferred" | "superseded" | "not_eligible";
+  superseded_by?: string | null;
+  auto_decision_reason?: string | null;
 };
 
 type ImportRow = {
@@ -350,7 +360,7 @@ export default function AdminDashboard() {
   if (!data) return <section className="adminLoading">{error || "Loading warehouse…"}</section>;
 
   const sources = Array.from(new Set(data.categories.map((category) => category.source_organization))).sort();
-  const approveableSelected = selectedRows.filter((category) => category.auto_qualified && category.review_status !== "approved");
+  const approveableSelected = selectedRows.filter((category) => category.auto_qualified && category.provenance_status === "approved" && category.independent_validation && category.review_status !== "approved");
   const resettableSelected = selectedRows.filter((category) => category.review_status === "rejected" || category.review_status === "approved");
   const dailyModeLabels: Record<DailyMode, string> = { easy: "Scout", normal: "Adventurer", expert: "Expert" };
 
@@ -536,7 +546,7 @@ export default function AdminDashboard() {
               <tr>
                 <th style={{ padding: 8 }}><input type="checkbox" checked={allVisibleSelected} onChange={toggleAllVisible} aria-label="Select all visible categories" /></th>
                 {[
-                  "Review", "Category", "Source", "Quality", "Evidence", "Common year", "Official", "Modeled", "Cluster", "Stability", "Recognizable", "Specific", "Actions",
+                  "Review", "Category", "Source", "Quality", "Provenance", "Duplicate", "Evidence", "Common year", "Official", "Modeled", "Cluster", "Stability", "Recognizable", "Specific", "Actions",
                 ].map((heading) => <th key={heading} style={{ textAlign: "left", padding: 8, borderBottom: "1px solid rgba(255,255,255,.12)" }}>{heading}</th>)}
               </tr>
             </thead>
@@ -550,7 +560,9 @@ export default function AdminDashboard() {
                     <div style={{ opacity: .65, fontSize: 12 }}>{category.family} · {category.source_indicator_code}</div>
                   </td>
                   <td style={{ padding: 8 }}>{category.source_organization}</td>
-                  <td style={{ padding: 8 }}><strong>{category.quality_score}</strong>{category.auto_qualified && <div style={{ fontSize: 11, opacity: .72 }}>strict pass</div>}</td>
+                  <td style={{ padding: 8 }}><strong>{category.quality_score}</strong>{category.auto_qualified && <div style={{ fontSize: 11, opacity: .72 }}>quality + provenance pass</div>}</td>
+                  <td style={{ padding: 8 }}><strong>{category.provenance_status ?? "—"}</strong><div style={{ fontSize: 11, opacity: .72 }}>{category.government_assertion_risk ? `${category.government_assertion_risk} assertion risk` : ""}</div></td>
+                  <td style={{ padding: 8 }}><strong>{category.duplicate_status ?? "—"}</strong>{category.superseded_by && <div style={{ fontSize: 11, opacity: .72 }}>by {category.superseded_by}</div>}</td>
                   <td style={{ padding: 8 }}>{category.evidence_tier ?? "—"}</td>
                   <td style={{ padding: 8 }}>{category.common_year ?? category.latest_available_year ?? "—"}<div style={{ fontSize: 11, opacity: .72 }}>{category.common_year_coverage || category.country_coverage} countries</div></td>
                   <td style={{ padding: 8 }}>{percentage(category.official_observation_share)}</td>
@@ -589,7 +601,16 @@ export default function AdminDashboard() {
               <div style={card}>Coverage <strong>{detail.category.common_year_coverage || detail.category.country_coverage}</strong></div>
               <div style={card}>Year <strong>{detail.year ?? detail.category.common_year ?? "—"}</strong></div>
               <div style={card}>Modeled <strong>{percentage(detail.category.modeled_observation_share)}</strong></div>
+              <div style={card}>Provenance <strong>{detail.category.provenance_status ?? "—"}</strong><div style={{ opacity: .72, marginTop: 6 }}>{detail.category.provenance_class ?? ""}</div></div>
+              <div style={card}>Duplicate status <strong>{detail.category.duplicate_status ?? "—"}</strong><div style={{ opacity: .72, marginTop: 6 }}>{detail.category.concept_group ?? ""}</div></div>
             </div>
+            {(detail.category.provenance_reason || detail.category.auto_decision_reason) && (
+              <div style={{ ...card, marginBottom: 16 }}>
+                {detail.category.provenance_reason && <div><strong>Provenance:</strong> {detail.category.provenance_reason}</div>}
+                {detail.category.auto_decision_reason && <div style={{ marginTop: 8 }}><strong>Decision:</strong> {detail.category.auto_decision_reason}</div>}
+                {detail.category.methodology_url && <div style={{ marginTop: 8 }}><a href={detail.category.methodology_url} target="_blank" rel="noreferrer">Methodology source</a></div>}
+              </div>
+            )}
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(330px,1fr))", gap: 16 }}>
               {[{ title: "Top ranking", rows: detail.top }, { title: "Bottom ranking", rows: detail.bottom }].map((group) => (
                 <div key={group.title}>

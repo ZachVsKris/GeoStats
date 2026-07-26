@@ -4,6 +4,8 @@ from abc import ABC, abstractmethod
 from datetime import datetime, timezone
 from typing import Iterable
 
+from .canonical_countries import canonical_country_name
+from .governance import GOVERNANCE_VERSION, evaluate_governance
 from .models import CandidateDefinition, SourceObservation
 from .quality import QUALITY_STANDARD_VERSION, score_observations
 from .supabase import SupabaseWarehouse
@@ -60,14 +62,15 @@ class WarehouseImporter(ABC):
                 try:
                     observations = self.fetch_observations(candidate)
                     quality = score_observations(candidate.rule, observations)
+                    governance = evaluate_governance(self.source_slug, candidate, quality)
                     category_id = self.category_id(candidate)
-                    row = self.build_category_row(candidate, quality, category_id)
+                    row = self.build_category_row(candidate, quality, governance, category_id)
                     if not self.dry_run:
                         assert self.warehouse is not None
                         row = self.preserve_editorial_state(
                             row,
                             self.warehouse.get_category_state(category_id),
-                            auto_qualified=quality.auto_qualified,
+                            auto_qualified=governance.auto_approved,
                         )
                     if self.dry_run:
                         print(
@@ -83,6 +86,7 @@ class WarehouseImporter(ABC):
                             self.build_observation_rows(category_id, observations, run_id)
                         )
                         self.warehouse.link_canonical(self.canonical_payload(candidate, category_id))
+                        self.warehouse.apply_category_governance(category_id)
                     category_count += 1
                 except Exception as error:  # keep a long source import moving while preserving failure details
                     failures.append({"key": candidate.rule.key, "error": str(error)[:1200]})
@@ -138,7 +142,15 @@ class WarehouseImporter(ABC):
             return row
         previous = str(existing.get("review_status") or "")
         if previous == "rejected":
-            return {**row, "review_status": "rejected", "enabled": False, "eligible_daily": False}
+            return {
+                **row,
+                "review_status": "rejected",
+                "enabled": False,
+                "eligible_daily": False,
+                "auto_qualified": False,
+                "duplicate_status": "not_eligible",
+                "auto_decision_reason": "Remains disabled because an administrator manually rejected this category.",
+            }
         if previous == "approved" and auto_qualified:
             return {**row, "review_status": "approved", "enabled": True, "eligible_daily": True}
         if previous == "approved" and not auto_qualified:
@@ -146,7 +158,7 @@ class WarehouseImporter(ABC):
             return {**row, "review_status": "needs_review", "enabled": False, "eligible_daily": False}
         return row
 
-    def build_category_row(self, candidate, quality, category_id: str) -> dict[str, object]:
+    def build_category_row(self, candidate, quality, governance, category_id: str) -> dict[str, object]:
         rule = candidate.rule
         return {
             "id": category_id,
@@ -162,23 +174,34 @@ class WarehouseImporter(ABC):
             "source_dataset": self.source_dataset,
             "source_indicator_code": candidate.source_indicator_code,
             "source_url": candidate.source_url,
-            "enabled": False,
-            "eligible_daily": False,
+            "enabled": governance.auto_approved,
+            "eligible_daily": governance.auto_approved,
             "minimum_year": 2022,
             "latest_available_year": quality.latest_year,
             "country_coverage": quality.country_coverage,
             "quality_score": quality.score,
-            "review_status": quality.review_status,
+            "review_status": "approved" if governance.auto_approved else quality.review_status,
             "evidence_tier": quality.evidence_tier,
-            "auto_qualified": quality.auto_qualified,
+            "auto_qualified": governance.auto_approved,
             "common_year": quality.common_year,
             "common_year_coverage": quality.common_year_coverage,
             "official_observation_share": quality.official_share,
             "modeled_observation_share": quality.modeled_share,
             "clustering_score": quality.clustering_score,
             "stability_score": quality.stability_score,
-            "methodology_notes": quality.notes,
+            "methodology_notes": f"{quality.notes} {governance.provenance_reason}",
             "quality_standard_version": QUALITY_STANDARD_VERSION,
+            "provenance_status": governance.provenance_status,
+            "provenance_class": governance.provenance_class,
+            "provenance_reason": governance.provenance_reason,
+            "methodology_url": governance.methodology_url,
+            "independent_validation": governance.independent_validation,
+            "government_assertion_risk": governance.government_assertion_risk,
+            "concept_group": governance.concept_group,
+            "governance_priority": governance.source_priority,
+            "governance_version": GOVERNANCE_VERSION,
+            "duplicate_status": "pending",
+            "auto_decision_reason": governance.auto_decision_reason,
             "recognizability_score": rule.recognizability_score,
             "specificity_score": rule.specificity_score,
             "canonical_match_status": "linked",
@@ -187,7 +210,9 @@ class WarehouseImporter(ABC):
                 **candidate.metadata,
                 "source_indicator_name": candidate.source_indicator_name,
                 "canonical_slug": rule.canonical_slug,
-                "import_framework": "v13.1",
+                "import_framework": "v13.4",
+                "governance_version": GOVERNANCE_VERSION,
+                "concept_group": governance.concept_group,
             },
         }
 
@@ -198,13 +223,14 @@ class WarehouseImporter(ABC):
             yield {
                 "category_id": category_id,
                 "country_iso3": observation.country_iso3,
-                "country_name": observation.country_name,
+                "country_name": canonical_country_name(observation.country_iso3, observation.country_name),
                 "data_year": observation.data_year,
                 "value": observation.value,
                 "source_url": observation.source_url,
                 "source_record_id": observation.source_record_id,
                 "metadata": {
                     **observation.metadata,
+                    "source_country_name": observation.country_name,
                     "evidence_status": observation.evidence_status,
                     "import_run_id": run_id,
                 },

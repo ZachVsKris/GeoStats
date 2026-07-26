@@ -103,6 +103,10 @@ class SupabaseWarehouse:
             return str(rows[0])
         return ""
 
+
+    def apply_category_governance(self, category_id: str) -> None:
+        self._request("POST", "rpc/apply_category_governance", {"p_category_id": category_id})
+
     def mark_source_success(self, slug: str) -> None:
         self._request(
             "PATCH",

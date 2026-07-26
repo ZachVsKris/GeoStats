@@ -30,6 +30,16 @@ const CATEGORY_COLUMNS = [
   "recognizability_score",
   "specificity_score",
   "canonical_match_status",
+  "provenance_status",
+  "provenance_class",
+  "provenance_reason",
+  "methodology_url",
+  "independent_validation",
+  "government_assertion_risk",
+  "concept_group",
+  "duplicate_status",
+  "superseded_by",
+  "auto_decision_reason",
 ].join(",");
 
 type BoardRow = { difficulty: "easy" | "normal" | "expert" };

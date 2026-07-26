@@ -1,0 +1,27 @@
+After upload, the GeoStats GitHub repository root should look like this:
+
+.github/
+app/
+components/
+lib/
+scripts/
+supabase/
+.env.example
+.gitignore
+package.json
+tsconfig.json
+middleware.ts
+README.md
+START_HERE.md
+START_HERE_V13_4.txt
+RUN_THIS_IN_SUPABASE_FOR_V13_4.sql
+VERIFY_V13_4.sql
+RELEASE_NOTES_V13_4.md
+VALIDATION.md
+
+The files must NOT be inside a second nested geostats-v13.4 folder in GitHub.
+For example, this is wrong:
+  repository/geostats-v13.4-country-names-auto-governance-complete/app/
+
+This is correct:
+  repository/app/

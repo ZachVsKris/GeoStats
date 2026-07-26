@@ -1,5 +1,6 @@
 import type { Category } from "./categories";
 import { isUnRecognizedCountry } from "./playableCountries";
+import { canonicalCountryName } from "./canonicalCountries";
 
 export type CountryInfo = { id: string; name: string; region: string; flag: string };
 export type Observation = { countryId: string; countryName: string; value: number; year: string };
@@ -43,7 +44,7 @@ export async function fetchCountries(): Promise<CountryInfo[]> {
         .filter((row: any) => row.id?.length === 3 && row.region?.id && row.region.id !== "NA" && isUnRecognizedCountry(row.id))
         .map((row: any) => ({
           id: row.id,
-          name: row.name,
+          name: canonicalCountryName(row.id, row.name),
           region: row.region.value,
           flag: COUNTRY_OVERRIDES[row.id] ?? flagFromIso2(row.iso2Code)
         }))
@@ -78,7 +79,7 @@ export async function fetchWorldBankCategory(category: Category): Promise<Catego
     seen.set(duplicateKey, value);
     const prior = latest.get(id);
     if (!prior || Number(year) > Number(prior.year)) {
-      latest.set(id, { countryId: id, countryName: row.country?.value ?? id, value, year });
+      latest.set(id, { countryId: id, countryName: canonicalCountryName(id, row.country?.value ?? id), value, year });
     }
   }
 

@@ -1,15 +1,10 @@
 #!/usr/bin/env python3
-"""Import FAOSTAT QCL candidate categories into GeoStats' strict review quarantine.
+"""Import and automatically govern FAOSTAT QCL categories for GeoStats.
 
-This importer intentionally does not make any FAOSTAT category playable. It:
-- uses only the canonical UN-recognized country universe;
-- never converts missing reports into zeroes;
-- evaluates common-year coverage, reporting flags, clustering, and stability;
-- marks the strongest candidates as `needs_review`;
-- requires a separate administrator approval before `enabled` or `eligible_daily` can be true.
-
-Designed for GitHub Actions rather than a Vercel function because FAOSTAT bulk files
-are large and the quality audit is intentionally compute-heavy.
+The importer uses the canonical 195-country universe, never converts missing reports
+to zero, retains FAOSTAT reporting flags, and enables only categories that pass both
+the strict numerical gate and the v13.4 provenance gate. Near-duplicates are resolved
+by the shared database governance function.
 """
 from __future__ import annotations
 
@@ -36,6 +31,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable, Iterator, Mapping, Sequence
 
+from data_pipeline.canonical_countries import canonical_country_name
+from data_pipeline.governance import GOVERNANCE_VERSION
+
 try:
     import pycountry
 except ImportError as exc:  # pragma: no cover - explicit workflow dependency
@@ -49,7 +47,7 @@ FALLBACK_ZIP_URL = (
     "https://bulks-faostat.fao.org/production/"
     "Production_Crops_Livestock_E_All_Data_(Normalized).zip"
 )
-QUALITY_VERSION = "strict-v1"
+QUALITY_VERSION = "geostats-v13.4-strict"
 RECENT_YEAR_WINDOW = 6
 MIN_CANDIDATE_COVERAGE = 25
 STRICT_COVERAGE = 175
@@ -700,6 +698,15 @@ def category_candidates(connection: sqlite3.Connection) -> list[dict[str, Any]]:
                 "auto_qualified": auto_qualified,
                 "evidence_tier": evidence_tier,
                 "quality_details": quality_details,
+                "provenance_status": "approved" if evidence_tier in {"A", "B"} and official_share >= 0.60 else "uncertain",
+                "provenance_class": "internationally_harmonized_fao_production_statistics",
+                "provenance_reason": (
+                    "FAOSTAT QCL uses standardized definitions, validation flags, and national statistical or administrative production records; unsupported political assertions are not sufficient for automatic approval."
+                    if evidence_tier in {"A", "B"} and official_share >= 0.60
+                    else "Insufficient officially classified observations for automatic provenance approval."
+                ),
+                "methodology_url": "https://www.fao.org/faostat/en/#definitions",
+                "concept_group": f"faostat-qcl-{item_code}-{element_code}",
             }
         )
         if index % 100 == 0:
@@ -728,14 +735,15 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
     for candidate in candidates:
         candidate_ids.add(candidate["id"])
         previous_review = existing_reviews.get(candidate["id"], "candidate")
-        if previous_review == "approved" and candidate["auto_qualified"]:
-            review_status = "approved"
-            enabled = True
-            eligible_daily = True
-        elif previous_review == "rejected":
+        governance_pass = candidate["auto_qualified"] and candidate["provenance_status"] == "approved"
+        if previous_review == "rejected":
             review_status = "rejected"
             enabled = False
             eligible_daily = False
+        elif governance_pass:
+            review_status = "approved"
+            enabled = True
+            eligible_daily = True
         else:
             review_status = "needs_review" if candidate["auto_qualified"] else "candidate"
             enabled = False
@@ -764,15 +772,26 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
                 "quality_details": candidate["quality_details"],
                 "review_status": review_status,
                 "evidence_tier": candidate["evidence_tier"],
-                "auto_qualified": candidate["auto_qualified"],
+                "auto_qualified": governance_pass,
                 "common_year": candidate["common_year"],
                 "common_year_coverage": candidate["coverage"],
                 "official_observation_share": round(candidate["official_share"], 6),
                 "modeled_observation_share": round(candidate["modeled_share"], 6),
                 "clustering_score": candidate["cluster"],
                 "stability_score": candidate["stability"],
-                "methodology_notes": "Physical production measure from FAOSTAT QCL. National reporting flags are retained. Missing observations remain missing and are never inferred as zero.",
+                "methodology_notes": "Physical production measure from FAOSTAT QCL. National reporting flags are retained. Missing observations remain missing and are never inferred as zero. " + candidate["provenance_reason"],
                 "quality_standard_version": QUALITY_VERSION,
+                "provenance_status": candidate["provenance_status"],
+                "provenance_class": candidate["provenance_class"],
+                "provenance_reason": candidate["provenance_reason"],
+                "methodology_url": candidate["methodology_url"],
+                "independent_validation": candidate["provenance_status"] == "approved",
+                "government_assertion_risk": "low" if candidate["provenance_status"] == "approved" else "unknown",
+                "concept_group": candidate["concept_group"],
+                "governance_priority": 11,
+                "governance_version": GOVERNANCE_VERSION,
+                "duplicate_status": "pending",
+                "auto_decision_reason": "Automatically approved: quality and FAOSTAT provenance gates passed; duplicate arbitration may still supersede it." if governance_pass else "Quarantined because quality or provenance did not pass.",
                 "metadata": {
                     "domainCode": "QCL",
                     "itemCode": candidate["item_code"],
@@ -781,7 +800,9 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
                     "element": candidate["element"],
                     "unit": candidate["unit"],
                     "generatedCandidate": True,
-                    "reviewRequired": True,
+                    "reviewRequired": False,
+                    "governanceVersion": GOVERNANCE_VERSION,
+                    "conceptGroup": candidate["concept_group"],
                     "maximumRecentCoverage": candidate["max_coverage"],
                 },
             }
@@ -826,12 +847,13 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
             {
                 "category_id": candidate["id"],
                 "country_iso3": iso3,
-                "country_name": country_name,
+                "country_name": canonical_country_name(iso3, country_name),
                 "data_year": int(year),
                 "value": float(value),
                 "source_url": SOURCE_URL,
                 "source_record_id": f"QCL:{candidate['item_code']}:{candidate['element_code']}:{iso3}:{year}",
                 "metadata": {
+                    "sourceCountryName": country_name,
                     "flag": flag or None,
                     "flagDescription": flag_description or None,
                     "note": note or None,
@@ -849,6 +871,8 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
     if observation_rows:
         client.upsert("stat_observations", observation_rows, "category_id,country_iso3,data_year")
         inserted += len(observation_rows)
+    for candidate in candidates:
+        client.rpc("apply_category_governance", {"p_category_id": candidate["id"]})
     return len(category_rows), inserted
 
 
@@ -866,7 +890,7 @@ def run() -> None:
             "status": "running",
             "details": {
                 "qualityStandard": QUALITY_VERSION,
-                "quarantine": True,
+                "automaticGovernance": True,
                 "missingValuesBecomeZero": False,
                 "countryUniverse": "193 UN members plus two UN observer states",
                 "trigger": "GitHub Actions",
@@ -887,7 +911,7 @@ def run() -> None:
             connection, staged = build_sqlite(zip_path, database_path)
             candidates = category_candidates(connection)
             qualified = sum(1 for candidate in candidates if candidate["auto_qualified"])
-            log(f"Strict gate result: {qualified:,} need review; {len(candidates) - qualified:,} remain quarantined candidates")
+            log(f"Strict gate result: {qualified:,} pass numerical review; {len(candidates) - qualified:,} fail the numerical gate")
             category_count, observation_count = import_candidates(client, connection, candidates, run_id)
             connection.close()
         completed = utc_now()
@@ -901,12 +925,12 @@ def run() -> None:
                 "observations_inserted": observation_count,
                 "details": {
                     "qualityStandard": QUALITY_VERSION,
-                    "quarantine": True,
+                    "automaticGovernance": True,
                     "missingValuesBecomeZero": False,
                     "stagedObservations": staged,
                     "candidateCategories": category_count,
-                    "autoQualifiedForReview": qualified,
-                    "approvedAutomatically": 0,
+                    "numericallyQualified": qualified,
+                    "automaticApprovalEnabled": True,
                 },
             },
         )

@@ -20,6 +20,10 @@ type CategorySnapshot = {
   stability_score: number | null;
   quality_details: unknown;
   canonical_category_id: string | null;
+  provenance_status: string | null;
+  independent_validation: boolean;
+  concept_group: string | null;
+  duplicate_status: string | null;
 };
 
 type ReviewBody = {
@@ -47,18 +51,18 @@ export async function POST(request: Request) {
 
   const { data: categories, error } = await auth.admin
     .from("stat_categories")
-    .select("id,title,auto_qualified,quality_score,review_status,evidence_tier,common_year,common_year_coverage,official_observation_share,modeled_observation_share,clustering_score,stability_score,quality_details,canonical_category_id")
+    .select("id,title,auto_qualified,quality_score,review_status,evidence_tier,common_year,common_year_coverage,official_observation_share,modeled_observation_share,clustering_score,stability_score,quality_details,canonical_category_id,provenance_status,independent_validation,concept_group,duplicate_status")
     .in("id", categoryIds);
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
   const rows = (categories ?? []) as CategorySnapshot[];
   const found = new Set(rows.map((category) => category.id));
   const missing = categoryIds.filter((id) => !found.has(id));
-  const blocked = decision === "approved" ? rows.filter((category) => !category.auto_qualified) : [];
+  const blocked = decision === "approved" ? rows.filter((category) => !category.auto_qualified || category.provenance_status !== "approved" || !category.independent_validation) : [];
 
   if (blocked.length) {
     return NextResponse.json({
-      error: `${blocked.length} selected categor${blocked.length === 1 ? "y has" : "ies have"} not passed the strict automated gate.`,
+      error: `${blocked.length} selected categor${blocked.length === 1 ? "y has" : "ies have"} not passed the combined quality and provenance gate.`,
       blocked: blocked.map((category) => ({ id: category.id, title: category.title })),
     }, { status: 409 });
   }
@@ -87,6 +91,12 @@ export async function POST(request: Request) {
       continue;
     }
 
+    const { error: governanceError } = await auth.admin.rpc("apply_category_governance", { p_category_id: category.id });
+    if (governanceError) {
+      failures.push({ id: category.id, error: governanceError.message });
+      continue;
+    }
+
     const { error: auditError } = await auth.admin.from("stat_category_reviews").insert({
       category_id: category.id,
       reviewer_user_id: auth.user.id,
@@ -105,6 +115,10 @@ export async function POST(request: Request) {
         stabilityScore: category.stability_score,
         details: category.quality_details,
         canonicalCategoryId: category.canonical_category_id,
+        provenanceStatus: category.provenance_status,
+        independentValidation: category.independent_validation,
+        conceptGroup: category.concept_group,
+        duplicateStatus: category.duplicate_status,
         bulkActionSize: categoryIds.length,
       },
     });

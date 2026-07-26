@@ -180,6 +180,7 @@ class UnescoImporter(WarehouseImporter):
             ranked.sort(key=lambda item: (-item[0], len(item[3]), item[3]))
             score, row, code, name = ranked[0]
             used.add(code)
+            exact_api = f"{UIS_API}/data/indicators?" + urlencode({"indicator": code})
             discovered.append(CandidateDefinition(
                 rule=concept,
                 source_indicator_code=code,
@@ -190,6 +191,12 @@ class UnescoImporter(WarehouseImporter):
                     "uis_theme": _pick(row, "theme"),
                     "uis_last_update": _pick(row, "lastDataUpdate", "last_data_update"),
                     "uis_api_docs": UIS_DOCS,
+                    "source_page_url": f"{UIS_BROWSER}?indicator={quote(code, safe='')}",
+                    "exact_query_url": exact_api,
+                    "api_url": exact_api,
+                    "source_query": {"indicator": code, "geography": "national country rows"},
+                    "dataset_release": str(_pick(row, "lastDataUpdate", "last_data_update") or f"UIS accessed {datetime.now(timezone.utc).date().isoformat()}"),
+                    "retrieved_at": datetime.now(timezone.utc).isoformat(),
                 },
             ))
         print(f"Resolved {len(discovered)} UNESCO concepts; {len(unmatched)} unmatched.", flush=True)

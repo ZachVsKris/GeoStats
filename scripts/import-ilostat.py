@@ -204,11 +204,12 @@ class IlostatImporter(WarehouseImporter):
                 continue
             ranked.sort(key=lambda item: (-item[0], len(item[3]), item[3]))
             score, row, dataset_id, label = ranked[0]
+            download_url = self._data_url(dataset_id, format_value=".csv")
             discovered.append(CandidateDefinition(
                 rule=concept,
                 source_indicator_code=dataset_id,
                 source_indicator_name=label,
-                source_url=self._data_url(dataset_id, format_value=".csv"),
+                source_url=download_url,
                 metadata={
                     "ilostat_catalog_match_score": score,
                     "ilostat_indicator": _first(row, "indicator"),
@@ -216,6 +217,13 @@ class IlostatImporter(WarehouseImporter):
                     "ilostat_data_end": _first(row, "data.end", "data_end"),
                     "ilostat_last_update": _first(row, "last.update", "last_update"),
                     "ilostat_bulk_docs": ILO_BULK,
+                    "source_page_url": ILO_HOME,
+                    "exact_query_url": download_url,
+                    "download_url": download_url,
+                    "api_url": download_url,
+                    "source_query": {"indicator": dataset_id, "frequency": "annual", "format": "csv", "aggregate_dimensions": list(concept.allowed_dimension_codes)},
+                    "dataset_release": str(_first(row, "last.update", "last_update") or f"ILOSTAT accessed {datetime.now(timezone.utc).date().isoformat()}"),
+                    "retrieved_at": datetime.now(timezone.utc).isoformat(),
                 },
             ))
         print(f"Resolved {len(discovered)} ILOSTAT concepts; {len(unmatched)} unmatched.", flush=True)

@@ -15,6 +15,7 @@ import os
 import re
 import sys
 from collections import defaultdict
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 from urllib.parse import quote
@@ -178,12 +179,22 @@ class WhoImporter(WarehouseImporter):
             code = str(chosen["IndicatorCode"])
             name = str(chosen["IndicatorName"])
             used_codes.add(code)
+            exact_url = f"{WHO_API}/{quote(code, safe='')}?%24filter=SpatialDimType%20eq%20%27COUNTRY%27"
             discovered.append(CandidateDefinition(
                 rule=concept,
                 source_indicator_code=code,
                 source_indicator_name=name,
-                source_url=f"{WHO_API}/{quote(code, safe='')}",
-                metadata={"who_catalog_match_score": ranked[0][0], "who_api_docs": WHO_DOCS},
+                source_url=exact_url,
+                metadata={
+                    "who_catalog_match_score": ranked[0][0],
+                    "who_api_docs": WHO_DOCS,
+                    "source_page_url": WHO_DOCS,
+                    "exact_query_url": exact_url,
+                    "api_url": exact_url,
+                    "source_query": {"indicator": code, "SpatialDimType": "COUNTRY", "dimensions": "aggregate only"},
+                    "dataset_release": f"WHO GHO accessed {datetime.now(timezone.utc).date().isoformat()}",
+                    "retrieved_at": datetime.now(timezone.utc).isoformat(),
+                },
             ))
         print(f"Resolved {len(discovered)} WHO concepts; {len(unmatched)} unmatched.", flush=True)
         if unmatched:

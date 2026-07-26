@@ -19,6 +19,22 @@ from data_pipeline.supabase import SupabaseWarehouse
 UNHCR_API = "https://api.unhcr.org/population/v1"
 UNHCR_DATA_FINDER = "https://www.unhcr.org/refugee-statistics/"
 UNHCR_DOCS = "https://api.unhcr.org/docs/refugee-statistics.html"
+UNHCR_LICENSE = "https://www.unhcr.org/refugee-statistics/methodology/"
+
+PLAIN_DESCRIPTIONS = {
+    "most-refugees-hosted": "People recognized as refugees who are living in each host country.",
+    "most-refugees-originating": "People from each country who are living abroad as recognized refugees.",
+    "most-asylum-seekers-hosted": "People with pending asylum claims who are living in each host country.",
+    "most-asylum-seekers-originating": "People from each country with asylum claims still awaiting a decision abroad.",
+    "most-internally-displaced-people": "People forced from their homes who remain inside their own country and are recorded by UNHCR.",
+    "most-stateless-people": "People recorded by UNHCR who are not considered citizens of any country.",
+    "most-other-people-needing-protection": "People outside their home country who likely need international protection but are not reported in another UNHCR group.",
+    "most-asylum-applications-received": "New asylum applications filed in each destination country during the year.",
+    "most-asylum-applications-by-origin": "New asylum applications filed abroad by people from each country during the year.",
+    "most-refugees-returned-home": "Refugees who returned to their home country during the year.",
+    "most-returned-idps": "Internally displaced people who returned home during the year.",
+    "most-refugees-naturalized": "Refugees who became citizens of their host country during the year.",
+}
 
 
 @dataclass(frozen=True)
@@ -44,7 +60,12 @@ def unhcr_rule(
         rule=IndicatorRule(
             key=key,
             title=title,
-            description=f"{title} according to UNHCR Refugee Data Finder statistics.",
+            description=PLAIN_DESCRIPTIONS.get(key, f"{title} according to UNHCR Refugee Data Finder statistics."),
+            plain_language_description=PLAIN_DESCRIPTIONS.get(key),
+            technical_definition=f"UNHCR {endpoint} measure grouped by country of {'origin' if dimension == 'coo' else 'asylum or residence'}.",
+            unit_explanation="Number of people",
+            understandability_score=92,
+            fun_score=84,
             family=family,
             icon=icon,
             unit="people",
@@ -147,6 +168,7 @@ class UnhcrImporter(WarehouseImporter):
         self.cache: dict[tuple[str, str], list[dict[str, Any]]] = {}
 
     def discover(self) -> list[CandidateDefinition]:
+        now = datetime.now(timezone.utc).year
         return [
             CandidateDefinition(
                 rule=spec.rule,
@@ -158,6 +180,27 @@ class UnhcrImporter(WarehouseImporter):
                     "dimension": spec.dimension,
                     "value_keys": list(spec.value_keys),
                     "documentation": UNHCR_DOCS,
+                    "source_page_url": UNHCR_DATA_FINDER,
+                    "api_url": f"{UNHCR_API}/{spec.endpoint}/",
+                    "exact_query_url": f"{UNHCR_API}/{spec.endpoint}/?" + urlencode({
+                        "limit": 2000,
+                        "page": 1,
+                        "yearFrom": max(2022, now - 5),
+                        "yearTo": now,
+                        "cf_type": "ISO",
+                        f"{spec.dimension}_all": "true",
+                    }),
+                    "source_query": {
+                        "endpoint": spec.endpoint,
+                        "dimension": spec.dimension,
+                        "value_field": spec.value_keys[0],
+                        "yearFrom": max(2022, now - 5),
+                        "yearTo": now,
+                    },
+                    "methodology_url": UNHCR_LICENSE,
+                    "license_name": "Creative Commons Attribution 4.0 International",
+                    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                    "dataset_release": f"UNHCR population statistics accessed {datetime.now(timezone.utc).date().isoformat()}",
                 },
             )
             for spec in SPECS

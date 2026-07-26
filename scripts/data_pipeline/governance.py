@@ -1,8 +1,8 @@
-"""Provenance, automatic approval, and duplicate-control policy for GeoStats v13.4.
+"""Provenance and source-classification policy for GeoStats v14.
 
-The policy is deliberately fail-closed: a category is automatically playable only when
-its numerical quality gate passes and its source has a documented production method
-that is more than an unsupported assertion by a national political authority.
+The importer may identify a numerically strong candidate, but v14 still sends unseen
+concepts to a disabled editorial queue and applies separate credibility, objectivity,
+verifiability, clarity, fun, and duplicate gates before play.
 """
 from __future__ import annotations
 
@@ -10,7 +10,7 @@ from dataclasses import dataclass
 
 from .models import CandidateDefinition, QualityResult
 
-GOVERNANCE_VERSION = "geostats-v13.4-provenance-v1"
+GOVERNANCE_VERSION = "geostats-v14-provenance-player-quality-v1"
 
 
 @dataclass(frozen=True)
@@ -28,6 +28,14 @@ class GovernanceDecision:
 
 
 SOURCE_POLICIES: dict[str, dict[str, object]] = {
+    "worldbank": {
+        "provenance_class": "internationally_harmonized_development_statistics",
+        "reason": "World Development Indicators compile documented national and international statistical series with indicator-level metadata and stable API identifiers.",
+        "methodology_url": "https://databank.worldbank.org/metadataglossary/world-development-indicators/series/",
+        "independent_validation": True,
+        "risk": "low",
+        "priority": 11,
+    },
     "who": {
         "provenance_class": "internationally_harmonized_model_or_health_system_measure",
         "reason": "WHO GHO indicators use documented international methods, standardized health-system inputs, surveys, and/or transparent modeled estimates rather than unsupported political assertions.",
@@ -56,6 +64,14 @@ SOURCE_POLICIES: dict[str, dict[str, object]] = {
         "provenance_class": "independent_geospatial_measurement",
         "reason": "Natural Earth categories are calculated consistently from a single global geometry dataset rather than country-submitted claims.",
         "methodology_url": "https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/",
+        "independent_validation": True,
+        "risk": "none",
+        "priority": 15,
+    },
+    "naturalearth": {
+        "provenance_class": "reproducible_geospatial_derivation",
+        "reason": "Natural Earth candidates are calculated from versioned global vector layers with the exact layer, scale, clipping rule, and formula preserved by GeoStats.",
+        "methodology_url": "https://www.naturalearthdata.com/downloads/10m-physical-vectors/",
         "independent_validation": True,
         "risk": "none",
         "priority": 15,

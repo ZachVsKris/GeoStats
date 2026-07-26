@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 from typing import Iterable
 
 from .canonical_countries import canonical_country_name
+from .descriptions import plain_language_description
 from .governance import GOVERNANCE_VERSION, evaluate_governance
 from .models import CandidateDefinition, SourceObservation
 from .quality import QUALITY_STANDARD_VERSION, score_observations
@@ -160,11 +161,16 @@ class WarehouseImporter(ABC):
 
     def build_category_row(self, candidate, quality, governance, category_id: str) -> dict[str, object]:
         rule = candidate.rule
+        player_description = plain_language_description(
+            rule.title,
+            rule.unit,
+            rule.plain_language_description or rule.description,
+        )
         return {
             "id": category_id,
             "title": rule.title,
             "short_title": rule.title,
-            "description": rule.description,
+            "description": player_description,
             "icon": rule.icon,
             "unit": rule.unit,
             "value_type": rule.value_type,
@@ -174,6 +180,24 @@ class WarehouseImporter(ABC):
             "source_dataset": self.source_dataset,
             "source_indicator_code": candidate.source_indicator_code,
             "source_url": candidate.source_url,
+            "source_page_url": candidate.metadata.get("source_page_url") or candidate.source_url,
+            "exact_query_url": candidate.metadata.get("exact_query_url"),
+            "download_url": candidate.metadata.get("download_url"),
+            "api_url": candidate.metadata.get("api_url"),
+            "dataset_release": candidate.metadata.get("dataset_release"),
+            "retrieved_at": candidate.metadata.get("retrieved_at") or datetime.now(timezone.utc).isoformat(),
+            "license_name": candidate.metadata.get("license_name"),
+            "license_url": candidate.metadata.get("license_url"),
+            "source_query": candidate.metadata.get("source_query") or {},
+            "derivation_method": candidate.metadata.get("derivation_method"),
+            "derivation_version": candidate.metadata.get("derivation_version"),
+            "input_datasets": candidate.metadata.get("input_datasets") or [],
+            "plain_language_description": player_description,
+            "technical_definition": rule.technical_definition or candidate.source_indicator_name,
+            "unit_explanation": rule.unit_explanation or rule.unit,
+            "understandability_score": max(0, min(100, int(rule.understandability_score))),
+            "fun_score": max(0, min(100, int(rule.fun_score))),
+            "objective_status": rule.objective_status,
             "enabled": governance.auto_approved,
             "eligible_daily": governance.auto_approved,
             "minimum_year": 2022,
@@ -210,7 +234,13 @@ class WarehouseImporter(ABC):
                 **candidate.metadata,
                 "source_indicator_name": candidate.source_indicator_name,
                 "canonical_slug": rule.canonical_slug,
-                "import_framework": "v13.4",
+                "import_framework": "v14.0",
+                "plainLanguageDescription": player_description,
+                "technicalDefinition": rule.technical_definition or candidate.source_indicator_name,
+                "unitExplanation": rule.unit_explanation or rule.unit,
+                "understandabilityScore": max(0, min(100, int(rule.understandability_score))),
+                "funScore": max(0, min(100, int(rule.fun_score))),
+                "objectiveStatus": rule.objective_status,
                 "governance_version": GOVERNANCE_VERSION,
                 "concept_group": governance.concept_group,
             },
@@ -238,6 +268,11 @@ class WarehouseImporter(ABC):
 
     def canonical_payload(self, candidate: CandidateDefinition, category_id: str) -> dict[str, object]:
         rule = candidate.rule
+        player_description = plain_language_description(
+            rule.title,
+            rule.unit,
+            rule.plain_language_description or rule.description,
+        )
         return {
             "p_slug": rule.canonical_slug,
             "p_title": rule.title,

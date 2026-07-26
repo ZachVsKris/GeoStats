@@ -22,5 +22,6 @@ assert.match(api, /SOURCE_ORGANIZATIONS/);
 assert.match(sources, /category\.warehouseBacked/);
 assert.match(ilo, /completed_year = current_year - 1/);
 assert.match(ilo, /year > completed_year/);
-assert.match(admin, /category\.curation_status !== "approved"/);
+assert.match(admin, /category\.curation_status === "excluded"/);
+assert.match(admin, /v14 editorial review queue/);
 console.log("v13.4.2 integration checks passed");

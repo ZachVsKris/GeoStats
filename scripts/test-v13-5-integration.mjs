@@ -20,8 +20,8 @@ const playableCatalog = read("lib/playableCatalog.ts");
 const playableCatalogRoute = read("app/api/playable-categories/route.ts");
 const challengeCodec = read("lib/challengeCodec.ts");
 
-assert.equal(packageJson.version, "13.5.0");
-assert.match(version, /APP_VERSION = "13\.5\.0"/);
+assert.equal(packageJson.version, "14.0.0");
+assert.match(version, /APP_VERSION = "14\.0\.0"/);
 assert.equal(migration, topLevelSql, "Top-level v13.5 SQL must match migration 019");
 
 assert.match(trust, /IT\.NET\.USER\.ZS/);
@@ -64,8 +64,8 @@ assert.match(metadataRoute, /source_url/);
 assert.match(metadataRoute, /methodology_url/);
 assert.match(metadataRoute, /Resolve any misses by the source organization/);
 assert.match(dataEngine, /categoryMethodologyUrl/);
-assert.match(component, /Open exact source/);
-assert.match(component, /Methodology ↗/);
+assert.match(component, /Source & all data/);
+assert.match(component, /CategorySourcePanel/);
 
 assert.match(profile, /username_customized/);
 assert.match(profile, /case-insensitively/);

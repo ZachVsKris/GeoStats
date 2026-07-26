@@ -296,6 +296,10 @@ class EiaImporter(WarehouseImporter):
                     "activity_name": activity["name"],
                     "accepted_unit_patterns": list(spec.unit),
                     "documentation": EIA_DOCS,
+                    "source_page_url": EIA_BROWSER,
+                    "source_query": {"frequency": "annual", "productId": product["id"], "activityId": activity["id"], "geography": "country"},
+                    "dataset_release": f"EIA international data accessed {datetime.now(timezone.utc).date().isoformat()}",
+                    "retrieved_at": datetime.now(timezone.utc).isoformat(),
                 },
             ))
         print(f"Resolved {len(discovered)} EIA concepts; {len(unmatched)} unmatched.", flush=True)

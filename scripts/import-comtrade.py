@@ -42,7 +42,12 @@ def trade_rule(
         rule=IndicatorRule(
             key=key,
             title=title,
-            description=f"{title} by annual merchandise export value according to UN Comtrade.",
+            description=f"Annual export value of {title.removeprefix('Largest ').removesuffix(' exports').lower()} shipped from each country to the world.",
+            plain_language_description=f"Annual export value of {title.removeprefix('Largest ').removesuffix(' exports').lower()} shipped from each country to the world.",
+            technical_definition=f"UN Comtrade merchandise exports to World for HS code{'s' if len(codes) > 1 else ''} {', '.join(codes)}, measured by annual trade value.",
+            unit_explanation="Current US dollars of exports",
+            understandability_score=94,
+            fun_score=88,
             family=family,
             icon=icon,
             unit="current US$",
@@ -60,21 +65,66 @@ def trade_rule(
 
 
 SPECS: tuple[TradeSpec, ...] = (
+    # Food, crops, and drinks
     trade_rule("most-coffee-exported", "Largest coffee exports", "☕", ("0901",), min_coverage=80),
     trade_rule("most-tea-exported", "Largest tea exports", "🍵", ("0902",), min_coverage=65),
     trade_rule("most-rice-exported", "Largest rice exports", "🍚", ("1006",), min_coverage=65),
     trade_rule("most-wheat-exported", "Largest wheat exports", "🌾", ("1001",), min_coverage=60),
+    trade_rule("most-maize-exported", "Largest maize exports", "🌽", ("1005",), min_coverage=55),
+    trade_rule("most-soybeans-exported", "Largest soybean exports", "🫘", ("1201",), min_coverage=45),
     trade_rule("most-cocoa-beans-exported", "Largest cocoa-bean exports", "🍫", ("1801",), min_coverage=45),
     trade_rule("most-chocolate-exported", "Largest chocolate exports", "🍫", ("1806",), min_coverage=85),
     trade_rule("most-bananas-exported", "Largest banana exports", "🍌", ("0803",), min_coverage=55),
+    trade_rule("most-citrus-exported", "Largest citrus-fruit exports", "🍊", ("0805",), min_coverage=70),
+    trade_rule("most-apples-pears-exported", "Largest apple-and-pear exports", "🍎", ("0808",), min_coverage=70),
+    trade_rule("most-potatoes-exported", "Largest potato exports", "🥔", ("0701",), min_coverage=65),
+    trade_rule("most-tomatoes-exported", "Largest tomato exports", "🍅", ("0702",), min_coverage=55),
+    trade_rule("most-fish-exported", "Largest fish exports", "🐟", ("03",), min_coverage=100),
+    trade_rule("most-beef-exported", "Largest beef exports", "🥩", ("0201", "0202"), min_coverage=55),
+    trade_rule("most-poultry-exported", "Largest poultry-meat exports", "🍗", ("0207",), min_coverage=65),
+    trade_rule("most-cheese-exported", "Largest cheese exports", "🧀", ("0406",), min_coverage=75),
+    trade_rule("most-sugar-exported", "Largest sugar exports", "🍬", ("1701",), min_coverage=65),
+    trade_rule("most-olive-oil-exported", "Largest olive-oil exports", "🫒", ("1509",), min_coverage=55),
+    trade_rule("most-spices-exported", "Largest spice exports", "🌶️", ("09",), min_coverage=95),
     trade_rule("most-wine-exported", "Largest wine exports", "🍷", ("2204",), min_coverage=75),
-    trade_rule("most-cars-exported", "Largest car exports", "🚗", ("8703",), min_coverage=80),
-    trade_rule("most-pharmaceuticals-exported", "Largest pharmaceutical exports", "💊", ("30",), min_coverage=100),
-    trade_rule("most-electrical-equipment-exported", "Largest electrical-equipment exports", "🔌", ("85",), min_coverage=120),
-    trade_rule("most-clothing-exported", "Largest clothing exports", "👕", ("61", "62"), min_coverage=105),
+    trade_rule("most-beer-exported", "Largest beer exports", "🍺", ("2203",), min_coverage=80),
+
+    # Energy and raw materials
     trade_rule("most-crude-oil-exported", "Largest crude-oil exports", "🛢️", ("2709",), min_coverage=45),
+    trade_rule("most-natural-gas-exported", "Largest natural-gas exports", "🔥", ("2711",), min_coverage=50),
+    trade_rule("most-coal-exported", "Largest coal exports", "⚫", ("2701",), min_coverage=45),
+    trade_rule("most-electricity-exported", "Largest electricity exports", "⚡", ("2716",), min_coverage=45),
     trade_rule("most-gold-exported", "Largest gold exports", "🥇", ("7108",), min_coverage=60),
+    trade_rule("most-copper-exported", "Largest copper exports", "🟠", ("74",), min_coverage=90),
+    trade_rule("most-aluminum-exported", "Largest aluminum exports", "🔩", ("76",), min_coverage=95),
+    trade_rule("most-iron-steel-exported", "Largest iron-and-steel exports", "🏗️", ("72", "73"), min_coverage=105),
+    trade_rule("most-wood-exported", "Largest wood exports", "🪵", ("44",), min_coverage=105),
+    trade_rule("most-paper-exported", "Largest paper exports", "📄", ("48",), min_coverage=110),
+    trade_rule("most-cotton-exported", "Largest cotton exports", "🧵", ("52",), min_coverage=75),
+
+    # Manufactured goods and technology
+    trade_rule("most-cars-exported", "Largest car exports", "🚗", ("8703",), min_coverage=80),
+    trade_rule("most-motorcycles-exported", "Largest motorcycle exports", "🏍️", ("8711",), min_coverage=65),
+    trade_rule("most-ships-exported", "Largest ship exports", "🚢", ("89",), min_coverage=65),
     trade_rule("most-aircraft-exported", "Largest aircraft exports", "✈️", ("88",), min_coverage=55),
+    trade_rule("most-pharmaceuticals-exported", "Largest pharmaceutical exports", "💊", ("30",), min_coverage=100),
+    trade_rule("most-medical-optical-exported", "Largest medical-and-optical equipment exports", "🔬", ("90",), min_coverage=105),
+    trade_rule("most-chemicals-exported", "Largest chemical exports", "🧪", ("28", "29", "38"), min_coverage=115),
+    trade_rule("most-plastics-exported", "Largest plastics exports", "🧴", ("39",), min_coverage=115),
+    trade_rule("most-electrical-equipment-exported", "Largest electrical-equipment exports", "🔌", ("85",), min_coverage=120),
+    trade_rule("most-machinery-exported", "Largest machinery exports", "⚙️", ("84",), min_coverage=120),
+    trade_rule("most-computers-exported", "Largest computer exports", "💻", ("8471",), min_coverage=85),
+    trade_rule("most-phones-exported", "Largest telephone exports", "📱", ("8517",), min_coverage=90),
+    trade_rule("most-integrated-circuits-exported", "Largest computer-chip exports", "💾", ("8542",), min_coverage=65),
+    trade_rule("most-clothing-exported", "Largest clothing exports", "👕", ("61", "62"), min_coverage=105),
+    trade_rule("most-footwear-exported", "Largest footwear exports", "👟", ("64",), min_coverage=90),
+    trade_rule("most-furniture-exported", "Largest furniture exports", "🪑", ("94",), min_coverage=105),
+    trade_rule("most-toys-exported", "Largest toy exports", "🧸", ("9503",), min_coverage=80),
+    trade_rule("most-sports-equipment-exported", "Largest sports-equipment exports", "⚽", ("9506",), min_coverage=80),
+    trade_rule("most-ceramics-exported", "Largest ceramic exports", "🏺", ("69",), min_coverage=85),
+    trade_rule("most-glass-exported", "Largest glass exports", "🪟", ("70",), min_coverage=95),
+    trade_rule("most-rubber-products-exported", "Largest rubber-product exports", "🛞", ("40",), min_coverage=100),
+    trade_rule("most-railway-equipment-exported", "Largest railway-equipment exports", "🚆", ("86",), min_coverage=55),
 )
 
 
@@ -139,7 +189,7 @@ class ComtradeImporter(WarehouseImporter):
 
     def __init__(self, warehouse: SupabaseWarehouse | None, *, dry_run: bool = False) -> None:
         super().__init__(warehouse, dry_run=dry_run)
-        self.http = HttpClient(timeout=120, retries=5, user_agent="GeoStats/13.3.1 UN-Comtrade importer")
+        self.http = HttpClient(timeout=120, retries=5, user_agent="GeoStats/14.0 UN-Comtrade importer")
         self.subscription_key = os.environ.get("COMTRADE_API_KEY", "").strip()
 
     def _require_key(self) -> None:
@@ -163,6 +213,20 @@ class ComtradeImporter(WarehouseImporter):
                     "partner_code": "0",
                     "classification": "HS",
                     "api_mode": "keyed",
+                    "source_page_url": COMTRADE_SITE,
+                    "api_url": COMTRADE_DATA,
+                    "source_query": {
+                        "period": "latest completed years from 2022",
+                        "reporterCode": "all reporters",
+                        "flowCode": "X",
+                        "partnerCode": "0 (World)",
+                        "cmdCode": list(spec.commodity_codes),
+                        "classification": "HS",
+                    },
+                    "methodology_url": "https://unstats.un.org/unsd/trade/eg-imts/IMTS%202010%20(English).pdf",
+                    "license_name": "UN Comtrade data terms",
+                    "license_url": "https://comtradeplus.un.org/TermsOfUse",
+                    "dataset_release": f"UN Comtrade accessed {datetime.now(timezone.utc).date().isoformat()}",
                 },
             )
             for spec in SPECS

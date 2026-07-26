@@ -59,6 +59,19 @@ class SupabaseWarehouse:
             prefer="resolution=merge-duplicates,return=minimal",
         )
 
+    def list_source_indicator_codes(self, source_organization: str) -> set[str]:
+        rows = self._request(
+            "GET",
+            "stat_categories?"
+            f"source_organization=eq.{quote(source_organization, safe='')}&"
+            "select=source_indicator_code&limit=10000",
+        )
+        return {
+            str(row.get("source_indicator_code"))
+            for row in (rows if isinstance(rows, list) else [])
+            if isinstance(row, dict) and row.get("source_indicator_code") not in (None, "")
+        }
+
     def get_category_state(self, category_id: str) -> dict[str, Any] | None:
         rows = self._request(
             "GET",

@@ -29,6 +29,15 @@ class IndicatorRule:
     specificity_score: int = 90
     recognizability_score: int = 90
     allowed_dimension_codes: tuple[str, ...] = ()
+    # Player-quality metadata. Importers may override these; the v14 governance
+    # pass recalculates and fail-closes anything that is subjective, unclear, or
+    # impossible to reproduce.
+    plain_language_description: str | None = None
+    technical_definition: str | None = None
+    unit_explanation: str | None = None
+    understandability_score: int = 85
+    fun_score: int = 80
+    objective_status: Literal["objective", "composite", "subjective", "uncertain"] = "objective"
 
     @property
     def canonical_slug(self) -> str:

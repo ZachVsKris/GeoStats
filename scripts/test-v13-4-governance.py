@@ -57,5 +57,5 @@ blocked_rule = IndicatorRule(
 blocked = evaluate_governance("who", CandidateDefinition(blocked_rule, "TEST2", "Test 2", "https://example.test"), quality)
 assert not blocked.auto_approved
 assert blocked.provenance_status == "blocked"
-assert GOVERNANCE_VERSION == "geostats-v13.4-provenance-v1"
+assert GOVERNANCE_VERSION == "geostats-v14-provenance-player-quality-v1"
 print("GeoStats v13.4 governance tests passed.")

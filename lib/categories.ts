@@ -88,6 +88,9 @@ const CURATED_WORLD_BANK_CATEGORY_IDS = new Set<string>([
   "energyUse",
   "freshwater",
   "airPassengers",
+  "co2Total",
+  "co2PerCapita",
+  "methane",
 ]);
 
 const CURATED_EXISTING_WAREHOUSE_IDS = new Set<string>([
@@ -102,6 +105,7 @@ const CURATED_EXISTING_WAREHOUSE_IDS = new Set<string>([
   "unhcr:most-refugees-originating",
   "unhcr:most-asylum-applications-received",
   "unhcr:most-asylum-applications-by-origin",
+  "eia:most-crude-oil-produced",
 ]);
 
 // Every playable category is certified against one authoritative dataset.
@@ -384,6 +388,7 @@ const CURATED_EXTERNAL_CATEGORIES: Category[] = [
   warehouseExternal({ id: "natural-earth:southernmost", name: "Southernmost country", shortName: "Southernmost", indicator: "southernmost-country", warehouseSourceIndicatorCode: "southernmost-country", icon: "🧭", unit: "degrees latitude", family: "Geography", direction: "low", description: "Southernmost point of the country", coverageFloor: 150, similarityGroup: "latitude-extremes" }),
   warehouseExternal({ id: "natural-earth:coastline", name: "Longest coastline", shortName: "Coastline", indicator: "longest-coastline", warehouseSourceIndicatorCode: "longest-coastline", icon: "🌊", unit: "km", family: "Geography", direction: "high", description: "Estimated coastline length from one consistent global geometry dataset", coverageFloor: 150, similarityGroup: "coastline-length" }),
   warehouseExternal({ id: "natural-earth:land-border", name: "Longest total land border", shortName: "Land border", indicator: "longest-land-border", warehouseSourceIndicatorCode: "longest-land-border", icon: "🗺️", unit: "km", family: "Geography", direction: "high", description: "Total international land-border length from one consistent global geometry dataset", coverageFloor: 150, similarityGroup: "land-border-length" }),
+  warehouseExternal({ id: "natural-earth:land-neighbors", name: "Most land-border neighbors", shortName: "Border neighbors", indicator: "most-land-neighbors", warehouseSourceIndicatorCode: "most-land-neighbors", icon: "🧩", unit: "neighbors", family: "Geography", direction: "high", description: "Number of countries sharing a land border, derived consistently from Natural Earth geometry", coverageFloor: 150, similarityGroup: "land-border-neighbors" }),
 ];
 
 export const CATEGORIES: Category[] = [

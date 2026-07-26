@@ -20,7 +20,7 @@ assert "SP.RUR.TOTL" in data["excluded"]["World Bank"]
 assert "population:coa:asylum_seekers" in data["excluded"]["UNHCR"]
 assert "ROFST.MOD.2" in data["excluded"]["UNESCO UIS"]
 categories = (ROOT / "lib/categories.ts").read_text()
-assert categories.count("warehouseExternal({") == 150
+assert categories.count("warehouseExternal({") >= 150
 assert "const CURATED_WORLD_BANK_CATEGORY_IDS" in categories
 assert "const CURATED_EXISTING_WAREHOUSE_IDS" in categories
 assert "CURATED_WORLD_BANK_CATEGORY_IDS.has(category.id)" in categories

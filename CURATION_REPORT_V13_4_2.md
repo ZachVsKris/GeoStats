@@ -1,6 +1,6 @@
 # GeoStats v13.4.2 editorial curation report
 
-The supplied approved-category export contained **453 categories**. Every row was reviewed using source, concept, title, year, coverage, and measure type. The retained library is fail-closed for every source and automatically enforced after future imports. All 453 reviewed rows are stored as explicit approved or excluded rules.
+The supplied approved-category export contained **453 categories**. Every row was reviewed using source, concept, title, year, coverage, and measure type. The retained library is fail-closed for FAOSTAT and automatically enforced after future imports.
 
 | Source | Reviewed | Retained | Curated out |
 |---|---:|---:|---:|
@@ -15,11 +15,8 @@ The supplied approved-category export contained **453 categories**. Every row wa
 
 **Total retained: 205 of 453.**
 
-The complete row-by-row decision log is included in `CURATION_DECISIONS_V13_4_2.csv`.
-
 ## Editorial rules applied
 
-- Stored explicit decisions for all 453 reviewed categories: 205 approved and 248 excluded
 - Retained only 133 explicitly reviewed FAOSTAT item/measure combinations
 - Removed every harvested-area variant
 - Removed producing-animal, laying-animal, carcass-input, hides, offal, fat, equivalent, and “n.e.c.” categories

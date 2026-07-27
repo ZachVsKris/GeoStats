@@ -16,6 +16,16 @@ export type CanonicalDataset = CategoryDataset & {
   trustStatus?: string;
   trustReason?: string;
   sourcePageUrl?: string;
+  playerSourceUrl?: string;
+  playerSourceStatus?: string;
+  playerSourceReason?: string;
+  playerSourceCheckedAt?: string;
+  contentReviewStatus?: string;
+  contentReviewReason?: string;
+  immediateComprehensionScore?: number;
+  gameplayInterestScore?: number;
+  uniquenessScore?: number;
+  linkQualityScore?: number;
   exactQueryUrl?: string;
   downloadUrl?: string;
   apiUrl?: string;
@@ -87,6 +97,16 @@ export function canonicalizeDataset(dataset: CategoryDataset): CanonicalDataset 
     trustStatus: dataset.trustStatus ?? dataset.category.trustStatus,
     trustReason: dataset.trustReason ?? dataset.category.trustReason,
     sourcePageUrl: dataset.sourcePageUrl ?? dataset.category.sourcePageUrl,
+    playerSourceUrl: dataset.playerSourceUrl ?? dataset.category.playerSourceUrl,
+    playerSourceStatus: dataset.playerSourceStatus ?? dataset.category.playerSourceStatus,
+    playerSourceReason: dataset.playerSourceReason ?? dataset.category.playerSourceReason,
+    playerSourceCheckedAt: dataset.playerSourceCheckedAt ?? dataset.category.playerSourceCheckedAt,
+    contentReviewStatus: dataset.contentReviewStatus ?? dataset.category.contentReviewStatus,
+    contentReviewReason: dataset.contentReviewReason ?? dataset.category.contentReviewReason,
+    immediateComprehensionScore: dataset.immediateComprehensionScore ?? dataset.category.immediateComprehensionScore,
+    gameplayInterestScore: dataset.gameplayInterestScore ?? dataset.category.gameplayInterestScore,
+    uniquenessScore: dataset.uniquenessScore ?? dataset.category.uniquenessScore,
+    linkQualityScore: dataset.linkQualityScore ?? dataset.category.linkQualityScore,
     exactQueryUrl: dataset.exactQueryUrl ?? dataset.category.exactQueryUrl,
     downloadUrl: dataset.downloadUrl ?? dataset.category.downloadUrl,
     apiUrl: dataset.apiUrl ?? dataset.category.apiUrl,

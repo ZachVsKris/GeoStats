@@ -1,7 +1,10 @@
-# GeoStats v14.2
+# GeoStats v14.3.1
 
-GeoStats is a daily country-ranking game backed by an objective international data warehouse.
+GeoStats v14.3.1 is the corrected Semantic Quality release. It retains the global top-30 winner and semantic-diversity rules while adding two permanent gates:
 
-Start with [START_HERE_V14_2.md](START_HERE_V14_2.md).
+1. Every category must pass a category-by-category comprehension and gameplay review.
+2. Every playable category must link to a human-readable external webpage showing the exact official data.
 
-v14.2 makes official-source integrity a separate, fail-closed requirement: import success and editorial approval alone cannot make a category playable. Every playable common-year snapshot must match the official source values, metadata, coverage, and recalculated rankings.
+Raw APIs, JSON, CSV, ZIP, spreadsheet downloads, and generic source landing pages are never used as player links.
+
+Begin with `START_HERE_V14_3_1.md`.

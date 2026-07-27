@@ -1,4 +1,5 @@
 import type { Category } from "./categories";
+import { inferSemanticProfile, semanticConflict } from "./categorySemantics";
 
 export type DailyDifficulty = "easy" | "normal" | "expert";
 
@@ -86,6 +87,7 @@ export const MIN_ROUND_TYPES = ROUND_CONFIGS[DEFAULT_DIFFICULTY].minRoundTypes;
 export const MAX_PER_ROUND_TYPE = 2;
 export const MAX_GENERAL_TRADE = 2;
 export const MAX_TOTAL_TRADE = 3;
+export const MAX_BOARD_WINNER_GLOBAL_RANK = 30;
 
 const ROUND_TYPE_OVERRIDES: Record<string, string> = {
   exports: "Trade",
@@ -131,6 +133,10 @@ function faostatItemCode(category: Category) {
   const value = category.warehouseSourceIndicatorCode ?? category.indicator;
   const match = value.match(/QCL:'?([^:]+):/i);
   return match?.[1]?.toLowerCase().replace(/[^a-z0-9]+/g, "-") ?? null;
+}
+
+export function semanticFamily(category: Category) {
+  return inferSemanticProfile(category).family;
 }
 
 export function similarityGroup(category: Category) {
@@ -204,6 +210,7 @@ export function canAddCategory(selected: Category[], category: Category, config:
   if (selected.filter((item) => roundType(item) === type).length >= MAX_PER_ROUND_TYPE) return false;
   const group = similarityGroup(category);
   if (selected.some((item) => similarityGroup(item) === group)) return false;
+  if (selected.some((item) => semanticConflict(item, category))) return false;
   if (selected.filter((item) => item.source === category.source).length >= config.maxSameSource) return false;
   if (category.source === "faostat" && selected.filter((item) => item.source === "faostat").length >= config.maxFaostatCategories) return false;
   if (isAgricultureCategory(category) && selected.filter(isAgricultureCategory).length >= config.maxAgricultureCategories) return false;
@@ -225,6 +232,12 @@ export function roundHasRequiredDiversity(categories: Category[], config: RoundC
     if (categories.filter((category) => category.source === source).length > config.maxSameSource) return false;
   }
   if (new Set(categories.map(similarityGroup)).size !== categories.length) return false;
+  if (new Set(categories.map(semanticFamily)).size !== categories.length) return false;
+  for (let first = 0; first < categories.length; first += 1) {
+    for (let second = first + 1; second < categories.length; second += 1) {
+      if (semanticConflict(categories[first], categories[second])) return false;
+    }
+  }
   for (let index = 0; index < categories.length; index += 1) {
     if (!canAddCategory(categories.slice(0, index), categories[index], config)) return false;
   }
@@ -242,7 +255,7 @@ export function roundHasCountryDiversity(countries: Array<{ continent: string }>
 }
 
 export function strongestGlobalWinnerRank(coverage: number) {
-  return Math.min(50, Math.ceil(Math.max(1, coverage) / 2));
+  return Math.min(MAX_BOARD_WINNER_GLOBAL_RANK, Math.max(1, Math.floor(coverage)));
 }
 
 export function configForDimensions(categoryCount: number, countryCount: number): RoundConfig | null {

@@ -1,6 +1,6 @@
 {
   "name": "geostats",
-  "version": "14.2.0",
+  "version": "14.3.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -32,15 +32,21 @@
     "test-v13-5": "node scripts/test-v13-5-integration.mjs && python scripts/test-v13-5-trust.py",
     "check-v13-5": "npm run test-importers && npm run test-v13-4 && npm run test-v13-4-1 && npm run test-v13-4-2 && npm run test-v13-4-3 && npm run test-v13-4-4 && npm run test-v13-5 && npm test && npm run build",
     "import-world-bank-catalog": "python scripts/import-world-bank-catalog.py --target-successes 500 --scan-limit 2000 --minimum-successes 100",
-    "test-v14": "npm run test-v14-2",
-    "check-v14": "npm run check-v14-2",
+    "test-v14": "npm run test-v14-3",
+    "check-v14": "npm run check-v14-3",
     "test-ts-syntax": "node scripts/test-ts-syntax.mjs",
     "test-v14-1": "node scripts/test-v14-1-integration.mjs && python scripts/verify-v14-1-repository.py && node scripts/test-ts-syntax.mjs",
     "check-v14-1": "npm run test-importers && npm run test-v13-5 && npm test && npm run test-v14-1 && npm run build",
     "audit-source-integrity": "python scripts/audit-source-integrity.py --source all",
     "test-source-integrity": "python scripts/test-source-integrity.py",
     "test-v14-2": "node scripts/test-v14-2-integration.mjs && python scripts/test-source-integrity.py && python scripts/verify-v14-2-repository.py && node scripts/test-ts-syntax.mjs",
-    "check-v14-2": "npm run test-importers && npm run test-v13-5 && npm test && npm run test-v14-2 && npm run build"
+    "check-v14-2": "npm run test-importers && npm run test-v13-5 && npm test && npm run test-v14-2 && npm run build",
+    "test-v14-3": "node scripts/test-v14-2-integration.mjs && python scripts/test-v14-3-semantics.py && node scripts/test-v14-3-integration.mjs && python scripts/test-source-integrity.py && python scripts/verify-v14-3-repository.py && node scripts/test-ts-syntax.mjs",
+    "check-v14-3": "npm run test-importers && npm run test-v13-5 && npm test && npm run test-v14-3 && npm run build",
+    "audit-player-links": "python scripts/audit-player-source-links.py",
+    "test-player-links": "python scripts/test-player-source-links.py",
+    "test-v14-3-1": "python scripts/test-player-source-links.py && python scripts/test-v14-3-1-content-links.py && node scripts/test-v14-3-1-integration.mjs && python scripts/verify-v14-3-1-repository.py && node scripts/test-ts-syntax.mjs",
+    "check-v14-3-1": "npm run test-importers && npm run test-v13-5 && npm test && npm run test-v14-3 && npm run test-v14-3-1 && npm run build"
   },
   "dependencies": {
     "next": "16.2.10",

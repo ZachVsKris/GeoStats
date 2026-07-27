@@ -20,6 +20,17 @@ export type PlayableCategoryRow = {
   technical_definition?: string | null;
   unit_explanation?: string | null;
   source_page_url?: string | null;
+  player_source_url?: string | null;
+  player_source_status?: string | null;
+  player_source_reason?: string | null;
+  player_source_checked_at?: string | null;
+  content_review_status?: string | null;
+  content_review_reason?: string | null;
+  content_review_version?: string | null;
+  immediate_comprehension_score?: number | null;
+  gameplay_interest_score?: number | null;
+  uniqueness_score?: number | null;
+  link_quality_score?: number | null;
   exact_query_url?: string | null;
   download_url?: string | null;
   api_url?: string | null;
@@ -42,6 +53,8 @@ export type PlayableCategoryRow = {
   common_year_coverage?: number | null;
   quality_score?: number | null;
   concept_group?: string | null;
+  semantic_family?: string | null;
+  semantic_topic?: string | null;
   metadata?: Record<string, unknown> | null;
   credibility_score?: number | null;
   credibility_status?: string | null;
@@ -155,6 +168,8 @@ export function buildPlayableCategoryCatalog(rows: PlayableCategoryRow[]): Categ
     const source = SOURCE_IDS[row.source_organization];
     if (!source) continue;
     if (row.enabled === false || row.eligible_daily === false || row.review_status === "rejected" || row.curation_status === "excluded" || row.validation_status !== "verified") continue;
+    if (row.content_review_status !== "approved" || row.player_source_status !== "exact" || !row.player_source_url) continue;
+    if (Number(row.immediate_comprehension_score ?? 0) < 80 || Number(row.gameplay_interest_score ?? 0) < 65 || Number(row.link_quality_score ?? 0) < 90) continue;
     if (row.credibility_status === "quarantined" || Number(row.credibility_score ?? 100) < 75) continue;
     if ((row.objective_status != null && row.objective_status !== "objective") || row.player_quality_status === "blocked") continue;
     if (row.verifiability_score != null && Number(row.verifiability_score) < 80) continue;
@@ -195,6 +210,17 @@ export function buildPlayableCategoryCatalog(rows: PlayableCategoryRow[]): Categ
       trustStatus: normalizedTrustStatus(row.credibility_status) ?? existing?.trustStatus,
       trustReason: row.credibility_reason || existing?.trustReason,
       sourcePageUrl: row.source_page_url || existing?.sourcePageUrl,
+      playerSourceUrl: row.player_source_url || existing?.playerSourceUrl,
+      playerSourceStatus: (row.player_source_status as Category["playerSourceStatus"]) || existing?.playerSourceStatus,
+      playerSourceReason: row.player_source_reason || existing?.playerSourceReason,
+      playerSourceCheckedAt: row.player_source_checked_at || existing?.playerSourceCheckedAt,
+      contentReviewStatus: (row.content_review_status as Category["contentReviewStatus"]) || existing?.contentReviewStatus,
+      contentReviewReason: row.content_review_reason || existing?.contentReviewReason,
+      contentReviewVersion: row.content_review_version || existing?.contentReviewVersion,
+      immediateComprehensionScore: row.immediate_comprehension_score ?? existing?.immediateComprehensionScore,
+      gameplayInterestScore: row.gameplay_interest_score ?? existing?.gameplayInterestScore,
+      uniquenessScore: row.uniqueness_score ?? existing?.uniquenessScore,
+      linkQualityScore: row.link_quality_score ?? existing?.linkQualityScore,
       exactQueryUrl: row.exact_query_url || existing?.exactQueryUrl,
       downloadUrl: row.download_url || existing?.downloadUrl,
       apiUrl: row.api_url || existing?.apiUrl,
@@ -215,10 +241,14 @@ export function buildPlayableCategoryCatalog(rows: PlayableCategoryRow[]): Categ
       playerQualityReason: row.player_quality_reason || existing?.playerQualityReason,
       roundType: existing?.roundType || metadataString(metadata, "roundType") || (source === "comtrade" ? "product-trade" : row.family),
       similarityGroup: existing?.similarityGroup || row.concept_group || metadataString(metadata, "similarityGroup") || `${source}:${row.source_indicator_code}`,
+      semanticFamily: existing?.semanticFamily || row.semantic_family || metadataString(metadata, "semanticFamily"),
+      semanticTopic: existing?.semanticTopic || row.semantic_topic || metadataString(metadata, "semanticTopic") || row.concept_group || undefined,
       productSpecificTrade: existing?.productSpecificTrade ?? source === "comtrade",
     });
 
     if (category.enabled === false || category.trustStatus === "quarantined" || (category.credibilityScore ?? 0) < 75) continue;
+    if (category.contentReviewStatus !== "approved" || category.playerSourceStatus !== "exact" || !category.playerSourceUrl) continue;
+    if ((category.immediateComprehensionScore ?? 0) < 80 || (category.gameplayInterestScore ?? 0) < 65 || (category.linkQualityScore ?? 0) < 90) continue;
     if ((category.objectiveStatus != null && category.objectiveStatus !== "objective") || category.playerQualityStatus === "blocked") continue;
     if (category.verifiabilityScore != null && category.verifiabilityScore < 80) continue;
     if (category.understandabilityScore != null && category.understandabilityScore < 70) continue;

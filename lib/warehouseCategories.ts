@@ -9,6 +9,17 @@ type WarehousePayload = {
   sourceUrl?: string | null;
   methodologyUrl?: string | null;
   sourcePageUrl?: string | null;
+  playerSourceUrl?: string | null;
+  playerSourceStatus?: string | null;
+  playerSourceReason?: string | null;
+  playerSourceCheckedAt?: string | null;
+  contentReviewStatus?: string | null;
+  contentReviewReason?: string | null;
+  contentReviewVersion?: string | null;
+  immediateComprehensionScore?: number | null;
+  gameplayInterestScore?: number | null;
+  uniquenessScore?: number | null;
+  linkQualityScore?: number | null;
   exactQueryUrl?: string | null;
   downloadUrl?: string | null;
   apiUrl?: string | null;
@@ -81,6 +92,17 @@ export async function fetchWarehouseCategory(category: Category): Promise<Catego
     sourceUrl: payload.sourceUrl ?? category.sourceUrl,
     methodologyUrl: payload.methodologyUrl ?? category.methodologyUrl,
     sourcePageUrl: payload.sourcePageUrl ?? category.sourcePageUrl,
+    playerSourceUrl: payload.playerSourceUrl ?? category.playerSourceUrl,
+    playerSourceStatus: (payload.playerSourceStatus as Category["playerSourceStatus"]) ?? category.playerSourceStatus,
+    playerSourceReason: payload.playerSourceReason ?? category.playerSourceReason,
+    playerSourceCheckedAt: payload.playerSourceCheckedAt ?? category.playerSourceCheckedAt,
+    contentReviewStatus: (payload.contentReviewStatus as Category["contentReviewStatus"]) ?? category.contentReviewStatus,
+    contentReviewReason: payload.contentReviewReason ?? category.contentReviewReason,
+    contentReviewVersion: payload.contentReviewVersion ?? category.contentReviewVersion,
+    immediateComprehensionScore: payload.immediateComprehensionScore ?? category.immediateComprehensionScore,
+    gameplayInterestScore: payload.gameplayInterestScore ?? category.gameplayInterestScore,
+    uniquenessScore: payload.uniquenessScore ?? category.uniquenessScore,
+    linkQualityScore: payload.linkQualityScore ?? category.linkQualityScore,
     exactQueryUrl: payload.exactQueryUrl ?? category.exactQueryUrl,
     downloadUrl: payload.downloadUrl ?? category.downloadUrl,
     apiUrl: payload.apiUrl ?? category.apiUrl,
@@ -112,6 +134,16 @@ export async function fetchWarehouseCategory(category: Category): Promise<Catego
     sourceUrl: payload.sourceUrl ?? undefined,
     methodologyUrl: payload.methodologyUrl ?? undefined,
     sourcePageUrl: payload.sourcePageUrl ?? undefined,
+    playerSourceUrl: payload.playerSourceUrl ?? undefined,
+    playerSourceStatus: payload.playerSourceStatus ?? undefined,
+    playerSourceReason: payload.playerSourceReason ?? undefined,
+    playerSourceCheckedAt: payload.playerSourceCheckedAt ?? undefined,
+    contentReviewStatus: payload.contentReviewStatus ?? undefined,
+    contentReviewReason: payload.contentReviewReason ?? undefined,
+    immediateComprehensionScore: payload.immediateComprehensionScore ?? undefined,
+    gameplayInterestScore: payload.gameplayInterestScore ?? undefined,
+    uniquenessScore: payload.uniquenessScore ?? undefined,
+    linkQualityScore: payload.linkQualityScore ?? undefined,
     exactQueryUrl: payload.exactQueryUrl ?? undefined,
     downloadUrl: payload.downloadUrl ?? undefined,
     apiUrl: payload.apiUrl ?? undefined,

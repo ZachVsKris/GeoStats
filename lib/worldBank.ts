@@ -6,6 +6,19 @@ import { continentForIso3, type Continent } from "./continents";
 
 export type CountryInfo = { id: string; name: string; region: string; continent: Continent; flag: string; population?: number };
 export type Observation = { countryId: string; countryName: string; value: number; year: string };
+export type WorldBankImportSnapshot = {
+  observations: Observation[];
+  commonYear: number;
+  commonYearCoverage: number;
+  latestYear: number;
+  countryCoverage: number;
+  apiUrl: string;
+  sourceQuery: Record<string, string>;
+  officialSeriesName: string;
+  officialUnit: string;
+  technicalDefinition: string;
+  retrievedAt: string;
+};
 export type CategoryDataset = {
   category: Category;
   observations: Observation[];
@@ -39,6 +52,16 @@ export type CategoryDataset = {
 
 const COUNTRY_OVERRIDES: Record<string, string> = { XKX: "🇽🇰" };
 let playableCountriesPromise: Promise<CountryInfo[]> | null = null;
+const WORLD_BANK_IMPORT_START_YEAR = 2022;
+const WORLD_BANK_CURRENT_YEAR = new Date().getUTCFullYear();
+
+function worldBankIndicatorApiUrl(indicator: string) {
+  return `https://api.worldbank.org/v2/country/all/indicator/${encodeURIComponent(indicator)}?format=json&per_page=20000&date=${WORLD_BANK_IMPORT_START_YEAR}:${WORLD_BANK_CURRENT_YEAR}`;
+}
+
+function worldBankIndicatorMetadataUrl(indicator: string) {
+  return `https://api.worldbank.org/v2/indicator/${encodeURIComponent(indicator)}?format=json`;
+}
 
 function flagFromIso2(iso2: string) {
   if (!iso2 || iso2.length !== 2) return "🌐";
@@ -96,10 +119,89 @@ export async function fetchCountries(): Promise<CountryInfo[]> {
   return playableCountriesPromise;
 }
 
+export async function fetchWorldBankImportSnapshot(category: Category): Promise<WorldBankImportSnapshot> {
+  const apiUrl = worldBankIndicatorApiUrl(category.indicator);
+  const [countries, json, metadataJson] = await Promise.all([
+    fetchCountries(),
+    fetchJsonWithRetry(apiUrl),
+    fetchJsonWithRetry(worldBankIndicatorMetadataUrl(category.indicator)),
+  ]);
+  const playableIds = new Set(countries.map((country) => country.id));
+  const rows = json?.[1] ?? [];
+  const minimumYear = Math.max(WORLD_BANK_IMPORT_START_YEAR, category.minimumYear ?? WORLD_BANK_IMPORT_START_YEAR);
+  const observations: Observation[] = [];
+  const seen = new Map<string, number>();
+  const coverageByYear = new Map<number, Set<string>>();
+  const allCountries = new Set<string>();
+
+  for (const row of rows) {
+    const id = String(row.countryiso3code ?? "");
+    const value = Number(row.value);
+    const year = Number(row.date);
+    if (!playableIds.has(id) || !Number.isFinite(value) || !Number.isInteger(year) || year < minimumYear) continue;
+    const duplicateKey = `${id}:${year}`;
+    const priorValue = seen.get(duplicateKey);
+    if (priorValue !== undefined && Math.abs(priorValue - value) > 1e-9) {
+      throw new Error(`${category.shortName} returned contradictory values for ${id} in ${year}.`);
+    }
+    if (priorValue !== undefined) continue;
+    seen.set(duplicateKey, value);
+    allCountries.add(id);
+    const yearCountries = coverageByYear.get(year) ?? new Set<string>();
+    yearCountries.add(id);
+    coverageByYear.set(year, yearCountries);
+    observations.push({
+      countryId: id,
+      countryName: canonicalCountryName(id, row.country?.value ?? id),
+      value,
+      year: String(year),
+    });
+  }
+
+  if (!coverageByYear.size) {
+    throw new Error(`${category.shortName} has no playable-country observations from ${minimumYear} onward.`);
+  }
+  const commonYear = [...coverageByYear.keys()].sort((left, right) => {
+    const leftCoverage = coverageByYear.get(left)?.size ?? 0;
+    const rightCoverage = coverageByYear.get(right)?.size ?? 0;
+    const leftScore = Math.min(leftCoverage, 150) * 3 - Math.max(0, WORLD_BANK_CURRENT_YEAR - left) * 8;
+    const rightScore = Math.min(rightCoverage, 150) * 3 - Math.max(0, WORLD_BANK_CURRENT_YEAR - right) * 8;
+    return rightScore - leftScore || right - left;
+  })[0];
+  const snapshot = observations.filter((observation) => Number(observation.year) === commonYear);
+  if (snapshot.length < category.coverageFloor) {
+    throw new Error(`${category.shortName} has only ${snapshot.length} playable countries in the selected common year ${commonYear}; ${category.coverageFloor} are required.`);
+  }
+
+  const indicatorRow = Array.isArray(metadataJson?.[1]) ? metadataJson[1][0] : null;
+  const rowIndicatorName = rows.find((row: any) => row?.indicator?.value)?.indicator?.value;
+  const officialSeriesName = String(indicatorRow?.name ?? rowIndicatorName ?? "").trim();
+  if (!officialSeriesName) throw new Error(`World Bank metadata did not identify series ${category.indicator}.`);
+  const officialUnit = String(indicatorRow?.unit ?? "").trim();
+  const technicalDefinition = String(indicatorRow?.sourceNote ?? indicatorRow?.source_note ?? officialSeriesName).trim();
+  return {
+    observations: snapshot,
+    commonYear,
+    commonYearCoverage: snapshot.length,
+    latestYear: Math.max(...coverageByYear.keys()),
+    countryCoverage: allCountries.size,
+    apiUrl,
+    sourceQuery: {
+      indicator: category.indicator,
+      country: "all",
+      date: `${WORLD_BANK_IMPORT_START_YEAR}:${WORLD_BANK_CURRENT_YEAR}`,
+    },
+    officialSeriesName,
+    officialUnit,
+    technicalDefinition,
+    retrievedAt: new Date().toISOString(),
+  };
+}
+
 export async function fetchWorldBankCategory(category: Category): Promise<CategoryDataset> {
   const [countries, json, metadata] = await Promise.all([
     fetchCountries(),
-    fetchJsonWithRetry(`https://api.worldbank.org/v2/country/all/indicator/${category.indicator}?format=json&per_page=20000&mrnev=8`),
+    fetchJsonWithRetry(worldBankIndicatorApiUrl(category.indicator)),
     fetchCategorySourceMetadata(category),
   ]);
   const playableIds = new Set(countries.map((country) => country.id));

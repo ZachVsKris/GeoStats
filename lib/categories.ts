@@ -38,6 +38,10 @@ export type Category = {
   // fall back to their family and indicator when these are omitted.
   roundType?: string;
   similarityGroup?: string;
+  // Board-quality concepts. semanticFamily is a hard one-per-board grouping;
+  // semanticTopic is the narrower indicator concept used for review and diagnostics.
+  semanticFamily?: string;
+  semanticTopic?: string;
   productSpecificTrade?: boolean;
   // Warehouse-backed categories are loaded from the curated Supabase common-year snapshot.
   warehouseBacked?: boolean;
@@ -54,6 +58,18 @@ export type Category = {
   technicalDefinition?: string;
   unitExplanation?: string;
   sourcePageUrl?: string;
+  // The only source URL exposed to players. It must be a human-readable external page showing the exact indicator/data view.
+  playerSourceUrl?: string;
+  playerSourceStatus?: "pending" | "exact" | "needs_exact_url" | "invalid" | "unavailable";
+  playerSourceReason?: string;
+  playerSourceCheckedAt?: string;
+  contentReviewStatus?: "pending" | "approved" | "excluded";
+  contentReviewReason?: string;
+  contentReviewVersion?: string;
+  immediateComprehensionScore?: number;
+  gameplayInterestScore?: number;
+  uniquenessScore?: number;
+  linkQualityScore?: number;
   exactQueryUrl?: string;
   downloadUrl?: string;
   apiUrl?: string;

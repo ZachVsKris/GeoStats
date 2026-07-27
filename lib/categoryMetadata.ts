@@ -8,6 +8,17 @@ export type CategorySourceMetadata = {
   sourceUrl?: string;
   methodologyUrl?: string;
   sourcePageUrl?: string;
+  playerSourceUrl?: string;
+  playerSourceStatus?: string;
+  playerSourceReason?: string;
+  playerSourceCheckedAt?: string;
+  contentReviewStatus?: string;
+  contentReviewReason?: string;
+  contentReviewVersion?: string;
+  immediateComprehensionScore?: number;
+  gameplayInterestScore?: number;
+  uniquenessScore?: number;
+  linkQualityScore?: number;
   exactQueryUrl?: string;
   downloadUrl?: string;
   apiUrl?: string;

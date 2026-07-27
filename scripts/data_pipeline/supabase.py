@@ -121,6 +121,67 @@ class SupabaseWarehouse:
         self._request("POST", "rpc/apply_category_governance", {"p_category_id": category_id})
 
 
+    def get_category_integrity_state(self, category_id: str) -> dict[str, Any] | None:
+        rows = self._request(
+            "GET",
+            "stat_categories?"
+            f"id=eq.{quote(category_id, safe='')}&"
+            "select=*",
+        )
+        if isinstance(rows, list) and rows:
+            return dict(rows[0])
+        return None
+
+    def get_category_observations(self, category_id: str, year: int) -> list[dict[str, Any]]:
+        rows = self._request(
+            "GET",
+            "stat_observations?"
+            f"category_id=eq.{quote(category_id, safe='')}&data_year=eq.{int(year)}&"
+            "select=country_iso3,country_name,data_year,value,source_url,source_record_id,metadata&limit=1000",
+        )
+        return [dict(row) for row in rows] if isinstance(rows, list) else []
+
+    def record_category_validation(self, category_id: str, result: Any, *, run_id: int | None = None) -> None:
+        self._request("POST", "rpc/record_category_validation", result.rpc_payload(category_id, run_id=run_id))
+
+    def create_validation_run(self, source_organization: str | None, validation_version: str, details: dict[str, Any]) -> int:
+        rows = self._request(
+            "POST",
+            "stat_validation_runs",
+            [{
+                "source_organization": source_organization,
+                "status": "running",
+                "validation_version": validation_version,
+                "details": details,
+            }],
+            prefer="return=representation",
+        )
+        if not rows:
+            raise RuntimeError("Supabase did not return the new validation run.")
+        return int(rows[0]["id"])
+
+    def finish_validation_run(self, run_id: int, **fields: Any) -> None:
+        self._request("PATCH", f"stat_validation_runs?id=eq.{run_id}", fields, prefer="return=minimal")
+
+    def list_categories_for_validation(self, *, source_organization: str | None = None, playable_only: bool = True) -> list[dict[str, Any]]:
+        filters = []
+        if source_organization:
+            filters.append(f"source_organization=eq.{quote(source_organization, safe='')}")
+        suffix = "&".join(filters)
+        if suffix:
+            suffix += "&"
+        rows = self._request(
+            "GET",
+            "stat_categories?" + suffix + "select=*&order=source_organization.asc,title.asc&limit=5000",
+        )
+        result = [dict(row) for row in rows] if isinstance(rows, list) else []
+        if playable_only:
+            result = [row for row in result if bool(row.get("enabled")) or str(row.get("review_status") or "") == "approved"]
+        return result
+
+    def activate_source_integrity_enforcement(self) -> Any:
+        return self._request("POST", "rpc/activate_source_integrity_enforcement", {})
+
     def get_import_health(self) -> list[dict[str, Any]]:
         rows = self._request(
             "GET",

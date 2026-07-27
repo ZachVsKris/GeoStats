@@ -15,6 +15,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--natural-earth-min", type=int, default=24)
     parser.add_argument("--world-bank-run-min", type=int, default=100)
     parser.add_argument("--comtrade-run-min", type=int, default=0)
+    parser.add_argument("--comtrade-target-total", type=int, default=0, help="Report progress toward this catalog total without failing on quota pauses.")
     parser.add_argument("--require-pending", action="store_true", default=True)
     return parser.parse_args()
 
@@ -117,14 +118,30 @@ def main() -> int:
                     f"required minimum is {args.comtrade_run_min}."
                 )
 
+    warnings: list[str] = []
+    if args.comtrade_target_total > 0:
+        comtrade = health.get("UN Comtrade")
+        total = _integer(comtrade.get("category_count")) if comtrade else 0
+        if total < args.comtrade_target_total:
+            warnings.append(
+                f"UN Comtrade catalog progress is {total}/{args.comtrade_target_total}. Quota-limited imports can be rerun later and will resume missing categories."
+            )
+
     summary_path = os.environ.get("GITHUB_STEP_SUMMARY", "").strip()
     if summary_path:
         text = "## GeoStats v14 expansion verification\n\n" + _summary_table(rows) + "\n"
+        if warnings:
+            text += "\n### Progress notes\n" + "\n".join(f"- {item}" for item in warnings) + "\n"
         if errors:
             text += "\n### Problems\n" + "\n".join(f"- {item}" for item in errors) + "\n"
         else:
             text += "\nAll required import and review-queue checks passed.\n"
         Path(summary_path).write_text(text, encoding="utf-8")
+
+    if warnings:
+        print("\nProgress notes:", flush=True)
+        for item in warnings:
+            print(f"- {item}", flush=True)
 
     if errors:
         print("\nImport verification failed:", flush=True)

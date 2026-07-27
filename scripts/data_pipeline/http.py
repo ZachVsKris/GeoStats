@@ -3,17 +3,52 @@ from __future__ import annotations
 import gzip
 import io
 import json
+import random
 import time
+from email.utils import parsedate_to_datetime
 from typing import Any
 from urllib.error import HTTPError, URLError
-from urllib.parse import urljoin
+from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit, urlunsplit
 from urllib.request import Request, urlopen
+
+
+def _safe_url(url: str) -> str:
+    """Redact API credentials before URLs reach logs or warehouse error details."""
+    try:
+        parts = urlsplit(url)
+        secret_keys = {"subscription-key", "api_key", "apikey", "key", "token", "access_token"}
+        query = [(key, "***" if key.lower() in secret_keys else value) for key, value in parse_qsl(parts.query, keep_blank_values=True)]
+        return urlunsplit((parts.scheme, parts.netloc, parts.path, urlencode(query), parts.fragment))
+    except Exception:
+        return url
+
+
+class HttpStatusError(RuntimeError):
+    def __init__(self, url: str, status: int, message: str, *, retry_after: float | None = None) -> None:
+        safe_url = _safe_url(url)
+        super().__init__(f"Could not retrieve {safe_url}: HTTP Error {status}: {message}")
+        self.url = safe_url
+        self.status = status
+        self.retry_after = retry_after
+
+
+def _retry_after_seconds(error: HTTPError) -> float | None:
+    raw = error.headers.get("Retry-After") if error.headers else None
+    if not raw:
+        return None
+    try:
+        return max(0.0, float(raw))
+    except (TypeError, ValueError):
+        try:
+            return max(0.0, parsedate_to_datetime(raw).timestamp() - time.time())
+        except Exception:
+            return None
 
 
 class HttpClient:
     """Small retrying client shared by JSON, CSV, and archive importers."""
 
-    def __init__(self, *, timeout: int = 120, retries: int = 5, user_agent: str = "GeoStats/13.1") -> None:
+    def __init__(self, *, timeout: int = 120, retries: int = 5, user_agent: str = "GeoStats/14.1") -> None:
         self.timeout = timeout
         self.retries = retries
         self.user_agent = user_agent
@@ -30,12 +65,23 @@ class HttpClient:
                     if encoding == "gzip" or payload[:2] == b"\x1f\x8b" or "application/gzip" in content_type:
                         return gzip.decompress(payload)
                     return payload
-            except (HTTPError, URLError, TimeoutError, OSError) as error:
+            except HTTPError as error:
+                detail = error.read().decode("utf-8", errors="replace").strip() or str(error.reason or "HTTP request failed")
+                retry_after = _retry_after_seconds(error)
+                status_error = HttpStatusError(url, int(error.code), detail[:500], retry_after=retry_after)
+                last_error = status_error
+                retryable = error.code == 429 or 500 <= error.code < 600
+                if not retryable or attempt + 1 >= self.retries:
+                    raise status_error from error
+                delay = retry_after if retry_after is not None else min(90.0, (2 ** attempt) * 3.0 + random.random())
+                print(f"HTTP {error.code}; retrying in {delay:.1f}s…", flush=True)
+                time.sleep(delay)
+            except (URLError, TimeoutError, OSError) as error:
                 last_error = error
                 if attempt + 1 >= self.retries:
                     break
-                time.sleep(min(20, 2 ** attempt))
-        raise RuntimeError(f"Could not retrieve {url}: {last_error}")
+                time.sleep(min(30, 2 ** attempt))
+        raise RuntimeError(f"Could not retrieve {_safe_url(url)}: {last_error}")
 
     def get_text(self, url: str, *, accept: str = "text/plain,*/*") -> str:
         return self.get_bytes(url, accept=accept).decode("utf-8-sig", errors="replace")

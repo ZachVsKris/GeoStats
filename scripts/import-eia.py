@@ -415,8 +415,8 @@ class EiaImporter(WarehouseImporter):
         candidate.metadata["selected_unit"] = selected_unit
         return sorted(normalized.values(), key=lambda row: (row.data_year, row.country_iso3))
 
-    def build_category_row(self, candidate, quality, category_id: str) -> dict[str, object]:
-        row = super().build_category_row(candidate, quality, category_id)
+    def build_category_row(self, candidate, quality, governance, category_id: str) -> dict[str, object]:
+        row = super().build_category_row(candidate, quality, governance, category_id)
         row["unit"] = str(candidate.metadata.get("selected_unit") or "EIA reported unit")
         return row
 

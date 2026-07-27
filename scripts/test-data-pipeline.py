@@ -39,7 +39,7 @@ assert WarehouseImporter.preserve_editorial_state(
 )["review_status"] == "rejected"
 assert WarehouseImporter.preserve_editorial_state(
     base_row, {"review_status": "approved"}, auto_qualified=True
-)["enabled"] is True
+)["enabled"] is False
 revoked = WarehouseImporter.preserve_editorial_state(
     base_row, {"review_status": "approved"}, auto_qualified=False
 )

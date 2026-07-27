@@ -7,6 +7,7 @@ from typing import Iterable
 from .canonical_countries import canonical_country_name
 from .descriptions import plain_language_description
 from .governance import GOVERNANCE_VERSION, evaluate_governance
+from .integrity import VALIDATION_VERSION, validate_category_snapshot
 from .models import CandidateDefinition, SourceObservation
 from .quality import QUALITY_STANDARD_VERSION, score_observations
 from .supabase import SupabaseWarehouse
@@ -73,7 +74,7 @@ class WarehouseImporter(ABC):
                     "offset": offset,
                     "scan_limit": effective_scan_limit,
                     "target_successes": target_successes,
-                    "started_by": "generic-importer-framework-v14.0.1",
+                    "started_by": "generic-importer-framework-v14.2",
                 },
             )
 
@@ -82,6 +83,9 @@ class WarehouseImporter(ABC):
         attempted_count = 0
         successful_keys: list[str] = []
         failures: list[dict[str, str]] = []
+        stopped_reason: str | None = None
+        validation_verified = 0
+        validation_failed = 0
         try:
             for index, candidate in enumerate(candidates, start=1):
                 if target_successes is not None and category_count >= target_successes:
@@ -115,15 +119,44 @@ class WarehouseImporter(ABC):
                             self.build_observation_rows(category_id, observations, run_id)
                         )
                         self.warehouse.link_canonical(self.canonical_payload(candidate, category_id))
-                        self.warehouse.apply_category_governance(category_id)
+                        stored_category = self.warehouse.get_category_integrity_state(category_id)
+                        if not stored_category:
+                            raise RuntimeError(f"Stored category {category_id} disappeared before integrity validation.")
+                        if quality.common_year is None:
+                            stored_observations = []
+                        else:
+                            stored_observations = self.warehouse.get_category_observations(category_id, quality.common_year)
+                        integrity = validate_category_snapshot(
+                            source_slug=self.source_slug,
+                            source_organization=self.source_organization,
+                            source_dataset=self.source_dataset,
+                            category_id=category_id,
+                            candidate=candidate,
+                            quality=quality,
+                            source_observations=observations,
+                            expected_category_row=row,
+                            stored_category=stored_category,
+                            stored_observations=stored_observations,
+                        )
+                        self.warehouse.record_category_validation(category_id, integrity)
+                        if integrity.status == "verified":
+                            validation_verified += 1
+                        else:
+                            validation_failed += 1
+                            failures.append({"key": candidate.rule.key, "error": f"Source integrity: {integrity.failure_reason}"[:1200]})
+                            print(f"  quarantined: {integrity.failure_reason}", flush=True)
                     category_count += 1
                     successful_keys.append(candidate.rule.key)
                 except Exception as error:  # keep a long source import moving while preserving failure details
                     failures.append({"key": candidate.rule.key, "error": str(error)[:1200]})
                     print(f"  failed: {error}", flush=True)
+                    if getattr(error, "stop_import", False):
+                        stopped_reason = str(error)[:1200]
+                        print("  import paused; completed categories are saved and the next run can resume.", flush=True)
+                        break
 
             if not self.dry_run and self.warehouse is not None and run_id is not None:
-                final_status = "failed" if failures and category_count == 0 else "completed"
+                final_status = "completed" if stopped_reason else ("failed" if failures and category_count == 0 else "completed")
                 self.warehouse.finish_import_run(
                     run_id,
                     status=final_status,
@@ -141,6 +174,10 @@ class WarehouseImporter(ABC):
                         "target_reached": target_successes is None or category_count >= target_successes,
                         "successful_keys": successful_keys,
                         "failures": failures,
+                        "stopped_reason": stopped_reason,
+                        "source_integrity_version": VALIDATION_VERSION,
+                        "source_integrity_verified": validation_verified,
+                        "source_integrity_failed": validation_failed,
                     },
                 )
                 if final_status == "completed":
@@ -161,6 +198,9 @@ class WarehouseImporter(ABC):
                         "target_successes": target_successes,
                         "successful_keys": successful_keys,
                         "failures": failures,
+                        "source_integrity_version": VALIDATION_VERSION,
+                        "source_integrity_verified": validation_verified,
+                        "source_integrity_failed": validation_failed,
                     },
                 )
             raise
@@ -175,6 +215,9 @@ class WarehouseImporter(ABC):
             "target_reached": target_successes is None or category_count >= target_successes,
             "successful_keys": successful_keys,
             "failures": failures,
+            "stopped_reason": stopped_reason,
+            "source_integrity_verified": validation_verified,
+            "source_integrity_failed": validation_failed,
         }
 
 
@@ -200,7 +243,9 @@ class WarehouseImporter(ABC):
                 "auto_decision_reason": "Remains disabled because an administrator manually rejected this category.",
             }
         if previous == "approved" and auto_qualified:
-            return {**row, "review_status": "approved", "enabled": True, "eligible_daily": True}
+            # Preserve the editorial decision, but keep the category unavailable until
+            # the freshly imported official snapshot passes source-integrity validation.
+            return {**row, "review_status": "approved", "enabled": False, "eligible_daily": False}
         if previous == "approved" and not auto_qualified:
             # A source change can revoke automatic eligibility; the old approval is not silently retained.
             return {**row, "review_status": "needs_review", "enabled": False, "eligible_daily": False}
@@ -245,8 +290,15 @@ class WarehouseImporter(ABC):
             "understandability_score": max(0, min(100, int(rule.understandability_score))),
             "fun_score": max(0, min(100, int(rule.fun_score))),
             "objective_status": rule.objective_status,
-            "enabled": governance.auto_approved,
-            "eligible_daily": governance.auto_approved,
+            "validation_status": "pending",
+            "validation_version": VALIDATION_VERSION,
+            "validation_reason": "Awaiting end-to-end comparison with the official source snapshot.",
+            "validation_mismatch_count": 0,
+            "validation_ranking_mismatch_count": 0,
+            # Imports are always fail-closed. record_category_validation() and the
+            # governance RPC can enable a verified, approved category afterward.
+            "enabled": False,
+            "eligible_daily": False,
             "minimum_year": 2022,
             "latest_available_year": quality.latest_year,
             "country_coverage": quality.country_coverage,
@@ -281,7 +333,8 @@ class WarehouseImporter(ABC):
                 **candidate.metadata,
                 "source_indicator_name": candidate.source_indicator_name,
                 "canonical_slug": rule.canonical_slug,
-                "import_framework": "v14.0.1",
+                "import_framework": "v14.2",
+                "sourceIntegrityVersion": VALIDATION_VERSION,
                 "plainLanguageDescription": player_description,
                 "technicalDefinition": rule.technical_definition or candidate.source_indicator_name,
                 "unitExplanation": rule.unit_explanation or rule.unit,

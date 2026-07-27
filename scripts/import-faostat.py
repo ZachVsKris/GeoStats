@@ -32,6 +32,7 @@ from pathlib import Path
 from typing import Any, Iterable, Iterator, Mapping, Sequence
 
 from data_pipeline.canonical_countries import canonical_country_name
+from data_pipeline.integrity import VALIDATION_VERSION, competition_ranks, snapshot_checksum, values_match
 
 try:
     import pycountry
@@ -46,8 +47,8 @@ FALLBACK_ZIP_URL = (
     "https://bulks-faostat.fao.org/production/"
     "Production_Crops_Livestock_E_All_Data_(Normalized).zip"
 )
-QUALITY_VERSION = "geostats-v13.4.1-faostat-adaptive"
-FAOSTAT_GOVERNANCE_VERSION = "geostats-v13.4.1-faostat-adaptive-v1"
+QUALITY_VERSION = "geostats-v14.2-faostat-source-integrity"
+FAOSTAT_GOVERNANCE_VERSION = "geostats-v14.2-faostat-source-integrity-v1"
 RECENT_YEAR_WINDOW = 6
 MIN_CANDIDATE_COVERAGE = 25
 MIN_PLAYABLE_COVERAGE = 60
@@ -849,7 +850,7 @@ def fetch_existing_reviews(client: SupabaseRest) -> dict[str, str]:
     return {str(row["id"]): str(row.get("review_status") or "candidate") for row in rows}
 
 
-def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, candidates: list[dict[str, Any]], run_id: int) -> tuple[int, int]:
+def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, candidates: list[dict[str, Any]], run_id: int, validation_run_id: int, bulk_download_url: str) -> tuple[int, int, int, int]:
     existing_reviews = fetch_existing_reviews(client)
     category_rows: list[dict[str, Any]] = []
     candidate_ids: set[str] = set()
@@ -863,8 +864,8 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
             eligible_daily = False
         elif governance_pass:
             review_status = "approved"
-            enabled = True
-            eligible_daily = True
+            enabled = False
+            eligible_daily = False
         else:
             review_status = "needs_review" if candidate["auto_qualified"] else "candidate"
             enabled = False
@@ -884,6 +885,25 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
                 "source_dataset": SOURCE_DATASET,
                 "source_indicator_code": f"QCL:{candidate['item_code']}:{candidate['element_code']}",
                 "source_url": SOURCE_URL,
+                "source_page_url": SOURCE_URL,
+                "exact_query_url": None,
+                "download_url": bulk_download_url,
+                "api_url": CATALOG_URL,
+                "dataset_release": f"FAOSTAT QCL bulk archive retrieved {datetime.now(timezone.utc).date().isoformat()}",
+                "retrieved_at": utc_now(),
+                "source_query": {
+                    "domainCode": "QCL",
+                    "itemCode": candidate["item_code"],
+                    "elementCode": candidate["element_code"],
+                    "year": candidate["common_year"],
+                    "unit": candidate["unit"],
+                    "countryUniverse": "UN-recognized countries",
+                },
+                "validation_status": "pending",
+                "validation_version": VALIDATION_VERSION,
+                "validation_reason": "Awaiting end-to-end comparison with the official FAOSTAT QCL bulk snapshot.",
+                "validation_mismatch_count": 0,
+                "validation_ranking_mismatch_count": 0,
                 "enabled": enabled,
                 "minimum_year": max(2020, candidate["common_year"] - 4),
                 "latest_available_year": candidate["latest_year"],
@@ -934,6 +954,8 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
                     "unknownObservationShare": round(candidate["unknown_share"], 6),
                     "stabilityComparisonYear": candidate["stability_comparison_year"],
                     "adaptiveFaostatGate": True,
+                    "sourceIntegrityVersion": VALIDATION_VERSION,
+                    "bulkDownloadUrl": bulk_download_url,
                 },
             }
         )
@@ -1001,10 +1023,138 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
     if observation_rows:
         client.upsert("stat_observations", observation_rows, "category_id,country_iso3,data_year")
         inserted += len(observation_rows)
-    for candidate in candidates:
-        client.rpc("apply_category_governance", {"p_category_id": candidate["id"]})
-    return len(category_rows), inserted
+    verified, failed = validate_faostat_categories(client, connection, candidates, validation_run_id)
+    return len(category_rows), inserted, verified, failed
 
+
+
+def _faostat_stored_rows(client: SupabaseRest, category_id_value: str, year: int) -> list[dict[str, Any]]:
+    query = urllib.parse.urlencode({
+        "select": "country_iso3,country_name,data_year,value,source_url,source_record_id,metadata",
+        "category_id": f"eq.{category_id_value}",
+        "data_year": f"eq.{year}",
+        "limit": 500,
+    })
+    return client.select("stat_observations", query)
+
+
+def validate_faostat_categories(
+    client: SupabaseRest,
+    connection: sqlite3.Connection,
+    candidates: list[dict[str, Any]],
+    validation_run_id: int,
+) -> tuple[int, int]:
+    verified = 0
+    failed = 0
+    for candidate in candidates:
+        if not candidate["auto_qualified"] or candidate["provenance_status"] != "approved":
+            continue
+        category_id_value = str(candidate["id"])
+        year = int(candidate["common_year"])
+        official = {
+            str(iso3): float(value)
+            for iso3, value in connection.execute(
+                "select iso3,value from observations where category_key=? and year=? order by iso3",
+                (candidate["source_key"], year),
+            )
+        }
+        stored_rows = _faostat_stored_rows(client, category_id_value, year)
+        stored = {
+            str(row.get("country_iso3")): float(row.get("value"))
+            for row in stored_rows
+            if row.get("country_iso3") and finite_float(row.get("value")) is not None
+        }
+        category_query = urllib.parse.urlencode({"select": "*", "id": f"eq.{category_id_value}", "limit": 1})
+        category_rows = client.select("stat_categories", category_query)
+        category_row = category_rows[0] if category_rows else {}
+        official_ids = set(official)
+        stored_ids = set(stored)
+        missing = sorted(official_ids - stored_ids)
+        extra = sorted(stored_ids - official_ids)
+        mismatches = [iso3 for iso3 in sorted(official_ids & stored_ids) if not values_match(official[iso3], stored[iso3])]
+        official_ranks = competition_ranks(official, "high")
+        stored_ranks = competition_ranks(stored, "high")
+        rank_mismatches = [iso3 for iso3 in sorted(official_ids & stored_ids) if official_ranks[iso3] != stored_ranks[iso3]]
+        source_checksum = snapshot_checksum(official)
+        stored_checksum = snapshot_checksum(stored)
+        source_query = category_row.get("source_query") or {}
+        official_title = category_title(candidate["item"], candidate["element"])
+        element_lower = str(candidate["element"]).lower()
+        title_lower = str(category_row.get("title") or "").lower()
+        unit_lower = str(candidate["unit"] or "").lower()
+        measure_semantics = True
+        if "yield" in element_lower:
+            measure_semantics = "yield" in title_lower and ("/ha" in unit_lower or "hectare" in unit_lower)
+        elif "production" in element_lower:
+            measure_semantics = "production" in title_lower and "yield" not in title_lower
+        elif "area harvested" in element_lower:
+            measure_semantics = "harvested area" in title_lower
+        metadata_checks = {
+            "source_organization": category_row.get("source_organization") == SOURCE_ORG,
+            "source_dataset": category_row.get("source_dataset") == SOURCE_DATASET,
+            "source_indicator_code": str(category_row.get("source_indicator_code") or "") == f"QCL:{candidate['item_code']}:{candidate['element_code']}",
+            "domain_code": str(source_query.get("domainCode") or "") == "QCL",
+            "item_code": str(source_query.get("itemCode") or "") == str(candidate["item_code"]),
+            "element_code": str(source_query.get("elementCode") or "") == str(candidate["element_code"]),
+            "query_year": int(source_query.get("year") or 0) == year,
+            "query_unit": str(source_query.get("unit") or "") == str(candidate["unit"]),
+            "official_title": str(category_row.get("title") or "") == official_title,
+            "measure_semantics": measure_semantics,
+            "unit": str(category_row.get("unit") or "") == str(candidate["unit"]),
+            "common_year": int(category_row.get("common_year") or 0) == year,
+            "declared_coverage": int(category_row.get("common_year_coverage") or 0) == len(official),
+            "bulk_download_present": bool(category_row.get("download_url")),
+            "source_records_present": all(row.get("source_record_id") and row.get("source_url") for row in stored_rows),
+        }
+        metadata_failures = [key for key, value in metadata_checks.items() if not value]
+        reasons: list[str] = []
+        if metadata_failures:
+            reasons.append("metadata checks failed: " + ", ".join(metadata_failures))
+        if missing:
+            reasons.append(f"{len(missing)} official countries missing")
+        if extra:
+            reasons.append(f"{len(extra)} unexpected stored countries")
+        if mismatches:
+            reasons.append(f"{len(mismatches)} value mismatches")
+        if rank_mismatches:
+            reasons.append(f"{len(rank_mismatches)} ranking mismatches")
+        if source_checksum != stored_checksum:
+            reasons.append("source and stored checksums differ")
+        status = "verified" if not reasons else "failed"
+        client.rpc("record_category_validation", {
+            "p_category_id": category_id_value,
+            "p_status": status,
+            "p_validation_version": VALIDATION_VERSION,
+            "p_common_year": year,
+            "p_expected_count": len(official),
+            "p_stored_count": len(stored),
+            "p_compared_count": len(official_ids & stored_ids),
+            "p_value_mismatch_count": len(missing) + len(extra) + len(mismatches),
+            "p_ranking_mismatch_count": len(rank_mismatches),
+            "p_source_checksum": source_checksum,
+            "p_stored_checksum": stored_checksum,
+            "p_metadata_checks": metadata_checks,
+            "p_failure_reason": "; ".join(reasons) if reasons else None,
+            "p_details": {
+                "domainCode": "QCL",
+                "itemCode": candidate["item_code"],
+                "elementCode": candidate["element_code"],
+                "item": candidate["item"],
+                "element": candidate["element"],
+                "unit": candidate["unit"],
+                "missingCountries": missing[:50],
+                "extraCountries": extra[:50],
+                "valueMismatchCountries": mismatches[:50],
+                "rankingMismatchCountries": rank_mismatches[:50],
+            },
+            "p_validation_run_id": validation_run_id,
+        })
+        if status == "verified":
+            verified += 1
+        else:
+            failed += 1
+            log(f"Quarantined {candidate['title']}: {'; '.join(reasons)}")
+    return verified, failed
 
 def run() -> None:
     supabase_url = os.environ.get("SUPABASE_URL") or os.environ.get("NEXT_PUBLIC_SUPABASE_URL")
@@ -1033,18 +1183,32 @@ def run() -> None:
     if not run_rows:
         raise RuntimeError("Could not create FAOSTAT import-run record.")
     run_id = int(run_rows[0]["id"])
+    validation_rows = client.insert(
+        "stat_validation_runs",
+        {
+            "source_organization": SOURCE_ORG,
+            "status": "running",
+            "validation_version": VALIDATION_VERSION,
+            "details": {"auditMode": "official-FAOSTAT-QCL-bulk", "trigger": "FAOSTAT import"},
+        },
+        returning=True,
+    )
+    if not validation_rows:
+        raise RuntimeError("Could not create FAOSTAT validation-run record.")
+    validation_run_id = int(validation_rows[0]["id"])
     client.patch("data_sources", "id=eq.faostat", {"status": "importing"})
     try:
         with tempfile.TemporaryDirectory(prefix="geostats-faostat-") as temporary:
             directory = Path(temporary)
             zip_path = directory / "qcl.zip"
             database_path = directory / "qcl.sqlite"
-            download(get_zip_url(), zip_path)
+            bulk_download_url = get_zip_url()
+            download(bulk_download_url, zip_path)
             connection, staged = build_sqlite(zip_path, database_path)
             candidates = category_candidates(connection)
             qualified = sum(1 for candidate in candidates if candidate["auto_qualified"])
             log(f"Adaptive gate result: {qualified:,} pass numerical review; {len(candidates) - qualified:,} fail the numerical gate")
-            category_count, observation_count = import_candidates(client, connection, candidates, run_id)
+            category_count, observation_count, integrity_verified, integrity_failed = import_candidates(client, connection, candidates, run_id, validation_run_id, bulk_download_url)
             connection.close()
         completed = utc_now()
         client.patch(
@@ -1065,6 +1229,26 @@ def run() -> None:
                     "candidateCategories": category_count,
                     "numericallyQualified": qualified,
                     "automaticApprovalEnabled": True,
+                    "sourceIntegrityVersion": VALIDATION_VERSION,
+                    "sourceIntegrityVerified": integrity_verified,
+                    "sourceIntegrityFailed": integrity_failed,
+                },
+            },
+        )
+        client.patch(
+            "stat_validation_runs",
+            f"id=eq.{validation_run_id}",
+            {
+                "status": "completed",
+                "completed_at": completed,
+                "categories_selected": qualified,
+                "categories_verified": integrity_verified,
+                "categories_failed": integrity_failed,
+                "categories_unable": 0,
+                "details": {
+                    "auditMode": "official-FAOSTAT-QCL-bulk",
+                    "candidateCategories": category_count,
+                    "numericallyQualified": qualified,
                 },
             },
         )
@@ -1075,6 +1259,11 @@ def run() -> None:
         client.patch(
             "stat_import_runs",
             f"id=eq.{run_id}",
+            {"status": "failed", "completed_at": completed, "error_message": str(exc)[:2000]},
+        )
+        client.patch(
+            "stat_validation_runs",
+            f"id=eq.{validation_run_id}",
             {"status": "failed", "completed_at": completed, "error_message": str(exc)[:2000]},
         )
         client.patch("data_sources", "id=eq.faostat", {"status": "error"})

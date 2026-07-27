@@ -43,6 +43,31 @@ def test_url_modes() -> None:
     assert "partner2Code" not in query and "customsCode" not in query and "motCode" not in query
 
 
+
+
+def test_secret_redaction() -> None:
+    error = module.HttpStatusError("https://example.test/data?subscription-key=very-secret&x=1", 403, "Quota Exceeded")
+    assert "very-secret" not in str(error)
+    assert "subscription-key=%2A%2A%2A" in str(error)
+
+def test_quota_pause() -> None:
+    importer = module.ComtradeImporter(None, dry_run=True)
+    importer.subscription_key = "secret"
+    importer.request_delay = 0
+
+    class QuotaClient:
+        def get_json(self, url: str):
+            raise module.HttpStatusError(url, 403, "Quota Exceeded")
+
+    importer.http = QuotaClient()
+    try:
+        importer._get_json("https://example.test")
+    except module.ComtradeQuotaExhausted as error:
+        assert getattr(error, "stop_import", False)
+        assert "rerun later" in str(error).lower()
+    else:
+        raise AssertionError("Quota exhaustion must pause a resumable import")
+
 def test_catalog_is_curated() -> None:
     importer = module.ComtradeImporter(None, dry_run=True)
     importer.subscription_key = "secret"
@@ -58,5 +83,7 @@ def test_catalog_is_curated() -> None:
 if __name__ == "__main__":
     test_rows_and_numbers()
     test_url_modes()
+    test_secret_redaction()
+    test_quota_pause()
     test_catalog_is_curated()
     print("UN Comtrade importer tests passed.")

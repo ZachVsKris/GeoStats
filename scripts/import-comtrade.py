@@ -5,6 +5,7 @@ import argparse
 import math
 import os
 import re
+import time
 from dataclasses import dataclass
 from datetime import datetime, timezone
 from typing import Any
@@ -12,7 +13,7 @@ from urllib.parse import urlencode
 
 from data_pipeline.base import WarehouseImporter
 from data_pipeline.countries import normalize_iso3
-from data_pipeline.http import HttpClient
+from data_pipeline.http import HttpClient, HttpStatusError
 from data_pipeline.models import CandidateDefinition, IndicatorRule, SourceObservation
 from data_pipeline.supabase import SupabaseWarehouse
 
@@ -20,6 +21,9 @@ COMTRADE_PREVIEW = "https://comtradeapi.un.org/public/v1/preview/C/A/HS"
 COMTRADE_DATA = "https://comtradeapi.un.org/data/v1/get/C/A/HS"
 COMTRADE_SITE = "https://comtradeplus.un.org/"
 
+
+class ComtradeQuotaExhausted(RuntimeError):
+    stop_import = True
 
 @dataclass(frozen=True)
 class TradeSpec:
@@ -189,8 +193,10 @@ class ComtradeImporter(WarehouseImporter):
 
     def __init__(self, warehouse: SupabaseWarehouse | None, *, dry_run: bool = False) -> None:
         super().__init__(warehouse, dry_run=dry_run)
-        self.http = HttpClient(timeout=120, retries=5, user_agent="GeoStats/14.0 UN-Comtrade importer")
+        self.http = HttpClient(timeout=120, retries=6, user_agent="GeoStats/14.1 UN-Comtrade importer")
         self.subscription_key = os.environ.get("COMTRADE_API_KEY", "").strip()
+        self.request_delay = max(0.0, float(os.environ.get("COMTRADE_REQUEST_DELAY_SECONDS", "1.25")))
+        self._last_request_at = 0.0
 
     def _require_key(self) -> None:
         if not self.subscription_key:
@@ -252,18 +258,39 @@ class ComtradeImporter(WarehouseImporter):
         params.append(("subscription-key", self.subscription_key))
         return f"{base}?{urlencode(params)}"
 
+    def _get_json(self, url: str) -> Any:
+        elapsed = time.monotonic() - self._last_request_at
+        if elapsed < self.request_delay:
+            time.sleep(self.request_delay - elapsed)
+        try:
+            return self.http.get_json(url)
+        except HttpStatusError as error:
+            if error.status == 403 and "quota" in str(error).lower():
+                raise ComtradeQuotaExhausted(
+                    "UN Comtrade quota is exhausted. Imported categories were saved; rerun later to continue with the remaining categories."
+                ) from error
+            raise
+        finally:
+            self._last_request_at = time.monotonic()
+
     def fetch_observations(self, candidate: CandidateDefinition) -> list[SourceObservation]:
         codes = tuple(str(code) for code in candidate.metadata.get("commodity_codes", []))
         now = datetime.now(timezone.utc).year
         first_year = max(2022, now - 5)
-        by_country_year: dict[tuple[str, int], dict[str, Any]] = {}
 
-        for year in range(first_year, now):
+        # Fetch the newest complete common year first. GeoStats only needs one
+        # comparable country snapshot; downloading every recent year wastes quota.
+        for year in range(now - 1, first_year - 1, -1):
+            by_country: dict[str, dict[str, Any]] = {}
             for code in codes:
                 url = self._url(code, year)
-                payload = self.http.get_json(url)
+                payload = self._get_json(url)
                 error = _api_error(payload)
                 if error:
+                    if "quota" in error.lower():
+                        raise ComtradeQuotaExhausted(
+                            "UN Comtrade quota is exhausted. Imported categories were saved; rerun later to continue."
+                        )
                     raise RuntimeError(f"UN Comtrade rejected HS {code} for {year}: {error}")
                 data = _rows(payload)
                 if not data:
@@ -272,14 +299,10 @@ class ComtradeImporter(WarehouseImporter):
                     iso3 = normalize_iso3(_first(row, "reporterISO", "reporterIso", "reporterISO3", "reporterCodeISOAlpha3"))
                     if not iso3:
                         continue
-                    period_raw = _first(row, "period", "refYear", "year")
-                    match = re.search(r"(?:19|20)\d{2}", str(period_raw or year))
-                    period = int(match.group(0)) if match else year
                     value = _number(_first(row, "primaryValue", "tradeValue", "TradeValue", "fobvalue", "cifvalue"))
                     if value is None or value <= 0:
                         continue
-                    key = (iso3, period)
-                    current = by_country_year.setdefault(key, {
+                    current = by_country.setdefault(iso3, {
                         "value": 0.0,
                         "country_name": str(_first(row, "reporterDesc", "reporterName") or iso3),
                         "records": [],
@@ -287,28 +310,36 @@ class ComtradeImporter(WarehouseImporter):
                     current["value"] += value
                     current["records"].append(str(_first(row, "id", "aggregateLevel") or f"{code}:{index}"))
 
-        observations = [
-            SourceObservation(
-                country_iso3=iso3,
-                country_name=str(values["country_name"]),
-                data_year=year,
-                value=float(values["value"]),
-                source_url=candidate.source_url,
-                source_record_id=f"{candidate.source_indicator_code}:{iso3}:{year}",
-                evidence_status="official",
-                metadata={
-                    "hs_codes": list(codes),
-                    "flow": "exports",
-                    "partner": "World",
-                    "trade_value_basis": "primaryValue",
-                    "component_records": len(values["records"]),
-                },
+            observations = [
+                SourceObservation(
+                    country_iso3=iso3,
+                    country_name=str(values["country_name"]),
+                    data_year=year,
+                    value=float(values["value"]),
+                    source_url=candidate.source_url,
+                    source_record_id=f"{candidate.source_indicator_code}:{iso3}:{year}",
+                    evidence_status="official",
+                    metadata={
+                        "hs_codes": list(codes),
+                        "flow": "exports",
+                        "partner": "World",
+                        "trade_value_basis": "primaryValue",
+                        "component_records": len(values["records"]),
+                    },
+                )
+                for iso3, values in by_country.items()
+            ]
+            if len(observations) >= candidate.rule.min_coverage:
+                return sorted(observations, key=lambda row: row.country_iso3)
+            print(
+                f"UN Comtrade HS {', '.join(codes)} has {len(observations)} countries in {year}; "
+                f"trying the previous year (minimum {candidate.rule.min_coverage}).",
+                flush=True,
             )
-            for (iso3, year), values in by_country_year.items()
-        ]
-        if len(observations) < 20:
-            raise RuntimeError(f"Only {len(observations)} usable UN Comtrade country-year observations were found.")
-        return sorted(observations, key=lambda row: (row.data_year, row.country_iso3))
+
+        raise RuntimeError(
+            f"No completed year since {first_year} reached the {candidate.rule.min_coverage}-country coverage requirement."
+        )
 
     def category_id(self, candidate: CandidateDefinition) -> str:
         return f"comtrade:{candidate.rule.key}"
@@ -318,7 +349,9 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Import curated UN Comtrade export categories through GeoStats automatic governance.")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--limit", type=int, default=None)
-    parser.add_argument("--minimum-successes", type=int, default=len(SPECS), help="Exit nonzero if fewer categories are imported.")
+    parser.add_argument("--minimum-successes", type=int, default=0, help="Optional minimum successful categories for this run.")
+    parser.add_argument("--require-complete", action="store_true", help="Fail unless every selected missing category imports in this run.")
+    parser.add_argument("--refresh-existing", action="store_true", help="Re-import categories already present instead of resuming only missing categories.")
     parser.add_argument("--rule", action="append", default=[])
     return parser.parse_args()
 
@@ -332,14 +365,34 @@ def main() -> int:
         if not url or not key:
             raise SystemExit("SUPABASE_URL and SUPABASE_SECRET_KEY (or SUPABASE_SERVICE_ROLE_KEY) are required.")
         warehouse = SupabaseWarehouse(url, key)
-    result = ComtradeImporter(warehouse, dry_run=args.dry_run).run(limit=args.limit, only_keys=set(args.rule) or None)
+
+    importer = ComtradeImporter(warehouse, dry_run=args.dry_run)
+    selected_keys = set(args.rule)
+    if warehouse is not None and not args.refresh_existing and not selected_keys:
+        existing_codes = warehouse.list_source_indicator_codes(importer.source_organization)
+        selected_keys = {
+            spec.rule.key for spec in SPECS
+            if "+".join(spec.commodity_codes) not in existing_codes
+        }
+        print(f"Resume mode: {len(SPECS) - len(selected_keys)} categories already exist; {len(selected_keys)} remain.", flush=True)
+        if not selected_keys:
+            print("All 55 UN Comtrade categories are already present. Nothing to import.", flush=True)
+            return 0
+
+    result = importer.run(limit=args.limit, only_keys=selected_keys or None)
     print(result, flush=True)
-    requested = len(set(args.rule)) if args.rule else (len(SPECS) if args.limit is None else min(args.limit, len(SPECS)))
-    minimum = min(max(0, args.minimum_successes), requested)
+    requested = len(selected_keys) if selected_keys else (len(SPECS) if args.limit is None else min(args.limit, len(SPECS)))
     successes = int(result["categories_processed"])
+    minimum = requested if args.require_complete else min(max(0, args.minimum_successes), requested)
     if successes < minimum:
-        print(f"UN Comtrade import failed its completeness gate: {successes} < {minimum}.", flush=True)
+        print(f"UN Comtrade import did not meet the requested run minimum: {successes} < {minimum}.", flush=True)
         return 1
+    if successes == 0 and result.get("failures") and not result.get("stopped_reason"):
+        print("UN Comtrade imported no categories because of non-quota errors.", flush=True)
+        return 1
+    remaining = max(0, requested - successes)
+    if remaining:
+        print(f"Partial success: {successes} categories imported and saved; up to {remaining} remain for a later run.", flush=True)
     return 0
 
 

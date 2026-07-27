@@ -60,7 +60,7 @@ export type Category = {
   sourcePageUrl?: string;
   // The only source URL exposed to players. It must be a human-readable external page showing the exact indicator/data view.
   playerSourceUrl?: string;
-  playerSourceStatus?: "pending" | "exact" | "needs_exact_url" | "invalid" | "unavailable";
+  playerSourceStatus?: "pending" | "exact" | "general" | "needs_exact_url" | "invalid" | "unavailable";
   playerSourceReason?: string;
   playerSourceCheckedAt?: string;
   contentReviewStatus?: "pending" | "approved" | "excluded";

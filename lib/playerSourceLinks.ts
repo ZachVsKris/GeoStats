@@ -1,6 +1,6 @@
 import type { Category, DataSourceId } from "./categories";
 
-export type PlayerSourceStatus = "pending" | "exact" | "needs_exact_url" | "invalid" | "unavailable";
+export type PlayerSourceStatus = "pending" | "exact" | "general" | "needs_exact_url" | "invalid" | "unavailable";
 
 const RAW_OR_DOWNLOAD_EXTENSION = /\.(?:csv|tsv|json|xml|zip|gz|gzip|xlsx?|parquet)(?:$|[?#])/i;
 const RAW_OR_DOWNLOAD_PATH = /\/(?:api|bulk|download|downloads)(?:\/|$)/i;
@@ -45,12 +45,17 @@ export function sourceSpecificLinkLooksExact(source: DataSourceId, indicator: st
   return false;
 }
 
-export function resolvePlayerSourceUrl(category: Pick<Category, "source" | "indicator" | "playerSourceUrl" | "playerSourceStatus">) {
-  if (category.playerSourceStatus === "exact" && isHumanReadableExternalUrl(category.playerSourceUrl)) {
+export function hasUsablePlayerSourceStatus(status: string | null | undefined) {
+  return status === "exact" || status === "general";
+}
+
+export function resolvePlayerSourceUrl(category: Pick<Category, "source" | "indicator" | "playerSourceUrl" | "playerSourceStatus" | "sourcePageUrl" | "sourceUrl" | "methodologyUrl">) {
+  if (hasUsablePlayerSourceStatus(category.playerSourceStatus) && isHumanReadableExternalUrl(category.playerSourceUrl)) {
     return category.playerSourceUrl;
   }
-  // Backward-compatible safety for pre-migration World Bank categories. This
-  // is the only fallback because it is a stable, human-readable indicator page.
   if (category.source === "worldbank") return worldBankPlayerSourceUrl(category.indicator);
+  for (const candidate of [category.sourcePageUrl, category.sourceUrl, category.methodologyUrl]) {
+    if (isHumanReadableExternalUrl(candidate)) return candidate!;
+  }
   return null;
 }

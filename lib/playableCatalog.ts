@@ -1,5 +1,6 @@
 import { CATEGORIES, type Category, type DataSourceId } from "./categories";
 import { applyCategoryTrustPolicy, type EvidenceLabel, type TrustStatus } from "./categoryTrust";
+import { hasUsablePlayerSourceStatus, isHumanReadableExternalUrl } from "./playerSourceLinks";
 
 export type PlayableCategoryRow = {
   id: string;
@@ -168,8 +169,8 @@ export function buildPlayableCategoryCatalog(rows: PlayableCategoryRow[]): Categ
     const source = SOURCE_IDS[row.source_organization];
     if (!source) continue;
     if (row.enabled === false || row.eligible_daily === false || row.review_status === "rejected" || row.curation_status === "excluded" || row.validation_status !== "verified") continue;
-    if (row.content_review_status !== "approved" || row.player_source_status !== "exact" || !row.player_source_url) continue;
-    if (Number(row.immediate_comprehension_score ?? 0) < 80 || Number(row.gameplay_interest_score ?? 0) < 65 || Number(row.link_quality_score ?? 0) < 90) continue;
+    if (row.content_review_status !== "approved" || !hasUsablePlayerSourceStatus(row.player_source_status) || !isHumanReadableExternalUrl(row.player_source_url)) continue;
+    if (Number(row.immediate_comprehension_score ?? 0) < 80 || Number(row.gameplay_interest_score ?? 0) < 65) continue;
     if (row.credibility_status === "quarantined" || Number(row.credibility_score ?? 100) < 75) continue;
     if ((row.objective_status != null && row.objective_status !== "objective") || row.player_quality_status === "blocked") continue;
     if (row.verifiability_score != null && Number(row.verifiability_score) < 80) continue;
@@ -247,8 +248,8 @@ export function buildPlayableCategoryCatalog(rows: PlayableCategoryRow[]): Categ
     });
 
     if (category.enabled === false || category.trustStatus === "quarantined" || (category.credibilityScore ?? 0) < 75) continue;
-    if (category.contentReviewStatus !== "approved" || category.playerSourceStatus !== "exact" || !category.playerSourceUrl) continue;
-    if ((category.immediateComprehensionScore ?? 0) < 80 || (category.gameplayInterestScore ?? 0) < 65 || (category.linkQualityScore ?? 0) < 90) continue;
+    if (category.contentReviewStatus !== "approved" || !hasUsablePlayerSourceStatus(category.playerSourceStatus) || !isHumanReadableExternalUrl(category.playerSourceUrl)) continue;
+    if ((category.immediateComprehensionScore ?? 0) < 80 || (category.gameplayInterestScore ?? 0) < 65) continue;
     if ((category.objectiveStatus != null && category.objectiveStatus !== "objective") || category.playerQualityStatus === "blocked") continue;
     if (category.verifiabilityScore != null && category.verifiabilityScore < 80) continue;
     if (category.understandabilityScore != null && category.understandabilityScore < 70) continue;

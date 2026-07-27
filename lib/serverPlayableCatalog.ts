@@ -30,10 +30,9 @@ async function queryRows(select: string, modern: boolean) {
       .gte("fun_score", 55)
       .eq("validation_status", "verified")
       .eq("content_review_status", "approved")
-      .eq("player_source_status", "exact")
+      .in("player_source_status", ["exact", "general"])
       .gte("immediate_comprehension_score", 80)
-      .gte("gameplay_interest_score", 65)
-      .gte("link_quality_score", 90);
+      .gte("gameplay_interest_score", 65);
   }
   const result = await query;
   return { data: result.data as PlayableCategoryRow[] | null, error: result.error };

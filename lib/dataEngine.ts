@@ -69,7 +69,19 @@ export function sourceUrl(indicator: string, source: Category["source"] = "world
 }
 
 export function canonicalizeDataset(dataset: CategoryDataset): CanonicalDataset {
-  const sorted = [...dataset.observations]
+  const uniqueObservations = new Map<string, Observation>();
+  for (const row of dataset.observations) {
+    if (!/^[A-Z]{3}$/.test(row.countryId) || !Number.isFinite(row.value) || !Number.isFinite(Number(row.year))) {
+      throw new Error(`${dataset.category.name} contains an invalid country, value, or year observation.`);
+    }
+    const existing = uniqueObservations.get(row.countryId);
+    if (existing) {
+      throw new Error(`${dataset.category.name} contains duplicate observations for ${row.countryId}; refusing to rank an ambiguous country/value mapping.`);
+    }
+    uniqueObservations.set(row.countryId, row);
+  }
+
+  const sorted = [...uniqueObservations.values()]
     .filter((row) => {
       const range = dataset.category.expectedRange;
       return !range || (row.value >= range[0] && row.value <= range[1]);
@@ -188,10 +200,12 @@ export function validateRound(categories: CanonicalDataset[], bank: CountryInfo[
   for (const dataset of categories) {
     const leaderboard = poolLeaderboard(dataset, bank);
     const winner = leaderboard[0];
-    const globalCoverage = dataset.category.globalCoverage ?? Math.max(dataset.category.coverageFloor, ...dataset.ranked.map((row) => row.globalRank));
-    const winnerLimit = strongestGlobalWinnerRank(globalCoverage);
+    const winnerLimit = strongestGlobalWinnerRank(dataset.ranked.length);
     if (winner && winner.observation.globalRank > winnerLimit) {
       errors.push(`${dataset.category.name} has a board winner ranked #${winner.observation.globalRank} globally; #${winnerLimit} or better is required.`);
+    }
+    if (leaderboard.length > 1 && Math.abs(leaderboard[0].observation.value - leaderboard[1].observation.value) < 1e-12) {
+      errors.push(`${dataset.category.name} has a tied board winner; Daily answers must be unambiguous.`);
     }
     if (leaderboard.length !== bank.length) {
       errors.push(`${dataset.category.name} is missing data for ${bank.length - leaderboard.length} pool countries.`);

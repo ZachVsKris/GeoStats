@@ -1,6 +1,6 @@
 import { CATEGORIES, type Category, type DataSourceId } from "./categories";
 import { applyCategoryTrustPolicy, type EvidenceLabel, type TrustStatus } from "./categoryTrust";
-import { hasUsablePlayerSourceStatus, isHumanReadableExternalUrl } from "./playerSourceLinks";
+import { evaluateCategoryPlayability } from "./categoryPlayability";
 
 export type PlayableCategoryRow = {
   id: string;
@@ -168,18 +168,9 @@ export function buildPlayableCategoryCatalog(rows: PlayableCategoryRow[]): Categ
   for (const row of rows) {
     const source = SOURCE_IDS[row.source_organization];
     if (!source) continue;
-    if (row.enabled === false || row.eligible_daily === false || row.review_status === "rejected" || row.curation_status === "excluded" || row.validation_status !== "verified") continue;
-    if (row.content_review_status !== "approved" || !hasUsablePlayerSourceStatus(row.player_source_status) || !isHumanReadableExternalUrl(row.player_source_url)) continue;
-    if (Number(row.immediate_comprehension_score ?? 0) < 80 || Number(row.gameplay_interest_score ?? 0) < 65) continue;
-    if (row.credibility_status === "quarantined" || Number(row.credibility_score ?? 100) < 75) continue;
-    if ((row.objective_status != null && row.objective_status !== "objective") || row.player_quality_status === "blocked") continue;
-    if (row.verifiability_score != null && Number(row.verifiability_score) < 80) continue;
-    if (row.understandability_score != null && Number(row.understandability_score) < 70) continue;
-    if (row.fun_score != null && Number(row.fun_score) < 55) continue;
-
     const existing = byId.get(row.id) ?? byIndicator.get(sourceIndicatorKey(source, row.source_indicator_code, row.ranking_direction));
     const metadata = row.metadata ?? {};
-    const category: Category = applyCategoryTrustPolicy({
+    let category: Category = applyCategoryTrustPolicy({
       ...(existing ?? {} as Category),
       id: existing?.id ?? row.id,
       source,
@@ -247,13 +238,40 @@ export function buildPlayableCategoryCatalog(rows: PlayableCategoryRow[]): Categ
       productSpecificTrade: existing?.productSpecificTrade ?? source === "comtrade",
     });
 
-    if (category.enabled === false || category.trustStatus === "quarantined" || (category.credibilityScore ?? 0) < 75) continue;
-    if (category.contentReviewStatus !== "approved" || !hasUsablePlayerSourceStatus(category.playerSourceStatus) || !isHumanReadableExternalUrl(category.playerSourceUrl)) continue;
-    if ((category.immediateComprehensionScore ?? 0) < 80 || (category.gameplayInterestScore ?? 0) < 65) continue;
-    if ((category.objectiveStatus != null && category.objectiveStatus !== "objective") || category.playerQualityStatus === "blocked") continue;
-    if (category.verifiabilityScore != null && category.verifiabilityScore < 80) continue;
-    if (category.understandabilityScore != null && category.understandabilityScore < 70) continue;
-    if (category.funScore != null && category.funScore < 55) continue;
+    const playability = evaluateCategoryPlayability({
+      id: category.id,
+      source: category.source,
+      indicator: category.indicator,
+      sourceUrl: category.sourceUrl,
+      methodologyUrl: category.methodologyUrl,
+      sourcePageUrl: category.sourcePageUrl,
+      playerSourceUrl: category.playerSourceUrl,
+      playerSourceStatus: category.playerSourceStatus,
+      reviewStatus: row.review_status,
+      curationStatus: row.curation_status,
+      validationStatus: row.validation_status,
+      contentReviewStatus: category.contentReviewStatus,
+      qualityScore: row.quality_score,
+      credibilityStatus: category.trustStatus,
+      credibilityScore: category.credibilityScore,
+      objectiveStatus: category.objectiveStatus,
+      playerQualityStatus: category.playerQualityStatus,
+      verifiabilityScore: category.verifiabilityScore,
+      understandabilityScore: category.understandabilityScore,
+      funScore: category.funScore,
+      immediateComprehensionScore: category.immediateComprehensionScore,
+      gameplayInterestScore: category.gameplayInterestScore,
+      enabled: row.enabled,
+      eligibleDaily: row.eligible_daily,
+    });
+    if (!playability.playable) continue;
+    category = {
+      ...category,
+      enabled: true,
+      playerSourceUrl: playability.playerSourceUrl ?? undefined,
+      playerSourceStatus: playability.playerSourceStatus ?? undefined,
+      playabilityWarnings: playability.warnings,
+    };
     catalog.set(category.id, category);
   }
 

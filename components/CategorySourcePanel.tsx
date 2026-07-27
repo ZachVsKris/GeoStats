@@ -75,7 +75,11 @@ export default function CategorySourcePanel({ dataset, boardCountryIds = [], onC
     indicator: category.warehouseSourceIndicatorCode || category.indicator,
     playerSourceUrl: fullDataset.playerSourceUrl || category.playerSourceUrl,
     playerSourceStatus: (fullDataset.playerSourceStatus || category.playerSourceStatus) as any,
+    sourcePageUrl: fullDataset.sourcePageUrl || category.sourcePageUrl,
+    sourceUrl: fullDataset.sourceUrl || category.sourceUrl,
+    methodologyUrl: fullDataset.methodologyUrl || category.methodologyUrl,
   });
+  const sourceLinkIsExact = category.source === "worldbank" || (fullDataset.playerSourceStatus || category.playerSourceStatus) === "exact";
   const tableTitle = fullRankingLoaded ? "Global rankings" : "Countries in this game";
 
   return <div className="sourceModal" role="dialog" aria-modal="true" aria-label={`${category.name} data and source`} onMouseDown={(event) => event.currentTarget === event.target && onClose()}>
@@ -103,7 +107,7 @@ export default function CategorySourcePanel({ dataset, boardCountryIds = [], onC
         {!rows.length && !loading && <p className="sourceEmpty">No countries match that search.</p>}
       </div>
 
-      {sourceLink ? <div className="sourceLinks sourceLinksSimple"><a href={sourceLink} target="_blank" rel="noreferrer">View exact official data ↗</a></div> : <p className="sourceLoadError">No verified human-readable external data page is available for this category. It is blocked from future Daily boards until that link is supplied and validated.</p>}
+      {sourceLink ? <div className="sourceLinks sourceLinksSimple"><a href={sourceLink} target="_blank" rel="noreferrer">{sourceLinkIsExact ? "View exact official data ↗" : "Open official data source ↗"}</a>{!sourceLinkIsExact && <small>General official portal; use the category title or indicator code to locate the data.</small>}</div> : <p className="sourceLoadError">No safe human-readable official source page is available for this category. It is excluded from future Daily boards until one is supplied.</p>}
     </div>
   </div>;
 }

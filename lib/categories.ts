@@ -58,7 +58,7 @@ export type Category = {
   technicalDefinition?: string;
   unitExplanation?: string;
   sourcePageUrl?: string;
-  // The only source URL exposed to players. It must be a human-readable external page showing the exact indicator/data view.
+  // The only source URL exposed to players. Exact official data views are preferred; a safe human-readable general official portal is allowed with a warning.
   playerSourceUrl?: string;
   playerSourceStatus?: "pending" | "exact" | "general" | "needs_exact_url" | "invalid" | "unavailable";
   playerSourceReason?: string;
@@ -88,6 +88,8 @@ export type Category = {
   objectiveStatus?: "objective" | "composite" | "subjective" | "uncertain";
   playerQualityStatus?: "approved" | "caution" | "blocked" | "review";
   playerQualityReason?: string;
+  // v14.4 diagnostics. These never replace the canonical policy result.
+  playabilityWarnings?: string[];
 };
 
 

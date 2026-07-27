@@ -29,6 +29,22 @@ export function worldBankPlayerSourceUrl(indicator: string) {
   return `https://data.worldbank.org/indicator/${encodeURIComponent(indicator)}`;
 }
 
+const GENERAL_OFFICIAL_SOURCE_PAGES: Partial<Record<DataSourceId, string>> = {
+  faostat: "https://www.fao.org/faostat/en/",
+  who: "https://www.who.int/data/gho/data",
+  unesco: "https://databrowser.uis.unesco.org/",
+  untourism: "https://www.unwto.org/tourism-statistics",
+  naturalearth: "https://www.naturalearthdata.com/",
+  comtrade: "https://comtradeplus.un.org/",
+  eia: "https://www.eia.gov/international/data/world",
+  unhcr: "https://www.unhcr.org/refugee-statistics/",
+  ilostat: "https://ilostat.ilo.org/data/",
+};
+
+export function generalOfficialSourcePage(source: DataSourceId) {
+  return GENERAL_OFFICIAL_SOURCE_PAGES[source] ?? null;
+}
+
 export function sourceSpecificLinkLooksExact(source: DataSourceId, indicator: string, value: string | null | undefined) {
   if (!isHumanReadableExternalUrl(value)) return false;
   const url = new URL(value!);
@@ -54,7 +70,7 @@ export function resolvePlayerSourceUrl(category: Pick<Category, "source" | "indi
     return category.playerSourceUrl;
   }
   if (category.source === "worldbank") return worldBankPlayerSourceUrl(category.indicator);
-  for (const candidate of [category.sourcePageUrl, category.sourceUrl, category.methodologyUrl]) {
+  for (const candidate of [category.sourcePageUrl, category.sourceUrl, category.methodologyUrl, generalOfficialSourcePage(category.source)]) {
     if (isHumanReadableExternalUrl(candidate)) return candidate!;
   }
   return null;

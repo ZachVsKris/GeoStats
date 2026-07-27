@@ -7,41 +7,21 @@ const V14_SELECT = "id,title,short_title,description,plain_language_description,
 const V13_SELECT = "id,title,short_title,description,icon,unit,value_type,ranking_direction,family,source_organization,source_dataset,source_indicator_code,source_url,methodology_url,minimum_year,common_year_coverage,quality_score,concept_group,metadata,credibility_score,credibility_status,credibility_reason,evidence_label,enabled,eligible_daily,review_status,curation_status";
 const LEGACY_SELECT = "id,title,short_title,description,icon,unit,value_type,ranking_direction,family,source_organization,source_dataset,source_indicator_code,source_url,methodology_url,minimum_year,common_year_coverage,quality_score,concept_group,metadata,enabled,eligible_daily,review_status,curation_status";
 
-async function queryRows(select: string, modern: boolean) {
+async function queryRows(select: string) {
   const admin = createSupabaseAdminClient();
   if (!admin) return { data: null, error: new Error("Supabase is not configured.") };
-  let query = admin
+  const result = await admin
     .from("stat_categories")
     .select(select)
-    .eq("enabled", true)
-    .eq("eligible_daily", true)
-    .eq("review_status", "approved")
-    .eq("curation_status", "approved")
-    .gte("quality_score", 70)
     .order("quality_score", { ascending: false })
-    .limit(1000);
-  if (modern) query = query.neq("credibility_status", "quarantined").gte("credibility_score", 75);
-  if (select === V14_SELECT) {
-    query = query
-      .eq("objective_status", "objective")
-      .neq("player_quality_status", "blocked")
-      .gte("verifiability_score", 80)
-      .gte("understandability_score", 70)
-      .gte("fun_score", 55)
-      .eq("validation_status", "verified")
-      .eq("content_review_status", "approved")
-      .in("player_source_status", ["exact", "general"])
-      .gte("immediate_comprehension_score", 80)
-      .gte("gameplay_interest_score", 65);
-  }
-  const result = await query;
+    .limit(5000);
   return { data: result.data as PlayableCategoryRow[] | null, error: result.error };
 }
 
 export async function loadServerPlayableCategoryCatalog(): Promise<Category[]> {
-  const v14 = await queryRows(V14_SELECT, true);
+  const v14 = await queryRows(V14_SELECT);
   if (v14.error) {
-    throw new Error(`The verified v14.3.1 content-and-link-gated category catalog is unavailable: ${v14.error.message}`);
+    throw new Error(`The verified v14.4 category catalog is unavailable: ${v14.error.message}`);
   }
   return buildPlayableCategoryCatalog(v14.data ?? []);
 }

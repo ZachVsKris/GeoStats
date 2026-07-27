@@ -14,6 +14,7 @@ import CategorySourcePanel from "./CategorySourcePanel";
 import { newYorkDate } from "../lib/time";
 import { DAILY_DIFFICULTIES, DEFAULT_DIFFICULTY, ROUND_CONFIGS, type DailyDifficulty, type RoundConfig, canAddCategory, difficultyFromPath, measureKind, roundHasCountryDiversity, roundHasRequiredDiversity, roundType, strongestGlobalWinnerRank } from "../lib/gameRules";
 import { trackAnalytics } from "../lib/analytics";
+import { categoryConflictsWithExistingTrio, validateDailyTrio } from "../lib/dailyTrioRules";
 
 type Assignment = Record<string, string>;
 type ScoreRow = {
@@ -245,7 +246,7 @@ function findDistinctWinners(
   return { winners: winnerByCategory, decoys };
 }
 
-async function loadCandidateDatasets(seed: string, targetCount = 20): Promise<RoundCategory[]> {
+async function loadCandidateDatasets(seed: string, targetCount = 60): Promise<RoundCategory[]> {
   const rng = seededRandom(`${seed}:datasets`);
   const catalog = await fetchPlayableCategoryCatalog();
   const shuffled = shuffle(catalog.filter((category) => category.enabled !== false), rng);
@@ -260,7 +261,7 @@ async function loadCandidateDatasets(seed: string, targetCount = 20): Promise<Ro
     for (const category of shuffled.slice(offset, offset + batchSize * 4)) {
       const type = roundType(category);
       if (loadedIds.has(category.id) || batch.some((item) => item.id === category.id)) continue;
-      if ((pendingTypeCounts.get(type) ?? 0) >= 4) continue;
+      if ((pendingTypeCounts.get(type) ?? 0) >= 10) continue;
       batch.push(category);
       pendingTypeCounts.set(type, (pendingTypeCounts.get(type) ?? 0) + 1);
       if (batch.length === batchSize) break;
@@ -273,7 +274,7 @@ async function loadCandidateDatasets(seed: string, targetCount = 20): Promise<Ro
       const quality = scoreCategoryQuality(dataset);
       if (!quality.eligible) continue;
       const type = roundType(dataset.category);
-      if ((typeCounts.get(type) ?? 0) >= 4) continue;
+      if ((typeCounts.get(type) ?? 0) >= 10) continue;
       loaded.push(dataset);
       loadedIds.add(dataset.category.id);
       typeCounts.set(type, (typeCounts.get(type) ?? 0) + 1);
@@ -287,13 +288,15 @@ function chooseDiverseCategories(
   available: RoundCategory[],
   rng: Rng,
   config: RoundConfig,
-  forbiddenIds = new Set<string>(),
+  existingTrioCategories: Category[] = [],
 ) {
-  const ordered = shuffle(available.filter((dataset) => !forbiddenIds.has(dataset.category.id)), rng);
+  const ordered = shuffle(available.filter((dataset) => !categoryConflictsWithExistingTrio(dataset.category, existingTrioCategories)), rng);
   const selected: RoundCategory[] = [];
   while (selected.length < config.categoryCount) {
     const options = ordered.filter((dataset) =>
-      !selected.includes(dataset) && canAddCategory(selected.map((item) => item.category), dataset.category, config),
+      !selected.includes(dataset)
+      && canAddCategory(selected.map((item) => item.category), dataset.category, config)
+      && !categoryConflictsWithExistingTrio(dataset.category, existingTrioCategories),
     );
     if (!options.length) return null;
     const selectedTypes = new Set(selected.map((item) => roundType(item.category)));
@@ -350,7 +353,7 @@ function composeRound(
   countryList: CountryInfo[],
   seed: string,
   config: RoundConfig,
-  forbiddenIds = new Set<string>(),
+  existingTrioCategories: Category[] = [],
   overlapBanks: Set<string>[] = [],
   maxOverlap = Number.POSITIVE_INFINITY,
 ): Round | null {
@@ -361,7 +364,7 @@ function composeRound(
   let validCandidates = 0;
   // Search many valid candidates and retain the strongest board rather than accepting the first valid one.
   for (let attempt = 0; attempt < 420; attempt++) {
-    const categories = chooseDiverseCategories(available, rng, config, forbiddenIds);
+    const categories = chooseDiverseCategories(available, rng, config, existingTrioCategories);
     if (!categories) continue;
     const signature = categories.map((dataset) => dataset.category.id).sort().join("|");
     if (attempted.has(signature)) continue;
@@ -390,7 +393,7 @@ async function buildDailyTrio(
   fixed: Partial<DailyTrio> = {},
 ): Promise<DailyTrio> {
   const trioSeed = `DAILY-TRIO-${date}`;
-  const available = await loadCandidateDatasets(trioSeed, 40);
+  const available = await loadCandidateDatasets(trioSeed, 90);
   const requiredCategories = DAILY_DIFFICULTIES.reduce((sum, difficulty) => sum + ROUND_CONFIGS[difficulty].categoryCount, 0);
   if (available.length < requiredCategories) {
     throw new Error("Not enough official datasets were available to build all three Daily boards.");
@@ -403,14 +406,14 @@ async function buildDailyTrio(
     for (const difficulty of buildOrder) {
       if (rounds[difficulty]) continue;
       const existingRounds = DAILY_DIFFICULTIES.map((key) => rounds[key]).filter((round): round is Round => Boolean(round));
-      const forbiddenCategories = new Set(existingRounds.flatMap((round) => round.categories.map((dataset) => dataset.category.id)));
+      const existingTrioCategories = existingRounds.flatMap((round) => round.categories.map((dataset) => dataset.category));
       const overlapBanks = existingRounds.map((round) => new Set(round.bank.map((country) => country.id)));
       rounds[difficulty] = composeRound(
         available,
         countryList,
         `${trioSeed}:${difficulty}:${attempt}`,
         ROUND_CONFIGS[difficulty],
-        forbiddenCategories,
+        existingTrioCategories,
         overlapBanks,
         1,
       ) ?? undefined;
@@ -419,18 +422,7 @@ async function buildDailyTrio(
 
     if (!rounds.easy || !rounds.normal || !rounds.expert) continue;
     const completed = rounds as DailyTrio;
-    let valid = true;
-    for (let i = 0; i < DAILY_DIFFICULTIES.length; i++) {
-      for (let j = i + 1; j < DAILY_DIFFICULTIES.length; j++) {
-        const first = completed[DAILY_DIFFICULTIES[i]];
-        const second = completed[DAILY_DIFFICULTIES[j]];
-        const firstCategories = new Set(first.categories.map((dataset) => dataset.category.id));
-        const firstCountries = new Set(first.bank.map((country) => country.id));
-        if (second.categories.some((dataset) => firstCategories.has(dataset.category.id))) valid = false;
-        if (second.bank.filter((country) => firstCountries.has(country.id)).length > 1) valid = false;
-      }
-    }
-    if (valid) return completed;
+    if (!validateDailyTrio(completed).length) return completed;
   }
   throw new Error("Today’s Scout, Adventurer, and Expert boards could not be built with enough variety. Please try again.");
 }

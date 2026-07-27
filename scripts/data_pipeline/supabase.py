@@ -212,6 +212,10 @@ class SupabaseWarehouse:
             },
         )
 
+    def reconcile_category_playability_v144(self) -> Any:
+        """Refresh legacy booleans from the authoritative v14.4 computed policy."""
+        return self._request("POST", "rpc/reconcile_category_playability_v144", {})
+
     def get_import_health(self) -> list[dict[str, Any]]:
         rows = self._request(
             "GET",

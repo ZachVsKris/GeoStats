@@ -47,8 +47,8 @@ FALLBACK_ZIP_URL = (
     "https://bulks-faostat.fao.org/production/"
     "Production_Crops_Livestock_E_All_Data_(Normalized).zip"
 )
-QUALITY_VERSION = "geostats-v14.3-faostat-source-integrity"
-FAOSTAT_GOVERNANCE_VERSION = "geostats-v14.3-faostat-source-integrity-v1"
+QUALITY_VERSION = "geostats-v14.4-faostat-source-integrity"
+FAOSTAT_GOVERNANCE_VERSION = "geostats-v14.4-faostat-source-integrity-v1"
 RECENT_YEAR_WINDOW = 6
 MIN_CANDIDATE_COVERAGE = 25
 MIN_PLAYABLE_COVERAGE = 60
@@ -905,7 +905,7 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
                 "link_quality_score": int(existing.get("link_quality_score") or 0) if existing.get("player_source_status") == "exact" else 0,
                 "content_review_status": existing.get("content_review_status") if existing.get("content_review_status") in {"approved", "excluded"} else "pending",
                 "content_review_reason": existing.get("content_review_reason") if existing.get("content_review_status") in {"approved", "excluded"} else "New FAOSTAT categories require explicit comprehension and gameplay review.",
-                "content_review_version": existing.get("content_review_version") if existing.get("content_review_status") in {"approved", "excluded"} else "geostats-v14.3.1-content-review-v1",
+                "content_review_version": existing.get("content_review_version") if existing.get("content_review_status") in {"approved", "excluded"} else "geostats-v14.4-content-review-v1",
                 "immediate_comprehension_score": int(existing.get("immediate_comprehension_score") or candidate.get("recognizability_score") or 85),
                 "gameplay_interest_score": int(existing.get("gameplay_interest_score") or candidate.get("specificity_score") or 80),
                 "uniqueness_score": int(existing.get("uniqueness_score") or 80),

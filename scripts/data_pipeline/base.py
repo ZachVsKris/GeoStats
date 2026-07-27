@@ -76,7 +76,7 @@ class WarehouseImporter(ABC):
                     "offset": offset,
                     "scan_limit": effective_scan_limit,
                     "target_successes": target_successes,
-                    "started_by": "generic-importer-framework-v14.3",
+                    "started_by": "generic-importer-framework-v14.4",
                 },
             )
 
@@ -184,6 +184,12 @@ class WarehouseImporter(ABC):
                 )
                 if final_status == "completed":
                     self.warehouse.mark_source_success(self.source_slug)
+                try:
+                    self.warehouse.reconcile_category_playability_v144()
+                except Exception as error:
+                    # Keep imports compatible with databases that have not installed
+                    # v14.4 yet, while making the missing reconciliation visible.
+                    print(f"  playability reconciliation skipped: {error}", flush=True)
         except Exception as error:
             if not self.dry_run and self.warehouse is not None and run_id is not None:
                 self.warehouse.finish_import_run(
@@ -243,7 +249,7 @@ class WarehouseImporter(ABC):
                 "immediate_comprehension_score", "gameplay_interest_score", "uniqueness_score",
             ):
                 durable_fields[key] = existing.get(key)
-        if str(existing.get("player_source_status") or "") == "exact" and existing.get("player_source_url"):
+        if str(existing.get("player_source_status") or "") in {"exact", "general"} and existing.get("player_source_url"):
             for key in (
                 "player_source_url", "player_source_status", "player_source_reason",
                 "player_source_checked_at", "link_quality_score",
@@ -274,7 +280,7 @@ class WarehouseImporter(ABC):
     def build_category_row(self, candidate, quality, governance, category_id: str) -> dict[str, object]:
         rule = candidate.rule
         semantics = classify_semantics(self.source_slug, candidate, governance.concept_group)
-        player_link = exact_url_for(self.source_slug, candidate.source_indicator_code, candidate.metadata)
+        player_link = exact_url_for(self.source_slug, candidate.source_indicator_code, {**candidate.metadata, "source_url": candidate.source_url})
         player_description = plain_language_description(
             rule.title,
             rule.unit,
@@ -298,11 +304,11 @@ class WarehouseImporter(ABC):
             "player_source_url": player_link.url,
             "player_source_status": player_link.status,
             "player_source_reason": player_link.reason,
-            "player_source_checked_at": datetime.now(timezone.utc).isoformat() if player_link.status == "exact" else None,
+            "player_source_checked_at": datetime.now(timezone.utc).isoformat() if player_link.status in {"exact", "general"} else None,
             "link_quality_score": player_link.score,
             "content_review_status": "pending",
             "content_review_reason": "New and refreshed imports require explicit category-by-category comprehension and gameplay review.",
-            "content_review_version": "geostats-v14.3.1-content-review-v1",
+            "content_review_version": "geostats-v14.4-content-review-v1",
             "immediate_comprehension_score": max(0, min(100, int(rule.understandability_score))),
             "gameplay_interest_score": max(0, min(100, int(rule.fun_score))),
             "uniqueness_score": 80,
@@ -368,13 +374,13 @@ class WarehouseImporter(ABC):
                 **candidate.metadata,
                 "source_indicator_name": candidate.source_indicator_name,
                 "canonical_slug": rule.canonical_slug,
-                "import_framework": "v14.3",
+                "import_framework": "v14.4",
                 "sourceIntegrityVersion": VALIDATION_VERSION,
                 "playerSourceUrl": player_link.url,
                 "playerSourceStatus": player_link.status,
                 "playerSourceReason": player_link.reason,
                 "contentReviewStatus": "pending",
-                "contentReviewVersion": "geostats-v14.3.1-content-review-v1",
+                "contentReviewVersion": "geostats-v14.4-content-review-v1",
                 "plainLanguageDescription": player_description,
                 "technicalDefinition": rule.technical_definition or candidate.source_indicator_name,
                 "unitExplanation": rule.unit_explanation or rule.unit,

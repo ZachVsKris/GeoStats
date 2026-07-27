@@ -1,10 +1,7 @@
-# GeoStats v14.3.1
+# GeoStats v14.4.0
 
-GeoStats v14.3.1 is the corrected Semantic Quality release. It retains the global top-30 winner and semantic-diversity rules while adding two permanent gates:
+GeoStats is a daily country-ranking game with Scout, Adventurer, and Expert boards.
 
-1. Every category must pass a category-by-category comprehension and gameplay review.
-2. Every playable category must link to a human-readable external webpage showing the exact official data.
+v14.4 consolidates category playability, validates the three Daily modes as one package, permits clearly labeled safe general official source pages when exact deep links are unavailable, blocks APIs/downloads from player-facing links, enforces semantic diversity across modes, and requires every board winner to rank in the global top 30.
 
-Raw APIs, JSON, CSV, ZIP, spreadsheet downloads, and generic source landing pages are never used as player links.
-
-Begin with `START_HERE_V14_3_1.md`.
+Start with `README_FIRST.md` for deployment instructions.

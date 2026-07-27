@@ -10,7 +10,7 @@ from typing import Any, Iterable, Mapping
 from .countries import UN_COUNTRY_ISO3
 from .models import CandidateDefinition, QualityResult, SourceObservation
 
-VALIDATION_VERSION = "geostats-v14.3-source-integrity-v2"
+VALIDATION_VERSION = "geostats-v14.4-source-integrity-v1"
 
 
 @dataclass(frozen=True)

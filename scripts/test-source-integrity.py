@@ -73,7 +73,7 @@ metadata_failure = validate_category_snapshot(
 )
 assert metadata_failure.status == "failed"
 assert metadata_failure.metadata_checks["unit"] is False
-assert VALIDATION_VERSION.startswith("geostats-v14.3")
+assert VALIDATION_VERSION.startswith("geostats-v14.4")
 
 wrong_official_unit = dict(stored_category)
 wrong_official_unit["metadata"] = {**stored_category["metadata"], "official_unit": "tonnes"}
@@ -114,4 +114,4 @@ aggregate_failure = validate_category_snapshot(
 )
 assert aggregate_failure.status == "failed"
 assert aggregate_failure.metadata_checks["source_country_universe"] is False
-print("GeoStats v14.3 source integrity fixture tests passed.")
+print("GeoStats v14.4 source integrity fixture tests passed.")

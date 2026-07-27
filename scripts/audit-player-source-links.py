@@ -14,12 +14,12 @@ from urllib.request import Request, urlopen
 from data_pipeline.player_source_links import human_readable_external_url
 from data_pipeline.supabase import SupabaseWarehouse
 
-AUDIT_VERSION = "geostats-v14.3.1-player-link-v1"
+AUDIT_VERSION = "geostats-v14.4-player-link-v1"
 
 
 def fetch_html(url: str, timeout: int = 35) -> tuple[str, str, str | None, str]:
     request = Request(url, headers={
-        "User-Agent": "GeoStats/14.3.1 player-source-link-audit",
+        "User-Agent": "GeoStats/14.4 player-source-link-audit",
         "Accept": "text/html,application/xhtml+xml;q=0.9,*/*;q=0.1",
     })
     context = ssl.create_default_context()
@@ -49,7 +49,7 @@ def exactness(row: dict, final_url: str, body: str) -> tuple[bool, str]:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Validate human-readable exact player source links.")
+    parser = argparse.ArgumentParser(description="Validate human-readable official player source links.")
     parser.add_argument("--report-dir", default="artifacts/player-source-links")
     args = parser.parse_args()
     url = os.environ.get("SUPABASE_URL", "").strip()
@@ -87,8 +87,9 @@ def main() -> int:
                         score = 100
                         reason = f"Live HTML check passed. {exact_reason}"
                     else:
-                        status = "needs_exact_url"
-                        reason = exact_reason
+                        status = "general"
+                        score = 70
+                        reason = f"Live HTML check passed as a general official source page. {exact_reason}"
             except (HTTPError, URLError, TimeoutError, OSError) as error:
                 status = "pending"
                 score = 0
@@ -97,17 +98,37 @@ def main() -> int:
         results.append({**row, "audit_status": status, "audit_reason": reason, "link_quality_score": score})
         print(f"  {status}: {reason}", flush=True)
 
+    reconciliation: object
+    try:
+        reconciliation = {"status": "completed", "result": warehouse.reconcile_category_playability_v144()}
+    except Exception as error:
+        reconciliation = {"status": "failed", "reason": str(error)}
+        print(f"Playability reconciliation failed: {error}", flush=True)
+
     report_dir = Path(args.report_dir)
     report_dir.mkdir(parents=True, exist_ok=True)
-    payload = {"version": AUDIT_VERSION, "generated_at": datetime.now(timezone.utc).isoformat(), "results": results}
+    payload = {
+        "version": AUDIT_VERSION,
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "reconciliation": reconciliation,
+        "results": results,
+    }
     (report_dir / "player-source-link-report.json").write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
     lines = ["# Player Source Link Audit", "", f"Audit version: `{AUDIT_VERSION}`", "", "| Source | Category | Result | Reason |", "|---|---|---|---|"]
     for row in results:
         lines.append(f"| {row.get('source_organization')} | {row.get('title')} | {row['audit_status']} | {str(row['audit_reason']).replace('|','/')} |")
     (report_dir / "player-source-link-report.md").write_text("\n".join(lines) + "\n")
-    failed = sum(1 for row in results if row["audit_status"] != "exact")
-    print({"selected": len(results), "exact": len(results) - failed, "not_exact": failed}, flush=True)
-    return 0
+    usable = sum(1 for row in results if row["audit_status"] in {"exact", "general"})
+    exact = sum(1 for row in results if row["audit_status"] == "exact")
+    print({
+        "selected": len(results),
+        "usable": usable,
+        "exact": exact,
+        "general": usable - exact,
+        "blocked": len(results) - usable,
+        "reconciliation": reconciliation,
+    }, flush=True)
+    return 1 if isinstance(reconciliation, dict) and reconciliation.get("status") == "failed" else 0
 
 
 if __name__ == "__main__":

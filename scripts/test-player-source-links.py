@@ -23,13 +23,14 @@ assert world_bank.score == 100
 assert world_bank.url == "https://data.worldbank.org/indicator/SP.POP.TOTL"
 
 faostat = exact_url_for("faostat", "QCL:'01460:5412")
-assert faostat.status == "needs_exact_url"
-assert faostat.url is None
+assert faostat.status == "general"
+assert faostat.score == 70
+assert faostat.url == "https://www.fao.org/faostat/en/"
 
 unesco = exact_url_for("unesco", "CR.MOD.1", {
     "source_page_url": "https://databrowser.uis.unesco.org/browser/EDUCATION/CR.MOD.1",
 })
-assert unesco.status == "pending"
-assert unesco.score == 70
+assert unesco.status == "exact"
+assert unesco.score == 100
 
-print("GeoStats v14.3.1 player-source URL policy tests passed.")
+print("GeoStats v14.4 player-source URL policy tests passed.")

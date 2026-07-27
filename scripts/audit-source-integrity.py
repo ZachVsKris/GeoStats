@@ -245,6 +245,12 @@ def main() -> int:
             activation = {"status": "failed", "reason": str(error)}
             activation_failed = True
 
+    try:
+        reconciliation: Any = {"status": "completed", "result": warehouse.reconcile_category_playability_v144()}
+    except Exception as error:
+        reconciliation = {"status": "failed", "reason": str(error)}
+        print(f"Playability reconciliation failed: {error}", flush=True)
+
     report = {
         "generatedAt": datetime.now(timezone.utc).isoformat(),
         "validationVersion": VALIDATION_VERSION,
@@ -253,6 +259,7 @@ def main() -> int:
         "results": results,
         "sourceErrors": source_errors,
         "activation": activation,
+        "reconciliation": reconciliation,
     }
     report_dir = Path(args.report_dir)
     report_dir.mkdir(parents=True, exist_ok=True)
@@ -277,7 +284,17 @@ def main() -> int:
         for category in failed_categories:
             kinds = ", ".join(category.get("failureTypes") or []) or "unclassified"
             lines.append(f"- **{category.get('title')}** (`{category.get('indicator')}`): {category.get('status')} [{kinds}] — {category.get('failureReason') or 'No reason recorded.'}")
-    lines.extend(["", "## Enforcement", "", f"`{json.dumps(activation, default=str)}`", ""])
+    lines.extend([
+        "",
+        "## Enforcement",
+        "",
+        f"`{json.dumps(activation, default=str)}`",
+        "",
+        "## Playability reconciliation",
+        "",
+        f"`{json.dumps(reconciliation, default=str)}`",
+        "",
+    ])
     (report_dir / "source-integrity-report.md").write_text("\n".join(lines), encoding="utf-8")
 
     print(json.dumps({
@@ -285,11 +302,13 @@ def main() -> int:
         "results": [{key: value for key, value in result.items() if key != "categories"} for result in results],
         "sourceErrors": source_errors,
         "activation": activation,
+        "reconciliation": reconciliation,
         "reportDir": str(report_dir),
     }, indent=2, default=str), flush=True)
     # Definite data mismatches are safely quarantined and do not crash the workflow.
     # Source-access gaps or a requested-but-blocked enforcement activation remain failures.
-    return 1 if has_unable or activation_failed else 0
+    reconciliation_failed = isinstance(reconciliation, dict) and reconciliation.get("status") == "failed"
+    return 1 if has_unable or activation_failed or reconciliation_failed else 0
 
 
 if __name__ == "__main__":

@@ -28,6 +28,17 @@ type CategoryRow = {
   source_url: string | null;
   methodology_url?: string | null;
   source_page_url?: string | null;
+  player_source_url?: string | null;
+  player_source_status?: string | null;
+  player_source_reason?: string | null;
+  player_source_checked_at?: string | null;
+  content_review_status?: string | null;
+  content_review_reason?: string | null;
+  content_review_version?: string | null;
+  immediate_comprehension_score?: number | null;
+  gameplay_interest_score?: number | null;
+  uniqueness_score?: number | null;
+  link_quality_score?: number | null;
   exact_query_url?: string | null;
   download_url?: string | null;
   api_url?: string | null;
@@ -76,6 +87,17 @@ function serialize(row: CategoryRow, requestedId?: string) {
     sourceUrl: row.source_url,
     methodologyUrl: row.methodology_url ?? null,
     sourcePageUrl: row.source_page_url ?? null,
+    playerSourceUrl: row.player_source_url ?? null,
+    playerSourceStatus: row.player_source_status ?? null,
+    playerSourceReason: row.player_source_reason ?? null,
+    playerSourceCheckedAt: row.player_source_checked_at ?? null,
+    contentReviewStatus: row.content_review_status ?? null,
+    contentReviewReason: row.content_review_reason ?? null,
+    contentReviewVersion: row.content_review_version ?? null,
+    immediateComprehensionScore: row.immediate_comprehension_score ?? null,
+    gameplayInterestScore: row.gameplay_interest_score ?? null,
+    uniquenessScore: row.uniqueness_score ?? null,
+    linkQualityScore: row.link_quality_score ?? null,
     exactQueryUrl: row.exact_query_url ?? null,
     downloadUrl: row.download_url ?? null,
     apiUrl: row.api_url ?? null,
@@ -103,13 +125,13 @@ function serialize(row: CategoryRow, requestedId?: string) {
   };
 }
 
-const V14_SELECT = "id,plain_language_description,technical_definition,unit_explanation,source_url,methodology_url,source_page_url,exact_query_url,download_url,api_url,dataset_release,retrieved_at,license_name,license_url,source_query,derivation_method,derivation_version,input_datasets,official_observation_share,modeled_observation_share,credibility_score,credibility_status,credibility_reason,evidence_label,verifiability_score,verifiability_status,understandability_score,fun_score,objective_status,player_quality_status,player_quality_reason";
+const V14_SELECT = "id,plain_language_description,technical_definition,unit_explanation,source_url,methodology_url,source_page_url,player_source_url,player_source_status,player_source_reason,player_source_checked_at,content_review_status,content_review_reason,content_review_version,immediate_comprehension_score,gameplay_interest_score,uniqueness_score,link_quality_score,exact_query_url,download_url,api_url,dataset_release,retrieved_at,license_name,license_url,source_query,derivation_method,derivation_version,input_datasets,official_observation_share,modeled_observation_share,credibility_score,credibility_status,credibility_reason,evidence_label,verifiability_score,verifiability_status,understandability_score,fun_score,objective_status,player_quality_status,player_quality_reason";
 const V13_SELECT = "id,source_url,methodology_url,official_observation_share,modeled_observation_share,credibility_score,credibility_status,credibility_reason,evidence_label";
 const LEGACY_SELECT = "id,source_url,methodology_url,official_observation_share,modeled_observation_share";
 
 async function selectRows(admin: AdminClient, configure: (select: string) => any) {
   let result: any = await configure(V14_SELECT);
-  if (result.error && /source_page_url|exact_query_url|verifiability_|player_quality_|objective_status|input_datasets|dataset_release/i.test(result.error.message)) {
+  if (result.error && /player_source_|content_review_|immediate_comprehension_score|gameplay_interest_score|uniqueness_score|link_quality_score|source_page_url|exact_query_url|verifiability_|player_quality_|objective_status|input_datasets|dataset_release/i.test(result.error.message)) {
     result = await configure(V13_SELECT);
   }
   if (result.error && /credibility_|evidence_label/i.test(result.error.message)) {

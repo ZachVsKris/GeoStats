@@ -1,6 +1,7 @@
 import { CATEGORIES, type Category } from "../../lib/categories";
 import { loadServerPlayableCategoryCatalog } from "../../lib/serverPlayableCatalog";
-import { categoryMethodologyUrl, categorySourceUrl, SOURCE_REGISTRY } from "../../lib/sourceRegistry";
+import { SOURCE_REGISTRY } from "../../lib/sourceRegistry";
+import { resolvePlayerSourceUrl } from "../../lib/playerSourceLinks";
 
 export const dynamic = "force-dynamic";
 
@@ -30,14 +31,23 @@ export default async function AuditPage(){
     <p>Only the live source-verified warehouse catalog is treated as approved. GeoStats does not fall back to bundled categories for gameplay when the verified catalog is unavailable. Explicit bundled quarantines are included so players can see why prominent rejected categories are absent.</p>
     <p><a href="/daily">Back to game</a> · <a href="/data">Data and methodology</a></p>
     <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:14}}>
-      {categories.map((category)=><article key={category.id} style={{border:`1px solid ${category.trustStatus==="quarantined"?"#8b554d":"#294a3d"}`,borderRadius:14,padding:16,background:"#0c211a",opacity:category.enabled===false?.7:1}}>
-        <h2 style={{fontSize:18}}>{category.icon} {category.name}</h2>
-        <p>{category.description}</p>
-        <p><strong>{SOURCE_REGISTRY[category.source].name}</strong><br/>Credibility: {category.credibilityScore ?? "reviewed"}/100 · {category.trustStatus ?? "approved"}<br/>Evidence: {category.evidenceLabel ?? "Internationally harmonized"}</p>
-        <p>{category.trustReason ?? "Passed the GeoStats credibility and provenance review."}</p>
-        <code style={{display:"inline-block",marginTop:10}}>{category.warehouseSourceIndicatorCode ?? category.indicator}</code>
-        <div><a href={category.sourceUrl ?? categorySourceUrl(category.source,category.warehouseSourceIndicatorCode ?? category.indicator)} target="_blank" rel="noreferrer" style={{color:"#b9f45a"}}>Source ↗</a> · <a href={category.methodologyUrl ?? categoryMethodologyUrl(category.source,category.warehouseSourceIndicatorCode ?? category.indicator)} target="_blank" rel="noreferrer" style={{color:"#b9f45a"}}>Methodology ↗</a></div>
-      </article>)}
+      {categories.map((category)=>{
+        const indicator=category.warehouseSourceIndicatorCode ?? category.indicator;
+        const exactSource=resolvePlayerSourceUrl({
+          source: category.source,
+          indicator,
+          playerSourceUrl: category.playerSourceUrl,
+          playerSourceStatus: category.playerSourceStatus,
+        });
+        return <article key={category.id} style={{border:`1px solid ${category.trustStatus==="quarantined"?"#8b554d":"#294a3d"}`,borderRadius:14,padding:16,background:"#0c211a",opacity:category.enabled===false?.7:1}}>
+          <h2 style={{fontSize:18}}>{category.icon} {category.name}</h2>
+          <p>{category.description}</p>
+          <p><strong>{SOURCE_REGISTRY[category.source].name}</strong><br/>Credibility: {category.credibilityScore ?? "reviewed"}/100 · {category.trustStatus ?? "approved"}<br/>Evidence: {category.evidenceLabel ?? "Internationally harmonized"}</p>
+          <p>{category.trustReason ?? "Passed the GeoStats credibility and provenance review."}</p>
+          <code style={{display:"inline-block",marginTop:10}}>{indicator}</code>
+          {exactSource ? <div><a href={exactSource} target="_blank" rel="noreferrer" style={{color:"#b9f45a"}}>View exact official data ↗</a></div> : <p><strong>Exact external data page:</strong> unavailable. The category remains blocked from Daily boards.</p>}
+        </article>;
+      })}
     </div>
   </main>;
 }

@@ -5,6 +5,7 @@ import type { CanonicalDataset } from "../lib/dataEngine";
 import { canonicalizeDataset, formatValue } from "../lib/dataEngine";
 import { fetchCategory } from "../lib/dataSources";
 import { SOURCE_REGISTRY } from "../lib/sourceRegistry";
+import { resolvePlayerSourceUrl } from "../lib/playerSourceLinks";
 
 type Props = {
   dataset: CanonicalDataset;
@@ -42,6 +43,9 @@ export default function CategorySourcePanel({ dataset, boardCountryIds = [], onC
             methodologyUrl: dataset.methodologyUrl || loaded.methodologyUrl,
             exactQueryUrl: dataset.exactQueryUrl || loaded.exactQueryUrl,
             sourcePageUrl: dataset.sourcePageUrl || loaded.sourcePageUrl,
+            playerSourceUrl: dataset.playerSourceUrl || loaded.playerSourceUrl,
+            playerSourceStatus: dataset.playerSourceStatus || loaded.playerSourceStatus,
+            playerSourceReason: dataset.playerSourceReason || loaded.playerSourceReason,
             downloadUrl: dataset.downloadUrl || loaded.downloadUrl,
           });
           setFullRankingLoaded(true);
@@ -66,7 +70,12 @@ export default function CategorySourcePanel({ dataset, boardCountryIds = [], onC
     ? "World Bank"
     : SOURCE_REGISTRY[category.source]?.name ?? category.source;
   const description = category.plainLanguageDescription || category.description;
-  const sourceLink = fullDataset.exactQueryUrl || category.exactQueryUrl || fullDataset.downloadUrl || category.downloadUrl || fullDataset.sourcePageUrl || category.sourcePageUrl || fullDataset.sourceUrl;
+  const sourceLink = resolvePlayerSourceUrl({
+    source: category.source,
+    indicator: category.warehouseSourceIndicatorCode || category.indicator,
+    playerSourceUrl: fullDataset.playerSourceUrl || category.playerSourceUrl,
+    playerSourceStatus: (fullDataset.playerSourceStatus || category.playerSourceStatus) as any,
+  });
   const tableTitle = fullRankingLoaded ? "Global rankings" : "Countries in this game";
 
   return <div className="sourceModal" role="dialog" aria-modal="true" aria-label={`${category.name} data and source`} onMouseDown={(event) => event.currentTarget === event.target && onClose()}>
@@ -94,7 +103,7 @@ export default function CategorySourcePanel({ dataset, boardCountryIds = [], onC
         {!rows.length && !loading && <p className="sourceEmpty">No countries match that search.</p>}
       </div>
 
-      {sourceLink && <div className="sourceLinks sourceLinksSimple"><a href={sourceLink} target="_blank" rel="noreferrer">View source material ↗</a></div>}
+      {sourceLink ? <div className="sourceLinks sourceLinksSimple"><a href={sourceLink} target="_blank" rel="noreferrer">View exact official data ↗</a></div> : <p className="sourceLoadError">No verified human-readable external data page is available for this category. It is blocked from future Daily boards until that link is supplied and validated.</p>}
     </div>
   </div>;
 }

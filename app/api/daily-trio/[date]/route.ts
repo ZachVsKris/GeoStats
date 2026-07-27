@@ -6,6 +6,7 @@ import { fetchCountries, type CountryInfo } from "../../../../lib/worldBank";
 import { DAILY_DIFFICULTIES, ROUND_CONFIGS, type DailyDifficulty } from "../../../../lib/gameRules";
 import { CATEGORY_SET_VERSION, DATASET_VERSION, RULES_VERSION } from "../../../../lib/version";
 import { loadServerPlayableCategoryCatalog } from "../../../../lib/serverPlayableCatalog";
+import { validateRound } from "../../../../lib/dataEngine";
 import type { Category } from "../../../../lib/categories";
 
 function validDate(value: string) { return /^\d{4}-\d{2}-\d{2}$/.test(value); }
@@ -49,6 +50,7 @@ function validateStoredRows(rows: StoredRow[], countries: CountryInfo[], categor
     try {
       const round = decodeRound(row.encoded_board, countries, categoryCatalog);
       if (!hasExpectedDimensions(round, row.difficulty)) continue;
+      if (validateRound(round.categories, round.bank).length) continue;
       decoded[row.difficulty] = round;
       rowByDifficulty.set(row.difficulty, row);
     } catch {
@@ -137,6 +139,10 @@ export async function POST(request: Request, context: { params: Promise<{ date: 
       if (!hasExpectedDimensions(rounds[difficulty], difficulty)) {
         const config = ROUND_CONFIGS[difficulty];
         throw new Error(`The ${config.label} board must contain ${config.countryCount} countries and ${config.categoryCount} categories.`);
+      }
+      const ruleErrors = validateRound(rounds[difficulty].categories, rounds[difficulty].bank);
+      if (ruleErrors.length) {
+        throw new Error(`The ${ROUND_CONFIGS[difficulty].label} board failed the current rules: ${ruleErrors.join(" ")}`);
       }
     }
     if (!trioIsDistinct(rounds)) {

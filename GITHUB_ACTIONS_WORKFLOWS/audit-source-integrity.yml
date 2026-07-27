@@ -25,9 +25,9 @@ on:
         default: false
         type: boolean
       activate_enforcement:
-        description: Turn on fail-closed enforcement after a complete audit
+        description: Turn on fail-closed enforcement only after the report shows zero blockers
         required: true
-        default: true
+        default: false
         type: boolean
 
 permissions:
@@ -89,13 +89,21 @@ jobs:
           if [ "${{ inputs.include_nonplayable }}" = "true" ]; then EXTRA="--include-nonplayable"; fi
           ACTIVATE=""
           if [ "${{ inputs.activate_enforcement }}" = "true" ]; then ACTIVATE="--activate"; fi
-          python scripts/audit-source-integrity.py --source "${{ inputs.source }}" $EXTRA $ACTIVATE
+          python scripts/audit-source-integrity.py --source "${{ inputs.source }}" $EXTRA $ACTIVATE --report-dir artifacts/source-integrity
 
       - name: Activate enforcement after FAOSTAT-only audit
         if: ${{ inputs.source == 'faostat' && inputs.activate_enforcement }}
         run: python scripts/activate-source-integrity.py
 
+      - name: Upload integrity audit report
+        if: always() && inputs.source != 'faostat'
+        uses: actions/upload-artifact@v4
+        with:
+          name: source-integrity-${{ inputs.source }}-${{ github.run_number }}
+          path: artifacts/source-integrity/
+          if-no-files-found: warn
+
       - name: Print integrity verification query
         if: always()
         run: |
-          echo "Run VERIFY_V14_2.sql in Supabase to inspect verified, pending, failed, and unavailable categories."
+          echo "Run VERIFY_V14_3.sql in Supabase to inspect source integrity and board semantic families."

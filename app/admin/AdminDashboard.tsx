@@ -39,6 +39,8 @@ type CategoryRow = {
   independent_validation?: boolean;
   government_assertion_risk?: string;
   concept_group?: string | null;
+  semantic_family?: string | null;
+  semantic_topic?: string | null;
   duplicate_status?: "pending" | "preferred" | "superseded" | "not_eligible";
   superseded_by?: string | null;
   auto_decision_reason?: string | null;
@@ -79,6 +81,17 @@ type CategoryRow = {
   validated_observation_count?: number | null;
   validation_mismatch_count?: number | null;
   validation_ranking_mismatch_count?: number | null;
+  player_source_url?: string | null;
+  player_source_status?: "pending" | "exact" | "needs_exact_url" | "invalid" | "unavailable" | null;
+  player_source_reason?: string | null;
+  player_source_checked_at?: string | null;
+  content_review_status?: "pending" | "approved" | "excluded" | null;
+  content_review_reason?: string | null;
+  content_review_version?: string | null;
+  immediate_comprehension_score?: number | null;
+  gameplay_interest_score?: number | null;
+  uniqueness_score?: number | null;
+  link_quality_score?: number | null;
 };
 
 type ImportRow = {
@@ -115,6 +128,10 @@ type IntegritySourceRow = { source: string; categories: number; playable: number
 type IntegrityIssue = { id: string; title: string; source_organization: string; validation_status: string; validation_reason: string | null; validated_at: string | null; validation_mismatch_count: number; validation_ranking_mismatch_count: number };
 type IntegrityRun = { id: number; source_organization: string | null; status: string; started_at: string; completed_at: string | null; categories_selected: number; categories_verified: number; categories_failed: number; categories_unable: number; error_message: string | null };
 type IntegrityOverview = { enforcement_enabled: boolean; categories: number; playable: number; verified: number; failed: number; unable_to_verify: number; pending: number; unverified_playable: number };
+type SemanticConflict = { first_category_id: string; first_title: string; second_category_id: string; second_title: string; semantic_family: string; first_domain: string; second_domain: string };
+type SimilarityConflict = { first_category_id: string; first_title: string; second_category_id: string; second_title: string; score: number };
+type ContentLinkOverview = { categories: number; content_approved: number; content_excluded: number; content_pending: number; exact_player_links: number; links_pending: number; links_blocked: number; playable: number };
+type ContentLinkIssue = { id: string; title: string; source_organization: string; source_indicator_code: string; content_review_status: string; content_review_reason: string | null; immediate_comprehension_score: number | null; gameplay_interest_score: number | null; player_source_status: string; player_source_url: string | null; player_source_reason: string | null; link_quality_score: number | null; enabled: boolean; eligible_daily: boolean };
 
 type Dashboard = {
   stats: { categories: number; observations: number; countries: number; usernames: number };
@@ -128,6 +145,8 @@ type Dashboard = {
   sourceHealth: SourceHealthRow[];
   generationRuns: GenerationRun[];
   integrity: { overview: IntegrityOverview; bySource: IntegritySourceRow[]; issues: IntegrityIssue[]; runs: IntegrityRun[]; migrationApplied: boolean };
+  contentLinks: { overview: ContentLinkOverview; issues: ContentLinkIssue[]; migrationApplied: boolean };
+  boardQuality: { migrationApplied: boolean; semanticConflicts: SemanticConflict[]; similarityConflicts: SimilarityConflict[]; semanticSimilarityThreshold: number; winnerGlobalRankLimit: number };
 };
 
 type DailyMode = "easy" | "normal" | "expert";
@@ -169,6 +188,7 @@ const WORKFLOWS: Record<string, string> = {
   unhcr: `${REPO_ACTIONS}/import-unhcr.yml`,
   all: `${REPO_ACTIONS}/repair-v14-expansion.yml`,
   integrity: `${REPO_ACTIONS}/audit-source-integrity.yml`,
+  links: `${REPO_ACTIONS}/audit-player-source-links.yml`,
 };
 
 const card: React.CSSProperties = {
@@ -430,6 +450,12 @@ export default function AdminDashboard() {
     && (category.verifiability_score ?? 100) >= 80
     && (category.understandability_score ?? 100) >= 70
     && (category.fun_score ?? 100) >= 55
+    && category.content_review_status === "approved"
+    && (category.immediate_comprehension_score ?? 0) >= 80
+    && (category.gameplay_interest_score ?? 0) >= 65
+    && category.player_source_status === "exact"
+    && Boolean(category.player_source_url)
+    && (category.link_quality_score ?? 0) >= 90
     && category.validation_status === "verified"
     && category.review_status !== "approved");
   const resettableSelected = selectedRows.filter((category) => category.review_status === "rejected" || category.review_status === "approved");
@@ -485,7 +511,36 @@ export default function AdminDashboard() {
             <div style={{ opacity: .7, fontSize: 12 }}>{label}</div><strong style={{ fontSize: 22 }}>{typeof value === "number" ? formatNumber(value) : value}</strong>
           </div>)}
         </div>
-        <p style={{ opacity: .64, marginBottom: 0, fontSize: 12 }}>First-party, privacy-conscious analytics begin after the combined v14.2 Supabase installer is applied.</p>
+        <p style={{ opacity: .64, marginBottom: 0, fontSize: 12 }}>First-party, privacy-conscious analytics begin after the combined v14.3 Supabase installer is applied.</p>
+      </section>
+
+      <section style={{ ...card, marginTop: 16, overflowX: "auto" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "start", gap: 16, flexWrap: "wrap" }}>
+          <div>
+            <h2 style={{ marginTop: 0, marginBottom: 5 }}>Content and player-source links</h2>
+            <p style={{ opacity: .72, margin: 0 }}>Only immediately understandable categories with a verified human-readable page showing the exact official data may become playable.</p>
+          </div>
+          <a href={WORKFLOWS.links} target="_blank" rel="noreferrer" style={{ ...button, textDecoration: "none" }}>Audit player links ↗</a>
+        </div>
+        {!data.contentLinks?.migrationApplied ? <p style={{ marginBottom: 0 }}>Apply the v14.3.1 Supabase installer to enable content and player-link reporting.</p> : <>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(145px,1fr))", gap: 9, margin: "14px 0" }}>
+            {[
+              ["Content approved", data.contentLinks.overview.content_approved],
+              ["Content excluded", data.contentLinks.overview.content_excluded],
+              ["Content pending", data.contentLinks.overview.content_pending],
+              ["Exact player links", data.contentLinks.overview.exact_player_links],
+              ["Links pending", data.contentLinks.overview.links_pending],
+              ["Links blocked", data.contentLinks.overview.links_blocked],
+            ].map(([label, value]) => <div key={String(label)} style={{ padding: 11, borderRadius: 10, background: "rgba(255,255,255,.04)" }}><div style={{ opacity: .68, fontSize: 12 }}>{label}</div><strong style={{ fontSize: 21 }}>{formatNumber(Number(value))}</strong></div>)}
+          </div>
+          {data.contentLinks.issues.length > 0 && <div>
+            <strong>Blocked or pending categories</strong>
+            {data.contentLinks.issues.slice(0, 16).map((issue) => <div key={issue.id} style={{ padding: "8px 0", borderTop: "1px solid rgba(255,255,255,.08)" }}>
+              <strong>{issue.title}</strong> · {issue.source_organization} · content {issue.content_review_status} · link {issue.player_source_status}
+              <div style={{ opacity: .7, fontSize: 12 }}>{issue.content_review_reason ?? issue.player_source_reason ?? "No reason recorded"}</div>
+            </div>)}
+          </div>}
+        </>}
       </section>
 
       <section style={{ ...card, marginTop: 16, overflowX: "auto" }}>
@@ -496,7 +551,7 @@ export default function AdminDashboard() {
           </div>
           <a href={WORKFLOWS.integrity} target="_blank" rel="noreferrer" style={{ ...button, textDecoration: "none" }}>Run full source audit ↗</a>
         </div>
-        {!data.integrity.migrationApplied ? <p style={{ marginBottom: 0 }}>Apply the v14.2 Supabase migration to enable integrity reporting.</p> : <>
+        {!data.integrity.migrationApplied ? <p style={{ marginBottom: 0 }}>Apply the v14.3 Supabase installer to enable integrity and board-quality reporting.</p> : <>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(145px,1fr))", gap: 9, margin: "14px 0" }}>
             {[
               ["Enforcement", data.integrity.overview.enforcement_enabled ? "ON" : "OFF"],
@@ -517,6 +572,22 @@ export default function AdminDashboard() {
             <strong>Quarantined categories</strong>
             {data.integrity.issues.slice(0, 12).map((issue) => <div key={issue.id} style={{ padding: "8px 0", borderTop: "1px solid rgba(255,255,255,.08)" }}><strong>{issue.title}</strong> · {issue.source_organization} · {issue.validation_status}<div style={{ opacity: .7, fontSize: 12 }}>{issue.validation_reason ?? "No reason recorded"}</div></div>)}
           </div>}
+          <div style={{ marginTop: 16, paddingTop: 14, borderTop: "1px solid rgba(255,255,255,.12)" }}>
+            <strong>Board-quality gates</strong>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(170px,1fr))", gap: 9, marginTop: 10 }}>
+              <div style={{ padding: 11, borderRadius: 10, background: "rgba(255,255,255,.04)" }}><div style={{ opacity: .68, fontSize: 12 }}>Winner requirement</div><strong style={{ fontSize: 20 }}>Global top {data.boardQuality.winnerGlobalRankLimit}</strong></div>
+              <div style={{ padding: 11, borderRadius: 10, background: "rgba(255,255,255,.04)" }}><div style={{ opacity: .68, fontSize: 12 }}>Playable same-family pairs</div><strong style={{ fontSize: 20 }}>{data.boardQuality.migrationApplied ? data.boardQuality.semanticConflicts.length : "—"}</strong></div>
+              <div style={{ padding: 11, borderRadius: 10, background: "rgba(255,255,255,.04)" }}><div style={{ opacity: .68, fontSize: 12 }}>Cross-family similarity warnings</div><strong style={{ fontSize: 20 }}>{data.boardQuality.similarityConflicts.length}</strong></div>
+            </div>
+            {data.boardQuality.semanticConflicts.length > 0 && <div style={{ marginTop: 10 }}>
+              <div style={{ opacity: .72, fontSize: 12, marginBottom: 5 }}>These categories may remain playable individually, but the generator will never place a pair from the same board family together.</div>
+              {data.boardQuality.semanticConflicts.slice(0, 12).map((conflict) => <div key={`${conflict.first_category_id}:${conflict.second_category_id}`} style={{ padding: "7px 0", borderTop: "1px solid rgba(255,255,255,.07)" }}><strong>{conflict.first_title}</strong> ↔ <strong>{conflict.second_title}</strong><div style={{ opacity: .68, fontSize: 12 }}>{conflict.semantic_family}</div></div>)}
+            </div>}
+            {data.boardQuality.similarityConflicts.length > 0 && <div style={{ marginTop: 12 }}>
+              <div style={{ opacity: .72, fontSize: 12, marginBottom: 5 }}>Different families whose player-facing wording is at or above the {Math.round(data.boardQuality.semanticSimilarityThreshold * 100)}% similarity warning threshold. The generator also blocks these pairs.</div>
+              {data.boardQuality.similarityConflicts.slice(0, 12).map((conflict) => <div key={`similar:${conflict.first_category_id}:${conflict.second_category_id}`} style={{ padding: "7px 0", borderTop: "1px solid rgba(255,255,255,.07)" }}><strong>{conflict.first_title}</strong> ↔ <strong>{conflict.second_title}</strong><div style={{ opacity: .68, fontSize: 12 }}>{Math.round(conflict.score * 100)}% text similarity</div></div>)}
+            </div>}
+          </div>
         </>}
       </section>
 
@@ -685,7 +756,7 @@ export default function AdminDashboard() {
               <tr>
                 <th style={{ padding: 8 }}><input type="checkbox" checked={allVisibleSelected} onChange={toggleAllVisible} aria-label="Select all visible categories" /></th>
                 {[
-                  "Review", "Category", "Source", "Quality", "Trust", "Player quality", "Integrity", "Verify", "Clear", "Fun", "Curation", "Provenance", "Duplicate", "Evidence", "Common year", "Official", "Modeled", "Cluster", "Stability", "Recognizable", "Specific", "Actions",
+                  "Review", "Category", "Source", "Quality", "Trust", "Player quality", "Content", "Player link", "Integrity", "Verify", "Clear", "Fun", "Curation", "Provenance", "Duplicate", "Evidence", "Common year", "Official", "Modeled", "Cluster", "Stability", "Recognizable", "Specific", "Actions",
                 ].map((heading) => <th key={heading} style={{ textAlign: "left", padding: 8, borderBottom: "1px solid rgba(255,255,255,.12)" }}>{heading}</th>)}
               </tr>
             </thead>
@@ -702,6 +773,8 @@ export default function AdminDashboard() {
                   <td style={{ padding: 8 }}><strong>{category.quality_score}</strong>{category.auto_qualified && <div style={{ fontSize: 11, opacity: .72 }}>quality + provenance pass</div>}</td>
                   <td style={{ padding: 8, maxWidth: 250 }}><strong>{category.credibility_score ?? "—"} · {category.credibility_status ?? "unscored"}</strong>{category.credibility_reason && <div style={{ fontSize: 11, opacity: .72 }}>{category.credibility_reason}</div>}</td>
                   <td style={{ padding: 8, maxWidth: 250 }}><strong>{category.player_quality_status ?? "unscored"}</strong><div style={{ fontSize: 11, opacity: .72 }}>{category.objective_status ?? "objective"}</div>{category.player_quality_reason && <div style={{ fontSize: 11, opacity: .72 }}>{category.player_quality_reason}</div>}</td>
+                  <td style={{ padding: 8, maxWidth: 250 }}><strong>{category.content_review_status ?? "pending"}</strong><div style={{ fontSize: 11, opacity: .72 }}>understand {category.immediate_comprehension_score ?? "—"} · interest {category.gameplay_interest_score ?? "—"} · unique {category.uniqueness_score ?? "—"}</div>{category.content_review_reason && <div style={{ fontSize: 11, opacity: .72 }}>{category.content_review_reason}</div>}</td>
+                  <td style={{ padding: 8, maxWidth: 260 }}><strong>{category.player_source_status ?? "pending"}</strong><div style={{ fontSize: 11, opacity: .72 }}>link quality {category.link_quality_score ?? "—"}</div>{category.player_source_url && <div style={{ fontSize: 11 }}><a href={category.player_source_url} target="_blank" rel="noreferrer">Open exact page ↗</a></div>}{category.player_source_reason && <div style={{ fontSize: 11, opacity: .72 }}>{category.player_source_reason}</div>}</td>
                   <td style={{ padding: 8, maxWidth: 220 }}><strong>{category.validation_status ?? "pending"}</strong>{category.validation_reason && <div style={{ fontSize: 11, opacity: .72 }}>{category.validation_reason}</div>}</td>
                   <td style={{ padding: 8 }}><strong>{category.verifiability_score ?? "—"}</strong><div style={{ fontSize: 11, opacity: .72 }}>{category.verifiability_status ?? ""}</div></td>
                   <td style={{ padding: 8 }}>{category.understandability_score ?? "—"}</td>
@@ -721,7 +794,7 @@ export default function AdminDashboard() {
                     <div style={{ display: "flex", gap: 6 }}>
                       <button style={mutedButton} disabled={detailLoading} onClick={() => inspectCategory(category.id)}>Inspect</button>
                       {category.review_status !== "rejected" && <button style={dangerButton} disabled={reviewing} onClick={() => decide([category.id], "rejected")}>Reject</button>}
-                      {category.auto_qualified && category.validation_status === "verified" && category.curation_status !== "excluded" && category.player_quality_status !== "blocked" && category.objective_status === "objective" && (category.verifiability_score ?? 100) >= 80 && (category.understandability_score ?? 100) >= 70 && (category.fun_score ?? 100) >= 55 && category.review_status !== "approved" && <button style={button} disabled={reviewing} onClick={() => decide([category.id], "approved")}>Approve</button>}
+                      {category.auto_qualified && category.validation_status === "verified" && category.curation_status !== "excluded" && category.player_quality_status !== "blocked" && category.objective_status === "objective" && (category.verifiability_score ?? 100) >= 80 && (category.understandability_score ?? 100) >= 70 && (category.fun_score ?? 100) >= 55 && category.content_review_status === "approved" && (category.immediate_comprehension_score ?? 0) >= 80 && (category.gameplay_interest_score ?? 0) >= 65 && category.player_source_status === "exact" && Boolean(category.player_source_url) && (category.link_quality_score ?? 0) >= 90 && category.review_status !== "approved" && <button style={button} disabled={reviewing} onClick={() => decide([category.id], "approved")}>Approve</button>}
                       {(category.review_status === "approved" || category.review_status === "rejected") && <button style={mutedButton} disabled={reviewing} onClick={() => decide([category.id], "reset")}>Reset</button>}
                     </div>
                   </td>
@@ -749,15 +822,19 @@ export default function AdminDashboard() {
               <div style={card}>Verifiability <strong>{detail.category.verifiability_score ?? "—"}</strong><div style={{ opacity: .72, marginTop: 6 }}>{detail.category.verifiability_status ?? "unscored"}</div></div>
               <div style={card}>Clarity <strong>{detail.category.understandability_score ?? "—"}</strong><div style={{ opacity: .72, marginTop: 6 }}>{detail.category.plain_language_description ?? ""}</div></div>
               <div style={card}>Fun <strong>{detail.category.fun_score ?? "—"}</strong><div style={{ opacity: .72, marginTop: 6 }}>{detail.category.player_quality_status ?? "unscored"} · {detail.category.objective_status ?? "objective"}</div></div>
+              <div style={card}>Content review <strong>{detail.category.content_review_status ?? "pending"}</strong><div style={{ opacity: .72, marginTop: 6 }}>Understand {detail.category.immediate_comprehension_score ?? "—"} · Interest {detail.category.gameplay_interest_score ?? "—"} · Unique {detail.category.uniqueness_score ?? "—"}</div></div>
+              <div style={card}>Player source <strong>{detail.category.player_source_status ?? "pending"}</strong><div style={{ opacity: .72, marginTop: 6 }}>Link quality {detail.category.link_quality_score ?? "—"}</div>{detail.category.player_source_url && <div style={{ marginTop: 6 }}><a href={detail.category.player_source_url} target="_blank" rel="noreferrer">Open exact official data ↗</a></div>}</div>
               <div style={card}>Coverage <strong>{detail.category.common_year_coverage || detail.category.country_coverage}</strong></div>
               <div style={card}>Year <strong>{detail.year ?? detail.category.common_year ?? "—"}</strong></div>
               <div style={card}>Modeled <strong>{percentage(detail.category.modeled_observation_share)}</strong></div>
               <div style={card}>Curation <strong>{detail.category.curation_status ?? "pending"}</strong><div style={{ opacity: .72, marginTop: 6 }}>{detail.category.curation_version ?? ""}</div></div>
               <div style={card}>Provenance <strong>{detail.category.provenance_status ?? "—"}</strong><div style={{ opacity: .72, marginTop: 6 }}>{detail.category.provenance_class ?? ""}</div></div>
-              <div style={card}>Duplicate status <strong>{detail.category.duplicate_status ?? "—"}</strong><div style={{ opacity: .72, marginTop: 6 }}>{detail.category.concept_group ?? ""}</div></div>
+              <div style={card}>Duplicate status <strong>{detail.category.duplicate_status ?? "—"}</strong><div style={{ opacity: .72, marginTop: 6 }}>{detail.category.concept_group ?? ""}</div><div style={{ opacity: .72, marginTop: 6 }}>Board family: {detail.category.semantic_family ?? "—"}</div><div style={{ opacity: .72, marginTop: 6 }}>Topic: {detail.category.semantic_topic ?? "—"}</div></div>
             </div>
-            {(detail.category.curation_reason || detail.category.provenance_reason || detail.category.credibility_reason || detail.category.auto_decision_reason) && (
+            {(detail.category.content_review_reason || detail.category.player_source_reason || detail.category.curation_reason || detail.category.provenance_reason || detail.category.credibility_reason || detail.category.auto_decision_reason) && (
               <div style={{ ...card, marginBottom: 16 }}>
+                {detail.category.content_review_reason && <div><strong>Content:</strong> {detail.category.content_review_reason}</div>}
+                {detail.category.player_source_reason && <div><strong>Player source:</strong> {detail.category.player_source_reason}</div>}
                 {detail.category.curation_reason && <div><strong>Curation:</strong> {detail.category.curation_reason}</div>}
                 {detail.category.provenance_reason && <div><strong>Provenance:</strong> {detail.category.provenance_reason}</div>}
                 {detail.category.credibility_reason && <div><strong>Credibility:</strong> {detail.category.credibility_reason}</div>}

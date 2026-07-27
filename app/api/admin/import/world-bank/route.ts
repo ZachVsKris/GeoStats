@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { requireAdmin } from "../../../../../lib/supabase/adminAuth";
 import { CATEGORIES, type Category } from "../../../../../lib/categories";
-import { fetchCountries, fetchWorldBankCategory } from "../../../../../lib/worldBank";
+import { fetchCountries, fetchWorldBankImportSnapshot, type CategoryDataset } from "../../../../../lib/worldBank";
 import { scoreCategoryQuality } from "../../../../../lib/categoryQuality";
 import {
   governWorldBankCategory,
@@ -9,6 +9,7 @@ import {
   GOVERNANCE_VERSION,
 } from "../../../../../lib/categoryGovernance";
 import { canonicalCountryName } from "../../../../../lib/canonicalCountries";
+import { inferSemanticProfile } from "../../../../../lib/categorySemantics";
 
 export const dynamic = "force-dynamic";
 export const maxDuration = 60;
@@ -33,6 +34,8 @@ function categoryMetadata(category: Category) {
     expectedRange: category.expectedRange ?? null,
     roundType: category.roundType ?? null,
     similarityGroup: category.similarityGroup ?? null,
+    semanticFamily: inferSemanticProfile(category).family,
+    semanticTopic: inferSemanticProfile(category).topic,
     governanceVersion: GOVERNANCE_VERSION,
   };
 }
@@ -76,6 +79,8 @@ export async function POST(request: Request) {
       enabled: false,
       eligible_daily: false,
       minimum_year: category.minimumYear ?? 2022,
+      semantic_family: inferSemanticProfile(category).family,
+      semantic_topic: inferSemanticProfile(category).topic,
       metadata: categoryMetadata(category),
     }));
     const { error } = await admin.from("stat_categories").upsert(rows, { onConflict: "id" });
@@ -110,13 +115,24 @@ export async function POST(request: Request) {
 
     const { data: existing } = await admin
       .from("stat_categories")
-      .select("review_status")
+      .select("review_status,curation_status,content_review_status,content_review_reason,content_review_version,immediate_comprehension_score,gameplay_interest_score,uniqueness_score")
       .eq("id", category.id)
       .maybeSingle();
     const manuallyRejected = existing?.review_status === "rejected";
+    const previouslyApproved = existing?.review_status === "approved" || existing?.curation_status === "approved";
 
     try {
-      const dataset = await fetchWorldBankCategory(category);
+      const snapshot = await fetchWorldBankImportSnapshot(category);
+      const dataset: CategoryDataset = {
+        category,
+        observations: snapshot.observations,
+        year: String(snapshot.commonYear),
+        sourceUrl: `https://data.worldbank.org/indicator/${category.indicator}`,
+        exactQueryUrl: snapshot.apiUrl,
+        apiUrl: snapshot.apiUrl,
+        sourceQuery: snapshot.sourceQuery,
+        retrievedAt: snapshot.retrievedAt,
+      };
       const quality = scoreCategoryQuality(dataset);
       const governance = governWorldBankCategory(category, quality);
       const automaticPass = governance.autoApproved && !manuallyRejected;
@@ -156,21 +172,19 @@ export async function POST(request: Request) {
       );
       if (countryError) throw countryError;
 
-      const years = rows.map((row) => row.data_year);
-      const latestYear = Math.max(...years);
-      const yearCoverage = new Map<number, number>();
-      for (const year of years) yearCoverage.set(year, (yearCoverage.get(year) ?? 0) + 1);
-      const [commonYear, commonYearCoverage] = [...yearCoverage.entries()].sort(
-        (a, b) => b[1] - a[1] || b[0] - a[0],
-      )[0] ?? [latestYear, 0];
+      const latestYear = snapshot.latestYear;
+      const commonYear = snapshot.commonYear;
+      const commonYearCoverage = snapshot.commonYearCoverage;
 
       const reviewStatus = manuallyRejected
         ? "rejected"
-        : quality.eligible
-          ? "needs_review"
-          : "candidate";
+        : previouslyApproved
+          ? "approved"
+          : quality.eligible
+            ? "needs_review"
+            : "candidate";
       const categoryUpdate = {
-        country_coverage: rows.length,
+        country_coverage: snapshot.countryCoverage,
         latest_available_year: latestYear,
         quality_score: quality.score,
         quality_details: { ...quality, governance: governanceMetadata(governance) },
@@ -188,13 +202,38 @@ export async function POST(request: Request) {
         independent_validation: governance.independentValidation,
         government_assertion_risk: governance.governmentAssertionRisk,
         concept_group: governance.conceptGroup,
+        semantic_family: inferSemanticProfile(category).family,
+        semantic_topic: inferSemanticProfile(category).topic,
         governance_priority: governance.sourcePriority,
         governance_version: GOVERNANCE_VERSION,
         duplicate_status: manuallyRejected ? "not_eligible" : "pending",
         superseded_by: null,
+        source_page_url: `https://data.worldbank.org/indicator/${category.indicator}`,
+        player_source_url: `https://data.worldbank.org/indicator/${category.indicator}`,
+        player_source_status: "exact",
+        player_source_reason: "Official World Bank indicator page shows the indicator’s country data and chart.",
+        player_source_checked_at: snapshot.retrievedAt,
+        link_quality_score: 100,
+        content_review_status: existing?.content_review_status === "approved" || existing?.content_review_status === "excluded" ? existing.content_review_status : "pending",
+        content_review_reason: existing?.content_review_status === "approved" || existing?.content_review_status === "excluded"
+          ? existing.content_review_reason
+          : "New categories require explicit category-by-category comprehension and gameplay review.",
+        content_review_version: existing?.content_review_status === "approved" || existing?.content_review_status === "excluded"
+          ? existing.content_review_version
+          : "geostats-v14.3.1-content-review-v1",
+        immediate_comprehension_score: existing?.immediate_comprehension_score ?? category.understandabilityScore ?? 85,
+        gameplay_interest_score: existing?.gameplay_interest_score ?? category.funScore ?? 75,
+        uniqueness_score: existing?.uniqueness_score ?? 80,
+        exact_query_url: snapshot.apiUrl,
+        api_url: snapshot.apiUrl,
+        source_query: snapshot.sourceQuery,
+        dataset_release: `World Development Indicators metadata retrieved ${snapshot.retrievedAt.slice(0, 10)}`,
+        retrieved_at: snapshot.retrievedAt,
+        technical_definition: snapshot.technicalDefinition,
+        unit_explanation: category.unit,
         auto_decision_reason: manuallyRejected
           ? "Remains disabled because an administrator manually rejected this category."
-          : `${governance.autoDecisionReason} Imported through the Admin browser and held pending the v14.2 official-source audit.`,
+          : `${governance.autoDecisionReason} Imported as a single official common-year snapshot and held pending the v14.3 official-source audit.`,
         validation_status: manuallyRejected ? "failed" : "pending",
         validation_version: null,
         validated_at: null,
@@ -207,7 +246,18 @@ export async function POST(request: Request) {
         validation_expected_count: commonYearCoverage,
         validation_mismatch_count: 0,
         validation_ranking_mismatch_count: 0,
-        metadata: { ...categoryMetadata(category), ...governanceMetadata(governance) },
+        metadata: {
+          ...categoryMetadata(category),
+          ...governanceMetadata(governance),
+          source_indicator_name: snapshot.officialSeriesName,
+          official_unit: snapshot.officialUnit,
+          source_query: snapshot.sourceQuery,
+          importSnapshotPolicy: "single-common-year",
+          importFramework: "v14.3.1",
+          playerSourceUrl: `https://data.worldbank.org/indicator/${category.indicator}`,
+          playerSourceStatus: "exact",
+          contentReviewStatus: existing?.content_review_status === "approved" || existing?.content_review_status === "excluded" ? existing.content_review_status : "pending",
+        },
       };
       const { error: categoryError } = await admin.from("stat_categories").update(categoryUpdate).eq("id", category.id);
       if (categoryError) throw categoryError;
@@ -219,7 +269,8 @@ export async function POST(request: Request) {
         ok: true,
         category: category.id,
         observations: rows.length,
-        year: latestYear,
+        year: commonYear,
+        latestYear,
         quality: quality.score,
         eligibleDaily: false,
         sourceAuditRequired: requiresSourceAudit,

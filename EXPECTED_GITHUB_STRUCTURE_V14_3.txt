@@ -1,0 +1,62 @@
+GeoStats v14.3 critical GitHub structure
+
+.github/
+  workflows/
+    audit-source-integrity.yml
+
+app/
+  admin/
+    AdminDashboard.tsx
+  api/
+    admin/
+      categories/review/route.ts
+      daily/generate/route.ts
+      dashboard/route.ts
+      import/world-bank/route.ts
+    daily-trio/[date]/route.ts
+    scores/route.ts
+    warehouse-category/route.ts
+  data/page.tsx
+
+components/
+  GeoSecondComingGame.tsx
+  CategorySourcePanel.tsx
+
+lib/
+  categories.ts
+  categorySemantics.ts
+  dataEngine.ts
+  gameRules.ts
+  playableCatalog.ts
+  puzzleEngine.ts
+  serverPlayableCatalog.ts
+  version.ts
+  warehouseCategories.ts
+  worldBank.ts
+
+scripts/
+  activate-source-integrity.py
+  audit-source-integrity.py
+  import-faostat.py
+  import-world-bank-catalog.py
+  test-source-integrity.py
+  test-v14-3-integration.mjs
+  test-v14-3-semantics.py
+  verify-v14-3-repository.py
+  data_pipeline/
+    base.py
+    integrity.py
+    semantics.py
+    supabase.py
+
+supabase/
+  migrations/
+    022_source_integrity_validation.sql
+    023_semantic_board_quality.sql
+
+RUN_THIS_IN_SUPABASE_FOR_V14_3.sql
+VERIFY_V14_3.sql
+START_HERE_V14_3.md
+RELEASE_NOTES_V14_3.md
+VALIDATION_V14_3.md
+FILE_MANIFEST_SHA256_V14_3.txt

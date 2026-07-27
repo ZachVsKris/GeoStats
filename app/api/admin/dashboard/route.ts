@@ -1,18 +1,20 @@
 import { NextResponse } from "next/server";
 import { requireAdmin } from "../../../../lib/supabase/adminAuth";
 import { newYorkDate } from "../../../../lib/time";
+import { categorySemanticSimilarity, MAX_SAME_BOARD_SEMANTIC_SIMILARITY } from "../../../../lib/categorySemantics";
+import type { Category, DataSourceId } from "../../../../lib/categories";
 
 export const dynamic = "force-dynamic";
 
 const CATEGORY_COLUMNS = [
-  "id", "title", "source_organization", "source_dataset", "source_indicator_code",
+  "id", "title", "short_title", "description", "source_organization", "source_dataset", "source_indicator_code",
   "enabled", "eligible_daily", "quality_score", "country_coverage", "latest_available_year",
   "family", "unit", "review_status", "evidence_tier", "auto_qualified", "common_year",
   "common_year_coverage", "official_observation_share", "modeled_observation_share",
   "clustering_score", "stability_score", "quality_standard_version", "recognizability_score",
   "specificity_score", "canonical_match_status", "provenance_status", "provenance_class",
   "provenance_reason", "methodology_url", "independent_validation", "government_assertion_risk",
-  "concept_group", "duplicate_status", "superseded_by", "auto_decision_reason", "curation_status",
+  "concept_group", "semantic_family", "semantic_topic", "duplicate_status", "superseded_by", "auto_decision_reason", "curation_status",
   "curation_reason", "curation_version", "credibility_score", "credibility_status",
   "credibility_reason", "evidence_label", "comparability_risk", "corroboration_status",
   "plain_language_description", "technical_definition", "unit_explanation", "source_page_url",
@@ -22,17 +24,41 @@ const CATEGORY_COLUMNS = [
   "player_quality_status", "player_quality_reason", "validation_status", "validation_version",
   "validated_at", "validation_reason", "validation_expected_count", "validated_observation_count",
   "validation_mismatch_count", "validation_ranking_mismatch_count",
+  "player_source_url", "player_source_status", "player_source_reason", "player_source_checked_at",
+  "content_review_status", "content_review_reason", "content_review_version",
+  "immediate_comprehension_score", "gameplay_interest_score", "uniqueness_score", "link_quality_score",
 ].join(",");
 
 type BoardRow = { difficulty: "easy" | "normal" | "expert" };
 type CategoryRow = {
+  id?: string;
+  title?: string;
+  short_title?: string | null;
+  description?: string | null;
+  plain_language_description?: string | null;
   source_organization?: string | null;
+  source_indicator_code?: string | null;
+  family?: string | null;
+  unit?: string | null;
+  semantic_family?: string | null;
+  semantic_topic?: string | null;
   enabled?: boolean;
   eligible_daily?: boolean;
   review_status?: "candidate" | "needs_review" | "approved" | "rejected";
   curation_status?: "pending" | "approved" | "excluded" | null;
   retrieved_at?: string | null;
   validation_status?: "pending" | "verified" | "failed" | "unable_to_verify";
+  player_source_url?: string | null;
+  player_source_status?: "pending" | "exact" | "needs_exact_url" | "invalid" | "unavailable" | null;
+  player_source_reason?: string | null;
+  player_source_checked_at?: string | null;
+  content_review_status?: "pending" | "approved" | "excluded" | null;
+  content_review_reason?: string | null;
+  content_review_version?: string | null;
+  immediate_comprehension_score?: number | null;
+  gameplay_interest_score?: number | null;
+  uniqueness_score?: number | null;
+  link_quality_score?: number | null;
 };
 
 type AnalyticsOverview = {
@@ -54,6 +80,41 @@ const emptyAnalytics: AnalyticsOverview = {
   average_score: null,
   signed_in_users_seen: 0,
 };
+
+const SOURCE_ID_BY_ORGANIZATION: Record<string, DataSourceId> = {
+  "World Bank": "worldbank",
+  FAOSTAT: "faostat",
+  WHO: "who",
+  "UNESCO UIS": "unesco",
+  ILOSTAT: "ilostat",
+  "Natural Earth": "naturalearth",
+  "UN Comtrade": "comtrade",
+  "U.S. EIA": "eia",
+  UNHCR: "unhcr",
+  "UN Tourism": "untourism",
+};
+
+function semanticCategory(row: CategoryRow): Category | null {
+  if (!row.id || !row.title || !row.source_indicator_code) return null;
+  return {
+    id: row.id,
+    name: row.title,
+    shortName: row.short_title?.trim() || row.title,
+    description: row.plain_language_description?.trim() || row.description?.trim() || row.title,
+    indicator: row.source_indicator_code,
+    icon: "📊",
+    unit: row.unit || "value",
+    family: row.family || "Other",
+    direction: "high",
+    source: SOURCE_ID_BY_ORGANIZATION[row.source_organization || ""] || "worldbank",
+    dataset: "Admin semantic review",
+    certified: true,
+    certificationGrade: "B",
+    coverageFloor: 1,
+    semanticFamily: row.semantic_family || undefined,
+    semanticTopic: row.semantic_topic || undefined,
+  };
+}
 
 export async function GET() {
   const auth = await requireAdmin();
@@ -112,11 +173,14 @@ export async function GET() {
     .limit(10);
   const generationRuns = generationResult.error ? [] : generationResult.data ?? [];
 
-  const [integrityOverviewResult, integrityBySourceResult, integrityIssuesResult, validationRunsResult] = await Promise.all([
+  const [integrityOverviewResult, integrityBySourceResult, integrityIssuesResult, validationRunsResult, semanticConflictsResult, contentLinkOverviewResult, contentLinkIssuesResult] = await Promise.all([
     admin.from("data_integrity_overview").select("*").maybeSingle(),
     admin.from("data_integrity_by_source").select("*").order("source"),
     admin.from("data_integrity_issues").select("*").limit(50),
     admin.from("stat_validation_runs").select("*").order("started_at", { ascending: false }).limit(20),
+    admin.from("board_semantic_conflicts").select("*").limit(100),
+    admin.from("category_content_link_overview").select("*").maybeSingle(),
+    admin.from("category_content_link_issues").select("*").limit(100),
   ]);
   const integrity = {
     overview: integrityOverviewResult.error ? { enforcement_enabled: false, categories: 0, playable: 0, verified: 0, failed: 0, unable_to_verify: 0, pending: 0, unverified_playable: 0 } : integrityOverviewResult.data,
@@ -124,6 +188,40 @@ export async function GET() {
     issues: integrityIssuesResult.error ? [] : integrityIssuesResult.data ?? [],
     runs: validationRunsResult.error ? [] : validationRunsResult.data ?? [],
     migrationApplied: !integrityOverviewResult.error,
+  };
+  const contentLinks = {
+    overview: contentLinkOverviewResult.error ? { categories: 0, content_approved: 0, content_excluded: 0, content_pending: 0, exact_player_links: 0, links_pending: 0, links_blocked: 0, playable: 0 } : contentLinkOverviewResult.data,
+    issues: contentLinkIssuesResult.error ? [] : contentLinkIssuesResult.data ?? [],
+    migrationApplied: !contentLinkOverviewResult.error,
+  };
+  const playableSemanticCategories = categoryRows
+    .filter((row) => row.enabled && row.eligible_daily)
+    .map(semanticCategory)
+    .filter((category): category is Category => Boolean(category));
+  const similarityConflicts: Array<{ first_category_id: string; first_title: string; second_category_id: string; second_title: string; score: number }> = [];
+  for (let first = 0; first < playableSemanticCategories.length; first += 1) {
+    for (let second = first + 1; second < playableSemanticCategories.length; second += 1) {
+      const left = playableSemanticCategories[first];
+      const right = playableSemanticCategories[second];
+      if (left.semanticFamily && right.semanticFamily && left.semanticFamily === right.semanticFamily) continue;
+      const score = categorySemanticSimilarity(left, right);
+      if (score < MAX_SAME_BOARD_SEMANTIC_SIMILARITY) continue;
+      similarityConflicts.push({
+        first_category_id: left.id,
+        first_title: left.name,
+        second_category_id: right.id,
+        second_title: right.name,
+        score: Number(score.toFixed(3)),
+      });
+    }
+  }
+  similarityConflicts.sort((left, right) => right.score - left.score || left.first_title.localeCompare(right.first_title));
+  const boardQuality = {
+    migrationApplied: !semanticConflictsResult.error,
+    semanticConflicts: semanticConflictsResult.error ? [] : semanticConflictsResult.data ?? [],
+    similarityConflicts: similarityConflicts.slice(0, 100),
+    semanticSimilarityThreshold: MAX_SAME_BOARD_SEMANTIC_SIMILARITY,
+    winnerGlobalRankLimit: 30,
   };
 
   const boardMap: Record<"easy" | "normal" | "expert", boolean> = { easy: false, normal: false, expert: false };
@@ -156,6 +254,8 @@ export async function GET() {
     analytics,
     generationRuns,
     integrity,
+    contentLinks,
+    boardQuality,
     sourceHealth: [...sourceHealthMap.values()].sort((left, right) => right.categories - left.categories),
     reviewCounts,
     sources: sources.data ?? [],

@@ -337,7 +337,7 @@ function boardOptimizationScore(round: Round, config: RoundConfig) {
   }
   const averageGlobalRank = winnerGlobalRanks.reduce((sum, rank) => sum + rank, 0) / Math.max(1, winnerGlobalRanks.length);
   const averageGap = poolGapSignals.reduce((sum, gap) => sum + gap, 0) / Math.max(1, poolGapSignals.length);
-  const rankTarget = config.difficulty === "easy" ? 10 : config.difficulty === "normal" ? 24 : 38;
+  const rankTarget = config.difficulty === "easy" ? 8 : config.difficulty === "normal" ? 16 : 24;
   const gapTarget = config.difficulty === "easy" ? 0.34 : config.difficulty === "normal" ? 0.17 : 0.07;
   const rankFit = Math.max(0, 1 - Math.abs(averageGlobalRank - rankTarget) / 65);
   const gapFit = Math.max(0, 1 - Math.abs(averageGap - gapTarget) / 0.35);

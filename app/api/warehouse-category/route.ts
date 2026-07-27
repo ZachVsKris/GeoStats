@@ -31,6 +31,17 @@ type CategoryRow = {
   source_url?: string | null;
   methodology_url?: string | null;
   source_page_url?: string | null;
+  player_source_url?: string | null;
+  player_source_status?: string | null;
+  player_source_reason?: string | null;
+  player_source_checked_at?: string | null;
+  content_review_status?: string | null;
+  content_review_reason?: string | null;
+  content_review_version?: string | null;
+  immediate_comprehension_score?: number | null;
+  gameplay_interest_score?: number | null;
+  uniqueness_score?: number | null;
+  link_quality_score?: number | null;
   exact_query_url?: string | null;
   download_url?: string | null;
   api_url?: string | null;
@@ -69,7 +80,7 @@ type ObservationRow = {
   value: number;
 };
 
-const V14_SELECT = "id,title,review_status,enabled,eligible_daily,curation_status,common_year,common_year_coverage,unit,source_url,methodology_url,source_page_url,exact_query_url,download_url,api_url,dataset_release,retrieved_at,license_name,license_url,source_query,derivation_method,derivation_version,input_datasets,official_observation_share,modeled_observation_share,credibility_score,credibility_status,credibility_reason,evidence_label,verifiability_score,verifiability_status,understandability_score,fun_score,objective_status,player_quality_status,player_quality_reason,validation_status,validation_version,validated_at,validated_observation_count,validation_expected_count";
+const V14_SELECT = "id,title,review_status,enabled,eligible_daily,curation_status,common_year,common_year_coverage,unit,source_url,methodology_url,source_page_url,player_source_url,player_source_status,player_source_reason,player_source_checked_at,content_review_status,content_review_reason,content_review_version,immediate_comprehension_score,gameplay_interest_score,uniqueness_score,link_quality_score,exact_query_url,download_url,api_url,dataset_release,retrieved_at,license_name,license_url,source_query,derivation_method,derivation_version,input_datasets,official_observation_share,modeled_observation_share,credibility_score,credibility_status,credibility_reason,evidence_label,verifiability_score,verifiability_status,understandability_score,fun_score,objective_status,player_quality_status,player_quality_reason,validation_status,validation_version,validated_at,validated_observation_count,validation_expected_count";
 const V13_SELECT = "id,title,review_status,enabled,eligible_daily,curation_status,common_year,common_year_coverage,unit,source_url,methodology_url,official_observation_share,modeled_observation_share,credibility_score,credibility_status,credibility_reason,evidence_label";
 const LEGACY_SELECT = "id,title,review_status,enabled,eligible_daily,curation_status,common_year,common_year_coverage,unit,source_url,methodology_url,official_observation_share,modeled_observation_share";
 
@@ -96,7 +107,7 @@ export async function GET(request: NextRequest) {
   };
 
   let categoryResult: any = await runCategoryQuery(V14_SELECT);
-  if (categoryResult.error && /source_page_url|exact_query_url|verifiability_|player_quality_|objective_status|input_datasets|dataset_release/i.test(categoryResult.error.message)) {
+  if (categoryResult.error && /player_source_|content_review_|immediate_comprehension_score|gameplay_interest_score|uniqueness_score|link_quality_score|source_page_url|exact_query_url|verifiability_|player_quality_|objective_status|input_datasets|dataset_release/i.test(categoryResult.error.message)) {
     categoryResult = await runCategoryQuery(V13_SELECT);
   }
   if (categoryResult.error && /credibility_|evidence_label/i.test(categoryResult.error.message)) {
@@ -110,8 +121,14 @@ export async function GET(request: NextRequest) {
     || (category?.verifiability_score != null && category.verifiability_score < 80)
     || (category?.understandability_score != null && category.understandability_score < 70)
     || (category?.fun_score != null && category.fun_score < 55);
-  if (!category || category.review_status !== "approved" || !category.enabled || !category.eligible_daily || trustFailed || playerFailed || (category.curation_status && category.curation_status !== "approved") || category.validation_status !== "verified") {
-    return NextResponse.json({ error: "This category has not passed GeoStats source-integrity, quality, provenance, credibility, objectivity, clarity, fun, curation, and duplicate review." }, { status: 404 });
+  const contentFailed = category?.content_review_status !== "approved"
+    || category?.player_source_status !== "exact"
+    || !category?.player_source_url
+    || Number(category?.immediate_comprehension_score ?? 0) < 80
+    || Number(category?.gameplay_interest_score ?? 0) < 65
+    || Number(category?.link_quality_score ?? 0) < 90;
+  if (!category || category.review_status !== "approved" || !category.enabled || !category.eligible_daily || trustFailed || playerFailed || contentFailed || (category.curation_status && category.curation_status !== "approved") || category.validation_status !== "verified") {
+    return NextResponse.json({ error: "This category has not passed GeoStats source-integrity, quality, provenance, credibility, objectivity, immediate-comprehension, gameplay, exact-source-link, curation, and duplicate review." }, { status: 404 });
   }
   if (!category.common_year) {
     return NextResponse.json({ error: "This category has no verified common comparison year." }, { status: 409 });
@@ -149,6 +166,17 @@ export async function GET(request: NextRequest) {
     sourceUrl: category.source_url ?? null,
     methodologyUrl: category.methodology_url ?? null,
     sourcePageUrl: category.source_page_url ?? null,
+    playerSourceUrl: category.player_source_url ?? null,
+    playerSourceStatus: category.player_source_status ?? null,
+    playerSourceReason: category.player_source_reason ?? null,
+    playerSourceCheckedAt: category.player_source_checked_at ?? null,
+    contentReviewStatus: category.content_review_status ?? null,
+    contentReviewReason: category.content_review_reason ?? null,
+    contentReviewVersion: category.content_review_version ?? null,
+    immediateComprehensionScore: category.immediate_comprehension_score ?? null,
+    gameplayInterestScore: category.gameplay_interest_score ?? null,
+    uniquenessScore: category.uniqueness_score ?? null,
+    linkQualityScore: category.link_quality_score ?? null,
     exactQueryUrl: category.exact_query_url ?? null,
     downloadUrl: category.download_url ?? null,
     apiUrl: category.api_url ?? null,

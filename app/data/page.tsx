@@ -1,7 +1,8 @@
 import { CATEGORIES, type Category } from "../../lib/categories";
 import { loadServerPlayableCategoryCatalog } from "../../lib/serverPlayableCatalog";
 import { DATASET_VERSION, RULES_VERSION } from "../../lib/version";
-import { categoryMethodologyUrl, categorySourceUrl, SOURCE_REGISTRY } from "../../lib/sourceRegistry";
+import { SOURCE_REGISTRY } from "../../lib/sourceRegistry";
+import { resolvePlayerSourceUrl } from "../../lib/playerSourceLinks";
 
 export const dynamic = "force-dynamic";
 
@@ -25,13 +26,18 @@ export default async function DataPage(){
     <h1>Data, sources & trust</h1>
     <p>Dataset release: {DATASET_VERSION}. Rules version: {RULES_VERSION}. GeoStats includes only objective, measurable country characteristics. Perception rankings, subjective judgments, and opaque composite scores are blocked.</p>
     <p>Every playable category must pass coverage, freshness, distribution, provenance, credibility, verifiability, understandability, fun, duplicate, and editorial-review gates. Newly imported candidates remain disabled until approved.</p>
-    <p>On result screens, <strong>Data & Source</strong> shows the category definition, comparison year, searchable global ranking, and a direct source-material link.</p>
+    <p>Daily boards also require distinct semantic families, so near-duplicate concepts cannot appear together. The best country shown for every category must rank within the verified global top 30.</p>
+    <p>On result screens, <strong>Data & Source</strong> shows the category definition, comparison year, searchable global ranking, and a verified link to the exact official data page. Raw APIs and file downloads are never shown to players.</p>
     <p><strong>{categories.length}</strong> verified categories are currently available to the board generator{warehouseLoaded ? " from the live warehouse catalog" : ". The live verified catalog is currently unavailable; GeoStats does not fall back to unverified bundled gameplay data"}. The bundled rules also identify <strong>{staticQuarantined.length}</strong> explicit disabled or quarantined categories.</p>
     <p><a href="/daily">Back to game</a> · <a href="/audit">Open trust audit</a></p>
     {categories.map((category)=>{
       const indicator=category.warehouseSourceIndicatorCode ?? category.indicator;
-      const source=category.exactQueryUrl ?? category.downloadUrl ?? category.sourceUrl ?? categorySourceUrl(category.source,indicator);
-      const methodology=category.methodologyUrl ?? categoryMethodologyUrl(category.source,indicator);
+      const source=resolvePlayerSourceUrl({
+        source: category.source,
+        indicator,
+        playerSourceUrl: category.playerSourceUrl,
+        playerSourceStatus: category.playerSourceStatus,
+      });
       return <section key={category.id} style={{padding:"14px 0",borderBottom:"1px solid #333",opacity:category.enabled===false?.62:1}}>
         <h2>{category.icon} {category.name}</h2>
         <p>{category.plainLanguageDescription ?? category.description}</p>
@@ -39,7 +45,7 @@ export default async function DataPage(){
         <small>{SOURCE_REGISTRY[category.source].name} · credibility {score(category.credibilityScore)} · verifiability {score(category.verifiabilityScore)} · clarity {score(category.understandabilityScore)} · fun {score(category.funScore)} · {category.evidenceLabel ?? "internationally harmonized"}</small>
         {category.trustReason&&<p><strong>Why trusted:</strong> {category.trustReason}</p>}
         {category.playerQualityReason&&<p><strong>Why playable:</strong> {category.playerQualityReason}</p>}
-        <div><a href={source} target="_blank" rel="noreferrer">Best available source link ↗</a> · <a href={methodology} target="_blank" rel="noreferrer">Methodology ↗</a></div>
+        {source ? <div><a href={source} target="_blank" rel="noreferrer">View exact official data ↗</a></div> : <p><strong>Exact external data page:</strong> unavailable. This category is not eligible for Daily boards.</p>}
       </section>;
     })}
   </main>;

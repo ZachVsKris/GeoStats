@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { createSupabaseAdminClient, createSupabaseServerClient } from "../../../lib/supabase/server";
 import { decodeRound } from "../../../lib/challengeCodec";
 import { fetchCountries } from "../../../lib/worldBank";
-import { scorePlacements } from "../../../lib/dataEngine";
+import { scorePlacements, validateRound } from "../../../lib/dataEngine";
 import { ROUND_CONFIGS, type DailyDifficulty } from "../../../lib/gameRules";
 import { loadServerPlayableCategoryCatalog } from "../../../lib/serverPlayableCatalog";
 
@@ -88,6 +88,10 @@ export async function POST(request: Request) {
     const config = ROUND_CONFIGS[difficulty];
     if (round.categories.length !== config.categoryCount || round.bank.length !== config.countryCount) {
       return NextResponse.json({ error: "This Daily board has the wrong dimensions and must be reloaded before scoring." }, { status: 409 });
+    }
+    const ruleErrors = validateRound(round.categories, round.bank);
+    if (ruleErrors.length) {
+      return NextResponse.json({ error: "This Daily board no longer satisfies the current board-quality rules and must be regenerated." }, { status: 409 });
     }
     if (Object.keys(body.assignments).length !== round.categories.length) {
       return NextResponse.json({ error: "Invalid score submission." }, { status: 400 });

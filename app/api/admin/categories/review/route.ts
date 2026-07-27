@@ -36,6 +36,15 @@ type CategorySnapshot = {
   validation_status: string | null;
   validation_reason: string | null;
   validated_at: string | null;
+  content_review_status: string | null;
+  content_review_reason: string | null;
+  immediate_comprehension_score: number | null;
+  gameplay_interest_score: number | null;
+  uniqueness_score: number | null;
+  player_source_status: string | null;
+  player_source_url: string | null;
+  player_source_reason: string | null;
+  link_quality_score: number | null;
 };
 
 type ReviewBody = {
@@ -63,7 +72,7 @@ export async function POST(request: Request) {
 
   const { data: categories, error } = await auth.admin
     .from("stat_categories")
-    .select("id,title,auto_qualified,quality_score,review_status,evidence_tier,common_year,common_year_coverage,official_observation_share,modeled_observation_share,clustering_score,stability_score,quality_details,canonical_category_id,provenance_status,independent_validation,concept_group,duplicate_status,curation_status,curation_reason,credibility_status,credibility_score,objective_status,player_quality_status,verifiability_score,understandability_score,fun_score,validation_status,validation_reason,validated_at")
+    .select("id,title,auto_qualified,quality_score,review_status,evidence_tier,common_year,common_year_coverage,official_observation_share,modeled_observation_share,clustering_score,stability_score,quality_details,canonical_category_id,provenance_status,independent_validation,concept_group,duplicate_status,curation_status,curation_reason,credibility_status,credibility_score,objective_status,player_quality_status,verifiability_score,understandability_score,fun_score,validation_status,validation_reason,validated_at,content_review_status,content_review_reason,immediate_comprehension_score,gameplay_interest_score,uniqueness_score,player_source_status,player_source_url,player_source_reason,link_quality_score")
     .in("id", categoryIds);
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
@@ -81,11 +90,17 @@ export async function POST(request: Request) {
     || category.player_quality_status === "blocked"
     || (category.verifiability_score ?? 0) < 80
     || (category.understandability_score ?? 0) < 70
-    || (category.fun_score ?? 0) < 55) : [];
+    || (category.fun_score ?? 0) < 55
+    || category.content_review_status !== "approved"
+    || (category.immediate_comprehension_score ?? 0) < 80
+    || (category.gameplay_interest_score ?? 0) < 65
+    || category.player_source_status !== "exact"
+    || !category.player_source_url
+    || (category.link_quality_score ?? 0) < 90) : [];
 
   if (blocked.length) {
     return NextResponse.json({
-      error: `${blocked.length} selected categor${blocked.length === 1 ? "y has" : "ies have"} not passed the source-integrity, quality, provenance, credibility, objectivity, verifiability, clarity, and fun gate.`,
+      error: `${blocked.length} selected categor${blocked.length === 1 ? "y has" : "ies have"} not passed the source-integrity, quality, provenance, credibility, objectivity, comprehension, gameplay-interest, and exact human-readable source-link gates.`,
       blocked: blocked.map((category) => ({ id: category.id, title: category.title })),
     }, { status: 409 });
   }
@@ -94,13 +109,13 @@ export async function POST(request: Request) {
     ? {
         review_status: "approved",
         curation_status: "approved",
-        curation_reason: "Approved through the v14.2 editorial review queue after source-integrity verification.",
-        curation_version: "geostats-v14.2-candidate-review-v1",
+        curation_reason: "Approved through the v14.3.1 editorial review queue after source-integrity, content-comprehension, semantic-quality, and exact player-link verification.",
+        curation_version: "geostats-v14.3.1-content-link-review-v1",
         enabled: true,
         eligible_daily: true,
       }
     : decision === "rejected"
-      ? { review_status: "rejected", curation_status: "excluded", curation_reason: "Rejected through the v14.2 editorial review queue.", enabled: false, eligible_daily: false }
+      ? { review_status: "rejected", curation_status: "excluded", curation_reason: "Rejected through the v14.3.1 content-and-link review queue.", enabled: false, eligible_daily: false }
       : null;
 
   const failures: { id: string; error: string }[] = [];
@@ -161,6 +176,15 @@ export async function POST(request: Request) {
         validationStatus: category.validation_status,
         validationReason: category.validation_reason,
         validatedAt: category.validated_at,
+        contentReviewStatus: category.content_review_status,
+        contentReviewReason: category.content_review_reason,
+        immediateComprehensionScore: category.immediate_comprehension_score,
+        gameplayInterestScore: category.gameplay_interest_score,
+        uniquenessScore: category.uniqueness_score,
+        playerSourceStatus: category.player_source_status,
+        playerSourceUrl: category.player_source_url,
+        playerSourceReason: category.player_source_reason,
+        linkQualityScore: category.link_quality_score,
         bulkActionSize: categoryIds.length,
       },
     });

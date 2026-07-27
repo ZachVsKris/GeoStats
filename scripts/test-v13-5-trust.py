@@ -27,7 +27,7 @@ assert 'trustStatus!=="quarantined"' in quality
 assert "mostCommonShare" in quality
 assert "Data & Source" in component and "CategorySourcePanel" in component
 assert "exactQueryUrl" in source_panel and "sourcePageUrl" in source_panel
-assert "Global rankings" in source_panel and "View source material" in source_panel
+assert "Global rankings" in source_panel and "View exact official data" in source_panel
 assert "Random tests are unranked" in component
 assert len(trust_audit) == 242, f"expected 241 trust decisions, got {len(trust_audit)-1}"
 assert "Longest coastline,Geography,longest-coastline,Natural Earth,90" in "\n".join(trust_audit)

@@ -47,8 +47,8 @@ FALLBACK_ZIP_URL = (
     "https://bulks-faostat.fao.org/production/"
     "Production_Crops_Livestock_E_All_Data_(Normalized).zip"
 )
-QUALITY_VERSION = "geostats-v14.2-faostat-source-integrity"
-FAOSTAT_GOVERNANCE_VERSION = "geostats-v14.2-faostat-source-integrity-v1"
+QUALITY_VERSION = "geostats-v14.3-faostat-source-integrity"
+FAOSTAT_GOVERNANCE_VERSION = "geostats-v14.3-faostat-source-integrity-v1"
 RECENT_YEAR_WINDOW = 6
 MIN_CANDIDATE_COVERAGE = 25
 MIN_PLAYABLE_COVERAGE = 60
@@ -426,6 +426,17 @@ def faostat_concept_group(item: str, element: str) -> str:
             return "cerealYield"
     return f"faostat-qcl-{item_slug}-{measure}"
 
+
+
+def faostat_semantic_family(element: str) -> str:
+    normalized = element.strip().lower()
+    if "yield" in normalized:
+        return "crop-yield"
+    if "production" in normalized:
+        return "crop-production"
+    if "area harvested" in normalized or "harvested area" in normalized:
+        return "crop-harvested-area"
+    return "faostat-" + slug(normalized, 48)
 
 def value_type(unit: str) -> str:
     lower = unit.lower()
@@ -836,18 +847,18 @@ def category_candidates(connection: sqlite3.Connection) -> list[dict[str, Any]]:
     return candidates
 
 
-def fetch_existing_reviews(client: SupabaseRest) -> dict[str, str]:
+def fetch_existing_reviews(client: SupabaseRest) -> dict[str, dict[str, Any]]:
     rows = client.select(
         "stat_categories",
         urllib.parse.urlencode(
             {
-                "select": "id,review_status",
+                "select": "id,review_status,content_review_status,content_review_reason,content_review_version,immediate_comprehension_score,gameplay_interest_score,uniqueness_score,player_source_url,player_source_status,player_source_reason,player_source_checked_at,link_quality_score",
                 "source_organization": f"eq.{SOURCE_ORG}",
                 "source_dataset": f"eq.{SOURCE_DATASET}",
             }
         ),
     )
-    return {str(row["id"]): str(row.get("review_status") or "candidate") for row in rows}
+    return {str(row["id"]): dict(row) for row in rows}
 
 
 def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, candidates: list[dict[str, Any]], run_id: int, validation_run_id: int, bulk_download_url: str) -> tuple[int, int, int, int]:
@@ -856,7 +867,8 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
     candidate_ids: set[str] = set()
     for candidate in candidates:
         candidate_ids.add(candidate["id"])
-        previous_review = existing_reviews.get(candidate["id"], "candidate")
+        existing = existing_reviews.get(candidate["id"], {})
+        previous_review = str(existing.get("review_status") or "candidate")
         governance_pass = candidate["auto_qualified"] and candidate["provenance_status"] == "approved"
         if previous_review == "rejected":
             review_status = "rejected"
@@ -886,6 +898,17 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
                 "source_indicator_code": f"QCL:{candidate['item_code']}:{candidate['element_code']}",
                 "source_url": SOURCE_URL,
                 "source_page_url": SOURCE_URL,
+                "player_source_url": existing.get("player_source_url") if existing.get("player_source_status") == "exact" else None,
+                "player_source_status": "exact" if existing.get("player_source_status") == "exact" and existing.get("player_source_url") else "needs_exact_url",
+                "player_source_reason": existing.get("player_source_reason") if existing.get("player_source_status") == "exact" and existing.get("player_source_url") else "FAOSTAT bulk and dataset landing pages do not preserve the exact item, element, and year as a human-readable deep link.",
+                "player_source_checked_at": existing.get("player_source_checked_at") if existing.get("player_source_status") == "exact" else None,
+                "link_quality_score": int(existing.get("link_quality_score") or 0) if existing.get("player_source_status") == "exact" else 0,
+                "content_review_status": existing.get("content_review_status") if existing.get("content_review_status") in {"approved", "excluded"} else "pending",
+                "content_review_reason": existing.get("content_review_reason") if existing.get("content_review_status") in {"approved", "excluded"} else "New FAOSTAT categories require explicit comprehension and gameplay review.",
+                "content_review_version": existing.get("content_review_version") if existing.get("content_review_status") in {"approved", "excluded"} else "geostats-v14.3.1-content-review-v1",
+                "immediate_comprehension_score": int(existing.get("immediate_comprehension_score") or candidate.get("recognizability_score") or 85),
+                "gameplay_interest_score": int(existing.get("gameplay_interest_score") or candidate.get("specificity_score") or 80),
+                "uniqueness_score": int(existing.get("uniqueness_score") or 80),
                 "exact_query_url": None,
                 "download_url": bulk_download_url,
                 "api_url": CATALOG_URL,
@@ -929,6 +952,8 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
                 "independent_validation": candidate["provenance_status"] == "approved",
                 "government_assertion_risk": "low" if candidate["provenance_status"] == "approved" else "unknown",
                 "concept_group": candidate["concept_group"],
+                "semantic_family": faostat_semantic_family(candidate["element"]),
+                "semantic_topic": candidate["concept_group"],
                 "governance_priority": 11,
                 "governance_version": FAOSTAT_GOVERNANCE_VERSION,
                 "duplicate_status": "pending",
@@ -948,6 +973,8 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
                     "reviewRequired": False,
                     "governanceVersion": FAOSTAT_GOVERNANCE_VERSION,
                     "conceptGroup": candidate["concept_group"],
+                    "semanticFamily": faostat_semantic_family(candidate["element"]),
+                    "semanticTopic": candidate["concept_group"],
                     "maximumRecentCoverage": candidate["max_coverage"],
                     "coverageFloor": MIN_PLAYABLE_COVERAGE,
                     "documentedObservationShare": round(candidate["documented_share"], 6),

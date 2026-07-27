@@ -77,7 +77,7 @@ class SupabaseWarehouse:
             "GET",
             "stat_categories?"
             f"id=eq.{quote(category_id, safe='')}&"
-            "select=review_status,enabled,eligible_daily",
+            "select=review_status,enabled,eligible_daily,content_review_status,content_review_reason,content_review_version,immediate_comprehension_score,gameplay_interest_score,uniqueness_score,player_source_url,player_source_status,player_source_reason,player_source_checked_at,link_quality_score",
         )
         if isinstance(rows, list) and rows:
             return dict(rows[0])
@@ -176,11 +176,41 @@ class SupabaseWarehouse:
         )
         result = [dict(row) for row in rows] if isinstance(rows, list) else []
         if playable_only:
-            result = [row for row in result if bool(row.get("enabled")) or str(row.get("review_status") or "") == "approved"]
+            # Include categories that are currently playable or retain an approved
+            # editorial/curation decision. Failed audits deliberately disable and
+            # demote rows, but those curated rows must remain selectable for repair.
+            result = [
+                row for row in result
+                if bool(row.get("enabled"))
+                or bool(row.get("eligible_daily"))
+                or str(row.get("review_status") or "") == "approved"
+                or str(row.get("curation_status") or "") == "approved"
+            ]
         return result
+
+    def list_source_integrity_activation_blockers(self) -> list[dict[str, Any]]:
+        rows = self._request(
+            "GET",
+            "stat_categories?or=(enabled.eq.true,eligible_daily.eq.true)&validation_status=neq.verified&"
+            "select=id,title,source_organization,validation_status,validation_reason&order=source_organization.asc,title.asc&limit=500",
+        )
+        return [dict(row) for row in rows] if isinstance(rows, list) else []
 
     def activate_source_integrity_enforcement(self) -> Any:
         return self._request("POST", "rpc/activate_source_integrity_enforcement", {})
+
+
+    def record_player_source_validation(self, category_id: str, status: str, reason: str, link_quality_score: int | None = None) -> Any:
+        return self._request(
+            "POST",
+            "rpc/record_player_source_validation",
+            {
+                "p_category_id": category_id,
+                "p_status": status,
+                "p_reason": reason,
+                "p_link_quality_score": link_quality_score,
+            },
+        )
 
     def get_import_health(self) -> list[dict[str, Any]]:
         rows = self._request(

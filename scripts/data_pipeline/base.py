@@ -9,6 +9,8 @@ from .descriptions import plain_language_description
 from .governance import GOVERNANCE_VERSION, evaluate_governance
 from .integrity import VALIDATION_VERSION, validate_category_snapshot
 from .models import CandidateDefinition, SourceObservation
+from .semantics import classify_semantics
+from .player_source_links import exact_url_for
 from .quality import QUALITY_STANDARD_VERSION, score_observations
 from .supabase import SupabaseWarehouse
 
@@ -74,7 +76,7 @@ class WarehouseImporter(ABC):
                     "offset": offset,
                     "scan_limit": effective_scan_limit,
                     "target_successes": target_successes,
-                    "started_by": "generic-importer-framework-v14.2",
+                    "started_by": "generic-importer-framework-v14.3",
                 },
             )
 
@@ -231,6 +233,24 @@ class WarehouseImporter(ABC):
         """Keep human decisions across re-imports without bypassing the current quality gate."""
         if not existing:
             return row
+        # Content/editorial decisions and audited player links are durable. A
+        # data refresh must never silently turn a reviewed category back into a
+        # pending category or replace an exact webpage with a raw/import URL.
+        durable_fields = {}
+        if str(existing.get("content_review_status") or "") in {"approved", "excluded"}:
+            for key in (
+                "content_review_status", "content_review_reason", "content_review_version",
+                "immediate_comprehension_score", "gameplay_interest_score", "uniqueness_score",
+            ):
+                durable_fields[key] = existing.get(key)
+        if str(existing.get("player_source_status") or "") == "exact" and existing.get("player_source_url"):
+            for key in (
+                "player_source_url", "player_source_status", "player_source_reason",
+                "player_source_checked_at", "link_quality_score",
+            ):
+                durable_fields[key] = existing.get(key)
+        row = {**row, **durable_fields}
+
         previous = str(existing.get("review_status") or "")
         if previous == "rejected":
             return {
@@ -253,6 +273,8 @@ class WarehouseImporter(ABC):
 
     def build_category_row(self, candidate, quality, governance, category_id: str) -> dict[str, object]:
         rule = candidate.rule
+        semantics = classify_semantics(self.source_slug, candidate, governance.concept_group)
+        player_link = exact_url_for(self.source_slug, candidate.source_indicator_code, candidate.metadata)
         player_description = plain_language_description(
             rule.title,
             rule.unit,
@@ -273,6 +295,17 @@ class WarehouseImporter(ABC):
             "source_indicator_code": candidate.source_indicator_code,
             "source_url": candidate.source_url,
             "source_page_url": candidate.metadata.get("source_page_url") or candidate.source_url,
+            "player_source_url": player_link.url,
+            "player_source_status": player_link.status,
+            "player_source_reason": player_link.reason,
+            "player_source_checked_at": datetime.now(timezone.utc).isoformat() if player_link.status == "exact" else None,
+            "link_quality_score": player_link.score,
+            "content_review_status": "pending",
+            "content_review_reason": "New and refreshed imports require explicit category-by-category comprehension and gameplay review.",
+            "content_review_version": "geostats-v14.3.1-content-review-v1",
+            "immediate_comprehension_score": max(0, min(100, int(rule.understandability_score))),
+            "gameplay_interest_score": max(0, min(100, int(rule.fun_score))),
+            "uniqueness_score": 80,
             "exact_query_url": candidate.metadata.get("exact_query_url"),
             "download_url": candidate.metadata.get("download_url"),
             "api_url": candidate.metadata.get("api_url"),
@@ -321,6 +354,8 @@ class WarehouseImporter(ABC):
             "independent_validation": governance.independent_validation,
             "government_assertion_risk": governance.government_assertion_risk,
             "concept_group": governance.concept_group,
+            "semantic_family": semantics.family,
+            "semantic_topic": semantics.topic,
             "governance_priority": governance.source_priority,
             "governance_version": GOVERNANCE_VERSION,
             "duplicate_status": "pending",
@@ -333,8 +368,13 @@ class WarehouseImporter(ABC):
                 **candidate.metadata,
                 "source_indicator_name": candidate.source_indicator_name,
                 "canonical_slug": rule.canonical_slug,
-                "import_framework": "v14.2",
+                "import_framework": "v14.3",
                 "sourceIntegrityVersion": VALIDATION_VERSION,
+                "playerSourceUrl": player_link.url,
+                "playerSourceStatus": player_link.status,
+                "playerSourceReason": player_link.reason,
+                "contentReviewStatus": "pending",
+                "contentReviewVersion": "geostats-v14.3.1-content-review-v1",
                 "plainLanguageDescription": player_description,
                 "technicalDefinition": rule.technical_definition or candidate.source_indicator_name,
                 "unitExplanation": rule.unit_explanation or rule.unit,
@@ -343,6 +383,8 @@ class WarehouseImporter(ABC):
                 "objectiveStatus": rule.objective_status,
                 "governance_version": GOVERNANCE_VERSION,
                 "concept_group": governance.concept_group,
+                "semanticFamily": semantics.family,
+                "semanticTopic": semantics.topic,
             },
         }
 

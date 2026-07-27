@@ -8,7 +8,9 @@ series identity/unit/year/coverage, saves checksums, and quarantines any mismatc
 from __future__ import annotations
 
 import argparse
+from dataclasses import replace
 import importlib.util
+import json
 import os
 import sys
 from datetime import datetime, timezone
@@ -48,6 +50,37 @@ def load_class(filename: str, class_name: str):
     return getattr(module, class_name)
 
 
+def result_summary(result: Any) -> dict[str, Any]:
+    details = result.details if isinstance(result.details, dict) else {}
+    return {
+        "status": result.status,
+        "commonYear": result.common_year,
+        "expected": result.expected_count,
+        "stored": result.stored_count,
+        "compared": result.compared_count,
+        "valueMismatches": result.value_mismatch_count,
+        "rankingMismatches": result.ranking_mismatch_count,
+        "failureTypes": details.get("failureTypes") or (["source_access"] if result.status == "unable_to_verify" else []),
+        "failureReason": result.failure_reason,
+        "failureBuckets": details.get("failureBuckets") or {},
+    }
+
+
+def print_result(result: Any) -> None:
+    summary = result_summary(result)
+    if result.status == "verified":
+        print(f"  verified: {summary['stored']} countries, year {summary['commonYear']}", flush=True)
+        return
+    label = "quarantined" if result.status == "failed" else "unable to verify"
+    kinds = ", ".join(summary["failureTypes"]) or "unclassified"
+    print(f"  {label} [{kinds}]", flush=True)
+    print(f"    official/stored/compared: {summary['expected']}/{summary['stored']}/{summary['compared']}", flush=True)
+    if summary["valueMismatches"] or summary["rankingMismatches"]:
+        print(f"    value mismatches: {summary['valueMismatches']}; ranking mismatches: {summary['rankingMismatches']}", flush=True)
+    if summary["failureReason"]:
+        print(f"    {summary['failureReason']}", flush=True)
+
+
 def audit_source(slug: str, warehouse: SupabaseWarehouse, *, include_nonplayable: bool = False) -> dict[str, Any]:
     filename, class_name, source_org = SOURCE_SPECS[slug]
     importer_class = load_class(filename, class_name)
@@ -63,6 +96,7 @@ def audit_source(slug: str, warehouse: SupabaseWarehouse, *, include_nonplayable
         "auditMode": "official-source-refetch",
     })
     verified = failed = unable = 0
+    category_results: list[dict[str, Any]] = []
     try:
         discovered = importer.discover()
         by_code = {candidate.source_indicator_code: candidate for candidate in discovered}
@@ -79,7 +113,26 @@ def audit_source(slug: str, warehouse: SupabaseWarehouse, *, include_nonplayable
                 )
                 warehouse.record_category_validation(category_id, result, run_id=run_id)
                 unable += 1
+                category_results.append({"categoryId": category_id, "title": category.get("title"), "indicator": code, **result_summary(result)})
+                print_result(result)
                 continue
+            stored_direction = str(category.get("ranking_direction") or candidate.rule.ranking_direction)
+            if stored_direction not in {"high", "low"}:
+                result = unable_to_verify(
+                    f"Stored ranking direction {stored_direction!r} is invalid.",
+                    common_year=category.get("common_year"),
+                    details={"storedCategoryId": category_id, "sourceIndicatorCode": code},
+                )
+                warehouse.record_category_validation(category_id, result, run_id=run_id)
+                unable += 1
+                category_results.append({"categoryId": category_id, "title": category.get("title"), "indicator": code, **result_summary(result)})
+                print_result(result)
+                continue
+            # Ranking direction is a GeoStats presentation choice (for example,
+            # "Lowest unemployment"), not a property of the provider series.
+            # Preserve that explicit stored choice while independently auditing
+            # the official series identity and every value.
+            candidate = replace(candidate, rule=replace(candidate.rule, ranking_direction=stored_direction))
             try:
                 source_observations = importer.fetch_observations(candidate)
                 quality = score_observations(candidate.rule, source_observations)
@@ -105,15 +158,14 @@ def audit_source(slug: str, warehouse: SupabaseWarehouse, *, include_nonplayable
                     details={"storedCategoryId": category_id, "sourceIndicatorCode": code, "sourceSlug": slug},
                 )
             warehouse.record_category_validation(category_id, result, run_id=run_id)
+            category_results.append({"categoryId": category_id, "title": category.get("title"), "indicator": code, **result_summary(result)})
             if result.status == "verified":
                 verified += 1
-                print("  verified", flush=True)
             elif result.status == "failed":
                 failed += 1
-                print(f"  quarantined: {result.failure_reason}", flush=True)
             else:
                 unable += 1
-                print(f"  unable to verify: {result.failure_reason}", flush=True)
+            print_result(result)
         status = "completed" if unable == 0 else "partial"
         warehouse.finish_validation_run(
             run_id,
@@ -143,7 +195,7 @@ def audit_source(slug: str, warehouse: SupabaseWarehouse, *, include_nonplayable
             error_message=str(error)[:2000],
         )
         raise
-    return {"source": slug, "selected": len(categories), "verified": verified, "failed": failed, "unable": unable}
+    return {"source": slug, "selected": len(categories), "verified": verified, "failed": failed, "unable": unable, "categories": category_results}
 
 
 def parse_args() -> argparse.Namespace:
@@ -151,6 +203,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--source", choices=["all", *SOURCE_SPECS], default="all")
     parser.add_argument("--include-nonplayable", action="store_true", help="Audit all imported candidates, not only approved/playable categories.")
     parser.add_argument("--activate", action="store_true", help="Enable fail-closed source-integrity enforcement after the audit.")
+    parser.add_argument("--report-dir", default="artifacts/source-integrity", help="Directory for machine-readable and Markdown audit reports.")
     return parser.parse_args()
 
 
@@ -162,17 +215,81 @@ def main() -> int:
         raise SystemExit("SUPABASE_URL and SUPABASE_SECRET_KEY (or SUPABASE_SERVICE_ROLE_KEY) are required.")
     warehouse = SupabaseWarehouse(url, key, timeout=180)
     slugs = list(SOURCE_SPECS) if args.source == "all" else [args.source]
-    results = [audit_source(slug, warehouse, include_nonplayable=args.include_nonplayable) for slug in slugs]
-    print({"validationVersion": VALIDATION_VERSION, "results": results}, flush=True)
-    has_unable = any(result["unable"] for result in results)
-    if args.activate and not has_unable:
-        print({"activation": warehouse.activate_source_integrity_enforcement()}, flush=True)
+    results: list[dict[str, Any]] = []
+    source_errors: list[dict[str, str]] = []
+    for slug in slugs:
+        try:
+            results.append(audit_source(slug, warehouse, include_nonplayable=args.include_nonplayable))
+        except Exception as error:
+            source_errors.append({"source": slug, "error": str(error)})
+            print(f"[{slug}] source audit failed before completion: {error}", flush=True)
+
+    has_unable = any(result["unable"] for result in results) or bool(source_errors)
+    blockers = warehouse.list_source_integrity_activation_blockers() if args.activate else []
+    activation: Any = {"status": "not_requested"}
+    activation_failed = False
+    if args.activate and has_unable:
+        activation = {"status": "skipped", "reason": "At least one selected category or source could not be verified."}
+        activation_failed = True
+    elif args.activate and blockers:
+        activation = {
+            "status": "skipped",
+            "reason": f"{len(blockers)} currently playable categories are not verified.",
+            "blockers": blockers,
+        }
+        activation_failed = True
     elif args.activate:
-        print({"activation": "skipped", "reason": "At least one selected category could not be verified."}, flush=True)
-    # A definite mismatch is handled by quarantine and does not make the workflow itself fail.
-    # Inability to access/identify a source fails the audit and prevents activation so the owner
-    # cannot mistake a partial audit for a completed source-integrity rollout.
-    return 1 if has_unable else 0
+        try:
+            activation = {"status": "activated", "result": warehouse.activate_source_integrity_enforcement()}
+        except Exception as error:
+            activation = {"status": "failed", "reason": str(error)}
+            activation_failed = True
+
+    report = {
+        "generatedAt": datetime.now(timezone.utc).isoformat(),
+        "validationVersion": VALIDATION_VERSION,
+        "sourceSelection": args.source,
+        "includeNonplayable": args.include_nonplayable,
+        "results": results,
+        "sourceErrors": source_errors,
+        "activation": activation,
+    }
+    report_dir = Path(args.report_dir)
+    report_dir.mkdir(parents=True, exist_ok=True)
+    (report_dir / "source-integrity-report.json").write_text(json.dumps(report, indent=2, sort_keys=True, default=str) + "\n", encoding="utf-8")
+    lines = [
+        "# GeoStats source-integrity audit",
+        "",
+        f"Generated: {report['generatedAt']}",
+        f"Validation version: `{VALIDATION_VERSION}`",
+        "",
+        "| Source | Selected | Verified | Quarantined | Unable |",
+        "|---|---:|---:|---:|---:|",
+    ]
+    for result in results:
+        lines.append(f"| {result['source']} | {result['selected']} | {result['verified']} | {result['failed']} | {result['unable']} |")
+    if source_errors:
+        lines.extend(["", "## Source-level errors"])
+        lines.extend(f"- **{item['source']}**: {item['error']}" for item in source_errors)
+    failed_categories = [category for result in results for category in result.get("categories", []) if category.get("status") != "verified"]
+    if failed_categories:
+        lines.extend(["", "## Category issues"])
+        for category in failed_categories:
+            kinds = ", ".join(category.get("failureTypes") or []) or "unclassified"
+            lines.append(f"- **{category.get('title')}** (`{category.get('indicator')}`): {category.get('status')} [{kinds}] — {category.get('failureReason') or 'No reason recorded.'}")
+    lines.extend(["", "## Enforcement", "", f"`{json.dumps(activation, default=str)}`", ""])
+    (report_dir / "source-integrity-report.md").write_text("\n".join(lines), encoding="utf-8")
+
+    print(json.dumps({
+        "validationVersion": VALIDATION_VERSION,
+        "results": [{key: value for key, value in result.items() if key != "categories"} for result in results],
+        "sourceErrors": source_errors,
+        "activation": activation,
+        "reportDir": str(report_dir),
+    }, indent=2, default=str), flush=True)
+    # Definite data mismatches are safely quarantined and do not crash the workflow.
+    # Source-access gaps or a requested-but-blocked enforcement activation remain failures.
+    return 1 if has_unable or activation_failed else 0
 
 
 if __name__ == "__main__":

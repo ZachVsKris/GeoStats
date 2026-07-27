@@ -93,15 +93,31 @@ def _first_sentence(value: str, fallback: str) -> str:
 
 def _unit_and_type(name: str, unit: str) -> tuple[str, str]:
     haystack = f"{name} {unit}".lower()
-    cleaned = unit or "reported value"
+    cleaned = unit.strip() or "reported value"
+    if re.search(r"current us\$ per capita|current u\.s\. dollars? per capita|usd per capita", haystack):
+        return ("USD/person", "per_capita")
+    if re.search(r"current us\$|current u\.s\. dollars?|usd", haystack):
+        return ("USD", "total")
+    if re.search(r"people per (?:sq\.?|square) km|people/km", haystack):
+        return ("people/km²", "rate")
+    if re.search(r"per 100 people|per 100 population", haystack):
+        return ("per 100 people", "rate")
+    if re.search(r"per 1,?000", haystack):
+        return ("per 1,000", "rate")
+    if re.search(r"per 100,?000", haystack):
+        return ("per 100,000", "rate")
     if "%" in haystack or "percent" in haystack or "share of" in haystack:
-        return (unit or "%", "percentage")
+        return ("%", "percentage")
     if "per capita" in haystack or "per person" in haystack:
-        return (unit or "per person", "per_capita")
-    if re.search(r"per (?:1,?000|100,?000|million)| mortality rate| incidence| prevalence| rate", haystack):
-        return (unit or "rate", "rate")
+        return (unit.strip() or "per person", "per_capita")
+    if re.search(r"sq\.? km|square kilomet|square kilometer|km²", haystack):
+        return ("km²", "total")
+    if re.search(r"metric tons?|tonnes?", haystack):
+        return ("tonnes", "total")
+    if re.search(r"per (?:million)| mortality rate| incidence| prevalence| rate", haystack):
+        return (unit.strip() or "rate", "rate")
     if re.search(r"index|score", haystack):
-        return (unit or "index value", "index")
+        return (unit.strip() or "index value", "index")
     return (cleaned, "total")
 
 
@@ -219,6 +235,7 @@ class WorldBankCatalogImporter(WarehouseImporter):
                     "license_name": "World Bank Dataset Terms of Use",
                     "license_url": LICENSE_URL,
                     "source_indicator_name": name,
+                    "official_unit": raw_unit,
                     "source_note": note,
                     "catalog_source_id": source_id,
                     "catalog_source_name": source_name,

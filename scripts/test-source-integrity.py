@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 
-from data_pipeline.integrity import VALIDATION_VERSION, competition_ranks, snapshot_checksum, source_identity_checks, validate_category_snapshot
+from data_pipeline.integrity import VALIDATION_VERSION, competition_ranks, snapshot_checksum, source_identity_checks, units_compatible, validate_category_snapshot
 from data_pipeline.models import CandidateDefinition, IndicatorRule, QualityResult, SourceObservation
 
 rule = IndicatorRule(
@@ -13,7 +13,7 @@ candidate = CandidateDefinition(
     source_indicator_code="TEST.CODE",
     source_indicator_name="Official test series",
     source_url="https://example.test/source",
-    metadata={"source_query": {"indicator": "TEST.CODE"}},
+    metadata={"source_query": {"indicator": "TEST.CODE"}, "official_unit": "units"},
 )
 observations = [
     SourceObservation("USA", "United States", 2024, 100.0, candidate.source_url, "TEST.CODE:USA:2024"),
@@ -29,7 +29,7 @@ expected_row = {
     "id": "worldbank-catalog:test-code", "unit": "units", "ranking_direction": "high",
     "source_organization": "World Bank", "source_dataset": "World Development Indicators",
     "source_indicator_code": "TEST.CODE", "common_year": 2024, "common_year_coverage": 3,
-    "source_query": {"indicator": "TEST.CODE"}, "metadata": {"source_indicator_name": "Official test series"},
+    "source_query": {"indicator": "TEST.CODE"}, "metadata": {"source_indicator_name": "Official test series", "official_unit": "units"},
 }
 stored_category = dict(expected_row)
 stored_rows = [
@@ -48,6 +48,11 @@ assert passed.source_checksum == passed.stored_checksum
 assert competition_ranks({"USA": 100, "CAN": 50, "MEX": 50}, "high") == {"USA": 1, "CAN": 2, "MEX": 2}
 assert len(snapshot_checksum({"USA": 1.0})) == 64
 
+assert units_compatible("people/km²", "reported value", "Population density (people per sq. km of land area)")
+assert units_compatible("per 100 people", "rate", "Mobile cellular subscriptions (per 100 people)")
+assert units_compatible("USD", "reported value", "GDP (current US$)")
+assert not units_compatible("tonnes", "%", "Forest area (% of land area)")
+
 bad_rows = [dict(row) for row in stored_rows]
 bad_rows[1]["value"] = 49.0
 failed = validate_category_snapshot(
@@ -58,6 +63,7 @@ failed = validate_category_snapshot(
 assert failed.status == "failed"
 assert failed.value_mismatch_count == 1
 assert "value mismatches" in (failed.failure_reason or "")
+assert "values" in failed.details.get("failureTypes", [])
 
 wrong_metadata = dict(stored_category, unit="tonnes")
 metadata_failure = validate_category_snapshot(
@@ -67,7 +73,17 @@ metadata_failure = validate_category_snapshot(
 )
 assert metadata_failure.status == "failed"
 assert metadata_failure.metadata_checks["unit"] is False
-assert VALIDATION_VERSION.startswith("geostats-v14.2")
+assert VALIDATION_VERSION.startswith("geostats-v14.3")
+
+wrong_official_unit = dict(stored_category)
+wrong_official_unit["metadata"] = {**stored_category["metadata"], "official_unit": "tonnes"}
+official_unit_failure = validate_category_snapshot(
+    source_slug="worldbank", source_organization="World Bank", source_dataset="World Development Indicators",
+    category_id=expected_row["id"], candidate=candidate, quality=quality, source_observations=observations,
+    expected_category_row=expected_row, stored_category=wrong_official_unit, stored_observations=stored_rows,
+)
+assert official_unit_failure.status == "failed"
+assert official_unit_failure.metadata_checks["official_unit"] is False
 
 wrong_series_rule = IndicatorRule(
     key="life-expectancy", title="Highest life expectancy", description="Life expectancy.",
@@ -98,4 +114,4 @@ aggregate_failure = validate_category_snapshot(
 )
 assert aggregate_failure.status == "failed"
 assert aggregate_failure.metadata_checks["source_country_universe"] is False
-print("GeoStats v14.2 source integrity fixture tests passed.")
+print("GeoStats v14.3 source integrity fixture tests passed.")

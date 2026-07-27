@@ -33,7 +33,7 @@ if (!catalog.includes('.eq("validation_status", "verified")') || !catalog.includ
 if (!warehouseRoute.includes("rankingComplete") || !warehouseRoute.includes("verified global ranking is incomplete")) {
   throw new Error("Warehouse route does not reject partial global ranking snapshots.");
 }
-for (const token of ["Global rankings", "Countries in this game", "View source material", "fullRankingLoaded", "downloadUrl"]) {
+for (const token of ["Global rankings", "Countries in this game", "View exact official data", "fullRankingLoaded", "downloadUrl"]) {
   if (!panel.includes(token)) throw new Error(`simplified source panel missing ${token}`);
 }
 for (const forbidden of ["Verifiability", "Why this category is usable", "Exact stored query parameters", "Dataset release"]) {

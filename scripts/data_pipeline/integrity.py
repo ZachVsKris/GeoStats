@@ -10,7 +10,7 @@ from typing import Any, Iterable, Mapping
 from .countries import UN_COUNTRY_ISO3
 from .models import CandidateDefinition, QualityResult, SourceObservation
 
-VALIDATION_VERSION = "geostats-v14.2-source-integrity-v1"
+VALIDATION_VERSION = "geostats-v14.3-source-integrity-v2"
 
 
 @dataclass(frozen=True)
@@ -103,6 +103,60 @@ def competition_ranks(values: Mapping[str, float], direction: str) -> dict[str, 
         previous_rank = rank
     return ranks
 
+
+
+
+def _normalized_unit(value: Any) -> str:
+    text = str(value or "").strip().lower()
+    text = text.replace("²", "2").replace("$", "dollar")
+    text = re.sub(r"u\.?s\.?", "us", text)
+    text = re.sub(r"square\s+kilomet(?:er|re)s?|sq\.?\s*km|km2", "km2", text)
+    text = re.sub(r"metric\s+tons?", "tonnes", text)
+    text = re.sub(r"\s+", " ", text)
+    return text
+
+
+def _unit_signature(*values: Any) -> str:
+    text = " ".join(_normalized_unit(value) for value in values if value not in (None, ""))
+    if re.search(r"us dollar.*per capita|usd.*per capita|dollar.*per person|usd/person", text):
+        return "usd-per-person"
+    if re.search(r"us dollar|usd|current us", text):
+        return "usd"
+    if re.search(r"people.*per.*km2|people/km2|population density", text):
+        return "people-per-km2"
+    if re.search(r"per 100(?: people| population)?", text):
+        return "per-100"
+    if re.search(r"per 1,?000", text):
+        return "per-1000"
+    if re.search(r"per 100,?000", text):
+        return "per-100000"
+    if re.search(r"%|percent|percentage|share of", text):
+        return "percent"
+    if re.search(r"kg.*ha|kilogram.*hectare", text):
+        return "kg-per-ha"
+    if re.search(r"km2|land area", text):
+        return "km2"
+    if re.search(r"tonnes?|tons?", text):
+        return "tonnes"
+    if re.search(r"years?", text):
+        return "years"
+    if re.search(r"people|persons?", text):
+        return "people"
+    return _normalized_unit(values[0] if values else "")
+
+
+def units_compatible(stored_unit: Any, expected_unit: Any, official_name: Any = "", official_unit: Any = "") -> bool:
+    stored = _unit_signature(stored_unit)
+    expected = _unit_signature(expected_unit)
+    official = _unit_signature(official_unit, official_name)
+    generic = {"", "reported value", "rate", "value", "other"}
+    if stored == expected and stored not in generic:
+        return True
+    if official not in generic and stored == official:
+        return True
+    if stored in generic and expected in generic:
+        return True
+    return _normalized_unit(stored_unit) == _normalized_unit(expected_unit)
 
 def _query_contains(query: Any, token: str) -> bool:
     if not token:
@@ -198,9 +252,15 @@ def validate_category_snapshot(
         "source_organization": str(stored_category.get("source_organization")) == source_organization,
         "source_dataset": str(stored_category.get("source_dataset")) == source_dataset,
         "source_indicator_code": str(stored_category.get("source_indicator_code")) == candidate.source_indicator_code,
-        "official_series_name": str(stored_metadata.get("source_indicator_name") or "") == str(candidate.source_indicator_name),
+        "official_series_name": str(stored_metadata.get("source_indicator_name") or "").strip() == str(candidate.source_indicator_name).strip(),
+        "official_unit": _normalized_unit(stored_metadata.get("official_unit")) == _normalized_unit(candidate.metadata.get("official_unit")),
         "source_query": json.dumps(stored_query, sort_keys=True, default=str) == json.dumps(expected_query, sort_keys=True, default=str),
-        "unit": str(stored_category.get("unit")) == str(expected_category_row.get("unit")),
+        "unit": units_compatible(
+            stored_category.get("unit"),
+            expected_category_row.get("unit"),
+            candidate.source_indicator_name,
+            candidate.metadata.get("official_unit"),
+        ),
         "ranking_direction": str(stored_category.get("ranking_direction")) == candidate.rule.ranking_direction,
         "common_year": int(stored_category.get("common_year") or 0) == common_year,
         "declared_coverage": int(stored_category.get("common_year_coverage") or 0) == len(expected),
@@ -236,9 +296,62 @@ def validate_category_snapshot(
     ]
 
     metadata_failures = sorted(key for key, passed in metadata_checks.items() if not passed)
+    source_identity_keys = {
+        "source_organization", "source_dataset", "source_indicator_code", "official_series_name", "official_unit",
+        "source_url_present", "source_indicator_present", "official_series_name_present",
+        "source_query_present", "query_identifies_series", "query_identifies_commodity",
+        "exports_flow_selected", "world_partner_selected", "query_identifies_product",
+        "query_identifies_activity", "single_unit_selected", "endpoint_identified",
+        "country_dimension_identified", "value_field_identified", "derivation_method_present",
+        "derivation_version_present", "input_dataset_present", "layer_identified",
+        "official_name_matches_required_concept", "official_name_avoids_excluded_concepts",
+    }
+    coverage_keys = {
+        "common_year", "declared_coverage", "quality_coverage", "minimum_coverage",
+        "country_universe_size", "source_country_universe", "stored_country_universe",
+        "source_snapshot_unique", "stored_snapshot_unique", "source_records_present",
+    }
+    source_identity_failures = [key for key in metadata_failures if key in source_identity_keys]
+    coverage_check_failures = [key for key in metadata_failures if key in coverage_keys]
+    metadata_only_failures = [
+        key for key in metadata_failures
+        if key not in source_identity_keys and key not in coverage_keys
+    ]
+    failure_buckets = {
+        "sourceIdentity": source_identity_failures,
+        "metadata": metadata_only_failures,
+        "coverage": {
+            "checks": coverage_check_failures,
+            "expected": len(expected),
+            "stored": len(stored),
+            "missingCount": len(missing),
+            "extraCount": len(extra),
+        },
+        "values": {"mismatchCount": len(mismatches)},
+        "rankings": {"mismatchCount": len(ranking_mismatches)},
+        "checksum": {"matches": source_checksum == stored_checksum},
+    }
+    failure_types: list[str] = []
+    if source_identity_failures:
+        failure_types.append("source_identity")
+    if metadata_only_failures:
+        failure_types.append("metadata")
+    if coverage_check_failures or missing or extra:
+        failure_types.append("coverage")
+    if mismatches:
+        failure_types.append("values")
+    if ranking_mismatches:
+        failure_types.append("rankings")
+    if source_checksum != stored_checksum:
+        failure_types.append("checksum")
+
     failure_parts: list[str] = []
-    if metadata_failures:
-        failure_parts.append("metadata checks failed: " + ", ".join(metadata_failures))
+    if source_identity_failures:
+        failure_parts.append("source identity checks failed: " + ", ".join(source_identity_failures))
+    if metadata_only_failures:
+        failure_parts.append("metadata checks failed: " + ", ".join(metadata_only_failures))
+    if coverage_check_failures:
+        failure_parts.append("coverage checks failed: " + ", ".join(coverage_check_failures))
     if missing:
         failure_parts.append(f"{len(missing)} official countries missing from storage")
     if extra:
@@ -262,6 +375,8 @@ def validate_category_snapshot(
         "sourceDuplicateCountries": expected_conflicts[:25],
         "storedDuplicateCountries": stored_conflicts[:25],
         "sourceQuery": candidate.metadata.get("source_query") or {},
+        "failureTypes": failure_types,
+        "failureBuckets": failure_buckets,
     }
     return IntegrityResult(
         status="verified" if not failure_parts else "failed",

@@ -94,7 +94,7 @@ export async function POST(request: Request) {
     || category.content_review_status !== "approved"
     || (category.immediate_comprehension_score ?? 0) < 80
     || (category.gameplay_interest_score ?? 0) < 65
-    || category.player_source_status !== "exact"
+    || !(["exact", "general"].includes(category.player_source_status ?? ""))
     || !category.player_source_url
     || (category.link_quality_score ?? 0) < 90) : [];
 

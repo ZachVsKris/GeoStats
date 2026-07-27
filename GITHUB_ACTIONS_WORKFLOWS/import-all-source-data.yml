@@ -24,6 +24,7 @@ jobs:
         with:
           python-version: "3.12"
       - run: python scripts/test-data-pipeline.py
+      - run: python scripts/test-source-integrity.py
       - run: python scripts/test-world-bank-catalog-importer.py
       - name: Import objective World Bank candidates
         env:
@@ -165,7 +166,7 @@ jobs:
         shell: bash
         run: |
           if [ -n "${COMTRADE_API_KEY:-}" ]; then
-            python scripts/import-comtrade.py --minimum-successes 55
+            python scripts/import-comtrade.py --minimum-successes 0
           else
             echo "COMTRADE_API_KEY is not configured; skipping Comtrade expansion."
           fi

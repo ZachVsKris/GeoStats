@@ -71,6 +71,14 @@ type CategoryRow = {
   objective_status?: string | null;
   player_quality_status?: string | null;
   player_quality_reason?: string | null;
+  validation_status?: "pending" | "verified" | "failed" | "unable_to_verify";
+  validation_version?: string | null;
+  validated_at?: string | null;
+  validation_reason?: string | null;
+  validation_expected_count?: number | null;
+  validated_observation_count?: number | null;
+  validation_mismatch_count?: number | null;
+  validation_ranking_mismatch_count?: number | null;
 };
 
 type ImportRow = {
@@ -92,19 +100,39 @@ type SourceRow = {
   metadata?: Record<string, unknown>;
 };
 
+type AnalyticsOverview = {
+  visitors: number;
+  page_views: number;
+  games_started: number;
+  games_completed: number;
+  shares: number;
+  average_score: number | null;
+  signed_in_users_seen: number;
+};
+type SourceHealthRow = { source: string; categories: number; playable: number; pending: number; latestRetrieved: string | null };
+type GenerationRun = { id: number; created_at: string; challenge_date: string; status: string; source: string; error_message: string | null };
+type IntegritySourceRow = { source: string; categories: number; playable: number; verified: number; failed: number; unable_to_verify: number; pending: number; last_validated_at: string | null };
+type IntegrityIssue = { id: string; title: string; source_organization: string; validation_status: string; validation_reason: string | null; validated_at: string | null; validation_mismatch_count: number; validation_ranking_mismatch_count: number };
+type IntegrityRun = { id: number; source_organization: string | null; status: string; started_at: string; completed_at: string | null; categories_selected: number; categories_verified: number; categories_failed: number; categories_unable: number; error_message: string | null };
+type IntegrityOverview = { enforcement_enabled: boolean; categories: number; playable: number; verified: number; failed: number; unable_to_verify: number; pending: number; unverified_playable: number };
+
 type Dashboard = {
-  stats: { categories: number; observations: number; countries: number };
+  stats: { categories: number; observations: number; countries: number; usernames: number };
   reviewCounts: Record<ReviewStatus, number> & { pending_editorial: number };
   sources: SourceRow[];
   imports: ImportRow[];
   categories: CategoryRow[];
   boards: Record<string, boolean>;
   todayScoreCount: number;
+  analytics: AnalyticsOverview;
+  sourceHealth: SourceHealthRow[];
+  generationRuns: GenerationRun[];
+  integrity: { overview: IntegrityOverview; bySource: IntegritySourceRow[]; issues: IntegrityIssue[]; runs: IntegrityRun[]; migrationApplied: boolean };
 };
 
 type DailyMode = "easy" | "normal" | "expert";
 type GeneratedBoard = { countries: string[]; categories: string[] };
-type ScoreBreakdown = { overall: number; quality: number; variety: number; geography: number; difficultyFit: number; competitiveness: number };
+type ScoreBreakdown = { overall: number; quality: number; variety: number; geography: number; difficultyFit: number; competitiveness: number; familiarity: number };
 type GenerationDiagnostics = {
   eligibleDatasets: number;
   requiredDatasets: number;
@@ -140,6 +168,7 @@ const WORKFLOWS: Record<string, string> = {
   eia: `${REPO_ACTIONS}/import-eia.yml`,
   unhcr: `${REPO_ACTIONS}/import-unhcr.yml`,
   all: `${REPO_ACTIONS}/repair-v14-expansion.yml`,
+  integrity: `${REPO_ACTIONS}/audit-source-integrity.yml`,
 };
 
 const card: React.CSSProperties = {
@@ -401,6 +430,7 @@ export default function AdminDashboard() {
     && (category.verifiability_score ?? 100) >= 80
     && (category.understandability_score ?? 100) >= 70
     && (category.fun_score ?? 100) >= 55
+    && category.validation_status === "verified"
     && category.review_status !== "approved");
   const resettableSelected = selectedRows.filter((category) => category.review_status === "rejected" || category.review_status === "approved");
   const dailyModeLabels: Record<DailyMode, string> = { easy: "Scout", normal: "Adventurer", expert: "Expert" };
@@ -427,6 +457,7 @@ export default function AdminDashboard() {
           ["Categories", data.stats.categories],
           ["Observations", data.stats.observations],
           ["Countries", data.stats.countries],
+          ["Usernames", data.stats.usernames],
           ["Approved", data.reviewCounts.approved],
           ["Pending editorial", data.reviewCounts.pending_editorial],
           ["Needs review", data.reviewCounts.needs_review],
@@ -437,6 +468,66 @@ export default function AdminDashboard() {
             <strong style={{ display: "block", fontSize: 27, marginTop: 5 }}>{formatNumber(Number(value))}</strong>
           </article>
         ))}
+      </section>
+
+      <section style={{ ...card, marginTop: 16 }}>
+        <h2 style={{ marginTop: 0 }}>Last 30 days</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(150px,1fr))", gap: 10 }}>
+          {[
+            ["Visitors", data.analytics.visitors],
+            ["Page views", data.analytics.page_views],
+            ["Games started", data.analytics.games_started],
+            ["Games completed", data.analytics.games_completed],
+            ["Completion rate", data.analytics.games_started ? `${Math.round((data.analytics.games_completed / data.analytics.games_started) * 100)}%` : "—"],
+            ["Shares", data.analytics.shares],
+            ["Average score", data.analytics.average_score ?? "—"],
+          ].map(([label, value]) => <div key={String(label)} style={{ padding: 12, borderRadius: 12, background: "rgba(255,255,255,.04)" }}>
+            <div style={{ opacity: .7, fontSize: 12 }}>{label}</div><strong style={{ fontSize: 22 }}>{typeof value === "number" ? formatNumber(value) : value}</strong>
+          </div>)}
+        </div>
+        <p style={{ opacity: .64, marginBottom: 0, fontSize: 12 }}>First-party, privacy-conscious analytics begin after the combined v14.2 Supabase installer is applied.</p>
+      </section>
+
+      <section style={{ ...card, marginTop: 16, overflowX: "auto" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "start", gap: 16, flexWrap: "wrap" }}>
+          <div>
+            <h2 style={{ marginTop: 0, marginBottom: 5 }}>Data integrity</h2>
+            <p style={{ opacity: .72, margin: 0 }}>Official-source values, units, years, coverage, and recalculated global rankings.</p>
+          </div>
+          <a href={WORKFLOWS.integrity} target="_blank" rel="noreferrer" style={{ ...button, textDecoration: "none" }}>Run full source audit ↗</a>
+        </div>
+        {!data.integrity.migrationApplied ? <p style={{ marginBottom: 0 }}>Apply the v14.2 Supabase migration to enable integrity reporting.</p> : <>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(145px,1fr))", gap: 9, margin: "14px 0" }}>
+            {[
+              ["Enforcement", data.integrity.overview.enforcement_enabled ? "ON" : "OFF"],
+              ["Verified", data.integrity.overview.verified],
+              ["Pending", data.integrity.overview.pending],
+              ["Failed", data.integrity.overview.failed],
+              ["Unable", data.integrity.overview.unable_to_verify],
+              ["Unverified playable", data.integrity.overview.unverified_playable],
+            ].map(([label, value]) => <div key={String(label)} style={{ padding: 11, borderRadius: 10, background: "rgba(255,255,255,.04)" }}><div style={{ opacity: .68, fontSize: 12 }}>{label}</div><strong style={{ fontSize: 21 }}>{typeof value === "number" ? formatNumber(value) : value}</strong></div>)}
+          </div>
+          <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 760 }}>
+            <thead><tr>{["Source", "Categories", "Playable", "Verified", "Pending", "Failed", "Unable", "Last audit"].map((heading) => <th key={heading} style={{ textAlign: "left", padding: 8, borderBottom: "1px solid rgba(255,255,255,.12)" }}>{heading}</th>)}</tr></thead>
+            <tbody>{data.integrity.bySource.map((row) => <tr key={row.source}>
+              <td style={{ padding: 8 }}><strong>{row.source}</strong></td><td style={{ padding: 8 }}>{row.categories}</td><td style={{ padding: 8 }}>{row.playable}</td><td style={{ padding: 8 }}>{row.verified}</td><td style={{ padding: 8 }}>{row.pending}</td><td style={{ padding: 8 }}>{row.failed}</td><td style={{ padding: 8 }}>{row.unable_to_verify}</td><td style={{ padding: 8 }}>{row.last_validated_at ? new Date(row.last_validated_at).toLocaleString() : "—"}</td>
+            </tr>)}</tbody>
+          </table>
+          {data.integrity.issues.length > 0 && <div style={{ marginTop: 14 }}>
+            <strong>Quarantined categories</strong>
+            {data.integrity.issues.slice(0, 12).map((issue) => <div key={issue.id} style={{ padding: "8px 0", borderTop: "1px solid rgba(255,255,255,.08)" }}><strong>{issue.title}</strong> · {issue.source_organization} · {issue.validation_status}<div style={{ opacity: .7, fontSize: 12 }}>{issue.validation_reason ?? "No reason recorded"}</div></div>)}
+          </div>}
+        </>}
+      </section>
+
+      <section style={{ ...card, marginTop: 16, overflowX: "auto" }}>
+        <h2 style={{ marginTop: 0 }}>Warehouse health by source</h2>
+        <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 620 }}>
+          <thead><tr>{["Source", "Categories", "Playable", "Awaiting review", "Latest retrieval"].map((heading) => <th key={heading} style={{ textAlign: "left", padding: 8, borderBottom: "1px solid rgba(255,255,255,.12)" }}>{heading}</th>)}</tr></thead>
+          <tbody>{data.sourceHealth.map((row) => <tr key={row.source}>
+            <td style={{ padding: 8 }}><strong>{row.source}</strong></td><td style={{ padding: 8 }}>{formatNumber(row.categories)}</td><td style={{ padding: 8 }}>{formatNumber(row.playable)}</td><td style={{ padding: 8 }}>{formatNumber(row.pending)}</td><td style={{ padding: 8 }}>{row.latestRetrieved ? new Date(row.latestRetrieved).toLocaleDateString() : "—"}</td>
+          </tr>)}</tbody>
+        </table>
       </section>
 
       <section style={{ ...card, marginTop: 16 }}>
@@ -462,6 +553,12 @@ export default function AdminDashboard() {
             ))}
           </div>
         )}
+        {data.generationRuns.length > 0 && <div style={{ marginTop: 14 }}>
+          <strong>Recent generator runs</strong>
+          <div style={{ display: "grid", gap: 6, marginTop: 8 }}>{data.generationRuns.slice(0, 5).map((run) => <div key={run.id} style={{ display: "flex", justifyContent: "space-between", gap: 12, padding: 9, borderRadius: 9, background: "rgba(255,255,255,.035)" }}>
+            <span>{run.challenge_date} · {run.source}</span><span>{run.status}{run.error_message ? ` · ${run.error_message}` : ""}</span>
+          </div>)}</div>
+        </div>}
       </section>
 
       <section style={{ marginTop: 16 }}>
@@ -588,7 +685,7 @@ export default function AdminDashboard() {
               <tr>
                 <th style={{ padding: 8 }}><input type="checkbox" checked={allVisibleSelected} onChange={toggleAllVisible} aria-label="Select all visible categories" /></th>
                 {[
-                  "Review", "Category", "Source", "Quality", "Trust", "Player quality", "Verify", "Clear", "Fun", "Curation", "Provenance", "Duplicate", "Evidence", "Common year", "Official", "Modeled", "Cluster", "Stability", "Recognizable", "Specific", "Actions",
+                  "Review", "Category", "Source", "Quality", "Trust", "Player quality", "Integrity", "Verify", "Clear", "Fun", "Curation", "Provenance", "Duplicate", "Evidence", "Common year", "Official", "Modeled", "Cluster", "Stability", "Recognizable", "Specific", "Actions",
                 ].map((heading) => <th key={heading} style={{ textAlign: "left", padding: 8, borderBottom: "1px solid rgba(255,255,255,.12)" }}>{heading}</th>)}
               </tr>
             </thead>
@@ -605,6 +702,7 @@ export default function AdminDashboard() {
                   <td style={{ padding: 8 }}><strong>{category.quality_score}</strong>{category.auto_qualified && <div style={{ fontSize: 11, opacity: .72 }}>quality + provenance pass</div>}</td>
                   <td style={{ padding: 8, maxWidth: 250 }}><strong>{category.credibility_score ?? "—"} · {category.credibility_status ?? "unscored"}</strong>{category.credibility_reason && <div style={{ fontSize: 11, opacity: .72 }}>{category.credibility_reason}</div>}</td>
                   <td style={{ padding: 8, maxWidth: 250 }}><strong>{category.player_quality_status ?? "unscored"}</strong><div style={{ fontSize: 11, opacity: .72 }}>{category.objective_status ?? "objective"}</div>{category.player_quality_reason && <div style={{ fontSize: 11, opacity: .72 }}>{category.player_quality_reason}</div>}</td>
+                  <td style={{ padding: 8, maxWidth: 220 }}><strong>{category.validation_status ?? "pending"}</strong>{category.validation_reason && <div style={{ fontSize: 11, opacity: .72 }}>{category.validation_reason}</div>}</td>
                   <td style={{ padding: 8 }}><strong>{category.verifiability_score ?? "—"}</strong><div style={{ fontSize: 11, opacity: .72 }}>{category.verifiability_status ?? ""}</div></td>
                   <td style={{ padding: 8 }}>{category.understandability_score ?? "—"}</td>
                   <td style={{ padding: 8 }}>{category.fun_score ?? "—"}</td>
@@ -623,7 +721,7 @@ export default function AdminDashboard() {
                     <div style={{ display: "flex", gap: 6 }}>
                       <button style={mutedButton} disabled={detailLoading} onClick={() => inspectCategory(category.id)}>Inspect</button>
                       {category.review_status !== "rejected" && <button style={dangerButton} disabled={reviewing} onClick={() => decide([category.id], "rejected")}>Reject</button>}
-                      {category.auto_qualified && category.curation_status !== "excluded" && category.player_quality_status !== "blocked" && category.objective_status === "objective" && (category.verifiability_score ?? 100) >= 80 && (category.understandability_score ?? 100) >= 70 && (category.fun_score ?? 100) >= 55 && category.review_status !== "approved" && <button style={button} disabled={reviewing} onClick={() => decide([category.id], "approved")}>Approve</button>}
+                      {category.auto_qualified && category.validation_status === "verified" && category.curation_status !== "excluded" && category.player_quality_status !== "blocked" && category.objective_status === "objective" && (category.verifiability_score ?? 100) >= 80 && (category.understandability_score ?? 100) >= 70 && (category.fun_score ?? 100) >= 55 && category.review_status !== "approved" && <button style={button} disabled={reviewing} onClick={() => decide([category.id], "approved")}>Approve</button>}
                       {(category.review_status === "approved" || category.review_status === "rejected") && <button style={mutedButton} disabled={reviewing} onClick={() => decide([category.id], "reset")}>Reset</button>}
                     </div>
                   </td>
@@ -646,6 +744,7 @@ export default function AdminDashboard() {
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: 10, margin: "16px 0" }}>
               <div style={card}>Quality <strong>{detail.category.quality_score}</strong></div>
+              <div style={card}>Source integrity <strong>{detail.category.validation_status ?? "pending"}</strong><div style={{ opacity: .72, marginTop: 6 }}>{detail.category.validated_at ? new Date(detail.category.validated_at).toLocaleString() : "Not audited"}</div></div>
               <div style={card}>Credibility <strong>{detail.category.credibility_score ?? "—"}</strong><div style={{ opacity: .72, marginTop: 6 }}>{detail.category.credibility_status ?? "unscored"} · {detail.category.evidence_label ?? ""}</div></div>
               <div style={card}>Verifiability <strong>{detail.category.verifiability_score ?? "—"}</strong><div style={{ opacity: .72, marginTop: 6 }}>{detail.category.verifiability_status ?? "unscored"}</div></div>
               <div style={card}>Clarity <strong>{detail.category.understandability_score ?? "—"}</strong><div style={{ opacity: .72, marginTop: 6 }}>{detail.category.plain_language_description ?? ""}</div></div>

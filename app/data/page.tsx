@@ -10,7 +10,7 @@ async function loadCatalog(): Promise<{ categories: Category[]; warehouseLoaded:
     const categories = await loadServerPlayableCategoryCatalog();
     return { categories, warehouseLoaded: true };
   } catch {
-    return { categories: CATEGORIES.filter((category) => category.enabled !== false), warehouseLoaded: false };
+    return { categories: [], warehouseLoaded: false };
   }
 }
 
@@ -25,8 +25,8 @@ export default async function DataPage(){
     <h1>Data, sources & trust</h1>
     <p>Dataset release: {DATASET_VERSION}. Rules version: {RULES_VERSION}. GeoStats includes only objective, measurable country characteristics. Perception rankings, subjective judgments, and opaque composite scores are blocked.</p>
     <p>Every playable category must pass coverage, freshness, distribution, provenance, credibility, verifiability, understandability, fun, duplicate, and editorial-review gates. Newly imported candidates remain disabled until approved.</p>
-    <p>On result screens, <strong>Source & all data</strong> opens the exact all-country snapshot used by GeoStats. External source and methodology links support that preserved table rather than replacing it.</p>
-    <p><strong>{categories.length}</strong> trusted categories are currently available to the board generator{warehouseLoaded ? " from the live warehouse catalog" : " from the bundled fallback catalog"}. The bundled rules also identify <strong>{staticQuarantined.length}</strong> explicit disabled or quarantined categories.</p>
+    <p>On result screens, <strong>Data & Source</strong> shows the category definition, comparison year, searchable global ranking, and a direct source-material link.</p>
+    <p><strong>{categories.length}</strong> verified categories are currently available to the board generator{warehouseLoaded ? " from the live warehouse catalog" : ". The live verified catalog is currently unavailable; GeoStats does not fall back to unverified bundled gameplay data"}. The bundled rules also identify <strong>{staticQuarantined.length}</strong> explicit disabled or quarantined categories.</p>
     <p><a href="/daily">Back to game</a> · <a href="/audit">Open trust audit</a></p>
     {categories.map((category)=>{
       const indicator=category.warehouseSourceIndicatorCode ?? category.indicator;

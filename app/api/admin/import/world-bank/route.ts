@@ -120,6 +120,7 @@ export async function POST(request: Request) {
       const quality = scoreCategoryQuality(dataset);
       const governance = governWorldBankCategory(category, quality);
       const automaticPass = governance.autoApproved && !manuallyRejected;
+      const requiresSourceAudit = !manuallyRejected;
       const rows = dataset.observations.map((observation) => ({
         category_id: category.id,
         country_iso3: observation.countryId,
@@ -165,19 +166,17 @@ export async function POST(request: Request) {
 
       const reviewStatus = manuallyRejected
         ? "rejected"
-        : automaticPass
-          ? "approved"
-          : quality.eligible
-            ? "needs_review"
-            : "candidate";
+        : quality.eligible
+          ? "needs_review"
+          : "candidate";
       const categoryUpdate = {
         country_coverage: rows.length,
         latest_available_year: latestYear,
         quality_score: quality.score,
         quality_details: { ...quality, governance: governanceMetadata(governance) },
         auto_qualified: automaticPass,
-        eligible_daily: automaticPass,
-        enabled: automaticPass,
+        eligible_daily: false,
+        enabled: false,
         review_status: reviewStatus,
         evidence_tier: category.certificationGrade,
         common_year: commonYear,
@@ -195,7 +194,19 @@ export async function POST(request: Request) {
         superseded_by: null,
         auto_decision_reason: manuallyRejected
           ? "Remains disabled because an administrator manually rejected this category."
-          : governance.autoDecisionReason,
+          : `${governance.autoDecisionReason} Imported through the Admin browser and held pending the v14.2 official-source audit.`,
+        validation_status: manuallyRejected ? "failed" : "pending",
+        validation_version: null,
+        validated_at: null,
+        validation_reason: manuallyRejected
+          ? "Manual rejection retained during import."
+          : "Imported successfully; the independent official-source audit has not run yet.",
+        source_snapshot_checksum: null,
+        stored_snapshot_checksum: null,
+        validated_observation_count: null,
+        validation_expected_count: commonYearCoverage,
+        validation_mismatch_count: 0,
+        validation_ranking_mismatch_count: 0,
         metadata: { ...categoryMetadata(category), ...governanceMetadata(governance) },
       };
       const { error: categoryError } = await admin.from("stat_categories").update(categoryUpdate).eq("id", category.id);
@@ -210,7 +221,8 @@ export async function POST(request: Request) {
         observations: rows.length,
         year: latestYear,
         quality: quality.score,
-        eligibleDaily: automaticPass,
+        eligibleDaily: false,
+        sourceAuditRequired: requiresSourceAudit,
         provenanceStatus: governance.provenanceStatus,
       });
     } catch (error: any) {
@@ -231,6 +243,9 @@ export async function POST(request: Request) {
           auto_decision_reason: manuallyRejected
             ? "Remains disabled because an administrator manually rejected this category."
             : `Quarantined because the latest import failed: ${error?.message || "unknown error"}`,
+          validation_status: "failed",
+          validated_at: new Date().toISOString(),
+          validation_reason: `Import failed before source validation: ${error?.message || "unknown error"}`,
         })
         .eq("id", category.id);
       await bump(admin, Number(body.runId), 0);

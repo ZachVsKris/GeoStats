@@ -12,7 +12,8 @@ import { decodeRound, encodeRound, type Round, type RoundCategory } from "../lib
 import AccountControls from "./AccountControls";
 import CategorySourcePanel from "./CategorySourcePanel";
 import { newYorkDate } from "../lib/time";
-import { DAILY_DIFFICULTIES, DEFAULT_DIFFICULTY, ROUND_CONFIGS, type DailyDifficulty, type RoundConfig, canAddCategory, difficultyFromPath, measureKind, roundHasRequiredDiversity, roundType } from "../lib/gameRules";
+import { DAILY_DIFFICULTIES, DEFAULT_DIFFICULTY, ROUND_CONFIGS, type DailyDifficulty, type RoundConfig, canAddCategory, difficultyFromPath, measureKind, roundHasCountryDiversity, roundHasRequiredDiversity, roundType, strongestGlobalWinnerRank } from "../lib/gameRules";
+import { trackAnalytics } from "../lib/analytics";
 
 type Assignment = Record<string, string>;
 type ScoreRow = {
@@ -150,23 +151,26 @@ function findDistinctWinners(
   maxOverlap = Number.POSITIVE_INFINITY,
 ): { winners: string[]; decoys: string[] } | null {
   const countryIds = new Set(countryList.map((country) => country.id));
+  const countryById = new Map(countryList.map((country) => [country.id, country]));
   const completeCountries = countryList.filter((country) =>
     categories.every((category) => observationValue(category, country.id) !== undefined),
   );
   const completeIds = new Set(completeCountries.map((country) => country.id));
 
-  const candidates = categories.map((category) =>
-    shuffle(
-      category.ranked.slice(0, 100).map((row) => row.countryId)
+  const candidates = categories.map((category) => {
+    const winnerLimit = strongestGlobalWinnerRank(category.category.globalCoverage ?? category.ranked.length);
+    return shuffle(
+      category.ranked.filter((row) => row.globalRank <= winnerLimit).map((row) => row.countryId)
         .filter((id) => countryIds.has(id) && completeIds.has(id)),
       rng,
-    ),
-  );
+    );
+  });
   if (candidates.some((list) => list.length === 0)) return null;
 
   const order = categories.map((_, index) => index).sort((a, b) => candidates[a].length - candidates[b].length);
   const winnerByCategory = new Array<string>(categories.length);
   const used = new Set<string>();
+  const continentCounts = new Map<string, number>();
   let steps = 0;
 
   function overlapCount(bank: Set<string>) {
@@ -183,6 +187,8 @@ function findDistinctWinners(
     for (const candidateId of candidates[categoryIndex].slice(0, 75)) {
       if (used.has(candidateId)) continue;
       if (overlapBanks.some((bank) => bank.has(candidateId) && overlapCount(bank) >= maxOverlap)) continue;
+      const candidateCountry = countryById.get(candidateId);
+      if (!candidateCountry || (continentCounts.get(candidateCountry.continent) ?? 0) >= config.maxCountriesPerContinent) continue;
       const candidateOwnValue = observationValue(category, candidateId);
       if (candidateOwnValue === undefined) continue;
       let valid = true;
@@ -203,8 +209,10 @@ function findDistinctWinners(
       if (!valid) continue;
       winnerByCategory[categoryIndex] = candidateId;
       used.add(candidateId);
+      continentCounts.set(candidateCountry.continent, (continentCounts.get(candidateCountry.continent) ?? 0) + 1);
       if (search(depth + 1)) return true;
       used.delete(candidateId);
+      continentCounts.set(candidateCountry.continent, (continentCounts.get(candidateCountry.continent) ?? 1) - 1);
       winnerByCategory[categoryIndex] = "";
     }
     return false;
@@ -227,8 +235,9 @@ function findDistinctWinners(
   const overlapTotals = overlapBanks.map((bank) => overlapCount(bank));
   for (const country of decoyCandidates) {
     const blocked = overlapBanks.some((bank, index) => bank.has(country.id) && overlapTotals[index] >= maxOverlap);
-    if (blocked) continue;
+    if (blocked || (continentCounts.get(country.continent) ?? 0) >= config.maxCountriesPerContinent) continue;
     decoys.push(country.id);
+    continentCounts.set(country.continent, (continentCounts.get(country.continent) ?? 0) + 1);
     overlapBanks.forEach((bank, index) => { if (bank.has(country.id)) overlapTotals[index]++; });
     if (decoys.length === config.decoyCount) break;
   }
@@ -303,7 +312,14 @@ function chooseDiverseCategories(
 function boardOptimizationScore(round: Round, config: RoundConfig) {
   const familyCount = new Set(round.categories.map((dataset) => roundType(dataset.category))).size;
   const measureCount = new Set(round.categories.map((dataset) => measureKind(dataset.category))).size;
-  const regionCount = new Set(round.bank.map((country) => country.region)).size;
+  const continentCount = new Set(round.bank.map((country) => country.continent)).size;
+  const populationSignals = round.bank
+    .map((country) => country.population)
+    .filter((value): value is number => typeof value === "number" && value > 0)
+    .map((value) => Math.max(0, Math.min(100, (Math.log10(value) - 5.5) / 3 * 100)));
+  const familiarity = populationSignals.length
+    ? populationSignals.reduce((sum, value) => sum + value, 0) / populationSignals.length
+    : 50;
   const qualities = round.categories.map((dataset) => scoreCategoryQuality(dataset).score);
   const qualityAverage = qualities.reduce((sum, score) => sum + score, 0) / Math.max(1, qualities.length);
 
@@ -321,12 +337,12 @@ function boardOptimizationScore(round: Round, config: RoundConfig) {
   }
   const averageGlobalRank = winnerGlobalRanks.reduce((sum, rank) => sum + rank, 0) / Math.max(1, winnerGlobalRanks.length);
   const averageGap = poolGapSignals.reduce((sum, gap) => sum + gap, 0) / Math.max(1, poolGapSignals.length);
-  const rankTarget = config.difficulty === "easy" ? 12 : config.difficulty === "normal" ? 32 : 58;
+  const rankTarget = config.difficulty === "easy" ? 10 : config.difficulty === "normal" ? 24 : 38;
   const gapTarget = config.difficulty === "easy" ? 0.34 : config.difficulty === "normal" ? 0.17 : 0.07;
   const rankFit = Math.max(0, 1 - Math.abs(averageGlobalRank - rankTarget) / 65);
   const gapFit = Math.max(0, 1 - Math.abs(averageGap - gapTarget) / 0.35);
 
-  return qualityAverage * 2.2 + familyCount * 12 + measureCount * 5 + regionCount * 4 + rankFit * 55 + gapFit * 55;
+  return qualityAverage * 2.2 + familyCount * 12 + measureCount * 5 + continentCount * 5 + rankFit * 55 + gapFit * 55 + familiarity * 0.12;
 }
 
 function composeRound(
@@ -354,7 +370,7 @@ function composeRound(
     if (!solution) continue;
     const byId = new Map(countryList.map((country) => [country.id, country]));
     const bank = shuffle([...solution.winners, ...solution.decoys].map((id) => byId.get(id)!).filter(Boolean), rng);
-    if (bank.length !== config.countryCount) continue;
+    if (bank.length !== config.countryCount || !roundHasCountryDiversity(bank, config)) continue;
     if (validateRound(categories, bank).length) continue;
     const round = { bank, categories };
     const score = boardOptimizationScore(round, config) + rng() * 0.01;
@@ -439,6 +455,7 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
   const [touchDrag, setTouchDrag] = useState<{ countryId: string; x: number; y: number; targetCategoryId: string | null } | null>(null);
   const touchStart = useRef<{ countryId: string; x: number; y: number } | null>(null);
   const touchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const trackedRounds = useRef(new Set<string>());
 
   const used = useMemo(() => new Set(Object.values(assignments)), [assignments]);
   const activeConfig = ROUND_CONFIGS[difficulty];
@@ -448,6 +465,27 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
   const topFinishRank = activeConfig.topFinishRank;
   const unusedCount = Math.max(0, poolSize - categoryTarget);
   const isRandom = mode === "random";
+
+  useEffect(() => {
+    if (!round) return;
+    const signature = `${isRandom ? "random" : "daily"}:${difficulty}:${seed}:${round.categories.map((item) => item.category.id).join(",")}`;
+    if (trackedRounds.current.has(signature)) return;
+    trackedRounds.current.add(signature);
+    trackAnalytics("game_started", {
+      difficulty,
+      challengeDate: isRandom ? undefined : dailyDateFromSeed(seed),
+      metadata: { mode: isRandom ? "random" : "daily", countryCount: round.bank.length, categoryCount: round.categories.length },
+    });
+  }, [round, difficulty, seed, isRandom]);
+
+  useEffect(() => {
+    if (!sourceDataset) return;
+    trackAnalytics("source_opened", {
+      difficulty,
+      challengeDate: isRandom ? undefined : dailyDateFromSeed(seed),
+      metadata: { categoryId: sourceDataset.category.id, source: sourceDataset.category.source },
+    });
+  }, [sourceDataset, difficulty, seed, isRandom]);
 
   function challengeUrl(nextDifficulty = difficulty, nextSeed = seed) {
     const path = isRandom ? ROUND_CONFIGS[nextDifficulty].randomPath : ROUND_CONFIGS[nextDifficulty].path;
@@ -665,6 +703,12 @@ Can you beat my score?`;
         setCopied(true);
         window.setTimeout(() => setCopied(false), 1800);
       }
+      trackAnalytics("share_clicked", {
+        difficulty,
+        challengeDate: isRandom ? undefined : dailyDateFromSeed(seed),
+        value: total,
+        metadata: { mode: isRandom ? "random" : "daily" },
+      });
     } catch (error) {
       if (error instanceof DOMException && error.name === "AbortError") return;
       setError(`The score could not be shared automatically. Copy the ${isRandom ? "seed" : "Daily"} link from your browser instead.`);
@@ -740,7 +784,19 @@ Can you beat my score?`;
   function score() {
     if (!round || Object.keys(assignments).length !== categoryTarget) return;
     try {
-      setScores(buildScoreRows(round, assignments));
+      const scoredRows = buildScoreRows(round, assignments);
+      setScores(scoredRows);
+      const finalScore = scoredRows.reduce((sum, row) => sum + row.points, 0);
+      trackAnalytics("game_completed", {
+        difficulty,
+        challengeDate: isRandom ? undefined : dailyDateFromSeed(seed),
+        value: finalScore,
+        metadata: {
+          mode: isRandom ? "random" : "daily",
+          averagePlacement: scoredRows.reduce((sum, row) => sum + row.rank, 0) / scoredRows.length,
+          categoryCount: scoredRows.length,
+        },
+      });
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (e) {
       setError(e instanceof Error ? e.message : "The round could not be scored consistently.");
@@ -804,16 +860,16 @@ Can you beat my score?`;
 
     {round && scores && <section className="panel results"><div className="score"><span>Final score</span>{savedCompletion && <p className="savedDailyNotice">Completed earlier today. This is the score saved to your account.</p>}<div className="scoreValue"><strong>{total}</strong><b>/ {roundMaxScore}</b></div><div className="scoreInsights"><div><strong>{averagePlacement}</strong><span>Average placement</span></div><div><strong>{bestPossibleCount}</strong><span>Best possible</span></div><div><strong>{topFinishCount}/{categoryTarget}</strong><span>Top {topFinishRank}</span></div></div><div className="scoreBreakdown">{[1,2,3].map((rank)=><span key={rank}>{rank===1?"🥇":rank===2?"🥈":"🥉"} {scores.filter((row)=>row.rank===rank).length}</span>)}</div><p>{total>=roundMaxScore*.8125?"Elite allocation.":total>=roundMaxScore*.65?"Strong draft with room to optimize.":"A few specialists were spent in the wrong places."}</p><div className="scoreActions"><button className="shareScore" onClick={shareScore}>{copied ? "Score copied ✓" : "Share score"}</button>{isRandom ? <button onClick={generateNewRandomRound}>Generate another board</button> : <AccountControls results difficulty={difficulty} pendingScore={savedCompletion ? undefined : { challengeDate: dailyDateFromSeed(seed), difficulty, assignments }} />}</div></div>
       <div className="resultsHeading"><div><span className="kicker">Your placements</span><h3>Placement and points earned</h3></div><small>Open a ranking to compare all {poolSize} countries</small></div>
-      {scores.map((row)=>{ const leaderboard=poolLeaderboard(row.category,round.bank); return <div className={`resultWrap theme-${row.category.category.family.toLowerCase().replace(/[^a-z0-9]+/g,"-")}`} key={row.category.category.id}><div className="result"><div className="resultMain"><span>{row.category.category.icon}</span><div><strong>{row.category.category.name}</strong><small className="statTip" tabIndex={0}>{row.country.flag} {row.country.name} · {formatValue(row.value,row.category.category)} · {row.category.byCountry.get(row.country.id)?.year}<span className="tooltip">{SOURCE_REGISTRY[row.category.category.source].name} list: #{row.globalRank} globally<br/>Actual value: {formatValue(row.value,row.category.category)}<br/>Indicator: {row.category.category.indicator}<br/>Evidence: {row.category.evidenceLabel ?? row.category.category.evidenceLabel ?? "Internationally harmonized"}<br/>Credibility: {row.category.credibilityScore ?? row.category.category.credibilityScore ?? "reviewed"}/100<br/>Why trusted: {row.category.trustReason ?? row.category.category.trustReason ?? "Passed GeoStats provenance and credibility review."}<br/><button className="inlineSourceButton" onClick={(e)=>{e.stopPropagation();setSourceDataset(row.category)}}>Source & all data</button></span></small></div></div><div className="placementSummary"><b>{ordinal(row.rank)} of {poolSize}</b><strong>{row.points} pts earned</strong>{row.rank===1&&<span>Best possible</span>}</div><button className="leaderboardButton" onClick={()=>setOpenLeaderboard(openLeaderboard===row.category.category.id?null:row.category.category.id)} aria-expanded={openLeaderboard===row.category.category.id}>{openLeaderboard===row.category.category.id?"Hide rankings":"View rankings"}</button></div>{openLeaderboard===row.category.category.id&&<div className="leaderboard"><div className="leaderboardHeader"><div className="leaderboardTitle"><h4>{row.category.category.name}</h4><span>All {poolSize} countries</span></div><div className="leaderboardSource"><span className="sourceBadge">{row.category.category.source === "worldbank" ? "World Bank" : SOURCE_REGISTRY[row.category.category.source].name}</span><button className="sourceDetailsButton" onClick={(e)=>{e.stopPropagation();setSourceDataset(row.category)}}>Source & all data</button></div></div>{leaderboard.map(item=><div key={item.country.id} className={item.country.id===row.country.id?"current":""}><b>#{item.poolRank}</b><span>{item.country.flag} {item.country.name}</span><span>{formatValue(item.observation.value,row.category.category)}</span><small>{item.observation.year}</small><strong>{item.points} pts</strong></div>)}</div>}</div>})}
+      {scores.map((row)=>{ const leaderboard=poolLeaderboard(row.category,round.bank); return <div className={`resultWrap theme-${row.category.category.family.toLowerCase().replace(/[^a-z0-9]+/g,"-")}`} key={row.category.category.id}><div className="result"><div className="resultMain"><span>{row.category.category.icon}</span><div><strong>{row.category.category.name}</strong><small className="statTip" tabIndex={0}>{row.country.flag} {row.country.name} · {formatValue(row.value,row.category.category)} · {row.category.byCountry.get(row.country.id)?.year}<span className="tooltip">#{row.globalRank} globally<br/>Actual value: {formatValue(row.value,row.category.category)}<br/>Source: {SOURCE_REGISTRY[row.category.category.source].name}<br/><button className="inlineSourceButton" onClick={(e)=>{e.stopPropagation();setSourceDataset(row.category)}}>Data & Source</button></span></small></div></div><div className="placementSummary"><b>{ordinal(row.rank)} of {poolSize}</b><strong>{row.points} pts earned</strong>{row.rank===1&&<span>Best possible</span>}</div><button className="leaderboardButton" onClick={()=>setOpenLeaderboard(openLeaderboard===row.category.category.id?null:row.category.category.id)} aria-expanded={openLeaderboard===row.category.category.id}>{openLeaderboard===row.category.category.id?"Hide rankings":"View rankings"}</button></div>{openLeaderboard===row.category.category.id&&<div className="leaderboard"><div className="leaderboardHeader"><div className="leaderboardTitle"><h4>{row.category.category.name}</h4><span>All {poolSize} countries</span></div><div className="leaderboardSource"><span className="sourceBadge">{row.category.category.source === "worldbank" ? "World Bank" : SOURCE_REGISTRY[row.category.category.source].name}</span><button className="sourceDetailsButton" onClick={(e)=>{e.stopPropagation();setSourceDataset(row.category)}}>Data & Source</button></div></div>{leaderboard.map(item=><div key={item.country.id} className={item.country.id===row.country.id?"current":""}><b>#{item.poolRank}</b><span>{item.country.flag} {item.country.name}</span><span>{formatValue(item.observation.value,row.category.category)}</span><small>{item.observation.year}</small><strong>{item.points} pts</strong></div>)}</div>}</div>})}
       <div className="perfect"><div className="resultsHeading"><div><span className="kicker">🏆 Perfect Round</span><h3>The optimal allocation</h3></div><small>Each category’s best country among these {poolSize}</small></div>
-      <div className="perfectGrid">{scores.map((row)=><div className="perfectRow" key={`perfect-${row.category.category.id}`}><span>{row.category.category.icon}</span><div><strong>{row.category.category.name}</strong><small className="statTip" tabIndex={0}>{row.best.flag} {row.best.name} · {formatValue(row.bestValue,row.category.category)}<span className="tooltip">{SOURCE_REGISTRY[row.category.category.source].name} list: #{row.bestGlobalRank} globally<br/>Actual value: {formatValue(row.bestValue,row.category.category)}<br/>Evidence: {row.category.evidenceLabel ?? row.category.category.evidenceLabel ?? "Internationally harmonized"}<br/>Why trusted: {row.category.trustReason ?? row.category.category.trustReason ?? "Passed GeoStats provenance and credibility review."}<br/><button className="inlineSourceButton" onClick={(e)=>{e.stopPropagation();setSourceDataset(row.category)}}>Source & all data</button></span></small></div><b>100 pts</b></div>)}</div></div>
+      <div className="perfectGrid">{scores.map((row)=><div className="perfectRow" key={`perfect-${row.category.category.id}`}><span>{row.category.category.icon}</span><div><strong>{row.category.category.name}</strong><small className="statTip" tabIndex={0}>{row.best.flag} {row.best.name} · {formatValue(row.bestValue,row.category.category)}<span className="tooltip">#{row.bestGlobalRank} globally<br/>Actual value: {formatValue(row.bestValue,row.category.category)}<br/>Source: {SOURCE_REGISTRY[row.category.category.source].name}<br/><button className="inlineSourceButton" onClick={(e)=>{e.stopPropagation();setSourceDataset(row.category)}}>Data & Source</button></span></small></div><b>100 pts</b></div>)}</div></div>
       <div className="lock"><span>Maximum score: {roundMaxScore}{isRandom ? " · Unranked test" : ""}</span><div className="resultActions"><a className="resultModeLink" href={isRandom ? ROUND_CONFIGS.easy.randomPath : ROUND_CONFIGS.easy.path}>Scout {isRandom ? "Random" : "Daily"}</a><a className="resultModeLink" href={isRandom ? ROUND_CONFIGS.normal.randomPath : ROUND_CONFIGS.normal.path}>Adventurer {isRandom ? "Random" : "Daily"}</a><a className="resultModeLink" href={isRandom ? ROUND_CONFIGS.expert.randomPath : ROUND_CONFIGS.expert.path}>Expert {isRandom ? "Random" : "Daily"}</a></div></div></section>}
 
     {touchDrag && round && <div className="touchGhost" style={{ left: touchDrag.x, top: touchDrag.y }}><span>{round.bank.find((country)=>country.id===touchDrag.countryId)?.flag}</span><strong>{round.bank.find((country)=>country.id===touchDrag.countryId)?.name}</strong></div>}
 
     {!scores && <section className="dataNote"><strong>Atlas index · trusted category library</strong><p><a href="/data">Data & methodology</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p><p>Population, economy, land, agriculture, energy, health, education, labor, trade, displacement, transport, technology, and environment. Approved categories draw from the World Bank, FAOSTAT, WHO, UNESCO UIS, ILOSTAT, Natural Earth, UN Comtrade, UNHCR, and the U.S. EIA. New source data stays out of play until it passes automated quality, provenance, credibility, and duplicate checks.</p></section>}
 
-    {sourceDataset && <CategorySourcePanel dataset={sourceDataset} onClose={()=>setSourceDataset(null)} />}
+    {sourceDataset && <CategorySourcePanel dataset={sourceDataset} boardCountryIds={round?.bank.map((country) => country.id) ?? []} onClose={()=>setSourceDataset(null)} />}
 
     {showRules&&<div className="modal" onClick={(e)=>e.currentTarget===e.target&&setShowRules(false)}><div><h2>How GeoStats works</h2><p><strong>{isRandom ? "Choose a test difficulty:" : "Progress through the Dailies:"}</strong> Scout has 5 countries and 4 categories, Adventurer has 8 and 6, and Expert has 10 and 8.</p><ol><li><strong>Each category has a different winner.</strong> Among today’s countries, every category’s #1 country is unique.</li><li><strong>Match countries to categories.</strong> Assign one country to each category, and use each country only once.</li><li><strong>Score as many points as possible.</strong> Higher-ranked countries earn more points. A perfect game matches every category with its #1 country.</li></ol><p>{isRandom ? "Random tests are unranked, repeatable, and reproducible from the seed in the URL." : "New Scout, Adventurer, and Expert challenges unlock every day."}</p><button onClick={()=>setShowRules(false)}>Start drafting</button></div></div>}
   </div>;

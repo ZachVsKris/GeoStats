@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { createSupabaseBrowserClient } from "../lib/supabase/browser";
 import type { DailyDifficulty } from "../lib/gameRules";
+import { trackAnalytics } from "../lib/analytics";
 
 type PendingScore = { challengeDate: string; difficulty: DailyDifficulty; assignments: Record<string, string> };
 type Props = { pendingScore?: PendingScore; results?: boolean; difficulty?: DailyDifficulty };
@@ -132,6 +133,7 @@ export default function AccountControls({ pendingScore, results = false, difficu
       setUsernameDraft(data.username);
       setUsernameCustomized(true);
       setUserLabel(data.username);
+      trackAnalytics("account_username_saved", { metadata: { updated: usernameCustomized } });
       setMessage("Username saved. This is how you will appear on GeoStats leaderboards.");
       await savePendingScore();
     } finally {
@@ -159,6 +161,7 @@ export default function AccountControls({ pendingScore, results = false, difficu
         return;
       }
       setResendSeconds(60);
+      trackAnalytics("account_signin_requested");
       setMessage("Sign-in link sent. Check your inbox.");
     } finally {
       setSendingLink(false);

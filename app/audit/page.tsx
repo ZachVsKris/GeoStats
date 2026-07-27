@@ -9,7 +9,7 @@ async function loadAuditCatalog(): Promise<Category[]> {
   try {
     approved = await loadServerPlayableCategoryCatalog();
   } catch {
-    approved = CATEGORIES.filter((category) => category.enabled !== false && category.trustStatus !== "quarantined");
+    approved = [];
   }
   const quarantined = CATEGORIES.filter((category) => category.trustStatus === "quarantined" || category.enabled === false);
   const merged = new Map<string, Category>();
@@ -27,7 +27,7 @@ export default async function AuditPage(){
     <h1>Category credibility audit</h1>
     <p>GeoStats does not reject a statistic merely because a result is surprising. It excludes categories when national definitions, incentives, reporting systems, or imputation make country rankings insufficiently comparable. Independently compiled surprising facts can remain, but the evidence type and reasoning are disclosed.</p>
     <p>Internet-use percentage is quarantined pending independent corroboration. Scientific-journal article counts remain because the World Bank series is based on independent bibliometric records rather than a country&apos;s own publication claim; the category measures volume, not research quality.</p>
-    <p>The live approved warehouse catalog is loaded when available. Explicit bundled quarantines are included so players can see why prominent rejected categories are absent.</p>
+    <p>Only the live source-verified warehouse catalog is treated as approved. GeoStats does not fall back to bundled categories for gameplay when the verified catalog is unavailable. Explicit bundled quarantines are included so players can see why prominent rejected categories are absent.</p>
     <p><a href="/daily">Back to game</a> · <a href="/data">Data and methodology</a></p>
     <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:14}}>
       {categories.map((category)=><article key={category.id} style={{border:`1px solid ${category.trustStatus==="quarantined"?"#8b554d":"#294a3d"}`,borderRadius:14,padding:16,background:"#0c211a",opacity:category.enabled===false?.7:1}}>

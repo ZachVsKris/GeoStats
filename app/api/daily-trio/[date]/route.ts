@@ -184,6 +184,16 @@ export async function POST(request: Request, context: { params: Promise<{ date: 
       return NextResponse.json({ error: "The repaired Daily trio could not be verified." }, { status: 500 });
     }
 
+    // Optional v14.1 health log. Missing migration or logging errors never block a valid Daily trio.
+    try {
+      await supabase.from("daily_generation_runs").insert({
+        challenge_date: date,
+        status: repairedDifficulties.length > 0 ? "repaired" : "completed",
+        source: "daily-route",
+        diagnostics: { replacements: replacements.map((row) => row.difficulty), repairedDifficulties },
+      });
+    } catch { /* optional health log */ }
+
     return NextResponse.json({ created: true, repaired: repairedDifficulties.length > 0, ...result }, {
       headers: { "Cache-Control": "private, no-store, max-age=0" },
     });

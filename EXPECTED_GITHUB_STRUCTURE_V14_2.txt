@@ -1,0 +1,39 @@
+GeoStats v14.2 release-critical files
+
+.github/
+  workflows/
+    audit-source-integrity.yml
+    main.yml
+    repair-v14-expansion.yml
+    import-world-bank-catalog.yml
+    import-faostat.yml
+    import-who.yml
+    import-unesco.yml
+    import-ilostat.yml
+    import-natural-earth.yml
+    import-comtrade.yml
+    import-eia.yml
+    import-unhcr.yml
+    import-trade-energy-refugees.yml
+
+supabase/
+  migrations/
+    021_analytics_generation_health.sql
+    022_source_integrity_validation.sql
+
+RUN_THIS_IN_SUPABASE_FOR_V14_2.sql
+VERIFY_V14_2.sql
+START_HERE_V14_2.md
+RELEASE_NOTES_V14_2.md
+VALIDATION_V14_2.md
+FILE_MANIFEST_SHA256_V14_2.txt
+
+scripts/
+  audit-source-integrity.py
+  activate-source-integrity.py
+  data_pipeline/integrity.py
+  test-source-integrity.py
+  test-v14-2-integration.mjs
+  verify-v14-2-repository.py
+
+The hidden .github folder is required. A visible backup of the main audit workflow is in GITHUB_ACTIONS_WORKFLOWS/.

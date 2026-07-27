@@ -33,6 +33,9 @@ type CategorySnapshot = {
   verifiability_score: number | null;
   understandability_score: number | null;
   fun_score: number | null;
+  validation_status: string | null;
+  validation_reason: string | null;
+  validated_at: string | null;
 };
 
 type ReviewBody = {
@@ -60,14 +63,15 @@ export async function POST(request: Request) {
 
   const { data: categories, error } = await auth.admin
     .from("stat_categories")
-    .select("id,title,auto_qualified,quality_score,review_status,evidence_tier,common_year,common_year_coverage,official_observation_share,modeled_observation_share,clustering_score,stability_score,quality_details,canonical_category_id,provenance_status,independent_validation,concept_group,duplicate_status,curation_status,curation_reason,credibility_status,credibility_score,objective_status,player_quality_status,verifiability_score,understandability_score,fun_score")
+    .select("id,title,auto_qualified,quality_score,review_status,evidence_tier,common_year,common_year_coverage,official_observation_share,modeled_observation_share,clustering_score,stability_score,quality_details,canonical_category_id,provenance_status,independent_validation,concept_group,duplicate_status,curation_status,curation_reason,credibility_status,credibility_score,objective_status,player_quality_status,verifiability_score,understandability_score,fun_score,validation_status,validation_reason,validated_at")
     .in("id", categoryIds);
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
   const rows = (categories ?? []) as CategorySnapshot[];
   const found = new Set(rows.map((category) => category.id));
   const missing = categoryIds.filter((id) => !found.has(id));
-  const blocked = decision === "approved" ? rows.filter((category) => !category.auto_qualified
+  const blocked = decision === "approved" ? rows.filter((category) => category.validation_status !== "verified"
+    || !category.auto_qualified
     || category.provenance_status !== "approved"
     || !category.independent_validation
     || category.curation_status === "excluded"
@@ -81,7 +85,7 @@ export async function POST(request: Request) {
 
   if (blocked.length) {
     return NextResponse.json({
-      error: `${blocked.length} selected categor${blocked.length === 1 ? "y has" : "ies have"} not passed the combined quality, provenance, credibility, objectivity, verifiability, clarity, and fun gate.`,
+      error: `${blocked.length} selected categor${blocked.length === 1 ? "y has" : "ies have"} not passed the source-integrity, quality, provenance, credibility, objectivity, verifiability, clarity, and fun gate.`,
       blocked: blocked.map((category) => ({ id: category.id, title: category.title })),
     }, { status: 409 });
   }
@@ -90,13 +94,13 @@ export async function POST(request: Request) {
     ? {
         review_status: "approved",
         curation_status: "approved",
-        curation_reason: "Approved through the v14 editorial review queue.",
-        curation_version: "geostats-v14-candidate-review-v1",
+        curation_reason: "Approved through the v14.2 editorial review queue after source-integrity verification.",
+        curation_version: "geostats-v14.2-candidate-review-v1",
         enabled: true,
         eligible_daily: true,
       }
     : decision === "rejected"
-      ? { review_status: "rejected", curation_status: "excluded", curation_reason: "Rejected through the v14 editorial review queue.", enabled: false, eligible_daily: false }
+      ? { review_status: "rejected", curation_status: "excluded", curation_reason: "Rejected through the v14.2 editorial review queue.", enabled: false, eligible_daily: false }
       : null;
 
   const failures: { id: string; error: string }[] = [];
@@ -154,6 +158,9 @@ export async function POST(request: Request) {
         verifiabilityScore: category.verifiability_score,
         understandabilityScore: category.understandability_score,
         funScore: category.fun_score,
+        validationStatus: category.validation_status,
+        validationReason: category.validation_reason,
+        validatedAt: category.validated_at,
         bulkActionSize: categoryIds.length,
       },
     });

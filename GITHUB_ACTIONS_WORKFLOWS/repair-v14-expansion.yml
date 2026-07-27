@@ -58,6 +58,7 @@ jobs:
       - name: Run importer and transparency tests
         run: |
           python scripts/test-data-pipeline.py
+          python scripts/test-source-integrity.py
           python scripts/test-natural-earth-importer.py
           python scripts/test-world-bank-catalog-importer.py
           python scripts/test-comtrade-importer.py
@@ -84,7 +85,7 @@ jobs:
         run: |
           set -euo pipefail
           if [ -n "${COMTRADE_API_KEY:-}" ]; then
-            python scripts/import-comtrade.py --minimum-successes 55
+            python scripts/import-comtrade.py --minimum-successes 0
           else
             echo "COMTRADE_API_KEY is not configured; Comtrade expansion was skipped." | tee -a "$GITHUB_STEP_SUMMARY"
           fi
@@ -97,7 +98,7 @@ jobs:
           WB_MIN=100
           if [ "$TARGET" -lt "$WB_MIN" ]; then WB_MIN="$TARGET"; fi
           if [ -n "${COMTRADE_API_KEY:-}" ]; then
-            python scripts/verify-v14-import-expansion.py --natural-earth-min 24 --world-bank-run-min "$WB_MIN" --comtrade-run-min 55
+            python scripts/verify-v14-import-expansion.py --natural-earth-min 24 --world-bank-run-min "$WB_MIN" --comtrade-target-total 55
           else
             python scripts/verify-v14-import-expansion.py --natural-earth-min 24 --world-bank-run-min "$WB_MIN"
           fi

@@ -55,6 +55,11 @@ type CategoryRow = {
   objective_status?: string | null;
   player_quality_status?: string | null;
   player_quality_reason?: string | null;
+  validation_status?: string | null;
+  validation_version?: string | null;
+  validated_at?: string | null;
+  validated_observation_count?: number | null;
+  validation_expected_count?: number | null;
 };
 
 type ObservationRow = {
@@ -64,7 +69,7 @@ type ObservationRow = {
   value: number;
 };
 
-const V14_SELECT = "id,title,review_status,enabled,eligible_daily,curation_status,common_year,common_year_coverage,unit,source_url,methodology_url,source_page_url,exact_query_url,download_url,api_url,dataset_release,retrieved_at,license_name,license_url,source_query,derivation_method,derivation_version,input_datasets,official_observation_share,modeled_observation_share,credibility_score,credibility_status,credibility_reason,evidence_label,verifiability_score,verifiability_status,understandability_score,fun_score,objective_status,player_quality_status,player_quality_reason";
+const V14_SELECT = "id,title,review_status,enabled,eligible_daily,curation_status,common_year,common_year_coverage,unit,source_url,methodology_url,source_page_url,exact_query_url,download_url,api_url,dataset_release,retrieved_at,license_name,license_url,source_query,derivation_method,derivation_version,input_datasets,official_observation_share,modeled_observation_share,credibility_score,credibility_status,credibility_reason,evidence_label,verifiability_score,verifiability_status,understandability_score,fun_score,objective_status,player_quality_status,player_quality_reason,validation_status,validation_version,validated_at,validated_observation_count,validation_expected_count";
 const V13_SELECT = "id,title,review_status,enabled,eligible_daily,curation_status,common_year,common_year_coverage,unit,source_url,methodology_url,official_observation_share,modeled_observation_share,credibility_score,credibility_status,credibility_reason,evidence_label";
 const LEGACY_SELECT = "id,title,review_status,enabled,eligible_daily,curation_status,common_year,common_year_coverage,unit,source_url,methodology_url,official_observation_share,modeled_observation_share";
 
@@ -105,8 +110,8 @@ export async function GET(request: NextRequest) {
     || (category?.verifiability_score != null && category.verifiability_score < 80)
     || (category?.understandability_score != null && category.understandability_score < 70)
     || (category?.fun_score != null && category.fun_score < 55);
-  if (!category || category.review_status !== "approved" || !category.enabled || !category.eligible_daily || trustFailed || playerFailed || (category.curation_status && category.curation_status !== "approved")) {
-    return NextResponse.json({ error: "This category has not passed GeoStats quality, provenance, credibility, objectivity, clarity, fun, curation, and duplicate review." }, { status: 404 });
+  if (!category || category.review_status !== "approved" || !category.enabled || !category.eligible_daily || trustFailed || playerFailed || (category.curation_status && category.curation_status !== "approved") || category.validation_status !== "verified") {
+    return NextResponse.json({ error: "This category has not passed GeoStats source-integrity, quality, provenance, credibility, objectivity, clarity, fun, curation, and duplicate review." }, { status: 404 });
   }
   if (!category.common_year) {
     return NextResponse.json({ error: "This category has no verified common comparison year." }, { status: 409 });
@@ -126,6 +131,13 @@ export async function GET(request: NextRequest) {
   );
   if (!observations.length) {
     return NextResponse.json({ error: "No approved common-year observations are available." }, { status: 404 });
+  }
+  const expectedCoverage = Number(category.validation_expected_count ?? category.common_year_coverage ?? 0);
+  if (!expectedCoverage || observations.length !== expectedCoverage || Number(category.validated_observation_count ?? 0) !== expectedCoverage) {
+    return NextResponse.json({
+      error: `The verified global ranking is incomplete (${observations.length} stored; ${expectedCoverage || "unknown"} expected).`,
+      rankingComplete: false,
+    }, { status: 409 });
   }
 
   return NextResponse.json({
@@ -161,6 +173,10 @@ export async function GET(request: NextRequest) {
     objectiveStatus: category.objective_status ?? null,
     playerQualityStatus: category.player_quality_status ?? null,
     playerQualityReason: category.player_quality_reason ?? null,
+    validationStatus: category.validation_status ?? null,
+    validationVersion: category.validation_version ?? null,
+    validatedAt: category.validated_at ?? null,
+    rankingComplete: true,
     observations,
   }, {
     headers: { "Cache-Control": "public, s-maxage=900, stale-while-revalidate=3600" },

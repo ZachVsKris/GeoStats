@@ -2,8 +2,9 @@ import type { Category } from "./categories";
 import { isUnRecognizedCountry } from "./playableCountries";
 import { canonicalCountryName } from "./canonicalCountries";
 import { fetchCategorySourceMetadata } from "./categoryMetadata";
+import { continentForIso3, type Continent } from "./continents";
 
-export type CountryInfo = { id: string; name: string; region: string; flag: string };
+export type CountryInfo = { id: string; name: string; region: string; continent: Continent; flag: string; population?: number };
 export type Observation = { countryId: string; countryName: string; value: number; year: string };
 export type CategoryDataset = {
   category: Category;
@@ -65,8 +66,17 @@ async function fetchJsonWithRetry(url: string, attempts = 3) {
 export async function fetchCountries(): Promise<CountryInfo[]> {
   if (!playableCountriesPromise) {
     playableCountriesPromise = (async () => {
-      const json = await fetchJsonWithRetry("https://api.worldbank.org/v2/country?format=json&per_page=400");
-      const rows = json?.[1] ?? [];
+      const [countryJson, populationResult] = await Promise.all([
+        fetchJsonWithRetry("https://api.worldbank.org/v2/country?format=json&per_page=400"),
+        fetchJsonWithRetry("https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json&per_page=1000&mrnev=1").catch(() => null),
+      ]);
+      const rows = countryJson?.[1] ?? [];
+      const populations = new Map<string, number>();
+      for (const row of populationResult?.[1] ?? []) {
+        const id = String(row.countryiso3code ?? "");
+        const value = Number(row.value);
+        if (id.length === 3 && Number.isFinite(value) && value > 0) populations.set(id, value);
+      }
       return rows
         // World Bank aggregate entities (World, income groups, regions, etc.) use region.id = NA.
         // Keep actual countries and territories only; do not use capitalCity because several valid
@@ -76,7 +86,9 @@ export async function fetchCountries(): Promise<CountryInfo[]> {
           id: row.id,
           name: canonicalCountryName(row.id, row.name),
           region: row.region.value,
-          flag: COUNTRY_OVERRIDES[row.id] ?? flagFromIso2(row.iso2Code)
+          continent: continentForIso3(row.id),
+          flag: COUNTRY_OVERRIDES[row.id] ?? flagFromIso2(row.iso2Code),
+          population: populations.get(row.id),
         }))
         .sort((a: CountryInfo, b: CountryInfo) => a.name.localeCompare(b.name));
     })();

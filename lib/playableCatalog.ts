@@ -51,6 +51,9 @@ export type PlayableCategoryRow = {
   eligible_daily?: boolean | null;
   review_status?: string | null;
   curation_status?: string | null;
+  validation_status?: string | null;
+  validation_version?: string | null;
+  validated_at?: string | null;
 };
 
 const SOURCE_IDS: Record<string, DataSourceId> = {
@@ -151,7 +154,7 @@ export function buildPlayableCategoryCatalog(rows: PlayableCategoryRow[]): Categ
   for (const row of rows) {
     const source = SOURCE_IDS[row.source_organization];
     if (!source) continue;
-    if (row.enabled === false || row.eligible_daily === false || row.review_status === "rejected" || row.curation_status === "excluded") continue;
+    if (row.enabled === false || row.eligible_daily === false || row.review_status === "rejected" || row.curation_status === "excluded" || row.validation_status !== "verified") continue;
     if (row.credibility_status === "quarantined" || Number(row.credibility_score ?? 100) < 75) continue;
     if ((row.objective_status != null && row.objective_status !== "objective") || row.player_quality_status === "blocked") continue;
     if (row.verifiability_score != null && Number(row.verifiability_score) < 80) continue;
@@ -180,6 +183,7 @@ export function buildPlayableCategoryCatalog(rows: PlayableCategoryRow[]): Categ
       certified: true,
       certificationGrade: Number(row.quality_score ?? 0) >= 85 ? "A" : "B",
       coverageFloor: coverageFloor(row, existing),
+      globalCoverage: Number(row.common_year_coverage ?? existing?.globalCoverage ?? 0) || existing?.globalCoverage,
       enabled: true,
       minimumYear: Math.max(2022, Number(row.minimum_year ?? existing?.minimumYear ?? 2022)),
       requireCommonYear: true,
@@ -228,7 +232,7 @@ export function buildPlayableCategoryCatalog(rows: PlayableCategoryRow[]): Categ
 let browserCatalogPromise: Promise<Category[]> | null = null;
 
 export function fetchPlayableCategoryCatalog(options: { refresh?: boolean } = {}) {
-  if (typeof window === "undefined") return Promise.resolve(CATEGORIES.filter((category) => category.enabled !== false));
+  if (typeof window === "undefined") return Promise.reject(new Error("The verified category catalog must be loaded by the server."));
   if (!browserCatalogPromise || options.refresh) {
     browserCatalogPromise = fetch("/api/playable-categories", { cache: options.refresh ? "no-store" : "default" })
       .then(async (response) => {
@@ -236,7 +240,10 @@ export function fetchPlayableCategoryCatalog(options: { refresh?: boolean } = {}
         if (!response.ok || !payload.categories?.length) throw new Error(payload.error || "The trusted category catalog could not be loaded.");
         return payload.categories;
       })
-      .catch(() => CATEGORIES.filter((category) => category.enabled !== false));
+      .catch((error) => {
+        browserCatalogPromise = null;
+        throw error;
+      });
   }
   return browserCatalogPromise;
 }

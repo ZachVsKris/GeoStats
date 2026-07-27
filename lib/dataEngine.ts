@@ -2,7 +2,7 @@ import type { Category } from "./categories";
 import type { CategoryDataset, CountryInfo, Observation } from "./worldBank";
 import { MAX_YEAR_SPREAD } from "./version";
 import { categoryMethodologyUrl, categorySourceUrl } from "./sourceRegistry";
-import { ROUND_CONFIGS, configForDimensions, pointsForBankSize } from "./gameRules";
+import { ROUND_CONFIGS, configForDimensions, pointsForBankSize, roundHasCountryDiversity, roundHasRequiredDiversity, strongestGlobalWinnerRank } from "./gameRules";
 
 export type RankedObservation = Observation & { globalRank: number };
 
@@ -77,6 +77,7 @@ export function canonicalizeDataset(dataset: CategoryDataset): CanonicalDataset 
 
   return {
     ...dataset,
+    category: { ...dataset.category, globalCoverage: ranked.length },
     ranked,
     byCountry: new Map(ranked.map((row) => [row.countryId, row])),
     sourceUrl: dataset.sourceUrl ?? dataset.category.sourceUrl ?? sourceUrl(dataset.category.indicator, dataset.category.source),
@@ -157,9 +158,21 @@ export function validateRound(categories: CanonicalDataset[], bank: CountryInfo[
   if (new Set(winners).size !== categories.length) {
     errors.push(`The ${categories.length} categories do not have ${categories.length} distinct pool winners.`);
   }
+  if (config && !roundHasRequiredDiversity(categories.map((dataset) => dataset.category), config)) {
+    errors.push("The board does not satisfy the category source and variety rules.");
+  }
+  if (config && !roundHasCountryDiversity(bank, config)) {
+    errors.push(`The board has more than ${config.maxCountriesPerContinent} countries from one continent.`);
+  }
 
   for (const dataset of categories) {
     const leaderboard = poolLeaderboard(dataset, bank);
+    const winner = leaderboard[0];
+    const globalCoverage = dataset.category.globalCoverage ?? Math.max(dataset.category.coverageFloor, ...dataset.ranked.map((row) => row.globalRank));
+    const winnerLimit = strongestGlobalWinnerRank(globalCoverage);
+    if (winner && winner.observation.globalRank > winnerLimit) {
+      errors.push(`${dataset.category.name} has a board winner ranked #${winner.observation.globalRank} globally; #${winnerLimit} or better is required.`);
+    }
     if (leaderboard.length !== bank.length) {
       errors.push(`${dataset.category.name} is missing data for ${bank.length - leaderboard.length} pool countries.`);
     }

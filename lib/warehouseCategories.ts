@@ -31,6 +31,10 @@ type WarehousePayload = {
   objectiveStatus?: string | null;
   playerQualityStatus?: string | null;
   playerQualityReason?: string | null;
+  validationStatus?: string | null;
+  validationVersion?: string | null;
+  validatedAt?: string | null;
+  rankingComplete?: boolean;
   observations?: Array<{
     country_iso3: string;
     country_name: string;
@@ -61,6 +65,13 @@ export async function fetchWarehouseCategory(category: Category): Promise<Catego
     }))
     .filter((row) => /^[A-Z]{3}$/.test(row.countryId) && Number.isFinite(row.value) && /^\d{4}$/.test(row.year));
 
+  const expectedCoverage = Number(payload.commonYearCoverage ?? 0);
+  if (payload.validationStatus !== "verified") {
+    throw new Error(`${category.shortName} has not passed source-integrity validation.`);
+  }
+  if (!payload.rankingComplete || !expectedCoverage || observations.length !== expectedCoverage) {
+    throw new Error(`${category.shortName} global ranking is incomplete (${observations.length} loaded; ${expectedCoverage || "unknown"} expected).`);
+  }
   if (observations.length < category.coverageFloor) {
     throw new Error(`${category.shortName} has only ${observations.length} approved common-year countries; ${category.coverageFloor} are required.`);
   }
@@ -92,6 +103,7 @@ export async function fetchWarehouseCategory(category: Category): Promise<Catego
     objectiveStatus: (payload.objectiveStatus as Category["objectiveStatus"]) ?? category.objectiveStatus,
     playerQualityStatus: (payload.playerQualityStatus as Category["playerQualityStatus"]) ?? category.playerQualityStatus,
     playerQualityReason: payload.playerQualityReason ?? category.playerQualityReason,
+    globalCoverage: expectedCoverage,
   };
   return {
     category: enrichedCategory,

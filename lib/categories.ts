@@ -32,6 +32,7 @@ export type Category = {
   certified: true;
   certificationGrade: CertificationGrade;
   coverageFloor: number;
+  globalCoverage?: number;
   enabled?: boolean;
   // Optional editorial metadata used by the round composer. Existing categories
   // fall back to their family and indicator when these are omitted.

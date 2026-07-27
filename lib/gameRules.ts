@@ -15,6 +15,8 @@ export type RoundConfig = {
   minRoundTypes: number;
   maxSameSource: number;
   maxAgricultureCategories: number;
+  maxFaostatCategories: number;
+  maxCountriesPerContinent: number;
   pointsByRank: readonly number[];
 };
 
@@ -34,6 +36,8 @@ export const ROUND_CONFIGS: Record<DailyDifficulty, RoundConfig> = {
     minRoundTypes: 3,
     maxSameSource: 2,
     maxAgricultureCategories: 1,
+    maxFaostatCategories: 1,
+    maxCountriesPerContinent: 2,
     pointsByRank: [100, 75, 50, 25, 0],
   },
   normal: {
@@ -49,6 +53,8 @@ export const ROUND_CONFIGS: Record<DailyDifficulty, RoundConfig> = {
     minRoundTypes: 4,
     maxSameSource: 2,
     maxAgricultureCategories: 2,
+    maxFaostatCategories: 2,
+    maxCountriesPerContinent: 3,
     pointsByRank: [100, 85, 70, 55, 40, 25, 10, 0],
   },
   expert: {
@@ -64,6 +70,8 @@ export const ROUND_CONFIGS: Record<DailyDifficulty, RoundConfig> = {
     minRoundTypes: 5,
     maxSameSource: 3,
     maxAgricultureCategories: 2,
+    maxFaostatCategories: 2,
+    maxCountriesPerContinent: 3,
     pointsByRank: [100, 90, 80, 70, 60, 50, 40, 30, 20, 10],
   },
 };
@@ -197,6 +205,7 @@ export function canAddCategory(selected: Category[], category: Category, config:
   const group = similarityGroup(category);
   if (selected.some((item) => similarityGroup(item) === group)) return false;
   if (selected.filter((item) => item.source === category.source).length >= config.maxSameSource) return false;
+  if (category.source === "faostat" && selected.filter((item) => item.source === "faostat").length >= config.maxFaostatCategories) return false;
   if (isAgricultureCategory(category) && selected.filter(isAgricultureCategory).length >= config.maxAgricultureCategories) return false;
   if (isGeneralTradeCategory(category) && selected.filter(isGeneralTradeCategory).length >= MAX_GENERAL_TRADE) return false;
   if (isTradeCategory(category) && selected.filter(isTradeCategory).length >= MAX_TOTAL_TRADE) return false;
@@ -210,6 +219,7 @@ export function roundHasRequiredDiversity(categories: Category[], config: RoundC
   if (types.size < config.minRoundTypes) return false;
   if (categories.filter(isGeneralTradeCategory).length > MAX_GENERAL_TRADE) return false;
   if (categories.filter(isTradeCategory).length > MAX_TOTAL_TRADE) return false;
+  if (categories.filter((category) => category.source === "faostat").length > config.maxFaostatCategories) return false;
   if (categories.filter(isAgricultureCategory).length > config.maxAgricultureCategories) return false;
   for (const source of new Set(categories.map((category) => category.source))) {
     if (categories.filter((category) => category.source === source).length > config.maxSameSource) return false;
@@ -219,6 +229,20 @@ export function roundHasRequiredDiversity(categories: Category[], config: RoundC
     if (!canAddCategory(categories.slice(0, index), categories[index], config)) return false;
   }
   return true;
+}
+
+export function roundHasCountryDiversity(countries: Array<{ continent: string }>, config: RoundConfig) {
+  const counts = new Map<string, number>();
+  for (const country of countries) {
+    const next = (counts.get(country.continent) ?? 0) + 1;
+    if (next > config.maxCountriesPerContinent) return false;
+    counts.set(country.continent, next);
+  }
+  return true;
+}
+
+export function strongestGlobalWinnerRank(coverage: number) {
+  return Math.min(50, Math.ceil(Math.max(1, coverage) / 2));
 }
 
 export function configForDimensions(categoryCount: number, countryCount: number): RoundConfig | null {

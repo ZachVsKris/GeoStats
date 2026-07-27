@@ -1,13 +1,13 @@
-import { CATEGORIES, type Category } from "./categories";
 import { canonicalizeDataset, poolLeaderboard, validateRound } from "./dataEngine";
 import { fetchCategory } from "./dataSources";
 import { scoreCategoryQuality } from "./categoryQuality";
 import type { Round, RoundCategory } from "./challengeCodec";
 import type { CountryInfo } from "./worldBank";
-import { DAILY_DIFFICULTIES, ROUND_CONFIGS, canAddCategory, measureKind, roundHasRequiredDiversity, roundType, type DailyDifficulty, type RoundConfig } from "./gameRules";
+import { DAILY_DIFFICULTIES, ROUND_CONFIGS, canAddCategory, measureKind, roundHasCountryDiversity, roundHasRequiredDiversity, roundType, strongestGlobalWinnerRank, type DailyDifficulty, type RoundConfig } from "./gameRules";
+import { loadServerPlayableCategoryCatalog } from "./serverPlayableCatalog";
 
 export type DailyTrio = Record<DailyDifficulty, Round>;
-export type ScoreBreakdown = { overall:number; quality:number; variety:number; geography:number; difficultyFit:number; competitiveness:number };
+export type ScoreBreakdown = { overall:number; quality:number; variety:number; geography:number; difficultyFit:number; competitiveness:number; familiarity:number };
 export type GenerationDiagnostics = { eligibleDatasets:number; requiredDatasets:number; attempts:number; validCandidates:Record<DailyDifficulty,number>; failureStage?:string; message?:string };
 type Rng=()=>number;
 function hashSeed(seed:string){let hash=2166136261;for(let i=0;i<seed.length;i++){hash^=seed.charCodeAt(i);hash=Math.imul(hash,16777619);}return hash>>>0;}
@@ -17,7 +17,7 @@ function observationValue(category:RoundCategory,countryId:string){return catego
 function isBetter(category:RoundCategory,a:number,b:number){return category.category.direction==="high"?a>b:a<b;}
 
 async function loadCandidateDatasets(seed:string,targetCount=52):Promise<RoundCategory[]>{
- const rng=seededRandom(`${seed}:datasets`); const shuffled=shuffle(CATEGORIES.filter(c=>c.enabled!==false),rng); const loaded:RoundCategory[]=[]; const ids=new Set<string>(); const typeCounts=new Map<string,number>();
+ const rng=seededRandom(`${seed}:datasets`); const catalog=await loadServerPlayableCategoryCatalog(); const shuffled=shuffle(catalog.filter(c=>c.enabled!==false),rng); const loaded:RoundCategory[]=[]; const ids=new Set<string>(); const typeCounts=new Map<string,number>();
  for(let offset=0;offset<shuffled.length&&loaded.length<targetCount;offset+=10){
   const batch=shuffled.slice(offset,offset+10).filter(c=>!ids.has(c.id));
   const results=await Promise.allSettled(batch.map(async c=>canonicalizeDataset(await fetchCategory(c))));
@@ -36,28 +36,29 @@ function chooseDiverseCategories(available:RoundCategory[],rng:Rng,config:RoundC
  return roundHasRequiredDiversity(selected.map(d=>d.category),config)?selected:null;
 }
 function findDistinctWinners(categories:RoundCategory[],countries:CountryInfo[],rng:Rng,config:RoundConfig,overlapBanks:Set<string>[]=[],maxOverlap=Infinity){
- const countryIds=new Set(countries.map(c=>c.id)); const complete=countries.filter(c=>categories.every(cat=>observationValue(cat,c.id)!==undefined)); const completeIds=new Set(complete.map(c=>c.id));
- const candidates=categories.map(cat=>shuffle(cat.ranked.slice(0,120).map(r=>r.countryId).filter(id=>countryIds.has(id)&&completeIds.has(id)),rng)); if(candidates.some(x=>!x.length))return null;
- const order=categories.map((_,i)=>i).sort((a,b)=>candidates[a].length-candidates[b].length); const winners=new Array<string>(categories.length); const used=new Set<string>(); let steps=0;
+ const countryIds=new Set(countries.map(c=>c.id)); const byId=new Map(countries.map(c=>[c.id,c])); const complete=countries.filter(c=>categories.every(cat=>observationValue(cat,c.id)!==undefined)); const completeIds=new Set(complete.map(c=>c.id));
+ const candidates=categories.map(cat=>{const limit=strongestGlobalWinnerRank(cat.category.globalCoverage??cat.ranked.length);return shuffle(cat.ranked.filter(r=>r.globalRank<=limit).map(r=>r.countryId).filter(id=>countryIds.has(id)&&completeIds.has(id)),rng);}); if(candidates.some(x=>!x.length))return null;
+ const order=categories.map((_,i)=>i).sort((a,b)=>candidates[a].length-candidates[b].length); const winners=new Array<string>(categories.length); const used=new Set<string>(); const continentCounts=new Map<string,number>(); let steps=0;
  const overlapCount=(bank:Set<string>)=>[...used].filter(id=>bank.has(id)).length;
- function search(depth:number):boolean{if(++steps>260000)return false;if(depth===order.length)return true;const ci=order[depth],cat=categories[ci];for(const id of candidates[ci].slice(0,100)){if(used.has(id))continue;if(overlapBanks.some(b=>b.has(id)&&overlapCount(b)>=maxOverlap))continue;const own=observationValue(cat,id);if(own===undefined)continue;let ok=true;for(let p=0;p<depth;p++){const pi=order[p],pc=categories[pi],pid=winners[pi];const pOwn=observationValue(pc,pid),candPrev=observationValue(pc,id),prevCur=observationValue(cat,pid);if(pOwn===undefined||candPrev===undefined||prevCur===undefined||!isBetter(pc,pOwn,candPrev)||!isBetter(cat,own,prevCur)){ok=false;break;}}if(!ok)continue;winners[ci]=id;used.add(id);if(search(depth+1))return true;used.delete(id);winners[ci]="";}return false;}
+ function search(depth:number):boolean{if(++steps>260000)return false;if(depth===order.length)return true;const ci=order[depth],cat=categories[ci];for(const id of candidates[ci].slice(0,100)){if(used.has(id))continue;if(overlapBanks.some(b=>b.has(id)&&overlapCount(b)>=maxOverlap))continue;const country=byId.get(id);if(!country)continue;const continent=country.continent;if((continentCounts.get(continent)??0)>=config.maxCountriesPerContinent)continue;const own=observationValue(cat,id);if(own===undefined)continue;let ok=true;for(let p=0;p<depth;p++){const pi=order[p],pc=categories[pi],pid=winners[pi];const pOwn=observationValue(pc,pid),candPrev=observationValue(pc,id),prevCur=observationValue(cat,pid);if(pOwn===undefined||candPrev===undefined||prevCur===undefined||!isBetter(pc,pOwn,candPrev)||!isBetter(cat,own,prevCur)){ok=false;break;}}if(!ok)continue;winners[ci]=id;used.add(id);continentCounts.set(continent,(continentCounts.get(continent)??0)+1);if(search(depth+1))return true;used.delete(id);continentCounts.set(continent,(continentCounts.get(continent)??1)-1);winners[ci]="";}return false;}
  if(!search(0))return null;
  const decoys=shuffle(complete,rng).filter(c=>!used.has(c.id)&&categories.every((cat,i)=>{const w=observationValue(cat,winners[i]),v=observationValue(cat,c.id);return w!==undefined&&v!==undefined&&isBetter(cat,w,v);})).sort((a,b)=>overlapBanks.filter(x=>x.has(a.id)).length-overlapBanks.filter(x=>x.has(b.id)).length);
- const picked:string[]=[];const totals=overlapBanks.map(b=>overlapCount(b));for(const c of decoys){if(overlapBanks.some((b,i)=>b.has(c.id)&&totals[i]>=maxOverlap))continue;picked.push(c.id);overlapBanks.forEach((b,i)=>{if(b.has(c.id))totals[i]++;});if(picked.length===config.decoyCount)break;}return picked.length===config.decoyCount?{winners,decoys:picked}:null;
+ const picked:string[]=[];const totals=overlapBanks.map(b=>overlapCount(b));for(const c of decoys){if(overlapBanks.some((b,i)=>b.has(c.id)&&totals[i]>=maxOverlap))continue;if((continentCounts.get(c.continent)??0)>=config.maxCountriesPerContinent)continue;picked.push(c.id);continentCounts.set(c.continent,(continentCounts.get(c.continent)??0)+1);overlapBanks.forEach((b,i)=>{if(b.has(c.id))totals[i]++;});if(picked.length===config.decoyCount)break;}return picked.length===config.decoyCount?{winners,decoys:picked}:null;
 }
 export function scoreBoard(round:Round,config:RoundConfig):ScoreBreakdown{
  const qualities=round.categories.map(d=>scoreCategoryQuality(d).score);const quality=qualities.reduce((a,b)=>a+b,0)/Math.max(1,qualities.length);
  const familyCount=new Set(round.categories.map(d=>roundType(d.category))).size;const measureCount=new Set(round.categories.map(d=>measureKind(d.category))).size;const variety=Math.min(100,(familyCount/config.minRoundTypes)*65+(measureCount/Math.min(config.categoryCount,4))*35);
- const regions=new Set(round.bank.map(c=>c.region)).size;const geography=Math.min(100,regions*18);
+ const continents=new Set(round.bank.map(c=>c.continent)).size;const geography=Math.min(100,continents*19);
+ const populationSignals=round.bank.map(c=>c.population).filter((value):value is number=>typeof value==="number"&&value>0).map(value=>Math.max(0,Math.min(100,(Math.log10(value)-5.5)/3*100)));const familiarity=populationSignals.length?populationSignals.reduce((a,b)=>a+b,0)/populationSignals.length:50;
  const ranks:number[]=[];const gaps:number[]=[];for(const d of round.categories){const lb=poolLeaderboard(d,round.bank);if(!lb.length)continue;ranks.push(lb[0].observation.globalRank);if(lb.length>1){const a=lb[0].observation.value,b=lb[1].observation.value;gaps.push(Math.abs(a-b)/(Math.abs(a)+Math.abs(b)+1e-9));}}
- const avgRank=ranks.reduce((a,b)=>a+b,0)/Math.max(1,ranks.length);const avgGap=gaps.reduce((a,b)=>a+b,0)/Math.max(1,gaps.length);const rankTarget=config.difficulty==="easy"?14:config.difficulty==="normal"?34:58;const gapTarget=config.difficulty==="easy"?.30:config.difficulty==="normal"?.15:.07;
- const difficultyFit=Math.max(0,100-Math.abs(avgRank-rankTarget)*1.4);const competitiveness=Math.max(0,100-Math.abs(avgGap-gapTarget)*260);
- const overall=.30*quality+.20*variety+.15*geography+.20*difficultyFit+.15*competitiveness;
- return {overall:Number(overall.toFixed(1)),quality:Number(quality.toFixed(1)),variety:Number(variety.toFixed(1)),geography:Number(geography.toFixed(1)),difficultyFit:Number(difficultyFit.toFixed(1)),competitiveness:Number(competitiveness.toFixed(1))};
+ const avgRank=ranks.reduce((a,b)=>a+b,0)/Math.max(1,ranks.length);const avgGap=gaps.reduce((a,b)=>a+b,0)/Math.max(1,gaps.length);const rankTarget=config.difficulty==="easy"?10:config.difficulty==="normal"?24:38;const gapTarget=config.difficulty==="easy"?.30:config.difficulty==="normal"?.15:.07;
+ const difficultyFit=Math.max(0,100-Math.abs(avgRank-rankTarget)*1.8);const competitiveness=Math.max(0,100-Math.abs(avgGap-gapTarget)*260);
+ const overall=.28*quality+.19*variety+.15*geography+.19*difficultyFit+.14*competitiveness+.05*familiarity;
+ return {overall:Number(overall.toFixed(1)),quality:Number(quality.toFixed(1)),variety:Number(variety.toFixed(1)),geography:Number(geography.toFixed(1)),difficultyFit:Number(difficultyFit.toFixed(1)),competitiveness:Number(competitiveness.toFixed(1)),familiarity:Number(familiarity.toFixed(1))};
 }
 function composeRound(available:RoundCategory[],countries:CountryInfo[],seed:string,config:RoundConfig,forbidden=new Set<string>(),overlap:Set<string>[]=[],maxOverlap=Infinity){
  const rng=seededRandom(seed);const attempted=new Set<string>();let best:Round|null=null,bestScore=-Infinity,valid=0;
- for(let attempt=0;attempt<650;attempt++){const cats=chooseDiverseCategories(available,rng,config,forbidden);if(!cats)continue;const sig=cats.map(d=>d.category.id).sort().join("|");if(attempted.has(sig))continue;attempted.add(sig);const solution=findDistinctWinners(cats,countries,rng,config,overlap,maxOverlap);if(!solution)continue;const byId=new Map(countries.map(c=>[c.id,c]));const bank=shuffle([...solution.winners,...solution.decoys].map(id=>byId.get(id)!).filter(Boolean),rng);if(bank.length!==config.countryCount||validateRound(cats,bank).length)continue;const round={bank,categories:cats};const score=scoreBoard(round,config).overall;valid++;if(score>bestScore){bestScore=score;best=round;}if(valid>=60)break;}
+ for(let attempt=0;attempt<650;attempt++){const cats=chooseDiverseCategories(available,rng,config,forbidden);if(!cats)continue;const sig=cats.map(d=>d.category.id).sort().join("|");if(attempted.has(sig))continue;attempted.add(sig);const solution=findDistinctWinners(cats,countries,rng,config,overlap,maxOverlap);if(!solution)continue;const byId=new Map(countries.map(c=>[c.id,c]));const bank=shuffle([...solution.winners,...solution.decoys].map(id=>byId.get(id)!).filter(Boolean),rng);if(bank.length!==config.countryCount||!roundHasCountryDiversity(bank,config)||validateRound(cats,bank).length)continue;const round={bank,categories:cats};const score=scoreBoard(round,config).overall;valid++;if(score>bestScore){bestScore=score;best=round;}if(valid>=60)break;}
  return {round:best,validCandidates:valid};
 }
 export async function generateDailyTrio(countries:CountryInfo[],date:string,fixed:Partial<DailyTrio>={}):Promise<{trio:DailyTrio;diagnostics:GenerationDiagnostics;scores:Record<DailyDifficulty,ScoreBreakdown>}>{

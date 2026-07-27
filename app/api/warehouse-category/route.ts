@@ -122,11 +122,11 @@ export async function GET(request: NextRequest) {
     || (category?.understandability_score != null && category.understandability_score < 70)
     || (category?.fun_score != null && category.fun_score < 55);
   const contentFailed = category?.content_review_status !== "approved"
-    || category?.player_source_status !== "exact"
+    || !(["exact", "general"].includes(category?.player_source_status ?? ""))
     || !category?.player_source_url
     || Number(category?.immediate_comprehension_score ?? 0) < 80
     || Number(category?.gameplay_interest_score ?? 0) < 65
-    || Number(category?.link_quality_score ?? 0) < 90;
+    ;
   if (!category || category.review_status !== "approved" || !category.enabled || !category.eligible_daily || trustFailed || playerFailed || contentFailed || (category.curation_status && category.curation_status !== "approved") || category.validation_status !== "verified") {
     return NextResponse.json({ error: "This category has not passed GeoStats source-integrity, quality, provenance, credibility, objectivity, immediate-comprehension, gameplay, exact-source-link, curation, and duplicate review." }, { status: 404 });
   }

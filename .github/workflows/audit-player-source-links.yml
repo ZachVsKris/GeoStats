@@ -1,0 +1,31 @@
+name: Audit player source links
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 8 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Audit human-readable official source links
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: python scripts/audit-player-source-links.py
+      - name: Upload link audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: player-source-link-audit
+          path: artifacts/player-source-links
+          if-no-files-found: warn

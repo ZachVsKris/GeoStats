@@ -220,7 +220,7 @@ export async function POST(request: Request) {
           : "New categories require explicit category-by-category comprehension and gameplay review.",
         content_review_version: existing?.content_review_status === "approved" || existing?.content_review_status === "excluded"
           ? existing.content_review_version
-          : "geostats-v14.3.1-content-review-v1",
+          : "geostats-v14.4-content-review-v1",
         immediate_comprehension_score: existing?.immediate_comprehension_score ?? category.understandabilityScore ?? 85,
         gameplay_interest_score: existing?.gameplay_interest_score ?? category.funScore ?? 75,
         uniqueness_score: existing?.uniqueness_score ?? 80,
@@ -233,7 +233,7 @@ export async function POST(request: Request) {
         unit_explanation: category.unit,
         auto_decision_reason: manuallyRejected
           ? "Remains disabled because an administrator manually rejected this category."
-          : `${governance.autoDecisionReason} Imported as a single official common-year snapshot and held pending the v14.3 official-source audit.`,
+          : `${governance.autoDecisionReason} Imported as a single official common-year snapshot and held pending the v14.4 official-source audit.`,
         validation_status: manuallyRejected ? "failed" : "pending",
         validation_version: null,
         validated_at: null,
@@ -253,7 +253,7 @@ export async function POST(request: Request) {
           official_unit: snapshot.officialUnit,
           source_query: snapshot.sourceQuery,
           importSnapshotPolicy: "single-common-year",
-          importFramework: "v14.3.1",
+          importFramework: "v14.4",
           playerSourceUrl: `https://data.worldbank.org/indicator/${category.indicator}`,
           playerSourceStatus: "exact",
           contentReviewStatus: existing?.content_review_status === "approved" || existing?.content_review_status === "excluded" ? existing.content_review_status : "pending",

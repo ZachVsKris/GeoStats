@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createSupabaseAdminClient } from "../../../lib/supabase/server";
+import { evaluateCategoryPlayability } from "../../../lib/categoryPlayability";
+import type { DataSourceId } from "../../../lib/categories";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -18,9 +20,24 @@ const SOURCE_ORGANIZATIONS: Record<string, string> = {
   unhcr: "UNHCR",
 };
 
+const SOURCE_IDS: Record<string, DataSourceId> = {
+  "World Bank": "worldbank",
+  FAOSTAT: "faostat",
+  WHO: "who",
+  "UNESCO UIS": "unesco",
+  ILOSTAT: "ilostat",
+  "Natural Earth": "naturalearth",
+  "UN Comtrade": "comtrade",
+  "U.S. EIA": "eia",
+  UNHCR: "unhcr",
+};
+
 type CategoryRow = {
   id: string;
   title: string;
+  source_organization: string;
+  source_indicator_code: string;
+  quality_score?: number | null;
   review_status: string;
   enabled: boolean;
   eligible_daily: boolean;
@@ -80,9 +97,9 @@ type ObservationRow = {
   value: number;
 };
 
-const V14_SELECT = "id,title,review_status,enabled,eligible_daily,curation_status,common_year,common_year_coverage,unit,source_url,methodology_url,source_page_url,player_source_url,player_source_status,player_source_reason,player_source_checked_at,content_review_status,content_review_reason,content_review_version,immediate_comprehension_score,gameplay_interest_score,uniqueness_score,link_quality_score,exact_query_url,download_url,api_url,dataset_release,retrieved_at,license_name,license_url,source_query,derivation_method,derivation_version,input_datasets,official_observation_share,modeled_observation_share,credibility_score,credibility_status,credibility_reason,evidence_label,verifiability_score,verifiability_status,understandability_score,fun_score,objective_status,player_quality_status,player_quality_reason,validation_status,validation_version,validated_at,validated_observation_count,validation_expected_count";
-const V13_SELECT = "id,title,review_status,enabled,eligible_daily,curation_status,common_year,common_year_coverage,unit,source_url,methodology_url,official_observation_share,modeled_observation_share,credibility_score,credibility_status,credibility_reason,evidence_label";
-const LEGACY_SELECT = "id,title,review_status,enabled,eligible_daily,curation_status,common_year,common_year_coverage,unit,source_url,methodology_url,official_observation_share,modeled_observation_share";
+const V14_SELECT = "id,title,source_organization,source_indicator_code,quality_score,review_status,enabled,eligible_daily,curation_status,common_year,common_year_coverage,unit,source_url,methodology_url,source_page_url,player_source_url,player_source_status,player_source_reason,player_source_checked_at,content_review_status,content_review_reason,content_review_version,immediate_comprehension_score,gameplay_interest_score,uniqueness_score,link_quality_score,exact_query_url,download_url,api_url,dataset_release,retrieved_at,license_name,license_url,source_query,derivation_method,derivation_version,input_datasets,official_observation_share,modeled_observation_share,credibility_score,credibility_status,credibility_reason,evidence_label,verifiability_score,verifiability_status,understandability_score,fun_score,objective_status,player_quality_status,player_quality_reason,validation_status,validation_version,validated_at,validated_observation_count,validation_expected_count";
+const V13_SELECT = "id,title,source_organization,source_indicator_code,quality_score,review_status,enabled,eligible_daily,curation_status,common_year,common_year_coverage,unit,source_url,methodology_url,official_observation_share,modeled_observation_share,credibility_score,credibility_status,credibility_reason,evidence_label";
+const LEGACY_SELECT = "id,title,source_organization,source_indicator_code,quality_score,review_status,enabled,eligible_daily,curation_status,common_year,common_year_coverage,unit,source_url,methodology_url,official_observation_share,modeled_observation_share";
 
 export async function GET(request: NextRequest) {
   const categoryId = request.nextUrl.searchParams.get("category") ?? "";
@@ -116,19 +133,40 @@ export async function GET(request: NextRequest) {
   if (categoryResult.error) return NextResponse.json({ error: categoryResult.error.message }, { status: 500 });
 
   const category = categoryResult.data as CategoryRow | null;
-  const trustFailed = category?.credibility_status === "quarantined" || (category?.credibility_score != null && category.credibility_score < 75);
-  const playerFailed = (category?.objective_status != null && category.objective_status !== "objective") || category?.player_quality_status === "blocked"
-    || (category?.verifiability_score != null && category.verifiability_score < 80)
-    || (category?.understandability_score != null && category.understandability_score < 70)
-    || (category?.fun_score != null && category.fun_score < 55);
-  const contentFailed = category?.content_review_status !== "approved"
-    || !(["exact", "general"].includes(category?.player_source_status ?? ""))
-    || !category?.player_source_url
-    || Number(category?.immediate_comprehension_score ?? 0) < 80
-    || Number(category?.gameplay_interest_score ?? 0) < 65
-    ;
-  if (!category || category.review_status !== "approved" || !category.enabled || !category.eligible_daily || trustFailed || playerFailed || contentFailed || (category.curation_status && category.curation_status !== "approved") || category.validation_status !== "verified") {
-    return NextResponse.json({ error: "This category has not passed GeoStats source-integrity, quality, provenance, credibility, objectivity, immediate-comprehension, gameplay, exact-source-link, curation, and duplicate review." }, { status: 404 });
+  if (!category) return NextResponse.json({ error: "Category not found." }, { status: 404 });
+  const sourceId = SOURCE_IDS[category.source_organization];
+  const playability = evaluateCategoryPlayability({
+    id: category.id,
+    source: sourceId,
+    indicator: category.source_indicator_code,
+    sourceUrl: category.source_url,
+    methodologyUrl: category.methodology_url,
+    sourcePageUrl: category.source_page_url,
+    playerSourceUrl: category.player_source_url,
+    playerSourceStatus: category.player_source_status,
+    reviewStatus: category.review_status,
+    curationStatus: category.curation_status,
+    validationStatus: category.validation_status,
+    contentReviewStatus: category.content_review_status,
+    qualityScore: category.quality_score,
+    credibilityStatus: category.credibility_status,
+    credibilityScore: category.credibility_score,
+    objectiveStatus: category.objective_status,
+    playerQualityStatus: category.player_quality_status,
+    verifiabilityScore: category.verifiability_score,
+    understandabilityScore: category.understandability_score,
+    funScore: category.fun_score,
+    immediateComprehensionScore: category.immediate_comprehension_score,
+    gameplayInterestScore: category.gameplay_interest_score,
+    enabled: category.enabled,
+    eligibleDaily: category.eligible_daily,
+  });
+  if (!playability.playable) {
+    return NextResponse.json({
+      error: "This category is not currently playable.",
+      blockers: playability.blockers,
+      warnings: playability.warnings,
+    }, { status: 404 });
   }
   if (!category.common_year) {
     return NextResponse.json({ error: "This category has no verified common comparison year." }, { status: 409 });
@@ -166,8 +204,8 @@ export async function GET(request: NextRequest) {
     sourceUrl: category.source_url ?? null,
     methodologyUrl: category.methodology_url ?? null,
     sourcePageUrl: category.source_page_url ?? null,
-    playerSourceUrl: category.player_source_url ?? null,
-    playerSourceStatus: category.player_source_status ?? null,
+    playerSourceUrl: playability.playerSourceUrl,
+    playerSourceStatus: playability.playerSourceStatus,
     playerSourceReason: category.player_source_reason ?? null,
     playerSourceCheckedAt: category.player_source_checked_at ?? null,
     contentReviewStatus: category.content_review_status ?? null,

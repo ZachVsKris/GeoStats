@@ -33,19 +33,23 @@ export default async function AuditPage(){
     <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(280px,1fr))",gap:14}}>
       {categories.map((category)=>{
         const indicator=category.warehouseSourceIndicatorCode ?? category.indicator;
-        const exactSource=resolvePlayerSourceUrl({
+        const playerSource=resolvePlayerSourceUrl({
           source: category.source,
           indicator,
           playerSourceUrl: category.playerSourceUrl,
           playerSourceStatus: category.playerSourceStatus,
+          sourcePageUrl: category.sourcePageUrl,
+          sourceUrl: category.sourceUrl,
+          methodologyUrl: category.methodologyUrl,
         });
+        const exactSource = category.source === "worldbank" || category.playerSourceStatus === "exact";
         return <article key={category.id} style={{border:`1px solid ${category.trustStatus==="quarantined"?"#8b554d":"#294a3d"}`,borderRadius:14,padding:16,background:"#0c211a",opacity:category.enabled===false?.7:1}}>
           <h2 style={{fontSize:18}}>{category.icon} {category.name}</h2>
           <p>{category.description}</p>
           <p><strong>{SOURCE_REGISTRY[category.source].name}</strong><br/>Credibility: {category.credibilityScore ?? "reviewed"}/100 · {category.trustStatus ?? "approved"}<br/>Evidence: {category.evidenceLabel ?? "Internationally harmonized"}</p>
           <p>{category.trustReason ?? "Passed the GeoStats credibility and provenance review."}</p>
           <code style={{display:"inline-block",marginTop:10}}>{indicator}</code>
-          {exactSource ? <div><a href={exactSource} target="_blank" rel="noreferrer" style={{color:"#b9f45a"}}>View exact official data ↗</a></div> : <p><strong>Exact external data page:</strong> unavailable. The category remains blocked from Daily boards.</p>}
+          {playerSource ? <div><a href={playerSource} target="_blank" rel="noreferrer" style={{color:"#b9f45a"}}>{exactSource ? "View exact official data ↗" : "Open official data source ↗"}</a></div> : <p><strong>Official external source page:</strong> unavailable. The category remains blocked from Daily boards.</p>}
         </article>;
       })}
     </div>

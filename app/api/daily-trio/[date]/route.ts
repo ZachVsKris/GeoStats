@@ -1,20 +1,31 @@
 import { createHash } from "crypto";
 import { NextResponse } from "next/server";
 import { createSupabaseAdminClient } from "../../../../lib/supabase/server";
-import { decodeRound, type Round } from "../../../../lib/challengeCodec";
+import { decodeRound, encodeRound, type Round } from "../../../../lib/challengeCodec";
 import { fetchCountries, type CountryInfo } from "../../../../lib/worldBank";
-import { DAILY_DIFFICULTIES, ROUND_CONFIGS, type DailyDifficulty } from "../../../../lib/gameRules";
+import { DAILY_DIFFICULTIES, type DailyDifficulty } from "../../../../lib/gameRules";
 import { CATEGORY_SET_VERSION, DATASET_VERSION, RULES_VERSION } from "../../../../lib/version";
 import { loadServerPlayableCategoryCatalog } from "../../../../lib/serverPlayableCatalog";
-import { validateRound } from "../../../../lib/dataEngine";
+import { validateDailyTrio, type DailyTrioLike } from "../../../../lib/dailyTrioRules";
+import { generateDailyTrio } from "../../../../lib/puzzleEngine";
 import type { Category } from "../../../../lib/categories";
 
-function validDate(value: string) { return /^\d{4}-\d{2}-\d{2}$/.test(value); }
+export const dynamic = "force-dynamic";
+export const maxDuration = 300;
+
+function validDate(value: string) {
+  return /^\d{4}-\d{2}-\d{2}$/.test(value);
+}
+
 type PackedBoard = { seed?: string; encodedBoard?: string };
 type TrioBody = Partial<Record<DailyDifficulty, PackedBoard>>;
 type StoredRow = { challenge_date: string; difficulty: DailyDifficulty; seed: string; encoded_board: string };
 type StoredShape = Partial<Record<DailyDifficulty, { seed: string; encoded_board: string }>>;
-type RoundShape = Partial<Record<DailyDifficulty, Round>>;
+
+type Dependencies = {
+  countries: CountryInfo[];
+  categoryCatalog: Category[];
+};
 
 function shape(rows: StoredRow[]) {
   const result: StoredShape = {};
@@ -22,84 +33,138 @@ function shape(rows: StoredRow[]) {
   return result;
 }
 
-function hasExpectedDimensions(round: Round, difficulty: DailyDifficulty) {
-  const config = ROUND_CONFIGS[difficulty];
-  return round.categories.length === config.categoryCount && round.bank.length === config.countryCount;
-}
+function decodeCompleteTrio(rows: StoredRow[], dependencies: Dependencies): { trio: DailyTrioLike | null; errors: string[] } {
+  const rowByDifficulty = new Map(rows.map((row) => [row.difficulty, row]));
+  const decoded: Partial<Record<DailyDifficulty, Round>> = {};
+  const errors: string[] = [];
 
-function roundsAreDistinct(first: Round, second: Round) {
-  const firstCategories = new Set(first.categories.map((dataset) => dataset.category.id));
-  if (second.categories.some((dataset) => firstCategories.has(dataset.category.id))) return false;
-  const firstCountries = new Set(first.bank.map((country) => country.id));
-  return second.bank.filter((country) => firstCountries.has(country.id)).length <= 1;
-}
-
-function trioIsDistinct(rounds: Record<DailyDifficulty, Round>) {
-  for (let i = 0; i < DAILY_DIFFICULTIES.length; i++) {
-    for (let j = i + 1; j < DAILY_DIFFICULTIES.length; j++) {
-      if (!roundsAreDistinct(rounds[DAILY_DIFFICULTIES[i]], rounds[DAILY_DIFFICULTIES[j]])) return false;
-    }
-  }
-  return true;
-}
-
-function validateStoredRows(rows: StoredRow[], countries: CountryInfo[], categoryCatalog: Category[]) {
-  const decoded: RoundShape = {};
-  const rowByDifficulty = new Map<DailyDifficulty, StoredRow>();
-  for (const row of rows) {
-    try {
-      const round = decodeRound(row.encoded_board, countries, categoryCatalog);
-      if (!hasExpectedDimensions(round, row.difficulty)) continue;
-      if (validateRound(round.categories, round.bank).length) continue;
-      decoded[row.difficulty] = round;
-      rowByDifficulty.set(row.difficulty, row);
-    } catch {
-      // Malformed or legacy rows are omitted and repaired by POST.
-    }
-  }
-
-  // Preserve the established Normal board first, then retain only boards compatible with it.
-  const acceptedRows: StoredRow[] = [];
-  const acceptedRounds: RoundShape = {};
-  for (const difficulty of ["normal", "expert", "easy"] as const) {
-    const round = decoded[difficulty];
+  for (const difficulty of DAILY_DIFFICULTIES) {
     const row = rowByDifficulty.get(difficulty);
-    if (!round || !row) continue;
-    const compatible = Object.values(acceptedRounds).every((accepted) => !accepted || roundsAreDistinct(accepted, round));
-    if (!compatible) continue;
-    acceptedRows.push(row);
-    acceptedRounds[difficulty] = round;
+    if (!row) {
+      errors.push(`Missing ${difficulty} board.`);
+      continue;
+    }
+    try {
+      decoded[difficulty] = decodeRound(row.encoded_board, dependencies.countries, dependencies.categoryCatalog);
+    } catch (error) {
+      errors.push(`${difficulty} board could not be decoded: ${error instanceof Error ? error.message : "invalid board"}`);
+    }
   }
-  return { rows: acceptedRows, rounds: acceptedRounds };
+
+  if (!decoded.easy || !decoded.normal || !decoded.expert) return { trio: null, errors };
+  const trio = decoded as DailyTrioLike;
+  return { trio, errors: [...errors, ...validateDailyTrio(trio)] };
 }
 
-async function readStored(date: string) {
-  const supabase = createSupabaseAdminClient();
-  if (!supabase) return { supabase: null, rows: [] as StoredRow[], error: null };
+async function readStored(supabase: any, date: string) {
   const { data, error } = await supabase
     .from("daily_challenges")
     .select("challenge_date,difficulty,seed,encoded_board")
     .eq("challenge_date", date)
     .in("difficulty", [...DAILY_DIFFICULTIES]);
-  return { supabase, rows: (data ?? []) as StoredRow[], error };
+  return { rows: (data ?? []) as StoredRow[], error };
+}
+
+async function scoreCountForDate(supabase: any, date: string) {
+  const { count, error } = await supabase
+    .from("daily_scores")
+    .select("id", { count: "exact", head: true })
+    .eq("challenge_date", date);
+  if (error) throw error;
+  return count ?? 0;
+}
+
+async function persistPackedTrio(
+  supabase: any,
+  date: string,
+  packed: Record<DailyDifficulty, { seed: string; encodedBoard: string }>,
+) {
+  const rows = DAILY_DIFFICULTIES.map((difficulty) => ({
+    challenge_date: date,
+    difficulty,
+    seed: packed[difficulty].seed,
+    encoded_board: packed[difficulty].encodedBoard,
+    board_hash: createHash("sha256").update(packed[difficulty].encodedBoard).digest("hex"),
+    dataset_version: DATASET_VERSION,
+    rules_version: RULES_VERSION,
+    category_set_version: CATEGORY_SET_VERSION,
+  }));
+  // A multi-row PostgREST upsert is one database statement: all three boards are
+  // replaced together, or the statement fails without leaving a partial trio.
+  const { error } = await supabase.from("daily_challenges").upsert(rows, { onConflict: "challenge_date,difficulty" });
+  if (error) throw error;
+}
+
+async function recordGeneration(supabase: any, row: Record<string, unknown>) {
+  try { await supabase.from("daily_generation_runs").insert(row); } catch { /* optional health table */ }
+}
+
+async function loadDependencies(): Promise<Dependencies> {
+  const [countries, categoryCatalog] = await Promise.all([fetchCountries(), loadServerPlayableCategoryCatalog()]);
+  return { countries, categoryCatalog };
 }
 
 export async function GET(_request: Request, context: { params: Promise<{ date: string }> }) {
   const { date } = await context.params;
   if (!validDate(date)) return NextResponse.json({ error: "Invalid date." }, { status: 400 });
-  const { supabase, rows, error } = await readStored(date);
+  const supabase = createSupabaseAdminClient();
   if (!supabase) return NextResponse.json({ configured: false }, { status: 503 });
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
 
   try {
-    const [countries, categoryCatalog] = await Promise.all([fetchCountries(), loadServerPlayableCategoryCatalog()]);
-    const validated = validateStoredRows(rows, countries, categoryCatalog);
-    const result = shape(validated.rows);
-    return NextResponse.json({ found: Boolean(result.easy && result.normal && result.expert), ...result }, {
+    const dependencies = await loadDependencies();
+    const stored = await readStored(supabase, date);
+    if (stored.error) throw stored.error;
+    const validated = decodeCompleteTrio(stored.rows, dependencies);
+    if (validated.trio && !validated.errors.length) {
+      return NextResponse.json({ found: true, generated: false, ...shape(stored.rows) }, {
+        headers: { "Cache-Control": "private, no-store, max-age=0" },
+      });
+    }
+
+    const scoreCount = await scoreCountForDate(supabase, date);
+    if (scoreCount > 0) {
+      return NextResponse.json({
+        error: "The stored Daily trio is invalid but already has player scores, so it was preserved for manual repair.",
+        diagnostics: { storedErrors: validated.errors, scoreCount },
+      }, { status: 409 });
+    }
+
+    const generated = await generateDailyTrio(dependencies.countries, date);
+    const packed = Object.fromEntries(DAILY_DIFFICULTIES.map((difficulty) => [difficulty, {
+      seed: `DAILY-${difficulty.toUpperCase()}-${date}`,
+      encodedBoard: encodeRound(generated.trio[difficulty]),
+    }])) as Record<DailyDifficulty, { seed: string; encodedBoard: string }>;
+    await persistPackedTrio(supabase, date, packed);
+
+    const latest = await readStored(supabase, date);
+    if (latest.error) throw latest.error;
+    const verified = decodeCompleteTrio(latest.rows, dependencies);
+    if (!verified.trio || verified.errors.length) throw new Error(`Saved Daily trio failed verification: ${verified.errors.join(" ")}`);
+
+    await recordGeneration(supabase, {
+      challenge_date: date,
+      status: stored.rows.length ? "repaired" : "completed",
+      source: "daily-get-v14.4",
+      diagnostics: { ...generated.diagnostics, replacedStoredRows: stored.rows.length, storedErrors: validated.errors },
+      scores: generated.scores,
+    });
+
+    return NextResponse.json({ found: true, generated: true, repaired: stored.rows.length > 0, ...shape(latest.rows) }, {
       headers: { "Cache-Control": "private, no-store, max-age=0" },
     });
   } catch (error) {
-    return NextResponse.json({ error: error instanceof Error ? error.message : "Daily boards could not be validated." }, { status: 500 });
+    const message = error instanceof Error ? error.message : "Daily boards could not be generated.";
+    const diagnostics = typeof error === "object" && error && "diagnostics" in error
+      ? (error as { diagnostics?: unknown }).diagnostics ?? null
+      : null;
+    await recordGeneration(supabase, {
+      challenge_date: date,
+      status: "failed",
+      source: "daily-get-v14.4",
+      diagnostics,
+      error_message: message,
+    });
+    return NextResponse.json({ error: message, diagnostics }, { status: 500 });
   }
 }
 
@@ -110,100 +175,56 @@ export async function POST(request: Request, context: { params: Promise<{ date: 
   if (!body || DAILY_DIFFICULTIES.some((difficulty) => !body[difficulty]?.seed || !body[difficulty]?.encodedBoard)) {
     return NextResponse.json({ error: "All three Daily boards are required." }, { status: 400 });
   }
-  if (DAILY_DIFFICULTIES.some((difficulty) => body[difficulty]!.encodedBoard!.length > 30000)) {
+  if (DAILY_DIFFICULTIES.some((difficulty) => body[difficulty]!.encodedBoard!.length > 30_000)) {
     return NextResponse.json({ error: "Invalid board." }, { status: 400 });
   }
 
-  const { supabase, rows: storedRows, error: storedError } = await readStored(date);
+  const supabase = createSupabaseAdminClient();
   if (!supabase) return NextResponse.json({ configured: false }, { status: 503 });
-  if (storedError) return NextResponse.json({ error: storedError.message }, { status: 500 });
 
   try {
-    const [countries, categoryCatalog] = await Promise.all([fetchCountries(), loadServerPlayableCategoryCatalog()]);
-    const validatedExisting = validateStoredRows(storedRows, countries, categoryCatalog);
-    const existing = shape(validatedExisting.rows);
-    if (existing.easy && existing.normal && existing.expert) {
-      return NextResponse.json({ created: false, repaired: false, ...existing });
+    const dependencies = await loadDependencies();
+    const stored = await readStored(supabase, date);
+    if (stored.error) throw stored.error;
+    const existing = decodeCompleteTrio(stored.rows, dependencies);
+    if (existing.trio && !existing.errors.length) {
+      return NextResponse.json({ created: false, repaired: false, ...shape(stored.rows) });
     }
 
-    const packed = Object.fromEntries(DAILY_DIFFICULTIES.map((difficulty) => [
+    const scoreCount = await scoreCountForDate(supabase, date);
+    if (scoreCount > 0) {
+      return NextResponse.json({ error: "Daily boards with saved scores are locked against replacement." }, { status: 409 });
+    }
+
+    const packed = Object.fromEntries(DAILY_DIFFICULTIES.map((difficulty) => [difficulty, {
+      seed: body[difficulty]!.seed!,
+      encodedBoard: body[difficulty]!.encodedBoard!,
+    }])) as Record<DailyDifficulty, { seed: string; encodedBoard: string }>;
+    const proposedRows = DAILY_DIFFICULTIES.map((difficulty) => ({
+      challenge_date: date,
       difficulty,
-      existing[difficulty]?.encoded_board ?? body[difficulty]!.encodedBoard!,
-    ])) as Record<DailyDifficulty, string>;
-    const rounds = Object.fromEntries(DAILY_DIFFICULTIES.map((difficulty) => [
-      difficulty,
-      decodeRound(packed[difficulty], countries, categoryCatalog),
-    ])) as Record<DailyDifficulty, Round>;
-
-    for (const difficulty of DAILY_DIFFICULTIES) {
-      if (!hasExpectedDimensions(rounds[difficulty], difficulty)) {
-        const config = ROUND_CONFIGS[difficulty];
-        throw new Error(`The ${config.label} board must contain ${config.countryCount} countries and ${config.categoryCount} categories.`);
-      }
-      const ruleErrors = validateRound(rounds[difficulty].categories, rounds[difficulty].bank);
-      if (ruleErrors.length) {
-        throw new Error(`The ${ROUND_CONFIGS[difficulty].label} board failed the current rules: ${ruleErrors.join(" ")}`);
-      }
-    }
-    if (!trioIsDistinct(rounds)) {
-      throw new Error("The three Daily boards must have distinct categories and no more than one shared country between any two modes.");
+      seed: packed[difficulty].seed,
+      encoded_board: packed[difficulty].encodedBoard,
+    })) as StoredRow[];
+    const proposed = decodeCompleteTrio(proposedRows, dependencies);
+    if (!proposed.trio || proposed.errors.length) {
+      return NextResponse.json({ error: "The proposed Daily trio failed v14.4 validation.", diagnostics: proposed.errors }, { status: 400 });
     }
 
-    const acceptedDifficulties = new Set(validatedExisting.rows.map((row) => row.difficulty));
-    const repairedDifficulties = DAILY_DIFFICULTIES.filter((difficulty) =>
-      storedRows.some((row) => row.difficulty === difficulty) && !acceptedDifficulties.has(difficulty),
-    );
-    if (repairedDifficulties.length) {
-      const { error: scoreCleanupError } = await supabase
-        .from("daily_scores")
-        .delete()
-        .eq("challenge_date", date)
-        .in("difficulty", repairedDifficulties);
-      if (scoreCleanupError) return NextResponse.json({ error: scoreCleanupError.message }, { status: 500 });
-    }
+    await persistPackedTrio(supabase, date, packed);
+    const latest = await readStored(supabase, date);
+    if (latest.error) throw latest.error;
+    const verified = decodeCompleteTrio(latest.rows, dependencies);
+    if (!verified.trio || verified.errors.length) throw new Error(`Saved Daily trio failed verification: ${verified.errors.join(" ")}`);
 
-    const replacements = DAILY_DIFFICULTIES
-      .filter((difficulty) => !existing[difficulty])
-      .map((difficulty) => ({
-        challenge_date: date,
-        difficulty,
-        seed: body[difficulty]!.seed!,
-        encoded_board: packed[difficulty],
-        board_hash: createHash("sha256").update(packed[difficulty]).digest("hex"),
-        dataset_version: DATASET_VERSION,
-        rules_version: RULES_VERSION,
-        category_set_version: CATEGORY_SET_VERSION,
-      }));
-
-    if (replacements.length) {
-      const { error } = await supabase
-        .from("daily_challenges")
-        .upsert(replacements, { onConflict: "challenge_date,difficulty" });
-      if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-    }
-
-    const latest = await readStored(date);
-    if (latest.error) return NextResponse.json({ error: latest.error.message }, { status: 500 });
-    const validatedLatest = validateStoredRows(latest.rows, countries, categoryCatalog);
-    const result = shape(validatedLatest.rows);
-    if (!result.easy || !result.normal || !result.expert) {
-      return NextResponse.json({ error: "The repaired Daily trio could not be verified." }, { status: 500 });
-    }
-
-    // Optional v14.1 health log. Missing migration or logging errors never block a valid Daily trio.
-    try {
-      await supabase.from("daily_generation_runs").insert({
-        challenge_date: date,
-        status: repairedDifficulties.length > 0 ? "repaired" : "completed",
-        source: "daily-route",
-        diagnostics: { replacements: replacements.map((row) => row.difficulty), repairedDifficulties },
-      });
-    } catch { /* optional health log */ }
-
-    return NextResponse.json({ created: true, repaired: repairedDifficulties.length > 0, ...result }, {
-      headers: { "Cache-Control": "private, no-store, max-age=0" },
+    await recordGeneration(supabase, {
+      challenge_date: date,
+      status: stored.rows.length ? "repaired" : "completed",
+      source: "daily-post-v14.4",
+      diagnostics: { replacedStoredRows: stored.rows.length, previousErrors: existing.errors },
     });
+    return NextResponse.json({ created: true, repaired: stored.rows.length > 0, ...shape(latest.rows) });
   } catch (error) {
-    return NextResponse.json({ error: error instanceof Error ? error.message : "Daily trio validation failed." }, { status: 400 });
+    return NextResponse.json({ error: error instanceof Error ? error.message : "Daily trio validation failed." }, { status: 500 });
   }
 }

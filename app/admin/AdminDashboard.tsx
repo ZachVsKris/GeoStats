@@ -92,6 +92,11 @@ type CategoryRow = {
   gameplay_interest_score?: number | null;
   uniqueness_score?: number | null;
   link_quality_score?: number | null;
+  computed_playable?: boolean;
+  playability_blockers?: string[];
+  playability_warnings?: string[];
+  effective_player_source_url?: string | null;
+  effective_player_source_status?: "exact" | "general" | null;
 };
 
 type ImportRow = {
@@ -130,8 +135,8 @@ type IntegrityRun = { id: number; source_organization: string | null; status: st
 type IntegrityOverview = { enforcement_enabled: boolean; categories: number; playable: number; verified: number; failed: number; unable_to_verify: number; pending: number; unverified_playable: number };
 type SemanticConflict = { first_category_id: string; first_title: string; second_category_id: string; second_title: string; semantic_family: string; first_domain: string; second_domain: string };
 type SimilarityConflict = { first_category_id: string; first_title: string; second_category_id: string; second_title: string; score: number };
-type ContentLinkOverview = { categories: number; content_approved: number; content_excluded: number; content_pending: number; exact_player_links: number; links_pending: number; links_blocked: number; playable: number };
-type ContentLinkIssue = { id: string; title: string; source_organization: string; source_indicator_code: string; content_review_status: string; content_review_reason: string | null; immediate_comprehension_score: number | null; gameplay_interest_score: number | null; player_source_status: string; player_source_url: string | null; player_source_reason: string | null; link_quality_score: number | null; enabled: boolean; eligible_daily: boolean };
+type ContentLinkOverview = { categories: number; content_approved: number; content_excluded: number; content_pending: number; exact_player_links: number; general_player_links: number; links_pending: number; links_blocked: number; playable: number };
+type ContentLinkIssue = { id: string; title: string; source_organization: string; source_indicator_code: string; content_review_status: string; content_review_reason: string | null; immediate_comprehension_score: number | null; gameplay_interest_score: number | null; player_source_status: string; player_source_url: string | null; player_source_reason: string | null; link_quality_score: number | null; computed_playable?: boolean; playability_blockers?: string[]; playability_warnings?: string[]; enabled: boolean; eligible_daily: boolean };
 
 type Dashboard = {
   stats: { categories: number; observations: number; countries: number; usernames: number };
@@ -511,33 +516,34 @@ export default function AdminDashboard() {
             <div style={{ opacity: .7, fontSize: 12 }}>{label}</div><strong style={{ fontSize: 22 }}>{typeof value === "number" ? formatNumber(value) : value}</strong>
           </div>)}
         </div>
-        <p style={{ opacity: .64, marginBottom: 0, fontSize: 12 }}>First-party, privacy-conscious analytics begin after the combined v14.3 Supabase installer is applied.</p>
+        <p style={{ opacity: .64, marginBottom: 0, fontSize: 12 }}>First-party, privacy-conscious analytics begin after the combined v14.4 Supabase installer is applied.</p>
       </section>
 
       <section style={{ ...card, marginTop: 16, overflowX: "auto" }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "start", gap: 16, flexWrap: "wrap" }}>
           <div>
             <h2 style={{ marginTop: 0, marginBottom: 5 }}>Content and player-source links</h2>
-            <p style={{ opacity: .72, margin: 0 }}>Only immediately understandable categories with a verified human-readable page showing the exact official data may become playable.</p>
+            <p style={{ opacity: .72, margin: 0 }}>Immediately understandable, verified categories may use either an exact official data view or a safe general official data portal. Link precision is shown separately from data trust.</p>
           </div>
           <a href={WORKFLOWS.links} target="_blank" rel="noreferrer" style={{ ...button, textDecoration: "none" }}>Audit player links ↗</a>
         </div>
-        {!data.contentLinks?.migrationApplied ? <p style={{ marginBottom: 0 }}>Apply the v14.3.1 Supabase installer to enable content and player-link reporting.</p> : <>
+        {!data.contentLinks?.migrationApplied ? <p style={{ marginBottom: 0 }}>Apply the v14.4 Supabase installer to enable computed playability and player-link reporting.</p> : <>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(145px,1fr))", gap: 9, margin: "14px 0" }}>
             {[
               ["Content approved", data.contentLinks.overview.content_approved],
               ["Content excluded", data.contentLinks.overview.content_excluded],
               ["Content pending", data.contentLinks.overview.content_pending],
               ["Exact player links", data.contentLinks.overview.exact_player_links],
+              ["General official links", data.contentLinks.overview.general_player_links],
               ["Links pending", data.contentLinks.overview.links_pending],
               ["Links blocked", data.contentLinks.overview.links_blocked],
             ].map(([label, value]) => <div key={String(label)} style={{ padding: 11, borderRadius: 10, background: "rgba(255,255,255,.04)" }}><div style={{ opacity: .68, fontSize: 12 }}>{label}</div><strong style={{ fontSize: 21 }}>{formatNumber(Number(value))}</strong></div>)}
           </div>
           {data.contentLinks.issues.length > 0 && <div>
-            <strong>Blocked or pending categories</strong>
+            <strong>Categories requiring attention or using warnings</strong>
             {data.contentLinks.issues.slice(0, 16).map((issue) => <div key={issue.id} style={{ padding: "8px 0", borderTop: "1px solid rgba(255,255,255,.08)" }}>
               <strong>{issue.title}</strong> · {issue.source_organization} · content {issue.content_review_status} · link {issue.player_source_status}
-              <div style={{ opacity: .7, fontSize: 12 }}>{issue.content_review_reason ?? issue.player_source_reason ?? "No reason recorded"}</div>
+              <div style={{ opacity: .7, fontSize: 12 }}>{issue.playability_blockers?.[0] ?? issue.playability_warnings?.[0] ?? issue.content_review_reason ?? issue.player_source_reason ?? "No reason recorded"}</div>
             </div>)}
           </div>}
         </>}
@@ -551,7 +557,7 @@ export default function AdminDashboard() {
           </div>
           <a href={WORKFLOWS.integrity} target="_blank" rel="noreferrer" style={{ ...button, textDecoration: "none" }}>Run full source audit ↗</a>
         </div>
-        {!data.integrity.migrationApplied ? <p style={{ marginBottom: 0 }}>Apply the v14.3 Supabase installer to enable integrity and board-quality reporting.</p> : <>
+        {!data.integrity.migrationApplied ? <p style={{ marginBottom: 0 }}>Apply the v14.4 Supabase installer to enable integrity and board-quality reporting.</p> : <>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(145px,1fr))", gap: 9, margin: "14px 0" }}>
             {[
               ["Enforcement", data.integrity.overview.enforcement_enabled ? "ON" : "OFF"],

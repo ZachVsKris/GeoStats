@@ -1,13 +1,26 @@
 import { NextResponse } from "next/server";
 import { requireAdmin } from "../../../../../lib/supabase/adminAuth";
+import { evaluateCategoryPlayability } from "../../../../../lib/categoryPlayability";
+import type { DataSourceId } from "../../../../../lib/categories";
 
 export const dynamic = "force-dynamic";
+
+const SOURCE_IDS: Record<string, DataSourceId> = {
+  "World Bank": "worldbank", FAOSTAT: "faostat", WHO: "who", "UNESCO UIS": "unesco",
+  ILOSTAT: "ilostat", "Natural Earth": "naturalearth", "UN Comtrade": "comtrade",
+  "U.S. EIA": "eia", UNHCR: "unhcr", "UN Tourism": "untourism",
+};
 
 type Decision = "approved" | "rejected" | "reset";
 
 type CategorySnapshot = {
   id: string;
   title: string;
+  source_organization: string;
+  source_indicator_code: string;
+  source_url: string | null;
+  methodology_url: string | null;
+  source_page_url: string | null;
   auto_qualified: boolean;
   quality_score: number;
   review_status: string;
@@ -72,35 +85,52 @@ export async function POST(request: Request) {
 
   const { data: categories, error } = await auth.admin
     .from("stat_categories")
-    .select("id,title,auto_qualified,quality_score,review_status,evidence_tier,common_year,common_year_coverage,official_observation_share,modeled_observation_share,clustering_score,stability_score,quality_details,canonical_category_id,provenance_status,independent_validation,concept_group,duplicate_status,curation_status,curation_reason,credibility_status,credibility_score,objective_status,player_quality_status,verifiability_score,understandability_score,fun_score,validation_status,validation_reason,validated_at,content_review_status,content_review_reason,immediate_comprehension_score,gameplay_interest_score,uniqueness_score,player_source_status,player_source_url,player_source_reason,link_quality_score")
+    .select("id,title,source_organization,source_indicator_code,source_url,methodology_url,source_page_url,auto_qualified,quality_score,review_status,evidence_tier,common_year,common_year_coverage,official_observation_share,modeled_observation_share,clustering_score,stability_score,quality_details,canonical_category_id,provenance_status,independent_validation,concept_group,duplicate_status,curation_status,curation_reason,credibility_status,credibility_score,objective_status,player_quality_status,verifiability_score,understandability_score,fun_score,validation_status,validation_reason,validated_at,content_review_status,content_review_reason,immediate_comprehension_score,gameplay_interest_score,uniqueness_score,player_source_status,player_source_url,player_source_reason,link_quality_score")
     .in("id", categoryIds);
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
   const rows = (categories ?? []) as CategorySnapshot[];
   const found = new Set(rows.map((category) => category.id));
   const missing = categoryIds.filter((id) => !found.has(id));
-  const blocked = decision === "approved" ? rows.filter((category) => category.validation_status !== "verified"
-    || !category.auto_qualified
-    || category.provenance_status !== "approved"
-    || !category.independent_validation
-    || category.curation_status === "excluded"
-    || category.credibility_status === "quarantined"
-    || (category.credibility_score ?? 0) < 75
-    || category.objective_status !== "objective"
-    || category.player_quality_status === "blocked"
-    || (category.verifiability_score ?? 0) < 80
-    || (category.understandability_score ?? 0) < 70
-    || (category.fun_score ?? 0) < 55
-    || category.content_review_status !== "approved"
-    || (category.immediate_comprehension_score ?? 0) < 80
-    || (category.gameplay_interest_score ?? 0) < 65
-    || !(["exact", "general"].includes(category.player_source_status ?? ""))
-    || !category.player_source_url
-    || (category.link_quality_score ?? 0) < 90) : [];
+  const blocked = decision === "approved" ? rows.filter((category) => {
+    const governanceBlocked = category.validation_status !== "verified"
+      || !category.auto_qualified
+      || category.provenance_status !== "approved"
+      || !category.independent_validation
+      || category.curation_status === "excluded";
+    if (governanceBlocked) return true;
+    const result = evaluateCategoryPlayability({
+      id: category.id,
+      source: SOURCE_IDS[category.source_organization],
+      indicator: category.source_indicator_code,
+      sourceUrl: category.source_url,
+      methodologyUrl: category.methodology_url,
+      sourcePageUrl: category.source_page_url,
+      playerSourceUrl: category.player_source_url,
+      playerSourceStatus: category.player_source_status,
+      reviewStatus: "approved",
+      curationStatus: "approved",
+      validationStatus: category.validation_status,
+      contentReviewStatus: category.content_review_status,
+      qualityScore: category.quality_score,
+      credibilityStatus: category.credibility_status,
+      credibilityScore: category.credibility_score,
+      objectiveStatus: category.objective_status,
+      playerQualityStatus: category.player_quality_status,
+      verifiabilityScore: category.verifiability_score,
+      understandabilityScore: category.understandability_score,
+      funScore: category.fun_score,
+      immediateComprehensionScore: category.immediate_comprehension_score,
+      gameplayInterestScore: category.gameplay_interest_score,
+      enabled: true,
+      eligibleDaily: true,
+    });
+    return !result.playable;
+  }) : [];
 
   if (blocked.length) {
     return NextResponse.json({
-      error: `${blocked.length} selected categor${blocked.length === 1 ? "y has" : "ies have"} not passed the source-integrity, quality, provenance, credibility, objectivity, comprehension, gameplay-interest, and exact human-readable source-link gates.`,
+      error: `${blocked.length} selected categor${blocked.length === 1 ? "y has" : "ies have"} not passed the source-integrity, quality, provenance, credibility, objectivity, comprehension, gameplay-interest, and safe human-readable official-source gate.`,
       blocked: blocked.map((category) => ({ id: category.id, title: category.title })),
     }, { status: 409 });
   }
@@ -109,13 +139,13 @@ export async function POST(request: Request) {
     ? {
         review_status: "approved",
         curation_status: "approved",
-        curation_reason: "Approved through the v14.3.1 editorial review queue after source-integrity, content-comprehension, semantic-quality, and exact player-link verification.",
-        curation_version: "geostats-v14.3.1-content-link-review-v1",
+        curation_reason: "Approved through the v14.4 editorial review queue after source-integrity, content-comprehension, semantic-quality, and official-source verification.",
+        curation_version: "geostats-v14.4-playability-v1",
         enabled: true,
         eligible_daily: true,
       }
     : decision === "rejected"
-      ? { review_status: "rejected", curation_status: "excluded", curation_reason: "Rejected through the v14.3.1 content-and-link review queue.", enabled: false, eligible_daily: false }
+      ? { review_status: "rejected", curation_status: "excluded", curation_reason: "Rejected through the v14.4 category review queue.", enabled: false, eligible_daily: false }
       : null;
 
   const failures: { id: string; error: string }[] = [];

@@ -3,6 +3,7 @@ import { requireAdmin } from "../../../../lib/supabase/adminAuth";
 import { newYorkDate } from "../../../../lib/time";
 import { categorySemanticSimilarity, MAX_SAME_BOARD_SEMANTIC_SIMILARITY } from "../../../../lib/categorySemantics";
 import type { Category, DataSourceId } from "../../../../lib/categories";
+import { evaluateCategoryPlayability } from "../../../../lib/categoryPlayability";
 
 export const dynamic = "force-dynamic";
 
@@ -13,7 +14,7 @@ const CATEGORY_COLUMNS = [
   "common_year_coverage", "official_observation_share", "modeled_observation_share",
   "clustering_score", "stability_score", "quality_standard_version", "recognizability_score",
   "specificity_score", "canonical_match_status", "provenance_status", "provenance_class",
-  "provenance_reason", "methodology_url", "independent_validation", "government_assertion_risk",
+  "provenance_reason", "source_url", "methodology_url", "independent_validation", "government_assertion_risk",
   "concept_group", "semantic_family", "semantic_topic", "duplicate_status", "superseded_by", "auto_decision_reason", "curation_status",
   "curation_reason", "curation_version", "credibility_score", "credibility_status",
   "credibility_reason", "evidence_label", "comparability_risk", "corroboration_status",
@@ -38,18 +39,29 @@ type CategoryRow = {
   plain_language_description?: string | null;
   source_organization?: string | null;
   source_indicator_code?: string | null;
+  source_url?: string | null;
+  methodology_url?: string | null;
+  source_page_url?: string | null;
   family?: string | null;
   unit?: string | null;
   semantic_family?: string | null;
   semantic_topic?: string | null;
   enabled?: boolean;
+  quality_score?: number | null;
+  credibility_status?: string | null;
+  credibility_score?: number | null;
+  objective_status?: string | null;
+  player_quality_status?: string | null;
+  verifiability_score?: number | null;
+  understandability_score?: number | null;
+  fun_score?: number | null;
   eligible_daily?: boolean;
   review_status?: "candidate" | "needs_review" | "approved" | "rejected";
   curation_status?: "pending" | "approved" | "excluded" | null;
   retrieved_at?: string | null;
   validation_status?: "pending" | "verified" | "failed" | "unable_to_verify";
   player_source_url?: string | null;
-  player_source_status?: "pending" | "exact" | "needs_exact_url" | "invalid" | "unavailable" | null;
+  player_source_status?: "pending" | "exact" | "general" | "needs_exact_url" | "invalid" | "unavailable" | null;
   player_source_reason?: string | null;
   player_source_checked_at?: string | null;
   content_review_status?: "pending" | "approved" | "excluded" | null;
@@ -93,6 +105,36 @@ const SOURCE_ID_BY_ORGANIZATION: Record<string, DataSourceId> = {
   UNHCR: "unhcr",
   "UN Tourism": "untourism",
 };
+
+function computedPlayability(row: CategoryRow) {
+  const source = SOURCE_ID_BY_ORGANIZATION[row.source_organization || ""];
+  return evaluateCategoryPlayability({
+    id: row.id,
+    source,
+    indicator: row.source_indicator_code,
+    sourceUrl: row.source_url,
+    methodologyUrl: row.methodology_url,
+    sourcePageUrl: row.source_page_url,
+    playerSourceUrl: row.player_source_url,
+    playerSourceStatus: row.player_source_status,
+    reviewStatus: row.review_status,
+    curationStatus: row.curation_status,
+    validationStatus: row.validation_status,
+    contentReviewStatus: row.content_review_status,
+    qualityScore: row.quality_score,
+    credibilityStatus: row.credibility_status,
+    credibilityScore: row.credibility_score,
+    objectiveStatus: row.objective_status,
+    playerQualityStatus: row.player_quality_status,
+    verifiabilityScore: row.verifiability_score,
+    understandabilityScore: row.understandability_score,
+    funScore: row.fun_score,
+    immediateComprehensionScore: row.immediate_comprehension_score,
+    gameplayInterestScore: row.gameplay_interest_score,
+    enabled: row.enabled,
+    eligibleDaily: row.eligible_daily,
+  });
+}
 
 function semanticCategory(row: CategoryRow): Category | null {
   if (!row.id || !row.title || !row.source_indicator_code) return null;
@@ -150,6 +192,18 @@ export async function GET() {
     if ((page ?? []).length < 1000) break;
   }
 
+  const computedCategoryRows = categoryRows.map((row) => {
+    const policy = computedPlayability(row);
+    return {
+      ...row,
+      computed_playable: policy.playable,
+      playability_blockers: policy.blockers,
+      playability_warnings: policy.warnings,
+      effective_player_source_url: policy.playerSourceUrl,
+      effective_player_source_status: policy.playerSourceStatus,
+    };
+  });
+
   // Analytics is optional until the v14.1 migration is applied. Missing views must not break Admin.
   let analytics = emptyAnalytics;
   const analyticsResult = await admin.from("analytics_overview_30d").select("*").maybeSingle();
@@ -190,12 +244,12 @@ export async function GET() {
     migrationApplied: !integrityOverviewResult.error,
   };
   const contentLinks = {
-    overview: contentLinkOverviewResult.error ? { categories: 0, content_approved: 0, content_excluded: 0, content_pending: 0, exact_player_links: 0, links_pending: 0, links_blocked: 0, playable: 0 } : contentLinkOverviewResult.data,
+    overview: contentLinkOverviewResult.error ? { categories: 0, content_approved: 0, content_excluded: 0, content_pending: 0, exact_player_links: 0, general_player_links: 0, links_pending: 0, links_blocked: 0, playable: 0 } : contentLinkOverviewResult.data,
     issues: contentLinkIssuesResult.error ? [] : contentLinkIssuesResult.data ?? [],
     migrationApplied: !contentLinkOverviewResult.error,
   };
-  const playableSemanticCategories = categoryRows
-    .filter((row) => row.enabled && row.eligible_daily)
+  const playableSemanticCategories = computedCategoryRows
+    .filter((row) => row.computed_playable)
     .map(semanticCategory)
     .filter((category): category is Category => Boolean(category));
   const similarityConflicts: Array<{ first_category_id: string; first_title: string; second_category_id: string; second_title: string; score: number }> = [];
@@ -231,14 +285,14 @@ export async function GET() {
 
   const reviewCounts = { candidate: 0, needs_review: 0, approved: 0, rejected: 0, pending_editorial: 0 };
   const sourceHealthMap = new Map<string, { source: string; categories: number; playable: number; pending: number; latestRetrieved: string | null }>();
-  for (const category of categoryRows) {
+  for (const category of computedCategoryRows) {
     if (category.review_status && category.review_status in reviewCounts) reviewCounts[category.review_status] += 1;
     if (category.curation_status === "pending") reviewCounts.pending_editorial += 1;
 
     const source = category.source_organization?.trim() || "Unknown source";
     const current = sourceHealthMap.get(source) ?? { source, categories: 0, playable: 0, pending: 0, latestRetrieved: null };
     current.categories += 1;
-    if (category.enabled && category.eligible_daily) current.playable += 1;
+    if (category.computed_playable) current.playable += 1;
     if (category.curation_status === "pending" || category.review_status === "needs_review" || category.review_status === "candidate") current.pending += 1;
     if (category.retrieved_at && (!current.latestRetrieved || category.retrieved_at > current.latestRetrieved)) current.latestRetrieved = category.retrieved_at;
     sourceHealthMap.set(source, current);
@@ -246,7 +300,7 @@ export async function GET() {
 
   return NextResponse.json({
     stats: {
-      categories: categoryRows.length,
+      categories: computedCategoryRows.length,
       observations: obsCount.count ?? 0,
       countries: countryCount.count ?? 0,
       usernames: usernameCount.error ? 0 : usernameCount.count ?? 0,
@@ -260,7 +314,7 @@ export async function GET() {
     reviewCounts,
     sources: sources.data ?? [],
     imports: imports.data ?? [],
-    categories: categoryRows,
+    categories: computedCategoryRows,
     boards: boardMap,
     todayScoreCount: scoreCount.count ?? 0,
   });

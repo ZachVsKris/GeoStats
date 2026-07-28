@@ -11,6 +11,10 @@ const required = [
   "app/api/admin/category-review/[id]/route.ts",
   "supabase/migrations/026_category_review_workbench.sql",
   "supabase/migrations/027_v15_2_catalog_recovery.sql",
+  "RUN_THIS_IN_SUPABASE_FOR_V15_3.sql",
+  "lib/roundValueRules.ts",
+  "lib/valueFormatting.ts",
+  "lib/sourceSpecification.ts",
   "lib/serverPlayableCatalog.ts",
 ];
 for (const file of required) {
@@ -19,7 +23,7 @@ for (const file of required) {
 if (fs.existsSync(path.join(root, "middleware.ts"))) throw new Error("middleware.ts must be removed; Next.js 16 uses proxy.ts.");
 
 const packageJson = JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8"));
-if (packageJson.version !== "15.2.1") throw new Error("package.json is not version 15.2.1");
+if (packageJson.version !== "15.3.0") throw new Error("package.json is not version 15.3.0");
 
 const sql = fs.readFileSync(path.join(root, "RUN_THIS_IN_SUPABASE_FOR_V15.sql"), "utf8");
 for (const marker of [
@@ -67,7 +71,7 @@ for (const marker of ["catalog-balanced", "catalog-recovery", "sourceCapacityFor
 const game = fs.readFileSync(path.join(root, "components/GeoSecondComingGame.tsx"), "utf8");
 if (game.includes("buildDailyTrio")) throw new Error("Client must not generate Daily trios in the browser.");
 
-console.log("GeoStats v15.2.1 category-review, catalog-recovery, and fast Daily-loading checks passed.");
+console.log("GeoStats v15.3 category-review, gameplay-integrity, and fast Daily-loading checks passed.");
 
 for (const required of [
   "app/admin/review/page.tsx",
@@ -189,7 +193,7 @@ if (!dataEngine.includes("dataset.category.globalCoverage ?? dataset.ranked.leng
   throw new Error("Decoded boards still validate winner ranks against board size instead of global coverage.");
 }
 const worldBank = fs.readFileSync(path.join(root, "lib/worldBank.ts"), "utf8");
-if (!worldBank.includes("return [...STATIC_COUNTRIES]")) {
+if (!worldBank.includes("STATIC_COUNTRIES.map")) {
   throw new Error("Country identity still depends on a live World Bank request during game load.");
 }
 const gameFastPath = fs.readFileSync(path.join(root, "components/GeoSecondComingGame.tsx"), "utf8");
@@ -199,6 +203,6 @@ const loadDailyBody = gameFastPath.slice(loadDailyStart, loadRandomStart);
 if (loadDailyBody.includes("buildDailyTrio")) {
   throw new Error("Daily loading still falls back to expensive browser-side trio generation.");
 }
-if (!loadDailyBody.includes("Promise.all")) {
-  throw new Error("Daily board and catalog are not loaded concurrently.");
+if (!loadDailyBody.includes("readCachedDaily") || !loadDailyBody.includes("writeCachedDaily")) {
+  throw new Error("Daily loading must reuse a locally validated saved trio on repeat visits.");
 }

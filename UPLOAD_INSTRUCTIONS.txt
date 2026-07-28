@@ -1,9 +1,10 @@
-GeoStats v15.2.1 fast Daily patch
+GeoStats v15.3 update-only package
 
-Apply this patch on top of the clean v15.2 repository.
-Copy the CONTENTS of this folder into the repository root and allow matching files to be replaced.
-The new file lib/staticCountries.ts must also be added.
+1. Open this folder after extracting the ZIP.
+2. Copy EVERY item inside this folder into the ROOT of the existing GeoStats repository.
+3. Allow matching files to be replaced.
+4. Commit and push to main.
+5. Wait for Verify GeoStats v15 and Vercel to succeed.
+6. Then run RUN_THIS_IN_SUPABASE_FOR_V15_3.sql in Supabase.
 
-No Supabase SQL is required.
-Do not run the source-integrity audit.
-Commit and push, then wait for Verify GeoStats v15 and Vercel.
+No hidden files change in v15.3. Do not run the source-integrity audit with enforcement enabled.

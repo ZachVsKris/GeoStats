@@ -158,10 +158,6 @@ select
     category.family
   ) as effective_semantic_group,
   (
-    category.player_source_status in ('exact','general')
-    and public.player_source_url_is_safe(category.player_source_url)
-  ) as source_link_ready,
-  (
     public.category_v15_source_is_official(category.source_organization)
     and not public.category_v15_true_integrity_failure(
       category.validation_status,
@@ -262,6 +258,10 @@ select
     case when review.duplicate_of is not null
       then 'Marked as a duplicate.' end
   ], null) as v15_blockers,
+  (
+    category.player_source_status in ('exact','general')
+    and public.player_source_url_is_safe(category.player_source_url)
+  ) as source_link_ready,
   array_remove(array[
     case when category.validation_status is distinct from 'verified'
       and not public.category_v15_true_integrity_failure(
@@ -406,11 +406,11 @@ select
   count(*) filter (where editorial_status='needs_discussion')::bigint as needs_discussion,
   count(*) filter (where hard_gate_ready)::bigint as hard_gate_ready,
   count(*) filter (where computed_playable_v15)::bigint as playable,
-  count(*) filter (where source_link_ready)::bigint as source_link_ready,
-  count(*) filter (where cardinality(v15_warnings) > 0)::bigint as warning_only,
   count(*) filter (where political_self_reported)::bigint as political_self_reported,
   count(*) filter (where confusing or esoteric)::bigint as confusing_or_esoteric,
-  count(*) filter (where subjective_or_composite)::bigint as subjective_or_composite
+  count(*) filter (where subjective_or_composite)::bigint as subjective_or_composite,
+  count(*) filter (where source_link_ready)::bigint as source_link_ready,
+  count(*) filter (where cardinality(v15_warnings) > 0)::bigint as warning_only
 from public.category_review_queue_v15;
 
 revoke all on public.category_review_overview_v15

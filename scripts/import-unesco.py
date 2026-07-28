@@ -73,12 +73,12 @@ COMMON_EXCLUDES = (
     r"benchmark|target|adjusted gender parity|coefficient of variation|percentage point gap",
 )
 
+# CR.MOD.* completion rates are intentionally excluded: they are modeled,
+# age-referenced measures whose prior player copy was misleading and whose
+# exact official data view is not stably reproducible from the public browser.
 RULES: tuple[IndicatorRule, ...] = (
     rule("highest-adult-literacy", "Highest adult literacy rate", "Education", "📖", "% of adults", "percentage", "high", (r"adult literacy rate",), prefer=(r"population aged 15 years and older|15\+",), exclude=COMMON_EXCLUDES, min_coverage=80),
     rule("highest-youth-literacy", "Highest youth literacy rate", "Education", "📚", "% of youth", "percentage", "high", (r"youth literacy rate",), prefer=(r"15.?24",), exclude=COMMON_EXCLUDES, min_coverage=80),
-    rule("highest-primary-completion", "Highest primary-school completion rate", "Education", "🎓", "% of students", "percentage", "high", (r"completion rate", r"primary"), exclude=COMMON_EXCLUDES + (r"lower secondary|upper secondary",), min_coverage=90),
-    rule("highest-lower-secondary-completion", "Highest lower-secondary completion rate", "Education", "🎓", "% of students", "percentage", "high", (r"completion rate", r"lower secondary"), exclude=COMMON_EXCLUDES, min_coverage=80),
-    rule("highest-upper-secondary-completion", "Highest upper-secondary completion rate", "Education", "🎓", "% of students", "percentage", "high", (r"completion rate", r"upper secondary"), exclude=COMMON_EXCLUDES, min_coverage=70),
     rule("highest-primary-enrollment", "Highest primary-school enrollment", "Education", "🏫", "gross enrollment ratio (%)", "percentage", "high", (r"gross enrolment ratio|gross enrollment ratio", r"primary"), exclude=COMMON_EXCLUDES + (r"pre-primary|secondary",), min_coverage=100),
     rule("highest-secondary-enrollment", "Highest secondary-school enrollment", "Education", "🏫", "gross enrollment ratio (%)", "percentage", "high", (r"gross enrolment ratio|gross enrollment ratio", r"secondary"), exclude=COMMON_EXCLUDES + (r"lower secondary|upper secondary|post-secondary",), min_coverage=90),
     rule("highest-tertiary-enrollment", "Highest tertiary enrollment", "Education", "🎓", "gross enrollment ratio (%)", "percentage", "high", (r"gross enrolment ratio|gross enrollment ratio", r"tertiary"), exclude=COMMON_EXCLUDES, min_coverage=90),

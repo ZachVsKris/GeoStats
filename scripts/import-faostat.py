@@ -917,7 +917,9 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
                 "source_query": {
                     "domainCode": "QCL",
                     "itemCode": candidate["item_code"],
+                    "item": candidate["item"],
                     "elementCode": candidate["element_code"],
+                    "element": candidate["element"],
                     "year": candidate["common_year"],
                     "unit": candidate["unit"],
                     "countryUniverse": "UN-recognized countries",

@@ -3,6 +3,8 @@ import type { CategoryDataset, CountryInfo, Observation } from "./worldBank";
 import { MAX_YEAR_SPREAD } from "./version";
 import { categoryMethodologyUrl, categorySourceUrl } from "./sourceRegistry";
 import { ROUND_CONFIGS, configForDimensions, pointsForBankSize, roundHasCountryDiversity, roundHasRequiredDiversity, strongestGlobalWinnerRank } from "./gameRules";
+import { formatCategoryValue } from "./valueFormatting";
+import { displayedTieGroups } from "./roundValueRules";
 
 export type RankedObservation = Observation & { globalRank: number };
 
@@ -204,8 +206,10 @@ export function validateRound(categories: CanonicalDataset[], bank: CountryInfo[
     if (winner && winner.observation.globalRank > winnerLimit) {
       errors.push(`${dataset.category.name} has a board winner ranked #${winner.observation.globalRank} globally; #${winnerLimit} or better is required.`);
     }
-    if (leaderboard.length > 1 && Math.abs(leaderboard[0].observation.value - leaderboard[1].observation.value) < 1e-12) {
-      errors.push(`${dataset.category.name} has a tied board winner; Daily answers must be unambiguous.`);
+    const displayedTie = displayedTieGroups(dataset, bank.map((country) => country.id))[0];
+    if (displayedTie) {
+      const tiedNames = displayedTie[1].map((id) => bank.find((country) => country.id === id)?.name ?? id);
+      errors.push(`${dataset.category.name} shows the same displayed value (${displayedTie[0]}) for ${tiedNames.join(" and ")}; countries on one board must be distinguishable.`);
     }
     if (leaderboard.length !== bank.length) {
       errors.push(`${dataset.category.name} is missing data for ${bank.length - leaderboard.length} pool countries.`);
@@ -235,15 +239,6 @@ export function validateRound(categories: CanonicalDataset[], bank: CountryInfo[
 }
 
 export function formatValue(value: number, category: Category) {
-  if (category.unit === "USD" || category.unit === "USD/person") {
-    if (Math.abs(value) >= 1e12) return `$${(value / 1e12).toFixed(2)}T`;
-    if (Math.abs(value) >= 1e9) return `$${(value / 1e9).toFixed(1)}B`;
-    if (Math.abs(value) >= 1e6) return `$${(value / 1e6).toFixed(1)}M`;
-    return `$${value.toLocaleString(undefined, { maximumFractionDigits: 0 })}`;
-  }
-  if (["people", "passengers", "arrivals", "departures", "passenger-km", "hectares", "km²", "tonnes"].includes(category.unit)) {
-    if (Math.abs(value) >= 1e9) return `${(value / 1e9).toFixed(2)}B ${category.unit}`;
-    if (Math.abs(value) >= 1e6) return `${(value / 1e6).toFixed(1)}M ${category.unit}`;
-  }
-  return `${value.toLocaleString(undefined, { maximumFractionDigits: category.decimals ?? 1 })} ${category.unit}`;
+  return formatCategoryValue(value, category);
 }
+

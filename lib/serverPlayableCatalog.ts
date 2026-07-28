@@ -26,7 +26,7 @@ const loadCachedPlayableCategoryCatalog = unstable_cache(
     }
     return buildPlayableCategoryCatalog((result.data ?? []) as PlayableCategoryRow[]);
   },
-  ["geostats-playable-category-catalog-v15.2.1"],
+  ["geostats-playable-category-catalog-v15.3.0"],
   { revalidate: 300, tags: ["geostats-playable-category-catalog"] },
 );
 

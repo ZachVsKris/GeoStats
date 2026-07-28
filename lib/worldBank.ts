@@ -60,8 +60,42 @@ export type CategoryDataset = {
   linkQualityScore?: number;
 };
 
+const WORLD_BANK_IMPORT_START_YEAR = 2022;
+const WORLD_BANK_CURRENT_YEAR = new Date().getUTCFullYear();
+
+function worldBankIndicatorApiUrl(indicator: string) {
+  return `https://api.worldbank.org/v2/country/all/indicator/${encodeURIComponent(indicator)}?format=json&per_page=20000&date=${WORLD_BANK_IMPORT_START_YEAR}:${WORLD_BANK_CURRENT_YEAR}`;
+}
+
+function worldBankIndicatorMetadataUrl(indicator: string) {
+  return `https://api.worldbank.org/v2/indicator/${encodeURIComponent(indicator)}?format=json`;
+}
+
+async function fetchJsonWithRetry(url: string, attempts = 3) {
+  let lastError: unknown;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      const response = await fetch(url, { cache: "no-store" });
+      if (!response.ok) throw new Error(`World Bank returned HTTP ${response.status}.`);
+      const json = await response.json();
+      const apiMessage = Array.isArray(json) ? json?.[0]?.message?.[0]?.value : null;
+      if (apiMessage) throw new Error(`World Bank API: ${apiMessage}`);
+      return json;
+    } catch (error) {
+      lastError = error;
+      if (attempt < attempts) await new Promise((resolve) => setTimeout(resolve, attempt * 500));
+    }
+  }
+  throw lastError instanceof Error ? lastError : new Error("World Bank request failed.");
+}
+
+/**
+ * The playable country universe is static and canonical. Game load must never
+ * depend on a live World Bank request. World Bank APIs are still used by the
+ * import and audit paths below.
+ */
 export async function fetchCountries(): Promise<CountryInfo[]> {
-  return [...STATIC_COUNTRIES];
+  return STATIC_COUNTRIES.map((country) => ({ ...country }));
 }
 
 export async function fetchWorldBankImportSnapshot(category: Category): Promise<WorldBankImportSnapshot> {

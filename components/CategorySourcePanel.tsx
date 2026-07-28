@@ -4,8 +4,9 @@ import { useEffect, useMemo, useState } from "react";
 import type { CanonicalDataset } from "../lib/dataEngine";
 import { canonicalizeDataset, formatValue } from "../lib/dataEngine";
 import { fetchCategory } from "../lib/dataSources";
-import { SOURCE_REGISTRY } from "../lib/sourceRegistry";
 import { resolvePlayerSourceUrl } from "../lib/playerSourceLinks";
+import { sourceSpecification } from "../lib/sourceSpecification";
+import { formatExactCategoryValue } from "../lib/valueFormatting";
 
 type Props = {
   dataset: CanonicalDataset;
@@ -28,7 +29,7 @@ export default function CategorySourcePanel({ dataset, boardCountryIds = [], onC
     setLoading(true);
     setFullRankingLoaded(false);
     setLoadError(null);
-    (async () => {
+    void (async () => {
       try {
         const loaded = canonicalizeDataset(await fetchCategory(dataset.category));
         const expectedCoverage = Number(loaded.category.globalCoverage ?? 0);
@@ -47,6 +48,7 @@ export default function CategorySourcePanel({ dataset, boardCountryIds = [], onC
             playerSourceStatus: dataset.playerSourceStatus || loaded.playerSourceStatus,
             playerSourceReason: dataset.playerSourceReason || loaded.playerSourceReason,
             downloadUrl: dataset.downloadUrl || loaded.downloadUrl,
+            sourceQuery: dataset.sourceQuery || loaded.sourceQuery,
           });
           setFullRankingLoaded(true);
         }
@@ -66,10 +68,8 @@ export default function CategorySourcePanel({ dataset, boardCountryIds = [], onC
     );
   }, [fullDataset.ranked, query]);
 
-  const sourceName = category.source === "worldbank"
-    ? "World Bank"
-    : SOURCE_REGISTRY[category.source]?.name ?? category.source;
   const description = category.plainLanguageDescription || category.description;
+  const specification = sourceSpecification(fullDataset);
   const sourceLink = resolvePlayerSourceUrl({
     source: category.source,
     indicator: category.warehouseSourceIndicatorCode || category.indicator,
@@ -85,15 +85,26 @@ export default function CategorySourcePanel({ dataset, boardCountryIds = [], onC
   return <div className="sourceModal" role="dialog" aria-modal="true" aria-label={`${category.name} data and source`} onMouseDown={(event) => event.currentTarget === event.target && onClose()}>
     <div className="sourcePanel sourcePanelSimple">
       <button className="sourceClose" onClick={onClose} aria-label="Close data and source">×</button>
-      <header>
-        <span className="kicker">Data & Source</span>
-        <h2>{category.icon} {category.name}</h2>
-        <p>{description}</p>
-        <div className="sourceSimpleMeta"><strong>{sourceName}</strong><span>{fullDataset.year}</span></div>
+
+      <header className="sourceHero">
+        <div className="sourceTitleBlock">
+          <span className="sourceHeroIcon" aria-hidden="true">{category.icon}</span>
+          <div>
+            <span className="kicker">Data &amp; Source</span>
+            <h2>{category.name}</h2>
+          </div>
+        </div>
+        <p className="sourceHeroDescription">{description}</p>
+        <div className="sourceSpec" aria-label="Exact source specification">
+          {specification.chips.map((chip) => <span key={chip}>{chip}</span>)}
+        </div>
       </header>
 
       <div className="sourceTableHeader">
-        <div><h3>{tableTitle}</h3><span>{fullDataset.ranked.length} countries{fullRankingLoaded && boardIds.size ? " · today’s countries highlighted" : ""}</span></div>
+        <div>
+          <h3>{tableTitle}</h3>
+          <span>{fullDataset.ranked.length} countries{fullRankingLoaded && boardIds.size ? " · today’s countries highlighted" : ""}</span>
+        </div>
         <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Look up a country" aria-label="Look up a country" />
       </div>
 
@@ -102,12 +113,22 @@ export default function CategorySourcePanel({ dataset, boardCountryIds = [], onC
       <div className="sourceDataTable" role="table" aria-label={`${category.name} ${fullRankingLoaded ? "global" : "game"} country rankings`}>
         <div className="sourceDataHead" role="row"><b>Rank</b><b>Country</b><b>Value</b><b>Year</b></div>
         {rows.map((row) => <div className={`sourceDataRow ${boardIds.has(row.countryId) ? "boardCountry" : ""}`} role="row" key={`${row.countryId}:${row.year}`}>
-          <b>#{row.globalRank}</b><span>{row.countryName}</span><span>{formatValue(row.value, category)}</span><small>{row.year}</small>
+          <b>#{row.globalRank}</b>
+          <span>{row.countryName}</span>
+          <span title={formatExactCategoryValue(row.value, category)}>{formatValue(row.value, category)}</span>
+          <small>{row.year}</small>
         </div>)}
         {!rows.length && !loading && <p className="sourceEmpty">No countries match that search.</p>}
       </div>
 
-      {sourceLink ? <div className="sourceLinks sourceLinksSimple"><a href={sourceLink} target="_blank" rel="noreferrer">{sourceLinkIsExact ? "View exact official data ↗" : "Open official data source ↗"}</a>{!sourceLinkIsExact && <small>General official portal; use the category title or indicator code to locate the data.</small>}</div> : <p className="sourceLoadError">No safe human-readable official source page is available for this category. It is excluded from future Daily boards until one is supplied.</p>}
+      {sourceLink
+        ? <div className="sourceLinks sourceLinksSimple">
+            <a href={sourceLink} target="_blank" rel="noreferrer">{sourceLinkIsExact ? "View exact official data ↗" : "Open official data source ↗"}</a>
+            {!sourceLinkIsExact && <small>{category.source === "faostat"
+              ? "FAOSTAT may open with Production selected. Match the exact item, element, unit and year shown above before comparing the ranking."
+              : "General official portal. Match the exact source specification above; the portal may open with a different default measure."}</small>}
+          </div>
+        : <p className="sourceLoadError">No safe human-readable official source page is available for this category.</p>}
     </div>
   </div>;
 }

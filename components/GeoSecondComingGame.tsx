@@ -15,6 +15,8 @@ import { newYorkDate } from "../lib/time";
 import { DAILY_DIFFICULTIES, DEFAULT_DIFFICULTY, ROUND_CONFIGS, type DailyDifficulty, type RoundConfig, canAddCategory, difficultyFromPath, measureKind, roundHasCountryDiversity, roundHasRequiredDiversity, roundType, semanticFamily, strongestGlobalWinnerRank } from "../lib/gameRules";
 import { trackAnalytics } from "../lib/analytics";
 import { categoryConflictsWithExistingTrio } from "../lib/dailyTrioRules";
+import { candidateKeepsDisplayedValuesDistinct } from "../lib/roundValueRules";
+import { DATASET_VERSION } from "../lib/version";
 
 type Assignment = Record<string, string>;
 type ScoreRow = {
@@ -38,6 +40,39 @@ type GeoSecondComingGameProps = {
 };
 type DailyTrio = Record<DailyDifficulty, Round>;
 type Rng = () => number;
+
+type DailyApiPayload = Partial<Record<DailyDifficulty, { seed?: string; encoded_board?: string }>> & {
+  error?: string;
+};
+
+function dailyBrowserCacheKey(date: string) {
+  return `geostats:daily-trio:${DATASET_VERSION}:${date}`;
+}
+
+function readCachedDaily(date: string): DailyApiPayload | null {
+  try {
+    const raw = window.localStorage.getItem(dailyBrowserCacheKey(date));
+    return raw ? JSON.parse(raw) as DailyApiPayload : null;
+  } catch {
+    return null;
+  }
+}
+
+function writeCachedDaily(date: string, payload: DailyApiPayload) {
+  try {
+    window.localStorage.setItem(dailyBrowserCacheKey(date), JSON.stringify(payload));
+  } catch {
+    // Browser storage is an optimization only.
+  }
+}
+
+function clearCachedDaily(date: string) {
+  try {
+    window.localStorage.removeItem(dailyBrowserCacheKey(date));
+  } catch {
+    // Ignore browsers that disable local storage.
+  }
+}
 
 function hashSeed(seed: string) {
   let hash = 2166136261;
@@ -192,6 +227,7 @@ function findDistinctWinners(
       if (!candidateCountry || (continentCounts.get(candidateCountry.continent) ?? 0) >= config.maxCountriesPerContinent) continue;
       const candidateOwnValue = observationValue(category, candidateId);
       if (candidateOwnValue === undefined) continue;
+      if (!candidateKeepsDisplayedValuesDistinct(categories, used, candidateId)) continue;
       let valid = true;
       for (let previousDepth = 0; previousDepth < depth; previousDepth++) {
         const previousCategoryIndex = order[previousDepth];
@@ -233,11 +269,14 @@ function findDistinctWinners(
     .sort((a, b) => overlapBanks.filter((bank) => bank.has(a.id)).length - overlapBanks.filter((bank) => bank.has(b.id)).length);
 
   const decoys: string[] = [];
+  const selectedBankIds = new Set(used);
   const overlapTotals = overlapBanks.map((bank) => overlapCount(bank));
   for (const country of decoyCandidates) {
     const blocked = overlapBanks.some((bank, index) => bank.has(country.id) && overlapTotals[index] >= maxOverlap);
     if (blocked || (continentCounts.get(country.continent) ?? 0) >= config.maxCountriesPerContinent) continue;
+    if (!candidateKeepsDisplayedValuesDistinct(categories, selectedBankIds, country.id)) continue;
     decoys.push(country.id);
+    selectedBankIds.add(country.id);
     continentCounts.set(country.continent, (continentCounts.get(country.continent) ?? 0) + 1);
     overlapBanks.forEach((bank, index) => { if (bank.has(country.id)) overlapTotals[index]++; });
     if (decoys.length === config.decoyCount) break;
@@ -284,13 +323,22 @@ async function loadCandidateDatasets(seed: string, targetCount = 140): Promise<R
   return loaded;
 }
 
+function datasetHasEnoughDisplayedVariety(dataset: RoundCategory, config: RoundConfig) {
+  const quality = scoreCategoryQuality(dataset);
+  const minimumDistinct = Math.max(config.countryCount + 4, config.categoryCount + 6);
+  return quality.distinctDisplayValues >= minimumDistinct;
+}
+
 function chooseDiverseCategories(
   available: RoundCategory[],
   rng: Rng,
   config: RoundConfig,
   existingTrioCategories: Category[] = [],
 ) {
-  const ordered = shuffle(available.filter((dataset) => !categoryConflictsWithExistingTrio(dataset.category, existingTrioCategories)), rng);
+  const ordered = shuffle(available.filter((dataset) =>
+    datasetHasEnoughDisplayedVariety(dataset, config)
+    && !categoryConflictsWithExistingTrio(dataset.category, existingTrioCategories),
+  ), rng);
   const existingSemanticFamilies = new Set(existingTrioCategories.map((category) => semanticFamily(category)));
   const selected: RoundCategory[] = [];
   while (selected.length < config.categoryCount) {
@@ -499,11 +547,27 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
     setStatus(`Loading today’s ${ROUND_CONFIGS[nextDifficulty].label} Daily…`);
 
     try {
-      const [categoryCatalog, response] = await Promise.all([
-        fetchPlayableCategoryCatalog(),
-        fetch(`/api/daily-trio/${date}`),
-      ]);
-      const saved = await response.json().catch(() => ({})) as Record<string, any>;
+      const categoryCatalog = await fetchPlayableCategoryCatalog();
+      const cached = readCachedDaily(date);
+
+      if (cached) {
+        const cachedBoard = cached[nextDifficulty]?.encoded_board;
+        if (typeof cachedBoard === "string" && cachedBoard) {
+          try {
+            const restored = decodeRound(cachedBoard, existingCountries, categoryCatalog);
+            if (!roundMatchesDifficulty(restored, nextDifficulty)) throw new Error("Cached board dimensions do not match.");
+            setRound(restored);
+            setStatus("");
+            void restoreSavedCompletion(restored, nextDifficulty, date);
+            return;
+          } catch {
+            clearCachedDaily(date);
+          }
+        }
+      }
+
+      const response = await fetch(`/api/daily-trio/${date}`);
+      const saved = await response.json().catch(() => ({})) as DailyApiPayload;
 
       if (!response.ok) {
         throw new Error(
@@ -513,7 +577,7 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
         );
       }
 
-      const packed = saved?.[nextDifficulty]?.encoded_board;
+      const packed = saved[nextDifficulty]?.encoded_board;
       if (typeof packed !== "string" || !packed) {
         throw new Error(
           `Today’s ${ROUND_CONFIGS[nextDifficulty].label} Daily was not returned by the server.`,
@@ -527,8 +591,7 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
         );
       }
 
-      // The playable catalog already carries player-facing source and methodology
-      // metadata. Render immediately instead of blocking on another API request.
+      writeCachedDaily(date, saved);
       setRound(restored);
       setStatus("");
       void restoreSavedCompletion(restored, nextDifficulty, date);
@@ -807,6 +870,6 @@ Can you beat my score?`;
 
     {sourceDataset && <CategorySourcePanel dataset={sourceDataset} boardCountryIds={round?.bank.map((country) => country.id) ?? []} onClose={()=>setSourceDataset(null)} />}
 
-    {showRules&&<div className="modal" onClick={(e)=>e.currentTarget===e.target&&setShowRules(false)}><div><h2>How GeoStats works</h2><p><strong>{isRandom ? "Choose a test difficulty:" : "Progress through the Dailies:"}</strong> Scout has 5 countries and 4 categories, Adventurer has 8 and 6, and Expert has 10 and 8.</p><ol><li><strong>Each category has a different winner.</strong> Among today’s countries, every category’s #1 country is unique.</li><li><strong>Match countries to categories.</strong> Assign one country to each category, and use each country only once.</li><li><strong>Score as many points as possible.</strong> Higher-ranked countries earn more points. A perfect game matches every category with its #1 country.</li></ol><p>{isRandom ? "Random tests are unranked, repeatable, and reproducible from the seed in the URL." : "New Scout, Adventurer, and Expert challenges unlock every day."}</p><button onClick={()=>setShowRules(false)}>Start drafting</button></div></div>}
+    {showRules&&<div className="modal" onClick={(e)=>e.currentTarget===e.target&&setShowRules(false)}><div><h2>How GeoStats works</h2><p><strong>{isRandom ? "Choose a test difficulty:" : "Progress through the Dailies:"}</strong> Scout has 5 countries and 4 categories, Adventurer has 8 and 6, and Expert has 10 and 8.</p><ol><li><strong>Each category has a different winner.</strong> Among today’s countries, every category’s #1 country is unique.</li><li><strong>No tied values on the board.</strong> Countries in the same round always show distinct values for every category.</li><li><strong>Match countries to categories.</strong> Assign one country to each category, and use each country only once.</li><li><strong>Score as many points as possible.</strong> Higher-ranked countries earn more points. A perfect game matches every category with its #1 country.</li></ol><p>{isRandom ? "Random tests are unranked, repeatable, and reproducible from the seed in the URL." : "New Scout, Adventurer, and Expert challenges unlock every day."}</p><button onClick={()=>setShowRules(false)}>Start drafting</button></div></div>}
   </div>;
 }

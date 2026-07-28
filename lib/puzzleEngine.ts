@@ -20,6 +20,7 @@ import {
 import { categoryConflictsWithExistingTrio, validateDailyTrio } from "./dailyTrioRules";
 import { loadServerPlayableCategoryCatalog } from "./serverPlayableCatalog";
 import { generationProfiles, sourceCapacityForProfile } from "./generationProfiles";
+import { candidateKeepsDisplayedValuesDistinct } from "./roundValueRules";
 
 export type DailyTrio = Record<DailyDifficulty, Round>;
 export type ScoreBreakdown = {
@@ -60,6 +61,14 @@ type CandidateLoadResult = {
   datasetLoadErrorSamples: string[];
   qualityRejections: number;
 };
+
+
+const MAX_CATEGORY_COMPOSITION_ATTEMPTS = 48;
+const TARGET_VALID_BOARD_CANDIDATES = 3;
+const MAX_WINNER_SEARCH_STEPS = 75_000;
+const MAX_WINNER_CANDIDATES_PER_CATEGORY = 60;
+const MAX_TRIO_ATTEMPTS_PER_PROFILE = 8;
+const GENERATION_BUDGET_MS = 18_000;
 
 type ComposeResult = {
   round: Round | null;
@@ -110,7 +119,7 @@ function semanticFamilyForGeneration(category: Category) {
   return semanticFamily(category);
 }
 
-async function loadCandidateDatasets(seed: string, targetCount = 140): Promise<CandidateLoadResult> {
+async function loadCandidateDatasets(seed: string, targetCount = 180): Promise<CandidateLoadResult> {
   const rng = seededRandom(`${seed}:datasets`);
   const catalog = await loadServerPlayableCategoryCatalog();
   const shuffled = shuffle(catalog, rng);
@@ -160,6 +169,15 @@ async function loadCandidateDatasets(seed: string, targetCount = 140): Promise<C
   };
 }
 
+function datasetHasEnoughDisplayedVariety(dataset: RoundCategory, config: RoundConfig) {
+  const quality = scoreCategoryQuality(dataset);
+  // Leave a generous choice set above the board size. This prevents tie-heavy
+  // categories from wasting generation attempts without requiring nearly every
+  // country to have a unique value.
+  const minimumDistinct = Math.max(config.countryCount + 4, config.categoryCount + 6);
+  return quality.distinctDisplayValues >= minimumDistinct;
+}
+
 function chooseDiverseCategories(
   available: RoundCategory[],
   rng: Rng,
@@ -167,7 +185,10 @@ function chooseDiverseCategories(
   existingTrioCategories: Category[] = [],
 ) {
   const ordered = shuffle(
-    available.filter((dataset) => !categoryConflictsWithExistingTrio(dataset.category, existingTrioCategories)),
+    available.filter((dataset) =>
+      datasetHasEnoughDisplayedVariety(dataset, config)
+      && !categoryConflictsWithExistingTrio(dataset.category, existingTrioCategories),
+    ),
     rng,
   );
   const existingSemanticFamilies = new Set(existingTrioCategories.map((category) => semanticFamilyForGeneration(category)));
@@ -205,6 +226,7 @@ function findDistinctWinners(
   config: RoundConfig,
   overlapBanks: Set<string>[] = [],
   maxOverlap = Number.POSITIVE_INFINITY,
+  deadline = Number.POSITIVE_INFINITY,
 ) {
   const countryIds = new Set(countries.map((country) => country.id));
   const countryById = new Map(countries.map((country) => [country.id, country]));
@@ -230,12 +252,13 @@ function findDistinctWinners(
   const overlapCount = (bank: Set<string>) => [...used].filter((id) => bank.has(id)).length;
 
   function search(depth: number): boolean {
-    if (++steps > 300_000) return false;
+    steps += 1;
+    if (steps > MAX_WINNER_SEARCH_STEPS || ((steps & 255) === 0 && Date.now() > deadline)) return false;
     if (depth === order.length) return true;
     const categoryIndex = order[depth];
     const category = categories[categoryIndex];
 
-    for (const id of candidates[categoryIndex].slice(0, 100)) {
+    for (const id of candidates[categoryIndex].slice(0, MAX_WINNER_CANDIDATES_PER_CATEGORY)) {
       if (used.has(id)) continue;
       if (overlapBanks.some((bank) => bank.has(id) && overlapCount(bank) >= maxOverlap)) continue;
       const country = countryById.get(id);
@@ -243,6 +266,7 @@ function findDistinctWinners(
       if ((continentCounts.get(country.continent) ?? 0) >= config.maxCountriesPerContinent) continue;
       const ownValue = observationValue(category, id);
       if (ownValue === undefined) continue;
+      if (!candidateKeepsDisplayedValuesDistinct(categories, used, id)) continue;
 
       let valid = true;
       for (let priorDepth = 0; priorDepth < depth; priorDepth += 1) {
@@ -289,11 +313,14 @@ function findDistinctWinners(
     );
 
   const decoys: string[] = [];
+  const selectedBankIds = new Set(used);
   const overlapTotals = overlapBanks.map((bank) => overlapCount(bank));
   for (const country of decoyCandidates) {
     if (overlapBanks.some((bank, index) => bank.has(country.id) && overlapTotals[index] >= maxOverlap)) continue;
     if ((continentCounts.get(country.continent) ?? 0) >= config.maxCountriesPerContinent) continue;
+    if (!candidateKeepsDisplayedValuesDistinct(categories, selectedBankIds, country.id)) continue;
     decoys.push(country.id);
+    selectedBankIds.add(country.id);
     continentCounts.set(country.continent, (continentCounts.get(country.continent) ?? 0) + 1);
     overlapBanks.forEach((bank, index) => { if (bank.has(country.id)) overlapTotals[index] += 1; });
     if (decoys.length === config.decoyCount) break;
@@ -357,6 +384,7 @@ function composeRound(
   existingTrioCategories: Category[] = [],
   overlapBanks: Set<string>[] = [],
   maxOverlap = Number.POSITIVE_INFINITY,
+  deadline = Number.POSITIVE_INFINITY,
 ): ComposeResult {
   const rng = seededRandom(seed);
   const attempted = new Set<string>();
@@ -367,7 +395,8 @@ function composeRound(
   let winnerSearchFailures = 0;
   let validationFailures = 0;
 
-  for (let attempt = 0; attempt < 1_000; attempt += 1) {
+  for (let attempt = 0; attempt < MAX_CATEGORY_COMPOSITION_ATTEMPTS; attempt += 1) {
+    if (Date.now() > deadline) break;
     const categories = chooseDiverseCategories(available, rng, config, existingTrioCategories);
     if (!categories) {
       categorySelectionFailures += 1;
@@ -377,7 +406,7 @@ function composeRound(
     if (attempted.has(signature)) continue;
     attempted.add(signature);
 
-    const solution = findDistinctWinners(categories, countries, rng, config, overlapBanks, maxOverlap);
+    const solution = findDistinctWinners(categories, countries, rng, config, overlapBanks, maxOverlap, deadline);
     if (!solution) {
       winnerSearchFailures += 1;
       continue;
@@ -399,7 +428,7 @@ function composeRound(
       bestScore = score;
       bestRound = round;
     }
-    if (validCandidates >= 80) break;
+    if (validCandidates >= TARGET_VALID_BOARD_CANDIDATES) break;
   }
 
   return {
@@ -442,15 +471,25 @@ export async function generateDailyTrio(
 
   const profiles = generationProfiles();
   diagnostics.skippedProfiles = [];
+  const generationDeadline = Date.now() + GENERATION_BUDGET_MS;
 
-  for (const profile of profiles) {
+  for (const [profileIndex, profile] of profiles.entries()) {
+    if (Date.now() > generationDeadline) break;
     const sourceCapacity = sourceCapacityForProfile(loaded.datasets.map((dataset) => dataset.category), profile);
     if (sourceCapacity < requiredDatasets) {
       diagnostics.skippedProfiles.push(`${profile.name}: source capacity ${sourceCapacity}/${requiredDatasets}`);
       continue;
     }
 
-    for (let attempt = 0; attempt < 120; attempt += 1) {
+    const remainingProfiles = profiles.length - profileIndex;
+    const remainingTime = Math.max(0, generationDeadline - Date.now());
+    const profileDeadline = Math.min(
+      generationDeadline,
+      Date.now() + Math.max(3_000, Math.floor(remainingTime / Math.max(1, remainingProfiles))),
+    );
+
+    for (let attempt = 0; attempt < MAX_TRIO_ATTEMPTS_PER_PROFILE; attempt += 1) {
+      if (Date.now() > profileDeadline) break;
       diagnostics.attempts += 1;
       const rounds: Partial<DailyTrio> = { ...fixed };
 
@@ -469,6 +508,7 @@ export async function generateDailyTrio(
           existingCategories,
           overlapBanks,
           1,
+          profileDeadline,
         );
         diagnostics.validCandidates[difficulty] += result.validCandidates;
         diagnostics.categorySelectionFailures += result.categorySelectionFailures;
@@ -501,6 +541,6 @@ export async function generateDailyTrio(
   }
 
   diagnostics.failureStage = "trio-constraints";
-  diagnostics.message = "No Daily trio satisfied within-board semantic diversity, top-30 winner, distinct-winner, complete-data, source-balance fallback, and one-country-overlap rules.";
+  diagnostics.message = "No Daily trio satisfied within-board semantic diversity, top-30 winner, tie-free displayed values, distinct-winner, complete-data, source-balance fallback, and one-country-overlap rules.";
   throw Object.assign(new Error(diagnostics.message), { diagnostics });
 }

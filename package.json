@@ -1,6 +1,6 @@
 {
   "name": "geostats",
-  "version": "15.2.1",
+  "version": "15.3.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -30,7 +30,7 @@
     "audit-player-links": "python scripts/audit-player-source-links.py",
     "seed-capacity": "node scripts/seed-capacity-help.mjs",
     "sync-visible-workflows": "python scripts/sync-visible-workflows.py",
-    "test-v15": "node scripts/test-v15-integration.mjs && node scripts/test-ts-syntax.mjs",
+    "test-v15": "node scripts/test-v15-integration.mjs && node scripts/test-v15-3-gameplay.mjs && node scripts/test-v15-3-generator-feasibility.mjs && node scripts/test-ts-syntax.mjs",
     "check-v15": "npm run test-v15 && npm test && npm run build"
   },
   "dependencies": {

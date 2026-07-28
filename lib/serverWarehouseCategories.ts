@@ -314,7 +314,6 @@ export async function fetchServerWarehouseCategory(
   return warehousePayloadToDataset(category, payload);
 }
 
-
 export type BulkWarehouseLoadError = {
   categoryId: string;
   message: string;
@@ -329,8 +328,8 @@ type BulkObservationRow = ObservationRow & {
   category_id: string;
 };
 
-const OBSERVATION_PAGE_SIZE = 500;
-const CATEGORY_CHUNK_SIZE = 40;
+const OBSERVATION_PAGE_SIZE = 1000;
+const CATEGORY_CHUNK_SIZE = 80;
 
 function chunks<T>(items: T[], size: number): T[][] {
   const result: T[][] = [];
@@ -358,6 +357,8 @@ export async function fetchServerWarehouseCategories(
       })),
     };
   }
+  // Preserve the non-null narrowing inside nested async loaders.
+  const supabase = admin;
 
   const errors: BulkWarehouseLoadError[] = [];
   const eligible = categories.filter((category) => {
@@ -391,7 +392,7 @@ export async function fetchServerWarehouseCategories(
   async function loadChunk(year: number, categoryIds: string[]) {
     let offset = 0;
     while (true) {
-      const result = await admin
+      const result = await supabase
         .from("stat_observations")
         .select("category_id,country_iso3,country_name,data_year,value")
         .in("category_id", categoryIds)
@@ -412,27 +413,30 @@ export async function fetchServerWarehouseCategories(
     }
   }
 
-  const tasks: Promise<void>[] = [];
+  const tasks: Array<{ categoryIds: string[]; promise: Promise<void> }> = [];
   for (const [year, yearCategories] of grouped) {
     for (const categoryChunk of chunks(yearCategories, CATEGORY_CHUNK_SIZE)) {
-      tasks.push(loadChunk(year, categoryChunk.map((category) => category.id)));
+      const categoryIds = categoryChunk.map((category) => category.id);
+      tasks.push({ categoryIds, promise: loadChunk(year, categoryIds) });
     }
   }
 
-  try {
-    await Promise.all(tasks);
-  } catch (caught) {
-    const message = caught instanceof Error
-      ? caught.message
+  const failedCategoryIds = new Set<string>();
+  const taskResults = await Promise.allSettled(tasks.map((task) => task.promise));
+  taskResults.forEach((result, index) => {
+    if (result.status === "fulfilled") return;
+    const message = result.reason instanceof Error
+      ? result.reason.message
       : "Bulk observation loading failed.";
-    return {
-      datasets: [],
-      errors: eligible.map((category) => ({ categoryId: category.id, message })),
-    };
-  }
+    for (const categoryId of tasks[index].categoryIds) {
+      failedCategoryIds.add(categoryId);
+      errors.push({ categoryId, message });
+    }
+  });
 
   const datasets: CategoryDataset[] = [];
   for (const category of eligible) {
+    if (failedCategoryIds.has(category.id)) continue;
     const rows = rowsByCategory.get(category.id) ?? [];
     try {
       const dataset = warehousePayloadToDataset(category, {
@@ -460,3 +464,4 @@ export async function fetchServerWarehouseCategories(
 
   return { datasets, errors };
 }
+

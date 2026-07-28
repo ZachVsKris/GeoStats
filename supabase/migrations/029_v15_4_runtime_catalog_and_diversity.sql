@@ -188,7 +188,11 @@ with displayed_observations as (
         when abs(observation.value)>=1e12 then 'currency:t:' || round((observation.value/1e12)::numeric,2)::text
         when abs(observation.value)>=1e9 then 'currency:b:' || round((observation.value/1e9)::numeric,1)::text
         when abs(observation.value)>=1e6 then 'currency:m:' || round((observation.value/1e6)::numeric,1)::text
-        else 'currency:raw:' || round(observation.value::numeric,greatest(0,least(coalesce(category.decimals,1)::integer,6)))::text
+        else 'currency:raw:' || round(observation.value::numeric,greatest(0,least(case
+          when coalesce(category.metadata->>'decimals','') ~ '^[0-9]+$'
+            then (category.metadata->>'decimals')::integer
+          else 1
+        end,6)))::text
       end
       when coalesce(category.unit,'') in ('people','passengers','arrivals','departures','passenger-km','hectares','km²','square kilometers','tonnes','animals')
         and abs(observation.value)>=1e6
@@ -197,7 +201,11 @@ with displayed_observations as (
         when abs(observation.value)>=1e9 then 'compact:b:' || round((observation.value/1e9)::numeric,2)::text
         else 'compact:m:' || round((observation.value/1e6)::numeric,1)::text
       end
-      else 'raw:' || round(observation.value::numeric,greatest(0,least(coalesce(category.decimals,1)::integer,6)))::text
+      else 'raw:' || round(observation.value::numeric,greatest(0,least(case
+          when coalesce(category.metadata->>'decimals','') ~ '^[0-9]+$'
+            then (category.metadata->>'decimals')::integer
+          else 1
+        end,6)))::text
     end as displayed_value
   from public.stat_categories category
   join public.stat_observations observation

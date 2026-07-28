@@ -1,7 +1,7 @@
-# GeoStats v14.4.0
+# GeoStats
 
-GeoStats is a daily country-ranking game with Scout, Adventurer, and Expert boards.
+GeoStats is a country-ranking game backed by a curated, source-verified international data warehouse.
 
-v14.4 consolidates category playability, validates the three Daily modes as one package, permits clearly labeled safe general official source pages when exact deep links are unavailable, blocks APIs/downloads from player-facing links, enforces semantic diversity across modes, and requires every board winner to rank in the global top 30.
+Current release: **v15.0.0 — Category Review Workbench**
 
-Start with `README_FIRST.md` for deployment instructions.
+See `START_HERE_V15.md` for deployment instructions.

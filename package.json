@@ -1,13 +1,13 @@
 {
   "name": "geostats",
-  "version": "14.4.0",
+  "version": "15.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "test": "node scripts/test-invariants.mjs",
-    "check": "npm run check-v14-4",
+    "check": "npm run check-v15",
     "test-ts-syntax": "node scripts/test-ts-syntax.mjs",
     "test-importers": "python scripts/test-data-pipeline.py && python scripts/test-world-bank-catalog-importer.py && python scripts/test-who-importer.py && python scripts/test-unesco-importer.py && python scripts/test-ilostat-importer.py && python scripts/test-natural-earth-importer.py && python scripts/test-comtrade-importer.py && python scripts/test-eia-importer.py && python scripts/test-unhcr-importer.py && python scripts/test-faostat-importer.py",
     "test-player-links": "python scripts/test-player-source-links.py",
@@ -29,7 +29,9 @@
     "audit-source-integrity": "python scripts/audit-source-integrity.py --source all",
     "audit-player-links": "python scripts/audit-player-source-links.py",
     "seed-capacity": "node scripts/seed-capacity-help.mjs",
-    "sync-visible-workflows": "python scripts/sync-visible-workflows.py"
+    "sync-visible-workflows": "python scripts/sync-visible-workflows.py",
+    "test-v15": "node scripts/test-v15-integration.mjs && node scripts/test-ts-syntax.mjs",
+    "check-v15": "npm run test-v15 && npm test && npm run build"
   },
   "dependencies": {
     "next": "16.2.10",

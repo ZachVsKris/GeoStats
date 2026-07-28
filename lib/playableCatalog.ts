@@ -1,6 +1,5 @@
 import { CATEGORIES, type Category, type DataSourceId } from "./categories";
 import { applyCategoryTrustPolicy, type EvidenceLabel, type TrustStatus } from "./categoryTrust";
-import { evaluateCategoryPlayability } from "./categoryPlayability";
 
 export type PlayableCategoryRow = {
   id: string;
@@ -68,6 +67,17 @@ export type PlayableCategoryRow = {
   validation_status?: string | null;
   validation_version?: string | null;
   validated_at?: string | null;
+  computed_playable_v15?: boolean | null;
+  editorial_status?: string | null;
+  hard_gate_ready?: boolean | null;
+  political_self_reported?: boolean | null;
+  confusing?: boolean | null;
+  esoteric?: boolean | null;
+  subjective_or_composite?: boolean | null;
+  stale_data?: boolean | null;
+  poor_coverage?: boolean | null;
+  duplicate_of?: string | null;
+  effective_semantic_group?: string | null;
 };
 
 const SOURCE_IDS: Record<string, DataSourceId> = {
@@ -233,44 +243,22 @@ export function buildPlayableCategoryCatalog(rows: PlayableCategoryRow[]): Categ
       playerQualityReason: row.player_quality_reason || existing?.playerQualityReason,
       roundType: existing?.roundType || metadataString(metadata, "roundType") || (source === "comtrade" ? "product-trade" : row.family),
       similarityGroup: existing?.similarityGroup || row.concept_group || metadataString(metadata, "similarityGroup") || `${source}:${row.source_indicator_code}`,
-      semanticFamily: existing?.semanticFamily || row.semantic_family || metadataString(metadata, "semanticFamily"),
+      semanticFamily: row.effective_semantic_group || row.semantic_family || existing?.semanticFamily || metadataString(metadata, "semanticFamily"),
       semanticTopic: existing?.semanticTopic || row.semantic_topic || metadataString(metadata, "semanticTopic") || row.concept_group || undefined,
       productSpecificTrade: existing?.productSpecificTrade ?? source === "comtrade",
     });
 
-    const playability = evaluateCategoryPlayability({
-      id: category.id,
-      source: category.source,
-      indicator: category.indicator,
-      sourceUrl: category.sourceUrl,
-      methodologyUrl: category.methodologyUrl,
-      sourcePageUrl: category.sourcePageUrl,
-      playerSourceUrl: category.playerSourceUrl,
-      playerSourceStatus: category.playerSourceStatus,
-      reviewStatus: row.review_status,
-      curationStatus: row.curation_status,
-      validationStatus: row.validation_status,
-      contentReviewStatus: category.contentReviewStatus,
-      qualityScore: row.quality_score,
-      credibilityStatus: category.trustStatus,
-      credibilityScore: category.credibilityScore,
-      objectiveStatus: category.objectiveStatus,
-      playerQualityStatus: category.playerQualityStatus,
-      verifiabilityScore: category.verifiabilityScore,
-      understandabilityScore: category.understandabilityScore,
-      funScore: category.funScore,
-      immediateComprehensionScore: category.immediateComprehensionScore,
-      gameplayInterestScore: category.gameplayInterestScore,
-      enabled: row.enabled,
-      eligibleDaily: row.eligible_daily,
-    });
-    if (!playability.playable) continue;
+    // v15 makes the database review state authoritative. The SQL view has
+    // already combined the human editorial decision with strict integrity,
+    // coverage, recency, credibility, and source-link requirements. Do not
+    // re-apply the retired v14 matrix of overlapping legacy review fields.
+    if (row.computed_playable_v15 !== true) continue;
     category = {
       ...category,
       enabled: true,
-      playerSourceUrl: playability.playerSourceUrl ?? undefined,
-      playerSourceStatus: playability.playerSourceStatus ?? undefined,
-      playabilityWarnings: playability.warnings,
+      playerSourceUrl: row.player_source_url || category.playerSourceUrl,
+      playerSourceStatus: (row.player_source_status as Category["playerSourceStatus"]) || category.playerSourceStatus,
+      playabilityWarnings: row.player_source_status === "general" ? ["General official source page only."] : [],
     };
     catalog.set(category.id, category);
   }

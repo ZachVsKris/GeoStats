@@ -27,7 +27,7 @@ on:
       activate_enforcement:
         description: Turn on fail-closed enforcement after a complete audit
         required: true
-        default: true
+        default: false
         type: boolean
 
 permissions:

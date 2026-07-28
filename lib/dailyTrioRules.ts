@@ -1,13 +1,14 @@
 import type { Category } from "./categories";
 import type { Round } from "./challengeCodec";
 import { validateRound } from "./dataEngine";
-import { semanticConflict } from "./categorySemantics";
 import { DAILY_DIFFICULTIES, ROUND_CONFIGS, type DailyDifficulty } from "./gameRules";
 
 export type DailyTrioLike = Record<DailyDifficulty, Round>;
 
 export function categoryConflictsWithExistingTrio(category: Category, existing: Category[]) {
-  return existing.some((other) => other.id === category.id || semanticConflict(other, category));
+  // Daily modes must use different exact categories. Semantic-family diversity is
+  // enforced within each board, but related topics may appear in different modes.
+  return existing.some((other) => other.id === category.id);
 }
 
 export function pairwiseCountryOverlap(first: Round, second: Round) {
@@ -45,8 +46,6 @@ export function validateDailyTrio(trio: DailyTrioLike) {
         for (const secondDataset of second.categories) {
           if (firstDataset.category.id === secondDataset.category.id) {
             errors.push(`${firstDataset.category.name} appears in more than one Daily mode.`);
-          } else if (semanticConflict(firstDataset.category, secondDataset.category)) {
-            errors.push(`${firstDataset.category.name} and ${secondDataset.category.name} are too similar to appear in the same Daily trio.`);
           }
         }
       }

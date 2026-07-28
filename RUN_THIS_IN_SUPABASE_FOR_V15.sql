@@ -335,6 +335,25 @@ as $$
   )
 $$;
 
+
+create or replace function public.category_v15_true_integrity_failure(
+  p_status text,
+  p_reason text,
+  p_value_mismatches integer,
+  p_ranking_mismatches integer
+)
+returns boolean
+language sql
+immutable
+as $$
+  select coalesce(p_value_mismatches,0) > 0
+      or coalesce(p_ranking_mismatches,0) > 0
+      or (
+        coalesce(p_status,'') = 'failed'
+        and coalesce(p_reason,'') ~* '(value mismatch|ranking mismatch|unexpected stored countr|official countries missing|duplicate countr|snapshot unique)'
+      )
+$$;
+
 create or replace view public.category_review_queue_v15
 with (security_invoker=true)
 as
@@ -358,7 +377,7 @@ select
   coalesce(nullif(review.semantic_group,''), nullif(category.semantic_family,''), nullif(category.concept_group,''), category.family) as effective_semantic_group,
   (
     public.category_v15_source_is_official(category.source_organization)
-    and category.validation_status = 'verified'
+    and not public.category_v15_true_integrity_failure(category.validation_status, category.validation_reason, category.validation_mismatch_count, category.validation_ranking_mismatch_count)
     and coalesce(category.quality_score, 0) >= 70
     and coalesce(category.credibility_status, 'approved') <> 'quarantined'
     and coalesce(category.credibility_score, 75) >= 75
@@ -387,7 +406,7 @@ select
     and not review.poor_coverage
     and review.duplicate_of is null
     and public.category_v15_source_is_official(category.source_organization)
-    and category.validation_status = 'verified'
+    and not public.category_v15_true_integrity_failure(category.validation_status, category.validation_reason, category.validation_mismatch_count, category.validation_ranking_mismatch_count)
     and coalesce(category.quality_score, 0) >= 70
     and coalesce(category.credibility_status, 'approved') <> 'quarantined'
     and coalesce(category.credibility_score, 75) >= 75
@@ -398,7 +417,7 @@ select
   ) as computed_playable_v15,
   array_remove(array[
     case when not public.category_v15_source_is_official(category.source_organization) then 'Source is not on the official-source allowlist.' end,
-    case when category.validation_status is distinct from 'verified' then 'Official-source integrity is not verified.' end,
+    case when public.category_v15_true_integrity_failure(category.validation_status, category.validation_reason, category.validation_mismatch_count, category.validation_ranking_mismatch_count) then 'A direct value, country-set, duplicate, or ranking integrity failure was found.' when category.validation_status is distinct from 'verified' then 'Official-source verification is pending or produced a non-blocking warning.' end,
     case when coalesce(category.quality_score,0) < 70 then 'Quality score is below 70.' end,
     case when category.credibility_status = 'quarantined' or coalesce(category.credibility_score,75) < 75 then 'Credibility review did not pass.' end,
     case when greatest(coalesce(category.common_year_coverage,0), coalesce(category.country_coverage,0)) < 30 then 'Fewer than 30 countries have comparable data.' end,
@@ -449,14 +468,14 @@ begin
         else 'pending'
       end,
       curation_reason = 'GeoStats v15 authoritative category review state: ' || queue.editorial_status || '.',
-      curation_version = 'geostats-v15-review-v1',
+      curation_version = 'geostats-v15.1-review-v2',
       content_review_status = case
         when queue.editorial_status = 'approved' then 'approved'
         when queue.editorial_status in ('rejected','duplicate') then 'excluded'
         else 'pending'
       end,
       content_review_reason = 'GeoStats v15 authoritative category review state: ' || queue.editorial_status || '.',
-      content_review_version = 'geostats-v15-review-v1',
+      content_review_version = 'geostats-v15.1-review-v2',
       player_quality_status = case
         when queue.editorial_status = 'approved' then 'approved'
         when queue.editorial_status in ('rejected','duplicate') then 'blocked'

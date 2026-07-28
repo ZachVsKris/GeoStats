@@ -13,11 +13,13 @@ import {
   roundHasRequiredDiversity,
   roundType,
   strongestGlobalWinnerRank,
+  semanticFamily,
   type DailyDifficulty,
   type RoundConfig,
 } from "./gameRules";
 import { categoryConflictsWithExistingTrio, validateDailyTrio } from "./dailyTrioRules";
 import { loadServerPlayableCategoryCatalog } from "./serverPlayableCatalog";
+import { generationProfiles, sourceCapacityForProfile } from "./generationProfiles";
 
 export type DailyTrio = Record<DailyDifficulty, Round>;
 export type ScoreBreakdown = {
@@ -44,6 +46,8 @@ export type GenerationDiagnostics = {
   failureStage?: string;
   message?: string;
   lastTrioErrors?: string[];
+  generationProfile?: string;
+  skippedProfiles?: string[];
 };
 
 type Rng = () => number;
@@ -100,7 +104,11 @@ function isBetter(category: RoundCategory, first: number, second: number) {
   return category.category.direction === "high" ? first > second : first < second;
 }
 
-async function loadCandidateDatasets(seed: string, targetCount = 120): Promise<CandidateLoadResult> {
+function semanticFamilyForGeneration(category: Category) {
+  return semanticFamily(category);
+}
+
+async function loadCandidateDatasets(seed: string, targetCount = 220): Promise<CandidateLoadResult> {
   const rng = seededRandom(`${seed}:datasets`);
   const catalog = await loadServerPlayableCategoryCatalog();
   const shuffled = shuffle(catalog, rng);
@@ -126,7 +134,7 @@ async function loadCandidateDatasets(seed: string, targetCount = 120): Promise<C
       }
       const type = roundType(dataset.category);
       // Retain breadth without letting one large source family dominate all fetches.
-      if ((typeCounts.get(type) ?? 0) >= 16) continue;
+      if ((typeCounts.get(type) ?? 0) >= 24) continue;
       loaded.push(dataset);
       loadedIds.add(dataset.category.id);
       typeCounts.set(type, (typeCounts.get(type) ?? 0) + 1);
@@ -151,6 +159,7 @@ function chooseDiverseCategories(
     available.filter((dataset) => !categoryConflictsWithExistingTrio(dataset.category, existingTrioCategories)),
     rng,
   );
+  const existingSemanticFamilies = new Set(existingTrioCategories.map((category) => semanticFamilyForGeneration(category)));
   const selected: RoundCategory[] = [];
 
   while (selected.length < config.categoryCount) {
@@ -168,6 +177,7 @@ function chooseDiverseCategories(
       score:
         (selectedTypes.has(roundType(dataset.category)) ? 0 : 14)
         + (selectedMeasures.has(measureKind(dataset.category)) ? 0 : 4)
+        + (existingSemanticFamilies.has(semanticFamilyForGeneration(dataset.category)) ? 0 : 7)
         + scoreCategoryQuality(dataset).score / 25
         + rng(),
     })).sort((left, right) => right.score - left.score);
@@ -418,55 +428,67 @@ export async function generateDailyTrio(
     throw Object.assign(new Error(diagnostics.message), { diagnostics });
   }
 
-  for (let attempt = 0; attempt < 180; attempt += 1) {
-    diagnostics.attempts = attempt + 1;
-    const rounds: Partial<DailyTrio> = { ...fixed };
+  const profiles = generationProfiles();
+  diagnostics.skippedProfiles = [];
 
-    for (const difficulty of ["expert", "normal", "easy"] as DailyDifficulty[]) {
-      if (rounds[difficulty]) continue;
-      const existingRounds = DAILY_DIFFICULTIES
-        .map((key) => rounds[key])
-        .filter((round): round is Round => Boolean(round));
-      const existingCategories = existingRounds.flatMap((round) => round.categories.map((dataset) => dataset.category));
-      const overlapBanks = existingRounds.map((round) => new Set(round.bank.map((country) => country.id)));
-      const result = composeRound(
-        loaded.datasets,
-        countries,
-        `${seed}:${difficulty}:${attempt}`,
-        ROUND_CONFIGS[difficulty],
-        existingCategories,
-        overlapBanks,
-        1,
-      );
-      diagnostics.validCandidates[difficulty] += result.validCandidates;
-      diagnostics.categorySelectionFailures += result.categorySelectionFailures;
-      diagnostics.winnerSearchFailures += result.winnerSearchFailures;
-      diagnostics.roundValidationFailures += result.validationFailures;
-      if (!result.round) break;
-      rounds[difficulty] = result.round;
-    }
-
-    if (!rounds.easy || !rounds.normal || !rounds.expert) continue;
-    const trio = rounds as DailyTrio;
-    const trioErrors = validateDailyTrio(trio);
-    if (trioErrors.length) {
-      diagnostics.trioValidationFailures += 1;
-      diagnostics.lastTrioErrors = trioErrors.slice(0, 12);
+  for (const profile of profiles) {
+    const sourceCapacity = sourceCapacityForProfile(loaded.datasets.map((dataset) => dataset.category), profile);
+    if (sourceCapacity < requiredDatasets) {
+      diagnostics.skippedProfiles.push(`${profile.name}: source capacity ${sourceCapacity}/${requiredDatasets}`);
       continue;
     }
 
-    return {
-      trio,
-      diagnostics,
-      scores: {
-        easy: scoreBoard(trio.easy, ROUND_CONFIGS.easy),
-        normal: scoreBoard(trio.normal, ROUND_CONFIGS.normal),
-        expert: scoreBoard(trio.expert, ROUND_CONFIGS.expert),
-      },
-    };
+    for (let attempt = 0; attempt < 120; attempt += 1) {
+      diagnostics.attempts += 1;
+      const rounds: Partial<DailyTrio> = { ...fixed };
+
+      for (const difficulty of ["expert", "normal", "easy"] as DailyDifficulty[]) {
+        if (rounds[difficulty]) continue;
+        const existingRounds = DAILY_DIFFICULTIES
+          .map((key) => rounds[key])
+          .filter((round): round is Round => Boolean(round));
+        const existingCategories = existingRounds.flatMap((round) => round.categories.map((dataset) => dataset.category));
+        const overlapBanks = existingRounds.map((round) => new Set(round.bank.map((country) => country.id)));
+        const result = composeRound(
+          loaded.datasets,
+          countries,
+          `${seed}:${profile.name}:${difficulty}:${attempt}`,
+          profile.configs[difficulty],
+          existingCategories,
+          overlapBanks,
+          1,
+        );
+        diagnostics.validCandidates[difficulty] += result.validCandidates;
+        diagnostics.categorySelectionFailures += result.categorySelectionFailures;
+        diagnostics.winnerSearchFailures += result.winnerSearchFailures;
+        diagnostics.roundValidationFailures += result.validationFailures;
+        if (!result.round) break;
+        rounds[difficulty] = result.round;
+      }
+
+      if (!rounds.easy || !rounds.normal || !rounds.expert) continue;
+      const trio = rounds as DailyTrio;
+      const trioErrors = validateDailyTrio(trio);
+      if (trioErrors.length) {
+        diagnostics.trioValidationFailures += 1;
+        diagnostics.lastTrioErrors = trioErrors.slice(0, 12);
+        continue;
+      }
+
+      diagnostics.generationProfile = profile.name;
+      return {
+        trio,
+        diagnostics,
+        scores: {
+          easy: scoreBoard(trio.easy, profile.configs.easy),
+          normal: scoreBoard(trio.normal, profile.configs.normal),
+          expert: scoreBoard(trio.expert, profile.configs.expert),
+        },
+      };
+    }
   }
 
   diagnostics.failureStage = "trio-constraints";
-  diagnostics.message = "No Daily trio satisfied the cross-mode semantic-diversity, top-30 winner, distinct-winner, complete-data, and one-country-overlap rules.";
+  diagnostics.message = "No Daily trio satisfied within-board semantic diversity, top-30 winner, distinct-winner, complete-data, source-balance fallback, and one-country-overlap rules.";
   throw Object.assign(new Error(diagnostics.message), { diagnostics });
 }

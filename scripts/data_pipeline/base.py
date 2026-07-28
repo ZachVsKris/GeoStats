@@ -185,10 +185,10 @@ class WarehouseImporter(ABC):
                 if final_status == "completed":
                     self.warehouse.mark_source_success(self.source_slug)
                 try:
-                    self.warehouse.reconcile_category_playability_v144()
+                    self.warehouse.reconcile_category_playability_v15()
                 except Exception as error:
                     # Keep imports compatible with databases that have not installed
-                    # v14.4 yet, while making the missing reconciliation visible.
+                    # v15 yet, while making the missing reconciliation visible.
                     print(f"  playability reconciliation skipped: {error}", flush=True)
         except Exception as error:
             if not self.dry_run and self.warehouse is not None and run_id is not None:

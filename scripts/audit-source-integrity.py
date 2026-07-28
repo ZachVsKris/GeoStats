@@ -246,7 +246,7 @@ def main() -> int:
             activation_failed = True
 
     try:
-        reconciliation: Any = {"status": "completed", "result": warehouse.reconcile_category_playability_v144()}
+        reconciliation: Any = {"status": "completed", "result": warehouse.reconcile_category_playability_v15()}
     except Exception as error:
         reconciliation = {"status": "failed", "reason": str(error)}
         print(f"Playability reconciliation failed: {error}", flush=True)

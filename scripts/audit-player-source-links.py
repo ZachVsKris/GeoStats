@@ -100,7 +100,7 @@ def main() -> int:
 
     reconciliation: object
     try:
-        reconciliation = {"status": "completed", "result": warehouse.reconcile_category_playability_v144()}
+        reconciliation = {"status": "completed", "result": warehouse.reconcile_category_playability_v15()}
     except Exception as error:
         reconciliation = {"status": "failed", "reason": str(error)}
         print(f"Playability reconciliation failed: {error}", flush=True)

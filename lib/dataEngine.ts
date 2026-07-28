@@ -200,7 +200,7 @@ export function validateRound(categories: CanonicalDataset[], bank: CountryInfo[
   for (const dataset of categories) {
     const leaderboard = poolLeaderboard(dataset, bank);
     const winner = leaderboard[0];
-    const winnerLimit = strongestGlobalWinnerRank(dataset.ranked.length);
+    const winnerLimit = strongestGlobalWinnerRank(dataset.category.globalCoverage ?? dataset.ranked.length);
     if (winner && winner.observation.globalRank > winnerLimit) {
       errors.push(`${dataset.category.name} has a board winner ranked #${winner.observation.globalRank} globally; #${winnerLimit} or better is required.`);
     }

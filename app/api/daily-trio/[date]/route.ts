@@ -10,8 +10,11 @@ import { validateDailyTrio, type DailyTrioLike } from "../../../../lib/dailyTrio
 import { generateDailyTrio } from "../../../../lib/puzzleEngine";
 import type { Category } from "../../../../lib/categories";
 
+export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 export const maxDuration = 300;
+
+const DAILY_SUCCESS_CACHE = "public, s-maxage=86400, stale-while-revalidate=604800";
 
 function validDate(value: string) {
   return /^\d{4}-\d{2}-\d{2}$/.test(value);
@@ -111,13 +114,15 @@ export async function GET(_request: Request, context: { params: Promise<{ date: 
   if (!supabase) return NextResponse.json({ configured: false }, { status: 503 });
 
   try {
-    const dependencies = await loadDependencies();
-    const stored = await readStored(supabase, date);
+    const [dependencies, stored] = await Promise.all([
+      loadDependencies(),
+      readStored(supabase, date),
+    ]);
     if (stored.error) throw stored.error;
     const validated = decodeCompleteTrio(stored.rows, dependencies);
     if (validated.trio && !validated.errors.length) {
       return NextResponse.json({ found: true, generated: false, ...shape(stored.rows) }, {
-        headers: { "Cache-Control": "private, no-store, max-age=0" },
+        headers: { "Cache-Control": DAILY_SUCCESS_CACHE },
       });
     }
 
@@ -144,13 +149,13 @@ export async function GET(_request: Request, context: { params: Promise<{ date: 
     await recordGeneration(supabase, {
       challenge_date: date,
       status: stored.rows.length ? "repaired" : "completed",
-      source: "daily-get-v15.0.1",
+      source: "daily-get-v15.2.1",
       diagnostics: { ...generated.diagnostics, replacedStoredRows: stored.rows.length, storedErrors: validated.errors },
       scores: generated.scores,
     });
 
     return NextResponse.json({ found: true, generated: true, repaired: stored.rows.length > 0, ...shape(latest.rows) }, {
-      headers: { "Cache-Control": "private, no-store, max-age=0" },
+      headers: { "Cache-Control": DAILY_SUCCESS_CACHE },
     });
   } catch (error) {
     const message = error instanceof Error ? error.message : "Daily boards could not be generated.";
@@ -160,7 +165,7 @@ export async function GET(_request: Request, context: { params: Promise<{ date: 
     await recordGeneration(supabase, {
       challenge_date: date,
       status: "failed",
-      source: "daily-get-v15.0.1",
+      source: "daily-get-v15.2.1",
       diagnostics,
       error_message: message,
     });

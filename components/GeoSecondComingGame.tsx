@@ -14,8 +14,7 @@ import CategorySourcePanel from "./CategorySourcePanel";
 import { newYorkDate } from "../lib/time";
 import { DAILY_DIFFICULTIES, DEFAULT_DIFFICULTY, ROUND_CONFIGS, type DailyDifficulty, type RoundConfig, canAddCategory, difficultyFromPath, measureKind, roundHasCountryDiversity, roundHasRequiredDiversity, roundType, semanticFamily, strongestGlobalWinnerRank } from "../lib/gameRules";
 import { trackAnalytics } from "../lib/analytics";
-import { categoryConflictsWithExistingTrio, validateDailyTrio } from "../lib/dailyTrioRules";
-import { generationProfiles, sourceCapacityForProfile } from "../lib/generationProfiles";
+import { categoryConflictsWithExistingTrio } from "../lib/dailyTrioRules";
 
 type Assignment = Record<string, string>;
 type ScoreRow = {
@@ -390,49 +389,6 @@ function composeRound(
   return bestRound;
 }
 
-async function buildDailyTrio(
-  countryList: CountryInfo[],
-  date: string,
-  fixed: Partial<DailyTrio> = {},
-): Promise<DailyTrio> {
-  const trioSeed = `DAILY-TRIO-${date}`;
-  const available = await loadCandidateDatasets(trioSeed, 140);
-  const requiredCategories = DAILY_DIFFICULTIES.reduce((sum, difficulty) => sum + ROUND_CONFIGS[difficulty].categoryCount, 0);
-  if (available.length < requiredCategories) {
-    throw new Error("Not enough official datasets were available to build all three Daily boards.");
-  }
-
-  for (const profile of generationProfiles()) {
-    if (sourceCapacityForProfile(available.map((dataset) => dataset.category), profile) < requiredCategories) continue;
-
-    for (let attempt = 0; attempt < 72; attempt++) {
-      const rounds: Partial<DailyTrio> = { ...fixed };
-      const buildOrder: DailyDifficulty[] = ["expert", "normal", "easy"];
-
-      for (const difficulty of buildOrder) {
-        if (rounds[difficulty]) continue;
-        const existingRounds = DAILY_DIFFICULTIES.map((key) => rounds[key]).filter((round): round is Round => Boolean(round));
-        const existingTrioCategories = existingRounds.flatMap((round) => round.categories.map((dataset) => dataset.category));
-        const overlapBanks = existingRounds.map((round) => new Set(round.bank.map((country) => country.id)));
-        rounds[difficulty] = composeRound(
-          available,
-          countryList,
-          `${trioSeed}:${profile.name}:${difficulty}:${attempt}`,
-          profile.configs[difficulty],
-          existingTrioCategories,
-          overlapBanks,
-          1,
-        ) ?? undefined;
-        if (!rounds[difficulty]) break;
-      }
-
-      if (!rounds.easy || !rounds.normal || !rounds.expert) continue;
-      const completed = rounds as DailyTrio;
-      if (!validateDailyTrio(completed).length) return completed;
-    }
-  }
-  throw new Error("Today’s Scout, Adventurer, and Expert boards could not be built with the current verified catalog. Please try again.");
-}
 
 export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFICULTY, mode = "daily" }: GeoSecondComingGameProps = {}) {
   const [countries, setCountries] = useState<CountryInfo[]>([]);
@@ -541,66 +497,47 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
     resetRoundState(nextSeed, nextDifficulty);
     syncUrl(nextDifficulty);
     setStatus(`Loading today’s ${ROUND_CONFIGS[nextDifficulty].label} Daily…`);
+
     try {
-      const categoryCatalog = await fetchPlayableCategoryCatalog();
-      let fixed: Partial<DailyTrio> = {};
-      try {
-        const response = await fetch(`/api/daily-trio/${date}`);
-        const saved = await response.json().catch(() => ({}));
-        for (const candidate of DAILY_DIFFICULTIES) {
-          const packed = saved?.[candidate]?.encoded_board;
-          if (!packed) continue;
-          const restored = decodeRound(packed, existingCountries, categoryCatalog);
-          if (roundMatchesDifficulty(restored, candidate)) fixed[candidate] = restored;
-        }
-        const restored = fixed[nextDifficulty];
-        if (restored) {
-          const hydrated = await hydrateRoundMetadata(restored);
-          setRound(hydrated);
-          await restoreSavedCompletion(hydrated, nextDifficulty, date);
-          setStatus("");
-          return;
-        }
-      } catch {
-        fixed = {};
+      const [categoryCatalog, response] = await Promise.all([
+        fetchPlayableCategoryCatalog(),
+        fetch(`/api/daily-trio/${date}`),
+      ]);
+      const saved = await response.json().catch(() => ({})) as Record<string, any>;
+
+      if (!response.ok) {
+        throw new Error(
+          typeof saved.error === "string"
+            ? saved.error
+            : "Today’s Daily boards are temporarily unavailable.",
+        );
       }
 
-      setStatus("Building today’s three Daily boards…");
-      const generated = await buildDailyTrio(existingCountries, date, fixed);
-      let finalTrio = generated;
-      try {
-        const response = await fetch(`/api/daily-trio/${date}`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(Object.fromEntries(DAILY_DIFFICULTIES.map((candidate) => [candidate, {
-            seed: dailySeed(candidate),
-            encodedBoard: encodeRound(generated[candidate]),
-          }]))),
-        });
-        if (response.ok) {
-          const saved = await response.json();
-          const restored: Partial<DailyTrio> = {};
-          for (const candidate of DAILY_DIFFICULTIES) {
-            const packed = saved?.[candidate]?.encoded_board;
-            if (!packed) continue;
-            const board = decodeRound(packed, existingCountries, categoryCatalog);
-            if (roundMatchesDifficulty(board, candidate)) restored[candidate] = board;
-          }
-          if (restored.easy && restored.normal && restored.expert) finalTrio = restored as DailyTrio;
-        }
-      } catch {
-        // Locally generated boards still obey all three Daily constraints.
+      const packed = saved?.[nextDifficulty]?.encoded_board;
+      if (typeof packed !== "string" || !packed) {
+        throw new Error(
+          `Today’s ${ROUND_CONFIGS[nextDifficulty].label} Daily was not returned by the server.`,
+        );
       }
-      const finalRound = finalTrio[nextDifficulty];
-      if (!roundMatchesDifficulty(finalRound, nextDifficulty)) {
-        throw new Error(`The ${ROUND_CONFIGS[nextDifficulty].label} Daily could not be verified with the correct board size. Reload and try again.`);
+
+      const restored = decodeRound(packed, existingCountries, categoryCatalog);
+      if (!roundMatchesDifficulty(restored, nextDifficulty)) {
+        throw new Error(
+          `The ${ROUND_CONFIGS[nextDifficulty].label} Daily has the wrong board dimensions.`,
+        );
       }
-      const hydratedFinalRound = await hydrateRoundMetadata(finalRound);
-      setRound(hydratedFinalRound);
-      await restoreSavedCompletion(hydratedFinalRound, nextDifficulty, date);
+
+      // The playable catalog already carries player-facing source and methodology
+      // metadata. Render immediately instead of blocking on another API request.
+      setRound(restored);
       setStatus("");
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "The Daily boards could not be generated.");
+      void restoreSavedCompletion(restored, nextDifficulty, date);
+    } catch (caught) {
+      setError(
+        caught instanceof Error
+          ? caught.message
+          : "The Daily boards could not be loaded.",
+      );
       setStatus("");
     }
   }

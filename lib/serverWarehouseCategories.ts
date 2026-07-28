@@ -313,3 +313,150 @@ export async function fetchServerWarehouseCategory(
 
   return warehousePayloadToDataset(category, payload);
 }
+
+
+export type BulkWarehouseLoadError = {
+  categoryId: string;
+  message: string;
+};
+
+export type BulkWarehouseLoadResult = {
+  datasets: CategoryDataset[];
+  errors: BulkWarehouseLoadError[];
+};
+
+type BulkObservationRow = ObservationRow & {
+  category_id: string;
+};
+
+const OBSERVATION_PAGE_SIZE = 500;
+const CATEGORY_CHUNK_SIZE = 40;
+
+function chunks<T>(items: T[], size: number): T[][] {
+  const result: T[][] = [];
+  for (let index = 0; index < items.length; index += size) {
+    result.push(items.slice(index, index + size));
+  }
+  return result;
+}
+
+/**
+ * Loads many playable common-year datasets with a small, bounded number of
+ * Supabase requests. Daily generation must never issue two database requests
+ * per category.
+ */
+export async function fetchServerWarehouseCategories(
+  categories: Category[],
+): Promise<BulkWarehouseLoadResult> {
+  const admin = createSupabaseAdminClient();
+  if (!admin) {
+    return {
+      datasets: [],
+      errors: categories.map((category) => ({
+        categoryId: category.id,
+        message: "Supabase is not configured.",
+      })),
+    };
+  }
+
+  const errors: BulkWarehouseLoadError[] = [];
+  const eligible = categories.filter((category) => {
+    if (!category.warehouseBacked) {
+      errors.push({
+        categoryId: category.id,
+        message: "Category is not backed by the curated warehouse.",
+      });
+      return false;
+    }
+    if (!Number.isInteger(category.commonYear)) {
+      errors.push({
+        categoryId: category.id,
+        message: "Category has no approved common comparison year.",
+      });
+      return false;
+    }
+    return true;
+  });
+
+  const grouped = new Map<number, Category[]>();
+  for (const category of eligible) {
+    const year = category.commonYear as number;
+    const group = grouped.get(year) ?? [];
+    group.push(category);
+    grouped.set(year, group);
+  }
+
+  const rowsByCategory = new Map<string, BulkObservationRow[]>();
+
+  async function loadChunk(year: number, categoryIds: string[]) {
+    let offset = 0;
+    while (true) {
+      const result = await admin
+        .from("stat_observations")
+        .select("category_id,country_iso3,country_name,data_year,value")
+        .in("category_id", categoryIds)
+        .eq("data_year", year)
+        .order("category_id", { ascending: true })
+        .order("country_iso3", { ascending: true })
+        .range(offset, offset + OBSERVATION_PAGE_SIZE - 1);
+
+      if (result.error) throw result.error;
+      const rows = (result.data ?? []) as BulkObservationRow[];
+      for (const row of rows) {
+        const categoryRows = rowsByCategory.get(row.category_id) ?? [];
+        categoryRows.push(row);
+        rowsByCategory.set(row.category_id, categoryRows);
+      }
+      if (rows.length < OBSERVATION_PAGE_SIZE) break;
+      offset += OBSERVATION_PAGE_SIZE;
+    }
+  }
+
+  const tasks: Promise<void>[] = [];
+  for (const [year, yearCategories] of grouped) {
+    for (const categoryChunk of chunks(yearCategories, CATEGORY_CHUNK_SIZE)) {
+      tasks.push(loadChunk(year, categoryChunk.map((category) => category.id)));
+    }
+  }
+
+  try {
+    await Promise.all(tasks);
+  } catch (caught) {
+    const message = caught instanceof Error
+      ? caught.message
+      : "Bulk observation loading failed.";
+    return {
+      datasets: [],
+      errors: eligible.map((category) => ({ categoryId: category.id, message })),
+    };
+  }
+
+  const datasets: CategoryDataset[] = [];
+  for (const category of eligible) {
+    const rows = rowsByCategory.get(category.id) ?? [];
+    try {
+      const dataset = warehousePayloadToDataset(category, {
+        computedPlayableV15: true,
+        commonYear: category.commonYear,
+        commonYearCoverage: category.globalCoverage ?? rows.length,
+        rankingComplete:
+          rows.length > 0 &&
+          rows.length === (category.globalCoverage ?? rows.length),
+        observations: rows.map((row) => ({
+          country_iso3: String(row.country_iso3),
+          country_name: String(row.country_name || row.country_iso3),
+          data_year: Number(row.data_year),
+          value: Number(row.value),
+        })),
+      });
+      datasets.push(dataset);
+    } catch (caught) {
+      errors.push({
+        categoryId: category.id,
+        message: caught instanceof Error ? caught.message : "Dataset could not be loaded.",
+      });
+    }
+  }
+
+  return { datasets, errors };
+}

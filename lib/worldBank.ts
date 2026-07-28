@@ -1,8 +1,8 @@
 import type { Category } from "./categories";
-import { isUnRecognizedCountry } from "./playableCountries";
 import { canonicalCountryName } from "./canonicalCountries";
 import { fetchCategorySourceMetadata } from "./categoryMetadata";
-import { continentForIso3, type Continent } from "./continents";
+import type { Continent } from "./continents";
+import { STATIC_COUNTRIES } from "./staticCountries";
 
 export type CountryInfo = { id: string; name: string; region: string; continent: Continent; flag: string; population?: number };
 export type Observation = { countryId: string; countryName: string; value: number; year: string };
@@ -60,73 +60,8 @@ export type CategoryDataset = {
   linkQualityScore?: number;
 };
 
-const COUNTRY_OVERRIDES: Record<string, string> = { XKX: "🇽🇰" };
-let playableCountriesPromise: Promise<CountryInfo[]> | null = null;
-const WORLD_BANK_IMPORT_START_YEAR = 2022;
-const WORLD_BANK_CURRENT_YEAR = new Date().getUTCFullYear();
-
-function worldBankIndicatorApiUrl(indicator: string) {
-  return `https://api.worldbank.org/v2/country/all/indicator/${encodeURIComponent(indicator)}?format=json&per_page=20000&date=${WORLD_BANK_IMPORT_START_YEAR}:${WORLD_BANK_CURRENT_YEAR}`;
-}
-
-function worldBankIndicatorMetadataUrl(indicator: string) {
-  return `https://api.worldbank.org/v2/indicator/${encodeURIComponent(indicator)}?format=json`;
-}
-
-function flagFromIso2(iso2: string) {
-  if (!iso2 || iso2.length !== 2) return "🌐";
-  return String.fromCodePoint(...iso2.toUpperCase().split("").map((c) => 127397 + c.charCodeAt(0)));
-}
-
-async function fetchJsonWithRetry(url: string, attempts = 3) {
-  let lastError: unknown;
-  for (let attempt = 1; attempt <= attempts; attempt += 1) {
-    try {
-      const response = await fetch(url, { cache: "no-store" });
-      if (!response.ok) throw new Error(`World Bank returned HTTP ${response.status}.`);
-      const json = await response.json();
-      const apiMessage = Array.isArray(json) ? json?.[0]?.message?.[0]?.value : null;
-      if (apiMessage) throw new Error(`World Bank API: ${apiMessage}`);
-      return json;
-    } catch (error) {
-      lastError = error;
-      if (attempt < attempts) await new Promise((resolve) => setTimeout(resolve, attempt * 500));
-    }
-  }
-  throw lastError instanceof Error ? lastError : new Error("World Bank request failed.");
-}
-
 export async function fetchCountries(): Promise<CountryInfo[]> {
-  if (!playableCountriesPromise) {
-    playableCountriesPromise = (async () => {
-      const [countryJson, populationResult] = await Promise.all([
-        fetchJsonWithRetry("https://api.worldbank.org/v2/country?format=json&per_page=400"),
-        fetchJsonWithRetry("https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?format=json&per_page=1000&mrnev=1").catch(() => null),
-      ]);
-      const rows = countryJson?.[1] ?? [];
-      const populations = new Map<string, number>();
-      for (const row of populationResult?.[1] ?? []) {
-        const id = String(row.countryiso3code ?? "");
-        const value = Number(row.value);
-        if (id.length === 3 && Number.isFinite(value) && value > 0) populations.set(id, value);
-      }
-      return rows
-        // World Bank aggregate entities (World, income groups, regions, etc.) use region.id = NA.
-        // Keep actual countries and territories only; do not use capitalCity because several valid
-        // playable territories omit it in World Bank metadata.
-        .filter((row: any) => row.id?.length === 3 && row.region?.id && row.region.id !== "NA" && isUnRecognizedCountry(row.id))
-        .map((row: any) => ({
-          id: row.id,
-          name: canonicalCountryName(row.id, row.name),
-          region: row.region.value,
-          continent: continentForIso3(row.id),
-          flag: COUNTRY_OVERRIDES[row.id] ?? flagFromIso2(row.iso2Code),
-          population: populations.get(row.id),
-        }))
-        .sort((a: CountryInfo, b: CountryInfo) => a.name.localeCompare(b.name));
-    })();
-  }
-  return playableCountriesPromise;
+  return [...STATIC_COUNTRIES];
 }
 
 export async function fetchWorldBankImportSnapshot(category: Category): Promise<WorldBankImportSnapshot> {

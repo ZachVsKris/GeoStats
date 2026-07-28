@@ -50,6 +50,7 @@ export type PlayableCategoryRow = {
   player_quality_status?: string | null;
   player_quality_reason?: string | null;
   minimum_year?: number | null;
+  common_year?: number | null;
   common_year_coverage?: number | null;
   quality_score?: number | null;
   concept_group?: string | null;
@@ -201,6 +202,7 @@ export function buildPlayableCategoryCatalog(rows: PlayableCategoryRow[]): Categ
       certificationGrade: Number(row.quality_score ?? 0) >= 85 ? "A" : "B",
       coverageFloor: coverageFloor(row, existing),
       globalCoverage: Number(row.common_year_coverage ?? existing?.globalCoverage ?? 0) || existing?.globalCoverage,
+      commonYear: Number(row.common_year ?? existing?.commonYear ?? 0) || existing?.commonYear,
       enabled: true,
       minimumYear: Math.max(2022, Number(row.minimum_year ?? existing?.minimumYear ?? 2022)),
       requireCommonYear: true,

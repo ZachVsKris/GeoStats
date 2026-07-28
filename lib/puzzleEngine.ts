@@ -1,6 +1,6 @@
 import type { Category } from "./categories";
 import { canonicalizeDataset, poolLeaderboard, validateRound } from "./dataEngine";
-import { fetchServerCategory } from "./serverDataSources";
+import { fetchServerWarehouseCategories } from "./serverWarehouseCategories";
 import { scoreCategoryQuality } from "./categoryQuality";
 import type { Round, RoundCategory } from "./challengeCodec";
 import type { CountryInfo } from "./worldBank";
@@ -110,59 +110,52 @@ function semanticFamilyForGeneration(category: Category) {
   return semanticFamily(category);
 }
 
-async function loadCandidateDatasets(seed: string, targetCount = 220): Promise<CandidateLoadResult> {
+async function loadCandidateDatasets(seed: string, targetCount = 140): Promise<CandidateLoadResult> {
   const rng = seededRandom(`${seed}:datasets`);
   const catalog = await loadServerPlayableCategoryCatalog();
   const shuffled = shuffle(catalog, rng);
+
+  // Include every non-FAOSTAT category before filling the remaining pool with
+  // FAOSTAT. This preserves source diversity while bounding the data transfer.
+  const nonFaostat = shuffled.filter((category) => category.source !== "faostat");
+  const faostat = shuffled.filter((category) => category.source === "faostat");
+  const candidates = shuffle(
+    [
+      ...nonFaostat.slice(0, targetCount),
+      ...faostat.slice(0, Math.max(0, targetCount - nonFaostat.length)),
+    ].slice(0, targetCount),
+    rng,
+  );
+
+  const bulk = await fetchServerWarehouseCategories(candidates);
   const loaded: RoundCategory[] = [];
-  const loadedIds = new Set<string>();
   const typeCounts = new Map<string, number>();
-  let datasetLoadFailures = 0;
-  const datasetLoadErrorSamples: string[] = [];
   let qualityRejections = 0;
 
-  for (let offset = 0; offset < shuffled.length && loaded.length < targetCount; offset += 12) {
-    const batch = shuffled.slice(offset, offset + 12).filter((category) => !loadedIds.has(category.id));
-    const results = await Promise.allSettled(
-      batch.map(async (category) =>
-        canonicalizeDataset(await fetchServerCategory(category)),
-      ),
-    );
-    for (const [resultIndex, result] of results.entries()) {
-      if (result.status !== "fulfilled") {
-        datasetLoadFailures += 1;
-        if (datasetLoadErrorSamples.length < 8) {
-          const category = batch[resultIndex];
-          const reason =
-            result.reason instanceof Error
-              ? result.reason.message
-              : String(result.reason);
-          datasetLoadErrorSamples.push(
-            `${category?.id ?? "unknown category"}: ${reason}`,
-          );
-        }
-        continue;
-      }
-      const dataset = result.value;
+  for (const rawDataset of bulk.datasets) {
+    try {
+      const dataset = canonicalizeDataset(rawDataset);
       const quality = scoreCategoryQuality(dataset);
       if (!quality.eligible) {
         qualityRejections += 1;
         continue;
       }
       const type = roundType(dataset.category);
-      // Retain breadth without letting one large source family dominate all fetches.
       if ((typeCounts.get(type) ?? 0) >= 24) continue;
       loaded.push(dataset);
-      loadedIds.add(dataset.category.id);
       typeCounts.set(type, (typeCounts.get(type) ?? 0) + 1);
+    } catch {
+      qualityRejections += 1;
     }
   }
 
   return {
     datasets: loaded,
     catalogSize: catalog.length,
-    datasetLoadFailures,
-    datasetLoadErrorSamples,
+    datasetLoadFailures: bulk.errors.length,
+    datasetLoadErrorSamples: bulk.errors
+      .slice(0, 8)
+      .map((error) => `${error.categoryId}: ${error.message}`),
     qualityRejections,
   };
 }

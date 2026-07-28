@@ -81,3 +81,10 @@ const auditScript = fs.readFileSync(path.join(root, "scripts/audit-source-integr
 for (const token of ["classify_nonblocking_audit_result", "true_integrity_failure", "return 1 if activation_failed or reconciliation_failed else 0"]) {
   if (!auditScript.includes(token)) throw new Error(`Missing audit safety token: ${token}`);
 }
+
+const detailRoute = fs.readFileSync(path.join(root, "app/api/admin/category-review/[id]/route.ts"), "utf8");
+if (/^category-review-id-route\.ts\s*$/m.test(detailRoute)) throw new Error("The dynamic category-review route contains an accidental filename line.");
+if (detailRoute.includes("loaded.detail.error.message")) throw new Error("The dynamic category-review route still dereferences a possibly undefined detail error.");
+const hiddenWorkflows = fs.readdirSync(path.join(root, ".github/workflows"));
+if (!hiddenWorkflows.includes("verify-v15.yml")) throw new Error("The active GitHub workflows are missing verify-v15.yml.");
+if (hiddenWorkflows.includes("verify-v14-4.yml")) throw new Error("The obsolete v14.4 verification workflow must not run on the v15 repository.");

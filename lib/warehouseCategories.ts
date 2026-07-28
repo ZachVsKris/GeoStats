@@ -219,6 +219,7 @@ export async function fetchWarehouseCategory(
   } else {
     params.set("category", category.id);
   }
+  if (category.catalogTier === "random") params.set("tier", "random");
 
   const response = await fetch(
     `/api/warehouse-category?${params.toString()}`,

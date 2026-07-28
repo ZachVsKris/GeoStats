@@ -7,7 +7,7 @@ export type GenerationProfile = {
 
 function withGenerationCaps(
   base: RoundConfig,
-  overrides: Partial<Pick<RoundConfig, "maxSameSource" | "maxAgricultureCategories" | "maxFaostatCategories">>,
+  overrides: Partial<Pick<RoundConfig, "maxSameSource" | "maxAgricultureCategories" | "maxFaostatCategories" | "maxBroadDomain">>,
 ): RoundConfig {
   return { ...base, ...overrides };
 }
@@ -18,17 +18,17 @@ export function generationProfiles(): GenerationProfile[] {
     {
       name: "catalog-balanced",
       configs: {
-        easy: withGenerationCaps(ROUND_CONFIGS.easy, { maxSameSource: 3, maxAgricultureCategories: 2, maxFaostatCategories: 2 }),
-        normal: withGenerationCaps(ROUND_CONFIGS.normal, { maxSameSource: 4, maxAgricultureCategories: 3, maxFaostatCategories: 3 }),
-        expert: withGenerationCaps(ROUND_CONFIGS.expert, { maxSameSource: 5, maxAgricultureCategories: 4, maxFaostatCategories: 4 }),
+        easy: withGenerationCaps(ROUND_CONFIGS.easy, { maxSameSource: 3, maxAgricultureCategories: 2, maxFaostatCategories: 2, maxBroadDomain: 2 }),
+        normal: withGenerationCaps(ROUND_CONFIGS.normal, { maxSameSource: 4, maxAgricultureCategories: 3, maxFaostatCategories: 3, maxBroadDomain: 2 }),
+        expert: withGenerationCaps(ROUND_CONFIGS.expert, { maxSameSource: 5, maxAgricultureCategories: 4, maxFaostatCategories: 4, maxBroadDomain: 3 }),
       },
     },
     {
       name: "catalog-recovery",
       configs: {
-        easy: withGenerationCaps(ROUND_CONFIGS.easy, { maxSameSource: 3, maxAgricultureCategories: 3, maxFaostatCategories: 3 }),
-        normal: withGenerationCaps(ROUND_CONFIGS.normal, { maxSameSource: 4, maxAgricultureCategories: 4, maxFaostatCategories: 4 }),
-        expert: withGenerationCaps(ROUND_CONFIGS.expert, { maxSameSource: 5, maxAgricultureCategories: 5, maxFaostatCategories: 5 }),
+        easy: withGenerationCaps(ROUND_CONFIGS.easy, { maxSameSource: 3, maxAgricultureCategories: 3, maxFaostatCategories: 3, maxBroadDomain: 2 }),
+        normal: withGenerationCaps(ROUND_CONFIGS.normal, { maxSameSource: 4, maxAgricultureCategories: 4, maxFaostatCategories: 4, maxBroadDomain: 3 }),
+        expert: withGenerationCaps(ROUND_CONFIGS.expert, { maxSameSource: 5, maxAgricultureCategories: 5, maxFaostatCategories: 5, maxBroadDomain: 3 }),
       },
     },
   ];

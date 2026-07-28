@@ -1,5 +1,5 @@
 import type { Category } from "./categories";
-import { inferSemanticProfile, semanticConflict } from "./categorySemantics";
+import { categoryBroadDomain, categoryKnowledgeCluster, inferSemanticProfile, semanticConflict } from "./categorySemantics";
 
 export type DailyDifficulty = "easy" | "normal" | "expert";
 
@@ -17,6 +17,7 @@ export type RoundConfig = {
   maxSameSource: number;
   maxAgricultureCategories: number;
   maxFaostatCategories: number;
+  maxBroadDomain: number;
   maxCountriesPerContinent: number;
   pointsByRank: readonly number[];
 };
@@ -38,6 +39,7 @@ export const ROUND_CONFIGS: Record<DailyDifficulty, RoundConfig> = {
     maxSameSource: 2,
     maxAgricultureCategories: 1,
     maxFaostatCategories: 1,
+    maxBroadDomain: 2,
     maxCountriesPerContinent: 2,
     pointsByRank: [100, 75, 50, 25, 0],
   },
@@ -55,6 +57,7 @@ export const ROUND_CONFIGS: Record<DailyDifficulty, RoundConfig> = {
     maxSameSource: 2,
     maxAgricultureCategories: 2,
     maxFaostatCategories: 2,
+    maxBroadDomain: 2,
     maxCountriesPerContinent: 3,
     pointsByRank: [100, 85, 70, 55, 40, 25, 10, 0],
   },
@@ -72,6 +75,7 @@ export const ROUND_CONFIGS: Record<DailyDifficulty, RoundConfig> = {
     maxSameSource: 3,
     maxAgricultureCategories: 2,
     maxFaostatCategories: 2,
+    maxBroadDomain: 2,
     maxCountriesPerContinent: 3,
     pointsByRank: [100, 90, 80, 70, 60, 50, 40, 30, 20, 10],
   },
@@ -137,6 +141,22 @@ function faostatItemCode(category: Category) {
 
 export function semanticFamily(category: Category) {
   return inferSemanticProfile(category).family;
+}
+
+export function broadDomain(category: Category) {
+  return categoryBroadDomain(category);
+}
+
+export function knowledgeCluster(category: Category) {
+  return categoryKnowledgeCluster(category);
+}
+
+export function isPhysicalCategory(category: Category) {
+  return broadDomain(category) === "physical-geography";
+}
+
+export function isDisplacementCategory(category: Category) {
+  return knowledgeCluster(category) === "forced-displacement";
 }
 
 export function similarityGroup(category: Category) {
@@ -211,6 +231,10 @@ export function canAddCategory(selected: Category[], category: Category, config:
   const group = similarityGroup(category);
   if (selected.some((item) => similarityGroup(item) === group)) return false;
   if (selected.some((item) => semanticConflict(item, category))) return false;
+  const cluster = knowledgeCluster(category);
+  if (selected.some((item) => knowledgeCluster(item) === cluster)) return false;
+  const domain = broadDomain(category);
+  if (selected.filter((item) => broadDomain(item) === domain).length >= config.maxBroadDomain) return false;
   if (selected.filter((item) => item.source === category.source).length >= config.maxSameSource) return false;
   if (category.source === "faostat" && selected.filter((item) => item.source === "faostat").length >= config.maxFaostatCategories) return false;
   if (isAgricultureCategory(category) && selected.filter(isAgricultureCategory).length >= config.maxAgricultureCategories) return false;
@@ -224,6 +248,10 @@ export function roundHasRequiredDiversity(categories: Category[], config: RoundC
   if (categories.length !== config.categoryCount) return false;
   const types = new Set(categories.map(roundType));
   if (types.size < config.minRoundTypes) return false;
+  if (new Set(categories.map(knowledgeCluster)).size !== categories.length) return false;
+  for (const domain of new Set(categories.map(broadDomain))) {
+    if (categories.filter((category) => broadDomain(category) === domain).length > config.maxBroadDomain) return false;
+  }
   if (categories.filter(isGeneralTradeCategory).length > MAX_GENERAL_TRADE) return false;
   if (categories.filter(isTradeCategory).length > MAX_TOTAL_TRADE) return false;
   if (categories.filter((category) => category.source === "faostat").length > config.maxFaostatCategories) return false;

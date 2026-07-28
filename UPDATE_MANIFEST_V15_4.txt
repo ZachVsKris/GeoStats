@@ -1,0 +1,14 @@
+GeoStats v15.4 update package
+
+Copy every file and folder in this package into the repository root and overwrite matching files.
+No hidden files change.
+
+Key additions:
+- RUN_THIS_IN_SUPABASE_FOR_V15_4.sql
+- ROLLBACK_V15_4.sql
+- VERIFY_V15_4.sql
+- supabase/migrations/029_v15_4_runtime_catalog_and_diversity.sql
+- scripts/test-v15-4-gameplay.mjs
+- scripts/test-v15-4-generator-feasibility.mjs
+
+Run the SQL only after GitHub verification and Vercel both succeed.

@@ -7,7 +7,10 @@ import type { CountryInfo } from "./worldBank";
 import {
   DAILY_DIFFICULTIES,
   ROUND_CONFIGS,
+  broadDomain,
   canAddCategory,
+  isPhysicalCategory,
+  knowledgeCluster,
   measureKind,
   roundHasCountryDiversity,
   roundHasRequiredDiversity,
@@ -204,15 +207,26 @@ function chooseDiverseCategories(
 
     const selectedTypes = new Set(selected.map((item) => roundType(item.category)));
     const selectedMeasures = new Set(selected.map((item) => measureKind(item.category)));
-    const scored = options.map((dataset) => ({
-      dataset,
-      score:
-        (selectedTypes.has(roundType(dataset.category)) ? 0 : 14)
-        + (selectedMeasures.has(measureKind(dataset.category)) ? 0 : 4)
-        + (existingSemanticFamilies.has(semanticFamilyForGeneration(dataset.category)) ? 0 : 7)
-        + scoreCategoryQuality(dataset).score / 25
-        + rng(),
-    })).sort((left, right) => right.score - left.score);
+    const selectedDomains = new Set(selected.map((item) => broadDomain(item.category)));
+    const selectedClusters = new Set(selected.map((item) => knowledgeCluster(item.category)));
+    const existingPhysical = existingTrioCategories.filter(isPhysicalCategory).length;
+    const selectedPhysical = selected.filter((item) => isPhysicalCategory(item.category)).length;
+    const scored = options.map((dataset) => {
+      const category = dataset.category;
+      const physicalBonus = isPhysicalCategory(category) && existingPhysical + selectedPhysical < 2 ? 18 : 0;
+      return {
+        dataset,
+        score:
+          (selectedTypes.has(roundType(category)) ? 0 : 14)
+          + (selectedMeasures.has(measureKind(category)) ? 0 : 4)
+          + (selectedDomains.has(broadDomain(category)) ? 0 : 9)
+          + (selectedClusters.has(knowledgeCluster(category)) ? 0 : 10)
+          + (existingSemanticFamilies.has(semanticFamilyForGeneration(category)) ? 0 : 7)
+          + physicalBonus
+          + scoreCategoryQuality(dataset).score / 25
+          + rng(),
+      };
+    }).sort((left, right) => right.score - left.score);
     selected.push(scored[0].dataset);
   }
 
@@ -334,7 +348,16 @@ export function scoreBoard(round: Round, config: RoundConfig): ScoreBreakdown {
   const quality = qualities.reduce((sum, value) => sum + value, 0) / Math.max(1, qualities.length);
   const familyCount = new Set(round.categories.map((dataset) => roundType(dataset.category))).size;
   const measureCount = new Set(round.categories.map((dataset) => measureKind(dataset.category))).size;
-  const variety = Math.min(100, (familyCount / config.minRoundTypes) * 65 + (measureCount / Math.min(config.categoryCount, 4)) * 35);
+  const domainCount = new Set(round.categories.map((dataset) => broadDomain(dataset.category))).size;
+  const clusterCount = new Set(round.categories.map((dataset) => knowledgeCluster(dataset.category))).size;
+  const physicalCount = round.categories.filter((dataset) => isPhysicalCategory(dataset.category)).length;
+  const variety = Math.min(100,
+    (familyCount / config.minRoundTypes) * 35
+    + (measureCount / Math.min(config.categoryCount, 4)) * 15
+    + (domainCount / Math.min(config.categoryCount, 5)) * 25
+    + (clusterCount / config.categoryCount) * 20
+    + Math.min(1, physicalCount) * 5,
+  );
   const continents = new Set(round.bank.map((country) => country.continent)).size;
   const geography = Math.min(100, continents * 19);
   const populationSignals = round.bank
@@ -541,6 +564,6 @@ export async function generateDailyTrio(
   }
 
   diagnostics.failureStage = "trio-constraints";
-  diagnostics.message = "No Daily trio satisfied within-board semantic diversity, top-30 winner, tie-free displayed values, distinct-winner, complete-data, source-balance fallback, and one-country-overlap rules.";
+  diagnostics.message = "No Daily trio satisfied knowledge-cluster and domain diversity, at least two physical-geography categories, top-30 winners, tie-free displayed values, distinct winners, complete data, source-balance fallbacks, and one-country-overlap rules.";
   throw Object.assign(new Error(diagnostics.message), { diagnostics });
 }

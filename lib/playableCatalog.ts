@@ -172,9 +172,12 @@ function normalizedEvidence(value: string | null | undefined): EvidenceLabel | u
   return allowed.includes(value as EvidenceLabel) ? value as EvidenceLabel : undefined;
 }
 
-export function buildPlayableCategoryCatalog(rows: PlayableCategoryRow[]): Category[] {
+export type CatalogTier = "daily" | "random";
+
+export function buildPlayableCategoryCatalog(rows: PlayableCategoryRow[], options: { tier?: CatalogTier } = {}): Category[] {
   const { byId, byIndicator } = staticMatchMaps();
   const catalog = new Map<string, Category>();
+  const requestedTier = options.tier ?? "daily";
 
   for (const row of rows) {
     const source = SOURCE_IDS[row.source_organization];
@@ -247,14 +250,23 @@ export function buildPlayableCategoryCatalog(rows: PlayableCategoryRow[]): Categ
       similarityGroup: existing?.similarityGroup || row.concept_group || metadataString(metadata, "similarityGroup") || `${source}:${row.source_indicator_code}`,
       semanticFamily: row.effective_semantic_group || row.semantic_family || existing?.semanticFamily || metadataString(metadata, "semanticFamily"),
       semanticTopic: existing?.semanticTopic || row.semantic_topic || metadataString(metadata, "semanticTopic") || row.concept_group || undefined,
+      broadDomain: existing?.broadDomain || metadataString(metadata, "broadDomain"),
+      knowledgeCluster: existing?.knowledgeCluster || metadataString(metadata, "knowledgeCluster"),
+      catalogTier: (metadataString(metadata, "catalogTier") as Category["catalogTier"]) || existing?.catalogTier || (row.computed_playable_v15 ? "daily" : "quarantined"),
       productSpecificTrade: existing?.productSpecificTrade ?? source === "comtrade",
     });
 
-    // v15 makes the database review state authoritative. The SQL view has
-    // already combined the human editorial decision with strict integrity,
-    // coverage, recency, credibility, and source-link requirements. Do not
-    // re-apply the retired v14 matrix of overlapping legacy review fields.
-    if (row.computed_playable_v15 !== true) continue;
+    // Daily uses the strict v15 playability decision plus the v15.4 tier.
+    // Random may also use approved, hard-gate-ready categories intentionally
+    // classified as random-only because of narrower coverage or higher tie density.
+    const tier = category.catalogTier ?? (row.computed_playable_v15 ? "daily" : "quarantined");
+    const dailyReady = row.computed_playable_v15 === true && tier === "daily";
+    const randomReady = dailyReady || (
+      requestedTier === "random"
+      && tier === "random"
+      && row.editorial_status === "approved"
+    );
+    if (requestedTier === "daily" ? !dailyReady : !randomReady) continue;
     category = {
       ...category,
       enabled: true,
@@ -268,21 +280,23 @@ export function buildPlayableCategoryCatalog(rows: PlayableCategoryRow[]): Categ
   return [...catalog.values()].sort((a, b) => a.id.localeCompare(b.id));
 }
 
-let browserCatalogPromise: Promise<Category[]> | null = null;
+const browserCatalogPromises: Partial<Record<CatalogTier, Promise<Category[]>>> = {};
 
-export function fetchPlayableCategoryCatalog(options: { refresh?: boolean } = {}) {
+export function fetchPlayableCategoryCatalog(options: { refresh?: boolean; tier?: CatalogTier } = {}) {
   if (typeof window === "undefined") return Promise.reject(new Error("The verified category catalog must be loaded by the server."));
-  if (!browserCatalogPromise || options.refresh) {
-    browserCatalogPromise = fetch("/api/playable-categories", { cache: options.refresh ? "no-store" : "default" })
+  const tier = options.tier ?? "daily";
+  if (!browserCatalogPromises[tier] || options.refresh) {
+    const params = tier === "random" ? "?tier=random" : "";
+    browserCatalogPromises[tier] = fetch(`/api/playable-categories${params}`, { cache: options.refresh ? "no-store" : "default" })
       .then(async (response) => {
         const payload = await response.json().catch(() => ({})) as { categories?: Category[]; error?: string };
         if (!response.ok || !payload.categories?.length) throw new Error(payload.error || "The trusted category catalog could not be loaded.");
         return payload.categories;
       })
       .catch((error) => {
-        browserCatalogPromise = null;
+        delete browserCatalogPromises[tier];
         throw error;
       });
   }
-  return browserCatalogPromise;
+  return browserCatalogPromises[tier]!;
 }

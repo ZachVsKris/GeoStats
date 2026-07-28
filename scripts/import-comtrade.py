@@ -46,8 +46,8 @@ def trade_rule(
         rule=IndicatorRule(
             key=key,
             title=title,
-            description=f"Annual export value of {title.removeprefix('Largest ').removesuffix(' exports').lower()} shipped from each country to the world.",
-            plain_language_description=f"Annual export value of {title.removeprefix('Largest ').removesuffix(' exports').lower()} shipped from each country to the world.",
+            description=f"Annual value of {title.removeprefix('Largest ').removesuffix(' exports').lower()} exported from each country to the world.",
+            plain_language_description=f"Annual value of {title.removeprefix('Largest ').removesuffix(' exports').lower()} exported from each country to the world.",
             technical_definition=f"UN Comtrade merchandise exports to World for HS code{'s' if len(codes) > 1 else ''} {', '.join(codes)}, measured by annual trade value.",
             unit_explanation="Current US dollars of exports",
             understandability_score=94,

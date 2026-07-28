@@ -24,6 +24,9 @@ const CATEGORY_SELECT = [
   "id",
   "title",
   "computed_playable_v15",
+  "editorial_status",
+  "hard_gate_ready",
+  "metadata",
   "source_organization",
   "source_indicator_code",
   "common_year",
@@ -74,12 +77,16 @@ type WarehouseLookup = {
   categoryId?: string;
   source?: string;
   indicator?: string;
+  allowRandomOnly?: boolean;
 };
 
 type CategoryRow = {
   id: string;
   title: string;
   computed_playable_v15: boolean | null;
+  editorial_status?: string | null;
+  hard_gate_ready?: boolean | null;
+  metadata?: Record<string, unknown> | null;
   source_organization: string;
   source_indicator_code: string;
   common_year: number | null;
@@ -194,9 +201,15 @@ export async function loadServerWarehousePayload(
     throw new WarehouseCategoryError("Category not found.", 404);
   }
 
-  if (category.computed_playable_v15 !== true) {
+  const catalogTier = typeof category.metadata?.catalogTier === "string"
+    ? category.metadata.catalogTier
+    : category.computed_playable_v15 === true ? "daily" : "quarantined";
+  const randomOnlyAllowed = lookup.allowRandomOnly === true
+    && catalogTier === "random"
+    && category.editorial_status === "approved";
+  if (category.computed_playable_v15 !== true && !randomOnlyAllowed) {
     throw new WarehouseCategoryError(
-      "This category is not currently playable under the authoritative v15 policy.",
+      "This category is not currently playable for the requested mode.",
       404,
     );
   }

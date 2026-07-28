@@ -1004,41 +1004,42 @@ header{display:flex;align-items:center;justify-content:space-between;padding:6px
 @media(max-width:1200px){.reviewSummaryGrid{grid-template-columns:repeat(3,1fr)}.reviewToolbar{grid-template-columns:2fr 1fr 1fr}.reviewToolbar select:nth-of-type(n+3),.autoAdvanceToggle{grid-row:2}.reviewMetricStrip{grid-template-columns:repeat(3,1fr)}.reviewSimilarGrid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:850px){.reviewWorkbenchShell{padding:12px}.reviewSummaryGrid{grid-template-columns:repeat(2,1fr)}.reviewToolbar{position:static;grid-template-columns:1fr 1fr}.reviewToolbar input{grid-column:1/-1}.reviewWorkspace{display:block}.reviewQueuePane{border-right:0;border-bottom:1px solid rgba(255,255,255,.1)}.reviewQueueList{max-height:42vh;min-height:260px}.reviewDetailPane{max-height:none}.reviewDetailHeader{display:grid}.reviewDetailGrid,.reviewDetailGrid.values{grid-template-columns:1fr}.reviewMetricStrip{grid-template-columns:repeat(2,1fr)}.reviewSimilarGrid{grid-template-columns:1fr}.reviewDecisionBar{position:sticky;bottom:6px;z-index:10;background:rgba(8,29,22,.95);backdrop-filter:blur(12px)}.reviewForm{grid-template-columns:1fr}.reviewForm .full{grid-column:auto}}
 
-/* GeoStats v15.3: calmer, reproducible source panel */
-.sourcePanel.sourcePanelSimple{width:min(1040px,100%);padding:clamp(20px,3vw,34px)}
-.sourceHero{display:grid;gap:18px;padding:0 62px 26px 0!important;border-bottom:1px solid var(--line)}
-.sourceTitleBlock{display:grid;grid-template-columns:auto minmax(0,1fr);align-items:start;gap:16px;max-width:900px}
-.sourceHeroIcon{display:grid;place-items:center;width:56px;height:56px;margin-top:3px;border:1px solid var(--line);border-radius:14px;background:var(--surface-3);font-size:29px;line-height:1}
-.sourceHero .kicker{display:block;margin-bottom:8px}
-.sourcePanel .sourceHero h2{max-width:780px;margin:0;font-size:clamp(29px,3.1vw,42px);line-height:1.02;letter-spacing:-.025em;overflow-wrap:anywhere}
-.sourcePanel .sourceHeroDescription{max-width:760px;margin:0 0 0 72px;color:var(--muted);font-size:clamp(14px,1.45vw,18px);line-height:1.55}
-.sourceSpec{display:flex;flex-wrap:wrap;gap:7px;margin-left:72px}
-.sourceSpec span{display:inline-flex;align-items:center;min-height:28px;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--surface-2);color:var(--muted);font-family:var(--label);font-size:8px;font-weight:800;letter-spacing:.055em;text-transform:uppercase;overflow-wrap:anywhere}
-.sourcePanelSimple .sourceTableHeader{align-items:center;margin:25px 0 10px}
-.sourcePanelSimple .sourceTableHeader h3{font-size:clamp(25px,3vw,35px)}
-.sourcePanelSimple .sourceTableHeader input{width:min(320px,42%);min-height:46px;font-size:14px}
+/* v15.4: quieter, validation-friendly source modal */
+.sourcePanel.sourcePanelSimple{width:min(980px,100%);padding:clamp(20px,3vw,32px)}
+.sourceHero{display:grid;gap:16px;padding:0 54px 24px 0!important;border-bottom:1px solid var(--line)}
+.sourceHeroTop{display:grid;grid-template-columns:48px minmax(0,1fr);align-items:start;gap:15px}
+.sourceHeroCopy{min-width:0}
+.sourceHeroIcon{display:grid;place-items:center;width:48px;height:48px;margin-top:1px;border:1px solid var(--line);border-radius:12px;background:var(--surface-3);font-size:25px;line-height:1}
+.sourcePanel .sourceHero h2{max-width:780px;margin:0;font-size:clamp(26px,3vw,38px);font-weight:600;line-height:1.05;letter-spacing:-.022em;overflow-wrap:anywhere}
+.sourcePanel .sourceHeroDescription{max-width:760px;margin:9px 0 0;color:var(--muted);font-size:clamp(13px,1.2vw,16px);line-height:1.5}
+.sourceSpec{display:flex;flex-wrap:wrap;gap:7px;margin-left:63px}
+.sourceSpec span{display:inline-flex;align-items:center;min-height:27px;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--muted);font-family:var(--label);font-size:8px;font-weight:800;letter-spacing:.05em;text-transform:none;overflow-wrap:anywhere}
+.sourceSpec .sourceSpecPrimary{background:var(--accent);border-color:var(--accent);color:var(--ink);text-transform:uppercase}
+.sourcePanelSimple .sourceTableHeader{align-items:end;margin:23px 0 10px}
+.sourcePanelSimple .sourceTableHeader h3{font-size:clamp(23px,2.4vw,32px)}
+.sourcePanelSimple .sourceTableHeader input{width:min(300px,40%);min-height:43px;font-size:14px}
 .sourcePanelSimple .sourceDataTable{max-height:52vh}
-.sourcePanelSimple .sourceDataHead,.sourcePanelSimple .sourceDataRow{grid-template-columns:64px minmax(170px,1fr) minmax(150px,auto) 64px;padding:11px 14px}
+.sourcePanelSimple .sourceDataHead,.sourcePanelSimple .sourceDataRow{grid-template-columns:60px minmax(160px,1fr) minmax(145px,auto) 58px;padding:10px 13px}
 .sourcePanelSimple .sourceDataRow{font-size:13px}
-.sourcePanelSimple .sourceDataRow>span:nth-child(3){max-width:280px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.sourcePanelSimple .sourceLinksSimple{display:flex;align-items:center;gap:12px;margin:18px 0 0}
+.sourcePanelSimple .sourceDataRow>span:nth-child(3){max-width:250px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sourcePanelSimple .sourceLinksSimple{display:flex;align-items:center;gap:12px;margin:17px 0 0}
 .sourcePanelSimple .sourceLinksSimple small{max-width:600px;color:var(--muted);font-size:11px;line-height:1.45}
 @media(max-width:760px){
-  .sourcePanel.sourcePanelSimple{padding:19px 13px}
-  .sourceHero{gap:13px;padding:0 44px 20px 0!important}
-  .sourceTitleBlock{grid-template-columns:42px minmax(0,1fr);gap:10px}
-  .sourceHeroIcon{width:42px;height:42px;border-radius:10px;font-size:22px}
-  .sourcePanel .sourceHero h2{font-size:clamp(26px,8.5vw,38px);line-height:1.04}
-  .sourcePanel .sourceHeroDescription,.sourceSpec{margin-left:52px}
-  .sourcePanel .sourceHeroDescription{font-size:14px}
-  .sourceSpec span{font-size:7px}
+  .sourcePanel.sourcePanelSimple{padding:18px 12px}
+  .sourceHero{gap:12px;padding:0 40px 18px 0!important}
+  .sourceHeroTop{grid-template-columns:38px minmax(0,1fr);gap:10px}
+  .sourceHeroIcon{width:38px;height:38px;border-radius:9px;font-size:20px}
+  .sourcePanel .sourceHero h2{font-size:clamp(24px,7.2vw,34px)}
+  .sourcePanel .sourceHeroDescription{font-size:13px}
+  .sourceSpec{margin-left:48px}
+  .sourcePanelSimple .sourceTableHeader{align-items:stretch}
   .sourcePanelSimple .sourceTableHeader input{width:100%}
-  .sourcePanelSimple .sourceDataRow>span:nth-child(3){max-width:160px}
+  .sourcePanelSimple .sourceDataRow>span:nth-child(3){max-width:150px}
   .sourcePanelSimple .sourceLinksSimple{align-items:stretch;flex-direction:column}
   .sourcePanelSimple .sourceLinksSimple a{width:100%}
 }
-@media(max-width:480px){
-  .sourcePanel .sourceHeroDescription,.sourceSpec{margin-left:0}
-  .sourceHero{padding-right:38px!important}
-  .sourcePanelSimple .sourceDataHead,.sourcePanelSimple .sourceDataRow{grid-template-columns:38px minmax(98px,1fr) minmax(92px,auto)}
+@media(max-width:520px){
+  .sourceSpec{margin-left:0}
+  .sourceHero{padding-right:36px!important}
+  .sourcePanelSimple .sourceDataHead,.sourcePanelSimple .sourceDataRow{grid-template-columns:38px minmax(98px,1fr) minmax(90px,auto)}
 }

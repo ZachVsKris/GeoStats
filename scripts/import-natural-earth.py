@@ -81,10 +81,10 @@ def rule(
 
 
 RULES: tuple[IndicatorRule, ...] = (
-    rule("most-land-neighbors", "Most land-border neighbors", "Number of countries sharing a mapped land border.", "🤝", "neighboring countries", "high", fun=96),
+    rule("most-land-neighbors", "Most bordering countries", "Number of countries sharing a mapped land border.", "🤝", "neighboring countries", "high", fun=96),
     rule("longest-land-border", "Longest total land border", "Combined length of all mapped international land borders.", "🧱", "kilometers", "high", fun=94),
     rule("longest-single-land-border", "Longest single land border", "Length of the country’s longest mapped border with one neighbor.", "🗺️", "kilometers", "high", fun=96),
-    rule("longest-coastline", "Longest mapped coastline", "Coastline length measured consistently from Natural Earth’s 1:10m geometry.", "🌊", "kilometers", "high", understandability=97, fun=99),
+    rule("longest-coastline", "Longest coastline", "Coastline length measured consistently from Natural Earth’s 1:10m geometry.", "🌊", "kilometers", "high", understandability=97, fun=99),
     rule("highest-coastline-density", "Most coastline for its size", "Mapped coastline kilometers per 1,000 square kilometers of land.", "🏖️", "km per 1,000 km²", "high", understandability=94, fun=97),
     rule("most-separate-land-areas", "Most separate land areas", "Number of separate mapped land pieces covering at least 25 square kilometers.", "🏝️", "land areas", "high", fun=94),
     rule("most-large-land-areas", "Most large separate land areas", "Number of separate mapped land pieces covering at least 100 square kilometers.", "🏝️", "land areas", "high", fun=92),
@@ -96,15 +96,15 @@ RULES: tuple[IndicatorRule, ...] = (
     rule("southernmost-country", "Southernmost country", "Latitude of the country’s southernmost mapped point.", "🧭", "degrees latitude", "low", fun=95),
     rule("farthest-from-equator", "Farthest from the equator", "Absolute latitude of the country geometry’s center point.", "🌐", "degrees latitude", "high", fun=88),
     rule("largest-geodesic-land-area", "Largest mapped land area", "Land area calculated directly from the same global country geometry.", "🗺️", "square kilometers", "high", fun=90),
-    rule("most-mapped-river-length", "Most mapped river length", "Combined length of Natural Earth river lines inside the country.", "🏞️", "kilometers", "high", layer="rivers", fun=96),
-    rule("highest-mapped-river-density", "Highest mapped river density", "Mapped river kilometers per 1,000 square kilometers of land.", "💧", "km per 1,000 km²", "high", layer="rivers", fun=92),
-    rule("most-mapped-rivers", "Most mapped rivers", "Number of Natural Earth river features crossing the country for at least one kilometer.", "🌊", "river features", "high", layer="rivers", fun=94),
-    rule("largest-mapped-lake-area", "Largest total mapped lake area", "Combined area of Natural Earth lakes and reservoirs inside the country.", "🏞️", "square kilometers", "high", layer="lakes", fun=97),
-    rule("largest-single-mapped-lake", "Largest mapped lake", "Largest single Natural Earth lake or reservoir area inside the country.", "🌅", "square kilometers", "high", layer="lakes", fun=98),
-    rule("most-mapped-lakes", "Most mapped lakes", "Number of Natural Earth lakes covering at least one square kilometer inside the country.", "💦", "lakes", "high", layer="lakes", fun=96),
-    rule("highest-mapped-lake-share", "Highest mapped lake coverage", "Share of mapped land area covered by Natural Earth lakes and reservoirs.", "💧", "% of land", "high", layer="lakes", fun=92),
-    rule("largest-mapped-glaciated-area", "Largest mapped glaciated area", "Combined Natural Earth glaciated-area polygons inside the country.", "🧊", "square kilometers", "high", layer="glaciated", fun=97),
-    rule("highest-mapped-glaciated-share", "Highest mapped glaciated coverage", "Share of mapped land covered by Natural Earth glaciated areas.", "❄️", "% of land", "high", layer="glaciated", fun=95),
+    rule("most-mapped-river-length", "Longest river network", "Combined length of Natural Earth river lines inside the country.", "🏞️", "kilometers", "high", layer="rivers", fun=96),
+    rule("highest-mapped-river-density", "Highest river density", "Mapped river kilometers per 1,000 square kilometers of land.", "💧", "km per 1,000 km²", "high", layer="rivers", fun=92),
+    rule("most-mapped-rivers", "Most rivers", "Number of Natural Earth river features crossing the country for at least one kilometer.", "🌊", "river features", "high", layer="rivers", fun=94),
+    rule("largest-mapped-lake-area", "Largest total lake area", "Combined area of Natural Earth lakes and reservoirs inside the country.", "🏞️", "square kilometers", "high", layer="lakes", fun=97),
+    rule("largest-single-mapped-lake", "Largest lake", "Largest single Natural Earth lake or reservoir area inside the country.", "🌅", "square kilometers", "high", layer="lakes", fun=98),
+    rule("most-mapped-lakes", "Most lakes", "Number of Natural Earth lakes covering at least one square kilometer inside the country.", "💦", "lakes", "high", layer="lakes", fun=96),
+    rule("highest-mapped-lake-share", "Highest lake coverage", "Share of mapped land area covered by Natural Earth lakes and reservoirs.", "💧", "% of land", "high", layer="lakes", fun=92),
+    rule("largest-mapped-glaciated-area", "Largest glaciated area", "Combined Natural Earth glaciated-area polygons inside the country.", "🧊", "square kilometers", "high", layer="glaciated", fun=97),
+    rule("highest-mapped-glaciated-share", "Highest glaciated coverage", "Share of mapped land covered by Natural Earth glaciated areas.", "❄️", "% of land", "high", layer="glaciated", fun=95),
 )
 
 RULE_LAYER = {

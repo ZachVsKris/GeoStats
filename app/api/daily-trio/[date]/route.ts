@@ -149,7 +149,7 @@ export async function GET(_request: Request, context: { params: Promise<{ date: 
     await recordGeneration(supabase, {
       challenge_date: date,
       status: stored.rows.length ? "repaired" : "completed",
-      source: "daily-get-v15.3.0",
+      source: "daily-get-v15.4.0",
       diagnostics: { ...generated.diagnostics, replacedStoredRows: stored.rows.length, storedErrors: validated.errors },
       scores: generated.scores,
     });
@@ -165,7 +165,7 @@ export async function GET(_request: Request, context: { params: Promise<{ date: 
     await recordGeneration(supabase, {
       challenge_date: date,
       status: "failed",
-      source: "daily-get-v15.3.0",
+      source: "daily-get-v15.4.0",
       diagnostics,
       error_message: message,
     });
@@ -213,7 +213,7 @@ export async function POST(request: Request, context: { params: Promise<{ date: 
     })) as StoredRow[];
     const proposed = decodeCompleteTrio(proposedRows, dependencies);
     if (!proposed.trio || proposed.errors.length) {
-      return NextResponse.json({ error: "The proposed Daily trio failed v15.3 validation.", diagnostics: proposed.errors }, { status: 400 });
+      return NextResponse.json({ error: "The proposed Daily trio failed v15.4 validation.", diagnostics: proposed.errors }, { status: 400 });
     }
 
     await persistPackedTrio(supabase, date, packed);
@@ -225,7 +225,7 @@ export async function POST(request: Request, context: { params: Promise<{ date: 
     await recordGeneration(supabase, {
       challenge_date: date,
       status: stored.rows.length ? "repaired" : "completed",
-      source: "daily-post-v15.3.0",
+      source: "daily-post-v15.4.0",
       diagnostics: { replacedStoredRows: stored.rows.length, previousErrors: existing.errors },
     });
     return NextResponse.json({ created: true, repaired: stored.rows.length > 0, ...shape(latest.rows) });

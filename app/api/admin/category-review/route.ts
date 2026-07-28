@@ -79,7 +79,7 @@ export async function GET(request: Request) {
     auth.admin.from("category_review_overview_v15").select("*").maybeSingle(),
     auth.admin
       .from("category_review_queue_v15")
-      .select("source_organization,editorial_status,hard_gate_ready,computed_playable_v15")
+      .select("source_organization,editorial_status,hard_gate_ready,computed_playable_v15,metadata")
       .limit(5000),
   ]);
 
@@ -97,21 +97,36 @@ export async function GET(request: Request) {
     );
   }
 
-  const sourceMap = new Map<string, { total: number; pending: number; approved: number; ready: number; playable: number }>();
+  const sourceMap = new Map<string, { total: number; pending: number; approved: number; ready: number; playable: number; daily: number; random: number; quarantined: number }>();
+  let dailyReady = 0;
+  let randomOnly = 0;
+  let quarantined = 0;
   for (const row of sourceResult.data ?? []) {
     const name = String(row.source_organization ?? "Unknown");
-    const summary = sourceMap.get(name) ?? { total: 0, pending: 0, approved: 0, ready: 0, playable: 0 };
+    const summary = sourceMap.get(name) ?? { total: 0, pending: 0, approved: 0, ready: 0, playable: 0, daily: 0, random: 0, quarantined: 0 };
+    const metadata = row.metadata && typeof row.metadata === "object" ? row.metadata as Record<string, unknown> : {};
+    const tier = metadata.catalogTier === "daily" || metadata.catalogTier === "random" || metadata.catalogTier === "quarantined"
+      ? metadata.catalogTier
+      : row.computed_playable_v15 ? "daily" : "quarantined";
     summary.total += 1;
     if (row.editorial_status === "pending") summary.pending += 1;
     if (row.editorial_status === "approved") summary.approved += 1;
     if (row.hard_gate_ready) summary.ready += 1;
     if (row.computed_playable_v15) summary.playable += 1;
+    if (tier === "daily") { summary.daily += 1; dailyReady += 1; }
+    else if (tier === "random") { summary.random += 1; randomOnly += 1; }
+    else { summary.quarantined += 1; quarantined += 1; }
     sourceMap.set(name, summary);
   }
 
   return NextResponse.json({
     migrationApplied: true,
-    overview: overviewResult.data,
+    overview: {
+      ...(overviewResult.data ?? {}),
+      daily_ready: dailyReady,
+      random_only: randomOnly,
+      quarantined,
+    },
     sources: [...sourceMap.entries()]
       .map(([name, summary]) => ({ name, ...summary }))
       .sort((a, b) => b.total - a.total || a.name.localeCompare(b.name)),

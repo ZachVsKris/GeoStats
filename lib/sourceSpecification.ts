@@ -10,6 +10,12 @@ function queryObject(value: CanonicalDataset["sourceQuery"]) {
 function text(value: unknown) {
   if (typeof value === "string" && value.trim()) return value.trim();
   if (typeof value === "number" && Number.isFinite(value)) return String(value);
+  if (Array.isArray(value)) {
+    const values = value
+      .map((item) => typeof item === "string" || typeof item === "number" ? String(item).trim() : "")
+      .filter(Boolean);
+    return values.length ? values.join("+") : null;
+  }
   return null;
 }
 

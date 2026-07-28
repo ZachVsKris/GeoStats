@@ -12,6 +12,8 @@ const required = [
   "supabase/migrations/026_category_review_workbench.sql",
   "supabase/migrations/027_v15_2_catalog_recovery.sql",
   "RUN_THIS_IN_SUPABASE_FOR_V15_3.sql",
+  "RUN_THIS_IN_SUPABASE_FOR_V15_4.sql",
+  "supabase/migrations/029_v15_4_runtime_catalog_and_diversity.sql",
   "lib/roundValueRules.ts",
   "lib/valueFormatting.ts",
   "lib/sourceSpecification.ts",
@@ -23,7 +25,7 @@ for (const file of required) {
 if (fs.existsSync(path.join(root, "middleware.ts"))) throw new Error("middleware.ts must be removed; Next.js 16 uses proxy.ts.");
 
 const packageJson = JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8"));
-if (packageJson.version !== "15.3.0") throw new Error("package.json is not version 15.3.0");
+if (packageJson.version !== "15.4.0") throw new Error("package.json is not version 15.4.0");
 
 const sql = fs.readFileSync(path.join(root, "RUN_THIS_IN_SUPABASE_FOR_V15.sql"), "utf8");
 for (const marker of [
@@ -40,7 +42,7 @@ for (const marker of [
 
 const serverCatalog = fs.readFileSync(path.join(root, "lib/serverPlayableCatalog.ts"), "utf8");
 if (!serverCatalog.includes('.from("category_review_queue_v15")')) throw new Error("Runtime catalog is not using the v15 review view.");
-if (!serverCatalog.includes('.eq("computed_playable_v15", true)')) throw new Error("Runtime catalog does not enforce the v15 playability decision.");
+if (!serverCatalog.includes('tier === "random"') || !serverCatalog.includes('buildPlayableCategoryCatalog')) throw new Error("Runtime catalog does not expose separate Daily and Random tiers.");
 
 const workbench = fs.readFileSync(path.join(root, "app/admin/review/CategoryReviewWorkbench.tsx"), "utf8");
 for (const marker of ["Political / self-report", "Too confusing", "Potential overlaps", "Keyboard:", "Save and next"]) {
@@ -61,6 +63,9 @@ for (const relative of [
 const trioRules = fs.readFileSync(path.join(root, "lib/dailyTrioRules.ts"), "utf8");
 if (trioRules.includes("semanticConflict(firstDataset.category, secondDataset.category)")) throw new Error("Cross-mode semantic similarity must not be a hard rejection.");
 if (!trioRules.includes("other.id === category.id")) throw new Error("Exact category duplication must still be blocked across Daily modes.");
+for (const token of ["MAX_TRIO_DISPLACEMENT_CATEGORIES", "MAX_TRIO_AGRICULTURE_CATEGORIES", "MAX_TRIO_TRADE_CATEGORIES", "MIN_TRIO_PHYSICAL_CATEGORIES"]) {
+  if (!trioRules.includes(token)) throw new Error(`Missing v15.4 trio strategy constraint: ${token}`);
+}
 
 const engine = fs.readFileSync(path.join(root, "lib/puzzleEngine.ts"), "utf8");
 if (!engine.includes("generationProfile")) throw new Error("Server generation diagnostics must report the selected profile.");
@@ -71,7 +76,7 @@ for (const marker of ["catalog-balanced", "catalog-recovery", "sourceCapacityFor
 const game = fs.readFileSync(path.join(root, "components/GeoSecondComingGame.tsx"), "utf8");
 if (game.includes("buildDailyTrio")) throw new Error("Client must not generate Daily trios in the browser.");
 
-console.log("GeoStats v15.3 category-review, gameplay-integrity, and fast Daily-loading checks passed.");
+console.log("GeoStats v15.4 category-review, runtime-tier, strategy-diversity, and fast Daily-loading checks passed.");
 
 for (const required of [
   "app/admin/review/page.tsx",
@@ -113,10 +118,8 @@ if (!serverWarehouse.includes('.from("category_review_queue_v15")')) {
     "Server-side warehouse loading must use the authoritative v15 catalog view.",
   );
 }
-if (!serverWarehouse.includes("computed_playable_v15 !== true")) {
-  throw new Error(
-    "Server-side warehouse loading must enforce computed_playable_v15.",
-  );
+if (!serverWarehouse.includes("randomOnlyAllowed") || !serverWarehouse.includes("computed_playable_v15 !== true")) {
+  throw new Error("Server-side warehouse loading must enforce Daily playability while allowing explicit Random-only tiers.");
 }
 
 const warehouseClient = fs.readFileSync(

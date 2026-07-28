@@ -1,4 +1,4 @@
-GeoStats v15.3 requires no file deletions.
+GeoStats v15.4 requires no code-file deletions.
 
-Copy the update package into the repository root and overwrite matching files.
-No hidden files change in this release.
+The update package overwrites the failed patch and adds the v15.4 migration, tests, and documentation.
+Old root-level release notes and installers may be archived later, but deleting them is not required for the app to work.

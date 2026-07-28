@@ -12,11 +12,11 @@ import { decodeRound, encodeRound, type Round, type RoundCategory } from "../lib
 import AccountControls from "./AccountControls";
 import CategorySourcePanel from "./CategorySourcePanel";
 import { newYorkDate } from "../lib/time";
-import { DAILY_DIFFICULTIES, DEFAULT_DIFFICULTY, ROUND_CONFIGS, type DailyDifficulty, type RoundConfig, canAddCategory, difficultyFromPath, measureKind, roundHasCountryDiversity, roundHasRequiredDiversity, roundType, semanticFamily, strongestGlobalWinnerRank } from "../lib/gameRules";
+import { DAILY_DIFFICULTIES, DEFAULT_DIFFICULTY, ROUND_CONFIGS, type DailyDifficulty, type RoundConfig, broadDomain, canAddCategory, difficultyFromPath, isPhysicalCategory, knowledgeCluster, measureKind, roundHasCountryDiversity, roundHasRequiredDiversity, roundType, semanticFamily, strongestGlobalWinnerRank } from "../lib/gameRules";
 import { trackAnalytics } from "../lib/analytics";
 import { categoryConflictsWithExistingTrio } from "../lib/dailyTrioRules";
 import { candidateKeepsDisplayedValuesDistinct } from "../lib/roundValueRules";
-import { DATASET_VERSION } from "../lib/version";
+import { DATASET_VERSION, RULES_VERSION } from "../lib/version";
 
 type Assignment = Record<string, string>;
 type ScoreRow = {
@@ -287,7 +287,7 @@ function findDistinctWinners(
 
 async function loadCandidateDatasets(seed: string, targetCount = 140): Promise<RoundCategory[]> {
   const rng = seededRandom(`${seed}:datasets`);
-  const catalog = await fetchPlayableCategoryCatalog();
+  const catalog = await fetchPlayableCategoryCatalog({ tier: "random" });
   const shuffled = shuffle(catalog.filter((category) => category.enabled !== false), rng);
   const loaded: RoundCategory[] = [];
   const loadedIds = new Set<string>();
@@ -350,10 +350,15 @@ function chooseDiverseCategories(
     if (!options.length) return null;
     const selectedTypes = new Set(selected.map((item) => roundType(item.category)));
     const selectedMeasures = new Set(selected.map((item) => measureKind(item.category)));
+    const selectedDomains = new Set(selected.map((item) => broadDomain(item.category)));
+    const selectedClusters = new Set(selected.map((item) => knowledgeCluster(item.category)));
     const scored = options.map((dataset) => ({
       dataset,
       score: (selectedTypes.has(roundType(dataset.category)) ? 0 : 12) +
         (selectedMeasures.has(measureKind(dataset.category)) ? 0 : 3) +
+        (selectedDomains.has(broadDomain(dataset.category)) ? 0 : 8) +
+        (selectedClusters.has(knowledgeCluster(dataset.category)) ? 0 : 10) +
+        (isPhysicalCategory(dataset.category) ? 3 : 0) +
         (existingSemanticFamilies.has(semanticFamily(dataset.category)) ? 0 : 6) + rng(),
     })).sort((a, b) => b.score - a.score);
     selected.push(scored[0].dataset);
@@ -365,6 +370,9 @@ function chooseDiverseCategories(
 function boardOptimizationScore(round: Round, config: RoundConfig) {
   const familyCount = new Set(round.categories.map((dataset) => roundType(dataset.category))).size;
   const measureCount = new Set(round.categories.map((dataset) => measureKind(dataset.category))).size;
+  const domainCount = new Set(round.categories.map((dataset) => broadDomain(dataset.category))).size;
+  const clusterCount = new Set(round.categories.map((dataset) => knowledgeCluster(dataset.category))).size;
+  const physicalCount = round.categories.filter((dataset) => isPhysicalCategory(dataset.category)).length;
   const continentCount = new Set(round.bank.map((country) => country.continent)).size;
   const populationSignals = round.bank
     .map((country) => country.population)
@@ -395,7 +403,7 @@ function boardOptimizationScore(round: Round, config: RoundConfig) {
   const rankFit = Math.max(0, 1 - Math.abs(averageGlobalRank - rankTarget) / 65);
   const gapFit = Math.max(0, 1 - Math.abs(averageGap - gapTarget) / 0.35);
 
-  return qualityAverage * 2.2 + familyCount * 12 + measureCount * 5 + continentCount * 5 + rankFit * 55 + gapFit * 55 + familiarity * 0.12;
+  return qualityAverage * 2.0 + familyCount * 8 + measureCount * 4 + domainCount * 10 + clusterCount * 8 + Math.min(physicalCount, 2) * 5 + continentCount * 5 + rankFit * 55 + gapFit * 55 + familiarity * 0.12;
 }
 
 function composeRound(
@@ -566,7 +574,7 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
         }
       }
 
-      const response = await fetch(`/api/daily-trio/${date}`);
+      const response = await fetch(`/api/daily-trio/${date}?rules=${encodeURIComponent(RULES_VERSION)}`);
       const saved = await response.json().catch(() => ({})) as DailyApiPayload;
 
       if (!response.ok) {

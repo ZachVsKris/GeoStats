@@ -26,6 +26,7 @@ export async function GET(request: NextRequest) {
   const categoryId = request.nextUrl.searchParams.get("category") ?? "";
   const source = request.nextUrl.searchParams.get("source") ?? "";
   const indicator = request.nextUrl.searchParams.get("indicator") ?? "";
+  const allowRandomOnly = request.nextUrl.searchParams.get("tier") === "random";
 
   const byCategoryId = ALLOWED_CATEGORY_ID.test(categoryId);
   const bySourceIndicator =
@@ -40,8 +41,8 @@ export async function GET(request: NextRequest) {
 
   try {
     const payload = byCategoryId
-      ? await loadServerWarehousePayload({ categoryId })
-      : await loadServerWarehousePayload({ source, indicator });
+      ? await loadServerWarehousePayload({ categoryId, allowRandomOnly })
+      : await loadServerWarehousePayload({ source, indicator, allowRandomOnly });
 
     return NextResponse.json(payload, {
       headers: {

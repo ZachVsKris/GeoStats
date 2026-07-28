@@ -70,6 +70,9 @@ type Overview = {
   needs_discussion: number;
   hard_gate_ready: number;
   playable: number;
+  daily_ready: number;
+  random_only: number;
+  quarantined: number;
   political_self_reported: number;
   confusing_or_esoteric: number;
   subjective_or_composite: number;
@@ -137,6 +140,9 @@ const EMPTY_OVERVIEW: Overview = {
   needs_discussion: 0,
   hard_gate_ready: 0,
   playable: 0,
+  daily_ready: 0,
+  random_only: 0,
+  quarantined: 0,
   political_self_reported: 0,
   confusing_or_esoteric: 0,
   subjective_or_composite: 0,
@@ -363,10 +369,10 @@ export default function CategoryReviewWorkbench() {
   const statusCounts = [
     ["Pending", overview.pending],
     ["Approved", overview.approved],
-    ["Playable now", overview.playable],
+    ["Daily-ready", overview.daily_ready],
+    ["Random-only", overview.random_only],
     ["Integrity-ready", overview.hard_gate_ready],
     ["Rejected", overview.rejected],
-    ["Duplicates", overview.duplicates],
   ] as const;
 
   return <section className="reviewWorkbench">

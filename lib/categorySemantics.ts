@@ -4,6 +4,7 @@ export type CategorySemanticProfile = {
   family: string;
   topic: string;
   broadDomain: string;
+  knowledgeCluster: string;
 };
 
 const STOP_WORDS = new Set([
@@ -11,7 +12,7 @@ const STOP_WORDS = new Set([
   "rate", "ratio", "share", "amount", "number", "total", "average", "annual", "growth",
   "people", "population", "country", "countries", "relevant", "during", "year", "per",
   "of", "the", "a", "an", "and", "or", "to", "from", "by", "in", "with", "who", "are",
-  "is", "as", "each", "using", "reported", "measured", "live", "new",
+  "is", "as", "each", "using", "reported", "measured", "live", "new", "mapped",
 ]);
 
 const TOKEN_ALIASES: Record<string, string> = {
@@ -23,6 +24,8 @@ const TOKEN_ALIASES: Record<string, string> = {
   refugees: "displacement",
   refugee: "displacement",
   asylum: "displacement",
+  stateless: "displacement",
+  displacement: "displacement",
   applications: "applications",
   originating: "origin",
   origin: "origin",
@@ -44,6 +47,9 @@ const TOKEN_ALIASES: Record<string, string> = {
   crops: "crop",
   productivity: "productivity",
   subscriptions: "subscription",
+  rivers: "river",
+  lakes: "lake",
+  borders: "border",
 };
 
 function slug(value: string) {
@@ -68,11 +74,38 @@ function searchable(category: Category) {
     category.indicator,
     category.warehouseSourceIndicatorCode,
     category.family,
+    category.semanticFamily,
+    category.semanticTopic,
+    category.knowledgeCluster,
   ].filter(Boolean).join(" "));
 }
 
 function contains(text: string, patterns: RegExp[]) {
   return patterns.some((pattern) => pattern.test(text));
+}
+
+function normalizedBroadDomain(category: Category) {
+  if (category.broadDomain?.trim()) return slug(category.broadDomain);
+  const family = slug(category.family || category.roundType || "other");
+  if (["crops", "fruit", "vegetables", "livestock", "dairy", "agriculture"].includes(family)) return "agriculture";
+  if (["geography", "land", "climate"].includes(family)) return "physical-geography";
+  if (["population", "demographics"].includes(family)) return "demographics";
+  if (["trade", "economy", "labor"].includes(family)) return family;
+  if (["health", "vaccination"].includes(family)) return "health";
+  return family || "other";
+}
+
+function naturalEarthProfile(text: string, category: Category, broadDomain: string): CategorySemanticProfile | null {
+  const topic = slug(category.similarityGroup || category.id);
+  if (contains(text, [/river/])) return { family: "physical-waterways-rivers", topic, broadDomain, knowledgeCluster: "physical-waterways" };
+  if (contains(text, [/lake/])) return { family: "physical-waterways-lakes", topic, broadDomain, knowledgeCluster: "physical-waterways" };
+  if (contains(text, [/glaciat/, /glacier/, /snow/])) return { family: "physical-ice", topic, broadDomain, knowledgeCluster: "physical-ice" };
+  if (contains(text, [/coastline/, /coast/])) return { family: "physical-coastline", topic, broadDomain, knowledgeCluster: "physical-coastline" };
+  if (contains(text, [/border/, /neighbor/])) return { family: "physical-borders", topic, broadDomain, knowledgeCluster: "physical-borders" };
+  if (contains(text, [/north-south-span/, /east-west-span/, /geographic-span/])) return { family: "physical-span", topic, broadDomain, knowledgeCluster: "physical-span" };
+  if (contains(text, [/northernmost/, /southernmost/, /equator/, /latitude/])) return { family: "physical-position", topic, broadDomain, knowledgeCluster: "physical-position" };
+  if (contains(text, [/land-area/, /land-areas/, /continuous-land/])) return { family: "physical-land-form", topic, broadDomain, knowledgeCluster: "physical-land-form" };
+  return null;
 }
 
 export function inferSemanticProfile(category: Category): CategorySemanticProfile {
@@ -82,68 +115,110 @@ export function inferSemanticProfile(category: Category): CategorySemanticProfil
   const text = searchable(category);
   const explicitFamily = category.semanticFamily?.trim();
   const explicitTopic = category.semanticTopic?.trim();
-  const broadDomain = slug(category.family || category.roundType || "other") || "other";
+  const broadDomain = normalizedBroadDomain(category);
   const finish = (profile: CategorySemanticProfile) => {
     PROFILE_CACHE.set(category, profile);
     return profile;
   };
 
-  if (explicitFamily) {
+  if (category.knowledgeCluster?.trim() && explicitFamily) {
     return finish({
       family: slug(explicitFamily),
       topic: slug(explicitTopic || category.similarityGroup || category.indicator || category.id),
       broadDomain,
+      knowledgeCluster: slug(category.knowledgeCluster),
     });
   }
 
-  // Forced displacement: origin-based counts require nearly identical player reasoning,
-  // as do destination/host-based counts. Keep the two directions separate.
-  if (category.source === "unhcr" || contains(text, [/refugee/, /asylum/, /displacement/])) {
-    if (contains(text, [/origin/, /originating/, /by-origin/])) {
-      return finish({ family: "forced-displacement-origin", topic: slug(category.similarityGroup || category.id), broadDomain: "displacement" });
-    }
-    if (contains(text, [/hosted/, /received/, /destination/, /receiving/])) {
-      return finish({ family: "forced-displacement-destination", topic: slug(category.similarityGroup || category.id), broadDomain: "displacement" });
-    }
-    return finish({ family: "forced-displacement", topic: slug(category.similarityGroup || category.id), broadDomain: "displacement" });
+  // Forced-displacement measures may have different direction-specific families,
+  // but they all reward essentially the same geopolitical knowledge. The shared
+  // knowledge cluster enforces the user-facing one-per-board rule.
+  if (category.source === "unhcr" || contains(text, [/refugee/, /asylum/, /stateless/, /displacement/])) {
+    const family = contains(text, [/origin/, /originating/, /by-origin/])
+      ? "forced-displacement-origin"
+      : contains(text, [/hosted/, /received/, /destination/, /receiving/])
+        ? "forced-displacement-destination"
+        : contains(text, [/stateless/])
+          ? "statelessness"
+          : "forced-displacement";
+    return finish({
+      family,
+      topic: slug(category.similarityGroup || category.id),
+      broadDomain: "displacement",
+      knowledgeCluster: "forced-displacement",
+    });
   }
 
-  // Employment-to-population, unemployment, and labor-force participation are distinct
-  // statistics but effectively the same board concept for players.
-  if (contains(text, [/employment-to-population/, /employment-population/, /unemployment/, /labor-force-participation/, /labour-force-participation/])) {
-    return finish({ family: "labor-market-utilization", topic: slug(category.similarityGroup || category.id), broadDomain: "labor" });
-  }
-  if (contains(text, [/labor-productivity/, /labour-productivity/, /productivity-growth/])) {
-    return finish({ family: "labor-productivity", topic: slug(category.similarityGroup || category.id), broadDomain: "labor" });
-  }
-  if (contains(text, [/self-employment/, /wage-employment/, /employment-status/])) {
-    return finish({ family: "employment-status", topic: slug(category.similarityGroup || category.id), broadDomain: "labor" });
+  if (category.source === "naturalearth") {
+    const physical = naturalEarthProfile(text, category, "physical-geography");
+    if (physical) return finish(physical);
   }
 
   if (category.source === "faostat") {
-    if (contains(text, [/(^|-)yield($|-)/])) return finish({ family: "crop-yield", topic: slug(category.similarityGroup || category.id), broadDomain: "agriculture" });
-    if (contains(text, [/(^|-)production($|-)/])) return finish({ family: "crop-production", topic: slug(category.similarityGroup || category.id), broadDomain: "agriculture" });
-    if (contains(text, [/area-harvested/, /harvested-area/])) return finish({ family: "crop-harvested-area", topic: slug(category.similarityGroup || category.id), broadDomain: "agriculture" });
+    const livestock = contains(text, [/cattle/, /cow/, /buffalo/, /sheep/, /goat/, /chicken/, /pig/, /livestock/, /meat/, /milk/, /eggs?/]);
+    if (contains(text, [/(^|-)yield($|-)/])) {
+      return finish({ family: livestock ? "livestock-yield" : "crop-yield", topic: slug(category.similarityGroup || category.id), broadDomain: "agriculture", knowledgeCluster: livestock ? "livestock-efficiency" : "crop-efficiency" });
+    }
+    if (contains(text, [/(^|-)production($|-)/])) {
+      return finish({ family: livestock ? "livestock-production" : "crop-production", topic: slug(category.similarityGroup || category.id), broadDomain: "agriculture", knowledgeCluster: livestock ? "livestock-output" : "crop-output" });
+    }
+    if (contains(text, [/population/, /stocks?/, /animals?/])) {
+      return finish({ family: "livestock-population", topic: slug(category.similarityGroup || category.id), broadDomain: "agriculture", knowledgeCluster: "livestock-population" });
+    }
+    if (contains(text, [/area-harvested/, /harvested-area/])) {
+      return finish({ family: "crop-harvested-area", topic: slug(category.similarityGroup || category.id), broadDomain: "agriculture", knowledgeCluster: "crop-area" });
+    }
   }
 
-  if (contains(text, [/gdp/, /gross-domestic-product/, /economic-output/])) {
-    return finish({ family: "economic-output", topic: slug(category.similarityGroup || category.id), broadDomain: "economy" });
+  if (category.source === "comtrade" || category.productSpecificTrade) {
+    return finish({ family: explicitFamily ? slug(explicitFamily) : "product-exports", topic: slug(explicitTopic || category.similarityGroup || category.id), broadDomain: "trade", knowledgeCluster: "product-exports" });
+  }
+
+  if (contains(text, [/employment-to-population/, /employment-population/, /unemployment/, /labor-force-participation/, /labour-force-participation/, /neet/])) {
+    return finish({ family: "labor-market-utilization", topic: slug(category.similarityGroup || category.id), broadDomain: "labor", knowledgeCluster: "labor-market-utilization" });
+  }
+  if (contains(text, [/labor-productivity/, /labour-productivity/, /productivity-growth/])) {
+    return finish({ family: "labor-productivity", topic: slug(category.similarityGroup || category.id), broadDomain: "labor", knowledgeCluster: "labor-productivity" });
+  }
+  if (contains(text, [/self-employment/, /wage-employment/, /employment-status/, /informal-employment/])) {
+    return finish({ family: "employment-status", topic: slug(category.similarityGroup || category.id), broadDomain: "labor", knowledgeCluster: "employment-status" });
+  }
+
+  if (contains(text, [/gdp/, /gross-domestic-product/, /economic-output/, /largest-economy/])) {
+    return finish({ family: "economic-output", topic: slug(category.similarityGroup || category.id), broadDomain: "economy", knowledgeCluster: "economic-output" });
   }
   if (contains(text, [/forest-area/, /forest-cover/, /forest-percent/, /forest-share/, /least-forest/])) {
-    return finish({ family: "forest-cover", topic: slug(category.similarityGroup || category.id), broadDomain: "environment" });
+    return finish({ family: "forest-cover", topic: slug(category.similarityGroup || category.id), broadDomain: "environment", knowledgeCluster: "forest-cover" });
   }
   if (contains(text, [/urban-population/, /rural-population/, /urbanization/, /settlement-share/])) {
-    return finish({ family: "settlement-share", topic: slug(category.similarityGroup || category.id), broadDomain: "population" });
+    return finish({ family: "settlement-share", topic: slug(category.similarityGroup || category.id), broadDomain: "demographics", knowledgeCluster: "population-composition" });
   }
-  if (contains(text, [/life-expectancy/])) return finish({ family: "life-expectancy", topic: slug(category.similarityGroup || category.id), broadDomain: "health" });
-  if (contains(text, [/infant-mortality/])) return finish({ family: "infant-mortality", topic: slug(category.similarityGroup || category.id), broadDomain: "health" });
-  if (contains(text, [/maternal-mortality/])) return finish({ family: "maternal-mortality", topic: slug(category.similarityGroup || category.id), broadDomain: "health" });
-  if (contains(text, [/vaccination/, /immunization/, /measles-vaccine/])) return finish({ family: "immunization-coverage", topic: slug(category.similarityGroup || category.id), broadDomain: "health" });
-  if (contains(text, [/merchandise-export/, /general-export/, /exports-share/])) return finish({ family: "general-exports", topic: slug(category.similarityGroup || category.id), broadDomain: "trade" });
-  if (contains(text, [/merchandise-import/, /general-import/])) return finish({ family: "general-imports", topic: slug(category.similarityGroup || category.id), broadDomain: "trade" });
+  if (contains(text, [/older-population/, /youngest-population/, /population-age/, /age-65/, /age-0-14/])) {
+    return finish({ family: "population-age", topic: slug(category.similarityGroup || category.id), broadDomain: "demographics", knowledgeCluster: "population-age" });
+  }
+  if (contains(text, [/population-count/, /largest-population/, /population-growth/])) {
+    return finish({ family: "population-size", topic: slug(category.similarityGroup || category.id), broadDomain: "demographics", knowledgeCluster: "population-size" });
+  }
+  if (contains(text, [/co2/, /methane/, /greenhouse-gas/, /emissions/])) {
+    return finish({ family: "emissions", topic: slug(category.similarityGroup || category.id), broadDomain: "environment", knowledgeCluster: "emissions" });
+  }
+  if (contains(text, [/life-expectancy/])) return finish({ family: "life-expectancy", topic: slug(category.similarityGroup || category.id), broadDomain: "health", knowledgeCluster: "population-health" });
+  if (contains(text, [/infant-mortality/])) return finish({ family: "infant-mortality", topic: slug(category.similarityGroup || category.id), broadDomain: "health", knowledgeCluster: "mortality" });
+  if (contains(text, [/maternal-mortality/])) return finish({ family: "maternal-mortality", topic: slug(category.similarityGroup || category.id), broadDomain: "health", knowledgeCluster: "mortality" });
+  if (contains(text, [/vaccination/, /immunization/, /measles-vaccine/, /hepatitis-b/])) return finish({ family: "immunization-coverage", topic: slug(category.similarityGroup || category.id), broadDomain: "health", knowledgeCluster: "immunization" });
+  if (contains(text, [/merchandise-export/, /general-export/, /exports-share/])) return finish({ family: "general-exports", topic: slug(category.similarityGroup || category.id), broadDomain: "trade", knowledgeCluster: "aggregate-trade" });
+  if (contains(text, [/merchandise-import/, /general-import/])) return finish({ family: "general-imports", topic: slug(category.similarityGroup || category.id), broadDomain: "trade", knowledgeCluster: "aggregate-trade" });
+  if (contains(text, [/school/, /education/, /literacy/, /learning/, /completion/])) return finish({ family: explicitFamily ? slug(explicitFamily) : "education-outcomes", topic: slug(category.similarityGroup || category.id), broadDomain: "education", knowledgeCluster: "education-outcomes" });
+  if (contains(text, [/broadband/, /mobile-subscription/, /telephone-subscription/, /internet/])) return finish({ family: "telecommunications", topic: slug(category.similarityGroup || category.id), broadDomain: "technology", knowledgeCluster: "telecommunications-adoption" });
 
-  const fallback = category.similarityGroup || category.indicator || category.id;
-  return finish({ family: slug(fallback), topic: slug(fallback), broadDomain });
+  const fallback = explicitFamily || category.similarityGroup || category.indicator || category.id;
+  const family = slug(fallback);
+  return finish({
+    family,
+    topic: slug(explicitTopic || fallback),
+    broadDomain,
+    knowledgeCluster: slug(category.knowledgeCluster || family),
+  });
 }
 
 function semanticTokens(category: Category) {
@@ -194,4 +269,12 @@ export function semanticConflict(first: Category, second: Category) {
   secondMap.set(first, conflict);
   CONFLICT_CACHE.set(second, secondMap);
   return conflict;
+}
+
+export function categoryBroadDomain(category: Category) {
+  return inferSemanticProfile(category).broadDomain;
+}
+
+export function categoryKnowledgeCluster(category: Category) {
+  return inferSemanticProfile(category).knowledgeCluster;
 }

@@ -87,16 +87,15 @@ export default function CategorySourcePanel({ dataset, boardCountryIds = [], onC
       <button className="sourceClose" onClick={onClose} aria-label="Close data and source">×</button>
 
       <header className="sourceHero">
-        <div className="sourceTitleBlock">
+        <div className="sourceHeroTop">
           <span className="sourceHeroIcon" aria-hidden="true">{category.icon}</span>
-          <div>
-            <span className="kicker">Data &amp; Source</span>
+          <div className="sourceHeroCopy">
             <h2>{category.name}</h2>
+            <p className="sourceHeroDescription">{description}</p>
           </div>
         </div>
-        <p className="sourceHeroDescription">{description}</p>
         <div className="sourceSpec" aria-label="Exact source specification">
-          {specification.chips.map((chip) => <span key={chip}>{chip}</span>)}
+          {specification.chips.map((chip, index) => <span className={index === 0 ? "sourceSpecPrimary" : ""} key={chip}>{chip}</span>)}
         </div>
       </header>
 

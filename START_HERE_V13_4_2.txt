@@ -1,9 +1,0 @@
-GeoStats v13.4.2 — install
-
-1. Replace the GitHub repository with the contents of this folder.
-2. Wait for Vercel to deploy successfully.
-3. In Supabase SQL Editor, run RUN_THIS_IN_SUPABASE_FOR_V13_4_2.sql.
-4. Run VERIFY_V13_4_2.sql. Every violation count must be 0.
-5. In GitHub Actions, run Import ILOSTAT candidates once. This replaces projected 2026/2027 rows with the latest completed-year observations.
-
-No manual category approval is required. The migration immediately curates the existing library. FAOSTAT does not need to be rerun solely for this release.

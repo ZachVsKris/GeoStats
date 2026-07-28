@@ -18,13 +18,13 @@ After the commit reaches the default branch, refresh **GitHub → Actions**. You
 
 ## Visible backup copies
 
-If `.github` was omitted during upload, identical visible copies are in `GITHUB_ACTIONS_WORKFLOWS/`.
+If `.github` was omitted during upload, identical visible copies are in `GITHUB_ACTIONS/workflows/`.
 
 In GitHub:
 
 1. Choose **Add file → Create new file**.
 2. Enter `.github/workflows/repair-v14-expansion.yml` as the filename.
-3. Paste the contents of `GITHUB_ACTIONS_WORKFLOWS/repair-v14-expansion.yml`.
+3. Paste the contents of `GITHUB_ACTIONS/workflows/repair-v14-expansion.yml`.
 4. Commit to the default branch.
 
-Repeat for `.github/workflows/main.yml` using `GITHUB_ACTIONS_WORKFLOWS/import-all-source-data.yml` only if the existing **Import all source data** workflow also needs replacement.
+Repeat for `.github/workflows/main.yml` using `GITHUB_ACTIONS/workflows/import-all-source-data.yml` only if the existing **Import all source data** workflow also needs replacement.

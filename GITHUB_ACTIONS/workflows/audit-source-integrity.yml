@@ -20,9 +20,9 @@ on:
           - eia
           - unhcr
       include_nonplayable:
-        description: Also audit disabled candidate categories
+        description: Audit the full imported candidate catalog, not only currently playable rows
         required: true
-        default: false
+        default: true
         type: boolean
       activate_enforcement:
         description: Turn on fail-closed enforcement after a complete audit
@@ -98,4 +98,4 @@ jobs:
       - name: Print integrity verification query
         if: always()
         run: |
-          echo "Run VERIFY_V14_2.sql in Supabase to inspect verified, pending, failed, and unavailable categories."
+          echo "Run VERIFY_V15.sql in Supabase to inspect the review queue and playable catalog."

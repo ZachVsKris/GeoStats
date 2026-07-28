@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { SupabaseClient } from "@supabase/supabase-js";
-import { requireAdmin } from "../../../../../lib/supabase/adminAuth";
+import { requireAdmin } from "../../../../lib/supabase/adminAuth";
 
 export const dynamic = "force-dynamic";
 

@@ -1,4 +1,4 @@
-# GeoStats v15.0.0 — Category Review Workbench
+# GeoStats v15.1.0 — Category Review Workbench
 
 This build replaces the overlapping editorial gates with one visible review decision plus structured reasons. It keeps strict data-integrity requirements and adds a fast review interface at `/admin/review`.
 

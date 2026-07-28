@@ -19,16 +19,18 @@ on:
           - comtrade
           - eia
           - unhcr
+
       include_nonplayable:
         description: Also audit disabled candidate categories
         required: true
         default: false
         type: boolean
-   activate_enforcement:
-    description: Turn on fail-closed enforcement after a complete audit
-    required: true
-    default: false
-    type: boolean
+
+      activate_enforcement:
+        description: Turn on fail-closed enforcement after a complete audit
+        required: true
+        default: false
+        type: boolean
 
 permissions:
   contents: read
@@ -41,12 +43,14 @@ jobs:
   audit:
     runs-on: ubuntu-latest
     timeout-minutes: 180
+
     env:
       SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
       SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
       SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
       COMTRADE_API_KEY: ${{ secrets.COMTRADE_API_KEY }}
       EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
+
     steps:
       - name: Check out GeoStats
         uses: actions/checkout@v5
@@ -54,7 +58,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v6
         with:
-          python-version: '3.12'
+          python-version: "3.12"
 
       - name: Check required Supabase secrets
         shell: bash
@@ -86,10 +90,19 @@ jobs:
         run: |
           set -euo pipefail
           EXTRA=""
-          if [ "${{ inputs.include_nonplayable }}" = "true" ]; then EXTRA="--include-nonplayable"; fi
+          if [ "${{ inputs.include_nonplayable }}" = "true" ]; then
+            EXTRA="--include-nonplayable"
+          fi
+
           ACTIVATE=""
-          if [ "${{ inputs.activate_enforcement }}" = "true" ]; then ACTIVATE="--activate"; fi
-          python scripts/audit-source-integrity.py --source "${{ inputs.source }}" $EXTRA $ACTIVATE
+          if [ "${{ inputs.activate_enforcement }}" = "true" ]; then
+            ACTIVATE="--activate"
+          fi
+
+          python scripts/audit-source-integrity.py \
+            --source "${{ inputs.source }}" \
+            $EXTRA \
+            $ACTIVATE
 
       - name: Activate enforcement after FAOSTAT-only audit
         if: ${{ inputs.source == 'faostat' && inputs.activate_enforcement }}

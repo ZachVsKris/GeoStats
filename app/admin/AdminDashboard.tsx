@@ -483,6 +483,13 @@ export default function AdminDashboard() {
       {error && <div className="adminError" style={{ ...card, borderColor: "rgba(255,100,100,.6)", marginBottom: 14 }}>{error}</div>}
       {notice && <div style={{ ...card, borderColor: "rgba(185,244,90,.55)", marginBottom: 14 }}>{notice}</div>}
 
+      <section style={{ ...card, marginBottom: 16, borderColor: "rgba(185,244,90,.45)", background: "linear-gradient(135deg,rgba(38,78,50,.72),rgba(8,30,24,.8))" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, flexWrap: "wrap" }}>
+          <div><span className="kicker">v15 catalog workflow</span><h2 style={{ margin: "5px 0" }}>Review categories in the new Workbench</h2><p style={{ margin: 0, opacity: .72 }}>One authoritative decision, permanent political/self-report and clarity flags, source values, overlaps, and keyboard review.</p></div>
+          <a href="/admin/review" style={{ ...button, display: "inline-block", textDecoration: "none" }}>Open Category Review</a>
+        </div>
+      </section>
+
       <section className="adminStatGrid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(170px,1fr))", gap: 12 }}>
         {[
           ["Categories", data.stats.categories],

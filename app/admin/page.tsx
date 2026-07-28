@@ -14,7 +14,7 @@ export default async function AdminPage() {
   const { data } = admin ? await admin.from("app_admins").select("user_id").eq("user_id", user.id).maybeSingle() : { data: null };
   if (!data) return <main className="adminGate"><div className="adminGateCard"><span className="kicker">GeoStats Admin</span><h1>Access restricted</h1><p>This signed-in account is not on the administrator allowlist.</p><a href="/daily">Return to the game</a></div></main>;
   return <main className="adminShell">
-    <header className="adminHeader"><div><span className="kicker">Control center</span><h1>GeoStats Admin</h1></div><div className="adminHeaderActions"><a href="/daily">View game</a><AccountControls /></div></header>
+    <header className="adminHeader"><div><span className="kicker">Control center</span><h1>GeoStats Admin</h1></div><div className="adminHeaderActions"><a href="/admin/review">Review categories</a><a href="/daily">View game</a><AccountControls /></div></header>
     <AdminDashboard />
   </main>;
 }

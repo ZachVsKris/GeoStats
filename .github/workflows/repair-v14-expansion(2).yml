@@ -1,0 +1,103 @@
+name: Repair and expand v14 imports
+
+on:
+  workflow_dispatch:
+    inputs:
+      world_bank_target:
+        description: Usable new World Bank candidates to import
+        required: false
+        default: "500"
+      world_bank_scan_limit:
+        description: Maximum not-yet-imported World Bank indicators to inspect
+        required: false
+        default: "2000"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: geostats-v14-import-repair
+  cancel-in-progress: false
+
+jobs:
+  expansion:
+    name: Natural Earth + World Bank + Comtrade
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+      COMTRADE_API_KEY: ${{ secrets.COMTRADE_API_KEY }}
+    steps:
+      - name: Check out GeoStats
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: |
+            scripts/requirements-geography.txt
+            scripts/requirements-data-importers.txt
+
+      - name: Check required Supabase secrets
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "${SUPABASE_URL:-}" || { echo "Missing SUPABASE_URL secret"; exit 1; }
+          if [ -z "${SUPABASE_SECRET_KEY:-}" ] && [ -z "${SUPABASE_SERVICE_ROLE_KEY:-}" ]; then
+            echo "Missing SUPABASE_SECRET_KEY or SUPABASE_SERVICE_ROLE_KEY secret"
+            exit 1
+          fi
+
+      - name: Install spatial dependencies
+        run: python -m pip install --disable-pip-version-check -r scripts/requirements-geography.txt
+
+      - name: Run importer and transparency tests
+        run: |
+          python scripts/test-data-pipeline.py
+          python scripts/test-natural-earth-importer.py
+          python scripts/test-world-bank-catalog-importer.py
+          python scripts/test-comtrade-importer.py
+          python scripts/test-v14-transparency.py
+
+      - name: Import all 24 Natural Earth candidates
+        run: python scripts/import-natural-earth.py --minimum-successes 24
+
+      - name: Import broad World Bank candidate batch
+        shell: bash
+        run: |
+          set -euo pipefail
+          TARGET="${{ inputs.world_bank_target }}"
+          SCAN="${{ inputs.world_bank_scan_limit }}"
+          MINIMUM=100
+          if [ "$TARGET" -lt "$MINIMUM" ]; then MINIMUM="$TARGET"; fi
+          python scripts/import-world-bank-catalog.py \
+            --target-successes "$TARGET" \
+            --scan-limit "$SCAN" \
+            --minimum-successes "$MINIMUM"
+
+      - name: Import all 55 UN Comtrade candidates when a key is configured
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -n "${COMTRADE_API_KEY:-}" ]; then
+            python scripts/import-comtrade.py --minimum-successes 55
+          else
+            echo "COMTRADE_API_KEY is not configured; Comtrade expansion was skipped." | tee -a "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Verify warehouse growth and review queue
+        shell: bash
+        run: |
+          set -euo pipefail
+          TARGET="${{ inputs.world_bank_target }}"
+          WB_MIN=100
+          if [ "$TARGET" -lt "$WB_MIN" ]; then WB_MIN="$TARGET"; fi
+          if [ -n "${COMTRADE_API_KEY:-}" ]; then
+            python scripts/verify-v14-import-expansion.py --natural-earth-min 24 --world-bank-run-min "$WB_MIN" --comtrade-run-min 55
+          else
+            python scripts/verify-v14-import-expansion.py --natural-earth-min 24 --world-bank-run-min "$WB_MIN"
+          fi

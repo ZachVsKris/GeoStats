@@ -18,7 +18,7 @@ for (const file of required) {
 if (fs.existsSync(path.join(root, "middleware.ts"))) throw new Error("middleware.ts must be removed; Next.js 16 uses proxy.ts.");
 
 const packageJson = JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8"));
-if (packageJson.version !== "15.0.0") throw new Error("package.json is not version 15.0.0");
+if (packageJson.version !== "15.1.0") throw new Error("package.json is not version 15.1.0");
 
 const sql = fs.readFileSync(path.join(root, "RUN_THIS_IN_SUPABASE_FOR_V15.sql"), "utf8");
 for (const marker of [
@@ -53,4 +53,31 @@ for (const relative of [
   if (text.includes("reconcile_category_playability_v144")) throw new Error(`${relative} still invokes the retired v14.4 reconciliation.`);
 }
 
-console.log("GeoStats v15 category-review integration checks passed.");
+const trioRules = fs.readFileSync(path.join(root, "lib/dailyTrioRules.ts"), "utf8");
+if (trioRules.includes("semanticConflict(firstDataset.category, secondDataset.category)")) throw new Error("Cross-mode semantic similarity must not be a hard rejection.");
+if (!trioRules.includes("other.id === category.id")) throw new Error("Exact category duplication must still be blocked across Daily modes.");
+
+const engine = fs.readFileSync(path.join(root, "lib/puzzleEngine.ts"), "utf8");
+if (!engine.includes("generationProfile")) throw new Error("Server generation diagnostics must report the selected profile.");
+const profiles = fs.readFileSync(path.join(root, "lib/generationProfiles.ts"), "utf8");
+for (const marker of ["catalog-balanced", "catalog-recovery", "sourceCapacityForProfile"]) {
+  if (!profiles.includes(marker)) throw new Error(`Adaptive Daily generation is missing ${marker}`);
+}
+const game = fs.readFileSync(path.join(root, "components/GeoSecondComingGame.tsx"), "utf8");
+if (!game.includes("generationProfiles()")) throw new Error("Client Daily fallback does not use adaptive generation profiles.");
+
+console.log("GeoStats v15.1.0 category-review and Daily-generation checks passed.");
+
+for (const required of [
+  "app/admin/review/page.tsx",
+  "app/admin/review/CategoryReviewWorkbench.tsx",
+  "RUN_THIS_IN_SUPABASE_FOR_V15_1.sql",
+]) {
+  if (!fs.existsSync(path.join(root, required))) throw new Error(`Missing v15.1 release file: ${required}`);
+}
+const auditWorkflow = fs.readFileSync(path.join(root, ".github/workflows/audit-source-integrity.yml"), "utf8");
+if (!/activate_enforcement:[\s\S]*?default:\s*false/.test(auditWorkflow)) throw new Error("Integrity enforcement must default to false");
+const auditScript = fs.readFileSync(path.join(root, "scripts/audit-source-integrity.py"), "utf8");
+for (const token of ["classify_nonblocking_audit_result", "true_integrity_failure", "return 1 if activation_failed or reconciliation_failed else 0"]) {
+  if (!auditScript.includes(token)) throw new Error(`Missing audit safety token: ${token}`);
+}

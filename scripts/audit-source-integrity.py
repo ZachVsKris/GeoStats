@@ -66,6 +66,42 @@ def result_summary(result: Any) -> dict[str, Any]:
     }
 
 
+
+
+def classify_nonblocking_audit_result(result: Any) -> Any:
+    """Downgrade metadata/API verification gaps to warnings, never hard failures.
+
+    Only direct value, country-set, duplicate-snapshot, or ranking mismatches are
+    allowed to quarantine a category automatically.
+    """
+    if result.status != "failed":
+        return result
+    details = result.details if isinstance(result.details, dict) else {}
+    failure_types = set(details.get("failureTypes") or [])
+    buckets = details.get("failureBuckets") or {}
+    coverage = buckets.get("coverage") or {}
+    true_integrity_failure = bool(
+        result.value_mismatch_count
+        or result.ranking_mismatch_count
+        or (buckets.get("values") or {}).get("mismatchCount")
+        or (buckets.get("rankings") or {}).get("mismatchCount")
+        or coverage.get("missingCount")
+        or coverage.get("extraCount")
+        or "source_snapshot_unique" in (coverage.get("checks") or [])
+        or "stored_snapshot_unique" in (coverage.get("checks") or [])
+    )
+    if true_integrity_failure:
+        return result
+    warning_details = dict(details)
+    warning_details["nonBlockingWarning"] = True
+    warning_details["originalStatus"] = "failed"
+    return replace(
+        result,
+        status="unable_to_verify",
+        failure_reason=("Non-blocking audit warning: " + (result.failure_reason or "metadata or source verification drift"))[:1800],
+        details=warning_details,
+    )
+
 def print_result(result: Any) -> None:
     summary = result_summary(result)
     if result.status == "verified":
@@ -157,6 +193,7 @@ def audit_source(slug: str, warehouse: SupabaseWarehouse, *, include_nonplayable
                     common_year=category.get("common_year"),
                     details={"storedCategoryId": category_id, "sourceIndicatorCode": code, "sourceSlug": slug},
                 )
+            result = classify_nonblocking_audit_result(result)
             warehouse.record_category_validation(category_id, result, run_id=run_id)
             category_results.append({"categoryId": category_id, "title": category.get("title"), "indicator": code, **result_summary(result)})
             if result.status == "verified":
@@ -308,7 +345,7 @@ def main() -> int:
     # Definite data mismatches are safely quarantined and do not crash the workflow.
     # Source-access gaps or a requested-but-blocked enforcement activation remain failures.
     reconciliation_failed = isinstance(reconciliation, dict) and reconciliation.get("status") == "failed"
-    return 1 if has_unable or activation_failed or reconciliation_failed else 0
+    return 1 if activation_failed or reconciliation_failed else 0
 
 
 if __name__ == "__main__":

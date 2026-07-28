@@ -80,7 +80,8 @@ assert.match(leaderboardText, /setDifficulty\("expert"\)/);
 
 assert.match(dailyTrioRouteText, /All three Daily boards are required/);
 assert.match(dailyTrioRulesText, /at most one is allowed/);
-assert.match(dailyTrioRulesText, /semanticConflict/);
+assert.doesNotMatch(dailyTrioRulesText, /semanticConflict/);
+assert.match(dailyTrioRulesText, /other\.id === category\.id/);
 assert.match(dailyTrioRouteText, /upsert\(rows, \{ onConflict: "challenge_date,difficulty" \}\)/);
 assert.match(dailyTrioRouteText, /from\("daily_scores"\)/);
 assert.match(dailyTrioRouteText, /Cache-Control": "private, no-store, max-age=0"/);

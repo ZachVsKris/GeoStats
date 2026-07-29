@@ -25,8 +25,14 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - name: Install dependencies
+      - name: Install JavaScript dependencies
         run: npm install --no-audit --no-fund
+      - name: Install Python importer dependencies
+        run: |
+          python -m pip install --disable-pip-version-check \
+            -r scripts/requirements-data-importers.txt \
+            -r scripts/requirements-faostat.txt \
+            -r scripts/requirements-geography.txt
       - name: Verify v15 review workbench
         run: npm run test-v15
       - name: Run core invariants

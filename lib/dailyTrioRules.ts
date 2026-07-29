@@ -5,76 +5,31 @@ import {
   DAILY_DIFFICULTIES,
   ROUND_CONFIGS,
   broadDomain,
-  knowledgeCluster,
   isAgricultureCategory,
   isDisplacementCategory,
+  isDemographicCategory,
   isPhysicalCategory,
   isReligionCategory,
   isTradeCategory,
   type DailyDifficulty,
 } from "./gameRules";
-import { categorySemanticSimilarity } from "./categorySemantics";
 
 export type DailyTrioLike = Record<DailyDifficulty, Round>;
 
-export const MAX_TRIO_DISPLACEMENT_CATEGORIES = 2;
+export const MAX_TRIO_DISPLACEMENT_CATEGORIES = 1;
+export const MAX_TRIO_DEMOGRAPHIC_CATEGORIES = 1;
 export const MAX_TRIO_AGRICULTURE_CATEGORIES = 3;
 export const MAX_TRIO_TRADE_CATEGORIES = 3;
 export const MAX_TRIO_RELIGION_CATEGORIES = 2;
 export const MIN_TRIO_PHYSICAL_CATEGORIES = 2;
-export const MAX_TRIO_DEMOGRAPHICS_CATEGORIES = 2;
-
-const SINGLE_USE_TRIO_KNOWLEDGE_CLUSTERS = new Set([
-  "population-size",
-  "population-composition",
-  "settlement-share",
-  "forced-displacement",
-  "immunization",
-]);
-
-function normalizedConceptTitle(category: Category) {
-  return `${category.name} ${category.shortName}`
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/\b(highest|lowest|largest|smallest|most|least|total|value|rate|share|of|the|a|an|in|by|from|to)\b/g, " ")
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim();
-}
-
-function normalizedIndicator(category: Category) {
-  return (category.warehouseSourceIndicatorCode || category.indicator || "").trim().toLowerCase();
-}
-
-export function trioConceptConflict(first: Category, second: Category) {
-  if (first.id === second.id) return true;
-  const firstIndicator = normalizedIndicator(first);
-  const secondIndicator = normalizedIndicator(second);
-  if (firstIndicator && firstIndicator === secondIndicator) return true;
-
-  const firstTitle = normalizedConceptTitle(first);
-  const secondTitle = normalizedConceptTitle(second);
-  if (firstTitle && firstTitle === secondTitle) return true;
-
-  const firstCluster = knowledgeCluster(first);
-  const secondCluster = knowledgeCluster(second);
-  if (firstCluster === secondCluster && SINGLE_USE_TRIO_KNOWLEDGE_CLUSTERS.has(firstCluster)) return true;
-
-  const semanticSimilarity = categorySemanticSimilarity(first, second);
-  if (firstCluster === secondCluster && semanticSimilarity >= 0.68) return true;
-  if (broadDomain(first) === "demographics" && broadDomain(second) === "demographics") {
-    return semanticSimilarity >= 0.48;
-  }
-  return false;
-}
 
 export function categoryConflictsWithExistingTrio(category: Category, existing: Category[]) {
-  if (existing.some((other) => trioConceptConflict(other, category))) return true;
+  if (existing.some((other) => other.id === category.id)) return true;
   if (isDisplacementCategory(category) && existing.filter(isDisplacementCategory).length >= MAX_TRIO_DISPLACEMENT_CATEGORIES) return true;
+  if (isDemographicCategory(category) && existing.filter(isDemographicCategory).length >= MAX_TRIO_DEMOGRAPHIC_CATEGORIES) return true;
   if (isAgricultureCategory(category) && existing.filter(isAgricultureCategory).length >= MAX_TRIO_AGRICULTURE_CATEGORIES) return true;
   if (isTradeCategory(category) && existing.filter(isTradeCategory).length >= MAX_TRIO_TRADE_CATEGORIES) return true;
   if (isReligionCategory(category) && existing.filter(isReligionCategory).length >= MAX_TRIO_RELIGION_CATEGORIES) return true;
-  if (broadDomain(category) === "demographics" && existing.filter((other) => broadDomain(other) === "demographics").length >= MAX_TRIO_DEMOGRAPHICS_CATEGORIES) return true;
   return false;
 }
 
@@ -93,11 +48,11 @@ export function trioCategoryCounts(trio: DailyTrioLike) {
   return {
     categories,
     displacement: categories.filter(isDisplacementCategory).length,
+    demographics: categories.filter(isDemographicCategory).length,
     agriculture: categories.filter(isAgricultureCategory).length,
     trade: categories.filter(isTradeCategory).length,
     religion: categories.filter(isReligionCategory).length,
     physical: categories.filter(isPhysicalCategory).length,
-    demographics: categories.filter((category) => broadDomain(category) === "demographics").length,
     domains,
   };
 }
@@ -130,8 +85,8 @@ export function validateDailyTrio(trio: DailyTrioLike) {
 
       for (const firstDataset of first.categories) {
         for (const secondDataset of second.categories) {
-          if (trioConceptConflict(firstDataset.category, secondDataset.category)) {
-            errors.push(`${firstDataset.category.name} and ${secondDataset.category.name} repeat the same or a near-identical concept across Daily modes.`);
+          if (firstDataset.category.id === secondDataset.category.id) {
+            errors.push(`${firstDataset.category.name} appears in more than one Daily mode.`);
           }
         }
       }
@@ -141,6 +96,9 @@ export function validateDailyTrio(trio: DailyTrioLike) {
   const counts = trioCategoryCounts(trio);
   if (counts.displacement > MAX_TRIO_DISPLACEMENT_CATEGORIES) {
     errors.push(`The Daily trio uses ${counts.displacement} forced-displacement categories; at most ${MAX_TRIO_DISPLACEMENT_CATEGORIES} are allowed across all modes.`);
+  }
+  if (counts.demographics > MAX_TRIO_DEMOGRAPHIC_CATEGORIES) {
+    errors.push(`The Daily trio uses ${counts.demographics} population, demographic, or settlement categories; at most ${MAX_TRIO_DEMOGRAPHIC_CATEGORIES} is allowed across all modes.`);
   }
   if (counts.agriculture > MAX_TRIO_AGRICULTURE_CATEGORIES) {
     errors.push(`The Daily trio uses ${counts.agriculture} agriculture categories; at most ${MAX_TRIO_AGRICULTURE_CATEGORIES} are allowed across all modes.`);
@@ -153,9 +111,6 @@ export function validateDailyTrio(trio: DailyTrioLike) {
   }
   if (counts.physical < MIN_TRIO_PHYSICAL_CATEGORIES) {
     errors.push(`The Daily trio contains only ${counts.physical} physical-geography categories; at least ${MIN_TRIO_PHYSICAL_CATEGORIES} are required.`);
-  }
-  if (counts.demographics > MAX_TRIO_DEMOGRAPHICS_CATEGORIES) {
-    errors.push(`The Daily trio uses ${counts.demographics} demographic categories; at most ${MAX_TRIO_DEMOGRAPHICS_CATEGORIES} are allowed across all modes.`);
   }
 
   return [...new Set(errors)];

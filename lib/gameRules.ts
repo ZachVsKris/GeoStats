@@ -159,6 +159,15 @@ export function isDisplacementCategory(category: Category) {
   return knowledgeCluster(category) === "forced-displacement";
 }
 
+export function isDemographicCategory(category: Category) {
+  const cluster = knowledgeCluster(category);
+  const domain = broadDomain(category);
+  return domain === "demographics" || [
+    "population-count", "population-change", "population-age", "population-density",
+    "settlement-pattern", "urbanization", "migration-stock"
+  ].includes(cluster);
+}
+
 export function isReligionCategory(category: Category) {
   return knowledgeCluster(category) === "religious-composition";
 }

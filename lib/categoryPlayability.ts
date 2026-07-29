@@ -1,4 +1,5 @@
 import type { Category, DataSourceId } from "./categories";
+import { assessCategoryEditorially } from "./categoryEditorialPolicy";
 import { generalOfficialSourcePage, hasUsablePlayerSourceStatus, isHumanReadableExternalUrl, worldBankPlayerSourceUrl } from "./playerSourceLinks";
 
 export type PlayabilityInput = {
@@ -109,7 +110,8 @@ export function evaluateCategoryPlayability(input: PlayabilityInput): Playabilit
 }
 
 export function evaluateCategory(category: Category, legacy: { reviewStatus?: string | null; curationStatus?: string | null; validationStatus?: string | null; qualityScore?: number | null; eligibleDaily?: boolean | null } = {}) {
-  return evaluateCategoryPlayability({
+  const editorial = assessCategoryEditorially(category);
+  const evaluated = evaluateCategoryPlayability({
     id: category.id,
     source: category.source,
     indicator: category.indicator,
@@ -135,4 +137,8 @@ export function evaluateCategory(category: Category, legacy: { reviewStatus?: st
     enabled: category.enabled,
     eligibleDaily: legacy.eligibleDaily,
   });
+  if (["retire", "quarantine"].includes(editorial.decision)) {
+    return { ...evaluated, playable: false, blockers: [...evaluated.blockers, editorial.reason] };
+  }
+  return evaluated;
 }

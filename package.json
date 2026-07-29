@@ -1,6 +1,6 @@
 {
   "name": "geostats",
-  "version": "15.5.1",
+  "version": "15.6.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -30,14 +30,16 @@
     "audit-player-links": "python scripts/audit-player-source-links.py",
     "seed-capacity": "node scripts/seed-capacity-help.mjs",
     "sync-visible-workflows": "python scripts/sync-visible-workflows.py",
-    "test-v15": "node scripts/test-v15-integration.mjs && node scripts/test-v15-4-gameplay.mjs && node scripts/test-v15-4-generator-feasibility.mjs && node scripts/test-v15-5-integration.mjs && node scripts/test-v15-5-generator-feasibility.mjs && node scripts/test-ts-syntax.mjs",
+    "test-v15": "node scripts/test-v15-integration.mjs && node scripts/test-v15-4-gameplay.mjs && node scripts/test-v15-4-generator-feasibility.mjs && node scripts/test-v15-5-integration.mjs && node scripts/test-v15-5-generator-feasibility.mjs && npm run test-v15-6 && node scripts/test-ts-syntax.mjs",
     "check-v15": "npm run test-v15 && npm test && npm run build",
     "import-pew-religion": "python scripts/import-pew-religion.py",
     "import-smithsonian-volcanoes": "python scripts/import-smithsonian-volcanoes.py",
     "import-usgs-earthquakes": "python scripts/import-usgs-earthquakes.py",
     "import-physical-summaries": "python scripts/import-physical-summaries.py",
     "review-catalog-v15-5": "python scripts/review-catalog-similarity-v15-5.py",
-    "test-v15-5-importers": "python scripts/test-pew-religion-importer.py && python scripts/test-smithsonian-volcano-importer.py && python scripts/test-usgs-earthquake-importer.py && python scripts/test-physical-summary-importer.py && python scripts/test-catalog-similarity-v15-5.py"
+    "test-v15-5-importers": "python scripts/test-pew-religion-importer.py && python scripts/test-smithsonian-volcano-importer.py && python scripts/test-usgs-earthquake-importer.py && python scripts/test-physical-summary-importer.py && python scripts/test-catalog-similarity-v15-5.py",
+    "review-catalog-v15-6": "python scripts/review-catalog-v15-6.py",
+    "test-v15-6": "node scripts/test-v15-6-integration.mjs && node scripts/test-v15-6-generator-feasibility.mjs && python scripts/test-v15-6-editorial-policy.py"
   },
   "dependencies": {
     "next": "16.2.10",

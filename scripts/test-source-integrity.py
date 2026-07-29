@@ -114,4 +114,4 @@ aggregate_failure = validate_category_snapshot(
 )
 assert aggregate_failure.status == "failed"
 assert aggregate_failure.metadata_checks["source_country_universe"] is False
-print("GeoStats v14.4 source integrity fixture tests passed.")
+print("GeoStats v15.7 source integrity fixture tests passed.")

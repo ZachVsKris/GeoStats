@@ -33,4 +33,4 @@ unesco = exact_url_for("unesco", "CR.MOD.1", {
 assert unesco.status == "exact"
 assert unesco.score == 100
 
-print("GeoStats v14.4 player-source URL policy tests passed.")
+print("GeoStats v15.7 player-source URL policy tests passed.")

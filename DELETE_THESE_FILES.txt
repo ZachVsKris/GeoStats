@@ -1,0 +1,24 @@
+These root-level historical release files are not used by the application and may be deleted after v15.5 is installed:
+
+RELEASE_NOTES_V15_3.md
+RELEASE_NOTES_V15_4.md
+ROLLBACK_V15.sql
+ROLLBACK_V15_3.sql
+ROLLBACK_V15_4.sql
+RUN_THIS_IN_SUPABASE_FOR_V15.sql
+RUN_THIS_IN_SUPABASE_FOR_V15_1.sql
+RUN_THIS_IN_SUPABASE_FOR_V15_2.sql
+RUN_THIS_IN_SUPABASE_FOR_V15_3.sql
+RUN_THIS_IN_SUPABASE_FOR_V15_4.sql
+UPDATE_MANIFEST_V15_3.txt
+UPDATE_MANIFEST_V15_4.txt
+V15_3_AUDIT_REPORT.md
+V15_4_AUDIT_REPORT.md
+VERIFY_V15.sql
+VERIFY_V15_3.sql
+VERIFY_V15_4.sql
+
+The migration history remains preserved under `supabase/migrations/`.
+Do not delete that folder.
+Do not upload `node_modules`, `.env.local`, Python `__pycache__` folders, or `.pyc` files.
+Do not restore `verify-v14-4.yml`.

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./v15-6-1-corrective.css";
 import AnalyticsPageView from "../components/AnalyticsPageView";
 
 export const metadata: Metadata = {

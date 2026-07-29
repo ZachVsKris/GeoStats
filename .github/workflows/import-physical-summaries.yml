@@ -1,0 +1,40 @@
+name: Import physical summary candidates
+
+on:
+  workflow_dispatch:
+    inputs:
+      source:
+        description: Physical source represented by the CSV
+        required: true
+        type: choice
+        options:
+          - worldcover
+          - hydrosheds
+          - elevation
+      csv_url:
+        description: HTTPS URL of the documented country-summary CSV
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install -r scripts/requirements-data-importers.txt
+      - name: Run importer fixtures
+        run: PYTHONPATH=scripts python scripts/test-physical-summary-importer.py
+      - name: Import quarantined candidates
+        run: python scripts/import-physical-summaries.py --source "${{ inputs.source }}" --input "${{ inputs.csv_url }}"

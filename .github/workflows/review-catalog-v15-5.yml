@@ -1,0 +1,40 @@
+name: Review catalog similarity v15.5
+
+on:
+  workflow_dispatch:
+    inputs:
+      apply_high_confidence:
+        description: Apply only high-confidence retire/random recommendations
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Run review fixtures
+        run: PYTHONPATH=scripts python scripts/test-catalog-similarity-v15-5.py
+      - name: Calculate correlation and overlap review
+        shell: bash
+        run: |
+          set -euo pipefail
+          APPLY=""
+          if [ "${{ inputs.apply_high_confidence }}" = "true" ]; then APPLY="--apply"; fi
+          python scripts/review-catalog-similarity-v15-5.py $APPLY --output catalog-similarity-report-v15.5.csv
+      - uses: actions/upload-artifact@v6
+        with:
+          name: catalog-similarity-report-v15.5
+          path: catalog-similarity-report-v15.5.csv

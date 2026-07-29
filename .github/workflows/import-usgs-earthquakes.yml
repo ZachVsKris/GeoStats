@@ -1,0 +1,29 @@
+name: Import USGS earthquake candidates
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: |
+          pip install -r scripts/requirements-data-importers.txt
+          pip install -r scripts/requirements-geography.txt
+      - name: Run importer fixtures
+        run: PYTHONPATH=scripts python scripts/test-usgs-earthquake-importer.py
+      - name: Import quarantined candidates
+        run: python scripts/import-usgs-earthquakes.py

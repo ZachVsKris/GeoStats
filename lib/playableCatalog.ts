@@ -100,6 +100,53 @@ const SOURCE_IDS: Record<string, DataSourceId> = {
   "Global Elevation": "elevation",
 };
 
+const HARD_RETIRED_INDICATOR_SUFFIXES = new Set([
+  "FI.RES.XGLD.CD",
+  "SP.URB.TOTL.MA.ZS",
+  "CM.MKT.TRAD.CD",
+]);
+
+const HARD_RETIRED_TITLE_PATTERNS = [
+  /total reserves minus gold/i,
+  /population in urban agglomerations? of more than 1 million/i,
+  /stocks traded,?\s*total value/i,
+  /largest continuous land area/i,
+  /employment[- ]to[- ]population/i,
+  /output per worker/i,
+  /labor[- ]income share/i,
+];
+
+const PLAYER_TITLE_REWRITES: Array<[RegExp, string]> = [
+  [/^Highest safely managed drinking[- ]water access$/i, "Best access to safe drinking water"],
+  [/^Highest STEM graduate share$/i, "Highest share of STEM graduates"],
+  [/^Largest potato exports$/i, "Most potato exports"],
+];
+
+function normalizedIndicatorCode(value: string) {
+  return value.trim().toUpperCase();
+}
+
+function failsHardGameplayConceptGate(row: PlayableCategoryRow) {
+  const indicator = normalizedIndicatorCode(row.source_indicator_code || "");
+  if ([...HARD_RETIRED_INDICATOR_SUFFIXES].some((suffix) => indicator === suffix || indicator.endsWith(`:${suffix}`))) return true;
+
+  const title = row.title || "";
+  const copy = [title, row.description, row.plain_language_description, row.technical_definition]
+    .filter(Boolean)
+    .join(" ");
+  if (HARD_RETIRED_TITLE_PATTERNS.some((pattern) => pattern.test(copy))) return true;
+
+  const titleWords = title.trim().split(/\s+/).filter(Boolean).length;
+  return titleWords > 9 && /(of more than|excluding|minus|constant (?:20\d{2}|lcu)|relevant population|multiplied by|index \(|net barter)/i.test(copy);
+}
+
+function playerFacingTitle(row: PlayableCategoryRow) {
+  for (const [pattern, replacement] of PLAYER_TITLE_REWRITES) {
+    if (pattern.test(row.title)) return replacement;
+  }
+  return row.title;
+}
+
 const FAMILY_ICONS: Record<string, string> = {
   Agriculture: "🌾",
   Climate: "🌦️",
@@ -191,6 +238,7 @@ export function buildPlayableCategoryCatalog(rows: PlayableCategoryRow[], option
   const requestedTier = options.tier ?? "daily";
 
   for (const row of rows) {
+    if (failsHardGameplayConceptGate(row)) continue;
     const source = SOURCE_IDS[row.source_organization];
     if (!source) continue;
     const existing = byId.get(row.id) ?? byIndicator.get(sourceIndicatorKey(source, row.source_indicator_code, row.ranking_direction));
@@ -200,8 +248,8 @@ export function buildPlayableCategoryCatalog(rows: PlayableCategoryRow[], option
       id: existing?.id ?? row.id,
       source,
       dataset: row.source_dataset,
-      name: row.title,
-      shortName: row.short_title?.trim() || existing?.shortName || shortTitle(row.title),
+      name: playerFacingTitle(row),
+      shortName: row.short_title?.trim() || existing?.shortName || shortTitle(playerFacingTitle(row)),
       indicator: existing?.indicator ?? row.source_indicator_code,
       warehouseSourceIndicatorCode: row.source_indicator_code,
       icon: row.icon?.trim() || existing?.icon || FAMILY_ICONS[row.family] || "📊",

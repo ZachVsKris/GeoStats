@@ -19,6 +19,9 @@ for (const marker of [
   "MAX_TRIO_RELIGION_CATEGORIES = 2",
   "MAX_TRIO_DISPLACEMENT_CATEGORIES = 2",
   "MIN_TRIO_PHYSICAL_CATEGORIES = 2",
+  "MAX_TRIO_DEMOGRAPHICS_CATEGORIES = 2",
+  "trioConceptConflict",
+  "repeat the same or a near-identical concept across Daily modes",
 ]) {
   if (!trio.includes(marker)) throw new Error(`Required trio constraint missing: ${marker}`);
 }

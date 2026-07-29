@@ -27,19 +27,19 @@ async function loadRows() {
 
 const loadCachedRows = unstable_cache(
   loadRows,
-  ["geostats-category-catalog-rows-v15.5.0"],
+  ["geostats-category-catalog-rows-v15.5.1"],
   { revalidate: 300, tags: ["geostats-playable-category-catalog"] },
 );
 
 const loadCachedDailyCatalog = unstable_cache(
   async (): Promise<Category[]> => buildPlayableCategoryCatalog(await loadCachedRows(), { tier: "daily" }),
-  ["geostats-daily-category-catalog-v15.5.0"],
+  ["geostats-daily-category-catalog-v15.5.1"],
   { revalidate: 300, tags: ["geostats-playable-category-catalog"] },
 );
 
 const loadCachedRandomCatalog = unstable_cache(
   async (): Promise<Category[]> => buildPlayableCategoryCatalog(await loadCachedRows(), { tier: "random" }),
-  ["geostats-random-category-catalog-v15.5.0"],
+  ["geostats-random-category-catalog-v15.5.1"],
   { revalidate: 300, tags: ["geostats-playable-category-catalog"] },
 );
 

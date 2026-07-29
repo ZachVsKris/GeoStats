@@ -5,7 +5,7 @@ const root = process.cwd();
 const read = (relative) => fs.readFileSync(path.join(root, relative), "utf8");
 
 const version = read("lib/version.ts");
-for (const marker of ['APP_VERSION = "15.5.0"', 'RULES_VERSION = "12.0"']) {
+for (const marker of ['APP_VERSION = "15.5.1"', 'RULES_VERSION = "12.1"']) {
   if (!version.includes(marker)) throw new Error(`Version marker missing: ${marker}`);
 }
 

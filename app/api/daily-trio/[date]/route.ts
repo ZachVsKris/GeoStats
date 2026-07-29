@@ -22,7 +22,7 @@ function validDate(value: string) {
 
 type PackedBoard = { seed?: string; encodedBoard?: string };
 type TrioBody = Partial<Record<DailyDifficulty, PackedBoard>>;
-type StoredRow = { challenge_date: string; difficulty: DailyDifficulty; seed: string; encoded_board: string };
+type StoredRow = { challenge_date: string; difficulty: DailyDifficulty; seed: string; encoded_board: string; rules_version: string };
 type StoredShape = Partial<Record<DailyDifficulty, { seed: string; encoded_board: string }>>;
 
 type Dependencies = {
@@ -48,6 +48,10 @@ function decodeCompleteTrio(rows: StoredRow[], dependencies: Dependencies): { tr
       continue;
     }
     try {
+      if (row.rules_version !== RULES_VERSION) {
+        errors.push(`${difficulty} board uses rules ${row.rules_version || "unknown"}; ${RULES_VERSION} is required.`);
+        continue;
+      }
       decoded[difficulty] = decodeRound(row.encoded_board, dependencies.countries, dependencies.categoryCatalog);
     } catch (error) {
       errors.push(`${difficulty} board could not be decoded: ${error instanceof Error ? error.message : "invalid board"}`);
@@ -62,7 +66,7 @@ function decodeCompleteTrio(rows: StoredRow[], dependencies: Dependencies): { tr
 async function readStored(supabase: any, date: string) {
   const { data, error } = await supabase
     .from("daily_challenges")
-    .select("challenge_date,difficulty,seed,encoded_board")
+    .select("challenge_date,difficulty,seed,encoded_board,rules_version")
     .eq("challenge_date", date)
     .in("difficulty", [...DAILY_DIFFICULTIES]);
   return { rows: (data ?? []) as StoredRow[], error };
@@ -149,7 +153,7 @@ export async function GET(_request: Request, context: { params: Promise<{ date: 
     await recordGeneration(supabase, {
       challenge_date: date,
       status: stored.rows.length ? "repaired" : "completed",
-      source: "daily-get-v15.4.0",
+      source: "daily-get-v15.5.1",
       diagnostics: { ...generated.diagnostics, replacedStoredRows: stored.rows.length, storedErrors: validated.errors },
       scores: generated.scores,
     });
@@ -165,7 +169,7 @@ export async function GET(_request: Request, context: { params: Promise<{ date: 
     await recordGeneration(supabase, {
       challenge_date: date,
       status: "failed",
-      source: "daily-get-v15.4.0",
+      source: "daily-get-v15.5.1",
       diagnostics,
       error_message: message,
     });
@@ -210,10 +214,11 @@ export async function POST(request: Request, context: { params: Promise<{ date: 
       difficulty,
       seed: packed[difficulty].seed,
       encoded_board: packed[difficulty].encodedBoard,
+      rules_version: RULES_VERSION,
     })) as StoredRow[];
     const proposed = decodeCompleteTrio(proposedRows, dependencies);
     if (!proposed.trio || proposed.errors.length) {
-      return NextResponse.json({ error: "The proposed Daily trio failed v15.4 validation.", diagnostics: proposed.errors }, { status: 400 });
+      return NextResponse.json({ error: "The proposed Daily trio failed v15.5.1 validation.", diagnostics: proposed.errors }, { status: 400 });
     }
 
     await persistPackedTrio(supabase, date, packed);

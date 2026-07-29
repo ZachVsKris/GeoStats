@@ -25,7 +25,7 @@ for (const file of required) {
 if (fs.existsSync(path.join(root, "middleware.ts"))) throw new Error("middleware.ts must be removed; Next.js 16 uses proxy.ts.");
 
 const packageJson = JSON.parse(fs.readFileSync(path.join(root, "package.json"), "utf8"));
-if (packageJson.version !== "15.5.0") throw new Error("package.json is not version 15.5.0");
+if (packageJson.version !== "15.5.1") throw new Error("package.json is not version 15.5.1");
 
 const sql = fs.readFileSync(path.join(root, "supabase/migrations/026_category_review_workbench.sql"), "utf8");
 for (const marker of [
@@ -61,8 +61,8 @@ for (const relative of [
 }
 
 const trioRules = fs.readFileSync(path.join(root, "lib/dailyTrioRules.ts"), "utf8");
-if (trioRules.includes("semanticConflict(firstDataset.category, secondDataset.category)")) throw new Error("Cross-mode semantic similarity must not be a hard rejection.");
-if (!trioRules.includes("other.id === category.id")) throw new Error("Exact category duplication must still be blocked across Daily modes.");
+if (!trioRules.includes("trioConceptConflict")) throw new Error("Cross-mode exact and near-duplicate concepts must be blocked.");
+if (!trioRules.includes("MAX_TRIO_DEMOGRAPHICS_CATEGORIES")) throw new Error("The Daily trio must cap demographic repetition.");
 for (const token of ["MAX_TRIO_DISPLACEMENT_CATEGORIES", "MAX_TRIO_AGRICULTURE_CATEGORIES", "MAX_TRIO_TRADE_CATEGORIES", "MIN_TRIO_PHYSICAL_CATEGORIES"]) {
   if (!trioRules.includes(token)) throw new Error(`Missing v15.4 trio strategy constraint: ${token}`);
 }
@@ -76,7 +76,7 @@ for (const marker of ["catalog-balanced", "catalog-recovery", "sourceCapacityFor
 const game = fs.readFileSync(path.join(root, "components/GeoSecondComingGame.tsx"), "utf8");
 if (game.includes("buildDailyTrio")) throw new Error("Client must not generate Daily trios in the browser.");
 
-console.log("GeoStats v15.5 category-review, runtime-tier, strategy-diversity, and fast Daily-loading checks passed.");
+console.log("GeoStats v15.5.1 category-review, clarity, cross-mode deduplication, runtime-tier, and fast Daily-loading checks passed.");
 
 for (const required of [
   "app/admin/review/page.tsx",

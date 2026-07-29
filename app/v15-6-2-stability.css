@@ -1,0 +1,104 @@
+/* GeoStats v15.6.2
+   Final override layer for complete, readable player-facing category copy. */
+
+.activePlay .boardPanel .slots {
+  align-content: stretch;
+}
+
+.activePlay .boardPanel .slot {
+  min-width: 0;
+  overflow: visible;
+}
+
+.activePlay .boardPanel .category,
+.activePlay .boardPanel .category > div {
+  min-width: 0;
+  max-width: 100%;
+  overflow: visible;
+}
+
+.activePlay .boardPanel .category strong,
+.activePlay .boardPanel .category small,
+.activePlay.normalRound .boardPanel .category strong,
+.activePlay.normalRound .boardPanel .category small,
+.activePlay.expertRound .boardPanel .category strong,
+.activePlay.expertRound .boardPanel .category small,
+.activePlay.compactRound .boardPanel .category strong,
+.activePlay.compactRound .boardPanel .category small {
+  display: block !important;
+  max-width: 100%;
+  max-height: none !important;
+  overflow: visible !important;
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  word-break: normal !important;
+  text-overflow: clip !important;
+  -webkit-box-orient: initial !important;
+  -webkit-line-clamp: unset !important;
+  line-clamp: unset !important;
+}
+
+.activePlay .boardPanel .category strong {
+  text-wrap: balance;
+}
+
+.activePlay .boardPanel .category small {
+  margin-top: 4px;
+  text-wrap: pretty;
+}
+
+/* The player copy is deliberately short. Give it a little more vertical room
+   instead of clipping it on laptop-height displays. */
+@media (min-width: 901px) {
+  .activePlay .boardPanel .slot {
+    padding-top: 10px;
+    padding-bottom: 9px;
+  }
+
+  .activePlay .boardPanel .category strong {
+    font-size: clamp(15px, 1.15vw, 20px);
+    line-height: 1.1;
+  }
+
+  .activePlay .boardPanel .category small {
+    font-size: clamp(9px, 0.72vw, 12px);
+    line-height: 1.24;
+  }
+
+  .activePlay.expertRound .boardPanel .category strong {
+    font-size: clamp(13px, 0.98vw, 17px);
+  }
+
+  .activePlay.expertRound .boardPanel .category small {
+    font-size: clamp(8px, 0.62vw, 10px);
+  }
+}
+
+@media (max-width: 620px) {
+  .activePlay .boardPanel .category strong {
+    font-size: 11px !important;
+    line-height: 1.08 !important;
+  }
+
+  .activePlay .boardPanel .category small {
+    display: block !important;
+    font-size: 7px !important;
+    line-height: 1.1 !important;
+  }
+
+  .activePlay.expertRound .boardPanel .category strong {
+    font-size: 8.4px !important;
+  }
+
+  .activePlay.expertRound .boardPanel .category small {
+    display: block !important;
+    font-size: 5.9px !important;
+    line-height: 1.05 !important;
+  }
+}
+
+/* The API now returns a simple public message; keep the error card compact. */
+.activePlay .error > span {
+  max-width: 760px;
+  line-height: 1.45;
+}

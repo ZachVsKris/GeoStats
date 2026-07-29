@@ -18,9 +18,11 @@ async function loadRows() {
 
   if (result.error) {
     const missingMigration = /category_review_queue_v15|does not exist|schema cache/i.test(result.error.message);
-    throw new Error(missingMigration
-      ? "The v15 category catalog is not installed. Run the current Supabase installer."
-      : `The verified v15 category catalog is unavailable: ${result.error.message}`);
+    throw new Error(
+      missingMigration
+        ? "The v15 category catalog is not installed. Run the current Supabase installer."
+        : `The verified v15 category catalog is unavailable: ${result.error.message}`,
+    );
   }
 
   return (result.data ?? []) as PlayableCategoryRow[];
@@ -28,22 +30,23 @@ async function loadRows() {
 
 const loadCachedRows = unstable_cache(
   loadRows,
-  ["geostats-category-catalog-rows-v15.6.1"],
+  ["geostats-category-catalog-rows-v15.6.2"],
   { revalidate: 300, tags: ["geostats-playable-category-catalog"] },
 );
 
-const loadCachedDailyCatalog = unstable_cache(
-  async (): Promise<Category[]> => buildPlayableCategoryCatalog(await loadCachedRows(), { tier: "daily" }),
-  ["geostats-daily-category-catalog-v15.6.1"],
+/**
+ * GeoStats now has one approved gameplay catalog. Daily, Random, and Seeded
+ * differ in board construction, not category quality.
+ */
+const loadCachedApprovedCatalog = unstable_cache(
+  async (): Promise<Category[]> =>
+    buildPlayableCategoryCatalog(await loadCachedRows(), { tier: "daily" }),
+  ["geostats-approved-category-catalog-v15.6.2"],
   { revalidate: 300, tags: ["geostats-playable-category-catalog"] },
 );
 
-const loadCachedRandomCatalog = unstable_cache(
-  async (): Promise<Category[]> => buildPlayableCategoryCatalog(await loadCachedRows(), { tier: "random" }),
-  ["geostats-random-category-catalog-v15.6.1"],
-  { revalidate: 300, tags: ["geostats-playable-category-catalog"] },
-);
-
-export async function loadServerPlayableCategoryCatalog(tier: CatalogTier = "daily"): Promise<Category[]> {
-  return tier === "random" ? loadCachedRandomCatalog() : loadCachedDailyCatalog();
+export async function loadServerPlayableCategoryCatalog(
+  _tier: CatalogTier = "daily",
+): Promise<Category[]> {
+  return loadCachedApprovedCatalog();
 }

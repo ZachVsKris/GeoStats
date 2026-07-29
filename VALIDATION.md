@@ -1,24 +1,63 @@
-# GeoStats v15.5 validation
+# GeoStats v15.7 validation
 
-Run locally or in GitHub Actions:
+## Local or GitHub commands
 
 ```bash
-npm run test-v15
-npm test
+npm run test-v15-7
+npm run typecheck
 npm run test-importers
 npm run test-player-links
 npm run test-source-integrity
 npm run build
 ```
 
-The final command must pass in GitHub Actions and Vercel before running the Supabase migration.
+The combined release gate is:
 
-Key v15.5 assertions:
+```bash
+npm run check-v15-7
+```
 
-- no active static yield or per-animal agricultural categories;
-- FAOSTAT importer stages only Production or Production Quantity;
-- SQL retires existing non-production FAOSTAT categories;
-- compatible normalization policies are explicit;
-- gross production value/GDP is not treated as a GDP share;
-- duplicate/correlation review does not retire distinct concepts based on correlation alone;
-- Daily constraints remain feasible in synthetic stress tests.
+GitHub Actions additionally installs all Python importer dependencies and runs the complete production build.
+
+## Generator regression
+
+`scripts/test-v15-7-generator.cjs` compiles the real generator modules and constructs a multi-source synthetic catalog. It verifies:
+
+- complete Scout, Adventurer, and Expert generation
+- all hard round/trio rules
+- deterministic Daily output for one date and catalog snapshot
+- deterministic Seeded output for one seed and difficulty
+- successful profile diagnostics
+
+## Static integration checks
+
+`scripts/test-v15-7-clean.cjs` parses every TypeScript/TSX file and checks:
+
+- one authoritative catalog
+- no Random-only tier
+- full warehouse loading
+- bounded generator search
+- secure Daily writes and public-date restriction
+- shared per-date generation lock
+- per-difficulty score locking
+- immutable board snapshots
+- server-generated Seeded boards
+- secured scheduled pre-generation
+- mobile layout and short board copy
+- Workbench counts and board-description editing
+- migration/installer parity
+
+## Database verification
+
+Run `VERIFY_V15_7.sql` after the migration and deployment. Queries explicitly marked “Must return zero” should return no rows or a count of zero.
+
+## Production acceptance
+
+A release is not complete until all of these pass:
+
+- GitHub verification workflow
+- Vercel production build
+- all three Daily modes load
+- repeated Seeded link is reproducible
+- mobile first viewport reaches game/loading/error content without the former full-page header stack
+- Workbench Playable count matches the authoritative Supabase count

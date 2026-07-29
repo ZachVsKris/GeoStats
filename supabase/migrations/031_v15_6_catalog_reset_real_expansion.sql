@@ -36,14 +36,14 @@ set editorial_outcome='retired',
     reviewed_at=now()
 from public.stat_categories c
 where c.id=e.category_id and lower(coalesce(c.source_organization,'')) like '%fao%'
-  and coalesce(c.source_indicator_code,c.indicator_code,'') ~* 'QCL:''?[^:]+:(5312|5412|5417|5111|5320|5513[0-9])';
+  and coalesce(c.source_indicator_code,'') ~* 'QCL:''?[^:]+:(5312|5412|5417|5111|5320|5513[0-9])';
 
 -- Known contrived concepts. Match source codes and wording so alternate IDs cannot bypass policy.
 update public.category_catalog_editorial_v15_6 e
 set editorial_outcome='retired', decision_reason='Retired by v15.6 immediate-understanding review: the concept is contrived or cannot be simplified accurately.', reviewed_at=now()
 from public.stat_categories c
 where c.id=e.category_id and (
-  coalesce(c.source_indicator_code,c.indicator_code,'') in ('FI.RES.TOTL.CD','SP.URB.TOTL','SP.RUR.TOTL')
+  coalesce(c.source_indicator_code,'') in ('FI.RES.TOTL.CD','SP.URB.TOTL','SP.RUR.TOTL')
   or c.title ~* '(total reserves.*(minus|excluding) gold|largest continuous land area|largest mapped land area|net errors and omissions|urban agglomerations of more than 1 million)'
 );
 
@@ -59,14 +59,14 @@ update public.category_catalog_editorial_v15_6 e
 set player_title=r.player_title, player_description=r.player_description, editorial_outcome=case when e.editorial_outcome='retired' then 'retired' else 'rewrite' end,
     decision_reason='Retained with a deliberate v15.6 player-facing rewrite.', reviewed_at=now()
 from public.stat_categories c, rewrites r
-where c.id=e.category_id and ((r.indicator_code is not null and coalesce(c.source_indicator_code,c.indicator_code,'')=r.indicator_code) or c.title ilike '%'||r.old_pattern||'%');
+where c.id=e.category_id and ((r.indicator_code is not null and coalesce(c.source_indicator_code,'')=r.indicator_code) or c.title ilike '%'||r.old_pattern||'%');
 
 -- Forced-displacement representatives: retain one origin and one destination concept in catalog, but only one across a Daily trio.
 update public.category_catalog_editorial_v15_6 e
-set editorial_outcome='duplicate', preferred_category_id=(select id from public.stat_categories where coalesce(source_indicator_code,indicator_code,'')='population:coo:refugees' limit 1),
+set editorial_outcome='duplicate', preferred_category_id=(select id from public.stat_categories where coalesce(source_indicator_code,'')='population:coo:refugees' limit 1),
     decision_reason='Duplicate origin-based displacement concept; Most refugees living abroad is the preferred representative.', reviewed_at=now()
 from public.stat_categories c
-where c.id=e.category_id and coalesce(c.source_indicator_code,c.indicator_code,'') in ('asylum-applications:coo:applied','population:coo:asylum_seekers');
+where c.id=e.category_id and coalesce(c.source_indicator_code,'') in ('asylum-applications:coo:applied','population:coo:asylum_seekers');
 
 -- Apply v15.6 decisions to runtime flags and player copy.
 update public.stat_categories c

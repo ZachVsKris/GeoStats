@@ -57,9 +57,10 @@ type CategoryRow = {
   player_quality_status: string | null;
   content_review_status: string | null;
   curation_status: string | null;
+  metadata?: Record<string, unknown> | null;
 };
 
-type SourceSummary = { name: string; total: number; pending: number; approved: number; ready: number; playable: number };
+type SourceSummary = { name: string; total: number; pending: number; approved: number; ready: number; playable: number; approvedBlocked: number; rejected: number };
 type Overview = {
   categories: number;
   pending: number;
@@ -70,9 +71,7 @@ type Overview = {
   needs_discussion: number;
   hard_gate_ready: number;
   playable: number;
-  daily_ready: number;
-  random_only: number;
-  quarantined: number;
+  approved_but_blocked: number;
   political_self_reported: number;
   confusing_or_esoteric: number;
   subjective_or_composite: number;
@@ -117,6 +116,7 @@ type Draft = {
   poor_coverage: boolean;
   duplicate_of: string;
   recommended_title: string;
+  board_description: string;
   semantic_group: string;
   notes: string;
 };
@@ -140,9 +140,7 @@ const EMPTY_OVERVIEW: Overview = {
   needs_discussion: 0,
   hard_gate_ready: 0,
   playable: 0,
-  daily_ready: 0,
-  random_only: 0,
-  quarantined: 0,
+  approved_but_blocked: 0,
   political_self_reported: 0,
   confusing_or_esoteric: 0,
   subjective_or_composite: 0,
@@ -159,6 +157,9 @@ function draftFromCategory(category: CategoryRow): Draft {
     poor_coverage: Boolean(category.poor_coverage),
     duplicate_of: category.duplicate_of ?? "",
     recommended_title: category.recommended_title ?? "",
+    board_description: typeof category.metadata?.boardDescription === "string"
+      ? category.metadata.boardDescription
+      : "",
     semantic_group: category.semantic_group ?? category.effective_semantic_group ?? "",
     notes: category.editorial_notes ?? "",
   };
@@ -369,8 +370,8 @@ export default function CategoryReviewWorkbench() {
   const statusCounts = [
     ["Pending", overview.pending],
     ["Approved", overview.approved],
-    ["Daily-ready", overview.daily_ready],
-    ["Random-only", overview.random_only],
+    ["Playable", overview.playable],
+    ["Approved but blocked", overview.approved_but_blocked],
     ["Integrity-ready", overview.hard_gate_ready],
     ["Rejected", overview.rejected],
   ] as const;
@@ -476,7 +477,8 @@ export default function CategoryReviewWorkbench() {
               <h3>Editorial decision</h3>
               {draft && <div className="reviewForm">
                 <label>Status<select value={draft.status} onChange={(event) => setDraft({ ...draft, status: event.target.value as ReviewStatus })}>{(Object.keys(STATUS_LABELS) as ReviewStatus[]).map((key) => <option key={key} value={key}>{STATUS_LABELS[key]}</option>)}</select></label>
-                <label>Player-facing title<input value={draft.recommended_title} onChange={(event) => setDraft({ ...draft, recommended_title: event.target.value })} placeholder={current.title} /></label>
+                <label>Player-facing title<input value={draft.recommended_title} onChange={(event) => setDraft({ ...draft, recommended_title: event.target.value })} placeholder={current.title} maxLength={80} /></label>
+                <label className="full">Board description<textarea value={draft.board_description} onChange={(event) => setDraft({ ...draft, board_description: event.target.value })} placeholder="One short, complete sentence shown on the game board" rows={2} maxLength={110} /><small>{draft.board_description.length}/110 characters</small></label>
                 <label>Semantic group<input value={draft.semantic_group} onChange={(event) => setDraft({ ...draft, semantic_group: event.target.value })} placeholder="e.g. Trade, Energy, Physical geography" /></label>
                 <label>Duplicate of<input value={draft.duplicate_of} onChange={(event) => setDraft({ ...draft, duplicate_of: event.target.value })} placeholder="Preferred category ID" /></label>
                 <label className="full">Notes<textarea value={draft.notes} onChange={(event) => setDraft({ ...draft, notes: event.target.value })} rows={4} placeholder="Why should this category be kept, rejected, rewritten, or discussed?" /></label>

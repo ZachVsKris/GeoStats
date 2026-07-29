@@ -3,15 +3,16 @@ import { loadServerPlayableCategoryCatalog } from "../../../lib/serverPlayableCa
 
 export const dynamic = "force-dynamic";
 
-export async function GET(request: Request) {
+export async function GET() {
   try {
-    const url = new URL(request.url);
-    const tier = url.searchParams.get("tier") === "random" ? "random" : "daily";
-    const categories = await loadServerPlayableCategoryCatalog(tier);
-    return NextResponse.json({ categories, tier }, {
+    const categories = await loadServerPlayableCategoryCatalog();
+    return NextResponse.json({ categories, catalog: "approved" }, {
       headers: { "Cache-Control": "public, s-maxage=300, stale-while-revalidate=1800" },
     });
   } catch (error) {
-    return NextResponse.json({ error: error instanceof Error ? error.message : "The category catalog could not be loaded." }, { status: 500 });
+    return NextResponse.json(
+      { error: error instanceof Error ? error.message : "The category catalog could not be loaded." },
+      { status: 500 },
+    );
   }
 }

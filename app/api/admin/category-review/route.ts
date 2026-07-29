@@ -45,7 +45,7 @@ export async function GET(request: Request) {
   let categoriesQuery = auth.admin
     .from("category_review_queue_v15")
     .select(
-      "id,title,effective_title,short_title,description,plain_language_description,unit,value_type,ranking_direction,family,source_organization,source_dataset,source_indicator_code,source_url,source_page_url,methodology_url,player_source_url,player_source_status,quality_score,country_coverage,latest_available_year,common_year,common_year_coverage,minimum_year,semantic_family,semantic_topic,concept_group,editorial_status,political_self_reported,confusing,esoteric,subjective_or_composite,stale_data,poor_coverage,duplicate_of,recommended_title,semantic_group,editorial_notes,reviewed_at,editorial_updated_at,effective_semantic_group,hard_gate_ready,editorial_ready,computed_playable_v15,v15_blockers,validation_status,validation_reason,credibility_status,credibility_score,objective_status,player_quality_status,content_review_status,curation_status",
+      "id,title,effective_title,short_title,description,plain_language_description,unit,value_type,ranking_direction,family,source_organization,source_dataset,source_indicator_code,source_url,source_page_url,methodology_url,player_source_url,player_source_status,quality_score,country_coverage,latest_available_year,common_year,common_year_coverage,minimum_year,semantic_family,semantic_topic,concept_group,editorial_status,political_self_reported,confusing,esoteric,subjective_or_composite,stale_data,poor_coverage,duplicate_of,recommended_title,semantic_group,editorial_notes,reviewed_at,editorial_updated_at,effective_semantic_group,hard_gate_ready,editorial_ready,computed_playable_v15,v15_blockers,validation_status,validation_reason,credibility_status,credibility_score,objective_status,player_quality_status,content_review_status,curation_status,metadata",
       { count: "exact" },
     );
 
@@ -97,25 +97,36 @@ export async function GET(request: Request) {
     );
   }
 
-  const sourceMap = new Map<string, { total: number; pending: number; approved: number; ready: number; playable: number; daily: number; random: number; quarantined: number }>();
-  let dailyReady = 0;
-  let randomOnly = 0;
-  let quarantined = 0;
+  const sourceMap = new Map<string, { total: number; pending: number; approved: number; ready: number; playable: number; approvedBlocked: number; rejected: number }>();
+  let playable = 0;
+  let approvedBlocked = 0;
+  let integrityReady = 0;
   for (const row of sourceResult.data ?? []) {
     const name = String(row.source_organization ?? "Unknown");
-    const summary = sourceMap.get(name) ?? { total: 0, pending: 0, approved: 0, ready: 0, playable: 0, daily: 0, random: 0, quarantined: 0 };
-    const metadata = row.metadata && typeof row.metadata === "object" ? row.metadata as Record<string, unknown> : {};
-    const tier = metadata.catalogTier === "daily" || metadata.catalogTier === "random" || metadata.catalogTier === "quarantined"
-      ? metadata.catalogTier
-      : row.computed_playable_v15 ? "daily" : "quarantined";
+    const summary = sourceMap.get(name) ?? {
+      total: 0,
+      pending: 0,
+      approved: 0,
+      ready: 0,
+      playable: 0,
+      approvedBlocked: 0,
+      rejected: 0,
+    };
     summary.total += 1;
     if (row.editorial_status === "pending") summary.pending += 1;
     if (row.editorial_status === "approved") summary.approved += 1;
-    if (row.hard_gate_ready) summary.ready += 1;
-    if (row.computed_playable_v15) summary.playable += 1;
-    if (tier === "daily") { summary.daily += 1; dailyReady += 1; }
-    else if (tier === "random") { summary.random += 1; randomOnly += 1; }
-    else { summary.quarantined += 1; quarantined += 1; }
+    if (["rejected", "duplicate"].includes(String(row.editorial_status))) summary.rejected += 1;
+    if (row.hard_gate_ready) {
+      summary.ready += 1;
+      integrityReady += 1;
+    }
+    if (row.computed_playable_v15) {
+      summary.playable += 1;
+      playable += 1;
+    } else if (row.editorial_status === "approved") {
+      summary.approvedBlocked += 1;
+      approvedBlocked += 1;
+    }
     sourceMap.set(name, summary);
   }
 
@@ -123,9 +134,9 @@ export async function GET(request: Request) {
     migrationApplied: true,
     overview: {
       ...(overviewResult.data ?? {}),
-      daily_ready: dailyReady,
-      random_only: randomOnly,
-      quarantined,
+      playable,
+      approved_but_blocked: approvedBlocked,
+      hard_gate_ready: integrityReady,
     },
     sources: [...sourceMap.entries()]
       .map(([name, summary]) => ({ name, ...summary }))

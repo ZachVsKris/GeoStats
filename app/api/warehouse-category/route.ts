@@ -8,7 +8,7 @@ export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
 const ALLOWED_CATEGORY_ID =
-  /^(worldbank-catalog|faostat|who|unesco|ilostat|naturalearth|comtrade|eia|unhcr):[a-z0-9:._-]+$/;
+  /^(worldbank-catalog|faostat|who|unesco|ilostat|naturalearth|comtrade|eia|unhcr|pewreligion|smithsoniangvp|usgs|worldcover|hydrosheds|elevation):[a-z0-9:._-]+$/;
 const ALLOWED_INDICATOR = /^[A-Za-z0-9:'._+-]{1,180}$/;
 const ALLOWED_SOURCE = new Set([
   "worldbank",
@@ -20,13 +20,18 @@ const ALLOWED_SOURCE = new Set([
   "comtrade",
   "eia",
   "unhcr",
+  "pewreligion",
+  "smithsoniangvp",
+  "usgs",
+  "worldcover",
+  "hydrosheds",
+  "elevation",
 ]);
 
 export async function GET(request: NextRequest) {
   const categoryId = request.nextUrl.searchParams.get("category") ?? "";
   const source = request.nextUrl.searchParams.get("source") ?? "";
   const indicator = request.nextUrl.searchParams.get("indicator") ?? "";
-  const allowRandomOnly = request.nextUrl.searchParams.get("tier") === "random";
 
   const byCategoryId = ALLOWED_CATEGORY_ID.test(categoryId);
   const bySourceIndicator =
@@ -41,8 +46,8 @@ export async function GET(request: NextRequest) {
 
   try {
     const payload = byCategoryId
-      ? await loadServerWarehousePayload({ categoryId, allowRandomOnly })
-      : await loadServerWarehousePayload({ source, indicator, allowRandomOnly });
+      ? await loadServerWarehousePayload({ categoryId })
+      : await loadServerWarehousePayload({ source, indicator });
 
     return NextResponse.json(payload, {
       headers: {

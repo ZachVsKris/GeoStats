@@ -1,21 +1,16 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import type { Category } from "../lib/categories";
 import { fetchPlayableCategoryCatalog } from "../lib/playableCatalog";
 import { fetchCountries, type CountryInfo } from "../lib/worldBank";
-import { fetchCategory, hydrateRoundMetadata } from "../lib/dataSources";
 import { SOURCE_REGISTRY } from "../lib/sourceRegistry";
-import { canonicalizeDataset, formatValue, poolLeaderboard, scorePlacements, validateRound } from "../lib/dataEngine";
-import { scoreCategoryQuality } from "../lib/categoryQuality";
-import { decodeRound, encodeRound, type Round, type RoundCategory } from "../lib/challengeCodec";
+import { formatValue, poolLeaderboard, scorePlacements } from "../lib/dataEngine";
+import { decodeRound, deserializeRound, type Round, type RoundCategory, type RoundSnapshot } from "../lib/challengeCodec";
 import AccountControls from "./AccountControls";
 import CategorySourcePanel from "./CategorySourcePanel";
 import { newYorkDate } from "../lib/time";
-import { DAILY_DIFFICULTIES, DEFAULT_DIFFICULTY, ROUND_CONFIGS, type DailyDifficulty, type RoundConfig, broadDomain, canAddCategory, difficultyFromPath, isPhysicalCategory, knowledgeCluster, measureKind, roundHasCountryDiversity, roundHasRequiredDiversity, roundType, semanticFamily, strongestGlobalWinnerRank } from "../lib/gameRules";
+import { DAILY_DIFFICULTIES, DEFAULT_DIFFICULTY, ROUND_CONFIGS, type DailyDifficulty, difficultyFromPath } from "../lib/gameRules";
 import { trackAnalytics } from "../lib/analytics";
-import { categoryConflictsWithExistingTrio } from "../lib/dailyTrioRules";
-import { candidateKeepsDisplayedValuesDistinct } from "../lib/roundValueRules";
 import { DATASET_VERSION, RULES_VERSION } from "../lib/version";
 
 type Assignment = Record<string, string>;
@@ -39,10 +34,15 @@ type GeoSecondComingGameProps = {
   mode?: "daily" | "random";
 };
 type DailyTrio = Record<DailyDifficulty, Round>;
-type Rng = () => number;
 
-type DailyApiPayload = Partial<Record<DailyDifficulty, { seed?: string; encoded_board?: string }>> & {
+type PackedApiBoard = { seed?: string; encoded_board?: string; board_payload?: RoundSnapshot };
+type DailyApiPayload = Partial<Record<DailyDifficulty, PackedApiBoard>> & {
   error?: string;
+  generating?: boolean;
+  retryAfter?: number;
+  fallback?: boolean;
+  fallback_date?: string;
+  warning?: string;
 };
 
 function dailyBrowserCacheKey(date: string) {
@@ -74,37 +74,6 @@ function clearCachedDaily(date: string) {
   }
 }
 
-function hashSeed(seed: string) {
-  let hash = 2166136261;
-  for (let i = 0; i < seed.length; i++) {
-    hash ^= seed.charCodeAt(i);
-    hash = Math.imul(hash, 16777619);
-  }
-  return hash >>> 0;
-}
-
-function seededRandom(seed: string): Rng {
-  let value = hashSeed(seed);
-  return () => {
-    value += 0x6d2b79f5;
-    let t = value;
-    t = Math.imul(t ^ (t >>> 15), t | 1);
-    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-function shuffle<T>(items: T[], rng: Rng) {
-  const copy = [...items];
-  for (let i = copy.length - 1; i > 0; i--) {
-    const j = Math.floor(rng() * (i + 1));
-    [copy[i], copy[j]] = [copy[j], copy[i]];
-  }
-  return copy;
-}
-
-
-
 function normalizeRandomSeed(value: string) {
   return value.trim().toUpperCase().replace(/[^A-Z0-9-]/g, "").slice(0, 24);
 }
@@ -129,10 +98,6 @@ function dailyDateFromSeed(value: string) {
 function roundMatchesDifficulty(round: Round, difficulty: DailyDifficulty) {
   const config = ROUND_CONFIGS[difficulty];
   return round.categories.length === config.categoryCount && round.bank.length === config.countryCount;
-}
-
-function isBetter(category: RoundCategory, a: number, b: number) {
-  return category.category.direction === "high" ? a > b : a < b;
 }
 
 function shortCountryName(name: string) {
@@ -160,10 +125,6 @@ function ordinal(rank: number) {
   return `${rank}${suffix}`;
 }
 
-function observationValue(category: RoundCategory, countryId: string) {
-  return category.byCountry.get(countryId)?.value;
-}
-
 function buildScoreRows(round: Round, assignments: Assignment): ScoreRow[] {
   return scorePlacements(round.categories, round.bank, assignments).map(({ dataset, selected, best }) => ({
     category: dataset,
@@ -175,275 +136,9 @@ function buildScoreRows(round: Round, assignments: Assignment): ScoreRow[] {
     best: best.country,
     bestValue: best.observation.value,
     bestGlobalRank: best.observation.globalRank,
-  })).sort((a, b) => b.points - a.points);
+  })).sort((left, right) => right.points - left.points);
 }
 
-function findDistinctWinners(
-  categories: RoundCategory[],
-  countryList: CountryInfo[],
-  rng: Rng,
-  config: RoundConfig,
-  overlapBanks: Set<string>[] = [],
-  maxOverlap = Number.POSITIVE_INFINITY,
-): { winners: string[]; decoys: string[] } | null {
-  const countryIds = new Set(countryList.map((country) => country.id));
-  const countryById = new Map(countryList.map((country) => [country.id, country]));
-  const completeCountries = countryList.filter((country) =>
-    categories.every((category) => observationValue(category, country.id) !== undefined),
-  );
-  const completeIds = new Set(completeCountries.map((country) => country.id));
-
-  const candidates = categories.map((category) => {
-    const winnerLimit = strongestGlobalWinnerRank(category.category.globalCoverage ?? category.ranked.length);
-    return shuffle(
-      category.ranked.filter((row) => row.globalRank <= winnerLimit).map((row) => row.countryId)
-        .filter((id) => countryIds.has(id) && completeIds.has(id)),
-      rng,
-    );
-  });
-  if (candidates.some((list) => list.length === 0)) return null;
-
-  const order = categories.map((_, index) => index).sort((a, b) => candidates[a].length - candidates[b].length);
-  const winnerByCategory = new Array<string>(categories.length);
-  const used = new Set<string>();
-  const continentCounts = new Map<string, number>();
-  let steps = 0;
-
-  function overlapCount(bank: Set<string>) {
-    let count = 0;
-    for (const id of used) if (bank.has(id)) count++;
-    return count;
-  }
-
-  function search(depth: number): boolean {
-    if (++steps > 160000) return false;
-    if (depth === order.length) return true;
-    const categoryIndex = order[depth];
-    const category = categories[categoryIndex];
-    for (const candidateId of candidates[categoryIndex].slice(0, 75)) {
-      if (used.has(candidateId)) continue;
-      if (overlapBanks.some((bank) => bank.has(candidateId) && overlapCount(bank) >= maxOverlap)) continue;
-      const candidateCountry = countryById.get(candidateId);
-      if (!candidateCountry || (continentCounts.get(candidateCountry.continent) ?? 0) >= config.maxCountriesPerContinent) continue;
-      const candidateOwnValue = observationValue(category, candidateId);
-      if (candidateOwnValue === undefined) continue;
-      if (!candidateKeepsDisplayedValuesDistinct(categories, used, candidateId)) continue;
-      let valid = true;
-      for (let previousDepth = 0; previousDepth < depth; previousDepth++) {
-        const previousCategoryIndex = order[previousDepth];
-        const previousCategory = categories[previousCategoryIndex];
-        const previousWinnerId = winnerByCategory[previousCategoryIndex];
-        const previousWinnerOnOwn = observationValue(previousCategory, previousWinnerId);
-        const candidateOnPrevious = observationValue(previousCategory, candidateId);
-        const previousWinnerOnCurrent = observationValue(category, previousWinnerId);
-        if (previousWinnerOnOwn === undefined || candidateOnPrevious === undefined || previousWinnerOnCurrent === undefined ||
-            !isBetter(previousCategory, previousWinnerOnOwn, candidateOnPrevious) ||
-            !isBetter(category, candidateOwnValue, previousWinnerOnCurrent)) {
-          valid = false;
-          break;
-        }
-      }
-      if (!valid) continue;
-      winnerByCategory[categoryIndex] = candidateId;
-      used.add(candidateId);
-      continentCounts.set(candidateCountry.continent, (continentCounts.get(candidateCountry.continent) ?? 0) + 1);
-      if (search(depth + 1)) return true;
-      used.delete(candidateId);
-      continentCounts.set(candidateCountry.continent, (continentCounts.get(candidateCountry.continent) ?? 1) - 1);
-      winnerByCategory[categoryIndex] = "";
-    }
-    return false;
-  }
-
-  if (!search(0)) return null;
-
-  const decoyCandidates = shuffle(completeCountries, rng)
-    .filter((country) => {
-      if (used.has(country.id)) return false;
-      return categories.every((category, index) => {
-        const winnerValue = observationValue(category, winnerByCategory[index]);
-        const decoyValue = observationValue(category, country.id);
-        return winnerValue !== undefined && decoyValue !== undefined && isBetter(category, winnerValue, decoyValue);
-      });
-    })
-    .sort((a, b) => overlapBanks.filter((bank) => bank.has(a.id)).length - overlapBanks.filter((bank) => bank.has(b.id)).length);
-
-  const decoys: string[] = [];
-  const selectedBankIds = new Set(used);
-  const overlapTotals = overlapBanks.map((bank) => overlapCount(bank));
-  for (const country of decoyCandidates) {
-    const blocked = overlapBanks.some((bank, index) => bank.has(country.id) && overlapTotals[index] >= maxOverlap);
-    if (blocked || (continentCounts.get(country.continent) ?? 0) >= config.maxCountriesPerContinent) continue;
-    if (!candidateKeepsDisplayedValuesDistinct(categories, selectedBankIds, country.id)) continue;
-    decoys.push(country.id);
-    selectedBankIds.add(country.id);
-    continentCounts.set(country.continent, (continentCounts.get(country.continent) ?? 0) + 1);
-    overlapBanks.forEach((bank, index) => { if (bank.has(country.id)) overlapTotals[index]++; });
-    if (decoys.length === config.decoyCount) break;
-  }
-  if (decoys.length < config.decoyCount) return null;
-  return { winners: winnerByCategory, decoys };
-}
-
-async function loadCandidateDatasets(seed: string, targetCount = 140): Promise<RoundCategory[]> {
-  const rng = seededRandom(`${seed}:datasets`);
-  const catalog = await fetchPlayableCategoryCatalog({ tier: "random" });
-  const shuffled = shuffle(catalog.filter((category) => category.enabled !== false), rng);
-  const loaded: RoundCategory[] = [];
-  const loadedIds = new Set<string>();
-  const typeCounts = new Map<string, number>();
-  const batchSize = 8;
-
-  for (let offset = 0; offset < shuffled.length && loaded.length < targetCount; offset += batchSize) {
-    const batch: Category[] = [];
-    const pendingTypeCounts = new Map(typeCounts);
-    for (const category of shuffled.slice(offset, offset + batchSize * 4)) {
-      const type = roundType(category);
-      if (loadedIds.has(category.id) || batch.some((item) => item.id === category.id)) continue;
-      if ((pendingTypeCounts.get(type) ?? 0) >= 20) continue;
-      batch.push(category);
-      pendingTypeCounts.set(type, (pendingTypeCounts.get(type) ?? 0) + 1);
-      if (batch.length === batchSize) break;
-    }
-    if (!batch.length) continue;
-    const results = await Promise.allSettled(batch.map(async (category) => canonicalizeDataset(await fetchCategory(category))));
-    for (const result of results) {
-      if (result.status !== "fulfilled") continue;
-      const dataset = result.value;
-      const quality = scoreCategoryQuality(dataset);
-      if (!quality.eligible) continue;
-      const type = roundType(dataset.category);
-      if ((typeCounts.get(type) ?? 0) >= 20) continue;
-      loaded.push(dataset);
-      loadedIds.add(dataset.category.id);
-      typeCounts.set(type, (typeCounts.get(type) ?? 0) + 1);
-      if (loaded.length >= targetCount) break;
-    }
-  }
-  return loaded;
-}
-
-function datasetHasEnoughDisplayedVariety(dataset: RoundCategory, config: RoundConfig) {
-  const quality = scoreCategoryQuality(dataset);
-  const minimumDistinct = Math.max(config.countryCount + 4, config.categoryCount + 6);
-  return quality.distinctDisplayValues >= minimumDistinct;
-}
-
-function chooseDiverseCategories(
-  available: RoundCategory[],
-  rng: Rng,
-  config: RoundConfig,
-  existingTrioCategories: Category[] = [],
-) {
-  const ordered = shuffle(available.filter((dataset) =>
-    datasetHasEnoughDisplayedVariety(dataset, config)
-    && !categoryConflictsWithExistingTrio(dataset.category, existingTrioCategories),
-  ), rng);
-  const existingSemanticFamilies = new Set(existingTrioCategories.map((category) => semanticFamily(category)));
-  const selected: RoundCategory[] = [];
-  while (selected.length < config.categoryCount) {
-    const options = ordered.filter((dataset) =>
-      !selected.includes(dataset)
-      && canAddCategory(selected.map((item) => item.category), dataset.category, config)
-      && !categoryConflictsWithExistingTrio(dataset.category, existingTrioCategories),
-    );
-    if (!options.length) return null;
-    const selectedTypes = new Set(selected.map((item) => roundType(item.category)));
-    const selectedMeasures = new Set(selected.map((item) => measureKind(item.category)));
-    const selectedDomains = new Set(selected.map((item) => broadDomain(item.category)));
-    const selectedClusters = new Set(selected.map((item) => knowledgeCluster(item.category)));
-    const scored = options.map((dataset) => ({
-      dataset,
-      score: (selectedTypes.has(roundType(dataset.category)) ? 0 : 12) +
-        (selectedMeasures.has(measureKind(dataset.category)) ? 0 : 3) +
-        (selectedDomains.has(broadDomain(dataset.category)) ? 0 : 8) +
-        (selectedClusters.has(knowledgeCluster(dataset.category)) ? 0 : 10) +
-        (isPhysicalCategory(dataset.category) ? 3 : 0) +
-        (existingSemanticFamilies.has(semanticFamily(dataset.category)) ? 0 : 6) + rng(),
-    })).sort((a, b) => b.score - a.score);
-    selected.push(scored[0].dataset);
-  }
-  return roundHasRequiredDiversity(selected.map((dataset) => dataset.category), config) ? selected : null;
-}
-
-
-function boardOptimizationScore(round: Round, config: RoundConfig) {
-  const familyCount = new Set(round.categories.map((dataset) => roundType(dataset.category))).size;
-  const measureCount = new Set(round.categories.map((dataset) => measureKind(dataset.category))).size;
-  const domainCount = new Set(round.categories.map((dataset) => broadDomain(dataset.category))).size;
-  const clusterCount = new Set(round.categories.map((dataset) => knowledgeCluster(dataset.category))).size;
-  const physicalCount = round.categories.filter((dataset) => isPhysicalCategory(dataset.category)).length;
-  const continentCount = new Set(round.bank.map((country) => country.continent)).size;
-  const populationSignals = round.bank
-    .map((country) => country.population)
-    .filter((value): value is number => typeof value === "number" && value > 0)
-    .map((value) => Math.max(0, Math.min(100, (Math.log10(value) - 5.5) / 3 * 100)));
-  const familiarity = populationSignals.length
-    ? populationSignals.reduce((sum, value) => sum + value, 0) / populationSignals.length
-    : 50;
-  const qualities = round.categories.map((dataset) => scoreCategoryQuality(dataset).score);
-  const qualityAverage = qualities.reduce((sum, score) => sum + score, 0) / Math.max(1, qualities.length);
-
-  const winnerGlobalRanks: number[] = [];
-  const poolGapSignals: number[] = [];
-  for (const dataset of round.categories) {
-    const leaderboard = poolLeaderboard(dataset, round.bank);
-    if (!leaderboard.length) continue;
-    winnerGlobalRanks.push(leaderboard[0].observation.globalRank);
-    if (leaderboard.length > 1) {
-      const first = leaderboard[0].observation.value;
-      const second = leaderboard[1].observation.value;
-      poolGapSignals.push(Math.abs(first - second) / (Math.abs(first) + Math.abs(second) + 1e-9));
-    }
-  }
-  const averageGlobalRank = winnerGlobalRanks.reduce((sum, rank) => sum + rank, 0) / Math.max(1, winnerGlobalRanks.length);
-  const averageGap = poolGapSignals.reduce((sum, gap) => sum + gap, 0) / Math.max(1, poolGapSignals.length);
-  const rankTarget = config.difficulty === "easy" ? 8 : config.difficulty === "normal" ? 16 : 24;
-  const gapTarget = config.difficulty === "easy" ? 0.34 : config.difficulty === "normal" ? 0.17 : 0.07;
-  const rankFit = Math.max(0, 1 - Math.abs(averageGlobalRank - rankTarget) / 65);
-  const gapFit = Math.max(0, 1 - Math.abs(averageGap - gapTarget) / 0.35);
-
-  return qualityAverage * 2.0 + familyCount * 8 + measureCount * 4 + domainCount * 10 + clusterCount * 8 + Math.min(physicalCount, 2) * 5 + continentCount * 5 + rankFit * 55 + gapFit * 55 + familiarity * 0.12;
-}
-
-function composeRound(
-  available: RoundCategory[],
-  countryList: CountryInfo[],
-  seed: string,
-  config: RoundConfig,
-  existingTrioCategories: Category[] = [],
-  overlapBanks: Set<string>[] = [],
-  maxOverlap = Number.POSITIVE_INFINITY,
-): Round | null {
-  const rng = seededRandom(seed);
-  const attempted = new Set<string>();
-  let bestRound: Round | null = null;
-  let bestScore = Number.NEGATIVE_INFINITY;
-  let validCandidates = 0;
-  // Search many valid candidates and retain the strongest board rather than accepting the first valid one.
-  for (let attempt = 0; attempt < 420; attempt++) {
-    const categories = chooseDiverseCategories(available, rng, config, existingTrioCategories);
-    if (!categories) continue;
-    const signature = categories.map((dataset) => dataset.category.id).sort().join("|");
-    if (attempted.has(signature)) continue;
-    attempted.add(signature);
-    const solution = findDistinctWinners(categories, countryList, rng, config, overlapBanks, maxOverlap);
-    if (!solution) continue;
-    const byId = new Map(countryList.map((country) => [country.id, country]));
-    const bank = shuffle([...solution.winners, ...solution.decoys].map((id) => byId.get(id)!).filter(Boolean), rng);
-    if (bank.length !== config.countryCount || !roundHasCountryDiversity(bank, config)) continue;
-    if (validateRound(categories, bank).length) continue;
-    const round = { bank, categories };
-    const score = boardOptimizationScore(round, config) + rng() * 0.01;
-    validCandidates += 1;
-    if (score > bestScore) {
-      bestScore = score;
-      bestRound = round;
-    }
-    if (validCandidates >= 36) break;
-  }
-  return bestRound;
-}
 
 
 export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFICULTY, mode = "daily" }: GeoSecondComingGameProps = {}) {
@@ -461,6 +156,8 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
   const [difficulty, setDifficulty] = useState<DailyDifficulty>(initialDifficulty);
   const [copied, setCopied] = useState(false);
   const [savedCompletion, setSavedCompletion] = useState(false);
+  const [fallbackPractice, setFallbackPractice] = useState(false);
+  const [boardNotice, setBoardNotice] = useState("");
   const [openLeaderboard, setOpenLeaderboard] = useState<string | null>(null);
   const [sourceDataset, setSourceDataset] = useState<RoundCategory | null>(null);
   const [touchDrag, setTouchDrag] = useState<{ countryId: string; x: number; y: number; targetCategoryId: string | null } | null>(null);
@@ -476,6 +173,7 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
   const topFinishRank = activeConfig.topFinishRank;
   const unusedCount = Math.max(0, poolSize - categoryTarget);
   const isRandom = mode === "random";
+  const isUnranked = isRandom || fallbackPractice;
 
   useEffect(() => {
     if (!round) return;
@@ -518,6 +216,8 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
     setSelectedCategory(null);
     setCopied(false);
     setSavedCompletion(false);
+    setFallbackPractice(false);
+    setBoardNotice("");
     setSeed(nextSeed);
     setDifficulty(nextDifficulty);
   }
@@ -547,6 +247,15 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
     }
   }
 
+  async function restorePackedBoard(packed: PackedApiBoard, existingCountries: CountryInfo[]) {
+    if (packed.board_payload) return deserializeRound(packed.board_payload);
+    if (packed.encoded_board) {
+      const categoryCatalog = await fetchPlayableCategoryCatalog();
+      return decodeRound(packed.encoded_board, existingCountries, categoryCatalog);
+    }
+    throw new Error("The server did not return a complete board.");
+  }
+
   async function loadDailyRound(nextDifficulty: DailyDifficulty, existingCountries = countries) {
     const date = newYorkDate();
     const nextSeed = dailySeed(nextDifficulty);
@@ -555,60 +264,52 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
     setStatus(`Loading today’s ${ROUND_CONFIGS[nextDifficulty].label} Daily…`);
 
     try {
-      const categoryCatalog = await fetchPlayableCategoryCatalog();
       const cached = readCachedDaily(date);
-
-      if (cached) {
-        const cachedBoard = cached[nextDifficulty]?.encoded_board;
-        if (typeof cachedBoard === "string" && cachedBoard) {
-          try {
-            const restored = decodeRound(cachedBoard, existingCountries, categoryCatalog);
-            if (!roundMatchesDifficulty(restored, nextDifficulty)) throw new Error("Cached board dimensions do not match.");
-            setRound(restored);
-            setStatus("");
-            void restoreSavedCompletion(restored, nextDifficulty, date);
-            return;
-          } catch {
-            clearCachedDaily(date);
-          }
+      const cachedPacked = cached?.[nextDifficulty];
+      if (cachedPacked) {
+        try {
+          const restored = await restorePackedBoard(cachedPacked, existingCountries);
+          if (!roundMatchesDifficulty(restored, nextDifficulty)) throw new Error("Cached board dimensions do not match.");
+          setFallbackPractice(Boolean(cached?.fallback));
+          setBoardNotice(cached?.warning ?? "");
+          setRound(restored);
+          setStatus("");
+          if (!cached?.fallback) void restoreSavedCompletion(restored, nextDifficulty, date);
+          return;
+        } catch {
+          clearCachedDaily(date);
         }
       }
 
-      const response = await fetch(`/api/daily-trio/${date}?rules=${encodeURIComponent(RULES_VERSION)}`);
-      const saved = await response.json().catch(() => ({})) as DailyApiPayload;
-
-      if (!response.ok) {
-        throw new Error(
-          typeof saved.error === "string"
-            ? saved.error
-            : "Today’s Daily boards are temporarily unavailable.",
-        );
+      let saved: DailyApiPayload = {};
+      let response: Response | null = null;
+      for (let attempt = 0; attempt < 5; attempt += 1) {
+        response = await fetch(`/api/daily-trio/${date}?rules=${encodeURIComponent(RULES_VERSION)}`, { cache: "no-store" });
+        saved = await response.json().catch(() => ({})) as DailyApiPayload;
+        if (saved[nextDifficulty]) break;
+        if (response.status !== 202) break;
+        setStatus("Today’s boards are being prepared…");
+        await new Promise((resolve) => window.setTimeout(resolve, Math.max(1, saved.retryAfter ?? 3) * 1000));
       }
 
-      const packed = saved[nextDifficulty]?.encoded_board;
-      if (typeof packed !== "string" || !packed) {
-        throw new Error(
-          `Today’s ${ROUND_CONFIGS[nextDifficulty].label} Daily was not returned by the server.`,
-        );
+      const packed = saved[nextDifficulty];
+      if (!packed && !response?.ok) {
+        throw new Error(typeof saved.error === "string" ? saved.error : "Today’s Daily board is temporarily unavailable.");
       }
-
-      const restored = decodeRound(packed, existingCountries, categoryCatalog);
+      if (!packed) throw new Error(`Today’s ${ROUND_CONFIGS[nextDifficulty].label} board was not returned.`);
+      const restored = await restorePackedBoard(packed, existingCountries);
       if (!roundMatchesDifficulty(restored, nextDifficulty)) {
-        throw new Error(
-          `The ${ROUND_CONFIGS[nextDifficulty].label} Daily has the wrong board dimensions.`,
-        );
+        throw new Error(`The ${ROUND_CONFIGS[nextDifficulty].label} Daily has the wrong board dimensions.`);
       }
 
       writeCachedDaily(date, saved);
+      setFallbackPractice(Boolean(saved.fallback));
+      setBoardNotice(saved.warning ?? "");
       setRound(restored);
       setStatus("");
-      void restoreSavedCompletion(restored, nextDifficulty, date);
+      if (!saved.fallback) void restoreSavedCompletion(restored, nextDifficulty, date);
     } catch (caught) {
-      setError(
-        caught instanceof Error
-          ? caught.message
-          : "The Daily boards could not be loaded.",
-      );
+      setError(caught instanceof Error ? caught.message : "The Daily board could not be loaded.");
       setStatus("");
     }
   }
@@ -618,23 +319,19 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
     resetRoundState(nextSeed, nextDifficulty);
     setSeedInput(nextSeed);
     syncUrl(nextDifficulty, nextSeed);
-    setStatus(`Building unranked ${ROUND_CONFIGS[nextDifficulty].label} test board…`);
+    setStatus(`Building ${ROUND_CONFIGS[nextDifficulty].label} seeded board…`);
     try {
-      const available = await loadCandidateDatasets(`RANDOM-${nextDifficulty}-${nextSeed}`, 36);
-      const generated = composeRound(
-        available,
-        existingCountries,
-        `RANDOM-${nextDifficulty}-${nextSeed}:board`,
-        ROUND_CONFIGS[nextDifficulty],
-      );
-      if (!generated || !roundMatchesDifficulty(generated, nextDifficulty)) {
-        throw new Error("That seed could not produce a valid board under the current trust and variety rules. Generate another seed.");
+      const response = await fetch(`/api/seeded/${nextDifficulty}?seed=${encodeURIComponent(nextSeed)}`, { cache: "no-store" });
+      const payload = await response.json().catch(() => ({})) as PackedApiBoard & { error?: string };
+      if (!response.ok) throw new Error(payload.error || "The seeded board could not be generated.");
+      const generated = await restorePackedBoard(payload, existingCountries);
+      if (!roundMatchesDifficulty(generated, nextDifficulty)) {
+        throw new Error("The seeded board has the wrong dimensions.");
       }
-      const hydrated = await hydrateRoundMetadata(generated);
-      setRound(hydrated);
+      setRound(generated);
       setStatus("");
     } catch (caught) {
-      setError(caught instanceof Error ? caught.message : "The random board could not be generated.");
+      setError(caught instanceof Error ? caught.message : "The seeded board could not be generated.");
       setStatus("");
     }
   }
@@ -817,19 +514,24 @@ Can you beat my score?`;
   const bestPossibleCount = scores?.filter((row) => row.rank === 1).length ?? 0;
   const topFinishCount = scores?.filter((row) => row.rank <= topFinishRank).length ?? 0;
 
-  return <div className={`shell ${round && !scores ? "activePlay" : ""} ${scores ? "resultsView" : ""} ${difficulty}Round ${difficulty === "expert" ? "expertRound" : ""} ${difficulty === "easy" ? "compactRound" : ""}`}>
+  return <div className={`shell ${!scores ? "activePlay" : ""} ${status ? "loadingPlay" : ""} ${error ? "errorPlay" : ""} ${scores ? "resultsView" : ""} ${difficulty}Round ${difficulty === "expert" ? "expertRound" : ""} ${difficulty === "easy" ? "compactRound" : ""}`}>
     {!scores && <header>
       <div className="brand"><span className="logo">🌍</span><div><h1>GeoStats</h1><p>Geography, with strategy.</p></div></div>
-      <div className="headerButtons">
+      <div className="headerButtons desktopHeaderButtons">
         <a href="/audit" className="headerLink">Data audit</a>
         <button onClick={() => setShowRules(true)}>How it works</button>
         <a href="/daily" className={`dailyModeButton ${!isRandom ? "active" : ""}`}>Daily</a>
-        <a href="/random" className={`dailyModeButton ${isRandom ? "active" : ""}`}>Random test</a>
+        <a href="/random" className={`dailyModeButton ${isRandom ? "active" : ""}`}>Seeded</a>
         <a href={isRandom ? ROUND_CONFIGS.easy.randomPath : ROUND_CONFIGS.easy.path} className={`dailyModeButton ${difficulty === "easy" ? "active" : ""}`}>Scout</a>
         <a href={isRandom ? ROUND_CONFIGS.normal.randomPath : ROUND_CONFIGS.normal.path} className={`dailyModeButton ${difficulty === "normal" ? "active" : ""}`}>Adventurer</a>
         <a href={isRandom ? ROUND_CONFIGS.expert.randomPath : ROUND_CONFIGS.expert.path} className={`dailyModeButton ${difficulty === "expert" ? "active" : ""}`}>Expert</a>
         {!isRandom && <AccountControls difficulty={difficulty} />}
       </div>
+      <details className="mobileMenu"><summary>Menu</summary><div>
+        <a href="/audit">Data audit</a><button onClick={() => setShowRules(true)}>How it works</button>
+        <a href={isRandom ? "/daily" : "/random"}>{isRandom ? "Daily" : "Seeded"}</a>
+        {!isRandom && <AccountControls difficulty={difficulty} />}
+      </div></details>
     </header>}
 
     <section className={`challengeBar ${isRandom ? "randomChallengeBar" : ""}`}>
@@ -845,14 +547,20 @@ Can you beat my score?`;
         {scores && <button className="resultsRulesLink" onClick={() => setShowRules(true)}>Rules</button>}
       </div>
     </section>
+    {!scores && <><nav className="mobileModeTabs" aria-label="Game difficulty">
+      <a href={isRandom ? ROUND_CONFIGS.easy.randomPath : ROUND_CONFIGS.easy.path} className={difficulty === "easy" ? "active" : ""}>Scout</a>
+      <a href={isRandom ? ROUND_CONFIGS.normal.randomPath : ROUND_CONFIGS.normal.path} className={difficulty === "normal" ? "active" : ""}>Adventurer</a>
+      <a href={isRandom ? ROUND_CONFIGS.expert.randomPath : ROUND_CONFIGS.expert.path} className={difficulty === "expert" ? "active" : ""}>Expert</a>
+    </nav><div className="mobileGameSummary"><strong>{ROUND_CONFIGS[difficulty].label}</strong><span>{poolSize} countries · {categoryTarget} measures · leave {unusedCount}</span></div></>}
+    {boardNotice && <div className="boardNotice">{boardNotice}</div>}
 
-    {!scores && <section className="hero">
+    {!scores && <section className="hero desktopHero">
       <div><span className="kicker">A strategy atlas</span><h2>{poolSize} countries. {categoryTarget} measures. One perfect allocation.</h2><p>Place {categoryTarget} countries, leave {unusedCount === 1 ? "one" : unusedCount} behind, and make every specialist count.</p></div>
       <aside><strong>{Object.keys(assignments).length}/{categoryTarget}</strong><span>categories assigned</span></aside>
     </section>}
 
     {status && <div className="loading"><div className="spinner"/><strong>{status}</strong><span>Official datasets can take a few seconds to load the first time.</span></div>}
-    {error && <div className="error"><strong>Couldn’t generate this round.</strong><span>{error}</span><button onClick={retryCurrentRound}>Try again</button></div>}
+    {error && <div className="error"><strong>Couldn’t load this board.</strong><span>{error}</span><button onClick={retryCurrentRound}>Check again</button></div>}
 
     {round && !scores && <main className={`grid playGrid ${selected ? "holdingCountry" : ""} ${selectedCategory ? "choosingCountry" : ""}`}>
       <section className="panel bankPanel"><div className="panelTitle"><div><span className="kicker">Country bank</span><h3>Choose your {categoryTarget}</h3></div><small>{unusedCount === 1 ? "One will remain unused" : `${unusedCount} will remain unused`}</small></div>
@@ -860,17 +568,17 @@ Can you beat my score?`;
       </section>
       <div className="boardSpine" aria-hidden="true"/>
       <section className="panel boardPanel"><div className="panelTitle"><div><span className="kicker">The atlas</span><h3>Match countries to measures</h3></div><small>One use per country</small></div>
-        <div className="slots">{round.categories.map((dataset, index) => { const c = round.bank.find((x)=>x.id===assignments[dataset.category.id]); return <button key={dataset.category.id} data-category-id={dataset.category.id} className={`slot theme-${dataset.category.family.toLowerCase().replace(/[^a-z0-9]+/g,"-")} ${c?"assigned":""} ${selected&&!c?"target":""} ${selectedCategory===dataset.category.id?"selectedCategory":""} ${touchDrag?.targetCategoryId===dataset.category.id?"touchTarget":""}`} aria-pressed={selectedCategory===dataset.category.id} onDragOver={(event)=>event.preventDefault()} onDrop={(event)=>{event.preventDefault();const dropped=event.dataTransfer.getData("text/plain");if(dropped)assignCountry(dataset.category.id,dropped)}} onClick={()=>selectCategory(dataset.category.id)}><span className="cornerNotch" aria-hidden="true"/><div className="category"><span>{dataset.category.icon}</span><div><strong>{dataset.category.name}</strong><small>{dataset.category.description}</small></div><b className="slotNumber">{String(index + 1).padStart(2, "0")}</b></div><div className={`choice ${c?"filled":""}`}>{c?<><span className="pieceFlag">{c.flag}</span><strong className="pieceName">{c.name}</strong><i className="removePiece" aria-label={`Remove ${c.name} from ${dataset.category.name}`} title="Remove country" onClick={(e)=>{e.stopPropagation();setAssignments((a)=>{const n={...a};delete n[dataset.category.id];return n;});setSelectedCategory(null);}}>×</i></>:<em>{selected?"Place selected country":selectedCategory===dataset.category.id?"Now choose a country":"Select a country"}</em>}</div></button>})}</div>
+        <div className="slots">{round.categories.map((dataset, index) => { const c = round.bank.find((x)=>x.id===assignments[dataset.category.id]); return <button key={dataset.category.id} data-category-id={dataset.category.id} className={`slot theme-${dataset.category.family.toLowerCase().replace(/[^a-z0-9]+/g,"-")} ${c?"assigned":""} ${selected&&!c?"target":""} ${selectedCategory===dataset.category.id?"selectedCategory":""} ${touchDrag?.targetCategoryId===dataset.category.id?"touchTarget":""}`} aria-pressed={selectedCategory===dataset.category.id} onDragOver={(event)=>event.preventDefault()} onDrop={(event)=>{event.preventDefault();const dropped=event.dataTransfer.getData("text/plain");if(dropped)assignCountry(dataset.category.id,dropped)}} onClick={()=>selectCategory(dataset.category.id)}><span className="cornerNotch" aria-hidden="true"/><div className="category"><span>{dataset.category.icon}</span><div><strong>{dataset.category.name}</strong><small>{dataset.category.boardDescription ?? dataset.category.description}</small></div><b className="slotNumber">{String(index + 1).padStart(2, "0")}</b></div><div className={`choice ${c?"filled":""}`}>{c?<><span className="pieceFlag">{c.flag}</span><strong className="pieceName">{c.name}</strong><i className="removePiece" aria-label={`Remove ${c.name} from ${dataset.category.name}`} title="Remove country" onClick={(e)=>{e.stopPropagation();setAssignments((a)=>{const n={...a};delete n[dataset.category.id];return n;});setSelectedCategory(null);}}>×</i></>:<em>{selected?"Place selected country":selectedCategory===dataset.category.id?"Now choose a country":"Select a country"}</em>}</div></button>})}</div>
         <div className="lock"><span>{categoryTarget-Object.keys(assignments).length>0?`${categoryTarget-Object.keys(assignments).length} selections remaining`:"Draft complete"}</span><button disabled={Object.keys(assignments).length!==categoryTarget} onClick={score}>Lock in draft</button></div>
       </section>
     </main>}
 
-    {round && scores && <section className="panel results"><div className="score"><span>Final score</span>{savedCompletion && <p className="savedDailyNotice">Completed earlier today. This is the score saved to your account.</p>}<div className="scoreValue"><strong>{total}</strong><b>/ {roundMaxScore}</b></div><div className="scoreInsights"><div><strong>{averagePlacement}</strong><span>Average placement</span></div><div><strong>{bestPossibleCount}</strong><span>Best possible</span></div><div><strong>{topFinishCount}/{categoryTarget}</strong><span>Top {topFinishRank}</span></div></div><div className="scoreBreakdown">{[1,2,3].map((rank)=><span key={rank}>{rank===1?"🥇":rank===2?"🥈":"🥉"} {scores.filter((row)=>row.rank===rank).length}</span>)}</div><p>{total>=roundMaxScore*.8125?"Elite allocation.":total>=roundMaxScore*.65?"Strong draft with room to optimize.":"A few specialists were spent in the wrong places."}</p><div className="scoreActions"><button className="shareScore" onClick={shareScore}>{copied ? "Score copied ✓" : "Share score"}</button>{isRandom ? <button onClick={generateNewRandomRound}>Generate another board</button> : <AccountControls results difficulty={difficulty} pendingScore={savedCompletion ? undefined : { challengeDate: dailyDateFromSeed(seed), difficulty, assignments }} />}</div></div>
+    {round && scores && <section className="panel results"><div className="score"><span>Final score</span>{savedCompletion && <p className="savedDailyNotice">Completed earlier today. This is the score saved to your account.</p>}<div className="scoreValue"><strong>{total}</strong><b>/ {roundMaxScore}</b></div><div className="scoreInsights"><div><strong>{averagePlacement}</strong><span>Average placement</span></div><div><strong>{bestPossibleCount}</strong><span>Best possible</span></div><div><strong>{topFinishCount}/{categoryTarget}</strong><span>Top {topFinishRank}</span></div></div><div className="scoreBreakdown">{[1,2,3].map((rank)=><span key={rank}>{rank===1?"🥇":rank===2?"🥈":"🥉"} {scores.filter((row)=>row.rank===rank).length}</span>)}</div><p>{total>=roundMaxScore*.8125?"Elite allocation.":total>=roundMaxScore*.65?"Strong draft with room to optimize.":"A few specialists were spent in the wrong places."}</p><div className="scoreActions"><button className="shareScore" onClick={shareScore}>{copied ? "Score copied ✓" : "Share score"}</button>{isUnranked ? (isRandom ? <button onClick={generateNewRandomRound}>Generate another board</button> : <span className="unrankedNotice">Practice board · score not saved</span>) : <AccountControls results difficulty={difficulty} pendingScore={savedCompletion ? undefined : { challengeDate: dailyDateFromSeed(seed), difficulty, assignments }} />}</div></div>
       <div className="resultsHeading"><div><span className="kicker">Your placements</span><h3>Placement and points earned</h3></div><small>Open a ranking to compare all {poolSize} countries</small></div>
       {scores.map((row)=>{ const leaderboard=poolLeaderboard(row.category,round.bank); return <div className={`resultWrap theme-${row.category.category.family.toLowerCase().replace(/[^a-z0-9]+/g,"-")}`} key={row.category.category.id}><div className="result"><div className="resultMain"><span>{row.category.category.icon}</span><div><strong>{row.category.category.name}</strong><small className="statTip" tabIndex={0}>{row.country.flag} {row.country.name} · {formatValue(row.value,row.category.category)} · {row.category.byCountry.get(row.country.id)?.year}<span className="tooltip">#{row.globalRank} globally<br/>Actual value: {formatValue(row.value,row.category.category)}<br/>Source: {SOURCE_REGISTRY[row.category.category.source].name}<br/><button className="inlineSourceButton" onClick={(e)=>{e.stopPropagation();setSourceDataset(row.category)}}>Data & Source</button></span></small></div></div><div className="placementSummary"><b>{ordinal(row.rank)} of {poolSize}</b><strong>{row.points} pts earned</strong>{row.rank===1&&<span>Best possible</span>}</div><button className="leaderboardButton" onClick={()=>setOpenLeaderboard(openLeaderboard===row.category.category.id?null:row.category.category.id)} aria-expanded={openLeaderboard===row.category.category.id}>{openLeaderboard===row.category.category.id?"Hide rankings":"View rankings"}</button></div>{openLeaderboard===row.category.category.id&&<div className="leaderboard"><div className="leaderboardHeader"><div className="leaderboardTitle"><h4>{row.category.category.name}</h4><span>All {poolSize} countries</span></div><div className="leaderboardSource"><span className="sourceBadge">{row.category.category.source === "worldbank" ? "World Bank" : SOURCE_REGISTRY[row.category.category.source].name}</span><button className="sourceDetailsButton" onClick={(e)=>{e.stopPropagation();setSourceDataset(row.category)}}>Data & Source</button></div></div>{leaderboard.map(item=><div key={item.country.id} className={item.country.id===row.country.id?"current":""}><b>#{item.poolRank}</b><span>{item.country.flag} {item.country.name}</span><span>{formatValue(item.observation.value,row.category.category)}</span><small>{item.observation.year}</small><strong>{item.points} pts</strong></div>)}</div>}</div>})}
       <div className="perfect"><div className="resultsHeading"><div><span className="kicker">🏆 Perfect Round</span><h3>The optimal allocation</h3></div><small>Each category’s best country among these {poolSize}</small></div>
       <div className="perfectGrid">{scores.map((row)=><div className="perfectRow" key={`perfect-${row.category.category.id}`}><span>{row.category.category.icon}</span><div><strong>{row.category.category.name}</strong><small className="statTip" tabIndex={0}>{row.best.flag} {row.best.name} · {formatValue(row.bestValue,row.category.category)}<span className="tooltip">#{row.bestGlobalRank} globally<br/>Actual value: {formatValue(row.bestValue,row.category.category)}<br/>Source: {SOURCE_REGISTRY[row.category.category.source].name}<br/><button className="inlineSourceButton" onClick={(e)=>{e.stopPropagation();setSourceDataset(row.category)}}>Data & Source</button></span></small></div><b>100 pts</b></div>)}</div></div>
-      <div className="lock"><span>Maximum score: {roundMaxScore}{isRandom ? " · Unranked test" : ""}</span><div className="resultActions"><a className="resultModeLink" href={isRandom ? ROUND_CONFIGS.easy.randomPath : ROUND_CONFIGS.easy.path}>Scout {isRandom ? "Random" : "Daily"}</a><a className="resultModeLink" href={isRandom ? ROUND_CONFIGS.normal.randomPath : ROUND_CONFIGS.normal.path}>Adventurer {isRandom ? "Random" : "Daily"}</a><a className="resultModeLink" href={isRandom ? ROUND_CONFIGS.expert.randomPath : ROUND_CONFIGS.expert.path}>Expert {isRandom ? "Random" : "Daily"}</a></div></div></section>}
+      <div className="lock"><span>Maximum score: {roundMaxScore}{isUnranked ? " · Unranked" : ""}</span><div className="resultActions"><a className="resultModeLink" href={isRandom ? ROUND_CONFIGS.easy.randomPath : ROUND_CONFIGS.easy.path}>Scout {isRandom ? "Random" : "Daily"}</a><a className="resultModeLink" href={isRandom ? ROUND_CONFIGS.normal.randomPath : ROUND_CONFIGS.normal.path}>Adventurer {isRandom ? "Random" : "Daily"}</a><a className="resultModeLink" href={isRandom ? ROUND_CONFIGS.expert.randomPath : ROUND_CONFIGS.expert.path}>Expert {isRandom ? "Random" : "Daily"}</a></div></div></section>}
 
     {touchDrag && round && <div className="touchGhost" style={{ left: touchDrag.x, top: touchDrag.y }}><span>{round.bank.find((country)=>country.id===touchDrag.countryId)?.flag}</span><strong>{round.bank.find((country)=>country.id===touchDrag.countryId)?.name}</strong></div>}
 

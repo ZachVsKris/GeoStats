@@ -16,6 +16,7 @@ type ReviewUpdate = {
   poor_coverage?: boolean;
   duplicate_of?: string | null;
   recommended_title?: string | null;
+  board_description?: string | null;
   semantic_group?: string | null;
   notes?: string | null;
 };
@@ -156,6 +157,13 @@ export async function POST(request: Request, context: { params: Promise<{ id: st
   if (previousError) return NextResponse.json({ error: previousError.message }, { status: 500 });
   if (!previous) return NextResponse.json({ error: "Category review state not found. Run the v15 SQL installer." }, { status: 409 });
 
+  const { data: categoryState, error: categoryStateError } = await auth.admin
+    .from("stat_categories")
+    .select("metadata")
+    .eq("id", id)
+    .maybeSingle();
+  if (categoryStateError) return NextResponse.json({ error: categoryStateError.message }, { status: 500 });
+
   const update: Record<string, unknown> = {
     updated_at: new Date().toISOString(),
   };
@@ -165,7 +173,8 @@ export async function POST(request: Request, context: { params: Promise<{ id: st
     update.reviewed_by = body.status === "pending" ? null : auth.user.id;
   }
   for (const key of allowedBooleanKeys) if (body[key] !== undefined) update[key] = body[key];
-  const recommendedTitle = cleanText(body.recommended_title, 140);
+  const recommendedTitle = cleanText(body.recommended_title, 80);
+  const boardDescription = cleanText(body.board_description, 110);
   const semanticGroup = cleanText(body.semantic_group, 100);
   const notes = cleanText(body.notes, 4000);
   if (body.recommended_title !== undefined) update.recommended_title = recommendedTitle;
@@ -239,6 +248,17 @@ export async function POST(request: Request, context: { params: Promise<{ id: st
   };
   if (typeof policy.semantic_group === "string" && policy.semantic_group.trim()) {
     categoryUpdate.semantic_family = policy.semantic_group.trim();
+  }
+  if (body.board_description !== undefined) {
+    const existingMetadata = categoryState?.metadata && typeof categoryState.metadata === "object"
+      ? categoryState.metadata as Record<string, unknown>
+      : {};
+    categoryUpdate.metadata = {
+      ...existingMetadata,
+      boardDescription: boardDescription,
+      boardDescriptionReviewedAt: new Date().toISOString(),
+      boardDescriptionReviewedBy: auth.user.id,
+    };
   }
   if (policy.computed_playable_v15 && typeof policy.recommended_title === "string" && policy.recommended_title.trim()) {
     categoryUpdate.title = policy.recommended_title.trim();

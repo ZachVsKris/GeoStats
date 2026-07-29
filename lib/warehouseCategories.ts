@@ -83,11 +83,7 @@ export function warehousePayloadToDataset(
   const declaredCoverage = Number(payload.commonYearCoverage ?? 0);
   const expectedCoverage = declaredCoverage || observations.length;
 
-  if (
-    !payload.rankingComplete ||
-    !expectedCoverage ||
-    observations.length !== expectedCoverage
-  ) {
+  if (!payload.rankingComplete || !expectedCoverage || !observations.length) {
     throw new Error(
       `${category.shortName} global ranking is incomplete (${observations.length} loaded; ${declaredCoverage || "unknown"} expected).`,
     );
@@ -160,7 +156,7 @@ export function warehousePayloadToDataset(
       category.playerQualityStatus,
     playerQualityReason:
       payload.playerQualityReason ?? category.playerQualityReason,
-    globalCoverage: expectedCoverage,
+    globalCoverage: observations.length,
   };
 
   return {
@@ -219,7 +215,6 @@ export async function fetchWarehouseCategory(
   } else {
     params.set("category", category.id);
   }
-  if (category.catalogTier === "random") params.set("tier", "random");
 
   const response = await fetch(
     `/api/warehouse-category?${params.toString()}`,

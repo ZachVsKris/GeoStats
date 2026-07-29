@@ -29,8 +29,10 @@ export type Category = {
   unit: string;
   family: string;
   direction: Direction;
-  // Player-facing subtitle. It must explicitly state whether the measure is a total, per-person/rate, percentage/share, or physical unit.
+  // Full plain-language explanation used in source/detail views.
   description: string;
+  // Short, complete sentence shown on the board. Never an ellipsized source definition.
+  boardDescription?: string;
   decimals?: number;
   minimumYear?: number;
   requireCommonYear?: boolean;
@@ -49,11 +51,16 @@ export type Category = {
   // semanticTopic is the narrower indicator concept used for review and diagnostics.
   semanticFamily?: string;
   semanticTopic?: string;
+  // Narrow hard-conflict family. Unlike knowledgeCluster, this may be used as a one-per-board rule.
+  strategyFamily?: string;
+  // Structured measure metadata. Player wording must not control generator behavior.
+  measureType?: "total" | "share" | "rate" | "index" | "count" | "physical" | "other";
+  normalizationType?: "absolute" | "per-person" | "per-area" | "percentage" | "rate" | "none" | "other";
   // v15.4 board-composition metadata. Broad domains balance the board;
   // knowledge clusters prevent multiple categories that reward the same strategy.
   broadDomain?: string;
   knowledgeCluster?: string;
-  catalogTier?: "daily" | "random" | "quarantined";
+  catalogTier?: "daily" | "quarantined";
   productSpecificTrade?: boolean;
   // Warehouse-backed categories are loaded from the curated Supabase common-year snapshot.
   warehouseBacked?: boolean;

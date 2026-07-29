@@ -143,6 +143,10 @@ export function semanticFamily(category: Category) {
   return inferSemanticProfile(category).family;
 }
 
+export function strategyFamily(category: Category) {
+  return category.strategyFamily?.trim() || inferSemanticProfile(category).family;
+}
+
 export function broadDomain(category: Category) {
   return categoryBroadDomain(category);
 }
@@ -211,11 +215,17 @@ export function isAgricultureCategory(category: Category) {
 }
 
 export function measureKind(category: Category) {
-  const text = `${category.unit} ${category.description}`.toLowerCase();
-  if (text.includes("per person") || text.includes("/person") || text.includes("per capita")) return "per-person";
-  if (text.includes("per 100") || text.includes("per 1,000") || text.includes("per 100,000")) return "rate";
-  if (text.includes("%") || text.includes("percent") || text.includes("share")) return "percentage";
-  if (text.includes("usd") || text.includes("total") || text.includes("people") || text.includes("ton") || text.includes("km²") || text.includes("hectare")) return "total";
+  if (category.normalizationType === "per-person") return "per-person";
+  if (category.normalizationType === "percentage") return "percentage";
+  if (category.normalizationType === "rate" || category.normalizationType === "per-area") return "rate";
+  if (["total", "count", "physical"].includes(category.measureType ?? "")) return "total";
+  if (category.measureType === "share") return "percentage";
+  if (category.measureType === "rate") return "rate";
+  if (category.measureType === "index") return "index";
+  const unit = category.unit.toLowerCase();
+  if (/per (person|capita)/.test(unit)) return "per-person";
+  if (/per 100|per 1,000|per 100,000/.test(unit)) return "rate";
+  if (/%|percent/.test(unit)) return "percentage";
   return "other";
 }
 
@@ -238,14 +248,14 @@ function hasCommodityConflict(selected: Category[], category: Category) {
 }
 
 export function canAddCategory(selected: Category[], category: Category, config: RoundConfig = ROUND_CONFIGS.normal) {
-  if (category.enabled === false || category.trustStatus === "quarantined" || (category.credibilityScore ?? 100) < 75) return false;
+  // computed_playable_v15 is authoritative. Application code may reject a
+  // malformed loaded dataset, but it must not recreate a hidden quality tier.
+  if (category.enabled === false) return false;
   const type = roundType(category);
   if (selected.filter((item) => roundType(item) === type).length >= MAX_PER_ROUND_TYPE) return false;
   const group = similarityGroup(category);
   if (selected.some((item) => similarityGroup(item) === group)) return false;
   if (selected.some((item) => semanticConflict(item, category))) return false;
-  const cluster = knowledgeCluster(category);
-  if (selected.some((item) => knowledgeCluster(item) === cluster)) return false;
   const domain = broadDomain(category);
   if (selected.filter((item) => broadDomain(item) === domain).length >= config.maxBroadDomain) return false;
   if (selected.filter((item) => item.source === category.source).length >= config.maxSameSource) return false;
@@ -261,7 +271,6 @@ export function roundHasRequiredDiversity(categories: Category[], config: RoundC
   if (categories.length !== config.categoryCount) return false;
   const types = new Set(categories.map(roundType));
   if (types.size < config.minRoundTypes) return false;
-  if (new Set(categories.map(knowledgeCluster)).size !== categories.length) return false;
   for (const domain of new Set(categories.map(broadDomain))) {
     if (categories.filter((category) => broadDomain(category) === domain).length > config.maxBroadDomain) return false;
   }
@@ -273,7 +282,6 @@ export function roundHasRequiredDiversity(categories: Category[], config: RoundC
     if (categories.filter((category) => category.source === source).length > config.maxSameSource) return false;
   }
   if (new Set(categories.map(similarityGroup)).size !== categories.length) return false;
-  if (new Set(categories.map(semanticFamily)).size !== categories.length) return false;
   for (let first = 0; first < categories.length; first += 1) {
     for (let second = first + 1; second < categories.length; second += 1) {
       if (semanticConflict(categories[first], categories[second])) return false;

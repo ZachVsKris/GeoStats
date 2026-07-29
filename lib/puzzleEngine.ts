@@ -16,13 +16,17 @@ import {
   roundHasRequiredDiversity,
   roundType,
   strongestGlobalWinnerRank,
-  semanticFamily,
   type DailyDifficulty,
   type RoundConfig,
 } from "./gameRules";
-import { categoryConflictsWithExistingTrio, validateDailyTrio } from "./dailyTrioRules";
+import {
+  categoryConflictsWithExistingTrio,
+  dailyTrioPreferenceWarnings,
+  pairwiseCountryOverlap,
+  validateDailyTrio,
+} from "./dailyTrioRules";
 import { loadServerPlayableCategoryCatalog } from "./serverPlayableCatalog";
-import { generationProfiles, sourceCapacityForProfile } from "./generationProfiles";
+import { generationProfiles } from "./generationProfiles";
 import { candidateKeepsDisplayedValuesDistinct } from "./roundValueRules";
 
 export type DailyTrio = Record<DailyDifficulty, Round>;
@@ -52,34 +56,38 @@ export type GenerationDiagnostics = {
   message?: string;
   lastTrioErrors?: string[];
   generationProfile?: string;
-  skippedProfiles?: string[];
+  preferenceWarnings?: string[];
+  candidateSources?: Record<string, number>;
 };
 
 type Rng = () => number;
-
-type CandidateLoadResult = {
+export type LoadedPuzzleCatalog = {
   datasets: RoundCategory[];
   catalogSize: number;
   datasetLoadFailures: number;
   datasetLoadErrorSamples: string[];
   qualityRejections: number;
+  candidateSources: Record<string, number>;
 };
-
-
-const MAX_CATEGORY_COMPOSITION_ATTEMPTS = 48;
-const TARGET_VALID_BOARD_CANDIDATES = 3;
-const MAX_WINNER_SEARCH_STEPS = 75_000;
-const MAX_WINNER_CANDIDATES_PER_CATEGORY = 60;
-const MAX_TRIO_ATTEMPTS_PER_PROFILE = 8;
-const GENERATION_BUDGET_MS = 18_000;
-
-type ComposeResult = {
-  round: Round | null;
-  validCandidates: number;
+type RoundCandidate = { round: Round; score: number };
+type CandidateResult = {
+  candidates: RoundCandidate[];
   categorySelectionFailures: number;
   winnerSearchFailures: number;
   validationFailures: number;
 };
+
+const GENERATION_BUDGET_MS = 60_000;
+const PROFILE_MINIMUM_BUDGET_MS = 10_000;
+const MAX_CATEGORY_SEARCH_STEPS = 30_000;
+const MAX_WINNER_SEARCH_STEPS = 180_000;
+const MAX_WINNER_CANDIDATES_PER_CATEGORY = 80;
+const ROUND_CANDIDATE_TARGET = 14;
+const ROUND_COMPOSITION_ATTEMPTS = 120;
+const MAX_TRIO_COMBINATIONS = 18_000;
+
+let loadedDatasetPromise: Promise<LoadedPuzzleCatalog> | undefined;
+let loadedDatasetExpiresAt = 0;
 
 function hashSeed(seed: string) {
   let hash = 2166136261;
@@ -118,152 +126,152 @@ function isBetter(category: RoundCategory, first: number, second: number) {
   return category.category.direction === "high" ? first > second : first < second;
 }
 
-function semanticFamilyForGeneration(category: Category) {
-  return semanticFamily(category);
-}
+async function loadCandidateDatasets(): Promise<LoadedPuzzleCatalog> {
+  if (loadedDatasetPromise && Date.now() < loadedDatasetExpiresAt) return loadedDatasetPromise;
+  loadedDatasetPromise = (async () => {
+    const catalog = await loadServerPlayableCategoryCatalog();
+    // Load the complete approved catalog. The old 180-row sampling could silently
+    // remove every FAOSTAT category and other smaller sources.
+    const bulk = await fetchServerWarehouseCategories(catalog);
+    const loaded: RoundCategory[] = [];
+    let qualityRejections = 0;
+    const candidateSources: Record<string, number> = {};
 
-async function loadCandidateDatasets(seed: string, targetCount = 180): Promise<CandidateLoadResult> {
-  const rng = seededRandom(`${seed}:datasets`);
-  const catalog = await loadServerPlayableCategoryCatalog();
-  const shuffled = shuffle(catalog, rng);
-
-  // Include every non-FAOSTAT category before filling the remaining pool with
-  // FAOSTAT. This preserves source diversity while bounding the data transfer.
-  const nonFaostat = shuffled.filter((category) => category.source !== "faostat");
-  const faostat = shuffled.filter((category) => category.source === "faostat");
-  const candidates = shuffle(
-    [
-      ...nonFaostat.slice(0, targetCount),
-      ...faostat.slice(0, Math.max(0, targetCount - nonFaostat.length)),
-    ].slice(0, targetCount),
-    rng,
-  );
-
-  const bulk = await fetchServerWarehouseCategories(candidates);
-  const loaded: RoundCategory[] = [];
-  const typeCounts = new Map<string, number>();
-  let qualityRejections = 0;
-
-  for (const rawDataset of bulk.datasets) {
-    try {
-      const dataset = canonicalizeDataset(rawDataset);
-      const quality = scoreCategoryQuality(dataset);
-      if (!quality.eligible) {
+    for (const rawDataset of bulk.datasets) {
+      try {
+        const dataset = canonicalizeDataset(rawDataset);
+        // Database computed_playable_v15 is the single category-quality gate.
+        // Runtime loading may reject malformed/no-data datasets, but it must not
+        // silently recreate a stricter Daily-only tier in application code.
+        loaded.push(dataset);
+        candidateSources[dataset.category.source] = (candidateSources[dataset.category.source] ?? 0) + 1;
+      } catch {
         qualityRejections += 1;
-        continue;
       }
-      const type = roundType(dataset.category);
-      if ((typeCounts.get(type) ?? 0) >= 24) continue;
-      loaded.push(dataset);
-      typeCounts.set(type, (typeCounts.get(type) ?? 0) + 1);
-    } catch {
-      qualityRejections += 1;
     }
-  }
 
-  return {
-    datasets: loaded,
-    catalogSize: catalog.length,
-    datasetLoadFailures: bulk.errors.length,
-    datasetLoadErrorSamples: bulk.errors
-      .slice(0, 8)
-      .map((error) => `${error.categoryId}: ${error.message}`),
-    qualityRejections,
-  };
+    return {
+      datasets: loaded,
+      catalogSize: catalog.length,
+      datasetLoadFailures: bulk.errors.length,
+      datasetLoadErrorSamples: bulk.errors.slice(0, 20).map((error) => `${error.categoryId}: ${error.message}`),
+      qualityRejections,
+      candidateSources,
+    };
+  })().then((loaded) => {
+    loadedDatasetExpiresAt = Date.now() + 5 * 60 * 1000;
+    return loaded;
+  }).catch((error) => {
+    loadedDatasetPromise = undefined;
+    loadedDatasetExpiresAt = 0;
+    throw error;
+  });
+  return loadedDatasetPromise;
 }
 
 function datasetHasEnoughDisplayedVariety(dataset: RoundCategory, config: RoundConfig) {
   const quality = scoreCategoryQuality(dataset);
-  // Leave a generous choice set above the board size. This prevents tie-heavy
-  // categories from wasting generation attempts without requiring nearly every
-  // country to have a unique value.
   const minimumDistinct = Math.max(config.countryCount + 4, config.categoryCount + 6);
   return quality.distinctDisplayValues >= minimumDistinct;
 }
 
-function chooseDiverseCategories(
+function optionScore(selected: RoundCategory[], dataset: RoundCategory, rng: Rng) {
+  const category = dataset.category;
+  const selectedTypes = new Set(selected.map((item) => roundType(item.category)));
+  const selectedMeasures = new Set(selected.map((item) => measureKind(item.category)));
+  const selectedDomains = new Set(selected.map((item) => broadDomain(item.category)));
+  const selectedClusters = new Set(selected.map((item) => knowledgeCluster(item.category)));
+  const selectedSources = new Set(selected.map((item) => item.category.source));
+  return (
+    (selectedTypes.has(roundType(category)) ? 0 : 15)
+    + (selectedMeasures.has(measureKind(category)) ? 0 : 4)
+    + (selectedDomains.has(broadDomain(category)) ? 0 : 10)
+    + (selectedClusters.has(knowledgeCluster(category)) ? 0 : 5)
+    + (selectedSources.has(category.source) ? 0 : 7)
+    + (isPhysicalCategory(category) ? 4 : 0)
+    + scoreCategoryQuality(dataset).score / 18
+    + rng() * 2
+  );
+}
+
+/** Bounded backtracking over the complete category set. */
+function chooseCategorySet(
   available: RoundCategory[],
-  rng: Rng,
+  seed: string,
   config: RoundConfig,
-  existingTrioCategories: Category[] = [],
+  deadline: number,
 ) {
-  const ordered = shuffle(
-    available.filter((dataset) =>
-      datasetHasEnoughDisplayedVariety(dataset, config)
-      && !categoryConflictsWithExistingTrio(dataset.category, existingTrioCategories),
-    ),
+  const rng = seededRandom(seed);
+  const eligible = shuffle(
+    available.filter((dataset) => datasetHasEnoughDisplayedVariety(dataset, config)),
     rng,
   );
-  const existingSemanticFamilies = new Set(existingTrioCategories.map((category) => semanticFamilyForGeneration(category)));
   const selected: RoundCategory[] = [];
+  const used = new Set<string>();
+  let steps = 0;
 
-  while (selected.length < config.categoryCount) {
-    const options = ordered.filter((dataset) =>
-      !selected.includes(dataset)
-      && canAddCategory(selected.map((item) => item.category), dataset.category, config)
-      && !categoryConflictsWithExistingTrio(dataset.category, existingTrioCategories),
-    );
-    if (!options.length) return null;
+  function search(depth: number): RoundCategory[] | null {
+    steps += 1;
+    if (steps > MAX_CATEGORY_SEARCH_STEPS || Date.now() > deadline) return null;
+    if (depth === config.categoryCount) {
+      return roundHasRequiredDiversity(selected.map((dataset) => dataset.category), config)
+        ? [...selected]
+        : null;
+    }
 
-    const selectedTypes = new Set(selected.map((item) => roundType(item.category)));
-    const selectedMeasures = new Set(selected.map((item) => measureKind(item.category)));
-    const selectedDomains = new Set(selected.map((item) => broadDomain(item.category)));
-    const selectedClusters = new Set(selected.map((item) => knowledgeCluster(item.category)));
-    const existingPhysical = existingTrioCategories.filter(isPhysicalCategory).length;
-    const selectedPhysical = selected.filter((item) => isPhysicalCategory(item.category)).length;
-    const scored = options.map((dataset) => {
-      const category = dataset.category;
-      const physicalBonus = isPhysicalCategory(category) && existingPhysical + selectedPhysical < 2 ? 18 : 0;
-      return {
-        dataset,
-        score:
-          (selectedTypes.has(roundType(category)) ? 0 : 14)
-          + (selectedMeasures.has(measureKind(category)) ? 0 : 4)
-          + (selectedDomains.has(broadDomain(category)) ? 0 : 9)
-          + (selectedClusters.has(knowledgeCluster(category)) ? 0 : 10)
-          + (existingSemanticFamilies.has(semanticFamilyForGeneration(category)) ? 0 : 7)
-          + physicalBonus
-          + scoreCategoryQuality(dataset).score / 25
-          + rng(),
-      };
-    }).sort((left, right) => right.score - left.score);
-    selected.push(scored[0].dataset);
+    const options = eligible
+      .filter((dataset) => !used.has(dataset.category.id)
+        && canAddCategory(selected.map((item) => item.category), dataset.category, config))
+      .map((dataset) => ({ dataset, score: optionScore(selected, dataset, rng) }))
+      .sort((left, right) => right.score - left.score);
+
+    const remaining = config.categoryCount - depth;
+    if (options.length < remaining) return null;
+    const branchWidth = depth < 2 ? 14 : depth < 4 ? 9 : 6;
+    for (const { dataset } of options.slice(0, branchWidth)) {
+      selected.push(dataset);
+      used.add(dataset.category.id);
+      const result = search(depth + 1);
+      if (result) return result;
+      used.delete(dataset.category.id);
+      selected.pop();
+    }
+    return null;
   }
 
-  return roundHasRequiredDiversity(selected.map((dataset) => dataset.category), config) ? selected : null;
+  return search(0);
 }
 
 function findDistinctWinners(
   categories: RoundCategory[],
   countries: CountryInfo[],
-  rng: Rng,
+  seed: string,
   config: RoundConfig,
-  overlapBanks: Set<string>[] = [],
-  maxOverlap = Number.POSITIVE_INFINITY,
-  deadline = Number.POSITIVE_INFINITY,
+  deadline: number,
 ) {
-  const countryIds = new Set(countries.map((country) => country.id));
+  const rng = seededRandom(seed);
   const countryById = new Map(countries.map((country) => [country.id, country]));
-  const completeCountries = countries.filter((country) => categories.every((category) => observationValue(category, country.id) !== undefined));
+  const completeCountries = countries.filter((country) =>
+    categories.every((category) => observationValue(category, country.id) !== undefined),
+  );
   const completeIds = new Set(completeCountries.map((country) => country.id));
   const candidates = categories.map((category) => {
     const limit = strongestGlobalWinnerRank(category.ranked.length);
     return shuffle(
       category.ranked
-        .filter((row) => row.globalRank <= limit)
-        .map((row) => row.countryId)
-        .filter((id) => countryIds.has(id) && completeIds.has(id)),
+        .filter((row) => row.globalRank <= limit && completeIds.has(row.countryId))
+        .map((row) => row.countryId),
       rng,
     );
   });
   if (candidates.some((items) => !items.length)) return null;
 
-  const order = categories.map((_, index) => index).sort((left, right) => candidates[left].length - candidates[right].length);
+  const order = categories.map((_, index) => index)
+    .sort((left, right) => candidates[left].length - candidates[right].length);
   const winners = new Array<string>(categories.length);
   const used = new Set<string>();
   const continentCounts = new Map<string, number>();
   let steps = 0;
-  const overlapCount = (bank: Set<string>) => [...used].filter((id) => bank.has(id)).length;
 
   function search(depth: number): boolean {
     steps += 1;
@@ -274,13 +282,10 @@ function findDistinctWinners(
 
     for (const id of candidates[categoryIndex].slice(0, MAX_WINNER_CANDIDATES_PER_CATEGORY)) {
       if (used.has(id)) continue;
-      if (overlapBanks.some((bank) => bank.has(id) && overlapCount(bank) >= maxOverlap)) continue;
       const country = countryById.get(id);
-      if (!country) continue;
-      if ((continentCounts.get(country.continent) ?? 0) >= config.maxCountriesPerContinent) continue;
+      if (!country || (continentCounts.get(country.continent) ?? 0) >= config.maxCountriesPerContinent) continue;
       const ownValue = observationValue(category, id);
-      if (ownValue === undefined) continue;
-      if (!candidateKeepsDisplayedValuesDistinct(categories, used, id)) continue;
+      if (ownValue === undefined || !candidateKeepsDisplayedValuesDistinct(categories, used, id)) continue;
 
       let valid = true;
       for (let priorDepth = 0; priorDepth < depth; priorDepth += 1) {
@@ -321,22 +326,16 @@ function findDistinctWinners(
       const winnerValue = observationValue(category, winners[index]);
       const candidateValue = observationValue(category, country.id);
       return winnerValue !== undefined && candidateValue !== undefined && isBetter(category, winnerValue, candidateValue);
-    }))
-    .sort((left, right) =>
-      overlapBanks.filter((bank) => bank.has(left.id)).length - overlapBanks.filter((bank) => bank.has(right.id)).length,
-    );
+    }));
 
   const decoys: string[] = [];
   const selectedBankIds = new Set(used);
-  const overlapTotals = overlapBanks.map((bank) => overlapCount(bank));
   for (const country of decoyCandidates) {
-    if (overlapBanks.some((bank, index) => bank.has(country.id) && overlapTotals[index] >= maxOverlap)) continue;
     if ((continentCounts.get(country.continent) ?? 0) >= config.maxCountriesPerContinent) continue;
     if (!candidateKeepsDisplayedValuesDistinct(categories, selectedBankIds, country.id)) continue;
     decoys.push(country.id);
     selectedBankIds.add(country.id);
     continentCounts.set(country.continent, (continentCounts.get(country.continent) ?? 0) + 1);
-    overlapBanks.forEach((bank, index) => { if (bank.has(country.id)) overlapTotals[index] += 1; });
     if (decoys.length === config.decoyCount) break;
   }
 
@@ -344,28 +343,20 @@ function findDistinctWinners(
 }
 
 export function scoreBoard(round: Round, config: RoundConfig): ScoreBreakdown {
-  const qualities = round.categories.map((dataset) => scoreCategoryQuality(dataset).score);
-  const quality = qualities.reduce((sum, value) => sum + value, 0) / Math.max(1, qualities.length);
-  const familyCount = new Set(round.categories.map((dataset) => roundType(dataset.category))).size;
+  const qualityScores = round.categories.map((dataset) => scoreCategoryQuality(dataset).score);
+  const quality = qualityScores.reduce((sum, value) => sum + value, 0) / Math.max(1, qualityScores.length);
+  const typeCount = new Set(round.categories.map((dataset) => roundType(dataset.category))).size;
   const measureCount = new Set(round.categories.map((dataset) => measureKind(dataset.category))).size;
   const domainCount = new Set(round.categories.map((dataset) => broadDomain(dataset.category))).size;
   const clusterCount = new Set(round.categories.map((dataset) => knowledgeCluster(dataset.category))).size;
-  const physicalCount = round.categories.filter((dataset) => isPhysicalCategory(dataset.category)).length;
-  const variety = Math.min(100,
-    (familyCount / config.minRoundTypes) * 35
-    + (measureCount / Math.min(config.categoryCount, 4)) * 15
-    + (domainCount / Math.min(config.categoryCount, 5)) * 25
-    + (clusterCount / config.categoryCount) * 20
-    + Math.min(1, physicalCount) * 5,
-  );
-  const continents = new Set(round.bank.map((country) => country.continent)).size;
-  const geography = Math.min(100, continents * 19);
-  const populationSignals = round.bank
+  const variety = Math.min(100, typeCount * 11 + measureCount * 6 + domainCount * 9 + clusterCount * 4);
+  const geography = Math.min(100, new Set(round.bank.map((country) => country.continent)).size * 18);
+  const populations = round.bank
     .map((country) => country.population)
     .filter((value): value is number => typeof value === "number" && value > 0)
     .map((value) => Math.max(0, Math.min(100, (Math.log10(value) - 5.5) / 3 * 100)));
-  const familiarity = populationSignals.length
-    ? populationSignals.reduce((sum, value) => sum + value, 0) / populationSignals.length
+  const familiarity = populations.length
+    ? populations.reduce((sum, value) => sum + value, 0) / populations.length
     : 50;
 
   const ranks: number[] = [];
@@ -399,78 +390,102 @@ export function scoreBoard(round: Round, config: RoundConfig): ScoreBreakdown {
   };
 }
 
-function composeRound(
+function composeRoundCandidates(
   available: RoundCategory[],
   countries: CountryInfo[],
   seed: string,
   config: RoundConfig,
-  existingTrioCategories: Category[] = [],
-  overlapBanks: Set<string>[] = [],
-  maxOverlap = Number.POSITIVE_INFINITY,
-  deadline = Number.POSITIVE_INFINITY,
-): ComposeResult {
-  const rng = seededRandom(seed);
+  deadline: number,
+  attemptLimit = ROUND_COMPOSITION_ATTEMPTS,
+): CandidateResult {
   const attempted = new Set<string>();
-  let bestRound: Round | null = null;
-  let bestScore = Number.NEGATIVE_INFINITY;
-  let validCandidates = 0;
+  const candidates: RoundCandidate[] = [];
   let categorySelectionFailures = 0;
   let winnerSearchFailures = 0;
   let validationFailures = 0;
 
-  for (let attempt = 0; attempt < MAX_CATEGORY_COMPOSITION_ATTEMPTS; attempt += 1) {
-    if (Date.now() > deadline) break;
-    const categories = chooseDiverseCategories(available, rng, config, existingTrioCategories);
-    if (!categories) {
+  for (let attempt = 0; attempt < attemptLimit && Date.now() < deadline; attempt += 1) {
+    const categorySet = chooseCategorySet(available, `${seed}:categories:${attempt}`, config, deadline);
+    if (!categorySet) {
       categorySelectionFailures += 1;
       continue;
     }
-    const signature = categories.map((dataset) => dataset.category.id).sort().join("|");
+    const signature = categorySet.map((dataset) => dataset.category.id).sort().join("|");
     if (attempted.has(signature)) continue;
     attempted.add(signature);
 
-    const solution = findDistinctWinners(categories, countries, rng, config, overlapBanks, maxOverlap, deadline);
+    const solution = findDistinctWinners(categorySet, countries, `${seed}:countries:${attempt}`, config, deadline);
     if (!solution) {
       winnerSearchFailures += 1;
       continue;
     }
     const countryById = new Map(countries.map((country) => [country.id, country]));
+    const rng = seededRandom(`${seed}:bank:${attempt}`);
     const bank = shuffle(
-      [...solution.winners, ...solution.decoys].map((id) => countryById.get(id)).filter((country): country is CountryInfo => Boolean(country)),
+      [...solution.winners, ...solution.decoys]
+        .map((id) => countryById.get(id))
+        .filter((country): country is CountryInfo => Boolean(country)),
       rng,
     );
-    if (bank.length !== config.countryCount || !roundHasCountryDiversity(bank, config) || validateRound(categories, bank).length) {
+    const errors = bank.length === config.countryCount ? validateRound(categorySet, bank) : ["wrong dimensions"];
+    if (errors.length || !roundHasCountryDiversity(bank, config)) {
       validationFailures += 1;
       continue;
     }
-
-    const round = { bank, categories };
-    const score = scoreBoard(round, config).overall + rng() * 0.001;
-    validCandidates += 1;
-    if (score > bestScore) {
-      bestScore = score;
-      bestRound = round;
-    }
-    if (validCandidates >= TARGET_VALID_BOARD_CANDIDATES) break;
+    const round = { bank, categories: categorySet };
+    candidates.push({ round, score: scoreBoard(round, config).overall });
+    candidates.sort((left, right) => right.score - left.score);
+    if (candidates.length > ROUND_CANDIDATE_TARGET) candidates.length = ROUND_CANDIDATE_TARGET;
+    if (candidates.length >= ROUND_CANDIDATE_TARGET) break;
   }
 
-  return {
-    round: bestRound,
-    validCandidates,
-    categorySelectionFailures,
-    winnerSearchFailures,
-    validationFailures,
-  };
+  return { candidates, categorySelectionFailures, winnerSearchFailures, validationFailures };
 }
 
-export async function generateDailyTrio(
+function roundsCanShareTrio(first: Round, second: Round) {
+  if (pairwiseCountryOverlap(first, second) > 1) return false;
+  const firstCategories = first.categories.map((dataset) => dataset.category);
+  for (const dataset of second.categories) {
+    if (categoryConflictsWithExistingTrio(dataset.category, firstCategories)) return false;
+  }
+  return true;
+}
+
+function combineCandidateRounds(
+  pools: Record<DailyDifficulty, RoundCandidate[]>,
+  deadline: number,
+) {
+  let best: { trio: DailyTrio; score: number } | null = null;
+  let combinations = 0;
+  for (const easy of pools.easy) {
+    for (const normal of pools.normal) {
+      if (!roundsCanShareTrio(easy.round, normal.round)) continue;
+      for (const expert of pools.expert) {
+        combinations += 1;
+        if (combinations > MAX_TRIO_COMBINATIONS || Date.now() > deadline) return best;
+        if (!roundsCanShareTrio(easy.round, expert.round) || !roundsCanShareTrio(normal.round, expert.round)) continue;
+        const trio: DailyTrio = { easy: easy.round, normal: normal.round, expert: expert.round };
+        const errors = validateDailyTrio(trio);
+        if (errors.length) continue;
+        const physicalBonus = DAILY_DIFFICULTIES
+          .flatMap((difficulty) => trio[difficulty].categories)
+          .filter((dataset) => isPhysicalCategory(dataset.category)).length * 3;
+        const score = easy.score + normal.score + expert.score + physicalBonus;
+        if (!best || score > best.score) best = { trio, score };
+      }
+    }
+  }
+  return best;
+}
+
+export function generateDailyTrioFromLoadedCatalog(
   countries: CountryInfo[],
   date: string,
+  loaded: LoadedPuzzleCatalog,
   fixed: Partial<DailyTrio> = {},
-): Promise<{ trio: DailyTrio; diagnostics: GenerationDiagnostics; scores: Record<DailyDifficulty, ScoreBreakdown> }> {
+): { trio: DailyTrio; diagnostics: GenerationDiagnostics; scores: Record<DailyDifficulty, ScoreBreakdown> } {
   const seed = `DAILY-TRIO-${date}`;
   const requiredDatasets = DAILY_DIFFICULTIES.reduce((sum, difficulty) => sum + ROUND_CONFIGS[difficulty].categoryCount, 0);
-  const loaded = await loadCandidateDatasets(seed);
   const diagnostics: GenerationDiagnostics = {
     eligibleDatasets: loaded.datasets.length,
     requiredDatasets,
@@ -484,86 +499,128 @@ export async function generateDailyTrio(
     winnerSearchFailures: 0,
     roundValidationFailures: 0,
     trioValidationFailures: 0,
+    candidateSources: loaded.candidateSources,
   };
 
   if (loaded.datasets.length < requiredDatasets) {
     diagnostics.failureStage = "dataset-pool";
-    diagnostics.message = `Only ${loaded.datasets.length} playable datasets loaded; ${requiredDatasets} semantically distinct datasets are required.`;
+    diagnostics.message = `Only ${loaded.datasets.length} approved datasets loaded; ${requiredDatasets} are required.`;
     throw Object.assign(new Error(diagnostics.message), { diagnostics });
   }
 
+  const overallDeadline = Date.now() + GENERATION_BUDGET_MS;
   const profiles = generationProfiles();
-  diagnostics.skippedProfiles = [];
-  const generationDeadline = Date.now() + GENERATION_BUDGET_MS;
+  let lastErrors: string[] = [];
 
   for (const [profileIndex, profile] of profiles.entries()) {
-    if (Date.now() > generationDeadline) break;
-    const sourceCapacity = sourceCapacityForProfile(loaded.datasets.map((dataset) => dataset.category), profile);
-    if (sourceCapacity < requiredDatasets) {
-      diagnostics.skippedProfiles.push(`${profile.name}: source capacity ${sourceCapacity}/${requiredDatasets}`);
+    if (Date.now() > overallDeadline) break;
+    diagnostics.attempts += 1;
+    const remainingProfiles = profiles.length - profileIndex;
+    const profileDeadline = Math.min(
+      overallDeadline,
+      Date.now() + Math.max(PROFILE_MINIMUM_BUDGET_MS, Math.floor((overallDeadline - Date.now()) / remainingProfiles)),
+    );
+    const pools = {} as Record<DailyDifficulty, RoundCandidate[]>;
+
+    for (const difficulty of DAILY_DIFFICULTIES) {
+      if (fixed[difficulty]) {
+        pools[difficulty] = [{ round: fixed[difficulty]!, score: scoreBoard(fixed[difficulty]!, profile.configs[difficulty]).overall }];
+        diagnostics.validCandidates[difficulty] += 1;
+        continue;
+      }
+      const result = composeRoundCandidates(
+        loaded.datasets,
+        countries,
+        `${seed}:${profile.name}:${difficulty}`,
+        profile.configs[difficulty],
+        profileDeadline,
+      );
+      pools[difficulty] = result.candidates;
+      diagnostics.validCandidates[difficulty] += result.candidates.length;
+      diagnostics.categorySelectionFailures += result.categorySelectionFailures;
+      diagnostics.winnerSearchFailures += result.winnerSearchFailures;
+      diagnostics.roundValidationFailures += result.validationFailures;
+    }
+
+    if (DAILY_DIFFICULTIES.some((difficulty) => !pools[difficulty].length)) continue;
+    const combined = combineCandidateRounds(pools, profileDeadline);
+    if (!combined) {
+      diagnostics.trioValidationFailures += 1;
+      const sample: DailyTrio = {
+        easy: pools.easy[0].round,
+        normal: pools.normal[0].round,
+        expert: pools.expert[0].round,
+      };
+      lastErrors = validateDailyTrio(sample).slice(0, 12);
       continue;
     }
 
-    const remainingProfiles = profiles.length - profileIndex;
-    const remainingTime = Math.max(0, generationDeadline - Date.now());
-    const profileDeadline = Math.min(
-      generationDeadline,
-      Date.now() + Math.max(3_000, Math.floor(remainingTime / Math.max(1, remainingProfiles))),
+    diagnostics.generationProfile = profile.name;
+    diagnostics.preferenceWarnings = dailyTrioPreferenceWarnings(combined.trio);
+    return {
+      trio: combined.trio,
+      diagnostics,
+      scores: {
+        easy: scoreBoard(combined.trio.easy, profile.configs.easy),
+        normal: scoreBoard(combined.trio.normal, profile.configs.normal),
+        expert: scoreBoard(combined.trio.expert, profile.configs.expert),
+      },
+    };
+  }
+
+  diagnostics.failureStage = "candidate-combination";
+  diagnostics.lastTrioErrors = lastErrors;
+  diagnostics.message = "The generator could not combine complete Scout, Adventurer, and Expert candidates before the bounded search deadline.";
+  throw Object.assign(new Error(diagnostics.message), { diagnostics });
+}
+
+export async function generateDailyTrio(
+  countries: CountryInfo[],
+  date: string,
+  fixed: Partial<DailyTrio> = {},
+): Promise<{ trio: DailyTrio; diagnostics: GenerationDiagnostics; scores: Record<DailyDifficulty, ScoreBreakdown> }> {
+  return generateDailyTrioFromLoadedCatalog(countries, date, await loadCandidateDatasets(), fixed);
+}
+
+export function generateSeededRoundFromLoadedCatalog(
+  countries: CountryInfo[],
+  seed: string,
+  difficulty: DailyDifficulty,
+  loaded: LoadedPuzzleCatalog,
+): { round: Round; profile: string; score: ScoreBreakdown } {
+  // Seeded output must not depend on machine speed. Each profile receives the
+  // same fixed number of deterministic attempts rather than a wall-clock race.
+  const seededAttemptLimit = 60;
+  for (const profile of generationProfiles()) {
+    const result = composeRoundCandidates(
+      loaded.datasets,
+      countries,
+      `SEEDED-${difficulty}-${seed}:${profile.name}`,
+      profile.configs[difficulty],
+      Number.POSITIVE_INFINITY,
+      seededAttemptLimit,
     );
-
-    for (let attempt = 0; attempt < MAX_TRIO_ATTEMPTS_PER_PROFILE; attempt += 1) {
-      if (Date.now() > profileDeadline) break;
-      diagnostics.attempts += 1;
-      const rounds: Partial<DailyTrio> = { ...fixed };
-
-      for (const difficulty of ["expert", "normal", "easy"] as DailyDifficulty[]) {
-        if (rounds[difficulty]) continue;
-        const existingRounds = DAILY_DIFFICULTIES
-          .map((key) => rounds[key])
-          .filter((round): round is Round => Boolean(round));
-        const existingCategories = existingRounds.flatMap((round) => round.categories.map((dataset) => dataset.category));
-        const overlapBanks = existingRounds.map((round) => new Set(round.bank.map((country) => country.id)));
-        const result = composeRound(
-          loaded.datasets,
-          countries,
-          `${seed}:${profile.name}:${difficulty}:${attempt}`,
-          profile.configs[difficulty],
-          existingCategories,
-          overlapBanks,
-          1,
-          profileDeadline,
-        );
-        diagnostics.validCandidates[difficulty] += result.validCandidates;
-        diagnostics.categorySelectionFailures += result.categorySelectionFailures;
-        diagnostics.winnerSearchFailures += result.winnerSearchFailures;
-        diagnostics.roundValidationFailures += result.validationFailures;
-        if (!result.round) break;
-        rounds[difficulty] = result.round;
-      }
-
-      if (!rounds.easy || !rounds.normal || !rounds.expert) continue;
-      const trio = rounds as DailyTrio;
-      const trioErrors = validateDailyTrio(trio);
-      if (trioErrors.length) {
-        diagnostics.trioValidationFailures += 1;
-        diagnostics.lastTrioErrors = trioErrors.slice(0, 12);
-        continue;
-      }
-
-      diagnostics.generationProfile = profile.name;
+    if (result.candidates.length) {
+      const candidate = result.candidates[0];
       return {
-        trio,
-        diagnostics,
-        scores: {
-          easy: scoreBoard(trio.easy, profile.configs.easy),
-          normal: scoreBoard(trio.normal, profile.configs.normal),
-          expert: scoreBoard(trio.expert, profile.configs.expert),
-        },
+        round: candidate.round,
+        profile: profile.name,
+        score: scoreBoard(candidate.round, profile.configs[difficulty]),
       };
     }
   }
+  throw new Error("That seed could not produce a valid board from the current approved catalog.");
+}
 
-  diagnostics.failureStage = "trio-constraints";
-  diagnostics.message = "No Daily trio satisfied knowledge-cluster and domain diversity, at least two physical-geography categories, top-30 winners, tie-free displayed values, distinct winners, complete data, source-balance fallbacks, and one-country-overlap rules.";
-  throw Object.assign(new Error(diagnostics.message), { diagnostics });
+export async function generateSeededRound(
+  countries: CountryInfo[],
+  seed: string,
+  difficulty: DailyDifficulty,
+): Promise<{ round: Round; profile: string; score: ScoreBreakdown }> {
+  return generateSeededRoundFromLoadedCatalog(
+    countries,
+    seed,
+    difficulty,
+    await loadCandidateDatasets(),
+  );
 }

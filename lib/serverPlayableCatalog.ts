@@ -1,6 +1,10 @@
 import "server-only";
 import type { Category } from "./categories";
-import { buildPlayableCategoryCatalog, type CatalogTier, type PlayableCategoryRow } from "./playableCatalog";
+import {
+  buildCategoryRegistry,
+  buildPlayableCategoryCatalog,
+  type PlayableCategoryRow,
+} from "./playableCatalog";
 import { createSupabaseAdminClient } from "./supabase/server";
 import { unstable_cache } from "next/cache";
 
@@ -21,7 +25,7 @@ async function loadRows() {
     throw new Error(
       missingMigration
         ? "The v15 category catalog is not installed. Run the current Supabase installer."
-        : `The verified v15 category catalog is unavailable: ${result.error.message}`,
+        : `The verified category catalog is unavailable: ${result.error.message}`,
     );
   }
 
@@ -30,23 +34,31 @@ async function loadRows() {
 
 const loadCachedRows = unstable_cache(
   loadRows,
-  ["geostats-category-catalog-rows-v15.6.2"],
+  ["geostats-category-catalog-rows-v15.7.0"],
   { revalidate: 300, tags: ["geostats-playable-category-catalog"] },
 );
+
+const loadCachedApprovedCatalog = unstable_cache(
+  async (): Promise<Category[]> => buildPlayableCategoryCatalog(await loadCachedRows()),
+  ["geostats-approved-category-catalog-v15.7.0"],
+  { revalidate: 300, tags: ["geostats-playable-category-catalog"] },
+);
+
+const loadCachedRegistry = unstable_cache(
+  async (): Promise<Category[]> => buildCategoryRegistry(await loadCachedRows()),
+  ["geostats-all-category-registry-v15.7.0"],
+  { revalidate: 300, tags: ["geostats-playable-category-catalog"] },
+);
+
+/** GeoStats has one authoritative approved gameplay catalog. */
+export async function loadServerPlayableCategoryCatalog(): Promise<Category[]> {
+  return loadCachedApprovedCatalog();
+}
 
 /**
- * GeoStats now has one approved gameplay catalog. Daily, Random, and Seeded
- * differ in board construction, not category quality.
+ * Historical saved boards decode against the complete category registry, not
+ * only the categories that are playable today.
  */
-const loadCachedApprovedCatalog = unstable_cache(
-  async (): Promise<Category[]> =>
-    buildPlayableCategoryCatalog(await loadCachedRows(), { tier: "daily" }),
-  ["geostats-approved-category-catalog-v15.6.2"],
-  { revalidate: 300, tags: ["geostats-playable-category-catalog"] },
-);
-
-export async function loadServerPlayableCategoryCatalog(
-  _tier: CatalogTier = "daily",
-): Promise<Category[]> {
-  return loadCachedApprovedCatalog();
+export async function loadServerCategoryRegistry(): Promise<Category[]> {
+  return loadCachedRegistry();
 }

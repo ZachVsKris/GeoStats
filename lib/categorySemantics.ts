@@ -70,7 +70,6 @@ function searchable(category: Category) {
     category.id,
     category.name,
     category.shortName,
-    category.description,
     category.indicator,
     category.warehouseSourceIndicatorCode,
     category.family,
@@ -113,7 +112,7 @@ export function inferSemanticProfile(category: Category): CategorySemanticProfil
   if (cached) return cached;
 
   const text = searchable(category);
-  const explicitFamily = category.semanticFamily?.trim();
+  const explicitFamily = category.strategyFamily?.trim() || category.semanticFamily?.trim();
   const explicitTopic = category.semanticTopic?.trim();
   const broadDomain = normalizedBroadDomain(category);
   const finish = (profile: CategorySemanticProfile) => {
@@ -226,7 +225,13 @@ export function inferSemanticProfile(category: Category): CategorySemanticProfil
   }
 
   if (category.source === "comtrade" || category.productSpecificTrade) {
-    return finish({ family: explicitFamily ? slug(explicitFamily) : "product-exports", topic: slug(explicitTopic || category.similarityGroup || category.id), broadDomain: "trade", knowledgeCluster: "product-exports" });
+    const topic = slug(explicitTopic || category.similarityGroup || category.indicator || category.id);
+    return finish({
+      family: explicitFamily ? slug(explicitFamily) : `product-export-${topic}`,
+      topic,
+      broadDomain: "trade",
+      knowledgeCluster: "product-exports",
+    });
   }
 
   if (contains(text, [/employment-to-population/, /employment-population/, /unemployment/, /labor-force-participation/, /labour-force-participation/, /neet/])) {
@@ -280,7 +285,7 @@ function semanticTokens(category: Category) {
   const cached = TOKEN_CACHE.get(category);
   if (cached) return cached;
 
-  const text = [category.name, category.shortName, category.description, category.family]
+  const text = [category.name, category.shortName, category.indicator, category.semanticTopic, category.family]
     .filter(Boolean)
     .join(" ")
     .normalize("NFKD")
@@ -314,7 +319,9 @@ export function semanticConflict(first: Category, second: Category) {
 
   const firstProfile = inferSemanticProfile(first);
   const secondProfile = inferSemanticProfile(second);
-  const conflict = firstProfile.family === secondProfile.family
+  const firstStrategy = slug(first.strategyFamily || firstProfile.family);
+  const secondStrategy = slug(second.strategyFamily || secondProfile.family);
+  const conflict = firstStrategy === secondStrategy
     || categorySemanticSimilarity(first, second) >= MAX_SAME_BOARD_SEMANTIC_SIMILARITY;
 
   const firstMap = CONFLICT_CACHE.get(first) ?? new WeakMap<Category, boolean>();

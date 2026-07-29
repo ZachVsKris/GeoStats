@@ -176,3 +176,108 @@ export function decodeRound(value: string, countryList: CountryInfo[], categoryC
   if (errors.length) throw new Error(`This challenge link is inconsistent: ${errors[0]}`);
   return { bank: exactBank, categories };
 }
+
+/**
+ * Immutable JSON snapshot stored with official Daily and server-generated
+ * Seeded boards. It lets a saved board survive later catalog renames,
+ * quarantines, and duplicate decisions.
+ */
+export type RoundSnapshot = {
+  version: 1;
+  bank: CountryInfo[];
+  categories: Array<{
+    category: Category;
+    year: string;
+    ranked: Array<{
+      countryId: string;
+      countryName: string;
+      value: number;
+      year: string;
+      globalRank: number;
+    }>;
+    sourceUrl?: string;
+    methodologyUrl?: string;
+    sourcePageUrl?: string;
+    playerSourceUrl?: string;
+    playerSourceStatus?: string;
+    playerSourceReason?: string;
+    playerSourceCheckedAt?: string;
+    evidenceLabel?: string;
+    credibilityScore?: number;
+    trustStatus?: string;
+    trustReason?: string;
+  }>;
+};
+
+export function serializeRound(round: Round): RoundSnapshot {
+  return {
+    version: 1,
+    bank: round.bank.map((country) => ({ ...country })),
+    categories: round.categories.map((dataset) => ({
+      category: JSON.parse(JSON.stringify(dataset.category)) as Category,
+      year: dataset.year,
+      ranked: dataset.ranked
+        .filter((row) => round.bank.some((country) => country.id === row.countryId))
+        .map((row) => ({ ...row })),
+      sourceUrl: dataset.sourceUrl,
+      methodologyUrl: dataset.methodologyUrl,
+      sourcePageUrl: dataset.sourcePageUrl,
+      playerSourceUrl: dataset.playerSourceUrl,
+      playerSourceStatus: dataset.playerSourceStatus,
+      playerSourceReason: dataset.playerSourceReason,
+      playerSourceCheckedAt: dataset.playerSourceCheckedAt,
+      evidenceLabel: dataset.evidenceLabel,
+      credibilityScore: dataset.credibilityScore,
+      trustStatus: dataset.trustStatus,
+      trustReason: dataset.trustReason,
+    })),
+  };
+}
+
+export function deserializeRound(snapshot: RoundSnapshot): Round {
+  if (!snapshot || snapshot.version !== 1 || !Array.isArray(snapshot.bank) || !Array.isArray(snapshot.categories)) {
+    throw new Error("This saved board snapshot is invalid.");
+  }
+  const bank = snapshot.bank.map((country) => ({ ...country }));
+  const bankIds = new Set(bank.map((country) => country.id));
+  if (!bank.length || bankIds.size !== bank.length) {
+    throw new Error("This saved board snapshot repeats or omits countries.");
+  }
+
+  const categories: RoundCategory[] = snapshot.categories.map((item) => {
+    if (!item.category?.id || !Array.isArray(item.ranked)) {
+      throw new Error("This saved board snapshot contains an invalid category.");
+    }
+    const ranked = item.ranked
+      .filter((row) => bankIds.has(row.countryId))
+      .map((row) => ({ ...row }))
+      .sort((left, right) => item.category.direction === "high"
+        ? right.value - left.value
+        : left.value - right.value);
+    if (ranked.length !== bank.length) {
+      throw new Error(`${item.category.name} is missing a country in the saved board snapshot.`);
+    }
+    return {
+      category: { ...item.category },
+      observations: ranked.map(({ globalRank: _rank, ...observation }) => observation),
+      year: item.year,
+      ranked,
+      byCountry: new Map(ranked.map((row) => [row.countryId, row])),
+      sourceUrl: item.sourceUrl ?? item.category.sourceUrl ?? sourceUrl(item.category.indicator, item.category.source),
+      methodologyUrl: item.methodologyUrl ?? item.category.methodologyUrl ?? categoryMethodologyUrl(item.category.source, item.category.indicator),
+      sourcePageUrl: item.sourcePageUrl ?? item.category.sourcePageUrl,
+      playerSourceUrl: item.playerSourceUrl ?? item.category.playerSourceUrl,
+      playerSourceStatus: item.playerSourceStatus ?? item.category.playerSourceStatus,
+      playerSourceReason: item.playerSourceReason ?? item.category.playerSourceReason,
+      playerSourceCheckedAt: item.playerSourceCheckedAt ?? item.category.playerSourceCheckedAt,
+      evidenceLabel: item.evidenceLabel ?? item.category.evidenceLabel,
+      credibilityScore: item.credibilityScore ?? item.category.credibilityScore,
+      trustStatus: item.trustStatus ?? item.category.trustStatus,
+      trustReason: item.trustReason ?? item.category.trustReason,
+    };
+  });
+
+  const errors = validateRound(categories, bank);
+  if (errors.length) throw new Error(`This saved board snapshot is inconsistent: ${errors[0]}`);
+  return { bank, categories };
+}

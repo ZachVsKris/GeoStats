@@ -1,5 +1,5 @@
 import { CATEGORIES, type Category, type DataSourceId } from "./categories";
-import { applyCategoryTrustPolicy, type EvidenceLabel, type TrustStatus } from "./categoryTrust";
+import type { EvidenceLabel, TrustStatus } from "./categoryTrust";
 
 export type PlayableCategoryRow = {
   id: string;
@@ -83,33 +83,35 @@ export type PlayableCategoryRow = {
 
 const SOURCE_IDS: Record<string, DataSourceId> = {
   "World Bank": "worldbank",
-  "FAOSTAT": "faostat",
-  "WHO": "who",
+  FAOSTAT: "faostat",
+  WHO: "who",
   "UNESCO UIS": "unesco",
-  "ILOSTAT": "ilostat",
+  ILOSTAT: "ilostat",
   "Natural Earth": "naturalearth",
   "UN Comtrade": "comtrade",
   "U.S. EIA": "eia",
-  "UNHCR": "unhcr",
+  UNHCR: "unhcr",
   "UN Tourism": "untourism",
   "Pew Research Center": "pewreligion",
   "Smithsonian GVP": "smithsoniangvp",
-  "USGS": "usgs",
+  USGS: "usgs",
   "ESA WorldCover": "worldcover",
-  "HydroSHEDS": "hydrosheds",
+  HydroSHEDS: "hydrosheds",
   "Global Elevation": "elevation",
 };
 
-const HARD_RETIRED_INDICATOR_SUFFIXES = new Set([
-  "FI.RES.XGLD.CD",
-  "SP.URB.TOTL.MA.ZS",
-  "CM.MKT.TRAD.CD",
-]);
+const FAMILY_ICONS: Record<string, string> = {
+  Agriculture: "🌾", Climate: "🌦️", Crops: "🌾", Dairy: "🥛", Displacement: "🧳",
+  Economy: "💰", Education: "🎓", Energy: "⚡", Environment: "🌍", Fruit: "🍎",
+  Geography: "🗺️", Government: "🏛️", Health: "⚕️", Infrastructure: "🏗️",
+  Knowledge: "📚", Labor: "👷", Land: "🌲", Livestock: "🐄", Population: "👥",
+  Technology: "💻", Trade: "📦", Transport: "✈️", Vaccination: "💉", Religion: "🕊️",
+  Geology: "🌋", Hazards: "🌎", "Land cover": "🌿", Terrain: "⛰️", Vegetables: "🥕",
+};
 
 const HARD_RETIRED_TITLE_PATTERNS = [
-  /total reserves minus gold/i,
+  /total reserves.*(?:minus|excluding) gold/i,
   /population in urban agglomerations? of more than 1 million/i,
-  /stocks traded,?\s*total value/i,
   /largest continuous land area/i,
   /employment[- ]to[- ]population/i,
   /output per worker/i,
@@ -118,70 +120,13 @@ const HARD_RETIRED_TITLE_PATTERNS = [
 
 const PLAYER_TITLE_REWRITES: Array<[RegExp, string]> = [
   [/^Highest safely managed drinking[- ]water access$/i, "Best access to safe drinking water"],
-  [/^Highest STEM graduate share$/i, "Highest share of STEM graduates"],
+  [/^Highest STEM graduate share$/i, "Most graduates in STEM"],
   [/^Largest potato exports$/i, "Most potato exports"],
 ];
 
-function normalizedIndicatorCode(value: string) {
-  return value.trim().toUpperCase();
-}
-
-function failsHardGameplayConceptGate(row: PlayableCategoryRow) {
-  const indicator = normalizedIndicatorCode(row.source_indicator_code || "");
-  if ([...HARD_RETIRED_INDICATOR_SUFFIXES].some((suffix) => indicator === suffix || indicator.endsWith(`:${suffix}`))) return true;
-
-  const title = row.title || "";
-  const copy = [title, row.description, row.plain_language_description, row.technical_definition]
-    .filter(Boolean)
-    .join(" ");
-  if (HARD_RETIRED_TITLE_PATTERNS.some((pattern) => pattern.test(copy))) return true;
-
-  const titleWords = title.trim().split(/\s+/).filter(Boolean).length;
-  return titleWords > 9 && /(of more than|excluding|minus|constant (?:20\d{2}|lcu)|relevant population|multiplied by|index \(|net barter)/i.test(copy);
-}
-
-function playerFacingTitle(row: PlayableCategoryRow) {
-  for (const [pattern, replacement] of PLAYER_TITLE_REWRITES) {
-    if (pattern.test(row.title)) return replacement;
-  }
-  return row.title;
-}
-
-const FAMILY_ICONS: Record<string, string> = {
-  Agriculture: "🌾",
-  Climate: "🌦️",
-  Crops: "🌾",
-  Dairy: "🥛",
-  Displacement: "🧳",
-  Economy: "💰",
-  Education: "🎓",
-  Energy: "⚡",
-  Environment: "🌍",
-  Fruit: "🍎",
-  Geography: "🗺️",
-  Government: "🏛️",
-  Health: "⚕️",
-  Infrastructure: "🏗️",
-  Knowledge: "📚",
-  Labor: "👷",
-  Land: "🌲",
-  Livestock: "🐄",
-  Population: "👥",
-  Technology: "💻",
-  Trade: "📦",
-  Transport: "✈️",
-  Vaccination: "💉",
-  Religion: "🕊️",
-  Geology: "🌋",
-  Hazards: "🌎",
-  "Land cover": "🌿",
-  Terrain: "⛰️",
-  Vegetables: "🥕",
-};
-
 function metadataString(metadata: Record<string, unknown> | null | undefined, key: string) {
   const value = metadata?.[key];
-  return typeof value === "string" && value.trim() ? value : undefined;
+  return typeof value === "string" && value.trim() ? value.trim() : undefined;
 }
 
 function sourceIndicatorKey(source: DataSourceId, indicator: string, direction: Category["direction"]) {
@@ -202,16 +147,43 @@ function staticMatchMaps() {
   return { byId, byIndicator };
 }
 
-function shortTitle(title: string) {
-  return title
-    .replace(/^(Highest|Lowest|Largest|Most|Fastest)\s+/i, "")
-    .slice(0, 48);
+function playerFacingTitle(row: PlayableCategoryRow) {
+  for (const [pattern, replacement] of PLAYER_TITLE_REWRITES) {
+    if (pattern.test(row.title)) return replacement;
+  }
+  return row.title.trim();
 }
 
-function coverageFloor(row: PlayableCategoryRow, existing?: Category) {
-  if (existing?.coverageFloor) return existing.coverageFloor;
-  const coverage = Number(row.common_year_coverage ?? 100);
-  return Math.max(45, Math.min(100, Math.floor(coverage * 0.6)));
+function shortTitle(title: string) {
+  return title.replace(/^(Highest|Lowest|Largest|Most|Fastest|Best)\s+/i, "").slice(0, 70);
+}
+
+function firstCompleteSentence(value: string, maximum = 110) {
+  const clean = value.replace(/\s+/g, " ").trim().replace(/(?:…|\.\.\.)\s*$/, "");
+  if (!clean) return "Compare the official country value for this measure.";
+  const sentences = clean.match(/[^.!?]+[.!?]/g) ?? [];
+  const complete = sentences.find((sentence) => sentence.trim().length <= maximum);
+  if (complete) return complete.trim();
+  if (clean.length <= maximum) return /[.!?]$/.test(clean) ? clean : `${clean}.`;
+  return "Compare the official country value for this measure.";
+}
+
+function boardDescription(row: PlayableCategoryRow, title: string, existing?: Category) {
+  const metadata = row.metadata ?? {};
+  const explicit = metadataString(metadata, "boardDescription") ?? existing?.boardDescription;
+  if (explicit) return firstCompleteSentence(explicit);
+  const plain = row.plain_language_description?.trim() || existing?.plainLanguageDescription || row.description;
+  const sentence = firstCompleteSentence(plain);
+  if (sentence !== "Compare the official country value for this measure.") return sentence;
+  return "Compare countries using this official measure.";
+}
+
+function coverageFloor(_row: PlayableCategoryRow, _existing?: Category) {
+  // The database's computed_playable_v15 decision is authoritative. Runtime
+  // loading must not recreate an older, stricter source-specific coverage gate.
+  // Thirty reporting countries is the only universal floor because a valid
+  // GeoStats winner must be rankable within the global top 30.
+  return 30;
 }
 
 function normalizedTrustStatus(value: string | null | undefined): TrustStatus | undefined {
@@ -220,43 +192,78 @@ function normalizedTrustStatus(value: string | null | undefined): TrustStatus | 
 
 function normalizedEvidence(value: string | null | undefined): EvidenceLabel | undefined {
   const allowed: EvidenceLabel[] = [
-    "Observed/administrative",
-    "Internationally harmonized",
-    "Modeled estimate",
-    "Mixed observed and modeled",
-    "Geospatially derived",
-    "Independent bibliometric",
+    "Observed/administrative", "Internationally harmonized", "Modeled estimate",
+    "Mixed observed and modeled", "Geospatially derived", "Independent bibliometric",
   ];
   return allowed.includes(value as EvidenceLabel) ? value as EvidenceLabel : undefined;
 }
 
-export type CatalogTier = "daily" | "random";
+function failsEditorialConceptGate(row: PlayableCategoryRow) {
+  const copy = [row.title, row.description, row.plain_language_description, row.technical_definition]
+    .filter(Boolean).join(" ");
+  return HARD_RETIRED_TITLE_PATTERNS.some((pattern) => pattern.test(copy));
+}
 
-export function buildPlayableCategoryCatalog(rows: PlayableCategoryRow[], options: { tier?: CatalogTier } = {}): Category[] {
+function structuredMeasureType(row: PlayableCategoryRow): Category["measureType"] {
+  const metadata = row.metadata ?? {};
+  const explicit = metadataString(metadata, "measureType") as Category["measureType"] | undefined;
+  if (explicit) return explicit;
+  const valueType = String(row.value_type ?? "").toLowerCase();
+  const unit = String(row.unit ?? "").toLowerCase();
+  if (valueType.includes("percent") || unit.includes("%") || unit.includes("percent")) return "share";
+  if (valueType.includes("index") || unit.includes("index")) return "index";
+  if (valueType.includes("rate") || unit.includes(" per ")) return "rate";
+  if (valueType.includes("count") || unit.includes("people") || unit.includes("number")) return "count";
+  if (unit.includes("km") || unit.includes("hectare") || unit.includes("ton") || unit.includes("meter")) return "physical";
+  return "total";
+}
+
+function structuredNormalization(row: PlayableCategoryRow): Category["normalizationType"] {
+  const metadata = row.metadata ?? {};
+  const explicit = metadataString(metadata, "normalizationType") as Category["normalizationType"] | undefined;
+  if (explicit) return explicit;
+  const text = `${row.value_type ?? ""} ${row.unit ?? ""}`.toLowerCase();
+  if (/per (person|capita)/.test(text)) return "per-person";
+  if (/per (km|square|area|hectare)/.test(text)) return "per-area";
+  if (/%|percent|share/.test(text)) return "percentage";
+  if (/per 100|per 1,000|per 100,000|rate/.test(text)) return "rate";
+  return "absolute";
+}
+
+type BuildOptions = {
+  playableOnly?: boolean;
+};
+
+export function buildCategoryCatalog(rows: PlayableCategoryRow[], options: BuildOptions = {}): Category[] {
   const { byId, byIndicator } = staticMatchMaps();
   const catalog = new Map<string, Category>();
-  const requestedTier = options.tier ?? "daily";
+  const playableOnly = options.playableOnly ?? true;
 
   for (const row of rows) {
-    if (failsHardGameplayConceptGate(row)) continue;
     const source = SOURCE_IDS[row.source_organization];
     if (!source) continue;
-    const existing = byId.get(row.id) ?? byIndicator.get(sourceIndicatorKey(source, row.source_indicator_code, row.ranking_direction));
+    const existing = byId.get(row.id)
+      ?? byIndicator.get(sourceIndicatorKey(source, row.source_indicator_code, row.ranking_direction));
     const metadata = row.metadata ?? {};
-    let category: Category = applyCategoryTrustPolicy({
+    const title = playerFacingTitle(row);
+    const playable = row.computed_playable_v15 === true;
+    if (playableOnly && !playable) continue;
+
+    const category: Category = {
       ...(existing ?? {} as Category),
       id: existing?.id ?? row.id,
       source,
       dataset: row.source_dataset,
-      name: playerFacingTitle(row),
-      shortName: row.short_title?.trim() || existing?.shortName || shortTitle(playerFacingTitle(row)),
+      name: title,
+      shortName: row.short_title?.trim() || existing?.shortName || shortTitle(title),
       indicator: existing?.indicator ?? row.source_indicator_code,
       warehouseSourceIndicatorCode: row.source_indicator_code,
       icon: row.icon?.trim() || existing?.icon || FAMILY_ICONS[row.family] || "📊",
       unit: row.unit || existing?.unit || "value",
       family: row.family,
       direction: row.ranking_direction,
-      description: row.plain_language_description?.trim() || row.description || existing?.description || `${row.title}, using the source's documented definition.`,
+      description: row.plain_language_description?.trim() || row.description || existing?.description || title,
+      boardDescription: boardDescription(row, title, existing),
       plainLanguageDescription: row.plain_language_description?.trim() || row.description || existing?.plainLanguageDescription,
       technicalDefinition: row.technical_definition?.trim() || existing?.technicalDefinition,
       unitExplanation: row.unit_explanation?.trim() || existing?.unitExplanation,
@@ -265,15 +272,15 @@ export function buildPlayableCategoryCatalog(rows: PlayableCategoryRow[], option
       coverageFloor: coverageFloor(row, existing),
       globalCoverage: Number(row.common_year_coverage ?? existing?.globalCoverage ?? 0) || existing?.globalCoverage,
       commonYear: Number(row.common_year ?? existing?.commonYear ?? 0) || existing?.commonYear,
-      enabled: true,
+      enabled: playable,
       minimumYear: Math.max(1900, Number(row.minimum_year ?? existing?.minimumYear ?? 2022)),
       requireCommonYear: true,
       warehouseBacked: true,
       sourceUrl: row.source_url || existing?.sourceUrl,
       methodologyUrl: row.methodology_url || existing?.methodologyUrl,
       evidenceLabel: normalizedEvidence(row.evidence_label) ?? existing?.evidenceLabel,
-      credibilityScore: row.credibility_score ?? existing?.credibilityScore,
-      trustStatus: normalizedTrustStatus(row.credibility_status) ?? existing?.trustStatus,
+      credibilityScore: row.credibility_score ?? (playable ? 80 : existing?.credibilityScore),
+      trustStatus: normalizedTrustStatus(row.credibility_status) ?? (playable ? "approved" : existing?.trustStatus),
       trustReason: row.credibility_reason || existing?.trustReason,
       sourcePageUrl: row.source_page_url || existing?.sourcePageUrl,
       playerSourceUrl: row.player_source_url || existing?.playerSourceUrl,
@@ -307,55 +314,54 @@ export function buildPlayableCategoryCatalog(rows: PlayableCategoryRow[], option
       playerQualityReason: row.player_quality_reason || existing?.playerQualityReason,
       roundType: existing?.roundType || metadataString(metadata, "roundType") || (source === "comtrade" ? "product-trade" : row.family),
       similarityGroup: existing?.similarityGroup || row.concept_group || metadataString(metadata, "similarityGroup") || `${source}:${row.source_indicator_code}`,
-      semanticFamily: row.effective_semantic_group || row.semantic_family || existing?.semanticFamily || metadataString(metadata, "semanticFamily"),
-      semanticTopic: existing?.semanticTopic || row.semantic_topic || metadataString(metadata, "semanticTopic") || row.concept_group || undefined,
-      broadDomain: existing?.broadDomain || metadataString(metadata, "broadDomain"),
-      knowledgeCluster: existing?.knowledgeCluster || metadataString(metadata, "knowledgeCluster"),
-      catalogTier: (metadataString(metadata, "catalogTier") as Category["catalogTier"]) || existing?.catalogTier || (row.computed_playable_v15 ? "daily" : "quarantined"),
+      semanticFamily: row.semantic_family || existing?.semanticFamily || metadataString(metadata, "semanticFamily"),
+      semanticTopic: row.semantic_topic || existing?.semanticTopic || metadataString(metadata, "semanticTopic") || row.concept_group || undefined,
+      strategyFamily: metadataString(metadata, "strategyFamily") || row.effective_semantic_group || row.semantic_family || existing?.strategyFamily,
+      broadDomain: metadataString(metadata, "broadDomain") || existing?.broadDomain,
+      knowledgeCluster: metadataString(metadata, "knowledgeCluster") || row.concept_group || existing?.knowledgeCluster,
+      measureType: structuredMeasureType(row),
+      normalizationType: structuredNormalization(row),
+      // Legacy field is never used for eligibility in v15.7.
+      catalogTier: playable ? "daily" : "quarantined",
       productSpecificTrade: existing?.productSpecificTrade ?? source === "comtrade",
-    });
-
-    // Daily uses the strict v15 playability decision plus the v15.4 tier.
-    // Random may also use approved, hard-gate-ready categories intentionally
-    // classified as random-only because of narrower coverage or higher tie density.
-    const tier = category.catalogTier ?? (row.computed_playable_v15 ? "daily" : "quarantined");
-    const dailyReady = row.computed_playable_v15 === true && tier === "daily";
-    const randomReady = dailyReady || (
-      requestedTier === "random"
-      && tier === "random"
-      && row.editorial_status === "approved"
-    );
-    if (requestedTier === "daily" ? !dailyReady : !randomReady) continue;
-    category = {
-      ...category,
-      enabled: true,
-      playerSourceUrl: row.player_source_url || category.playerSourceUrl,
-      playerSourceStatus: (row.player_source_status as Category["playerSourceStatus"]) || category.playerSourceStatus,
       playabilityWarnings: row.player_source_status === "general" ? ["General official source page only."] : [],
     };
+
     catalog.set(category.id, category);
   }
 
   return [...catalog.values()].sort((a, b) => a.id.localeCompare(b.id));
 }
 
-const browserCatalogPromises: Partial<Record<CatalogTier, Promise<Category[]>>> = {};
+export function buildPlayableCategoryCatalog(rows: PlayableCategoryRow[], options: BuildOptions = {}) {
+  return buildCategoryCatalog(rows, { ...options, playableOnly: true });
+}
 
-export function fetchPlayableCategoryCatalog(options: { refresh?: boolean; tier?: CatalogTier } = {}) {
-  if (typeof window === "undefined") return Promise.reject(new Error("The verified category catalog must be loaded by the server."));
-  const tier = options.tier ?? "daily";
-  if (!browserCatalogPromises[tier] || options.refresh) {
-    const params = tier === "random" ? "?tier=random" : "";
-    browserCatalogPromises[tier] = fetch(`/api/playable-categories${params}`, { cache: options.refresh ? "no-store" : "default" })
+export function buildCategoryRegistry(rows: PlayableCategoryRow[]) {
+  return buildCategoryCatalog(rows, { playableOnly: false });
+}
+
+let browserCatalogPromise: Promise<Category[]> | undefined;
+
+export function fetchPlayableCategoryCatalog(options: { refresh?: boolean } = {}) {
+  if (typeof window === "undefined") {
+    return Promise.reject(new Error("The verified category catalog must be loaded by the server."));
+  }
+  if (!browserCatalogPromise || options.refresh) {
+    browserCatalogPromise = fetch("/api/playable-categories", {
+      cache: options.refresh ? "no-store" : "default",
+    })
       .then(async (response) => {
         const payload = await response.json().catch(() => ({})) as { categories?: Category[]; error?: string };
-        if (!response.ok || !payload.categories?.length) throw new Error(payload.error || "The trusted category catalog could not be loaded.");
+        if (!response.ok || !payload.categories?.length) {
+          throw new Error(payload.error || "The approved category catalog could not be loaded.");
+        }
         return payload.categories;
       })
       .catch((error) => {
-        delete browserCatalogPromises[tier];
+        browserCatalogPromise = undefined;
         throw error;
       });
   }
-  return browserCatalogPromises[tier]!;
+  return browserCatalogPromise;
 }

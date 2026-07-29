@@ -18,6 +18,13 @@ const SOURCE_ORGANIZATIONS: Record<string, string> = {
   comtrade: "UN Comtrade",
   eia: "U.S. EIA",
   unhcr: "UNHCR",
+  untourism: "UN Tourism",
+  pewreligion: "Pew Research Center",
+  smithsoniangvp: "Smithsonian GVP",
+  usgs: "USGS",
+  worldcover: "ESA WorldCover",
+  hydrosheds: "HydroSHEDS",
+  elevation: "Global Elevation",
 };
 
 const CATEGORY_SELECT = [
@@ -77,7 +84,6 @@ type WarehouseLookup = {
   categoryId?: string;
   source?: string;
   indicator?: string;
-  allowRandomOnly?: boolean;
 };
 
 type CategoryRow = {
@@ -201,15 +207,9 @@ export async function loadServerWarehousePayload(
     throw new WarehouseCategoryError("Category not found.", 404);
   }
 
-  const catalogTier = typeof category.metadata?.catalogTier === "string"
-    ? category.metadata.catalogTier
-    : category.computed_playable_v15 === true ? "daily" : "quarantined";
-  const randomOnlyAllowed = lookup.allowRandomOnly === true
-    && catalogTier === "random"
-    && category.editorial_status === "approved";
-  if (category.computed_playable_v15 !== true && !randomOnlyAllowed) {
+  if (category.computed_playable_v15 !== true) {
     throw new WarehouseCategoryError(
-      "This category is not currently playable for the requested mode.",
+      "This category is not currently in the approved gameplay catalog.",
       404,
     );
   }
@@ -255,10 +255,12 @@ export async function loadServerWarehousePayload(
   }
 
   const declaredCoverage = Number(category.common_year_coverage ?? 0);
-
-  if (declaredCoverage && observations.length !== declaredCoverage) {
+  const toleratedShortfall = declaredCoverage
+    ? Math.max(3, Math.ceil(declaredCoverage * 0.05))
+    : 0;
+  if (declaredCoverage && observations.length < declaredCoverage - toleratedShortfall) {
     throw new WarehouseCategoryError(
-      `The common-year ranking is incomplete (${observations.length} stored; ${declaredCoverage} expected).`,
+      `The common-year ranking lost too many observations (${observations.length} stored; ${declaredCoverage} expected; ${toleratedShortfall} maximum tolerated shortfall).`,
       409,
     );
   }
@@ -267,7 +269,7 @@ export async function loadServerWarehousePayload(
     categoryId: category.id,
     computedPlayableV15: true,
     commonYear: category.common_year,
-    commonYearCoverage: declaredCoverage || observations.length,
+    commonYearCoverage: observations.length,
     unit: category.unit,
     sourceUrl: category.source_url ?? null,
     methodologyUrl: category.methodology_url ?? null,
@@ -455,10 +457,8 @@ export async function fetchServerWarehouseCategories(
       const dataset = warehousePayloadToDataset(category, {
         computedPlayableV15: true,
         commonYear: category.commonYear,
-        commonYearCoverage: category.globalCoverage ?? rows.length,
-        rankingComplete:
-          rows.length > 0 &&
-          rows.length === (category.globalCoverage ?? rows.length),
+        commonYearCoverage: rows.length,
+        rankingComplete: rows.length >= category.coverageFloor,
         observations: rows.map((row) => ({
           country_iso3: String(row.country_iso3),
           country_name: String(row.country_name || row.country_iso3),

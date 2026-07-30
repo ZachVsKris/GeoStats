@@ -3,7 +3,8 @@ import type { Category } from "./categories";
 const LOCALE = "en-US";
 
 function normalizedUnit(category: Category) {
-  return String(category.unit || "").trim();
+  const unit = String(category.unit || "").trim();
+  return unit.toLowerCase() === "an" ? "animals" : unit;
 }
 
 function isCurrencyUnit(unit: string) {

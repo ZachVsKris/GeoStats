@@ -213,7 +213,9 @@ function faostatMeasureAllowed(row: PlayableCategoryRow) {
   if (/yield|kg\/ha|tonnes?\/ha|per hectare|area harvested|harvested area|carcass|slaughter|per animal|output per animal|producing animals|milk animals|laying hens?/.test(copy)) return false;
   if (["5510", "5513"].includes(element)) return true;
   if (element === "5111") {
-    return /population|stocks|head|animals?/.test(copy) && /head|number|animals?|population/.test(copy);
+    // FAOSTAT QCL element 5111 is live-animal stocks. The source often uses
+    // the official unit abbreviation "An", so do not require an English unit word.
+    return true;
   }
   return !element || !/^5[0-9]{3}$/.test(element);
 }

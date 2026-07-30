@@ -73,9 +73,9 @@ def main() -> None:
         candidates = IMPORTER.category_candidates(connection)
         connection.close()
 
-    expected_staged = 190 * 2 * 4 + 70 * 2 + 59 * 2
+    expected_staged = 190 * 2 * 4 + 70 * 2 + 59 * 2 + 80
     assert staged == expected_staged, staged
-    assert len(candidates) == 6, len(candidates)
+    assert len(candidates) == 7, len(candidates)
     by_item = {candidate["item"]: candidate for candidate in candidates}
 
     assert by_item["Wheat"]["auto_qualified"] is True
@@ -92,15 +92,20 @@ def main() -> None:
     assert by_item["Unknown crop"]["auto_qualified"] is False
     assert by_item["Unknown crop"]["provenance_status"] == "uncertain"
     assert "documentedEvidence" in by_item["Unknown crop"]["quality_details"]["failedChecks"]
+    assert by_item["Cattle"]["title"] == "Largest cattle population"
+    assert by_item["Cattle"]["unit"] == "animals"
+    assert by_item["Cattle"]["source_unit"] == "An"
 
     assert IMPORTER.element_allowed("Production") is True
     assert IMPORTER.element_allowed("Production Quantity") is True
-    for disallowed in ("Yield", "Area harvested", "Stocks", "Animals slaughtered", "Producing animals"):
+    for disallowed in ("Yield", "Area harvested", "Animals slaughtered", "Producing animals"):
         assert IMPORTER.element_allowed(disallowed) is False
         assert IMPORTER.element_retired_by_gameplay_policy(disallowed) is True
     assert IMPORTER.category_title("Maize (corn)", "Production") == "Most Maize (corn) produced"
     assert IMPORTER.element_allowed("Stocks", "Horses", "Head") is True
-    assert IMPORTER.category_title("Horses", "Stocks", "Head") == "Largest horse population"
+    assert IMPORTER.element_allowed("Stocks", "Horses", "An") is True
+    assert IMPORTER.category_title("Horses", "Stocks", "An") == "Largest horse population"
+    assert IMPORTER.display_unit("Horses", "Stocks", "An") == "animals"
     assert IMPORTER.element_allowed("Yield", "Watermelons", "kg/ha") is False
     assert IMPORTER.faostat_concept_group("Cereals, primary", "Production") == "cerealProduction"
     print("FAOSTAT total-production and livestock-population importer tests passed.")

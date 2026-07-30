@@ -368,9 +368,18 @@ def livestock_population_allowed(item: str, element: str, unit: str) -> bool:
     return (
         normalized_element in LIVESTOCK_POPULATION_ELEMENTS
         and any(token in normalized_item for token in LIVESTOCK_ITEM_TOKENS)
-        and any(token in normalized_unit for token in ("head", "number", "animals", "beehives"))
+        and (
+            normalized_unit == "an"
+            or any(token in normalized_unit for token in ("head", "number", "animals", "beehives"))
+        )
     )
 
+
+
+
+def display_unit(item: str, element: str, unit: str) -> str:
+    """Use a player-readable unit while retaining the official unit separately."""
+    return "animals" if livestock_population_allowed(item, element, unit) else unit.strip()
 
 def element_allowed(element: str, item: str = "", unit: str = "") -> bool:
     """Allow total production and clear national livestock-population totals."""
@@ -854,7 +863,8 @@ def category_candidates(connection: sqlite3.Connection) -> list[dict[str, Any]]:
                 "item": item,
                 "element_code": element_code,
                 "element": element,
-                "unit": unit,
+                "source_unit": unit,
+                "unit": display_unit(item, element, unit),
                 "title": category_title(item, element, unit),
                 "description": (
                     f"Total national production of {item}."
@@ -968,7 +978,8 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
                     "elementCode": candidate["element_code"],
                     "element": candidate["element"],
                     "year": candidate["common_year"],
-                    "unit": candidate["unit"],
+                    "unit": candidate["source_unit"],
+                    "displayUnit": candidate["unit"],
                     "countryUniverse": "UN-recognized countries",
                 },
                 "validation_status": "pending",
@@ -992,7 +1003,7 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
                 "modeled_observation_share": round(candidate["modeled_share"], 6),
                 "clustering_score": candidate["cluster"],
                 "stability_score": candidate["stability"],
-                "methodology_notes": "Absolute national production quantity from FAOSTAT QCL. Yield, harvested area, animal counts, slaughter counts and other normalized efficiency measures are intentionally excluded from GeoStats gameplay. National reporting flags are retained. Official observations and transparent FAO estimates/imputations are distinguished but both count as documented evidence. Missing observations remain missing and are never inferred as zero. " + candidate["provenance_reason"],
+                "methodology_notes": "Absolute national production quantity or live-animal population from FAOSTAT QCL. Yield, harvested area, slaughter counts, producing-animal input counts and normalized efficiency measures are intentionally excluded from GeoStats gameplay. National reporting flags are retained. Official observations and transparent FAO estimates/imputations are distinguished but both count as documented evidence. Missing observations remain missing and are never inferred as zero. " + candidate["provenance_reason"],
                 "quality_standard_version": QUALITY_VERSION,
                 "provenance_status": candidate["provenance_status"],
                 "provenance_class": candidate["provenance_class"],
@@ -1018,6 +1029,7 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
                     "elementCode": candidate["element_code"],
                     "element": candidate["element"],
                     "unit": candidate["unit"],
+                    "sourceUnit": candidate["source_unit"],
                     "generatedCandidate": True,
                     "reviewRequired": False,
                     "governanceVersion": FAOSTAT_GOVERNANCE_VERSION,
@@ -1090,7 +1102,8 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
                     "flagDescription": flag_description or None,
                     "note": note or None,
                     "reportingClass": classify_flag(flag or "", flag_description or ""),
-                    "unit": candidate["unit"],
+                    "unit": candidate["source_unit"],
+                    "displayUnit": candidate["unit"],
                 },
             }
         )
@@ -1158,10 +1171,10 @@ def validate_faostat_categories(
         source_checksum = snapshot_checksum(official)
         stored_checksum = snapshot_checksum(stored)
         source_query = category_row.get("source_query") or {}
-        official_title = category_title(candidate["item"], candidate["element"], candidate["unit"])
+        official_title = category_title(candidate["item"], candidate["element"], candidate["source_unit"])
         element_lower = str(candidate["element"]).lower()
         title_lower = str(category_row.get("title") or "").lower()
-        unit_lower = str(candidate["unit"] or "").lower()
+        unit_lower = str(candidate["source_unit"] or "").lower()
         measure_semantics = True
         if "yield" in element_lower:
             measure_semantics = "yield" in title_lower and ("/ha" in unit_lower or "hectare" in unit_lower)
@@ -1177,7 +1190,7 @@ def validate_faostat_categories(
             "item_code": str(source_query.get("itemCode") or "") == str(candidate["item_code"]),
             "element_code": str(source_query.get("elementCode") or "") == str(candidate["element_code"]),
             "query_year": int(source_query.get("year") or 0) == year,
-            "query_unit": str(source_query.get("unit") or "") == str(candidate["unit"]),
+            "query_unit": str(source_query.get("unit") or "") == str(candidate["source_unit"]),
             "official_title": str(category_row.get("title") or "") == official_title,
             "measure_semantics": measure_semantics,
             "unit": str(category_row.get("unit") or "") == str(candidate["unit"]),
@@ -1222,6 +1235,7 @@ def validate_faostat_categories(
                 "item": candidate["item"],
                 "element": candidate["element"],
                 "unit": candidate["unit"],
+                "sourceUnit": candidate["source_unit"],
                 "missingCountries": missing[:50],
                 "extraCountries": extra[:50],
                 "valueMismatchCountries": mismatches[:50],

@@ -1,0 +1,13 @@
+.next
+node_modules
+.vercel
+.DS_Store
+*.log
+*.tsbuildinfo
+__pycache__
+*.pyc
+artifacts
+
+
+playwright-report
+test-results

@@ -11,11 +11,17 @@ on:
         options:
           - all
           - worldbank
+          - tourismmigration
           - faostat
+          - faostatfbs
+          - pew
           - who
           - unesco
+          - unescoheritage
           - ilostat
           - naturalearth
+          - smithsonian
+          - usgs
           - comtrade
           - eia
           - unhcr
@@ -111,4 +117,4 @@ jobs:
       - name: Print integrity verification query
         if: always()
         run: |
-          echo "Run VERIFY_V14_2.sql in Supabase to inspect verified, pending, failed, and unavailable categories."
+          echo "Run VERIFY_V15_9_2.sql in Supabase to inspect verified, warning, failed, and pending categories."

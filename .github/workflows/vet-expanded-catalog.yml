@@ -1,4 +1,4 @@
-name: Vet expanded category catalog
+name: Vet v15.9.2 expanded category catalog
 
 on:
   workflow_dispatch:

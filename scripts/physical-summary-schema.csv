@@ -1,0 +1,2 @@
+source,metric,country_iso3,data_year,value,unit,dataset_release,source_url,methodology_url,derivation_method,boundary_dataset,derivation_version,exact_query_url,download_url,api_url,license_name,license_url
+worldcover,grassland-share,USA,2021,0,% of land,ESA WorldCover 2021,https://esa-worldcover.org/en/data-access,https://esa-worldcover.org/en/data-access,Example only: replace with reproducible zonal-statistics method,Natural Earth 1:10m,example,,,,,

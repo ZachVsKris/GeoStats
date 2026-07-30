@@ -1,0 +1,13 @@
+GeoStats-v15.9.2-added-files.txt
+GeoStats-v15.9.2-changed-files.txt
+GeoStats-v15.9.2-delete-obsolete-files.txt
+GeoStats-v15.9.2-file-checksums.txt
+GeoStats-v15.9.2-file-manifest.txt
+MANUAL_CATEGORY_REVIEW_V15_9_2.sql
+ROLLBACK_V15_9_2.sql
+RUN_THIS_IN_SUPABASE_FOR_V15_9_2.sql
+VERIFY_V15_9_2.sql
+e2e/mobile-daily.spec.ts
+playwright.config.ts
+scripts/test-natural-earth-real-data.py
+supabase/migrations/038_v15_9_2_score_versioning.sql

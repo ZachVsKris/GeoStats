@@ -1,0 +1,18 @@
+GeoStats v15.9.3 deployment hotfix
+Base: Geohunter-main (15).zip / geostats 15.9.2
+
+Overlay files:
+.github/workflows/verify-v15.yml
+ROLLBACK_V15_9_2.sql
+PATCH_V15_9_3.md
+app/api/admin/category-review/route.ts
+app/api/scores/route.ts
+lib/version.ts
+package.json
+scripts/test-v15-9-static.cjs
+
+Alternative application file:
+GeoStats-v15.9.3-deployment-hotfix.patch
+
+No files are deleted by this patch.
+No new Supabase migration must be run for this deployment hotfix.

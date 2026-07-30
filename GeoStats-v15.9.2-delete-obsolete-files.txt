@@ -17,3 +17,6 @@ RUN_THIS_IN_SUPABASE_FOR_V15_9_1.sql
 VERIFY_V15_9.sql
 VERIFY_V15_9_1.sql
 scripts/test-v15-7-clean.cjs
+.github/workflows/import-physical-summaries.yml
+.github/workflows/import-unesco.yml
+.github/workflows/import-v15-8-expansion.yml

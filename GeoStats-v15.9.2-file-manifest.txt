@@ -16,11 +16,10 @@
 .github/workflows/verify-v15.yml
 .github/workflows/vet-expanded-catalog.yml
 .gitignore
+DEPLOY_FIX_V15_9_2.md
 GeoStats-v15.9.2-added-files.txt
 GeoStats-v15.9.2-changed-files.txt
 GeoStats-v15.9.2-delete-obsolete-files.txt
-GeoStats-v15.9.2-file-checksums.txt
-GeoStats-v15.9.2-file-manifest.txt
 MANUAL_CATEGORY_REVIEW_V15_9_2.sql
 README.md
 RELEASE_NOTES_V15_9.md

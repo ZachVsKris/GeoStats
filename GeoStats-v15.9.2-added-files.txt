@@ -11,3 +11,4 @@ e2e/mobile-daily.spec.ts
 playwright.config.ts
 scripts/test-natural-earth-real-data.py
 supabase/migrations/038_v15_9_2_score_versioning.sql
+DEPLOY_FIX_V15_9_2.md

@@ -1,3 +1,4 @@
+.github/workflows/main.yml
 .github/workflows/audit-source-integrity.yml
 .github/workflows/import-v15-9-expansion.yml
 .github/workflows/verify-v15.yml

@@ -29,6 +29,24 @@ const dailyDate = () => newYorkDate();
 const profileOf = (raw: ScoreRow["profiles"]) => Array.isArray(raw) ? raw[0] : raw;
 const clamp = (value: number, minimum: number, maximum: number) => Math.max(minimum, Math.min(maximum, value));
 
+function isScoreRow(value: unknown): value is ScoreRow {
+  if (!value || typeof value !== "object") return false;
+  const row = value as Record<string, unknown>;
+  const difficulty = row.difficulty;
+  const profiles = row.profiles;
+  const validProfiles = profiles === null
+    || (typeof profiles === "object" && !Array.isArray(profiles))
+    || (Array.isArray(profiles) && profiles.every((profile) => profile && typeof profile === "object"));
+  return typeof row.user_id === "string"
+    && typeof row.challenge_date === "string"
+    && (difficulty === "easy" || difficulty === "normal" || difficulty === "expert")
+    && typeof row.score === "number"
+    && (typeof row.average_placement === "number" || typeof row.average_placement === "string")
+    && typeof row.firsts === "number"
+    && typeof row.top_fives === "number"
+    && validProfiles;
+}
+
 function parseDifficulty(value: string | null): DailyDifficulty {
   return value === "normal" || value === "expert" ? value : "easy";
 }
@@ -67,7 +85,8 @@ export async function GET(request: Request) {
     error = legacy.error;
   }
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
-  const rows = (data ?? []) as ScoreRow[];
+  const rawRows: unknown[] = Array.isArray(data) ? data : [];
+  const rows = rawRows.filter(isScoreRow);
 
   if (view === "today") {
     const leaders = rows.map((row) => {

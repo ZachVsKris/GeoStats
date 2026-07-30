@@ -1,0 +1,78 @@
+const fs = require("fs");
+const path = require("path");
+const root = path.resolve(__dirname, "..");
+const read = (file) => fs.readFileSync(path.join(root, file), "utf8");
+const fail = [];
+const requireCheck = (condition, message) => { if (!condition) fail.push(message); };
+const pkg = JSON.parse(read("package.json"));
+const versionFile = read("lib/version.ts");
+const versionMatch = versionFile.match(/APP_VERSION\s*=\s*"([^"]+)"/);
+requireCheck(Boolean(versionMatch), "APP_VERSION missing");
+requireCheck(versionMatch?.[1] === pkg.version, `package version ${pkg.version} does not match APP_VERSION ${versionMatch?.[1]}`);
+requireCheck(/^15\.9\.\d+$/.test(pkg.version), "release is not a v15.9 patch");
+requireCheck(fs.existsSync(path.join(root, "supabase/migrations/036_v15_9_integrated_expansion.sql")), "v15.9 migration missing");
+requireCheck(fs.existsSync(path.join(root, "supabase/migrations/037_v15_9_1_revised_safeguards.sql")), "v15.9.1 safeguards migration missing");
+requireCheck(fs.existsSync(path.join(root, "supabase/migrations/038_v15_9_2_score_versioning.sql")), "v15.9.2 score-version migration missing");
+requireCheck(fs.existsSync(path.join(root, "scripts/import-faostat-food-balances.py")), "Food Balances importer missing");
+requireCheck(fs.existsSync(path.join(root, "scripts/import-tourism-migration.py")), "tourism/migration importer missing");
+const pew = read("scripts/import-pew-religion.py");
+requireCheck(pew.includes("jewish") && pew.includes("other-religions") && pew.includes("population") && pew.includes("share"), "full Pew category set missing");
+const staticCategories = read("lib/categories.ts");
+requireCheck(!staticCategories.includes('warehouseExternal({ id: "unesco:'), "UNESCO UIS remains in the static fallback catalog");
+const wh = read("scripts/import-unesco-world-heritage.py");
+requireCheck(wh.includes("value_type='total'") && !wh.includes("value_type='count'"), "World Heritage value type invalid");
+const workflow = read(".github/workflows/import-v15-9-expansion.yml");
+const verifyWorkflow = read(".github/workflows/verify-v15.yml");
+requireCheck(!workflow.includes("workflow_dispatch:\n    inputs:"), "manual URL inputs still present");
+requireCheck(workflow.includes("import-faostat-food-balances.py") && workflow.includes("import-tourism-migration.py"), "automatic expansion jobs missing");
+
+const migration = read("supabase/migrations/036_v15_9_integrated_expansion.sql");
+requireCheck(migration.includes("category_v15_minimum_acceptable_year") && migration.includes("pew research center") && migration.includes("faostat food balances"), "v15.9 source-aware integrity rules missing");
+requireCheck(migration.includes("Most wheat produced") && migration.includes("Largest horse population"), "FAOSTAT copy normalization missing");
+requireCheck(migration.includes("Highest share living in largest city"), "largest-city title correction missing");
+requireCheck(!fs.existsSync(path.join(root, ".github/workflows/import-physical-summaries.yml")), "manual physical-summary workflow still present");
+requireCheck(!fs.existsSync(path.join(root, "scripts/import-physical-summaries.py")) && !fs.existsSync(path.join(root, "data-templates")), "manual CSV intake artifacts still present");
+requireCheck(pew.includes("_religious_diversity_from_shares") && pew.includes("11.6"), "Pew diversity derivation fallback missing");
+const food = read("scripts/import-faostat-food-balances.py");
+requireCheck((food.match(/\("[^"]+","Most /g) || []).length === 27, "Food Balances importer does not contain exactly 27 target categories");
+const tourism = read("scripts/import-tourism-migration.py");
+requireCheck((tourism.match(/^ \("/gm) || []).length === 6, "tourism/migration importer does not contain exactly six target categories");
+const warehouseRoute = read("app/api/warehouse-category/route.ts");
+requireCheck(warehouseRoute.includes("pew-religion") && warehouseRoute.includes("faostat-fbs") && warehouseRoute.includes("worldbank-expansion") && warehouseRoute.includes("unescoheritage"), "new expansion category IDs are not accepted by the warehouse API");
+const metadataRoute = read("app/api/category-metadata/route.ts");
+requireCheck(metadataRoute.includes("FAOSTAT Food Balances") && metadataRoute.includes("Pew Research Center") && metadataRoute.includes("UNESCO World Heritage Centre"), "new expansion sources are missing from category metadata API");
+const component = read("components/GeoSecondComingGame.tsx");
+requireCheck(component.includes('className="secondaryScoreAction"'), "secondary results button styling missing");
+requireCheck(!component.includes(" Test · "), "player-facing Test label remains");
+requireCheck(!read("app/api/seeded/[difficulty]/route.ts").includes("The seeded board"), "player-facing Seeded error remains");
+
+const revisedMigration = read("supabase/migrations/037_v15_9_1_revised_safeguards.sql");
+requireCheck(revisedMigration.includes("largest-east-west-span") && revisedMigration.includes("FX.OWN.TOTL.YG.ZS"), "selective category retirement missing");
+requireCheck(revisedMigration.includes("jsonb_array_elements") && revisedMigration.includes("daily_scores"), "selective unplayed-board invalidation missing");
+const mobileCss = read("app/v15-7-clean.css");
+requireCheck(mobileCss.includes("grid-template-columns:repeat(6,minmax(0,1fr))") && mobileCss.includes(".activePlay .boardPanel .slots{height:auto;display:grid;grid-template-columns:1fr"), "deliberate mobile country/measure layout missing");
+requireCheck(mobileCss.includes(".activePlay .boardPanel .lock{position:static"), "mobile lock action is still an overlay");
+const dailyRoute = read("app/api/daily-trio/[date]/route.ts");
+requireCheck(dailyRoute.includes("individually valid is immutable") && dailyRoute.includes("preserve-valid-modes") && !dailyRoute.includes("scoredFixed"), "automatic Daily repair can still discard a valid unscored mode");
+const proxy = read("proxy.ts");
+requireCheck(proxy.includes('"/seeded/expert": "/random/expert"') && proxy.includes("request.nextUrl.clone()"), "legacy Seeded redirects do not preserve Random paths and query parameters");
+const scoreRoute = read("app/api/scores/route.ts");
+requireCheck(scoreRoute.includes("SCORING_VERSION") && scoreRoute.includes("board_normalization_version") && scoreRoute.includes("leaderboard_rating_version"), "score/rating versions are not stored at submission");
+const leaderboardRoute = read("app/api/leaderboard/route.ts");
+requireCheck(leaderboardRoute.includes("LEADERBOARD_RATING_VERSION") && leaderboardRoute.includes("BOARD_NORMALIZATION_VERSION"), "leaderboard response does not disclose its versioned method");
+requireCheck(component.includes("observationReference") && component.includes("Why this rank?"), "static reference labels or rank explanation are missing from results");
+requireCheck(fs.existsSync(path.join(root, "playwright.config.ts")) && fs.existsSync(path.join(root, "e2e/mobile-daily.spec.ts")), "real responsive browser regression tests are missing");
+requireCheck(verifyWorkflow.includes("playwright install --with-deps chromium") && verifyWorkflow.includes("test-natural-earth-real-data"), "GitHub verification does not run browser and real Natural Earth regressions");
+requireCheck(fs.existsSync(path.join(root, "scripts/test-natural-earth-real-data.py")), "real Natural Earth regression script missing");
+const editorial = read("lib/categoryEditorialPolicy.ts");
+requireCheck(editorial.includes('element === "5111"') && editorial.includes('"5412"'), "FAOSTAT livestock/yield semantic policy is incomplete");
+
+const walk = (directory) => fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+  const full = path.join(directory, entry.name);
+  return entry.isDirectory() ? walk(full) : [full];
+});
+const cacheFiles = walk(root).filter((file) => file.endsWith(".pyc") || file.split(path.sep).includes("__pycache__"));
+requireCheck(cacheFiles.length === 0, `compiled Python cache files remain: ${cacheFiles.slice(0, 3).join(", ")}`);
+
+if (fail.length) { console.error("GeoStats v15.9 checks FAILED:\n" + fail.map(x => ` - ${x}`).join("\n")); process.exit(1); }
+console.log("GeoStats v15.9 static checks passed.");

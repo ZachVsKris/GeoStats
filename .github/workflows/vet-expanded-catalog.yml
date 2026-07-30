@@ -1,0 +1,33 @@
+name: Vet expanded category catalog
+
+on:
+  workflow_dispatch:
+    inputs:
+      source:
+        description: expansion, all, or an exact source organization
+        required: false
+        default: expansion
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  vet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: pip install -r scripts/requirements-data-importers.txt
+      - name: Test vetting rules
+        run: PYTHONPATH=scripts python scripts/test-expanded-catalog-vetting.py
+      - name: Run automated vetting recommendations
+        run: python scripts/vet-expanded-catalog.py --source "${{ inputs.source }}"

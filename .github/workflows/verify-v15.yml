@@ -1,4 +1,4 @@
-name: Verify GeoStats v15.9.2
+name: Verify GeoStats v15.9.3
 
 on:
   workflow_dispatch:

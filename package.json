@@ -1,6 +1,6 @@
 {
   "name": "geostats",
-  "version": "15.8.0",
+  "version": "15.8.3",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -42,7 +42,7 @@
     "import-usgs-minerals": "python scripts/import-usgs-minerals.py",
     "import-fao-fisheries": "python scripts/import-fao-fisheries.py",
     "vet-expanded-catalog": "python scripts/vet-expanded-catalog.py",
-    "test-expansion-importers": "python scripts/test-unesco-world-heritage-importer.py && python scripts/test-aquastat-importer.py && python scripts/test-usgs-minerals-importer.py && python scripts/test-fao-fisheries-importer.py && python scripts/test-expanded-catalog-vetting.py"
+    "test-expansion-importers": "python scripts/test-unesco-world-heritage-importer.py && python scripts/test-aquastat-importer.py && python scripts/test-usgs-minerals-importer.py && python scripts/test-fao-fisheries-importer.py && python scripts/test-expanded-catalog-vetting.py && python scripts/test-supabase-observation-paging.py"
   },
   "dependencies": {
     "next": "16.2.10",

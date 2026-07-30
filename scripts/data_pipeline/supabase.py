@@ -245,30 +245,75 @@ class SupabaseWarehouse:
         *,
         year_by_category: dict[str, int],
         page_size: int = 1000,
+        category_chunk_size: int = 12,
     ) -> list[dict[str, Any]]:
+        """Fetch each category's common-year observations without a warehouse-wide scan.
+
+        The old implementation placed every viable category in one enormous
+        ``category_id=in.(...)`` filter, fetched every historical year, and used
+        deep ``offset`` pagination before discarding non-common-year rows in
+        Python. On a mature catalog that produced very long URLs and statements
+        that timed out around offset 73,000.
+
+        Categories are now grouped by their common year, split into small ID
+        chunks, and filtered by ``data_year`` in PostgREST. A timed-out chunk is
+        recursively divided, so the operation fails closed only when a single
+        category query cannot complete.
+        """
         if not category_ids:
             return []
-        encoded_ids = ",".join(quote(value, safe=":-_.") for value in category_ids)
+        if page_size < 1:
+            raise ValueError("page_size must be positive")
+        if category_chunk_size < 1:
+            raise ValueError("category_chunk_size must be positive")
+
+        ids_by_year: dict[int, list[str]] = {}
+        for category_id in dict.fromkeys(str(value) for value in category_ids):
+            expected_year = year_by_category.get(category_id)
+            if expected_year is None:
+                continue
+            ids_by_year.setdefault(int(expected_year), []).append(category_id)
+
         rows: list[dict[str, Any]] = []
-        offset = 0
-        while True:
-            batch = self._request(
-                "GET",
-                "stat_observations?"
-                f"category_id=in.({encoded_ids})&"
-                "select=category_id,country_iso3,data_year,value&"
-                f"order=category_id.asc,country_iso3.asc&limit={page_size}&offset={offset}",
+
+        def fetch_chunk(category_chunk: list[str], data_year: int) -> None:
+            encoded_ids = ",".join(
+                quote(value, safe=":-_.") for value in category_chunk
             )
-            if not isinstance(batch, list) or not batch:
-                break
-            for row in batch:
-                category_id = str(row.get("category_id") or "")
-                expected_year = year_by_category.get(category_id)
-                if expected_year is not None and int(row.get("data_year") or 0) == expected_year:
-                    rows.append(dict(row))
-            if len(batch) < page_size:
-                break
-            offset += page_size
+            offset = 0
+            try:
+                while True:
+                    batch = self._request(
+                        "GET",
+                        "stat_observations?"
+                        f"category_id=in.({encoded_ids})&"
+                        f"data_year=eq.{data_year}&"
+                        "select=category_id,country_iso3,data_year,value&"
+                        f"order=category_id.asc,country_iso3.asc&limit={page_size}&offset={offset}",
+                    )
+                    if not isinstance(batch, list) or not batch:
+                        break
+                    rows.extend(dict(row) for row in batch)
+                    if len(batch) < page_size:
+                        break
+                    offset += page_size
+            except RuntimeError as error:
+                detail = str(error).lower()
+                is_statement_timeout = (
+                    "statement timeout" in detail
+                    or '"code":"57014"' in detail
+                    or "failed (500)" in detail
+                )
+                if not is_statement_timeout or len(category_chunk) == 1:
+                    raise
+                midpoint = len(category_chunk) // 2
+                fetch_chunk(category_chunk[:midpoint], data_year)
+                fetch_chunk(category_chunk[midpoint:], data_year)
+
+        for data_year, year_ids in sorted(ids_by_year.items()):
+            for start in range(0, len(year_ids), category_chunk_size):
+                fetch_chunk(year_ids[start:start + category_chunk_size], data_year)
+
         return rows
 
     def upsert_similarity_pairs_v15_5(self, rows: list[dict[str, Any]]) -> None:

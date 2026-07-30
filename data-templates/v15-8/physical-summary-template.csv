@@ -1,0 +1,2 @@
+source,metric,country_iso3,data_year,value,unit,dataset_release,source_url,methodology_url,derivation_method,boundary_dataset,exact_query_url,download_url,api_url,license_name,license_url,derivation_version
+worldcover,grassland-share,EXA,2021,25.4,% of land,ESA WorldCover 2021,https://esa-worldcover.org/en/data-access,https://esa-worldcover.org/en/data-access,Country zonal summary from a fixed WorldCover release,Natural Earth Admin 0 countries,,,,CC BY 4.0,https://creativecommons.org/licenses/by/4.0/,geostats-physical-summary-v15.8

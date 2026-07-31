@@ -27,6 +27,8 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
+      - name: Install JavaScript dependencies
+        run: npm install --include=dev --no-audit --no-fund
       - name: Install importer dependencies
         run: |
           python -m pip install --disable-pip-version-check \

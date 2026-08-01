@@ -1,0 +1,113 @@
+/* GeoStats v16.0 responsive no-scroll mobile layout */
+.mobileMenu,.mobileModeTabs,.mobileGameSummary,.mobileCategoryInfo{display:none}
+.boardNotice{margin:6px 0;padding:8px 12px;border:1px solid rgba(212,191,114,.4);background:rgba(212,191,114,.08);color:var(--accent);font-size:12px}
+.unrankedNotice{font-size:12px;color:var(--muted)}
+
+/* Board copy is intentionally concise and complete. Never clip or ellipsize it. */
+.activePlay .boardPanel .category,
+.activePlay .boardPanel .category > div{min-width:0;max-width:100%;overflow:visible}
+.activePlay .boardPanel .category strong,
+.activePlay .boardPanel .category small{
+  display:block!important;
+  max-height:none!important;
+  overflow:visible!important;
+  white-space:normal!important;
+  overflow-wrap:break-word!important;
+  text-overflow:clip!important;
+  -webkit-line-clamp:unset!important;
+  line-clamp:unset!important;
+}
+.activePlay .boardPanel .slot{height:auto;min-height:0}
+.activePlay .boardPanel .category strong{text-wrap:balance}
+.activePlay .boardPanel .category small{font-size:10px;line-height:1.25;margin-top:3px;text-wrap:pretty}
+.activePlay .error > span{max-width:760px;line-height:1.45}
+
+@media (min-width:901px){
+  .activePlay .playGrid{height:auto;min-height:calc(100dvh - 125px);align-items:stretch}
+  .activePlay .playGrid .panel{height:auto;min-height:0}
+  .activePlay .bankPanel .countries{overflow:auto}
+  .activePlay .boardPanel .slots{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(118px,auto);overflow:auto}
+  .activePlay.expertRound .boardPanel .slots{grid-auto-rows:minmax(105px,auto)}
+  .activePlay .boardPanel .slot{padding:10px 11px 8px}
+  .activePlay .boardPanel .category strong{font-size:15px;line-height:1.12}
+  .activePlay .boardPanel .category small{font-size:10px;line-height:1.25}
+}
+
+@media(max-width:700px){
+  html,body{min-height:100%;overscroll-behavior:none}
+  body:has(.shell.activePlay){overflow:hidden}
+  .shell.activePlay{
+    width:100%;height:100dvh;min-height:0;max-height:100dvh;overflow:hidden;
+    padding:4px 5px calc(4px + env(safe-area-inset-bottom));display:flex;flex-direction:column;
+  }
+  .activePlay header{
+    flex:0 0 34px;min-height:34px;padding:0 1px 3px;align-items:center;position:relative;
+    border-bottom:1px solid var(--line-soft);overflow:visible;
+  }
+  .activePlay .brand{gap:5px}.activePlay .logo{width:27px;height:27px;font-size:15px}.activePlay .brand h1{font-size:16px}.activePlay .brand p{display:none}
+  .desktopHeaderButtons{display:none!important}
+  .mobileMenu{display:block;position:relative;margin-left:auto;z-index:40}
+  .mobileMenu summary{list-style:none;cursor:pointer;min-width:48px;min-height:29px;display:grid;place-items:center;border:1px solid var(--line);padding:4px 7px;font-family:var(--label);font-size:7px;text-transform:uppercase;letter-spacing:.08em}
+  .mobileMenu summary::-webkit-details-marker{display:none}
+  .mobileMenu[open]>div{position:absolute;right:0;top:32px;width:min(220px,calc(100vw - 16px));padding:7px;background:var(--surface);border:1px solid var(--line);box-shadow:0 12px 30px rgba(0,0,0,.45);display:grid;gap:4px}
+  .mobileMenu a,.mobileMenu button{display:block;width:100%;min-height:36px;padding:8px;text-align:left;background:transparent;border:1px solid var(--line-soft);color:var(--ink);font-size:10px;text-decoration:none}
+
+  .activePlay .challengeBar{
+    flex:0 0 25px;min-height:25px;margin:3px 0;padding:3px 5px;display:flex;align-items:center;gap:4px;overflow:visible;
+  }
+  .activePlay .challengeBar>div{gap:4px;min-width:0}.activePlay .challengeBar .kicker{font-size:6px;letter-spacing:.09em;white-space:nowrap}.activePlay .challengeBar strong{display:none}
+  .activePlay .challengeIdentity{min-width:0}.activePlay .challengeActions{max-width:none;margin-left:auto;overflow:visible}.activePlay .mobileProgress{display:inline;font-size:7px;white-space:nowrap}
+  .activePlay .challengeActions button{min-height:23px;padding:3px 5px;font-size:6px;line-height:1;white-space:nowrap}
+  .activePlay .randomChallengeBar{flex:0 0 48px;min-height:48px;display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:18px 26px;align-items:center}
+  .activePlay .randomChallengeBar .challengeIdentity{grid-column:1/3;grid-row:1}.activePlay .randomChallengeBar .challengeActions{grid-column:1/3;grid-row:2;width:100%;margin:0}
+  .activePlay .seedControls{display:grid;grid-template-columns:minmax(78px,1fr) repeat(3,auto);width:100%;gap:3px}
+  .activePlay .seedField{min-width:0;display:block}.activePlay .seedField>span{display:none}.activePlay .seedControls .seedField input{width:100%;min-width:0;height:23px;padding:3px 5px;font-size:8px}.activePlay .seedControls button{height:23px;min-height:23px;padding:3px 5px;font-size:6px}
+
+  .mobileModeTabs{flex:0 0 27px;display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin:0 0 3px}
+  .mobileModeTabs a{display:grid;place-items:center;min-height:27px;padding:3px;border:1px solid var(--line-soft);color:var(--muted);font-family:var(--label);font-size:7px;text-align:center;text-decoration:none;text-transform:uppercase;letter-spacing:.05em}
+  .mobileModeTabs a.active{color:var(--bg);background:var(--accent);border-color:var(--accent)}
+  .mobileGameSummary{display:none!important}
+  .desktopHero,.activePlay .dataNote{display:none!important}
+  .boardNotice{flex:0 0 auto;max-height:30px;overflow:auto;margin:0 0 3px;padding:4px 6px;font-size:7px;line-height:1.15}
+  .activePlay .loading,.activePlay .error{flex:1;margin:3px 0;padding:12px 8px;min-height:0}.activePlay .error button{margin-top:6px}
+
+  .activePlay .playGrid{
+    flex:1;min-height:0;height:auto;margin:0;display:grid;grid-template-columns:1fr;grid-template-rows:96px minmax(0,1fr);gap:3px;overflow:hidden;
+  }
+  .activePlay .playGrid .panel{height:100%;min-height:0;overflow:hidden;border-radius:1px}.activePlay .boardSpine,.activePlay .playGrid .panelTitle{display:none!important}
+
+  .activePlay .bankPanel .countries{height:100%;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:3px;padding:3px;overflow:hidden}
+  .activePlay .country{grid-column:span 2;min-width:0;min-height:0;height:100%;padding:2px 2px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:1px;text-align:center;touch-action:manipulation;overflow:hidden}
+  .activePlay .country>span{font-size:18px;line-height:1}.activePlay .country div{width:100%;min-width:0}.activePlay .country strong{display:block;font-size:8px;line-height:1.02;letter-spacing:-.01em;overflow-wrap:anywhere}.activePlay .desktopCountryName{display:none}.activePlay .mobileCountryName{display:block}.activePlay .country>b{font-size:5px;line-height:1}
+  .activePlay.compactRound .country:nth-child(4){grid-column:2/span 2}.activePlay.compactRound .country:nth-child(5){grid-column:4/span 2}
+  .activePlay.normalRound .bankPanel .countries{grid-template-columns:repeat(4,minmax(0,1fr))}.activePlay.normalRound .country{grid-column:auto}
+  .activePlay.expertRound .bankPanel .countries{grid-template-columns:repeat(5,minmax(0,1fr))}.activePlay.expertRound .country{grid-column:auto}.activePlay.expertRound .country strong{font-size:7.1px}
+
+  .activePlay .boardPanel{display:flex;flex-direction:column;min-height:0}
+  .activePlay .boardPanel .slots{flex:1;min-height:0;height:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:3px;padding:3px;overflow:hidden}
+  .activePlay.normalRound .boardPanel .slots{grid-template-rows:repeat(3,minmax(0,1fr))}
+  .activePlay.expertRound .boardPanel .slots{grid-template-rows:repeat(4,minmax(0,1fr))}
+  .activePlay .slot{min-width:0;min-height:0;height:100%;padding:3px 4px 2px;display:flex;flex-direction:column;justify-content:space-between;border-left-width:3px;touch-action:manipulation;overflow:hidden}
+  .activePlay .category{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:3px;align-items:start;min-height:0}.activePlay .category>span:first-child{font-size:15px;line-height:1}.activePlay .category strong{display:-webkit-box!important;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden!important;font-size:8.5px!important;line-height:1.02!important;letter-spacing:-.012em;text-wrap:balance}.activePlay.expertRound .category strong{font-size:7.7px!important}.activePlay .category small{display:none!important}.activePlay .slotNumber{display:none}
+  .mobileCategoryInfo{display:grid!important;place-items:center;width:14px;height:14px;border:1px solid var(--line);border-radius:50%;font:700 8px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--muted);flex:none}
+  .activePlay .choice{min-height:19px;height:auto;margin-top:2px;padding:2px 3px;align-items:center;border:1px solid rgba(93,119,104,.35);background:rgba(4,12,9,.18);overflow:hidden}
+  .activePlay .choice span{font-size:14px;line-height:1}.activePlay .choice strong,.activePlay .choice em{display:block;min-width:0;font-size:6.8px;line-height:1.02;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.activePlay .choice i{width:17px;height:17px;font-size:14px}.activePlay.expertRound .choice strong,.activePlay.expertRound .choice em{font-size:6.2px}
+  .activePlay .boardPanel .lock{flex:0 0 32px;min-height:32px;margin:0;padding:3px 4px;background:var(--surface);border-top:2px solid var(--line);display:grid;grid-template-columns:auto minmax(90px,42%);align-items:center;gap:5px}
+  .activePlay .boardPanel .lock span{margin:0;text-align:left;font-size:6.5px}.activePlay .boardPanel .lock button{width:100%;min-height:25px;height:25px;padding:3px;font-size:7px}
+
+  .mobileDescriptionPopover{position:fixed;inset:0;z-index:100;display:grid;place-items:end center;padding:12px;background:rgba(0,0,0,.55)}
+  .mobileDescriptionPopover>div{position:relative;width:min(420px,100%);padding:16px 16px 18px;background:var(--surface);border:1px solid var(--line);box-shadow:0 16px 45px rgba(0,0,0,.5)}
+  .mobileDescriptionPopover>div>span{font-size:26px}.mobileDescriptionPopover strong{display:block;margin:5px 30px 5px 0;font-size:17px}.mobileDescriptionPopover p{margin:0;color:var(--muted);font-size:12px;line-height:1.4}.mobileDescriptionClose{position:absolute;right:7px;top:7px;width:30px;height:30px;border:1px solid var(--line);background:transparent;color:var(--ink);font-size:20px}
+  .touchGhost{max-width:145px;padding:5px 7px}.touchGhost span{font-size:18px}
+}
+
+@media(max-width:380px), (max-height:700px){
+  .shell.activePlay{padding-left:3px;padding-right:3px}
+  .activePlay header{flex-basis:31px;min-height:31px}.activePlay .logo{width:24px;height:24px;font-size:13px}.activePlay .brand h1{font-size:15px}
+  .activePlay .challengeBar{margin:2px 0}.activePlay .mobileModeTabs{margin-bottom:2px}
+  .activePlay .playGrid{grid-template-rows:86px minmax(0,1fr);gap:2px}
+  .activePlay .bankPanel .countries,.activePlay .boardPanel .slots{gap:2px;padding:2px}
+  .activePlay .country{padding:1px}.activePlay .country>span{font-size:16px}.activePlay .country strong{font-size:7px}.activePlay.expertRound .country strong{font-size:6.4px}
+  .activePlay .slot{padding:2px 3px}.activePlay .category>span:first-child{font-size:13px}.activePlay .category strong{font-size:7.6px!important}.activePlay.expertRound .category strong{font-size:6.9px!important}.mobileCategoryInfo{width:12px;height:12px;font-size:7px}
+  .activePlay .choice{min-height:16px;margin-top:1px}.activePlay .choice span{font-size:12px}.activePlay .choice strong,.activePlay .choice em{font-size:5.9px}.activePlay .boardPanel .lock{flex-basis:29px;min-height:29px}.activePlay .boardPanel .lock button{height:23px;min-height:23px}
+}

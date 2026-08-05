@@ -33,6 +33,7 @@ jobs:
         run: |
           python -m pip install --disable-pip-version-check \
             -r scripts/requirements-data-importers.txt \
+            -r scripts/requirements-faostat.txt \
             -r scripts/requirements-geography.txt
       - name: Test v16.1 audit, generator, and import pipeline
         run: npm run test-v16-1
@@ -74,7 +75,9 @@ jobs:
           python-version: "3.12"
       - name: Install importer dependencies
         run: |
-          python -m pip install --disable-pip-version-check -r scripts/requirements-data-importers.txt
+          python -m pip install --disable-pip-version-check \
+            -r scripts/requirements-data-importers.txt \
+            -r scripts/requirements-faostat.txt
           if [ "${{ matrix.geography }}" = "true" ]; then
             python -m pip install --disable-pip-version-check -r scripts/requirements-geography.txt
           fi

@@ -3,6 +3,7 @@ from __future__ import annotations
 import gzip
 import io
 import json
+from http.client import HTTPException
 import random
 import time
 from email.utils import parsedate_to_datetime
@@ -76,11 +77,13 @@ class HttpClient:
                 delay = retry_after if retry_after is not None else min(90.0, (2 ** attempt) * 3.0 + random.random())
                 print(f"HTTP {error.code}; retrying in {delay:.1f}s…", flush=True)
                 time.sleep(delay)
-            except (URLError, TimeoutError, OSError) as error:
+            except (URLError, TimeoutError, OSError, HTTPException) as error:
                 last_error = error
                 if attempt + 1 >= self.retries:
                     break
-                time.sleep(min(30, 2 ** attempt))
+                delay = min(30.0, (2 ** attempt) + random.random())
+                print(f"Network error {type(error).__name__}; retrying in {delay:.1f}s…", flush=True)
+                time.sleep(delay)
         raise RuntimeError(f"Could not retrieve {_safe_url(url)}: {last_error}")
 
     def get_text(self, url: str, *, accept: str = "text/plain,*/*") -> str:

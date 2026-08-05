@@ -244,11 +244,15 @@ class WhoImporter(WarehouseImporter):
 
     def fetch_observations(self, candidate: CandidateDefinition) -> list[SourceObservation]:
         code = quote(candidate.source_indicator_code, safe="")
-        filtered_url = f"{WHO_API}/{code}?%24filter=SpatialDimType%20eq%20%27COUNTRY%27"
+        # Request smaller OData pages so large WHO series do not time out or end mid-response.
+        filtered_url = (
+            f"{WHO_API}/{code}?%24filter=SpatialDimType%20eq%20%27COUNTRY%27"
+            "&%24top=500"
+        )
         try:
             rows = self.http.get_odata(filtered_url)
         except Exception:
-            rows = self.http.get_odata(f"{WHO_API}/{code}")
+            rows = self.http.get_odata(f"{WHO_API}/{code}?%24top=500")
 
         normalized: dict[tuple[str, int], SourceObservation] = {}
         max_year = 0

@@ -135,7 +135,7 @@ begin
   -- The old WHO code is a population count in millions, not a percentage.
   update public.stat_categories
   set enabled=false,eligible_daily=false,review_status='rejected',
-      curation_status='rejected',
+      curation_status='excluded',
       curation_reason='Wrong WHO series: population count in millions was labeled as a percentage.',
       updated_at=now()
   where id='who:PHE_HHAIR_POP_CLEAN_FUELS'

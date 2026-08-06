@@ -139,6 +139,7 @@ check(quality.includes("_select_common_year") && quality.includes("len(rows) >= 
 const faostat = read("scripts/import-faostat.py");
 check(faostat.includes('"player_source_status": "exact" if') && faostat.includes('else "general"'), "FAOSTAT official general source link repair missing");
 check(faostat.includes("player_title_present") && !faostat.includes('"official_title": str(category_row.get("title")'), "FAOSTAT still requires exact player-title equality");
+check(faostat.includes("replace_stat_category_observations_v16_2") && !faostat.includes('"clear_stat_source_observations",\n        {"p_source_organization"'), "FAOSTAT recovery still performs a source-wide observation delete that can time out");
 
 const verifyWorkflow = read(".github/workflows/verify-v16.yml");
 check(verifyWorkflow.includes("Verify GeoStats v16.2.1") && verifyWorkflow.includes("npm run test-v16-2-1"), "verification workflow still targets an older release");

@@ -1086,15 +1086,45 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
             },
         )
 
-    removed = client.rpc(
-        "clear_stat_source_observations",
-        {"p_source_organization": SOURCE_ORG, "p_source_dataset": SOURCE_DATASET},
-    )
-    log(f"Cleared prior FAOSTAT snapshot ({removed or 0} observations)")
+    # Replace each category atomically instead of deleting the entire FAOSTAT
+    # source snapshot in one statement. The old source-wide delete can exceed
+    # Supabase's statement timeout once the warehouse contains ~100k+ rows.
+    # Per-category replacement keeps every RPC small and makes reruns safe: a
+    # failed category leaves its prior snapshot intact, while completed
+    # categories have a fully replaced snapshot.
+    for stale_id in stale_ids:
+        client.rpc(
+            "replace_stat_category_observations_v16_2",
+            {"p_category_id": stale_id, "p_rows": []},
+        )
 
     candidate_by_key = {candidate["source_key"]: candidate for candidate in candidates}
-    observation_rows: list[dict[str, Any]] = []
     inserted = 0
+    replaced_categories = 0
+    current_key: str | None = None
+    current_rows: list[dict[str, Any]] = []
+
+    def flush_category() -> None:
+        nonlocal inserted, replaced_categories, current_key, current_rows
+        if current_key is None:
+            return
+        candidate = candidate_by_key.get(current_key)
+        if candidate is None:
+            current_rows = []
+            return
+        client.rpc(
+            "replace_stat_category_observations_v16_2",
+            {"p_category_id": candidate["id"], "p_rows": current_rows},
+        )
+        inserted += len(current_rows)
+        replaced_categories += 1
+        if replaced_categories % 25 == 0 or replaced_categories == len(candidates):
+            log(
+                f"Atomically replaced {replaced_categories:,}/{len(candidates):,} "
+                f"FAOSTAT categories ({inserted:,} observations)"
+            )
+        current_rows = []
+
     cursor = connection.execute(
         "select category_key, iso3, country_name, year, value, flag, flag_description, note from observations order by category_key, year, iso3"
     )
@@ -1102,9 +1132,11 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
         candidate = candidate_by_key.get(key)
         if not candidate:
             continue
-        observation_rows.append(
+        if current_key is not None and key != current_key:
+            flush_category()
+        current_key = key
+        current_rows.append(
             {
-                "category_id": candidate["id"],
                 "country_iso3": iso3,
                 "country_name": canonical_country_name(iso3, country_name),
                 "data_year": int(year),
@@ -1122,15 +1154,7 @@ def import_candidates(client: SupabaseRest, connection: sqlite3.Connection, cand
                 },
             }
         )
-        if len(observation_rows) >= BATCH_SIZE:
-            client.upsert("stat_observations", observation_rows, "category_id,country_iso3,data_year")
-            inserted += len(observation_rows)
-            observation_rows.clear()
-            if inserted % 20000 < BATCH_SIZE:
-                log(f"Uploaded {inserted:,} observations")
-    if observation_rows:
-        client.upsert("stat_observations", observation_rows, "category_id,country_iso3,data_year")
-        inserted += len(observation_rows)
+    flush_category()
     verified, failed, audit_results = validate_faostat_categories(client, connection, candidates, validation_run_id)
     return len(category_rows), inserted, verified, failed, audit_results
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export the v16.2 category audit before or after conservative promotion."""
+"""Export the v16.2.1 category audit before or after conservative promotion."""
 from __future__ import annotations
 
 import argparse
@@ -17,7 +17,7 @@ PAGE_SIZE = 1000
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Export GeoStats v16.2 audit and promotion decisions.")
+    parser = argparse.ArgumentParser(description="Export GeoStats v16.2.1 audit and promotion decisions.")
     parser.add_argument(
         "--phase",
         choices=("pre", "final"),
@@ -70,23 +70,28 @@ def main() -> int:
         raise SystemExit("SUPABASE_URL and SUPABASE_SECRET_KEY (or SUPABASE_SERVICE_ROLE_KEY) are required.")
     warehouse = SupabaseWarehouse(url, key, timeout=180)
 
-    # Recalculate the assessment and synchronize the one-catalog gameplay flags.
-    # This never changes editorial status or auto-promotes a category.
-    warehouse._request("POST", "rpc/refresh_v16_2_runtime_catalog", {})
+    # Recalculate the assessment without publishing gameplay flags. The v16.2.1
+    # source-recovery assertion prevents a green audit when a major source was
+    # skipped or the proposed catalog collapsed. Only the finalizer publishes.
+    warehouse._request("POST", "rpc/apply_v16_2_1_audit_reconciliation", {})
+    warehouse._request("POST", "rpc/refresh_category_ranking_completeness_v16", {})
+    warehouse._request("POST", "rpc/refresh_category_semantic_audit_v16_1", {})
+    warehouse._request("POST", "rpc/refresh_category_promotion_assessment_v16_2", {})
+    warehouse._request("POST", "rpc/assert_v16_2_1_source_recovery", {})
 
     audit = fetch_all(warehouse, "category_runtime_review_v16_2")
     decisions = fetch_all(warehouse, "category_promotion_dry_run_v16_2")
     if not audit:
-        raise SystemExit("The v16.2 runtime audit returned no categories. Run the v16.2 installer first.")
+        raise SystemExit("The v16.2.1 runtime audit returned no categories. Run the v16.2.1 installer first.")
 
     if args.phase == "pre":
-        audit_path = Path("category-audit-pre-promotion-v16-2.csv")
-        decision_path = Path("category-promotion-dry-run-v16-2.csv")
-        summary_path = Path("category-audit-pre-promotion-v16-2-summary.json")
+        audit_path = Path("category-audit-pre-promotion-v16-2-1.csv")
+        decision_path = Path("category-promotion-dry-run-v16-2-1.csv")
+        summary_path = Path("category-audit-pre-promotion-v16-2-1-summary.json")
     else:
-        audit_path = Path("category-audit-v16-2.csv")
-        decision_path = Path("category-promotion-final-v16-2.csv")
-        summary_path = Path("category-audit-v16-2-summary.json")
+        audit_path = Path("category-audit-v16-2-1.csv")
+        decision_path = Path("category-promotion-final-v16-2-1.csv")
+        summary_path = Path("category-audit-v16-2-1-summary.json")
 
     write_csv(audit_path, audit)
     write_csv(decision_path, decisions)
@@ -98,24 +103,38 @@ def main() -> int:
         source = str(row.get("source_organization") or "Unknown")
         sources.setdefault(source, Counter())[str(row.get("promotion_decision_v16_2") or "unassessed")] += 1
     consistency = fetch_all(warehouse, "category_catalog_consistency_v16_2")
+    auto_promoted = 0
+    for row in audit:
+        metadata = row.get("metadata")
+        if isinstance(metadata, str):
+            try:
+                metadata = json.loads(metadata)
+            except json.JSONDecodeError:
+                metadata = {}
+        if isinstance(metadata, dict) and bool(metadata.get("autoPromotedV16_2")):
+            auto_promoted += 1
+
+    recovery = fetch_all(warehouse, "catalog_recovery_status_v16_2_1")
     summary = {
-        "version": "16.2",
+        "version": "16.2.1",
         "phase": args.phase,
         "categories": len(audit),
         "outcomes": dict(sorted(outcomes.items())),
         "blockerClasses": dict(sorted(blockers.items())),
         "bySource": {source: dict(sorted(counts.items())) for source, counts in sorted(sources.items())},
         "catalogConsistency": consistency[0] if consistency else {},
+        "recoveryStatus": recovery[0] if recovery else {},
         "randomOnlyTier": False,
         "sharedCatalogRule": "enabled and eligible_daily must always be identical",
-        "automaticPromotionsApplied": args.phase == "final",
+        "automaticPromotionsApplied": args.phase == "final" and auto_promoted > 0,
+        "automaticPromotionCount": auto_promoted if args.phase == "final" else 0,
     }
     summary_path.write_text(json.dumps(summary, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps(summary, indent=2, sort_keys=True), flush=True)
     consistency_failures = sum(int(summary["catalogConsistency"].get(key, 0) or 0) for key in (
         "daily_random_mismatches", "enabled_without_v16_2_pass", "daily_without_v16_2_pass",
     ))
-    return 1 if consistency_failures else 0
+    return 1 if args.phase == "final" and consistency_failures else 0
 
 
 if __name__ == "__main__":

@@ -95,7 +95,7 @@ def classify_nonblocking_audit_result(result: Any) -> Any:
     coverage_checks = set(coverage.get("checks") or [])
     critical_identity = {
         "source_organization", "source_dataset", "source_indicator_code",
-        "official_unit", "unit", "ranking_direction",
+        "unit", "ranking_direction",
         "official_name_matches_required_concept",
         "official_name_avoids_excluded_concepts",
         "exports_flow_selected", "world_partner_selected",
@@ -273,6 +273,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--include-nonplayable", action="store_true", help="Audit all imported candidates, not only approved/playable categories.")
     parser.add_argument("--activate", action="store_true", help="Enable fail-closed source-integrity enforcement after the audit.")
     parser.add_argument("--report-dir", default="artifacts/source-integrity", help="Directory for machine-readable and Markdown audit reports.")
+    parser.add_argument("--fail-on-source-error", action="store_true", help="Exit nonzero when a selected source fails before completing its audit.")
+    parser.add_argument("--fail-on-empty", action="store_true", help="Exit nonzero when a selected source returns zero audited categories.")
     return parser.parse_args()
 
 
@@ -377,7 +379,10 @@ def main() -> int:
     # Definite data mismatches are safely quarantined and do not crash the workflow.
     # Source-access gaps or a requested-but-blocked enforcement activation remain failures.
     reconciliation_failed = isinstance(reconciliation, dict) and reconciliation.get("status") == "failed"
-    return 1 if activation_failed or reconciliation_failed else 0
+    empty_selected_source = bool(results) and any(int(result.get("selected") or 0) == 0 for result in results)
+    requested_source_failure = args.fail_on_source_error and bool(source_errors)
+    requested_empty_failure = args.fail_on_empty and (empty_selected_source or not results)
+    return 1 if activation_failed or reconciliation_failed or requested_source_failure or requested_empty_failure else 0
 
 
 if __name__ == "__main__":

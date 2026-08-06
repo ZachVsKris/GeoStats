@@ -7,7 +7,27 @@ from statistics import mean
 
 from .models import IndicatorRule, QualityResult, SourceObservation
 
-QUALITY_STANDARD_VERSION = "geostats-v13.4-strict"
+QUALITY_STANDARD_VERSION = "geostats-v16.2.1-common-year-v2"
+
+
+def _select_common_year(rule: IndicatorRule, by_year: dict[int, dict[str, SourceObservation]]) -> int:
+    """Choose the newest year that is adequately comparable.
+
+    The old weighted score could prefer a nearly empty newest year over a slightly
+    older year with broad coverage. GeoStats comparisons need a common-year country
+    snapshot first and freshness second, so the newest year meeting the source rule's
+    coverage floor wins. When no year reaches that floor, use the newest year within
+    80% of the source's best observed coverage rather than a tiny outlier year.
+    """
+    adequate = [year for year, rows in by_year.items() if len(rows) >= rule.min_coverage]
+    if adequate:
+        return max(adequate)
+    best_coverage = max(len(rows) for rows in by_year.values())
+    relative_floor = max(10, math.ceil(best_coverage * 0.80))
+    near_best = [year for year, rows in by_year.items() if len(rows) >= relative_floor]
+    if near_best:
+        return max(near_best)
+    return max(by_year, key=lambda year: (len(by_year[year]), year))
 
 
 def _average_ranks(values: dict[str, float], *, high: bool) -> dict[str, float]:
@@ -64,7 +84,7 @@ def score_observations(rule: IndicatorRule, observations: list[SourceObservation
 
     now_year = datetime.now(timezone.utc).year
     latest_year = max(by_year)
-    common_year = max(by_year, key=lambda year: (min(len(by_year[year]), 150) * 3 - max(0, now_year - year) * 8, year))
+    common_year = _select_common_year(rule, by_year)
     common_rows = list(by_year[common_year].values())
     coverage = len(common_rows)
     all_countries = {row.country_iso3 for rows in by_year.values() for row in rows.values()}

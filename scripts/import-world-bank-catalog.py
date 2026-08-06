@@ -119,6 +119,8 @@ def _unit_and_type(name: str, unit: str) -> tuple[str, str]:
         return ("km²", "total")
     if re.search(r"metric tons?|tonnes?", haystack):
         return ("tonnes", "total")
+    if re.search(r"population|number of (?:people|persons|births|deaths)|refugees|migrants", haystack):
+        return ("people", "total")
     if re.search(r"per (?:million)| mortality rate| incidence| prevalence| rate", haystack):
         return (unit.strip() or "rate", "rate")
     if re.search(r"index|score", haystack):

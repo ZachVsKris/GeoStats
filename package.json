@@ -1,13 +1,13 @@
 {
   "name": "geostats",
-  "version": "16.2.0",
+  "version": "16.2.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "npm run test-v16-2",
-    "check": "npm run check-v16-2",
+    "test": "npm run test-v16-2-1",
+    "check": "npm run check-v16-2-1",
     "test-importers": "python scripts/test-data-pipeline.py && python scripts/test-world-bank-catalog-importer.py && python scripts/test-who-importer.py && python scripts/test-ilostat-importer.py && python scripts/test-natural-earth-importer.py && python scripts/test-comtrade-importer.py && python scripts/test-eia-importer.py && python scripts/test-unhcr-importer.py && python scripts/test-faostat-importer.py && npm run test-additional-importers",
     "test-player-links": "python scripts/test-player-source-links.py",
     "test-source-integrity": "python scripts/test-source-integrity.py",
@@ -48,8 +48,10 @@
     "check-v16": "npm run check-v16-1",
     "test-v16-1": "npm run test-v16-2",
     "check-v16-1": "npm run check-v16-2",
-    "test-v16-2": "node scripts/test-v16-2-static.cjs && node scripts/test-v15-7-generator.cjs && npm run test-importers",
-    "check-v16-2": "npm run test-v16-2 && npm run typecheck && npm run build && npm run test-e2e"
+    "test-v16-2": "npm run test-v16-2-1",
+    "check-v16-2": "npm run check-v16-2-1",
+    "test-v16-2-1": "node scripts/test-v16-2-1-static.cjs && node scripts/test-v15-7-generator.cjs && npm run test-importers",
+    "check-v16-2-1": "npm run test-v16-2-1 && npm run typecheck && npm run build && npm run test-e2e"
   },
   "dependencies": {
     "next": "16.2.10",

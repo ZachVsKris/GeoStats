@@ -73,7 +73,7 @@ metadata_failure = validate_category_snapshot(
 )
 assert metadata_failure.status == "failed"
 assert metadata_failure.metadata_checks["unit"] is False
-assert VALIDATION_VERSION.startswith("geostats-v15.9.2")
+assert VALIDATION_VERSION.startswith("geostats-v16.2.1")
 assert units_compatible("An", "animals", "Stocks")
 assert units_compatible("head", "An", "Livestock population")
 
@@ -86,6 +86,8 @@ official_unit_failure = validate_category_snapshot(
 )
 assert official_unit_failure.status == "failed"
 assert official_unit_failure.metadata_checks["official_unit"] is False
+assert "official_unit" not in official_unit_failure.details["failureBuckets"]["sourceIdentity"]
+assert "official_unit" in official_unit_failure.details["failureBuckets"]["metadata"]
 
 wrong_series_rule = IndicatorRule(
     key="life-expectancy", title="Highest life expectancy", description="Life expectancy.",
@@ -116,4 +118,4 @@ aggregate_failure = validate_category_snapshot(
 )
 assert aggregate_failure.status == "failed"
 assert aggregate_failure.metadata_checks["source_country_universe"] is False
-print("GeoStats v15.9.2 source-integrity fixture tests passed.")
+print("GeoStats v16.2.1 source-integrity fixture tests passed.")

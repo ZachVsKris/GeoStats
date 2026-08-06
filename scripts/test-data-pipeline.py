@@ -33,6 +33,17 @@ assert quality.common_year_coverage == 160
 assert quality.clustering_score >= 90
 assert quality.stability_score >= 90
 assert quality.auto_qualified
+
+# A sparse newest year must not displace a broadly comparable prior year.
+sparse_rows = [row for row in rows if row.data_year == 2024]
+for index in range(5):
+    sparse_rows.append(SourceObservation(
+        country_iso3=f"S{index:02d}", country_name=f"Sparse {index}", data_year=2026,
+        value=float(index), source_url="https://example.test", evidence_status="official",
+    ))
+sparse_quality = score_observations(rule, sparse_rows)
+assert sparse_quality.common_year == 2024, sparse_quality
+assert sparse_quality.common_year_coverage == 160
 base_row = {"review_status": "needs_review", "enabled": False, "eligible_daily": False}
 assert WarehouseImporter.preserve_editorial_state(
     base_row, {"review_status": "rejected"}, auto_qualified=True

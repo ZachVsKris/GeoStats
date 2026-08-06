@@ -130,9 +130,8 @@ class WarehouseImporter(ABC):
                     else:
                         assert self.warehouse is not None
                         self.warehouse.upsert_category(row)
-                        self.warehouse.clear_category_observations(category_id)
-                        observation_count += self.warehouse.upsert_observations(
-                            self.build_observation_rows(category_id, observations, run_id)
+                        observation_count += self.warehouse.replace_category_observations(
+                            category_id, self.build_observation_rows(category_id, observations, run_id)
                         )
                         self.warehouse.link_canonical(self.canonical_payload(candidate, category_id))
                         stored_category = self.warehouse.get_category_integrity_state(category_id)

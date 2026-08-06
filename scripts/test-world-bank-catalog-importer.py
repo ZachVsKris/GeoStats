@@ -21,6 +21,9 @@ assert module._player_title("Population, total", "total").startswith("Largest")
 assert module._player_title("Life expectancy at birth", "total").startswith("Highest")
 assert module._unit_and_type("Population ages 0-14 (% of total)", "")[1] == "percentage"
 assert module._unit_and_type("Mortality rate, per 1,000 live births", "")[1] == "rate"
+assert module._unit_and_type("Population, total", "") == ("people", "total")
+assert module._unit_and_type("Surface area (sq. km)", "") == ("km²", "total")
+assert module._unit_and_type("Service imports (BoP, current US$)", "") == ("USD", "total")
 understandable, fun = module._scores("Population, total", "Total population counts all residents.")
 assert understandable >= 85 and fun >= 80
 technical, technical_fun = module._scores("PPP conversion factor for GDP", "Technical series.")

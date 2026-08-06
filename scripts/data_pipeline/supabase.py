@@ -249,13 +249,11 @@ class SupabaseWarehouse:
         return self._request("POST", "rpc/reconcile_category_playability_v15", {})
 
     def finalize_v16_catalog(self) -> Any:
-        """Refresh ranking completeness and apply the latest installed catalog policy."""
-        try:
-            return self._request("POST", "rpc/finalize_v16_2_catalog", {})
-        except RuntimeError as error:
-            if "finalize_v16_2_catalog" not in str(error):
-                raise
-            return self._request("POST", "rpc/finalize_v16_catalog", {})
+        """Publish only through the installed v16.2.1 guarded finalizer."""
+        # The explicit preflight RPC prevents a code-only deployment from silently
+        # falling back to the unguarded v16.2 database function.
+        self._request("POST", "rpc/assert_v16_2_1_source_recovery", {})
+        return self._request("POST", "rpc/finalize_v16_2_catalog", {})
 
     def get_import_health(self) -> list[dict[str, Any]]:
         rows = self._request(

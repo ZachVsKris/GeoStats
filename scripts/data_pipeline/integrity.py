@@ -10,7 +10,7 @@ from typing import Any, Iterable, Mapping
 from .countries import UN_COUNTRY_ISO3
 from .models import CandidateDefinition, QualityResult, SourceObservation
 
-VALIDATION_VERSION = "geostats-v15.9.2-source-integrity-v2"
+VALIDATION_VERSION = "geostats-v16.2.1-source-integrity-v3"
 
 
 @dataclass(frozen=True)
@@ -153,17 +153,38 @@ def _unit_signature(*values: Any) -> str:
 
 
 def units_compatible(stored_unit: Any, expected_unit: Any, official_name: Any = "", official_unit: Any = "") -> bool:
+    """Compare display units by meaning rather than provider-specific wording.
+
+    A generic placeholder such as ``reported value`` is not considered compatible
+    when the official series name or unit identifies a concrete measure. This keeps
+    player-facing unit mistakes blocked while allowing harmless wording differences
+    such as ``current US$`` versus ``USD`` or ``sq. km`` versus ``km²``.
+    """
     stored = _unit_signature(stored_unit)
     expected = _unit_signature(expected_unit)
     official = _unit_signature(official_unit, official_name)
     generic = {"", "reported value", "rate", "value", "other"}
+    if official not in generic:
+        return stored == official or (expected == official and stored == expected)
     if stored == expected and stored not in generic:
-        return True
-    if official not in generic and stored == official:
         return True
     if stored in generic and expected in generic:
         return True
     return _normalized_unit(stored_unit) == _normalized_unit(expected_unit)
+
+def official_units_compatible(stored_unit: Any, expected_unit: Any, official_name: Any = "") -> bool:
+    """Compare raw provider-unit metadata without inventing a missing raw unit.
+
+    Many World Bank catalog records leave the raw unit field blank even though the
+    series name makes the player display unit obvious. Two blank provider-unit fields
+    therefore match; player-facing unit correctness is checked separately by ``unit``.
+    """
+    stored_raw = _normalized_unit(stored_unit)
+    expected_raw = _normalized_unit(expected_unit)
+    if not stored_raw and not expected_raw:
+        return True
+    return units_compatible(stored_unit, expected_unit, official_name, expected_unit)
+
 
 def _query_contains(query: Any, token: str) -> bool:
     if not token:
@@ -260,7 +281,11 @@ def validate_category_snapshot(
         "source_dataset": str(stored_category.get("source_dataset")) == source_dataset,
         "source_indicator_code": str(stored_category.get("source_indicator_code")) == candidate.source_indicator_code,
         "official_series_name": str(stored_metadata.get("source_indicator_name") or "").strip() == str(candidate.source_indicator_name).strip(),
-        "official_unit": _normalized_unit(stored_metadata.get("official_unit")) == _normalized_unit(candidate.metadata.get("official_unit")),
+        "official_unit": official_units_compatible(
+            stored_metadata.get("official_unit"),
+            candidate.metadata.get("official_unit"),
+            candidate.source_indicator_name,
+        ),
         "source_query": json.dumps(stored_query, sort_keys=True, default=str) == json.dumps(expected_query, sort_keys=True, default=str),
         "unit": units_compatible(
             stored_category.get("unit"),
@@ -304,7 +329,7 @@ def validate_category_snapshot(
 
     metadata_failures = sorted(key for key, passed in metadata_checks.items() if not passed)
     source_identity_keys = {
-        "source_organization", "source_dataset", "source_indicator_code", "official_series_name", "official_unit",
+        "source_organization", "source_dataset", "source_indicator_code", "official_series_name",
         "source_url_present", "source_indicator_present", "official_series_name_present",
         "source_query_present", "query_identifies_series", "query_identifies_commodity",
         "exports_flow_selected", "world_partner_selected", "query_identifies_product",

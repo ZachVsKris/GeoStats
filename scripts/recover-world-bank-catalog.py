@@ -26,6 +26,7 @@ if not SPEC or not SPEC.loader:
 MODULE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(MODULE)
 WorldBankCatalogImporter = MODULE.WorldBankCatalogImporter
+unit_and_type = MODULE._unit_and_type
 
 
 def parse_args() -> argparse.Namespace:
@@ -80,18 +81,25 @@ def main() -> int:
         try:
             metadata = row.get("metadata") if isinstance(row.get("metadata"), dict) else {}
             source_query = candidate.metadata.get("source_query") or {"indicator": code, "country": "all"}
+            official_unit = candidate.metadata.get("official_unit") or ""
+            display_unit, value_type = unit_and_type(candidate.source_indicator_name, str(official_unit))
             patch: dict[str, Any] = {
                 "source_dataset": "World Development Indicators",
                 "source_url": candidate.source_url,
                 "source_page_url": candidate.metadata.get("source_page_url") or candidate.source_url,
+                "player_source_url": candidate.source_url,
+                "player_source_status": "exact",
+                "player_source_reason": "Exact official World Bank indicator page.",
+                "player_source_checked_at": now,
+                "link_quality_score": 100,
                 "methodology_url": candidate.metadata.get("methodology_url"),
                 "exact_query_url": candidate.metadata.get("exact_query_url"),
                 "api_url": candidate.metadata.get("api_url"),
                 "source_query": source_query,
                 "technical_definition": candidate.rule.technical_definition or candidate.source_indicator_name,
                 "unit_explanation": candidate.rule.unit_explanation or candidate.rule.unit,
-                "unit": candidate.rule.unit,
-                "value_type": candidate.rule.value_type,
+                "unit": display_unit,
+                "value_type": value_type,
                 "dataset_release": candidate.metadata.get("dataset_release"),
                 "retrieved_at": now,
                 "validation_status": "pending",
@@ -104,9 +112,9 @@ def main() -> int:
                     **metadata,
                     "source_indicator_name": candidate.source_indicator_name,
                     "official_series_name": candidate.source_indicator_name,
-                    "official_unit": candidate.metadata.get("official_unit") or candidate.rule.unit,
+                    "official_unit": official_unit,
                     "source_query": source_query,
-                    "worldBankRecoveryVersion": "geostats-v16.2-world-bank-recovery-v1",
+                    "worldBankRecoveryVersion": "geostats-v16.2.1-world-bank-recovery-v2",
                     "worldBankRecoveredAt": now,
                 },
                 "updated_at": now,
@@ -125,7 +133,7 @@ def main() -> int:
                     "quality_score": quality.score,
                     "clustering_score": quality.clustering_score,
                     "stability_score": quality.stability_score,
-                    "quality_standard_version": "geostats-v16.2-world-bank-recovery-v1",
+                    "quality_standard_version": "geostats-v16.2.1-world-bank-recovery-v2",
                 })
                 refreshed += 1
             warehouse.patch_category(category_id, patch)

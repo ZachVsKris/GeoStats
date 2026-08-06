@@ -9,7 +9,7 @@ def main() -> int:
     if not url or not key:
         raise SystemExit("Set SUPABASE_URL and a Supabase service-role secret.")
     SupabaseWarehouse(url,key).finalize_v16_catalog()
-    print("GeoStats v16.2 catalog finalized.")
+    print("GeoStats v16.2.1 catalog finalized after guarded source recovery.")
     return 0
 
 if __name__=="__main__":

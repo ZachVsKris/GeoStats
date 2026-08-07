@@ -1,0 +1,37 @@
+GeoStats v16.1 validation report
+Generated: 2026-07-31
+Baseline: GeoStats-main (1).zip / GeoStats v16.0
+
+PASSED
+- v16.1 installer is byte-identical to supabase/migrations/040_v16_1_corrective_audit.sql.
+- git diff whitespace/error check.
+- GeoStats v16.1 static repository checks.
+- Generator, Random, valid-mode-preservation, and diversified candidate-pool regressions.
+- Generic data-pipeline fixtures.
+- World Bank importer fixtures.
+- WHO importer fixtures, including the pinned clean-cooking proportion series and percentage bounds.
+- ILOSTAT importer fixtures.
+- Natural Earth importer fixtures.
+- UN Comtrade importer fixtures.
+- EIA importer fixtures.
+- UNHCR importer fixtures.
+- FAOSTAT total-production and livestock-population importer fixtures.
+- Pew, Smithsonian GVP, and USGS importer fixtures.
+- FAOSTAT Food Balances, tourism/migration, World Heritage legacy fixture, expanded-catalog vetting, and observation-paging fixtures.
+- Player-source URL policy fixtures.
+- Source-integrity fixtures.
+- Python compilation for release scripts.
+- YAML parsing for every GitHub Actions workflow.
+- TypeScript/TSX syntax transpilation for every changed application and test file.
+- No legacy project-name references.
+- No __pycache__ directories or .pyc files in the packaged repository.
+
+NOT COMPLETED IN THIS ENVIRONMENT
+- Full dependency-backed `npm run typecheck`, `npm run build`, and Playwright browser tests. The local runtime does not contain the repository's React, Next.js, Supabase, and Playwright packages. A typecheck attempt failed on missing modules rather than a demonstrated v16.1 source error. The included Verify GeoStats v16.1 workflow installs dependencies and runs all three checks.
+- Execution of the PostgreSQL installer, verification, or rollback against the user's live Supabase project. These must be run in Supabase in the documented order.
+- A human editorial review of every one of the 1,337 categories. v16.1 creates a complete category-by-category audit record, blocks semantic failures from gameplay, exports every category with source/result findings, and provides the Workbench for explicit human decisions; it does not falsely claim that software alone completed the human review.
+
+RELEASE GATES
+- Do not promote the release if the GitHub Verify GeoStats v16.1 workflow fails.
+- After the import workflow, download and inspect the geostats-v16-1-category-audit artifact.
+- Run VERIFY_V16_1.sql and require zero missing audits, zero playable semantic failures, zero playable out-of-range percentages, and zero playable use of the wrong WHO clean-cooking count series.

@@ -1,0 +1,26 @@
+GeoStats v16.2.1 validation
+============================
+
+Passed locally
+- npm run test-v16-2-1
+  - v16.2.1 static repository checks
+  - Daily/Random joint-generator regressions
+  - generic data-pipeline tests
+  - World Bank, WHO, ILOSTAT, Natural Earth, Comtrade, EIA, UNHCR, FAOSTAT QCL, Pew, Smithsonian, and USGS importer fixtures
+- Python compilation for all scripts
+- Git diff whitespace validation
+- YAML parsing for both modified GitHub Actions workflows
+- Full-repository scan found no Python cache files or legacy project-name branding
+
+Not executed locally
+- npm run typecheck
+- npm run build
+- Playwright browser tests
+
+Reason: the available internal npm registry returned 404 for @playwright/test@1.55.0, so JavaScript dependencies could not be installed in this environment. The Verify GeoStats v16.2.1 GitHub workflow installs dependencies and runs typecheck, build, and browser tests before recovery can begin.
+
+Database validation
+- Migration and standalone installer are byte-identical.
+- SQL was reviewed and checked by repository static tests, but was not executed against the user's Supabase project from this environment.
+- The installer is transactional and deliberately does not publish gameplay flags.
+- The recovery finalizer refuses publication unless World Bank, FAOSTAT QCL, WHO, Comtrade, and total-playable thresholds pass.

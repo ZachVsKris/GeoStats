@@ -42,9 +42,9 @@ jobs:
           python-version: "3.12"
       - name: Test Comtrade repair regressions
         run: |
+          node scripts/test-v16-2-1-static.cjs
           python scripts/test-comtrade-importer.py
           python scripts/test-source-integrity.py
-          node scripts/test-v16-2-1-static.cjs
 
   repair:
     needs: [preflight, tests]

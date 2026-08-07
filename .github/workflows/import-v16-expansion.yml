@@ -1,4 +1,4 @@
-name: Recover v16.2.1 audited catalog
+name: Import v16 automatic expansion
 
 on:
   workflow_dispatch:
@@ -7,30 +7,18 @@ permissions:
   contents: read
 
 concurrency:
-  group: geostats-v16-2-1-catalog-recovery
+  group: geostats-v16-automatic-expansion
   cancel-in-progress: false
 
 env:
   SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
   SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
   SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-  COMTRADE_API_KEY: ${{ secrets.COMTRADE_API_KEY }}
 
 jobs:
-  preflight:
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - name: Require all source credentials
-        shell: bash
-        run: |
-          test -n "$SUPABASE_URL" || { echo "::error::SUPABASE_URL secret is missing"; exit 1; }
-          test -n "${SUPABASE_SECRET_KEY:-${SUPABASE_SERVICE_ROLE_KEY:-}}" || { echo "::error::Supabase service-role secret is missing"; exit 1; }
-          test -n "$COMTRADE_API_KEY" || { echo "::error::COMTRADE_API_KEY secret is missing. The catalog will not be published without a real Comtrade audit."; exit 1; }
-
   tests:
     runs-on: ubuntu-latest
-    timeout-minutes: 35
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
@@ -39,65 +27,43 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - name: Install repository dependencies
+      - name: Install JavaScript dependencies
+        run: npm install --include=dev --no-audit --no-fund
+      - name: Install importer dependencies
         run: |
-          npm install --include=dev --no-audit --no-fund
           python -m pip install --disable-pip-version-check \
             -r scripts/requirements-data-importers.txt \
-            -r scripts/requirements-faostat.txt \
             -r scripts/requirements-geography.txt
-      - name: Test v16.2.1 audit repair, generator, one-catalog policy, and importers
-        run: npm run test-v16-2-1
+      - name: Test v16 automatic import and review pipeline
+        run: npm run test-v16
 
-  recover:
-    needs: [preflight, tests]
+  import:
+    needs: tests
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 120
     strategy:
       fail-fast: false
       matrix:
         include:
-          - name: World Bank legacy catalog
-            command: python scripts/recover-world-bank-catalog.py --refresh-values
-            geography: false
-            audit_slug: ""
-          - name: FAOSTAT production and livestock populations
-            command: python scripts/import-faostat.py --report-dir artifacts/source-integrity/faostat
-            geography: false
-            audit_slug: faostat
-          - name: WHO health catalog
-            command: python scripts/import-who.py
-            geography: false
-            audit_slug: ""
-          - name: UN Comtrade exports
-            command: python scripts/import-comtrade.py
-            geography: false
-            audit_slug: ""
-          - name: UNHCR displacement
-            command: python scripts/import-unhcr.py
-            geography: false
-            audit_slug: ""
-          - name: Natural Earth geography
-            command: python scripts/import-natural-earth.py
-            geography: true
-            audit_slug: ""
           - name: Pew religion
             command: python scripts/import-pew-religion.py
             geography: false
-            audit_slug: ""
           - name: FAOSTAT Food Balances
             command: python scripts/import-faostat-food-balances.py
             geography: false
-            audit_slug: ""
+          - name: Tourism and migration
+            command: python scripts/import-tourism-migration.py
+            geography: false
           - name: Smithsonian volcanoes
             command: python scripts/import-smithsonian-volcanoes.py
             geography: false
-            audit_slug: ""
           - name: USGS earthquakes
             command: python scripts/import-usgs-earthquakes.py
             geography: true
-            audit_slug: ""
-    name: Recover ${{ matrix.name }}
+          - name: Natural Earth geography
+            command: python scripts/import-natural-earth.py
+            geography: true
+    name: Import ${{ matrix.name }}
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
@@ -105,62 +71,16 @@ jobs:
           python-version: "3.12"
       - name: Install importer dependencies
         run: |
-          python -m pip install --disable-pip-version-check \
-            -r scripts/requirements-data-importers.txt \
-            -r scripts/requirements-faostat.txt
+          python -m pip install --disable-pip-version-check -r scripts/requirements-data-importers.txt
           if [ "${{ matrix.geography }}" = "true" ]; then
             python -m pip install --disable-pip-version-check -r scripts/requirements-geography.txt
           fi
-      - name: Refresh official source data
+      - name: Run automatic official-source importer
         run: ${{ matrix.command }}
-      - name: Upload integrated FAOSTAT QCL audit
-        if: ${{ matrix.audit_slug != '' }}
-        uses: actions/upload-artifact@v7
-        with:
-          name: geostats-v16-2-1-source-audit-${{ matrix.audit_slug }}
-          path: artifacts/source-integrity/${{ matrix.audit_slug }}
-          retention-days: 30
-          if-no-files-found: error
 
-  audit:
-    needs: recover
-    runs-on: ubuntu-latest
-    timeout-minutes: 180
-    strategy:
-      fail-fast: false
-      matrix:
-        source: [worldbank, who, comtrade, unhcr, naturalearth, pew, faostatfbs, smithsonian, usgs]
-    name: Audit ${{ matrix.source }}
-    steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-python@v6
-        with:
-          python-version: "3.12"
-      - name: Install audit dependencies
-        run: |
-          python -m pip install --disable-pip-version-check \
-            -r scripts/requirements-data-importers.txt \
-            -r scripts/requirements-faostat.txt \
-            -r scripts/requirements-geography.txt
-      - name: Recalculate official-source values, coverage, and rankings
-        run: >-
-          python scripts/audit-source-integrity.py
-          --source ${{ matrix.source }}
-          --include-nonplayable
-          --fail-on-source-error
-          --fail-on-empty
-          --report-dir artifacts/source-integrity/${{ matrix.source }}
-      - name: Upload source audit
-        uses: actions/upload-artifact@v7
-        with:
-          name: geostats-v16-2-1-source-audit-${{ matrix.source }}
-          path: artifacts/source-integrity/${{ matrix.source }}
-          retention-days: 30
-          if-no-files-found: error
-
-  finalize:
-    needs: [preflight, tests, recover, audit]
-    if: ${{ always() && needs.preflight.result == 'success' && needs.tests.result == 'success' && needs.recover.result == 'success' && needs.audit.result == 'success' }}
+  vet:
+    needs: [tests, import]
+    if: ${{ always() && needs.tests.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
@@ -168,26 +88,9 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - name: Install finalization dependencies
+      - name: Install vetting dependencies
         run: python -m pip install --disable-pip-version-check -r scripts/requirements-data-importers.txt
-      - name: Vet newly imported candidates
+      - name: Vet every successfully imported expansion category
         run: python scripts/vet-expanded-catalog.py --source expansion
-      - name: Export guarded pre-promotion audit and dry run
-        run: python scripts/export-v16-2-category-audit.py --phase pre
-      - name: Apply conservative promotions and publish one shared gameplay catalog
+      - name: Apply v16 curated decisions and ranking completeness
         run: python scripts/finalize-v16-catalog.py
-      - name: Export final audit and applied decisions
-        run: python scripts/export-v16-2-category-audit.py --phase final
-      - name: Upload v16.2.1 catalog audit
-        uses: actions/upload-artifact@v7
-        with:
-          name: geostats-v16-2-1-category-audit
-          path: |
-            category-audit-pre-promotion-v16-2-1.csv
-            category-promotion-dry-run-v16-2-1.csv
-            category-audit-pre-promotion-v16-2-1-summary.json
-            category-audit-v16-2-1.csv
-            category-promotion-final-v16-2-1.csv
-            category-audit-v16-2-1-summary.json
-          retention-days: 30
-          if-no-files-found: error

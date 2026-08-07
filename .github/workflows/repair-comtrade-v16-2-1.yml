@@ -1,0 +1,125 @@
+name: Repair v16.2.1 UN Comtrade and finalize
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: geostats-v16-2-1-comtrade-repair
+  cancel-in-progress: false
+
+env:
+  SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+  SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+  SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+  COMTRADE_API_KEY: ${{ secrets.COMTRADE_API_KEY }}
+  COMTRADE_REQUEST_DELAY_SECONDS: "1.75"
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Require Comtrade and Supabase credentials
+        shell: bash
+        run: |
+          test -n "$SUPABASE_URL" || { echo "::error::SUPABASE_URL secret is missing"; exit 1; }
+          test -n "${SUPABASE_SECRET_KEY:-${SUPABASE_SERVICE_ROLE_KEY:-}}" || { echo "::error::Supabase service-role secret is missing"; exit 1; }
+          test -n "$COMTRADE_API_KEY" || { echo "::error::COMTRADE_API_KEY secret is missing"; exit 1; }
+
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Test Comtrade repair regressions
+        run: |
+          python scripts/test-comtrade-importer.py
+          python scripts/test-source-integrity.py
+          node scripts/test-v16-2-1-static.cjs
+
+  repair:
+    needs: [preflight, tests]
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Install importer dependencies
+        run: python -m pip install --disable-pip-version-check -r scripts/requirements-data-importers.txt
+      - name: Force-refresh all 55 UN Comtrade categories
+        run: python scripts/import-comtrade.py --refresh-existing --require-complete
+      - name: Re-audit UN Comtrade against the official source
+        run: >-
+          python scripts/audit-source-integrity.py
+          --source comtrade
+          --include-nonplayable
+          --fail-on-source-error
+          --fail-on-empty
+          --report-dir artifacts/source-integrity/comtrade
+      - name: Upload repaired Comtrade audit
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: geostats-v16-2-1-source-audit-comtrade-repair
+          path: artifacts/source-integrity/comtrade
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Require enough independently verified Comtrade categories
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report = json.loads(Path("artifacts/source-integrity/comtrade/source-integrity-report.json").read_text())
+          result = next((item for item in report.get("results", []) if item.get("source") == "comtrade"), None)
+          if not result:
+              raise SystemExit("Comtrade audit result is missing")
+          verified = int(result.get("verified") or 0)
+          print(f"Comtrade verified after repair: {verified}/55")
+          if verified < 40:
+              raise SystemExit(f"Publication remains blocked: only {verified} Comtrade categories verified; need at least 40")
+          PY
+
+  finalize:
+    needs: [preflight, tests, repair]
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Install finalization dependencies
+        run: python -m pip install --disable-pip-version-check -r scripts/requirements-data-importers.txt
+      - name: Vet newly imported candidates
+        run: python scripts/vet-expanded-catalog.py --source expansion
+      - name: Export guarded pre-promotion audit and dry run
+        run: python scripts/export-v16-2-category-audit.py --phase pre
+      - name: Apply conservative promotions and publish one shared gameplay catalog
+        run: python scripts/finalize-v16-catalog.py
+      - name: Export final audit and applied decisions
+        run: python scripts/export-v16-2-category-audit.py --phase final
+      - name: Upload v16.2.1 repaired catalog audit
+        uses: actions/upload-artifact@v7
+        with:
+          name: geostats-v16-2-1-category-audit-after-comtrade-repair
+          path: |
+            category-audit-pre-promotion-v16-2-1.csv
+            category-promotion-dry-run-v16-2-1.csv
+            category-audit-pre-promotion-v16-2-1-summary.json
+            category-audit-v16-2-1.csv
+            category-promotion-final-v16-2-1.csv
+            category-audit-v16-2-1-summary.json
+          retention-days: 30
+          if-no-files-found: error

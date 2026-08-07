@@ -1,4 +1,4 @@
-name: Recover v16.2.1 audited catalog
+name: Recover v16.2.3 audited catalog
 
 on:
   workflow_dispatch:
@@ -7,7 +7,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: geostats-v16-2-1-catalog-recovery
+  group: geostats-v16-2-3-catalog-recovery
   cancel-in-progress: false
 
 env:
@@ -46,8 +46,8 @@ jobs:
             -r scripts/requirements-data-importers.txt \
             -r scripts/requirements-faostat.txt \
             -r scripts/requirements-geography.txt
-      - name: Test v16.2.1 audit repair, generator, one-catalog policy, and importers
-        run: npm run test-v16-2-1
+      - name: Test v16.2.3 catalog cleanup, historical importers, generator, and one-catalog policy
+        run: npm run test-v16-2-3
 
   recover:
     needs: [preflight, tests]
@@ -97,6 +97,18 @@ jobs:
             command: python scripts/import-usgs-earthquakes.py
             geography: true
             audit_slug: ""
+          - name: UN membership history
+            command: python scripts/import-historical-categories.py --source unmembership --require-complete
+            geography: false
+            audit_slug: ""
+          - name: Constitute constitutional history
+            command: python scripts/import-historical-categories.py --source constitute --require-complete
+            geography: false
+            audit_slug: ""
+          - name: IPU independence and universal suffrage history
+            command: python scripts/import-historical-categories.py --source ipu --require-complete
+            geography: false
+            audit_slug: ""
     name: Recover ${{ matrix.name }}
     steps:
       - uses: actions/checkout@v6
@@ -117,7 +129,7 @@ jobs:
         if: ${{ matrix.audit_slug != '' }}
         uses: actions/upload-artifact@v7
         with:
-          name: geostats-v16-2-1-source-audit-${{ matrix.audit_slug }}
+          name: geostats-v16-2-3-source-audit-${{ matrix.audit_slug }}
           path: artifacts/source-integrity/${{ matrix.audit_slug }}
           retention-days: 30
           if-no-files-found: error
@@ -129,7 +141,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        source: [worldbank, who, comtrade, unhcr, naturalearth, pew, faostatfbs, smithsonian, usgs]
+        source: [worldbank, who, comtrade, unhcr, naturalearth, pew, faostatfbs, smithsonian, usgs, unmembership, constitute, ipu]
     name: Audit ${{ matrix.source }}
     steps:
       - uses: actions/checkout@v6
@@ -153,7 +165,7 @@ jobs:
       - name: Upload source audit
         uses: actions/upload-artifact@v7
         with:
-          name: geostats-v16-2-1-source-audit-${{ matrix.source }}
+          name: geostats-v16-2-3-source-audit-${{ matrix.source }}
           path: artifacts/source-integrity/${{ matrix.source }}
           retention-days: 30
           if-no-files-found: error
@@ -173,22 +185,22 @@ jobs:
       - name: Vet newly imported candidates
         run: python scripts/vet-expanded-catalog.py --source expansion
       - name: Export guarded pre-promotion audit and dry run
-        run: python scripts/export-v16-2-category-audit.py --phase pre
+        run: python scripts/export-v16-2-category-audit.py --phase pre --release-version 16.2.3
       - name: Apply conservative promotions and publish one shared gameplay catalog
-        run: python scripts/finalize-v16-catalog.py
+        run: python scripts/finalize-v16-catalog.py --release-version 16.2.3
       - name: Export final audit and applied decisions
-        run: python scripts/export-v16-2-category-audit.py --phase final
-      - name: Upload v16.2.1 catalog audit
+        run: python scripts/export-v16-2-category-audit.py --phase final --release-version 16.2.3
+      - name: Upload v16.2.3 catalog audit
         uses: actions/upload-artifact@v7
         with:
-          name: geostats-v16-2-1-category-audit
+          name: geostats-v16-2-3-category-audit
           path: |
-            category-audit-pre-promotion-v16-2-1.csv
-            category-promotion-dry-run-v16-2-1.csv
-            category-audit-pre-promotion-v16-2-1-summary.json
-            category-audit-v16-2-1.csv
-            category-promotion-final-v16-2-1.csv
-            category-audit-v16-2-1-summary.json
+            category-audit-pre-promotion-v16-2-3.csv
+            category-promotion-dry-run-v16-2-3.csv
+            category-audit-pre-promotion-v16-2-3-summary.json
+            category-audit-v16-2-3.csv
+            category-promotion-final-v16-2-3.csv
+            category-audit-v16-2-3-summary.json
           retention-days: 30
           if-no-files-found: error
 

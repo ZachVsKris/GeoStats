@@ -1,4 +1,4 @@
-name: Import all source data
+name: Import core source data
 
 on:
   workflow_dispatch:

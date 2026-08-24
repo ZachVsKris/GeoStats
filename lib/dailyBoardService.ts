@@ -207,7 +207,7 @@ async function publishAtomically(admin: any, date: string, rows: ReturnType<type
   if (error) {
     const message = error.message ?? "Unknown Supabase error";
     if (/could not find the function|publish_daily_trio_v16.*does not exist|schema cache.*publish_daily_trio_v16/i.test(message)) {
-      throw new Error("The Daily publication RPC is unavailable. Install RUN_THIS_IN_SUPABASE_FOR_V16_2_3.sql and reload the Supabase schema cache.");
+      throw new Error("The Daily publication RPC is unavailable. Install RUN_THIS_IN_SUPABASE_FOR_V16_2_4.sql and reload the Supabase schema cache.");
     }
     if (/permission denied|42501/i.test(message)) {
       throw new Error(`Daily publication permission failed: ${message}`);

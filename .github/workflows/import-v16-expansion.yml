@@ -1,4 +1,4 @@
-ame: Recover v16.2.4 audited catalog
+name: Recover v16.2.4 audited catalog
 
 on:
   workflow_dispatch:

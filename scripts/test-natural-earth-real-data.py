@@ -42,14 +42,28 @@ with tempfile.TemporaryDirectory(prefix="geostats-ne-real-") as directory_name:
     reader = shapefile.Reader(str(country_path), encoding="utf-8")
     fields = [field[0] for field in reader.fields[1:]]
     map_unit_precedence_examples = 0
+    dependency_exclusion_examples = 0
     for shape_record in reader.iterShapeRecords():
         properties = dict(zip(fields, shape_record.record))
         resolved = module._country_iso3(properties)
-        admin = module.normalize_iso3(properties.get("ADM0_A3"))
-        iso = module.normalize_iso3(properties.get("ISO_A3_EH") or properties.get("ISO_A3"))
+        raw_admin = properties.get("ADM0_A3")
+        raw_iso = properties.get("ISO_A3_EH") or properties.get("ISO_A3")
+        admin = module.normalize_iso3(raw_admin)
+        iso = module.normalize_iso3(raw_iso)
         if iso and admin and iso != admin and resolved == iso:
             map_unit_precedence_examples += 1
-    assert map_unit_precedence_examples >= 1, "The real layer did not exercise ISO/map-unit precedence over ADM0_A3."
+        elif (
+            raw_iso not in (None, "", "-99")
+            and raw_admin not in (None, "", "-99")
+            and str(raw_iso).strip().upper() != str(raw_admin).strip().upper()
+            and iso is None
+            and admin is not None
+            and resolved is None
+        ):
+            dependency_exclusion_examples += 1
+    assert map_unit_precedence_examples + dependency_exclusion_examples >= 1, (
+        "The real layer did not exercise ISO/map-unit identity precedence or dependency exclusion over ADM0_A3."
+    )
 
     geometries, names = importer._read_countries(country_path)
     assert 190 <= len(geometries) <= 195

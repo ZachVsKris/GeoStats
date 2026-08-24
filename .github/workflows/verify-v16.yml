@@ -1,4 +1,4 @@
-name: Verify GeoStats v16.2.3
+name: Verify GeoStats v16.2.4
 
 on:
   workflow_dispatch:
@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: geostats-v16-2-3-verify-${{ github.ref }}
+  group: geostats-v16-2-4-verify-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -26,15 +26,21 @@ jobs:
         with:
           python-version: "3.12"
       - name: Install JavaScript dependencies
-        run: npm install --include=dev --no-audit --no-fund
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci --include=dev --no-audit --no-fund
+          else
+            echo "::warning::package-lock.json is absent; using npm install. Run Generate v16.2.4 package lock, commit the artifact, then rerun this workflow for locked dependency verification."
+            npm install --include=dev --no-audit --no-fund
+          fi
       - name: Install Python importer dependencies
         run: |
           python -m pip install --disable-pip-version-check \
             -r scripts/requirements-data-importers.txt \
             -r scripts/requirements-faostat.txt \
             -r scripts/requirements-geography.txt
-      - name: Verify v16.2.3 repository, catalog, performance wiring, history, generator, and importers
-        run: npm run test-v16-2-3
+      - name: Verify v16.2.4 repository, catalog, performance wiring, history, generator, and importers
+        run: npm run test-v16-2-4
       - name: Type-check application
         run: npm run typecheck
       - name: Run source-policy fixtures

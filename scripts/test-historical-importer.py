@@ -2,7 +2,9 @@
 from __future__ import annotations
 
 import importlib.util
+import os
 from pathlib import Path
+from unittest.mock import patch
 
 HERE = Path(__file__).resolve().parent
 MODULE_PATH = HERE / "import-historical-categories.py"
@@ -87,4 +89,23 @@ assert ipu.category_id(ipu_candidates["universal-womens-suffrage"]) == "history:
 assert ipu_candidates["recent-independence"].rule.ranking_direction == "high"
 assert ipu_candidates["universal-womens-suffrage"].rule.ranking_direction == "low"
 assert all(candidate.metadata["measurementType"] == "historical_date" for candidate in ipu_candidates.values())
+
+# The production workflow must be able to construct its Supabase client from
+# GitHub Actions secrets. This regression protects the non-dry-run path, which
+# parser-only fixtures do not otherwise exercise.
+with patch.dict(os.environ, {
+    "SUPABASE_URL": "https://example.supabase.co/",
+    "SUPABASE_SECRET_KEY": "test-service-role-key",
+}, clear=True):
+    warehouse = module._warehouse()
+    assert warehouse.base == "https://example.supabase.co"
+    assert warehouse.key == "test-service-role-key"
+
+with patch.dict(os.environ, {
+    "SUPABASE_URL": "https://example.supabase.co",
+    "SUPABASE_SERVICE_ROLE_KEY": "legacy-service-role-key",
+}, clear=True):
+    warehouse = module._warehouse()
+    assert warehouse.key == "legacy-service-role-key"
+
 print("GeoStats v16.2.3 historical importer tests passed.")

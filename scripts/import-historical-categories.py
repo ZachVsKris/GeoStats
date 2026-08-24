@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import html
+import os
 import re
 import sys
 from datetime import datetime, timezone
@@ -462,7 +463,11 @@ class IPUHistoricalImporter(WarehouseImporter):
 
 
 def _warehouse() -> SupabaseWarehouse:
-    return SupabaseWarehouse.from_environment()
+    url = (os.environ.get("SUPABASE_URL") or os.environ.get("NEXT_PUBLIC_SUPABASE_URL") or "").strip()
+    key = (os.environ.get("SUPABASE_SECRET_KEY") or os.environ.get("SUPABASE_SERVICE_ROLE_KEY") or "").strip()
+    if not url or not key:
+        raise SystemExit("SUPABASE_URL and SUPABASE_SECRET_KEY (or SUPABASE_SERVICE_ROLE_KEY) are required.")
+    return SupabaseWarehouse(url, key)
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -493,6 +498,10 @@ def main(argv: list[str] | None = None) -> int:
         print(f"Historical import incomplete: {failures}", file=sys.stderr)
         return 1
     return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
 
 
 if __name__ == "__main__":

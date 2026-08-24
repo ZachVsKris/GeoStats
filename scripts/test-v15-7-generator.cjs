@@ -137,8 +137,9 @@ const loaded = {
   candidateSources: Object.fromEntries(sources.map((source) => [source, datasets.filter((dataset) => dataset.category.source === source).length])),
 };
 
-const first = generateDailyTrioFromLoadedCatalog(countries, '2026-07-29', loaded);
-const second = generateDailyTrioFromLoadedCatalog(countries, '2026-07-29', loaded);
+const deterministicDailyOptions = { budgetMs: 20_000, candidateTarget: 64, jointSearch: true, jointFirst: true };
+const first = generateDailyTrioFromLoadedCatalog(countries, '2026-07-29', loaded, {}, '', deterministicDailyOptions);
+const second = generateDailyTrioFromLoadedCatalog(countries, '2026-07-29', loaded, {}, '', deterministicDailyOptions);
 const firstShape = JSON.stringify(Object.fromEntries(Object.entries(first.trio).map(([difficulty, round]) => [difficulty, {
   categories: round.categories.map((dataset) => dataset.category.id),
   countries: round.bank.map((country) => country.id),
@@ -170,7 +171,7 @@ if (seededErrors.length) {
   throw new Error(`Synthetic Seeded Adventurer board failed validation: ${seededErrors.join(' ')}`);
 }
 
-const fixedEasy = generateDailyTrioFromLoadedCatalog(countries, '2026-07-30', loaded, { easy: first.trio.easy });
+const fixedEasy = generateDailyTrioFromLoadedCatalog(countries, '2026-07-30', loaded, { easy: first.trio.easy }, '', deterministicDailyOptions);
 const fixedEasyShape = JSON.stringify({
   categories: fixedEasy.trio.easy.categories.map((dataset) => dataset.category.id),
   countries: fixedEasy.trio.easy.bank.map((country) => country.id),
@@ -191,6 +192,7 @@ const alternateRepair = generateDailyTrioFromLoadedCatalog(
   loaded,
   { easy: first.trio.easy },
   'preserve-valid-modes-2',
+  deterministicDailyOptions,
 );
 const alternateEasyShape = JSON.stringify({
   categories: alternateRepair.trio.easy.categories.map((dataset) => dataset.category.id),

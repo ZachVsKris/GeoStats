@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 const root = path.resolve(__dirname, "..");
 const read = (file) => fs.readFileSync(path.join(root, file), "utf8");
 const exists = (file) => fs.existsSync(path.join(root, file));
@@ -91,7 +92,22 @@ check(lockWorkflow.includes("npm install --package-lock-only") && lockWorkflow.i
 const historyWorkflow = read(".github/workflows/import-historical-v16-2-4.yml");
 check(historyWorkflow.includes("worldbankhistory") && historyWorkflow.includes("--release-version 16.2.4"), "historical workflow omits World Bank milestones or v16.2.4 finalizer");
 const recovery = read(".github/workflows/import-v16-expansion.yml");
-check(recovery.includes("Recover v16.2.4 audited catalog") && recovery.includes("worldbankhistory") && recovery.includes("--release-version 16.2.4"), "catalog recovery workflow does not cover v16.2.4 history/finalization");
+check(recovery.startsWith("name: Recover v16.2.4 audited catalog\n") && recovery.includes("worldbankhistory") && recovery.includes("--release-version 16.2.4"), "catalog recovery workflow is malformed or does not cover v16.2.4 history/finalization");
+
+
+// Validate the shipped release checksums so manual GitHub uploads cannot silently
+// mutate a file while leaving the repository-level tests green. package-lock.json
+// is intentionally optional because it is generated after this release package.
+for (const line of read("SHA256SUMS_V16_2_4.txt").split(/\r?\n/).filter(Boolean)) {
+  const match = line.match(/^([0-9a-f]{64})  (.+)$/);
+  check(Boolean(match), `invalid v16.2.4 checksum line: ${line}`);
+  if (!match) continue;
+  const [, expected, file] = match;
+  check(exists(file), `checksum target missing: ${file}`);
+  if (!exists(file)) continue;
+  const actual = crypto.createHash("sha256").update(fs.readFileSync(path.join(root, file))).digest("hex");
+  check(actual === expected, `checksum mismatch: ${file}`);
+}
 
 // A real package lock is preferred, but it must never be fabricated. Until one exists,
 // release workflows intentionally continue to use npm install instead of npm ci.

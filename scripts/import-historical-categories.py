@@ -20,7 +20,7 @@ from pathlib import Path
 from typing import Iterable
 
 from data_pipeline.base import WarehouseImporter
-from data_pipeline.canonical_countries import canonical_country_name, country_name_to_iso3
+from data_pipeline.canonical_countries import canonical_country_name, country_alpha2_to_iso3, country_name_to_iso3
 from data_pipeline.http import HttpClient
 from data_pipeline.models import CandidateDefinition, IndicatorRule, SourceObservation
 from data_pipeline.supabase import SupabaseWarehouse
@@ -30,7 +30,7 @@ UN_MEMBERSHIP_METHOD_URL = "https://www.un.org/en/about-us/about-un-membership"
 CONSTITUTE_SERVICE_URL = "https://www.constituteproject.org/service/constitutions?lang=en&historic=false"
 CONSTITUTE_CONSTITUTIONS_URL = "https://www.constituteproject.org/constitutions"
 CONSTITUTE_DATA_URL = "https://www.constituteproject.org/content/data"
-IPU_API_URL = "https://api.data.ipu.org/v1/parliaments?fields=country_name%2Cdate_of_independence%2Csuffrage%2Cparliament_country&page%5Bnumber%5D=1&page%5Bsize%5D=1000000"
+IPU_API_URL = "https://api.data.ipu.org/v1/parliaments?fields=date_of_independence%2Csuffrage%2Ccountry_code%2Cparliament%2Cparliament_country&page%5Bnumber%5D=1&page%5Bsize%5D=1000000"
 IPU_COMPARE_URL = "https://data.ipu.org/compare/"
 IPU_DATA_DICTIONARY_URL = "https://data.ipu.org/data-dictionary/"
 SNAPSHOT_YEAR = datetime.now(timezone.utc).year
@@ -109,15 +109,19 @@ def parse_constitute_current_constitutions(payload) -> list[tuple[str, int, str]
             continue
         if row.get("in_draft") is True or row.get("is_draft") is True:
             continue
-        country = str(row.get("country") or row.get("country_id") or "").strip()
+        country_id = str(row.get("country_id") or "").strip()
+        country_name = str(row.get("country") or "").strip()
         year_raw = row.get("year_enacted")
-        if not country or year_raw is None or not re.fullmatch(r"\d{4}", str(year_raw).strip()):
+        if (not country_id and not country_name) or year_raw is None or not re.fullmatch(r"\d{4}", str(year_raw).strip()):
             continue
-        iso3 = country_name_to_iso3(country)
+        # Constitute's documented country_id is a stable identifier and is much
+        # closer to a canonical country name than many formal ``country`` labels
+        # (for example, "Afghanistan" vs "The Islamic Republic of Afghanistan").
+        iso3 = country_name_to_iso3(country_id) or country_name_to_iso3(country_name)
         if not iso3:
             continue
         year = int(str(year_raw).strip())
-        record_id = str(row.get("id") or f"{country}:{year}")
+        record_id = str(row.get("id") or f"{country_id or country_name}:{year}")
         prior = current.get(iso3)
         if prior is not None and prior != (year, record_id):
             duplicates.setdefault(iso3, [prior[1]]).append(record_id)
@@ -172,7 +176,7 @@ class UNMembershipImporter(WarehouseImporter):
                 "source_page_url": UN_MEMBER_STATES_URL,
                 "methodology_url": UN_MEMBERSHIP_METHOD_URL,
                 "source_query": {"page": "member-states", "field": "Date of Admission", "population": "current Member States"},
-                "official_unit": "calendar date",
+                "official_unit": "admission date",
                 "measurementType": "historical_date",
                 "historicalValueFormat": "date",
                 "showObservationYear": False,
@@ -266,7 +270,7 @@ class ConstituteImporter(WarehouseImporter):
                 "dataset_release": f"Constitute in-force constitutions snapshot {SNAPSHOT_YEAR}",
                 "retrieved_at": datetime.now(timezone.utc).isoformat(),
                 "derivation_method": "Use year_enacted only for Constitute constitution records explicitly marked in_force=true; omit ambiguous duplicate in-force records.",
-                "derivation_version": "geostats-v16.2.3-constitute-v2",
+                "derivation_version": "geostats-v16.2.3-constitute-v3",
                 "input_datasets": [CONSTITUTE_SERVICE_URL],
             },
         )]
@@ -312,15 +316,23 @@ def parse_ipu_historical_payload(payload) -> dict[str, dict[str, int]]:
         if not isinstance(row, dict):
             continue
         attrs = row.get("attributes") if isinstance(row.get("attributes"), dict) else {}
-        country_attr = attrs.get("country_name") if isinstance(attrs.get("country_name"), dict) else {}
-        country_value = country_attr.get("value")
-        if isinstance(country_value, dict):
-            country_name = str(country_value.get("en") or next(iter(country_value.values()), "")).strip()
-        else:
-            country_name = str(country_value or "").strip()
-        if not country_name:
-            continue
-        iso3 = country_name_to_iso3(country_name)
+        # Current Parline responses identify the country with ISO alpha-2 in
+        # attributes.parliament_country.value (and the Parliament row id).
+        # Keep country_name support as a compatibility fallback for fixtures and
+        # any older API responses.
+        parliament_country = attrs.get("parliament_country") if isinstance(attrs.get("parliament_country"), dict) else {}
+        alpha2 = str(parliament_country.get("value") or row.get("id") or "").strip()
+        iso3 = country_alpha2_to_iso3(alpha2)
+
+        if not iso3:
+            country_attr = attrs.get("country_name") if isinstance(attrs.get("country_name"), dict) else {}
+            country_value = country_attr.get("value")
+            if isinstance(country_value, dict):
+                country_name = str(country_value.get("en") or next(iter(country_value.values()), "")).strip()
+            else:
+                country_name = str(country_value or "").strip()
+            iso3 = country_name_to_iso3(country_name)
+
         if not iso3:
             continue
         values = result.setdefault(iso3, {})
@@ -410,7 +422,7 @@ class IPUHistoricalImporter(WarehouseImporter):
                     "showObservationYear": False, "referenceLabel": "IPU Parline country history",
                     "minimum_year": SNAPSHOT_YEAR, "dataset_release": f"IPU Parline snapshot {SNAPSHOT_YEAR}", "retrieved_at": now,
                     "derivation_method": "Read IPU date_of_independence and retain its year. The source field is explicitly limited to countries independent after 1940.",
-                    "derivation_version": "geostats-v16.2.3-ipu-independence-v1", "input_datasets": [IPU_API_URL],
+                    "derivation_version": "geostats-v16.2.3-ipu-independence-v2", "input_datasets": [IPU_API_URL],
                     "boardDescription": "Year of independence for countries independent after 1940.",
                 },
             ),
@@ -427,7 +439,7 @@ class IPUHistoricalImporter(WarehouseImporter):
                     "showObservationYear": False, "referenceLabel": "IPU Parline women’s suffrage history",
                     "minimum_year": SNAPSHOT_YEAR, "dataset_release": f"IPU Parline snapshot {SNAPSHOT_YEAR}", "retrieved_at": now,
                     "derivation_method": "For each country, choose the earliest IPU national suffrage record explicitly classified as universal.",
-                    "derivation_version": "geostats-v16.2.3-ipu-suffrage-v1", "input_datasets": [IPU_API_URL],
+                    "derivation_version": "geostats-v16.2.3-ipu-suffrage-v2", "input_datasets": [IPU_API_URL],
                     "boardDescription": "Year women first had universal voting rights nationally.",
                 },
             ),
@@ -498,10 +510,6 @@ def main(argv: list[str] | None = None) -> int:
         print(f"Historical import incomplete: {failures}", file=sys.stderr)
         return 1
     return 0
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())
 
 
 if __name__ == "__main__":

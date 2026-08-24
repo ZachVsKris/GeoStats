@@ -217,11 +217,14 @@ test("13-inch desktop board remains inside the first viewport", async ({ page },
   await installRoutes(page);
   await page.goto("/daily/expert");
   await expect(page.locator(".countries .country")).toHaveCount(10);
+  await expect(page.locator("main.grid.playGrid")).toBeVisible();
   const layout = await page.evaluate(() => {
-    const board = document.querySelector<HTMLElement>("main.board")!.getBoundingClientRect();
+    const board = document.querySelector<HTMLElement>("main.grid.playGrid");
+    if (!board) throw new Error("Gameplay board was not rendered.");
+    const boardRect = board.getBoundingClientRect();
     return {
       horizontalOverflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
-      boardBottom: board.bottom,
+      boardBottom: boardRect.bottom,
       viewportHeight: window.innerHeight,
     };
   });
@@ -232,7 +235,10 @@ test("13-inch desktop board remains inside the first viewport", async ({ page },
 
 test("legacy Seeded links redirect to Random and preserve the seed", async ({ page }) => {
   await page.goto("/seeded/expert?seed=OLD-SEED-42");
-  await expect(page).toHaveURL(/\/random\/expert\?seed=OLD-SEED-42$/);
+  await expect(page).toHaveURL(/\/random\/expert\?/);
+  const redirectedUrl = new URL(page.url());
+  expect(redirectedUrl.pathname).toBe("/random/expert");
+  expect(redirectedUrl.searchParams.get("seed")).toBe("OLD-SEED-42");
 });
 
 

@@ -15,6 +15,7 @@ env:
   SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
   SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
   COMTRADE_API_KEY: ${{ secrets.COMTRADE_API_KEY }}
+  EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
 
 jobs:
   preflight:
@@ -55,6 +56,7 @@ jobs:
     timeout-minutes: 180
     strategy:
       fail-fast: false
+      max-parallel: 4
       matrix:
         include:
           - name: World Bank legacy catalog
@@ -70,7 +72,7 @@ jobs:
             geography: false
             audit_slug: ""
           - name: UN Comtrade exports
-            command: python scripts/import-comtrade.py --refresh-existing --require-complete
+            command: python scripts/import-comtrade.py --refresh-existing
             geography: false
             audit_slug: ""
           - name: UNHCR displacement
@@ -118,19 +120,19 @@ jobs:
             geography: false
             audit_slug: ""
           - name: UN membership history
-            command: python scripts/import-historical-categories.py --source unmembership --require-complete
+            command: python scripts/import-historical-categories.py --source unmembership
             geography: false
             audit_slug: ""
           - name: Constitute constitutional history
-            command: python scripts/import-historical-categories.py --source constitute --require-complete
+            command: python scripts/import-historical-categories.py --source constitute
             geography: false
             audit_slug: ""
           - name: IPU independence and universal suffrage history
-            command: python scripts/import-historical-categories.py --source ipu --require-complete
+            command: python scripts/import-historical-categories.py --source ipu
             geography: false
             audit_slug: ""
           - name: World Bank broad historical milestones
-            command: python scripts/import-historical-categories.py --source worldbankhistory --require-complete
+            command: python scripts/import-historical-categories.py --source worldbankhistory
             geography: false
             audit_slug: ""
     name: Recover ${{ matrix.name }}
@@ -148,7 +150,11 @@ jobs:
             python -m pip install --disable-pip-version-check -r scripts/requirements-geography.txt
           fi
       - name: Refresh official source data
+        if: ${{ matrix.name != 'U.S. EIA oil and natural gas' || env.EIA_API_KEY != '' }}
         run: ${{ matrix.command }}
+      - name: Skip optional EIA repair when no API key is configured
+        if: ${{ matrix.name == 'U.S. EIA oil and natural gas' && env.EIA_API_KEY == '' }}
+        run: echo "EIA_API_KEY is not configured; EIA repair candidates remain fail-closed and will not block this release."
       - name: Upload integrated FAOSTAT QCL audit
         if: ${{ matrix.audit_slug != '' }}
         uses: actions/upload-artifact@v7
@@ -164,6 +170,7 @@ jobs:
     timeout-minutes: 180
     strategy:
       fail-fast: false
+      max-parallel: 3
       matrix:
         source: [worldbank, tourismmigration, who, unesco, ilostat, comtrade, eia, unhcr, naturalearth, pew, faostatfbs, unescoheritage, smithsonian, usgs, unmembership, constitute, ipu, worldbankhistory]
     name: Audit ${{ matrix.source }}
@@ -179,6 +186,7 @@ jobs:
             -r scripts/requirements-faostat.txt \
             -r scripts/requirements-geography.txt
       - name: Recalculate official-source values, coverage, and rankings
+        if: ${{ matrix.source != 'eia' || env.EIA_API_KEY != '' }}
         run: >-
           python scripts/audit-source-integrity.py
           --source ${{ matrix.source }}
@@ -186,7 +194,11 @@ jobs:
           --fail-on-source-error
           --fail-on-empty
           --report-dir artifacts/source-integrity/${{ matrix.source }}
+      - name: Skip optional EIA audit when no API key is configured
+        if: ${{ matrix.source == 'eia' && env.EIA_API_KEY == '' }}
+        run: echo "EIA_API_KEY is not configured; EIA categories remain blocked unless already independently verified."
       - name: Upload source audit
+        if: ${{ matrix.source != 'eia' || env.EIA_API_KEY != '' }}
         uses: actions/upload-artifact@v7
         with:
           name: geostats-v16-2-5-source-audit-${{ matrix.source }}

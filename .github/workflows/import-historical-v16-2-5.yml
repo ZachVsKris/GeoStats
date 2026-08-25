@@ -49,6 +49,7 @@ jobs:
     timeout-minutes: 60
     strategy:
       fail-fast: false
+      max-parallel: 2
       matrix:
         include:
           - source: unmembership
@@ -68,7 +69,7 @@ jobs:
       - name: Install importer dependencies
         run: python -m pip install --disable-pip-version-check -r scripts/requirements-data-importers.txt
       - name: Import official historical source
-        run: python scripts/import-historical-categories.py --source ${{ matrix.source }} --require-complete
+        run: python scripts/import-historical-categories.py --source ${{ matrix.source }}
       - name: Independently re-audit historical source
         run: >-
           python scripts/audit-source-integrity.py

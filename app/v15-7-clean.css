@@ -306,22 +306,37 @@
 /* Commit action responds to one intentional tap. */
 .playGrid .lock button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
 
-/* Difficulty-specific desktop proportions and natural, non-stretched card heights. */
+/* Difficulty-specific desktop proportions. The live board fills the remaining viewport
+   and both Country Bank + Atlas stretch to the same bottom edge. */
 @media(min-width:901px){
-  .activePlay .playGrid{min-height:0!important;align-items:start}
-  .activePlay .playGrid .panel{height:auto!important;min-height:0!important}
+  body:has(.shell.activePlay){overflow:hidden}
+  .shell.activePlay{
+    height:100dvh;min-height:0;max-height:100dvh;overflow:hidden;
+    display:flex;flex-direction:column;padding-bottom:12px
+  }
+  .activePlay header,.activePlay .challengeBar,.activePlay .boardNotice{flex:0 0 auto}
+  .activePlay .desktopHero,.activePlay .dataNote{display:none!important}
+  .activePlay .playGrid{
+    flex:1;min-height:0!important;height:auto!important;margin-top:0;
+    align-items:stretch!important;overflow:hidden
+  }
+  .activePlay .playGrid .panel{
+    height:100%!important;min-height:0!important;display:flex;flex-direction:column
+  }
   .activePlay.easyRound .playGrid{grid-template-columns:minmax(250px,.72fr) 18px minmax(0,1.28fr)}
   .activePlay.normalRound .playGrid{grid-template-columns:minmax(360px,.94fr) 18px minmax(0,1.06fr)}
   .activePlay.expertRound .playGrid{grid-template-columns:minmax(460px,1.08fr) 18px minmax(0,.92fr)}
-  .activePlay .bankPanel .countries,.activePlay .boardPanel .slots{overflow:visible!important;flex:none!important}
-  .activePlay.easyRound .bankPanel .countries{grid-template-rows:repeat(2,minmax(78px,auto))}
-  .activePlay.normalRound .bankPanel .countries{grid-template-rows:repeat(2,minmax(78px,auto))}
-  .activePlay.expertRound .bankPanel .countries{grid-template-rows:repeat(2,minmax(78px,auto))}
-  .activePlay.easyRound .boardPanel .slots,.activePlay.normalRound .boardPanel .slots{grid-template-rows:repeat(2,minmax(122px,auto))}
-  .activePlay.expertRound .boardPanel .slots{grid-template-rows:repeat(3,minmax(112px,auto))}
-  .activePlay .country{min-height:78px;padding:11px 14px}
+  .activePlay .bankPanel .countries,.activePlay .boardPanel .slots{
+    flex:1!important;min-height:0!important;overflow:hidden!important
+  }
+  .activePlay.easyRound .bankPanel .countries{grid-template-rows:repeat(2,minmax(0,1fr))}
+  .activePlay.normalRound .bankPanel .countries{grid-template-rows:repeat(2,minmax(0,1fr))}
+  .activePlay.expertRound .bankPanel .countries{grid-template-rows:repeat(2,minmax(0,1fr))}
+  .activePlay.easyRound .boardPanel .slots,.activePlay.normalRound .boardPanel .slots{grid-template-rows:repeat(2,minmax(0,1fr))}
+  .activePlay.expertRound .boardPanel .slots{grid-template-rows:repeat(3,minmax(0,1fr))}
+  .activePlay .country{height:100%;min-height:0;padding:11px 14px}
   .activePlay .country strong{font-size:clamp(14px,1.05vw,17px)!important;overflow-wrap:anywhere}
-  .activePlay.easyRound .country{min-height:84px}
+  .activePlay .boardPanel .slot{height:100%!important;min-height:0;display:flex;flex-direction:column;justify-content:center}
 }
 
 /* Phone: reclaim dead space from the bank/header and spend it on readable category copy. */

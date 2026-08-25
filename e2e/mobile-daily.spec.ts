@@ -286,16 +286,29 @@ test("13-inch desktop board remains inside the first viewport", async ({ page },
   await expect(page.locator("main.grid.playGrid")).toBeVisible();
   const layout = await page.evaluate(() => {
     const board = document.querySelector<HTMLElement>("main.grid.playGrid");
-    if (!board) throw new Error("Gameplay board was not rendered.");
+    const bank = document.querySelector<HTMLElement>(".bankPanel");
+    const atlas = document.querySelector<HTMLElement>(".boardPanel");
+    if (!board || !bank || !atlas) throw new Error("Gameplay board was not rendered.");
     const boardRect = board.getBoundingClientRect();
+    const bankRect = bank.getBoundingClientRect();
+    const atlasRect = atlas.getBoundingClientRect();
     return {
       horizontalOverflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
       boardBottom: boardRect.bottom,
+      boardHeight: boardRect.height,
+      bankBottom: bankRect.bottom,
+      atlasBottom: atlasRect.bottom,
+      bankHeight: bankRect.height,
+      atlasHeight: atlasRect.height,
       viewportHeight: window.innerHeight,
     };
   });
   expect(layout.horizontalOverflow).toBeLessThanOrEqual(1);
   expect(layout.boardBottom).toBeLessThanOrEqual(layout.viewportHeight + 2);
+  expect(layout.viewportHeight - layout.boardBottom).toBeLessThanOrEqual(24);
+  expect(layout.boardHeight).toBeGreaterThan(layout.viewportHeight * 0.65);
+  expect(Math.abs(layout.bankBottom - layout.atlasBottom)).toBeLessThanOrEqual(1);
+  expect(Math.abs(layout.bankHeight - layout.atlasHeight)).toBeLessThanOrEqual(1);
   await page.screenshot({ path: testInfo.outputPath("expert-1440x900.png"), fullPage: true });
 });
 
@@ -374,7 +387,10 @@ test("rules modal scrolls on phone", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 360 });
   await installRoutes(page);
   await page.goto("/daily");
-  await page.getByRole("button", { name: /how it works/i }).first().click();
+  await page.getByLabel("Open game menu").click();
+  const mobileMenu = page.locator(".mobileMenu");
+  await expect(mobileMenu).toHaveAttribute("open", "");
+  await mobileMenu.getByRole("button", { name: /how it works/i }).click();
   const card = page.locator(".rulesModalCard");
   await expect(card).toBeVisible();
   const before = await card.evaluate((element) => ({

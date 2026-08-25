@@ -1866,8 +1866,8 @@ begin
   select count(*)::integer into pending_count
   from public.category_review_state where status='pending';
 
-  select coalesce(daily_random_mismatches,0)::integer into mismatch_count
-  from public.category_catalog_consistency_v16_2;
+  select coalesce(consistency.daily_random_mismatches,0)::integer into mismatch_count
+  from public.category_catalog_consistency_v16_2 as consistency;
 
   select count(*)::integer into rewrite_count
   from public.category_review_state r

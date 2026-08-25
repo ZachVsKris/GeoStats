@@ -51,3 +51,9 @@ v16.2.5 upgrades a verified v16.2.4 database/application. It keeps the v16.2.4 g
 ## Rollback
 
 Preferred rollback is the pre-install Supabase snapshot plus the preserved v16.2.4 repository. `ROLLBACK_V16_2_5.sql` provides a conservative database rollback for the v16.2.5-only catalog-policy layer; it does not delete imported provenance/source data.
+## Recovery credential and timeout notes
+
+`COMTRADE_API_KEY` remains required by the audited catalog recovery preflight. `EIA_API_KEY` is optional: when present, the EIA repair/audit runs; when absent, EIA repair candidates remain blocked and the release continues through the independent audit/finalization gates.
+
+The cumulative installer also installs the Random observation lookup index and function-level statement-timeout headroom used by source validation/reconciliation. Run the latest `RUN_THIS_IN_SUPABASE_FOR_V16_2_5.sql` before rerunning catalog recovery.
+

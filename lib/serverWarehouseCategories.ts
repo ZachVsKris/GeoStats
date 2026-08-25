@@ -355,8 +355,9 @@ type BulkObservationRow = ObservationRow & {
   category_id: string;
 };
 
-const OBSERVATION_PAGE_SIZE = 1000;
-const CATEGORY_CHUNK_SIZE = 80;
+const OBSERVATION_PAGE_SIZE = 750;
+const CATEGORY_CHUNK_SIZE = 32;
+const MAX_PARALLEL_OBSERVATION_LOADS = 4;
 
 function chunks<T>(items: T[], size: number): T[][] {
   const result: T[][] = [];
@@ -418,6 +419,7 @@ export async function fetchServerWarehouseCategories(
 
   async function loadChunk(year: number, categoryIds: string[]) {
     let offset = 0;
+    const stagedRows = new Map<string, BulkObservationRow[]>();
     while (true) {
       const result = await supabase
         .from("stat_observations")
@@ -431,12 +433,20 @@ export async function fetchServerWarehouseCategories(
       if (result.error) throw result.error;
       const rows = (result.data ?? []) as BulkObservationRow[];
       for (const row of rows) {
-        const categoryRows = rowsByCategory.get(row.category_id) ?? [];
+        const categoryRows = stagedRows.get(row.category_id) ?? [];
         categoryRows.push(row);
-        rowsByCategory.set(row.category_id, categoryRows);
+        stagedRows.set(row.category_id, categoryRows);
       }
       if (rows.length < OBSERVATION_PAGE_SIZE) break;
       offset += OBSERVATION_PAGE_SIZE;
+    }
+
+    // Merge only after the complete chunk succeeds. If a later page times out,
+    // the resilient split retries the chunk without duplicating earlier pages.
+    for (const [categoryId, rows] of stagedRows) {
+      const existing = rowsByCategory.get(categoryId) ?? [];
+      existing.push(...rows);
+      rowsByCategory.set(categoryId, existing);
     }
   }
 
@@ -467,13 +477,30 @@ export async function fetchServerWarehouseCategories(
     }
   }
 
-  const tasks: Promise<void>[] = [];
+  const tasks: Array<() => Promise<void>> = [];
   for (const [year, yearCategories] of grouped) {
     for (const categoryChunk of chunks(yearCategories, CATEGORY_CHUNK_SIZE)) {
-      tasks.push(loadChunkResilient(year, categoryChunk.map((category) => category.id)));
+      tasks.push(() => loadChunkResilient(year, categoryChunk.map((category) => category.id)));
     }
   }
-  await Promise.all(tasks);
+
+  // A cold Random cache used to launch every year/chunk query simultaneously.
+  // On the hosted database that can exhaust the statement budget and cause the
+  // very cache rebuild that should make later Random requests fast to fail.
+  // Keep a small bounded pool instead; the per-query work is also smaller now.
+  let nextTask = 0;
+  async function worker() {
+    while (true) {
+      const index = nextTask;
+      nextTask += 1;
+      if (index >= tasks.length) return;
+      await tasks[index]();
+    }
+  }
+  await Promise.all(Array.from(
+    { length: Math.min(MAX_PARALLEL_OBSERVATION_LOADS, tasks.length) },
+    () => worker(),
+  ));
 
   const datasets: CategoryDataset[] = [];
   for (const category of eligible) {

@@ -185,9 +185,9 @@ const mobileCases = [
   { width: 414, height: 896 },
 ];
 const modes = [
-  { difficulty: "easy" as const, path: "/daily", countries: 4, categories: 4 },
-  { difficulty: "normal" as const, path: "/daily/adventurer", countries: 6, categories: 4 },
-  { difficulty: "expert" as const, path: "/daily/expert", countries: 8, categories: 6 },
+  { difficulty: "easy" as const, path: "/daily", countries: 4, categories: 4, minBankHeight: 72, minCountryCardHeight: 66 },
+  { difficulty: "normal" as const, path: "/daily/adventurer", countries: 6, categories: 4, minBankHeight: 90, minCountryCardHeight: 40 },
+  { difficulty: "expert" as const, path: "/daily/expert", countries: 8, categories: 6, minBankHeight: 98, minCountryCardHeight: 44 },
 ];
 
 for (const viewport of mobileCases) {
@@ -206,6 +206,7 @@ for (const viewport of mobileCases) {
         const countryRects = [...document.querySelectorAll<HTMLElement>(".countries .country")].map((item) => item.getBoundingClientRect());
         const slots = [...document.querySelectorAll<HTMLElement>(".slots .slot")];
         const slotRects = slots.map((item) => item.getBoundingClientRect());
+        const choiceRects = slots.map((item) => item.querySelector<HTMLElement>(".choice")!.getBoundingClientRect());
         const descriptions = [...document.querySelectorAll<HTMLElement>(".slots .category small")];
         const descriptionsUnclipped = descriptions.every((item) => {
           const style = getComputedStyle(item);
@@ -228,6 +229,12 @@ for (const viewport of mobileCases) {
           lockAfterCards: lockRect.top >= lastSlotRect.bottom - 2,
           lockVisible: lockRect.bottom <= window.innerHeight + 1,
           countryRows: new Set(countryRects.map((rect) => Math.round(rect.top))).size,
+          countryBankHeight: bankRect.height,
+          minCountryCardHeight: Math.min(...countryRects.map((rect) => rect.height)),
+          choiceRowsAligned: [...new Set(slotRects.map((rect) => Math.round(rect.top)))].every((rowTop) => {
+            const tops = choiceRects.filter((_, index) => Math.round(slotRects[index].top) === rowTop).map((rect) => rect.top);
+            return tops.length < 2 || Math.max(...tops) - Math.min(...tops) <= 1;
+          }),
           descriptionsUnclipped,
         };
       });
@@ -237,6 +244,9 @@ for (const viewport of mobileCases) {
       expect(layout.allSlotsVisible).toBeTruthy();
       expect(layout.slotColumns).toBe(2);
       expect(layout.countryRows).toBeLessThanOrEqual(2);
+      expect(layout.countryBankHeight).toBeGreaterThanOrEqual(mode.minBankHeight);
+      expect(layout.minCountryCardHeight).toBeGreaterThanOrEqual(mode.minCountryCardHeight);
+      expect(layout.choiceRowsAligned).toBeTruthy();
       expect(layout.descriptionsUnclipped).toBeTruthy();
       expect(["static", "relative"]).toContain(layout.lockPosition);
       expect(layout.lockAfterCards).toBeTruthy();
@@ -299,6 +309,9 @@ test("13-inch Adventurer and Expert boards use tall two-column country banks", a
       const bankRect = bank.getBoundingClientRect();
       const atlasRect = atlas.getBoundingClientRect();
       const countryRects = countryCards.map((card) => card.getBoundingClientRect());
+      const slots = Array.from(document.querySelectorAll<HTMLElement>(".boardPanel .slot"));
+      const slotRects = slots.map((slot) => slot.getBoundingClientRect());
+      const choiceRects = slots.map((slot) => slot.querySelector<HTMLElement>(".choice")!.getBoundingClientRect());
       return {
         horizontalOverflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
         boardBottom: boardRect.bottom,
@@ -312,6 +325,10 @@ test("13-inch Adventurer and Expert boards use tall two-column country banks", a
         viewportHeight: window.innerHeight,
         countryColumns: new Set(countryRects.map((rect) => Math.round(rect.left))).size,
         countryRows: new Set(countryRects.map((rect) => Math.round(rect.top))).size,
+        choiceRowsAligned: [...new Set(slotRects.map((rect) => Math.round(rect.top)))].every((rowTop) => {
+          const tops = choiceRects.filter((_, index) => Math.round(slotRects[index].top) === rowTop).map((rect) => rect.top);
+          return tops.length < 2 || Math.max(...tops) - Math.min(...tops) <= 1;
+        }),
         countryLabelsContained: Array.from(document.querySelectorAll<HTMLElement>(".bankPanel .country strong")).every((label) => {
           const labelRect = label.getBoundingClientRect();
           const cardRect = label.closest<HTMLElement>(".country")?.getBoundingClientRect();
@@ -329,6 +346,7 @@ test("13-inch Adventurer and Expert boards use tall two-column country banks", a
     expect(layout.atlasWidth).toBeGreaterThan(layout.bankWidth);
     expect(layout.countryColumns).toBe(2);
     expect(layout.countryRows).toBe(mode.countryRows);
+    expect(layout.choiceRowsAligned).toBeTruthy();
     expect(layout.countryLabelsContained).toBeTruthy();
     await page.screenshot({ path: testInfo.outputPath(`${mode.name}-1440x900.png`), fullPage: true });
   }

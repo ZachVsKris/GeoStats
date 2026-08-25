@@ -61,7 +61,7 @@ MIN_COMMON_YEAR_ALIGNMENT = 0.85
 MIN_DOCUMENTED_SHARE = 0.75
 MIN_CLUSTERING_SCORE = 65
 MIN_STABILITY_SCORE = 50
-BATCH_SIZE = 400
+BATCH_SIZE = 25
 
 # 193 UN members plus the Holy See and State of Palestine.
 UN_ISO3 = {
@@ -151,7 +151,7 @@ class SupabaseRest:
         payload: Any | None = None,
         *,
         prefer: str | None = None,
-        timeout: int = 120,
+        timeout: int = 180,
     ) -> Any:
         url = self.base + path
         body = None if payload is None else json.dumps(payload, separators=(",", ":")).encode()

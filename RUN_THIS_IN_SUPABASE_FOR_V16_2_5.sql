@@ -1,6 +1,6 @@
--- GeoStats v16.2.4 cumulative Supabase installer
--- Baseline: verified v16.2.3. This file includes the complete v16.2.3 installer
--- followed by the v16.2.4 migration. Take a database snapshot before running.
+-- GeoStats v16.2.5 cumulative Supabase installer
+-- Baseline: verified v16.2.4. This file contains the cumulative prerequisite SQL
+-- followed by the v16.2.5 migration. Take a database snapshot before running.
 
 -- GeoStats v16.2.2: catalog cleanup, historical categories, measurement-type UI metadata,
 -- clearer admin blockers, and permanent Daily publication dependency repair.
@@ -1955,6 +1955,12 @@ commit;
 -- curated catalog expansion targets, and fail-closed repair tracking.
 begin;
 
+-- Random boards rebuild a cached cross-category warehouse snapshot after a
+-- deployment or catalog invalidation. Match that lookup exactly so filtering
+-- by category + common year and ordering by country stays index-backed.
+create index if not exists stat_observations_category_year_country_v16_2_5_idx
+  on public.stat_observations(category_id,data_year,country_iso3);
+
 create table if not exists public.category_release_targets_v16_2_5(
   target_key text primary key,
   track text not null check(track in ('promote','repair')),
@@ -2401,6 +2407,14 @@ end;
 $$;
 revoke all on function public.finalize_v16_2_catalog() from public,anon,authenticated;
 grant execute on function public.finalize_v16_2_catalog() to service_role;
+
+-- Recovery hardening: source validation and catalog reconciliation are intentionally
+-- allowed more time than Supabase's short API-role statement timeout. These functions
+-- remain fail-closed; this changes execution headroom, not any quality gate.
+alter function public.record_category_validation(text,text,text,integer,integer,integer,integer,integer,integer,text,text,jsonb,text,jsonb,bigint)
+  set statement_timeout='120s';
+alter function public.reconcile_category_playability_v15()
+  set statement_timeout='180s';
 
 select public.apply_v16_2_5_catalog_curation();
 select public.refresh_measurement_types_v16_2_2();

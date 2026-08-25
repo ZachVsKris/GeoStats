@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import time
 from typing import Any, Iterable
 from urllib.error import HTTPError
 from urllib.parse import quote
@@ -8,7 +9,7 @@ from urllib.request import Request, urlopen
 
 
 class SupabaseWarehouse:
-    def __init__(self, url: str, key: str, *, timeout: int = 120) -> None:
+    def __init__(self, url: str, key: str, *, timeout: int = 180) -> None:
         self.base = url.rstrip("/")
         self.key = key
         self.timeout = timeout
@@ -174,7 +175,18 @@ class SupabaseWarehouse:
         return [dict(row) for row in rows] if isinstance(rows, list) else []
 
     def record_category_validation(self, category_id: str, result: Any, *, run_id: int | None = None) -> None:
-        self._request("POST", "rpc/record_category_validation", result.rpc_payload(category_id, run_id=run_id))
+        payload = result.rpc_payload(category_id, run_id=run_id)
+        for attempt in range(3):
+            try:
+                self._request("POST", "rpc/record_category_validation", payload)
+                return
+            except RuntimeError as error:
+                # 57014 is PostgreSQL query_canceled, normally a statement timeout.
+                # Validation writes are idempotent for catalog state; a later result row
+                # is acceptable and the category remains fail-closed until one succeeds.
+                if "57014" not in str(error) or attempt == 2:
+                    raise
+                time.sleep(2 ** attempt)
 
     def create_validation_run(self, source_organization: str | None, validation_version: str, details: dict[str, Any]) -> int:
         rows = self._request(
@@ -246,7 +258,14 @@ class SupabaseWarehouse:
 
     def reconcile_category_playability_v15(self) -> Any:
         """Refresh runtime booleans from the authoritative v15 review policy."""
-        return self._request("POST", "rpc/reconcile_category_playability_v15", {})
+        for attempt in range(3):
+            try:
+                return self._request("POST", "rpc/reconcile_category_playability_v15", {})
+            except RuntimeError as error:
+                if "57014" not in str(error) or attempt == 2:
+                    raise
+                time.sleep(2 ** attempt)
+        return None
 
     def finalize_v16_catalog(self, *, release_version: str = "16.2.5") -> Any:
         """Publish only through the guarded v16.2.x finalizer for the requested release."""

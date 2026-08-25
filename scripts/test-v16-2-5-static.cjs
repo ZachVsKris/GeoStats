@@ -54,9 +54,12 @@ check(tabIndex >= 0 && scoreIndex > tabIndex, "results difficulty switcher is no
 const css = read("app/v15-7-clean.css");
 for (const token of [
   "GeoStats v16.2.5","body:has(.shell.activePlay){overflow:hidden}",
-  ".activePlay.easyRound .playGrid{grid-template-rows:48px",
-  ".activePlay.normalRound .playGrid{grid-template-rows:66px",
-  ".activePlay.expertRound .playGrid{grid-template-rows:70px",
+  ".activePlay.easyRound .playGrid{grid-template-rows:90px",
+  ".activePlay.normalRound .playGrid{grid-template-rows:116px",
+  ".activePlay.expertRound .playGrid{grid-template-rows:124px",
+  ".activePlay.easyRound .playGrid{grid-template-rows:78px",
+  ".activePlay.normalRound .playGrid{grid-template-rows:96px",
+  ".activePlay.expertRound .playGrid{grid-template-rows:104px",
   ".activePlay.easyRound .playGrid{grid-template-columns:minmax(250px,.72fr)",
   ".activePlay.normalRound .playGrid{grid-template-columns:minmax(310px,.78fr)",
   ".activePlay.expertRound .playGrid{grid-template-columns:minmax(320px,.76fr)",
@@ -86,13 +89,27 @@ for (const token of [
 check((migration.match(/\('promote:/g) || []).length === 33, "migration does not register exactly 33 promotion targets");
 check((migration.match(/\('repair:/g) || []).length === 30, "migration does not register exactly 30 repair targets");
 check(!migration.toLowerCase().includes("random_only") && !migration.toLowerCase().includes("random-only"), "Random-only tier was reintroduced");
+check(migration.includes("stat_observations_category_year_country_v16_2_5_idx") && migration.includes("category_id,data_year,country_iso3"), "Random observation lookup index is missing");
+check(migration.includes("record_category_validation(text,text,text,integer,integer,integer,integer,integer,integer,text,text,jsonb,text,jsonb,bigint)") && migration.includes("statement_timeout=\'120s\'"), "validation RPC timeout hardening missing");
+check(migration.includes("reconcile_category_playability_v15()") && migration.includes("statement_timeout=\'180s\'"), "reconciliation RPC timeout hardening missing");
+
+const serverCatalog = read("lib/serverPlayableCatalog.ts");
+check(serverCatalog.includes('eq("computed_playable_v16_2", true)') && serverCatalog.includes("loadCachedPlayableRows"), "Random catalog cold-load still materializes the full review registry");
+const warehouseLoader = read("lib/serverWarehouseCategories.ts");
+for (const token of ["CATEGORY_CHUNK_SIZE = 32","MAX_PARALLEL_OBSERVATION_LOADS = 4","stagedRows","tasks: Array<() => Promise<void>>"]) check(warehouseLoader.includes(token), `Random warehouse timeout hardening missing ${token}`);
 
 const workflow = read(".github/workflows/verify-v16.yml");
 check(workflow.includes("Verify GeoStats v16.2.5") && workflow.includes("npm run test-v16-2-5") && workflow.includes("npm ci"), "Verify workflow is not locked to v16.2.5/npm ci");
 const recovery = read(".github/workflows/import-v16-expansion.yml");
-for (const token of ["Recover v16.2.5 audited catalog","tourismmigration","unescoheritage","ILOSTAT repair candidates","U.S. EIA oil and natural gas","--release-version 16.2.5"]) check(recovery.includes(token), `v16.2.5 recovery workflow missing ${token}`);
+for (const token of ["Recover v16.2.5 audited catalog","tourismmigration","unescoheritage","ILOSTAT repair candidates","U.S. EIA oil and natural gas","--release-version 16.2.5","max-parallel: 4","max-parallel: 3","EIA_API_KEY","Skip optional EIA repair","Skip optional EIA audit"]) check(recovery.includes(token), `v16.2.5 recovery workflow missing ${token}`);
+check(!recovery.includes("import-comtrade.py --refresh-existing --require-complete"), "Comtrade recovery still requires all optional candidates to succeed");
+check(!recovery.includes("import-historical-categories.py --source worldbankhistory --require-complete"), "historical recovery still blocks on optional repair failure");
+const faostatImporter = read("scripts/import-faostat.py");
+check(faostatImporter.includes("BATCH_SIZE = 25"), "FAOSTAT category upsert batch was not reduced");
+const supabaseWarehouse = read("scripts/data_pipeline/supabase.py");
+check(supabaseWarehouse.includes("timeout: int = 180") && supabaseWarehouse.includes("\"57014\"") && supabaseWarehouse.includes("for attempt in range(3)"), "importer Supabase validation/reconciliation retry hardening missing");
 const historyWorkflow = read(".github/workflows/import-historical-v16-2-5.yml");
-check(historyWorkflow.includes("worldbankhistory") && historyWorkflow.includes("--release-version 16.2.5"), "historical workflow is not v16.2.5 guarded");
+check(historyWorkflow.includes("worldbankhistory") && historyWorkflow.includes("--release-version 16.2.5") && historyWorkflow.includes("max-parallel: 2") && !historyWorkflow.includes("--require-complete"), "historical workflow is not v16.2.5 guarded/resilient");
 
 const e2e = read("e2e/mobile-daily.spec.ts");
 for (const token of ["countries: 4, categories: 4","countries: 6, categories: 4","countries: 8, categories: 6","document.documentElement.scrollHeight","one touch","rules modal","preserves the Random seed"]) check(e2e.toLowerCase().includes(token.toLowerCase()), `E2E coverage missing ${token}`);

@@ -73,3 +73,19 @@ The seven-day Daily country-exposure preference from v16.2.4 is preserved.
 ## Release automation
 
 The committed `package-lock.json` is now part of the release tree and v16.2.5 workflows use `npm ci`. The obsolete v16.2.4 lock-generation workflow is removed. Verify, audited catalog recovery, and historical-finalization workflows are all version-guarded to v16.2.5.
+## Recovery and Random-load hardening
+
+Late release validation identified two operational bottlenecks that did not change gameplay rules but could prevent healthy production operation. v16.2.5 now:
+
+- increases the mobile Country Bank height while shrinking unused Atlas-card interior space; desktop geometry is unchanged;
+- cold-loads Random from only the playable runtime catalog, fetches observation rows in smaller chunks, caps concurrent observation reads, and installs a matching `(category_id, data_year, country_iso3)` index;
+- reduces FAOSTAT category upsert batches from 400 to 25 rows;
+- limits recovery/audit matrix concurrency to reduce Supabase contention;
+- gives `record_category_validation` and `reconcile_category_playability_v15` explicit longer function-level statement timeouts plus targeted retries for PostgreSQL `57014` cancellations while preserving fail-closed validation;
+- treats optional Comtrade/historical repair misses as partial recovery rather than failing the entire release before the independent audit/finalizer can decide playability; and
+- wires `EIA_API_KEY` into recovery when configured, while cleanly skipping optional EIA repair/audit when it is absent so those candidates simply remain blocked.
+
+These changes do not relax source, ranking, coverage, or gameplay gates.
+
+
+- Category placement controls are row-aligned so adjacent `Select a country` boxes stay at the same vertical position even when titles/descriptions wrap differently.

@@ -124,3 +124,13 @@ Before packaging:
 - generate `SHA256SUMS_V16_2_5.txt` for every manifest file except the checksum file itself;
 - run the static checksum verifier; and
 - extract the release ZIP and byte-compare its files to the clean release tree.
+## Recovery resilience and Random-load regression checks
+
+- FAOSTAT category upserts use small batches and complete without a Supabase statement timeout.
+- Recovery matrix concurrency is capped; the audit matrix is capped more tightly.
+- `record_category_validation` exposes `statement_timeout=120s`; `reconcile_category_playability_v15` exposes `statement_timeout=180s`, and importer calls retry transient PostgreSQL `57014` cancellations.
+- Comtrade and historical import attempts may complete partially, but failed candidates remain blocked and the subsequent source audit/finalizer still controls publication.
+- EIA recovery/audit runs only when `EIA_API_KEY` is configured; otherwise the workflow succeeds with EIA repair candidates left fail-closed.
+- Random cold loads query only playable catalog rows, use 32-category observation chunks with at most four concurrent loads, and the observation lookup index exists.
+- Phone Country Bank minimum heights are increased for Scout/Adventurer/Expert while all countries, categories, selectors, and Lock in Draft remain inside the supported no-scroll viewport. Desktop layout must remain unchanged.
+

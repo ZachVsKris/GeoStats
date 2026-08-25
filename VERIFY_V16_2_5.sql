@@ -63,7 +63,9 @@ with consistency as (
     to_regprocedure('public.publish_daily_trio_v16(date,jsonb)') is not null as rpc_exists,
     has_function_privilege('service_role','public.publish_daily_trio_v16(date,jsonb)','EXECUTE') as service_role_execute,
     coalesce((select array_to_string(p.proconfig, ', ') from pg_proc p where p.oid=to_regprocedure('public.publish_daily_trio_v16(date,jsonb)')),'') as rpc_config,
-    coalesce((select n.nspname from pg_extension e join pg_namespace n on n.oid=e.extnamespace where e.extname='pgcrypto'),'') as pgcrypto_schema
+    coalesce((select n.nspname from pg_extension e join pg_namespace n on n.oid=e.extnamespace where e.extname='pgcrypto'),'') as pgcrypto_schema,
+    coalesce((select array_to_string(p.proconfig, ', ') from pg_proc p where p.oid=to_regprocedure('public.record_category_validation(text,text,text,integer,integer,integer,integer,integer,integer,text,text,jsonb,text,jsonb,bigint)')),'') as validation_rpc_config,
+    coalesce((select array_to_string(p.proconfig, ', ') from pg_proc p where p.oid=to_regprocedure('public.reconcile_category_playability_v15()')),'') as reconcile_rpc_config
 ), checks as (
   select 'World Bank usable audits >= 300' as check_name,case when world_bank_audited>=300 then 'PASS' else 'FAIL' end result,world_bank_audited::text observed from recovery
   union all select 'FAOSTAT QCL verified >= 25',case when faostat_qcl_audited>=25 then 'PASS' else 'FAIL' end,faostat_qcl_audited::text from recovery
@@ -96,5 +98,8 @@ with consistency as (
   union all select 'service_role can publish Daily',case when service_role_execute then 'PASS' else 'FAIL' end,service_role_execute::text from rpc
   union all select 'Daily RPC can resolve pgcrypto schema',case when pgcrypto_schema<>'' and rpc_config ilike '%'||pgcrypto_schema||'%' then 'PASS' else 'FAIL' end,rpc_config from rpc
   union all select 'Playable categories have measurement types',case when count(*) filter(where computed_playable_v16_2 and measurement_type is null)=0 then 'PASS' else 'FAIL' end,(count(*) filter(where computed_playable_v16_2 and measurement_type is null))::text from runtime
+  union all select 'Random observation lookup index installed',case when to_regclass('public.stat_observations_category_year_country_v16_2_5_idx') is not null then 'PASS' else 'FAIL' end,coalesce(to_regclass('public.stat_observations_category_year_country_v16_2_5_idx')::text,'missing')
+  union all select 'Validation RPC timeout headroom installed',case when validation_rpc_config ilike '%statement_timeout=120s%' then 'PASS' else 'FAIL' end,validation_rpc_config from rpc
+  union all select 'Reconciliation RPC timeout headroom installed',case when reconcile_rpc_config ilike '%statement_timeout=180s%' then 'PASS' else 'FAIL' end,reconcile_rpc_config from rpc
 )
 select * from checks order by check_name;

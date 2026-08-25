@@ -300,7 +300,14 @@ test("13-inch desktop board remains inside the first viewport", async ({ page },
       atlasBottom: atlasRect.bottom,
       bankHeight: bankRect.height,
       atlasHeight: atlasRect.height,
+      bankWidth: bankRect.width,
+      atlasWidth: atlasRect.width,
       viewportHeight: window.innerHeight,
+      countryLabelsContained: Array.from(document.querySelectorAll<HTMLElement>(".bankPanel .country strong")).every((label) => {
+        const labelRect = label.getBoundingClientRect();
+        const cardRect = label.closest<HTMLElement>(".country")?.getBoundingClientRect();
+        return Boolean(cardRect) && labelRect.left >= cardRect!.left - 1 && labelRect.right <= cardRect!.right + 1 && labelRect.top >= cardRect!.top - 1 && labelRect.bottom <= cardRect!.bottom + 1;
+      }),
     };
   });
   expect(layout.horizontalOverflow).toBeLessThanOrEqual(1);
@@ -309,6 +316,9 @@ test("13-inch desktop board remains inside the first viewport", async ({ page },
   expect(layout.boardHeight).toBeGreaterThan(layout.viewportHeight * 0.65);
   expect(Math.abs(layout.bankBottom - layout.atlasBottom)).toBeLessThanOrEqual(1);
   expect(Math.abs(layout.bankHeight - layout.atlasHeight)).toBeLessThanOrEqual(1);
+  expect(layout.bankWidth / (layout.bankWidth + layout.atlasWidth)).toBeLessThan(0.45);
+  expect(layout.atlasWidth).toBeGreaterThan(layout.bankWidth);
+  expect(layout.countryLabelsContained).toBeTruthy();
   await page.screenshot({ path: testInfo.outputPath("expert-1440x900.png"), fullPage: true });
 });
 

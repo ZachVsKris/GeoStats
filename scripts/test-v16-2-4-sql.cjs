@@ -49,6 +49,15 @@ function validateSqlLexically(name, sql) {
 
 for (const file of files) validateSqlLexically(file, fs.readFileSync(path.join(root, file), "utf8"));
 const installer = fs.readFileSync(path.join(root, "RUN_THIS_IN_SUPABASE_FOR_V16_2_4.sql"), "utf8");
+const migration164 = fs.readFileSync(path.join(root, "supabase/migrations/045_v16_2_4_modes_variety_history.sql"), "utf8");
+for (const [name, sql] of [["RUN_THIS_IN_SUPABASE_FOR_V16_2_4.sql", installer], ["045_v16_2_4_modes_variety_history.sql", migration164]]) {
+  if (/select\s+coalesce\(daily_random_mismatches\s*,/i.test(sql)) {
+    throw new Error(`${name}: assert_v16_2_4_release must qualify category_catalog_consistency_v16_2.daily_random_mismatches to avoid PL/pgSQL output-parameter ambiguity`);
+  }
+  if (!/coalesce\(consistency\.daily_random_mismatches\s*,\s*0\)/i.test(sql) || !/from\s+public\.category_catalog_consistency_v16_2\s+as\s+consistency/i.test(sql)) {
+    throw new Error(`${name}: missing qualified Daily/Random consistency lookup in assert_v16_2_4_release`);
+  }
+}
 for (const migration of [
   "supabase/migrations/044_v16_2_3_reliability_performance_history.sql",
   "supabase/migrations/045_v16_2_4_modes_variety_history.sql",

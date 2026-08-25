@@ -278,48 +278,60 @@ test("same-day v16.2.3 Daily boards remain fully visible on phone", async ({ pag
   }
 });
 
-test("13-inch desktop board remains inside the first viewport", async ({ page }, testInfo) => {
+test("13-inch Adventurer and Expert boards use tall two-column country banks", async ({ page }, testInfo) => {
   await page.setViewportSize({ width: 1440, height: 900 });
   await installRoutes(page);
-  await page.goto("/daily/expert");
-  await expect(page.locator(".countries .country")).toHaveCount(8);
-  await expect(page.locator("main.grid.playGrid")).toBeVisible();
-  const layout = await page.evaluate(() => {
-    const board = document.querySelector<HTMLElement>("main.grid.playGrid");
-    const bank = document.querySelector<HTMLElement>(".bankPanel");
-    const atlas = document.querySelector<HTMLElement>(".boardPanel");
-    if (!board || !bank || !atlas) throw new Error("Gameplay board was not rendered.");
-    const boardRect = board.getBoundingClientRect();
-    const bankRect = bank.getBoundingClientRect();
-    const atlasRect = atlas.getBoundingClientRect();
-    return {
-      horizontalOverflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
-      boardBottom: boardRect.bottom,
-      boardHeight: boardRect.height,
-      bankBottom: bankRect.bottom,
-      atlasBottom: atlasRect.bottom,
-      bankHeight: bankRect.height,
-      atlasHeight: atlasRect.height,
-      bankWidth: bankRect.width,
-      atlasWidth: atlasRect.width,
-      viewportHeight: window.innerHeight,
-      countryLabelsContained: Array.from(document.querySelectorAll<HTMLElement>(".bankPanel .country strong")).every((label) => {
-        const labelRect = label.getBoundingClientRect();
-        const cardRect = label.closest<HTMLElement>(".country")?.getBoundingClientRect();
-        return Boolean(cardRect) && labelRect.left >= cardRect!.left - 1 && labelRect.right <= cardRect!.right + 1 && labelRect.top >= cardRect!.top - 1 && labelRect.bottom <= cardRect!.bottom + 1;
-      }),
-    };
-  });
-  expect(layout.horizontalOverflow).toBeLessThanOrEqual(1);
-  expect(layout.boardBottom).toBeLessThanOrEqual(layout.viewportHeight + 2);
-  expect(layout.viewportHeight - layout.boardBottom).toBeLessThanOrEqual(24);
-  expect(layout.boardHeight).toBeGreaterThan(layout.viewportHeight * 0.65);
-  expect(Math.abs(layout.bankBottom - layout.atlasBottom)).toBeLessThanOrEqual(1);
-  expect(Math.abs(layout.bankHeight - layout.atlasHeight)).toBeLessThanOrEqual(1);
-  expect(layout.bankWidth / (layout.bankWidth + layout.atlasWidth)).toBeLessThan(0.45);
-  expect(layout.atlasWidth).toBeGreaterThan(layout.bankWidth);
-  expect(layout.countryLabelsContained).toBeTruthy();
-  await page.screenshot({ path: testInfo.outputPath("expert-1440x900.png"), fullPage: true });
+
+  for (const mode of [
+    { name: "adventurer", path: "/daily/adventurer", countries: 6, countryRows: 3 },
+    { name: "expert", path: "/daily/expert", countries: 8, countryRows: 4 },
+  ]) {
+    await page.goto(mode.path);
+    await expect(page.locator(".countries .country")).toHaveCount(mode.countries);
+    await expect(page.locator("main.grid.playGrid")).toBeVisible();
+    const layout = await page.evaluate(() => {
+      const board = document.querySelector<HTMLElement>("main.grid.playGrid");
+      const bank = document.querySelector<HTMLElement>(".bankPanel");
+      const atlas = document.querySelector<HTMLElement>(".boardPanel");
+      const countryCards = Array.from(document.querySelectorAll<HTMLElement>(".bankPanel .country"));
+      if (!board || !bank || !atlas) throw new Error("Gameplay board was not rendered.");
+      const boardRect = board.getBoundingClientRect();
+      const bankRect = bank.getBoundingClientRect();
+      const atlasRect = atlas.getBoundingClientRect();
+      const countryRects = countryCards.map((card) => card.getBoundingClientRect());
+      return {
+        horizontalOverflow: Math.max(document.documentElement.scrollWidth, document.body.scrollWidth) - window.innerWidth,
+        boardBottom: boardRect.bottom,
+        boardHeight: boardRect.height,
+        bankBottom: bankRect.bottom,
+        atlasBottom: atlasRect.bottom,
+        bankHeight: bankRect.height,
+        atlasHeight: atlasRect.height,
+        bankWidth: bankRect.width,
+        atlasWidth: atlasRect.width,
+        viewportHeight: window.innerHeight,
+        countryColumns: new Set(countryRects.map((rect) => Math.round(rect.left))).size,
+        countryRows: new Set(countryRects.map((rect) => Math.round(rect.top))).size,
+        countryLabelsContained: Array.from(document.querySelectorAll<HTMLElement>(".bankPanel .country strong")).every((label) => {
+          const labelRect = label.getBoundingClientRect();
+          const cardRect = label.closest<HTMLElement>(".country")?.getBoundingClientRect();
+          return Boolean(cardRect) && labelRect.left >= cardRect!.left - 1 && labelRect.right <= cardRect!.right + 1 && labelRect.top >= cardRect!.top - 1 && labelRect.bottom <= cardRect!.bottom + 1;
+        }),
+      };
+    });
+    expect(layout.horizontalOverflow).toBeLessThanOrEqual(1);
+    expect(layout.boardBottom).toBeLessThanOrEqual(layout.viewportHeight + 2);
+    expect(layout.viewportHeight - layout.boardBottom).toBeLessThanOrEqual(24);
+    expect(layout.boardHeight).toBeGreaterThan(layout.viewportHeight * 0.65);
+    expect(Math.abs(layout.bankBottom - layout.atlasBottom)).toBeLessThanOrEqual(1);
+    expect(Math.abs(layout.bankHeight - layout.atlasHeight)).toBeLessThanOrEqual(1);
+    expect(layout.bankWidth / (layout.bankWidth + layout.atlasWidth)).toBeLessThan(0.45);
+    expect(layout.atlasWidth).toBeGreaterThan(layout.bankWidth);
+    expect(layout.countryColumns).toBe(2);
+    expect(layout.countryRows).toBe(mode.countryRows);
+    expect(layout.countryLabelsContained).toBeTruthy();
+    await page.screenshot({ path: testInfo.outputPath(`${mode.name}-1440x900.png`), fullPage: true });
+  }
 });
 
 test("legacy Seeded links redirect to Random and preserve the seed", async ({ page }) => {

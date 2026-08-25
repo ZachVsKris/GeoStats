@@ -58,7 +58,10 @@ for (const token of [
   ".activePlay.normalRound .playGrid{grid-template-rows:66px",
   ".activePlay.expertRound .playGrid{grid-template-rows:70px",
   ".activePlay.easyRound .playGrid{grid-template-columns:minmax(250px,.72fr)",
-  ".activePlay.expertRound .playGrid{grid-template-columns:minmax(460px,1.08fr)",
+  ".activePlay.normalRound .playGrid{grid-template-columns:minmax(310px,.78fr)",
+  ".activePlay.expertRound .playGrid{grid-template-columns:minmax(320px,.76fr)",
+  ".activePlay.normalRound .bankPanel .countries{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr))}",
+  ".activePlay.expertRound .bankPanel .countries{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(4,minmax(0,1fr))}",
   ".rulesModalCard","touch-action:pan-y",
   ".seedControls .seedField input{width:18ch",
 ]) check(css.includes(token), `responsive/UI CSS missing ${token}`);

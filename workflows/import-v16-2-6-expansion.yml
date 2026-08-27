@@ -1,0 +1,190 @@
+name: Import v16.2.6 validated expansion and finalize
+
+on:
+  workflow_dispatch:
+    inputs:
+      family:
+        description: "Source family to run. 'all' runs self-fetching sources plus any supplied official bulk URLs."
+        required: true
+        default: all
+        type: choice
+        options: [all, naturalearth, constitute, ipu, unwpp, worldbankclimate, naturalearthcapitals, unescoich, imfweo, noaatsunami, aquastat, faofisheries, usgsminerals, whoghed, undesamigrant, wtoservices, untourismdirect]
+      imf_weo_url:
+        description: "Optional official IMF WEO April 2026 CSV/TSV URL for IMF import/audit"
+        required: false
+        type: string
+      noaa_tsunami_url:
+        description: "Optional official NOAA/NCEI tsunami event TSV/CSV export URL"
+        required: false
+        type: string
+      aquastat_url:
+        description: "Optional official FAO AQUASTAT bulk CSV URL"
+        required: false
+        type: string
+      fao_fisheries_url:
+        description: "Optional official FAO fisheries/aquaculture bulk CSV URL"
+        required: false
+        type: string
+      usgs_minerals_url:
+        description: "Optional official USGS mineral-production CSV URL"
+        required: false
+        type: string
+      who_ghed_url:
+        description: "Optional official WHO GHED bulk CSV/XLSX/ZIP URL"
+        required: false
+        type: string
+      un_desa_migrant_url:
+        description: "Optional official UN DESA International Migrant Stock 2024 bulk CSV/XLSX/ZIP URL"
+        required: false
+        type: string
+      wto_services_url:
+        description: "Optional official WTO commercial-services bulk CSV/XLSX/ZIP URL"
+        required: false
+        type: string
+      un_tourism_url:
+        description: "Optional direct UN Tourism bulk CSV/XLSX/ZIP URL"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: geostats-v16-2-6-validated-expansion
+  cancel-in-progress: false
+
+env:
+  SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+  SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+  SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with: { node-version: "22" }
+      - uses: actions/setup-python@v6
+        with: { python-version: "3.12" }
+      - name: Require Supabase credentials
+        shell: bash
+        run: |
+          test -n "$SUPABASE_URL" || { echo "::error::SUPABASE_URL secret is missing"; exit 1; }
+          test -n "${SUPABASE_SECRET_KEY:-${SUPABASE_SERVICE_ROLE_KEY:-}}" || { echo "::error::Supabase service-role secret is missing"; exit 1; }
+      - name: Install JavaScript dependencies
+        run: npm ci --include=dev --no-audit --no-fund
+      - name: Install importer dependencies
+        run: python -m pip install --disable-pip-version-check -r scripts/requirements-data-importers.txt -r scripts/requirements-faostat.txt -r scripts/requirements-geography.txt
+      - name: Run v16.2.6 focused release tests
+        run: npm run test-v16-2-6
+
+  import:
+    needs: preflight
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with: { python-version: "3.12" }
+      - name: Install importer dependencies
+        run: python -m pip install --disable-pip-version-check -r scripts/requirements-data-importers.txt -r scripts/requirements-faostat.txt -r scripts/requirements-geography.txt
+      - name: Download optional official bulk inputs
+        shell: bash
+        env:
+          IMF_WEO_URL: ${{ inputs.imf_weo_url }}
+          NOAA_TSUNAMI_URL: ${{ inputs.noaa_tsunami_url }}
+          AQUASTAT_URL: ${{ inputs.aquastat_url }}
+          FAO_FISHERIES_URL: ${{ inputs.fao_fisheries_url }}
+          USGS_MINERALS_URL: ${{ inputs.usgs_minerals_url }}
+          WHO_GHED_URL: ${{ inputs.who_ghed_url }}
+          UN_DESA_MIGRANT_URL: ${{ inputs.un_desa_migrant_url }}
+          WTO_SERVICES_URL: ${{ inputs.wto_services_url }}
+          UN_TOURISM_URL: ${{ inputs.un_tourism_url }}
+        run: |
+          mkdir -p artifacts/v16-2-6-inputs
+          fetch() { local url="$1" out="$2"; if [ -n "$url" ]; then curl --fail --location --retry 4 --retry-all-errors "$url" -o "$out"; fi; }
+          fetch "$IMF_WEO_URL" artifacts/v16-2-6-inputs/imf-weo.csv
+          fetch "$NOAA_TSUNAMI_URL" artifacts/v16-2-6-inputs/noaa-tsunami.csv
+          fetch "$AQUASTAT_URL" artifacts/v16-2-6-inputs/aquastat.csv
+          fetch "$FAO_FISHERIES_URL" artifacts/v16-2-6-inputs/fao-fisheries.csv
+          fetch "$USGS_MINERALS_URL" artifacts/v16-2-6-inputs/usgs-minerals.csv
+          fetch "$WHO_GHED_URL" artifacts/v16-2-6-inputs/who-ghed.bulk
+          fetch "$UN_DESA_MIGRANT_URL" artifacts/v16-2-6-inputs/un-desa-migrant.bulk
+          fetch "$WTO_SERVICES_URL" artifacts/v16-2-6-inputs/wto-services.bulk
+          fetch "$UN_TOURISM_URL" artifacts/v16-2-6-inputs/un-tourism.bulk
+      - name: Import and independently audit selected sources
+        shell: bash
+        env:
+          FAMILY: ${{ inputs.family }}
+        run: |
+          set -euo pipefail
+          run_source() {
+            local slug="$1" import_cmd="$2" input_env="${3:-}" input_path="${4:-}"
+            if [ "$FAMILY" != "all" ] && [ "$FAMILY" != "$slug" ]; then return 0; fi
+            if [ -n "$input_path" ] && [ ! -s "$input_path" ]; then
+              if [ "$FAMILY" = "$slug" ]; then echo "::error::$slug requires an official input URL"; exit 1; fi
+              echo "::notice::Skipping $slug: no official bulk URL supplied; candidate remains fail-closed."
+              return 0
+            fi
+            echo "::group::Import $slug"
+            eval "$import_cmd"
+            echo "::endgroup::"
+            if [ -n "$input_env" ]; then export "$input_env=$input_path"; fi
+            python scripts/audit-source-integrity.py --source "$slug" --include-nonplayable --fail-on-source-error --fail-on-empty --report-dir "artifacts/source-integrity/$slug"
+          }
+          run_source naturalearth "python scripts/import-natural-earth.py"
+          run_source constitute "python scripts/import-historical-categories.py --source constitute"
+          run_source ipu "python scripts/import-historical-categories.py --source ipu"
+          run_source unwpp "python scripts/import-un-wpp.py"
+          run_source worldbankclimate "python scripts/import-world-bank-climate.py"
+          run_source naturalearthcapitals "python scripts/import-natural-earth-capitals.py"
+          run_source unescoich "python scripts/import-unesco-ich.py"
+          run_source imfweo "python scripts/import-imf-weo.py --input artifacts/v16-2-6-inputs/imf-weo.csv" IMF_WEO_INPUT artifacts/v16-2-6-inputs/imf-weo.csv
+          run_source noaatsunami "python scripts/import-noaa-tsunami.py --input artifacts/v16-2-6-inputs/noaa-tsunami.csv" NOAA_TSUNAMI_INPUT artifacts/v16-2-6-inputs/noaa-tsunami.csv
+          run_source aquastat "python scripts/import-aquastat.py --input artifacts/v16-2-6-inputs/aquastat.csv" AQUASTAT_INPUT artifacts/v16-2-6-inputs/aquastat.csv
+          run_source faofisheries "python scripts/import-fao-fisheries.py --input artifacts/v16-2-6-inputs/fao-fisheries.csv" FAO_FISHERIES_INPUT artifacts/v16-2-6-inputs/fao-fisheries.csv
+          run_source usgsminerals "python scripts/import-usgs-minerals.py --input artifacts/v16-2-6-inputs/usgs-minerals.csv" USGS_MINERALS_INPUT artifacts/v16-2-6-inputs/usgs-minerals.csv
+          run_source whoghed "python scripts/import-who-ghed.py --input artifacts/v16-2-6-inputs/who-ghed.bulk" WHO_GHED_INPUT artifacts/v16-2-6-inputs/who-ghed.bulk
+          run_source undesamigrant "python scripts/import-un-desa-migrant-stock.py --input artifacts/v16-2-6-inputs/un-desa-migrant.bulk" UN_DESA_MIGRANT_INPUT artifacts/v16-2-6-inputs/un-desa-migrant.bulk
+          run_source wtoservices "python scripts/import-wto-services.py --input artifacts/v16-2-6-inputs/wto-services.bulk" WTO_SERVICES_INPUT artifacts/v16-2-6-inputs/wto-services.bulk
+          run_source untourismdirect "python scripts/import-un-tourism.py --input artifacts/v16-2-6-inputs/un-tourism.bulk" UN_TOURISM_INPUT artifacts/v16-2-6-inputs/un-tourism.bulk
+      - name: Upload source audits
+        uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: geostats-v16-2-6-source-audits
+          path: artifacts/source-integrity
+          retention-days: 30
+          if-no-files-found: warn
+
+  finalize:
+    needs: [preflight, import]
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with: { python-version: "3.12" }
+      - name: Install importer dependencies
+        run: python -m pip install --disable-pip-version-check -r scripts/requirements-data-importers.txt
+      - name: Export pre-promotion audit
+        run: python scripts/export-v16-2-category-audit.py --phase pre --release-version 16.2.6
+      - name: Publish guarded v16.2.6 Daily catalog
+        run: python scripts/finalize-v16-catalog.py --release-version 16.2.6
+      - name: Export final catalog audit
+        run: python scripts/export-v16-2-category-audit.py --phase final --release-version 16.2.6
+      - name: Upload final audit
+        uses: actions/upload-artifact@v7
+        with:
+          name: geostats-v16-2-6-category-audit
+          path: |
+            category-audit-pre-promotion-v16-2-6.csv
+            category-promotion-dry-run-v16-2-6.csv
+            category-audit-pre-promotion-v16-2-6-summary.json
+            category-audit-v16-2-6.csv
+            category-promotion-final-v16-2-6.csv
+            category-audit-v16-2-6-summary.json
+          retention-days: 30
+          if-no-files-found: error

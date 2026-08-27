@@ -76,7 +76,7 @@ jobs:
       - name: Install JavaScript dependencies
         run: npm ci --include=dev --no-audit --no-fund
       - name: Install importer dependencies
-        run: python -m pip install --disable-pip-version-check -r scripts/requirements-data-importers.txt -r scripts/requirements-geography.txt
+        run: python -m pip install --disable-pip-version-check -r scripts/requirements-data-importers.txt -r scripts/requirements-faostat.txt -r scripts/requirements-geography.txt
       - name: Run v16.2.6 focused release tests
         run: npm run test-v16-2-6
 
@@ -89,7 +89,7 @@ jobs:
       - uses: actions/setup-python@v6
         with: { python-version: "3.12" }
       - name: Install importer dependencies
-        run: python -m pip install --disable-pip-version-check -r scripts/requirements-data-importers.txt -r scripts/requirements-geography.txt
+        run: python -m pip install --disable-pip-version-check -r scripts/requirements-data-importers.txt -r scripts/requirements-faostat.txt -r scripts/requirements-geography.txt
       - name: Download optional official bulk inputs
         shell: bash
         env:

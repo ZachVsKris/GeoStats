@@ -5692,7 +5692,7 @@ begin
     maximum_value,top_values,bottom_values,audit_version,assessed_at
   )
   with base as (
-    select q.id,q.title,q.effective_title,q.description,q.unit,q.value_type,q.measurement_type,
+    select q.id,q.title,q.effective_title,q.description,q.unit,q.value_type,c.measurement_type,
            q.ranking_direction,q.source_organization,q.source_indicator_code,
            q.editorial_status,q.validation_status,q.validation_reason,
            coalesce(q.validation_mismatch_count,0) as validation_mismatch_count,
@@ -5700,9 +5700,10 @@ begin
            coalesce(q.common_year,q.latest_available_year)::smallint as assessed_year,
            lower(coalesce(q.unit,'')) as unit_lower,
            lower(coalesce(q.value_type,'')) as value_type_lower,
-           lower(coalesce(q.measurement_type,'')) as measurement_type_lower,
+           lower(coalesce(c.measurement_type,'')) as measurement_type_lower,
            lower(coalesce(q.effective_title,q.title,'')) as title_lower
     from public.category_review_queue_v15 q
+    join public.stat_categories c on c.id=q.id
   ), selected as (
     select b.*,o.country_iso3,o.country_name,o.value,o.data_year
     from base b

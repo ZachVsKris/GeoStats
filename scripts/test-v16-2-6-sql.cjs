@@ -60,6 +60,7 @@ for (const token of [
 check(!catalogRecoveryMigration.includes("and lower(v.source_organization) not in ('unesco uis','u.s. eia')"), 'migration 053 still contains the accidental provider-wide UIS/EIA ban');
 check(!catalogRecoveryMigration.includes("case when c.is_percentage and (c.minimum_value<0 or c.maximum_value>100)\n          then format('Percentage values fall outside 0-100"), 'migration 053 still hard-blocks every percentage-like value outside 0..100');
 check(catalogRecoveryMigration.includes("measurement_type_lower not in ('per_capita','per capita','per-person','per person')"), 'migration 053 does not respect explicit per-capita measurement metadata');
+check(catalogRecoveryMigration.includes('c.measurement_type') && catalogRecoveryMigration.includes('join public.stat_categories c on c.id=q.id'), 'migration 053 reads measurement_type from category_review_queue_v15 even though that view does not expose it');
 check(installer.includes('geostats-v16.2.6-catalog-regression-recovery'), 'cumulative installer missing migration 053');
 
 check(verifier.includes('legacy_rejection_blockers_v16_2_6') && verifier.includes('tracker_legacy_rejection_collisions_v16_2_6'), 'verification SQL missing legacy rejection checks');

@@ -105,6 +105,23 @@ end $$;
 create index if not exists analytics_events_acquisition_v16_2_6_idx
   on public.analytics_events(created_at desc,visitor_state,utm_source,utm_medium,utm_campaign);
 
+-- PostgreSQL does not allow CREATE OR REPLACE VIEW to rename an existing
+-- output column positionally. v16.2.5 called this column average_score; v16.2.6
+-- changes the metric to a normalized average percentage. Rename it explicitly
+-- first, and make the step rerunnable for clean installs/retries.
+do $$
+begin
+  if exists (
+    select 1 from information_schema.columns
+    where table_schema='public' and table_name='analytics_overview_30d' and column_name='average_score'
+  ) and not exists (
+    select 1 from information_schema.columns
+    where table_schema='public' and table_name='analytics_overview_30d' and column_name='average_percent'
+  ) then
+    alter view public.analytics_overview_30d rename column average_score to average_percent;
+  end if;
+end $$;
+
 create or replace view public.analytics_overview_30d
 with(security_invoker=true)
 as
@@ -576,7 +593,7 @@ select runtime.*,
  vetting.vetting_version as auto_vetting_version,
  vetting.vetted_at as auto_vetted_at
 from public.category_runtime_review_v16_2 runtime
-left join public.category_auto_vetting_v16 vetting on vetting.category_id=runtime.id;
+left join public.category_auto_vetting_v15_9 vetting on vetting.category_id=runtime.id;
 revoke all on public.category_review_workbench_v16_2 from public,anon,authenticated;
 grant select on public.category_review_workbench_v16_2 to service_role;
 

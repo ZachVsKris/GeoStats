@@ -1,0 +1,9 @@
+Replace these four files in GitHub:
+- supabase/migrations/047_v16_2_6_full_release.sql
+- supabase/migrations/049_v16_2_6_legacy_rejection_guard.sql
+- RUN_THIS_IN_SUPABASE_FOR_V16_2_6.sql
+- ROLLBACK_V16_2_6.sql
+
+Hotfixes:
+- explicit analytics_overview_30d average_score -> average_percent view-column rename
+- corrected nonexistent category_auto_vetting_v16 relation to existing category_auto_vetting_v15_9

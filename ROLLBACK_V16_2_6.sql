@@ -36,6 +36,21 @@ drop policy if exists "scores are publicly readable" on public.daily_scores;
 create policy "scores are publicly readable" on public.daily_scores for select using(true);
 
 -- Restore the v16.2.5 analytics view shape expected by the older Admin UI.
+-- Reverse the v16.2.6 analytics column rename before recreating the
+-- v16.2.5 view definition. Keep rollback rerunnable.
+do $$
+begin
+  if exists (
+    select 1 from information_schema.columns
+    where table_schema='public' and table_name='analytics_overview_30d' and column_name='average_percent'
+  ) and not exists (
+    select 1 from information_schema.columns
+    where table_schema='public' and table_name='analytics_overview_30d' and column_name='average_score'
+  ) then
+    alter view public.analytics_overview_30d rename column average_percent to average_score;
+  end if;
+end $$;
+
 create or replace view public.analytics_overview_30d
 with(security_invoker=true)
 as
@@ -94,7 +109,7 @@ select runtime.*,
  vetting.vetting_version as auto_vetting_version,
  vetting.vetted_at as auto_vetted_at
 from public.category_runtime_review_v16_2 runtime
-left join public.category_auto_vetting_v16 vetting on vetting.category_id=runtime.id;
+left join public.category_auto_vetting_v15_9 vetting on vetting.category_id=runtime.id;
 revoke all on public.category_review_workbench_v16_2 from public,anon,authenticated;
 grant select on public.category_review_workbench_v16_2 to service_role;
 

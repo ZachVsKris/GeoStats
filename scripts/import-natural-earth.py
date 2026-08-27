@@ -92,8 +92,8 @@ RULES: tuple[IndicatorRule, ...] = (
     rule("largest-tropical-land-area", "Largest tropical land area", "Mapped land area between the Tropic of Cancer and Tropic of Capricorn.", "🌴", "square kilometers", "high", fun=96),
     rule("largest-arctic-land-area", "Largest Arctic land area", "Mapped land area north of the Arctic Circle.", "❄️", "square kilometers", "high", fun=94),
     rule("most-land-neighbors", "Most bordering countries", "Number of countries sharing a mapped land border.", "🤝", "neighboring countries", "high", fun=96),
-    rule("landlocked-most-neighbors", "Most neighbors among landlocked countries", "Number of land-border neighbors, restricted to countries with no Natural Earth ocean-boundary coastline.", "🧭", "neighboring countries", "high", fun=94),
-    rule("landlocked-fewest-neighbors", "Fewest neighbors among landlocked countries", "Number of land-border neighbors, restricted to countries with no Natural Earth ocean-boundary coastline.", "🧭", "neighboring countries", "low", fun=92),
+    rule("landlocked-most-neighbors", "Most neighbors among landlocked countries", "Number of land-border neighbors, restricted to countries with no Natural Earth ocean-boundary coastline.", "🧭", "neighboring countries", "high", min_coverage=16, fun=94),
+    rule("landlocked-fewest-neighbors", "Fewest neighbors among landlocked countries", "Number of land-border neighbors, restricted to countries with no Natural Earth ocean-boundary coastline.", "🧭", "neighboring countries", "low", min_coverage=16, fun=92),
     rule("longest-land-border", "Longest total land border", "Combined length of all mapped international land borders.", "🧱", "kilometers", "high", fun=94),
     rule("longest-single-land-border", "Longest border with one neighboring country", "Total length of the country’s longest shared land border with one neighboring country.", "🗺️", "kilometers", "high", fun=96),
     rule("longest-coastline", "Longest coastline", "Coastline length measured consistently from Natural Earth’s 1:10m geometry.", "🌊", "kilometers", "high", understandability=97, fun=99),
@@ -120,6 +120,9 @@ RULE_LAYER = {
     }.items()
     for key in keys
 }
+
+DEFINED_SUBSET_RULES = {"landlocked-most-neighbors", "landlocked-fewest-neighbors"}
+LANDLOCKED_ELIGIBILITY_RULE = "Countries with no Natural Earth ocean-boundary coastline in the pinned 1:10m country/ocean geometry."
 
 
 def _iter_polygons(geometry: Any) -> Iterable[Polygon]:
@@ -326,6 +329,10 @@ class NaturalEarthImporter(WarehouseImporter):
                     "referenceLabel": f"Natural Earth {layer} v{LAYER_VERSIONS[layer]}",
                     "showObservationYear": False,
                     "layer": layer,
+                    "eligible_universe_type": "defined_subset" if concept.key in DEFINED_SUBSET_RULES else "universal",
+                    "eligible_universe_rule": LANDLOCKED_ELIGIBILITY_RULE if concept.key in DEFINED_SUBSET_RULES else "GeoStats canonical current-country universe",
+                    "eligible_universe_selector": "Natural Earth country geometry has zero boundary length intersecting the pinned Natural Earth ocean polygon" if concept.key in DEFINED_SUBSET_RULES else None,
+                    "excluded_country_reason": "Country has a Natural Earth ocean-boundary coastline and is therefore not landlocked under this reproducible geometry rule." if concept.key in DEFINED_SUBSET_RULES else None,
                 },
             ))
         return discovered
@@ -344,6 +351,10 @@ class NaturalEarthImporter(WarehouseImporter):
                 raise RuntimeError("Natural Earth ocean archive hash is missing; coastline/landlocked metrics fail closed.")
             candidate.metadata["ocean_archive_sha256"] = self._layer_hashes.get("ocean")
         values = metrics.get(candidate.rule.key, {})
+        if candidate.rule.key in DEFINED_SUBSET_RULES:
+            eligible = sorted(values)
+            candidate.metadata["eligible_country_count"] = len(eligible)
+            candidate.metadata["eligible_country_iso3"] = eligible
         observations = [SourceObservation(
             country_iso3=iso3,
             country_name=name,
@@ -368,8 +379,12 @@ class NaturalEarthImporter(WarehouseImporter):
                 "stable_decimals": STABLE_DECIMALS,
             },
         ) for iso3, (name, value) in values.items() if math.isfinite(value)]
-        if len(observations) < 100:
-            raise RuntimeError(f"Only {len(observations)} country observations were derived for {candidate.rule.key}.")
+        minimum_observations = 16 if candidate.rule.key in DEFINED_SUBSET_RULES else 100
+        if len(observations) < minimum_observations:
+            raise RuntimeError(
+                f"Only {len(observations)} country observations were derived for {candidate.rule.key}; "
+                f"minimum is {minimum_observations} for its eligible-universe type."
+            )
         return sorted(observations, key=lambda row: row.country_iso3)
 
     def _download_shapefile(self, directory: Path, layer: str) -> Path:

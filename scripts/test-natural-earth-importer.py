@@ -43,6 +43,26 @@ assert metrics["largest-mapped-lake-area"]["AAA"][1] > 1000
 assert metrics["largest-mapped-glaciated-area"]["CCC"][1] > 1000
 assert metrics["largest-continuous-land-area"]["AAA"][1] > 10000
 
+# Landlocked-neighbor concepts are defined-subset categories. Their observation
+# floor must be based on the eligible universe rather than the universal-country
+# floor, and the importer must persist the exact reproducible ISO3 universe.
+subset_importer = module.NaturalEarthImporter(None, dry_run=True)
+subset_importer._metrics = {
+    "landlocked-most-neighbors": {
+        f"X{index:02d}": (f"Country {index}", float(index % 7)) for index in range(1, 42)
+    }
+}
+subset_importer._layer_hashes["ocean"] = "fixture-ocean-sha256"
+subset_candidate = next(c for c in subset_importer.discover() if c.rule.key == "landlocked-most-neighbors")
+subset_rows = subset_importer.fetch_observations(subset_candidate)
+assert len(subset_rows) == 41
+assert subset_candidate.metadata["eligible_universe_type"] == "defined_subset"
+assert subset_candidate.metadata["eligible_country_count"] == 41
+assert subset_candidate.metadata["eligible_country_iso3"] == sorted(row.country_iso3 for row in subset_rows)
+assert subset_candidate.metadata["eligible_universe_rule"]
+assert subset_candidate.metadata["eligible_universe_selector"]
+assert subset_candidate.rule.min_coverage == 16
+
 # v16.2.6 restores the straightforward latitude/axis-span concepts only after the
 # importer stopped unioning distant dependencies into administering sovereigns.
 # The approximate all-directions geographic-diameter concept remains retired.

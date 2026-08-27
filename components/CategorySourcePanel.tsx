@@ -118,7 +118,7 @@ export default function CategorySourcePanel({ dataset, boardCountryIds = [], onC
       {loading && <p className="sourceLoading">Loading the complete verified ranking…</p>}
       {loadError && !loading && <p className="sourceLoadError">The complete global ranking is unavailable, so only the countries from this game are shown. {loadError}</p>}
       <div className="sourceDataTable" role="table" aria-label={`${category.name} ${fullRankingLoaded ? "global" : "game"} country rankings`}>
-        <div className="sourceDataHead" role="row"><b>Rank</b><b>Country</b><b>Value</b><b>{showObservationYear ? "Year" : "Reference"}</b></div>
+        <div className="sourceDataHead" role="row"><b>Rank</b><b>Country</b><b>Value</b><b>Reference</b></div>
         {rows.map((row) => <div className={`sourceDataRow ${boardIds.has(row.countryId) ? "boardCountry" : ""}`} role="row" key={`${row.countryId}:${row.year}`}>
           <b>#{row.globalRank}</b>
           <span>{row.countryName}</span>

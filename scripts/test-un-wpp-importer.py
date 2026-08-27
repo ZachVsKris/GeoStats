@@ -8,6 +8,12 @@ p=Path(__file__).with_name('import-un-wpp.py')
 spec=importlib.util.spec_from_file_location('unwpp',p)
 m=importlib.util.module_from_spec(spec);sys.modules[spec.name]=m;spec.loader.exec_module(m)
 
+# UN WPP moved the official compact workbook under /wpp/assets/Excel Files/.
+# Keep this pinned so CI catches a regression back to the retired 404 /Download/Files path.
+assert '/wpp/assets/Excel%20Files/' in m.DOWNLOAD
+assert '/wpp/Download/Files/' not in m.DOWNLOAD
+assert m.DOWNLOAD.endswith('WPP2024_GEN_F01_DEMOGRAPHIC_INDICATORS_COMPACT.xlsx')
+
 with tempfile.TemporaryDirectory() as d:
  f=Path(d)/'wpp.csv'
  fields=['ISO3_code','Location','Year','TPopulation1July','PopMale1July','PopFemale1July','PopDensity','SexRatio','MedianAgePop','PopGrowthRate','TFR','LEx','LExMale','LExFemale','IMR','NatChangeRT','CBR','CDR','CNMR','SRB','MACB']

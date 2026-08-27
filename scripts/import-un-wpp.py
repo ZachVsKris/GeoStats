@@ -18,7 +18,7 @@ SOURCE_ORG='United Nations Population Division'
 SOURCE_DATASET='World Population Prospects 2024'
 SOURCE_PAGE='https://population.un.org/wpp/'
 METHOD='https://population.un.org/wpp/Publications/Files/WPP2024_Methodology-Report_Final.pdf'
-DOWNLOAD='https://population.un.org/wpp/Download/Files/1_Indicator%20(Standard)/EXCEL_FILES/1_General/WPP2024_GEN_F01_DEMOGRAPHIC_INDICATORS_COMPACT.xlsx'
+DOWNLOAD='https://population.un.org/wpp/assets/Excel%20Files/1_Indicator%20(Standard)/EXCEL_FILES/1_General/WPP2024_GEN_F01_DEMOGRAPHIC_INDICATORS_COMPACT.xlsx'
 YEAR=2023
 
 def norm(s): return re.sub(r'[^a-z0-9]+','',str(s or '').lower())

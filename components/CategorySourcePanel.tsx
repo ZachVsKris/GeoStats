@@ -84,6 +84,11 @@ export default function CategorySourcePanel({ dataset, boardCountryIds = [], onC
   const tableTitle = fullRankingLoaded ? "Global rankings" : "Countries in this game";
   const showObservationYear = category.showObservationYear !== false;
   const referenceLabel = category.referenceLabel || fullDataset.datasetRelease || "Pinned source release";
+  const observationReference = (year?: string) => {
+    if (showObservationYear) return year || "Reference unavailable";
+    if (category.measurementType === "historical_date" && year) return `${year} snapshot`;
+    return referenceLabel;
+  };
 
   return <div className="sourceModal" role="dialog" aria-modal="true" aria-label={`${category.name} data and source`} onMouseDown={(event) => event.currentTarget === event.target && onClose()}>
     <div className="sourcePanel sourcePanelSimple" data-measurement={categoryMeasurementLabel(category)}>
@@ -118,7 +123,7 @@ export default function CategorySourcePanel({ dataset, boardCountryIds = [], onC
           <b>#{row.globalRank}</b>
           <span>{row.countryName}</span>
           <span title={formatExactCategoryValue(row.value, category)}>{formatValue(row.value, category)}</span>
-          <small>{showObservationYear ? row.year : referenceLabel}</small>
+          <small>{observationReference(row.year)}</small>
         </div>)}
         {!rows.length && !loading && <p className="sourceEmpty">No countries match that search.</p>}
       </div>

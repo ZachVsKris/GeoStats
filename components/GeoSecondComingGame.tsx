@@ -196,6 +196,10 @@ function ordinal(rank: number) {
 
 function observationReference(category: RoundCategory["category"], year?: string) {
   if (category.showObservationYear === false) {
+    // Historical-date categories rank the historical date itself as the value.
+    // Their stored observation year is the source snapshot year, so expose that
+    // compact temporal reference instead of a descriptive eligibility label.
+    if (category.measurementType === "historical_date" && year) return `${year} snapshot`;
     return category.referenceLabel || category.datasetRelease || "Pinned source release";
   }
   return year || "Reference unavailable";

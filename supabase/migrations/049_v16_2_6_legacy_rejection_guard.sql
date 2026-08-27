@@ -1019,6 +1019,12 @@ select
     case when v.player_source_status='general' then 'Uses a general official source page rather than an exact shareable view.' end
   ],null) as v16_2_warnings,
   c.measurement_type,
+  c.eligible_universe_type,
+  c.eligible_universe_rule,
+  c.eligible_country_count,
+  c.eligible_country_iso3,
+  c.coverage_within_eligible_universe,
+  c.excluded_country_reason,
   legacy.blockers as legacy_rejection_blockers_v16_2_6
 from public.category_runtime_review_v16 v
 join public.category_promotion_assessment_v16_2 a on a.category_id=v.id

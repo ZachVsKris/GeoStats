@@ -34,6 +34,70 @@ set eligible_universe_rule=coalesce(nullif(eligible_universe_rule,''),'GeoStats 
     coverage_within_eligible_universe=coalesce(coverage_within_eligible_universe,common_year_coverage,country_coverage)
 where eligible_universe_type='universal';
 
+-- PostgreSQL expands SELECT * when a view is created; columns added later to
+-- stat_categories do not automatically appear in existing runtime views. Rebuild
+-- the v16.2 runtime view here and append the eligible-universe fields explicitly.
+create or replace view public.category_runtime_review_v16_2
+with(security_invoker=true) as
+select
+  v.*,
+  a.proposed_status as promotion_decision_v16_2,
+  a.reason as promotion_reason_v16_2,
+  a.primary_blocker as primary_blocker_v16_2,
+  a.blocker_class as blocker_class_v16_2,
+  a.strict_pass as strict_pass_v16_2,
+  a.source_quality_floor as source_quality_floor_v16_2,
+  a.suggested_duplicate_of as suggested_duplicate_of_v16_2,
+  (
+    a.proposed_status='playable'
+    and v.editorial_status='approved'
+    and a.strict_pass
+    and public.category_v16_2_6_hard_block_reason(c.id,c.source_organization,c.source_indicator_code,v.effective_title,c.metadata) is null
+  ) as computed_playable_v16_2,
+  array_remove(array[
+    case when a.proposed_status<>'playable' then a.primary_blocker end,
+    public.category_v16_2_6_hard_block_reason(c.id,c.source_organization,c.source_indicator_code,v.effective_title,c.metadata)
+  ],null) as v16_2_blockers,
+  array_remove(array[
+    case when v.validation_status<>'verified'
+      and not public.category_v15_true_integrity_failure(
+        v.validation_status,v.validation_reason,
+        v.validation_mismatch_count,v.validation_ranking_mismatch_count
+      ) then 'Official values are usable; non-data source metadata remain incomplete.' end,
+    case when v.ranking_completeness_status='top_end_complete' then 'Ranking is top-end complete rather than fully comprehensive.' end,
+    case when v.player_source_status='general' then 'Uses a general official source page rather than an exact shareable view.' end
+  ],null) as v16_2_warnings,
+  c.measurement_type,
+  c.eligible_universe_type,
+  c.eligible_universe_rule,
+  c.eligible_country_count,
+  c.eligible_country_iso3,
+  c.coverage_within_eligible_universe,
+  c.excluded_country_reason
+from public.category_runtime_review_v16 v
+join public.category_promotion_assessment_v16_2 a on a.category_id=v.id
+join public.stat_categories c on c.id=v.id;
+revoke all on public.category_runtime_review_v16_2 from public,anon,authenticated;
+grant select on public.category_runtime_review_v16_2 to service_role;
+
+drop view if exists public.category_review_workbench_v16_2;
+create view public.category_review_workbench_v16_2
+with(security_invoker=true) as
+select runtime.*,
+ vetting.recommendation as auto_vetting_recommendation,
+ vetting.vetting_score as auto_vetting_score,
+ vetting.reason as auto_vetting_reason,
+ vetting.possible_duplicate_of as auto_possible_duplicate_of,
+ vetting.title_similarity as auto_title_similarity,
+ vetting.rank_correlation as auto_rank_correlation,
+ vetting.tie_share as auto_tie_share,
+ vetting.vetting_version as auto_vetting_version,
+ vetting.vetted_at as auto_vetted_at
+from public.category_runtime_review_v16_2 runtime
+left join public.category_auto_vetting_v15_9 vetting on vetting.category_id=runtime.id;
+revoke all on public.category_review_workbench_v16_2 from public,anon,authenticated;
+grant select on public.category_review_workbench_v16_2 to service_role;
+
 create or replace function public.refresh_category_promotion_assessment_v16_2()
 returns void
 language plpgsql
@@ -51,6 +115,12 @@ begin
   with base as (
     select
       v.*,
+      c.eligible_universe_type,
+      c.eligible_universe_rule,
+      c.eligible_country_count,
+      c.eligible_country_iso3,
+      c.coverage_within_eligible_universe,
+      c.excluded_country_reason,
       public.category_v16_2_quality_floor(v.source_organization) as source_floor,
       public.category_v15_true_integrity_failure(
         v.validation_status,v.validation_reason,
@@ -85,16 +155,16 @@ begin
         and coalesce(v.credibility_status,'approved')<>'quarantined'
         and coalesce(v.credibility_score,75)>=70
         and (
-          case when coalesce(v.eligible_universe_type,'universal')='defined_subset' then
-            coalesce(v.eligible_country_count,0)>=12
+          case when coalesce(c.eligible_universe_type,'universal')='defined_subset' then
+            coalesce(c.eligible_country_count,0)>=12
             and (
-              coalesce(v.eligible_country_count,0)>=16
+              coalesce(c.eligible_country_count,0)>=16
               or coalesce(v.metadata->>'eligibleUniverseExceptionApproved','false')='true'
             )
-            and greatest(coalesce(v.common_year_coverage,0),coalesce(v.country_coverage,0))>=coalesce(v.eligible_country_count,0)
+            and greatest(coalesce(v.common_year_coverage,0),coalesce(v.country_coverage,0))>=coalesce(c.eligible_country_count,0)
             and (
-              v.eligible_country_iso3 is null
-              or cardinality(v.eligible_country_iso3)=v.eligible_country_count
+              c.eligible_country_iso3 is null
+              or cardinality(c.eligible_country_iso3)=c.eligible_country_count
             )
           else greatest(coalesce(v.common_year_coverage,0),coalesce(v.country_coverage,0))>=30
           end
@@ -128,6 +198,7 @@ begin
         and lower(coalesce(v.effective_title,'')) !~ '(yield|harvested area|carcass|slaughter|producing animals|output per worker|employment.?to.?population|labor.?income share)'
       ) as strict_pass
     from public.category_runtime_review_v16 v
+    join public.stat_categories c on c.id=v.id
   ), ranked as (
     select b.*,
       count(*) over(partition by exact_duplicate_key) as exact_duplicate_count,
@@ -219,8 +290,9 @@ revoke all on function public.refresh_category_promotion_assessment_v16_2() from
 grant execute on function public.refresh_category_promotion_assessment_v16_2() to service_role;
 
 
--- Existing runtime/workbench views select v.* and therefore surface the new fields
--- automatically. Recompute only the dry-run assessment; no category is auto-enabled here.
+-- The runtime/workbench views were explicitly rebuilt above because PostgreSQL
+-- freezes SELECT * at view-creation time. Recompute the dry-run assessment; no
+-- category is auto-enabled here.
 select public.refresh_category_promotion_assessment_v16_2();
 
 commit;

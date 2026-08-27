@@ -352,12 +352,17 @@ test("13-inch Adventurer and Expert boards use tall two-column country banks", a
   }
 });
 
-test("legacy Seeded links redirect to Random and preserve the seed", async ({ page }) => {
-  await page.goto("/seeded/expert?seed=OLD-SEED-42");
-  await expect(page).toHaveURL(/\/random\/expert\?/);
-  const redirectedUrl = new URL(page.url());
+test("legacy Seeded links preserve the seed before private Random gates public users", async ({ page }) => {
+  const response = await page.request.get("/seeded/expert?seed=OLD-SEED-42", { maxRedirects: 0 });
+  expect(response.status()).toBe(308);
+  const location = response.headers()["location"];
+  expect(location).toBeTruthy();
+  const redirectedUrl = new URL(location!, "http://127.0.0.1:3000");
   expect(redirectedUrl.pathname).toBe("/random/expert");
   expect(redirectedUrl.searchParams.get("seed")).toBe("OLD-SEED-42");
+
+  await page.goto("/seeded/expert?seed=OLD-SEED-42");
+  await expect(page).toHaveURL(/\/daily$/);
 });
 
 
@@ -380,31 +385,11 @@ test("unsigned Daily result persists after refresh on the same browser", async (
 });
 
 
-test("full Random seed is visible and category info clutter is removed on mobile", async ({ page }) => {
+test("private Random routes redirect unauthenticated users to Daily", async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 667 });
-  await installRoutes(page);
-  const fullSeed = "FULL-SEED-123456789-ABCD";
-  await page.goto(`/random/expert?seed=${fullSeed}`);
-  const input = page.getByLabel("Random seed");
-  await expect(input).toHaveValue(fullSeed);
-  await expect(page.locator(".mobileCategoryInfo")).toHaveCount(0);
-  const seedFit = await input.evaluate((element) => {
-    const inputElement = element as HTMLInputElement;
-    const style = getComputedStyle(inputElement);
-    const canvas = document.createElement("canvas");
-    const context = canvas.getContext("2d")!;
-    context.font = style.font;
-    const textWidth = context.measureText(inputElement.value).width;
-    const horizontalPadding = Number.parseFloat(style.paddingLeft) + Number.parseFloat(style.paddingRight);
-    return {
-      textWidth,
-      availableWidth: inputElement.clientWidth - horizontalPadding,
-      right: inputElement.getBoundingClientRect().right,
-      viewportWidth: window.innerWidth,
-    };
-  });
-  expect(seedFit.textWidth).toBeLessThanOrEqual(seedFit.availableWidth + 1);
-  expect(seedFit.right).toBeLessThanOrEqual(seedFit.viewportWidth + 1);
+  await page.goto("/random/expert?seed=FULL-SEED-123456789-ABCD");
+  await expect(page).toHaveURL(/\/daily$/);
+  await expect(page.getByLabel("Random seed")).toHaveCount(0);
 });
 
 
@@ -444,21 +429,9 @@ test("rules modal scrolls on phone", async ({ page }) => {
   expect(await card.evaluate((element) => element.scrollTop)).toBeGreaterThan(0);
 });
 
-test("Random results difficulty switch preserves the Random seed", async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 844 });
-  await installRoutes(page);
-  const seed = "RESULT-SEED-KEEP-ME";
-  await page.goto(`/random?seed=${seed}`);
-  await expect(page.locator(".slots .slot")).toHaveCount(4);
-  for (let index = 0; index < 4; index += 1) {
-    await page.locator(".countries .country:not(:disabled)").first().click();
-    await page.locator(".slots .slot").nth(index).click();
-  }
-  await page.getByRole("button", { name: /lock in draft/i }).click();
-  await expect(page.getByText("Final score")).toBeVisible();
-  const scoutHref = await page.locator('.resultsModeTabs a', { hasText: "Scout" }).getAttribute("href");
-  expect(scoutHref).toBeTruthy();
-  const target = new URL(scoutHref!, page.url());
-  expect(target.pathname).toBe("/random/easy");
-  expect(target.searchParams.get("seed")).toBe(seed);
+test("private Random API rejects unauthenticated seeded requests", async ({ page }) => {
+  const response = await page.request.get("/api/seeded/easy?seed=RESULT-SEED-KEEP-ME");
+  expect([401, 403]).toContain(response.status());
+  const body = await response.json();
+  expect(String(body.error ?? "")).toMatch(/sign in|internal geostats qa tool/i);
 });

@@ -20,6 +20,8 @@ check(playable.includes('Largest population in the largest city'),'largest-city 
 check(!playable.includes('[/^Largest population in largest city$/i, "Highest share living in largest city"]'),'incorrect largest-city share rewrite remains');
 const results=read('components/GeoSecondComingGame.tsx');
 for (const token of ['World Rank','globalRank']) check(results.includes(token), `Results world-rank implementation missing ${token}`);
+check(results.includes('ROUND_CONFIGS[nextDifficulty].randomPath') && results.includes('new URLSearchParams({ seed: nextSeed, v: CATEGORY_SET_VERSION })'), 'Random difficulty links do not preserve the current seed');
+check(results.includes('aria-label="Random seed"'), 'Authorized Random UI no longer exposes the full seed control');
 const randomLayout=read('app/random/layout.tsx');
 check(randomLayout.includes('internalTesterAccess') && randomLayout.includes('redirect("/daily")'),'Random route is not private QA');
 const seeded=read('app/api/seeded/[difficulty]/route.ts');

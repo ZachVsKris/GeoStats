@@ -86,8 +86,31 @@ with release as (
   select * from public.assert_v16_2_6_release()
 ), runtime as (
   select * from public.category_runtime_review_v16_2
+), baseline as (
+  select
+    (select count(*)::integer from public.category_review_queue_v15 where computed_playable_v15) as playable_v15,
+    (select count(*)::integer from public.category_runtime_review_v16_2 where computed_playable_v16_2) as playable_v16_2_6
 ), checks as (
   select 'Shared playable catalog remains broad' check_name,case when proposed_playable>=240 then 'PASS' else 'FAIL' end result,proposed_playable::text observed from release
+  union all select 'Playable catalog does not regress vs v15',
+    case when playable_v16_2_6>=playable_v15 then 'PASS' else 'FAIL' end,
+    playable_v16_2_6::text||' vs v15 '||playable_v15::text from baseline
+  union all select 'No provider-wide UNESCO UIS / U.S. EIA strict-pass ban',
+    case when pg_get_functiondef('public.refresh_category_promotion_assessment_v16_2()'::regprocedure)
+      not ilike '%lower(v.source_organization) not in (''unesco uis'',''u.s. eia'')%' then 'PASS' else 'FAIL' end,
+    case when pg_get_functiondef('public.refresh_category_promotion_assessment_v16_2()'::regprocedure)
+      not ilike '%lower(v.source_organization) not in (''unesco uis'',''u.s. eia'')%' then 'removed' else 'present' end
+  union all select 'Generic percentage bounds are advisory, not a hard blocker',
+    case when pg_get_functiondef('public.refresh_category_semantic_audit_v16_1()'::regprocedure)
+      not ilike '%Percentage values fall outside 0-100%' then 'PASS' else 'FAIL' end,
+    case when pg_get_functiondef('public.refresh_category_semantic_audit_v16_1()'::regprocedure)
+      not ilike '%Percentage values fall outside 0-100%' then 'corrected' else 'old hard block present' end
+  union all select 'Semantic audit v2 applied',
+    case when not exists(
+      select 1 from public.category_semantic_audit_v16_1
+      where audit_version<>'geostats-v16.2.6-semantic-audit-v2'
+    ) then 'PASS' else 'FAIL' end,
+    (select count(*)::text from public.category_semantic_audit_v16_1 where audit_version='geostats-v16.2.6-semantic-audit-v2')
   union all select 'No hard-blocked playable category',case when hard_blocked_playable=0 then 'PASS' else 'FAIL' end,hard_blocked_playable::text from release
   union all select 'No World Bank local-currency comparison playable',case when local_currency_playable=0 then 'PASS' else 'FAIL' end,local_currency_playable::text from release
   union all select 'Every playable category has player-quality scores',case when missing_player_quality=0 then 'PASS' else 'FAIL' end,missing_player_quality::text from release

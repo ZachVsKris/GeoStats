@@ -9,6 +9,7 @@ const legacyMigration = read('supabase/migrations/049_v16_2_6_legacy_rejection_g
 const legacyReauditMigration = read('supabase/migrations/050_v16_2_6_priority_150_legacy_reaudit.sql');
 const fullLegacyReauditMigration = read('supabase/migrations/051_v16_2_6_full_791_legacy_reaudit.sql');
 const workbenchRepairMigration = read('supabase/migrations/052_v16_2_6_admin_workbench_contract_repair.sql');
+const catalogRecoveryMigration = read('supabase/migrations/053_v16_2_6_catalog_regression_recovery.sql');
 const installer = read('RUN_THIS_IN_SUPABASE_FOR_V16_2_6.sql');
 const verifier = read('VERIFY_V16_2_6.sql');
 for (const token of [
@@ -48,6 +49,19 @@ for (const token of ['geostats-v16.2.6-full-legacy-reaudit','confirmed_exclusion
 check(installer.includes('geostats-v16.2.6-full-legacy-reaudit'), 'cumulative installer missing migration 051');
 for (const token of ['geostats-v16.2.6-admin-workbench-contract-repair','release_disposition_v16_2_3','release_disposition_reason_v16_2_3','category_release_decisions_v16_2_3']) check(workbenchRepairMigration.includes(token), `Admin Workbench repair migration missing ${token}`);
 check(installer.includes('geostats-v16.2.6-admin-workbench-contract-repair'), 'cumulative installer missing migration 052');
+
+for (const token of [
+  'geostats-v16.2.6-catalog-regression-recovery',
+  'geostats-v16.2.6-semantic-audit-v2',
+  'refresh_category_semantic_audit_v16_1',
+  'refresh_category_promotion_assessment_v16_2',
+  'refresh_v16_2_runtime_catalog'
+]) check(catalogRecoveryMigration.includes(token), `catalog recovery migration missing ${token}`);
+check(!catalogRecoveryMigration.includes("and lower(v.source_organization) not in ('unesco uis','u.s. eia')"), 'migration 053 still contains the accidental provider-wide UIS/EIA ban');
+check(!catalogRecoveryMigration.includes("case when c.is_percentage and (c.minimum_value<0 or c.maximum_value>100)\n          then format('Percentage values fall outside 0-100"), 'migration 053 still hard-blocks every percentage-like value outside 0..100');
+check(catalogRecoveryMigration.includes("measurement_type_lower not in ('per_capita','per capita','per-person','per person')"), 'migration 053 does not respect explicit per-capita measurement metadata');
+check(installer.includes('geostats-v16.2.6-catalog-regression-recovery'), 'cumulative installer missing migration 053');
+
 check(verifier.includes('legacy_rejection_blockers_v16_2_6') && verifier.includes('tracker_legacy_rejection_collisions_v16_2_6'), 'verification SQL missing legacy rejection checks');
 if (failures.length) { console.error('GeoStats v16.2.6 SQL checks FAILED:\n'+failures.map(x=>' - '+x).join('\n')); process.exit(1); }
 console.log('GeoStats v16.2.6 SQL checks passed.');

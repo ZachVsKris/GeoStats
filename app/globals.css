@@ -1088,3 +1088,27 @@ header{display:flex;align-items:center;justify-content:space-between;padding:6px
   .leaderboard>div:not(.leaderboardHeader):not(.leaderboardColumns) small,.leaderboard>div:not(.leaderboardHeader):not(.leaderboardColumns) strong{display:none}
   .leaderboard .worldRank{font-size:10px;text-align:center}
 }
+
+/* GeoStats v16.2.6 hotfix: keep Results ranking headers and rows on the exact same six-column grid.
+   The explicit div.leaderboardColumns selector intentionally outranks the older five-column
+   .leaderboard>div:not(.leaderboardHeader) rule above. */
+.leaderboard>div.leaderboardColumns,
+.leaderboard>div:not(.leaderboardHeader):not(.leaderboardColumns){
+  grid-template-columns:44px minmax(180px,1fr) 86px minmax(140px,180px) 88px 76px;
+  column-gap:14px;
+}
+.leaderboard>div.leaderboardColumns b{white-space:nowrap}
+.leaderboard>div.leaderboardColumns>:nth-child(n+3),
+.leaderboard>div:not(.leaderboardHeader):not(.leaderboardColumns)>:nth-child(n+3){text-align:right}
+
+@media(max-width:700px){
+  .leaderboard>div.leaderboardColumns,
+  .leaderboard>div:not(.leaderboardHeader):not(.leaderboardColumns){
+    grid-template-columns:27px minmax(0,1fr) 48px minmax(72px,auto);
+    column-gap:6px;
+  }
+  .leaderboard>div.leaderboardColumns b:nth-child(5),
+  .leaderboard>div.leaderboardColumns b:nth-child(6){display:none}
+  .leaderboard>div.leaderboardColumns>:nth-child(3),
+  .leaderboard>div:not(.leaderboardHeader):not(.leaderboardColumns)>:nth-child(3){text-align:center}
+}

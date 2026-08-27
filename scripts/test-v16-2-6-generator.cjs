@@ -5,7 +5,7 @@ const daily=fs.readFileSync(path.join(root,'lib/dailyBoardService.ts'),'utf8');
 const puzzle=fs.readFileSync(path.join(root,'lib/puzzleEngine.ts'),'utf8');
 for (const t of ['categoryRecencyPenalty','worldKnowledgeBucket','generationPriority','semanticFamily']) check(generation.includes(t),`category generation missing ${t}`);
 for (const t of ['recentCategoryExposureFromRows','21','18','10','4','1.25']) check(daily.includes(t),`Daily exposure history missing ${t}`);
-for (const t of ['recentCategoryExposure','qualityBand','priorityScore','worldKnowledgeBucket']) check(puzzle.includes(t),`puzzle engine missing ${t}`);
+for (const t of ['recentCategoryExposure','chooseSeededRandomCandidate','strongBand','explorationWeight','priorityScore','worldKnowledgeBucket']) check(puzzle.includes(t),`puzzle engine missing ${t}`);
 // The full synthetic deterministic regression is retained as the canonical behavioral test
 // and is executed when npm dependencies are installed in CI.
 check(fs.existsSync(path.join(root,'scripts/test-v15-7-generator.cjs')),'canonical synthetic generator regression missing');

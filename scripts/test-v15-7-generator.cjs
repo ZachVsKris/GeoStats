@@ -171,6 +171,23 @@ if (seededErrors.length) {
   throw new Error(`Synthetic Seeded Adventurer board failed validation: ${seededErrors.join(' ')}`);
 }
 
+// Random QA should explore the strong catalog broadly across unrelated seeds.
+// This catches regressions where a handful of generator-friendly categories
+// occupy most seeded boards even though every individual board is valid.
+const seededExposure = new Map();
+const seededRuns = 24;
+for (let index = 0; index < seededRuns; index += 1) {
+  const generated = generateSeededRoundFromLoadedCatalog(countries, `ATLAS-SPREAD-${index}`, 'normal', loaded);
+  for (const dataset of generated.round.categories) {
+    seededExposure.set(dataset.category.id, (seededExposure.get(dataset.category.id) || 0) + 1);
+  }
+}
+const maxSeededExposure = Math.max(...seededExposure.values());
+const averageSeededExposure = (seededRuns * 4) / datasets.length;
+if (maxSeededExposure > averageSeededExposure * 2.7) {
+  throw new Error(`Seeded Random category concentration is too high: max ${maxSeededExposure}, average ${averageSeededExposure.toFixed(1)}.`);
+}
+
 const fixedEasy = generateDailyTrioFromLoadedCatalog(countries, '2026-07-30', loaded, { easy: first.trio.easy }, '', deterministicDailyOptions);
 const fixedEasyShape = JSON.stringify({
   categories: fixedEasy.trio.easy.categories.map((dataset) => dataset.category.id),

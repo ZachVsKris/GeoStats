@@ -224,6 +224,7 @@ function optionScore(
   rng: Rng,
   config: RoundConfig,
   recentCategoryExposure?: CategoryExposure,
+  explorationNoise = 3.5,
 ) {
   const category = dataset.category;
   const selectedTypes = new Set(selected.map((item) => roundType(item.category)));
@@ -242,7 +243,7 @@ function optionScore(
     - categoryRecencyPenalty(category, recentCategoryExposure)
     + categorySubsetExposureBoost(category, recentCategoryExposure)
     + scoreCategoryQuality(dataset).score / 24
-    + rng() * 3.5
+    + rng() * explorationNoise
   );
 }
 
@@ -254,6 +255,7 @@ function chooseCategorySet(
   deadline: number,
   existingRounds: Round[] = [],
   recentCategoryExposure?: CategoryExposure,
+  explorationNoise = 3.5,
 ) {
   const rng = seededRandom(seed);
   const eligible = shuffle(
@@ -278,7 +280,7 @@ function chooseCategorySet(
       .filter((dataset) => !used.has(dataset.category.id)
         && !categoryConflictsWithExistingTrio(dataset.category, [...existingCategories, ...selected.map((item) => item.category)])
         && canAddCategory(selected.map((item) => item.category), dataset.category, config))
-      .map((dataset) => ({ dataset, score: optionScore(selected, dataset, rng, config, recentCategoryExposure) }))
+      .map((dataset) => ({ dataset, score: optionScore(selected, dataset, rng, config, recentCategoryExposure, explorationNoise) }))
       .sort((left, right) => right.score - left.score);
 
     const remaining = config.categoryCount - depth;
@@ -545,6 +547,7 @@ function composeRoundCandidates(
   candidateTarget = ROUND_CANDIDATE_TARGET,
   recentCountryExposure?: Record<string, number>,
   recentCategoryExposure?: CategoryExposure,
+  categoryExplorationNoise = 3.5,
 ): CandidateResult {
   const attempted = new Set<string>();
   const candidates: RoundCandidate[] = [];
@@ -553,7 +556,15 @@ function composeRoundCandidates(
   let validationFailures = 0;
 
   for (let attempt = 0; attempt < attemptLimit && Date.now() < deadline; attempt += 1) {
-    const categorySet = chooseCategorySet(available, `${seed}:categories:${attempt}`, config, deadline, existingRounds, recentCategoryExposure);
+    const categorySet = chooseCategorySet(
+      available,
+      `${seed}:categories:${attempt}`,
+      config,
+      deadline,
+      existingRounds,
+      recentCategoryExposure,
+      categoryExplorationNoise,
+    );
     if (!categorySet) {
       categorySelectionFailures += 1;
       continue;
@@ -1024,6 +1035,55 @@ export async function generateDailyTrio(
   return generateDailyTrioFromLoadedCatalog(countries, date, await loadCandidateDatasets(), fixed, attemptSalt, options);
 }
 
+function chooseSeededRandomCandidate(
+  candidates: RoundCandidate[],
+  seed: string,
+): RoundCandidate {
+  const best = candidates[0];
+  if (!best) throw new Error("Seeded Random candidate pool is empty.");
+  if (candidates.length === 1) return best;
+
+  // Random is a QA surface: keep boards inside a strong quality band, but do
+  // not let a small set of exceptionally generator-friendly categories occupy
+  // most unrelated seeds. The candidate pool is already quality-sorted and
+  // diversity-pruned. Within that pool, give extra selection weight to boards
+  // whose categories are rarer across the strong band. This remains fully
+  // deterministic for a given seed and does not use tester history, so shared
+  // seeded links remain reproducible.
+  const strongBand = candidates
+    .filter((candidate) => candidate.score >= best.score - 8.0)
+    .slice(0, 40);
+  if (strongBand.length <= 1) return strongBand[0] ?? best;
+
+  const frequency = new Map<string, number>();
+  for (const candidate of strongBand) {
+    for (const id of new Set(candidate.round.categories.map((dataset) => dataset.category.id))) {
+      frequency.set(id, (frequency.get(id) ?? 0) + 1);
+    }
+  }
+
+  const weighted = strongBand.map((candidate) => {
+    const ids = candidate.round.categories.map((dataset) => dataset.category.id);
+    const rarity = ids.reduce((sum, id) => {
+      const seen = frequency.get(id) ?? strongBand.length;
+      return sum + (1 - (seen - 1) / Math.max(1, strongBand.length - 1));
+    }, 0) / Math.max(1, ids.length);
+    const qualityDelta = Math.max(0, best.score - candidate.score);
+    const qualityWeight = Math.max(0.30, 1 - qualityDelta / 12);
+    const explorationWeight = 0.4 + rarity * 2.2;
+    return { candidate, weight: qualityWeight * explorationWeight };
+  });
+
+  const total = weighted.reduce((sum, item) => sum + item.weight, 0);
+  const rng = seededRandom(`SEEDED-BAND-${seed}`);
+  let target = rng() * total;
+  for (const item of weighted) {
+    target -= item.weight;
+    if (target <= 0) return item.candidate;
+  }
+  return weighted[weighted.length - 1].candidate;
+}
+
 export function generateSeededRoundFromLoadedCatalog(
   countries: CountryInfo[],
   seed: string,
@@ -1041,12 +1101,17 @@ export function generateSeededRoundFromLoadedCatalog(
       profile.configs[difficulty],
       Number.POSITIVE_INFINITY,
       seededAttemptLimit,
+      [],
+      ROUND_CANDIDATE_TARGET,
+      undefined,
+      undefined,
+      12.0,
     );
     if (result.candidates.length) {
-      const bestScore = result.candidates[0].score;
-      const qualityBand = result.candidates.filter((candidate) => candidate.score >= bestScore - 4.0).slice(0, 18);
-      const bandRng = seededRandom(`SEEDED-BAND-${difficulty}-${seed}:${profile.name}`);
-      const candidate = qualityBand[Math.floor(bandRng() * qualityBand.length)] ?? result.candidates[0];
+      const candidate = chooseSeededRandomCandidate(
+        result.candidates,
+        `${difficulty}-${seed}:${profile.name}`,
+      );
       return {
         round: candidate.round,
         profile: profile.name,

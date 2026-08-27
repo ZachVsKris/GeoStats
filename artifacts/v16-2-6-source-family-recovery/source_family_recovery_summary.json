@@ -1,0 +1,273 @@
+{
+  "totals": {
+    "mapped_source_families": 26,
+    "mapped_tracker_rows": 392,
+    "represented_tracker_rows": 387,
+    "explicitly_blocked_tracker_rows": 5,
+    "accounted_tracker_rows": 392,
+    "missing_tracker_rows": 0,
+    "note": "Importer-catalog representation only; no row is activation-certified by this audit."
+  },
+  "sources": [
+    {
+      "source_family": "WHO Global Health Observatory",
+      "importer": "scripts/import-who.py",
+      "tracker_rows": 61,
+      "represented": 61,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 61,
+      "representation_pct": 100.0
+    },
+    {
+      "source_family": "UNESCO Institute for Statistics",
+      "importer": "scripts/import-unesco.py",
+      "tracker_rows": 32,
+      "represented": 32,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 32,
+      "representation_pct": 100.0
+    },
+    {
+      "source_family": "ILOSTAT",
+      "importer": "scripts/import-ilostat.py",
+      "tracker_rows": 23,
+      "represented": 23,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 23,
+      "representation_pct": 100.0
+    },
+    {
+      "source_family": "U.S. EIA International Energy Statistics",
+      "importer": "scripts/import-eia.py",
+      "tracker_rows": 13,
+      "represented": 13,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 13,
+      "representation_pct": 100.0
+    },
+    {
+      "source_family": "World Bank Climate Change Knowledge Portal",
+      "importer": "scripts/import-world-bank-climate.py",
+      "tracker_rows": 12,
+      "represented": 8,
+      "blocked": 4,
+      "missing": 0,
+      "accounted": 12,
+      "representation_pct": 66.7
+    },
+    {
+      "source_family": "IMF World Economic Outlook",
+      "importer": "scripts/import-imf-weo.py",
+      "tracker_rows": 11,
+      "represented": 11,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 11,
+      "representation_pct": 100.0
+    },
+    {
+      "source_family": "FAO AQUASTAT Main Database",
+      "importer": "scripts/import-aquastat.py",
+      "tracker_rows": 11,
+      "represented": 11,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 11,
+      "representation_pct": 100.0
+    },
+    {
+      "source_family": "WHO Global Health Expenditure Database",
+      "importer": "scripts/import-who-ghed.py",
+      "tracker_rows": 10,
+      "represented": 10,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 10,
+      "representation_pct": 100.0
+    },
+    {
+      "source_family": "UN World Population Prospects 2024",
+      "importer": "scripts/import-un-wpp.py",
+      "tracker_rows": 9,
+      "represented": 9,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 9,
+      "representation_pct": 100.0
+    },
+    {
+      "source_family": "UNHCR Refugee Data Finder",
+      "importer": "scripts/import-unhcr.py",
+      "tracker_rows": 8,
+      "represented": 8,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 8,
+      "representation_pct": 100.0
+    },
+    {
+      "source_family": "FAOSTAT Food Balances",
+      "importer": "scripts/import-faostat-food-balances.py",
+      "tracker_rows": 2,
+      "represented": 2,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 2,
+      "representation_pct": 100.0
+    },
+    {
+      "source_family": "UN World Urbanization Prospects 2025",
+      "importer": "scripts/import-un-wup-2025.py",
+      "tracker_rows": 11,
+      "represented": 11,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 11,
+      "representation_pct": 100.0
+    },
+    {
+      "source_family": "UN World Urbanization Prospects 2025 Cities",
+      "importer": "scripts/import-un-wup-2025-cities.py",
+      "tracker_rows": 13,
+      "represented": 13,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 13,
+      "representation_pct": 100.0
+    },
+    {
+      "source_family": "World Bank WDI Infrastructure & Connectivity",
+      "importer": "scripts/import-world-bank-infrastructure.py",
+      "tracker_rows": 12,
+      "represented": 12,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 12,
+      "representation_pct": 100.0
+    },
+    {
+      "source_family": "Natural Earth 1:10m sovereign country geometry",
+      "importer": "scripts/import-natural-earth.py",
+      "tracker_rows": 11,
+      "represented": 11,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 11,
+      "representation_pct": 100.0
+    },
+    {
+      "source_family": "FAOSTAT Land Use",
+      "importer": "scripts/import-faostat-land-use.py",
+      "tracker_rows": 10,
+      "represented": 10,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 10,
+      "representation_pct": 100.0
+    },
+    {
+      "source_family": "FAOSTAT / ESA WorldCover 2021",
+      "importer": "scripts/import-faostat-worldcover.py",
+      "tracker_rows": 10,
+      "represented": 9,
+      "blocked": 1,
+      "missing": 0,
+      "accounted": 10,
+      "representation_pct": 90.0
+    },
+    {
+      "source_family": "World Bank Women, Business and the Law 2026",
+      "importer": "scripts/import-world-bank-wbl.py",
+      "tracker_rows": 13,
+      "represented": 13,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 13,
+      "representation_pct": 100.0
+    },
+    {
+      "source_family": "WHO/UNICEF Joint Monitoring Programme",
+      "importer": "scripts/import-jmp-wash.py",
+      "tracker_rows": 13,
+      "represented": 13,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 13,
+      "representation_pct": 100.0
+    },
+    {
+      "source_family": "World Bank Global Findex 2025",
+      "importer": "scripts/import-global-findex.py",
+      "tracker_rows": 17,
+      "represented": 17,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 17,
+      "representation_pct": 100.0
+    },
+    {
+      "source_family": "FAO Global Forest Resources Assessment 2025",
+      "importer": "scripts/import-fao-fra-2025.py",
+      "tracker_rows": 16,
+      "represented": 16,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 16,
+      "representation_pct": 100.0
+    },
+    {
+      "source_family": "UNICEF Data Warehouse",
+      "importer": "scripts/import-unicef-data.py",
+      "tracker_rows": 16,
+      "represented": 16,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 16,
+      "representation_pct": 100.0
+    },
+    {
+      "source_family": "UNDP Human Development Reports Data Center",
+      "importer": "scripts/import-undp-hdr.py",
+      "tracker_rows": 15,
+      "represented": 15,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 15,
+      "representation_pct": 100.0
+    },
+    {
+      "source_family": "V-Dem Country-Year Core v16",
+      "importer": "scripts/import-vdem-v16.py",
+      "tracker_rows": 15,
+      "represented": 15,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 15,
+      "representation_pct": 100.0
+    },
+    {
+      "source_family": "FAOSTAT Food Security & Healthy Diet",
+      "importer": "scripts/import-faostat-food-security.py",
+      "tracker_rows": 15,
+      "represented": 15,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 15,
+      "representation_pct": 100.0
+    },
+    {
+      "source_family": "K\u00f6ppen-Geiger 1991\u20132020 climate classification",
+      "importer": "scripts/import-koppen-geiger.py",
+      "tracker_rows": 13,
+      "represented": 13,
+      "blocked": 0,
+      "missing": 0,
+      "accounted": 13,
+      "representation_pct": 100.0
+    }
+  ]
+}

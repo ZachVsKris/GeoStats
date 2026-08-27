@@ -8,6 +8,7 @@ const migration = read('supabase/migrations/047_v16_2_6_full_release.sql');
 const legacyMigration = read('supabase/migrations/049_v16_2_6_legacy_rejection_guard.sql');
 const legacyReauditMigration = read('supabase/migrations/050_v16_2_6_priority_150_legacy_reaudit.sql');
 const fullLegacyReauditMigration = read('supabase/migrations/051_v16_2_6_full_791_legacy_reaudit.sql');
+const workbenchRepairMigration = read('supabase/migrations/052_v16_2_6_admin_workbench_contract_repair.sql');
 const installer = read('RUN_THIS_IN_SUPABASE_FOR_V16_2_6.sql');
 const verifier = read('VERIFY_V16_2_6.sql');
 for (const token of [
@@ -45,6 +46,8 @@ for (const token of ['legacy_rejection_first_principles_reaudit_v16_2_6','clear_
 check(installer.includes('geostats-v16.2.6-priority-150-legacy-reaudit'), 'cumulative installer missing migration 050');
 for (const token of ['geostats-v16.2.6-full-legacy-reaudit','confirmed_exclusion','cleared_for_reconsideration','requires_reaudit']) check(fullLegacyReauditMigration.includes(token), `full-791 re-audit migration missing ${token}`);
 check(installer.includes('geostats-v16.2.6-full-legacy-reaudit'), 'cumulative installer missing migration 051');
+for (const token of ['geostats-v16.2.6-admin-workbench-contract-repair','release_disposition_v16_2_3','release_disposition_reason_v16_2_3','category_release_decisions_v16_2_3']) check(workbenchRepairMigration.includes(token), `Admin Workbench repair migration missing ${token}`);
+check(installer.includes('geostats-v16.2.6-admin-workbench-contract-repair'), 'cumulative installer missing migration 052');
 check(verifier.includes('legacy_rejection_blockers_v16_2_6') && verifier.includes('tracker_legacy_rejection_collisions_v16_2_6'), 'verification SQL missing legacy rejection checks');
 if (failures.length) { console.error('GeoStats v16.2.6 SQL checks FAILED:\n'+failures.map(x=>' - '+x).join('\n')); process.exit(1); }
 console.log('GeoStats v16.2.6 SQL checks passed.');

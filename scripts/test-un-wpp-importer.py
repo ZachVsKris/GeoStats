@@ -2,7 +2,9 @@ import csv
 import importlib.util
 import tempfile
 import sys
+from io import BytesIO
 from pathlib import Path
+from openpyxl import Workbook
 
 p=Path(__file__).with_name('import-un-wpp.py')
 spec=importlib.util.spec_from_file_location('unwpp',p)
@@ -13,6 +15,51 @@ m=importlib.util.module_from_spec(spec);sys.modules[spec.name]=m;spec.loader.exe
 assert '/wpp/assets/Excel%20Files/' in m.DOWNLOAD
 assert '/wpp/Download/Files/' not in m.DOWNLOAD
 assert m.DOWNLOAD.endswith('WPP2024_GEN_F01_DEMOGRAPHIC_INDICATORS_COMPACT.xlsx')
+
+
+# Mirror the structure of UN's published compact workbook: an Estimates sheet,
+# metadata rows before the header, and human-readable WPP column labels.
+wb=Workbook()
+ws=wb.active
+ws.title='Estimates'
+for i in range(1,17):
+ ws.cell(i,5,f'WPP metadata row {i}')
+real_headers=[
+ 'Index','Variant','Region, subregion, country or area *','Notes','Location code','ISO3 Alpha-code','Year',
+ 'Total Population, as of 1 July (thousands)','Male Population, as of 1 July (thousands)',
+ 'Female Population, as of 1 July (thousands)','Population Density, as of 1 July (persons per square km)',
+ 'Population Sex Ratio, as of 1 July (males per 100 females)','Median Age, as of 1 July (years)',
+ 'Population Growth Rate (percentage)','Total Fertility Rate (live births per woman)',
+ 'Life Expectancy at Birth, both sexes (years)','Male Life Expectancy at Birth (years)',
+ 'Female Life Expectancy at Birth (years)','Infant Mortality Rate (infant deaths per 1,000 live births)',
+ 'Rate of Natural Change (per 1,000 population)','Crude Birth Rate (births per 1,000 population)',
+ 'Crude Death Rate (deaths per 1,000 population)','Net Migration Rate (per 1,000 population)',
+ 'Sex Ratio at Birth (males per 100 female births)','Mean Age Childbearing (years)'
+]
+ws.append(real_headers)
+ws.append([1,'Estimates','France','',250,'FRA',2023,68000,33000,35000,120,94.3,42,.2,1.7,82,79,85,3.4,1.1,10.6,9.5,1.2,105.1,31.2])
+ws.append([2,'Estimates','Germany','',276,'DEU',2024,84000])
+xlsx=BytesIO(); wb.save(xlsx); wb.close()
+real_rows=m.load.__globals__['_xlsx_rows'](xlsx.getvalue())
+real_rows=list(real_rows)
+assert len(real_rows)==2
+assert real_rows[0]['ISO3 Alpha-code']=='FRA'
+with tempfile.TemporaryDirectory() as d:
+ xf=Path(d)/'wpp.xlsx'; xf.write_bytes(xlsx.getvalue())
+ parsed=m.load(str(xf))
+ assert len(parsed)==1 and parsed[0][0]=='FRA'
+ metrics=parsed[0][1]
+ assert round(metrics['male-share'],1)==48.5
+ assert metrics['median-age']==42
+ assert metrics['population-density']==120
+ assert metrics['fertility']==1.7
+ assert metrics['life-expectancy']==82
+ assert metrics['natural-change-rate']==1.1
+ assert metrics['birth-rate']==10.6
+ assert metrics['death-rate']==9.5
+ assert metrics['net-migration-rate']==1.2
+ assert metrics['sex-ratio-at-birth']==105.1
+ assert metrics['mean-age-childbearing']==31.2
 
 with tempfile.TemporaryDirectory() as d:
  f=Path(d)/'wpp.csv'

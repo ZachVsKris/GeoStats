@@ -107,9 +107,12 @@ select runtime.*,
  vetting.rank_correlation as auto_rank_correlation,
  vetting.tie_share as auto_tie_share,
  vetting.vetting_version as auto_vetting_version,
- vetting.vetted_at as auto_vetted_at
+ vetting.vetted_at as auto_vetted_at,
+ decision.disposition as release_disposition_v16_2_3,
+ decision.rationale as release_disposition_reason_v16_2_3
 from public.category_runtime_review_v16_2 runtime
-left join public.category_auto_vetting_v15_9 vetting on vetting.category_id=runtime.id;
+left join public.category_auto_vetting_v15_9 vetting on vetting.category_id=runtime.id
+left join public.category_release_decisions_v16_2_3 decision on decision.category_id=runtime.id;
 revoke all on public.category_review_workbench_v16_2 from public,anon,authenticated;
 grant select on public.category_review_workbench_v16_2 to service_role;
 

@@ -95,15 +95,15 @@ export async function GET(request: Request) {
 
   const error = categoriesResult.error ?? overviewResult.error ?? sourceResult.error;
   if (error) {
-    const migrationMissing = /category_review_(queue|overview)_v15|does not exist|schema cache/i.test(error.message);
+    const schemaContractIssue = /category_review_workbench_v16_2|category_review_overview_v16_2|does not exist|schema cache|could not find.*column/i.test(error.message);
     return NextResponse.json(
       {
-        error: migrationMissing
-          ? "Run RUN_THIS_IN_SUPABASE_FOR_V16_2_5.sql before using the Category Review Workbench."
+        error: schemaContractIssue
+          ? `The v16.2.6 Category Review Workbench database contract is unavailable or stale. Apply migration 052_v16_2_6_admin_workbench_contract_repair.sql and reload the Supabase schema cache. Database detail: ${error.message}`
           : error.message,
-        migrationApplied: !migrationMissing,
+        migrationApplied: !schemaContractIssue,
       },
-      { status: migrationMissing ? 409 : 500 },
+      { status: schemaContractIssue ? 409 : 500 },
     );
   }
 

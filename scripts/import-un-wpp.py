@@ -6,9 +6,9 @@ UN compact CSV/XLSX download and derives a small set of highly understandable
 country comparisons. Every derived statistic uses the same WPP release and year.
 """
 from __future__ import annotations
-import argparse, csv, io, os, re, zipfile
+import argparse, csv, io, os, re
 from pathlib import Path
-from xml.etree import ElementTree as ET
+from openpyxl import load_workbook
 from data_pipeline.base import WarehouseImporter
 from data_pipeline.canonical_countries import canonical_country_name, country_name_to_iso3
 from data_pipeline.models import CandidateDefinition, IndicatorRule, SourceObservation
@@ -24,35 +24,44 @@ YEAR=2023
 def norm(s): return re.sub(r'[^a-z0-9]+','',str(s or '').lower())
 
 def _xlsx_rows(raw: bytes):
-    z=zipfile.ZipFile(io.BytesIO(raw))
-    shared=[]
-    if 'xl/sharedStrings.xml' in z.namelist():
-        root=ET.fromstring(z.read('xl/sharedStrings.xml'))
-        ns={'a':'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
-        for si in root.findall('a:si',ns): shared.append(''.join(t.text or '' for t in si.findall('.//a:t',ns)))
-    # Compact workbook's first worksheet contains the general indicators; scan worksheets until a header is found.
-    ns={'a':'http://schemas.openxmlformats.org/spreadsheetml/2006/main'}
-    for name in sorted(n for n in z.namelist() if n.startswith('xl/worksheets/sheet') and n.endswith('.xml')):
-        root=ET.fromstring(z.read(name)); rows=[]
-        for row in root.findall('.//a:sheetData/a:row',ns):
-            vals=[]
-            for c in row.findall('a:c',ns):
-                t=c.get('t'); v=c.find('a:v',ns); inline=c.find('a:is/a:t',ns)
-                value=''
-                if inline is not None: value=inline.text or ''
-                elif v is not None:
-                    value=v.text or ''
-                    if t=='s' and value.isdigit() and int(value)<len(shared): value=shared[int(value)]
-                vals.append(value)
-            if vals: rows.append(vals)
-        for i,row in enumerate(rows):
-            nr={norm(x) for x in row}
-            if ('iso3code' in nr or 'iso3' in nr) and 'year' in nr:
-                headers=row
-                for data in rows[i+1:]:
-                    if len(data)<len(headers): data=data+['']*(len(headers)-len(data))
-                    yield dict(zip(headers,data))
-                return
+    """Yield rows from the WPP compact workbook without relying on a fixed header row.
+
+    The current official workbook uses human-readable column names (for example
+    ``ISO3 Alpha-code``) and a 16-row metadata preamble on the Estimates sheet.
+    Older GeoStats code parsed the XLSX XML directly and looked only for
+    ``ISO3_code``/``ISO3``; that both lost sparse-cell column positions and failed
+    when UN's published header wording was encountered.  openpyxl is already a
+    pinned importer dependency, so use it here and detect the header semantically.
+    """
+    wb=load_workbook(io.BytesIO(raw), read_only=True, data_only=True)
+    sheet_names=[]
+    if 'Estimates' in wb.sheetnames:
+        sheet_names.append('Estimates')
+    sheet_names.extend(name for name in wb.sheetnames if name not in sheet_names)
+    try:
+        for sheet_name in sheet_names:
+            ws=wb[sheet_name]
+            rows=ws.iter_rows(values_only=True)
+            headers=None
+            for row in rows:
+                vals=['' if value is None else value for value in row]
+                normalized={norm(value) for value in vals if value not in (None,'')}
+                has_iso=bool(normalized & {'iso3alphacode','iso3code','iso3'})
+                if has_iso and 'year' in normalized:
+                    headers=[str(value).strip() if value not in (None,'') else '' for value in vals]
+                    break
+            if headers is None:
+                continue
+            for row in rows:
+                vals=['' if value is None else value for value in row]
+                if not any(value not in (None,'') for value in vals):
+                    continue
+                if len(vals)<len(headers):
+                    vals=vals+['']*(len(headers)-len(vals))
+                yield dict(zip(headers, vals[:len(headers)]))
+            return
+    finally:
+        wb.close()
     raise RuntimeError('Could not find the WPP compact demographic-indicator sheet/header.')
 
 def load(path_or_url: str):
@@ -67,8 +76,8 @@ def load(path_or_url: str):
         try: year=int(float(str(year_raw)))
         except: continue
         if year!=YEAR: continue
-        iso3=str(m.get('iso3code') or m.get('iso3') or '').upper().strip()
-        if len(iso3)!=3: iso3=country_name_to_iso3(m.get('location') or m.get('country')) or ''
+        iso3=str(m.get('iso3alphacode') or m.get('iso3code') or m.get('iso3') or '').upper().strip()
+        if len(iso3)!=3: iso3=country_name_to_iso3(m.get('regionsubregioncountryorarea') or m.get('location') or m.get('country')) or ''
         if not iso3: continue
         def val(*names):
             for n in names:
@@ -77,27 +86,36 @@ def load(path_or_url: str):
                     try:return float(str(x).replace(',',''))
                     except:pass
             return None
-        total=val('TPopulation1July','TotalPopulation1July','TPopulation1JulyThousands')
-        male=val('PopMale1July','MalePopulation1July')
-        female=val('PopFemale1July','FemalePopulation1July')
+        total=val(
+          'TPopulation1July','TotalPopulation1July','TPopulation1JulyThousands',
+          'Total Population, as of 1 July (thousands)'
+        )
+        male=val(
+          'PopMale1July','MalePopulation1July',
+          'Male Population, as of 1 July (thousands)'
+        )
+        female=val(
+          'PopFemale1July','FemalePopulation1July',
+          'Female Population, as of 1 July (thousands)'
+        )
         metrics={
           'male-share': (100*male/total if male is not None and total and total>0 else None),
           'female-share': (100*female/total if female is not None and total and total>0 else None),
-          'sex-ratio': val('SexRatio'),
-          'median-age': val('MedianAgePop','MedianAge'),
-          'population-density': val('PopDensity','PopulationDensity'),
-          'population-growth': val('PopGrowthRate','PopulationGrowthRate'),
-          'fertility': val('TFR','TotalFertilityRate'),
-          'life-expectancy': val('LEx','LifeExpectancy'),
-          'female-life-expectancy': val('LExFemale','FemaleLifeExpectancy'),
-          'male-life-expectancy': val('LExMale','MaleLifeExpectancy'),
-          'infant-mortality': val('IMR','InfantMortalityRate'),
-          'natural-change-rate': val('NatChangeRT','RateNaturalChange','RateofNaturalChange','CrudeRateNaturalChange'),
-          'birth-rate': val('CBR','CrudeBirthRate'),
-          'death-rate': val('CDR','CrudeDeathRate'),
-          'net-migration-rate': val('CNMR','NetMigrationRate','CrudeNetMigrationRate'),
-          'sex-ratio-at-birth': val('SRB','SexRatioatBirth','SexRatioAtBirthMalesPer100FemaleBirths'),
-          'mean-age-childbearing': val('MACB','MeanAgeChildbearing','MeanAgeofChildbearing'),
+          'sex-ratio': val('SexRatio','Population Sex Ratio, as of 1 July (males per 100 females)'),
+          'median-age': val('MedianAgePop','MedianAge','Median Age, as of 1 July (years)'),
+          'population-density': val('PopDensity','PopulationDensity','Population Density, as of 1 July (persons per square km)'),
+          'population-growth': val('PopGrowthRate','PopulationGrowthRate','Population Growth Rate (percentage)'),
+          'fertility': val('TFR','TotalFertilityRate','Total Fertility Rate (live births per woman)'),
+          'life-expectancy': val('LEx','LifeExpectancy','Life Expectancy at Birth, both sexes (years)'),
+          'female-life-expectancy': val('LExFemale','FemaleLifeExpectancy','Female Life Expectancy at Birth (years)'),
+          'male-life-expectancy': val('LExMale','MaleLifeExpectancy','Male Life Expectancy at Birth (years)'),
+          'infant-mortality': val('IMR','InfantMortalityRate','Infant Mortality Rate (infant deaths per 1,000 live births)'),
+          'natural-change-rate': val('NatChangeRT','RateNaturalChange','RateofNaturalChange','CrudeRateNaturalChange','Rate of Natural Change (per 1,000 population)'),
+          'birth-rate': val('CBR','CrudeBirthRate','Crude Birth Rate (births per 1,000 population)'),
+          'death-rate': val('CDR','CrudeDeathRate','Crude Death Rate (deaths per 1,000 population)'),
+          'net-migration-rate': val('CNMR','NetMigrationRate','CrudeNetMigrationRate','Net Migration Rate (per 1,000 population)'),
+          'sex-ratio-at-birth': val('SRB','SexRatioatBirth','SexRatioAtBirthMalesPer100FemaleBirths','Sex Ratio at Birth (males per 100 female births)'),
+          'mean-age-childbearing': val('MACB','MeanAgeChildbearing','MeanAgeofChildbearing','Mean Age Childbearing (years)'),
         }
         if metrics['female-life-expectancy'] is not None and metrics['male-life-expectancy'] is not None:
             metrics['female-life-expectancy-advantage']=metrics['female-life-expectancy']-metrics['male-life-expectancy']

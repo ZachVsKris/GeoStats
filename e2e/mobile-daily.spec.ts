@@ -431,7 +431,15 @@ test("rules modal scrolls on phone", async ({ page }) => {
 
 test("private Random API rejects unauthenticated seeded requests", async ({ page }) => {
   const response = await page.request.get("/api/seeded/easy?seed=RESULT-SEED-KEEP-ME");
-  expect([401, 403]).toContain(response.status());
+  // Verify runs without production Supabase secrets. In that environment the
+  // authorization helper fails closed with 503 before it can resolve a user;
+  // with Supabase configured, the same unauthenticated request returns 401.
+  expect([401, 503]).toContain(response.status());
   const body = await response.json();
-  expect(String(body.error ?? "")).toMatch(/sign in|internal geostats qa tool/i);
+  const error = String(body.error ?? "");
+  if (response.status() === 503) {
+    expect(error).toMatch(/supabase is not configured|server admin key is not configured/i);
+  } else {
+    expect(error).toMatch(/sign in/i);
+  }
 });

@@ -1,0 +1,252 @@
+name: Rebuild v16.2.7 catalog, diversity, and reachability
+
+on:
+  workflow_dispatch:
+    inputs:
+      family:
+        description: "Source family to run. 'all' runs self-fetching sources and every supplied official bulk family."
+        required: true
+        default: all
+        type: choice
+        options: [all, naturalearth, unmembership, constitute, ipu, worldbankhistory, unwpp, worldbankclimate, naturalearthcapitals, unescoich, worldbankinfra, imfweo, noaatsunami, aquastat, faofisheries, usgsminerals, whoghed, undesamigrant, wtoservices, untourismdirect, fifa, ioc, globalfindex2025, faofra2025, unicefdata, undphdr, vdemv16, faostatfoodsecurity, koppengeiger, faostatlanduse, faostatworldcover, worldbankwbl, jmpwash, unwup2025, unwupcities2025]
+      imf_weo_url: { description: "Optional official IMF WEO bulk URL", required: false, type: string }
+      noaa_tsunami_url: { description: "Optional official NOAA/NCEI tsunami bulk URL", required: false, type: string }
+      aquastat_url: { description: "Optional official FAO AQUASTAT bulk URL", required: false, type: string }
+      fao_fisheries_url: { description: "Optional official FAO fisheries bulk URL", required: false, type: string }
+      usgs_minerals_url: { description: "Optional official USGS minerals bulk URL", required: false, type: string }
+      who_ghed_url: { description: "Optional official WHO GHED bulk URL", required: false, type: string }
+      un_desa_migrant_url: { description: "Optional official UN DESA migrant-stock bulk URL", required: false, type: string }
+      wto_services_url: { description: "Optional official WTO commercial-services bulk URL", required: false, type: string }
+      un_tourism_url: { description: "Optional direct UN Tourism bulk URL", required: false, type: string }
+      fifa_world_cup_url: { description: "Official FIFA men's World Cup participation/first-appearance bulk URL", required: false, type: string }
+      ioc_olympics_url: { description: "Official IOC modern Olympic participation/first-appearance bulk URL", required: false, type: string }
+      global_findex_url: { description: "Official World Bank Global Findex 2025 country bulk URL", required: false, type: string }
+      fao_fra_2025_url: { description: "Official FAO FRA 2025 country bulk URL", required: false, type: string }
+      unicef_data_url: { description: "Official UNICEF country bulk URL", required: false, type: string }
+      undp_hdr_url: { description: "Official UNDP HDR country bulk URL", required: false, type: string }
+      vdem_v16_url: { description: "Official V-Dem v16 country-year bulk URL", required: false, type: string }
+      faostat_food_security_url: { description: "Official FAOSTAT food-security bulk URL", required: false, type: string }
+      koppen_geiger_bundle_url: { description: "Pinned ZIP containing the 1991-2020 Koppen-Geiger raster and sovereign-country shapefile", required: false, type: string }
+      faostat_land_use_url: { description: "Official FAOSTAT Land Use bulk URL", required: false, type: string }
+      faostat_worldcover_url: { description: "Official FAOSTAT land-cover/WorldCover bulk URL", required: false, type: string }
+      world_bank_wbl_url: { description: "Official World Bank Women, Business and the Law 2026 bulk URL", required: false, type: string }
+      jmp_wash_url: { description: "Official WHO/UNICEF JMP household WASH bulk URL", required: false, type: string }
+      un_wup_2025_bundle_url: { description: "ZIP containing official UN WUP 2025 F01-F04 country workbooks", required: false, type: string }
+      un_wup_cities_2025_bundle_url: { description: "ZIP containing official UN WUP 2025 city workbooks", required: false, type: string }
+
+permissions:
+  contents: read
+
+concurrency:
+  group: geostats-v16-2-7-rebuild
+  cancel-in-progress: false
+
+env:
+  SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+  SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+  SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with: { node-version: "22" }
+      - uses: actions/setup-python@v6
+        with: { python-version: "3.12" }
+      - name: Require Supabase credentials
+        shell: bash
+        run: |
+          test -n "$SUPABASE_URL" || { echo "::error::SUPABASE_URL secret is missing"; exit 1; }
+          test -n "${SUPABASE_SECRET_KEY:-${SUPABASE_SERVICE_ROLE_KEY:-}}" || { echo "::error::Supabase service-role secret is missing"; exit 1; }
+      - name: Install JavaScript dependencies
+        run: npm ci --include=dev --no-audit --no-fund
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Install importer dependencies
+        run: python -m pip install --disable-pip-version-check -r scripts/requirements-data-importers.txt -r scripts/requirements-faostat.txt -r scripts/requirements-geography.txt
+      - name: Run full v16.2.7 release validation (tests, typecheck, production build, Playwright)
+        run: npm run check-v16-2-7
+
+  import-and-audit:
+    needs: preflight
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with: { python-version: "3.12" }
+      - name: Install importer dependencies
+        run: python -m pip install --disable-pip-version-check -r scripts/requirements-data-importers.txt -r scripts/requirements-faostat.txt -r scripts/requirements-geography.txt
+      - name: Download supplied official bulk inputs
+        shell: bash
+        env:
+          IMF_WEO_URL: ${{ inputs.imf_weo_url }}
+          NOAA_TSUNAMI_URL: ${{ inputs.noaa_tsunami_url }}
+          AQUASTAT_URL: ${{ inputs.aquastat_url }}
+          FAO_FISHERIES_URL: ${{ inputs.fao_fisheries_url }}
+          USGS_MINERALS_URL: ${{ inputs.usgs_minerals_url }}
+          WHO_GHED_URL: ${{ inputs.who_ghed_url }}
+          UN_DESA_MIGRANT_URL: ${{ inputs.un_desa_migrant_url }}
+          WTO_SERVICES_URL: ${{ inputs.wto_services_url }}
+          UN_TOURISM_URL: ${{ inputs.un_tourism_url }}
+          FIFA_WORLD_CUP_URL: ${{ inputs.fifa_world_cup_url }}
+          IOC_OLYMPICS_URL: ${{ inputs.ioc_olympics_url }}
+          GLOBAL_FINDEX_URL: ${{ inputs.global_findex_url }}
+          FAO_FRA_2025_URL: ${{ inputs.fao_fra_2025_url }}
+          UNICEF_DATA_URL: ${{ inputs.unicef_data_url }}
+          UNDP_HDR_URL: ${{ inputs.undp_hdr_url }}
+          VDEM_V16_URL: ${{ inputs.vdem_v16_url }}
+          FAOSTAT_FOOD_SECURITY_URL: ${{ inputs.faostat_food_security_url }}
+          KOPPEN_GEIGER_BUNDLE_URL: ${{ inputs.koppen_geiger_bundle_url }}
+          FAOSTAT_LAND_USE_URL: ${{ inputs.faostat_land_use_url }}
+          FAOSTAT_WORLDCOVER_URL: ${{ inputs.faostat_worldcover_url }}
+          WORLD_BANK_WBL_URL: ${{ inputs.world_bank_wbl_url }}
+          JMP_WASH_URL: ${{ inputs.jmp_wash_url }}
+          UN_WUP_2025_BUNDLE_URL: ${{ inputs.un_wup_2025_bundle_url }}
+          UN_WUP_CITIES_2025_BUNDLE_URL: ${{ inputs.un_wup_cities_2025_bundle_url }}
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/v16-2-7-inputs
+          fetch() { local url="$1" out="$2"; if [ -n "$url" ]; then curl --fail --location --retry 4 --retry-all-errors "$url" -o "$out"; fi; }
+          fetch "$IMF_WEO_URL" artifacts/v16-2-7-inputs/imf-weo.bulk
+          fetch "$NOAA_TSUNAMI_URL" artifacts/v16-2-7-inputs/noaa-tsunami.bulk
+          fetch "$AQUASTAT_URL" artifacts/v16-2-7-inputs/aquastat.bulk
+          fetch "$FAO_FISHERIES_URL" artifacts/v16-2-7-inputs/fao-fisheries.bulk
+          fetch "$USGS_MINERALS_URL" artifacts/v16-2-7-inputs/usgs-minerals.bulk
+          fetch "$WHO_GHED_URL" artifacts/v16-2-7-inputs/who-ghed.bulk
+          fetch "$UN_DESA_MIGRANT_URL" artifacts/v16-2-7-inputs/un-desa-migrant.bulk
+          fetch "$WTO_SERVICES_URL" artifacts/v16-2-7-inputs/wto-services.bulk
+          fetch "$UN_TOURISM_URL" artifacts/v16-2-7-inputs/un-tourism.bulk
+          fetch "$FIFA_WORLD_CUP_URL" artifacts/v16-2-7-inputs/fifa-world-cup.bulk
+          fetch "$IOC_OLYMPICS_URL" artifacts/v16-2-7-inputs/ioc-olympics.bulk
+          fetch "$GLOBAL_FINDEX_URL" artifacts/v16-2-7-inputs/global-findex.bulk
+          fetch "$FAO_FRA_2025_URL" artifacts/v16-2-7-inputs/fao-fra-2025.bulk
+          fetch "$UNICEF_DATA_URL" artifacts/v16-2-7-inputs/unicef-data.bulk
+          fetch "$UNDP_HDR_URL" artifacts/v16-2-7-inputs/undp-hdr.bulk
+          fetch "$VDEM_V16_URL" artifacts/v16-2-7-inputs/vdem-v16.bulk
+          fetch "$FAOSTAT_FOOD_SECURITY_URL" artifacts/v16-2-7-inputs/faostat-food-security.bulk
+          fetch "$KOPPEN_GEIGER_BUNDLE_URL" artifacts/v16-2-7-inputs/koppen-geiger.zip
+          fetch "$FAOSTAT_LAND_USE_URL" artifacts/v16-2-7-inputs/faostat-land-use.bulk
+          fetch "$FAOSTAT_WORLDCOVER_URL" artifacts/v16-2-7-inputs/faostat-worldcover.bulk
+          fetch "$WORLD_BANK_WBL_URL" artifacts/v16-2-7-inputs/world-bank-wbl.bulk
+          fetch "$JMP_WASH_URL" artifacts/v16-2-7-inputs/jmp-wash.bulk
+          fetch "$UN_WUP_2025_BUNDLE_URL" artifacts/v16-2-7-inputs/un-wup-2025.zip
+          fetch "$UN_WUP_CITIES_2025_BUNDLE_URL" artifacts/v16-2-7-inputs/un-wup-cities-2025.zip
+          unpack() { local archive="$1" out="$2"; if [ -s "$archive" ]; then mkdir -p "$out"; unzip -q "$archive" -d "$out"; fi; }
+          unpack artifacts/v16-2-7-inputs/koppen-geiger.zip artifacts/v16-2-7-inputs/koppen-geiger
+          unpack artifacts/v16-2-7-inputs/un-wup-2025.zip artifacts/v16-2-7-inputs/un-wup-2025
+          unpack artifacts/v16-2-7-inputs/un-wup-cities-2025.zip artifacts/v16-2-7-inputs/un-wup-cities-2025
+      - name: Import and independently re-audit selected source families
+        shell: bash
+        env:
+          FAMILY: ${{ inputs.family }}
+        run: |
+          set -euo pipefail
+          run_source() {
+            local slug="$1" import_cmd="$2" input_env="${3:-}" input_path="${4:-}"
+            if [ "$FAMILY" != "all" ] && [ "$FAMILY" != "$slug" ]; then return 0; fi
+            if [ -n "$input_path" ] && [ ! -e "$input_path" ]; then
+              if [ "$FAMILY" = "$slug" ]; then echo "::error::$slug requires its official bulk URL"; exit 1; fi
+              echo "::notice::Skipping $slug: no official bulk URL supplied. Existing catalog state remains fail-closed."
+              return 0
+            fi
+            echo "::group::Import $slug"
+            eval "$import_cmd"
+            echo "::endgroup::"
+            if [ -n "$input_env" ]; then export "$input_env=$input_path"; fi
+            python scripts/audit-source-integrity.py --source "$slug" --include-nonplayable --fail-on-source-error --fail-on-empty --report-dir "artifacts/source-integrity/$slug"
+          }
+          run_koppen() {
+            if [ "$FAMILY" != "all" ] && [ "$FAMILY" != "koppengeiger" ]; then return 0; fi
+            local root="artifacts/v16-2-7-inputs/koppen-geiger"
+            if [ ! -d "$root" ]; then
+              if [ "$FAMILY" = "koppengeiger" ]; then echo "::error::koppengeiger requires its pinned official bundle URL"; exit 1; fi
+              echo "::notice::Skipping koppengeiger: no pinned raster/geometry bundle supplied."; return 0
+            fi
+            local raster countries
+            raster="$(find "$root" -type f \( -iname '*.tif' -o -iname '*.tiff' \) | head -n 1)"
+            countries="$(find "$root" -type f -iname '*.shp' | head -n 1)"
+            test -n "$raster" && test -n "$countries" || { echo "::error::Koppen bundle must contain a raster and sovereign-country shapefile"; exit 1; }
+            python scripts/import-koppen-geiger.py --input "$raster" --countries "$countries"
+            export KOPPEN_GEIGER_RASTER_INPUT="$raster" KOPPEN_GEIGER_COUNTRIES_INPUT="$countries"
+            python scripts/audit-source-integrity.py --source koppengeiger --include-nonplayable --fail-on-source-error --fail-on-empty --report-dir artifacts/source-integrity/koppengeiger
+          }
+          run_source naturalearth "python scripts/import-natural-earth.py"
+          run_source unmembership "python scripts/import-historical-categories.py --source unmembership --require-complete"
+          run_source constitute "python scripts/import-historical-categories.py --source constitute"
+          run_source ipu "python scripts/import-historical-categories.py --source ipu --require-complete"
+          run_source worldbankhistory "python scripts/import-historical-categories.py --source worldbankhistory --require-complete"
+          run_source unwpp "python scripts/import-un-wpp.py"
+          run_source worldbankclimate "python scripts/import-world-bank-climate.py"
+          run_source naturalearthcapitals "python scripts/import-natural-earth-capitals.py"
+          run_source unescoich "python scripts/import-unesco-ich.py"
+          run_source worldbankinfra "python scripts/import-world-bank-infrastructure.py"
+          run_source imfweo "python scripts/import-imf-weo.py --input artifacts/v16-2-7-inputs/imf-weo.bulk" IMF_WEO_INPUT artifacts/v16-2-7-inputs/imf-weo.bulk
+          run_source noaatsunami "python scripts/import-noaa-tsunami.py --input artifacts/v16-2-7-inputs/noaa-tsunami.bulk" NOAA_TSUNAMI_INPUT artifacts/v16-2-7-inputs/noaa-tsunami.bulk
+          run_source aquastat "python scripts/import-aquastat.py --input artifacts/v16-2-7-inputs/aquastat.bulk" AQUASTAT_INPUT artifacts/v16-2-7-inputs/aquastat.bulk
+          run_source faofisheries "python scripts/import-fao-fisheries.py --input artifacts/v16-2-7-inputs/fao-fisheries.bulk" FAO_FISHERIES_INPUT artifacts/v16-2-7-inputs/fao-fisheries.bulk
+          run_source usgsminerals "python scripts/import-usgs-minerals.py --input artifacts/v16-2-7-inputs/usgs-minerals.bulk" USGS_MINERALS_INPUT artifacts/v16-2-7-inputs/usgs-minerals.bulk
+          run_source whoghed "python scripts/import-who-ghed.py --input artifacts/v16-2-7-inputs/who-ghed.bulk" WHO_GHED_INPUT artifacts/v16-2-7-inputs/who-ghed.bulk
+          run_source undesamigrant "python scripts/import-un-desa-migrant-stock.py --input artifacts/v16-2-7-inputs/un-desa-migrant.bulk" UN_DESA_MIGRANT_INPUT artifacts/v16-2-7-inputs/un-desa-migrant.bulk
+          run_source wtoservices "python scripts/import-wto-services.py --input artifacts/v16-2-7-inputs/wto-services.bulk" WTO_SERVICES_INPUT artifacts/v16-2-7-inputs/wto-services.bulk
+          run_source untourismdirect "python scripts/import-un-tourism.py --input artifacts/v16-2-7-inputs/un-tourism.bulk" UN_TOURISM_INPUT artifacts/v16-2-7-inputs/un-tourism.bulk
+          run_source fifa "python scripts/import-sports-history.py --source fifa --fifa-input artifacts/v16-2-7-inputs/fifa-world-cup.bulk" FIFA_WORLD_CUP_INPUT artifacts/v16-2-7-inputs/fifa-world-cup.bulk
+          run_source ioc "python scripts/import-sports-history.py --source ioc --ioc-input artifacts/v16-2-7-inputs/ioc-olympics.bulk" IOC_OLYMPICS_INPUT artifacts/v16-2-7-inputs/ioc-olympics.bulk
+          run_source globalfindex2025 "python scripts/import-global-findex.py --input artifacts/v16-2-7-inputs/global-findex.bulk" GLOBAL_FINDEX_2025_INPUT artifacts/v16-2-7-inputs/global-findex.bulk
+          run_source faofra2025 "python scripts/import-fao-fra-2025.py --input artifacts/v16-2-7-inputs/fao-fra-2025.bulk" FAO_FRA_2025_INPUT artifacts/v16-2-7-inputs/fao-fra-2025.bulk
+          run_source unicefdata "python scripts/import-unicef-data.py --input artifacts/v16-2-7-inputs/unicef-data.bulk" UNICEF_DATA_INPUT artifacts/v16-2-7-inputs/unicef-data.bulk
+          run_source undphdr "python scripts/import-undp-hdr.py --input artifacts/v16-2-7-inputs/undp-hdr.bulk" UNDP_HDR_INPUT artifacts/v16-2-7-inputs/undp-hdr.bulk
+          run_source vdemv16 "python scripts/import-vdem-v16.py --input artifacts/v16-2-7-inputs/vdem-v16.bulk" VDEM_V16_INPUT artifacts/v16-2-7-inputs/vdem-v16.bulk
+          run_source faostatfoodsecurity "python scripts/import-faostat-food-security.py --input artifacts/v16-2-7-inputs/faostat-food-security.bulk" FAOSTAT_FOOD_SECURITY_INPUT artifacts/v16-2-7-inputs/faostat-food-security.bulk
+          run_koppen
+          run_source faostatlanduse "python scripts/import-faostat-land-use.py --input artifacts/v16-2-7-inputs/faostat-land-use.bulk" FAOSTAT_LAND_USE_INPUT artifacts/v16-2-7-inputs/faostat-land-use.bulk
+          run_source faostatworldcover "python scripts/import-faostat-worldcover.py --input artifacts/v16-2-7-inputs/faostat-worldcover.bulk" FAOSTAT_WORLDCOVER_INPUT artifacts/v16-2-7-inputs/faostat-worldcover.bulk
+          run_source worldbankwbl "python scripts/import-world-bank-wbl.py --input artifacts/v16-2-7-inputs/world-bank-wbl.bulk" WORLD_BANK_WBL_INPUT artifacts/v16-2-7-inputs/world-bank-wbl.bulk
+          run_source jmpwash "python scripts/import-jmp-wash.py --input artifacts/v16-2-7-inputs/jmp-wash.bulk" JMP_WASH_INPUT artifacts/v16-2-7-inputs/jmp-wash.bulk
+          run_source unwup2025 "python scripts/import-un-wup-2025.py --input artifacts/v16-2-7-inputs/un-wup-2025" UN_WUP_2025_INPUT artifacts/v16-2-7-inputs/un-wup-2025
+          run_source unwupcities2025 "python scripts/import-un-wup-2025-cities.py --input artifacts/v16-2-7-inputs/un-wup-cities-2025" UN_WUP_CITIES_2025_INPUT artifacts/v16-2-7-inputs/un-wup-cities-2025
+      - name: Upload independent source-audit evidence
+        uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: geostats-v16-2-7-source-audits
+          path: artifacts/source-integrity
+          retention-days: 30
+          if-no-files-found: warn
+
+  finalize-and-prove:
+    needs: [preflight, import-and-audit]
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with: { node-version: "22" }
+      - uses: actions/setup-python@v6
+        with: { python-version: "3.12" }
+      - name: Install dependencies
+        run: |
+          npm ci --include=dev --no-audit --no-fund
+          python -m pip install --disable-pip-version-check -r scripts/requirements-data-importers.txt
+      - name: Stage strict-pass candidates without publishing them
+        run: python scripts/stage-v16-2-7-catalog.py
+      - name: Force every staged playable category through production Random/Daily/forced audits and assert release gates
+        run: npm run audit-generator-reachability
+      - name: Publish only after the v16.2.7 release assertion passes
+        run: python scripts/finalize-v16-catalog.py --release-version 16.2.7
+      - name: Export final category audit
+        run: python scripts/export-v16-2-category-audit.py --phase final --release-version 16.2.7
+      - name: Upload release evidence
+        uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: geostats-v16-2-7-release-evidence
+          path: |
+            category-audit-v16-2-7.csv
+            category-promotion-final-v16-2-7.csv
+            category-audit-v16-2-7-summary.json
+          retention-days: 30
+          if-no-files-found: warn

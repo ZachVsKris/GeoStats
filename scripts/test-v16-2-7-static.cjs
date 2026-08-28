@@ -54,7 +54,7 @@ check(workflow.includes('npm run check-v16-2-7') && workflow.includes('playwrigh
 const playwright=fs.readFileSync(path.join(root,'playwright.config.ts'),'utf8');
 for(const browser of ['Desktop Chrome','Desktop Edge','Desktop Firefox','Desktop Safari','Pixel 7','iPhone 13']) check(playwright.includes(browser),`cross-browser Playwright matrix missing ${browser}`);
 for(const t of ['RANDOM_SAMPLES','DAILY_DAYS','generateSeededRoundFromLoadedCatalog','generateDailyTrioFromLoadedCatalog','missingAnchors','countryOpportunityCoverage','missingPewAnchors','history:un-admission']) check(reach.includes(t),`production diversity/reachability audit missing ${t}`);
-for(const t of ['warehouseIdByGameplayId','gameplayIdByWarehouseId','Ambiguous warehouse identity','No warehouse identity']) check(reach.includes(t),`reachability warehouse-id resolution missing ${t}`);
+for(const t of ['warehouseIdByGameplayId','gameplayIdByWarehouseId','warehouseCategoryId','gameplay_category_id','FORCED_ONLY','forcedReachabilityFailures','Ambiguous warehouse identity','No warehouse identity']) check(reach.includes(t),`reachability warehouse-id resolution/diagnostics missing ${t}`);
 check(/case\s+"fifa"/.test(dataSources) && /case\s+"ioc"/.test(dataSources),'runtime data-source switch omits sports source ids');
 check(/case\s+"fifa"/.test(trust) && /case\s+"ioc"/.test(trust),'category trust baselines omit sports sources');
 const sports=fs.readFileSync(path.join(root,'scripts/import-sports-history.py'),'utf8');

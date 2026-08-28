@@ -8,6 +8,7 @@ const { createClient } = require('@supabase/supabase-js');
 const root = path.resolve(__dirname, '..');
 const WRITE = process.argv.includes('--write');
 const ASSERT_RELEASE = process.argv.includes('--assert-release');
+const FORCED_ONLY = process.argv.includes('--forced-only');
 const sampleArg = process.argv.find((arg) => arg.startsWith('--anchor-samples='));
 const randomArg = process.argv.find((arg) => arg.startsWith('--random-samples='));
 const dailyArg = process.argv.find((arg) => arg.startsWith('--daily-days='));
@@ -249,6 +250,8 @@ async function main() {
 
   for (let index = 0; index < datasets.length; index += 1) {
     const dataset = datasets[index];
+    const warehouseCategoryId = warehouseIdByGameplayId.get(dataset.category.id);
+    if (!warehouseCategoryId) throw new Error(`No warehouse identity for reachability proof ${dataset.category.id}`);
     for (const difficulty of difficulties) {
       try {
         const generated = generateAnchoredRoundFromLoadedCatalog(
@@ -264,17 +267,38 @@ async function main() {
         const errors = validateRound(generated.round.categories, generated.round.bank);
         if (errors.length) throw new Error(`validation: ${errors.join(' ')}`);
         assertTop20(generated.round);
-        reachabilityRows.push({ category_id: dataset.category.id, difficulty, reachable: true, failure_stage: null, detail: `profile=${generated.profile}; score=${generated.score.overall}`, audit_version: 'geostats-v16.2.7-production-solver-v1', checked_at: new Date().toISOString() });
+        reachabilityRows.push({ category_id: warehouseCategoryId, difficulty, reachable: true, failure_stage: null, detail: `gameplayId=${dataset.category.id}; profile=${generated.profile}; score=${generated.score.overall}`, audit_version: 'geostats-v16.2.7-production-solver-v1', checked_at: new Date().toISOString() });
       } catch (error) {
         const detail = error instanceof Error ? error.message : String(error);
-        const failed = { category_id: dataset.category.id, difficulty, reachable: false, failure_stage: failureStage(error), detail, audit_version: 'geostats-v16.2.7-production-solver-v1', checked_at: new Date().toISOString() };
+        const failed = { category_id: warehouseCategoryId, difficulty, reachable: false, failure_stage: failureStage(error), detail: `gameplayId=${dataset.category.id}; ${detail}`, audit_version: 'geostats-v16.2.7-production-solver-v1', checked_at: new Date().toISOString() };
         reachabilityRows.push(failed);
-        failures.push(failed);
+        failures.push({ ...failed, gameplay_category_id: dataset.category.id });
       }
     }
     if ((index + 1) % 25 === 0 || index + 1 === datasets.length) {
       console.log(`Reachability ${index + 1}/${datasets.length} categories; failures=${failures.length}`);
     }
+  }
+
+  // Forced-anchor feasibility is the foundational reachability invariant. Stop
+  // before the expensive distribution simulation when it fails, and expose the
+  // exact gameplay/warehouse identities without writing partial proof rows.
+  if (FORCED_ONLY || failures.length) {
+    const elapsedSeconds = Math.round((Date.now() - started) / 1000);
+    console.log(JSON.stringify({
+      playable: datasets.length,
+      checks: reachabilityRows.length,
+      forcedFailures: failures.length,
+      forcedOnly: FORCED_ONLY,
+      elapsedSeconds,
+    }, null, 2));
+    if (failures.length) {
+      console.error(JSON.stringify({ forcedReachabilityFailures: failures }, null, 2));
+      process.exitCode = 1;
+    } else {
+      console.log('Every playable category passed forced reachability in all three difficulty modes.');
+    }
+    return;
   }
 
   // Large cheap seed simulation tests the anchor-selection layer independently

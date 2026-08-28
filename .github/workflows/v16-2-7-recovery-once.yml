@@ -5,6 +5,9 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/v16-2-7-recovery-once.yml'
+      - 'scripts/import-un-wpp.py'
+      - 'scripts/test-un-wpp-importer.py'
+      - 'scripts/audit-v16-2-7-reachability.cjs'
 
 permissions:
   contents: read
@@ -48,6 +51,21 @@ jobs:
         run: python scripts/import-un-wpp.py
       - name: Independently audit WPP source
         run: python scripts/audit-source-integrity.py --source unwpp --include-nonplayable --fail-on-source-error --fail-on-empty --report-dir artifacts/source-integrity/unwpp
+      - name: Require clean WPP category audit
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report=json.loads(Path('artifacts/source-integrity/unwpp/source-integrity-report.json').read_text())
+          result=report['results'][0]
+          failed=int(result.get('failed') or 0)
+          unable=int(result.get('unable') or 0)
+          verified=int(result.get('verified') or 0)
+          selected=int(result.get('selected') or 0)
+          print(f'WPP audit: {verified}/{selected} verified; failed={failed}; unable={unable}')
+          if selected == 0 or failed or unable or verified != selected:
+              raise SystemExit('WPP audit is not fully verified; staging remains blocked.')
+          PY
       - name: Stage strict-pass candidates without publishing
         run: python scripts/stage-v16-2-7-catalog.py
       - name: Write production-solver reachability and diversity evidence
@@ -55,6 +73,7 @@ jobs:
         continue-on-error: true
         run: node scripts/audit-v16-2-7-reachability.cjs --write --anchor-samples=30000
       - name: Report reachability outcome
+        if: always()
         run: |
           echo "Reachability audit outcome: ${{ steps.reachability.outcome }} (publication intentionally not attempted)."
       - name: Upload WPP audit evidence
@@ -65,3 +84,7 @@ jobs:
           path: artifacts/source-integrity/unwpp
           retention-days: 30
           if-no-files-found: warn
+      - name: Require successful reachability audit
+        if: always()
+        run: |
+          test "${{ steps.reachability.outcome }}" = "success" || { echo "::error::Production-solver reachability audit failed"; exit 1; }

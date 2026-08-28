@@ -69,6 +69,8 @@ def partial_fetch(url):
     code = url.rsplit("/", 1)[-1]
     name = {"BRA": "Brazil", "USA": "United States", "FRA": "France"}.get(code, code)
     years = [1930] if code in {"BRA", "USA", "FRA"} else []
+    if code == directory_codes[-1]:
+        return '<script id="__NEXT_DATA__" type="application/json">{"props":{"pageProps":{}}}</script>'
     return f'<script id="__NEXT_DATA__" type="application/json">{fifa_page(name, years)}</script>'
 
 try:

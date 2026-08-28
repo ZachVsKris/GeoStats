@@ -271,6 +271,10 @@ class SupabaseWarehouse:
         """Stage strict-pass v16.2.7 candidates for reachability proof without publishing them."""
         return self._request("POST", "rpc/stage_v16_2_7_candidate_catalog", {})
 
+    def apply_v16_2_7_physical_geography_curation(self) -> Any:
+        """Apply the explicit post-audit Natural Earth product decisions without publishing."""
+        return self._request("POST", "rpc/apply_v16_2_7_physical_geography_curation", {})
+
     def finalize_v16_catalog(self, *, release_version: str = "16.2.7") -> Any:
         """Publish only through the guarded v16.2.x finalizer for the requested release."""
         if release_version not in {"16.2.1", "16.2.2", "16.2.3", "16.2.4", "16.2.5", "16.2.6", "16.2.7"}:

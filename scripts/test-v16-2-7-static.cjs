@@ -17,6 +17,8 @@ const serverCatalog=fs.readFileSync(path.join(root,'lib/serverPlayableCatalog.ts
 const serverWarehouse=fs.readFileSync(path.join(root,'lib/serverWarehouseCategories.ts'),'utf8');
 const warehouseRoute=fs.readFileSync(path.join(root,'app/api/warehouse-category/route.ts'),'utf8');
 const playerLinks=fs.readFileSync(path.join(root,'lib/playerSourceLinks.ts'),'utf8');
+const naturalEarth=fs.readFileSync(path.join(root,'scripts/import-natural-earth.py'),'utf8');
+const stageCatalog=fs.readFileSync(path.join(root,'scripts/stage-v16-2-7-catalog.py'),'utf8');
 check(/MAX_BOARD_WINNER_GLOBAL_RANK\s*=\s*20/.test(game),'Top-20 winner rule missing');
 check(!game.includes('isHistoricalCategory(category) ? Math.max(coverage'), 'history/date winner exemption remains');
 check(dataPage.includes('verified global top 20') && !dataPage.includes('verified global top 30'),'player-facing data policy still documents Top 30');
@@ -58,5 +60,7 @@ const playable=fs.readFileSync(path.join(root,'lib/playableCatalog.ts'),'utf8');
 for(const t of ['FIFAWorldCupImporter','IOCOlympicsImporter','eligible_universe_type','defined_subset']) check(sports.includes(t),`sports importer missing ${t}`);
 for(const t of ['resolvedSourceId','sourceSlug','undesamigrant','untourismdirect','FIFA: "fifa"','International Olympic Committee','globalfindex2025','faofra2025','unicefdata','undphdr','vdemv16','faostatfoodsecurity','koppengeiger','worldbankinfra','faostatlanduse','faostatworldcover','worldbankwbl','jmpwash','unwup2025','unwupcities2025']) check(playable.includes(t),`source-family routing missing ${t}`);
 for(const t of ['unsdg:true','United Nations Statistics Division']) check(playable.includes(t),`UN SDG source-family routing missing ${t}`);
+for(const t of ['longest-average-land-border','highest-land-border-density','ELIGIBLE_UNIVERSES']) check(naturalEarth.includes(t),`physical-geography importer missing ${t}`);
+check(stageCatalog.includes('apply_v16_2_7_physical_geography_curation'),'post-audit physical-geography curation is not staged');
 if(failures.length){console.error('GeoStats v16.2.7 static checks FAILED:\n'+failures.map(x=>' - '+x).join('\n'));process.exit(1)}
 console.log('GeoStats v16.2.7 static rebuild checks passed.');

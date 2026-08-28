@@ -73,6 +73,8 @@ with tempfile.TemporaryDirectory(prefix="geostats-ne-real-") as directory_name:
     area_top_ten = [code for code, _ in sorted(area.items(), key=lambda item: item[1][1], reverse=True)[:10]]
     continuous_top_five = [code for code, _ in sorted(continuous.items(), key=lambda item: item[1][1], reverse=True)[:5]]
     neighbor_top_five = [code for code, _ in sorted(neighbors.items(), key=lambda item: item[1][1], reverse=True)[:5]]
+    average_borders = metrics["longest-average-land-border"]
+    border_density = metrics["highest-land-border-density"]
 
     assert "RUS" in area_top_ten and "CAN" in area_top_ten
     assert len({"USA", "CHN", "BRA", "AUS"}.intersection(area_top_ten)) >= 3
@@ -80,6 +82,10 @@ with tempfile.TemporaryDirectory(prefix="geostats-ne-real-") as directory_name:
     assert "RUS" in continuous_top_five
     assert {"CHN", "RUS"}.intersection(neighbor_top_five)
     assert max(value for _, value in neighbors.values()) >= 12
+    assert 130 <= len(average_borders) <= 180
+    assert len({round(value, 3) for _, value in average_borders.values()}) >= 120
+    assert len(border_density) >= 190
+    assert len({round(value, 3) for _, value in sorted(border_density.values(), key=lambda row: row[1], reverse=True)[:20]}) >= 12
     assert area["FRA"][1] < 1_000_000
     assert area["NLD"][1] < 100_000
 
@@ -89,7 +95,7 @@ with tempfile.TemporaryDirectory(prefix="geostats-ne-real-") as directory_name:
         "highest-mapped-lake-share", "largest-mapped-glaciated-area",
         "highest-mapped-glaciated-share",
     }
-    defined_subset_rules = {"landlocked-most-neighbors", "landlocked-fewest-neighbors"}
+    defined_subset_rules = module.DEFINED_SUBSET_RULES
     for concept in module.RULES:
         values = metrics.get(concept.key, {})
         if concept.key in optional_feature_rules or concept.key in defined_subset_rules:

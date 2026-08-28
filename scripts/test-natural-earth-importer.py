@@ -38,6 +38,10 @@ assert metrics["largest-tropical-land-area"]["AAA"][1] > 10000
 assert metrics["largest-arctic-land-area"]["AAA"][1] == 0.0
 assert metrics["longest-land-border"]["AAA"][1] > 100
 assert metrics["longest-single-land-border"]["AAA"][1] > 100
+assert metrics["longest-average-land-border"]["AAA"][1] == metrics["longest-land-border"]["AAA"][1]
+assert "CCC" not in metrics["longest-average-land-border"]
+assert metrics["highest-land-border-density"]["AAA"][1] > 0
+assert metrics["highest-land-border-density"]["CCC"][1] == 0
 assert metrics["most-mapped-river-length"]["AAA"][1] > 50
 assert metrics["largest-mapped-lake-area"]["AAA"][1] > 1000
 assert metrics["largest-mapped-glaciated-area"]["CCC"][1] > 1000
@@ -62,6 +66,21 @@ assert subset_candidate.metadata["eligible_country_iso3"] == sorted(row.country_
 assert subset_candidate.metadata["eligible_universe_rule"]
 assert subset_candidate.metadata["eligible_universe_selector"]
 assert subset_candidate.rule.min_coverage == 16
+
+border_subset_importer = module.NaturalEarthImporter(None, dry_run=True)
+border_subset_importer._metrics = {
+    "longest-average-land-border": {
+        f"B{index:02d}": (f"Border country {index}", float(index * 10)) for index in range(1, 151)
+    }
+}
+border_candidate = next(c for c in border_subset_importer.discover() if c.rule.key == "longest-average-land-border")
+border_rows = border_subset_importer.fetch_observations(border_candidate)
+assert len(border_rows) == 150
+assert border_candidate.metadata["eligible_universe_type"] == "defined_subset"
+assert border_candidate.metadata["eligible_country_count"] == 150
+assert "at least one mapped land border" in border_candidate.metadata["eligible_universe_rule"]
+assert border_candidate.metadata["excluded_country_reason"]
+assert border_candidate.rule.min_coverage == 120
 
 # v16.2.6 restores the straightforward latitude/axis-span concepts only after the
 # importer stopped unioning distant dependencies into administering sovereigns.

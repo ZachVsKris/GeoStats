@@ -35,7 +35,7 @@ COUNTRY_VERSION = "5.1.1"
 LAYER_VERSIONS = {"countries": COUNTRY_VERSION, "rivers": "5.0.0", "lakes": "5.0.0", "glaciated": "4.0.0", "ocean": "5.0.0"}
 GEOD = Geod(ellps="WGS84")
 STATIC_YEAR = 2022  # Stable reference year for the pinned Natural Earth v5.x release family; UI shows the dataset version instead.
-DERIVATION_VERSION = "geostats-natural-earth-v15.9.2"
+DERIVATION_VERSION = "geostats-natural-earth-v16.2.7-physical-v1"
 STABLE_DECIMALS = 6
 
 LAYER_URLS = {
@@ -92,6 +92,8 @@ RULES: tuple[IndicatorRule, ...] = (
     rule("largest-tropical-land-area", "Largest tropical land area", "Mapped land area between the Tropic of Cancer and Tropic of Capricorn.", "🌴", "square kilometers", "high", fun=96),
     rule("largest-arctic-land-area", "Largest Arctic land area", "Mapped land area north of the Arctic Circle.", "❄️", "square kilometers", "high", fun=94),
     rule("most-land-neighbors", "Most bordering countries", "Number of countries sharing a mapped land border.", "🤝", "neighboring countries", "high", fun=96),
+    rule("longest-average-land-border", "Longest average land border", "Average mapped land-border length per neighboring country, restricted to countries with at least one mapped land border.", "🧭", "kilometers per neighbor", "high", min_coverage=120, fun=96),
+    rule("highest-land-border-density", "Most land border for its size", "Combined mapped land-border length per 1,000 square kilometers of land.", "🧩", "km per 1,000 km²", "high", fun=95),
     rule("landlocked-most-neighbors", "Most neighbors among landlocked countries", "Number of land-border neighbors, restricted to countries with no Natural Earth ocean-boundary coastline.", "🧭", "neighboring countries", "high", min_coverage=16, fun=94),
     rule("landlocked-fewest-neighbors", "Fewest neighbors among landlocked countries", "Number of land-border neighbors, restricted to countries with no Natural Earth ocean-boundary coastline.", "🧭", "neighboring countries", "low", min_coverage=16, fun=92),
     rule("longest-land-border", "Longest total land border", "Combined length of all mapped international land borders.", "🧱", "kilometers", "high", fun=94),
@@ -103,12 +105,12 @@ RULES: tuple[IndicatorRule, ...] = (
     rule("most-mapped-river-length", "Longest river network", "Combined length of Natural Earth river lines inside the country.", "🏞️", "kilometers", "high", layer="rivers", fun=96),
     rule("highest-mapped-river-density", "Highest river density", "Mapped river kilometers per 1,000 square kilometers of land.", "💧", "km per 1,000 km²", "high", layer="rivers", fun=92),
     rule("most-mapped-rivers", "Most rivers", "Number of Natural Earth river features crossing the country for at least one kilometer.", "🌊", "river features", "high", layer="rivers", fun=94),
-    rule("largest-mapped-lake-area", "Largest total lake area", "Combined area of Natural Earth lakes and reservoirs inside the country.", "🏞️", "square kilometers", "high", layer="lakes", fun=97),
-    rule("largest-single-mapped-lake", "Largest lake", "Largest single Natural Earth lake or reservoir area inside the country.", "🌅", "square kilometers", "high", layer="lakes", fun=98),
+    rule("largest-mapped-lake-area", "Largest mapped lake area", "Combined area of lakes and reservoirs represented in the pinned Natural Earth layer inside the country.", "🏞️", "square kilometers", "high", layer="lakes", fun=97),
+    rule("largest-single-mapped-lake", "Largest mapped lake", "Largest single lake or reservoir area represented in the pinned Natural Earth layer inside the country.", "🌅", "square kilometers", "high", layer="lakes", fun=98),
     rule("most-mapped-lakes", "Most lakes", "Number of Natural Earth lakes covering at least one square kilometer inside the country.", "💦", "lakes", "high", layer="lakes", fun=96),
-    rule("highest-mapped-lake-share", "Highest lake coverage", "Share of mapped land area covered by Natural Earth lakes and reservoirs.", "💧", "% of land", "high", layer="lakes", fun=92),
-    rule("largest-mapped-glaciated-area", "Largest glaciated area", "Combined Natural Earth glaciated-area polygons inside the country.", "🧊", "square kilometers", "high", layer="glaciated", fun=97),
-    rule("highest-mapped-glaciated-share", "Highest glaciated coverage", "Share of mapped land covered by Natural Earth glaciated areas.", "❄️", "% of land", "high", layer="glaciated", fun=95),
+    rule("highest-mapped-lake-share", "Largest mapped lake share", "Share of mapped land covered by lakes and reservoirs represented in the pinned Natural Earth layer.", "💧", "% of land", "high", layer="lakes", fun=92),
+    rule("largest-mapped-glaciated-area", "Largest mapped glaciated area", "Combined area represented by the pinned Natural Earth glaciated-area layer inside the country.", "🧊", "square kilometers", "high", layer="glaciated", fun=97),
+    rule("highest-mapped-glaciated-share", "Largest mapped glaciated share", "Share of mapped land represented by the pinned Natural Earth glaciated-area layer.", "❄️", "% of land", "high", layer="glaciated", fun=95),
 )
 
 RULE_LAYER = {
@@ -121,8 +123,25 @@ RULE_LAYER = {
     for key in keys
 }
 
-DEFINED_SUBSET_RULES = {"landlocked-most-neighbors", "landlocked-fewest-neighbors"}
 LANDLOCKED_ELIGIBILITY_RULE = "Countries with no Natural Earth ocean-boundary coastline in the pinned 1:10m country/ocean geometry."
+ELIGIBLE_UNIVERSES = {
+    "landlocked-most-neighbors": {
+        "rule": LANDLOCKED_ELIGIBILITY_RULE,
+        "selector": "Natural Earth country geometry has zero boundary length intersecting the pinned Natural Earth ocean polygon",
+        "excluded": "Country has a Natural Earth ocean-boundary coastline and is therefore not landlocked under this reproducible geometry rule.",
+    },
+    "landlocked-fewest-neighbors": {
+        "rule": LANDLOCKED_ELIGIBILITY_RULE,
+        "selector": "Natural Earth country geometry has zero boundary length intersecting the pinned Natural Earth ocean polygon",
+        "excluded": "Country has a Natural Earth ocean-boundary coastline and is therefore not landlocked under this reproducible geometry rule.",
+    },
+    "longest-average-land-border": {
+        "rule": "Countries sharing at least one mapped land border of one kilometer or more in the pinned Natural Earth 1:10m country geometry.",
+        "selector": "At least one other canonical-country exterior intersects the country exterior for one geodesic kilometer or more",
+        "excluded": "Country has no mapped land-border neighbor under the pinned Natural Earth geometry rule.",
+    },
+}
+DEFINED_SUBSET_RULES = set(ELIGIBLE_UNIVERSES)
 
 
 def _iter_polygons(geometry: Any) -> Iterable[Polygon]:
@@ -288,6 +307,7 @@ class NaturalEarthImporter(WarehouseImporter):
         for concept in RULES:
             layer = RULE_LAYER.get(concept.key, "countries")
             download_url = LAYER_URLS[layer]
+            eligible_universe = ELIGIBLE_UNIVERSES.get(concept.key)
             discovered.append(CandidateDefinition(
                 rule=concept,
                 source_indicator_code=concept.key,
@@ -317,8 +337,12 @@ class NaturalEarthImporter(WarehouseImporter):
                         "northernmost-country", "southernmost-country", "largest-north-south-span",
                         "largest-east-west-span", "largest-tropical-land-area", "largest-arctic-land-area", "most-land-neighbors",
                         "landlocked-most-neighbors", "landlocked-fewest-neighbors",
-                        "longest-land-border", "longest-single-land-border", "longest-coastline",
+                        "longest-land-border", "longest-single-land-border", "longest-average-land-border",
+                        "highest-land-border-density", "longest-coastline",
                         "highest-coastline-density", "largest-continuous-land-area", "largest-geodesic-land-area"
+                    } or concept.key in {
+                        "largest-mapped-lake-area", "largest-single-mapped-lake", "highest-mapped-lake-share",
+                        "largest-mapped-glaciated-area", "highest-mapped-glaciated-share",
                     },
                     "inventory_scope_warning": (
                         "Natural Earth physical feature layers are cartographic selections, not exhaustive inventories; river/lake/glacier feature-count categories remain review-only."
@@ -329,10 +353,10 @@ class NaturalEarthImporter(WarehouseImporter):
                     "referenceLabel": f"Natural Earth {layer} v{LAYER_VERSIONS[layer]}",
                     "showObservationYear": False,
                     "layer": layer,
-                    "eligible_universe_type": "defined_subset" if concept.key in DEFINED_SUBSET_RULES else "universal",
-                    "eligible_universe_rule": LANDLOCKED_ELIGIBILITY_RULE if concept.key in DEFINED_SUBSET_RULES else "GeoStats canonical current-country universe",
-                    "eligible_universe_selector": "Natural Earth country geometry has zero boundary length intersecting the pinned Natural Earth ocean polygon" if concept.key in DEFINED_SUBSET_RULES else None,
-                    "excluded_country_reason": "Country has a Natural Earth ocean-boundary coastline and is therefore not landlocked under this reproducible geometry rule." if concept.key in DEFINED_SUBSET_RULES else None,
+                    "eligible_universe_type": "defined_subset" if eligible_universe else "universal",
+                    "eligible_universe_rule": eligible_universe["rule"] if eligible_universe else "GeoStats canonical current-country universe",
+                    "eligible_universe_selector": eligible_universe["selector"] if eligible_universe else None,
+                    "excluded_country_reason": eligible_universe["excluded"] if eligible_universe else None,
                 },
             ))
         return discovered
@@ -505,6 +529,9 @@ class NaturalEarthImporter(WarehouseImporter):
             metrics["most-land-neighbors"][iso3] = (name, float(neighbor_counts[iso3]))
             metrics["longest-land-border"][iso3] = (name, border_lengths[iso3])
             metrics["longest-single-land-border"][iso3] = (name, longest_single_borders[iso3])
+            if neighbor_counts[iso3] > 0:
+                metrics["longest-average-land-border"][iso3] = (name, border_lengths[iso3] / neighbor_counts[iso3])
+            metrics["highest-land-border-density"][iso3] = (name, border_lengths[iso3] / area * 1000.0 if area else 0.0)
             metrics["longest-coastline"][iso3] = (name, coastline)
             metrics["highest-coastline-density"][iso3] = (name, coastline / area * 1000.0 if area else 0.0)
             metrics["largest-continuous-land-area"][iso3] = (name, largest_continuous_area)

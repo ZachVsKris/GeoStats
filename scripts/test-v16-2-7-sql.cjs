@@ -12,6 +12,7 @@ const migrationNames=[
   '061_v16_2_7_bulk_source_antiproliferation.sql',
   '062_v16_2_7_vdem_curated_government.sql',
   '063_v16_2_7_durable_exclusion_hard_gate.sql',
+  '064_v16_2_7_physical_geography_expansion.sql',
 ];
 const migrations=migrationNames.map((name)=>({name,sql:fs.readFileSync(path.join('supabase','migrations',name),'utf8')}));
 const s=migrations[0].sql;
@@ -47,4 +48,6 @@ if(!hard.includes('v16_2_7_durable_exclusion_reason')) fail('central durable-exc
 for(const token of ['largest-east-west-span','global-findex:%','undp-hdr:mpi','vdem-v16:electoral-democracy','EN.GHG.%']) if(!hard.includes(token)) fail(`durable exclusion hard gate missing ${token}`);
 if(!hard.includes('before insert or update on public.stat_categories')) fail('stat_categories durable exclusion trigger missing');
 if(!hard.includes('before insert or update on public.category_review_state')) fail('review-state durable exclusion trigger missing');
+const physical=migrations.find(x=>x.name.startsWith('064_'))?.sql||'';
+for(const token of ['apply_v16_2_7_physical_geography_curation','longest-average-land-border','highest-land-border-density','mappedLayerLimitationDisclosed']) if(!physical.includes(token)) fail(`physical-geography expansion missing ${token}`);
 if(!process.exitCode) console.log('GeoStats v16.2.7 SQL policy and installer-sync checks passed.');

@@ -13,27 +13,21 @@ jobs:
   inspect:
     runs-on: ubuntu-latest
     steps:
-      - name: Download and inspect first-party bulk formats
+      - name: Inspect Global Findex first-party documentation links
         shell: bash
         run: |
           set -euo pipefail
           curl --fail --location --retry 4 --retry-all-errors \
-            'https://thedocs.worldbank.org/en/doc/be6615202d1f08a25855c8ac2d615122-0050012025/related/GlobalFindexDatabase2025.csv' \
-            -o /tmp/findex.csv
-          curl --fail --location --retry 4 --retry-all-errors \
-            'https://hdr.undp.org/sites/default/files/2025_HDR/HDR25_Composite_indices_complete_time_series.csv' \
-            -o /tmp/undp.csv
+            'https://www.worldbank.org/en/publication/globalfindex/download-data' \
+            -o /tmp/page.html
           python - <<'PY'
-          import csv,re
-          for path in ['/tmp/findex.csv','/tmp/undp.csv']:
-              print('\n###', path)
-              with open(path, encoding='utf-8-sig', errors='replace', newline='') as f:
-                  r=csv.reader(f); header=next(r)
-                  print('HEADER_COUNT', len(header))
-                  if 'findex' in path:
-                      for i,h in enumerate(header): print(i,h)
-                  else:
-                      prefixes=('hdi_','ihdi_','loss_','coef_ineq_','ineq_le_','ineq_edu_','ineq_inc_','gdi_','gii_','phdi_','mpi_','pop_mpi_','intensity_','hdi_f_','hdi_m_')
-                      for i,h in enumerate(header):
-                          if h.startswith(prefixes): print(i,h)
+          import re,html
+          text=open('/tmp/page.html',encoding='utf-8',errors='replace').read()
+          urls=[]
+          for u in re.findall(r'https?://[^"\'<> ]+', text):
+              u=html.unescape(u).replace('\\u0026','&')
+              if any(k in u.lower() for k in ('findex','codebook','dictionary','.xlsx','.csv','.dta','.zip','.pdf')):
+                  if u not in urls: urls.append(u)
+          for u in urls: print(u)
+          print('URL_COUNT',len(urls))
           PY

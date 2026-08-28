@@ -72,7 +72,16 @@ jobs:
             -r scripts/requirements-geography.txt
       - name: Import ${{ matrix.slug }}
         shell: bash
-        run: ${{ matrix.command }}
+        run: |
+          set +e
+          ${{ matrix.command }}
+          status=$?
+          set -e
+          if [ "$status" -ne 0 ]; then
+            echo "::notice::Importer failed once; retrying after 10s to tolerate transient Supabase clock/auth or network errors."
+            sleep 10
+            ${{ matrix.command }}
+          fi
       - name: Independently audit ${{ matrix.slug }}
         run: python scripts/audit-source-integrity.py --source ${{ matrix.slug }} --include-nonplayable --fail-on-source-error --fail-on-empty --report-dir artifacts/source-integrity/${{ matrix.slug }}
       - name: Upload ${{ matrix.slug }} evidence

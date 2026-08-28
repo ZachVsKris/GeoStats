@@ -1,0 +1,45 @@
+name: v16.2.7 authoritative sports recovery
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/import-sports-history.py'
+      - 'scripts/test-sports-history-importer.py'
+      - '.github/workflows/v16-2-7-sports-recovery.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: geostats-v16-2-7-production-catalog
+  cancel-in-progress: false
+
+env:
+  SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+  SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+  SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+jobs:
+  import-audit-stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Require production warehouse credentials
+        shell: bash
+        run: |
+          test -n "$SUPABASE_URL" || { echo "::error::SUPABASE_URL secret is missing"; exit 1; }
+          test -n "${SUPABASE_SECRET_KEY:-${SUPABASE_SERVICE_ROLE_KEY:-}}" || { echo "::error::Supabase service-role secret is missing"; exit 1; }
+      - name: Install importer dependencies
+        run: python -m pip install --disable-pip-version-check -r scripts/requirements-data-importers.txt
+      - name: Test sports chronology importer
+        run: python scripts/test-sports-history-importer.py
+      - name: Import official FIFA World Cup chronology fail closed
+        run: python scripts/import-sports-history.py --source fifa --fifa-live
+      - name: Stage strict-pass sports candidate without publishing
+        run: python scripts/stage-v16-2-7-catalog.py

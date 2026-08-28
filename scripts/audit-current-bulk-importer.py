@@ -26,6 +26,7 @@ from data_pipeline.supabase import SupabaseWarehouse
 SOURCES = {
     "globalfindex2025": ("import-global-findex.py", "Importer", "GLOBAL_FINDEX_2025_INPUT"),
     "undphdr": ("import-undp-hdr.py", "Importer", "UNDP_HDR_INPUT"),
+    "vdemv16": ("import-vdem-v16.py", "Importer", "VDEM_V16_INPUT"),
 }
 
 

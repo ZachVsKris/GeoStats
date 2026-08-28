@@ -41,7 +41,9 @@ check(!puzzle.includes('strongBand'), 'Random strong-band logic remains');
 check(hist.includes('_mark_defined_subset') && hist.includes('universal suffrage record'), 'historical subset universe repair missing');
 check(cckp.includes("(?:-\\d{2})?$") && cckp.includes('produced only'), 'CCKP YYYY-MM parsing/fail-closed coverage repair missing');
 check(wpp.includes("'measurementType':('share' if vtype=='percentage'"), 'UN WPP measurement type constraint repair missing');
-for(const t of ['category_decision_provenance_v16_2_7','apply_v16_2_7_legacy_reaudit','generator_reachability_v16_2_7','catalog_macro_domain_summary_v16_2_7','assert_v16_2_7_release','p<500','history_n<12','sports_n<2','concentrated_n::numeric/nullif(p,0)>0.60']) check(migration.includes(t),`v16.2.7 migration missing ${t}`);
+for(const t of ['category_decision_provenance_v16_2_7','apply_v16_2_7_legacy_reaudit','generator_reachability_v16_2_7','catalog_macro_domain_summary_v16_2_7','assert_v16_2_7_release']) check(migration.includes(t),`v16.2.7 migration missing ${t}`);
+const incrementalGate=fs.readFileSync(path.join(root,'supabase/migrations/066_v16_2_7_balanced_incremental_publication_gate.sql'),'utf8');
+for(const t of ['create or replace function public.assert_v16_2_7_release()','p<325','macro_n<12','history_n<5','culture_n<15','physical_n<20','concentrated_n::numeric/nullif(p,0)>0.63','bad<>0','unproved<>0','dups<>0']) check(incrementalGate.includes(t),`v16.2.7 incremental publication gate missing ${t}`);
 
 for(const t of ['fertility-below-3','under-five-mortality-below-50','infant-mortality-below-25','mobile-subscriptions-50','crossing_direction']) check(hist.includes(t),`v16.2.7 history expansion missing ${t}`);
 for(const t of ['globalfindex2025','faofra2025','unicefdata','undphdr','vdemv16','faostatfoodsecurity','koppengeiger','worldbankinfra','faostatlanduse','faostatworldcover','worldbankwbl','jmpwash','unwup2025','unwupcities2025']) {

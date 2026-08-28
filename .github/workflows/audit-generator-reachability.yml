@@ -15,6 +15,7 @@ on:
       - 'scripts/audit-v16-2-7-reachability.cjs'
       - 'scripts/fingerprint-v16-2-7-catalog.cjs'
       - 'supabase/migrations/063_v16_2_7_durable_exclusion_hard_gate.sql'
+      - 'supabase/migrations/066_v16_2_7_balanced_incremental_publication_gate.sql'
   workflow_run:
     workflows:
       - "v16.2.7 first-party bulk recovery"

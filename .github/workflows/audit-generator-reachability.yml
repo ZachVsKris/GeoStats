@@ -8,6 +8,9 @@ on:
         required: false
         default: "30000"
         type: string
+  workflow_run:
+    workflows: ["v16.2.7 first-party bulk recovery"]
+    types: [completed]
 
 permissions:
   contents: read
@@ -23,10 +26,13 @@ env:
 
 jobs:
   audit:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@v6
+        with:
+          ref: main
       - uses: actions/setup-node@v6
         with:
           node-version: "22"
@@ -37,5 +43,5 @@ jobs:
           test -n "${SUPABASE_SECRET_KEY:-${SUPABASE_SERVICE_ROLE_KEY:-}}" || { echo "::error::Supabase service-role secret is missing"; exit 1; }
       - name: Install JavaScript dependencies
         run: npm ci --include=dev --no-audit --no-fund
-      - name: Audit every playable category in Scout, Adventurer, and Expert
+      - name: Audit every strict-pass category in Scout, Adventurer, and Expert
         run: node scripts/audit-v16-2-7-reachability.cjs --write --assert-release --anchor-samples=${{ inputs.anchor_samples || '30000' }}

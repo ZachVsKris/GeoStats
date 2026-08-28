@@ -46,5 +46,10 @@ jobs:
           test -n "${SUPABASE_SECRET_KEY:-${SUPABASE_SERVICE_ROLE_KEY:-}}" || { echo "::error::Supabase service-role secret is missing"; exit 1; }
       - name: Install JavaScript dependencies
         run: npm ci --include=dev --no-audit --no-fund
+      - name: Freeze production catalog fingerprint
+        run: node scripts/fingerprint-v16-2-7-catalog.cjs --write=/tmp/geostats-v16-2-7-catalog-fingerprint.json
       - name: Audit every strict-pass category in Scout, Adventurer, and Expert
         run: node scripts/audit-v16-2-7-reachability.cjs --write --assert-release --anchor-samples=${{ inputs.anchor_samples || '30000' }}
+      - name: Prove production catalog did not mutate during audit
+        if: always()
+        run: node scripts/fingerprint-v16-2-7-catalog.cjs --compare=/tmp/geostats-v16-2-7-catalog-fingerprint.json

@@ -25,6 +25,12 @@ METHODOLOGY_URL = "https://www.pewresearch.org/religion/2025/06/09/how-the-globa
 DATASET_RELEASE = "Pew global religious composition estimates for 2010 and 2020"
 REFERENCE_YEAR = 2020
 
+OTHER_RELIGIONS_DEFINITION = (
+    "Pew’s ‘other religions’ category includes Baha’is, Daoists/Taoists, Jains, "
+    "Shintoists, Sikhs, Wiccans, Zoroastrians and many smaller groups, including "
+    "some folk or traditional religions."
+)
+
 GROUPS = {
     "christian": ("Christian", "✝️", ("christian",)),
     "muslim": ("Muslim", "☪️", ("muslim",)),
@@ -42,7 +48,7 @@ def _title_label(label: str) -> str:
 
 def group_rule(key: str, label: str, icon: str, measure: str) -> IndicatorRule:
     if measure == "share":
-        title = "Highest other-religion share" if key == "other-religions" else f"Highest {_title_label(label)} share"
+        title = "Highest share following other religions" if key == "other-religions" else f"Highest {_title_label(label)} share"
         description = f"Estimated percentage of the population identifying as {label} in 2020."
         unit = "% of population"
         value_type = "percentage"
@@ -51,13 +57,18 @@ def group_rule(key: str, label: str, icon: str, measure: str) -> IndicatorRule:
         description = f"Estimated number of people identifying as {label} in 2020."
         unit = "people"
         value_type = "total"
+    if key == "other-religions":
+        description = f"{description} {OTHER_RELIGIONS_DEFINITION}"
+    technical_definition = (
+        "Pew Research Center estimate synthesized from censuses, surveys, population registers "
+        "and demographic estimation. Results are estimates, not exact counts."
+    )
+    if key == "other-religions":
+        technical_definition = f"{technical_definition} {OTHER_RELIGIONS_DEFINITION}"
     return IndicatorRule(
         key=f"{key}-{measure}", title=title, description=description,
         plain_language_description=description,
-        technical_definition=(
-            "Pew Research Center estimate synthesized from censuses, surveys, population registers "
-            "and demographic estimation. Results are estimates, not exact counts."
-        ),
+        technical_definition=technical_definition,
         unit_explanation=unit, family="Religion", icon=icon, unit=unit,
         value_type=value_type, ranking_direction="high", include=(key,), min_coverage=160,
         evidence_tier="B", source_priority=18, specificity_score=97,
@@ -92,7 +103,7 @@ def _norm(value: Any) -> str:
 
 
 def _download(url: str) -> bytes:
-    request = Request(url, headers={"User-Agent": "GeoStats/15.9 Pew religion importer"})
+    request = Request(url, headers={"User-Agent": "GeoStats/16.2.7 Pew religion importer"})
     with urlopen(request, timeout=180) as response:
         return response.read()
 
@@ -109,7 +120,10 @@ def _extract_input(path_or_url: str | None) -> Path:
     candidates = [p for p in temporary.rglob("*") if p.suffix.lower() in {".xlsx", ".xlsm", ".csv"} and not p.name.startswith("~$")]
     if not candidates:
         raise RuntimeError("Pew download did not contain an XLSX or CSV data file.")
-    return max(candidates, key=lambda p: p.stat().st_size)
+    # Prefer the workbook because it contains counts, percentages and diversity
+    # in one authoritative release. Falling back to a CSV remains supported.
+    workbooks = [p for p in candidates if p.suffix.lower() in {".xlsx", ".xlsm"}]
+    return max(workbooks or candidates, key=lambda p: p.stat().st_size)
 
 
 def _find_header(rows: list[list[Any]]) -> tuple[int, list[str]]:
@@ -126,7 +140,7 @@ def _country_column(headers: list[str]) -> int:
         if header in {"country", "country territory", "country or territory", "name"}:
             return index
     for index, header in enumerate(headers):
-        if "country" in header:
+        if "country" in header and "code" not in header:
             return index
     raise RuntimeError("Could not locate the country column in the Pew dataset.")
 
@@ -139,7 +153,21 @@ def _matches_alias(header: str, aliases: tuple[str, ...]) -> bool:
     return any(alias in header for alias in aliases)
 
 
+def _resolve_group_column(headers: list[str], aliases: tuple[str, ...]) -> int | None:
+    exact = [i for i, header in enumerate(headers) if any(header == alias for alias in aliases)]
+    if exact:
+        return exact[0]
+    matches = [i for i, header in enumerate(headers) if _matches_alias(header, aliases)]
+    return matches[0] if matches else None
+
+
 def _resolve_column(headers: list[str], aliases: tuple[str, ...], measure: str) -> int | None:
+    """Resolve explicit mixed-format headers used by legacy/supplied files.
+
+    The official 2025 Pew workbook deliberately reuses generic headers such as
+    `Christians` on separate count and percentage sheets. Those sheets are
+    handled by source_kind in _parse_rows and never pass through this heuristic.
+    """
     candidates: list[tuple[int, int]] = []
     for index, header in enumerate(headers):
         if not _matches_alias(header, aliases):
@@ -160,8 +188,8 @@ def _resolve_column(headers: list[str], aliases: tuple[str, ...], measure: str) 
 def _resolve_diversity(headers: list[str]) -> int | None:
     candidates=[]
     for i,h in enumerate(headers):
-        if "diversity" in h and "rank" not in h and "level" not in h:
-            candidates.append((15 + (5 if "index" in h or "score" in h else 0) + (4 if "2020" in h else 0), i))
+        if ("diversity" in h or "rdi" in h) and "rank" not in h and "level" not in h:
+            candidates.append((15 + (5 if "index" in h or "score" in h or "rdi" in h else 0) + (4 if "2020" in h else 0), i))
     return max(candidates)[1] if candidates else None
 
 
@@ -183,13 +211,6 @@ def _as_percent(value: Any) -> float | None:
 
 
 def _religious_diversity_from_shares(item: dict[str, Any]) -> float | None:
-    """Apply Pew's seven-group modified Herfindahl-Hirschman method.
-
-    The current Pew dataset adds an official RDI column. The original public
-    download used by the automatic importer may predate that addition, so the
-    importer reproducibly calculates the same 0-10 measure from the seven 2020
-    composition shares when needed.
-    """
     shares=[]
     for key in GROUPS:
         value=item.get(f"{key.replace('-', '_')}_share")
@@ -199,14 +220,35 @@ def _religious_diversity_from_shares(item: dict[str, Any]) -> float | None:
     return max(0.0,min(10.0,(1.0-concentration)*11.6))
 
 
-def _parse_rows(rows: list[list[Any]]) -> list[dict[str, Any]]:
+def _source_kind(name: str) -> str:
+    normalized = _norm(name)
+    if "unrounded count" in normalized or "rounded count" in normalized:
+        return "counts"
+    if "percentage" in normalized or "percent" in normalized:
+        return "percentages"
+    if "diversity" in normalized:
+        return "diversity"
+    return "mixed"
+
+
+def _parse_rows(rows: list[list[Any]], *, source_kind: str = "mixed") -> list[dict[str, Any]]:
     header_index, headers = _find_header(rows)
     country_index, year_index = _country_column(headers), _year_column(headers)
     columns: dict[tuple[str,str], int | None] = {}
     for key, (_label, _icon, aliases) in GROUPS.items():
-        columns[(key,"share")] = _resolve_column(headers, aliases, "share")
-        columns[(key,"population")] = _resolve_column(headers, aliases, "population")
-    diversity_column = _resolve_diversity(headers)
+        if source_kind == "counts":
+            columns[(key,"population")] = _resolve_group_column(headers, aliases)
+            columns[(key,"share")] = None
+        elif source_kind == "percentages":
+            columns[(key,"population")] = None
+            columns[(key,"share")] = _resolve_group_column(headers, aliases)
+        elif source_kind == "diversity":
+            columns[(key,"population")] = None
+            columns[(key,"share")] = None
+        else:
+            columns[(key,"share")] = _resolve_column(headers, aliases, "share")
+            columns[(key,"population")] = _resolve_column(headers, aliases, "population")
+    diversity_column = _resolve_diversity(headers) if source_kind in {"mixed","diversity"} else None
     if not any(v is not None for v in columns.values()) and diversity_column is None:
         raise RuntimeError("No 2020 religious composition columns were found.")
     parsed=[]
@@ -222,35 +264,57 @@ def _parse_rows(rows: list[list[Any]]) -> list[dict[str, Any]]:
         item={"iso3":iso3,"country":canonical_country_name(iso3,country)}
         for (key,measure), col in columns.items():
             if col is None or col >= len(row): continue
-            if measure == "share": value=_as_percent(row[col])
+            if measure == "share":
+                value=_as_percent(row[col])
             else:
                 value=_as_number(row[col])
                 if value is not None and "thousand" in headers[col]: value *= 1000
             item[f"{key.replace('-', '_')}_{measure}"]=value
         if diversity_column is not None and diversity_column < len(row):
             item["religious_diversity"]=_as_number(row[diversity_column])
-        if item.get("religious_diversity") is None:
-            item["religious_diversity"]=_religious_diversity_from_shares(item)
         if any(v is not None for k,v in item.items() if k not in {"iso3","country"}): parsed.append(item)
     if len(parsed) < 100: raise RuntimeError(f"Only {len(parsed)} GeoStats countries were parsed; expected at least 100.")
     return parsed
 
 
+def _validate_measure_semantics(rows: list[dict[str, Any]]) -> None:
+    """Fail loudly if totals and percentages become conflated again."""
+    for key in GROUPS:
+        prefix=key.replace('-', '_')
+        populations=[float(row[f"{prefix}_population"]) for row in rows if row.get(f"{prefix}_population") is not None]
+        shares=[float(row[f"{prefix}_share"]) for row in rows if row.get(f"{prefix}_share") is not None]
+        if len(populations) < 100 or len(shares) < 100:
+            raise RuntimeError(f"Pew {key} is missing count/share coverage: counts={len(populations)}, shares={len(shares)}")
+        if max(populations) < 1_000_000:
+            raise RuntimeError(f"Pew {key} population series looks percentage-like; maximum is only {max(populations):g} people.")
+        if min(shares) < 0 or max(shares) > 100:
+            raise RuntimeError(f"Pew {key} share series is outside 0-100%.")
+    # Regression for the production bug: a count column and percentage column
+    # must not be the same series merely because Pew reuses column headers.
+    for key in GROUPS:
+        prefix=key.replace('-', '_')
+        comparable=[row for row in rows if row.get(f"{prefix}_population") is not None and row.get(f"{prefix}_share") is not None]
+        identical=sum(abs(float(row[f"{prefix}_population"])-float(row[f"{prefix}_share"])) < 1e-9 for row in comparable)
+        if comparable and identical / len(comparable) > 0.10:
+            raise RuntimeError(f"Pew {key} population/share series are suspiciously identical for {identical}/{len(comparable)} countries.")
+
+
 def _load_rows(path: Path) -> list[dict[str, Any]]:
     if path.suffix.lower()==".csv":
         with path.open(newline="",encoding="utf-8-sig") as handle:
-            return _parse_rows([list(r) for r in csv.reader(handle)])
+            parsed=_parse_rows([list(r) for r in csv.reader(handle)],source_kind=_source_kind(path.name))
+        # A single official CSV contains only one measure family, so semantic
+        # cross-validation is performed only for the combined workbook.
+        return parsed
 
-    # Pew workbooks may split population totals, percentages, and diversity across
-    # different worksheets. Merge every usable 2020 country sheet by ISO3 rather
-    # than selecting only the largest sheet and silently losing half the metrics.
     workbook=load_workbook(path,read_only=True,data_only=True)
     merged: dict[str, dict[str, Any]] = {}
     errors=[]
     for sheet in workbook.worksheets:
+        kind=_source_kind(sheet.title)
         rows=[list(r) for r in sheet.iter_rows(values_only=True)]
         try:
-            parsed=_parse_rows(rows)
+            parsed=_parse_rows(rows,source_kind=kind)
         except RuntimeError as error:
             errors.append(f"{sheet.title}: {error}")
             continue
@@ -266,6 +330,7 @@ def _load_rows(path: Path) -> list[dict[str, Any]]:
     for item in result:
         if item.get("religious_diversity") is None:
             item["religious_diversity"]=_religious_diversity_from_shares(item)
+    _validate_measure_semantics(result)
     return result
 
 
@@ -285,14 +350,17 @@ class PewReligionImporter(WarehouseImporter):
             metric=item.key.replace("-","_")
             if metric not in available: continue
             group_key=item.key.rsplit("-",1)[0] if item.key != "religious-diversity" else "diversity"
-            result.append(CandidateDefinition(item,f"PEW_RELIGION_2020_{metric.upper()}",item.title,FEATURE_PAGE,{
+            metadata={
                 "source_page_url":FEATURE_PAGE,"exact_query_url":FEATURE_PAGE,"download_url":SOURCE_URL,
                 "dataset_release":DATASET_RELEASE,"minimum_year":2020,"methodology_url":METHODOLOGY_URL,
                 "source_query":{"referenceYear":2020,"metric":metric,"estimate":True},
                 "broadDomain":"culture","knowledgeCluster":"religious-composition",
                 "strategyFamily":f"religion-{group_key}","manual_review_required":True,"estimatedData":True,
                 "diversityDerivation":"Pew modified Herfindahl-Hirschman method from seven 2020 shares when official RDI column is absent" if item.key == "religious-diversity" else None,
-            }))
+            }
+            if group_key == "other-religions":
+                metadata["groupDefinition"] = OTHER_RELIGIONS_DEFINITION
+            result.append(CandidateDefinition(item,f"PEW_RELIGION_2020_{metric.upper()}",item.title,FEATURE_PAGE,metadata))
         return result
     def category_id(self,candidate): return f"pew-religion:{candidate.rule.key}"
     def fetch_observations(self,candidate):

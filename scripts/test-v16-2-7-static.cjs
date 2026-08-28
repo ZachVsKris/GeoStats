@@ -44,6 +44,8 @@ check(wpp.includes("'measurementType':('share' if vtype=='percentage'"), 'UN WPP
 for(const t of ['category_decision_provenance_v16_2_7','apply_v16_2_7_legacy_reaudit','generator_reachability_v16_2_7','catalog_macro_domain_summary_v16_2_7','assert_v16_2_7_release']) check(migration.includes(t),`v16.2.7 migration missing ${t}`);
 const incrementalGate=fs.readFileSync(path.join(root,'supabase/migrations/066_v16_2_7_balanced_incremental_publication_gate.sql'),'utf8');
 for(const t of ['create or replace function public.assert_v16_2_7_release()','p<325','macro_n<12','history_n<5','culture_n<15','physical_n<20','concentrated_n::numeric/nullif(p,0)>0.63','bad<>0','unproved<>0','dups<>0']) check(incrementalGate.includes(t),`v16.2.7 incremental publication gate missing ${t}`);
+const reachabilityExclusions=fs.readFileSync(path.join(root,'supabase/migrations/067_v16_2_7_forced_reachability_exclusions.sql'),'utf8');
+for(const t of ['pew-religion:jewish-share','undp-hdr:gdi','undp-hdr:gii','undp-hdr:phdi','worldbankclimate:coldest','worldbankclimate:driest','worldbankclimate:hottest','worldbankclimate:wettest','v16.2.7 production-solver reachability exclusion']) check(reachabilityExclusions.includes(t),`v16.2.7 forced-reachability exclusion missing ${t}`);
 
 for(const t of ['fertility-below-3','under-five-mortality-below-50','infant-mortality-below-25','mobile-subscriptions-50','crossing_direction']) check(hist.includes(t),`v16.2.7 history expansion missing ${t}`);
 for(const t of ['globalfindex2025','faofra2025','unicefdata','undphdr','vdemv16','faostatfoodsecurity','koppengeiger','worldbankinfra','faostatlanduse','faostatworldcover','worldbankwbl','jmpwash','unwup2025','unwupcities2025']) {

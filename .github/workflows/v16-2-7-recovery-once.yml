@@ -5,9 +5,12 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/v16-2-7-recovery-once.yml'
+      - 'lib/puzzleWarehouseSnapshot.ts'
+      - 'lib/serverWarehouseCategoriesV16_2_7.ts'
       - 'scripts/import-un-wpp.py'
       - 'scripts/test-un-wpp-importer.py'
       - 'scripts/audit-v16-2-7-reachability.cjs'
+      - 'scripts/run-v16-2-7-reachability-audit.cjs'
 
 permissions:
   contents: read
@@ -71,7 +74,7 @@ jobs:
       - name: Write production-solver reachability and diversity evidence
         id: reachability
         continue-on-error: true
-        run: node scripts/audit-v16-2-7-reachability.cjs --write --anchor-samples=30000
+        run: node scripts/run-v16-2-7-reachability-audit.cjs --write --anchor-samples=30000
       - name: Report reachability outcome
         if: always()
         run: |

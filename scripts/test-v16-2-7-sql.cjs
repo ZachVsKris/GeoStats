@@ -1,0 +1,22 @@
+const fs=require('fs');
+const s=fs.readFileSync('supabase/migrations/054_v16_2_7_catalog_generator_rebuild.sql','utf8');
+const installer=fs.readFileSync('RUN_THIS_IN_SUPABASE_FOR_V16_2_7.sql','utf8');
+const fail=(m)=>{console.error('FAIL:',m);process.exitCode=1};
+if(!/^begin;/m.test(s)||!/commit;\s*$/m.test(s)) fail('migration is not transaction wrapped');
+if(installer!==s) fail('one-file Supabase installer has drifted from migration 054');
+if(!s.includes("eligible_universe_type,'universal') universe_type")) fail('ranking audit does not read eligible universe');
+if(!s.includes("universe_type='defined_subset'")) fail('defined-subset ranking rule missing');
+if(!s.includes("ranking_direction='low'")) fail('lowest-wins universal fail-closed rule missing');
+if(!s.includes("decision_class='legacy_generic_exclusion' and not p.durable")) fail('legacy re-audit does not distinguish durable exclusions');
+if(!s.includes('stage_v16_2_7_candidate_catalog')) fail('candidate staging function missing');
+if(!s.includes('stagedForReachabilityV16_2_7')) fail('staging does not mark audited candidate state');
+if(!s.includes("not r.reachable")) fail('release assertion does not block unreachable categories');
+if(!s.includes("count(*)=3")) fail('release assertion does not require all three difficulty proofs');
+
+if(!s.includes("not (c.enabled and c.eligible_daily)")) fail('routine refresh does not preserve non-public staging');
+if(!s.includes("having count(*)=3 and bool_and(r.reachable)")) fail('routine refresh can activate a new category without all-mode proof');
+if(!s.includes("hashtext('geostats-v16.2.7-finalize-catalog')")) fail('v16.2.7 atomic finalizer override missing');
+const assertPos=s.indexOf('perform public.assert_v16_2_7_release();', s.indexOf("hashtext('geostats-v16.2.7-finalize-catalog')"));
+const publishPos=s.indexOf('set enabled=v.computed_playable_v16_2,eligible_daily=v.computed_playable_v16_2', s.indexOf("hashtext('geostats-v16.2.7-finalize-catalog')"));
+if(assertPos<0||publishPos<0||assertPos>publishPos) fail('finalizer publishes before the v16.2.7 release assertion');
+if(!process.exitCode) console.log('GeoStats v16.2.7 SQL policy checks passed.');

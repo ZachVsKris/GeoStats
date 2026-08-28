@@ -59,28 +59,23 @@ EXPLICIT_BLOCKERS = {
     },
     "FAOSTAT / ESA WorldCover 2021": {"moss-lichen-share"},
     "World Bank Global Findex 2025": {
-        "financial-institution-account",
-        "mobile-money-account",
-        "debit-card-ownership",
-        "credit-card-ownership",
-        "digital-payments",
-        "formal-saving",
-        "formal-borrowing",
-        "mobile-phone-ownership",
-        "smartphone-ownership",
-        "phone-password",
-        "wages-into-account",
-        "government-payments-into-account",
-        "utility-bills-digitally",
-        "financial-resilience",
-        "saved-any-money",
+        "financial-institution-account", "mobile-money-account", "debit-card-ownership",
+        "credit-card-ownership", "digital-payments", "formal-saving", "formal-borrowing",
+        "mobile-phone-ownership", "smartphone-ownership", "phone-password",
+        "wages-into-account", "government-payments-into-account", "utility-bills-digitally",
+        "financial-resilience", "saved-any-money",
     },
     "UNDP Human Development Reports Data Center": {
-        "mpi",
-        "mpi-headcount",
-        "mpi-intensity",
-        "female-hdi",
-        "male-hdi",
+        "mpi", "mpi-headcount", "mpi-intensity", "female-hdi", "male-hdi",
+    },
+    # v16.2.7 intentionally narrows V-Dem rather than padding the catalog with
+    # overlapping democracy/composite subindices. These eight remain explicit
+    # tracker dispositions; the seven retained concepts remain independently
+    # represented and audited by the current importer.
+    "V-Dem Country-Year Core v16": {
+        "participatory-democracy", "deliberative-democracy", "egalitarian-democracy",
+        "freedom-association", "judicial-constraints", "legislative-constraints",
+        "women-political-empowerment", "core-civil-society",
     },
 }
 
@@ -106,21 +101,14 @@ def main() -> None:
             blocked = key in EXPLICIT_BLOCKERS.get(source, set())
             represented = (not blocked) and key_present and title_present
             status = "blocked" if blocked else ("represented" if represented else "missing")
-            details.append(
-                {
-                    "source_family": source,
-                    "importer": importer_rel,
-                    "tracker_id": row.get("tracker_id", ""),
-                    "category_key": key,
-                    "category_title": title,
-                    "key_present": key_present,
-                    "title_present": title_present,
-                    "represented_in_importer_catalog": represented,
-                    "explicitly_blocked": blocked,
-                    "recovery_status": status,
-                    "activation_certified": False,
-                }
-            )
+            details.append({
+                "source_family": source, "importer": importer_rel,
+                "tracker_id": row.get("tracker_id", ""), "category_key": key,
+                "category_title": title, "key_present": key_present,
+                "title_present": title_present, "represented_in_importer_catalog": represented,
+                "explicitly_blocked": blocked, "recovery_status": status,
+                "activation_certified": False,
+            })
             by_source[source]["tracker_rows"] += 1
             by_source[source][status] += 1
 
@@ -128,27 +116,17 @@ def main() -> None:
     detail_path = OUTDIR / "source_family_recovery_detail.csv"
     with detail_path.open("w", newline="", encoding="utf-8") as handle:
         fieldnames = list(details[0]) if details else []
-        writer = csv.DictWriter(handle, fieldnames=fieldnames)
-        writer.writeheader()
-        writer.writerows(details)
+        writer = csv.DictWriter(handle, fieldnames=fieldnames); writer.writeheader(); writer.writerows(details)
 
     summary = []
     for source in SOURCE_TO_IMPORTER:
         counts = by_source[source]
-        summary.append(
-            {
-                "source_family": source,
-                "importer": SOURCE_TO_IMPORTER[source],
-                **counts,
-                "accounted": counts["represented"] + counts["blocked"],
-                "representation_pct": round(100 * counts["represented"] / counts["tracker_rows"], 1) if counts["tracker_rows"] else 0.0,
-            }
-        )
+        summary.append({"source_family": source, "importer": SOURCE_TO_IMPORTER[source], **counts,
+            "accounted": counts["represented"] + counts["blocked"],
+            "representation_pct": round(100 * counts["represented"] / counts["tracker_rows"], 1) if counts["tracker_rows"] else 0.0})
     summary_path = OUTDIR / "source_family_recovery_summary.csv"
     with summary_path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(summary[0]))
-        writer.writeheader()
-        writer.writerows(summary)
+        writer = csv.DictWriter(handle, fieldnames=list(summary[0])); writer.writeheader(); writer.writerows(summary)
 
     totals = {
         "mapped_source_families": len(SOURCE_TO_IMPORTER),
@@ -160,17 +138,13 @@ def main() -> None:
         "note": "Importer-catalog representation only; no row is activation-certified by this audit.",
     }
     (OUTDIR / "source_family_recovery_summary.json").write_text(json.dumps({"totals": totals, "sources": summary}, indent=2) + "\n", encoding="utf-8")
-
     print(json.dumps(totals, indent=2))
     for item in summary:
         print(f"{item['source_family']}: {item['represented']} represented + {item['blocked']} blocked / {item['tracker_rows']} tracked; {item['missing']} missing")
-
     if totals["missing_tracker_rows"]:
         missing = [item for item in details if item["recovery_status"] == "missing"]
         sample = ", ".join(f"{item['source_family']}:{item['category_key']}" for item in missing[:12])
-        raise SystemExit(
-            f"Source-family recovery audit failed closed: {totals['missing_tracker_rows']} tracked concepts are neither represented nor explicitly blocked. Sample: {sample}"
-        )
+        raise SystemExit(f"Source-family recovery audit failed closed: {totals['missing_tracker_rows']} tracked concepts are neither represented nor explicitly blocked. Sample: {sample}")
 
 
 if __name__ == "__main__":

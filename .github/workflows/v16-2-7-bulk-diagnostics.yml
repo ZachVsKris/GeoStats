@@ -24,11 +24,16 @@ jobs:
             'https://hdr.undp.org/sites/default/files/2025_HDR/HDR25_Composite_indices_complete_time_series.csv' \
             -o /tmp/undp.csv
           python - <<'PY'
-          import csv
+          import csv,re
           for path in ['/tmp/findex.csv','/tmp/undp.csv']:
               print('\n###', path)
               with open(path, encoding='utf-8-sig', errors='replace', newline='') as f:
-                  reader=csv.reader(f)
-                  for i,row in zip(range(6),reader):
-                      print(i, row[:40])
+                  r=csv.reader(f); header=next(r)
+                  print('HEADER_COUNT', len(header))
+                  if 'findex' in path:
+                      for i,h in enumerate(header): print(i,h)
+                  else:
+                      prefixes=('hdi_','ihdi_','loss_','coef_ineq_','ineq_le_','ineq_edu_','ineq_inc_','gdi_','gii_','phdi_','mpi_','pop_mpi_','intensity_','hdi_f_','hdi_m_')
+                      for i,h in enumerate(header):
+                          if h.startswith(prefixes): print(i,h)
           PY

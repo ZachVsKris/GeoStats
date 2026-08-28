@@ -1,0 +1,13 @@
+tracker_id,current_title,legacy_source_line,legacy_title,collision_basis,review_status
+family:worldbankinfra:container-port-traffic,Most container port traffic,1615,Highest container port traffic,same_measure_wording_variant,requires_reaudit
+family:imfweo:investment,Highest investment rate,1177,Highest investment share,same_measure_wording_variant,requires_reaudit
+family:ilostat:lowest-unemployment,Lowest unemployment rate,820,Lowest unemployment,same_measure_wording_variant,requires_reaudit
+existing:QCL:'F1717:5510,Most cereals produced,1168,Most cereal produced,same_measure_wording_variant,requires_reaudit
+family:globalfindex:internet-use,Highest internet-use share,966,Highest internet usage,same_measure_wording_variant,requires_reaudit
+family:naturalearthcountry:largest-north-south-span,Largest north-to-south span,807,Largest north-south span,same_measure_wording_variant,requires_reaudit
+family:naturalearthcountry:largest-east-west-span,Largest east-to-west span,805,Largest east-west span,same_measure_wording_variant,requires_reaudit
+candidate:182,Highest carbon intensity,976,Highest carbon intensity of GDP,same_measure_wording_variant,requires_reaudit
+family:worldbankinfra:renewable-electricity-share,Largest renewable share of electricity generation,1929,Highest renewable electricity share,same_measure_wording_variant,requires_reaudit
+existing:AG.LND.TOTL.K2,Largest land area,1483,Largest mapped land area,cross_source_duplicate_concept,requires_reaudit
+candidate:137,Highest average rainfall,1492,Lowest average rainfall,mirrored_same_measure,requires_reaudit
+candidate:065,Highest urban share,795,Highest urban population share,same_measure_wording_variant,requires_reaudit

@@ -1,0 +1,393 @@
+source_family,importer,tracker_id,category_key,category_title,key_present,title_present,represented_in_importer_catalog,explicitly_blocked,recovery_status,activation_certified
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-healthy-life-expectancy,highest-healthy-life-expectancy,Highest healthy life expectancy,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-maternal-mortality,lowest-maternal-mortality,Lowest maternal mortality,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-neonatal-mortality,lowest-neonatal-mortality,Lowest neonatal mortality,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-under-five-mortality,lowest-under-five-mortality,Lowest under-five mortality,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-suicide-rate,lowest-suicide-rate,Lowest suicide rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-road-traffic-death-rate,lowest-road-traffic-death-rate,Lowest road-traffic death rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-premature-ncd-mortality,lowest-premature-ncd-mortality,Lowest premature noncommunicable-disease mortality,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-cardiovascular-death-rate,lowest-cardiovascular-death-rate,Lowest cardiovascular death rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-cancer-death-rate,lowest-cancer-death-rate,Lowest cancer death rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-diabetes-death-rate,lowest-diabetes-death-rate,Lowest diabetes death rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-respiratory-death-rate,lowest-respiratory-death-rate,Lowest chronic respiratory-disease death rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-tuberculosis-incidence,lowest-tuberculosis-incidence,Lowest tuberculosis incidence,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-tuberculosis-death-rate,lowest-tuberculosis-death-rate,Lowest tuberculosis death rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-malaria-incidence,lowest-malaria-incidence,Lowest malaria incidence,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-hiv-incidence,lowest-hiv-incidence,Lowest HIV incidence,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-hepatitis-b-incidence,lowest-hepatitis-b-incidence,Lowest hepatitis B incidence,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-obesity-rate,lowest-obesity-rate,Lowest adult obesity rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-overweight-rate,lowest-overweight-rate,Lowest adult overweight rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-underweight-rate,lowest-underweight-rate,Lowest adult underweight rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-high-blood-pressure-rate,lowest-high-blood-pressure-rate,Lowest high-blood-pressure rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-high-blood-glucose-rate,lowest-high-blood-glucose-rate,Lowest high-blood-glucose rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-tobacco-use,lowest-tobacco-use,Lowest tobacco-use rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-cigarette-smoking,lowest-cigarette-smoking,Lowest cigarette-smoking rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-alcohol-consumption,lowest-alcohol-consumption,Lowest alcohol consumption,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-harmful-alcohol-use,lowest-harmful-alcohol-use,Lowest alcohol-attributable death rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-physical-inactivity,highest-physical-inactivity,Highest physical-inactivity rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-doctor-density,highest-doctor-density,Highest doctor density,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-nurse-density,highest-nurse-density,Highest nurse and midwife density,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-dentist-density,highest-dentist-density,Highest dentist density,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-pharmacist-density,highest-pharmacist-density,Highest pharmacist density,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-hospital-bed-density,highest-hospital-bed-density,Highest hospital-bed density,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-uhc-service-coverage,highest-uhc-service-coverage,Highest universal-health-coverage score,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-catastrophic-health-spending,lowest-catastrophic-health-spending,Lowest catastrophic health spending,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-dtp3-vaccination,highest-dtp3-vaccination,Highest DTP3 vaccination rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-measles-vaccination,highest-measles-vaccination,Highest measles vaccination rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-polio-vaccination,highest-polio-vaccination,Highest polio vaccination rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-hepatitis-b-vaccination,highest-hepatitis-b-vaccination,Highest hepatitis B vaccination rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-bcg-vaccination,highest-bcg-vaccination,Highest tuberculosis vaccination rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-skilled-birth-attendance,highest-skilled-birth-attendance,Highest skilled birth-attendance rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-antenatal-care,highest-antenatal-care,Highest antenatal-care coverage,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-family-planning-satisfaction,highest-family-planning-satisfaction,Highest family-planning needs met,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-adolescent-birth-rate,lowest-adolescent-birth-rate,Lowest adolescent birth rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-clean-fuel-access,highest-clean-fuel-access,Highest share using clean cooking fuels,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-safe-drinking-water,highest-safe-drinking-water,Highest safely managed drinking-water access,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-safe-sanitation,highest-safe-sanitation,Highest safely managed sanitation access,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-handwashing-access,highest-handwashing-access,Highest handwashing access,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-air-pollution,lowest-air-pollution,Lowest urban air pollution,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-air-pollution-death-rate,lowest-air-pollution-death-rate,Lowest air-pollution death rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-unsafe-water-death-rate,lowest-unsafe-water-death-rate,Lowest unsafe-water death rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-poisoning-death-rate,lowest-poisoning-death-rate,Lowest accidental-poisoning death rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:lowest-homicide-rate,lowest-homicide-rate,Lowest homicide rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-birth-registration,highest-birth-registration,Highest birth-registration rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-dtp1-vaccination,highest-dtp1-vaccination,Highest DTP first-dose vaccination rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-hib3-vaccination,highest-hib3-vaccination,Highest Hib vaccination rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-hpv-vaccination,highest-hpv-vaccination,Highest HPV vaccination rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-measles-second-dose,highest-measles-second-dose,Highest second-dose measles vaccination rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-pneumococcal-vaccination,highest-pneumococcal-vaccination,Highest pneumococcal vaccination rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-ipv-vaccination,highest-ipv-vaccination,Highest inactivated-polio vaccination rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-rotavirus-vaccination,highest-rotavirus-vaccination,Highest rotavirus vaccination rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-neonatal-tetanus-protection,highest-neonatal-tetanus-protection,Highest neonatal-tetanus protection rate,True,True,True,False,represented,False
+WHO Global Health Observatory,scripts/import-who.py,family:who:highest-vaccine-breadth,highest-vaccine-breadth,Highest overall vaccine-coverage breadth,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:highest-adult-literacy,highest-adult-literacy,Highest adult literacy rate,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:highest-youth-literacy,highest-youth-literacy,Highest youth literacy rate,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:highest-primary-enrollment,highest-primary-enrollment,Highest primary-school enrollment,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:highest-secondary-enrollment,highest-secondary-enrollment,Highest secondary-school enrollment,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:highest-tertiary-enrollment,highest-tertiary-enrollment,Highest tertiary enrollment,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:highest-preprimary-enrollment,highest-preprimary-enrollment,Highest pre-primary enrollment,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:lowest-primary-out-of-school,lowest-primary-out-of-school,Lowest primary out-of-school rate,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:lowest-lower-secondary-out-of-school,lowest-lower-secondary-out-of-school,Lowest lower-secondary out-of-school rate,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:lowest-upper-secondary-out-of-school,lowest-upper-secondary-out-of-school,Lowest upper-secondary out-of-school rate,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:lowest-primary-pupil-teacher-ratio,lowest-primary-pupil-teacher-ratio,Lowest primary pupil-teacher ratio,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:lowest-secondary-pupil-teacher-ratio,lowest-secondary-pupil-teacher-ratio,Lowest secondary pupil-teacher ratio,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:highest-trained-primary-teachers,highest-trained-primary-teachers,Highest share of trained primary teachers,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:highest-primary-survival,highest-primary-survival,Highest survival to the last grade of primary school,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:lowest-primary-repetition,lowest-primary-repetition,Lowest primary-school repetition rate,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:highest-early-learning-participation,highest-early-learning-participation,Highest early-learning participation,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:highest-reading-proficiency-primary,highest-reading-proficiency-primary,Highest primary reading proficiency,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:highest-math-proficiency-primary,highest-math-proficiency-primary,Highest primary mathematics proficiency,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:highest-reading-proficiency-lower-secondary,highest-reading-proficiency-lower-secondary,Highest lower-secondary reading proficiency,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:highest-math-proficiency-lower-secondary,highest-math-proficiency-lower-secondary,Highest lower-secondary mathematics proficiency,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:highest-school-electricity,highest-school-electricity,Highest school electricity access,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:highest-school-internet,highest-school-internet,Highest school internet access,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:highest-school-computers,highest-school-computers,Highest school computer access,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:highest-school-drinking-water,highest-school-drinking-water,Highest school drinking-water access,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:highest-school-sanitation,highest-school-sanitation,Highest school sanitation access,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:highest-school-handwashing,highest-school-handwashing,Highest school handwashing access,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:highest-education-spending-gdp,highest-education-spending-gdp,Highest education spending share of GDP,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:highest-education-budget-share,highest-education-budget-share,Highest education share of government spending,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:highest-rd-spending,highest-rd-spending,Highest research-and-development spending,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:most-researchers,most-researchers,Most researchers per million people,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:most-rd-technicians,most-rd-technicians,Most R&D technicians per million people,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:most-international-students-hosted,most-international-students-hosted,Most international students hosted,True,True,True,False,represented,False
+UNESCO Institute for Statistics,scripts/import-unesco.py,family:unesco:highest-outbound-student-mobility,highest-outbound-student-mobility,Highest outbound student mobility,True,True,True,False,represented,False
+ILOSTAT,scripts/import-ilostat.py,family:ilostat:lowest-unemployment,lowest-unemployment,Lowest unemployment rate,True,True,True,False,represented,False
+ILOSTAT,scripts/import-ilostat.py,family:ilostat:highest-labor-force-participation,highest-labor-force-participation,Highest labor-force participation,True,True,True,False,represented,False
+ILOSTAT,scripts/import-ilostat.py,family:ilostat:highest-employment-population-ratio,highest-employment-population-ratio,Highest employment-to-population ratio,True,True,True,False,represented,False
+ILOSTAT,scripts/import-ilostat.py,family:ilostat:lowest-youth-unemployment,lowest-youth-unemployment,Lowest youth unemployment rate,True,True,True,False,represented,False
+ILOSTAT,scripts/import-ilostat.py,family:ilostat:lowest-neet-rate,lowest-neet-rate,Lowest youth NEET rate,True,True,True,False,represented,False
+ILOSTAT,scripts/import-ilostat.py,family:ilostat:lowest-labor-underutilization,lowest-labor-underutilization,Lowest labor underutilization,True,True,True,False,represented,False
+ILOSTAT,scripts/import-ilostat.py,family:ilostat:lowest-time-underemployment,lowest-time-underemployment,Lowest time-related underemployment,True,True,True,False,represented,False
+ILOSTAT,scripts/import-ilostat.py,family:ilostat:lowest-informal-employment,lowest-informal-employment,Lowest informal-employment rate,True,True,True,False,represented,False
+ILOSTAT,scripts/import-ilostat.py,family:ilostat:highest-social-protection-coverage,highest-social-protection-coverage,Highest social-protection coverage,True,True,True,False,represented,False
+ILOSTAT,scripts/import-ilostat.py,family:ilostat:highest-women-management,highest-women-management,Highest share of women in management,True,True,True,False,represented,False
+ILOSTAT,scripts/import-ilostat.py,family:ilostat:highest-labor-income-share,highest-labor-income-share,Highest labor-income share of GDP,True,True,True,False,represented,False
+ILOSTAT,scripts/import-ilostat.py,family:ilostat:highest-output-per-worker,highest-output-per-worker,Highest output per worker,True,True,True,False,represented,False
+ILOSTAT,scripts/import-ilostat.py,family:ilostat:fastest-productivity-growth,fastest-productivity-growth,Fastest labor-productivity growth,True,True,True,False,represented,False
+ILOSTAT,scripts/import-ilostat.py,family:ilostat:longest-working-week,longest-working-week,Longest average working week,True,True,True,False,represented,False
+ILOSTAT,scripts/import-ilostat.py,family:ilostat:highest-wage-employment-share,highest-wage-employment-share,Highest wage-and-salaried employment share,True,True,True,False,represented,False
+ILOSTAT,scripts/import-ilostat.py,family:ilostat:highest-self-employment-share,highest-self-employment-share,Highest self-employment share,True,True,True,False,represented,False
+ILOSTAT,scripts/import-ilostat.py,family:ilostat:highest-vulnerable-employment,highest-vulnerable-employment,Highest vulnerable-employment share,True,True,True,False,represented,False
+ILOSTAT,scripts/import-ilostat.py,family:ilostat:highest-agricultural-employment,highest-agricultural-employment,Highest agricultural-employment share,True,True,True,False,represented,False
+ILOSTAT,scripts/import-ilostat.py,family:ilostat:highest-industrial-employment,highest-industrial-employment,Highest industrial-employment share,True,True,True,False,represented,False
+ILOSTAT,scripts/import-ilostat.py,family:ilostat:highest-services-employment,highest-services-employment,Highest services-employment share,True,True,True,False,represented,False
+ILOSTAT,scripts/import-ilostat.py,family:ilostat:lowest-fatal-work-injury-rate,lowest-fatal-work-injury-rate,Lowest fatal workplace-injury rate,True,True,True,False,represented,False
+ILOSTAT,scripts/import-ilostat.py,family:ilostat:highest-collective-bargaining,highest-collective-bargaining,Highest collective-bargaining coverage,True,True,True,False,represented,False
+ILOSTAT,scripts/import-ilostat.py,family:ilostat:highest-unemployment-benefit-coverage,highest-unemployment-benefit-coverage,Highest unemployment-benefit coverage,True,True,True,False,represented,False
+U.S. EIA International Energy Statistics,scripts/import-eia.py,family:eia:most-coal-produced,most-coal-produced,Most coal produced,True,True,True,False,represented,False
+U.S. EIA International Energy Statistics,scripts/import-eia.py,family:eia:most-electricity-generated,most-electricity-generated,Most electricity generated,True,True,True,False,represented,False
+U.S. EIA International Energy Statistics,scripts/import-eia.py,family:eia:most-renewable-electricity-generated,most-renewable-electricity-generated,Most renewable electricity generated,True,True,True,False,represented,False
+U.S. EIA International Energy Statistics,scripts/import-eia.py,family:eia:most-hydroelectricity-generated,most-hydroelectricity-generated,Most hydroelectricity generated,True,True,True,False,represented,False
+U.S. EIA International Energy Statistics,scripts/import-eia.py,family:eia:most-wind-electricity-generated,most-wind-electricity-generated,Most wind electricity generated,True,True,True,False,represented,False
+U.S. EIA International Energy Statistics,scripts/import-eia.py,family:eia:most-solar-electricity-generated,most-solar-electricity-generated,Most solar electricity generated,True,True,True,False,represented,False
+U.S. EIA International Energy Statistics,scripts/import-eia.py,family:eia:most-nuclear-electricity-generated,most-nuclear-electricity-generated,Most nuclear electricity generated,True,True,True,False,represented,False
+U.S. EIA International Energy Statistics,scripts/import-eia.py,family:eia:most-primary-energy-consumed,most-primary-energy-consumed,Most primary energy consumed,True,True,True,False,represented,False
+U.S. EIA International Energy Statistics,scripts/import-eia.py,family:eia:most-petroleum-consumed,most-petroleum-consumed,Most petroleum consumed,True,True,True,False,represented,False
+U.S. EIA International Energy Statistics,scripts/import-eia.py,family:eia:most-natural-gas-consumed,most-natural-gas-consumed,Most natural gas consumed,True,True,True,False,represented,False
+U.S. EIA International Energy Statistics,scripts/import-eia.py,family:eia:most-coal-consumed,most-coal-consumed,Most coal consumed,True,True,True,False,represented,False
+U.S. EIA International Energy Statistics,scripts/import-eia.py,family:eia:most-electricity-exported,most-electricity-exported,Most electricity exported,True,True,True,False,represented,False
+U.S. EIA International Energy Statistics,scripts/import-eia.py,family:eia:most-electricity-imported,most-electricity-imported,Most electricity imported,True,True,True,False,represented,False
+World Bank Climate Change Knowledge Portal,scripts/import-world-bank-climate.py,family:worldbankclimate:hottest,hottest,Hottest country,True,True,True,False,represented,False
+World Bank Climate Change Knowledge Portal,scripts/import-world-bank-climate.py,family:worldbankclimate:coldest,coldest,Coldest country,True,True,True,False,represented,False
+World Bank Climate Change Knowledge Portal,scripts/import-world-bank-climate.py,family:worldbankclimate:wettest,wettest,Wettest country,True,True,True,False,represented,False
+World Bank Climate Change Knowledge Portal,scripts/import-world-bank-climate.py,family:worldbankclimate:driest,driest,Driest country,True,True,True,False,represented,False
+World Bank Climate Change Knowledge Portal,scripts/import-world-bank-climate.py,family:worldbankclimate:highest-annual-extreme-heat,highest-annual-extreme-heat,Highest annual extreme temperature,True,True,True,False,represented,False
+World Bank Climate Change Knowledge Portal,scripts/import-world-bank-climate.py,family:worldbankclimate:lowest-annual-extreme-cold,lowest-annual-extreme-cold,Lowest annual minimum temperature,True,True,True,False,represented,False
+World Bank Climate Change Knowledge Portal,scripts/import-world-bank-climate.py,family:worldbankclimate:most-frost-days,most-frost-days,Most frost days,True,True,True,False,represented,False
+World Bank Climate Change Knowledge Portal,scripts/import-world-bank-climate.py,family:worldbankclimate:most-ice-days,most-ice-days,Most ice days,True,True,False,True,blocked,False
+World Bank Climate Change Knowledge Portal,scripts/import-world-bank-climate.py,family:worldbankclimate:most-hot-days,most-hot-days,Most very hot days,True,True,False,True,blocked,False
+World Bank Climate Change Knowledge Portal,scripts/import-world-bank-climate.py,family:worldbankclimate:most-tropical-nights,most-tropical-nights,Most tropical nights,True,True,True,False,represented,False
+World Bank Climate Change Knowledge Portal,scripts/import-world-bank-climate.py,family:worldbankclimate:most-hot-humid-days,most-hot-humid-days,Most hot and humid days,True,True,False,True,blocked,False
+World Bank Climate Change Knowledge Portal,scripts/import-world-bank-climate.py,family:worldbankclimate:longest-warm-spells,longest-warm-spells,Longest warm spells,True,True,False,True,blocked,False
+IMF World Economic Outlook,scripts/import-imf-weo.py,family:imfweo:ppp-gdp-per-person,ppp-gdp-per-person,Highest GDP per person at purchasing power parity,True,True,True,False,represented,False
+IMF World Economic Outlook,scripts/import-imf-weo.py,family:imfweo:end-period-inflation,end-period-inflation,Highest year-end inflation,True,True,True,False,represented,False
+IMF World Economic Outlook,scripts/import-imf-weo.py,family:imfweo:government-debt,government-debt,Highest government debt,True,True,True,False,represented,False
+IMF World Economic Outlook,scripts/import-imf-weo.py,family:imfweo:government-balance,government-balance,Largest government budget surplus,True,True,True,False,represented,False
+IMF World Economic Outlook,scripts/import-imf-weo.py,family:imfweo:government-revenue,government-revenue,Highest government revenue share,True,True,True,False,represented,False
+IMF World Economic Outlook,scripts/import-imf-weo.py,family:imfweo:government-expenditure,government-expenditure,Highest government spending share,True,True,True,False,represented,False
+IMF World Economic Outlook,scripts/import-imf-weo.py,family:imfweo:current-account,current-account,Largest current-account surplus,True,True,True,False,represented,False
+IMF World Economic Outlook,scripts/import-imf-weo.py,family:imfweo:national-savings,national-savings,Highest national savings rate,True,True,True,False,represented,False
+IMF World Economic Outlook,scripts/import-imf-weo.py,family:imfweo:investment,investment,Highest investment rate,True,True,True,False,represented,False
+IMF World Economic Outlook,scripts/import-imf-weo.py,family:imfweo:export-volume-growth,export-volume-growth,Fastest export growth,True,True,True,False,represented,False
+IMF World Economic Outlook,scripts/import-imf-weo.py,family:imfweo:import-volume-growth,import-volume-growth,Fastest import growth,True,True,True,False,represented,False
+FAO AQUASTAT Main Database,scripts/import-aquastat.py,family:aquastat:total-renewable-water,total-renewable-water,Most renewable water resources,True,True,True,False,represented,False
+FAO AQUASTAT Main Database,scripts/import-aquastat.py,family:aquastat:internal-renewable-water,internal-renewable-water,Most internally generated renewable water,True,True,True,False,represented,False
+FAO AQUASTAT Main Database,scripts/import-aquastat.py,family:aquastat:water-dependency,water-dependency,Highest dependence on external water,True,True,True,False,represented,False
+FAO AQUASTAT Main Database,scripts/import-aquastat.py,family:aquastat:water-stress,water-stress,Highest water stress,True,True,True,False,represented,False
+FAO AQUASTAT Main Database,scripts/import-aquastat.py,family:aquastat:industrial-water-share,industrial-water-share,Highest industrial share of water use,True,True,True,False,represented,False
+FAO AQUASTAT Main Database,scripts/import-aquastat.py,family:aquastat:groundwater-withdrawal-share,groundwater-withdrawal-share,Highest groundwater share of water withdrawals,True,True,True,False,represented,False
+FAO AQUASTAT Main Database,scripts/import-aquastat.py,family:aquastat:surface-water-withdrawal-share,surface-water-withdrawal-share,Highest surface-water share of water withdrawals,True,True,True,False,represented,False
+FAO AQUASTAT Main Database,scripts/import-aquastat.py,family:aquastat:irrigation-equipped-area,irrigation-equipped-area,Largest area equipped for irrigation,True,True,True,False,represented,False
+FAO AQUASTAT Main Database,scripts/import-aquastat.py,family:aquastat:desalinated-water,desalinated-water,Most desalinated water produced,True,True,True,False,represented,False
+FAO AQUASTAT Main Database,scripts/import-aquastat.py,family:aquastat:municipal-wastewater-produced,municipal-wastewater-produced,Most municipal wastewater produced,True,True,True,False,represented,False
+FAO AQUASTAT Main Database,scripts/import-aquastat.py,family:aquastat:municipal-wastewater-treated,municipal-wastewater-treated,Most municipal wastewater treated,True,True,True,False,represented,False
+WHO Global Health Expenditure Database,scripts/import-who-ghed.py,family:whoghed:gghe-gdp,gghe-gdp,Highest government health-spending share of GDP,True,True,True,False,represented,False
+WHO Global Health Expenditure Database,scripts/import-who-ghed.py,family:whoghed:private-che-share,private-che-share,Highest private share of health spending,True,True,True,False,represented,False
+WHO Global Health Expenditure Database,scripts/import-who-ghed.py,family:whoghed:external-che-share,external-che-share,Highest externally funded share of health spending,True,True,True,False,represented,False
+WHO Global Health Expenditure Database,scripts/import-who-ghed.py,family:whoghed:gghe-gge,gghe-gge,Highest health share of government spending,True,True,True,False,represented,False
+WHO Global Health Expenditure Database,scripts/import-who-ghed.py,family:whoghed:gghe-pc-usd,gghe-pc-usd,Highest government health spending per person,True,True,True,False,represented,False
+WHO Global Health Expenditure Database,scripts/import-who-ghed.py,family:whoghed:gghe-che-share,gghe-che-share,Highest government-funded share of health spending,True,True,True,False,represented,False
+WHO Global Health Expenditure Database,scripts/import-who-ghed.py,family:whoghed:private-pc-usd,private-pc-usd,Highest private health spending per person,True,True,True,False,represented,False
+WHO Global Health Expenditure Database,scripts/import-who-ghed.py,family:whoghed:external-pc-usd,external-pc-usd,Highest external health spending per person,True,True,True,False,represented,False
+WHO Global Health Expenditure Database,scripts/import-who-ghed.py,family:whoghed:oop-che-share,oop-che-share,Highest out-of-pocket share of health spending,True,True,True,False,represented,False
+WHO Global Health Expenditure Database,scripts/import-who-ghed.py,family:whoghed:oop-pc-usd,oop-pc-usd,Highest out-of-pocket health spending per person,True,True,True,False,represented,False
+UN World Population Prospects 2024,scripts/import-un-wpp.py,family:unwpp:lowest-sex-ratio,lowest-sex-ratio,Most women relative to men,True,True,True,False,represented,False
+UN World Population Prospects 2024,scripts/import-un-wpp.py,family:unwpp:highest-natural-change-rate,highest-natural-change-rate,Fastest natural population increase,True,True,True,False,represented,False
+UN World Population Prospects 2024,scripts/import-un-wpp.py,family:unwpp:highest-birth-rate,highest-birth-rate,Highest birth rate,True,True,True,False,represented,False
+UN World Population Prospects 2024,scripts/import-un-wpp.py,family:unwpp:lowest-death-rate,lowest-death-rate,Lowest death rate,True,True,True,False,represented,False
+UN World Population Prospects 2024,scripts/import-un-wpp.py,family:unwpp:highest-net-migration-rate,highest-net-migration-rate,Highest net migration rate,True,True,True,False,represented,False
+UN World Population Prospects 2024,scripts/import-un-wpp.py,family:unwpp:highest-sex-ratio-at-birth,highest-sex-ratio-at-birth,Most boys born per 100 girls,True,True,True,False,represented,False
+UN World Population Prospects 2024,scripts/import-un-wpp.py,family:unwpp:highest-mean-age-childbearing,highest-mean-age-childbearing,Oldest average age of mothers at childbirth,True,True,True,False,represented,False
+UN World Population Prospects 2024,scripts/import-un-wpp.py,family:unwpp:highest-male-life-expectancy,highest-male-life-expectancy,Highest male life expectancy,True,True,True,False,represented,False
+UN World Population Prospects 2024,scripts/import-un-wpp.py,family:unwpp:highest-female-life-expectancy,highest-female-life-expectancy,Highest female life expectancy,True,True,True,False,represented,False
+UNHCR Refugee Data Finder,scripts/import-unhcr.py,family:unhcr:most-asylum-seekers-hosted,most-asylum-seekers-hosted,Most asylum seekers hosted,True,True,True,False,represented,False
+UNHCR Refugee Data Finder,scripts/import-unhcr.py,family:unhcr:most-asylum-seekers-originating,most-asylum-seekers-originating,Most asylum seekers originating,True,True,True,False,represented,False
+UNHCR Refugee Data Finder,scripts/import-unhcr.py,family:unhcr:most-internally-displaced-people,most-internally-displaced-people,Most internally displaced people,True,True,True,False,represented,False
+UNHCR Refugee Data Finder,scripts/import-unhcr.py,family:unhcr:most-stateless-people,most-stateless-people,Largest stateless population residing in the country,True,True,True,False,represented,False
+UNHCR Refugee Data Finder,scripts/import-unhcr.py,family:unhcr:most-other-people-needing-protection,most-other-people-needing-protection,Most other people needing international protection,True,True,True,False,represented,False
+UNHCR Refugee Data Finder,scripts/import-unhcr.py,family:unhcr:most-refugees-returned-home,most-refugees-returned-home,Most refugees returned home,True,True,True,False,represented,False
+UNHCR Refugee Data Finder,scripts/import-unhcr.py,family:unhcr:most-returned-idps,most-returned-idps,Most internally displaced people returned,True,True,True,False,represented,False
+UNHCR Refugee Data Finder,scripts/import-unhcr.py,family:unhcr:most-refugees-naturalized,most-refugees-naturalized,Most refugees naturalized,True,True,True,False,represented,False
+FAOSTAT Food Balances,scripts/import-faostat-food-balances.py,family:faostatfbs:cheese,cheese,Highest estimated cheese consumption per person,True,True,True,False,represented,False
+FAOSTAT Food Balances,scripts/import-faostat-food-balances.py,family:faostatfbs:dairy-products,dairy-products,Highest estimated dairy consumption per person,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025,scripts/import-un-wup-2025.py,family:unwup:city-population,city-population,Most people living in cities,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025,scripts/import-un-wup-2025.py,family:unwup:town-population,town-population,Most people living in towns,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025,scripts/import-un-wup-2025.py,family:unwup:rural-population,rural-population,Largest rural population,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025,scripts/import-un-wup-2025.py,family:unwup:city-share,city-share,Highest city population share,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025,scripts/import-un-wup-2025.py,family:unwup:town-share,town-share,Highest town population share,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025,scripts/import-un-wup-2025.py,family:unwup:city-growth,city-growth,Fastest city population growth,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025,scripts/import-un-wup-2025.py,family:unwup:town-growth,town-growth,Fastest town population growth,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025,scripts/import-un-wup-2025.py,family:unwup:rural-growth,rural-growth,Fastest rural population growth,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025,scripts/import-un-wup-2025.py,family:unwup:city-share-growth,city-share-growth,Fastest increase in city population share,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025,scripts/import-un-wup-2025.py,family:unwup:town-share-growth,town-share-growth,Fastest increase in town population share,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025,scripts/import-un-wup-2025.py,family:unwup:rural-share-decline,rural-share-decline,Fastest decline in rural population share,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025 Cities,scripts/import-un-wup-2025-cities.py,family:unwupcities:city-count,city-count,Most cities,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025 Cities,scripts/import-un-wup-2025-cities.py,family:unwupcities:million-city-count,million-city-count,Most million-person cities,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025 Cities,scripts/import-un-wup-2025-cities.py,family:unwupcities:megacity-count,megacity-count,Most megacities,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025 Cities,scripts/import-un-wup-2025-cities.py,family:unwupcities:largest-city,largest-city,Largest city population,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025 Cities,scripts/import-un-wup-2025-cities.py,family:unwupcities:largest-city-concentration,largest-city-concentration,Highest largest-city concentration,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025 Cities,scripts/import-un-wup-2025-cities.py,family:unwupcities:city-density,city-density,Highest overall city density,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025 Cities,scripts/import-un-wup-2025-cities.py,family:unwupcities:total-city-area,total-city-area,Largest total city land area,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025 Cities,scripts/import-un-wup-2025-cities.py,family:unwupcities:total-built-area,total-built-area,Largest built-up city area,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025 Cities,scripts/import-un-wup-2025-cities.py,family:unwupcities:built-area-per-person,built-area-per-person,Most built-up city area per resident,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025 Cities,scripts/import-un-wup-2025-cities.py,family:unwupcities:built-share,built-share,Highest built-up share of city land,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025 Cities,scripts/import-un-wup-2025-cities.py,family:unwupcities:population-growth,population-growth,Fastest average city population growth,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025 Cities,scripts/import-un-wup-2025-cities.py,family:unwupcities:land-growth,land-growth,Fastest city land expansion,True,True,True,False,represented,False
+UN World Urbanization Prospects 2025 Cities,scripts/import-un-wup-2025-cities.py,family:unwupcities:built-growth,built-growth,Fastest built-up city expansion,True,True,True,False,represented,False
+World Bank WDI Infrastructure & Connectivity,scripts/import-world-bank-infrastructure.py,family:globalfindex:internet-use,internet-use,Highest internet-use share,True,True,True,False,represented,False
+World Bank WDI Infrastructure & Connectivity,scripts/import-world-bank-infrastructure.py,family:worldbankinfra:electricity-access,electricity-access,Highest electricity access,True,True,True,False,represented,False
+World Bank WDI Infrastructure & Connectivity,scripts/import-world-bank-infrastructure.py,family:worldbankinfra:rural-electricity-access,rural-electricity-access,Highest rural electricity access,True,True,True,False,represented,False
+World Bank WDI Infrastructure & Connectivity,scripts/import-world-bank-infrastructure.py,family:worldbankinfra:urban-electricity-access,urban-electricity-access,Highest urban electricity access,True,True,True,False,represented,False
+World Bank WDI Infrastructure & Connectivity,scripts/import-world-bank-infrastructure.py,family:worldbankinfra:renewable-electricity-share,renewable-electricity-share,Largest renewable share of electricity generation,True,True,True,False,represented,False
+World Bank WDI Infrastructure & Connectivity,scripts/import-world-bank-infrastructure.py,family:worldbankinfra:coal-electricity-share,coal-electricity-share,Largest coal share of electricity generation,True,True,True,False,represented,False
+World Bank WDI Infrastructure & Connectivity,scripts/import-world-bank-infrastructure.py,family:worldbankinfra:nuclear-electricity-share,nuclear-electricity-share,Largest nuclear share of electricity generation,True,True,True,False,represented,False
+World Bank WDI Infrastructure & Connectivity,scripts/import-world-bank-infrastructure.py,family:worldbankinfra:grid-losses,grid-losses,Highest electricity grid losses,True,True,True,False,represented,False
+World Bank WDI Infrastructure & Connectivity,scripts/import-world-bank-infrastructure.py,family:worldbankinfra:air-passengers,air-passengers,Most air passengers carried,True,True,True,False,represented,False
+World Bank WDI Infrastructure & Connectivity,scripts/import-world-bank-infrastructure.py,family:worldbankinfra:rail-network,rail-network,Longest rail network,True,True,True,False,represented,False
+World Bank WDI Infrastructure & Connectivity,scripts/import-world-bank-infrastructure.py,family:worldbankinfra:rail-passengers,rail-passengers,Most rail passenger travel,True,True,True,False,represented,False
+World Bank WDI Infrastructure & Connectivity,scripts/import-world-bank-infrastructure.py,family:worldbankinfra:container-port-traffic,container-port-traffic,Most container port traffic,True,True,True,False,represented,False
+Natural Earth 1:10m sovereign country geometry,scripts/import-natural-earth.py,family:naturalearthcountry:largest-north-south-span,largest-north-south-span,Largest north-to-south span,True,True,True,False,represented,False
+Natural Earth 1:10m sovereign country geometry,scripts/import-natural-earth.py,family:naturalearthcountry:largest-east-west-span,largest-east-west-span,Largest east-to-west span,True,True,True,False,represented,False
+Natural Earth 1:10m sovereign country geometry,scripts/import-natural-earth.py,family:naturalearthcountry:largest-tropical-land-area,largest-tropical-land-area,Largest tropical land area,True,True,True,False,represented,False
+Natural Earth 1:10m sovereign country geometry,scripts/import-natural-earth.py,family:naturalearthcountry:largest-arctic-land-area,largest-arctic-land-area,Largest Arctic land area,True,True,True,False,represented,False
+Natural Earth 1:10m sovereign country geometry,scripts/import-natural-earth.py,family:naturalearthcountry:most-land-neighbors,most-land-neighbors,Most bordering countries,True,True,True,False,represented,False
+Natural Earth 1:10m sovereign country geometry,scripts/import-natural-earth.py,family:naturalearthcountry:landlocked-most-neighbors,landlocked-most-neighbors,Most neighbors among landlocked countries,True,True,True,False,represented,False
+Natural Earth 1:10m sovereign country geometry,scripts/import-natural-earth.py,family:naturalearthcountry:landlocked-fewest-neighbors,landlocked-fewest-neighbors,Fewest neighbors among landlocked countries,True,True,True,False,represented,False
+Natural Earth 1:10m sovereign country geometry,scripts/import-natural-earth.py,family:naturalearthcountry:longest-land-border,longest-land-border,Longest total land border,True,True,True,False,represented,False
+Natural Earth 1:10m sovereign country geometry,scripts/import-natural-earth.py,family:naturalearthcountry:longest-coastline,longest-coastline,Longest coastline,True,True,True,False,represented,False
+Natural Earth 1:10m sovereign country geometry,scripts/import-natural-earth.py,family:naturalearthcountry:highest-coastline-density,highest-coastline-density,Most coastline for its size,True,True,True,False,represented,False
+Natural Earth 1:10m sovereign country geometry,scripts/import-natural-earth.py,family:naturalearthcountry:largest-geodesic-land-area,largest-geodesic-land-area,Largest mapped land area,True,True,True,False,represented,False
+FAOSTAT Land Use,scripts/import-faostat-land-use.py,family:faostatland:agricultural-land-share,agricultural-land-share,Largest agricultural-land share,True,True,True,False,represented,False
+FAOSTAT Land Use,scripts/import-faostat-land-use.py,family:faostatland:pasture-meadow-share,pasture-meadow-share,Largest pasture and meadow share,True,True,True,False,represented,False
+FAOSTAT Land Use,scripts/import-faostat-land-use.py,family:faostatland:other-land-share,other-land-share,Largest other-land share,True,True,True,False,represented,False
+FAOSTAT Land Use,scripts/import-faostat-land-use.py,family:faostatland:irrigation-equipped-share,irrigation-equipped-share,Largest irrigated-land share,True,True,True,False,represented,False
+FAOSTAT Land Use,scripts/import-faostat-land-use.py,family:faostatland:agriculture-irrigated-share,agriculture-irrigated-share,Highest irrigated agricultural-land share,True,True,True,False,represented,False
+FAOSTAT Land Use,scripts/import-faostat-land-use.py,family:faostatland:organic-agriculture-share,organic-agriculture-share,Highest organic-agriculture share,True,True,True,False,represented,False
+FAOSTAT Land Use,scripts/import-faostat-land-use.py,family:faostatland:organic-cropland-share,organic-cropland-share,Highest organic-cropland share,True,True,True,False,represented,False
+FAOSTAT Land Use,scripts/import-faostat-land-use.py,family:faostatland:natural-forest-share,natural-forest-share,Highest naturally regenerating forest share,True,True,True,False,represented,False
+FAOSTAT Land Use,scripts/import-faostat-land-use.py,family:faostatland:planted-forest-share,planted-forest-share,Highest planted-forest share,True,True,True,False,represented,False
+FAOSTAT Land Use,scripts/import-faostat-land-use.py,family:faostatland:primary-forest-share,primary-forest-share,Highest primary-forest share,True,True,True,False,represented,False
+FAOSTAT / ESA WorldCover 2021,scripts/import-faostat-worldcover.py,family:faostatlandcover:tree-cover-share,tree-cover-share,Largest tree-covered share,True,True,True,False,represented,False
+FAOSTAT / ESA WorldCover 2021,scripts/import-faostat-worldcover.py,family:faostatlandcover:shrub-share,shrub-share,Largest shrub-covered share,True,True,True,False,represented,False
+FAOSTAT / ESA WorldCover 2021,scripts/import-faostat-worldcover.py,family:faostatlandcover:cropland-cover-share,cropland-cover-share,Largest cropland land-cover share,True,True,True,False,represented,False
+FAOSTAT / ESA WorldCover 2021,scripts/import-faostat-worldcover.py,family:faostatlandcover:built-up-share,built-up-share,Largest built-up land share,True,True,True,False,represented,False
+FAOSTAT / ESA WorldCover 2021,scripts/import-faostat-worldcover.py,family:faostatlandcover:bare-land-share,bare-land-share,Largest bare-land share,True,True,True,False,represented,False
+FAOSTAT / ESA WorldCover 2021,scripts/import-faostat-worldcover.py,family:faostatlandcover:snow-ice-share,snow-ice-share,Largest snow-and-ice land-cover share,True,True,True,False,represented,False
+FAOSTAT / ESA WorldCover 2021,scripts/import-faostat-worldcover.py,family:faostatlandcover:permanent-water-share,permanent-water-share,Largest permanent-water share,True,True,True,False,represented,False
+FAOSTAT / ESA WorldCover 2021,scripts/import-faostat-worldcover.py,family:faostatlandcover:herbaceous-wetland-share,herbaceous-wetland-share,Largest herbaceous-wetland share,True,True,True,False,represented,False
+FAOSTAT / ESA WorldCover 2021,scripts/import-faostat-worldcover.py,family:faostatlandcover:mangrove-share,mangrove-share,Largest mangrove land-cover share,True,True,True,False,represented,False
+FAOSTAT / ESA WorldCover 2021,scripts/import-faostat-worldcover.py,family:faostatlandcover:moss-lichen-share,moss-lichen-share,Largest moss-and-lichen share,True,True,False,True,blocked,False
+"World Bank Women, Business and the Law 2026",scripts/import-world-bank-wbl.py,family:worldbankwbl:legal-overall,legal-overall,Strongest legal framework for women's economic opportunity,True,True,True,False,represented,False
+"World Bank Women, Business and the Law 2026",scripts/import-world-bank-wbl.py,family:worldbankwbl:supportive-overall,supportive-overall,Strongest supportive framework for women's economic opportunity,True,True,True,False,represented,False
+"World Bank Women, Business and the Law 2026",scripts/import-world-bank-wbl.py,family:worldbankwbl:enforcement-overall,enforcement-overall,Strongest enforcement of women's economic rights,True,True,True,False,represented,False
+"World Bank Women, Business and the Law 2026",scripts/import-world-bank-wbl.py,family:worldbankwbl:safety,safety,Strongest legal protections for women's safety,True,True,True,False,represented,False
+"World Bank Women, Business and the Law 2026",scripts/import-world-bank-wbl.py,family:worldbankwbl:mobility,mobility,Strongest legal equality in women's mobility,True,True,True,False,represented,False
+"World Bank Women, Business and the Law 2026",scripts/import-world-bank-wbl.py,family:worldbankwbl:work,work,Strongest legal equality for women at work,True,True,True,False,represented,False
+"World Bank Women, Business and the Law 2026",scripts/import-world-bank-wbl.py,family:worldbankwbl:pay,pay,Strongest legal equality in women's pay,True,True,True,False,represented,False
+"World Bank Women, Business and the Law 2026",scripts/import-world-bank-wbl.py,family:worldbankwbl:marriage,marriage,Strongest legal equality for women in marriage,True,True,True,False,represented,False
+"World Bank Women, Business and the Law 2026",scripts/import-world-bank-wbl.py,family:worldbankwbl:parenthood,parenthood,Strongest legal support for women's parenthood,True,True,True,False,represented,False
+"World Bank Women, Business and the Law 2026",scripts/import-world-bank-wbl.py,family:worldbankwbl:childcare,childcare,Strongest legal support for childcare,True,True,True,False,represented,False
+"World Bank Women, Business and the Law 2026",scripts/import-world-bank-wbl.py,family:worldbankwbl:entrepreneurship,entrepreneurship,Strongest legal equality for women entrepreneurs,True,True,True,False,represented,False
+"World Bank Women, Business and the Law 2026",scripts/import-world-bank-wbl.py,family:worldbankwbl:assets,assets,Strongest legal equality in women's asset rights,True,True,True,False,represented,False
+"World Bank Women, Business and the Law 2026",scripts/import-world-bank-wbl.py,family:worldbankwbl:pension,pension,Strongest legal equality in women's pensions,True,True,True,False,represented,False
+WHO/UNICEF Joint Monitoring Programme,scripts/import-jmp-wash.py,family:whounicefjmp:water-safely-managed,water-safely-managed,Highest safely managed drinking-water coverage,True,True,True,False,represented,False
+WHO/UNICEF Joint Monitoring Programme,scripts/import-jmp-wash.py,family:whounicefjmp:water-basic,water-basic,Highest basic drinking-water coverage,True,True,True,False,represented,False
+WHO/UNICEF Joint Monitoring Programme,scripts/import-jmp-wash.py,family:whounicefjmp:water-limited,water-limited,Highest limited drinking-water-service share,True,True,True,False,represented,False
+WHO/UNICEF Joint Monitoring Programme,scripts/import-jmp-wash.py,family:whounicefjmp:water-unimproved,water-unimproved,Highest unimproved drinking-water-service share,True,True,True,False,represented,False
+WHO/UNICEF Joint Monitoring Programme,scripts/import-jmp-wash.py,family:whounicefjmp:water-surface,water-surface,Highest surface-water reliance,True,True,True,False,represented,False
+WHO/UNICEF Joint Monitoring Programme,scripts/import-jmp-wash.py,family:whounicefjmp:sanitation-safely-managed,sanitation-safely-managed,Highest safely managed sanitation coverage,True,True,True,False,represented,False
+WHO/UNICEF Joint Monitoring Programme,scripts/import-jmp-wash.py,family:whounicefjmp:sanitation-basic,sanitation-basic,Highest basic sanitation coverage,True,True,True,False,represented,False
+WHO/UNICEF Joint Monitoring Programme,scripts/import-jmp-wash.py,family:whounicefjmp:sanitation-limited,sanitation-limited,Highest limited sanitation-service share,True,True,True,False,represented,False
+WHO/UNICEF Joint Monitoring Programme,scripts/import-jmp-wash.py,family:whounicefjmp:sanitation-unimproved,sanitation-unimproved,Highest unimproved sanitation-service share,True,True,True,False,represented,False
+WHO/UNICEF Joint Monitoring Programme,scripts/import-jmp-wash.py,family:whounicefjmp:open-defecation,open-defecation,Highest open-defecation rate,True,True,True,False,represented,False
+WHO/UNICEF Joint Monitoring Programme,scripts/import-jmp-wash.py,family:whounicefjmp:hygiene-basic,hygiene-basic,Highest basic hygiene-service coverage,True,True,True,False,represented,False
+WHO/UNICEF Joint Monitoring Programme,scripts/import-jmp-wash.py,family:whounicefjmp:hygiene-limited,hygiene-limited,Highest limited hygiene-service share,True,True,True,False,represented,False
+WHO/UNICEF Joint Monitoring Programme,scripts/import-jmp-wash.py,family:whounicefjmp:hygiene-none,hygiene-none,Highest share without a handwashing facility,True,True,True,False,represented,False
+World Bank Global Findex 2025,scripts/import-global-findex.py,family:globalfindex:account-ownership,account-ownership,Highest account ownership,True,True,True,False,represented,False
+World Bank Global Findex 2025,scripts/import-global-findex.py,family:globalfindex:financial-institution-account,financial-institution-account,Highest financial-institution account ownership,True,True,True,False,represented,False
+World Bank Global Findex 2025,scripts/import-global-findex.py,family:globalfindex:mobile-money-account,mobile-money-account,Highest mobile-money account ownership,True,True,True,False,represented,False
+World Bank Global Findex 2025,scripts/import-global-findex.py,family:globalfindex:debit-card-ownership,debit-card-ownership,Highest debit-card ownership,True,True,True,False,represented,False
+World Bank Global Findex 2025,scripts/import-global-findex.py,family:globalfindex:credit-card-ownership,credit-card-ownership,Highest credit-card ownership,True,True,True,False,represented,False
+World Bank Global Findex 2025,scripts/import-global-findex.py,family:globalfindex:digital-payments,digital-payments,Highest digital-payment use,True,True,True,False,represented,False
+World Bank Global Findex 2025,scripts/import-global-findex.py,family:globalfindex:digital-merchant-payment,digital-merchant-payment,Highest digital merchant-payment use,True,True,True,False,represented,False
+World Bank Global Findex 2025,scripts/import-global-findex.py,family:globalfindex:formal-saving,formal-saving,Highest formal saving rate,True,True,True,False,represented,False
+World Bank Global Findex 2025,scripts/import-global-findex.py,family:globalfindex:formal-borrowing,formal-borrowing,Highest formal borrowing rate,True,True,True,False,represented,False
+World Bank Global Findex 2025,scripts/import-global-findex.py,family:globalfindex:mobile-phone-ownership,mobile-phone-ownership,Highest mobile-phone ownership,True,True,True,False,represented,False
+World Bank Global Findex 2025,scripts/import-global-findex.py,family:globalfindex:smartphone-ownership,smartphone-ownership,Highest smartphone ownership,True,True,True,False,represented,False
+World Bank Global Findex 2025,scripts/import-global-findex.py,family:globalfindex:phone-password,phone-password,Highest phone password protection,True,True,True,False,represented,False
+World Bank Global Findex 2025,scripts/import-global-findex.py,family:globalfindex:wages-into-account,wages-into-account,Highest share receiving wages into an account,True,True,True,False,represented,False
+World Bank Global Findex 2025,scripts/import-global-findex.py,family:globalfindex:government-payments-into-account,government-payments-into-account,Highest share receiving government payments into an account,True,True,True,False,represented,False
+World Bank Global Findex 2025,scripts/import-global-findex.py,family:globalfindex:utility-bills-digitally,utility-bills-digitally,Highest share paying utility bills digitally,True,True,True,False,represented,False
+World Bank Global Findex 2025,scripts/import-global-findex.py,family:globalfindex:financial-resilience,financial-resilience,Highest financial resilience,True,True,True,False,represented,False
+World Bank Global Findex 2025,scripts/import-global-findex.py,family:globalfindex:saved-any-money,saved-any-money,Highest share who saved money,True,True,True,False,represented,False
+FAO Global Forest Resources Assessment 2025,scripts/import-fao-fra-2025.py,family:faofra:forest-share,forest-share,Highest forest share of land,True,True,True,False,represented,False
+FAO Global Forest Resources Assessment 2025,scripts/import-fao-fra-2025.py,family:faofra:primary-forest-area,primary-forest-area,Largest primary forest area,True,True,True,False,represented,False
+FAO Global Forest Resources Assessment 2025,scripts/import-fao-fra-2025.py,family:faofra:planted-forest-area,planted-forest-area,Largest planted forest area,True,True,True,False,represented,False
+FAO Global Forest Resources Assessment 2025,scripts/import-fao-fra-2025.py,family:faofra:natural-forest-area,natural-forest-area,Largest naturally regenerating forest area,True,True,True,False,represented,False
+FAO Global Forest Resources Assessment 2025,scripts/import-fao-fra-2025.py,family:faofra:protected-forest-area,protected-forest-area,Largest protected forest area,True,True,True,False,represented,False
+FAO Global Forest Resources Assessment 2025,scripts/import-fao-fra-2025.py,family:faofra:protected-forest-share,protected-forest-share,Highest protected-forest share,True,True,True,False,represented,False
+FAO Global Forest Resources Assessment 2025,scripts/import-fao-fra-2025.py,family:faofra:mangrove-area,mangrove-area,Largest mangrove area,True,True,True,False,represented,False
+FAO Global Forest Resources Assessment 2025,scripts/import-fao-fra-2025.py,family:faofra:growing-stock,growing-stock,Largest forest growing stock,True,True,True,False,represented,False
+FAO Global Forest Resources Assessment 2025,scripts/import-fao-fra-2025.py,family:faofra:biomass-carbon-stock,biomass-carbon-stock,Largest forest biomass carbon stock,True,True,True,False,represented,False
+FAO Global Forest Resources Assessment 2025,scripts/import-fao-fra-2025.py,family:faofra:carbon-stock-per-hectare,carbon-stock-per-hectare,Highest forest carbon stock per hectare,True,True,True,False,represented,False
+FAO Global Forest Resources Assessment 2025,scripts/import-fao-fra-2025.py,family:faofra:total-carbon-stock,total-carbon-stock,Largest total forest carbon stock,True,True,True,False,represented,False
+FAO Global Forest Resources Assessment 2025,scripts/import-fao-fra-2025.py,family:faofra:public-ownership-share,public-ownership-share,Highest publicly owned forest share,True,True,True,False,represented,False
+FAO Global Forest Resources Assessment 2025,scripts/import-fao-fra-2025.py,family:faofra:private-ownership-share,private-ownership-share,Highest privately owned forest share,True,True,True,False,represented,False
+FAO Global Forest Resources Assessment 2025,scripts/import-fao-fra-2025.py,family:faofra:biodiversity-designation,biodiversity-designation,Largest forest area managed for biodiversity conservation,True,True,True,False,represented,False
+FAO Global Forest Resources Assessment 2025,scripts/import-fao-fra-2025.py,family:faofra:soil-water-protection,soil-water-protection,Largest forest area managed for soil and water protection,True,True,True,False,represented,False
+FAO Global Forest Resources Assessment 2025,scripts/import-fao-fra-2025.py,family:faofra:production-designation,production-designation,Largest forest area managed for production,True,True,True,False,represented,False
+UNICEF Data Warehouse,scripts/import-unicef-data.py,family:unicef:child-marriage-before18,child-marriage-before18,Highest child-marriage rate,True,True,True,False,represented,False
+UNICEF Data Warehouse,scripts/import-unicef-data.py,family:unicef:child-labour,child-labour,Highest child-labor rate,True,True,True,False,represented,False
+UNICEF Data Warehouse,scripts/import-unicef-data.py,family:unicef:violent-discipline,violent-discipline,Highest violent-discipline rate among children,True,True,True,False,represented,False
+UNICEF Data Warehouse,scripts/import-unicef-data.py,family:unicef:fgm-women,fgm-women,Highest female genital mutilation prevalence,True,True,True,False,represented,False
+UNICEF Data Warehouse,scripts/import-unicef-data.py,family:unicef:stunting-u5,stunting-u5,Highest child stunting rate,True,True,True,False,represented,False
+UNICEF Data Warehouse,scripts/import-unicef-data.py,family:unicef:wasting-u5,wasting-u5,Highest child wasting rate,True,True,True,False,represented,False
+UNICEF Data Warehouse,scripts/import-unicef-data.py,family:unicef:overweight-u5,overweight-u5,Highest child overweight rate,True,True,True,False,represented,False
+UNICEF Data Warehouse,scripts/import-unicef-data.py,family:unicef:underweight-u5,underweight-u5,Highest child underweight rate,True,True,True,False,represented,False
+UNICEF Data Warehouse,scripts/import-unicef-data.py,family:unicef:exclusive-breastfeeding,exclusive-breastfeeding,Highest exclusive-breastfeeding rate,True,True,True,False,represented,False
+UNICEF Data Warehouse,scripts/import-unicef-data.py,family:unicef:early-breastfeeding,early-breastfeeding,Highest early-initiation-of-breastfeeding rate,True,True,True,False,represented,False
+UNICEF Data Warehouse,scripts/import-unicef-data.py,family:unicef:low-birthweight,low-birthweight,Highest low-birthweight rate,True,True,True,False,represented,False
+UNICEF Data Warehouse,scripts/import-unicef-data.py,family:unicef:minimum-diet-diversity,minimum-diet-diversity,Highest minimum dietary-diversity rate among young children,True,True,True,False,represented,False
+UNICEF Data Warehouse,scripts/import-unicef-data.py,family:unicef:minimum-acceptable-diet,minimum-acceptable-diet,Highest minimum acceptable-diet rate among young children,True,True,True,False,represented,False
+UNICEF Data Warehouse,scripts/import-unicef-data.py,family:unicef:vitamin-a,vitamin-a,Highest vitamin A supplementation coverage,True,True,True,False,represented,False
+UNICEF Data Warehouse,scripts/import-unicef-data.py,family:unicef:ors-diarrhea,ors-diarrhea,Highest oral-rehydration-treatment rate for childhood diarrhea,True,True,True,False,represented,False
+UNICEF Data Warehouse,scripts/import-unicef-data.py,family:unicef:care-pneumonia,care-pneumonia,Highest care-seeking rate for childhood pneumonia symptoms,True,True,True,False,represented,False
+UNDP Human Development Reports Data Center,scripts/import-undp-hdr.py,family:undphdi:hdi,hdi,Highest Human Development Index,True,True,True,False,represented,False
+UNDP Human Development Reports Data Center,scripts/import-undp-hdr.py,family:undphdi:ihdi,ihdi,Highest inequality-adjusted Human Development Index,True,True,True,False,represented,False
+UNDP Human Development Reports Data Center,scripts/import-undp-hdr.py,family:undphdi:hdi-inequality-loss,hdi-inequality-loss,Largest human-development loss to inequality,True,True,True,False,represented,False
+UNDP Human Development Reports Data Center,scripts/import-undp-hdr.py,family:undphdi:human-inequality-coefficient,human-inequality-coefficient,Highest coefficient of human inequality,True,True,True,False,represented,False
+UNDP Human Development Reports Data Center,scripts/import-undp-hdr.py,family:undphdi:life-expectancy-inequality,life-expectancy-inequality,Highest inequality in life expectancy,True,True,True,False,represented,False
+UNDP Human Development Reports Data Center,scripts/import-undp-hdr.py,family:undphdi:education-inequality,education-inequality,Highest inequality in education,True,True,True,False,represented,False
+UNDP Human Development Reports Data Center,scripts/import-undp-hdr.py,family:undphdi:income-inequality,income-inequality,Highest inequality in income,True,True,True,False,represented,False
+UNDP Human Development Reports Data Center,scripts/import-undp-hdr.py,family:undphdi:gdi,gdi,Highest Gender Development Index,True,True,True,False,represented,False
+UNDP Human Development Reports Data Center,scripts/import-undp-hdr.py,family:undphdi:gii,gii,Highest Gender Inequality Index,True,True,True,False,represented,False
+UNDP Human Development Reports Data Center,scripts/import-undp-hdr.py,family:undphdi:phdi,phdi,Highest planetary pressures-adjusted HDI,True,True,True,False,represented,False
+UNDP Human Development Reports Data Center,scripts/import-undp-hdr.py,family:undphdi:mpi,mpi,Highest Multidimensional Poverty Index,True,True,True,False,represented,False
+UNDP Human Development Reports Data Center,scripts/import-undp-hdr.py,family:undphdi:mpi-headcount,mpi-headcount,Highest multidimensional-poverty headcount,True,True,True,False,represented,False
+UNDP Human Development Reports Data Center,scripts/import-undp-hdr.py,family:undphdi:mpi-intensity,mpi-intensity,Highest multidimensional-poverty intensity,True,True,True,False,represented,False
+UNDP Human Development Reports Data Center,scripts/import-undp-hdr.py,family:undphdi:female-hdi,female-hdi,Highest female Human Development Index,True,True,True,False,represented,False
+UNDP Human Development Reports Data Center,scripts/import-undp-hdr.py,family:undphdi:male-hdi,male-hdi,Highest male Human Development Index,True,True,True,False,represented,False
+V-Dem Country-Year Core v16,scripts/import-vdem-v16.py,family:vdem:electoral-democracy,electoral-democracy,Highest Electoral Democracy Index,True,True,True,False,represented,False
+V-Dem Country-Year Core v16,scripts/import-vdem-v16.py,family:vdem:liberal-democracy,liberal-democracy,Highest Liberal Democracy Index,True,True,True,False,represented,False
+V-Dem Country-Year Core v16,scripts/import-vdem-v16.py,family:vdem:participatory-democracy,participatory-democracy,Highest Participatory Democracy Index,True,True,True,False,represented,False
+V-Dem Country-Year Core v16,scripts/import-vdem-v16.py,family:vdem:deliberative-democracy,deliberative-democracy,Highest Deliberative Democracy Index,True,True,True,False,represented,False
+V-Dem Country-Year Core v16,scripts/import-vdem-v16.py,family:vdem:egalitarian-democracy,egalitarian-democracy,Highest Egalitarian Democracy Index,True,True,True,False,represented,False
+V-Dem Country-Year Core v16,scripts/import-vdem-v16.py,family:vdem:freedom-expression,freedom-expression,Highest freedom of expression and alternative information,True,True,True,False,represented,False
+V-Dem Country-Year Core v16,scripts/import-vdem-v16.py,family:vdem:clean-elections,clean-elections,Highest Clean Elections Index,True,True,True,False,represented,False
+V-Dem Country-Year Core v16,scripts/import-vdem-v16.py,family:vdem:freedom-association,freedom-association,Highest Freedom of Association Index,True,True,True,False,represented,False
+V-Dem Country-Year Core v16,scripts/import-vdem-v16.py,family:vdem:rule-law,rule-law,Strongest rule of law,True,True,True,False,represented,False
+V-Dem Country-Year Core v16,scripts/import-vdem-v16.py,family:vdem:judicial-constraints,judicial-constraints,Strongest judicial constraints on the executive,True,True,True,False,represented,False
+V-Dem Country-Year Core v16,scripts/import-vdem-v16.py,family:vdem:legislative-constraints,legislative-constraints,Strongest legislative constraints on the executive,True,True,True,False,represented,False
+V-Dem Country-Year Core v16,scripts/import-vdem-v16.py,family:vdem:women-political-empowerment,women-political-empowerment,Highest Women's Political Empowerment Index,True,True,True,False,represented,False
+V-Dem Country-Year Core v16,scripts/import-vdem-v16.py,family:vdem:political-corruption,political-corruption,Highest political corruption,True,True,True,False,represented,False
+V-Dem Country-Year Core v16,scripts/import-vdem-v16.py,family:vdem:civil-society-participation,civil-society-participation,Highest Civil Society Participation Index,True,True,True,False,represented,False
+V-Dem Country-Year Core v16,scripts/import-vdem-v16.py,family:vdem:core-civil-society,core-civil-society,Strongest core civil society,True,True,True,False,represented,False
+FAOSTAT Food Security & Healthy Diet,scripts/import-faostat-food-security.py,family:faostatfoodsecurity:undernourishment-prevalence,undernourishment-prevalence,Highest undernourishment rate,True,True,True,False,represented,False
+FAOSTAT Food Security & Healthy Diet,scripts/import-faostat-food-security.py,family:faostatfoodsecurity:undernourished-number,undernourished-number,Largest undernourished population,True,True,True,False,represented,False
+FAOSTAT Food Security & Healthy Diet,scripts/import-faostat-food-security.py,family:faostatfoodsecurity:severe-food-insecurity-prevalence,severe-food-insecurity-prevalence,Highest severe food-insecurity rate,True,True,True,False,represented,False
+FAOSTAT Food Security & Healthy Diet,scripts/import-faostat-food-security.py,family:faostatfoodsecurity:severe-food-insecurity-number,severe-food-insecurity-number,Largest severely food-insecure population,True,True,True,False,represented,False
+FAOSTAT Food Security & Healthy Diet,scripts/import-faostat-food-security.py,family:faostatfoodsecurity:moderate-severe-food-insecurity-prevalence,moderate-severe-food-insecurity-prevalence,Highest moderate-or-severe food-insecurity rate,True,True,True,False,represented,False
+FAOSTAT Food Security & Healthy Diet,scripts/import-faostat-food-security.py,family:faostatfoodsecurity:moderate-severe-food-insecurity-number,moderate-severe-food-insecurity-number,Largest moderate-or-severe food-insecure population,True,True,True,False,represented,False
+FAOSTAT Food Security & Healthy Diet,scripts/import-faostat-food-security.py,family:faostatfoodsecurity:dietary-energy-adequacy,dietary-energy-adequacy,Highest dietary-energy supply adequacy,True,True,True,False,represented,False
+FAOSTAT Food Security & Healthy Diet,scripts/import-faostat-food-security.py,family:faostatfoodsecurity:dietary-energy-cereals-share,dietary-energy-cereals-share,Highest cereal-and-root share of dietary energy,True,True,True,False,represented,False
+FAOSTAT Food Security & Healthy Diet,scripts/import-faostat-food-security.py,family:faostatfoodsecurity:food-deficit-depth,food-deficit-depth,Largest dietary-energy deficit,True,True,True,False,represented,False
+FAOSTAT Food Security & Healthy Diet,scripts/import-faostat-food-security.py,family:faostatfoodsecurity:food-production-variability,food-production-variability,Highest food-production variability,True,True,True,False,represented,False
+FAOSTAT Food Security & Healthy Diet,scripts/import-faostat-food-security.py,family:faostatfoodsecurity:food-supply-variability,food-supply-variability,Highest food-supply variability,True,True,True,False,represented,False
+FAOSTAT Food Security & Healthy Diet,scripts/import-faostat-food-security.py,family:faostatfoodsecurity:cereal-import-dependency,cereal-import-dependency,Highest cereal import dependency,True,True,True,False,represented,False
+FAOSTAT Food Security & Healthy Diet,scripts/import-faostat-food-security.py,family:faostatfoodsecurity:healthy-diet-cost,healthy-diet-cost,Highest cost of a healthy diet,True,True,True,False,represented,False
+FAOSTAT Food Security & Healthy Diet,scripts/import-faostat-food-security.py,family:faostatfoodsecurity:healthy-diet-unaffordable-share,healthy-diet-unaffordable-share,Highest share unable to afford a healthy diet,True,True,True,False,represented,False
+FAOSTAT Food Security & Healthy Diet,scripts/import-faostat-food-security.py,family:faostatfoodsecurity:healthy-diet-unaffordable-number,healthy-diet-unaffordable-number,Largest population unable to afford a healthy diet,True,True,True,False,represented,False
+Köppen-Geiger 1991–2020 climate classification,scripts/import-koppen-geiger.py,family:koppengeiger:desert-share,desert-share,Largest desert-climate share,True,True,True,False,represented,False
+Köppen-Geiger 1991–2020 climate classification,scripts/import-koppen-geiger.py,family:koppengeiger:arid-share,arid-share,Largest arid-climate share,True,True,True,False,represented,False
+Köppen-Geiger 1991–2020 climate classification,scripts/import-koppen-geiger.py,family:koppengeiger:steppe-share,steppe-share,Largest steppe-climate share,True,True,True,False,represented,False
+Köppen-Geiger 1991–2020 climate classification,scripts/import-koppen-geiger.py,family:koppengeiger:tropical-rainforest-share,tropical-rainforest-share,Largest tropical-rainforest climate share,True,True,True,False,represented,False
+Köppen-Geiger 1991–2020 climate classification,scripts/import-koppen-geiger.py,family:koppengeiger:tropical-monsoon-share,tropical-monsoon-share,Largest tropical-monsoon climate share,True,True,True,False,represented,False
+Köppen-Geiger 1991–2020 climate classification,scripts/import-koppen-geiger.py,family:koppengeiger:tropical-savanna-share,tropical-savanna-share,Largest tropical-savanna climate share,True,True,True,False,represented,False
+Köppen-Geiger 1991–2020 climate classification,scripts/import-koppen-geiger.py,family:koppengeiger:temperate-share,temperate-share,Largest temperate-climate share,True,True,True,False,represented,False
+Köppen-Geiger 1991–2020 climate classification,scripts/import-koppen-geiger.py,family:koppengeiger:mediterranean-share,mediterranean-share,Largest Mediterranean-climate share,True,True,True,False,represented,False
+Köppen-Geiger 1991–2020 climate classification,scripts/import-koppen-geiger.py,family:koppengeiger:continental-share,continental-share,Largest continental-climate share,True,True,True,False,represented,False
+Köppen-Geiger 1991–2020 climate classification,scripts/import-koppen-geiger.py,family:koppengeiger:polar-share,polar-share,Largest polar-climate share,True,True,True,False,represented,False
+Köppen-Geiger 1991–2020 climate classification,scripts/import-koppen-geiger.py,family:koppengeiger:tundra-share,tundra-share,Largest tundra-climate share,True,True,True,False,represented,False
+Köppen-Geiger 1991–2020 climate classification,scripts/import-koppen-geiger.py,family:koppengeiger:ice-cap-share,ice-cap-share,Largest ice-cap climate share,True,True,True,False,represented,False
+Köppen-Geiger 1991–2020 climate classification,scripts/import-koppen-geiger.py,family:koppengeiger:climate-diversity,climate-diversity,Most climatically diverse country,True,True,True,False,represented,False

@@ -1,0 +1,3 @@
+version,days,pool_size,reach_pct,top10_share_pct,top25_share_pct,top50_share_pct,repeat_le_3,repeat_le_7,failures
+v16.2.5,1000,317,100.0,7.957,16.329,28.757,2136,4385,0
+v16.2.6,1000,370,100.0,4.393,10.557,20.157,242,805,0

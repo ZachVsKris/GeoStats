@@ -8,6 +8,13 @@ on:
         required: false
         default: "30000"
         type: string
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/audit-generator-reachability.yml'
+      - 'scripts/audit-v16-2-7-reachability.cjs'
+      - 'scripts/fingerprint-v16-2-7-catalog.cjs'
+      - 'supabase/migrations/063_v16_2_7_durable_exclusion_hard_gate.sql'
   workflow_run:
     workflows:
       - "v16.2.7 first-party bulk recovery"
@@ -17,9 +24,6 @@ on:
 permissions:
   contents: read
 
-# The solver must see one stable production catalog. Every v16.2.7 workflow
-# that imports/stages catalog rows shares this group so an audit cannot race a
-# category-ID or observation replacement halfway through its snapshot load.
 concurrency:
   group: geostats-v16-2-7-production-catalog
   cancel-in-progress: false

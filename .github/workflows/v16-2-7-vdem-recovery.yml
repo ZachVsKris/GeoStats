@@ -1,0 +1,80 @@
+name: v16.2.7 V-Dem government recovery
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/v16-2-7-vdem-recovery.yml'
+      - 'scripts/import-vdem-v16.py'
+      - 'scripts/test-vdem-v16-importer.py'
+      - 'scripts/audit-current-bulk-importer.py'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: geostats-v16-2-7-vdem-recovery
+  cancel-in-progress: true
+
+env:
+  SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+  SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+  SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+  VDEM_V16_INPUT: artifacts/v16-2-7-inputs/vdem-v16-2025.csv
+
+jobs:
+  import-audit-stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Require production warehouse credentials
+        shell: bash
+        run: |
+          test -n "$SUPABASE_URL" || { echo "::error::SUPABASE_URL secret is missing"; exit 1; }
+          test -n "${SUPABASE_SECRET_KEY:-${SUPABASE_SERVICE_ROLE_KEY:-}}" || { echo "::error::Supabase service-role secret is missing"; exit 1; }
+      - name: Install importer dependencies
+        run: |
+          python -m pip install --disable-pip-version-check -r scripts/requirements-data-importers.txt
+          python -m pip install --disable-pip-version-check pyreadr==0.5.3 pandas==2.3.2
+      - name: Download pinned official V-Dem v16 release and convert required columns
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts/v16-2-7-inputs
+          curl --fail --location --retry 4 --retry-all-errors \
+            'https://raw.githubusercontent.com/vdeminstitute/vdemdata/V16/data/vdem.RData' \
+            -o artifacts/v16-2-7-inputs/vdem-v16.RData
+          python - <<'PY'
+          import pyreadr
+          from pathlib import Path
+          source='artifacts/v16-2-7-inputs/vdem-v16.RData'
+          result=pyreadr.read_r(source)
+          if not result:
+              raise SystemExit('Pinned official V-Dem RData contained no data frames.')
+          frame=next(iter(result.values()))
+          required=['country_name','country_text_id','year','v2x_polyarchy','v2x_libdem','v2x_freexp_altinf','v2xel_frefair','v2x_rule','v2x_corr','v2x_cspart']
+          missing=[c for c in required if c not in frame.columns]
+          if missing:
+              raise SystemExit(f'Pinned V-Dem v16 release missing required columns: {missing}')
+          latest=frame.loc[frame['year'].astype(int).eq(2025), required].copy()
+          if latest.empty:
+              raise SystemExit('Pinned V-Dem v16 release has no 2025 country-year rows.')
+          latest=latest.rename(columns={'country_name':'Country','country_text_id':'Country Code','year':'Year'})
+          latest.to_csv('artifacts/v16-2-7-inputs/vdem-v16-2025.csv',index=False)
+          print({'rows':len(latest),'columns':list(latest.columns)})
+          PY
+          test -s "$VDEM_V16_INPUT"
+      - name: Test, import, and independently audit curated V-Dem concepts
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/test-vdem-v16-importer.py
+          python scripts/import-vdem-v16.py --input "$VDEM_V16_INPUT"
+          python scripts/audit-current-bulk-importer.py --source vdemv16
+      - name: Stage strict-pass catalog without publishing
+        run: python scripts/stage-v16-2-7-catalog.py

@@ -16,8 +16,13 @@ than receiving synthetic dates.
 from __future__ import annotations
 
 import argparse
+import csv
+import html
+import json
 import os
 import re
+import tempfile
+import urllib.request
 from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
@@ -80,6 +85,9 @@ NAME_ALIASES = {
     "turkiye": "Turkey",
 }
 
+FIFA_ASSOCIATIONS_PAGE = "https://inside.fifa.com/en/associations"
+FIFA_USER_AGENT = "GeoStats/16.2.7 authoritative sports chronology importer"
+
 
 def _norm(value: object) -> str:
     return re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip()
@@ -135,6 +143,91 @@ def first_appearance_by_country(input_path: str) -> dict[str, int]:
         if prior is None or year < prior:
             appearances[iso3] = year
     return appearances
+
+
+def _next_data(page: str) -> dict[str, object]:
+    match = re.search(r'<script[^>]+id=["\']__NEXT_DATA__["\'][^>]*>(.*?)</script>', page, re.S | re.I)
+    if not match:
+        raise RuntimeError("Official FIFA page did not contain the expected __NEXT_DATA__ payload.")
+    value = json.loads(html.unescape(match.group(1)))
+    if not isinstance(value, dict):
+        raise RuntimeError("Official FIFA __NEXT_DATA__ payload was not an object.")
+    return value
+
+
+def _fetch_official_page(url: str) -> str:
+    request = urllib.request.Request(url, headers={"User-Agent": FIFA_USER_AGENT})
+    with urllib.request.urlopen(request, timeout=45) as response:
+        return response.read().decode("utf-8", "replace")
+
+
+def _fifa_page_data(payload: dict[str, object]) -> dict[str, object]:
+    current: object = payload
+    for key in ("props", "pageProps", "association", "pageData"):
+        if not isinstance(current, dict) or key not in current:
+            raise RuntimeError(f"Official FIFA association payload is missing {key!r}.")
+        current = current[key]
+    if not isinstance(current, dict):
+        raise RuntimeError("Official FIFA association pageData was not an object.")
+    return current
+
+
+def fifa_world_cup_record(payload: dict[str, object], association_code: str) -> tuple[str, int] | None:
+    page_data = _fifa_page_data(payload)
+    tournaments = page_data.get("honoursBestPerformances", {})
+    if not isinstance(tournaments, dict):
+        return None
+    rows = tournaments.get("tournaments", [])
+    if not isinstance(rows, list):
+        return None
+    world_cup = next(
+        (row for row in rows if isinstance(row, dict) and row.get("tournamentKey") == "FIFAWorldCup-Men"),
+        None,
+    )
+    if not isinstance(world_cup, dict) or not world_cup.get("participationsCount"):
+        return None
+    years = world_cup.get("participationsYears")
+    if not isinstance(years, list):
+        raise RuntimeError(f"FIFA association {association_code} reports World Cup participation without participationYears.")
+    valid_years = sorted({int(year) for year in years if str(year).isdigit() and 1930 <= int(year) <= SNAPSHOT_YEAR})
+    if not valid_years:
+        raise RuntimeError(f"FIFA association {association_code} reports World Cup participation without a valid edition year.")
+
+    identity_candidates = [
+        page_data.get("associationName"),
+        page_data.get("name"),
+        page_data.get("countryName"),
+    ]
+    association = page_data.get("association")
+    if isinstance(association, dict):
+        identity_candidates.extend((association.get("name"), association.get("countryName")))
+    name = next((str(value).strip() for value in identity_candidates if value), association_code)
+    return name, valid_years[0]
+
+
+def fetch_fifa_world_cup_first_appearances(fetch_page=_fetch_official_page) -> list[tuple[str, int]]:
+    directory = fetch_page(FIFA_ASSOCIATIONS_PAGE)
+    codes = sorted(set(re.findall(r"/associations/([A-Za-z]{3})(?:[/?#\"']|$)", directory, re.I)))
+    if len(codes) < 180:
+        raise RuntimeError(f"Official FIFA directory exposed only {len(codes)} association codes; refusing partial import.")
+    records: list[tuple[str, int]] = []
+    for code in codes:
+        payload = _next_data(fetch_page(f"https://inside.fifa.com/en/associations/{code.upper()}"))
+        record = fifa_world_cup_record(payload, code.upper())
+        if record:
+            records.append(record)
+    if len(records) < 70:
+        raise RuntimeError(f"Official FIFA pages produced only {len(records)} World Cup participants; refusing partial import.")
+    return records
+
+
+def write_live_fifa_snapshot(output_path: str, fetch_page=_fetch_official_page) -> str:
+    records = fetch_fifa_world_cup_first_appearances(fetch_page)
+    with open(output_path, "w", newline="", encoding="utf-8") as handle:
+        writer = csv.writer(handle)
+        writer.writerow(("Team", "First appearance year"))
+        writer.writerows(records)
+    return output_path
 
 
 def _mark_defined_subset(candidate: CandidateDefinition, values: dict[str, int], rule: str, excluded_reason: str) -> None:
@@ -293,14 +386,21 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--source", choices=["fifa", "ioc", "all"], default="all")
     parser.add_argument("--fifa-input", help="Official FIFA participation/first-appearance CSV/TSV/XLSX/ZIP")
+    parser.add_argument("--fifa-live", action="store_true", help="Build the FIFA input from official association __NEXT_DATA__ records")
     parser.add_argument("--ioc-input", help="Official IOC participation/first-appearance CSV/TSV/XLSX/ZIP")
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     warehouse = _warehouse(args.dry_run)
     if args.source in {"fifa", "all"}:
-        if not args.fifa_input:
+        if args.fifa_live and args.fifa_input:
+            raise SystemExit("Use either --fifa-live or --fifa-input, not both")
+        if args.fifa_live:
+            with tempfile.TemporaryDirectory() as tmp:
+                snapshot = write_live_fifa_snapshot(str(Path(tmp) / "official-fifa-world-cup-history.csv"))
+                print(FIFAWorldCupImporter(warehouse, snapshot, dry_run=args.dry_run).run())
+        elif not args.fifa_input:
             if args.source == "fifa":
-                raise SystemExit("--fifa-input is required for FIFA import")
+                raise SystemExit("--fifa-input or --fifa-live is required for FIFA import")
         else:
             print(FIFAWorldCupImporter(warehouse, args.fifa_input, dry_run=args.dry_run).run())
     if args.source in {"ioc", "all"}:

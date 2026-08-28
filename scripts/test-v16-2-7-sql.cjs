@@ -11,6 +11,7 @@ const migrationNames=[
   '060_v16_2_7_ranking_completeness_performance_hotfix.sql',
   '061_v16_2_7_bulk_source_antiproliferation.sql',
   '062_v16_2_7_vdem_curated_government.sql',
+  '063_v16_2_7_durable_exclusion_hard_gate.sql',
 ];
 const migrations=migrationNames.map((name)=>({name,sql:fs.readFileSync(path.join('supabase','migrations',name),'utf8')}));
 const s=migrations[0].sql;
@@ -41,4 +42,9 @@ if(!hotfixes.includes('food-agriculture')) fail('corrected macro-domain taxonomy
 if(!hotfixes.includes('greenhouse-gas subcomponent')) fail('anti-proliferation hotfix missing');
 if(!hotfixes.includes('Findex family capped')) fail('Findex anti-proliferation hotfix missing');
 if(!hotfixes.includes('curated government expansion')) fail('V-Dem curated government expansion migration missing');
+const hard=migrations.find(x=>x.name.startsWith('063_'))?.sql||'';
+if(!hard.includes('v16_2_7_durable_exclusion_reason')) fail('central durable-exclusion predicate missing');
+for(const token of ['largest-east-west-span','global-findex:%','undp-hdr:mpi','vdem-v16:electoral-democracy','EN.GHG.%']) if(!hard.includes(token)) fail(`durable exclusion hard gate missing ${token}`);
+if(!hard.includes('before insert or update on public.stat_categories')) fail('stat_categories durable exclusion trigger missing');
+if(!hard.includes('before insert or update on public.category_review_state')) fail('review-state durable exclusion trigger missing');
 if(!process.exitCode) console.log('GeoStats v16.2.7 SQL policy and installer-sync checks passed.');

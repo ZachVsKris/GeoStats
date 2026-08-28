@@ -44,17 +44,20 @@ def fifa_page(name, years):
     return json.dumps({
         "props": {"pageProps": {"association": {"pageData": {
             "associationName": name,
-            "honoursBestPerformances": {"tournaments": [{
+            "honoursBestPerformances": {"countryCode": name, "tournaments": [{
                 "tournamentKey": "FIFAWorldCup-Men",
                 "participationsCount": len(years),
-                "participationsYears": years,
+                "participationsYears": ", ".join(str(year) for year in years),
             }]},
         }}}}
     })
 
 
-payload = json.loads(fifa_page("Brazil", [1950, 1930, 2022]))
-assert module.fifa_world_cup_record(payload, "BRA") == ("Brazil", 1930)
+payload = json.loads(fifa_page("BRA", [1950, 1930, 2022]))
+assert module.fifa_world_cup_record(payload, "BRA") == ("BRA", 1930)
+assert module._country_iso3({"Code": "ALG"}) == "DZA"
+assert module._country_iso3({"Code": "ENG"}) == "GBR"
+assert module._country_iso3({"Code": "BER"}) is None
 
 directory_codes = [
     chr(65 + (i // (26 * 26)) % 26) + chr(65 + (i // 26) % 26) + chr(65 + i % 26)

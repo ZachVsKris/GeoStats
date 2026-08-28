@@ -24,15 +24,7 @@ YEAR=2023
 def norm(s): return re.sub(r'[^a-z0-9]+','',str(s or '').lower())
 
 def _xlsx_rows(raw: bytes):
-    """Yield rows from the WPP compact workbook without relying on a fixed header row.
-
-    The current official workbook uses human-readable column names (for example
-    ``ISO3 Alpha-code``) and a 16-row metadata preamble on the Estimates sheet.
-    Older GeoStats code parsed the XLSX XML directly and looked only for
-    ``ISO3_code``/``ISO3``; that both lost sparse-cell column positions and failed
-    when UN's published header wording was encountered. openpyxl is already a
-    pinned importer dependency, so use it here and detect the header semantically.
-    """
+    """Yield rows from the WPP compact workbook without relying on a fixed header row."""
     wb=load_workbook(io.BytesIO(raw), read_only=True, data_only=True)
     sheet_names=[]
     if 'Estimates' in wb.sheetnames:
@@ -56,8 +48,7 @@ def _xlsx_rows(raw: bytes):
                 vals=['' if value is None else value for value in row]
                 if not any(value not in (None,'') for value in vals):
                     continue
-                if len(vals)<len(headers):
-                    vals=vals+['']*(len(headers)-len(vals))
+                if len(vals)<len(headers): vals=vals+['']*(len(headers)-len(vals))
                 yield dict(zip(headers, vals[:len(headers)]))
             return
     finally:
@@ -67,20 +58,13 @@ def _xlsx_rows(raw: bytes):
 def load(path_or_url: str):
     from data_pipeline.http import HttpClient
     raw=Path(path_or_url).read_bytes() if Path(path_or_url).exists() else HttpClient(timeout=240,retries=5,user_agent='GeoStats/16.2.6 WPP').get_bytes(path_or_url)
-    if raw[:2]==b'PK': rows=list(_xlsx_rows(raw))
-    else: rows=list(csv.DictReader(io.StringIO(raw.decode('utf-8-sig','replace'))))
+    rows=list(_xlsx_rows(raw)) if raw[:2]==b'PK' else list(csv.DictReader(io.StringIO(raw.decode('utf-8-sig','replace'))))
     out=[]
     for row in rows:
         m={norm(k):v for k,v in row.items()}
-        year_raw=m.get('year')
-        try: year=int(float(str(year_raw)))
+        try: year=int(float(str(m.get('year'))))
         except: continue
         if year!=YEAR: continue
-        # WPP includes region/subregion aggregates and territories in addition to
-        # sovereign-country rows. GeoStats has a fixed 195-country universe, so
-        # require both an explicit official ISO3 code and membership in that
-        # canonical universe. This also prevents the aggregate label "Micronesia"
-        # from being mistaken for FSM.
         iso3=str(m.get('iso3alphacode') or m.get('iso3code') or m.get('iso3') or '').upper().strip()
         if len(iso3)!=3 or iso3 not in CANONICAL_COUNTRY_NAMES: continue
         def val(*names):
@@ -90,18 +74,9 @@ def load(path_or_url: str):
                     try:return float(str(x).replace(',',''))
                     except:pass
             return None
-        total=val(
-          'TPopulation1July','TotalPopulation1July','TPopulation1JulyThousands',
-          'Total Population, as of 1 July (thousands)'
-        )
-        male=val(
-          'PopMale1July','MalePopulation1July',
-          'Male Population, as of 1 July (thousands)'
-        )
-        female=val(
-          'PopFemale1July','FemalePopulation1July',
-          'Female Population, as of 1 July (thousands)'
-        )
+        total=val('TPopulation1July','TotalPopulation1July','TPopulation1JulyThousands','Total Population, as of 1 July (thousands)')
+        male=val('PopMale1July','MalePopulation1July','Male Population, as of 1 July (thousands)')
+        female=val('PopFemale1July','FemalePopulation1July','Female Population, as of 1 July (thousands)')
         metrics={
           'male-share': (100*male/total if male is not None and total and total>0 else None),
           'female-share': (100*female/total if female is not None and total and total>0 else None),
@@ -160,10 +135,10 @@ KEY_METRIC={
 OFFICIAL_SERIES_NAME={
  'male-share':'Male population share (derived from WPP male and total population)',
  'female-share':'Female population share (derived from WPP female and total population)',
- 'sex-ratio':'Population Sex Ratio, as of 1 July (males per 100 females)',
+ 'sex-ratio':'men per 100 women',
  'median-age':'Median Age, as of 1 July (years)',
  'population-density':'Population Density, as of 1 July (persons per square km)',
- 'population-growth':'Population Growth Rate (percentage)',
+ 'population-growth':'Annual growth rate (%)',
  'fertility':'Total Fertility Rate (live births per woman)',
  'life-expectancy':'Life Expectancy at Birth, both sexes (years)',
  'female-life-expectancy':'Female Life Expectancy at Birth (years)',
@@ -177,6 +152,10 @@ OFFICIAL_SERIES_NAME={
  'mean-age-childbearing':'Mean Age Childbearing (years)',
  'female-life-expectancy-advantage':'Female minus male life expectancy at birth (derived from WPP sex-specific series)',
 }
+OFFICIAL_COLUMN_NAME={
+ 'sex-ratio':'Population Sex Ratio, as of 1 July (males per 100 females)',
+ 'population-growth':'Population Growth Rate (percentage)',
+}
 class Importer(WarehouseImporter):
  source_organization=SOURCE_ORG; source_dataset=SOURCE_DATASET; source_slug='unwpp'
  def __init__(self,warehouse,input_path=DOWNLOAD,dry_run=False): super().__init__(warehouse,dry_run=dry_run); self.rows=load(input_path)
@@ -185,7 +164,9 @@ class Importer(WarehouseImporter):
   for key,(title,desc,unit,vtype,direction,family) in SPECS.items():
    rule=IndicatorRule(key=key,title=title,description=desc,plain_language_description=desc,technical_definition=f'{desc} WPP 2024 estimate for {YEAR}.',unit_explanation=unit,family=family,icon='👥',unit=unit,value_type=vtype,ranking_direction=direction,include=(key,),min_coverage=180,evidence_tier='A',source_priority=4,specificity_score=98,recognizability_score=97,understandability_score=98,fun_score=95)
    metric=KEY_METRIC[key]
-   out.append(CandidateDefinition(rule,f'WPP2024:{metric}:{YEAR}',OFFICIAL_SERIES_NAME[metric],SOURCE_PAGE,{'source_page_url':SOURCE_PAGE,'download_url':DOWNLOAD,'methodology_url':METHOD,'dataset_release':'World Population Prospects 2024','source_query':{'year':YEAR,'metric':metric,'variant':'estimate'},'minimum_year':YEAR,'measurementType':('share' if vtype=='percentage' else 'per_capita' if vtype=='per_capita' else 'total' if vtype=='total' else 'other'),'broadDomain':'population','knowledgeCluster':'demographics','strategyFamily':key,'v16_2_6_content_reviewed':True,'license_name':'CC BY 3.0 IGO'}))
+   metadata={'source_page_url':SOURCE_PAGE,'download_url':DOWNLOAD,'methodology_url':METHOD,'dataset_release':'World Population Prospects 2024','source_query':{'year':YEAR,'metric':metric,'variant':'estimate'},'minimum_year':YEAR,'measurementType':('share' if vtype=='percentage' else 'per_capita' if vtype=='per_capita' else 'total' if vtype=='total' else 'other'),'broadDomain':'population','knowledgeCluster':'demographics','strategyFamily':key,'v16_2_6_content_reviewed':True,'license_name':'CC BY 3.0 IGO'}
+   if metric in OFFICIAL_COLUMN_NAME: metadata['officialSourceColumn']=OFFICIAL_COLUMN_NAME[metric]
+   out.append(CandidateDefinition(rule,f'WPP2024:{metric}:{YEAR}',OFFICIAL_SERIES_NAME[metric],SOURCE_PAGE,metadata))
   return out
  def fetch_observations(self,c):
   metric=KEY_METRIC[c.rule.key]; out=[]

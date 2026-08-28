@@ -27,7 +27,7 @@ env:
   SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
 
 jobs:
-  import-and-audit:
+  import-source:
     runs-on: ubuntu-latest
     timeout-minutes: 55
     strategy:
@@ -82,20 +82,78 @@ jobs:
             sleep 10
             ${{ matrix.command }}
           fi
-      - name: Independently audit ${{ matrix.slug }}
-        run: python scripts/audit-source-integrity.py --source ${{ matrix.slug }} --include-nonplayable --fail-on-source-error --fail-on-empty --report-dir artifacts/source-integrity/${{ matrix.slug }}
-      - name: Upload ${{ matrix.slug }} evidence
+
+  audit-sequentially:
+    needs: import-source
+    if: ${{ always() && needs.import-source.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Require production warehouse credentials
+        shell: bash
+        run: |
+          test -n "$SUPABASE_URL" || { echo "::error::SUPABASE_URL secret is missing"; exit 1; }
+          test -n "${SUPABASE_SECRET_KEY:-${SUPABASE_SERVICE_ROLE_KEY:-}}" || { echo "::error::Supabase service-role secret is missing"; exit 1; }
+      - name: Install audit dependencies
+        run: |
+          python -m pip install --disable-pip-version-check \
+            -r scripts/requirements-data-importers.txt \
+            -r scripts/requirements-faostat.txt \
+            -r scripts/requirements-geography.txt
+      - name: Independently audit imported sources without concurrent reconciliation
+        shell: bash
+        run: |
+          set -euo pipefail
+          for slug in \
+            naturalearth \
+            unmembership \
+            constitute \
+            ipu \
+            worldbankhistory \
+            naturalearthcapitals \
+            unescoich \
+            worldbankinfra \
+            worldbankclimate \
+            unwpp
+          do
+            echo "::group::Audit ${slug}"
+            set +e
+            python scripts/audit-source-integrity.py \
+              --source "$slug" \
+              --include-nonplayable \
+              --fail-on-source-error \
+              --fail-on-empty \
+              --report-dir "artifacts/source-integrity/${slug}"
+            status=$?
+            set -e
+            if [ "$status" -ne 0 ]; then
+              echo "::notice::Audit ${slug} failed once; retrying after 10s for transient database contention."
+              sleep 10
+              python scripts/audit-source-integrity.py \
+                --source "$slug" \
+                --include-nonplayable \
+                --fail-on-source-error \
+                --fail-on-empty \
+                --report-dir "artifacts/source-integrity/${slug}"
+            fi
+            echo "::endgroup::"
+          done
+      - name: Upload source-integrity evidence
         if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: source-integrity-${{ matrix.slug }}
-          path: artifacts/source-integrity/${{ matrix.slug }}
+          name: source-integrity-authoritative-breadth
+          path: artifacts/source-integrity
           if-no-files-found: warn
           retention-days: 30
 
   stage-only:
-    needs: import-and-audit
-    if: ${{ always() && needs.import-and-audit.result == 'success' }}
+    needs: audit-sequentially
+    if: ${{ always() && needs.audit-sequentially.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:

@@ -1,5 +1,0 @@
-# WHO and the shared framework use only Python's standard library.
-# FAOSTAT continues to use scripts/requirements-faostat.txt.
-
-# Pew Research Center workbook parser.
-openpyxl>=3.1,<4

@@ -13,21 +13,26 @@ jobs:
   inspect:
     runs-on: ubuntu-latest
     steps:
-      - name: Inspect Global Findex first-party documentation links
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Inspect Global Findex official glossary
         shell: bash
         run: |
           set -euo pipefail
+          python -m pip install --disable-pip-version-check openpyxl >/dev/null
           curl --fail --location --retry 4 --retry-all-errors \
-            'https://www.worldbank.org/en/publication/globalfindex/download-data' \
-            -o /tmp/page.html
+            'https://thedocs.worldbank.org/en/doc/be6615202d1f08a25855c8ac2d615122-0050012025/related/GlobalFindex2025-glossary.xlsx' \
+            -o /tmp/glossary.xlsx
           python - <<'PY'
-          import re,html
-          text=open('/tmp/page.html',encoding='utf-8',errors='replace').read()
-          urls=[]
-          for u in re.findall(r'https?://[^"\'<> ]+', text):
-              u=html.unescape(u).replace('\\u0026','&')
-              if any(k in u.lower() for k in ('findex','codebook','dictionary','.xlsx','.csv','.dta','.zip','.pdf')):
-                  if u not in urls: urls.append(u)
-          for u in urls: print(u)
-          print('URL_COUNT',len(urls))
+          from openpyxl import load_workbook
+          wb=load_workbook('/tmp/glossary.xlsx',read_only=True,data_only=True)
+          needles=('account','mobile money','debit card','credit card','digital payment','merchant','saved','saving','borrow','mobile phone','smartphone','password','wage','government payment','utility','emergency','resilien')
+          for ws in wb.worksheets:
+              print('\n### SHEET',ws.title)
+              for row in ws.iter_rows(values_only=True):
+                  vals=[str(v).strip() if v is not None else '' for v in row]
+                  joined=' | '.join(vals).lower()
+                  if any(n in joined for n in needles):
+                      print(' | '.join(vals[:12]))
           PY

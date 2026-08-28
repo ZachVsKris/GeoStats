@@ -1,0 +1,48 @@
+name: Sync v16.2.7 Supabase installer
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sync-v16-2-7-installer.yml'
+      - 'scripts/build-v16-2-7-installer.cjs'
+      - 'supabase/migrations/054_v16_2_7_catalog_generator_rebuild.sql'
+      - 'supabase/migrations/055_v16_2_7_macro_domain_product_exclusions_hotfix.sql'
+      - 'supabase/migrations/056_v16_2_7_women_category_product_exclusion.sql'
+      - 'supabase/migrations/057_v16_2_7_durable_editorial_enforcement.sql'
+      - 'supabase/migrations/058_v16_2_7_legacy_reaudit_circular_block_hotfix.sql'
+      - 'supabase/migrations/059_v16_2_7_taxonomy_and_antiproliferation_hotfix.sql'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: geostats-v16-2-7-installer-sync
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - name: Generate complete one-file installer
+        run: node scripts/build-v16-2-7-installer.cjs
+      - name: Verify generated installer
+        run: node scripts/build-v16-2-7-installer.cjs --check
+      - name: Commit synchronized installer if needed
+        shell: bash
+        run: |
+          if git diff --quiet -- RUN_THIS_IN_SUPABASE_FOR_V16_2_7.sql; then
+            echo 'Installer already synchronized.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add RUN_THIS_IN_SUPABASE_FOR_V16_2_7.sql
+          git commit -m 'Sync complete v16.2.7 Supabase installer'
+          git push

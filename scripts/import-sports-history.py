@@ -24,6 +24,7 @@ import re
 import tempfile
 import urllib.request
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable
@@ -218,11 +219,10 @@ def fetch_fifa_world_cup_first_appearances(fetch_page=_fetch_official_page) -> l
     codes = sorted(set(re.findall(r"/associations/([A-Za-z]{3})(?:[/?#\"']|$)", directory, re.I)))
     if len(codes) < 180:
         raise RuntimeError(f"Official FIFA directory exposed only {len(codes)} association codes; refusing partial import.")
-    records: list[tuple[str, int]] = []
-    for code in codes:
+    def fetch_record(code: str) -> tuple[str, int] | None:
         payload = _next_data(fetch_page(f"https://inside.fifa.com/en/associations/{code.upper()}"))
         try:
-            record = fifa_world_cup_record(payload, code.upper())
+            return fifa_world_cup_record(payload, code.upper())
         except RuntimeError as error:
             # The directory can contain legacy/redirect association routes with a
             # different page payload. Completeness is enforced across the entire
@@ -230,9 +230,13 @@ def fetch_fifa_world_cup_first_appearances(fetch_page=_fetch_official_page) -> l
             # prevent evaluation of the authoritative participant universe.
             if "association payload is missing" not in str(error):
                 raise
-            continue
-        if record:
-            records.append(record)
+            return None
+
+    # The official directory contains more than 200 association pages. Bound
+    # concurrency so a full first-party refresh completes reliably without
+    # turning the source check into a long serial crawl.
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        records = [record for record in pool.map(fetch_record, codes) if record]
     if len(records) < 70:
         raise RuntimeError(f"Official FIFA pages produced only {len(records)} World Cup participants; refusing partial import.")
     return records

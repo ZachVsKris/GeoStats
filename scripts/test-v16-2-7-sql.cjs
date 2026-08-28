@@ -13,6 +13,7 @@ const migrationNames=[
   '062_v16_2_7_vdem_curated_government.sql',
   '063_v16_2_7_durable_exclusion_hard_gate.sql',
   '064_v16_2_7_physical_geography_expansion.sql',
+  '065_v16_2_7_physical_geography_timeout_hotfix.sql',
 ];
 const migrations=migrationNames.map((name)=>({name,sql:fs.readFileSync(path.join('supabase','migrations',name),'utf8')}));
 const s=migrations[0].sql;
@@ -50,4 +51,6 @@ if(!hard.includes('before insert or update on public.stat_categories')) fail('st
 if(!hard.includes('before insert or update on public.category_review_state')) fail('review-state durable exclusion trigger missing');
 const physical=migrations.find(x=>x.name.startsWith('064_'))?.sql||'';
 for(const token of ['apply_v16_2_7_physical_geography_curation','longest-average-land-border','highest-land-border-density','mappedLayerLimitationDisclosed']) if(!physical.includes(token)) fail(`physical-geography expansion missing ${token}`);
+const physicalTimeout=migrations.find(x=>x.name.startsWith('065_'))?.sql||'';
+for(const token of ['apply_v16_2_7_physical_geography_curation','statement_timeout=\'300s\'']) if(!physicalTimeout.includes(token)) fail(`physical-geography timeout hotfix missing ${token}`);
 if(!process.exitCode) console.log('GeoStats v16.2.7 SQL policy and installer-sync checks passed.');

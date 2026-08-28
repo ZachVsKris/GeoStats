@@ -42,7 +42,7 @@ jobs:
       - name: Capture exact official FIFA snapshot fail closed
         run: |
           mkdir -p artifacts/source-integrity/fifa
-          python -c "import runpy; runpy.run_path('scripts/import-sports-history.py')['write_live_fifa_snapshot']('artifacts/source-integrity/fifa/official-fifa-world-cup-history.csv')"
+          PYTHONPATH=scripts python -c "import runpy; runpy.run_path('scripts/import-sports-history.py')['write_live_fifa_snapshot']('artifacts/source-integrity/fifa/official-fifa-world-cup-history.csv')"
       - name: Import exact official FIFA snapshot fail closed
         run: |
           python scripts/import-sports-history.py --source fifa --fifa-input artifacts/source-integrity/fifa/official-fifa-world-cup-history.csv

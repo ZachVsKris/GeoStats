@@ -1,0 +1,62 @@
+name: v16.2.7 official UN SDG bulk recovery
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/import-un-sdg.py'
+      - 'scripts/test-un-sdg-importer.py'
+      - 'scripts/data_pipeline/governance.py'
+      - 'scripts/data_pipeline/player_source_links.py'
+      - 'scripts/audit-source-integrity.py'
+      - '.github/workflows/v16-2-7-un-sdg-recovery.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: geostats-v16-2-7-production-catalog
+  cancel-in-progress: false
+
+env:
+  SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+  SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+  SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+jobs:
+  import-audit-stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Require production warehouse credentials
+        run: |
+          test -n "$SUPABASE_URL"
+          test -n "${SUPABASE_SECRET_KEY:-${SUPABASE_SERVICE_ROLE_KEY:-}}"
+      - name: Install importer dependencies
+        run: python -m pip install --disable-pip-version-check -r scripts/requirements-data-importers.txt
+      - name: Test curated bulk importer
+        run: python scripts/test-un-sdg-importer.py
+      - name: Import exact official aggregate series fail closed
+        run: python scripts/import-un-sdg.py
+      - name: Independently audit imported UN SDG series
+        run: >-
+          python scripts/audit-source-integrity.py
+          --source unsdg
+          --include-nonplayable
+          --fail-on-source-error
+          --fail-on-empty
+          --report-dir artifacts/source-integrity/unsdg
+      - name: Stage strict-pass candidates without publishing
+        run: python scripts/stage-v16-2-7-catalog.py
+      - name: Upload source-integrity evidence
+        uses: actions/upload-artifact@v7
+        with:
+          name: source-integrity-unsdg-v16-2-7
+          path: artifacts/source-integrity/unsdg
+          if-no-files-found: error
+          retention-days: 30

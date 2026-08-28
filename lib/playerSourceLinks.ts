@@ -40,6 +40,7 @@ const GENERAL_OFFICIAL_SOURCE_PAGES: Partial<Record<DataSourceId, string>> = {
   eia: "https://www.eia.gov/international/data/world",
   unhcr: "https://www.unhcr.org/refugee-statistics/",
   ilostat: "https://ilostat.ilo.org/data/",
+  unsdg: "https://unstats.un.org/sdgs/dataportal/database",
   pewreligion: "https://www.pewresearch.org/religion/feature/religious-composition-by-country-2010-2020/",
   smithsoniangvp: "https://volcano.si.edu/volcanolist_holocene.cfm",
   usgs: "https://earthquake.usgs.gov/earthquakes/search/",

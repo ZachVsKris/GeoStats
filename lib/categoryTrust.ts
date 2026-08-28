@@ -48,6 +48,8 @@ function sourceBaseline(source: DataSourceId): CategoryTrustProfile {
       return { credibilityScore: 80, trustStatus: "caution", trustReason: "UIS harmonizes national administrative and survey data, but cross-country definitions can still vary.", evidenceLabel: "Mixed observed and modeled", dailyEligible: true };
     case "ilostat":
       return { credibilityScore: 83, trustStatus: "approved", trustReason: "ILO-harmonized labor-force surveys and modeled estimates under international standards.", evidenceLabel: "Modeled estimate", dailyEligible: true };
+    case "unsdg":
+      return { credibilityScore: 94, trustStatus: "approved", trustReason: "Official UN Global SDG Indicators Database series retain the published unit, aggregate dimensions, release, and data-nature metadata from designated custodian agencies.", evidenceLabel: "Internationally harmonized", dailyEligible: true };
     case "untourism":
       return { credibilityScore: 84, trustStatus: "approved", trustReason: "International tourism statistics harmonized under UN Tourism definitions.", evidenceLabel: "Internationally harmonized", dailyEligible: true };
     case "worldbank":

@@ -22,6 +22,7 @@ export async function fetchCategory(category: Category): Promise<CategoryDataset
     case "unesco":
     case "untourism":
       return fetchDistributedIndicator(category);
+    case "unsdg":
     case "comtrade":
     case "faostatfbs":
     case "eia":

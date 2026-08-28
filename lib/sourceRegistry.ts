@@ -17,6 +17,14 @@ export const SOURCE_REGISTRY: Record<DataSourceId, SourceDefinition> = {
     verifier: "scripts/verify-worldbank.mjs",
     playable: true,
   },
+  unsdg: {
+    id: "unsdg",
+    name: "UN Global SDG Indicators Database",
+    homepage: "https://unstats.un.org/sdgs/dataportal/database",
+    verifier: "scripts/test-un-sdg-importer.py",
+    playable: true,
+    note: "Only explicitly curated aggregate country series with exact units and dimensions are eligible.",
+  },
   faostat: {
     id: "faostat",
     name: "FAOSTAT",
@@ -221,6 +229,7 @@ export function categorySourceUrl(source: DataSourceId, indicator: string) {
   if (source === "unesco") return `https://data.worldbank.org/indicator/${indicator}?name_desc=false`;
   if (source === "untourism") return `https://data.worldbank.org/indicator/${indicator}?name_desc=false`;
   if (source === "ilostat") return "https://rshiny.ilo.org/dataexplorer/";
+  if (source === "unsdg") return "https://unstats.un.org/sdgs/dataportal/database";
   if (source === "naturalearth") return "https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-countries/";
   if (source === "comtrade") return "https://comtradeplus.un.org/";
   if (source === "eia") return "https://www.eia.gov/opendata/browser/international";
@@ -274,6 +283,7 @@ export function categoryMethodologyUrl(source: DataSourceId, indicator: string) 
   if (source === "unesco") return "https://uis.unesco.org/en/methodology";
   if (source === "untourism") return "https://www.unwto.org/methodology";
   if (source === "ilostat") return "https://ilostat.ilo.org/resources/concepts-and-definitions/";
+  if (source === "unsdg") return "https://unstats.un.org/sdgs/metadata/";
   if (source === "naturalearth") return "https://www.naturalearthdata.com/about/terms-of-use/";
   if (source === "comtrade") return "https://unstats.un.org/unsd/trade/eg-imts/IMTS%202010%20(English).pdf";
   if (source === "eia") return "https://www.eia.gov/opendata/documentation.php";

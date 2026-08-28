@@ -107,6 +107,7 @@ const SOURCE_IDS: Record<string, DataSourceId> = {
   WHO: "who",
   "UNESCO UIS": "unesco",
   ILOSTAT: "ilostat",
+  "United Nations Statistics Division": "unsdg",
   "Natural Earth": "naturalearth",
   "UN Comtrade": "comtrade",
   "U.S. EIA": "eia",
@@ -473,7 +474,7 @@ function resolvedSourceId(row: PlayableCategoryRow): DataSourceId | undefined {
 
 // Compile-time/runtime allowlist mirroring DataSourceId. Kept local to avoid circular imports.
 const SOURCE_REGISTRY_COMPAT: Record<string, true> = {
-  worldbank:true,faostat:true,faostatfbs:true,who:true,unesco:true,untourism:true,naturalearth:true,comtrade:true,eia:true,unhcr:true,ilostat:true,
+  worldbank:true,faostat:true,faostatfbs:true,who:true,unesco:true,untourism:true,naturalearth:true,comtrade:true,eia:true,unhcr:true,ilostat:true,unsdg:true,
   pewreligion:true,smithsoniangvp:true,usgs:true,worldcover:true,hydrosheds:true,elevation:true,unescoheritage:true,aquastat:true,usgsminerals:true,
   faofisheries:true,unmembership:true,constitute:true,ipu:true,unwpp:true,worldbankclimate:true,imfweo:true,unescoich:true,noaatsunami:true,
   whoghed:true,undesamigrant:true,wtoservices:true,untourismdirect:true,fifa:true,ioc:true,worldbankhistory:true,globalfindex2025:true,

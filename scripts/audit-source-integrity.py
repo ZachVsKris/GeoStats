@@ -35,6 +35,7 @@ SOURCE_SPECS: dict[str, tuple[str, str, str, str | None]] = {
     "who": ("import-who.py", "WhoImporter", "WHO", None),
     "unesco": ("import-unesco.py", "UnescoImporter", "UNESCO UIS", None),
     "ilostat": ("import-ilostat.py", "IlostatImporter", "ILOSTAT", None),
+    "unsdg": ("import-un-sdg.py", "Importer", "United Nations Statistics Division", "unsdg:"),
     "naturalearth": ("import-natural-earth.py", "NaturalEarthImporter", "Natural Earth", None),
     "comtrade": ("import-comtrade.py", "ComtradeImporter", "UN Comtrade", None),
     "eia": ("import-eia.py", "EiaImporter", "U.S. EIA", None),

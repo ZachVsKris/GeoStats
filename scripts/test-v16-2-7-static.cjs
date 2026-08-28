@@ -57,5 +57,6 @@ const sports=fs.readFileSync(path.join(root,'scripts/import-sports-history.py'),
 const playable=fs.readFileSync(path.join(root,'lib/playableCatalog.ts'),'utf8');
 for(const t of ['FIFAWorldCupImporter','IOCOlympicsImporter','eligible_universe_type','defined_subset']) check(sports.includes(t),`sports importer missing ${t}`);
 for(const t of ['resolvedSourceId','sourceSlug','undesamigrant','untourismdirect','FIFA: "fifa"','International Olympic Committee','globalfindex2025','faofra2025','unicefdata','undphdr','vdemv16','faostatfoodsecurity','koppengeiger','worldbankinfra','faostatlanduse','faostatworldcover','worldbankwbl','jmpwash','unwup2025','unwupcities2025']) check(playable.includes(t),`source-family routing missing ${t}`);
+for(const t of ['unsdg:true','United Nations Statistics Division']) check(playable.includes(t),`UN SDG source-family routing missing ${t}`);
 if(failures.length){console.error('GeoStats v16.2.7 static checks FAILED:\n'+failures.map(x=>' - '+x).join('\n'));process.exit(1)}
 console.log('GeoStats v16.2.7 static rebuild checks passed.');

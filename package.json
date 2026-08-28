@@ -77,7 +77,7 @@
     "import-fao-fisheries": "python scripts/import-fao-fisheries.py",
     "import-usgs-minerals": "python scripts/import-usgs-minerals.py",
     "test-v16-2-6-recovery": "python scripts/test-v16-2-6-eligible-universe.py && python scripts/test-historical-successors.py && node scripts/test-v16-2-6-expansion-recovery-static.cjs",
-    "test-v16-2-7": "npm run test-v16-2-6 && node scripts/test-v16-2-7-static.cjs && node scripts/test-v16-2-7-sql.cjs && python scripts/test-world-bank-climate-importer.py && python scripts/test-un-wpp-importer.py && python scripts/test-historical-importer.py && python scripts/test-sports-history-importer.py && python scripts/test-un-wup-2025-importer.py && python scripts/test-un-wup-2025-cities-importer.py && python scripts/test-player-source-links.py",
+    "test-v16-2-7": "npm run test-v16-2-6 && node scripts/test-v16-2-7-static.cjs && node scripts/test-v16-2-7-sql.cjs && python scripts/test-world-bank-climate-importer.py && python scripts/test-un-wpp-importer.py && python scripts/test-historical-importer.py && python scripts/test-sports-history-importer.py && python scripts/test-un-wup-2025-importer.py && python scripts/test-un-wup-2025-cities-importer.py && python scripts/test-un-sdg-importer.py && python scripts/test-player-source-links.py",
     "check-v16-2-7": "npm run test-v16-2-7 && npm run typecheck && npm run build && npm run test-e2e",
     "audit-generator-reachability": "node scripts/audit-v16-2-7-reachability.cjs --write --assert-release",
     "import-sports-history": "python scripts/import-sports-history.py"

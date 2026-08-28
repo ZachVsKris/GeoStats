@@ -12,6 +12,7 @@ export type DataSourceId =
   | "eia"
   | "unhcr"
   | "ilostat"
+  | "unsdg"
   | "pewreligion"
   | "smithsoniangvp"
   | "usgs"
@@ -539,4 +540,3 @@ const RAW_CATEGORIES: Category[] = [
 ];
 
 export const CATEGORIES: Category[] = RAW_CATEGORIES.map(applyCategoryTrustPolicy);
-

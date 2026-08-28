@@ -14,6 +14,7 @@ GENERAL_OFFICIAL_SOURCE_PAGES = {
     "who": "https://www.who.int/data/gho/data",
     "unesco": "https://databrowser.uis.unesco.org/",
     "ilostat": "https://ilostat.ilo.org/data/",
+    "unsdg": "https://unstats.un.org/sdgs/dataportal/database",
     "naturalearth": "https://www.naturalearthdata.com/",
     "comtrade": "https://comtradeplus.un.org/",
     "eia": "https://www.eia.gov/international/data/world",

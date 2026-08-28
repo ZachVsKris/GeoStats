@@ -15,6 +15,7 @@ const SOURCE_ORGANIZATIONS: Record<string, string> = {
   who: "WHO",
   unesco: "UNESCO UIS",
   ilostat: "ILOSTAT",
+  unsdg: "United Nations Statistics Division",
   naturalearth: "Natural Earth",
   comtrade: "UN Comtrade",
   eia: "U.S. EIA",
@@ -566,4 +567,3 @@ export async function fetchServerWarehouseCategories(
 
   return { datasets, errors };
 }
-

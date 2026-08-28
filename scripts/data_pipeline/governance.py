@@ -90,6 +90,14 @@ SOURCE_POLICIES: dict[str, dict[str, object]] = {
         "risk": "low",
         "priority": 10,
     },
+    "unsdg": {
+        "provenance_class": "official_un_global_sdg_series",
+        "reason": "The UN Statistics Division Global SDG Indicators Database publishes internationally harmonized series supplied by designated custodian agencies, with release, unit, dimension, and data-nature metadata.",
+        "methodology_url": "https://unstats.un.org/sdgs/metadata/",
+        "independent_validation": True,
+        "risk": "low",
+        "priority": 12,
+    },
     "climate": {
         "provenance_class": "independent_geospatial_measurement",
         "reason": "Natural Earth categories are calculated consistently from a single global geometry dataset rather than country-submitted claims.",

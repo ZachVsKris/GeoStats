@@ -28,6 +28,26 @@ with tempfile.TemporaryDirectory() as tmp:
     assert cand.rule.ranking_direction == "low"
     assert imp.category_id(cand) == "sports:fifa-world-cup-first-appearance"
 
+    ranking = Path(tmp) / "fifa-ranking.csv"
+    source_code_by_iso3 = {}
+    for source_code in sorted(set(module.CANONICAL_COUNTRY_NAMES) | set(module.NOC_TO_ISO3) | set(module.FIFA_TO_ISO3)):
+        iso3 = module._fifa_ranking_iso3(source_code)
+        if iso3 and iso3 not in source_code_by_iso3:
+            source_code_by_iso3[iso3] = source_code
+    rankable = sorted(source_code_by_iso3.items())[:160]
+    ranking.write_text(
+        "Code,Men's FIFA world rank,Men's FIFA ranking points,Ranking date\n"
+        + "\n".join(f"{source_code},{index},{2000-index / 10},2026-07-20" for index, (_, source_code) in enumerate(rankable, 1)),
+        encoding="utf-8",
+    )
+    rank_imp = module.FIFAMensRankingImporter(None, str(ranking), dry_run=True)
+    rank_candidate = rank_imp.discover()[0]
+    assert rank_candidate.rule.ranking_direction == "low"
+    assert rank_candidate.rule.unit == "world rank"
+    assert rank_candidate.metadata["eligible_universe_type"] == "defined_subset"
+    assert rank_imp.category_id(rank_candidate) == "sports:fifa-mens-world-ranking"
+    assert module._fifa_ranking_iso3("ENG") is None
+
     ioc = Path(tmp) / "ioc.csv"
     olympic = [(name, 1896 + (i % 8) * 4) for i, (name, _) in enumerate(countries)]
     ioc.write_text("Country,Games Year\n" + "\n".join(f"{name},{year}" for name, year in olympic), encoding="utf-8")
@@ -58,6 +78,20 @@ assert module.fifa_world_cup_record(payload, "BRA") == ("BRA", 1930)
 assert module._country_iso3({"Code": "ALG"}) == "DZA"
 assert module._country_iso3({"Code": "ENG"}) == "GBR"
 assert module._country_iso3({"Code": "BER"}) is None
+
+ranking_rows = [
+    {"countryCode": f"{chr(65 + (i // 676) % 26)}{chr(65 + (i // 26) % 26)}{chr(65 + i % 26)}", "rank": i + 1, "totalPoints": 2000 - i}
+    for i in range(190)
+]
+payload["props"]["pageProps"]["association"]["pageData"]["memberAssociationsGroupedRankingProps"] = {
+    "footballCountryRankings": {"countryRankingSection": {"rankings": {"menRanking": {
+        "lastUpdateDate": "2026-07-20T08:37:28.979Z",
+        "rows": ranking_rows,
+    }}}}
+}
+parsed_rankings = module.fifa_mens_ranking_records(payload)
+assert len(parsed_rankings) == 190
+assert parsed_rankings[0][1:] == (1, 2000.0, "2026-07-20T08:37:28.979Z")
 
 directory_codes = [
     chr(65 + (i // (26 * 26)) % 26) + chr(65 + (i // 26) % 26) + chr(65 + i % 26)

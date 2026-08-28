@@ -62,6 +62,7 @@ SOURCE_SPECS: dict[str, tuple[str, str, str, str | None]] = {
     "wtoservices": ("import-wto-services.py", "Importer", "World Trade Organization", "wtoservices:"),
     "untourismdirect": ("import-un-tourism.py", "Importer", "UN Tourism", "untourismdirect:"),
     "fifa": ("import-sports-history.py", "FIFAWorldCupImporter", "FIFA", "sports:fifa-"),
+    "fifaranking": ("import-sports-history.py", "FIFAMensRankingImporter", "FIFA", "sports:fifa-mens-world-ranking"),
     "ioc": ("import-sports-history.py", "IOCOlympicsImporter", "International Olympic Committee", "sports:modern-olympics-"),
     # v16.2.7 breadth-recovery families. These are intentionally auditable
     # independently from import success and remain fail-closed when their pinned
@@ -93,6 +94,7 @@ SOURCE_INPUT_ENV = {
     "wtoservices": "WTO_SERVICES_INPUT",
     "untourismdirect": "UN_TOURISM_INPUT",
     "fifa": "FIFA_WORLD_CUP_INPUT",
+    "fifaranking": "FIFA_WORLD_RANKING_INPUT",
     "ioc": "IOC_OLYMPICS_INPUT",
     "globalfindex2025": "GLOBAL_FINDEX_2025_INPUT",
     "faofra2025": "FAO_FRA_2025_INPUT",

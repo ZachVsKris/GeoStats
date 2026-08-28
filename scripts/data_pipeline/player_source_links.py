@@ -42,6 +42,7 @@ GENERAL_OFFICIAL_SOURCE_PAGES = {
     "wtoservices": "https://data.wto.org/en/dataset/comservices",
     "untourismdirect": "https://www.unwto.org/tourism-data/country-profile-inbound-tourism",
     "fifa": "https://www.fifa.com/tournaments/mens/worldcup",
+    "fifaranking": "https://inside.fifa.com/fifa-world-ranking/men",
     "ioc": "https://olympics.com/ioc/olympic-games",
     "worldbankhistory": "https://data.worldbank.org/",
     "globalfindex2025": "https://www.worldbank.org/en/publication/globalfindex/download-data",

@@ -7,6 +7,7 @@ secondary datasets.
 
 Supported source families:
 * FIFA: men's FIFA World Cup participation/first-appearance table.
+* FIFA: current men's world ranking table.
 * IOC: modern Olympic Games participation/first-appearance table.
 
 The ranked universe is the set of countries that actually participated in the
@@ -41,6 +42,8 @@ FIFA_ORG = "FIFA"
 FIFA_DATASET = "FIFA Men's World Cup participation history"
 FIFA_PAGE = "https://www.fifa.com/tournaments/mens/worldcup"
 FIFA_METHOD = "https://www.fifa.com/tournaments/mens/worldcup"
+FIFA_RANKING_DATASET = "FIFA/Coca-Cola Men's World Ranking"
+FIFA_RANKING_PAGE = "https://inside.fifa.com/fifa-world-ranking/men"
 
 IOC_ORG = "International Olympic Committee"
 IOC_DATASET = "IOC modern Olympic Games participation history"
@@ -74,13 +77,17 @@ NOC_TO_ISO3 = {
 # current sovereign-country consolidation is explicit and reproducible.
 FIFA_TO_ISO3 = {
     "ALG": "DZA", "ANG": "AGO", "BAH": "BHS", "BER": None, "CAY": None,
-    "CGO": "COG", "CTA": "CAF", "ENG": "GBR", "EQG": "GNQ", "GAM": "GMB",
+    "BUL": "BGR", "CGO": "COG", "CTA": "CAF", "ENG": "GBR", "EQG": "GNQ", "GAM": "GMB",
     "GER": "DEU", "GUI": "GIN", "HKG": None, "KVX": None, "MAC": None,
     "MTN": "MRT", "NCL": None, "NED": "NLD", "NIR": "GBR", "PLE": "PSE",
     "POR": "PRT", "RSA": "ZAF", "SCO": "GBR", "SKN": "KNA", "SOL": "SLB",
     "SUI": "CHE", "TAH": None, "TPE": None, "UAE": "ARE", "VGB": None,
     "WAL": "GBR",
 }
+
+# The United Kingdom has no single team in the FIFA men's ranking. Its four
+# home associations must not be merged into a made-up UK value.
+FIFA_HOME_ASSOCIATIONS = {"ENG", "NIR", "SCO", "WAL"}
 
 NAME_ALIASES = {
     "korea republic": "South Korea",
@@ -160,6 +167,34 @@ def first_appearance_by_country(input_path: str) -> dict[str, int]:
     return appearances
 
 
+def _fifa_ranking_iso3(code: object) -> str | None:
+    source_code = re.sub(r"[^A-Za-z]", "", str(code or "")).upper()
+    if len(source_code) != 3 or source_code in FIFA_HOME_ASSOCIATIONS:
+        return None
+    iso3 = FIFA_TO_ISO3.get(source_code, NOC_TO_ISO3.get(source_code, source_code))
+    return iso3 if iso3 in CANONICAL_COUNTRY_NAMES else None
+
+
+def fifa_mens_ranking_by_country(input_path: str) -> dict[str, tuple[int, float, int, str]]:
+    rankings: dict[str, tuple[int, float, int, str]] = {}
+    for row in read_official_rows(input_path):
+        iso3 = _fifa_ranking_iso3(first_value(row, "code", "country code", "team code"))
+        rank_value = number(first_value(row, "men's fifa world rank", "men fifa world rank", "world rank", "rank"))
+        points = number(first_value(row, "men's fifa ranking points", "men fifa ranking points", "ranking points", "points"))
+        ranking_date = str(first_value(row, "ranking date", "last update date", "snapshot date") or "").strip()
+        year_match = re.search(r"\b(20\d{2})\b", ranking_date)
+        if not iso3 or rank_value is None or points is None or not year_match:
+            continue
+        rank = int(rank_value)
+        year = int(year_match.group(1))
+        if rank < 1 or points <= 0 or not (2000 <= year <= SNAPSHOT_YEAR):
+            continue
+        if iso3 in rankings:
+            raise RuntimeError(f"Official FIFA ranking snapshot resolves multiple associations to {iso3}; refusing synthetic consolidation.")
+        rankings[iso3] = (rank, float(points), year, ranking_date)
+    return rankings
+
+
 def _next_data(page: str) -> dict[str, object]:
     match = re.search(r'<script[^>]+id=["\']__NEXT_DATA__["\'][^>]*>(.*?)</script>', page, re.S | re.I)
     if not match:
@@ -214,6 +249,39 @@ def fifa_world_cup_record(payload: dict[str, object], association_code: str) -> 
     return source_code, valid_years[0]
 
 
+def fifa_mens_ranking_records(payload: dict[str, object]) -> list[tuple[str, int, float, str]]:
+    current: object = _fifa_page_data(payload)
+    for key in (
+        "memberAssociationsGroupedRankingProps", "footballCountryRankings",
+        "countryRankingSection", "rankings", "menRanking",
+    ):
+        if not isinstance(current, dict) or key not in current:
+            raise RuntimeError(f"Official FIFA association payload is missing men's ranking field {key!r}.")
+        current = current[key]
+    if not isinstance(current, dict):
+        raise RuntimeError("Official FIFA men's ranking payload was not an object.")
+    ranking_date = str(current.get("lastUpdateDate") or "").strip()
+    if not re.search(r"\b20\d{2}\b", ranking_date):
+        raise RuntimeError("Official FIFA men's ranking payload has no valid lastUpdateDate.")
+    rows = current.get("rows")
+    if not isinstance(rows, list):
+        raise RuntimeError("Official FIFA men's ranking payload has no rows list.")
+    records: list[tuple[str, int, float, str]] = []
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        code = re.sub(r"[^A-Za-z]", "", str(row.get("countryCode") or "")).upper()
+        rank = number(row.get("rank"))
+        points = number(row.get("totalPoints"))
+        if len(code) == 3 and rank is not None and points is not None and rank >= 1 and points > 0:
+            records.append((code, int(rank), float(points), ranking_date))
+    if len(records) < 190:
+        raise RuntimeError(f"Official FIFA men's ranking payload exposed only {len(records)} teams; refusing partial import.")
+    if len({code for code, *_ in records}) != len(records):
+        raise RuntimeError("Official FIFA men's ranking payload contains duplicate association codes.")
+    return records
+
+
 def fetch_fifa_world_cup_first_appearances(fetch_page=_fetch_official_page) -> list[tuple[str, int]]:
     directory = fetch_page(FIFA_ASSOCIATIONS_PAGE)
     codes = sorted(set(re.findall(r"/associations/([A-Za-z]{3})(?:[/?#\"']|$)", directory, re.I)))
@@ -242,16 +310,46 @@ def fetch_fifa_world_cup_first_appearances(fetch_page=_fetch_official_page) -> l
     return records
 
 
+def fetch_fifa_mens_rankings(fetch_page=_fetch_official_page) -> list[tuple[str, int, float, str]]:
+    directory = fetch_page(FIFA_ASSOCIATIONS_PAGE)
+    codes = sorted(set(re.findall(r"/associations/([A-Za-z]{3})(?:[/?#\"']|$)", directory, re.I)))
+    if len(codes) < 180:
+        raise RuntimeError(f"Official FIFA directory exposed only {len(codes)} association codes; refusing partial ranking import.")
+    preferred = [code for code in ("BRA", "FRA", "USA", "ARG", "ESP") if code in codes]
+    candidates = preferred + [code for code in codes if code not in preferred][:5]
+    errors: list[str] = []
+    for code in candidates:
+        try:
+            payload = _next_data(fetch_page(f"https://inside.fifa.com/en/associations/{code}"))
+            return fifa_mens_ranking_records(payload)
+        except Exception as error:
+            errors.append(f"{code}: {error}")
+    raise RuntimeError("Could not resolve a complete official FIFA men's ranking table: " + "; ".join(errors))
+
+
 def write_live_fifa_snapshot(output_path: str, fetch_page=_fetch_official_page) -> str:
-    records = fetch_fifa_world_cup_first_appearances(fetch_page)
+    appearances = fetch_fifa_world_cup_first_appearances(fetch_page)
+    rankings = fetch_fifa_mens_rankings(fetch_page)
+    rows: dict[str, dict[str, object]] = defaultdict(dict)
+    for code, year in appearances:
+        rows[code]["first_appearance_year"] = year
+    for code, rank, points, ranking_date in rankings:
+        rows[code].update({"rank": rank, "points": points, "ranking_date": ranking_date})
     with open(output_path, "w", newline="", encoding="utf-8") as handle:
         writer = csv.writer(handle)
-        writer.writerow(("Code", "First appearance year"))
-        writer.writerows(records)
+        writer.writerow(("Code", "First appearance year", "Men's FIFA world rank", "Men's FIFA ranking points", "Ranking date"))
+        for code, values in sorted(rows.items()):
+            writer.writerow((
+                code,
+                values.get("first_appearance_year", ""),
+                values.get("rank", ""),
+                values.get("points", ""),
+                values.get("ranking_date", ""),
+            ))
     return output_path
 
 
-def _mark_defined_subset(candidate: CandidateDefinition, values: dict[str, int], rule: str, excluded_reason: str) -> None:
+def _mark_defined_subset(candidate: CandidateDefinition, values: dict[str, object], rule: str, excluded_reason: str) -> None:
     ids = sorted(values)
     candidate.metadata.update({
         "eligible_universe_type": "defined_subset",
@@ -374,6 +472,102 @@ class FIFAWorldCupImporter(_SportsChronologyImporter):
     strategy_family = "fifa-world-cup-history"
 
 
+class FIFAMensRankingImporter(WarehouseImporter):
+    source_organization = FIFA_ORG
+    source_dataset = FIFA_RANKING_DATASET
+    source_slug = "fifaranking"
+
+    def __init__(self, warehouse: SupabaseWarehouse | None, input_path: str, *, dry_run: bool = False) -> None:
+        super().__init__(warehouse, dry_run=dry_run)
+        self.input_path = input_path
+        self.values = fifa_mens_ranking_by_country(input_path)
+        if len(self.values) < 150:
+            raise RuntimeError(f"Official FIFA input produced only {len(self.values)} sovereign-country men's rankings; refusing a partial import.")
+        dates = {value[3] for value in self.values.values()}
+        years = {value[2] for value in self.values.values()}
+        if len(dates) != 1 or len(years) != 1:
+            raise RuntimeError("Official FIFA men's ranking input does not represent one common snapshot.")
+        self.snapshot_date = next(iter(dates))
+        self.snapshot_year = next(iter(years))
+        self.source_sha256 = source_file_sha256(input_path)
+
+    def discover(self) -> list[CandidateDefinition]:
+        description = "The current official world rank of each sovereign country represented by one FIFA men's national team."
+        rule = IndicatorRule(
+            key="mens-fifa-world-ranking",
+            title="Men's FIFA world ranking",
+            description=description,
+            plain_language_description=description,
+            technical_definition="Published rank in the current FIFA/Coca-Cola Men's World Ranking snapshot; lower rank numbers are better.",
+            unit_explanation="Official world-rank position (1 is best)",
+            family="Sports",
+            icon="⚽",
+            unit="world rank",
+            value_type="index",
+            ranking_direction="low",
+            include=("men", "world ranking"),
+            min_coverage=150,
+            evidence_tier="A",
+            source_priority=5,
+            specificity_score=100,
+            recognizability_score=100,
+            understandability_score=100,
+            fun_score=99,
+        )
+        candidate = CandidateDefinition(
+            rule=rule,
+            source_indicator_code="FIFA_MENS_WORLD_RANK",
+            source_indicator_name="FIFA/Coca-Cola Men's World Ranking position",
+            source_url=FIFA_RANKING_PAGE,
+            metadata={
+                "source_page_url": FIFA_RANKING_PAGE,
+                "methodology_url": FIFA_RANKING_PAGE,
+                "source_query": {"gender": "men", "metric": "rank", "ranking_date": self.snapshot_date},
+                "official_unit": "world rank",
+                "measurementType": "index",
+                "referenceLabel": "FIFA men's national teams",
+                "minimum_year": self.snapshot_year,
+                "dataset_release": f"FIFA Men's World Ranking {self.snapshot_date}",
+                "retrieved_at": datetime.now(timezone.utc).isoformat(),
+                "derivation_method": "Use FIFA's published rank without renumbering; retain current sovereign countries with one FIFA men's team and exclude territorial associations and the four UK home teams.",
+                "derivation_version": "geostats-v16.2.7-fifa-men-ranking-v1",
+                "broadDomain": "sports",
+                "knowledgeCluster": "football",
+                "strategyFamily": "fifa-men-ranking",
+                "semanticFamily": "fifa-men-ranking",
+                "semanticTopic": "mens-fifa-world-ranking",
+                "v16_2_6_content_reviewed": True,
+                "source_file_sha256": self.source_sha256,
+                "manual_review_required": False,
+            },
+        )
+        _mark_defined_subset(
+            candidate,
+            self.values,
+            "Current GeoStats sovereign countries represented by exactly one team in the official FIFA men's world-ranking snapshot.",
+            "Countries without a FIFA-ranked men's team, territorial associations, and the four UK home associations are outside this category; no synthetic UK rank is created.",
+        )
+        return [candidate]
+
+    def fetch_observations(self, candidate: CandidateDefinition) -> list[SourceObservation]:
+        return [
+            SourceObservation(
+                iso3,
+                canonical_country_name(iso3, iso3),
+                year,
+                float(rank),
+                FIFA_RANKING_PAGE,
+                f"fifa-men-ranking:{self.snapshot_date}:{iso3}",
+                "official",
+                {"officialRank": rank, "rankingPoints": points, "rankingDate": ranking_date},
+            )
+            for iso3, (rank, points, year, ranking_date) in sorted(self.values.items())
+        ]
+
+    def category_id(self, candidate: CandidateDefinition) -> str:
+        return "sports:fifa-mens-world-ranking"
+
+
 class IOCOlympicsImporter(_SportsChronologyImporter):
     source_organization = IOC_ORG
     source_dataset = IOC_DATASET
@@ -405,8 +599,8 @@ def _warehouse(dry_run: bool) -> SupabaseWarehouse | None:
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--source", choices=["fifa", "ioc", "all"], default="all")
-    parser.add_argument("--fifa-input", help="Official FIFA participation/first-appearance CSV/TSV/XLSX/ZIP")
+    parser.add_argument("--source", choices=["fifa", "fifa-ranking", "ioc", "all"], default="all")
+    parser.add_argument("--fifa-input", help="Official FIFA participation/ranking CSV/TSV/XLSX/ZIP snapshot")
     parser.add_argument("--fifa-live", action="store_true", help="Build the FIFA input from official association __NEXT_DATA__ records")
     parser.add_argument("--ioc-input", help="Official IOC participation/first-appearance CSV/TSV/XLSX/ZIP")
     parser.add_argument("--dry-run", action="store_true")
@@ -424,6 +618,18 @@ def main() -> None:
                 raise SystemExit("--fifa-input or --fifa-live is required for FIFA import")
         else:
             print(FIFAWorldCupImporter(warehouse, args.fifa_input, dry_run=args.dry_run).run())
+    if args.source in {"fifa-ranking", "all"}:
+        if args.fifa_live and args.fifa_input:
+            raise SystemExit("Use either --fifa-live or --fifa-input, not both")
+        if args.fifa_live:
+            with tempfile.TemporaryDirectory() as tmp:
+                snapshot = write_live_fifa_snapshot(str(Path(tmp) / "official-fifa-snapshot.csv"))
+                print(FIFAMensRankingImporter(warehouse, snapshot, dry_run=args.dry_run).run())
+        elif not args.fifa_input:
+            if args.source == "fifa-ranking":
+                raise SystemExit("--fifa-input or --fifa-live is required for FIFA ranking import")
+        else:
+            print(FIFAMensRankingImporter(warehouse, args.fifa_input, dry_run=args.dry_run).run())
     if args.source in {"ioc", "all"}:
         if not args.ioc_input:
             if args.source == "ioc":

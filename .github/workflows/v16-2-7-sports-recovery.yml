@@ -44,11 +44,10 @@ jobs:
           mkdir -p artifacts/source-integrity/fifa
           python -c "import runpy; runpy.run_path('scripts/import-sports-history.py')['write_live_fifa_snapshot']('artifacts/source-integrity/fifa/official-fifa-world-cup-history.csv')"
       - name: Import exact official FIFA snapshot fail closed
-        run: >-
-          python scripts/import-sports-history.py
-          --source fifa
-          --fifa-input artifacts/source-integrity/fifa/official-fifa-world-cup-history.csv
-      - name: Independently audit exact official FIFA snapshot
+        run: |
+          python scripts/import-sports-history.py --source fifa --fifa-input artifacts/source-integrity/fifa/official-fifa-world-cup-history.csv
+          python scripts/import-sports-history.py --source fifa-ranking --fifa-input artifacts/source-integrity/fifa/official-fifa-world-cup-history.csv
+      - name: Independently audit FIFA World Cup chronology
         env:
           FIFA_WORLD_CUP_INPUT: artifacts/source-integrity/fifa/official-fifa-world-cup-history.csv
         run: >-
@@ -57,7 +56,17 @@ jobs:
           --include-nonplayable
           --fail-on-source-error
           --fail-on-empty
-          --report-dir artifacts/source-integrity/fifa
+          --report-dir artifacts/source-integrity/fifa/history
+      - name: Independently audit FIFA men's world ranking
+        env:
+          FIFA_WORLD_RANKING_INPUT: artifacts/source-integrity/fifa/official-fifa-world-cup-history.csv
+        run: >-
+          python scripts/audit-source-integrity.py
+          --source fifaranking
+          --include-nonplayable
+          --fail-on-source-error
+          --fail-on-empty
+          --report-dir artifacts/source-integrity/fifa/ranking
       - name: Stage strict-pass sports candidate without publishing
         run: python scripts/stage-v16-2-7-catalog.py
       - name: Upload source-integrity evidence and official snapshot

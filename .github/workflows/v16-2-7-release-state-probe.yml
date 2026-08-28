@@ -1,0 +1,92 @@
+name: v16.2.7 release state probe
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/v16-2-7-release-state-probe.yml'
+
+permissions:
+  contents: read
+
+env:
+  SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+  SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+  SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - run: npm ci --no-audit --no-fund
+      - name: Inspect strict catalog, breadth, reachability, and release assertion
+        shell: bash
+        run: |
+          node <<'NODE'
+          const { createClient } = require('@supabase/supabase-js');
+          const url=process.env.SUPABASE_URL;
+          const key=process.env.SUPABASE_SECRET_KEY||process.env.SUPABASE_SERVICE_ROLE_KEY;
+          if(!url||!key) throw new Error('Missing production Supabase credentials');
+          const db=createClient(url,key,{auth:{persistSession:false,autoRefreshToken:false}});
+          async function all(table, select='*', mutate=(q)=>q){
+            let rows=[];
+            for(let from=0;;from+=1000){
+              let q=db.from(table).select(select).range(from,from+999);
+              q=mutate(q);
+              const {data,error}=await q;
+              if(error) throw new Error(`${table}: ${error.message}`);
+              rows.push(...(data||[]));
+              if((data||[]).length<1000) break;
+            }
+            return rows;
+          }
+          const runtime=await all('category_runtime_review_v16_2','id,title,family,source_organization,metadata,computed_playable_v16_2,strict_pass,review_status,content_review_status,validation_status,quality_score');
+          const strict=runtime.filter(r=>r.computed_playable_v16_2===true);
+          function domain(r){
+            const m=String(r?.metadata?.broadDomain||'').toLowerCase();
+            const s=`${r.family||''} ${r.title||''} ${r.source_organization||''}`.toLowerCase();
+            if(m==='sports'||/(^|\W)(sport|sports|world cup|fifa|olympic|paralympic|football|soccer)(\W|$)/.test(s)) return 'sports';
+            if(m==='history'||/(history|historical|suffrage|independence|admitted to the un|constitution.*year|milestone)/.test(s)) return 'history';
+            if(/(^|\W)(government|parliament|election|constitution|politic|politics|political|democracy|civic|civics)(\W|$)/.test(s)) return 'government-civics';
+            if(/(^|\W)(religion|religious|culture|cultural|language|languages|heritage|christian|muslim|hindu|buddhist|jewish)(\W|$)/.test(s)) return 'culture-language-religion';
+            if(/(^|\W)(geology|geological|hazard|hazards|volcano|volcanoes|earthquake|earthquakes|tsunami|seismic|tectonic)(\W|$)/.test(s)) return 'geology-natural-hazards';
+            if(/(^|\W)(agriculture|agricultural|crop|crops|fruit|fruits|vegetable|vegetables|livestock|dairy|food|foods)(\W|$)/.test(s)||String(r.source_organization||'').toLowerCase().startsWith('faostat')) return 'food-agriculture';
+            if(/(^|\W)(geography|geographic|land|terrain|coast|coastline|river|rivers|lake|lakes|border|borders|neighbor|neighbors|neighbour|neighbours|glaciat|elevation|landlocked|arctic|tropical)(\W|$)/.test(s)) return 'physical-geography';
+            if(/(^|\W)(climate|environment|environmental|energy|water|resource|resources|temperature|rain|rainfall|precipitation|forest|forests|emission|emissions|protected)(\W|$)/.test(s)) return 'climate-environment-resources';
+            if(/(^|\W)(health|population|demography|demographic|migration|migrant|displacement|life expectancy|mortality|fertility|refugee|refugees|asylum)(\W|$)/.test(s)) return 'health-demographics';
+            if(/(^|\W)(education|school|schools|literacy|labor|labour|employment|society|social)(\W|$)/.test(s)) return 'education-labor-society';
+            if(/(^|\W)(infrastructure|transport|technology|science|internet|rail|railway|road|roads|patent|research|telecom|telecommunications)(\W|$)/.test(s)) return 'infrastructure-technology-science';
+            if(/(^|\W)(trade|export|exports|import|imports)(\W|$)/.test(s)) return 'trade';
+            return 'economy-finance';
+          }
+          const domains={}; for(const r of strict) domains[domain(r)]=(domains[domain(r)]||0)+1;
+          const reach=await all('generator_reachability_v16_2_7','category_id,difficulty,reachable,failure_stage,detail,checked_at');
+          const byCat=new Map(); for(const r of reach){ if(!byCat.has(r.category_id)) byCat.set(r.category_id,[]); byCat.get(r.category_id).push(r); }
+          const fullProof=strict.filter(r=>{ const rr=byCat.get(r.id)||[]; return ['easy','normal','expert'].every(d=>rr.some(x=>x.difficulty===d&&x.reachable===true)); });
+          const failed=reach.filter(r=>r.reachable===false);
+          const history=strict.filter(r=>domain(r)==='history').map(r=>({id:r.id,title:r.title,source:r.source_organization}));
+          const sports=strict.filter(r=>domain(r)==='sports').map(r=>({id:r.id,title:r.title,source:r.source_organization}));
+          const physical=strict.filter(r=>['physical-geography','geology-natural-hazards'].includes(domain(r))).map(r=>({id:r.id,title:r.title,source:r.source_organization}));
+          let releaseAssertion;
+          try { const {data,error}=await db.rpc('assert_v16_2_7_release'); releaseAssertion=error?{ok:false,error:error.message}:{ok:true,data}; } catch(e){ releaseAssertion={ok:false,error:String(e)}; }
+          console.log(JSON.stringify({
+            generatedAt:new Date().toISOString(),
+            runtimeRows:runtime.length,
+            strictPlayableCandidates:strict.length,
+            macroDomains:Object.fromEntries(Object.entries(domains).sort((a,b)=>a[0].localeCompare(b[0]))),
+            reachabilityRows:reach.length,
+            categoriesWithAllThreeProofs:fullProof.length,
+            failedReachabilityRows:failed.length,
+            failedReachabilitySample:failed.slice(0,20),
+            historyCount:history.length,history,
+            sportsCount:sports.length,sports,
+            physicalAndHazardsCount:physical.length,
+            physicalAndHazards:physical,
+            releaseAssertion
+          },null,2));
+          NODE

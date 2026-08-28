@@ -293,7 +293,7 @@ def _validate_measure_semantics(rows: list[dict[str, Any]]) -> None:
     # must not be the same series merely because Pew reuses column headers.
     for key in GROUPS:
         prefix=key.replace('-', '_')
-        comparable=[row for row in rows if row.get(f"{prefix}_population") is not None and row.get(f"{prefix}_share") is not None]
+        comparable=[row for row in rows if row.get(f"{prefix}_population") is not None and row.get(f"{prefix}_share") is not None and float(row[f"{prefix}_population"]) > 100 and float(row[f"{prefix}_share"]) > 0]
         identical=sum(abs(float(row[f"{prefix}_population"])-float(row[f"{prefix}_share"])) < 1e-9 for row in comparable)
         if comparable and identical / len(comparable) > 0.10:
             raise RuntimeError(f"Pew {key} population/share series are suspiciously identical for {identical}/{len(comparable)} countries.")

@@ -1,7 +1,7 @@
 import "server-only";
 
 import { unstable_cache } from "next/cache";
-import { fetchServerWarehouseCategories } from "./serverWarehouseCategories";
+import { fetchServerWarehouseCategories } from "./serverWarehouseCategoriesV16_2_7";
 import { loadServerPlayableCategoryCatalog } from "./serverPlayableCatalog";
 import { CATEGORY_SET_VERSION, DATASET_VERSION } from "./version";
 
@@ -15,7 +15,7 @@ const loadVersionedWarehouseSnapshot = unstable_cache(
     const bulk = await fetchServerWarehouseCategories(catalog);
     return { ...bulk, catalogSize: catalog.length };
   },
-  ["geostats-puzzle-warehouse-snapshot", DATASET_VERSION, CATEGORY_SET_VERSION],
+  ["geostats-puzzle-warehouse-snapshot", DATASET_VERSION, CATEGORY_SET_VERSION, "warehouse-id-hotfix2"],
   { revalidate: 60 * 60, tags: ["geostats-puzzle-warehouse-snapshot"] },
 );
 

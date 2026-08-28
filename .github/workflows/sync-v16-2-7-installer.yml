@@ -14,6 +14,7 @@ on:
       - 'supabase/migrations/059_v16_2_7_taxonomy_and_antiproliferation_hotfix.sql'
       - 'supabase/migrations/060_v16_2_7_ranking_completeness_performance_hotfix.sql'
       - 'supabase/migrations/061_v16_2_7_bulk_source_antiproliferation.sql'
+      - 'supabase/migrations/062_v16_2_7_vdem_curated_government.sql'
 
 permissions:
   contents: write
@@ -44,7 +45,7 @@ jobs:
             exit 0
           fi
           git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config user.email '41898236+github-actions[bot]@users.noreply.github.com'
           git add RUN_THIS_IN_SUPABASE_FOR_V16_2_7.sql
           git commit -m 'Sync complete v16.2.7 Supabase installer'
           git push

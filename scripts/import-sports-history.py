@@ -213,7 +213,16 @@ def fetch_fifa_world_cup_first_appearances(fetch_page=_fetch_official_page) -> l
     records: list[tuple[str, int]] = []
     for code in codes:
         payload = _next_data(fetch_page(f"https://inside.fifa.com/en/associations/{code.upper()}"))
-        record = fifa_world_cup_record(payload, code.upper())
+        try:
+            record = fifa_world_cup_record(payload, code.upper())
+        except RuntimeError as error:
+            # The directory can contain legacy/redirect association routes with a
+            # different page payload. Completeness is enforced across the entire
+            # directory below, so one malformed non-participant page must not
+            # prevent evaluation of the authoritative participant universe.
+            if "association payload is missing" not in str(error):
+                raise
+            continue
         if record:
             records.append(record)
     if len(records) < 70:

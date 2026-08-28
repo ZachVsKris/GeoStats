@@ -1,0 +1,45 @@
+name: v16.2.7 one-shot stable production reachability
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/v16-2-7-force-stable-reachability.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: geostats-v16-2-7-production-catalog
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+      SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Require production warehouse credentials
+        shell: bash
+        run: |
+          test -n "$SUPABASE_URL" || { echo "::error::SUPABASE_URL secret is missing"; exit 1; }
+          test -n "${SUPABASE_SECRET_KEY:-${SUPABASE_SERVICE_ROLE_KEY:-}}" || { echo "::error::Supabase service-role secret is missing"; exit 1; }
+      - run: npm ci
+      - name: Exhaustive stable production solver proof
+        run: node scripts/audit-v16-2-7-reachability.cjs --write --assert-release --sample-random 4000 --sample-dailies 90
+      - name: Upload proof evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: v16-2-7-one-shot-stable-reachability
+          path: artifacts/v16-2-7-reachability
+          if-no-files-found: warn
+          retention-days: 30

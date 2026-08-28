@@ -321,6 +321,17 @@ class ConstituteImporter(WarehouseImporter):
         ) for iso3, year, record_id in parsed]
         if len(rows) < candidate.rule.min_coverage:
             raise RuntimeError(f"Constitute in-force constitutions service resolved only {len(rows)} unambiguous current-country records.")
+        # Constitute does not currently resolve one unambiguous in-force record
+        # for every GeoStats sovereign. Treat the documented, fully observed
+        # records as the legitimate ranked universe instead of pretending the
+        # missing countries have synthetic dates. This is especially important
+        # for a lowest-wins chronology, where missing early dates could corrupt
+        # the global ranking.
+        _mark_defined_subset(
+            candidate, rows,
+            "Current countries for which Constitute resolves exactly one unambiguous constitution explicitly marked in_force=true.",
+            "Countries without exactly one unambiguous current in-force Constitute record are outside this chronology rather than assigned a synthetic enactment year.",
+        )
         return rows
 
     def category_id(self, candidate: CandidateDefinition) -> str:

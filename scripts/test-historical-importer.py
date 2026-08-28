@@ -66,6 +66,15 @@ assert co.category_id(cc) == "history:oldest-current-constitution"
 assert cc.metadata["measurementType"] == "historical_date"
 assert cc.metadata["historicalValueFormat"] == "year"
 assert cc.rule.ranking_direction == "low"
+# Exercise the Constitute subset path with the small fixture while preserving
+# the production minimum-coverage rule on the real candidate definition.
+from dataclasses import replace as dc_replace
+cc_fixture = dc_replace(cc, rule=dc_replace(cc.rule, min_coverage=2))
+with patch.object(co, "_payload", return_value=CONSTITUTE_FIXTURE):
+    constitute_rows = co.fetch_observations(cc_fixture)
+assert cc_fixture.metadata["eligible_universe_type"] == "defined_subset"
+assert cc_fixture.metadata["eligible_country_count"] == len(constitute_rows)
+assert set(cc_fixture.metadata["eligible_country_iso3"]) == {row.country_iso3 for row in constitute_rows}
 IPU_FIXTURE = {
     "data": [
         {"type": "Parliament", "id": "CA", "attributes": {"parliament_country": {"value": "CA"}, "date_of_independence": {"value": "1982-04-17T00:00:00.000Z"}, "suffrage": {"value": [

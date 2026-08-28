@@ -34,7 +34,9 @@ permissions:
 
 concurrency:
   group: geostats-v16-2-7-production-catalog
-  cancel-in-progress: false
+  # A newer run fingerprints the current production catalog, so an older run
+  # can no longer prove or publish the state that triggered it.
+  cancel-in-progress: true
 
 env:
   SUPABASE_URL: ${{ secrets.SUPABASE_URL }}

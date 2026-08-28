@@ -10,7 +10,7 @@ import argparse, csv, io, os, re
 from pathlib import Path
 from openpyxl import load_workbook
 from data_pipeline.base import WarehouseImporter
-from data_pipeline.canonical_countries import canonical_country_name
+from data_pipeline.canonical_countries import CANONICAL_COUNTRY_NAMES, canonical_country_name
 from data_pipeline.models import CandidateDefinition, IndicatorRule, SourceObservation
 from data_pipeline.supabase import SupabaseWarehouse
 
@@ -76,13 +76,13 @@ def load(path_or_url: str):
         try: year=int(float(str(year_raw)))
         except: continue
         if year!=YEAR: continue
-        # WPP aggregate region/subregion rows intentionally have no ISO3 Alpha-code.
-        # Do not fall back from their display name: e.g. the regional aggregate
-        # 'Micronesia' can otherwise be mis-mapped to FSM, duplicating the actual
-        # Federated States of Micronesia country observation. Country rows in the
-        # official compact workbook have an explicit ISO3 code, so require it.
+        # WPP includes region/subregion aggregates and territories in addition to
+        # sovereign-country rows. GeoStats has a fixed 195-country universe, so
+        # require both an explicit official ISO3 code and membership in that
+        # canonical universe. This also prevents the aggregate label "Micronesia"
+        # from being mistaken for FSM.
         iso3=str(m.get('iso3alphacode') or m.get('iso3code') or m.get('iso3') or '').upper().strip()
-        if len(iso3)!=3: continue
+        if len(iso3)!=3 or iso3 not in CANONICAL_COUNTRY_NAMES: continue
         def val(*names):
             for n in names:
                 x=m.get(norm(n))
@@ -90,9 +90,18 @@ def load(path_or_url: str):
                     try:return float(str(x).replace(',',''))
                     except:pass
             return None
-        total=val('TPopulation1July','TotalPopulation1July','TPopulation1JulyThousands','Total Population, as of 1 July (thousands)')
-        male=val('PopMale1July','MalePopulation1July','Male Population, as of 1 July (thousands)')
-        female=val('PopFemale1July','FemalePopulation1July','Female Population, as of 1 July (thousands)')
+        total=val(
+          'TPopulation1July','TotalPopulation1July','TPopulation1JulyThousands',
+          'Total Population, as of 1 July (thousands)'
+        )
+        male=val(
+          'PopMale1July','MalePopulation1July',
+          'Male Population, as of 1 July (thousands)'
+        )
+        female=val(
+          'PopFemale1July','FemalePopulation1July',
+          'Female Population, as of 1 July (thousands)'
+        )
         metrics={
           'male-share': (100*male/total if male is not None and total and total>0 else None),
           'female-share': (100*female/total if female is not None and total and total>0 else None),
@@ -118,8 +127,8 @@ def load(path_or_url: str):
     return out
 
 SPECS={
- 'highest-male-share':('Highest male share of population','Share of the population that is male.','%','percentage','high','Population'),
- 'highest-female-share':('Highest female share of population','Share of the population that is female.','%','percentage','high','Population'),
+ 'highest-male-share':('Highest male share of population','Share of the population that is male.','% of population','percentage','high','Population'),
+ 'highest-female-share':('Highest female share of population','Share of the population that is female.','% of population','percentage','high','Population'),
  'highest-sex-ratio':('Most men per 100 women','Male population per 100 female population.','men per 100 women','rate','high','Population'),
  'lowest-sex-ratio':('Most women relative to men','Lowest number of men per 100 women.','men per 100 women','rate','low','Population'),
  'highest-median-age':('Highest median age','Median age of the population.','years','other','high','Population'),

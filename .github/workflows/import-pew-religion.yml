@@ -2,12 +2,32 @@ name: Import Pew religion candidates
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-pew-religion.yml'
+      - 'scripts/inspect-pew-schema.py'
 
 permissions:
   contents: read
 
 jobs:
+  inspect:
+    if: ${{ github.event_name == 'push' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Install inspection dependency
+        run: pip install openpyxl
+      - name: Inspect exact first-party Pew archive
+        run: python scripts/inspect-pew-schema.py
+
   import:
+    if: ${{ github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
     timeout-minutes: 45
     env:

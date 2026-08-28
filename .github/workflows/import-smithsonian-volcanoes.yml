@@ -6,6 +6,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: geostats-v16-2-7-production-catalog
+  cancel-in-progress: false
+
 jobs:
   import:
     runs-on: ubuntu-latest

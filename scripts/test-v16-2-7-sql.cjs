@@ -10,6 +10,7 @@ const migrationNames=[
   '059_v16_2_7_taxonomy_and_antiproliferation_hotfix.sql',
   '060_v16_2_7_ranking_completeness_performance_hotfix.sql',
   '061_v16_2_7_bulk_source_antiproliferation.sql',
+  '062_v16_2_7_vdem_curated_government.sql',
 ];
 const migrations=migrationNames.map((name)=>({name,sql:fs.readFileSync(path.join('supabase','migrations',name),'utf8')}));
 const s=migrations[0].sql;
@@ -39,4 +40,5 @@ if(!hotfixes.includes('legacy_generic_exclusion')) fail('legacy circular-block r
 if(!hotfixes.includes('food-agriculture')) fail('corrected macro-domain taxonomy hotfix missing');
 if(!hotfixes.includes('greenhouse-gas subcomponent')) fail('anti-proliferation hotfix missing');
 if(!hotfixes.includes('Findex family capped')) fail('Findex anti-proliferation hotfix missing');
+if(!hotfixes.includes('curated government expansion')) fail('V-Dem curated government expansion migration missing');
 if(!process.exitCode) console.log('GeoStats v16.2.7 SQL policy and installer-sync checks passed.');

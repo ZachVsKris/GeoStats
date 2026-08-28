@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import {
   loadServerWarehousePayload,
   WarehouseCategoryError,
-} from "../../../lib/serverWarehouseCategories";
+} from "../../../lib/serverWarehouseCategoriesV16_2_7";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

@@ -1,4 +1,5 @@
 import importlib.util
+import json
 import sys
 import tempfile
 from pathlib import Path
@@ -37,3 +38,43 @@ with tempfile.TemporaryDirectory() as tmp:
     assert imp2.category_id(cand2) == "sports:modern-olympics-first-appearance"
 
 print("Sports history importer fixtures passed.")
+
+
+def fifa_page(name, years):
+    return json.dumps({
+        "props": {"pageProps": {"association": {"pageData": {
+            "associationName": name,
+            "honoursBestPerformances": {"tournaments": [{
+                "tournamentKey": "FIFAWorldCup-Men",
+                "participationsCount": len(years),
+                "participationsYears": years,
+            }]},
+        }}}}
+    })
+
+
+payload = json.loads(fifa_page("Brazil", [1950, 1930, 2022]))
+assert module.fifa_world_cup_record(payload, "BRA") == ("Brazil", 1930)
+
+directory_codes = [
+    chr(65 + (i // (26 * 26)) % 26) + chr(65 + (i // 26) % 26) + chr(65 + i % 26)
+    for i in range(180)
+]
+directory_codes[0:3] = ["BRA", "USA", "FRA"]
+directory = " ".join(f'href="/en/associations/{code}"' for code in directory_codes)
+
+def partial_fetch(url):
+    if url == module.FIFA_ASSOCIATIONS_PAGE:
+        return directory
+    code = url.rsplit("/", 1)[-1]
+    name = {"BRA": "Brazil", "USA": "United States", "FRA": "France"}.get(code, code)
+    years = [1930] if code in {"BRA", "USA", "FRA"} else []
+    return f'<script id="__NEXT_DATA__" type="application/json">{fifa_page(name, years)}</script>'
+
+try:
+    module.fetch_fifa_world_cup_first_appearances(partial_fetch)
+    raise AssertionError("partial live FIFA dataset did not fail closed")
+except RuntimeError as error:
+    assert "only 3 World Cup participants" in str(error)
+
+print("Official FIFA live-source parser fixtures passed.")

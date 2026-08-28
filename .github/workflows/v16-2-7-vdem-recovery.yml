@@ -14,8 +14,8 @@ permissions:
   contents: read
 
 concurrency:
-  group: geostats-v16-2-7-vdem-recovery
-  cancel-in-progress: true
+  group: geostats-v16-2-7-production-catalog
+  cancel-in-progress: false
 
 env:
   SUPABASE_URL: ${{ secrets.SUPABASE_URL }}

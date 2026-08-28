@@ -20,6 +20,8 @@ on:
       - "v16.2.7 first-party bulk recovery"
       - "v16.2.7 authoritative history recovery"
       - "GeoStats v16.2.7 authoritative breadth recovery"
+      - "v16.2.7 authoritative breadth recovery"
+      - "v16.2.7 official UN SDG bulk recovery"
       - "Import Natural Earth geography"
       - "Import Smithsonian volcano candidates"
       - "Import USGS earthquake candidates"
@@ -49,6 +51,9 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: "22"
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
       - name: Require production warehouse credentials
         shell: bash
         run: |
@@ -63,3 +68,5 @@ jobs:
       - name: Prove production catalog did not mutate during audit
         if: always()
         run: node scripts/fingerprint-v16-2-7-catalog.cjs --compare=/tmp/geostats-v16-2-7-catalog-fingerprint.json
+      - name: Publish only after the guarded v16.2.7 assertion passes
+        run: python scripts/finalize-v16-catalog.py --release-version 16.2.7

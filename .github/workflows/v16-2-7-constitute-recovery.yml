@@ -1,0 +1,60 @@
+name: v16.2.7 Constitute history recovery
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/import-historical-categories.py'
+      - 'scripts/test-historical-importer.py'
+      - '.github/workflows/v16-2-7-constitute-recovery.yml'
+
+permissions:
+  contents: read
+
+env:
+  SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+  SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+  SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+concurrency:
+  group: geostats-v16-2-7-production-catalog
+  cancel-in-progress: false
+
+jobs:
+  import-audit-stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Require production warehouse credentials
+        shell: bash
+        run: |
+          test -n "$SUPABASE_URL" || { echo "::error::SUPABASE_URL secret is missing"; exit 1; }
+          test -n "${SUPABASE_SECRET_KEY:-${SUPABASE_SERVICE_ROLE_KEY:-}}" || { echo "::error::Supabase service-role secret is missing"; exit 1; }
+      - name: Install importer dependencies
+        run: python -m pip install --disable-pip-version-check -r scripts/requirements-data-importers.txt
+      - name: Test historical importer
+        run: python scripts/test-historical-importer.py
+      - name: Import current Constitute chronology
+        run: python scripts/import-historical-categories.py --source constitute
+      - name: Independently audit current Constitute chronology
+        run: >-
+          python scripts/audit-source-integrity.py
+          --source constitute
+          --include-nonplayable
+          --fail-on-source-error
+          --fail-on-empty
+          --report-dir artifacts/source-integrity/constitute
+      - name: Stage strict-pass catalog without publishing
+        run: python scripts/stage-v16-2-7-catalog.py
+      - name: Upload source-integrity evidence
+        uses: actions/upload-artifact@v7
+        with:
+          name: source-integrity-constitute-v16-2-7
+          path: artifacts/source-integrity/constitute
+          if-no-files-found: error
+          retention-days: 30

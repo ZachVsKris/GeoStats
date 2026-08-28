@@ -10,7 +10,7 @@ import argparse, csv, io, os, re
 from pathlib import Path
 from openpyxl import load_workbook
 from data_pipeline.base import WarehouseImporter
-from data_pipeline.canonical_countries import canonical_country_name, country_name_to_iso3
+from data_pipeline.canonical_countries import canonical_country_name
 from data_pipeline.models import CandidateDefinition, IndicatorRule, SourceObservation
 from data_pipeline.supabase import SupabaseWarehouse
 
@@ -30,7 +30,7 @@ def _xlsx_rows(raw: bytes):
     ``ISO3 Alpha-code``) and a 16-row metadata preamble on the Estimates sheet.
     Older GeoStats code parsed the XLSX XML directly and looked only for
     ``ISO3_code``/``ISO3``; that both lost sparse-cell column positions and failed
-    when UN's published header wording was encountered.  openpyxl is already a
+    when UN's published header wording was encountered. openpyxl is already a
     pinned importer dependency, so use it here and detect the header semantically.
     """
     wb=load_workbook(io.BytesIO(raw), read_only=True, data_only=True)
@@ -76,9 +76,13 @@ def load(path_or_url: str):
         try: year=int(float(str(year_raw)))
         except: continue
         if year!=YEAR: continue
+        # WPP aggregate region/subregion rows intentionally have no ISO3 Alpha-code.
+        # Do not fall back from their display name: e.g. the regional aggregate
+        # 'Micronesia' can otherwise be mis-mapped to FSM, duplicating the actual
+        # Federated States of Micronesia country observation. Country rows in the
+        # official compact workbook have an explicit ISO3 code, so require it.
         iso3=str(m.get('iso3alphacode') or m.get('iso3code') or m.get('iso3') or '').upper().strip()
-        if len(iso3)!=3: iso3=country_name_to_iso3(m.get('regionsubregioncountryorarea') or m.get('location') or m.get('country')) or ''
-        if not iso3: continue
+        if len(iso3)!=3: continue
         def val(*names):
             for n in names:
                 x=m.get(norm(n))
@@ -86,18 +90,9 @@ def load(path_or_url: str):
                     try:return float(str(x).replace(',',''))
                     except:pass
             return None
-        total=val(
-          'TPopulation1July','TotalPopulation1July','TPopulation1JulyThousands',
-          'Total Population, as of 1 July (thousands)'
-        )
-        male=val(
-          'PopMale1July','MalePopulation1July',
-          'Male Population, as of 1 July (thousands)'
-        )
-        female=val(
-          'PopFemale1July','FemalePopulation1July',
-          'Female Population, as of 1 July (thousands)'
-        )
+        total=val('TPopulation1July','TotalPopulation1July','TPopulation1JulyThousands','Total Population, as of 1 July (thousands)')
+        male=val('PopMale1July','MalePopulation1July','Male Population, as of 1 July (thousands)')
+        female=val('PopFemale1July','FemalePopulation1July','Female Population, as of 1 July (thousands)')
         metrics={
           'male-share': (100*male/total if male is not None and total and total>0 else None),
           'female-share': (100*female/total if female is not None and total and total>0 else None),

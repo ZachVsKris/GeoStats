@@ -46,7 +46,9 @@ for(const t of ['globalfindex2025','faofra2025','unicefdata','undphdr','vdemv16'
   check(workflow.includes(t),`rebuild workflow omits ${t}`);
   check(integrity.includes(`"${t}"`),`independent integrity audit omits ${t}`);
 }
-check(workflow.includes('npm run check-v16-2-7') && workflow.includes('playwright install --with-deps chromium'),'rebuild preflight does not run full frontend/e2e validation');
+check(workflow.includes('npm run check-v16-2-7') && workflow.includes('playwright install --with-deps chromium firefox webkit'),'rebuild preflight does not run full cross-browser frontend/e2e validation');
+const playwright=fs.readFileSync(path.join(root,'playwright.config.ts'),'utf8');
+for(const browser of ['Desktop Chrome','Desktop Edge','Desktop Firefox','Desktop Safari','Pixel 7','iPhone 13']) check(playwright.includes(browser),`cross-browser Playwright matrix missing ${browser}`);
 for(const t of ['RANDOM_SAMPLES','DAILY_DAYS','generateSeededRoundFromLoadedCatalog','generateDailyTrioFromLoadedCatalog','missingAnchors','countryOpportunityCoverage','missingPewAnchors','history:un-admission']) check(reach.includes(t),`production diversity/reachability audit missing ${t}`);
 for(const t of ['warehouseIdByGameplayId','gameplayIdByWarehouseId','Ambiguous warehouse identity','No warehouse identity']) check(reach.includes(t),`reachability warehouse-id resolution missing ${t}`);
 check(/case\s+"fifa"/.test(dataSources) && /case\s+"ioc"/.test(dataSources),'runtime data-source switch omits sports source ids');

@@ -43,7 +43,7 @@ jobs:
         run: npm run test-natural-earth-real-data
       - name: Build production app
         run: npm run build
-      - name: Install Chromium
-        run: npx playwright install --with-deps chromium
-      - name: Run responsive browser tests
+      - name: Install Chromium, Firefox, and WebKit
+        run: npx playwright install --with-deps chromium firefox webkit
+      - name: Run cross-browser responsive tests
         run: npm run test-e2e

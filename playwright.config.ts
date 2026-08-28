@@ -15,7 +15,12 @@ export default defineConfig({
     video: "retain-on-failure",
   },
   projects: [
-    { name: "chromium", use: { ...devices["Desktop Chrome"] } },
+    { name: "chrome-desktop", use: { ...devices["Desktop Chrome"] } },
+    { name: "edge-desktop", use: { ...devices["Desktop Edge"] } },
+    { name: "firefox-desktop", use: { ...devices["Desktop Firefox"] } },
+    { name: "safari-desktop", use: { ...devices["Desktop Safari"] } },
+    { name: "chrome-android", use: { ...devices["Pixel 7"] } },
+    { name: "safari-iphone", use: { ...devices["iPhone 13"] } },
   ],
   webServer: {
     command: "npm run start -- --hostname 127.0.0.1",

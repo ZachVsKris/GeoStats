@@ -33,12 +33,12 @@
   .activePlay .boardPanel .category small{font-size:10px;line-height:1.25}
 }
 
-@media(max-width:700px){
+@media(max-width:700px), (max-width:900px) and (orientation:landscape) and (max-height:500px){
   html,body{min-height:100%;overscroll-behavior:none}
-  body:has(.shell.activePlay){overflow:hidden}
+  html:has(.shell.activePlay),body:has(.shell.activePlay){overflow:hidden}
   .shell.activePlay{
-    width:100%;height:100dvh;min-height:0;max-height:100dvh;overflow:hidden;
-    padding:4px 5px calc(4px + env(safe-area-inset-bottom));display:flex;flex-direction:column;
+    width:100%;height:100vh;height:100svh;height:100dvh;min-height:0;max-height:100vh;max-height:100svh;max-height:100dvh;overflow:hidden;
+    padding:calc(4px + env(safe-area-inset-top)) calc(5px + env(safe-area-inset-right)) calc(4px + env(safe-area-inset-bottom)) calc(5px + env(safe-area-inset-left));display:flex;flex-direction:column;
   }
   .activePlay header{
     flex:0 0 34px;min-height:34px;padding:0 1px 3px;align-items:center;position:relative;
@@ -113,7 +113,7 @@
 }
 
 /* GeoStats v16.1 visual polish: compact by design, not merely scaled down. */
-@media(max-width:700px){
+@media(max-width:700px), (max-width:900px) and (orientation:landscape) and (max-height:500px){
   .activePlay .randomChallengeBar{flex-basis:50px;min-height:50px}
   .activePlay .seedControls{grid-template-columns:minmax(118px,1fr) repeat(3,max-content);gap:4px;align-items:center}
   .activePlay .seedControls .seedField input{
@@ -187,9 +187,9 @@
   .activePlay.expertRound .boardPanel .slots{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,minmax(105px,auto));grid-auto-rows:unset}
 }
 
-@media(max-width:700px){
+@media(max-width:700px), (max-width:900px) and (orientation:landscape) and (max-height:500px){
   /* The gameplay viewport is intentionally locked: every country and category panel stays visible without page scrolling. */
-  .shell.activePlay{padding:3px 4px calc(3px + env(safe-area-inset-bottom))}
+  .shell.activePlay{padding:calc(3px + env(safe-area-inset-top)) calc(4px + env(safe-area-inset-right)) calc(3px + env(safe-area-inset-bottom)) calc(4px + env(safe-area-inset-left))}
   .activePlay header{flex-basis:32px;min-height:32px;padding-bottom:2px}
   .activePlay .challengeBar{flex-basis:23px;min-height:23px;margin:2px 0;padding:2px 4px}
   .activePlay .randomChallengeBar{flex-basis:44px;min-height:44px;grid-template-rows:16px 24px}
@@ -248,7 +248,7 @@
 
 /* Same-day v16.2.3 Daily boards may still be served after deployment. Preserve their
    former compact grids while all newly generated v16.2.4 boards use the rules above. */
-@media(max-width:700px){
+@media(max-width:700px), (max-width:900px) and (orientation:landscape) and (max-height:500px){
   .activePlay.legacyRound.easyRound .playGrid{grid-template-rows:96px minmax(0,1fr)}
   .activePlay.legacyRound.easyRound .bankPanel .countries{grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:3px;padding:3px}
   .activePlay.legacyRound.easyRound .country{grid-column:span 2!important}
@@ -344,8 +344,8 @@
 }
 
 /* Phone: balance the board vertically. Country selection gets enough height to be comfortably tappable/readable, while the Atlas keeps all copy and controls visible without scrolling. */
-@media(max-width:700px){
-  .shell.activePlay{padding-top:2px}
+@media(max-width:700px), (max-width:900px) and (orientation:landscape) and (max-height:500px){
+  .shell.activePlay{padding-top:max(2px,env(safe-area-inset-top))}
   .activePlay header{flex-basis:29px;min-height:29px;padding-bottom:1px}
   .activePlay .logo{width:24px;height:24px;font-size:13px}.activePlay .brand h1{font-size:15px}
   .activePlay .challengeBar{flex-basis:22px;min-height:22px;margin:1px 0 2px;padding:2px 4px}
@@ -389,7 +389,7 @@
 
 /* v16.2.6 phone-space rebalance: give the Country Bank more of the viewport and
    remove dead vertical space inside category cards without allowing page scroll. */
-@media(max-width:700px){
+@media(max-width:700px), (max-width:900px) and (orientation:landscape) and (max-height:500px){
   .activePlay.easyRound .playGrid{grid-template-rows:100px minmax(0,1fr)}
   .activePlay.normalRound .playGrid{grid-template-rows:128px minmax(0,1fr)}
   .activePlay.expertRound .playGrid{grid-template-rows:138px minmax(0,1fr)}

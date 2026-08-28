@@ -179,10 +179,12 @@ async function installRoutes(page: Page) {
 }
 
 const mobileCases = [
-  { width: 375, height: 667 },
-  { width: 390, height: 844 },
-  { width: 393, height: 852 },
-  { width: 414, height: 896 },
+  { width: 375, height: 667, orientation: "portrait" as const },
+  { width: 390, height: 844, orientation: "portrait" as const },
+  { width: 393, height: 852, orientation: "portrait" as const },
+  { width: 414, height: 896, orientation: "portrait" as const },
+  { width: 667, height: 375, orientation: "landscape" as const },
+  { width: 844, height: 390, orientation: "landscape" as const },
 ];
 const modes = [
   { difficulty: "easy" as const, path: "/daily", countries: 4, categories: 4, minBankHeight: 72, minCountryCardHeight: 66 },
@@ -193,6 +195,9 @@ const modes = [
 for (const viewport of mobileCases) {
   for (const mode of modes) {
     test(`${mode.difficulty} Daily is usable at ${viewport.width}×${viewport.height}`, async ({ page }, testInfo) => {
+      const browserErrors: string[] = [];
+      page.on("console", (message) => { if (message.type() === "error") browserErrors.push(message.text()); });
+      page.on("pageerror", (error) => browserErrors.push(error.message));
       await page.setViewportSize(viewport);
       await installRoutes(page);
       await page.goto(mode.path);
@@ -236,6 +241,9 @@ for (const viewport of mobileCases) {
             return tops.length < 2 || Math.max(...tops) - Math.min(...tops) <= 1;
           }),
           descriptionsUnclipped,
+          shellHeight: document.querySelector<HTMLElement>(".shell.activePlay")!.getBoundingClientRect().height,
+          visualViewportHeight: window.visualViewport?.height ?? window.innerHeight,
+          frameworkOverlay: Boolean(document.querySelector("[data-nextjs-dialog], #webpack-dev-server-client-overlay")),
         };
       });
       expect(layout.documentWidth).toBeLessThanOrEqual(layout.viewportWidth + 1);
@@ -244,10 +252,12 @@ for (const viewport of mobileCases) {
       expect(layout.allSlotsVisible).toBeTruthy();
       expect(layout.slotColumns).toBe(2);
       expect(layout.countryRows).toBeLessThanOrEqual(2);
-      expect(layout.countryBankHeight).toBeGreaterThanOrEqual(mode.minBankHeight);
-      expect(layout.minCountryCardHeight).toBeGreaterThanOrEqual(mode.minCountryCardHeight);
+      expect(layout.countryBankHeight).toBeGreaterThanOrEqual(viewport.orientation === "landscape" ? 50 : mode.minBankHeight);
+      expect(layout.minCountryCardHeight).toBeGreaterThanOrEqual(viewport.orientation === "landscape" ? 24 : mode.minCountryCardHeight);
       expect(layout.choiceRowsAligned).toBeTruthy();
       expect(layout.descriptionsUnclipped).toBeTruthy();
+      expect(Math.abs(layout.shellHeight - layout.visualViewportHeight)).toBeLessThanOrEqual(2);
+      expect(layout.frameworkOverlay).toBeFalsy();
       expect(["static", "relative"]).toContain(layout.lockPosition);
       expect(layout.lockAfterCards).toBeTruthy();
       expect(layout.lockVisible).toBeTruthy();
@@ -257,6 +267,7 @@ for (const viewport of mobileCases) {
         await page.locator(".slots .slot").nth(index).click();
       }
       await expect(page.getByRole("button", { name: /lock in draft/i })).toBeEnabled();
+      expect(browserErrors).toEqual([]);
       await page.screenshot({ path: testInfo.outputPath(`${mode.difficulty}-${viewport.width}x${viewport.height}.png`), fullPage: true });
     });
   }
@@ -379,6 +390,24 @@ test("unsigned Daily result persists after refresh on the same browser", async (
   await expect(page.getByText("Saved on this browser. Sign in to add it to the leaderboard.")).toBeVisible();
   await expect(page.locator(".resultsModeTabs")).toBeVisible();
   await expect(page.locator(".resultsModeTabs a.active")).toHaveText("Scout");
+  await page.getByRole("button", { name: "View rankings" }).first().click();
+  await expect(page.locator(".leaderboardColumns")).toBeVisible();
+  await expect(page.locator(".leaderboardColumns b")).toHaveText(["Board", "Country", "World Rank", "Value", "Reference", "Points"]);
+  await expect(page.locator(".leaderboard .worldRank")).toHaveCount(4);
+  const rankingGrid = await page.evaluate(() => {
+    const table = document.querySelector<HTMLElement>(".leaderboard")!;
+    const header = document.querySelector<HTMLElement>(".leaderboardColumns")!;
+    const row = document.querySelector<HTMLElement>(".leaderboard>div:not(.leaderboardHeader):not(.leaderboardColumns)")!;
+    return {
+      headerColumns: getComputedStyle(header).gridTemplateColumns,
+      rowColumns: getComputedStyle(row).gridTemplateColumns,
+      horizontallyScrollable: table.scrollWidth > table.clientWidth,
+      worldRankVisible: Boolean(row.querySelector(".worldRank")),
+    };
+  });
+  expect(rankingGrid.headerColumns).toBe(rankingGrid.rowColumns);
+  expect(rankingGrid.horizontallyScrollable).toBeTruthy();
+  expect(rankingGrid.worldRankVisible).toBeTruthy();
   await page.reload();
   await expect(page.getByText("Saved on this browser. Sign in to add it to the leaderboard.")).toBeVisible();
   await expect(page.getByText("Final score")).toBeVisible();

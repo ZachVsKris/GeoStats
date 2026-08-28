@@ -20,6 +20,7 @@ html{background:var(--bg)}
 body{
   margin:0;
   min-height:100vh;
+  min-height:100dvh;
   background:
     radial-gradient(circle at 15% -10%,rgba(87,137,111,.22),transparent 34%),
     linear-gradient(180deg,#0a1712 0,#07110e 100%);
@@ -33,6 +34,7 @@ body:before{
     linear-gradient(rgba(221,211,174,.16) 1px,transparent 1px),
     linear-gradient(90deg,rgba(221,211,174,.16) 1px,transparent 1px);
   background-size:52px 52px;
+  -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.85),transparent 76%);
   mask-image:linear-gradient(to bottom,rgba(0,0,0,.85),transparent 76%);
 }
 body:after{
@@ -40,6 +42,7 @@ body:after{
   background:
     repeating-radial-gradient(ellipse at 8% 4%,transparent 0 52px,rgba(212,191,114,.16) 53px 54px,transparent 55px 104px),
     repeating-radial-gradient(ellipse at 92% 88%,transparent 0 68px,rgba(120,185,154,.14) 69px 70px,transparent 71px 136px);
+  -webkit-mask-image:linear-gradient(135deg,#000,transparent 62%);
   mask-image:linear-gradient(135deg,#000,transparent 62%);
 }
 a{color:var(--accent);text-underline-offset:3px}

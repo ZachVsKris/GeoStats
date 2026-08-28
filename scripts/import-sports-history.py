@@ -29,7 +29,7 @@ from pathlib import Path
 from typing import Iterable
 
 from data_pipeline.base import WarehouseImporter
-from data_pipeline.canonical_countries import canonical_country_name, country_name_to_iso3
+from data_pipeline.canonical_countries import CANONICAL_COUNTRY_NAMES, canonical_country_name, country_name_to_iso3
 from data_pipeline.models import CandidateDefinition, IndicatorRule, SourceObservation
 from data_pipeline.official_tabular import first_value, number, read_official_rows, source_file_sha256
 from data_pipeline.supabase import SupabaseWarehouse
@@ -68,6 +68,19 @@ NOC_TO_ISO3 = {
     "ZAM": "ZMB", "ZIM": "ZWE",
 }
 
+# FIFA association codes differ from ISO alpha-3 for a number of sovereign
+# countries. Non-sovereign associations are intentionally absent unless a
+# current sovereign-country consolidation is explicit and reproducible.
+FIFA_TO_ISO3 = {
+    "ALG": "DZA", "ANG": "AGO", "BAH": "BHS", "BER": None, "CAY": None,
+    "CGO": "COG", "CTA": "CAF", "ENG": "GBR", "EQG": "GNQ", "GAM": "GMB",
+    "GER": "DEU", "GUI": "GIN", "HKG": None, "KVX": None, "MAC": None,
+    "MTN": "MRT", "NCL": None, "NED": "NLD", "NIR": "GBR", "PLE": "PSE",
+    "POR": "PRT", "RSA": "ZAF", "SCO": "GBR", "SKN": "KNA", "SOL": "SLB",
+    "SUI": "CHE", "TAH": None, "TPE": None, "UAE": "ARE", "VGB": None,
+    "WAL": "GBR",
+}
+
 NAME_ALIASES = {
     "korea republic": "South Korea",
     "republic of korea": "South Korea",
@@ -102,13 +115,14 @@ def _country_iso3(row: dict[str, object]) -> str | None:
     if name not in (None, ""):
         cleaned = NAME_ALIASES.get(_norm(name), str(name).strip())
         iso3 = country_name_to_iso3(cleaned)
-        if iso3:
+        if iso3 and iso3 in CANONICAL_COUNTRY_NAMES:
             return iso3
     noc = first_value(row, "noc", "noc code", "olympic code", "team code", "country code", "code")
     if noc not in (None, ""):
         code = re.sub(r"[^A-Za-z]", "", str(noc)).upper()
         if len(code) == 3:
-            return NOC_TO_ISO3.get(code) or code
+            iso3 = FIFA_TO_ISO3.get(code, NOC_TO_ISO3.get(code, code))
+            return iso3 if iso3 in CANONICAL_COUNTRY_NAMES else None
     return None
 
 
@@ -187,22 +201,16 @@ def fifa_world_cup_record(payload: dict[str, object], association_code: str) -> 
     if not isinstance(world_cup, dict) or not world_cup.get("participationsCount"):
         return None
     years = world_cup.get("participationsYears")
+    if isinstance(years, str):
+        years = re.findall(r"\b(?:19|20)\d{2}\b", years)
     if not isinstance(years, list):
         raise RuntimeError(f"FIFA association {association_code} reports World Cup participation without participationYears.")
     valid_years = sorted({int(year) for year in years if str(year).isdigit() and 1930 <= int(year) <= SNAPSHOT_YEAR})
     if not valid_years:
         raise RuntimeError(f"FIFA association {association_code} reports World Cup participation without a valid edition year.")
 
-    identity_candidates = [
-        page_data.get("associationName"),
-        page_data.get("name"),
-        page_data.get("countryName"),
-    ]
-    association = page_data.get("association")
-    if isinstance(association, dict):
-        identity_candidates.extend((association.get("name"), association.get("countryName")))
-    name = next((str(value).strip() for value in identity_candidates if value), association_code)
-    return name, valid_years[0]
+    source_code = str(tournaments.get("countryCode") or association_code).upper()
+    return source_code, valid_years[0]
 
 
 def fetch_fifa_world_cup_first_appearances(fetch_page=_fetch_official_page) -> list[tuple[str, int]]:
@@ -234,7 +242,7 @@ def write_live_fifa_snapshot(output_path: str, fetch_page=_fetch_official_page) 
     records = fetch_fifa_world_cup_first_appearances(fetch_page)
     with open(output_path, "w", newline="", encoding="utf-8") as handle:
         writer = csv.writer(handle)
-        writer.writerow(("Team", "First appearance year"))
+        writer.writerow(("Code", "First appearance year"))
         writer.writerows(records)
     return output_path
 

@@ -31,7 +31,7 @@ jobs:
           t=Path('scripts/test-historical-importer.py')
           q=t.read_text()
           anchor='''assert cc.rule.ranking_direction == "low"\nIPU_FIXTURE = {\n'''
-          replacement='''assert cc.rule.ranking_direction == "low"\n# The production Constitute importer must explicitly define the ranked subset\n# after resolving current in-force records; lowest-wins cannot assume missing\n# countries have later constitutions.\nwith patch.object(co, "_payload", return_value=CONSTITUTE_FIXTURE):\n    constitute_rows = co.fetch_observations(cc)\nassert cc.metadata["eligible_universe_type"] == "defined_subset"\nassert cc.metadata["eligible_country_count"] == len(constitute_rows)\nassert set(cc.metadata["eligible_country_iso3"]) == {row.country_iso3 for row in constitute_rows}\nIPU_FIXTURE = {\n'''
+          replacement='''assert cc.rule.ranking_direction == "low"\n# Exercise the Constitute subset path with the small fixture while preserving\n# the production minimum-coverage rule on the real candidate definition.\nfrom dataclasses import replace as dc_replace\ncc_fixture = dc_replace(cc, rule=dc_replace(cc.rule, min_coverage=2))\nwith patch.object(co, "_payload", return_value=CONSTITUTE_FIXTURE):\n    constitute_rows = co.fetch_observations(cc_fixture)\nassert cc_fixture.metadata["eligible_universe_type"] == "defined_subset"\nassert cc_fixture.metadata["eligible_country_count"] == len(constitute_rows)\nassert set(cc_fixture.metadata["eligible_country_iso3"]) == {row.country_iso3 for row in constitute_rows}\nIPU_FIXTURE = {\n'''
           if anchor not in q: raise SystemExit('historical test patch anchor not found')
           t.write_text(q.replace(anchor,replacement,1))
           PY

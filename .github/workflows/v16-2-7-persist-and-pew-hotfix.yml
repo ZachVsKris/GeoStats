@@ -1,0 +1,167 @@
+name: v16.2.7 persist reachability and Pew exclusion hotfix
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/v16-2-7-persist-and-pew-hotfix.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+      - name: Patch repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+
+          def replace_once(path, old, new):
+              p=Path(path)
+              text=p.read_text()
+              if old not in text:
+                  raise SystemExit(f'Expected text not found in {path}: {old[:120]!r}')
+              p.write_text(text.replace(old,new,1))
+
+          migration = r'''begin;
+
+-- User-requested durable product exclusion: this Pew residual bucket is too
+-- small/opaque for intuitive gameplay and should never be re-enabled by a
+-- future Pew import or catalog staging refresh.
+create or replace function public.v16_2_7_durable_exclusion_reason(
+  p_id text,p_title text,p_source text,p_indicator text
+) returns text language sql immutable as $$
+  select case
+    when p_id='pew-religion:other-religions-population'
+      then 'v16.2.7 durable Pew other-religions population exclusion'
+    when p_id in ('unescoheritage:all-sites','comtrade:most-sports-equipment-exported','worldbank-catalog:er-ptd-totl-zs')
+      then 'v16.2.7 durable product exclusion'
+    when p_id <> 'history:ipu-universal-womens-suffrage'
+      and lower(coalesce(p_title,'')) ~ '(^|[^a-z])(women|woman|female)([^a-z]|$)'
+      then 'v16.2.7 durable women-category exclusion'
+    when p_id in (
+      'natural-earth:largest-geographic-span','natural-earth:largest-north-south-span',
+      'natural-earth:largest-east-west-span','natural-earth:farthest-from-equator',
+      'natural-earth:most-separate-land-areas','natural-earth:most-large-land-areas'
+    ) then 'v16.2.7 durable Natural Earth span/fragmentation exclusion'
+    when coalesce(p_source,'')='World Bank' and upper(coalesce(p_indicator,'')) like 'EN.GHG.%'
+      and p_id not in ('worldbank-catalog:en-ghg-all-mt-ce-ar5','worldbank-catalog:en-ghg-all-pc-ce-ar5','worldbank-catalog:en-ghg-co2-pi-mt-ce-ar5')
+      then 'v16.2.7 durable greenhouse-gas anti-proliferation exclusion'
+    when p_id like 'global-findex:%'
+      and p_id not in ('global-findex:account-ownership','global-findex:digital-merchant-payment')
+      then 'v16.2.7 durable Findex anti-proliferation exclusion'
+    when p_id in ('undp-hdr:mpi','undp-hdr:mpi-headcount','undp-hdr:mpi-intensity','undp-hdr:female-hdi','undp-hdr:male-hdi')
+      then 'v16.2.7 durable UNDP HDR exclusion'
+    when p_id in ('vdem-v16:electoral-democracy','vdem-v16:liberal-democracy')
+      then 'v16.2.7 durable V-Dem anti-proliferation exclusion'
+    else null
+  end
+$$;
+
+update public.stat_categories
+set updated_at=now()
+where id='pew-religion:other-religions-population';
+update public.category_review_state
+set updated_at=now()
+where category_id='pew-religion:other-religions-population';
+
+select public.refresh_category_decision_provenance_v16_2_7();
+select public.refresh_category_ranking_completeness_v16();
+select public.refresh_category_semantic_audit_v16_1();
+select public.refresh_category_promotion_assessment_v16_2();
+
+commit;
+'''
+          Path('supabase/migrations/064_v16_2_7_pew_other_religions_exclusion.sql').write_text(migration)
+
+          # Installer + SQL policy lists.
+          replace_once('scripts/build-v16-2-7-installer.cjs',
+              "  '063_v16_2_7_durable_exclusion_hard_gate.sql',\n];",
+              "  '063_v16_2_7_durable_exclusion_hard_gate.sql',\n  '064_v16_2_7_pew_other_religions_exclusion.sql',\n];")
+          replace_once('scripts/build-v16-2-7-installer.cjs', 'Applies migrations 054-063 sequentially.', 'Applies migrations 054-064 sequentially.')
+          replace_once('scripts/build-v16-2-7-installer.cjs', 'synchronized with migrations 054-063.', 'synchronized with migrations 054-064.')
+          replace_once('scripts/test-v16-2-7-sql.cjs',
+              "  '063_v16_2_7_durable_exclusion_hard_gate.sql',\n];",
+              "  '063_v16_2_7_durable_exclusion_hard_gate.sql',\n  '064_v16_2_7_pew_other_religions_exclusion.sql',\n];")
+          p=Path('scripts/test-v16-2-7-sql.cjs')
+          text=p.read_text()
+          marker="if(!hard.includes('before insert or update on public.category_review_state')) fail('review-state durable exclusion trigger missing');"
+          if marker not in text: raise SystemExit('SQL test insertion marker missing')
+          text=text.replace(marker, marker+"\nif(!hotfixes.includes('pew-religion:other-religions-population')) fail('Pew other-religions durable exclusion missing');",1)
+          p.write_text(text)
+
+          # Sync workflow and reachability workflow path triggers.
+          replace_once('.github/workflows/sync-v16-2-7-installer.yml',
+              "      - 'supabase/migrations/063_v16_2_7_durable_exclusion_hard_gate.sql'\n",
+              "      - 'supabase/migrations/063_v16_2_7_durable_exclusion_hard_gate.sql'\n      - 'supabase/migrations/064_v16_2_7_pew_other_religions_exclusion.sql'\n")
+          replace_once('.github/workflows/audit-generator-reachability.yml',
+              "      - 'supabase/migrations/063_v16_2_7_durable_exclusion_hard_gate.sql'\n",
+              "      - 'supabase/migrations/063_v16_2_7_durable_exclusion_hard_gate.sql'\n      - 'supabase/migrations/064_v16_2_7_pew_other_religions_exclusion.sql'\n")
+
+          # Persist reachability using the real warehouse IDs, not stable gameplay IDs.
+          replace_once('scripts/audit-v16-2-7-reachability.cjs',
+              "    for (const difficulty of difficulties) {\n      try {",
+              "    for (const difficulty of difficulties) {\n      const warehouseCategoryId = warehouseIdByGameplayId.get(dataset.category.id);\n      if (!warehouseCategoryId) throw new Error(`No warehouse identity for ${dataset.category.id}`);\n      try {")
+          replace_once('scripts/audit-v16-2-7-reachability.cjs',
+              "reachabilityRows.push({ category_id: dataset.category.id, difficulty, reachable: true,",
+              "reachabilityRows.push({ category_id: warehouseCategoryId, difficulty, reachable: true,")
+          replace_once('scripts/audit-v16-2-7-reachability.cjs',
+              "const failed = { category_id: dataset.category.id, difficulty, reachable: false,",
+              "const failed = { category_id: warehouseCategoryId, difficulty, reachable: false,")
+
+          p=Path('scripts/audit-v16-2-7-reachability.cjs')
+          text=p.read_text()
+          simulation_marker="  // Large cheap seed simulation tests the anchor-selection layer independently"
+          if simulation_marker not in text: raise SystemExit('Reachability simulation marker missing')
+          forced_gate = r'''  // Persist the hard per-category proof before running slower distribution audits.
+  // This keeps a completed 3-mode solver pass even if a later diversity gate fails.
+  if (WRITE) {
+    for (const chunk of chunks(reachabilityRows, 250)) {
+      const result = await supabase.from('generator_reachability_v16_2_7').upsert(chunk, { onConflict: 'category_id,difficulty' });
+      if (result.error) throw new Error(`Reachability upsert failed: ${result.error.message}`);
+    }
+  }
+  if (failures.length) {
+    console.error(JSON.stringify({ forcedReachabilityFailures: failures.slice(0, 100), count: failures.length }, null, 2));
+    process.exitCode = 1;
+    return;
+  }
+
+'''
+          text=text.replace(simulation_marker, forced_gate+simulation_marker,1)
+          duplicate_write = r'''  if (WRITE) {
+    for (const chunk of chunks(reachabilityRows, 250)) {
+      const result = await supabase.from('generator_reachability_v16_2_7').upsert(chunk, { onConflict: 'category_id,difficulty' });
+      if (result.error) throw new Error(`Reachability upsert failed: ${result.error.message}`);
+    }
+  }
+
+'''
+          first=text.find(duplicate_write)
+          second=text.find(duplicate_write, first+1) if first>=0 else -1
+          if first < 0 or second < 0: raise SystemExit('Expected duplicate reachability write blocks not found')
+          text=text[:second] + text[second+len(duplicate_write):]
+          p.write_text(text)
+          PY
+
+          node scripts/build-v16-2-7-installer.cjs
+          node scripts/build-v16-2-7-installer.cjs --check
+          node scripts/test-v16-2-7-sql.cjs
+          node --check scripts/audit-v16-2-7-reachability.cjs
+
+          rm .github/workflows/v16-2-7-persist-and-pew-hotfix.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Persist reachability with warehouse IDs and exclude Pew residual category'
+          git push

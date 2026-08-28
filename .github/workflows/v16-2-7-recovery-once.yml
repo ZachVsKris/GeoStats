@@ -70,7 +70,8 @@ jobs:
         continue-on-error: true
         run: node scripts/audit-v16-2-7-reachability.cjs --write --anchor-samples=30000
       - name: Report reachability outcome
-        run: echo "Reachability audit outcome: ${{ steps.reachability.outcome }} (publication intentionally not attempted by this one-shot workflow)."
+        run: |
+          echo "Reachability audit outcome: ${{ steps.reachability.outcome }} (publication intentionally not attempted by this one-shot workflow)."
       - name: Upload source audit evidence
         uses: actions/upload-artifact@v7
         if: always()

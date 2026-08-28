@@ -6,25 +6,28 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/import-pew-religion.yml'
-      - 'scripts/inspect-pew-schema.py'
+      - 'scripts/import-pew-religion.py'
+      - 'scripts/test-pew-religion-importer.py'
 
 permissions:
   contents: read
 
 jobs:
-  inspect:
+  validate-real-source:
     if: ${{ github.event_name == 'push' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
-      - name: Install inspection dependency
-        run: pip install openpyxl
-      - name: Inspect exact first-party Pew archive
-        run: python scripts/inspect-pew-schema.py
+      - name: Install dependencies
+        run: pip install -r scripts/requirements-data-importers.txt
+      - name: Run exact-layout importer fixtures
+        run: PYTHONPATH=scripts python scripts/test-pew-religion-importer.py
+      - name: Validate exact live Pew release without writing
+        run: PYTHONPATH=scripts python scripts/import-pew-religion.py --dry-run
 
   import:
     if: ${{ github.event_name == 'workflow_dispatch' }}
@@ -43,5 +46,5 @@ jobs:
         run: pip install -r scripts/requirements-data-importers.txt
       - name: Run importer fixtures
         run: PYTHONPATH=scripts python scripts/test-pew-religion-importer.py
-      - name: Import quarantined candidates
-        run: python scripts/import-pew-religion.py
+      - name: Import candidates
+        run: PYTHONPATH=scripts python scripts/import-pew-religion.py

@@ -16,7 +16,6 @@ assert '/wpp/assets/Excel%20Files/' in m.DOWNLOAD
 assert '/wpp/Download/Files/' not in m.DOWNLOAD
 assert m.DOWNLOAD.endswith('WPP2024_GEN_F01_DEMOGRAPHIC_INDICATORS_COMPACT.xlsx')
 
-
 # Mirror the structure of UN's published compact workbook: an Estimates sheet,
 # metadata rows before the header, and human-readable WPP column labels.
 wb=Workbook()
@@ -38,16 +37,21 @@ real_headers=[
 ]
 ws.append(real_headers)
 ws.append([1,'Estimates','France','',250,'FRA',2023,68000,33000,35000,120,94.3,42,.2,1.7,82,79,85,3.4,1.1,10.6,9.5,1.2,105.1,31.2])
-ws.append([2,'Estimates','Germany','',276,'DEU',2024,84000])
+# Region aggregates have no ISO3. This row deliberately uses the display name
+# 'Micronesia' to prove it cannot be mis-mapped to FSM and duplicate the country row.
+ws.append([2,'Estimates','Micronesia','',954,'',2023,5000,2500,2500,50,100,25,1.0,2.5,75,72,78,15,10,20,10,0,105,27])
+ws.append([3,'Estimates','Micronesia (Fed. States of)','',583,'FSM',2023,115,58,57,160,101.8,25,.7,2.7,71,68,74,20,13,24,11,-2,105,27])
+ws.append([4,'Estimates','Germany','',276,'DEU',2024,84000])
 xlsx=BytesIO(); wb.save(xlsx); wb.close()
 real_rows=m.load.__globals__['_xlsx_rows'](xlsx.getvalue())
 real_rows=list(real_rows)
-assert len(real_rows)==2
+assert len(real_rows)==4
 assert real_rows[0]['ISO3 Alpha-code']=='FRA'
 with tempfile.TemporaryDirectory() as d:
  xf=Path(d)/'wpp.xlsx'; xf.write_bytes(xlsx.getvalue())
  parsed=m.load(str(xf))
- assert len(parsed)==1 and parsed[0][0]=='FRA'
+ assert [iso for iso,_ in parsed]==['FRA','FSM']
+ assert len({iso for iso,_ in parsed})==2
  metrics=parsed[0][1]
  assert round(metrics['male-share'],1)==48.5
  assert metrics['median-age']==42

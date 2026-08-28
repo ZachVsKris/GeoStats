@@ -41,17 +41,21 @@ ws.append([1,'Estimates','France','',250,'FRA',2023,68000,33000,35000,120,94.3,4
 # 'Micronesia' to prove it cannot be mis-mapped to FSM and duplicate the country row.
 ws.append([2,'Estimates','Micronesia','',954,'',2023,5000,2500,2500,50,100,25,1.0,2.5,75,72,78,15,10,20,10,0,105,27])
 ws.append([3,'Estimates','Micronesia (Fed. States of)','',583,'FSM',2023,115,58,57,160,101.8,25,.7,2.7,71,68,74,20,13,24,11,-2,105,27])
-ws.append([4,'Estimates','Germany','',276,'DEU',2024,84000])
+# WPP also publishes ISO3-coded territories/areas. Puerto Rico is valid WPP data
+# but is outside GeoStats' fixed 195-country sovereign universe and must be omitted.
+ws.append([4,'Estimates','Puerto Rico','',630,'PRI',2023,3200,1500,1700,350,88.2,45,-.6,1.1,81,77,84,6,-4,7,11,-5,105,29])
+ws.append([5,'Estimates','Germany','',276,'DEU',2024,84000])
 xlsx=BytesIO(); wb.save(xlsx); wb.close()
 real_rows=m.load.__globals__['_xlsx_rows'](xlsx.getvalue())
 real_rows=list(real_rows)
-assert len(real_rows)==4
+assert len(real_rows)==5
 assert real_rows[0]['ISO3 Alpha-code']=='FRA'
 with tempfile.TemporaryDirectory() as d:
  xf=Path(d)/'wpp.xlsx'; xf.write_bytes(xlsx.getvalue())
  parsed=m.load(str(xf))
  assert [iso for iso,_ in parsed]==['FRA','FSM']
  assert len({iso for iso,_ in parsed})==2
+ assert all(iso in m.CANONICAL_COUNTRY_NAMES for iso,_ in parsed)
  metrics=parsed[0][1]
  assert round(metrics['male-share'],1)==48.5
  assert metrics['median-age']==42
@@ -71,13 +75,16 @@ with tempfile.TemporaryDirectory() as d:
  with f.open('w',newline='') as h:
   w=csv.DictWriter(h,fieldnames=fields);w.writeheader()
   w.writerow(dict(ISO3_code='FRA',Location='France',Year=2023,TPopulation1July=68000,PopMale1July=33000,PopFemale1July=35000,PopDensity=120,SexRatio=94.3,MedianAgePop=42,PopGrowthRate=.2,TFR=1.7,LEx=82,LExMale=79,LExFemale=85,IMR=3.4,NatChangeRT=1.1,CBR=10.6,CDR=9.5,CNMR=1.2,SRB=105.1,MACB=31.2))
+  w.writerow(dict(ISO3_code='PRI',Location='Puerto Rico',Year=2023,TPopulation1July=3200,PopMale1July=1500,PopFemale1July=1700))
   w.writerow(dict(ISO3_code='DEU',Location='Germany',Year=2024,TPopulation1July=84000))
  imp=m.Importer(None,str(f),True)
- assert len(imp.rows)==1
+ assert len(imp.rows)==1 and imp.rows[0][0]=='FRA'
  assert len(imp.discover())==19
  cs={c.rule.key:c for c in imp.discover()}
  assert all(c.metadata['measurementType'] in {'total','share','per_capita','other'} for c in cs.values())
  assert cs['highest-male-share'].metadata['measurementType']=='share'
+ assert cs['highest-male-share'].rule.unit=='% of population'
+ assert cs['highest-female-share'].rule.unit=='% of population'
  assert cs['highest-natural-change-rate'].metadata['measurementType']=='other'
  assert 'highest-pop-density' not in cs and 'lowest-infant-mortality' not in cs
  assert cs['highest-median-age'].rule.title=='Highest median age'

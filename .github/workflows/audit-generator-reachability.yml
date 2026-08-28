@@ -19,6 +19,7 @@ on:
     workflows:
       - "v16.2.7 first-party bulk recovery"
       - "v16.2.7 authoritative history recovery"
+      - "GeoStats v16.2.7 authoritative breadth recovery"
     types: [completed]
 
 permissions:

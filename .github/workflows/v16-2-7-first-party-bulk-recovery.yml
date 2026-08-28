@@ -7,14 +7,13 @@ on:
       - '.github/workflows/v16-2-7-first-party-bulk-recovery.yml'
       - 'scripts/import-global-findex.py'
       - 'scripts/import-undp-hdr.py'
-      - 'scripts/audit-source-integrity.py'
+      - 'scripts/audit-current-bulk-importer.py'
+      - 'scripts/test-global-findex-importer.py'
+      - 'scripts/test-undp-hdr-importer.py'
 
 permissions:
   contents: read
 
-# Share the same database-mutation lane as the self-fetching breadth workflow.
-# Imports/audits are intentionally serialized across these workflows to avoid
-# lock contention in global validation/reconciliation tables.
 concurrency:
   group: geostats-v16-2-7-authoritative-breadth-recovery
   cancel-in-progress: false
@@ -55,35 +54,17 @@ jobs:
             -o "$UNDP_HDR_INPUT"
           test -s "$GLOBAL_FINDEX_2025_INPUT"
           test -s "$UNDP_HDR_INPUT"
-      - name: Import and independently audit Global Findex 2025
+      - name: Import and independently audit curated Global Findex 2025 concepts
         shell: bash
         run: |
           set -euo pipefail
           python scripts/import-global-findex.py --input "$GLOBAL_FINDEX_2025_INPUT"
-          python scripts/audit-source-integrity.py \
-            --source globalfindex2025 \
-            --include-nonplayable \
-            --fail-on-source-error \
-            --fail-on-empty \
-            --report-dir artifacts/source-integrity/globalfindex2025
-      - name: Import and independently audit UNDP HDR 2025
+          python scripts/audit-current-bulk-importer.py --source globalfindex2025
+      - name: Import and independently audit curated UNDP HDR 2025 concepts
         shell: bash
         run: |
           set -euo pipefail
           python scripts/import-undp-hdr.py --input "$UNDP_HDR_INPUT"
-          python scripts/audit-source-integrity.py \
-            --source undphdr \
-            --include-nonplayable \
-            --fail-on-source-error \
-            --fail-on-empty \
-            --report-dir artifacts/source-integrity/undphdr
+          python scripts/audit-current-bulk-importer.py --source undphdr
       - name: Stage newly strict-pass candidates without publishing
         run: python scripts/stage-v16-2-7-catalog.py
-      - name: Upload source-integrity evidence
-        if: always()
-        uses: actions/upload-artifact@v7
-        with:
-          name: source-integrity-first-party-bulk
-          path: artifacts/source-integrity
-          if-no-files-found: warn
-          retention-days: 30

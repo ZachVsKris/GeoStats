@@ -10,17 +10,17 @@ m = importlib.util.module_from_spec(s)
 sys.modules[s.name] = m
 s.loader.exec_module(m)
 
-assert len(m.SPECS) == 6
-assert {spec.aliases[0] for spec in m.SPECS} == {"account_t_d", "fiaccount_t_d", "mobileaccount_t_d", "borrow_any_t_d", "merchant_pay", "save_any_t_d"}
+assert len(m.SPECS) == 2
+assert {spec.aliases[0] for spec in m.SPECS} == {"account_t_d", "merchant_pay"}
 
 with tempfile.TemporaryDirectory() as d:
     f = Path(d) / "findex2025.csv"
     f.write_text(
-        "countrynewwb,codewb,year,group,group2,account_t_d,fiaccount_t_d,mobileaccount_t_d,borrow_any_t_d,merchant_pay,save_any_t_d\n"
-        "United States,USA,2024,all,all,0.95,0.94,0.20,0.55,0.82,0.71\n"
-        "Canada,CAN,2024,all,all,0.98,0.97,0.10,0.48,0.86,0.76\n"
-        "United States,USA,2024,women,all,0.91,0.90,0.18,0.50,0.78,0.68\n"
-        "United States,USA,2021,all,all,0.90,0.89,0.15,0.52,0.75,0.69\n",
+        "countrynewwb,codewb,year,group,group2,account_t_d,merchant_pay\n"
+        "United States,USA,2024,all,all,0.95,0.82\n"
+        "Canada,CAN,2024,all,all,0.98,0.86\n"
+        "United States,USA,2024,women,all,0.91,0.78\n"
+        "United States,USA,2021,all,all,0.90,0.75\n",
         encoding="utf-8",
     )
     imp = m.Importer(None, str(f), True)

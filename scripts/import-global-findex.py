@@ -16,17 +16,12 @@ SOURCE_ORG = "World Bank"
 SOURCE_DATASET = "Global Findex Database 2025 (2024 survey round)"
 SOURCE_PAGE = "https://www.worldbank.org/en/publication/globalfindex/download-data"
 
-# The 2025 country CSV uses compact variable codes and stores shares as 0-1
-# proportions. Only codes confirmed in the official file are imported here.
-# GeoStats intentionally keeps this family small rather than proliferating
-# dozens of near-duplicate financial-inclusion variants.
+# Findex is useful, but economy/finance is already overrepresented in GeoStats.
+# Keep only two intuitive, meaningfully distinct concepts with adequate official
+# 2024 coverage instead of proliferating near-duplicate account/payment variants.
 SPECS = (
     StrictBulkSpec("account-ownership", "Highest account ownership", ("account_t_d",), "% of adults", "percentage", "high", 0, 100, multiplier=100, min_coverage=120),
-    StrictBulkSpec("financial-institution-account", "Highest financial-institution account ownership", ("fiaccount_t_d",), "% of adults", "percentage", "high", 0, 100, multiplier=100, min_coverage=110),
-    StrictBulkSpec("mobile-money-account", "Highest mobile-money account ownership", ("mobileaccount_t_d",), "% of adults", "percentage", "high", 0, 100, multiplier=100, min_coverage=90),
-    StrictBulkSpec("borrowed-any-money", "Highest share who borrowed money", ("borrow_any_t_d",), "% of adults", "percentage", "high", 0, 100, multiplier=100, min_coverage=100),
     StrictBulkSpec("digital-merchant-payment", "Highest digital merchant-payment use", ("merchant_pay",), "% of adults", "percentage", "high", 0, 100, multiplier=100, min_coverage=90),
-    StrictBulkSpec("saved-any-money", "Highest share who saved money", ("save_any_t_d",), "% of adults", "percentage", "high", 0, 100, multiplier=100, min_coverage=100),
 )
 
 

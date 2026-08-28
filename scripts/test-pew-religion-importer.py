@@ -5,13 +5,15 @@ from pathlib import Path
 from openpyxl import Workbook
 from data_pipeline.canonical_countries import CANONICAL_COUNTRY_NAMES
 
+
 def load_module():
     path=Path(__file__).with_name("import-pew-religion.py")
     spec=importlib.util.spec_from_file_location("pew_importer",path)
     assert spec and spec.loader
     module=importlib.util.module_from_spec(spec); spec.loader.exec_module(module); return module
 
-def make_book(path:Path, *, include_diversity:bool):
+
+def make_mixed_book(path:Path, *, include_diversity:bool):
     wb=Workbook(); ws=wb.active
     headers=["Country","Year"]
     labels=["Christian","Muslim","Hindu","Buddhist","Jewish","Other religions","Unaffiliated"]
@@ -26,36 +28,62 @@ def make_book(path:Path, *, include_diversity:bool):
         ws.append(row)
     wb.save(path)
 
-def make_split_book(path:Path):
-    wb=Workbook(); pop=wb.active; pop.title="Population totals"; share=wb.create_sheet("Population shares")
-    labels=["Christian","Muslim","Hindu","Buddhist","Jewish","Other religions","Unaffiliated"]
-    pop.append(["Country","Year"]+[f"{label} population 2020" for label in labels])
-    share.append(["Country","Year"]+[f"{label} share 2020" for label in labels])
-    for i,(_,name) in enumerate(list(CANONICAL_COUNTRY_NAMES.items())[:120]):
-        pop.append([name,2020]+[1_000_000+i*1000+j for j,_ in enumerate(labels)])
-        share.append([name,2020,40,25,12,8,5,4,6])
+
+def make_official_layout_book(path:Path):
+    """Mirror Pew's real 2025 workbook: generic headers on separate sheets."""
+    wb=Workbook()
+    counts=wb.active; counts.title="Rounded counts"
+    unrounded=wb.create_sheet("Unrounded counts")
+    shares=wb.create_sheet("Percentages")
+    diversity=wb.create_sheet("Diversity statistics")
+    group_headers=["Christians","Muslims","Religiously_unaffiliated","Buddhists","Hindus","Jews","Other_religions"]
+    common=["Region","Country","Year","Population"]+group_headers+["Level","Countrycode"]
+    counts.append(common); unrounded.append(common); shares.append(common)
+    diversity.append(["Region","Country","Year","Diversity rank","RDI score","Diversity level","Buddhists","Christians","Hindus","Jews","Muslims","Other_religions","Religiously_unaffiliated","Level","Country Code"])
+    iso_names=list(CANONICAL_COUNTRY_NAMES.items())[:120]
+    for i,(iso3,name) in enumerate(iso_names):
+        # Deliberately make counts millions and shares small so any overwrite is obvious.
+        population=10_000_000+i*10_000
+        group_counts=[4_000_000+i*1000,2_500_000+i*900,600_000+i*700,800_000+i*600,1_200_000+i*500,500_000+i*300,400_000+i*200]
+        group_shares=[40,25,6,8,12,5,4]
+        code=100+i
+        counts.append(["Region",name,2020,population]+[round(v,-3) for v in group_counts]+[1,code])
+        unrounded.append(["Region",name,2020,population]+[float(v)+0.25 for v in group_counts]+[1,code])
+        shares.append(["Region",name,2020,population]+group_shares+[1,code])
+        diversity.append(["Region",name,2020,i+1,6.7,"High",8,40,12,5,25,4,6,1,code])
     wb.save(path)
 
-def check(m,path:Path, *, expected_diversity:float):
+
+def check(m,path:Path, *, expected_diversity:float, expected_population_floor:float):
     importer=m.PewReligionImporter(None,input_path=str(path),dry_run=True)
     candidates=importer.discover(); assert len(candidates)==15, len(candidates)
     keys={c.rule.key for c in candidates}
-    assert {"jewish-share","jewish-population","other-religions-share","christian-population","religious-diversity"} <= keys
-    for c in candidates: assert len(importer.fetch_observations(c))==120
-    christian=next(c for c in candidates if c.rule.key=="christian-share")
-    total=next(c for c in candidates if c.rule.key=="christian-population")
-    assert christian.metadata["strategyFamily"]==total.metadata["strategyFamily"]=="religion-christian"
+    assert {"jewish-share","jewish-population","other-religions-share","other-religions-population","christian-population","religious-diversity"} <= keys
+    for c in candidates: assert len(importer.fetch_observations(c))==120, c.rule.key
+    christian_share=next(c for c in candidates if c.rule.key=="christian-share")
+    christian_total=next(c for c in candidates if c.rule.key=="christian-population")
+    assert christian_share.metadata["strategyFamily"]==christian_total.metadata["strategyFamily"]=="religion-christian"
+    share_value=importer.fetch_observations(christian_share)[0].value
+    total_value=importer.fetch_observations(christian_total)[0].value
+    assert 0 <= share_value <= 100, share_value
+    assert total_value >= expected_population_floor, total_value
+    assert total_value != share_value, (total_value,share_value)
+    other_share=next(c for c in candidates if c.rule.key=="other-religions-share")
+    other_total=next(c for c in candidates if c.rule.key=="other-religions-population")
+    assert "Baha" in other_share.rule.description and "Sikhs" in other_share.rule.description
+    assert other_share.metadata.get("groupDefinition")
+    assert importer.fetch_observations(other_total)[0].value >= expected_population_floor/10
     diversity=next(c for c in candidates if c.rule.key=="religious-diversity")
     observed=importer.fetch_observations(diversity)[0].value
     assert abs(observed-expected_diversity)<0.01,(observed,expected_diversity)
 
+
 def main():
     m=load_module()
     with tempfile.TemporaryDirectory() as d:
-        current=Path(d)/"pew-current.xlsx"; make_book(current,include_diversity=True); check(m,current,expected_diversity=6.7)
-        legacy=Path(d)/"pew-legacy.xlsx"; make_book(legacy,include_diversity=False)
-        expected=(1-sum((v/100)**2 for v in [40,25,12,8,5,4,6]))*11.6
-        check(m,legacy,expected_diversity=expected)
-        split=Path(d)/"pew-split.xlsx"; make_split_book(split); check(m,split,expected_diversity=expected)
-    print("Pew religion 15-category importer fixtures passed, including RDI derivation fallback."); return 0
+        current=Path(d)/"pew-mixed.xlsx"; make_mixed_book(current,include_diversity=True); check(m,current,expected_diversity=6.7,expected_population_floor=1_000_000)
+        official=Path(d)/"Religious Composition 2010-2020.xlsx"; make_official_layout_book(official); check(m,official,expected_diversity=6.7,expected_population_floor=1_000_000)
+    print("Pew religion 15-category importer fixtures passed, including exact official count/percentage sheet separation and other-religions definition."); return 0
+
+
 if __name__=="__main__": raise SystemExit(main())

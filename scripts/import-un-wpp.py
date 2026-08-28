@@ -157,6 +157,26 @@ KEY_METRIC={
  'highest-mean-age-childbearing':'mean-age-childbearing','highest-male-life-expectancy':'male-life-expectancy',
  'highest-female-life-expectancy':'female-life-expectancy'
 }
+OFFICIAL_SERIES_NAME={
+ 'male-share':'Male population share (derived from WPP male and total population)',
+ 'female-share':'Female population share (derived from WPP female and total population)',
+ 'sex-ratio':'Population Sex Ratio, as of 1 July (males per 100 females)',
+ 'median-age':'Median Age, as of 1 July (years)',
+ 'population-density':'Population Density, as of 1 July (persons per square km)',
+ 'population-growth':'Population Growth Rate (percentage)',
+ 'fertility':'Total Fertility Rate (live births per woman)',
+ 'life-expectancy':'Life Expectancy at Birth, both sexes (years)',
+ 'female-life-expectancy':'Female Life Expectancy at Birth (years)',
+ 'male-life-expectancy':'Male Life Expectancy at Birth (years)',
+ 'infant-mortality':'Infant Mortality Rate (infant deaths per 1,000 live births)',
+ 'natural-change-rate':'Rate of Natural Change (per 1,000 population)',
+ 'birth-rate':'Crude Birth Rate (births per 1,000 population)',
+ 'death-rate':'Crude Death Rate (deaths per 1,000 population)',
+ 'net-migration-rate':'Net Migration Rate (per 1,000 population)',
+ 'sex-ratio-at-birth':'Sex Ratio at Birth (males per 100 female births)',
+ 'mean-age-childbearing':'Mean Age Childbearing (years)',
+ 'female-life-expectancy-advantage':'Female minus male life expectancy at birth (derived from WPP sex-specific series)',
+}
 class Importer(WarehouseImporter):
  source_organization=SOURCE_ORG; source_dataset=SOURCE_DATASET; source_slug='unwpp'
  def __init__(self,warehouse,input_path=DOWNLOAD,dry_run=False): super().__init__(warehouse,dry_run=dry_run); self.rows=load(input_path)
@@ -164,7 +184,8 @@ class Importer(WarehouseImporter):
   out=[]
   for key,(title,desc,unit,vtype,direction,family) in SPECS.items():
    rule=IndicatorRule(key=key,title=title,description=desc,plain_language_description=desc,technical_definition=f'{desc} WPP 2024 estimate for {YEAR}.',unit_explanation=unit,family=family,icon='👥',unit=unit,value_type=vtype,ranking_direction=direction,include=(key,),min_coverage=180,evidence_tier='A',source_priority=4,specificity_score=98,recognizability_score=97,understandability_score=98,fun_score=95)
-   out.append(CandidateDefinition(rule,f'WPP2024:{KEY_METRIC[key]}:{YEAR}',title,SOURCE_PAGE,{'source_page_url':SOURCE_PAGE,'download_url':DOWNLOAD,'methodology_url':METHOD,'dataset_release':'World Population Prospects 2024','source_query':{'year':YEAR,'metric':KEY_METRIC[key],'variant':'estimate'},'minimum_year':YEAR,'measurementType':('share' if vtype=='percentage' else 'per_capita' if vtype=='per_capita' else 'total' if vtype=='total' else 'other'),'broadDomain':'population','knowledgeCluster':'demographics','strategyFamily':key,'v16_2_6_content_reviewed':True,'license_name':'CC BY 3.0 IGO'}))
+   metric=KEY_METRIC[key]
+   out.append(CandidateDefinition(rule,f'WPP2024:{metric}:{YEAR}',OFFICIAL_SERIES_NAME[metric],SOURCE_PAGE,{'source_page_url':SOURCE_PAGE,'download_url':DOWNLOAD,'methodology_url':METHOD,'dataset_release':'World Population Prospects 2024','source_query':{'year':YEAR,'metric':metric,'variant':'estimate'},'minimum_year':YEAR,'measurementType':('share' if vtype=='percentage' else 'per_capita' if vtype=='per_capita' else 'total' if vtype=='total' else 'other'),'broadDomain':'population','knowledgeCluster':'demographics','strategyFamily':key,'v16_2_6_content_reviewed':True,'license_name':'CC BY 3.0 IGO'}))
   return out
  def fetch_observations(self,c):
   metric=KEY_METRIC[c.rule.key]; out=[]

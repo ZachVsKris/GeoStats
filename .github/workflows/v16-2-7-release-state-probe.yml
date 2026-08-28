@@ -27,25 +27,23 @@ jobs:
       - name: Inspect strict catalog, breadth, reachability, and release assertion
         shell: bash
         run: |
-          node <<'NODE'
-          const { createClient } = require('@supabase/supabase-js');
+          node --input-type=module <<'NODE'
+          import { createClient } from '@supabase/supabase-js';
           const url=process.env.SUPABASE_URL;
           const key=process.env.SUPABASE_SECRET_KEY||process.env.SUPABASE_SERVICE_ROLE_KEY;
           if(!url||!key) throw new Error('Missing production Supabase credentials');
           const db=createClient(url,key,{auth:{persistSession:false,autoRefreshToken:false}});
-          async function all(table, select='*', mutate=(q)=>q){
+          async function all(table, select='*'){
             let rows=[];
             for(let from=0;;from+=1000){
-              let q=db.from(table).select(select).range(from,from+999);
-              q=mutate(q);
-              const {data,error}=await q;
+              const {data,error}=await db.from(table).select(select).range(from,from+999);
               if(error) throw new Error(`${table}: ${error.message}`);
               rows.push(...(data||[]));
               if((data||[]).length<1000) break;
             }
             return rows;
           }
-          const runtime=await all('category_runtime_review_v16_2','id,title,family,source_organization,metadata,computed_playable_v16_2,strict_pass,review_status,content_review_status,validation_status,quality_score');
+          const runtime=await all('category_runtime_review_v16_2','id,title,family,source_organization,metadata,computed_playable_v16_2,review_status,content_review_status,validation_status,quality_score');
           const strict=runtime.filter(r=>r.computed_playable_v16_2===true);
           function domain(r){
             const m=String(r?.metadata?.broadDomain||'').toLowerCase();
@@ -74,19 +72,5 @@ jobs:
           const physical=strict.filter(r=>['physical-geography','geology-natural-hazards'].includes(domain(r))).map(r=>({id:r.id,title:r.title,source:r.source_organization}));
           let releaseAssertion;
           try { const {data,error}=await db.rpc('assert_v16_2_7_release'); releaseAssertion=error?{ok:false,error:error.message}:{ok:true,data}; } catch(e){ releaseAssertion={ok:false,error:String(e)}; }
-          console.log(JSON.stringify({
-            generatedAt:new Date().toISOString(),
-            runtimeRows:runtime.length,
-            strictPlayableCandidates:strict.length,
-            macroDomains:Object.fromEntries(Object.entries(domains).sort((a,b)=>a[0].localeCompare(b[0]))),
-            reachabilityRows:reach.length,
-            categoriesWithAllThreeProofs:fullProof.length,
-            failedReachabilityRows:failed.length,
-            failedReachabilitySample:failed.slice(0,20),
-            historyCount:history.length,history,
-            sportsCount:sports.length,sports,
-            physicalAndHazardsCount:physical.length,
-            physicalAndHazards:physical,
-            releaseAssertion
-          },null,2));
+          console.log(JSON.stringify({generatedAt:new Date().toISOString(),runtimeRows:runtime.length,strictPlayableCandidates:strict.length,macroDomains:Object.fromEntries(Object.entries(domains).sort((a,b)=>a[0].localeCompare(b[0]))),reachabilityRows:reach.length,categoriesWithAllThreeProofs:fullProof.length,failedReachabilityRows:failed.length,failedReachabilitySample:failed.slice(0,20),historyCount:history.length,history,sportsCount:sports.length,sports,physicalAndHazardsCount:physical.length,physicalAndHazards:physical,releaseAssertion},null,2));
           NODE

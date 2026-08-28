@@ -42,9 +42,10 @@ def make_official_layout_book(path:Path):
     diversity.append(["Region","Country","Year","Diversity rank","RDI score","Diversity level","Buddhists","Christians","Hindus","Jews","Muslims","Other_religions","Religiously_unaffiliated","Level","Country Code"])
     iso_names=list(CANONICAL_COUNTRY_NAMES.items())[:120]
     for i,(iso3,name) in enumerate(iso_names):
-        # Deliberately make counts millions and shares small so any overwrite is obvious.
-        population=10_000_000+i*10_000
-        group_counts=[4_000_000+i*1000,2_500_000+i*900,600_000+i*700,800_000+i*600,1_200_000+i*500,500_000+i*300,400_000+i*200]
+        # Deliberately make every count millions and every share <=40 so the
+        # semantic guard catches any sheet overwrite immediately.
+        population=20_000_000+i*10_000
+        group_counts=[4_000_000+i*1000,3_500_000+i*900,2_600_000+i*700,2_800_000+i*600,2_200_000+i*500,1_500_000+i*300,1_400_000+i*200]
         group_shares=[40,25,6,8,12,5,4]
         code=100+i
         counts.append(["Region",name,2020,population]+[round(v,-3) for v in group_counts]+[1,code])
@@ -72,7 +73,7 @@ def check(m,path:Path, *, expected_diversity:float, expected_population_floor:fl
     other_total=next(c for c in candidates if c.rule.key=="other-religions-population")
     assert "Baha" in other_share.rule.description and "Sikhs" in other_share.rule.description
     assert other_share.metadata.get("groupDefinition")
-    assert importer.fetch_observations(other_total)[0].value >= expected_population_floor/10
+    assert importer.fetch_observations(other_total)[0].value >= expected_population_floor
     diversity=next(c for c in candidates if c.rule.key=="religious-diversity")
     observed=importer.fetch_observations(diversity)[0].value
     assert abs(observed-expected_diversity)<0.01,(observed,expected_diversity)

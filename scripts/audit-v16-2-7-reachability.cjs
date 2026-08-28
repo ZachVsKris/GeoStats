@@ -164,6 +164,32 @@ async function main() {
   const categories = buildPlayableCategoryCatalog(rows);
   if (!categories.length) throw new Error('Production strict-pass catalog is empty.');
 
+  // The player catalog intentionally preserves some legacy/stable gameplay IDs
+  // while the warehouse may use newer descriptive row IDs. Production loading
+  // resolves that identity before reading observations; the audit must do the
+  // same or it can falsely report an observation gap for a healthy category.
+  const playableIds = new Set(categories.map((category) => category.id));
+  const warehouseIdByGameplayId = new Map();
+  const gameplayIdByWarehouseId = new Map();
+  for (const row of rows) {
+    const built = buildPlayableCategoryCatalog([row]);
+    if (built.length !== 1) continue;
+    const gameplayId = built[0].id;
+    if (!playableIds.has(gameplayId)) continue;
+    const previous = warehouseIdByGameplayId.get(gameplayId);
+    if (previous && previous !== row.id) {
+      throw new Error(`Ambiguous warehouse identity for ${gameplayId}: ${previous} and ${row.id}`);
+    }
+    warehouseIdByGameplayId.set(gameplayId, row.id);
+    gameplayIdByWarehouseId.set(row.id, gameplayId);
+  }
+  const unresolvedWarehouseIds = categories
+    .map((category) => category.id)
+    .filter((id) => !warehouseIdByGameplayId.has(id));
+  if (unresolvedWarehouseIds.length) {
+    throw new Error(`No warehouse identity for ${unresolvedWarehouseIds.length} playable categories: ${unresolvedWarehouseIds.slice(0, 20).join(', ')}`);
+  }
+
   const byYear = new Map();
   for (const category of categories) {
     if (!Number.isInteger(category.commonYear)) throw new Error(`${category.id} has no integer common year.`);
@@ -174,7 +200,7 @@ async function main() {
   const observationsByCategory = new Map(categories.map((category) => [category.id, []]));
   for (const [year, yearCategories] of byYear.entries()) {
     for (const categoryChunk of chunks(yearCategories, 24)) {
-      const ids = categoryChunk.map((category) => category.id);
+      const ids = categoryChunk.map((category) => warehouseIdByGameplayId.get(category.id));
       const observationRows = await fetchAll((from, to) => supabase
         .from('stat_observations')
         .select('category_id,country_iso3,country_name,data_year,value')
@@ -184,7 +210,8 @@ async function main() {
         .order('country_iso3')
         .range(from, to));
       for (const row of observationRows) {
-        const list = observationsByCategory.get(row.category_id);
+        const gameplayId = gameplayIdByWarehouseId.get(row.category_id);
+        const list = gameplayId ? observationsByCategory.get(gameplayId) : undefined;
         if (!list) continue;
         list.push({
           countryId: String(row.country_iso3),

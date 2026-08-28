@@ -3,8 +3,12 @@
 
 This is intentionally a code-representation audit, not a data-validation audit.
 A row is "represented" only when both its tracker key and exact player-facing title
-are present in the mapped importer.  Source validation, common-year coverage,
+are present in the mapped importer. Source validation, common-year coverage,
 editorial review and activation remain separate release gates.
+
+Every tracked row must now be either represented by the current importer catalog or
+explicitly blocked by a durable product/data decision. Missing rows fail CI so a
+source-family cleanup cannot silently erase expansion work.
 """
 from __future__ import annotations
 
@@ -46,9 +50,38 @@ SOURCE_TO_IMPORTER = {
     "Köppen-Geiger 1991–2020 climate classification": "scripts/import-koppen-geiger.py",
 }
 
+# Durable source/product decisions are counted as accounted-for tracker rows, not
+# as importer regressions. These keys must stay explicit: broad wildcard blocking
+# would make it too easy for a future importer cleanup to hide missing concepts.
 EXPLICIT_BLOCKERS = {
-    "World Bank Climate Change Knowledge Portal": {"most-ice-days", "most-hot-days", "most-hot-humid-days", "longest-warm-spells"},
+    "World Bank Climate Change Knowledge Portal": {
+        "most-ice-days", "most-hot-days", "most-hot-humid-days", "longest-warm-spells",
+    },
     "FAOSTAT / ESA WorldCover 2021": {"moss-lichen-share"},
+    "World Bank Global Findex 2025": {
+        "financial-institution-account",
+        "mobile-money-account",
+        "debit-card-ownership",
+        "credit-card-ownership",
+        "digital-payments",
+        "formal-saving",
+        "formal-borrowing",
+        "mobile-phone-ownership",
+        "smartphone-ownership",
+        "phone-password",
+        "wages-into-account",
+        "government-payments-into-account",
+        "utility-bills-digitally",
+        "financial-resilience",
+        "saved-any-money",
+    },
+    "UNDP Human Development Reports Data Center": {
+        "mpi",
+        "mpi-headcount",
+        "mpi-intensity",
+        "female-hdi",
+        "male-hdi",
+    },
 }
 
 
@@ -131,6 +164,13 @@ def main() -> None:
     print(json.dumps(totals, indent=2))
     for item in summary:
         print(f"{item['source_family']}: {item['represented']} represented + {item['blocked']} blocked / {item['tracker_rows']} tracked; {item['missing']} missing")
+
+    if totals["missing_tracker_rows"]:
+        missing = [item for item in details if item["recovery_status"] == "missing"]
+        sample = ", ".join(f"{item['source_family']}:{item['category_key']}" for item in missing[:12])
+        raise SystemExit(
+            f"Source-family recovery audit failed closed: {totals['missing_tracker_rows']} tracked concepts are neither represented nor explicitly blocked. Sample: {sample}"
+        )
 
 
 if __name__ == "__main__":

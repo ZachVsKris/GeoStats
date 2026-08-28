@@ -158,6 +158,8 @@ def _unit_signature(*values: Any) -> str:
     elif re.search(r"women|female population", text): denominator = "-women"
     elif re.search(r"men|male population", text): denominator = "-men"
     elif re.search(r"people|persons?|population", text): denominator = "-people"
+    if re.search(r"per (?:1,?000,?000|one million|million)", text):
+        return "per-1000000" + denominator
     if re.search(r"per 100,?000", text):
         return "per-100000" + denominator
     if re.search(r"per 10,?000", text):
@@ -174,7 +176,7 @@ def _unit_signature(*values: Any) -> str:
         elif re.search(r"imports?", text): basis = "-of-imports"
         elif re.search(r"government spending|government expenditure", text): basis = "-of-government-spending"
         elif re.search(r"land area|of land", text): basis = "-of-land"
-        elif re.search(r"electricity|generation", text): basis = "-of-electricity"
+        elif re.search(r"\bof (?:total )?electricity\b|\belectricity (?:generation|output)\b|\bgeneration.*\belectricity\b", text): basis = "-of-electricity"
         elif re.search(r"population|people", text): basis = "-of-population"
         elif re.search(r"freshwater withdrawals?", text): basis = "-of-water-withdrawals"
         return "percent" + basis

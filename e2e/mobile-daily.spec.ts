@@ -422,19 +422,23 @@ test("private Random routes redirect unauthenticated users to Daily", async ({ p
 });
 
 
-test("Lock in draft submits with one touch on phone", async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 844 });
-  await installRoutes(page);
-  await page.goto("/daily");
-  await expect(page.locator(".slots .slot")).toHaveCount(4);
-  for (let index = 0; index < 4; index += 1) {
-    await page.locator(".countries .country:not(:disabled)").first().click();
-    await page.locator(".slots .slot").nth(index).click();
-  }
-  const lock = page.getByRole("button", { name: /lock in draft/i });
-  await expect(lock).toBeEnabled();
-  await lock.dispatchEvent("touchend", { touches: [], targetTouches: [], changedTouches: [] });
-  await expect(page.getByText("Final score")).toBeVisible();
+test.describe("phone touch interaction", () => {
+  test.skip(({ isMobile }) => !isMobile, "Touch interaction is covered by the Android and iPhone browser profiles.");
+
+  test("Lock in draft submits with one touch on phone", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await installRoutes(page);
+    await page.goto("/daily");
+    await expect(page.locator(".slots .slot")).toHaveCount(4);
+    for (let index = 0; index < 4; index += 1) {
+      await page.locator(".countries .country:not(:disabled)").first().click();
+      await page.locator(".slots .slot").nth(index).click();
+    }
+    const lock = page.getByRole("button", { name: /lock in draft/i });
+    await expect(lock).toBeEnabled();
+    await lock.tap();
+    await expect(page.getByText("Final score")).toBeVisible();
+  });
 });
 
 test("rules modal scrolls on phone", async ({ page }) => {

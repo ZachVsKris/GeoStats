@@ -58,6 +58,16 @@ assert not units_compatible("% of GDP", "% of exports", "Exports of goods and se
 assert not units_compatible("current US$", "constant 2015 US$", "GDP (constant 2015 US$)")
 assert not units_compatible("current local currency", "current US$", "GDP (current US$)")
 assert not units_compatible("tonnes", "thousand tonnes", "Production (thousand tonnes)")
+assert units_compatible(
+    "% of primary schools",
+    "% of primary schools",
+    "Proportion of schools with access to electricity, by education level (%)",
+)
+assert units_compatible(
+    "per million people",
+    "per million people",
+    "Researchers (in full-time equivalent) per million inhabitants (per 1,000,000 population)",
+)
 
 bad_rows = [dict(row) for row in stored_rows]
 bad_rows[1]["value"] = 49.0

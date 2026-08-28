@@ -43,6 +43,25 @@ assert pm25.unit_code == "mgr/m^3"
 assert module.accepts_dimensions(pm25, {"Location": "ALLAREA", "Reporting Type": "G"}, location_definitions)
 assert not module.accepts_dimensions(pm25, {"Location": "CITY", "Reporting Type": "G"}, location_definitions)
 
+assert module.result_exit_code({
+    "failures": [{"key": "quarantined", "error": "coverage"}],
+    "candidates_attempted": 28,
+    "categories_processed": 28,
+    "source_integrity_verified": 23,
+}, dry_run=False) == 0
+assert module.result_exit_code({
+    "failures": [{"key": "missing", "error": "source error"}],
+    "candidates_attempted": 28,
+    "categories_processed": 27,
+    "source_integrity_verified": 27,
+}, dry_run=False) == 1
+assert module.result_exit_code({
+    "failures": [],
+    "candidates_attempted": 28,
+    "categories_processed": 28,
+    "source_integrity_verified": 19,
+}, dry_run=False) == 1
+
 
 class PagedHttpFixture:
     def __init__(self):

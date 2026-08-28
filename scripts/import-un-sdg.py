@@ -79,6 +79,7 @@ SPECS = (
     Spec("disaster-death-rate", "Highest disaster death and missing rate", "VC_DSR_MTMP", "Natural hazards", "🌪️", "per 100,000 people", value_type="rate", unit_code="PER_100000_POP", min_coverage=50, maximum=None),
 )
 BY_KEY = {spec.key: spec for spec in SPECS}
+MIN_VERIFIED_BREADTH = 20
 BY_CODE: dict[str, list[Spec]] = {}
 for _spec in SPECS:
     BY_CODE.setdefault(_spec.code, []).append(_spec)
@@ -246,6 +247,23 @@ class Importer(WarehouseImporter):
         return f"unsdg:{candidate.rule.key}"
 
 
+def result_exit_code(result: dict[str, object], *, dry_run: bool) -> int:
+    """Fail on partial retrieval while allowing definite bad rows to quarantine.
+
+    A bulk source is useful when the complete curated slice was processed and a
+    substantial verified core remains. Individual integrity failures stay blocked
+    and are re-audited by the next workflow step instead of discarding the other
+    good measures in the same official batch.
+    """
+    if dry_run:
+        return 1 if result["failures"] else 0
+    attempted = int(result["candidates_attempted"])
+    processed = int(result["categories_processed"])
+    verified = int(result["source_integrity_verified"])
+    required_verified = min(MIN_VERIFIED_BREADTH, attempted)
+    return 1 if attempted == 0 or processed != attempted or verified < required_verified else 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Import curated official UN SDG bulk series.")
     parser.add_argument("--dry-run", action="store_true")
@@ -258,7 +276,7 @@ def main() -> int:
     warehouse = None if args.dry_run else SupabaseWarehouse(url, key)
     result = Importer(warehouse, dry_run=args.dry_run).run(only_keys=set(args.only) or None)
     print(result, flush=True)
-    return 1 if result["failures"] else 0
+    return result_exit_code(result, dry_run=args.dry_run)
 
 
 if __name__ == "__main__":

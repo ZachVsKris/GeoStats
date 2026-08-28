@@ -15,6 +15,7 @@ on:
       - 'supabase/migrations/060_v16_2_7_ranking_completeness_performance_hotfix.sql'
       - 'supabase/migrations/061_v16_2_7_bulk_source_antiproliferation.sql'
       - 'supabase/migrations/062_v16_2_7_vdem_curated_government.sql'
+      - 'supabase/migrations/063_v16_2_7_durable_exclusion_hard_gate.sql'
 
 permissions:
   contents: write

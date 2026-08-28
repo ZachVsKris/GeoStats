@@ -1,0 +1,48 @@
+name: Patch v16.2.7 reachability warehouse identity
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/v16-2-7-patch-reachability-warehouse-id.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Resolve stable gameplay IDs to warehouse IDs in production audit
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('scripts/audit-v16-2-7-reachability.cjs')
+          s=p.read_text()
+          old="""  const categories = buildPlayableCategoryCatalog(rows);\n  if (!categories.length) throw new Error('Production strict-pass catalog is empty.');\n\n  const byYear = new Map();\n"""
+          new="""  const categories = buildPlayableCategoryCatalog(rows);\n  if (!categories.length) throw new Error('Production strict-pass catalog is empty.');\n\n  // The player catalog intentionally preserves some legacy/stable gameplay IDs\n  // while the warehouse may use newer descriptive row IDs. Production loading\n  // resolves that identity before reading observations; the audit must do the\n  // same or it can falsely report an observation gap for a healthy category.\n  const playableIds = new Set(categories.map((category) => category.id));\n  const warehouseIdByGameplayId = new Map();\n  const gameplayIdByWarehouseId = new Map();\n  for (const row of rows) {\n    const built = buildPlayableCategoryCatalog([row]);\n    if (built.length !== 1) continue;\n    const gameplayId = built[0].id;\n    if (!playableIds.has(gameplayId)) continue;\n    const previous = warehouseIdByGameplayId.get(gameplayId);\n    if (previous && previous !== row.id) {\n      throw new Error(`Ambiguous warehouse identity for ${gameplayId}: ${previous} and ${row.id}`);\n    }\n    warehouseIdByGameplayId.set(gameplayId, row.id);\n    gameplayIdByWarehouseId.set(row.id, gameplayId);\n  }\n  const unresolvedWarehouseIds = categories\n    .map((category) => category.id)\n    .filter((id) => !warehouseIdByGameplayId.has(id));\n  if (unresolvedWarehouseIds.length) {\n    throw new Error(`No warehouse identity for ${unresolvedWarehouseIds.length} playable categories: ${unresolvedWarehouseIds.slice(0, 20).join(', ')}`);\n  }\n\n  const byYear = new Map();\n"""
+          if old not in s: raise SystemExit('first reachability patch anchor not found')
+          s=s.replace(old,new,1)
+          old2="""      const ids = categoryChunk.map((category) => category.id);\n      const observationRows = await fetchAll((from, to) => supabase\n"""
+          new2="""      const ids = categoryChunk.map((category) => warehouseIdByGameplayId.get(category.id));\n      const observationRows = await fetchAll((from, to) => supabase\n"""
+          if old2 not in s: raise SystemExit('second reachability patch anchor not found')
+          s=s.replace(old2,new2,1)
+          old3="""      for (const row of observationRows) {\n        const list = observationsByCategory.get(row.category_id);\n        if (!list) continue;\n"""
+          new3="""      for (const row of observationRows) {\n        const gameplayId = gameplayIdByWarehouseId.get(row.category_id);\n        const list = gameplayId ? observationsByCategory.get(gameplayId) : undefined;\n        if (!list) continue;\n"""
+          if old3 not in s: raise SystemExit('third reachability patch anchor not found')
+          s=s.replace(old3,new3,1)
+          p.write_text(s)
+          PY
+          node --check scripts/audit-v16-2-7-reachability.cjs
+      - name: Commit patch
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add scripts/audit-v16-2-7-reachability.cjs
+          git commit -m 'Resolve warehouse IDs in reachability audit'
+          git push

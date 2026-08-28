@@ -1,0 +1,34 @@
+name: v16.2.7 bulk diagnostics
+
+on:
+  push:
+    branches: [v16-2-7-bulk-diagnostics]
+    paths:
+      - '.github/workflows/v16-2-7-bulk-diagnostics.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download and inspect first-party bulk formats
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 4 --retry-all-errors \
+            'https://thedocs.worldbank.org/en/doc/be6615202d1f08a25855c8ac2d615122-0050012025/related/GlobalFindexDatabase2025.csv' \
+            -o /tmp/findex.csv
+          curl --fail --location --retry 4 --retry-all-errors \
+            'https://hdr.undp.org/sites/default/files/2025_HDR/HDR25_Composite_indices_complete_time_series.csv' \
+            -o /tmp/undp.csv
+          python - <<'PY'
+          import csv
+          for path in ['/tmp/findex.csv','/tmp/undp.csv']:
+              print('\n###', path)
+              with open(path, encoding='utf-8-sig', errors='replace', newline='') as f:
+                  reader=csv.reader(f)
+                  for i,row in zip(range(6),reader):
+                      print(i, row[:40])
+          PY

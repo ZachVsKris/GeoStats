@@ -48,6 +48,7 @@ for(const t of ['globalfindex2025','faofra2025','unicefdata','undphdr','vdemv16'
 }
 check(workflow.includes('npm run check-v16-2-7') && workflow.includes('playwright install --with-deps chromium'),'rebuild preflight does not run full frontend/e2e validation');
 for(const t of ['RANDOM_SAMPLES','DAILY_DAYS','generateSeededRoundFromLoadedCatalog','generateDailyTrioFromLoadedCatalog','missingAnchors','countryOpportunityCoverage','missingPewAnchors','history:un-admission']) check(reach.includes(t),`production diversity/reachability audit missing ${t}`);
+for(const t of ['warehouseIdByGameplayId','gameplayIdByWarehouseId','Ambiguous warehouse identity','No warehouse identity']) check(reach.includes(t),`reachability warehouse-id resolution missing ${t}`);
 check(/case\s+"fifa"/.test(dataSources) && /case\s+"ioc"/.test(dataSources),'runtime data-source switch omits sports source ids');
 check(/case\s+"fifa"/.test(trust) && /case\s+"ioc"/.test(trust),'category trust baselines omit sports sources');
 const sports=fs.readFileSync(path.join(root,'scripts/import-sports-history.py'),'utf8');

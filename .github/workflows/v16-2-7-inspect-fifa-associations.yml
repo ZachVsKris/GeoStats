@@ -14,30 +14,51 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Inspect official FIFA member-association directory and record pages
+      - name: Inspect official FIFA member-association directory data
         shell: bash
         run: |
           set -euo pipefail
           python - <<'PY'
-          import re, urllib.request
-          urls=['https://inside.fifa.com/en/associations','https://inside.fifa.com/en/about-fifa/associations']
-          for url in urls:
-              req=urllib.request.Request(url,headers={'User-Agent':'GeoStats/16.2.7 source validation'})
-              with urllib.request.urlopen(req,timeout=30) as r: text=r.read().decode('utf-8','replace')
-              print('DIRECTORY',url,'bytes',len(text))
-              paths=sorted(set(re.findall(r'href=["\']([^"\']*?/associations/[A-Za-z]{3})(?:[/?#"\']|$)',text,re.I)))
-              codes=sorted(set(re.findall(r'/associations/([A-Za-z]{3})(?:[/?#"\']|$)',text,re.I)))
-              print('PATH_COUNT',len(paths),'CODE_COUNT',len(codes),'CODES',codes[:250])
-              print('HAS_NEXT_DATA', '__NEXT_DATA__' in text, 'HAS_WC_TEXT', 'FIFA World Cup' in text)
-          for code in ['ENG','IND','USA','CRO','BRA','GER','SUI','NED','KOR','RSA']:
-              url=f'https://inside.fifa.com/en/associations/{code}'
-              req=urllib.request.Request(url,headers={'User-Agent':'GeoStats/16.2.7 source validation'})
-              try:
-                  with urllib.request.urlopen(req,timeout=30) as r: text=r.read().decode('utf-8','replace')
-              except Exception as e:
-                  print('PAGE_FAIL',code,repr(e)); continue
-              plain=re.sub(r'<[^>]+>',' ',text)
-              plain=re.sub(r'\s+',' ',plain)
-              idx=plain.find('FIFA World Cup')
-              print('PAGE',code,'bytes',len(text),'wcidx',idx,'sample',plain[idx:idx+650] if idx>=0 else plain[:300])
+          import html,json,re,urllib.request
+          url='https://inside.fifa.com/en/associations'
+          req=urllib.request.Request(url,headers={'User-Agent':'GeoStats/16.2.7 source validation'})
+          with urllib.request.urlopen(req,timeout=30) as r: text=r.read().decode('utf-8','replace')
+          m=re.search(r'<script[^>]+id=["\']__NEXT_DATA__["\'][^>]*>(.*?)</script>',text,re.S|re.I)
+          print('DIRECTORY_BYTES',len(text),'NEXT_MATCH',bool(m))
+          if m:
+              data=json.loads(html.unescape(m.group(1)))
+              hits=[]
+              def walk(x,path='root'):
+                  if isinstance(x,dict):
+                      vals=[str(v) for v in x.values() if isinstance(v,(str,int,float))]
+                      joined=' '.join(vals)
+                      if any(code in vals or code in joined for code in ('AFG','ENG','USA')):
+                          hits.append((path,x))
+                      for k,v in x.items(): walk(v,f'{path}.{k}')
+                  elif isinstance(x,list):
+                      for i,v in enumerate(x): walk(v,f'{path}[{i}]')
+              walk(data)
+              print('HIT_COUNT',len(hits))
+              for path,obj in hits[:35]:
+                  compact={k:v for k,v in obj.items() if isinstance(v,(str,int,float,bool,type(None)))}
+                  print('HIT',path,compact)
+          # Also inspect page metadata/JSON for one World Cup participant and one nonparticipant.
+          for code in ['ENG','IND']:
+              purl=f'https://inside.fifa.com/en/associations/{code}'
+              req=urllib.request.Request(purl,headers={'User-Agent':'GeoStats/16.2.7 source validation'})
+              with urllib.request.urlopen(req,timeout=30) as r: page=r.read().decode('utf-8','replace')
+              pm=re.search(r'<script[^>]+id=["\']__NEXT_DATA__["\'][^>]*>(.*?)</script>',page,re.S|re.I)
+              pdata=json.loads(html.unescape(pm.group(1))) if pm else {}
+              found=[]
+              def findstats(x,path='root'):
+                  if isinstance(x,dict):
+                      blob=' '.join(str(v) for v in x.values() if isinstance(v,(str,int,float)))
+                      if 'World Cup' in blob or 'Olympic Football' in blob or ('appearances' in blob.lower() and len(blob)<2000):
+                          found.append((path,{k:v for k,v in x.items() if isinstance(v,(str,int,float,bool,type(None))) }))
+                      for k,v in x.items(): findstats(v,f'{path}.{k}')
+                  elif isinstance(x,list):
+                      for i,v in enumerate(x): findstats(v,f'{path}[{i}]')
+              findstats(pdata)
+              print('PAGE_JSON',code,'HITS',len(found))
+              for path,obj in found[:40]: print('STAT',code,path,obj)
           PY

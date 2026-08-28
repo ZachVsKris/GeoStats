@@ -10,6 +10,7 @@ on:
       - 'scripts/data_pipeline/governance.py'
       - 'scripts/data_pipeline/player_source_links.py'
       - 'scripts/audit-source-integrity.py'
+      - 'scripts/requirements-data-importers.txt'
       - '.github/workflows/v16-2-7-un-sdg-recovery.yml'
 
 permissions:

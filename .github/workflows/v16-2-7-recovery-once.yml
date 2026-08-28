@@ -1,16 +1,7 @@
 name: v16.2.7 WPP repair and reachability rerun
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/v16-2-7-recovery-once.yml'
-      - 'lib/puzzleWarehouseSnapshot.ts'
-      - 'lib/serverWarehouseCategoriesV16_2_7.ts'
-      - 'scripts/import-un-wpp.py'
-      - 'scripts/test-un-wpp-importer.py'
-      - 'scripts/audit-v16-2-7-reachability.cjs'
-      - 'scripts/run-v16-2-7-reachability-audit.cjs'
+  workflow_dispatch:
 
 permissions:
   contents: read

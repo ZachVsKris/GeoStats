@@ -265,7 +265,8 @@ def _parse_rows(rows: list[list[Any]], *, source_kind: str = "mixed") -> list[di
         for (key,measure), col in columns.items():
             if col is None or col >= len(row): continue
             if measure == "share":
-                value=_as_percent(row[col])
+                value=_as_number(row[col]) if source_kind == "percentages" else _as_percent(row[col])
+                if value is not None and not 0 <= value <= 100: value=None
             else:
                 value=_as_number(row[col])
                 if value is not None and "thousand" in headers[col]: value *= 1000

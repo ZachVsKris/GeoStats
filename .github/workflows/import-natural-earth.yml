@@ -7,7 +7,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: geostats-natural-earth-import
+  group: geostats-v16-2-7-production-catalog
   cancel-in-progress: false
 
 jobs:

@@ -2,7 +2,8 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Iterable, Sequence
+import re
+from typing import Callable, Iterable, Sequence
 
 from .canonical_countries import canonical_country_name, country_name_to_iso3
 from .countries import normalize_iso3
@@ -132,17 +133,22 @@ def parse_wide_metric_file(
     *,
     default_year: int | None = None,
     fixed_year: int | None = None,
+    code_fields: Sequence[str] = ("ISO3", "ISO alpha-3", "Country Code", "Economy Code", "Code"),
+    name_fields: Sequence[str] = ("Country", "Country or Area", "Economy", "Location", "Area"),
+    row_filter: Callable[[dict[str, object]], bool] | None = None,
 ) -> dict[str, list[SourceObservation]]:
     rows = read_official_rows(path)
     out: dict[str, dict[tuple[str, int], tuple[str, float, dict[str, object]]]] = {spec.key: {} for spec in specs}
     for row in rows:
-        iso3 = country_iso3(row)
+        if row_filter is not None and not row_filter(row):
+            continue
+        iso3 = country_iso3(row, code_fields=code_fields, name_fields=name_fields)
         if not iso3:
             continue
         year = row_year(row, default=default_year)
         if year is None or (fixed_year is not None and year != fixed_year):
             continue
-        label = country_label(row, iso3)
+        label = country_label(row, iso3, name_fields=name_fields)
         normalized_headers = {norm(key): key for key in row}
         for spec in specs:
             matched_header = next((normalized_headers.get(norm(alias)) for alias in spec.aliases if normalized_headers.get(norm(alias)) is not None), None)
@@ -157,6 +163,67 @@ def parse_wide_metric_file(
     return {
         spec.key: [
             SourceObservation(iso3, name, year, value, str(Path(path)), f"{spec.key}:{iso3}:{year}", "official", {**metadata, "source_file_sha256": source_hash, "strict_exact_column_match": True})
+            for (iso3, year), (name, value, metadata) in sorted(out[spec.key].items())
+        ]
+        for spec in specs
+    }
+
+
+def parse_wide_metric_year_file(
+    path: str,
+    specs: Sequence[StrictBulkSpec],
+    *,
+    code_fields: Sequence[str] = ("ISO3", "ISO alpha-3", "Country Code", "Economy Code", "Code"),
+    name_fields: Sequence[str] = ("Country", "Country or Area", "Economy", "Location", "Area"),
+    min_year: int | None = None,
+    max_year: int | None = None,
+    fixed_year: int | None = None,
+    row_filter: Callable[[dict[str, object]], bool] | None = None,
+) -> dict[str, list[SourceObservation]]:
+    """Parse official wide tables whose metric columns are named `<metric>_<YYYY>`.
+
+    Matching is exact on the metric portion after normalization.  It never uses
+    substring/fuzzy matching, so similarly named ranks, subgroups, and component
+    columns cannot be silently substituted for a requested series.
+    """
+    rows = read_official_rows(path)
+    out: dict[str, dict[tuple[str, int], tuple[str, float, dict[str, object]]]] = {spec.key: {} for spec in specs}
+    year_header = re.compile(r"^(.*)_([12][0-9]{3})$")
+    header_matches: dict[str, list[tuple[str, int]]] = {spec.key: [] for spec in specs}
+    if rows:
+        for header in rows[0]:
+            match = year_header.fullmatch(str(header).strip())
+            if not match:
+                continue
+            base, year_text = match.groups()
+            year = int(year_text)
+            if fixed_year is not None and year != fixed_year:
+                continue
+            if min_year is not None and year < min_year:
+                continue
+            if max_year is not None and year > max_year:
+                continue
+            for spec in specs:
+                if exact_norm_match(base, spec.aliases):
+                    header_matches[spec.key].append((header, year))
+    for row in rows:
+        if row_filter is not None and not row_filter(row):
+            continue
+        iso3 = country_iso3(row, code_fields=code_fields, name_fields=name_fields)
+        if not iso3:
+            continue
+        label = country_label(row, iso3, name_fields=name_fields)
+        for spec in specs:
+            for header, year in header_matches[spec.key]:
+                parsed = number(row.get(header))
+                if parsed is None:
+                    continue
+                value = _guard_value(spec, parsed)
+                _insert_unique(out[spec.key], spec=spec, iso3=iso3, year=year, name=label, value=value, metadata={"column": header, "metric_year_column": True})
+    source_hash = source_file_sha256(path)
+    return {
+        spec.key: [
+            SourceObservation(iso3, name, year, value, str(Path(path)), f"{spec.key}:{iso3}:{year}", "official", {**metadata, "source_file_sha256": source_hash, "strict_exact_metric_year_match": True})
             for (iso3, year), (name, value, metadata) in sorted(out[spec.key].items())
         ]
         for spec in specs

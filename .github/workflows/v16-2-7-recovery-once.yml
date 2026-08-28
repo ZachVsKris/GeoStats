@@ -1,4 +1,4 @@
-name: v16.2.7 one-shot recovery and reachability proof
+name: v16.2.7 WPP repair and reachability rerun
 
 on:
   push:
@@ -19,9 +19,9 @@ env:
   SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
 
 jobs:
-  recover-and-prove:
+  repair-wpp-and-prove:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 90
     steps:
       - uses: actions/checkout@v6
       - uses: actions/setup-node@v6
@@ -42,27 +42,12 @@ jobs:
             -r scripts/requirements-data-importers.txt \
             -r scripts/requirements-faostat.txt \
             -r scripts/requirements-geography.txt
-      - name: Refresh and independently audit self-fetching official source families
-        shell: bash
-        run: |
-          set -euo pipefail
-          run_source() {
-            local slug="$1"; shift
-            echo "::group::Import $slug"
-            "$@"
-            echo "::endgroup::"
-            python scripts/audit-source-integrity.py --source "$slug" --include-nonplayable --fail-on-source-error --fail-on-empty --report-dir "artifacts/source-integrity/$slug"
-          }
-          run_source naturalearth python scripts/import-natural-earth.py
-          run_source unmembership python scripts/import-historical-categories.py --source unmembership --require-complete
-          run_source constitute python scripts/import-historical-categories.py --source constitute
-          run_source ipu python scripts/import-historical-categories.py --source ipu --require-complete
-          run_source worldbankhistory python scripts/import-historical-categories.py --source worldbankhistory --require-complete
-          run_source unwpp python scripts/import-un-wpp.py
-          run_source worldbankclimate python scripts/import-world-bank-climate.py
-          run_source naturalearthcapitals python scripts/import-natural-earth-capitals.py
-          run_source unescoich python scripts/import-unesco-ich.py
-          run_source worldbankinfra python scripts/import-world-bank-infrastructure.py
+      - name: Verify WPP importer regression fixture
+        run: python scripts/test-un-wpp-importer.py
+      - name: Refresh repaired WPP source
+        run: python scripts/import-un-wpp.py
+      - name: Independently audit WPP source
+        run: python scripts/audit-source-integrity.py --source unwpp --include-nonplayable --fail-on-source-error --fail-on-empty --report-dir artifacts/source-integrity/unwpp
       - name: Stage strict-pass candidates without publishing
         run: python scripts/stage-v16-2-7-catalog.py
       - name: Write production-solver reachability and diversity evidence
@@ -71,12 +56,12 @@ jobs:
         run: node scripts/audit-v16-2-7-reachability.cjs --write --anchor-samples=30000
       - name: Report reachability outcome
         run: |
-          echo "Reachability audit outcome: ${{ steps.reachability.outcome }} (publication intentionally not attempted by this one-shot workflow)."
-      - name: Upload source audit evidence
+          echo "Reachability audit outcome: ${{ steps.reachability.outcome }} (publication intentionally not attempted)."
+      - name: Upload WPP audit evidence
         uses: actions/upload-artifact@v7
         if: always()
         with:
-          name: geostats-v16-2-7-one-shot-source-audits
-          path: artifacts/source-integrity
+          name: geostats-v16-2-7-wpp-repair-audit
+          path: artifacts/source-integrity/unwpp
           retention-days: 30
           if-no-files-found: warn

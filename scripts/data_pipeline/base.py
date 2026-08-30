@@ -39,6 +39,13 @@ MANUAL_REVIEW_SOURCES = {
 # are fetched. Supabase enforces the same decisions at the table boundary, so a
 # future importer or catalog rebuild cannot spend time on or reactivate them.
 DURABLE_CATEGORY_EXCLUSIONS = {
+    "exportsShare",
+    "worldbank-catalog:bx-gsr-gnfs-cd",
+    "worldbank-catalog:bm-gsr-gnfs-cd",
+    "worldbank-catalog:bx-gsr-totl-cd",
+    "worldbank-catalog:bx-gsr-nfsv-cd",
+    "worldbank-catalog:bm-gsr-nfsv-cd",
+    "worldbank-catalog:bn-gsr-gnfs-cd",
     "unescoich:most-elements",
     "worldbank-catalog:bn-gsr-fcty-cd",
     "worldbank-catalog:bn-trf-curr-cd",

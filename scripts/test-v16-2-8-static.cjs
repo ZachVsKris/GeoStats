@@ -11,6 +11,7 @@ const percentHotfix = read("supabase/migrations/070_v16_2_8_percent_title_semant
 const ownerFollowup = read("supabase/migrations/071_v16_2_8_owner_followup_retirements.sql");
 const otherReligions = read("supabase/migrations/072_v16_2_8_define_other_religions.sql");
 const cardPunctuation = read("supabase/migrations/073_v16_2_8_card_description_punctuation.sql");
+const tradeRetirements = read("supabase/migrations/074_v16_2_8_owner_trade_aggregate_retirements.sql");
 const importerBase = read("scripts/data_pipeline/base.py");
 const unhcr = read("scripts/import-unhcr.py");
 const sourceFamilyRecovery = read("scripts/audit-v16-2-6-source-family-recovery.py");
@@ -36,6 +37,7 @@ check(/^begin;/m.test(percentHotfix) && /commit;\s*$/.test(percentHotfix), "v16.
 check(/^begin;/m.test(ownerFollowup) && /commit;\s*$/.test(ownerFollowup), "v16.2.8 owner follow-up is not transaction wrapped");
 check(/^begin;/m.test(otherReligions) && /commit;\s*$/.test(otherReligions), "v16.2.8 other-religions definition is not transaction wrapped");
 check(/^begin;/m.test(cardPunctuation) && /commit;\s*$/.test(cardPunctuation), "v16.2.8 card punctuation migration is not transaction wrapped");
+check(/^begin;/m.test(tradeRetirements) && /commit;\s*$/.test(tradeRetirements), "v16.2.8 trade-retirement migration is not transaction wrapped");
 for (const token of [
   "category_board_description_v16_2_8",
   "category_copy_clarity_v16_2_8",
@@ -91,6 +93,22 @@ for (const token of [
   "Most people without citizenship in any country",
   "this is what “stateless” means",
 ]) check(ownerFollowup.includes(token), `owner follow-up missing ${token}`);
+for (const id of [
+  "exportsShare",
+  "worldbank-catalog:bx-gsr-gnfs-cd",
+  "worldbank-catalog:bm-gsr-gnfs-cd",
+  "worldbank-catalog:bx-gsr-totl-cd",
+  "worldbank-catalog:bx-gsr-nfsv-cd",
+  "worldbank-catalog:bm-gsr-nfsv-cd",
+  "worldbank-catalog:bn-gsr-gnfs-cd",
+]) {
+  check(tradeRetirements.includes(`'${id}'`), `trade retirement missing ${id}`);
+  check(importerBase.includes(`"${id}"`), `durable importer filter missing ${id}`);
+}
+for (const token of [
+  "trade-category removals did not remain fail-closed",
+  "expected exactly 316 runtime-playable categories",
+]) check(tradeRetirements.includes(token), `trade-retirement verification missing ${token}`);
 check(unhcr.includes("Most people without citizenship in any country"), "UNHCR importer can restore the old statelessness title");
 check(unhcr.includes("this is what 'stateless' means"), "UNHCR importer does not define statelessness plainly");
 check(sourceFamilyRecovery.includes('"most-stateless-people": "Most people without citizenship in any country"'), "source-family recovery audit retains the old statelessness title");

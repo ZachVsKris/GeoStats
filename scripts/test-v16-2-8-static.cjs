@@ -7,6 +7,7 @@ const check = (condition, message) => { if (!condition) failures.push(message); 
 const read = (relative) => fs.readFileSync(path.join(root, relative), "utf8");
 
 const migration = read("supabase/migrations/069_v16_2_8_reviewer_category_copy_and_dedup.sql");
+const percentHotfix = read("supabase/migrations/070_v16_2_8_percent_title_semantic_hotfix.sql");
 const playable = read("lib/playableCatalog.ts");
 const naturalEarth = read("scripts/import-natural-earth.py");
 const worldBankInfrastructure = read("scripts/import-world-bank-infrastructure.py");
@@ -14,12 +15,21 @@ const worldBankCatalog = read("scripts/import-world-bank-catalog.py");
 const workflow = read(".github/workflows/verify-v16.yml");
 
 check(/^begin;/m.test(migration) && /commit;\s*$/.test(migration), "v16.2.8 migration is not transaction wrapped");
+check(/^begin;/m.test(percentHotfix) && /commit;\s*$/.test(percentHotfix), "v16.2.8 percent-title hotfix is not transaction wrapped");
 for (const token of [
   "category_board_description_v16_2_8",
   "category_copy_clarity_v16_2_8",
   "v16.2.8 playable-category clarity gate failed",
   "v16.2.8 owner-review copy update was incomplete",
 ]) check(migration.includes(token), `v16.2.8 migration missing ${token}`);
+for (const token of [
+  "pg_get_functiondef",
+  "share|percentage|percent|%|rate",
+  "share|percent|percentage|%|rate",
+  "category_v16_2_copy_is_clear",
+  "refresh_category_semantic_audit_v16_1",
+  "retained categories are not all runtime-playable",
+]) check(percentHotfix.includes(token), `v16.2.8 percent-title hotfix missing ${token}`);
 
 const copyBlock = migration.match(/insert into v069_copy[\s\S]*?;\n\nupdate public\.stat_categories/)?.[0] ?? "";
 const copyRows = [...copyBlock.matchAll(/^\s*\('([^']+)','([^']*)',/gm)].map((match) => ({ id: match[1], title: match[2] }));

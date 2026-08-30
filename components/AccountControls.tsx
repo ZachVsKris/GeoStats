@@ -9,6 +9,7 @@ type PendingScore = { challengeDate: string; difficulty: DailyDifficulty; assign
 type AccountContext = "default" | "expert" | "leaderboard";
 type Props = {
   pendingScore?: PendingScore;
+  onScoreSaved?: (score: Pick<PendingScore, "challengeDate" | "difficulty">) => void;
   results?: boolean;
   difficulty?: DailyDifficulty;
   context?: AccountContext;
@@ -20,6 +21,7 @@ const pendingKey = (difficulty: DailyDifficulty) => `geostats-pending-daily-scor
 
 export default function AccountControls({
   pendingScore,
+  onScoreSaved,
   results = false,
   difficulty = "easy",
   context = "default",
@@ -71,6 +73,7 @@ export default function AccountControls({
         const data = await response.json().catch(() => ({}));
         if (response.ok) {
           localStorage.removeItem(key);
+          onScoreSaved?.({ challengeDate: pending.challengeDate, difficulty });
           const label = difficulty === "expert" ? "Expert" : difficulty === "easy" ? "Scout" : "Adventurer";
           setMessage(data.alreadyCompleted
             ? `${label} Daily was already completed. Your original score remains saved.`

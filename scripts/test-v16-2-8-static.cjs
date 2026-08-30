@@ -22,6 +22,12 @@ const workflow = read(".github/workflows/verify-v16.yml");
 const challengeCodec = read("lib/challengeCodec.ts");
 const publicDaily = read("lib/publicDaily.ts");
 const game = read("components/GeoSecondComingGame.tsx");
+const accountControls = read("components/AccountControls.tsx");
+const leaderboardPage = read("app/leaderboard/page.tsx");
+const leaderboardRoute = read("app/api/leaderboard/route.ts");
+const expertPage = read("app/daily/expert/page.tsx");
+const profileRoute = read("app/api/profile/route.ts");
+const privacyMigration = read("supabase/migrations/047_v16_2_6_full_release.sql");
 
 check(/^begin;/m.test(migration) && /commit;\s*$/.test(migration), "v16.2.8 migration is not transaction wrapped");
 check(/^begin;/m.test(percentHotfix) && /commit;\s*$/.test(percentHotfix), "v16.2.8 percent-title hotfix is not transaction wrapped");
@@ -146,6 +152,25 @@ for (const token of [
   "original countries, values, rules, and scoring",
 ]) check(publicDaily.includes(token), `public Daily copy hydration missing ${token}`);
 check(game.includes("have your verified score saved automatically"), "Expert account copy incorrectly implies manual score submission");
+for (const token of [
+  "expertPreview = !isRandom && difficulty === \"expert\" && !canPlayExpert",
+  "disabled={expertPreview||used.has(country.id)}",
+  "Saved automatically to your account and included in the verified standings.",
+  "onScoreSaved={(saved)",
+]) check(game.includes(token), `Expert/account score flow missing ${token}`);
+for (const token of [
+  "onScoreSaved?.({ challengeDate: pending.challengeDate, difficulty })",
+  "Verified Daily scores are saved automatically",
+  "Your email never does",
+]) check(accountControls.includes(token), `account UI missing ${token}`);
+check(leaderboardPage.includes("signedIn ? <LeaderboardView") && leaderboardPage.includes("Account-only standings"), "leaderboard page is not visibly account-gated");
+check(leaderboardRoute.includes("Sign in to view the GeoStats leaderboard") && leaderboardRoute.includes("status: 401"), "leaderboard API is not authentication-gated");
+check(expertPage.includes("canPlayExpert={Boolean(userResult?.data.user)}"), "Expert play does not use server-authenticated access state");
+check(profileRoute.includes("usernamePassesModeration") && profileRoute.includes("Your email") === false, "username moderation or profile privacy regressed");
+for (const token of [
+  'create policy "users read own profile"',
+  'create policy "users read own scores"',
+]) check(privacyMigration.includes(token), `private account-row policy missing ${token}`);
 
 if (failures.length) {
   console.error(`GeoStats v16.2.8 category clarity checks FAILED:\n${failures.map((item) => ` - ${item}`).join("\n")}`);

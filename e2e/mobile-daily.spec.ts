@@ -252,7 +252,7 @@ for (const viewport of mobileCases) {
       expect(layout.countriesInsideBank).toBeTruthy();
       expect(layout.allSlotsVisible).toBeTruthy();
       expect(layout.slotColumns).toBe(2);
-      expect(layout.slotEdgeColors).toBe(1);
+      expect(layout.slotEdgeColors).toBeGreaterThan(1);
       expect(layout.countryRows).toBeLessThanOrEqual(2);
       expect(layout.countryBankHeight).toBeGreaterThanOrEqual(viewport.orientation === "landscape" ? 50 : mode.minBankHeight);
       expect(layout.minCountryCardHeight).toBeGreaterThanOrEqual(viewport.orientation === "landscape" ? 24 : mode.minCountryCardHeight);
@@ -398,6 +398,16 @@ test("leaderboard clearly requires a GeoStats account", async ({ page }) => {
   expect(apiResponse.headers()["cache-control"]).toBe("private, no-store");
   const apiBody = await apiResponse.json();
   expect(apiBody.error).toMatch(/Sign in to view|Accounts are not configured/);
+});
+
+test("board card colors have a clear non-scoring key", async ({ page }) => {
+  await installRoutes(page);
+  await page.goto("/daily");
+  const colorKey = page.locator(".categoryColorKey:visible").first();
+  await colorKey.locator("summary").click();
+  await expect(colorKey.getByText("Card-edge colors group subjects")).toBeVisible();
+  await expect(colorKey.getByText("They are guides only and do not change scoring")).toBeVisible();
+  await expect(colorKey.getByText("Geography & environment")).toBeVisible();
 });
 
 

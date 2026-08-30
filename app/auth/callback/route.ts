@@ -78,7 +78,12 @@ export async function GET(request: Request) {
     // exchangeCodeForSession/verifyOtp writes the access and refresh tokens to
     // persistent cookies before this redirect. The browser and server therefore
     // see the same session after a tab or browser restart.
-    return NextResponse.redirect(new URL(next, origin));
+    const destination = new URL(next, origin);
+    const createdAt = Date.parse(user.created_at);
+    const isNewAccount = Number.isFinite(createdAt) && Date.now() - createdAt < 5 * 60 * 1000;
+    destination.searchParams.set("auth", "success");
+    destination.searchParams.set("account", isNewAccount ? "new" : "returning");
+    return NextResponse.redirect(destination);
   } catch (caught) {
     const errorUrl = new URL("/auth/complete", origin);
     errorUrl.searchParams.set(

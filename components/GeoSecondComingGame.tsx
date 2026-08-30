@@ -14,6 +14,7 @@ import { trackAnalytics } from "../lib/analytics";
 import { CATEGORY_SET_VERSION, DATASET_VERSION, PLAYER_COPY_VERSION, RULES_VERSION } from "../lib/version";
 import { categoryMeasurementBadgeLabel, categoryMeasurementLabel } from "../lib/categoryMeasurement";
 import type { DailyApiPayload, PackedApiBoard } from "../lib/dailyPublicPayload";
+import type { Category } from "../lib/categories";
 
 type Assignment = Record<string, string>;
 type ScoreRow = {
@@ -47,6 +48,30 @@ type GeoSecondComingGameProps = {
   initialDailyPayload?: DailyApiPayload;
   canPlayExpert?: boolean;
 };
+
+function categoryThemeClass(category: Category) {
+  const subject = `${category.family} ${category.semanticFamily ?? ""} ${category.semanticTopic ?? ""} ${category.name}`.toLowerCase();
+  if (/health|disease|mortality|medical|hospital/.test(subject)) return "theme-health";
+  if (/agricultur|food|crop|livestock|fish|forest/.test(subject)) return "theme-agriculture";
+  if (/energy|electric|fuel|oil|gas|coal|renewable/.test(subject)) return "theme-energy";
+  if (/technology|science|research|digital|internet|patent|space/.test(subject)) return "theme-technology";
+  if (/transport|travel|tourism|aviation|road|rail|shipping/.test(subject)) return "theme-transport";
+  if (/econom|trade|finance|income|price|wealth|business|industry/.test(subject)) return "theme-economy";
+  if (/land|climate|environment|geograph|water|lake|river|desert|mountain|coast|glacier|weather|natural/.test(subject)) return "theme-land";
+  if (/population|people|demograph|religion|culture|history|society|education|labor|urban|migration/.test(subject)) return "theme-population";
+  return "theme-other";
+}
+
+const CATEGORY_COLOR_KEY = [
+  ["theme-population", "People & society"], ["theme-economy", "Economy"],
+  ["theme-health", "Health"], ["theme-land", "Geography & environment"],
+  ["theme-agriculture", "Food & agriculture"], ["theme-energy", "Energy"],
+  ["theme-technology", "Science & technology"], ["theme-transport", "Travel & transport"],
+] as const;
+
+function CategoryColorKey({ mobile = false }: { mobile?: boolean }) {
+  return <details className={`categoryColorKey ${mobile ? "mobileBoardColorKey" : ""}`}><summary>Color key</summary><div><strong>Card-edge colors group subjects</strong><p>They are guides only and do not change scoring</p>{CATEGORY_COLOR_KEY.map(([theme, label]) => <span key={theme} className={theme}><i />{label}</span>)}</div></details>;
+}
 
 const DAILY_FALLBACK_CACHE_TTL_MS = 5 * 60 * 1000;
 const dailyMemoryCache = new Map<string, DailyApiPayload>();
@@ -276,7 +301,13 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
     trackAnalytics("game_started", {
       difficulty,
       challengeDate: isRandom ? undefined : dailyDateFromSeed(seed),
-      metadata: { mode: isRandom ? "random" : "daily", countryCount: round.bank.length, categoryCount: round.categories.length },
+      metadata: {
+        mode: isRandom ? "random" : "daily",
+        countryCount: round.bank.length,
+        categoryCount: round.categories.length,
+        countryIds: round.bank.map((country) => country.id),
+        categoryIds: round.categories.map((category) => category.category.id),
+      },
     });
   }, [round, difficulty, seed, isRandom, expertPreview]);
 
@@ -627,6 +658,8 @@ Can you beat my score?`;
           mode: isRandom ? "random" : "daily",
           averagePlacement: scoredRows.reduce((sum, row) => sum + row.rank, 0) / scoredRows.length,
           categoryCount: scoredRows.length,
+          countryIds: round.bank.map((country) => country.id),
+          categoryIds: round.categories.map((category) => category.category.id),
         },
       });
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -671,6 +704,7 @@ Can you beat my score?`;
           <button onClick={copyRandomLink}>{copied ? "Link copied ✓" : "Copy link"}</button>
         </div>}
         <span className="mobileProgress">{Object.keys(assignments).length}/{categoryTarget} assigned</span>
+        {!scores && <CategoryColorKey mobile />}
         {scores && <button className="resultsRulesLink" onClick={() => setShowRules(true)}>Rules</button>}
       </div>
     </section>
@@ -698,8 +732,8 @@ Can you beat my score?`;
         <div className="countries" aria-label="Country bank">{round.bank.map((country) => <button key={country.id} draggable={!expertPreview&&!used.has(country.id)} onDragStart={(event)=>{if(!expertPreview)event.dataTransfer.setData("text/plain", country.id)}} onTouchStart={(event)=>beginTouch(event,country.id)} onTouchMove={moveTouch} onTouchEnd={endTouch} onTouchCancel={endTouch} className={`country ${selected===country.id?"selected":""} ${selectedCategory&&!used.has(country.id)?"categoryTarget":""} ${used.has(country.id)?"used":""}`} aria-pressed={selected===country.id} disabled={expertPreview||used.has(country.id)} onClick={() => selectCountry(country.id)}><span>{country.flag}</span><div><strong title={country.name}><span className="desktopCountryName">{country.name}</span><span className="mobileCountryName">{shortCountryName(country.name)}</span></strong></div>{used.has(country.id)&&<b>USED</b>}</button>)}</div>
       </section>
       <div className="boardSpine" aria-hidden="true"/>
-      <section className="panel boardPanel"><div className="panelTitle"><div><span className="kicker">The atlas</span><h3>Match countries to measures</h3></div><small>One use per country</small></div>
-        <div className="slots" aria-label="Measures to match">{round.categories.map((dataset, index) => { const c = round.bank.find((x)=>x.id===assignments[dataset.category.id]); return <button key={dataset.category.id} data-category-id={dataset.category.id} className={`slot ${c?"assigned":""} ${selected&&!c?"target":""} ${selectedCategory===dataset.category.id?"selectedCategory":""} ${touchDrag?.targetCategoryId===dataset.category.id?"touchTarget":""}`} aria-pressed={selectedCategory===dataset.category.id} disabled={expertPreview} onDragOver={(event)=>{if(!expertPreview)event.preventDefault()}} onDrop={(event)=>{event.preventDefault();if(expertPreview)return;const dropped=event.dataTransfer.getData("text/plain");if(dropped)assignCountry(dataset.category.id,dropped)}} onClick={()=>selectCategory(dataset.category.id)}><span className="cornerNotch" aria-hidden="true"/><div className="category" title={categoryMeasurementLabel(dataset.category)}><span>{dataset.category.icon}</span><div className="categoryCopy"><strong>{dataset.category.name}</strong><small>{dataset.category.boardDescription ?? dataset.category.description}</small><span className="measurementBadge" title={categoryMeasurementLabel(dataset.category)}>{categoryMeasurementBadgeLabel(dataset.category)}</span></div><b className="slotNumber">{String(index + 1).padStart(2, "0")}</b></div><div className={`choice ${c?"filled":""}`}>{c?<><span className="pieceFlag">{c.flag}</span><strong className="pieceName">{c.name}</strong><i className="removePiece" aria-label={`Remove ${c.name} from ${dataset.category.name}`} title="Remove country" onClick={(e)=>{e.stopPropagation();setAssignments((a)=>{const n={...a};delete n[dataset.category.id];return n;});setSelectedCategory(null);}}>×</i></>:<em>{expertPreview?"Preview only":selected?"Place selected country":selectedCategory===dataset.category.id?"Now choose a country":"Select a country"}</em>}</div></button>})}</div>
+      <section className="panel boardPanel"><div className="panelTitle"><div><span className="kicker">The atlas</span><h3>Match countries to measures</h3></div><div className="panelTitleTools"><small>One use per country</small><CategoryColorKey /></div></div>
+        <div className="slots" aria-label="Measures to match">{round.categories.map((dataset, index) => { const c = round.bank.find((x)=>x.id===assignments[dataset.category.id]); return <button key={dataset.category.id} data-category-id={dataset.category.id} className={`slot ${categoryThemeClass(dataset.category)} ${c?"assigned":""} ${selected&&!c?"target":""} ${selectedCategory===dataset.category.id?"selectedCategory":""} ${touchDrag?.targetCategoryId===dataset.category.id?"touchTarget":""}`} aria-pressed={selectedCategory===dataset.category.id} disabled={expertPreview} onDragOver={(event)=>{if(!expertPreview)event.preventDefault()}} onDrop={(event)=>{event.preventDefault();if(expertPreview)return;const dropped=event.dataTransfer.getData("text/plain");if(dropped)assignCountry(dataset.category.id,dropped)}} onClick={()=>selectCategory(dataset.category.id)}><span className="cornerNotch" aria-hidden="true"/><div className="category" title={categoryMeasurementLabel(dataset.category)}><span>{dataset.category.icon}</span><div className="categoryCopy"><strong>{dataset.category.name}</strong><small>{dataset.category.boardDescription ?? dataset.category.description}</small><span className="measurementBadge" title={categoryMeasurementLabel(dataset.category)}>{categoryMeasurementBadgeLabel(dataset.category)}</span></div><b className="slotNumber">{String(index + 1).padStart(2, "0")}</b></div><div className={`choice ${c?"filled":""}`}>{c?<><span className="pieceFlag">{c.flag}</span><strong className="pieceName">{c.name}</strong><i className="removePiece" aria-label={`Remove ${c.name} from ${dataset.category.name}`} title="Remove country" onClick={(e)=>{e.stopPropagation();setAssignments((a)=>{const n={...a};delete n[dataset.category.id];return n;});setSelectedCategory(null);}}>×</i></>:<em>{expertPreview?"Preview only":selected?"Place selected country":selectedCategory===dataset.category.id?"Now choose a country":"Select a country"}</em>}</div></button>})}</div>
         <div className="lock" aria-live="polite"><span>{expertPreview?"Free account required to play":categoryTarget-Object.keys(assignments).length>0?`${categoryTarget-Object.keys(assignments).length} selections remaining`:"Draft complete"}</span><button type="button" disabled={expertPreview||Object.keys(assignments).length!==categoryTarget} onTouchEnd={(event)=>{event.preventDefault();score();}} onClick={score}>{expertPreview?"Sign in above to play":"Lock in draft"}</button></div>
       </section>
     </main>}

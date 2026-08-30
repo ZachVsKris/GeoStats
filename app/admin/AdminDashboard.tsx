@@ -141,7 +141,19 @@ type AnalyticsOverview = {
   shares: number;
   average_percent: number | null;
   signed_in_users_seen: number;
+  new_visitors: number;
+  returning_visitors: number;
+  returning_rate: number | null;
+  account_gate_opens: number;
+  signin_requests: number;
+  authenticated_sessions: number;
+  usernames_saved: number;
+  completion_rate: number | null;
 };
+type AnalyticsDailyRow = { activity_date: string; event_name: string; difficulty: DailyMode | null; events: number; sessions: number; signed_in_users: number; average_value: number | null };
+type AnalyticsDifficultyRow = { difficulty: DailyMode; games_started: number; games_completed: number; sessions: number; completion_rate: number | null; average_percent: number | null };
+type AnalyticsAcquisitionRow = { visitor_state: string; utm_source: string; utm_medium: string; utm_campaign: string; referrer: string; page_views: number; sessions: number; games_completed: number; authenticated_sessions: number };
+type AnalyticsEngagementRow = { id: string; label: string; games_started: number; games_completed: number; sessions: number };
 type SourceHealthRow = { source: string; categories: number; playable: number; pending: number; latestRetrieved: string | null };
 type GenerationRun = { id: number; created_at: string; challenge_date: string; status: string; source: string; error_message: string | null };
 type CategoryExposureSummary = { daily_dates: number; category_slots: number; distinct_categories: number; playable_catalog_size: number; catalog_utilization_percent: number | null; categories_three_plus: number; max_category_appearances: number | null; median_repeat_interval_days: number | null };
@@ -167,6 +179,15 @@ type Dashboard = {
   boards: Record<string, boolean>;
   todayScoreCount: number;
   analytics: AnalyticsOverview;
+  analyticsDetails: {
+    migrationApplied: boolean;
+    daily: AnalyticsDailyRow[];
+    byDifficulty: AnalyticsDifficultyRow[];
+    acquisition: AnalyticsAcquisitionRow[];
+    topCategories: AnalyticsEngagementRow[];
+    topCountries: AnalyticsEngagementRow[];
+  };
+  warehouseHealth: { status: "healthy" | "degraded"; healthy: number; total: number; checks: { label: string; healthy: boolean }[]; checkedAt: string };
   sourceHealth: SourceHealthRow[];
   generationRuns: GenerationRun[];
   diversity: { migrationApplied: boolean; categories: CategoryExposureSummary; topCategories: TopCategoryExposure[]; countries: CountryExposureSummary };
@@ -512,6 +533,15 @@ export default function AdminDashboard() {
     const key = category.promotion_decision_v16_2 ?? "unassessed"; counts[key] = (counts[key] ?? 0) + 1; return counts;
   }, {});
   const dailyModeLabels: Record<DailyMode, string> = { easy: "Scout", normal: "Adventurer", expert: "Expert" };
+  const activityByDate = new Map<string, { pageViews: number; completions: number }>();
+  for (const row of data.analyticsDetails.daily) {
+    const current = activityByDate.get(row.activity_date) ?? { pageViews: 0, completions: 0 };
+    if (row.event_name === "page_view") current.pageViews += Number(row.events);
+    if (row.event_name === "game_completed") current.completions += Number(row.events);
+    activityByDate.set(row.activity_date, current);
+  }
+  const recentActivity = [...activityByDate.entries()].slice(-14);
+  const maxDailyPageViews = Math.max(1, ...recentActivity.map(([, value]) => value.pageViews));
 
   return (
     <>
@@ -522,6 +552,28 @@ export default function AdminDashboard() {
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, flexWrap: "wrap" }}>
           <div><span className="kicker">v16.2.7 catalog + generator rebuild</span><h2 style={{ margin: "5px 0" }}>Review categories in the Workbench</h2><p style={{ margin: 0, opacity: .72 }}>One authoritative decision, permanent political/self-report and clarity flags, source values, overlaps, and keyboard review.</p></div>
           <a href="/admin/review" style={{ ...button, display: "inline-block", textDecoration: "none" }}>Open Category Review</a>
+        </div>
+      </section>
+
+      <section style={{ ...card, marginBottom: 16, borderColor: data.warehouseHealth.status === "healthy" ? "rgba(185,244,90,.45)" : "rgba(255,190,90,.55)" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", gap: 16, alignItems: "start", flexWrap: "wrap" }}>
+          <div><span className="kicker">Warehouse status</span><h2 style={{ margin: "5px 0" }}>{data.warehouseHealth.status === "healthy" ? "All reporting systems available" : "Dashboard loaded with degraded reporting"}</h2><p style={{ margin: 0, opacity: .72 }}>{data.warehouseHealth.healthy}/{data.warehouseHealth.total} subsystems available · checked {new Date(data.warehouseHealth.checkedAt).toLocaleString()}</p></div>
+          <button type="button" style={button} disabled={loading} onClick={() => void load()}>{loading ? "Refreshing…" : "Refresh status"}</button>
+        </div>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 7, marginTop: 13 }}>
+          {data.warehouseHealth.checks.map((check) => <span key={check.label} style={{ padding: "6px 9px", borderRadius: 99, border: `1px solid ${check.healthy ? "rgba(185,244,90,.35)" : "rgba(255,190,90,.5)"}`, background: check.healthy ? "rgba(185,244,90,.06)" : "rgba(255,190,90,.09)", fontSize: 11 }}>{check.healthy ? "✓" : "!"} {check.label}</span>)}
+        </div>
+      </section>
+
+      <section style={{ ...card, marginBottom: 16 }}>
+        <h2 style={{ marginTop: 0 }}>How catalog statuses differ</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(210px,1fr))", gap: 10 }}>
+          {[
+            ["Eligibility", "Whether a category passes every current content, data, integrity and gameplay gate and may enter generation"],
+            ["Review priority", "The order worth reviewing candidates in; high priority is not the same as playable"],
+            ["Utilization", "How often eligible categories actually appeared in published Dailies during the reporting window"],
+            ["Blocker", "The first recorded reason a category cannot become playable; additional blockers remain visible in its detail"],
+          ].map(([label, explanation]) => <div key={label} style={{ padding: 12, borderRadius: 10, background: "rgba(255,255,255,.04)" }}><strong>{label}</strong><p style={{ margin: "5px 0 0", opacity: .7, fontSize: 12, lineHeight: 1.45 }}>{explanation}</p></div>)}
         </div>
       </section>
 
@@ -553,18 +605,66 @@ export default function AdminDashboard() {
           {[
             ["Visitors", data.analytics.visitors],
             ["Page views", data.analytics.page_views],
+            ["New visitors", data.analytics.new_visitors],
+            ["Returning visitors", data.analytics.returning_visitors],
+            ["Repeat rate", data.analytics.returning_rate == null ? "—" : `${data.analytics.returning_rate}%`],
             ["New accounts", data.stats.accounts30d],
             ["Signed-in visitors", data.analytics.signed_in_users_seen],
             ["Games started", data.analytics.games_started],
             ["Games completed", data.analytics.games_completed],
-            ["Completion rate", data.analytics.games_started ? `${Math.round((data.analytics.games_completed / data.analytics.games_started) * 100)}%` : "—"],
+            ["Completion rate", data.analytics.completion_rate == null ? "—" : `${data.analytics.completion_rate}%`],
             ["Shares", data.analytics.shares],
             ["Average %", data.analytics.average_percent == null ? "—" : `${data.analytics.average_percent}%`],
           ].map(([label, value]) => <div key={String(label)} style={{ padding: 12, borderRadius: 12, background: "rgba(255,255,255,.04)" }}>
             <div style={{ opacity: .7, fontSize: 12 }}>{label}</div><strong style={{ fontSize: 22 }}>{typeof value === "number" ? formatNumber(value) : value}</strong>
           </div>)}
         </div>
-        <p style={{ opacity: .64, marginBottom: 0, fontSize: 12 }}>First-party, privacy-conscious analytics begin after the combined v14.4 Supabase installer is applied.</p>
+        <p style={{ opacity: .64, marginBottom: 0, fontSize: 12 }}>First-party, privacy-conscious traffic and account reporting; no ad tracker or precise location data</p>
+      </section>
+
+      <section style={{ ...card, marginTop: 16 }}>
+        <h2 style={{ marginTop: 0 }}>Traffic and account funnel</h2>
+        {!data.analyticsDetails.migrationApplied ? <p>Apply the v16.2.8 launch analytics migration to enable the detailed breakdowns</p> : <>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(170px,1fr))", gap: 10, marginBottom: 18 }}>
+            {[
+              ["Account prompts opened", data.analytics.account_gate_opens],
+              ["Sign-in links requested", data.analytics.signin_requests],
+              ["Authenticated sessions", data.analytics.authenticated_sessions],
+              ["Usernames saved", data.analytics.usernames_saved],
+              ["Accounts created", data.stats.accounts30d],
+            ].map(([label, value]) => <div key={String(label)} style={{ padding: 12, borderRadius: 12, background: "rgba(255,255,255,.04)" }}><div style={{ opacity: .7, fontSize: 12 }}>{label}</div><strong style={{ fontSize: 22 }}>{formatNumber(Number(value))}</strong></div>)}
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: 18 }}>
+            <div>
+              <strong>Daily traffic · latest 14 days</strong>
+              {recentActivity.length ? recentActivity.map(([date, value]) => <div key={date} style={{ display: "grid", gridTemplateColumns: "58px 1fr auto", alignItems: "center", gap: 9, marginTop: 9, fontSize: 12 }}>
+                <span style={{ opacity: .7 }}>{date.slice(5)}</span>
+                <span style={{ height: 8, borderRadius: 8, background: "rgba(255,255,255,.07)", overflow: "hidden" }}><span style={{ display: "block", width: `${Math.max(2, 100 * value.pageViews / maxDailyPageViews)}%`, height: "100%", background: "rgba(185,244,90,.65)" }} /></span>
+                <span>{formatNumber(value.pageViews)} views · {formatNumber(value.completions)} finishes</span>
+              </div>) : <p style={{ opacity: .7 }}>No traffic recorded yet</p>}
+            </div>
+            <div>
+              <strong>Top acquisition paths</strong>
+              {data.analyticsDetails.acquisition.length ? data.analyticsDetails.acquisition.slice(0, 8).map((row, index) => <div key={`${row.utm_source}-${row.referrer}-${index}`} style={{ padding: "8px 0", borderBottom: "1px solid rgba(255,255,255,.08)", fontSize: 12 }}>
+                <b>{row.utm_source}</b> · {row.referrer}<span style={{ float: "right" }}>{formatNumber(row.sessions)} sessions</span>
+                <div style={{ opacity: .62 }}>{row.visitor_state} · {formatNumber(row.games_completed)} finishes · {formatNumber(row.authenticated_sessions)} sign-ins</div>
+              </div>) : <p style={{ opacity: .7 }}>No acquisition data recorded yet</p>}
+            </div>
+          </div>
+        </>}
+      </section>
+
+      <section style={{ ...card, marginTop: 16 }}>
+        <h2 style={{ marginTop: 0 }}>Gameplay engagement</h2>
+        <div style={{ overflowX: "auto" }}>
+          <div style={{ minWidth: 560 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr repeat(5,90px)", gap: 8, padding: "8px 0", opacity: .65, fontSize: 11, textTransform: "uppercase" }}><span>Mode</span><span>Starts</span><span>Finishes</span><span>Sessions</span><span>Finish %</span><span>Average %</span></div>
+            {data.analyticsDetails.byDifficulty.map((row) => <div key={row.difficulty} style={{ display: "grid", gridTemplateColumns: "1fr repeat(5,90px)", gap: 8, padding: "9px 0", borderTop: "1px solid rgba(255,255,255,.08)" }}><strong>{dailyModeLabels[row.difficulty]}</strong><span>{formatNumber(row.games_started)}</span><span>{formatNumber(row.games_completed)}</span><span>{formatNumber(row.sessions)}</span><span>{row.completion_rate == null ? "—" : `${row.completion_rate}%`}</span><span>{row.average_percent == null ? "—" : `${row.average_percent}%`}</span></div>)}
+          </div>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: 18, marginTop: 18 }}>
+          {[["Most-played categories", data.analyticsDetails.topCategories], ["Most-played countries", data.analyticsDetails.topCountries]].map(([heading, rows]) => <div key={String(heading)}><strong>{String(heading)}</strong>{(rows as AnalyticsEngagementRow[]).length ? (rows as AnalyticsEngagementRow[]).map((row) => <div key={row.id} style={{ display: "flex", justifyContent: "space-between", gap: 12, padding: "8px 0", borderBottom: "1px solid rgba(255,255,255,.08)", fontSize: 12 }}><span>{row.label}</span><span>{formatNumber(row.games_started)} starts · {formatNumber(row.games_completed)} finishes</span></div>) : <p style={{ opacity: .7 }}>No gameplay recorded yet</p>}</div>)}
+        </div>
       </section>
 
       <section style={{ ...card, marginTop: 16, overflowX: "auto" }}>

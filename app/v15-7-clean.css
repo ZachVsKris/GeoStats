@@ -55,7 +55,7 @@
   .activePlay .challengeBar{
     flex:0 0 25px;min-height:25px;margin:3px 0;padding:3px 5px;display:flex;align-items:center;gap:4px;overflow:visible;
   }
-  .activePlay .challengeBar>div{gap:4px;min-width:0}.activePlay .challengeBar .kicker{font-size:6px;letter-spacing:.09em;white-space:nowrap}.activePlay .challengeBar strong{display:none}
+  .activePlay .challengeBar>div{gap:4px;min-width:0}.activePlay .challengeBar .kicker{font-size:6px;letter-spacing:.09em;white-space:nowrap}.activePlay .challengeIdentity strong{display:none}
   .activePlay .challengeIdentity{min-width:0}.activePlay .challengeActions{max-width:none;margin-left:auto;overflow:visible}.activePlay .mobileProgress{display:inline;font-size:7px;white-space:nowrap}
   .activePlay .challengeActions button{min-height:23px;padding:3px 5px;font-size:6px;line-height:1;white-space:nowrap}
   .activePlay .randomChallengeBar{flex:0 0 48px;min-height:48px;display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:18px 26px;align-items:center}

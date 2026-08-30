@@ -3,7 +3,7 @@ import { requireAdmin } from "../../../../lib/supabase/adminAuth";
 import { newYorkDate } from "../../../../lib/time";
 import { categorySemanticSimilarity, MAX_SAME_BOARD_SEMANTIC_SIMILARITY } from "../../../../lib/categorySemantics";
 import type { Category, DataSourceId } from "../../../../lib/categories";
-import { MAX_BOARD_WINNER_GLOBAL_RANK } from "../../../../lib/gameRules";
+import { MAX_BOARD_WINNER_GLOBAL_RANK, type DailyDifficulty } from "../../../../lib/gameRules";
 
 export const dynamic = "force-dynamic";
 
@@ -106,7 +106,20 @@ type AnalyticsOverview = {
   shares: number;
   average_percent: number | null;
   signed_in_users_seen: number;
+  new_visitors: number;
+  returning_visitors: number;
+  returning_rate: number | null;
+  account_gate_opens: number;
+  signin_requests: number;
+  authenticated_sessions: number;
+  usernames_saved: number;
+  completion_rate: number | null;
 };
+
+type AnalyticsDailyRow = { activity_date: string; event_name: string; difficulty: DailyDifficulty | null; events: number; sessions: number; signed_in_users: number; average_value: number | null };
+type AnalyticsDifficultyRow = { difficulty: DailyDifficulty; games_started: number; games_completed: number; sessions: number; completion_rate: number | null; average_percent: number | null };
+type AnalyticsAcquisitionRow = { visitor_state: string; utm_source: string; utm_medium: string; utm_campaign: string; referrer: string; page_views: number; sessions: number; games_completed: number; authenticated_sessions: number };
+type AnalyticsEngagementRow = { id: string; label: string; games_started: number; games_completed: number; sessions: number };
 
 const emptyAnalytics: AnalyticsOverview = {
   visitors: 0,
@@ -116,6 +129,14 @@ const emptyAnalytics: AnalyticsOverview = {
   shares: 0,
   average_percent: null,
   signed_in_users_seen: 0,
+  new_visitors: 0,
+  returning_visitors: 0,
+  returning_rate: null,
+  account_gate_opens: 0,
+  signin_requests: 0,
+  authenticated_sessions: 0,
+  usernames_saved: 0,
+  completion_rate: null,
 };
 
 const SOURCE_ID_BY_ORGANIZATION: Record<string, DataSourceId> = {
@@ -198,13 +219,12 @@ export async function GET() {
     });
   }
 
-  const requiredErrors = [countryCount.error, imports.error, sources.error, boards.error, scoreCount.error].filter(Boolean);
-  if (requiredErrors.length) {
-    console.error("[admin/dashboard] required warehouse query failed", requiredErrors.map((error) => ({
-      code: error?.code,
-      message: error?.message,
-    })));
-    return NextResponse.json({ error: requiredErrors[0]?.message || "Warehouse query failed." }, { status: 500 });
+  const initialQueryFailures = [
+    ["countries", countryCount.error], ["imports", imports.error], ["sources", sources.error],
+    ["daily boards", boards.error], ["today scores", scoreCount.error], ["accounts", accountCount.error],
+  ] as const;
+  for (const [subsystem, error] of initialQueryFailures) {
+    if (error) console.warn(`[admin/dashboard] ${subsystem} query unavailable`, { code: error.code, message: error.message });
   }
 
   // Supabase commonly caps a single response at 1,000 rows, so page through the catalog.
@@ -255,8 +275,46 @@ export async function GET() {
       shares: Number(row.shares ?? 0),
       average_percent: row.average_percent == null ? null : Number(row.average_percent),
       signed_in_users_seen: Number(row.signed_in_users_seen ?? 0),
+      new_visitors: Number(row.new_visitors ?? 0),
+      returning_visitors: Number(row.returning_visitors ?? 0),
+      returning_rate: row.returning_rate == null ? null : Number(row.returning_rate),
+      account_gate_opens: Number(row.account_gate_opens ?? 0),
+      signin_requests: Number(row.signin_requests ?? 0),
+      authenticated_sessions: Number(row.authenticated_sessions ?? 0),
+      usernames_saved: Number(row.usernames_saved ?? 0),
+      completion_rate: row.completion_rate == null ? null : Number(row.completion_rate),
     };
   }
+
+  const [analyticsDailyResult, analyticsDifficultyResult, analyticsAcquisitionResult, analyticsCategoryResult, analyticsCountryResult, analyticsCountryNamesResult] = await Promise.all([
+    admin.from("analytics_daily_30d").select("activity_date,event_name,difficulty,events,sessions,signed_in_users,average_value").order("activity_date", { ascending: true }),
+    admin.from("analytics_difficulty_30d").select("*").order("difficulty"),
+    admin.from("analytics_acquisition_30d").select("*").order("sessions", { ascending: false }).limit(12),
+    admin.from("analytics_category_engagement_30d").select("*").order("games_started", { ascending: false }).limit(10),
+    admin.from("analytics_country_engagement_30d").select("*").order("games_started", { ascending: false }).limit(10),
+    admin.from("countries").select("iso3,name").eq("playable", true),
+  ]);
+  const categoryNames = new Map(computedCategoryRows.filter((category) => category.id).map((category) => [category.id as string, category.title ?? category.id as string]));
+  const countryNames = new Map((analyticsCountryNamesResult.data ?? []).map((country) => [String(country.iso3), String(country.name)]));
+  const engagementRows = (rows: unknown[] | null, idField: "category_id" | "country_id", names: Map<string, string>) => (rows ?? []).map((raw) => {
+    const row = raw as Record<string, unknown>;
+    const id = String(row[idField] ?? "");
+    return {
+      id,
+      label: names.get(id) ?? id,
+      games_started: Number(row.games_started ?? 0),
+      games_completed: Number(row.games_completed ?? 0),
+      sessions: Number(row.sessions ?? 0),
+    } satisfies AnalyticsEngagementRow;
+  });
+  const analyticsDetails = {
+    migrationApplied: !analyticsDifficultyResult.error && !analyticsCategoryResult.error && !analyticsCountryResult.error,
+    daily: analyticsDailyResult.error ? [] : (analyticsDailyResult.data ?? []) as AnalyticsDailyRow[],
+    byDifficulty: analyticsDifficultyResult.error ? [] : (analyticsDifficultyResult.data ?? []) as AnalyticsDifficultyRow[],
+    acquisition: analyticsAcquisitionResult.error ? [] : (analyticsAcquisitionResult.data ?? []) as AnalyticsAcquisitionRow[],
+    topCategories: analyticsCategoryResult.error ? [] : engagementRows(analyticsCategoryResult.data as unknown[] | null, "category_id", categoryNames),
+    topCountries: analyticsCountryResult.error ? [] : engagementRows(analyticsCountryResult.data as unknown[] | null, "country_id", countryNames),
+  };
 
   const generationResult = await admin
     .from("daily_generation_runs")
@@ -386,6 +444,32 @@ export async function GET() {
     sourceHealthMap.set(source, current);
   }
 
+  const warehouseChecks = [
+    { label: "Category catalog", healthy: true },
+    { label: "Observation count", healthy: !obsCount.error },
+    { label: "Countries", healthy: !countryCount.error },
+    { label: "Imports", healthy: !imports.error },
+    { label: "Sources", healthy: !sources.error },
+    { label: "Daily boards", healthy: !boards.error },
+    { label: "Scores", healthy: !scoreCount.error },
+    { label: "Accounts", healthy: !accountCount.error && !accountCount30d.error && !usernameCount.error },
+    { label: "Traffic analytics", healthy: !analyticsResult.error && analyticsDetails.migrationApplied },
+    { label: "Generator history", healthy: !generationResult.error },
+    { label: "Catalog balance", healthy: catalogBalance.migrationApplied },
+    { label: "Generator reachability", healthy: generatorReachability.migrationApplied },
+    { label: "Daily utilization", healthy: diversity.migrationApplied },
+    { label: "Data integrity", healthy: integrity.migrationApplied },
+    { label: "Content and links", healthy: contentLinks.migrationApplied },
+    { label: "Board quality", healthy: boardQuality.migrationApplied },
+  ];
+  const warehouseHealth = {
+    status: warehouseChecks.every((check) => check.healthy) ? "healthy" : "degraded",
+    healthy: warehouseChecks.filter((check) => check.healthy).length,
+    total: warehouseChecks.length,
+    checks: warehouseChecks,
+    checkedAt: new Date().toISOString(),
+  };
+
   return NextResponse.json({
     stats: {
       categories: computedCategoryRows.length,
@@ -396,6 +480,8 @@ export async function GET() {
       usernames: usernameCount.error ? 0 : usernameCount.count ?? 0,
     },
     analytics,
+    analyticsDetails,
+    warehouseHealth,
     generationRuns,
     diversity,
     integrity,

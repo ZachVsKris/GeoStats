@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 const EVENTS = new Set([
   "page_view", "game_started", "game_completed", "share_clicked",
   "source_opened", "account_username_saved", "account_signin_requested",
-  "account_gate_opened",
+  "account_gate_opened", "account_authenticated",
 ]);
 const DIFFICULTIES = new Set(["easy", "normal", "expert"]);
 
@@ -44,6 +44,9 @@ export async function POST(request: Request) {
   const auth = await createSupabaseServerClient();
   const userResult = auth ? await auth.auth.getUser() : null;
   const user = userResult?.data.user ?? null;
+  const path = String(body.path ?? "").slice(0, 240) || null;
+  if (path?.startsWith("/random")) return new NextResponse(null, { status: 204 });
+  if (body.eventName === "account_authenticated" && !user) return new NextResponse(null, { status: 204 });
   const difficulty = body.difficulty && DIFFICULTIES.has(body.difficulty) ? body.difficulty : null;
   const challengeDate = /^\d{4}-\d{2}-\d{2}$/.test(body.challengeDate ?? "") ? body.challengeDate : null;
   const value = typeof body.value === "number" && Number.isFinite(body.value) ? body.value : null;
@@ -52,7 +55,7 @@ export async function POST(request: Request) {
     event_name: body.eventName,
     session_id: sessionId,
     user_id: user?.id ?? null,
-    path: String(body.path ?? "").slice(0, 240) || null,
+    path,
     difficulty,
     challenge_date: challengeDate,
     value,
@@ -67,7 +70,8 @@ export async function POST(request: Request) {
     if (error.code === "42P01" || error.code === "PGRST205" || /analytics_events/i.test(error.message) && /not find|does not exist/i.test(error.message)) {
       return new NextResponse(null, { status: 204 });
     }
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    console.error("Analytics insert failed", { code: error.code, message: error.message, eventName: body.eventName });
+    return NextResponse.json({ error: "Analytics event could not be recorded." }, { status: 500 });
   }
   return new NextResponse(null, { status: 204 });
 }

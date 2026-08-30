@@ -13,6 +13,9 @@ const naturalEarth = read("scripts/import-natural-earth.py");
 const worldBankInfrastructure = read("scripts/import-world-bank-infrastructure.py");
 const worldBankCatalog = read("scripts/import-world-bank-catalog.py");
 const workflow = read(".github/workflows/verify-v16.yml");
+const challengeCodec = read("lib/challengeCodec.ts");
+const publicDaily = read("lib/publicDaily.ts");
+const game = read("components/GeoSecondComingGame.tsx");
 
 check(/^begin;/m.test(migration) && /commit;\s*$/.test(migration), "v16.2.8 migration is not transaction wrapped");
 check(/^begin;/m.test(percentHotfix) && /commit;\s*$/.test(percentHotfix), "v16.2.8 percent-title hotfix is not transaction wrapped");
@@ -89,6 +92,20 @@ check(worldBankCatalog.includes('prefix = "Most"') && worldBankCatalog.includes(
 
 check(workflow.includes("Verify GeoStats v16.2.8"), "verification workflow name was not advanced to v16.2.8");
 check(workflow.includes("npm run test-v16-2-8"), "verification workflow does not run the full v16.2.8 checks");
+
+for (const token of [
+  "hydrateRoundSnapshotPlayerCopy",
+  "name: current.name",
+  "boardDescription: current.boardDescription",
+  "ranked: item.ranked.map",
+]) check(challengeCodec.includes(token), `saved-board player-copy hydration missing ${token}`);
+for (const token of [
+  "hydrateCurrentPlayerCopy",
+  "loadServerPlayableCategoryCatalog",
+  "geostats-public-daily-trio-player-copy-v16.2.8",
+  "original countries, values, rules, and scoring",
+]) check(publicDaily.includes(token), `public Daily copy hydration missing ${token}`);
+check(game.includes("have your verified score saved automatically"), "Expert account copy incorrectly implies manual score submission");
 
 if (failures.length) {
   console.error(`GeoStats v16.2.8 category clarity checks FAILED:\n${failures.map((item) => ` - ${item}`).join("\n")}`);

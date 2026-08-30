@@ -209,6 +209,61 @@ export type RoundSnapshot = {
   }>;
 };
 
+/**
+ * Refresh only player-facing metadata on an immutable saved board. Countries,
+ * values, years, ranks, category IDs, ranking direction, and source identity
+ * stay frozen so historical scoring and same-day restoration remain exact.
+ */
+export function hydrateRoundSnapshotPlayerCopy(snapshot: RoundSnapshot, categoryCatalog: Category[]): RoundSnapshot {
+  const currentById = new Map(categoryCatalog.map((category) => [category.id, category]));
+  return {
+    ...snapshot,
+    bank: snapshot.bank.map((country) => ({ ...country })),
+    categories: snapshot.categories.map((item) => {
+      const current = currentById.get(item.category.id);
+      if (!current) return { ...item, category: { ...item.category }, ranked: item.ranked.map((row) => ({ ...row })) };
+      return {
+        ...item,
+        category: {
+          ...item.category,
+          name: current.name,
+          shortName: current.shortName,
+          description: current.description,
+          boardDescription: current.boardDescription,
+          plainLanguageDescription: current.plainLanguageDescription,
+          technicalDefinition: current.technicalDefinition,
+          unitExplanation: current.unitExplanation,
+          icon: current.icon,
+          unit: current.unit,
+          decimals: current.decimals,
+          measurementType: current.measurementType,
+          measureType: current.measureType,
+          normalizationType: current.normalizationType,
+          sourceUrl: current.sourceUrl,
+          methodologyUrl: current.methodologyUrl,
+          sourcePageUrl: current.sourcePageUrl,
+          playerSourceUrl: current.playerSourceUrl,
+          playerSourceStatus: current.playerSourceStatus,
+          playerSourceReason: current.playerSourceReason,
+          playerSourceCheckedAt: current.playerSourceCheckedAt,
+        },
+        ranked: item.ranked.map((row) => ({ ...row })),
+        sourceUrl: current.sourceUrl ?? item.sourceUrl,
+        methodologyUrl: current.methodologyUrl ?? item.methodologyUrl,
+        sourcePageUrl: current.sourcePageUrl ?? item.sourcePageUrl,
+        playerSourceUrl: current.playerSourceUrl ?? item.playerSourceUrl,
+        playerSourceStatus: current.playerSourceStatus ?? item.playerSourceStatus,
+        playerSourceReason: current.playerSourceReason ?? item.playerSourceReason,
+        playerSourceCheckedAt: current.playerSourceCheckedAt ?? item.playerSourceCheckedAt,
+        evidenceLabel: current.evidenceLabel ?? item.evidenceLabel,
+        credibilityScore: current.credibilityScore ?? item.credibilityScore,
+        trustStatus: current.trustStatus ?? item.trustStatus,
+        trustReason: current.trustReason ?? item.trustReason,
+      };
+    }),
+  };
+}
+
 export function serializeRound(round: Round): RoundSnapshot {
   return {
     version: 1,

@@ -12,10 +12,10 @@ const V16_SELECT = "eligible_universe_type,eligible_universe_rule,eligible_count
 
 function catalogError(message: string) {
   if (/schema cache/i.test(message)) {
-    return new Error("Supabase has not refreshed its REST schema cache for the v16.2.7 catalog. Run NOTIFY pgrst, 'reload schema'; and retry after 30 seconds.");
+    return new Error("Supabase has not refreshed its REST schema cache for the v16.2.8 catalog. Run NOTIFY pgrst, 'reload schema'; and retry after 30 seconds.");
   }
   if (/category_runtime_review_v16_2|does not exist|relation .* not found/i.test(message)) {
-    return new Error("The GeoStats v16.2.7 catalog migration is not installed. Run RUN_THIS_IN_SUPABASE_FOR_V16_2_7.sql.");
+    return new Error("The GeoStats v16.2.8 catalog migration is not installed. Apply the current Supabase migrations and retry.");
   }
   return new Error(`The verified category catalog is unavailable: ${message}`);
 }
@@ -47,25 +47,25 @@ async function loadRows(options: { playableOnly?: boolean } = {}) {
 
 const loadCachedPlayableRows = unstable_cache(
   () => loadRows({ playableOnly: true }),
-  ["geostats-playable-category-rows-v16.2.7-random-hotfix1"],
+  ["geostats-playable-category-rows-v16.2.8-copy-hydration"],
   { revalidate: 300, tags: ["geostats-playable-category-catalog"] },
 );
 
 const loadCachedRegistryRows = unstable_cache(
   () => loadRows(),
-  ["geostats-category-registry-rows-v16.2.7-random-hotfix1"],
+  ["geostats-category-registry-rows-v16.2.8-copy-hydration"],
   { revalidate: 300, tags: ["geostats-playable-category-catalog"] },
 );
 
 const loadCachedApprovedCatalog = unstable_cache(
   async (): Promise<Category[]> => buildPlayableCategoryCatalog(await loadCachedPlayableRows()),
-  ["geostats-approved-category-catalog-v16.2.7-random-hotfix1"],
+  ["geostats-approved-category-catalog-v16.2.8-copy-hydration"],
   { revalidate: 300, tags: ["geostats-playable-category-catalog"] },
 );
 
 const loadCachedRegistry = unstable_cache(
   async (): Promise<Category[]> => buildCategoryRegistry(await loadCachedRegistryRows()),
-  ["geostats-all-category-registry-v16.2.7-random-hotfix1"],
+  ["geostats-all-category-registry-v16.2.8-copy-hydration"],
   { revalidate: 300, tags: ["geostats-playable-category-catalog"] },
 );
 

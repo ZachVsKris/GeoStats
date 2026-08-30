@@ -7,10 +7,34 @@ import {
   loadLatestCompleteFallback,
   packStoredRows,
   readDailyRows,
+  type PackedDailyTrio,
 } from "./dailyBoardService";
 import { dailyTrioPreferenceWarnings, type DailyTrioLike } from "./dailyTrioRules";
 import { DATASET_VERSION } from "./version";
 import type { DailyApiPayload } from "./dailyPublicPayload";
+import { DAILY_DIFFICULTIES } from "./gameRules";
+import { hydrateRoundSnapshotPlayerCopy } from "./challengeCodec";
+import { loadServerPlayableCategoryCatalog } from "./serverPlayableCatalog";
+
+async function hydrateCurrentPlayerCopy(boards: PackedDailyTrio) {
+  try {
+    const categoryCatalog = await loadServerPlayableCategoryCatalog();
+    const hydrated: PackedDailyTrio = {};
+    for (const difficulty of DAILY_DIFFICULTIES) {
+      const board = boards[difficulty];
+      if (!board) continue;
+      hydrated[difficulty] = {
+        ...board,
+        board_payload: hydrateRoundSnapshotPlayerCopy(board.board_payload, categoryCatalog),
+      };
+    }
+    return hydrated;
+  } catch {
+    // A self-contained Daily remains playable during a temporary catalog read
+    // failure; the next cache fill will retry current-copy hydration.
+    return boards;
+  }
+}
 
 const loadCachedCompleteDaily = unstable_cache(
   async (date: string): Promise<DailyApiPayload> => {
@@ -20,18 +44,19 @@ const loadCachedCompleteDaily = unstable_cache(
     if (stored.error) throw stored.error;
     const inspected = inspectStoredTrio(stored.rows);
     if (!inspected.complete) throw new Error("Daily trio is not complete.");
+    const boards = await hydrateCurrentPlayerCopy(packStoredRows(stored.rows));
     return {
       found: true,
       generated: false,
       legacyModes: Object.keys(inspected.outdated),
       warning: Object.keys(inspected.outdated).length
-        ? "This valid Daily board is preserved under the rules and category set with which it was generated."
+        ? "This Daily keeps its original countries, values, rules, and scoring; category wording reflects the current reviewed catalog."
         : undefined,
       preferenceWarnings: dailyTrioPreferenceWarnings(inspected.rounds as DailyTrioLike),
-      ...packStoredRows(stored.rows),
+      ...boards,
     };
   },
-  ["geostats-public-daily-trio", DATASET_VERSION],
+  ["geostats-public-daily-trio-player-copy-v16.2.8", DATASET_VERSION],
   { revalidate: 24 * 60 * 60, tags: ["geostats-daily-trio"] },
 );
 
@@ -47,12 +72,13 @@ export async function loadPublicDailyPayload(date: string): Promise<DailyApiPayl
   if (!admin) return null;
   const fallback = await loadLatestCompleteFallback(admin, date);
   if (!fallback) return null;
+  const boards = await hydrateCurrentPlayerCopy(fallback.boards);
   return {
     found: true,
     generated: false,
     fallback: true,
     fallback_date: fallback.date,
     warning: "Today’s Daily is unavailable, so this is an unranked practice board from an earlier date.",
-    ...fallback.boards,
+    ...boards,
   };
 }

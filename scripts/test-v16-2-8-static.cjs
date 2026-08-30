@@ -13,6 +13,7 @@ const otherReligions = read("supabase/migrations/072_v16_2_8_define_other_religi
 const cardPunctuation = read("supabase/migrations/073_v16_2_8_card_description_punctuation.sql");
 const importerBase = read("scripts/data_pipeline/base.py");
 const unhcr = read("scripts/import-unhcr.py");
+const sourceFamilyRecovery = read("scripts/audit-v16-2-6-source-family-recovery.py");
 const playable = read("lib/playableCatalog.ts");
 const naturalEarth = read("scripts/import-natural-earth.py");
 const worldBankInfrastructure = read("scripts/import-world-bank-infrastructure.py");
@@ -84,6 +85,7 @@ for (const token of [
 ]) check(ownerFollowup.includes(token), `owner follow-up missing ${token}`);
 check(unhcr.includes("Most people without citizenship in any country"), "UNHCR importer can restore the old statelessness title");
 check(unhcr.includes("this is what 'stateless' means"), "UNHCR importer does not define statelessness plainly");
+check(sourceFamilyRecovery.includes('"most-stateless-people": "Most people without citizenship in any country"'), "source-family recovery audit retains the old statelessness title");
 for (const token of [
   "Highest % following religions outside the five major groups",
   "Religions other than Christianity, Islam, Hinduism, Buddhism or Judaism.",

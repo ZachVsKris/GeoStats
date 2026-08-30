@@ -90,7 +90,7 @@ APPROVED_TITLE_REWRITES = {
         "lowest-death-rate": "Fewest annual deaths per 1,000 people",
     },
     "UNHCR Refugee Data Finder": {
-        "most-stateless-people": "Most stateless people living in the country",
+        "most-stateless-people": "Most people without citizenship in any country",
     },
     "World Bank WDI Infrastructure & Connectivity": {
         "internet-use": "Highest % of people using the internet",

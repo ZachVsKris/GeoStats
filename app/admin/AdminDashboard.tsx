@@ -299,13 +299,20 @@ export default function AdminDashboard() {
   const [detailLoading, setDetailLoading] = useState(false);
   const [generation, setGeneration] = useState<GenerationResult | null>(null);
   const [generationElapsed, setGenerationElapsed] = useState(0);
+  const [loading, setLoading] = useState(true);
   const [progress, setProgress] = useState({ done: 0, total: 0, label: "" });
 
   const load = useCallback(async () => {
-    const response = await fetch("/api/admin/dashboard", { cache: "no-store" });
-    const json = await response.json();
-    if (!response.ok) throw new Error(json.error || "Dashboard could not load.");
-    setData(json);
+    setLoading(true);
+    try {
+      const response = await fetch("/api/admin/dashboard", { cache: "no-store" });
+      const json = await response.json();
+      if (!response.ok) throw new Error(json.error || "Dashboard could not load.");
+      setData(json);
+      setError("");
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
   useEffect(() => {
@@ -481,7 +488,20 @@ export default function AdminDashboard() {
     }
   }
 
-  if (!data) return <section className="adminLoading">{error || "Loading warehouse…"}</section>;
+  if (!data) return (
+    <section className={`adminLoading${error ? " adminLoadingError" : ""}`} role={error ? "alert" : "status"}>
+      <strong>{error ? "Admin dashboard could not load" : "Loading warehouse…"}</strong>
+      {error && <p>{error}</p>}
+      {error && <button
+        type="button"
+        disabled={loading}
+        onClick={() => {
+          setError("");
+          void load().catch((cause: unknown) => setError(cause instanceof Error ? cause.message : "Dashboard could not load."));
+        }}
+      >{loading ? "Retrying…" : "Retry"}</button>}
+    </section>
+  );
 
   const sources = Array.from(new Set(data.categories.map((category) => category.source_organization))).sort();
   const approveableSelected = selectedRows.filter((category) => category.strict_pass_v16_2 === true
@@ -495,18 +515,6 @@ export default function AdminDashboard() {
 
   return (
     <>
-      <style>{`
-        .adminShell {
-          color: #f4f7ef !important;
-        }
-        .adminShell .adminHeaderActions > a,
-        .adminShell .adminHeaderActions button {
-          color: #17231d !important;
-        }
-        .adminShell input[type="checkbox"] {
-          accent-color: #b9f45a;
-        }
-      `}</style>
       {error && <div className="adminError" style={{ ...card, borderColor: "rgba(255,100,100,.6)", marginBottom: 14 }}>{error}</div>}
       {notice && <div style={{ ...card, borderColor: "rgba(185,244,90,.55)", marginBottom: 14 }}>{notice}</div>}
 

@@ -177,7 +177,9 @@ export async function GET() {
   const { admin } = auth;
   const today = newYorkDate();
   const [obsCount, countryCount, imports, sources, boards, scoreCount, usernameCount] = await Promise.all([
-    admin.from("stat_observations").select("country_iso3", { count: "exact", head: true }),
+    // The observation warehouse is large enough that an exact count can time out at
+    // PostgREST and must never prevent the rest of Admin from loading.
+    admin.from("stat_observations").select("country_iso3", { count: "estimated", head: true }),
     admin.from("countries").select("iso3", { count: "exact", head: true }).eq("playable", true),
     admin.from("stat_import_runs").select("*").order("started_at", { ascending: false }).limit(20),
     admin.from("data_sources").select("*").order("display_order"),
@@ -186,8 +188,19 @@ export async function GET() {
     admin.from("profiles").select("id", { count: "exact", head: true }).eq("username_customized", true),
   ]);
 
-  const requiredErrors = [obsCount.error, countryCount.error, imports.error, sources.error, boards.error, scoreCount.error].filter(Boolean);
+  if (obsCount.error) {
+    console.warn("[admin/dashboard] observation count unavailable", {
+      code: obsCount.error.code,
+      message: obsCount.error.message,
+    });
+  }
+
+  const requiredErrors = [countryCount.error, imports.error, sources.error, boards.error, scoreCount.error].filter(Boolean);
   if (requiredErrors.length) {
+    console.error("[admin/dashboard] required warehouse query failed", requiredErrors.map((error) => ({
+      code: error?.code,
+      message: error?.message,
+    })));
     return NextResponse.json({ error: requiredErrors[0]?.message || "Warehouse query failed." }, { status: 500 });
   }
 
@@ -200,6 +213,11 @@ export async function GET() {
       .order("title")
       .range(from, from + 999);
     if (error) {
+      console.error("[admin/dashboard] category catalog query failed", {
+        from,
+        code: error.code,
+        message: error.message,
+      });
       const message = error.message ?? "Warehouse query failed.";
       const guidance = /schema cache/i.test(message)
         ? "Supabase has not refreshed the v16.2.7 REST schema cache. Run NOTIFY pgrst, 'reload schema'; and retry after 30 seconds."
@@ -368,7 +386,7 @@ export async function GET() {
   return NextResponse.json({
     stats: {
       categories: computedCategoryRows.length,
-      observations: obsCount.count ?? 0,
+      observations: obsCount.error ? 0 : obsCount.count ?? 0,
       countries: countryCount.count ?? 0,
       usernames: usernameCount.error ? 0 : usernameCount.count ?? 0,
     },

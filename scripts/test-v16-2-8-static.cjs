@@ -31,6 +31,8 @@ const leaderboardView = read("components/LeaderboardView.tsx");
 const expertPage = read("app/daily/expert/page.tsx");
 const profileRoute = read("app/api/profile/route.ts");
 const privacyMigration = read("supabase/migrations/047_v16_2_6_full_release.sql");
+const serverPlayableCatalog = read("lib/serverPlayableCatalog.ts");
+const playableCatalogRoute = read("app/api/playable-categories/route.ts");
 
 check(/^begin;/m.test(migration) && /commit;\s*$/.test(migration), "v16.2.8 migration is not transaction wrapped");
 check(/^begin;/m.test(percentHotfix) && /commit;\s*$/.test(percentHotfix), "v16.2.8 percent-title hotfix is not transaction wrapped");
@@ -173,6 +175,9 @@ for (const token of [
   "original countries, values, rules, and scoring",
 ]) check(publicDaily.includes(token), `public Daily copy hydration missing ${token}`);
 check(version.includes('PLAYER_COPY_VERSION = "16.2.8.1"'), "player-copy cache version was not advanced");
+check(version.includes('PLAYABLE_CATALOG_CACHE_VERSION = "16.2.8.316"'), "playable-catalog cache version was not advanced after retirements");
+check(serverPlayableCatalog.match(/PLAYABLE_CATALOG_CACHE_VERSION/g)?.length >= 5, "server catalog caches are not versioned consistently");
+check(playableCatalogRoute.includes("X-GeoStats-Catalog-Version") && playableCatalogRoute.includes("PLAYABLE_CATALOG_CACHE_VERSION"), "catalog endpoint does not disclose its cache version");
 check(game.includes("${PLAYER_COPY_VERSION}:${date}") && game.includes("copy: PLAYER_COPY_VERSION"), "browser/CDN Daily caches are not keyed by player-copy version");
 check(game.includes("have your verified score saved automatically"), "Expert account copy incorrectly implies manual score submission");
 for (const token of [

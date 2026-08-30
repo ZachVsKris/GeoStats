@@ -22,6 +22,7 @@ const workflow = read(".github/workflows/verify-v16.yml");
 const challengeCodec = read("lib/challengeCodec.ts");
 const publicDaily = read("lib/publicDaily.ts");
 const game = read("components/GeoSecondComingGame.tsx");
+const version = read("lib/version.ts");
 const accountControls = read("components/AccountControls.tsx");
 const leaderboardPage = read("app/leaderboard/page.tsx");
 const leaderboardRoute = read("app/api/leaderboard/route.ts");
@@ -149,9 +150,12 @@ for (const token of [
 for (const token of [
   "hydrateCurrentPlayerCopy",
   "loadServerPlayableCategoryCatalog",
-  "geostats-public-daily-trio-player-copy-v16.2.8",
+  "geostats-public-daily-trio-player-copy",
+  "PLAYER_COPY_VERSION",
   "original countries, values, rules, and scoring",
 ]) check(publicDaily.includes(token), `public Daily copy hydration missing ${token}`);
+check(version.includes('PLAYER_COPY_VERSION = "16.2.8.1"'), "player-copy cache version was not advanced");
+check(game.includes("${PLAYER_COPY_VERSION}:${date}") && game.includes("copy: PLAYER_COPY_VERSION"), "browser/CDN Daily caches are not keyed by player-copy version");
 check(game.includes("have your verified score saved automatically"), "Expert account copy incorrectly implies manual score submission");
 for (const token of [
   "expertPreview = !isRandom && difficulty === \"expert\" && !canPlayExpert",

@@ -10,7 +10,7 @@ import {
   type PackedDailyTrio,
 } from "./dailyBoardService";
 import { dailyTrioPreferenceWarnings, type DailyTrioLike } from "./dailyTrioRules";
-import { DATASET_VERSION } from "./version";
+import { DATASET_VERSION, PLAYER_COPY_VERSION } from "./version";
 import type { DailyApiPayload } from "./dailyPublicPayload";
 import { DAILY_DIFFICULTIES } from "./gameRules";
 import { hydrateRoundSnapshotPlayerCopy } from "./challengeCodec";
@@ -56,7 +56,7 @@ const loadCachedCompleteDaily = unstable_cache(
       ...boards,
     };
   },
-  ["geostats-public-daily-trio-player-copy-v16.2.8", DATASET_VERSION],
+  ["geostats-public-daily-trio-player-copy", DATASET_VERSION, PLAYER_COPY_VERSION],
   { revalidate: 24 * 60 * 60, tags: ["geostats-daily-trio"] },
 );
 

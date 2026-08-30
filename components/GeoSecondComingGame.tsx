@@ -11,7 +11,7 @@ import CategorySourcePanel from "./CategorySourcePanel";
 import { newYorkDate } from "../lib/time";
 import { DAILY_DIFFICULTIES, DEFAULT_DIFFICULTY, ROUND_CONFIGS, configForDifficultyDimensions, type DailyDifficulty, difficultyFromPath } from "../lib/gameRules";
 import { trackAnalytics } from "../lib/analytics";
-import { CATEGORY_SET_VERSION, DATASET_VERSION, RULES_VERSION } from "../lib/version";
+import { CATEGORY_SET_VERSION, DATASET_VERSION, PLAYER_COPY_VERSION, RULES_VERSION } from "../lib/version";
 import { categoryMeasurementBadgeLabel, categoryMeasurementLabel } from "../lib/categoryMeasurement";
 import type { DailyApiPayload, PackedApiBoard } from "../lib/dailyPublicPayload";
 
@@ -53,7 +53,7 @@ const dailyMemoryCache = new Map<string, DailyApiPayload>();
 const dailyRequestCache = new Map<string, Promise<DailyApiPayload>>();
 
 function dailyBrowserCacheKey(date: string) {
-  return `geostats:daily-trio:${DATASET_VERSION}:${date}`;
+  return `geostats:daily-trio:${DATASET_VERSION}:${PLAYER_COPY_VERSION}:${date}`;
 }
 
 function readCachedDaily(date: string): DailyApiPayload | null {
@@ -100,7 +100,8 @@ async function requestDailyPayload(date: string): Promise<DailyApiPayload> {
     let payload: DailyApiPayload = {};
     let response: Response | null = null;
     for (let attempt = 0; attempt < 5; attempt += 1) {
-      response = await fetch(`/api/daily-trio/${date}?rules=${encodeURIComponent(RULES_VERSION)}`, { cache: "force-cache" });
+      const query = new URLSearchParams({ rules: RULES_VERSION, copy: PLAYER_COPY_VERSION });
+      response = await fetch(`/api/daily-trio/${date}?${query.toString()}`, { cache: "force-cache" });
       payload = await response.json().catch(() => ({})) as DailyApiPayload;
       if (DAILY_DIFFICULTIES.some((difficulty) => Boolean(payload[difficulty]))) break;
       if (response.status !== 202) break;

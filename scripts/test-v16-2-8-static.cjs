@@ -9,6 +9,8 @@ const read = (relative) => fs.readFileSync(path.join(root, relative), "utf8");
 const migration = read("supabase/migrations/069_v16_2_8_reviewer_category_copy_and_dedup.sql");
 const percentHotfix = read("supabase/migrations/070_v16_2_8_percent_title_semantic_hotfix.sql");
 const ownerFollowup = read("supabase/migrations/071_v16_2_8_owner_followup_retirements.sql");
+const otherReligions = read("supabase/migrations/072_v16_2_8_define_other_religions.sql");
+const cardPunctuation = read("supabase/migrations/073_v16_2_8_card_description_punctuation.sql");
 const importerBase = read("scripts/data_pipeline/base.py");
 const unhcr = read("scripts/import-unhcr.py");
 const playable = read("lib/playableCatalog.ts");
@@ -23,6 +25,8 @@ const game = read("components/GeoSecondComingGame.tsx");
 check(/^begin;/m.test(migration) && /commit;\s*$/.test(migration), "v16.2.8 migration is not transaction wrapped");
 check(/^begin;/m.test(percentHotfix) && /commit;\s*$/.test(percentHotfix), "v16.2.8 percent-title hotfix is not transaction wrapped");
 check(/^begin;/m.test(ownerFollowup) && /commit;\s*$/.test(ownerFollowup), "v16.2.8 owner follow-up is not transaction wrapped");
+check(/^begin;/m.test(otherReligions) && /commit;\s*$/.test(otherReligions), "v16.2.8 other-religions definition is not transaction wrapped");
+check(/^begin;/m.test(cardPunctuation) && /commit;\s*$/.test(cardPunctuation), "v16.2.8 card punctuation migration is not transaction wrapped");
 for (const token of [
   "category_board_description_v16_2_8",
   "category_copy_clarity_v16_2_8",
@@ -80,6 +84,18 @@ for (const token of [
 ]) check(ownerFollowup.includes(token), `owner follow-up missing ${token}`);
 check(unhcr.includes("Most people without citizenship in any country"), "UNHCR importer can restore the old statelessness title");
 check(unhcr.includes("this is what 'stateless' means"), "UNHCR importer does not define statelessness plainly");
+for (const token of [
+  "Highest % following religions outside the five major groups",
+  "Religions other than Christianity, Islam, Hinduism, Buddhism or Judaism.",
+]) check(otherReligions.includes(token), `other-religions clarification missing ${token}`);
+for (const token of [
+  "cardDescriptionWithoutTerminalPeriod",
+  "boardDescription: cardDescriptionWithoutTerminalPeriod",
+]) check(playable.includes(token), `runtime card punctuation guard missing ${token}`);
+for (const token of [
+  "playable card description still ends in a period",
+  "card-description punctuation change altered the playable count",
+]) check(cardPunctuation.includes(token), `card punctuation migration missing ${token}`);
 
 check(!/measurement_type\s*=\s*'rate'/.test(migration), "migration writes an invalid rate measurement type");
 check(!/measurement_type\s*=\s*'percentage'/.test(migration), "migration writes an invalid percentage measurement type");

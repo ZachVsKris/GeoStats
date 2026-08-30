@@ -30,6 +30,7 @@ OTHER_RELIGIONS_DEFINITION = (
     "Shintoists, Sikhs, Wiccans, Zoroastrians and many smaller groups, including "
     "some folk or traditional religions."
 )
+OTHER_RELIGIONS_TITLE = "Highest % following religions outside the five major groups"
 
 GROUPS = {
     "christian": ("Christian", "✝️", ("christian",)),
@@ -49,7 +50,7 @@ def _title_label(label: str) -> str:
 def group_rule(key: str, label: str, icon: str, measure: str) -> IndicatorRule:
     if measure == "share":
         if key == "other-religions":
-            title = "Highest % of population following other religions"
+            title = OTHER_RELIGIONS_TITLE
         elif key == "unaffiliated":
             title = "Highest % of population with no religious affiliation"
         else:
@@ -63,7 +64,10 @@ def group_rule(key: str, label: str, icon: str, measure: str) -> IndicatorRule:
         unit = "people"
         value_type = "total"
     if key == "other-religions":
-        description = f"{description} {OTHER_RELIGIONS_DEFINITION}"
+        description = (
+            "Religions other than Christianity, Islam, Hinduism, Buddhism or Judaism."
+            if measure == "share" else f"{description} {OTHER_RELIGIONS_DEFINITION}"
+        )
     technical_definition = (
         "Pew Research Center estimate synthesized from censuses, surveys, population registers "
         "and demographic estimation. Results are estimates, not exact counts."

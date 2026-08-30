@@ -261,6 +261,10 @@ function shortTitle(title: string) {
   return title.replace(/^(Highest|Lowest|Largest|Most|Fastest|Best)\s+/i, "").slice(0, 70);
 }
 
+function cardDescriptionWithoutTerminalPeriod(value: string) {
+  return value.replace(/[.]\s*$/, "").trim();
+}
+
 function firstCompleteSentence(value: string, maximum = 82) {
   const clean = value.replace(/\s+/g, " ").trim().replace(/(?:…|\.\.\.)\s*$/, "");
   if (!clean) return "Compare the official country value for this measure.";
@@ -530,7 +534,7 @@ export function buildCategoryCatalog(rows: PlayableCategoryRow[], options: Build
       family: row.family,
       direction: row.ranking_direction,
       description: row.plain_language_description?.trim() || row.description || existing?.description || title,
-      boardDescription: boardDescription(row, title, existing),
+      boardDescription: cardDescriptionWithoutTerminalPeriod(boardDescription(row, title, existing)),
       plainLanguageDescription: row.plain_language_description?.trim() || row.description || existing?.plainLanguageDescription,
       technicalDefinition: row.technical_definition?.trim() || existing?.technicalDefinition,
       unitExplanation: row.unit_explanation?.trim() || existing?.unitExplanation,

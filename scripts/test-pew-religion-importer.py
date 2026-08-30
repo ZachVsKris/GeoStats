@@ -71,7 +71,9 @@ def check(m,path:Path, *, expected_diversity:float, expected_population_floor:fl
     assert total_value != share_value, (total_value,share_value)
     other_share=next(c for c in candidates if c.rule.key=="other-religions-share")
     other_total=next(c for c in candidates if c.rule.key=="other-religions-population")
-    assert "Baha" in other_share.rule.description and "Sikhs" in other_share.rule.description
+    assert other_share.rule.description=="Religions other than Christianity, Islam, Hinduism, Buddhism or Judaism."
+    assert "Baha" in other_share.rule.technical_definition and "Sikhs" in other_share.rule.technical_definition
+    assert other_share.rule.title=="Highest % following religions outside the five major groups"
     assert other_share.metadata.get("groupDefinition")
     assert importer.fetch_observations(other_total)[0].value >= expected_population_floor
     diversity=next(c for c in candidates if c.rule.key=="religious-diversity")

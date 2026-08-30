@@ -44,7 +44,7 @@ export default function LeaderboardView() {
     <div className="leaderboardPageIntro">
       <span className="kicker">Daily competition</span>
       <h1>Leaderboard</h1>
-      <p>Scout, Adventurer, and Expert each have separate verified standings. Internal QA games never count.</p>
+      <p>Scout, Adventurer, and Expert each have separate verified standings.</p>
     </div>
     <div className="leaderboardModeTabs" role="tablist" aria-label="Daily difficulty">
       <button className={difficulty === "easy" ? "active" : ""} onClick={() => setDifficulty("easy")}>Scout</button>

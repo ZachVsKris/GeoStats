@@ -25,6 +25,7 @@ const game = read("components/GeoSecondComingGame.tsx");
 const accountControls = read("components/AccountControls.tsx");
 const leaderboardPage = read("app/leaderboard/page.tsx");
 const leaderboardRoute = read("app/api/leaderboard/route.ts");
+const leaderboardView = read("components/LeaderboardView.tsx");
 const expertPage = read("app/daily/expert/page.tsx");
 const profileRoute = read("app/api/profile/route.ts");
 const privacyMigration = read("supabase/migrations/047_v16_2_6_full_release.sql");
@@ -164,6 +165,7 @@ for (const token of [
   "Your email never does",
 ]) check(accountControls.includes(token), `account UI missing ${token}`);
 check(leaderboardPage.includes("signedIn ? <LeaderboardView") && leaderboardPage.includes("Account-only standings"), "leaderboard page is not visibly account-gated");
+check(!leaderboardView.includes("Internal QA"), "leaderboard exposes internal QA terminology to players");
 check(leaderboardRoute.includes("Sign in to view the GeoStats leaderboard") && leaderboardRoute.includes("status: 401"), "leaderboard API is not authentication-gated");
 check(expertPage.includes("canPlayExpert={Boolean(userResult?.data.user)}"), "Expert play does not use server-authenticated access state");
 check(profileRoute.includes("usernamePassesModeration") && profileRoute.includes("Your email") === false, "username moderation or profile privacy regressed");

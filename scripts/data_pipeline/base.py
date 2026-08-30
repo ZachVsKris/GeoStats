@@ -35,6 +35,24 @@ MANUAL_REVIEW_SOURCES = {
     "unwupcities2025",
 }
 
+# Owner and duplicate retirements are filtered before any source observations
+# are fetched. Supabase enforces the same decisions at the table boundary, so a
+# future importer or catalog rebuild cannot spend time on or reactivate them.
+DURABLE_CATEGORY_EXCLUSIONS = {
+    "unescoich:most-elements",
+    "worldbank-catalog:bn-gsr-fcty-cd",
+    "worldbank-catalog:bn-trf-curr-cd",
+    "worldbank-catalog:bg-gsr-nfsv-gd-zs",
+    "worldbank-catalog:eg-elc-loss-zs",
+    "worldbank-catalog:bm-gsr-royl-cd",
+    "worldbank-catalog:bx-gsr-royl-cd",
+    "worldbank-catalog:bx-gsr-insf-zs",
+    "worldbank-catalog:bm-gsr-insf-zs",
+    "worldbank-catalog:fi-res-totl-mo",
+    "worldbankinfra:air-passengers",
+    "worldbank-catalog:en-pop-slum-ur-zs",
+}
+
 class WarehouseImporter(ABC):
     source_organization: str
     source_dataset: str
@@ -74,6 +92,8 @@ class WarehouseImporter(ABC):
         """
         candidates = self.discover()
         discovered_count = len(candidates)
+        retired_count = sum(self.category_id(candidate) in DURABLE_CATEGORY_EXCLUSIONS for candidate in candidates)
+        candidates = [candidate for candidate in candidates if self.category_id(candidate) not in DURABLE_CATEGORY_EXCLUSIONS]
         if only_keys:
             candidates = [candidate for candidate in candidates if candidate.rule.key in only_keys]
         if offset > 0:
@@ -93,6 +113,7 @@ class WarehouseImporter(ABC):
                     "quality_standard": QUALITY_STANDARD_VERSION,
                     "candidate_count": len(candidates),
                     "candidates_discovered_before_filters": discovered_count,
+                    "retired_candidates_filtered": retired_count,
                     "offset": offset,
                     "scan_limit": effective_scan_limit,
                     "target_successes": target_successes,
@@ -190,6 +211,7 @@ class WarehouseImporter(ABC):
                         "quality_standard": QUALITY_STANDARD_VERSION,
                         "candidate_count": len(candidates),
                         "candidates_discovered_before_filters": discovered_count,
+                        "retired_candidates_filtered": retired_count,
                         "attempted_count": attempted_count,
                         "successful_count": category_count,
                         "target_successes": target_successes,
@@ -221,6 +243,7 @@ class WarehouseImporter(ABC):
                     error_message=str(error)[:2000],
                     details={
                         "candidates_discovered_before_filters": discovered_count,
+                        "retired_candidates_filtered": retired_count,
                         "attempted_count": attempted_count,
                         "successful_count": category_count,
                         "target_successes": target_successes,
@@ -236,6 +259,7 @@ class WarehouseImporter(ABC):
         return {
             "candidates_discovered": discovered_count,
             "candidates_selected": len(candidates),
+            "retired_candidates_filtered": retired_count,
             "candidates_attempted": attempted_count,
             "categories_processed": category_count,
             "observations_inserted": observation_count,

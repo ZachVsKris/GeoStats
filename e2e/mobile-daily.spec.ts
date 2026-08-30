@@ -392,6 +392,12 @@ test("leaderboard clearly requires a GeoStats account", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "Leaderboard" })).toBeVisible();
   await expect(page.getByRole("button", { name: /sign in to view leaderboard/i })).toBeVisible();
   await expect(page.getByText("Scout and Adventurer remain playable without an account.")).toBeVisible();
+
+  const apiResponse = await page.request.get("/api/leaderboard?view=today&difficulty=easy");
+  expect([401, 503]).toContain(apiResponse.status());
+  expect(apiResponse.headers()["cache-control"]).toBe("private, no-store");
+  const apiBody = await apiResponse.json();
+  expect(apiBody.error).toMatch(/Sign in to view|Accounts are not configured/);
 });
 
 

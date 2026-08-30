@@ -193,7 +193,21 @@ for (const token of [
 ]) check(accountControls.includes(token), `account UI missing ${token}`);
 check(leaderboardPage.includes("signedIn ? <LeaderboardView") && leaderboardPage.includes("Account-only standings"), "leaderboard page is not visibly account-gated");
 check(!leaderboardView.includes("Internal QA"), "leaderboard exposes internal QA terminology to players");
-check(leaderboardRoute.includes("Sign in to view the GeoStats leaderboard") && leaderboardRoute.includes("status: 401"), "leaderboard API is not authentication-gated");
+check(leaderboardRoute.includes("Sign in to view the GeoStats leaderboard") && leaderboardRoute.includes("}, 401)"), "leaderboard API is not authentication-gated");
+check(!fs.existsSync(path.join(root, "components/AccountLeaderboard.tsx")), "obsolete manual leaderboard score-submission component still exists");
+for (const token of [
+  "Your score saves automatically",
+  'role="tabpanel"',
+  'aria-selected=',
+  "Your session expired",
+  "Try again",
+  "updateLocation",
+]) check(leaderboardView.includes(token), `leaderboard resilience/accessibility missing ${token}`);
+for (const token of [
+  '"Cache-Control": "private, no-store"',
+  "The standings could not be loaded right now",
+  "console.error(\"Leaderboard query failed\"",
+]) check(leaderboardRoute.includes(token), `leaderboard API hardening missing ${token}`);
 check(expertPage.includes("canPlayExpert={Boolean(userResult?.data.user)}"), "Expert play does not use server-authenticated access state");
 check(profileRoute.includes("usernamePassesModeration") && profileRoute.includes("Your email") === false, "username moderation or profile privacy regressed");
 for (const token of [

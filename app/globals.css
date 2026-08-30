@@ -302,24 +302,29 @@ header{display:flex;align-items:center;justify-content:space-between;padding:6px
 .accountMessage{padding:10px 12px;border-left:3px solid var(--accent);background:rgba(212,191,114,.07);color:var(--ink)!important}
 .brandLink{text-decoration:none;color:inherit}
 .standalonePage header{margin-bottom:18px}
-.leaderboardPage{overflow:hidden}
+.leaderboardPage{overflow:hidden;min-width:0}
 .leaderboardPageIntro{padding:34px 38px 27px;border-bottom:1px solid var(--line)}
 .leaderboardPageIntro h1{margin:7px 0 8px;font-family:var(--display);font-size:52px;font-weight:600}
 .leaderboardPageIntro p{margin:0;color:var(--muted)}
 .leaderboardTabs{display:flex;border-bottom:1px solid var(--line)}
 .leaderboardTabs button{flex:1;padding:15px;border:0;border-right:1px solid var(--line);border-radius:0;background:var(--surface-3);color:var(--muted);font-family:var(--label);font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;cursor:pointer}
 .leaderboardTabs button:last-child{border-right:0}.leaderboardTabs button.active{background:rgba(212,191,114,.08);color:var(--accent);box-shadow:inset 0 -3px 0 var(--accent)}
+.publicLeaderboard{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain}
 .publicLeaderboard>div{display:grid;grid-template-columns:54px minmax(180px,1fr) 110px 110px 90px;gap:12px;align-items:center;padding:13px 20px;border-bottom:1px solid var(--line-soft);font-variant-numeric:tabular-nums}
 .publicLeaderboard>div>strong{color:var(--accent);font-family:var(--display);font-size:19px}.publicLeaderboard>div>b{color:var(--muted)}
 .publicLeaderboardHeader{color:var(--muted);font-family:var(--label);font-size:9px;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
 .leaderboardEmpty{padding:54px 24px;text-align:center;color:var(--muted);font-family:var(--display);font-size:19px}
+.leaderboardError{display:flex;min-height:220px;padding:40px 24px;flex-direction:column;align-items:center;justify-content:center;gap:9px;text-align:center}
+.leaderboardError strong{font-family:var(--display);font-size:24px;font-weight:600}.leaderboardError p{max-width:520px;margin:0;color:var(--muted);line-height:1.5}
+.leaderboardError>button{margin-top:8px;padding:11px 17px;border:1px solid var(--accent);border-radius:2px;background:transparent;color:var(--ink);font-family:var(--label);font-size:10px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;cursor:pointer}
+.leaderboardError .accountHeaderActions{margin-top:8px}.leaderboardError .accountHeaderActions>a{display:none}
 .leaderboardPageActions{padding:18px;text-align:center}.leaderboardPageActions a{display:inline-flex;padding:11px 17px;border:1px solid var(--accent);color:var(--ink);font-family:var(--label);font-size:10px;font-weight:800;letter-spacing:.09em;text-decoration:none;text-transform:uppercase}
 
 @media(max-width:620px){
   .scoreActions{flex-direction:column}.scoreActions>.shareScore,.scoreActions>.resultsAccountActions{width:100%}.resultsAccountActions{display:grid;grid-template-columns:1fr 1fr;width:100%}.resultsAccountActions a,.resultsAccountActions button{width:100%;padding:10px 7px;font-size:8px}
   .activePlay header{display:grid;grid-template-columns:1fr auto;gap:3px 6px}.activePlay .headerButtons{grid-column:1/-1;width:100%;display:flex;justify-content:flex-end;flex-wrap:nowrap;gap:3px}.activePlay .headerButtons>button,.activePlay .headerButtons>.dailyModeButton,.activePlay .headerButtonLink,.activePlay .accountHeaderActions button{min-height:24px;padding:4px 5px;font-size:6px}.activePlay .accountHeaderActions{gap:3px}.activePlay .accountHeaderActions .headerButtonLink{font-size:0}.activePlay .accountHeaderActions .headerButtonLink:after{content:"Leaders";font-size:6px}
   .standalonePage{padding:10px 8px 34px}.standalonePage header{align-items:flex-start;gap:8px}.standalonePage .brand h1{font-size:20px}.standalonePage .brand p{display:none}.standalonePage .headerButtons{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px}.standalonePage .accountHeaderActions{gap:4px}.standalonePage .headerButtonLink,.standalonePage .accountHeaderActions button{min-height:32px;padding:7px 8px;font-size:7px}
-  .leaderboardPageIntro{padding:25px 18px 20px}.leaderboardPageIntro h1{font-size:39px}.leaderboardPageIntro p{font-size:13px;line-height:1.5}.publicLeaderboard>div{grid-template-columns:28px minmax(105px,1fr) 55px 55px 48px;gap:5px;padding:11px 8px;font-size:11px}.publicLeaderboardHeader{font-size:7.5px;letter-spacing:.055em}.publicLeaderboard>div>strong{font-size:14px}
+  .leaderboardPageIntro{padding:25px 18px 20px}.leaderboardPageIntro h1{font-size:39px}.leaderboardPageIntro p{font-size:13px;line-height:1.5}.publicLeaderboard>div{min-width:370px;grid-template-columns:28px minmax(105px,1fr) 55px 55px 48px;gap:5px;padding:11px 8px;font-size:11px}.publicLeaderboardHeader{font-size:7.5px;letter-spacing:.055em}.publicLeaderboard>div>strong{font-size:14px}
 }
 
 /* v11.0.8 board polish: preserve the balanced board while using its space better. */

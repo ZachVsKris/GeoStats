@@ -29,6 +29,10 @@ type LeaderEntry = {
 const dailyDate = () => newYorkDate();
 const profileOf = (raw: ScoreRow["profiles"]) => Array.isArray(raw) ? raw[0] : raw;
 const clamp = (value: number, minimum: number, maximum: number) => Math.max(minimum, Math.min(maximum, value));
+const privateJson = (body: unknown, status = 200) => NextResponse.json(body, {
+  status,
+  headers: { "Cache-Control": "private, no-store" },
+});
 
 function isScoreRow(value: unknown): value is ScoreRow {
   if (!value || typeof value !== "object") return false;
@@ -71,26 +75,25 @@ function scoreMaximum(row: Pick<ScoreRow, "difficulty" | "rules_version">) {
 
 export async function GET(request: Request) {
   const auth = await createSupabaseServerClient();
-  if (!auth) return NextResponse.json({ error: "Accounts are not configured." }, { status: 503 });
+  if (!auth) return privateJson({ error: "Accounts are not configured." }, 503);
   const { data: { user } } = await auth.auth.getUser();
   if (!user) {
-    return NextResponse.json({ error: "Sign in to view the GeoStats leaderboard." }, {
-      status: 401,
-      headers: { "Cache-Control": "private, no-store" },
-    });
+    return privateJson({ error: "Sign in to view the GeoStats leaderboard." }, 401);
   }
   const supabase = createSupabaseAdminClient();
-  if (!supabase) return NextResponse.json({ configured: false, leaders: [] });
+  if (!supabase) return privateJson({ error: "The standings service is not configured." }, 503);
   const url = new URL(request.url);
   const view = url.searchParams.get("view") === "today" ? "today" : "alltime";
   const difficulty = parseDifficulty(url.searchParams.get("difficulty"));
+  const requestedDate = url.searchParams.get("date");
+  const challengeDate = requestedDate && /^\d{4}-\d{2}-\d{2}$/.test(requestedDate) ? requestedDate : dailyDate();
   const buildQuery = (columns: string) => {
     let query = supabase
       .from("daily_scores")
       .select(columns)
       .eq("difficulty", difficulty);
     if (view === "today") {
-      query = query.eq("challenge_date", url.searchParams.get("date") || dailyDate());
+      query = query.eq("challenge_date", challengeDate);
     }
     return query;
   };
@@ -101,7 +104,10 @@ export async function GET(request: Request) {
     data = legacy.data;
     error = legacy.error;
   }
-  if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+  if (error) {
+    console.error("Leaderboard query failed", { code: error.code, message: error.message, difficulty, view });
+    return privateJson({ error: "The standings could not be loaded right now." }, 500);
+  }
   const rawRows: unknown[] = Array.isArray(data) ? data : [];
   const rows = rawRows.filter(isScoreRow);
 
@@ -116,9 +122,7 @@ export async function GET(request: Request) {
         topFinishes: row.top_fives,
       };
     }).sort((a, b) => b.score - a.score || a.averagePlacement - b.averagePlacement || b.firsts - a.firsts || b.topFinishes - a.topFinishes).slice(0, 100);
-    return NextResponse.json({ view, difficulty, date: url.searchParams.get("date") || dailyDate(), leaders }, {
-      headers: { "Cache-Control": "private, no-store" },
-    });
+    return privateJson({ view, difficulty, date: challengeDate, leaders });
   }
 
   const maxScore = ROUND_CONFIGS[difficulty].maxScore;
@@ -184,7 +188,7 @@ export async function GET(request: Request) {
     .sort((a, b) => b.rating - a.rating || a.averagePlacement - b.averagePlacement || b.games - a.games || b.averagePercent - a.averagePercent)
     .slice(0, 100);
 
-  return NextResponse.json({
+  return privateJson({
     view,
     difficulty,
     maxScore,
@@ -198,7 +202,5 @@ export async function GET(request: Request) {
       confidenceGames,
       dayPriorGames,
     },
-  }, {
-    headers: { "Cache-Control": "private, no-store" },
   });
 }

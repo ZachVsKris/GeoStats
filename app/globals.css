@@ -1199,3 +1199,40 @@ header{display:flex;align-items:center;justify-content:space-between;padding:6px
   .infoCard{padding:17px 16px}.infoCardHeader h2{font-size:18px}
   .infoFooter{padding:15px 20px}
 }
+
+/* Launch access: readable account benefits, Expert preview, and account-only standings. */
+.accountBenefits{display:grid;gap:7px;margin:14px 0 17px;padding:0;list-style:none;color:var(--ink);font-size:13px;line-height:1.35}
+.accountBenefits li{position:relative;margin:0;padding-left:22px;color:var(--ink)}
+.accountBenefits li:before{content:"✓";position:absolute;left:0;color:var(--accent-2);font-weight:900}
+.expertAccessGate{display:flex;align-items:center;justify-content:space-between;gap:24px;margin:0 0 12px;padding:17px 20px;border:1px solid var(--accent);background:linear-gradient(110deg,rgba(212,191,114,.1),rgba(15,32,25,.96));box-shadow:inset 4px 0 0 var(--accent)}
+.expertAccessGate>div:first-child{display:grid;gap:4px;max-width:760px}
+.expertAccessGate strong{font-family:var(--display);font-size:22px;font-weight:600}
+.expertAccessGate p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}
+.expertAccessGate .accountHeaderActions button{min-width:190px;border-color:var(--accent);background:var(--accent);color:#111a14}
+.expertPreview .country:disabled,.expertPreview .slot:disabled{opacity:.84;cursor:default;filter:none}
+.expertPreview .country:disabled:hover,.expertPreview .slot:disabled:hover{transform:none}
+.expertPreview .choice em{color:var(--muted)}
+.leaderboardAccessGate{min-height:520px}
+.leaderboardGateBody{display:grid;justify-items:center;gap:13px;max-width:680px;margin:0 auto;padding:64px 28px;text-align:center}
+.leaderboardGateBody>strong{font-family:var(--display);font-size:30px;font-weight:600}
+.leaderboardGateBody>p{margin:0;color:var(--muted);font-size:14px;line-height:1.65}
+.leaderboardGateBody .accountHeaderActions button{min-width:240px;min-height:48px;border-color:var(--accent);background:var(--accent);color:#111a14;font-size:10px}
+.leaderboardGateBody>small{color:var(--muted);font-size:11px}
+
+@media(max-width:700px){
+  .expertAccessGate{align-items:stretch;flex-direction:column;gap:12px;margin-bottom:7px;padding:12px 13px}
+  .expertAccessGate strong{font-size:18px}.expertAccessGate p{font-size:10px;line-height:1.35}
+  .expertAccessGate .accountHeaderActions,.expertAccessGate .accountHeaderActions button{width:100%}
+  .leaderboardGateBody{padding:40px 18px}.leaderboardGateBody>strong{font-size:25px}
+  .leaderboardGateBody .accountHeaderActions,.leaderboardGateBody .accountHeaderActions button{width:100%}
+}
+@media (min-width:901px) and (max-height:950px){
+  .activePlay.expertPreview .playGrid{height:calc(100dvh - 220px);min-height:430px}
+  .activePlay.expertPreview .playGrid .panel{height:100%;min-height:0}
+}
+@media (min-width:621px) and (max-width:900px) and (max-height:500px){
+  .expertAccessGate{min-height:44px;margin:0 0 4px;padding:5px 8px;box-shadow:inset 3px 0 0 var(--accent)}
+  .expertAccessGate .kicker,.expertAccessGate p{display:none}
+  .expertAccessGate strong{font-size:15px;line-height:1.05}
+  .expertAccessGate .accountHeaderActions button{min-width:180px;min-height:34px;padding:6px 9px;font-size:7px}
+}

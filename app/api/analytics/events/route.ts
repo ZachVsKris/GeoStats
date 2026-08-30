@@ -6,6 +6,7 @@ export const dynamic = "force-dynamic";
 const EVENTS = new Set([
   "page_view", "game_started", "game_completed", "share_clicked",
   "source_opened", "account_username_saved", "account_signin_requested",
+  "account_gate_opened",
 ]);
 const DIFFICULTIES = new Set(["easy", "normal", "expert"]);
 

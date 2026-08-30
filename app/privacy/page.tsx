@@ -9,9 +9,9 @@ export default function Privacy() {
     <section className="panel infoPagePanel">
       <div className="infoPageHero"><span className="kicker">Your data</span><h1>Privacy</h1><p>GeoStats collects only the information needed to operate the game, accounts, leaderboards, and limited first-party product analytics.</p></div>
       <div className="infoDocument">
-        <p>GeoStats is a geography game built around public country statistics. You can play the Daily without creating an account.</p>
+        <p>GeoStats is a geography game built around public country statistics. Scout and Adventurer can be played without creating an account; anyone may preview the Expert board.</p>
         <h2>Accounts and leaderboards</h2>
-        <p>If you sign in, GeoStats stores the account information needed to authenticate you, your GeoStats username, and your saved Daily scores. Public leaderboards show your GeoStats username, not your email address or display name. Random QA games are private to authorized tester accounts and are not included in public standings.</p>
+        <p>An account is required to play Expert, save verified Daily scores, or view the leaderboards. If you sign in, GeoStats stores the information needed to authenticate you, your GeoStats username, and your saved Daily scores. Account-only leaderboards show your GeoStats username, never your email address. Random QA games are internal testing activity and are not included in standings or product analytics.</p>
         <h2>First-party analytics</h2>
         <p>GeoStats records limited first-party product analytics such as page views, game starts and completions, difficulty, coarse referrer hostname, campaign parameters you arrived with, and whether the same browser has visited before. Analytics uses a session identifier and does not intentionally collect precise location, advertising identifiers, or cross-site browsing history. Internal Random QA activity is excluded.</p>
         <h2>Technical logs</h2>

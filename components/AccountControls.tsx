@@ -6,11 +6,26 @@ import type { DailyDifficulty } from "../lib/gameRules";
 import { trackAnalytics } from "../lib/analytics";
 
 type PendingScore = { challengeDate: string; difficulty: DailyDifficulty; assignments: Record<string, string> };
-type Props = { pendingScore?: PendingScore; results?: boolean; difficulty?: DailyDifficulty };
+type AccountContext = "default" | "expert" | "leaderboard";
+type Props = {
+  pendingScore?: PendingScore;
+  results?: boolean;
+  difficulty?: DailyDifficulty;
+  context?: AccountContext;
+  ctaLabel?: string;
+  hideLeaderboardLink?: boolean;
+};
 
 const pendingKey = (difficulty: DailyDifficulty) => `geostats-pending-daily-score-${difficulty}`;
 
-export default function AccountControls({ pendingScore, results = false, difficulty = "easy" }: Props) {
+export default function AccountControls({
+  pendingScore,
+  results = false,
+  difficulty = "easy",
+  context = "default",
+  ctaLabel,
+  hideLeaderboardLink = false,
+}: Props) {
   const supabase = useMemo(() => createSupabaseBrowserClient(), []);
   const [userLabel, setUserLabel] = useState<string | null>(null);
   const [email, setEmail] = useState("");
@@ -148,7 +163,7 @@ export default function AccountControls({ pendingScore, results = false, difficu
     try {
       const { error } = await supabase.auth.signInWithOtp({
         email: email.trim(),
-        options: { emailRedirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(window.location.pathname || "/daily")}` },
+        options: { emailRedirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(`${window.location.pathname}${window.location.search}` || "/daily")}` },
       });
       if (error) {
         const rateLimited = /rate limit|too many requests/i.test(error.message);
@@ -161,7 +176,7 @@ export default function AccountControls({ pendingScore, results = false, difficu
         return;
       }
       setResendSeconds(60);
-      trackAnalytics("account_signin_requested");
+      trackAnalytics("account_signin_requested", { metadata: { context } });
       setMessage("Sign-in link sent. Check your inbox.");
     } finally {
       setSendingLink(false);
@@ -177,27 +192,44 @@ export default function AccountControls({ pendingScore, results = false, difficu
     setUsernameCustomized(true);
   }
 
+  function openAccount() {
+    if (!userLabel) trackAnalytics("account_gate_opened", { metadata: { context } });
+    setOpen(true);
+  }
+
+  const guestHeading = context === "expert"
+    ? "Unlock Expert Daily"
+    : context === "leaderboard"
+      ? "Unlock the GeoStats leaderboard"
+      : "Sign in or create an account";
+  const guestButtonLabel = ctaLabel ?? (results && pendingScore ? "Sign in to save" : "Sign in");
+
   return <>
     <div className={results ? "resultsAccountActions" : "accountHeaderActions"}>
-      <a className={results ? "secondaryAction" : "headerButtonLink"} href={`/leaderboard?difficulty=${difficulty}`}>{results ? "View leaderboard" : "Leaderboard"}</a>
-      {userLabel ? <button onClick={() => setOpen(true)}>{userLabel}</button> : <button onClick={() => setOpen(true)}>{results && pendingScore ? "Sign in to save" : "Sign in"}</button>}
+      {!hideLeaderboardLink && <a className={results ? "secondaryAction" : "headerButtonLink"} href={`/leaderboard?difficulty=${difficulty}`}>{results ? "View leaderboard" : "Leaderboard"}</a>}
+      {userLabel ? <button onClick={openAccount}>{userLabel}</button> : <button onClick={openAccount}>{guestButtonLabel}</button>}
     </div>
     {open && <div className="modal accountModal" onClick={(event) => event.currentTarget === event.target && usernameCustomized && setOpen(false)}>
       <div>
         {usernameCustomized && <button className="modalClose" aria-label="Close" onClick={() => setOpen(false)}>×</button>}
         <span className="kicker">GeoStats account</span>
-        <h2>{userLabel ? `Signed in as ${userLabel}` : "Sign in or create an account"}</h2>
+        <h2>{userLabel ? `Signed in as ${userLabel}` : guestHeading}</h2>
         {userLabel ? <>
           {!usernameCustomized && <p className="usernameRequired">Before joining the leaderboard, choose a public GeoStats username.</p>}
           <label className="emailField"><span>GeoStats username</span><input type="text" inputMode="text" autoComplete="username" maxLength={20} placeholder="3–20 letters, numbers, or underscores" value={usernameDraft} onChange={(event) => setUsernameDraft(event.target.value.replace(/[^A-Za-z0-9_]/g, ""))} onKeyDown={(event) => event.key === "Enter" && saveUsername()} /></label>
           <div className="accountModalActions"><button onClick={saveUsername} disabled={savingUsername || usernameDraft.length < 3 || usernameDraft === username}>{savingUsername ? "Saving…" : usernameCustomized ? "Update username" : "Save username"}</button><button className="quietButton" onClick={signOut}>Sign out</button></div>
-          <p>Your verified Scout, Adventurer, and Expert Daily scores are saved automatically. Your email stays private.</p>
+          <p>Your account unlocks Expert play and the account-only leaderboards. Verified Daily scores are saved automatically; your email stays private.</p>
           {saving && <p>Saving your completed Daily…</p>}
         </> : <>
           <p>Enter your email. We’ll send a secure sign-in link—no password needed.</p>
+          <ul className="accountBenefits">
+            <li>Play the Expert Daily</li>
+            <li>Join Scout, Adventurer, and Expert leaderboards</li>
+            <li>Save one verified score per mode each day</li>
+          </ul>
           <label className="emailField"><span>Email address</span><input type="email" inputMode="email" autoComplete="email" placeholder="you@example.com" value={email} onChange={(event) => setEmail(event.target.value)} onKeyDown={(event) => event.key === "Enter" && resendSeconds === 0 && !sendingLink && sendMagicLink()} /></label>
           <button onClick={sendMagicLink} disabled={!email.trim() || sendingLink || resendSeconds > 0}>{sendingLink ? "Sending…" : resendSeconds > 0 ? `Resend in ${resendSeconds}s` : "Email me a sign-in link"}</button>
-          <small>Your sign-in email and username experience are branded as GeoStats. Your email is never displayed on leaderboards.</small>
+          <small>Your public GeoStats username appears on leaderboards. Your email never does.</small>
         </>}
         {message && <p className="accountMessage">{message}</p>}
       </div>

@@ -230,6 +230,7 @@ for (const viewport of mobileCases) {
           countriesInsideBank: countryRects.every((rect) => rect.left >= bankRect.left - 1 && rect.right <= bankRect.right + 1 && rect.top >= 0 && rect.bottom <= window.innerHeight + 1 && rect.width >= 36),
           allSlotsVisible: slotRects.every((rect) => rect.left >= 0 && rect.right <= window.innerWidth + 1 && rect.top >= 0 && rect.bottom <= window.innerHeight + 1),
           slotColumns: new Set(slotRects.map((rect) => Math.round(rect.left))).size,
+          slotEdgeColors: new Set(slots.map((item) => getComputedStyle(item).borderLeftColor)).size,
           lockPosition: getComputedStyle(lock).position,
           lockAfterCards: lockRect.top >= lastSlotRect.bottom - 2,
           lockVisible: lockRect.bottom <= window.innerHeight + 1,
@@ -251,6 +252,7 @@ for (const viewport of mobileCases) {
       expect(layout.countriesInsideBank).toBeTruthy();
       expect(layout.allSlotsVisible).toBeTruthy();
       expect(layout.slotColumns).toBe(2);
+      expect(layout.slotEdgeColors).toBe(1);
       expect(layout.countryRows).toBeLessThanOrEqual(2);
       expect(layout.countryBankHeight).toBeGreaterThanOrEqual(viewport.orientation === "landscape" ? 50 : mode.minBankHeight);
       expect(layout.minCountryCardHeight).toBeGreaterThanOrEqual(viewport.orientation === "landscape" ? 24 : mode.minCountryCardHeight);
@@ -262,11 +264,19 @@ for (const viewport of mobileCases) {
       expect(layout.lockAfterCards).toBeTruthy();
       expect(layout.lockVisible).toBeTruthy();
 
-      for (let index = 0; index < mode.categories; index += 1) {
-        await page.locator(".countries .country:not(:disabled)").first().click();
-        await page.locator(".slots .slot").nth(index).click();
+      if (mode.difficulty === "expert") {
+        await expect(page.locator(".expertAccessGate")).toBeVisible();
+        await expect(page.getByRole("button", { name: /sign in to play expert/i })).toBeVisible();
+        await expect(page.locator(".countries .country:disabled")).toHaveCount(mode.countries);
+        await expect(page.locator(".slots .slot:disabled")).toHaveCount(mode.categories);
+        await expect(page.getByRole("button", { name: /sign in above to play/i })).toBeDisabled();
+      } else {
+        for (let index = 0; index < mode.categories; index += 1) {
+          await page.locator(".countries .country:not(:disabled)").first().click();
+          await page.locator(".slots .slot").nth(index).click();
+        }
+        await expect(page.getByRole("button", { name: /lock in draft/i })).toBeEnabled();
       }
-      await expect(page.getByRole("button", { name: /lock in draft/i })).toBeEnabled();
       expect(browserErrors).toEqual([]);
       await page.screenshot({ path: testInfo.outputPath(`${mode.difficulty}-${viewport.width}x${viewport.height}.png`), fullPage: true });
     });
@@ -374,6 +384,14 @@ test("legacy Seeded links preserve the seed before private Random gates public u
 
   await page.goto("/seeded/expert?seed=OLD-SEED-42");
   await expect(page).toHaveURL(/\/daily$/);
+});
+
+test("leaderboard clearly requires a GeoStats account", async ({ page }) => {
+  await page.goto("/leaderboard");
+  await expect(page.getByText("Account-only standings")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Leaderboard" })).toBeVisible();
+  await expect(page.getByRole("button", { name: /sign in to view leaderboard/i })).toBeVisible();
+  await expect(page.getByText("Scout and Adventurer remain playable without an account.")).toBeVisible();
 });
 
 

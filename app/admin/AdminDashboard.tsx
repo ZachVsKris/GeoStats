@@ -159,7 +159,7 @@ type CatalogMacroDomain = { macro_domain: string; categories: number; playable: 
 type GeneratorReachabilitySummary = { playable: number; categories_with_reachability_proof: number; failed_difficulty_checks: number; last_checked_at: string | null };
 
 type Dashboard = {
-  stats: { categories: number; observations: number; countries: number; usernames: number };
+  stats: { categories: number; observations: number; countries: number; accounts: number; accounts30d: number; usernames: number };
   reviewCounts: Record<ReviewStatus, number> & { pending_editorial: number };
   sources: SourceRow[];
   imports: ImportRow[];
@@ -530,6 +530,7 @@ export default function AdminDashboard() {
           ["Categories", data.stats.categories],
           ["Observations", data.stats.observations],
           ["Countries", data.stats.countries],
+          ["Accounts", data.stats.accounts],
           ["Usernames", data.stats.usernames],
           ["Approved", data.reviewCounts.approved],
           ["Pending editorial", data.reviewCounts.pending_editorial],
@@ -552,6 +553,8 @@ export default function AdminDashboard() {
           {[
             ["Visitors", data.analytics.visitors],
             ["Page views", data.analytics.page_views],
+            ["New accounts", data.stats.accounts30d],
+            ["Signed-in visitors", data.analytics.signed_in_users_seen],
             ["Games started", data.analytics.games_started],
             ["Games completed", data.analytics.games_completed],
             ["Completion rate", data.analytics.games_started ? `${Math.round((data.analytics.games_completed / data.analytics.games_started) * 100)}%` : "—"],

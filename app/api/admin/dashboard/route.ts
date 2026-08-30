@@ -176,7 +176,8 @@ export async function GET() {
 
   const { admin } = auth;
   const today = newYorkDate();
-  const [obsCount, countryCount, imports, sources, boards, scoreCount, usernameCount] = await Promise.all([
+  const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
+  const [obsCount, countryCount, imports, sources, boards, scoreCount, accountCount, accountCount30d, usernameCount] = await Promise.all([
     // The observation warehouse is large enough that an exact count can time out at
     // PostgREST and must never prevent the rest of Admin from loading.
     admin.from("stat_observations").select("country_iso3", { count: "estimated", head: true }),
@@ -185,6 +186,8 @@ export async function GET() {
     admin.from("data_sources").select("*").order("display_order"),
     admin.from("daily_challenges").select("difficulty").eq("challenge_date", today),
     admin.from("daily_scores").select("id", { count: "exact", head: true }).eq("challenge_date", today),
+    admin.from("profiles").select("id", { count: "exact", head: true }),
+    admin.from("profiles").select("id", { count: "exact", head: true }).gte("created_at", thirtyDaysAgo),
     admin.from("profiles").select("id", { count: "exact", head: true }).eq("username_customized", true),
   ]);
 
@@ -388,6 +391,8 @@ export async function GET() {
       categories: computedCategoryRows.length,
       observations: obsCount.error ? 0 : obsCount.count ?? 0,
       countries: countryCount.count ?? 0,
+      accounts: accountCount.error ? 0 : accountCount.count ?? 0,
+      accounts30d: accountCount30d.error ? 0 : accountCount30d.count ?? 0,
       usernames: usernameCount.error ? 0 : usernameCount.count ?? 0,
     },
     analytics,

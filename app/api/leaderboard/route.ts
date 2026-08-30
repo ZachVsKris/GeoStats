@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { createSupabaseAdminClient } from "../../../lib/supabase/server";
+import { createSupabaseAdminClient, createSupabaseServerClient } from "../../../lib/supabase/server";
 import { newYorkDate } from "../../../lib/time";
 import { LEGACY_V16_2_3_ROUND_CONFIGS, ROUND_CONFIGS, type DailyDifficulty } from "../../../lib/gameRules";
 import { BOARD_NORMALIZATION_VERSION, LEADERBOARD_RATING_VERSION, RULES_VERSION } from "../../../lib/version";
@@ -70,6 +70,15 @@ function scoreMaximum(row: Pick<ScoreRow, "difficulty" | "rules_version">) {
 }
 
 export async function GET(request: Request) {
+  const auth = await createSupabaseServerClient();
+  if (!auth) return NextResponse.json({ error: "Accounts are not configured." }, { status: 503 });
+  const { data: { user } } = await auth.auth.getUser();
+  if (!user) {
+    return NextResponse.json({ error: "Sign in to view the GeoStats leaderboard." }, {
+      status: 401,
+      headers: { "Cache-Control": "private, no-store" },
+    });
+  }
   const supabase = createSupabaseAdminClient();
   if (!supabase) return NextResponse.json({ configured: false, leaders: [] });
   const url = new URL(request.url);
@@ -108,7 +117,7 @@ export async function GET(request: Request) {
       };
     }).sort((a, b) => b.score - a.score || a.averagePlacement - b.averagePlacement || b.firsts - a.firsts || b.topFinishes - a.topFinishes).slice(0, 100);
     return NextResponse.json({ view, difficulty, date: url.searchParams.get("date") || dailyDate(), leaders }, {
-      headers: { "Cache-Control": "public, s-maxage=30, stale-while-revalidate=120" },
+      headers: { "Cache-Control": "private, no-store" },
     });
   }
 
@@ -190,6 +199,6 @@ export async function GET(request: Request) {
       dayPriorGames,
     },
   }, {
-    headers: { "Cache-Control": "public, s-maxage=60, stale-while-revalidate=300" },
+    headers: { "Cache-Control": "private, no-store" },
   });
 }

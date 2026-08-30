@@ -9,7 +9,8 @@ export type AnalyticsEventName =
   | "share_clicked"
   | "source_opened"
   | "account_username_saved"
-  | "account_signin_requested";
+  | "account_signin_requested"
+  | "account_gate_opened";
 
 type AnalyticsPayload = {
   difficulty?: DailyDifficulty;

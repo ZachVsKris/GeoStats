@@ -16,7 +16,8 @@ create table if not exists public.analytics_events (
   metadata jsonb not null default '{}'::jsonb,
   constraint analytics_events_name_check check (event_name in (
     'page_view','game_started','game_completed','share_clicked',
-    'source_opened','account_username_saved','account_signin_requested'
+    'source_opened','account_username_saved','account_signin_requested',
+    'account_gate_opened'
   )),
   constraint analytics_events_difficulty_check check (difficulty is null or difficulty in ('easy','normal','expert')),
   constraint analytics_events_session_check check (length(session_id) between 8 and 80),

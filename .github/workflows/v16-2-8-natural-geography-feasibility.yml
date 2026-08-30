@@ -1,0 +1,51 @@
+name: v16.2.8 bounded natural geography feasibility
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/v16-2-8-natural-geography-feasibility.yml'
+      - 'scripts/fetch-koppen-geiger-bundle.py'
+      - 'scripts/audit-koppen-geiger-bundle.py'
+      - 'scripts/import-koppen-geiger.py'
+      - 'scripts/test-koppen-geiger-importer.py'
+      - 'scripts/data_pipeline/models.py'
+      - 'scripts/data_pipeline/quality.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: geostats-v16-2-8-bounded-natural-feasibility
+  cancel-in-progress: false
+
+jobs:
+  prove-ten-or-stop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with: { python-version: '3.12' }
+      - name: Install geospatial importer dependencies
+        run: python -m pip install --disable-pip-version-check -r scripts/requirements-data-importers.txt -r scripts/requirements-geography.txt
+      - name: Run importer unit tests
+        run: python scripts/test-koppen-geiger-importer.py
+      - name: Fetch the public peer-reviewed raster and sovereign geometry
+        run: python scripts/fetch-koppen-geiger-bundle.py --output artifacts/koppen-feasibility/input
+      - name: Prove at least 10 complete candidates or stop
+        run: |
+          python scripts/audit-koppen-geiger-bundle.py \
+            --input artifacts/koppen-feasibility/input/koppen-geiger-1991-2020.tif \
+            --countries artifacts/koppen-feasibility/input/ne_10m_admin_0_countries.shp \
+            --output artifacts/koppen-feasibility/natural-geography-feasibility.json \
+            --minimum-pass 10
+      - name: Upload bounded evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: v16-2-8-natural-geography-feasibility
+          path: artifacts/koppen-feasibility
+          retention-days: 30
+          if-no-files-found: error

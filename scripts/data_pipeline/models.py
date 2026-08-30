@@ -38,6 +38,11 @@ class IndicatorRule:
     understandability_score: int = 85
     fun_score: int = 80
     objective_status: Literal["objective", "composite", "subjective", "uncertain"] = "objective"
+    # A climatology is a published stable normal period, not a stale annual
+    # observation. Its publication year controls source freshness while the
+    # observation year continues to identify the period end shown to players.
+    temporal_scope: Literal["annual", "climatology", "historical"] = "annual"
+    publication_year: int | None = None
 
     @property
     def canonical_slug(self) -> str:

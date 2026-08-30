@@ -9,6 +9,7 @@ from pyproj import Geod
 from rasterio import open as rio_open
 from rasterio.mask import mask as rio_mask
 from shapely.geometry import shape,mapping
+from shapely.ops import unary_union
 from data_pipeline.base import WarehouseImporter
 from data_pipeline.canonical_countries import canonical_country_name
 from data_pipeline.countries import normalize_iso3
@@ -18,20 +19,20 @@ SOURCE_ORG='Beck et al.';SOURCE_DATASET='Köppen-Geiger 1991–2020 climate clas
 GEOD=Geod(ellps='WGS84')
 CLASS_CODES={'Af':1,'Am':2,'Aw':3,'BWh':4,'BWk':5,'BSh':6,'BSk':7,'Csa':8,'Csb':9,'Csc':10,'Cwa':11,'Cwb':12,'Cwc':13,'Cfa':14,'Cfb':15,'Cfc':16,'Dsa':17,'Dsb':18,'Dsc':19,'Dsd':20,'Dwa':21,'Dwb':22,'Dwc':23,'Dwd':24,'Dfa':25,'Dfb':26,'Dfc':27,'Dfd':28,'ET':29,'EF':30}
 GROUPS={
- 'desert-share':({4,5},'Largest desert-climate share'),
- 'arid-share':({4,5,6,7},'Largest arid-climate share'),
- 'steppe-share':({6,7},'Largest steppe-climate share'),
- 'tropical-rainforest-share':({1},'Largest tropical-rainforest climate share'),
- 'tropical-monsoon-share':({2},'Largest tropical-monsoon climate share'),
- 'tropical-savanna-share':({3},'Largest tropical-savanna climate share'),
- 'temperate-share':(set(range(8,17)),'Largest temperate-climate share'),
- 'mediterranean-share':({8,9,10},'Largest Mediterranean-climate share'),
- 'continental-share':(set(range(17,29)),'Largest continental-climate share'),
- 'polar-share':({29,30},'Largest polar-climate share'),
- 'tundra-share':({29},'Largest tundra-climate share'),
- 'ice-cap-share':({30},'Largest ice-cap climate share'),
+ 'desert-share':({4,5},'Highest percentage of land with a desert climate'),
+ 'arid-share':({4,5,6,7},'Highest percentage of land with an arid climate'),
+ 'steppe-share':({6,7},'Highest percentage of land with a steppe climate'),
+ 'tropical-rainforest-share':({1},'Highest percentage of land with a tropical rainforest climate'),
+ 'tropical-monsoon-share':({2},'Highest percentage of land with a tropical monsoon climate'),
+ 'tropical-savanna-share':({3},'Highest percentage of land with a tropical savanna climate'),
+ 'temperate-share':(set(range(8,17)),'Highest percentage of land with a temperate climate'),
+ 'mediterranean-share':({8,9,10},'Highest percentage of land with a Mediterranean climate'),
+ 'continental-share':(set(range(17,29)),'Highest percentage of land with a continental climate'),
+ 'polar-share':({29,30},'Highest percentage of land with a polar climate'),
+ 'tundra-share':({29},'Highest percentage of land with a tundra climate'),
+ 'ice-cap-share':({30},'Highest percentage of land with an ice-cap climate'),
 }
-DIVERSITY_TITLE='Most climatically diverse country'
+DIVERSITY_TITLE='Most climate types'
 def _sha(path):
  h=hashlib.sha256();
  with open(path,'rb') as f:
@@ -59,23 +60,36 @@ def aggregate_country_classes(raster_path,countries_path):
  out={};tmp=tempfile.TemporaryDirectory()
  try:
   shp=_shp_path(countries_path,tmp.name);reader=shapefile.Reader(str(shp),encoding='utf-8');fields={f[0]:i for i,f in enumerate(reader.fields[1:])}
+  geometries={}
+  for sr in reader.iterShapeRecords():
+   iso=_iso(sr.record,fields)
+   if not iso:continue
+   geom=shape(sr.shape.__geo_interface__)
+   if geom.is_empty:continue
+   geometries.setdefault(iso,[]).append(geom)
   with rio_open(raster_path) as src:
    if src.crs is None or not src.crs.is_geographic:raise RuntimeError('Köppen-Geiger raster must use a geographic lon/lat CRS for the area-weighted release path.')
-   for sr in reader.iterShapeRecords():
-    iso=_iso(sr.record,fields)
-    if not iso:continue
-    geom=shape(sr.shape.__geo_interface__)
-    if geom.is_empty:continue
+   for iso,parts in sorted(geometries.items()):
+    geom=unary_union(parts)
+    coverage_method='pixel_centers_within_sovereign_geometry'
     try:data,tr=rio_mask(src,[mapping(geom)],crop=True,filled=False,indexes=1,all_touched=False)
     except ValueError:continue
     arr=np.ma.asarray(data);valid=(~np.ma.getmaskarray(arr)) & (arr>=1) & (arr<=30)
+    if not valid.any():
+     # A handful of sovereign microstates/islands are smaller than one 1-km
+     # cell. Include intersecting cells only for those otherwise uncovered
+     # polygons and record the fallback explicitly in every observation.
+     try:data,tr=rio_mask(src,[mapping(geom)],crop=True,filled=False,indexes=1,all_touched=True)
+     except ValueError:continue
+     arr=np.ma.asarray(data);valid=(~np.ma.getmaskarray(arr)) & (arr>=1) & (arr<=30)
+     coverage_method='all_touched_tiny_country_fallback'
     if not valid.any():continue
     weights=np.zeros(arr.shape,dtype='float64')
     for r in range(arr.shape[0]):weights[r,:]=_cell_area_m2(tr,r)
     total=float(weights[valid].sum())
     if total<=0:continue
     areas={code:float(weights[valid & (arr==code)].sum()) for code in range(1,31)}
-    out[iso]={'total_m2':total,'areas_m2':areas}
+    out[iso]={'total_m2':total,'areas_m2':areas,'coverage_method':coverage_method}
   return out
  finally:tmp.cleanup()
 class Importer(WarehouseImporter):
@@ -87,7 +101,7 @@ class Importer(WarehouseImporter):
   raw=aggregate_country_classes(self.raster_path,self.countries_path);rh=_sha(self.raster_path);ch=_sha(self.countries_path)
   out={k:[] for k in [*GROUPS,'climate-diversity']}
   for iso,d in sorted(raw.items()):
-   total=d['total_m2'];areas=d['areas_m2'];name=canonical_country_name(iso,iso);meta={'source_file_sha256':rh,'country_geometry_sha256':ch,'reference_period':'1991-2020','pixel_area_weighting':'WGS84 geodesic row-cell area','classification_codes':CLASS_CODES}
+   total=d['total_m2'];areas=d['areas_m2'];name=canonical_country_name(iso,iso);meta={'source_file_sha256':rh,'country_geometry_sha256':ch,'reference_period':'1991-2020','pixel_area_weighting':'WGS84 geodesic row-cell area','coverage_method':d['coverage_method'],'classification_codes':CLASS_CODES}
    shares={code:100.0*area/total for code,area in areas.items()}
    if abs(sum(shares.values())-100)>1e-6:raise RuntimeError(f'{iso}: climate class shares do not sum to 100')
    for key,(codes,title) in GROUPS.items():
@@ -97,12 +111,12 @@ class Importer(WarehouseImporter):
  def discover(self):
   out=[]
   for key,(codes,title) in GROUPS.items():
-   labels=tuple(k for k,v in CLASS_CODES.items() if v in codes);desc=f'{title} from the 1991–2020 Köppen-Geiger climatology.'
-   rule=IndicatorRule(key=key,title=title,description=desc,plain_language_description=desc,technical_definition=f'Area-weighted share of mapped national raster cells in exact Köppen-Geiger classes {labels}; WGS84 geodesic pixel-area weighting.',unit_explanation='% of mapped land',family='Climate',icon='🌦️',unit='% of land',value_type='percentage',ranking_direction='high',include=labels,min_coverage=180,evidence_tier='A',source_priority=10,specificity_score=100,recognizability_score=96,understandability_score=96,fun_score=98)
-   out.append(CandidateDefinition(rule,f'KOPPEN:{key}',title,SOURCE_PAGE,{'source_page_url':SOURCE_PAGE,'reference_period':'1991-2020','official_raster_input_required':True,'pinned_country_geometry_required':True,'included_classes':labels,'area_weighted':True,'manual_review_required':True,'v16_2_6_content_reviewed':True}))
-  desc=f'{DIVERSITY_TITLE} from the 1991–2020 Köppen-Geiger climatology.'
-  rule=IndicatorRule(key='climate-diversity',title=DIVERSITY_TITLE,description=desc,plain_language_description=desc,technical_definition='Number of exact Köppen-Geiger classes 1–30 covering at least 1% of the country’s mapped land area, using WGS84 geodesic pixel-area weighting.',unit_explanation='climate classes ≥1%',family='Climate',icon='🌈',unit='climate classes ≥1%',value_type='count',ranking_direction='high',include=tuple(CLASS_CODES),min_coverage=180,evidence_tier='A',source_priority=10,specificity_score=100,recognizability_score=94,understandability_score=95,fun_score=99)
-  out.append(CandidateDefinition(rule,'KOPPEN:climate-diversity',DIVERSITY_TITLE,SOURCE_PAGE,{'source_page_url':SOURCE_PAGE,'reference_period':'1991-2020','official_raster_input_required':True,'pinned_country_geometry_required':True,'class_share_threshold_pct':1.0,'area_weighted':True,'manual_review_required':True,'v16_2_6_content_reviewed':True}))
+   labels=tuple(k for k,v in CLASS_CODES.items() if v in codes);desc=f'Percentage of the country’s land in this climate group during the 1991–2020 climate normal'
+   rule=IndicatorRule(key=key,title=title,description=desc,plain_language_description=desc,technical_definition=f'Area-weighted percentage of national raster cells in exact Köppen-Geiger classes {labels}; WGS84 geodesic pixel-area weighting.',unit_explanation='% of land',family='Climate',icon='🌦️',unit='% of land',value_type='percentage',ranking_direction='high',include=labels,min_coverage=180,evidence_tier='A',source_priority=10,specificity_score=100,recognizability_score=96,understandability_score=96,fun_score=98,temporal_scope='climatology',publication_year=2023)
+   out.append(CandidateDefinition(rule,f'KOPPEN:{key}',title,SOURCE_PAGE,{'source_page_url':SOURCE_PAGE,'reference_period':'1991-2020','dataset_release':'Scientific Data 2023 climate normal','license_name':'CC BY 4.0','license_url':'https://creativecommons.org/licenses/by/4.0/','official_raster_input_required':True,'pinned_country_geometry_required':True,'included_classes':labels,'area_weighted':True,'derivation_method':'Geodesic area-weighted intersection of the published 1-km classification raster with canonical sovereign geometry','derivation_version':'geostats-v16.2.8-koppen-v2','manual_review_required':True,'v16_2_6_content_reviewed':True}))
+  desc='Number of Köppen-Geiger climate types covering at least 1% of the country’s land'
+  rule=IndicatorRule(key='climate-diversity',title=DIVERSITY_TITLE,description=desc,plain_language_description=desc,technical_definition='Number of exact Köppen-Geiger classes 1–30 covering at least 1% of the country’s mapped land area, using WGS84 geodesic pixel-area weighting.',unit_explanation='climate types covering ≥1% of land',family='Climate',icon='🌈',unit='climate types',value_type='count',ranking_direction='high',include=tuple(CLASS_CODES),min_coverage=180,evidence_tier='A',source_priority=10,specificity_score=100,recognizability_score=94,understandability_score=95,fun_score=99,temporal_scope='climatology',publication_year=2023)
+  out.append(CandidateDefinition(rule,'KOPPEN:climate-diversity',DIVERSITY_TITLE,SOURCE_PAGE,{'source_page_url':SOURCE_PAGE,'reference_period':'1991-2020','dataset_release':'Scientific Data 2023 climate normal','license_name':'CC BY 4.0','license_url':'https://creativecommons.org/licenses/by/4.0/','official_raster_input_required':True,'pinned_country_geometry_required':True,'class_share_threshold_pct':1.0,'area_weighted':True,'derivation_method':'Count of published 1-km Köppen-Geiger classes covering at least 1% of canonical sovereign geometry','derivation_version':'geostats-v16.2.8-koppen-v2','manual_review_required':True,'v16_2_6_content_reviewed':True}))
   return out
  def fetch_observations(self,c):return self._data().get(c.rule.key,[])
  def category_id(self,c):return f'koppen-geiger:{c.rule.key}'

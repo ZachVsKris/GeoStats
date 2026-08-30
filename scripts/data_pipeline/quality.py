@@ -109,7 +109,12 @@ def score_observations(rule: IndicatorRule, observations: list[SourceObservation
             break
     stability = 65 if stability_raw is None else max(0, min(100, round((stability_raw + 1) * 50)))
 
-    age = max(0, now_year - common_year)
+    freshness_year = (
+        rule.publication_year
+        if rule.temporal_scope == "climatology" and rule.publication_year is not None
+        else common_year
+    )
+    age = max(0, now_year - freshness_year)
     coverage_component = min(35, round(35 * coverage / 160))
     freshness_component = max(0, 20 - age * 4)
     evidence_component = {"A": 15, "B": 11, "C": 6}[rule.evidence_tier]
@@ -130,6 +135,7 @@ def score_observations(rule: IndicatorRule, observations: list[SourceObservation
     review_status = "needs_review" if auto_qualified else "candidate"
     notes = (
         f"Common-year gate: {common_year}; {coverage} countries; "
+        f"freshness basis {rule.temporal_scope}:{freshness_year}; "
         f"clustering {clustering}; stability {stability}; evidence {rule.evidence_tier}. "
         "Categories are auto-approved only when the separate provenance and duplicate-governance gates also pass."
     )

@@ -44,6 +44,11 @@ const adminDashboardRoute = read("app/api/admin/dashboard/route.ts");
 const boardCapacityRoute = read("app/api/admin/daily/capacity/route.ts");
 const boardCapacity = read("lib/seedCapacity.ts");
 const puzzleEngine = read("lib/puzzleEngine.ts");
+const koppenImporter = read("scripts/import-koppen-geiger.py");
+const koppenAudit = read("scripts/audit-koppen-geiger-bundle.py");
+const koppenFetch = read("scripts/fetch-koppen-geiger-bundle.py");
+const naturalFeasibilityWorkflow = read(".github/workflows/v16-2-8-natural-geography-feasibility.yml");
+const pipelineQuality = read("scripts/data_pipeline/quality.py");
 const privacyPage = read("app/privacy/page.tsx");
 const termsPage = read("app/terms/page.tsx");
 const readme = read("README.md");
@@ -283,6 +288,17 @@ for (const token of ["categorySetHasFeasibleCountryBank", "countryBankFeasibleSa
 for (const token of ["distinct global Top-20", "findDistinctWinners", "validateRound(categories, bank)"]) {
   check(puzzleEngine.includes(token), `board-capacity feasibility check missing ${token}`);
 }
+for (const token of ["temporal_scope='climatology'", "publication_year=2023", "Highest percentage of land with a desert climate", "Most climate types"]) {
+  check(koppenImporter.includes(token), `bounded natural-geography importer missing ${token}`);
+}
+for (const token of ["default=10", "STOP_BELOW_MINIMUM", "top20_distinct_visible_values", "quality_auto_qualified"]) {
+  check(koppenAudit.includes(token), `bounded natural-geography audit missing ${token}`);
+}
+for (const token of ["api.figshare.com/v2/articles/21789074", "koppen_geiger_tif.zip", "naturalearth.s3.amazonaws.com", "manifest.json"]) {
+  check(koppenFetch.includes(token), `bounded natural-geography source resolver missing ${token}`);
+}
+check(naturalFeasibilityWorkflow.includes("Prove at least 10 complete candidates or stop") && naturalFeasibilityWorkflow.includes("if: always()"), "bounded natural-geography workflow is not fail-closed with retained evidence");
+check(pipelineQuality.includes('rule.temporal_scope == "climatology"') && pipelineQuality.includes("rule.publication_year"), "stable climatology freshness is still treated as an annual-data staleness failure");
 
 if (failures.length) {
   console.error(`GeoStats v16.2.8 category clarity checks FAILED:\n${failures.map((item) => ` - ${item}`).join("\n")}`);

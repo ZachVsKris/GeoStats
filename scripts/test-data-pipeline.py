@@ -44,6 +44,25 @@ for index in range(5):
 sparse_quality = score_observations(rule, sparse_rows)
 assert sparse_quality.common_year == 2024, sparse_quality
 assert sparse_quality.common_year_coverage == 160
+
+# Stable climate normals use their peer-reviewed publication year for source
+# freshness without pretending that the 1991-2020 observation period ended in
+# a newer year.
+climatology_rule = IndicatorRule(
+    **{**rule.__dict__, "key": "climate-normal", "temporal_scope": "climatology", "publication_year": 2023}
+)
+climatology_rows = [SourceObservation(
+    country_iso3=row.country_iso3,
+    country_name=row.country_name,
+    data_year=2020,
+    value=row.value,
+    source_url=row.source_url,
+    evidence_status=row.evidence_status,
+) for row in rows if row.data_year == 2024]
+climatology_quality = score_observations(climatology_rule, climatology_rows)
+assert climatology_quality.common_year == 2020
+assert climatology_quality.auto_qualified, climatology_quality
+assert "climatology:2023" in climatology_quality.notes
 base_row = {"review_status": "needs_review", "enabled": False, "eligible_daily": False}
 assert WarehouseImporter.preserve_editorial_state(
     base_row, {"review_status": "rejected"}, auto_qualified=True

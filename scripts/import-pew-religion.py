@@ -48,7 +48,12 @@ def _title_label(label: str) -> str:
 
 def group_rule(key: str, label: str, icon: str, measure: str) -> IndicatorRule:
     if measure == "share":
-        title = "Highest share following other religions" if key == "other-religions" else f"Highest {_title_label(label)} share"
+        if key == "other-religions":
+            title = "Highest % of population following other religions"
+        elif key == "unaffiliated":
+            title = "Highest % of population with no religious affiliation"
+        else:
+            title = f"Highest % of population that is {_title_label(label)}"
         description = f"Estimated percentage of the population identifying as {label} in 2020."
         unit = "% of population"
         value_type = "percentage"

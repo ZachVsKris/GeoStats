@@ -111,6 +111,8 @@ def _unit_and_type(name: str, unit: str) -> tuple[str, str]:
         return ("per 1,000", "rate")
     if re.search(r"per 100,?000", haystack):
         return ("per 100,000", "rate")
+    if re.search(r"per (?:unit of|kg of|kilogram of)", haystack):
+        return (unit.strip() or "rate", "rate")
     if "%" in haystack or "percent" in haystack or "share of" in haystack:
         return ("%", "percentage")
     if "per capita" in haystack or "per person" in haystack:
@@ -130,18 +132,29 @@ def _unit_and_type(name: str, unit: str) -> tuple[str, str]:
 
 def _player_title(name: str, value_type: str) -> str:
     clean = re.sub(r"\s*\([^)]*\)\s*$", "", _text(name)).strip()
+    threatened = re.fullmatch(r"(.+? species)(?: \(([^)]+)\))?, threatened", clean, re.I)
+    if threatened:
+        subject = threatened.group(1)
+        qualifier = f" {threatened.group(2)}" if threatened.group(2) else ""
+        clean = f"threatened{qualifier} {subject}"
     if re.match(r"^(highest|lowest|largest|most|fastest)\b", clean, re.I):
         return clean
     lower = clean.lower()
     if any(token in lower for token in ("growth", "annual change", "increase")):
         prefix = "Fastest"
     elif value_type == "total" and any(token in lower for token in (
-        "population", "area", "production", "output", "exports", "imports", "number of", "volume", "value added",
+        "number of", "subscriptions", "servers", "departures", "passengers", "species", "applications",
+    )):
+        prefix = "Most"
+    elif value_type == "total" and any(token in lower for token in (
+        "population", "area", "gdp", "output", "exports", "imports", "trade", "spending",
+        "reserves", "aid", "investment", "income", "production", "tonnes", "dollars",
     )):
         prefix = "Largest"
     else:
         prefix = "Highest"
-    return f"{prefix} {clean[0].lower() + clean[1:] if clean else 'reported value'}"
+    body = clean if re.match(r"^[A-Z]{2,}\b", clean) else (clean[0].lower() + clean[1:] if clean else "reported value")
+    return f"{prefix} {body}"
 
 
 def _family(row: dict[str, Any]) -> tuple[str, str]:

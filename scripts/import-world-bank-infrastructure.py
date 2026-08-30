@@ -19,15 +19,13 @@ API='https://api.worldbank.org/v2/country/all/indicator/{code}?format=json&per_p
 
 # key, title, code, unit, value_type, min, max
 SPECS=(
- ('internet-use','Highest internet-use share','IT.NET.USER.ZS','% of population','percentage',0,100),
- ('electricity-access','Highest electricity access','EG.ELC.ACCS.ZS','% of population','percentage',0,100),
- ('rural-electricity-access','Highest rural electricity access','EG.ELC.ACCS.RU.ZS','% of rural population','percentage',0,100),
- ('urban-electricity-access','Highest urban electricity access','EG.ELC.ACCS.UR.ZS','% of urban population','percentage',0,100),
- ('renewable-electricity-share','Largest renewable share of electricity generation','EG.ELC.RNEW.ZS','% of electricity output','percentage',0,100),
- ('coal-electricity-share','Largest coal share of electricity generation','EG.ELC.COAL.ZS','% of electricity output','percentage',0,100),
- ('nuclear-electricity-share','Largest nuclear share of electricity generation','EG.ELC.NUCL.ZS','% of electricity output','percentage',0,100),
- ('grid-losses','Highest electricity grid losses','EG.ELC.LOSS.ZS','% of electricity output','percentage',-100,200),
- ('air-passengers','Most air passengers carried','IS.AIR.PSGR','passengers','total',0,None),
+ ('internet-use','Highest % of people using the internet','IT.NET.USER.ZS','% of population','percentage',0,100),
+ ('electricity-access','Highest % of people with electricity access','EG.ELC.ACCS.ZS','% of population','percentage',0,100),
+ ('rural-electricity-access','Highest % of rural residents with electricity access','EG.ELC.ACCS.RU.ZS','% of rural population','percentage',0,100),
+ ('urban-electricity-access','Highest % of urban residents with electricity access','EG.ELC.ACCS.UR.ZS','% of urban population','percentage',0,100),
+ ('renewable-electricity-share','Highest % of electricity from renewables','EG.ELC.RNEW.ZS','% of electricity output','percentage',0,100),
+ ('coal-electricity-share','Highest % of electricity from coal','EG.ELC.COAL.ZS','% of electricity output','percentage',0,100),
+ ('nuclear-electricity-share','Highest % of electricity from nuclear power','EG.ELC.NUCL.ZS','% of electricity output','percentage',0,100),
  ('rail-network','Longest rail network','IS.RRS.TOTL.KM','route-km','total',0,None),
  ('rail-passengers','Most rail passenger travel','IS.RRS.PASG.KM','million passenger-km','total',0,None),
  ('container-port-traffic','Most container port traffic','IS.SHP.GOOD.TU','TEU','total',0,None),
@@ -67,7 +65,7 @@ class Importer(WarehouseImporter):
  def discover(self):
   out=[]
   for key,title,code,unit,vtype,_lo,_hi in SPECS:
-   desc=f'{title} using the exact World Development Indicators series {code}.'
+   desc=f'{title} during the reference year.'
    rule=IndicatorRule(key=key,title=title,description=desc,plain_language_description=desc,technical_definition=f'World Bank WDI series {code}; one common country-year only.',unit_explanation=unit,family='Infrastructure',icon='🏗️',unit=unit,value_type=vtype,ranking_direction='high',include=(code,),min_coverage=90,evidence_tier='A',source_priority=5,specificity_score=99,recognizability_score=94,understandability_score=94,fun_score=88)
    out.append(CandidateDefinition(rule,code,title,f'https://data.worldbank.org/indicator/{code}',{'source_page_url':SOURCE_PAGE,'api_url':API.format(code=code),'source_query':{'indicator_code':code},'manual_review_required':True,'v16_2_6_content_reviewed':True,'denominator_basis':unit if unit.startswith('%') else None,'strict_indicator_code':code}))
   return out

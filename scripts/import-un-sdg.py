@@ -70,11 +70,11 @@ SPECS = (
     Spec("research-spending", "Highest research-and-development spending", "GB_XPD_RSDV", "Knowledge", "🔬", "% of GDP"),
     Spec("container-port-traffic", "Most container port traffic", "IS_RDP_PORFVOL", "Transport", "🚢", "TEU", value_type="total", unit_code="TEU", maximum=None),
     Spec("birth-registration", "Highest birth-registration coverage", "SG_REG_BRTH", "Government", "🏛️", "% of children under 5", dimensions=(("Age", "<5Y"),)),
-    Spec("unsentenced-detainees", "Highest unsentenced-detainee share", "VC_PRS_UNSNT", "Government", "⚖️", "% of prison population", min_coverage=50),
+    Spec("unsentenced-detainees", "Highest % of prisoners awaiting trial", "VC_PRS_UNSNT", "Government", "⚖️", "% of prison population", min_coverage=50),
     Spec("homicide-rate", "Highest homicide rate", "VC_IHR_PSRC", "Safety", "🛡️", "per 100,000 people", value_type="rate", dimensions=(("Sex", "BOTHSEX"),), unit_code="PER_100000_POP", maximum=None),
     Spec("firm-bribery", "Highest business bribery incidence", "IC_FRM_BRIB", "Government", "🏛️", "% of firms", min_coverage=50),
-    Spec("urban-slum-share", "Largest urban slum population share", "EN_LND_SLUM", "Infrastructure", "🏙️", "% of urban population", dimensions=(("Location", "URBAN"),)),
-    Spec("pm25-exposure", "Highest fine-particle air pollution", "EN_ATM_PM25", "Environment", "🌫️", "micrograms per m³", value_type="other", dimensions=(("Location", "ALLAREA"),), unit_code="mgr/m^3", maximum=None),
+    Spec("urban-slum-share", "Highest % of urban residents living in slums", "EN_LND_SLUM", "Infrastructure", "🏙️", "% of urban population", dimensions=(("Location", "URBAN"),)),
+    Spec("pm25-exposure", "Highest fine particle air pollution", "EN_ATM_PM25", "Environment", "🌫️", "micrograms per m³", value_type="other", dimensions=(("Location", "ALLAREA"),), unit_code="mgr/m^3", maximum=None),
     Spec("disaster-affected-rate", "Most people affected by disasters", "VC_DSR_DAFF", "Natural hazards", "🌪️", "per 100,000 people", value_type="rate", unit_code="PER_100000_POP", min_coverage=50, maximum=None),
     Spec("disaster-death-rate", "Highest disaster death and missing rate", "VC_DSR_MTMP", "Natural hazards", "🌪️", "per 100,000 people", value_type="rate", unit_code="PER_100000_POP", min_coverage=50, maximum=None),
 )
@@ -142,7 +142,11 @@ class Importer(WarehouseImporter):
         for spec in SPECS:
             source = catalog[spec.code]
             source_name = str(source.get("description") or "").strip()
-            description = f"{spec.title} using the official UN Global SDG Indicators Database series {spec.code}."
+            description = (
+                "Percentage of urban residents in households that lack one or more basic conditions such as safe water, sanitation, sufficient living space, durable housing or secure tenure."
+                if spec.key == "urban-slum-share"
+                else f"{spec.title} using the official UN Global SDG Indicators Database series {spec.code}."
+            )
             rule = IndicatorRule(
                 key=spec.key, title=spec.title, description=description,
                 plain_language_description=description,

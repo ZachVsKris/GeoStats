@@ -271,6 +271,18 @@ function firstCompleteSentence(value: string, maximum = 82) {
   return "Compare the official country value for this measure.";
 }
 
+function generatedBoardDescription(row: PlayableCategoryRow, title: string) {
+  const measure = title.replace(/^(Highest|Lowest|Largest|Most|Fewest|Fastest|Best|Longest|Shortest|Oldest|Youngest|Latest)\s+/i, "").trim();
+  const unit = String(row.unit ?? "").replace(/\s+/g, " ").trim();
+  const usableUnit = unit && !/^(other|reported value|value)$/i.test(unit);
+  const subject = measure ? `${measure[0].toUpperCase()}${measure.slice(1)}` : "Country value";
+  const candidates = usableUnit
+    ? [`${subject}, measured as ${unit}.`, `Measured as ${unit}.`]
+    : [`${subject} for the reference year.`];
+  return candidates.find((candidate) => candidate.length <= 82)
+    ?? "Official country value in the source's stated units.";
+}
+
 function boardDescription(row: PlayableCategoryRow, title: string, existing?: Category) {
   if (row.source_organization === "FAOSTAT Food Balances") {
     return title.includes("calorie") || title.includes("protein")
@@ -292,9 +304,7 @@ function boardDescription(row: PlayableCategoryRow, title: string, existing?: Ca
   const plain = row.plain_language_description?.trim() || existing?.plainLanguageDescription || row.description;
   const sentence = firstCompleteSentence(plain);
   if (sentence !== "Compare the official country value for this measure.") return sentence;
-  const measure = title.replace(/^(Highest|Lowest|Largest|Most|Fastest|Best)\s+/i, "").trim();
-  const generated = measure ? `Compare countries by ${measure.toLowerCase()}.` : "Compare the official country value for this measure.";
-  return firstCompleteSentence(generated);
+  return generatedBoardDescription(row, title);
 }
 
 function copyClarityAllowed(row: PlayableCategoryRow, title: string) {
@@ -308,7 +318,13 @@ function copyClarityAllowed(row: PlayableCategoryRow, title: string) {
     row.description,
   ].filter(Boolean).join(" ").trim();
   const genericDescription = !description || /^(?:compare countries using|compare the official country value|official country value for this measure)/i.test(description);
+  const internalTitle = /(^|[^a-z])(mapped|reported value|indicator code|source-family|merchandise|intangible cultural heritage|SNA|BoP)([^a-z]|$)/i.test(clean);
+  const percentage = String(row.value_type ?? "").toLowerCase() === "percentage";
+  const total = String(row.value_type ?? "").toLowerCase() === "total";
   if (nestedFindex) return false;
+  if (internalTitle || /(^|[^a-z])share([^a-z]|$)/i.test(clean)) return false;
+  if (total && /^Highest\s/i.test(clean)) return false;
+  if (percentage && /^(Most|Largest)\s/i.test(clean)) return false;
   if (clean.length > 96 || words.length > 16) return false;
   if (clean.length > 82 && commas >= 2) return false;
   if (genericDescription && clean.length > 68) return false;

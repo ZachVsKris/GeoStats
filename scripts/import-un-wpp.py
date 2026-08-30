@@ -115,7 +115,7 @@ SPECS={
  'female-life-expectancy-advantage':('Largest female life-expectancy advantage','Female life expectancy minus male life expectancy at birth.','years','other','high','Population'),
  'highest-natural-change-rate':('Fastest natural population increase','Crude rate of natural population increase: births minus deaths, per 1,000 people.','per 1,000 people','rate','high','Population'),
  'highest-birth-rate':('Highest birth rate','Crude birth rate per 1,000 people.','births per 1,000 people','rate','high','Population'),
- 'lowest-death-rate':('Lowest death rate','Crude death rate per 1,000 people.','deaths per 1,000 people','rate','low','Population'),
+ 'lowest-death-rate':('Fewest annual deaths per 1,000 people','Deaths during the year for every 1,000 people in the population; this is an annual rate, not a daily count.','deaths per 1,000 people','rate','low','Population'),
  'highest-net-migration-rate':('Highest net migration rate','Net migration rate per 1,000 people.','per 1,000 people','rate','high','Population'),
  'highest-sex-ratio-at-birth':('Most boys born per 100 girls','Male births per 100 female births.','boys per 100 girls','rate','high','Population'),
  'highest-mean-age-childbearing':('Oldest average age of mothers at childbirth','Mean age of childbearing.','years','other','high','Population'),

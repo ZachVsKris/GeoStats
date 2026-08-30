@@ -57,6 +57,9 @@ EXPLICIT_BLOCKERS = {
     "World Bank Climate Change Knowledge Portal": {
         "most-ice-days", "most-hot-days", "most-hot-humid-days", "longest-warm-spells",
     },
+    # v16.2.8 owner review: grid losses were deliberately removed and the air
+    # passenger row was proven identical to the retained legacy category.
+    "World Bank WDI Infrastructure & Connectivity": {"grid-losses", "air-passengers"},
     "FAOSTAT / ESA WorldCover 2021": {"moss-lichen-share"},
     "World Bank Global Findex 2025": {
         "financial-institution-account", "mobile-money-account", "debit-card-ownership",
@@ -79,6 +82,32 @@ EXPLICIT_BLOCKERS = {
     },
 }
 
+# Tracker titles are historical evidence, not permanent player copy. Preserve
+# exact-title checking while explicitly recording the approved v16.2.8 rewrite
+# whenever the concept key is unchanged.
+APPROVED_TITLE_REWRITES = {
+    "UN World Population Prospects 2024": {
+        "lowest-death-rate": "Fewest annual deaths per 1,000 people",
+    },
+    "UNHCR Refugee Data Finder": {
+        "most-stateless-people": "Most stateless people living in the country",
+    },
+    "World Bank WDI Infrastructure & Connectivity": {
+        "internet-use": "Highest % of people using the internet",
+        "electricity-access": "Highest % of people with electricity access",
+        "rural-electricity-access": "Highest % of rural residents with electricity access",
+        "urban-electricity-access": "Highest % of urban residents with electricity access",
+        "renewable-electricity-share": "Highest % of electricity from renewables",
+        "coal-electricity-share": "Highest % of electricity from coal",
+        "nuclear-electricity-share": "Highest % of electricity from nuclear power",
+    },
+    "Natural Earth 1:10m sovereign country geometry": {
+        "largest-north-south-span": "Largest north to south span",
+        "largest-east-west-span": "Largest east to west span",
+        "largest-geodesic-land-area": "Largest land area calculated from country borders",
+    },
+}
+
 
 def tracker_key(row: dict[str, str]) -> str:
     return (row.get("tracker_id") or "").split(":")[-1].strip()
@@ -96,15 +125,17 @@ def main() -> None:
         for row in source_rows:
             key = tracker_key(row)
             title = (row.get("category_title") or "").strip()
+            current_title = APPROVED_TITLE_REWRITES.get(source, {}).get(key, title)
             key_present = bool(key and key in text)
-            title_present = bool(title and title in text)
+            title_present = bool(current_title and current_title in text)
             blocked = key in EXPLICIT_BLOCKERS.get(source, set())
             represented = (not blocked) and key_present and title_present
             status = "blocked" if blocked else ("represented" if represented else "missing")
             details.append({
                 "source_family": source, "importer": importer_rel,
                 "tracker_id": row.get("tracker_id", ""), "category_key": key,
-                "category_title": title, "key_present": key_present,
+                "category_title": title, "current_category_title": current_title,
+                "approved_title_rewrite": current_title != title, "key_present": key_present,
                 "title_present": title_present, "represented_in_importer_catalog": represented,
                 "explicitly_blocked": blocked, "recovery_status": status,
                 "activation_certified": False,

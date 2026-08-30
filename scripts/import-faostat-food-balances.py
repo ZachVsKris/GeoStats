@@ -53,7 +53,7 @@ SPECS = [
  ("vegetables","Highest estimated vegetable consumption per person","🥕",("vegetables",),"kg",None),
  ("meat","Highest estimated meat consumption per person","🍖",("meat",),"kg",None),
  ("dairy-products","Highest estimated dairy consumption per person","🧀",(),"kg",(("milk excluding butter",),("butter ghee",))),
- ("pulses","Highest estimated pulse consumption per person","🫘",("pulses",),"kg",None),
+ ("pulses","Highest dried bean, lentil, pea and chickpea consumption per person","🫘",("pulses",),"kg",None),
  ("calories","Highest estimated calorie intake per person","⚡",("grand total",),"kcal",None),
  ("protein","Highest estimated protein intake per person","💪",("grand total",),"protein",None),
 ]
@@ -68,7 +68,8 @@ ELEMENT_MATCH={
 def make_rule(key,title,icon,kind):
     if kind=="kg":
         unit="kg per person per year"; value_type="per_capita"
-        description="Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake."
+        description=("Estimated dried bean, lentil, pea and chickpea consumption per person. This is based on national food supplies, not measured household diets."
+          if key=="pulses" else "Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake.")
     elif kind=="kcal":
         unit="kcal per person per day"; value_type="per_capita"
         description="Estimated calorie intake per person from national food-balance data; it is not measured household intake."

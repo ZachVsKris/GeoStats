@@ -2,8 +2,8 @@
   "totals": {
     "mapped_source_families": 26,
     "mapped_tracker_rows": 392,
-    "represented_tracker_rows": 387,
-    "explicitly_blocked_tracker_rows": 5,
+    "represented_tracker_rows": 357,
+    "explicitly_blocked_tracker_rows": 35,
     "accounted_tracker_rows": 392,
     "missing_tracker_rows": 0,
     "note": "Importer-catalog representation only; no row is activation-certified by this audit."
@@ -143,11 +143,11 @@
       "source_family": "World Bank WDI Infrastructure & Connectivity",
       "importer": "scripts/import-world-bank-infrastructure.py",
       "tracker_rows": 12,
-      "represented": 12,
-      "blocked": 0,
+      "represented": 10,
+      "blocked": 2,
       "missing": 0,
       "accounted": 12,
-      "representation_pct": 100.0
+      "representation_pct": 83.3
     },
     {
       "source_family": "Natural Earth 1:10m sovereign country geometry",
@@ -203,11 +203,11 @@
       "source_family": "World Bank Global Findex 2025",
       "importer": "scripts/import-global-findex.py",
       "tracker_rows": 17,
-      "represented": 17,
-      "blocked": 0,
+      "represented": 2,
+      "blocked": 15,
       "missing": 0,
       "accounted": 17,
-      "representation_pct": 100.0
+      "representation_pct": 11.8
     },
     {
       "source_family": "FAO Global Forest Resources Assessment 2025",
@@ -233,21 +233,21 @@
       "source_family": "UNDP Human Development Reports Data Center",
       "importer": "scripts/import-undp-hdr.py",
       "tracker_rows": 15,
-      "represented": 15,
-      "blocked": 0,
+      "represented": 10,
+      "blocked": 5,
       "missing": 0,
       "accounted": 15,
-      "representation_pct": 100.0
+      "representation_pct": 66.7
     },
     {
       "source_family": "V-Dem Country-Year Core v16",
       "importer": "scripts/import-vdem-v16.py",
       "tracker_rows": 15,
-      "represented": 15,
-      "blocked": 0,
+      "represented": 7,
+      "blocked": 8,
       "missing": 0,
       "accounted": 15,
-      "representation_pct": 100.0
+      "representation_pct": 46.7
     },
     {
       "source_family": "FAOSTAT Food Security & Healthy Diet",

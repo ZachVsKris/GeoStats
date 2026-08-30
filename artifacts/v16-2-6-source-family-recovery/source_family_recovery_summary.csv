@@ -12,16 +12,16 @@ UNHCR Refugee Data Finder,scripts/import-unhcr.py,8,8,0,0,8,100.0
 FAOSTAT Food Balances,scripts/import-faostat-food-balances.py,2,2,0,0,2,100.0
 UN World Urbanization Prospects 2025,scripts/import-un-wup-2025.py,11,11,0,0,11,100.0
 UN World Urbanization Prospects 2025 Cities,scripts/import-un-wup-2025-cities.py,13,13,0,0,13,100.0
-World Bank WDI Infrastructure & Connectivity,scripts/import-world-bank-infrastructure.py,12,12,0,0,12,100.0
+World Bank WDI Infrastructure & Connectivity,scripts/import-world-bank-infrastructure.py,12,10,2,0,12,83.3
 Natural Earth 1:10m sovereign country geometry,scripts/import-natural-earth.py,11,11,0,0,11,100.0
 FAOSTAT Land Use,scripts/import-faostat-land-use.py,10,10,0,0,10,100.0
 FAOSTAT / ESA WorldCover 2021,scripts/import-faostat-worldcover.py,10,9,1,0,10,90.0
 "World Bank Women, Business and the Law 2026",scripts/import-world-bank-wbl.py,13,13,0,0,13,100.0
 WHO/UNICEF Joint Monitoring Programme,scripts/import-jmp-wash.py,13,13,0,0,13,100.0
-World Bank Global Findex 2025,scripts/import-global-findex.py,17,17,0,0,17,100.0
+World Bank Global Findex 2025,scripts/import-global-findex.py,17,2,15,0,17,11.8
 FAO Global Forest Resources Assessment 2025,scripts/import-fao-fra-2025.py,16,16,0,0,16,100.0
 UNICEF Data Warehouse,scripts/import-unicef-data.py,16,16,0,0,16,100.0
-UNDP Human Development Reports Data Center,scripts/import-undp-hdr.py,15,15,0,0,15,100.0
-V-Dem Country-Year Core v16,scripts/import-vdem-v16.py,15,15,0,0,15,100.0
+UNDP Human Development Reports Data Center,scripts/import-undp-hdr.py,15,10,5,0,15,66.7
+V-Dem Country-Year Core v16,scripts/import-vdem-v16.py,15,7,8,0,15,46.7
 FAOSTAT Food Security & Healthy Diet,scripts/import-faostat-food-security.py,15,15,0,0,15,100.0
 Köppen-Geiger 1991–2020 climate classification,scripts/import-koppen-geiger.py,13,13,0,0,13,100.0

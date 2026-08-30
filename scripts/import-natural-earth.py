@@ -59,6 +59,7 @@ def rule(
     min_coverage: int = 150,
     understandability: int = 92,
     fun: int = 88,
+    value_type: str = "other",
 ) -> IndicatorRule:
     return IndicatorRule(
         key=key,
@@ -70,7 +71,7 @@ def rule(
         family="Geography",
         icon=icon,
         unit=unit,
-        value_type="other",
+        value_type=value_type,  # type: ignore[arg-type]
         ranking_direction=direction,  # type: ignore[arg-type]
         include=(key,),
         min_coverage=min_coverage,
@@ -85,32 +86,32 @@ def rule(
 
 
 RULES: tuple[IndicatorRule, ...] = (
-    rule("northernmost-country", "Northernmost country", "Latitude of the country’s northernmost mapped land point.", "🧭", "degrees north", "high", understandability=99, fun=99),
-    rule("southernmost-country", "Southernmost country", "Latitude of the country’s southernmost mapped land point.", "🧭", "degrees latitude", "low", understandability=99, fun=99),
-    rule("largest-north-south-span", "Largest north-to-south span", "Geodesic distance between the country’s southernmost and northernmost mapped latitudes.", "↕️", "kilometers", "high", understandability=96, fun=96),
-    rule("largest-east-west-span", "Largest east-to-west span", "Geodesic width of the smallest longitude arc containing the country’s mapped land, with antimeridian handling.", "↔️", "kilometers", "high", understandability=94, fun=94),
-    rule("largest-tropical-land-area", "Largest tropical land area", "Mapped land area between the Tropic of Cancer and Tropic of Capricorn.", "🌴", "square kilometers", "high", fun=96),
-    rule("largest-arctic-land-area", "Largest Arctic land area", "Mapped land area north of the Arctic Circle.", "❄️", "square kilometers", "high", fun=94),
-    rule("most-land-neighbors", "Most bordering countries", "Number of countries sharing a mapped land border.", "🤝", "neighboring countries", "high", fun=96),
-    rule("longest-average-land-border", "Longest average land border", "Average mapped land-border length per neighboring country, restricted to countries with at least one mapped land border.", "🧭", "kilometers per neighbor", "high", min_coverage=120, fun=96),
-    rule("highest-land-border-density", "Most land border for its size", "Combined mapped land-border length per 1,000 square kilometers of land.", "🧩", "km per 1,000 km²", "high", fun=95),
+    rule("northernmost-country", "Northernmost country", "Latitude of the country’s northernmost land point.", "🧭", "degrees north", "high", understandability=99, fun=99),
+    rule("southernmost-country", "Southernmost country", "Latitude of the country’s southernmost land point.", "🧭", "degrees latitude", "low", understandability=99, fun=99),
+    rule("largest-north-south-span", "Largest north to south span", "Distance between the country’s southernmost and northernmost land points.", "↕️", "kilometers", "high", understandability=96, fun=96),
+    rule("largest-east-west-span", "Largest east to west span", "Width from the country’s westernmost to easternmost land, accounting for the date line.", "↔️", "kilometers", "high", understandability=94, fun=94),
+    rule("largest-tropical-land-area", "Largest tropical land area", "Land area between the Tropic of Cancer and Tropic of Capricorn.", "🌴", "square kilometers", "high", fun=96),
+    rule("largest-arctic-land-area", "Largest Arctic land area", "Land area north of the Arctic Circle.", "❄️", "square kilometers", "high", fun=94),
+    rule("most-land-neighbors", "Most bordering countries", "Number of countries sharing a land border.", "🤝", "neighboring countries", "high", fun=96),
+    rule("longest-average-land-border", "Longest average land border", "Average land border length per neighboring country, among countries with a land border.", "🧭", "kilometers per neighbor", "high", min_coverage=120, fun=96),
+    rule("highest-land-border-density", "Most land border for its size", "Land border length per 1,000 square kilometers of land.", "🧩", "km per 1,000 km²", "high", fun=95),
     rule("landlocked-most-neighbors", "Most neighbors among landlocked countries", "Number of land-border neighbors, restricted to countries with no Natural Earth ocean-boundary coastline.", "🧭", "neighboring countries", "high", min_coverage=16, fun=94),
     rule("landlocked-fewest-neighbors", "Fewest neighbors among landlocked countries", "Number of land-border neighbors, restricted to countries with no Natural Earth ocean-boundary coastline.", "🧭", "neighboring countries", "low", min_coverage=16, fun=92),
-    rule("longest-land-border", "Longest total land border", "Combined length of all mapped international land borders.", "🧱", "kilometers", "high", fun=94),
+    rule("longest-land-border", "Longest total land border", "Combined length of all international land borders.", "🧱", "kilometers", "high", fun=94),
     rule("longest-single-land-border", "Longest border with one neighboring country", "Total length of the country’s longest shared land border with one neighboring country.", "🗺️", "kilometers", "high", fun=96),
     rule("longest-coastline", "Longest coastline", "Coastline length measured consistently from Natural Earth’s 1:10m geometry.", "🌊", "kilometers", "high", understandability=97, fun=99),
-    rule("highest-coastline-density", "Most coastline for its size", "Mapped coastline kilometers per 1,000 square kilometers of land.", "🏖️", "km per 1,000 km²", "high", understandability=94, fun=97),
+    rule("highest-coastline-density", "Most coastline for its size", "Coastline length per 1,000 square kilometers of land.", "🏖️", "km per 1,000 km²", "high", understandability=94, fun=97),
     rule("largest-continuous-land-area", "Largest continuous land area", "Area of the country’s largest single connected land piece.", "🗺️", "square kilometers", "high", fun=91),
-    rule("largest-geodesic-land-area", "Largest mapped land area", "Land area calculated directly from the same global country geometry.", "🗺️", "square kilometers", "high", fun=90),
+    rule("largest-geodesic-land-area", "Largest land area calculated from country borders", "Land area calculated consistently from the global country border layer.", "🗺️", "square kilometers", "high", fun=90),
     rule("most-mapped-river-length", "Longest river network", "Combined length of Natural Earth river lines inside the country.", "🏞️", "kilometers", "high", layer="rivers", fun=96),
-    rule("highest-mapped-river-density", "Highest river density", "Mapped river kilometers per 1,000 square kilometers of land.", "💧", "km per 1,000 km²", "high", layer="rivers", fun=92),
+    rule("highest-mapped-river-density", "Highest river density", "Length of major rivers per 1,000 square kilometers of land.", "💧", "km per 1,000 km²", "high", layer="rivers", fun=92),
     rule("most-mapped-rivers", "Most rivers", "Number of Natural Earth river features crossing the country for at least one kilometer.", "🌊", "river features", "high", layer="rivers", fun=94),
-    rule("largest-mapped-lake-area", "Largest mapped lake area", "Combined area of lakes and reservoirs represented in the pinned Natural Earth layer inside the country.", "🏞️", "square kilometers", "high", layer="lakes", fun=97),
-    rule("largest-single-mapped-lake", "Largest mapped lake", "Largest single lake or reservoir area represented in the pinned Natural Earth layer inside the country.", "🌅", "square kilometers", "high", layer="lakes", fun=98),
+    rule("largest-mapped-lake-area", "Largest total lake and reservoir area", "Combined area of lakes and reservoirs inside the country.", "🏞️", "square kilometers", "high", layer="lakes", fun=97, value_type="total"),
+    rule("largest-single-mapped-lake", "Largest lake or reservoir", "Area of the largest single lake or reservoir inside the country.", "🌅", "square kilometers", "high", layer="lakes", fun=98, value_type="total"),
     rule("most-mapped-lakes", "Most lakes", "Number of Natural Earth lakes covering at least one square kilometer inside the country.", "💦", "lakes", "high", layer="lakes", fun=96),
-    rule("highest-mapped-lake-share", "Largest mapped lake share", "Share of mapped land covered by lakes and reservoirs represented in the pinned Natural Earth layer.", "💧", "% of land", "high", layer="lakes", fun=92),
-    rule("largest-mapped-glaciated-area", "Largest mapped glaciated area", "Combined area represented by the pinned Natural Earth glaciated-area layer inside the country.", "🧊", "square kilometers", "high", layer="glaciated", fun=97),
-    rule("highest-mapped-glaciated-share", "Largest mapped glaciated share", "Share of mapped land represented by the pinned Natural Earth glaciated-area layer.", "❄️", "% of land", "high", layer="glaciated", fun=95),
+    rule("highest-mapped-lake-share", "Highest % of land covered by lakes and reservoirs", "Percentage of country land covered by lakes and reservoirs.", "💧", "% of land", "high", layer="lakes", fun=92, value_type="percentage"),
+    rule("largest-mapped-glaciated-area", "Largest area covered by glaciers", "Combined area of glaciers and ice caps inside the country.", "🧊", "square kilometers", "high", layer="glaciated", fun=97, value_type="total"),
+    rule("highest-mapped-glaciated-share", "Highest % of land covered by glaciers", "Percentage of country land covered by glaciers and ice caps.", "❄️", "% of land", "high", layer="glaciated", fun=95, value_type="percentage"),
 )
 
 RULE_LAYER = {

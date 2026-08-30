@@ -571,7 +571,7 @@ WORLD_BANK_MILESTONE_SPECS = (
     {
         "key": "life-expectancy-70",
         "category_id": "history:worldbank-life-expectancy-70",
-        "title": "Most recently reached 70-year life expectancy",
+        "title": "Most recently reached life expectancy of 70 years",
         "description": "Most recent year a country crossed from below 70 to at least 70 years of life expectancy in consecutive World Bank observations.",
         "plain": "Year life expectancy first reached at least 70 years.",
         "technical": "First consecutive-year crossing of SP.DYN.LE00.IN from below 70 to at least 70; left-censored countries are omitted.",
@@ -619,9 +619,9 @@ WORLD_BANK_MILESTONE_SPECS = (
     {
         "key": "infant-mortality-below-25",
         "category_id": "history:worldbank-infant-mortality-below-25",
-        "title": "Most recently cut infant mortality below 25",
+        "title": "Latest to reach under 25 infant deaths per 1,000 births",
         "description": "Most recent year infant mortality crossed from at least 25 to below 25 deaths per 1,000 live births in consecutive World Bank observations.",
-        "plain": "Year infant mortality first fell below 25 deaths per 1,000 live births.",
+        "plain": "Year infant mortality first fell below 25 deaths before age one for every 1,000 live births.",
         "technical": "First consecutive-year downward crossing of SP.DYN.IMRT.IN from at least 25 to below 25; left-censored countries are omitted.",
         "code": "SP.DYN.IMRT.IN",
         "source_name": "Mortality rate, infant (per 1,000 live births)",

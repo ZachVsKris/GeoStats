@@ -1,5 +1,8 @@
 import type { Category } from "./categories";
 import { roundHasRequiredDiversity, type RoundConfig } from "./gameRules";
+import type { RoundCategory } from "./challengeCodec";
+import type { CountryInfo } from "./worldBank";
+import { categorySetHasFeasibleCountryBank } from "./puzzleEngine";
 
 export type CategoryCapacityResult = {
   exactRawCategoryCombinations: string;
@@ -11,6 +14,22 @@ export type CategoryCapacityResult = {
   samples: number;
   validSamples: number;
   exactRuleValidCount: false;
+  note: string;
+};
+
+export type PlayableBoardCapacityResult = {
+  exactRawCategoryCombinations: string;
+  estimatedPlayableCategorySets: string;
+  estimatedPlayableShare: number;
+  confidence95: { low: string; high: string };
+  catalogSize: number;
+  categoryCount: number;
+  samples: number;
+  categoryRuleValidSamples: number;
+  countryBankFeasibleSamples: number;
+  timedOut: boolean;
+  exactPlayableCount: false;
+  feasibilityRules: string[];
   note: string;
 };
 
@@ -42,6 +61,16 @@ function randomCombination<T>(items: T[], size: number, rng: () => number) {
 function formatEstimated(value: number) {
   if (!Number.isFinite(value)) return "greater than Number.MAX_SAFE_INTEGER";
   return Math.max(0, Math.round(value)).toLocaleString("en-US", { useGrouping: false });
+}
+
+function wilsonInterval(successes: number, samples: number) {
+  if (!samples) return { low: 0, high: 0 };
+  const proportion = successes / samples;
+  const z = 1.96;
+  const denominator = 1 + (z * z) / samples;
+  const center = (proportion + (z * z) / (2 * samples)) / denominator;
+  const margin = z * Math.sqrt((proportion * (1 - proportion) / samples) + (z * z) / (4 * samples * samples)) / denominator;
+  return { low: Math.max(0, center - margin), high: Math.min(1, center + margin) };
 }
 
 /**
@@ -98,5 +127,78 @@ export function estimateValidCategorySets(
     validSamples: valid,
     exactRuleValidCount: false,
     note: "Raw combinations are exact. Rule-valid combinations are a deterministic 50,000-sample estimate; display order is not counted.",
+  };
+}
+
+/**
+ * Bounded estimate of category sets that can actually produce at least one
+ * country bank. It samples raw combinations, applies category diversity, then
+ * invokes production country construction with the universal Top-20 winner
+ * rule. It deliberately does not pretend to enumerate every possible country
+ * bank for every category set.
+ */
+export function estimatePlayableBoardCapacity(
+  datasets: RoundCategory[],
+  countries: CountryInfo[],
+  config: RoundConfig,
+  options: { samples?: number; budgetMs?: number; perSetBudgetMs?: number } = {},
+): PlayableBoardCapacityResult {
+  const requestedSamples = Math.max(100, options.samples ?? 3_000);
+  const deadline = Date.now() + Math.max(1_000, options.budgetMs ?? 80_000);
+  const perSetBudgetMs = Math.max(2, options.perSetBudgetMs ?? 20);
+  const raw = combinations(datasets.length, config.categoryCount);
+  if (raw === BigInt(0)) {
+    return {
+      exactRawCategoryCombinations: "0",
+      estimatedPlayableCategorySets: "0",
+      estimatedPlayableShare: 0,
+      confidence95: { low: "0", high: "0" },
+      catalogSize: datasets.length,
+      categoryCount: config.categoryCount,
+      samples: 0,
+      categoryRuleValidSamples: 0,
+      countryBankFeasibleSamples: 0,
+      timedOut: false,
+      exactPlayableCount: false,
+      feasibilityRules: ["global Top-20 winner", "distinct winners", "distinct displayed values", "country coverage", "continent limits", "category diversity"],
+      note: "The catalog is smaller than the requested board size.",
+    };
+  }
+
+  const rng = seededRandom(0x16280000 + config.categoryCount * 97 + datasets.length);
+  let samples = 0;
+  let categoryRuleValidSamples = 0;
+  let countryBankFeasibleSamples = 0;
+  while (samples < requestedSamples && Date.now() < deadline) {
+    const categorySet = randomCombination(datasets, config.categoryCount, rng);
+    const seed = `CAPACITY-${config.difficulty}-${samples}-${categorySet.map((item) => item.category.id).join("|")}`;
+    samples += 1;
+    if (!roundHasRequiredDiversity(categorySet.map((item) => item.category), config)) continue;
+    categoryRuleValidSamples += 1;
+    if (categorySetHasFeasibleCountryBank(categorySet, countries, config, seed, perSetBudgetMs)) {
+      countryBankFeasibleSamples += 1;
+    }
+  }
+
+  const proportion = samples ? countryBankFeasibleSamples / samples : 0;
+  const interval = wilsonInterval(countryBankFeasibleSamples, samples);
+  const rawNumber = Number(raw);
+  return {
+    exactRawCategoryCombinations: raw.toString(),
+    estimatedPlayableCategorySets: formatEstimated(rawNumber * proportion),
+    estimatedPlayableShare: Number(proportion.toFixed(6)),
+    confidence95: {
+      low: formatEstimated(rawNumber * interval.low),
+      high: formatEstimated(rawNumber * interval.high),
+    },
+    catalogSize: datasets.length,
+    categoryCount: config.categoryCount,
+    samples,
+    categoryRuleValidSamples,
+    countryBankFeasibleSamples,
+    timedOut: samples < requestedSamples,
+    exactPlayableCount: false,
+    feasibilityRules: ["global Top-20 winner", "distinct winners", "distinct displayed values", "country coverage", "continent limits", "category diversity"],
+    note: "This is a deterministic bounded estimate of unordered category sets that can form at least one real country bank. It is not the number of all possible country-bank permutations.",
   };
 }

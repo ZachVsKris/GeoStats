@@ -508,6 +508,37 @@ function findDistinctWinners(
   return decoys.length === config.decoyCount ? { winners, decoys } : null;
 }
 
+/**
+ * Tests a fixed category set against the same country-bank invariants used by
+ * production generation. This is intentionally stricter than a category-only
+ * combination count: a set is feasible only when distinct global Top-20
+ * winners, all required decoys, distinct displayed values, and continent
+ * limits can form a valid board.
+ */
+export function categorySetHasFeasibleCountryBank(
+  categories: RoundCategory[],
+  countries: CountryInfo[],
+  config: RoundConfig,
+  seed: string,
+  budgetMs = 20,
+) {
+  if (categories.length !== config.categoryCount) return false;
+  if (!categories.every((dataset) => datasetHasEnoughDisplayedVariety(dataset, config))) return false;
+  if (!roundHasRequiredDiversity(categories.map((dataset) => dataset.category), config)) return false;
+
+  const deadline = Date.now() + Math.max(2, budgetMs);
+  const solution = findDistinctWinners(categories, countries, `${seed}:countries`, config, deadline);
+  if (!solution) return false;
+
+  const countryById = new Map(countries.map((country) => [country.id, country]));
+  const bank = [...solution.winners, ...solution.decoys]
+    .map((id) => countryById.get(id))
+    .filter((country): country is CountryInfo => Boolean(country));
+  return bank.length === config.countryCount
+    && roundHasCountryDiversity(bank, config)
+    && validateRound(categories, bank).length === 0;
+}
+
 export function scoreBoard(round: Round, config: RoundConfig): ScoreBreakdown {
   const qualityScores = round.categories.map((dataset) => scoreCategoryQuality(dataset).score);
   const quality = qualityScores.reduce((sum, value) => sum + value, 0) / Math.max(1, qualityScores.length);

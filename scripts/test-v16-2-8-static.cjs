@@ -41,8 +41,16 @@ const analyticsClient = read("lib/analytics.ts");
 const analyticsPageView = read("components/AnalyticsPageView.tsx");
 const adminDashboard = read("app/admin/AdminDashboard.tsx");
 const adminDashboardRoute = read("app/api/admin/dashboard/route.ts");
+const boardCapacityRoute = read("app/api/admin/daily/capacity/route.ts");
+const boardCapacity = read("lib/seedCapacity.ts");
+const puzzleEngine = read("lib/puzzleEngine.ts");
 const privacyPage = read("app/privacy/page.tsx");
 const termsPage = read("app/terms/page.tsx");
+const readme = read("README.md");
+const releaseNotes = read("RELEASE_NOTES_V16_2_8.md");
+const validation = read("VALIDATION_V16_2_8.md");
+const rollback = read("ROLLBACK_V16_2_8.sql");
+const launchDocket = read("LAUNCH_DOCKET_V16_2_8.md");
 
 check(/^begin;/m.test(migration) && /commit;\s*$/.test(migration), "v16.2.8 migration is not transaction wrapped");
 check(/^begin;/m.test(percentHotfix) && /commit;\s*$/.test(percentHotfix), "v16.2.8 percent-title hotfix is not transaction wrapped");
@@ -247,6 +255,34 @@ for (const token of [
   'create policy "users read own profile"',
   'create policy "users read own scores"',
 ]) check(privacyMigration.includes(token), `private account-row policy missing ${token}`);
+for (const token of ["check-v16-2-8", "316-category", "LAUNCH_DOCKET_V16_2_8.md", "RELEASE_NOTES_V16_2_8.md", "VALIDATION_V16_2_8.md"]) {
+  check(readme.includes(token), `README launch handoff missing ${token}`);
+}
+for (const token of ["automatic standings", "first-party analytics", "four bounded feasibility passes", "custom SMTP"]) {
+  check(releaseNotes.includes(token), `v16.2.8 release notes missing ${token}`);
+}
+for (const token of ["Top-20", "GitHub", "Vercel", "WebKit", "ROLLBACK_V16_2_8.sql"]) {
+  check(validation.includes(token), `v16.2.8 validation missing ${token}`);
+}
+check(/^begin;/m.test(rollback) && /commit;\s*$/.test(rollback), "v16.2.8 optional rollback is not transaction wrapped");
+check(rollback.includes("account_authenticated") && rollback.includes("users update own scores"), "v16.2.8 rollback does not preserve accepted auth events or restore account policies");
+for (const token of [
+  "Leaderboards — standalone launch package",
+  "actual country-bank feasibility",
+  "Natural and physical geography",
+  "Country history",
+  "Ethnic, religious, and racial demographics",
+  "Custom authentication email",
+]) check(launchDocket.includes(token), `canonical launch docket missing ${token}`);
+for (const token of ["loadPuzzleCatalogSnapshot", "estimatePlayableBoardCapacity", "global Top-20 winner requirement", "within five minutes"]) {
+  check(boardCapacityRoute.includes(token), `board-capacity route missing ${token}`);
+}
+for (const token of ["categorySetHasFeasibleCountryBank", "countryBankFeasibleSamples", "estimatedPlayableCategorySets", "exactPlayableCount: false"]) {
+  check(boardCapacity.includes(token), `board-capacity estimator missing ${token}`);
+}
+for (const token of ["distinct global Top-20", "findDistinctWinners", "validateRound(categories, bank)"]) {
+  check(puzzleEngine.includes(token), `board-capacity feasibility check missing ${token}`);
+}
 
 if (failures.length) {
   console.error(`GeoStats v16.2.8 category clarity checks FAILED:\n${failures.map((item) => ` - ${item}`).join("\n")}`);

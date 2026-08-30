@@ -23,25 +23,24 @@ npm run dev
 Full release validation:
 
 ```bash
-npm run check-v16-2-5
+npm run check-v16-2-8
 ```
 
 ## Current database release
 
-GeoStats v16.2.5 upgrades a verified v16.2.4 database/application. It preserves the v16.2.4 Scout 4×4 / Adventurer 6×4 / Expert 8×6 scoring model while refining mobile/desktop layout, touch behavior, Results presentation, and catalog policy.
+GeoStats v16.2.8 is the launch-readiness release for the reviewed 316-category catalog. It preserves Scout 4×4 / Adventurer 6×4 / Expert 8×6 scoring while adding account-gated Expert play and leaderboards, automatic standings, first-party analytics, resilient Admin reporting, and cross-browser presentation safeguards.
 
 Run the release in this order:
 
-1. Take a Supabase snapshot, then run `RUN_THIS_IN_SUPABASE_FOR_V16_2_5.sql`
-2. Push the v16.2.5 repository and require **Verify GeoStats v16.2.5** to pass
-3. Run **Recover v16.2.5 audited catalog** (or the narrower historical workflow when only historical sources need rerunning)
-4. Review/download the source and category audit artifacts
-5. Run `VERIFY_V16_2_5.sql` and confirm every final check is `PASS`
-6. Redeploy/promote the verified v16.2.5 commit after catalog finalization
+1. Confirm migrations 069 through 077 are applied to the healthy Supabase project
+2. Push the v16.2.8 repository and require **Verify GeoStats v16.2.8** to pass
+3. Confirm Vercel deploys that exact commit to production
+4. Verify the public Daily modes, account-gated Expert/leaderboard flow, Admin analytics, and warehouse health
+5. Configure and externally test GeoStats custom SMTP before advertising branded account email
 
-The 33 catalog promotion candidates are never forced through data-quality gates, and the 30 repair candidates remain fail-closed until fresh source, semantic, coverage, and ranking audits pass. Daily and Random continue to use one shared approved playable catalog.
+Additional catalog work is bounded by subject area and remains fail-closed unless a complete candidate bundle passes the existing source, semantic, coverage, uniqueness, Top-20, and board-generation gates. Daily and internal Random QA continue to use one shared approved playable catalog.
 
-See `V16_2_5_INSTALLATION.md`, `RELEASE_NOTES_V16_2_5.md`, and `VALIDATION_V16_2_5.md` for details.
+See `LAUNCH_DOCKET_V16_2_8.md`, `RELEASE_NOTES_V16_2_8.md`, `VALIDATION_V16_2_8.md`, and `ROLLBACK_V16_2_8.sql` for details.
 
 ## Data governance
 

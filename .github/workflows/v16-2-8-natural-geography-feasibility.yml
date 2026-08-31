@@ -46,6 +46,8 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: v16-2-8-natural-geography-feasibility
-          path: artifacts/koppen-feasibility
+          path: |
+            artifacts/koppen-feasibility/natural-geography-feasibility.json
+            artifacts/koppen-feasibility/input/manifest.json
           retention-days: 30
           if-no-files-found: error

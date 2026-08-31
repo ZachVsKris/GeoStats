@@ -80,6 +80,12 @@ EXPLICIT_BLOCKERS = {
         "freedom-association", "judicial-constraints", "legislative-constraints",
         "women-political-empowerment", "core-civil-society",
     },
+    # The bounded v16.2.8 proof rejected these two concepts on the actual
+    # global Top-20 distinct-value rule. The other eleven Köppen concepts stay
+    # represented and must continue through staging as one subject bundle.
+    "Köppen-Geiger 1991–2020 climate classification": {
+        "ice-cap-share", "climate-diversity",
+    },
 }
 
 # Tracker titles are historical evidence, not permanent player copy. Preserve
@@ -105,6 +111,19 @@ APPROVED_TITLE_REWRITES = {
         "largest-north-south-span": "Largest north to south span",
         "largest-east-west-span": "Largest east to west span",
         "largest-geodesic-land-area": "Largest land area calculated from country borders",
+    },
+    "Köppen-Geiger 1991–2020 climate classification": {
+        "desert-share": "Highest percentage of land with a desert climate",
+        "arid-share": "Highest percentage of land with an arid climate",
+        "steppe-share": "Highest percentage of land with a steppe climate",
+        "tropical-rainforest-share": "Highest percentage of land with a tropical rainforest climate",
+        "tropical-monsoon-share": "Highest percentage of land with a tropical monsoon climate",
+        "tropical-savanna-share": "Highest percentage of land with a tropical savanna climate",
+        "temperate-share": "Highest percentage of land with a temperate climate",
+        "mediterranean-share": "Highest percentage of land with a Mediterranean climate",
+        "continental-share": "Highest percentage of land with a continental climate",
+        "polar-share": "Highest percentage of land with a polar climate",
+        "tundra-share": "Highest percentage of land with a tundra climate",
     },
 }
 

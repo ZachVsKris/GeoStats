@@ -51,6 +51,19 @@ export async function POST(request: Request) {
   const challengeDate = /^\d{4}-\d{2}-\d{2}$/.test(body.challengeDate ?? "") ? body.challengeDate : null;
   const value = typeof body.value === "number" && Number.isFinite(body.value) ? body.value : null;
 
+  const [adminAccess, testerAccess, internalSession] = await Promise.all([
+    user ? admin.from("app_admins").select("user_id").eq("user_id", user.id).maybeSingle() : Promise.resolve({ data: null, error: null }),
+    user ? admin.from("internal_testers").select("user_id").eq("user_id", user.id).maybeSingle() : Promise.resolve({ data: null, error: null }),
+    admin.from("analytics_events").select("id").eq("session_id", sessionId).eq("is_internal", true).limit(1).maybeSingle(),
+  ]);
+  const isInternal = Boolean(adminAccess.data || testerAccess.data || internalSession.data);
+  if (isInternal) {
+    const sessionUpdate = await admin.from("analytics_events").update({ is_internal: true }).eq("session_id", sessionId).eq("is_internal", false);
+    if (sessionUpdate.error && sessionUpdate.error.code !== "42703") {
+      console.warn("Internal analytics session backfill failed", { code: sessionUpdate.error.code, message: sessionUpdate.error.message });
+    }
+  }
+
   const { error } = await admin.from("analytics_events").insert({
     event_name: body.eventName,
     session_id: sessionId,
@@ -65,6 +78,7 @@ export async function POST(request: Request) {
     utm_medium: String(body.utmMedium ?? "").slice(0, 160) || null,
     utm_campaign: String(body.utmCampaign ?? "").slice(0, 160) || null,
     visitor_state: body.visitorState === "returning" ? "returning" : body.visitorState === "new" ? "new" : null,
+    is_internal: isInternal,
   });
   if (error) {
     if (error.code === "42P01" || error.code === "PGRST205" || /analytics_events/i.test(error.message) && /not find|does not exist/i.test(error.message)) {

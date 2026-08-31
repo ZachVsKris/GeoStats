@@ -4,9 +4,8 @@ import { useEffect, useState } from "react";
 import { ROUND_CONFIGS, type DailyDifficulty } from "../lib/gameRules";
 import AccountControls from "./AccountControls";
 
-type TodayLeader = { username: string; score: number; averagePlacement: number; firsts: number; topFinishes: number };
-type AllTimeLeader = { username: string; games: number; averagePercent: number; averagePlacement: number; normalizedPerformance: number; rating: number };
-type RatingMethod = { name?: string; description?: string; confidenceGames?: number; dayPriorGames?: number };
+type TodayLeader = { username: string; score: number };
+type AllTimeLeader = { username: string; games: number; averagePercent: number; rating: number };
 type LoadError = { kind: "auth" | "network" | "server"; message: string } | null;
 
 function requestedDifficulty(): DailyDifficulty {
@@ -33,7 +32,6 @@ export default function LeaderboardView() {
   const [tab, setTab] = useState<"today" | "alltime">("today");
   const [today, setToday] = useState<TodayLeader[]>([]);
   const [alltime, setAlltime] = useState<AllTimeLeader[]>([]);
-  const [ratingMethod, setRatingMethod] = useState<RatingMethod | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<LoadError>(null);
   const [reloadKey, setReloadKey] = useState(0);
@@ -69,10 +67,7 @@ export default function LeaderboardView() {
           return;
         }
         if (tab === "today") setToday(data.leaders ?? []);
-        else {
-          setAlltime(data.leaders ?? []);
-          setRatingMethod(data.ratingMethod ?? null);
-        }
+        else setAlltime(data.leaders ?? []);
       } catch (caught) {
         if ((caught as Error).name !== "AbortError") {
           setError({ kind: "network", message: "GeoStats could not reach the standings service. Check your connection and try again." });
@@ -112,18 +107,14 @@ export default function LeaderboardView() {
       <button type="button" role="tab" aria-selected={tab === "today"} aria-controls="leaderboard-results" className={tab === "today" ? "active" : ""} onClick={() => chooseTab("today")}>Today</button>
       <button type="button" role="tab" aria-selected={tab === "alltime"} aria-controls="leaderboard-results" className={tab === "alltime" ? "active" : ""} onClick={() => chooseTab("alltime")}>All time</button>
     </div>
-    {tab === "alltime" && <div className="ratingExplainer">
-      <strong>Board-adjusted rating</strong>
-      <span>{ratingMethod?.description ?? "Each score is compared with players on that same Daily, then a confidence adjustment balances performance with number of completed Dailies."}</span>
-    </div>}
     <div id="leaderboard-results" role="tabpanel" aria-live="polite" aria-busy={loading}>
       {loading ? <div className="leaderboardEmpty">Loading {config.label} leaderboard…</div> : error ? <div className="leaderboardError" role="alert">
         <strong>Standings unavailable</strong>
         <p>{error.message}</p>
         {error.kind === "auth" ? <AccountControls context="leaderboard" ctaLabel="Sign in again" hideLeaderboardLink /> : <button type="button" onClick={() => setReloadKey((value) => value + 1)}>Try again</button>}
-      </div> : rows.length ? <div className={`publicLeaderboard ${tab === "alltime" ? "allTimeLeaderboard" : ""}`} role="table" aria-label={`${config.label} ${tab === "today" ? "today" : "all-time"} standings`}>
-        <div className="publicLeaderboardHeader" role="row"><span role="columnheader">#</span><span role="columnheader">Player</span>{tab === "today" ? <><span role="columnheader">Score</span><span role="columnheader">Avg. place</span><span role="columnheader">Top {config.topFinishRank}</span></> : <><span role="columnheader">Avg. %</span><span role="columnheader">Board adj.</span><span role="columnheader">Dailies</span><span role="columnheader">Rating</span></>}</div>
-        {tab === "today" ? today.map((leader, index) => <div role="row" key={`${leader.username}-${index}`}><b role="cell">{index + 1}</b><span role="cell">{leader.username}</span><strong role="cell">{leader.score}</strong><span role="cell">{leader.averagePlacement.toFixed(1)}</span><span role="cell">{leader.topFinishes}</span></div>) : alltime.map((leader, index) => <div role="row" key={leader.username}><b role="cell">{index + 1}</b><span role="cell">{leader.username}</span><span role="cell">{leader.averagePercent.toFixed(1)}%</span><span role="cell">{leader.normalizedPerformance.toFixed(1)}</span><span role="cell">{leader.games}</span><strong role="cell">{leader.rating.toFixed(1)}</strong></div>)}
+      </div> : rows.length ? <div className={`publicLeaderboard ${tab === "alltime" ? "allTimeLeaderboard" : "todayLeaderboard"}`} role="table" aria-label={`${config.label} ${tab === "today" ? "today" : "all-time"} standings`}>
+        <div className="publicLeaderboardHeader" role="row"><span role="columnheader">Position</span><span role="columnheader">Player</span>{tab === "today" ? <span role="columnheader">Score</span> : <><span role="columnheader">Average score</span><span role="columnheader">Games</span><span role="columnheader">Rating</span></>}</div>
+        {tab === "today" ? today.map((leader, index) => <div role="row" key={`${leader.username}-${index}`}><b role="cell">{index + 1}</b><span role="cell">{leader.username}</span><strong role="cell">{leader.score}</strong></div>) : alltime.map((leader, index) => <div role="row" key={leader.username}><b role="cell">{index + 1}</b><span role="cell">{leader.username}</span><span role="cell">{leader.averagePercent.toFixed(1)}%</span><span role="cell">{leader.games}</span><strong role="cell">{leader.rating.toFixed(1)}</strong></div>)}
       </div> : <div className="leaderboardEmpty">{tab === "today" ? `No verified ${config.label} scores yet today.` : `No one has qualified for the ${config.label} leaderboard yet. Five completed Dailies are required.`}</div>}
     </div>
     <div className="leaderboardPageActions"><a href={config.path}>Play today’s {config.label} Daily</a></div>

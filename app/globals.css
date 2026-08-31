@@ -318,7 +318,8 @@ header{display:flex;align-items:center;justify-content:space-between;padding:6px
 .leaderboardTabs button{flex:1;padding:15px;border:0;border-right:1px solid var(--line);border-radius:0;background:var(--surface-3);color:var(--muted);font-family:var(--label);font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;cursor:pointer}
 .leaderboardTabs button:last-child{border-right:0}.leaderboardTabs button.active{background:rgba(212,191,114,.08);color:var(--accent);box-shadow:inset 0 -3px 0 var(--accent)}
 .publicLeaderboard{width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;overscroll-behavior-inline:contain}
-.publicLeaderboard>div{display:grid;grid-template-columns:54px minmax(180px,1fr) 110px 110px 90px;gap:12px;align-items:center;padding:13px 20px;border-bottom:1px solid var(--line-soft);font-variant-numeric:tabular-nums}
+.publicLeaderboard>div{display:grid;gap:12px;align-items:center;padding:13px 20px;border-bottom:1px solid var(--line-soft);font-variant-numeric:tabular-nums}
+.publicLeaderboard.todayLeaderboard>div{grid-template-columns:90px minmax(180px,1fr) 110px}
 .publicLeaderboard>div>strong{color:var(--accent);font-family:var(--display);font-size:19px}.publicLeaderboard>div>b{color:var(--muted)}
 .publicLeaderboardHeader{color:var(--muted);font-family:var(--label);font-size:9px;font-weight:800;letter-spacing:.11em;text-transform:uppercase}
 .leaderboardEmpty{padding:54px 24px;text-align:center;color:var(--muted);font-family:var(--display);font-size:19px}
@@ -332,7 +333,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:6px
   .scoreActions{flex-direction:column}.scoreActions>.shareScore,.scoreActions>.resultsAccountActions{width:100%}.resultsAccountActions{display:grid;grid-template-columns:1fr 1fr;width:100%}.resultsAccountActions a,.resultsAccountActions button{width:100%;padding:10px 7px;font-size:8px}
   .activePlay header{display:grid;grid-template-columns:1fr auto;gap:3px 6px}.activePlay .headerButtons{grid-column:1/-1;width:100%;display:flex;justify-content:flex-end;flex-wrap:nowrap;gap:3px}.activePlay .headerButtons>button,.activePlay .headerButtons>.dailyModeButton,.activePlay .headerButtonLink,.activePlay .accountHeaderActions button{min-height:24px;padding:4px 5px;font-size:6px}.activePlay .accountHeaderActions{gap:3px}.activePlay .accountHeaderActions .headerButtonLink{font-size:0}.activePlay .accountHeaderActions .headerButtonLink:after{content:"Leaders";font-size:6px}
   .standalonePage{padding:10px 8px 34px}.standalonePage header{align-items:flex-start;gap:8px}.standalonePage .brand h1{font-size:20px}.standalonePage .brand p{display:none}.standalonePage .headerButtons{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:4px}.standalonePage .accountHeaderActions{gap:4px}.standalonePage .headerButtonLink,.standalonePage .accountHeaderActions button{min-height:32px;padding:7px 8px;font-size:7px}
-  .leaderboardPageIntro{padding:25px 18px 20px}.leaderboardPageIntro h1{font-size:39px}.leaderboardPageIntro p{font-size:13px;line-height:1.5}.publicLeaderboard>div{min-width:370px;grid-template-columns:28px minmax(105px,1fr) 55px 55px 48px;gap:5px;padding:11px 8px;font-size:11px}.publicLeaderboardHeader{font-size:7.5px;letter-spacing:.055em}.publicLeaderboard>div>strong{font-size:14px}
+  .leaderboardPageIntro{padding:25px 18px 20px}.leaderboardPageIntro h1{font-size:39px}.leaderboardPageIntro p{font-size:13px;line-height:1.5}.publicLeaderboard>div{gap:5px;padding:11px 8px;font-size:11px}.publicLeaderboard.todayLeaderboard>div{min-width:300px;grid-template-columns:58px minmax(105px,1fr) 65px}.publicLeaderboardHeader{font-size:7.5px;letter-spacing:.055em}.publicLeaderboard>div>strong{font-size:14px}
 }
 
 /* v11.0.8 board polish: preserve the balanced board while using its space better. */
@@ -968,19 +969,15 @@ header{display:flex;align-items:center;justify-content:space-between;padding:6px
 .accountModalActions{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:0 0 15px}
 .accountModalActions .quietButton{border-color:var(--line)!important;background:transparent!important;color:var(--muted)!important}.accountModalActions .quietButton:hover{border-color:var(--accent)!important;background:rgba(212,191,114,.06)!important;color:var(--accent)!important}
 .usernameRequired{padding:11px 13px;border-left:3px solid var(--accent);background:rgba(212,191,114,.08);color:var(--ink)!important}
-.ratingExplainer{display:flex;gap:16px;align-items:flex-start;padding:13px 20px;border-bottom:1px solid var(--line);background:rgba(120,185,154,.055)}
-.ratingExplainer strong{flex:0 0 auto;color:var(--accent-2);font-family:var(--label);font-size:9px;letter-spacing:.1em;text-transform:uppercase}
-.ratingExplainer span{color:var(--muted);font-size:12px;line-height:1.45}
-.publicLeaderboard.allTimeLeaderboard>div{grid-template-columns:54px minmax(160px,1fr) 90px 90px 72px 86px}
+.publicLeaderboard.allTimeLeaderboard>div{grid-template-columns:90px minmax(180px,1fr) 120px 90px 100px}
 
 @media(max-width:720px){
   .randomChallengeBar{align-items:flex-start;flex-direction:column}
   .randomChallengeBar .challengeActions{width:100%;margin-left:0}
   .seedControls{width:100%;justify-content:flex-start}
   .seedControls input{flex:1;min-width:112px;width:auto}
-  .ratingExplainer{flex-direction:column;gap:5px;padding:12px}
   .publicLeaderboard.allTimeLeaderboard{overflow-x:auto}
-  .publicLeaderboard.allTimeLeaderboard>div{min-width:560px;grid-template-columns:32px minmax(140px,1fr) 64px 72px 58px 70px}
+  .publicLeaderboard.allTimeLeaderboard>div{min-width:440px;grid-template-columns:58px minmax(120px,1fr) 82px 58px 70px}
 }
 
 /* GeoStats v14.0: source transparency, all-country lookup, and clear subtitles */

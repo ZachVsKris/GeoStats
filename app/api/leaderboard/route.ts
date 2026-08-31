@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { createSupabaseAdminClient, createSupabaseServerClient } from "../../../lib/supabase/server";
 import { newYorkDate } from "../../../lib/time";
 import { LEGACY_V16_2_3_ROUND_CONFIGS, ROUND_CONFIGS, type DailyDifficulty } from "../../../lib/gameRules";
-import { BOARD_NORMALIZATION_VERSION, LEADERBOARD_RATING_VERSION, RULES_VERSION } from "../../../lib/version";
+import { LEADERBOARD_RATING_VERSION, RULES_VERSION } from "../../../lib/version";
 
 type Profile = { username?: string };
 type ScoreRow = {
@@ -112,7 +112,7 @@ export async function GET(request: Request) {
   const rows = rawRows.filter(isScoreRow);
 
   if (view === "today") {
-    const leaders = rows.map((row) => {
+    const ranked = rows.map((row) => {
       const profile = profileOf(row.profiles);
       return {
         username: profile?.username ?? "player",
@@ -122,6 +122,7 @@ export async function GET(request: Request) {
         topFinishes: row.top_fives,
       };
     }).sort((a, b) => b.score - a.score || a.averagePlacement - b.averagePlacement || b.firsts - a.firsts || b.topFinishes - a.topFinishes).slice(0, 100);
+    const leaders = ranked.map(({ username, score }) => ({ username, score }));
     return privateJson({ view, difficulty, date: challengeDate, leaders });
   }
 
@@ -170,7 +171,7 @@ export async function GET(request: Request) {
 
   const baseline = mean(allPerformances, 50);
   const confidenceGames = 20;
-  const leaders = [...byUser.values()].map((entry) => {
+  const ranked = [...byUser.values()].map((entry) => {
     const games = entry.rawScores.length;
     const averagePercent = mean(entry.scoreRatios) * 100;
     const averagePlacement = mean(entry.placements);
@@ -188,19 +189,13 @@ export async function GET(request: Request) {
     .sort((a, b) => b.rating - a.rating || a.averagePlacement - b.averagePlacement || b.games - a.games || b.averagePercent - a.averagePercent)
     .slice(0, 100);
 
+  const leaders = ranked.map(({ username, games, averagePercent, rating }) => ({ username, games, averagePercent, rating }));
+
   return privateJson({
     view,
     difficulty,
     maxScore,
-    baseline: Number(baseline.toFixed(1)),
     leaders,
-    ratingMethod: {
-      name: "Board-relative Bayesian rating",
-      version: LEADERBOARD_RATING_VERSION,
-      boardNormalizationVersion: BOARD_NORMALIZATION_VERSION,
-      description: "Each score is standardized against the player distribution for that same Daily, with small cohorts shrunk toward the mode-wide distribution. A 20-game confidence prior then balances performance and experience.",
-      confidenceGames,
-      dayPriorGames,
-    },
+    ratingVersion: LEADERBOARD_RATING_VERSION,
   });
 }

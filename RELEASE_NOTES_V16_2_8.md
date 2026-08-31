@@ -11,7 +11,7 @@ This release turns the reviewed 316-category catalog into a launch-ready product
 - Category-card edge colors now identify broad subject groups through a visible, non-scoring color key
 - Player-facing category descriptions are concise, unambiguous, and omit terminal periods
 - Internal Random QA routes and terminology stay out of the public product
-- The leaderboard is a standalone launch package: account-only reading, automatic standings for verified Daily results, per-difficulty Today/All-time views, fair board-adjusted comparisons, and complete resilience states
+- The leaderboard is a standalone launch package: account-only reading, automatic standings for verified Daily results, per-difficulty Today/All-time views, and a concise position/average score/games/rating table
 
 ## Admin and analytics
 
@@ -20,6 +20,13 @@ This release turns the reviewed 316-category catalog into a launch-ready product
 - Partial Admin degradation: one unavailable subsystem no longer blanks the whole dashboard
 - Explicit warehouse-health checks, refresh controls, and plain-language Admin glossary
 - Analytics reporting views are service-role-only
+- Public traffic figures exclude administrator and internal-tester sessions; Admin retains a private excluded-QA count
+- Admin includes a daily traffic-and-accounts table with automatic refresh
+
+## Bounded expansion evidence
+
+- The natural/physical-geography proof identified 11 Köppen-Geiger climate categories with one peer-reviewed source, 195-country coverage, and sufficient distinct values among each category's global Top 20
+- Ice-cap climate share and climate-type count stopped at feasibility because they did not meet the same Top-20 distinct-value rule
 
 ## Reliability and security
 

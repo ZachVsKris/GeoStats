@@ -117,6 +117,20 @@ type AnalyticsOverview = {
 };
 
 type AnalyticsDailyRow = { activity_date: string; event_name: string; difficulty: DailyDifficulty | null; events: number; sessions: number; signed_in_users: number; average_value: number | null };
+type AnalyticsDailySummaryRow = {
+  activity_date: string;
+  visitors: number;
+  page_views: number;
+  games_started: number;
+  games_completed: number;
+  signin_requests: number;
+  authenticated_sessions: number;
+  accounts_created: number;
+  internal_qa_sessions: number;
+  internal_qa_page_views: number;
+  internal_qa_games_started: number;
+  internal_qa_games_completed: number;
+};
 type AnalyticsDifficultyRow = { difficulty: DailyDifficulty; games_started: number; games_completed: number; sessions: number; completion_rate: number | null; average_percent: number | null };
 type AnalyticsAcquisitionRow = { visitor_state: string; utm_source: string; utm_medium: string; utm_campaign: string; referrer: string; page_views: number; sessions: number; games_completed: number; authenticated_sessions: number };
 type AnalyticsEngagementRow = { id: string; label: string; games_started: number; games_completed: number; sessions: number };
@@ -286,8 +300,9 @@ export async function GET() {
     };
   }
 
-  const [analyticsDailyResult, analyticsDifficultyResult, analyticsAcquisitionResult, analyticsCategoryResult, analyticsCountryResult, analyticsCountryNamesResult] = await Promise.all([
+  const [analyticsDailyResult, analyticsDailySummaryResult, analyticsDifficultyResult, analyticsAcquisitionResult, analyticsCategoryResult, analyticsCountryResult, analyticsCountryNamesResult] = await Promise.all([
     admin.from("analytics_daily_30d").select("activity_date,event_name,difficulty,events,sessions,signed_in_users,average_value").order("activity_date", { ascending: true }),
+    admin.from("analytics_daily_summary_30d").select("*").order("activity_date", { ascending: false }),
     admin.from("analytics_difficulty_30d").select("*").order("difficulty"),
     admin.from("analytics_acquisition_30d").select("*").order("sessions", { ascending: false }).limit(12),
     admin.from("analytics_category_engagement_30d").select("*").order("games_started", { ascending: false }).limit(10),
@@ -308,8 +323,9 @@ export async function GET() {
     } satisfies AnalyticsEngagementRow;
   });
   const analyticsDetails = {
-    migrationApplied: !analyticsDifficultyResult.error && !analyticsCategoryResult.error && !analyticsCountryResult.error,
+    migrationApplied: !analyticsDifficultyResult.error && !analyticsCategoryResult.error && !analyticsCountryResult.error && !analyticsDailySummaryResult.error,
     daily: analyticsDailyResult.error ? [] : (analyticsDailyResult.data ?? []) as AnalyticsDailyRow[],
+    dailySummary: analyticsDailySummaryResult.error ? [] : (analyticsDailySummaryResult.data ?? []) as AnalyticsDailySummaryRow[],
     byDifficulty: analyticsDifficultyResult.error ? [] : (analyticsDifficultyResult.data ?? []) as AnalyticsDifficultyRow[],
     acquisition: analyticsAcquisitionResult.error ? [] : (analyticsAcquisitionResult.data ?? []) as AnalyticsAcquisitionRow[],
     topCategories: analyticsCategoryResult.error ? [] : engagementRows(analyticsCategoryResult.data as unknown[] | null, "category_id", categoryNames),

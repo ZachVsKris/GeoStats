@@ -30,7 +30,7 @@ This is the single source of truth for the launch work discussed with the produc
 - [x] Save signed-in Daily scores automatically; remove manual standings submission
 - [x] Keep Scout, Adventurer, and Expert standings separate
 - [x] Provide Today and All-time views for every difficulty
-- [x] Compare scores fairly using board-adjusted results while retaining raw score context
+- [x] Show only position, average score, games, and rating in All-time standings; keep board normalization inside the rating calculation
 - [x] Restrict leaderboard API data to authenticated accounts and disable caching
 - [x] Handle signed-out, expired-session, empty, loading, query-error, and retry states clearly
 - [x] Keep public copy free of internal QA terminology
@@ -45,6 +45,8 @@ This is the single source of truth for the launch work discussed with the produc
 - [x] Give Admin a plain-language glossary and explicit warehouse-health status
 - [x] Let optional Admin subsystems fail independently rather than blanking the whole page
 - [x] Repair the production warehouse-query failure state
+- [x] Exclude administrators and internal testers from public traffic figures while preserving a private QA count
+- [x] Add an automatically refreshed daily traffic-and-accounts table to Admin
 - [ ] Verify category/country engagement tables have populated after sufficient post-release gameplay
 
 ## 5. Game presentation and cross-browser quality
@@ -71,7 +73,7 @@ This is the single source of truth for the launch work discussed with the produc
 
 Each pass is independent and stops if it cannot prove at least 10 distinct additions. Proof requires an authoritative source, comparable country definition, broad coverage, clear player wording, non-duplication, a reproducible import, and actual Top-20 board feasibility. Failed or previously exhausted pathways are not retried without materially new evidence.
 
-- [ ] Natural and physical geography: bounded 10-category feasibility pass
+- [x] Natural and physical geography: bounded proof found 11 candidates that pass the authoritative-source, 195-country, and global Top-20 distinct-value gates; staging remains separate
 - [ ] Country history: bounded 10-category feasibility pass
 - [ ] Culture: bounded 10-category feasibility pass
 - [ ] Ethnic, religious, and racial demographics: bounded 10-category feasibility pass

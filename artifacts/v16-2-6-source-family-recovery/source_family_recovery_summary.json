@@ -2,8 +2,8 @@
   "totals": {
     "mapped_source_families": 26,
     "mapped_tracker_rows": 392,
-    "represented_tracker_rows": 357,
-    "explicitly_blocked_tracker_rows": 35,
+    "represented_tracker_rows": 355,
+    "explicitly_blocked_tracker_rows": 37,
     "accounted_tracker_rows": 392,
     "missing_tracker_rows": 0,
     "note": "Importer-catalog representation only; no row is activation-certified by this audit."
@@ -263,11 +263,11 @@
       "source_family": "K\u00f6ppen-Geiger 1991\u20132020 climate classification",
       "importer": "scripts/import-koppen-geiger.py",
       "tracker_rows": 13,
-      "represented": 13,
-      "blocked": 0,
+      "represented": 11,
+      "blocked": 2,
       "missing": 0,
       "accounted": 13,
-      "representation_pct": 100.0
+      "representation_pct": 84.6
     }
   ]
 }

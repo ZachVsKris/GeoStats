@@ -15,6 +15,7 @@ const tradeRetirements = read("supabase/migrations/074_v16_2_8_owner_trade_aggre
 const launchAnalytics = read("supabase/migrations/075_v16_2_8_launch_analytics_reporting.sql");
 const rlsInitplanHardening = read("supabase/migrations/076_v16_2_8_rls_initplan_hardening.sql");
 const writeRlsInitplanHardening = read("supabase/migrations/077_v16_2_8_write_rls_initplan_hardening.sql");
+const internalAnalytics = read("supabase/migrations/078_v16_2_8_exclude_internal_analytics.sql");
 const importerBase = read("scripts/data_pipeline/base.py");
 const unhcr = read("scripts/import-unhcr.py");
 const sourceFamilyRecovery = read("scripts/audit-v16-2-6-source-family-recovery.py");
@@ -230,6 +231,8 @@ for (const token of [
   "Try again",
   "updateLocation",
 ]) check(leaderboardView.includes(token), `leaderboard resilience/accessibility missing ${token}`);
+for (const token of ["Position", "Average score", "Games", "Rating"]) check(leaderboardView.includes(token), `leaderboard table missing ${token}`);
+for (const token of ["Board adj.", "Avg. place", "ratingExplainer", "normalizedPerformance.toFixed"]) check(!leaderboardView.includes(token), `leaderboard still exposes ${token}`);
 for (const token of [
   '"Cache-Control": "private, no-store"',
   "The standings could not be loaded right now",
@@ -245,9 +248,12 @@ for (const token of [
 check(analyticsClient.includes('"account_authenticated"'), "successful authentication event is not recognized by the client");
 check(analyticsPageView.includes('trackAnalytics("account_authenticated"') && analyticsPageView.includes("history.replaceState"), "auth completion is not tracked and cleaned from the URL");
 check(analyticsRoute.includes('path?.startsWith("/random")') && analyticsRoute.includes('body.eventName === "account_authenticated" && !user'), "analytics route does not reject internal QA or unauthenticated auth events");
+for (const token of ["is_internal", "app_admins", "internal_testers", "Internal analytics session backfill failed"]) check(analyticsRoute.includes(token), `analytics route missing internal exclusion: ${token}`);
+for (const token of ["analytics_daily_summary_30d", "is_internal=false", "internal_qa_page_views", "America/New_York"]) check(internalAnalytics.includes(token), `internal analytics migration missing ${token}`);
 for (const token of ["Traffic and account funnel", "Gameplay engagement", "Top acquisition paths", "Most-played categories", "Most-played countries"]) {
   check(adminDashboard.includes(token), `Admin analytics reporting missing ${token}`);
 }
+for (const token of ["Traffic and accounts by day", "QA excluded", "auto-refreshes every minute", "dailySummary"]) check(adminDashboard.includes(token), `Admin live traffic table missing ${token}`);
 for (const token of ["Warehouse status", "Eligibility", "Review priority", "Utilization", "Blocker"]) {
   check(adminDashboard.includes(token), `Admin status clarity missing ${token}`);
 }

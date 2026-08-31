@@ -151,6 +151,20 @@ type AnalyticsOverview = {
   completion_rate: number | null;
 };
 type AnalyticsDailyRow = { activity_date: string; event_name: string; difficulty: DailyMode | null; events: number; sessions: number; signed_in_users: number; average_value: number | null };
+type AnalyticsDailySummaryRow = {
+  activity_date: string;
+  visitors: number;
+  page_views: number;
+  games_started: number;
+  games_completed: number;
+  signin_requests: number;
+  authenticated_sessions: number;
+  accounts_created: number;
+  internal_qa_sessions: number;
+  internal_qa_page_views: number;
+  internal_qa_games_started: number;
+  internal_qa_games_completed: number;
+};
 type AnalyticsDifficultyRow = { difficulty: DailyMode; games_started: number; games_completed: number; sessions: number; completion_rate: number | null; average_percent: number | null };
 type AnalyticsAcquisitionRow = { visitor_state: string; utm_source: string; utm_medium: string; utm_campaign: string; referrer: string; page_views: number; sessions: number; games_completed: number; authenticated_sessions: number };
 type AnalyticsEngagementRow = { id: string; label: string; games_started: number; games_completed: number; sessions: number };
@@ -182,6 +196,7 @@ type Dashboard = {
   analyticsDetails: {
     migrationApplied: boolean;
     daily: AnalyticsDailyRow[];
+    dailySummary: AnalyticsDailySummaryRow[];
     byDifficulty: AnalyticsDifficultyRow[];
     acquisition: AnalyticsAcquisitionRow[];
     topCategories: AnalyticsEngagementRow[];
@@ -321,23 +336,32 @@ export default function AdminDashboard() {
   const [generation, setGeneration] = useState<GenerationResult | null>(null);
   const [generationElapsed, setGenerationElapsed] = useState(0);
   const [loading, setLoading] = useState(true);
+  const [lastRefreshedAt, setLastRefreshedAt] = useState<Date | null>(null);
   const [progress, setProgress] = useState({ done: 0, total: 0, label: "" });
 
-  const load = useCallback(async () => {
-    setLoading(true);
+  const load = useCallback(async (background = false) => {
+    if (!background) setLoading(true);
     try {
       const response = await fetch("/api/admin/dashboard", { cache: "no-store" });
       const json = await response.json();
       if (!response.ok) throw new Error(json.error || "Dashboard could not load.");
       setData(json);
+      setLastRefreshedAt(new Date());
       setError("");
     } finally {
-      setLoading(false);
+      if (!background) setLoading(false);
     }
   }, []);
 
   useEffect(() => {
     load().catch((cause: unknown) => setError(cause instanceof Error ? cause.message : "Dashboard could not load."));
+  }, [load]);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      void load(true).catch((cause: unknown) => setError(cause instanceof Error ? cause.message : "Dashboard could not refresh."));
+    }, 60_000);
+    return () => window.clearInterval(timer);
   }, [load]);
 
   useEffect(() => {
@@ -557,7 +581,7 @@ export default function AdminDashboard() {
 
       <section style={{ ...card, marginBottom: 16, borderColor: data.warehouseHealth.status === "healthy" ? "rgba(185,244,90,.45)" : "rgba(255,190,90,.55)" }}>
         <div style={{ display: "flex", justifyContent: "space-between", gap: 16, alignItems: "start", flexWrap: "wrap" }}>
-          <div><span className="kicker">Warehouse status</span><h2 style={{ margin: "5px 0" }}>{data.warehouseHealth.status === "healthy" ? "All reporting systems available" : "Dashboard loaded with degraded reporting"}</h2><p style={{ margin: 0, opacity: .72 }}>{data.warehouseHealth.healthy}/{data.warehouseHealth.total} subsystems available · checked {new Date(data.warehouseHealth.checkedAt).toLocaleString()}</p></div>
+          <div><span className="kicker">Warehouse status</span><h2 style={{ margin: "5px 0" }}>{data.warehouseHealth.status === "healthy" ? "All reporting systems available" : "Dashboard loaded with degraded reporting"}</h2><p style={{ margin: 0, opacity: .72 }}>{data.warehouseHealth.healthy}/{data.warehouseHealth.total} subsystems available · updated {lastRefreshedAt?.toLocaleTimeString() ?? new Date(data.warehouseHealth.checkedAt).toLocaleTimeString()} · auto-refreshes every minute</p></div>
           <button type="button" style={button} disabled={loading} onClick={() => void load()}>{loading ? "Refreshing…" : "Refresh status"}</button>
         </div>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 7, marginTop: 13 }}>
@@ -619,7 +643,24 @@ export default function AdminDashboard() {
             <div style={{ opacity: .7, fontSize: 12 }}>{label}</div><strong style={{ fontSize: 22 }}>{typeof value === "number" ? formatNumber(value) : value}</strong>
           </div>)}
         </div>
-        <p style={{ opacity: .64, marginBottom: 0, fontSize: 12 }}>First-party, privacy-conscious traffic and account reporting; no ad tracker or precise location data</p>
+        <p style={{ opacity: .64, marginBottom: 0, fontSize: 12 }}>First-party, privacy-conscious reporting; administrators and internal testers are excluded from these public-use figures, with no ad tracker or precise location data</p>
+      </section>
+
+      <section style={{ ...card, marginTop: 16 }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "start", gap: 12, flexWrap: "wrap" }}>
+          <div><h2 style={{ margin: 0 }}>Traffic and accounts by day</h2><p style={{ margin: "5px 0 0", opacity: .7, fontSize: 12 }}>Real-player activity is separated from your excluded Admin and QA checks</p></div>
+          <button type="button" style={mutedButton} disabled={loading} onClick={() => void load()}>{loading ? "Refreshing…" : "Refresh table"}</button>
+        </div>
+        {!data.analyticsDetails.migrationApplied ? <p>Apply the internal-traffic analytics migration to enable this table</p> : <div style={{ overflowX: "auto", marginTop: 14 }}>
+          <table style={{ width: "100%", minWidth: 930, borderCollapse: "collapse", fontSize: 12, fontVariantNumeric: "tabular-nums" }}>
+            <thead><tr style={{ textAlign: "right", opacity: .66, textTransform: "uppercase", fontSize: 10 }}><th style={{ textAlign: "left", padding: "8px 9px" }}>Date</th><th style={{ padding: "8px 9px" }}>Visitors</th><th style={{ padding: "8px 9px" }}>Page views</th><th style={{ padding: "8px 9px" }}>Starts</th><th style={{ padding: "8px 9px" }}>Finishes</th><th style={{ padding: "8px 9px" }}>Sign-in requests</th><th style={{ padding: "8px 9px" }}>Signed-in sessions</th><th style={{ padding: "8px 9px" }}>New accounts</th><th style={{ padding: "8px 9px" }}>QA excluded</th></tr></thead>
+            <tbody>{data.analyticsDetails.dailySummary.map((row) => <tr key={row.activity_date} style={{ borderTop: "1px solid rgba(255,255,255,.09)", textAlign: "right" }}>
+              <th scope="row" style={{ textAlign: "left", padding: "10px 9px", whiteSpace: "nowrap" }}>{new Date(`${row.activity_date}T12:00:00Z`).toLocaleDateString(undefined, { month: "short", day: "numeric" })}</th>
+              <td style={{ padding: "10px 9px" }}>{formatNumber(row.visitors)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.page_views)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.games_started)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.games_completed)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.signin_requests)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.authenticated_sessions)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.accounts_created)}</td>
+              <td style={{ padding: "10px 9px", color: "#d8be73" }} title={`${row.internal_qa_games_started} game starts and ${row.internal_qa_games_completed} finishes excluded`}>{formatNumber(row.internal_qa_sessions)} sessions · {formatNumber(row.internal_qa_page_views)} views</td>
+            </tr>)}</tbody>
+          </table>
+        </div>}
       </section>
 
       <section style={{ ...card, marginTop: 16 }}>

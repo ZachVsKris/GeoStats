@@ -193,13 +193,13 @@ for (const token of [
 ]) check(challengeCodec.includes(token), `saved-board player-copy hydration missing ${token}`);
 for (const token of [
   "hydrateCurrentPlayerCopy",
-  "loadServerPlayableCategoryCatalog",
+  "loadServerCategoryRegistry",
   "geostats-public-daily-trio-player-copy",
   "PLAYER_COPY_VERSION",
   "original countries, values, rules, and scoring",
 ]) check(publicDaily.includes(token), `public Daily copy hydration missing ${token}`);
-check(/PLAYER_COPY_VERSION = "16\.2\.(8\.1|9\.1)"/.test(version), "player-copy cache version is older than v16.2.8");
-check(/PLAYABLE_CATALOG_CACHE_VERSION = "16\.2\.(8\.316|9\.326)"/.test(version), "playable-catalog cache version is older than the reviewed v16.2.8 catalog");
+check(/PLAYER_COPY_VERSION = "16\.2\.(8\.1|9\.[2-9])"/.test(version), "player-copy cache version is older than v16.2.8");
+check(/PLAYABLE_CATALOG_CACHE_VERSION = "16\.2\.(8\.316|9\.32[7-9])"/.test(version), "playable-catalog cache version is older than the reviewed v16.2.8 catalog");
 check(serverPlayableCatalog.match(/PLAYABLE_CATALOG_CACHE_VERSION/g)?.length >= 5, "server catalog caches are not versioned consistently");
 check(playableCatalogRoute.includes("X-GeoStats-Catalog-Version") && playableCatalogRoute.includes("PLAYABLE_CATALOG_CACHE_VERSION"), "catalog endpoint does not disclose its cache version");
 check(game.includes("${PLAYER_COPY_VERSION}:${date}") && game.includes("copy: PLAYER_COPY_VERSION"), "browser/CDN Daily caches are not keyed by player-copy version");

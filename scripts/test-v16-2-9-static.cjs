@@ -26,7 +26,7 @@ const rollback = read("ROLLBACK_V16_2_9.sql");
 
 check(pkg.version === "16.2.9", "package version is not v16.2.9");
 check(pkg.scripts.test === "npm run test-v16-2-9" && pkg.scripts.check === "npm run check-v16-2-9" && pkg.scripts["test-v16"] === "npm run test-v16-2-9" && pkg.scripts["check-v16"] === "npm run check-v16-2-9", "default validation scripts do not target v16.2.9");
-for (const token of ['APP_VERSION = "16.2.9"', 'RULES_VERSION = "16.2.9"', 'PLAYABLE_CATALOG_CACHE_VERSION = "16.2.9.326"']) check(version.includes(token), `version constants missing ${token}`);
+for (const token of ['APP_VERSION = "16.2.9"', 'RULES_VERSION = "16.2.9"', 'PLAYABLE_CATALOG_CACHE_VERSION = "16.2.9.327"']) check(version.includes(token), `version constants missing ${token}`);
 check(!leaderboardPage.includes("redirect("), "public leaderboard page still redirects signed-out visitors");
 for (const token of ["Rank", "Player", "Average score", "Rating", "Completed games"]) check(leaderboard.includes(token), `all-time leaderboard missing ${token}`);
 check(!leaderboard.includes("Today") && !leaderboard.includes("timeRange"), "Daily leaderboard controls remain");

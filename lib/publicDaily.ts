@@ -14,11 +14,14 @@ import { DATASET_VERSION, PLAYER_COPY_VERSION } from "./version";
 import type { DailyApiPayload } from "./dailyPublicPayload";
 import { DAILY_DIFFICULTIES } from "./gameRules";
 import { hydrateRoundSnapshotPlayerCopy } from "./challengeCodec";
-import { loadServerPlayableCategoryCatalog } from "./serverPlayableCatalog";
+import { loadServerCategoryRegistry } from "./serverPlayableCatalog";
 
 async function hydrateCurrentPlayerCopy(boards: PackedDailyTrio) {
   try {
-    const categoryCatalog = await loadServerPlayableCategoryCatalog();
+    // Saved Dailies can contain a category that was valid when the board was
+    // published but was later retired. Use the complete registry so copy fixes
+    // still reach those immutable boards without changing their scoring data.
+    const categoryCatalog = await loadServerCategoryRegistry();
     const hydrated: PackedDailyTrio = {};
     for (const difficulty of DAILY_DIFFICULTIES) {
       const board = boards[difficulty];

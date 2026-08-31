@@ -4,9 +4,15 @@ import { useEffect, useState } from "react";
 import { ROUND_CONFIGS, type DailyDifficulty } from "../lib/gameRules";
 import AccountControls from "./AccountControls";
 
-type TodayLeader = { username: string; score: number };
-type AllTimeLeader = { username: string; games: number; averagePercent: number; rating: number };
-type LoadError = { kind: "auth" | "network" | "server"; message: string } | null;
+type AllTimeLeader = {
+  rank: number;
+  username: string;
+  averageScore: number;
+  rating: number;
+  completedGames: number;
+  isCurrentPlayer: boolean;
+};
+type LoadError = { kind: "network" | "server"; message: string } | null;
 
 function requestedDifficulty(): DailyDifficulty {
   if (typeof window === "undefined") return "easy";
@@ -14,24 +20,18 @@ function requestedDifficulty(): DailyDifficulty {
   return value === "normal" || value === "expert" ? value : "easy";
 }
 
-function requestedView(): "today" | "alltime" {
-  if (typeof window === "undefined") return "today";
-  return new URLSearchParams(window.location.search).get("view") === "alltime" ? "alltime" : "today";
-}
-
-function updateLocation(difficulty: DailyDifficulty, view: "today" | "alltime") {
+function updateLocation(difficulty: DailyDifficulty) {
   const url = new URL(window.location.href);
   url.searchParams.set("difficulty", difficulty);
-  if (view === "alltime") url.searchParams.set("view", view);
-  else url.searchParams.delete("view");
+  url.searchParams.delete("view");
+  url.searchParams.delete("date");
   window.history.replaceState(window.history.state, "", `${url.pathname}${url.search}${url.hash}`);
 }
 
 export default function LeaderboardView() {
-  const [difficulty, setDifficulty] = useState<DailyDifficulty>("easy");
-  const [tab, setTab] = useState<"today" | "alltime">("today");
-  const [today, setToday] = useState<TodayLeader[]>([]);
+  const [difficulty, setDifficulty] = useState<DailyDifficulty>(() => requestedDifficulty());
   const [alltime, setAlltime] = useState<AllTimeLeader[]>([]);
+  const [signedIn, setSignedIn] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<LoadError>(null);
   const [reloadKey, setReloadKey] = useState(0);
@@ -39,7 +39,6 @@ export default function LeaderboardView() {
   useEffect(() => {
     const syncFromLocation = () => {
       setDifficulty(requestedDifficulty());
-      setTab(requestedView());
     };
     syncFromLocation();
     window.addEventListener("popstate", syncFromLocation);
@@ -52,22 +51,18 @@ export default function LeaderboardView() {
     setError(null);
     async function loadLeaderboard() {
       try {
-        const response = await fetch(`/api/leaderboard?view=${tab}&difficulty=${difficulty}`, {
+        const response = await fetch(`/api/leaderboard?difficulty=${difficulty}`, {
           cache: "no-store",
           credentials: "same-origin",
           signal: controller.signal,
         });
         const data = await response.json().catch(() => ({}));
-        if (response.status === 401) {
-          setError({ kind: "auth", message: "Your session expired. Sign in again to view the account-only standings." });
-          return;
-        }
         if (!response.ok) {
           setError({ kind: "server", message: data.error ?? "The standings could not be loaded right now." });
           return;
         }
-        if (tab === "today") setToday(data.leaders ?? []);
-        else setAlltime(data.leaders ?? []);
+        setAlltime(data.leaders ?? []);
+        setSignedIn(data.signedIn === true);
       } catch (caught) {
         if ((caught as Error).name !== "AbortError") {
           setError({ kind: "network", message: "GeoStats could not reach the standings service. Check your connection and try again." });
@@ -78,45 +73,37 @@ export default function LeaderboardView() {
     }
     void loadLeaderboard();
     return () => controller.abort();
-  }, [tab, difficulty, reloadKey]);
+  }, [difficulty, reloadKey]);
 
   function chooseDifficulty(next: DailyDifficulty) {
     setDifficulty(next);
-    updateLocation(next, tab);
+    updateLocation(next);
   }
 
-  function chooseTab(next: "today" | "alltime") {
-    setTab(next);
-    updateLocation(difficulty, next);
-  }
-
-  const rows = tab === "today" ? today : alltime;
   const config = ROUND_CONFIGS[difficulty];
+  const currentPlayerIsRanked = alltime.some((leader) => leader.isCurrentPlayer);
   return <section className="leaderboardPage panel">
     <div className="leaderboardPageIntro">
-      <span className="kicker">Account-only competition</span>
+      <span className="kicker">All-time standings</span>
       <h1>Leaderboard</h1>
-      <p>Scout, Adventurer, and Expert each have separate verified standings. Your score saves automatically when you finish a Daily while signed in.</p>
+      <p>See how GeoStats players perform over time. Scout, Adventurer, and Expert each have separate verified standings.</p>
     </div>
     <div className="leaderboardModeTabs" role="tablist" aria-label="Daily difficulty">
       <button type="button" role="tab" aria-selected={difficulty === "easy"} aria-controls="leaderboard-results" className={difficulty === "easy" ? "active" : ""} onClick={() => chooseDifficulty("easy")}>Scout</button>
       <button type="button" role="tab" aria-selected={difficulty === "normal"} aria-controls="leaderboard-results" className={difficulty === "normal" ? "active" : ""} onClick={() => chooseDifficulty("normal")}>Adventurer</button>
       <button type="button" role="tab" aria-selected={difficulty === "expert"} aria-controls="leaderboard-results" className={difficulty === "expert" ? "active" : ""} onClick={() => chooseDifficulty("expert")}>Expert</button>
     </div>
-    <div className="leaderboardTabs" role="tablist" aria-label="Leaderboard period">
-      <button type="button" role="tab" aria-selected={tab === "today"} aria-controls="leaderboard-results" className={tab === "today" ? "active" : ""} onClick={() => chooseTab("today")}>Today</button>
-      <button type="button" role="tab" aria-selected={tab === "alltime"} aria-controls="leaderboard-results" className={tab === "alltime" ? "active" : ""} onClick={() => chooseTab("alltime")}>All time</button>
-    </div>
     <div id="leaderboard-results" role="tabpanel" aria-live="polite" aria-busy={loading}>
       {loading ? <div className="leaderboardEmpty">Loading {config.label} leaderboard…</div> : error ? <div className="leaderboardError" role="alert">
         <strong>Standings unavailable</strong>
         <p>{error.message}</p>
-        {error.kind === "auth" ? <AccountControls context="leaderboard" ctaLabel="Sign in again" hideLeaderboardLink /> : <button type="button" onClick={() => setReloadKey((value) => value + 1)}>Try again</button>}
-      </div> : rows.length ? <div className={`publicLeaderboard ${tab === "alltime" ? "allTimeLeaderboard" : "todayLeaderboard"}`} role="table" aria-label={`${config.label} ${tab === "today" ? "today" : "all-time"} standings`}>
-        <div className="publicLeaderboardHeader" role="row"><span role="columnheader">Position</span><span role="columnheader">Player</span>{tab === "today" ? <span role="columnheader">Score</span> : <><span role="columnheader">Average score</span><span role="columnheader">Games</span><span role="columnheader">Rating</span></>}</div>
-        {tab === "today" ? today.map((leader, index) => <div role="row" key={`${leader.username}-${index}`}><b role="cell">{index + 1}</b><span role="cell">{leader.username}</span><strong role="cell">{leader.score}</strong></div>) : alltime.map((leader, index) => <div role="row" key={leader.username}><b role="cell">{index + 1}</b><span role="cell">{leader.username}</span><span role="cell">{leader.averagePercent.toFixed(1)}%</span><span role="cell">{leader.games}</span><strong role="cell">{leader.rating.toFixed(1)}</strong></div>)}
-      </div> : <div className="leaderboardEmpty">{tab === "today" ? `No verified ${config.label} scores yet today.` : `No one has qualified for the ${config.label} leaderboard yet. Five completed Dailies are required.`}</div>}
+        <button type="button" onClick={() => setReloadKey((value) => value + 1)}>Try again</button>
+      </div> : alltime.length ? <div className="publicLeaderboard allTimeLeaderboard" role="table" aria-label={`${config.label} all-time standings`}>
+        <div className="publicLeaderboardHeader" role="row"><span role="columnheader">Rank</span><span role="columnheader">Player</span><span role="columnheader">Average score</span><span role="columnheader">Rating</span><span role="columnheader">Completed games</span></div>
+        {alltime.map((leader) => <div role="row" key={`${leader.rank}-${leader.username}`} className={leader.isCurrentPlayer ? "currentPlayerRow" : undefined} aria-label={leader.isCurrentPlayer ? `${leader.username}, your standing` : undefined}><b role="cell">{leader.rank}</b><span role="cell">{leader.username}{leader.isCurrentPlayer && <small className="currentPlayerBadge">You</small>}</span><span role="cell">{leader.averageScore.toFixed(1)} / {config.maxScore}</span><strong role="cell">{leader.rating.toFixed(1)}</strong><span role="cell">{leader.completedGames}</span></div>)}
+      </div> : <div className="leaderboardEmpty">No one has qualified for the {config.label} leaderboard yet. Five completed Dailies are required.</div>}
     </div>
+    {!loading && !error && (!signedIn ? <div className="leaderboardJoinPrompt"><strong>Create a free account to join the standings</strong><p>Unlock Expert Daily, save verified scores across all three modes, and compete under a public GeoStats username. Your email stays private.</p><AccountControls context="leaderboard" ctaLabel="Sign in to join leaderboard" hideLeaderboardLink /><small>Scout and Adventurer remain playable without an account.</small></div> : !currentPlayerIsRanked ? <div className="leaderboardQualificationNote">You’re signed in. Complete five {config.label} Dailies to qualify for these standings.</div> : null)}
     <div className="leaderboardPageActions"><a href={config.path}>Play today’s {config.label} Daily</a></div>
   </section>;
 }

@@ -44,7 +44,7 @@ fs.writeFileSync(path.join(output, 'lib', 'serverPlayableCatalog.js'), 'exports.
 fs.writeFileSync(path.join(output, 'lib', 'puzzleWarehouseSnapshot.js'), 'exports.loadCachedPuzzleWarehouseSnapshot = async () => ({ datasets: [], errors: [], catalogSize: 0 });\n');
 
 const { generateDailyTrioFromLoadedCatalog, generateSeededRoundFromLoadedCatalog, selectSeededAnchorCategoryId } = require(path.join(output, 'lib', 'puzzleEngine.js'));
-const { validateDailyTrio } = require(path.join(output, 'lib', 'dailyTrioRules.js'));
+const { categoryConflictsWithExistingTrio, validateDailyTrio } = require(path.join(output, 'lib', 'dailyTrioRules.js'));
 const { validateRound } = require(path.join(output, 'lib', 'dataEngine.js'));
 
 const continents = ['Africa', 'Asia', 'Europe', 'North America', 'South America', 'Oceania'];
@@ -161,6 +161,20 @@ const secondShape = JSON.stringify(Object.fromEntries(Object.entries(second.trio
 if (firstShape !== secondShape) throw new Error('Daily generation is not deterministic for one date and catalog snapshot.');
 const errors = validateDailyTrio(first.trio);
 if (errors.length) throw new Error(`Synthetic Daily trio failed validation: ${errors.join(' ')}`);
+
+const glacierArea = { ...datasets[0].category, id: 'glacier-area', name: 'Largest area covered by glaciers', strategyFamily: 'physical-ice', semanticFamily: 'physical-ice' };
+const glacierShare = { ...datasets[1].category, id: 'glacier-share', name: 'Highest % of land covered by glaciers', strategyFamily: 'physical-ice', semanticFamily: 'physical-ice' };
+if (!categoryConflictsWithExistingTrio(glacierShare, [glacierArea])) {
+  throw new Error('Cross-mode construction did not block the two glacier measures.');
+}
+const glacierTrio = {
+  ...first.trio,
+  easy: { ...first.trio.easy, categories: first.trio.easy.categories.map((dataset, index) => index === 0 ? { ...dataset, category: glacierArea } : dataset) },
+  normal: { ...first.trio.normal, categories: first.trio.normal.categories.map((dataset, index) => index === 0 ? { ...dataset, category: glacierShare } : dataset) },
+};
+if (!validateDailyTrio(glacierTrio).some((error) => error.includes('too conceptually similar'))) {
+  throw new Error('Daily trio validation did not reject the two glacier measures across modes.');
+}
 if (!first.diagnostics.generationProfile) throw new Error('Generator did not report the successful profile.');
 for (const difficulty of ['easy', 'normal', 'expert']) {
   if (!first.trio[difficulty]) throw new Error(`Missing ${difficulty} board.`);

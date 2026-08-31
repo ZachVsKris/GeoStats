@@ -1,13 +1,13 @@
 {
   "name": "geostats",
-  "version": "16.2.8",
+  "version": "16.2.9",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "npm run test-v16-2-8",
-    "check": "npm run check-v16-2-8",
+    "test": "npm run test-v16-2-9",
+    "check": "npm run check-v16-2-9",
     "test-importers": "python scripts/test-data-pipeline.py && python scripts/test-world-bank-catalog-importer.py && python scripts/test-who-importer.py && python scripts/test-ilostat-importer.py && python scripts/test-natural-earth-importer.py && python scripts/test-comtrade-importer.py && python scripts/test-eia-importer.py && python scripts/test-unhcr-importer.py && python scripts/test-faostat-importer.py && npm run test-additional-importers",
     "test-player-links": "python scripts/test-player-source-links.py",
     "test-source-integrity": "python scripts/test-source-integrity.py",
@@ -44,8 +44,8 @@
     "check-v15-9": "npm run test-v15-9 && npm run typecheck && npm run build && npm run test-e2e",
     "test-e2e": "playwright test",
     "test-natural-earth-real-data": "python scripts/test-natural-earth-real-data.py",
-    "test-v16": "npm run test-v16-2-8",
-    "check-v16": "npm run check-v16-2-8",
+    "test-v16": "npm run test-v16-2-9",
+    "check-v16": "npm run check-v16-2-9",
     "test-v16-1": "npm run test-v16-2",
     "check-v16-1": "npm run check-v16-2",
     "test-v16-2": "npm run test-v16-2-1",
@@ -82,7 +82,9 @@
     "audit-generator-reachability": "node scripts/audit-v16-2-7-reachability.cjs --write --assert-release",
     "import-sports-history": "python scripts/import-sports-history.py",
     "test-v16-2-8": "npm run test-v16-2-7 && node scripts/test-v16-2-8-static.cjs",
-    "check-v16-2-8": "npm run test-v16-2-8 && npm run typecheck && npm run build && npm run test-e2e"
+    "check-v16-2-8": "npm run test-v16-2-8 && npm run typecheck && npm run build && npm run test-e2e",
+    "test-v16-2-9": "npm run test-v16-2-8 && node scripts/test-v16-2-9-static.cjs",
+    "check-v16-2-9": "npm run test-v16-2-9 && npm run typecheck && npm run build && npm run test-e2e"
   },
   "dependencies": {
     "next": "16.2.11",

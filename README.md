@@ -23,22 +23,22 @@ npm run dev
 Full release validation:
 
 ```bash
-npm run check-v16-2-8
+npm run check-v16-2-9
 ```
 
 ## Current database release
 
-GeoStats v16.2.8 is the launch-readiness release for the reviewed 316-category catalog. It preserves Scout 4×4 / Adventurer 6×4 / Expert 8×6 scoring while adding account-gated Expert play and leaderboards, automatic standings, first-party analytics, resilient Admin reporting, and cross-browser presentation safeguards.
+GeoStats v16.2.9 is the launch-readiness release for the reviewed catalog. It preserves Scout 4×4 / Adventurer 6×4 / Expert 8×6 scoring while adding account-gated Expert play, public all-time leaderboards, automatic standings, first-party analytics, resilient Admin reporting, cross-board semantic-conflict protection, and cross-browser presentation safeguards.
 
 Run the release in this order:
 
-1. Confirm migrations 069 through 077 are applied to the healthy Supabase project
-2. Push the v16.2.8 repository and require **Verify GeoStats v16.2.8** to pass
+1. Confirm all repository migrations, including the timestamped v16.2.9 migration, are applied to the healthy Supabase project
+2. Push the v16.2.9 repository and require **Verify GeoStats v16.2.9** to pass
 3. Confirm Vercel deploys that exact commit to production
-4. Verify the public Daily modes, account-gated Expert/leaderboard flow, Admin analytics, and warehouse health
+4. Verify the public Daily modes and all-time leaderboards, account-gated Expert flow, Admin analytics, and warehouse health
 5. Configure and externally test GeoStats custom SMTP before advertising branded account email
 
-Additional catalog work is bounded by subject area and remains fail-closed unless a complete candidate bundle passes the existing source, semantic, coverage, uniqueness, Top-20, and board-generation gates. Daily and internal Random QA continue to use one shared approved playable catalog.
+Additional catalog work is bounded by subject area and remains fail-closed unless a complete candidate bundle passes the existing source, semantic, coverage, uniqueness, Top-20, and board-generation gates. Daily and internal Random QA continue to use one shared approved playable catalog. See `LAUNCH_DOCKET_V16_2_8.md`, `BOUNDED_EXPANSION_LEDGER_V16_2_9.md`, `RELEASE_NOTES_V16_2_9.md`, and `VALIDATION_V16_2_9.md` for the current release record.
 
 See `LAUNCH_DOCKET_V16_2_8.md`, `RELEASE_NOTES_V16_2_8.md`, `VALIDATION_V16_2_8.md`, and `ROLLBACK_V16_2_8.sql` for details.
 

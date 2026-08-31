@@ -275,6 +275,10 @@ class SupabaseWarehouse:
         """Apply the explicit post-audit Natural Earth product decisions without publishing."""
         return self._request("POST", "rpc/apply_v16_2_7_physical_geography_curation", {})
 
+    def promote_v16_2_9_koppen_bundle(self) -> Any:
+        """Publish the bounded Köppen-Geiger bundle only after its database gates pass."""
+        return self._request("POST", "rpc/promote_v16_2_9_koppen_bundle", {})
+
     def finalize_v16_catalog(self, *, release_version: str = "16.2.7") -> Any:
         """Publish only through the guarded v16.2.x finalizer for the requested release."""
         if release_version not in {"16.2.1", "16.2.2", "16.2.3", "16.2.4", "16.2.5", "16.2.6", "16.2.7"}:

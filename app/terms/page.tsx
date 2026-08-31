@@ -13,7 +13,7 @@ export default function Terms() {
         <h2>Statistics and rankings</h2>
         <p>GeoStats validates categories against documented sources and preserves the source/reference information used for play, but no statistical dataset is error-free or permanent. Rankings are for gameplay and learning; they should not be relied on for legal, financial, medical, safety, or public-policy decisions.</p>
         <h2>Accounts</h2>
-        <p>An account is required for Expert play, verified score saving, and leaderboard access. You are responsible for activity on your account. Usernames may be rejected or removed when they impersonate GeoStats, contain abusive language, or interfere with the service.</p>
+        <p>Anyone may view the leaderboards. An account is required for Expert play, verified score saving, and appearing in the standings. You are responsible for activity on your account. Usernames may be rejected or removed when they impersonate GeoStats, contain abusive language, or interfere with the service.</p>
         <h2>Fair play</h2>
         <p>Do not manipulate score submissions, interfere with other players, probe private administrative functionality, or use automated traffic in a way that disrupts the service. GeoStats may remove invalid scores or restrict abusive access.</p>
         <h2>Source rights</h2>

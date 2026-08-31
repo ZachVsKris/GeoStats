@@ -715,7 +715,7 @@ Can you beat my score?`;
     </nav><div className="mobileGameSummary"><strong>{ROUND_CONFIGS[difficulty].label}</strong><span>{poolSize} countries · {categoryTarget} measures · {unusedCount ? `leave ${unusedCount}` : "use all"}</span></div></>}
     {boardNotice && <div className="boardNotice">{boardNotice}</div>}
     {expertPreview && <section className="expertAccessGate" aria-label="Expert account access">
-      <div><span className="kicker">Account benefit</span><strong>Today’s Expert board is open to preview</strong><p>Sign in or create a free GeoStats account to place countries, have your verified score saved automatically, and access the leaderboards.</p></div>
+      <div><span className="kicker">Account benefit</span><strong>Today’s Expert board is open to preview</strong><p>Sign in or create a free GeoStats account to place countries, save your verified score automatically, and appear in the public standings.</p></div>
       <AccountControls context="expert" ctaLabel="Sign in to play Expert" hideLeaderboardLink difficulty="expert" />
     </section>}
 

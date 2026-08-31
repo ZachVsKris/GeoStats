@@ -1,0 +1,74 @@
+name: Import v16.2.9 bounded climate geography bundle
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: geostats-v16-2-9-koppen-production-import
+  cancel-in-progress: false
+
+env:
+  SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+  SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+  SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+
+jobs:
+  verify-import-promote:
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with: { python-version: "3.12" }
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+          cache: npm
+      - name: Require production warehouse credentials
+        shell: bash
+        run: |
+          test -n "$SUPABASE_URL" || { echo "::error::SUPABASE_URL secret is missing"; exit 1; }
+          test -n "${SUPABASE_SECRET_KEY:-${SUPABASE_SERVICE_ROLE_KEY:-}}" || { echo "::error::Supabase service-role secret is missing"; exit 1; }
+      - name: Install geospatial importer dependencies
+        run: python -m pip install --disable-pip-version-check -r scripts/requirements-data-importers.txt -r scripts/requirements-geography.txt
+      - name: Install application dependencies
+        run: npm ci --include=dev --no-audit --no-fund
+      - name: Fetch the pinned public raster and sovereign geometry
+        run: python scripts/fetch-koppen-geiger-bundle.py --output artifacts/v16-2-9-koppen/input
+      - name: Reproduce the bounded proof
+        run: |
+          python scripts/audit-koppen-geiger-bundle.py \
+            --input artifacts/v16-2-9-koppen/input/koppen-geiger-1991-2020.tif \
+            --countries artifacts/v16-2-9-koppen/input/ne_10m_admin_0_countries.shp \
+            --output artifacts/v16-2-9-koppen/feasibility.json \
+            --minimum-pass 10
+      - name: Import exactly the eleven passing categories
+        run: |
+          python scripts/import-koppen-geiger.py \
+            --input artifacts/v16-2-9-koppen/input/koppen-geiger-1991-2020.tif \
+            --countries artifacts/v16-2-9-koppen/input/ne_10m_admin_0_countries.shp \
+            --only desert-share --only arid-share --only steppe-share \
+            --only tropical-rainforest-share --only tropical-monsoon-share \
+            --only tropical-savanna-share --only temperate-share \
+            --only mediterranean-share --only continental-share \
+            --only polar-share --only tundra-share
+      - name: Re-audit the stored source snapshot
+        env:
+          KOPPEN_GEIGER_RASTER_INPUT: artifacts/v16-2-9-koppen/input/koppen-geiger-1991-2020.tif
+          KOPPEN_GEIGER_COUNTRIES_INPUT: artifacts/v16-2-9-koppen/input/ne_10m_admin_0_countries.shp
+        run: python scripts/audit-source-integrity.py --source koppengeiger --include-nonplayable --fail-on-source-error --fail-on-empty --report-dir artifacts/v16-2-9-koppen/source-integrity
+      - name: Promote atomically through database gates
+        run: python scripts/promote-v16-2-9-koppen.py
+      - name: Prove generator reachability after publication
+        run: npm run audit-generator-reachability
+      - name: Upload release evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: v16-2-9-koppen-release-evidence
+          path: artifacts/v16-2-9-koppen
+          if-no-files-found: error
+          retention-days: 30

@@ -1,4 +1,4 @@
-# GeoStats v16.2.8 canonical launch docket
+# GeoStats v16.2.9 canonical launch docket
 
 This is the single source of truth for the launch work discussed with the product owner. A package is complete only when its application, database, GitHub Actions, and production checks have the evidence required below. Ordinary implementation work is not a stopping point.
 
@@ -19,7 +19,7 @@ This is the single source of truth for the launch work discussed with the produc
 - [x] Let guests play Scout and Adventurer
 - [x] Let guests see today's Expert board without placing countries
 - [x] Require a free account to play Expert
-- [x] Require an account to view leaderboard standings, with the gate explained before sign-in
+- [x] Let everyone view leaderboard standings; require an account only to appear in them
 - [x] Explain the account benefit at the point of friction: Expert play, automatic verified score saving, and leaderboards
 - [x] Keep account emails private and show only GeoStats usernames publicly
 - [ ] Enable verified custom SMTP so authentication mail is sent as GeoStats rather than Supabase
@@ -29,13 +29,13 @@ This is the single source of truth for the launch work discussed with the produc
 
 - [x] Save signed-in Daily scores automatically; remove manual standings submission
 - [x] Keep Scout, Adventurer, and Expert standings separate
-- [x] Provide Today and All-time views for every difficulty
-- [x] Show only position, average score, games, and rating in All-time standings; keep board normalization inside the rating calculation
-- [x] Restrict leaderboard API data to authenticated accounts and disable caching
+- [x] Provide one All-time view for every difficulty; do not maintain a Daily leaderboard
+- [x] Show rank, player, average score on the current mode scale, rating, and completed games
+- [x] Keep leaderboard reading public, strip private identifiers, highlight the signed-in player, and disable caching
 - [x] Handle signed-out, expired-session, empty, loading, query-error, and retry states clearly
 - [x] Keep public copy free of internal QA terminology
 - [x] Verify keyboard, screen-reader, phone, tablet, and desktop controls
-- [ ] Re-run the production account flow after the final release commit: complete a Daily, confirm one automatic standing, refresh, change difficulty/time range, and confirm no duplicate/manual submission path
+- [ ] Re-run the production account flow after the final release commit: complete a Daily, confirm one automatic standing, refresh, change difficulty, and confirm no duplicate/manual submission path
 
 ## 4. Analytics, accounts-created tracking, and Admin resilience
 
@@ -63,6 +63,7 @@ This is the single source of truth for the launch work discussed with the produc
 
 - [x] Enforce the global Top-20 winner requirement with no category exemptions
 - [x] Enforce different category winners, distinguishable displayed values, one use per country, country/continent limits, category-family conflicts, and cross-mode Daily-trio constraints
+- [x] Treat semantically equivalent or nested measures as conflicts both within one board and across all three boards on the same date
 - [x] Prove forced reachability for every playable category in Scout, Adventurer, and Expert
 - [x] Penalize recent category, family, bucket, and country exposure during generation
 - [x] Audit a rolling Daily simulation for excessive category repetition and meaningful country opportunity coverage
@@ -71,15 +72,16 @@ This is the single source of truth for the launch work discussed with the produc
 
 ## 7. Bounded expansion — no spinning and no partial bundles
 
-Each pass is independent and stops if it cannot prove at least 10 distinct additions. Proof requires an authoritative source, comparable country definition, broad coverage, clear player wording, non-duplication, a reproducible import, and actual Top-20 board feasibility. Failed or previously exhausted pathways are not retried without materially new evidence.
+Each pass is independent and stops if it cannot prove at least 10 distinct additions. Ten is a floor, 20+ is preferred, and there is no arbitrary ceiling when one authoritative source yields many genuinely distinct high-quality measures. Proof requires an authoritative source, comparable country definition, broad coverage, clear player wording, non-duplication, a reproducible import, and actual Top-20 board feasibility. Every pass is finite and recorded; failed or previously exhausted pathways are not retried without materially new evidence.
 
-- [x] Natural and physical geography: bounded proof found 11 candidates that pass the authoritative-source, 195-country, and global Top-20 distinct-value gates; staging remains separate
-- [ ] Country history: bounded 10-category feasibility pass
-- [ ] Culture: bounded 10-category feasibility pass
-- [ ] Ethnic, religious, and racial demographics: bounded 10-category feasibility pass
+- [x] Natural and physical geography: bounded proof found 11 candidates that pass the authoritative-source, 195-country, and global Top-20 distinct-value gates; controlled import/promotion workflow prepared
+- [x] Country history: bounded pass stopped below ten new additions; six strong categories remain live and the rejected candidates fail distinctness or editorial rules
+- [x] Culture: bounded pass stopped below ten; the two available UNESCO count concepts are explicit owner exclusions and no acceptable replacement bundle was found
+- [x] Ethnic, religious, and racial demographics: bounded pass stopped for new additions; 13 broad Pew religious-demography categories are already live, while the two remaining candidates do not clear the quality floor and ethnicity/race definitions are not globally comparable
+- [x] Infrastructure, technology, and science: bounded candidate review stopped below ten new strict-pass additions; do not pad from economy/trade indicators
 - [ ] Import, stage, audit, and publish a subject bundle only if all 10 minimum candidates pass together
 
-Out of expansion scope unless the owner later reopens them: education/labor/society, infrastructure/technology/science, and government/civics.
+Out of expansion scope unless the owner later reopens them: education/labor/society and government/civics.
 
 ## 8. Release safeguards and publication
 
@@ -93,6 +95,6 @@ Out of expansion scope unless the owner later reopens them: education/labor/soci
 - [ ] Smoke-test Daily modes, account gates, leaderboard, Admin, privacy, terms, analytics events, and runtime logs in production
 - [ ] Refresh the category-review workbook if the playable catalog changes after any bounded expansion
 
-## External owner-only blocker
+## External owner approval gates
 
-Custom authentication email cannot be enabled from source code alone. It requires a signed-in Supabase project owner (and the selected email provider/DNS account) to enter verified SMTP credentials and publish SPF, DKIM, and DMARC records. Templates and the verification checklist are already in the repository; this is the only known launch item that legitimately pauses for credentials or owner permission.
+Custom SMTP and domain authentication are configured, but final delivery/inbox tests remain. Google sign-in code is ready; creating the permanent Google OAuth credential and enabling it in Supabase requires the owner to approve that external credential at the action point. Applying production migrations, importing the 11-category climate bundle, merging to the public main branch, and deploying to `geostats.xyz` also require final production approval.

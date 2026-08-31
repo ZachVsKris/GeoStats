@@ -12,6 +12,7 @@ const leaderboardPage = read("app/leaderboard/page.tsx");
 const leaderboard = read("components/LeaderboardView.tsx");
 const leaderboardApi = read("app/api/leaderboard/route.ts");
 const accounts = read("components/AccountControls.tsx");
+const analytics = read("lib/analytics.ts");
 const trio = read("lib/dailyTrioRules.ts");
 const adminDashboard = read("app/api/admin/dashboard/route.ts");
 const baseImporter = read("scripts/data_pipeline/base.py");
@@ -32,6 +33,7 @@ check(!leaderboard.includes("Today") && !leaderboard.includes("timeRange"), "Dai
 check(leaderboardApi.includes("averageScore") && leaderboardApi.includes("isCurrentPlayer") && !leaderboardApi.includes("Unauthorized"), "public leaderboard API shape is incomplete");
 check(leaderboardApi.includes("Number(patch) >= 4"), "leaderboard normalization does not preserve every v16.2.4+ score era");
 check(accounts.includes('provider: "google"') && accounts.includes("Continue with Google"), "Google-first authentication UI is missing");
+check(analytics.includes('navigator.sendBeacon("/api/analytics/events", body)') && !analytics.includes("new Blob([body]"), "analytics beacon can still trigger WebKit's empty-Blob 400 response");
 check(trio.includes("semanticConflict(other, category)") && trio.includes("too conceptually similar to appear across Daily modes"), "same-day semantic collision protection is incomplete");
 check(adminDashboard.includes('.order("id")') && adminDashboard.includes("categoryRows.sort") && !adminDashboard.includes('.order("title")'), "Admin catalog paging is still vulnerable to the production title-sort timeout");
 check(baseImporter.includes('"worldbank-catalog:bx-gsr-tran-zs"'), "transport service-share category is not durably filtered at importer boundary");

@@ -1,2 +1,0 @@
-One-time production import trigger for the bounded v16.2.9 Köppen-Geiger bundle.
-Retry 1: include the exact raster/class query identity required by source-integrity validation.

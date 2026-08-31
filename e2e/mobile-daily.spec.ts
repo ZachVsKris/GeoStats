@@ -198,6 +198,9 @@ for (const viewport of mobileCases) {
       const browserErrors: string[] = [];
       page.on("console", (message) => { if (message.type() === "error") browserErrors.push(message.text()); });
       page.on("pageerror", (error) => browserErrors.push(error.message));
+      page.on("response", (response) => {
+        if (response.status() >= 400) browserErrors.push(`${response.status()} ${response.url()}`);
+      });
       await page.setViewportSize(viewport);
       await installRoutes(page);
       await page.goto(mode.path);

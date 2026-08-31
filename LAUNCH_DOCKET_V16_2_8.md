@@ -72,13 +72,14 @@ This is the single source of truth for the launch work discussed with the produc
 
 ## 7. Bounded expansion — no spinning and no partial bundles
 
-Each pass is independent and stops if it cannot prove at least 10 distinct additions. Ten is a floor, 20+ is preferred, and there is no arbitrary ceiling when one authoritative source yields many genuinely distinct high-quality measures. Proof requires an authoritative source, comparable country definition, broad coverage, clear player wording, non-duplication, a reproducible import, and actual Top-20 board feasibility. Every pass is finite and recorded; failed or previously exhausted pathways are not retried without materially new evidence.
+Each pass is independent and stops if it cannot prove at least 10 distinct additions. Ten is the per-pass publication floor, 20+ is preferred, and there is no combined 20-category release floor or arbitrary ceiling when one authoritative source yields many genuinely distinct high-quality measures. Proof requires an authoritative source, comparable country definition, broad coverage, clear player wording, non-duplication, a reproducible import, and actual Top-20 board feasibility. Every pass is finite and recorded; failed or previously exhausted pathways are not retried without materially new evidence.
 
 - [x] Natural and physical geography: bounded proof found 11 candidates that pass the authoritative-source, 195-country, and global Top-20 distinct-value gates; controlled import/promotion workflow prepared
 - [x] Country history: bounded pass stopped below ten new additions; six strong categories remain live and the rejected candidates fail distinctness or editorial rules
 - [x] Culture: bounded pass stopped below ten; the two available UNESCO count concepts are explicit owner exclusions and no acceptable replacement bundle was found
 - [x] Ethnic, religious, and racial demographics: bounded pass stopped for new additions; 13 broad Pew religious-demography categories are already live, while the two remaining candidates do not clear the quality floor and ethnicity/race definitions are not globally comparable
 - [x] Infrastructure, technology, and science: bounded candidate review stopped below ten new strict-pass additions; do not pad from economy/trade indicators
+- [x] Final balance-source search: NASA POWER is the last new pool opened this cycle, with one finite 11-concept capital-climatology feasibility pass recorded in the ledger; no further source search follows it
 - [ ] Import, stage, audit, and publish a subject bundle only if all 10 minimum candidates pass together
 
 Out of expansion scope unless the owner later reopens them: education/labor/society and government/civics.

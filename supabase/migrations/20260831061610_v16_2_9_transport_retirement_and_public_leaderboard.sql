@@ -101,7 +101,7 @@ create or replace function public.promote_v16_2_9_koppen_bundle()
 returns integer
 language plpgsql
 security definer
-set search_path=public
+set search_path=''
 as $$
 declare
   expected_ids constant text[] := array[

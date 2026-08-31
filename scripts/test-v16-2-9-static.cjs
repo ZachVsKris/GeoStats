@@ -38,6 +38,7 @@ check(trio.includes("semanticConflict(other, category)") && trio.includes("too c
 check(adminDashboard.includes('.order("id")') && adminDashboard.includes("categoryRows.sort") && !adminDashboard.includes('.order("title")'), "Admin catalog paging is still vulnerable to the production title-sort timeout");
 check(baseImporter.includes('"worldbank-catalog:bx-gsr-tran-zs"'), "transport service-share category is not durably filtered at importer boundary");
 for (const token of ["promote_v16_2_9_koppen_bundle", "validation_status='verified'", "common_year_coverage", "top_value_distinct_count", "computed_playable_v16_2"]) check(migration.includes(token), `bounded climate promotion gate missing ${token}`);
+check(migration.includes("security definer\nset search_path=''"), "Köppen promotion function does not pin an empty search_path");
 for (const token of ["--minimum-pass 10", "--only desert-share", "audit-source-integrity.py", "promote-v16-2-9-koppen.py", "actions/setup-node@v6", "npm run audit-generator-reachability"]) check(workflow.includes(token), `bounded climate workflow missing ${token}`);
 check(verify.includes("Verify GeoStats v16.2.9") && verify.includes("geostats-v16-2-9-verify") && verify.includes("npm run test-v16-2-9"), "CI is not pinned to v16.2.9");
 for (const token of ["Natural and physical geography", "Country history", "Culture", "Ethnic, religious, and racial demographics", "Infrastructure, technology, and science"]) check(ledger.includes(token), `bounded source ledger missing ${token}`);

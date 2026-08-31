@@ -58,6 +58,7 @@ DURABLE_CATEGORY_EXCLUSIONS = {
     "worldbank-catalog:fi-res-totl-mo",
     "worldbankinfra:air-passengers",
     "worldbank-catalog:en-pop-slum-ur-zs",
+    "worldbank-catalog:bx-gsr-tran-zs",
 }
 
 class WarehouseImporter(ABC):

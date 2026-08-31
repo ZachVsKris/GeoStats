@@ -242,12 +242,15 @@ export async function GET() {
   }
 
   // Supabase commonly caps a single response at 1,000 rows, so page through the catalog.
+  // Page on the indexed category ID. Ordering this deeply joined review view by
+  // title has caused production statement timeouts; display order is applied in
+  // memory after the complete, stable page set arrives.
   const categoryRows: CategoryRow[] = [];
   for (let from = 0; ; from += 1000) {
     const { data: page, error } = await admin
       .from("category_runtime_review_v16_2")
       .select(CATEGORY_COLUMNS)
-      .order("title")
+      .order("id")
       .range(from, from + 999);
     if (error) {
       console.error("[admin/dashboard] category catalog query failed", {
@@ -266,6 +269,7 @@ export async function GET() {
     categoryRows.push(...((page ?? []) as CategoryRow[]));
     if ((page ?? []).length < 1000) break;
   }
+  categoryRows.sort((left, right) => (left.title ?? left.id ?? "").localeCompare(right.title ?? right.id ?? ""));
 
   const computedCategoryRows = categoryRows.map((row) => ({
     ...row,

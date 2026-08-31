@@ -1,8 +1,7 @@
 import { NextResponse } from "next/server";
 import { createSupabaseAdminClient, createSupabaseServerClient } from "../../../lib/supabase/server";
-import { newYorkDate } from "../../../lib/time";
 import { LEGACY_V16_2_3_ROUND_CONFIGS, ROUND_CONFIGS, type DailyDifficulty } from "../../../lib/gameRules";
-import { LEADERBOARD_RATING_VERSION, RULES_VERSION } from "../../../lib/version";
+import { LEADERBOARD_RATING_VERSION } from "../../../lib/version";
 
 type Profile = { username?: string };
 type ScoreRow = {
@@ -19,6 +18,7 @@ type ScoreRow = {
   profiles: Profile | Profile[] | null;
 };
 type LeaderEntry = {
+  userId: string;
   username: string;
   rawScores: number[];
   scoreRatios: number[];
@@ -26,12 +26,11 @@ type LeaderEntry = {
   placements: number[];
 };
 
-const dailyDate = () => newYorkDate();
 const profileOf = (raw: ScoreRow["profiles"]) => Array.isArray(raw) ? raw[0] : raw;
 const clamp = (value: number, minimum: number, maximum: number) => Math.max(minimum, Math.min(maximum, value));
-const privateJson = (body: unknown, status = 200) => NextResponse.json(body, {
+const publicJson = (body: unknown, status = 200) => NextResponse.json(body, {
   status,
-  headers: { "Cache-Control": "private, no-store" },
+  headers: { "Cache-Control": "no-store" },
 });
 
 function isScoreRow(value: unknown): value is ScoreRow {
@@ -65,9 +64,11 @@ function variance(values: number[], center = mean(values)) {
 }
 
 function scoreMaximum(row: Pick<ScoreRow, "difficulty" | "rules_version">) {
-  // v16.2.5 changes catalog/UI policy but not the v16.2.4 board dimensions or
-  // score curves. Scores from either release therefore share the current max.
-  const currentDimensionRules = row.rules_version === "16.2.4" || row.rules_version === RULES_VERSION;
+  // Every v16.2.4+ release keeps the same board dimensions and score curves.
+  // Do not force an ever-growing exact-version allowlist: older valid scores
+  // must remain on the current mode scale as later catalog/UI releases ship.
+  const patch = /^16\.2\.(\d+)$/.exec(row.rules_version ?? "")?.[1];
+  const currentDimensionRules = patch !== undefined && Number(patch) >= 4;
   return currentDimensionRules
     ? ROUND_CONFIGS[row.difficulty].maxScore
     : LEGACY_V16_2_3_ROUND_CONFIGS[row.difficulty].maxScore;
@@ -75,27 +76,17 @@ function scoreMaximum(row: Pick<ScoreRow, "difficulty" | "rules_version">) {
 
 export async function GET(request: Request) {
   const auth = await createSupabaseServerClient();
-  if (!auth) return privateJson({ error: "Accounts are not configured." }, 503);
-  const { data: { user } } = await auth.auth.getUser();
-  if (!user) {
-    return privateJson({ error: "Sign in to view the GeoStats leaderboard." }, 401);
-  }
+  const userResult = auth ? await auth.auth.getUser() : null;
+  const currentUserId = userResult?.data.user?.id ?? null;
   const supabase = createSupabaseAdminClient();
-  if (!supabase) return privateJson({ error: "The standings service is not configured." }, 503);
+  if (!supabase) return publicJson({ error: "The standings service is not configured." }, 503);
   const url = new URL(request.url);
-  const view = url.searchParams.get("view") === "today" ? "today" : "alltime";
   const difficulty = parseDifficulty(url.searchParams.get("difficulty"));
-  const requestedDate = url.searchParams.get("date");
-  const challengeDate = requestedDate && /^\d{4}-\d{2}-\d{2}$/.test(requestedDate) ? requestedDate : dailyDate();
   const buildQuery = (columns: string) => {
-    let query = supabase
+    return supabase
       .from("daily_scores")
       .select(columns)
       .eq("difficulty", difficulty);
-    if (view === "today") {
-      query = query.eq("challenge_date", challengeDate);
-    }
-    return query;
   };
 
   let { data, error } = await buildQuery("user_id,challenge_date,difficulty,score,average_placement,firsts,top_fives,board_normalization_version,leaderboard_rating_version,rules_version,profiles(username)");
@@ -105,26 +96,11 @@ export async function GET(request: Request) {
     error = legacy.error;
   }
   if (error) {
-    console.error("Leaderboard query failed", { code: error.code, message: error.message, difficulty, view });
-    return privateJson({ error: "The standings could not be loaded right now." }, 500);
+    console.error("Leaderboard query failed", { code: error.code, message: error.message, difficulty });
+    return publicJson({ error: "The standings could not be loaded right now." }, 500);
   }
   const rawRows: unknown[] = Array.isArray(data) ? data : [];
   const rows = rawRows.filter(isScoreRow);
-
-  if (view === "today") {
-    const ranked = rows.map((row) => {
-      const profile = profileOf(row.profiles);
-      return {
-        username: profile?.username ?? "player",
-        score: row.score,
-        averagePlacement: Number(row.average_placement),
-        firsts: row.firsts,
-        topFinishes: row.top_fives,
-      };
-    }).sort((a, b) => b.score - a.score || a.averagePlacement - b.averagePlacement || b.firsts - a.firsts || b.topFinishes - a.topFinishes).slice(0, 100);
-    const leaders = ranked.map(({ username, score }) => ({ username, score }));
-    return privateJson({ view, difficulty, date: challengeDate, leaders });
-  }
 
   const maxScore = ROUND_CONFIGS[difficulty].maxScore;
   const ratios = rows.map((row) => row.score / scoreMaximum(row));
@@ -152,6 +128,7 @@ export async function GET(request: Request) {
   for (const row of rows) {
     const profile = profileOf(row.profiles);
     const current: LeaderEntry = byUser.get(row.user_id) ?? {
+      userId: row.user_id,
       username: profile?.username ?? "player",
       rawScores: [],
       scoreRatios: [],
@@ -173,26 +150,39 @@ export async function GET(request: Request) {
   const confidenceGames = 20;
   const ranked = [...byUser.values()].map((entry) => {
     const games = entry.rawScores.length;
-    const averagePercent = mean(entry.scoreRatios) * 100;
+    const averageScore = mean(entry.scoreRatios) * maxScore;
     const averagePlacement = mean(entry.placements);
     const normalizedPerformance = mean(entry.performances, baseline);
     const rating = (normalizedPerformance * games + baseline * confidenceGames) / (games + confidenceGames);
     return {
+      userId: entry.userId,
       username: entry.username,
       games,
-      averagePercent: Number(averagePercent.toFixed(1)),
+      averageScore: Number(averageScore.toFixed(1)),
       averagePlacement: Number(averagePlacement.toFixed(2)),
       normalizedPerformance: Number(normalizedPerformance.toFixed(1)),
       rating: Number(rating.toFixed(1)),
     };
   }).filter((entry) => entry.games >= 5)
-    .sort((a, b) => b.rating - a.rating || a.averagePlacement - b.averagePlacement || b.games - a.games || b.averagePercent - a.averagePercent)
-    .slice(0, 100);
+    .sort((a, b) => b.rating - a.rating || a.averagePlacement - b.averagePlacement || b.games - a.games || b.averageScore - a.averageScore);
 
-  const leaders = ranked.map(({ username, games, averagePercent, rating }) => ({ username, games, averagePercent, rating }));
+  const rankedWithPosition = ranked.map((entry, index) => ({ ...entry, rank: index + 1 }));
+  const visible = rankedWithPosition.slice(0, 100);
+  const currentOutsideTop = currentUserId
+    ? rankedWithPosition.find((entry) => entry.userId === currentUserId && entry.rank > 100)
+    : null;
+  if (currentOutsideTop) visible.push(currentOutsideTop);
+  const leaders = visible.map(({ rank, userId, username, games, averageScore, rating }) => ({
+    rank,
+    username,
+    averageScore,
+    rating,
+    completedGames: games,
+    isCurrentPlayer: userId === currentUserId,
+  }));
 
-  return privateJson({
-    view,
+  return publicJson({
+    signedIn: Boolean(currentUserId),
     difficulty,
     maxScore,
     leaders,

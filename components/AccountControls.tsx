@@ -39,6 +39,7 @@ export default function AccountControls({
   const [savingUsername, setSavingUsername] = useState(false);
   const [saving, setSaving] = useState(false);
   const [sendingLink, setSendingLink] = useState(false);
+  const [signingInWithGoogle, setSigningInWithGoogle] = useState(false);
   const [resendSeconds, setResendSeconds] = useState(0);
   const pendingSignature = JSON.stringify(pendingScore ?? null);
 
@@ -180,9 +181,28 @@ export default function AccountControls({
       }
       setResendSeconds(60);
       trackAnalytics("account_signin_requested", { metadata: { context } });
-      setMessage("Sign-in link sent. Check your inbox.");
+      setMessage("Sign-in link sent. Check your inbox—and spam or junk if it doesn’t arrive.");
     } finally {
       setSendingLink(false);
+    }
+  }
+
+  async function signInWithGoogle() {
+    if (!supabase || signingInWithGoogle) return;
+    setSigningInWithGoogle(true);
+    setMessage("");
+    const next = `${window.location.pathname}${window.location.search}` || "/daily";
+    trackAnalytics("account_signin_requested", { metadata: { context, provider: "google" } });
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`,
+        queryParams: { prompt: "select_account" },
+      },
+    });
+    if (error) {
+      setMessage(error.message);
+      setSigningInWithGoogle(false);
     }
   }
 
@@ -203,35 +223,37 @@ export default function AccountControls({
   const guestHeading = context === "expert"
     ? "Unlock Expert Daily"
     : context === "leaderboard"
-      ? "Unlock the GeoStats leaderboard"
+      ? "Join the GeoStats leaderboard"
       : "Sign in or create an account";
   const guestButtonLabel = ctaLabel ?? (results && pendingScore ? "Sign in to save" : "Sign in");
 
   return <>
     <div className={results ? "resultsAccountActions" : "accountHeaderActions"}>
       {!hideLeaderboardLink && <a className={results ? "secondaryAction" : "headerButtonLink"} href={`/leaderboard?difficulty=${difficulty}`}>{results ? "View leaderboard" : "Leaderboard"}</a>}
-      {userLabel ? <button onClick={openAccount}>{userLabel}</button> : <button onClick={openAccount}>{guestButtonLabel}</button>}
+      {userLabel ? <button type="button" onClick={openAccount}>{userLabel}</button> : <button type="button" onClick={openAccount}>{guestButtonLabel}</button>}
     </div>
     {open && <div className="modal accountModal" onClick={(event) => event.currentTarget === event.target && usernameCustomized && setOpen(false)}>
-      <div>
-        {usernameCustomized && <button className="modalClose" aria-label="Close" onClick={() => setOpen(false)}>×</button>}
+      <div role="dialog" aria-modal="true" aria-labelledby={`account-dialog-title-${context}`}>
+        {usernameCustomized && <button type="button" className="modalClose" aria-label="Close" onClick={() => setOpen(false)}>×</button>}
         <span className="kicker">GeoStats account</span>
-        <h2>{userLabel ? `Signed in as ${userLabel}` : guestHeading}</h2>
+        <h2 id={`account-dialog-title-${context}`}>{userLabel ? `Signed in as ${userLabel}` : guestHeading}</h2>
         {userLabel ? <>
           {!usernameCustomized && <p className="usernameRequired">Before joining the leaderboard, choose a public GeoStats username.</p>}
           <label className="emailField"><span>GeoStats username</span><input type="text" inputMode="text" autoComplete="username" maxLength={20} placeholder="3–20 letters, numbers, or underscores" value={usernameDraft} onChange={(event) => setUsernameDraft(event.target.value.replace(/[^A-Za-z0-9_]/g, ""))} onKeyDown={(event) => event.key === "Enter" && saveUsername()} /></label>
-          <div className="accountModalActions"><button onClick={saveUsername} disabled={savingUsername || usernameDraft.length < 3 || usernameDraft === username}>{savingUsername ? "Saving…" : usernameCustomized ? "Update username" : "Save username"}</button><button className="quietButton" onClick={signOut}>Sign out</button></div>
-          <p>Your account unlocks Expert play and the account-only leaderboards. Verified Daily scores are saved automatically; your email stays private.</p>
+          <div className="accountModalActions"><button type="button" onClick={saveUsername} disabled={savingUsername || usernameDraft.length < 3 || usernameDraft === username}>{savingUsername ? "Saving…" : usernameCustomized ? "Update username" : "Save username"}</button><button type="button" className="quietButton" onClick={signOut}>Sign out</button></div>
+          <p>Your account unlocks Expert play and lets you join the public leaderboards. Verified Daily scores are saved automatically; your email stays private.</p>
           {saving && <p>Saving your completed Daily…</p>}
         </> : <>
-          <p>Enter your email. We’ll send a secure sign-in link—no password needed.</p>
+          <p>Sign in to save verified scores, join the standings, and unlock Expert Daily.</p>
           <ul className="accountBenefits">
             <li>Play the Expert Daily</li>
             <li>Join Scout, Adventurer, and Expert leaderboards</li>
             <li>Save one verified score per mode each day</li>
           </ul>
+          <button type="button" className="googleSignInButton" onClick={signInWithGoogle} disabled={signingInWithGoogle || sendingLink}>{signingInWithGoogle ? "Opening Google…" : <><span aria-hidden="true" className="googleMark">G</span>Continue with Google</>}</button>
+          <div className="accountAuthDivider"><span>or use email</span></div>
           <label className="emailField"><span>Email address</span><input type="email" inputMode="email" autoComplete="email" placeholder="you@example.com" value={email} onChange={(event) => setEmail(event.target.value)} onKeyDown={(event) => event.key === "Enter" && resendSeconds === 0 && !sendingLink && sendMagicLink()} /></label>
-          <button onClick={sendMagicLink} disabled={!email.trim() || sendingLink || resendSeconds > 0}>{sendingLink ? "Sending…" : resendSeconds > 0 ? `Resend in ${resendSeconds}s` : "Email me a sign-in link"}</button>
+          <button type="button" onClick={sendMagicLink} disabled={!email.trim() || sendingLink || resendSeconds > 0}>{sendingLink ? "Sending…" : resendSeconds > 0 ? `Resend in ${resendSeconds}s` : "Email me a sign-in link"}</button>
           <small>Your public GeoStats username appears on leaderboards. Your email never does.</small>
         </>}
         {message && <p className="accountMessage">{message}</p>}

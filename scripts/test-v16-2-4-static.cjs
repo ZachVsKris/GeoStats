@@ -63,7 +63,7 @@ const leaderboardApi = read("app/api/leaderboard/route.ts");
 const leaderboardView = read("components/LeaderboardView.tsx");
 check(leaderboardApi.includes("LEGACY_V16_2_3_ROUND_CONFIGS") && leaderboardApi.includes("scoreMaximum") && leaderboardApi.includes("rules_version"), "leaderboard cross-version score normalization missing");
 check(!leaderboardApi.includes('.lte("score", ROUND_CONFIGS[difficulty].maxScore)'), "leaderboard still filters valid legacy scores by the new max");
-check(leaderboardApi.includes("averagePercent") && leaderboardView.includes("Avg. %") && leaderboardView.includes("averagePercent"), "all-time leaderboard still compares cross-version raw points");
+check(leaderboardApi.includes("averageScore") && leaderboardApi.includes("mean(entry.scoreRatios) * maxScore") && leaderboardView.includes("leader.averageScore.toFixed"), "all-time leaderboard does not normalize historical scores onto the current point scale");
 const account = read("components/AccountControls.tsx");
 const authCallback = read("app/auth/callback/route.ts");
 const profileApi = read("app/api/profile/route.ts");

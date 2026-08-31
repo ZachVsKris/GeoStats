@@ -11,7 +11,7 @@ export default function Privacy() {
       <div className="infoDocument">
         <p>GeoStats is a geography game built around public country statistics. Scout and Adventurer can be played without creating an account; anyone may preview the Expert board.</p>
         <h2>Accounts and leaderboards</h2>
-        <p>An account is required to play Expert, save verified Daily scores, or view the leaderboards. If you sign in, GeoStats stores the information needed to authenticate you, your GeoStats username, and your saved Daily scores. Account-only leaderboards show your GeoStats username, never your email address.</p>
+        <p>Anyone may view the leaderboards. An account is required to play Expert, save verified Daily scores, or appear in the standings. If you sign in, GeoStats stores the information needed to authenticate you, your GeoStats username, and your saved Daily scores. Public leaderboards show your GeoStats username, never your email address.</p>
         <h2>First-party analytics</h2>
         <p>GeoStats records limited first-party product analytics such as page views, game starts and completions, difficulty, coarse referrer hostname, campaign parameters you arrived with, and whether the same browser has visited before. Analytics uses a session identifier and does not intentionally collect precise location, advertising identifiers, or cross-site browsing history.</p>
         <h2>Technical logs</h2>

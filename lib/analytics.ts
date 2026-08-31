@@ -85,7 +85,11 @@ export function trackAnalytics(eventName: AnalyticsEventName, payload: Analytics
       ...payload,
     });
     if (navigator.sendBeacon) {
-      const queued = navigator.sendBeacon("/api/analytics/events", new Blob([body], { type: "application/json" }));
+      // WebKit can intermittently serialize a Blob beacon without its JSON
+      // bytes, which makes the route reject an otherwise valid event with a
+      // 400. A string is supported by sendBeacon and is parsed reliably by
+      // every browser; the endpoint reads JSON independent of Content-Type.
+      const queued = navigator.sendBeacon("/api/analytics/events", body);
       if (queued) return;
     }
     void fetch("/api/analytics/events", {

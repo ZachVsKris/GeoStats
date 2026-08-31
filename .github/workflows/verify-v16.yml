@@ -1,4 +1,4 @@
-name: Verify GeoStats v16.2.8
+name: Verify GeoStats v16.2.9
 
 on:
   workflow_dispatch:
@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 concurrency:
-  group: geostats-v16-2-8-verify-${{ github.ref }}
+  group: geostats-v16-2-9-verify-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -33,8 +33,8 @@ jobs:
             -r scripts/requirements-data-importers.txt \
             -r scripts/requirements-faostat.txt \
             -r scripts/requirements-geography.txt
-      - name: Verify v16.2.8 repository, catalog clarity, generator, reachability wiring, and importers
-        run: npm run test-v16-2-8
+      - name: Verify v16.2.9 repository, public standings, catalog controls, generator, and importers
+        run: npm run test-v16-2-9
       - name: Type-check application
         run: npm run typecheck
       - name: Run source-policy fixtures

@@ -22,6 +22,12 @@ METADATA_TEMPLATE = "https://databank.worldbank.org/metadataglossary/world-devel
 LICENSE_URL = "https://datacatalog.worldbank.org/public-licenses"
 CURRENT_YEAR = datetime.now(timezone.utc).year
 
+# Product-owner exclusions are enforced before candidate creation so a later
+# broad catalog scan cannot silently reintroduce retired gameplay concepts.
+OWNER_EXCLUDED_INDICATORS = {
+    "BX.GSR.TRAN.ZS",  # Transport services as a share of service exports
+}
+
 SUBJECTIVE_OR_COMPOSITE = re.compile(
     r"happiness|perception|democracy|freedom|peace index|prosperity|competitiveness|governance indicator|"
     r"voice and accountability|political stability|rule of law|control of corruption|government effectiveness|"
@@ -225,6 +231,8 @@ class WorldBankCatalogImporter(WarehouseImporter):
             source_id = _text(source.get("id"))
             source_name = _text(source.get("value"))
             if not code or not name:
+                continue
+            if code.upper() in OWNER_EXCLUDED_INDICATORS:
                 continue
             # WDI is source 2. Some API responses omit the id but retain the name.
             if source_id not in ("", "2") and "World Development Indicators" not in source_name:

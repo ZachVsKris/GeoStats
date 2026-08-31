@@ -182,8 +182,8 @@ for (const token of [
 check(worldBankCatalog.includes("per (?:unit of|kg of|kilogram of)"), "World Bank catalog no longer recognizes per-unit ratios");
 check(worldBankCatalog.includes('prefix = "Most"') && worldBankCatalog.includes('prefix = "Largest"'), "World Bank title rules do not distinguish counts from amounts");
 
-check(workflow.includes("Verify GeoStats v16.2.8"), "verification workflow name was not advanced to v16.2.8");
-check(workflow.includes("npm run test-v16-2-8"), "verification workflow does not run the full v16.2.8 checks");
+check(/Verify GeoStats v16\.2\.(8|9)/.test(workflow), "verification workflow name is older than v16.2.8");
+check(/npm run test-v16-2-(8|9)/.test(workflow), "verification workflow does not run the v16.2.8-or-newer checks");
 
 for (const token of [
   "hydrateRoundSnapshotPlayerCopy",
@@ -198,12 +198,12 @@ for (const token of [
   "PLAYER_COPY_VERSION",
   "original countries, values, rules, and scoring",
 ]) check(publicDaily.includes(token), `public Daily copy hydration missing ${token}`);
-check(version.includes('PLAYER_COPY_VERSION = "16.2.8.1"'), "player-copy cache version was not advanced");
-check(version.includes('PLAYABLE_CATALOG_CACHE_VERSION = "16.2.8.316"'), "playable-catalog cache version was not advanced after retirements");
+check(/PLAYER_COPY_VERSION = "16\.2\.(8\.1|9\.1)"/.test(version), "player-copy cache version is older than v16.2.8");
+check(/PLAYABLE_CATALOG_CACHE_VERSION = "16\.2\.(8\.316|9\.326)"/.test(version), "playable-catalog cache version is older than the reviewed v16.2.8 catalog");
 check(serverPlayableCatalog.match(/PLAYABLE_CATALOG_CACHE_VERSION/g)?.length >= 5, "server catalog caches are not versioned consistently");
 check(playableCatalogRoute.includes("X-GeoStats-Catalog-Version") && playableCatalogRoute.includes("PLAYABLE_CATALOG_CACHE_VERSION"), "catalog endpoint does not disclose its cache version");
 check(game.includes("${PLAYER_COPY_VERSION}:${date}") && game.includes("copy: PLAYER_COPY_VERSION"), "browser/CDN Daily caches are not keyed by player-copy version");
-check(game.includes("have your verified score saved automatically"), "Expert account copy incorrectly implies manual score submission");
+check(/(?:have your verified score saved automatically|save your verified score automatically)/.test(game), "Expert account copy incorrectly implies manual score submission");
 for (const token of [
   "expertPreview = !isRandom && difficulty === \"expert\" && !canPlayExpert",
   "disabled={expertPreview||used.has(country.id)}",
@@ -218,26 +218,28 @@ for (const token of [
   "Verified Daily scores are saved automatically",
   "Your email never does",
 ]) check(accountControls.includes(token), `account UI missing ${token}`);
-check(leaderboardPage.includes("signedIn ? <LeaderboardView") && leaderboardPage.includes("Account-only standings"), "leaderboard page is not visibly account-gated");
+check(leaderboardPage.includes("<LeaderboardView />") && !leaderboardPage.includes("Account-only standings"), "leaderboard page is not publicly visible");
 check(!leaderboardView.includes("Internal QA"), "leaderboard exposes internal QA terminology to players");
 check(!/Random QA|Internal Random|QA functionality/.test(`${privacyPage}\n${termsPage}`), "public legal pages expose internal QA terminology");
-check(leaderboardRoute.includes("Sign in to view the GeoStats leaderboard") && leaderboardRoute.includes("}, 401)"), "leaderboard API is not authentication-gated");
+check(!leaderboardRoute.includes("Sign in to view the GeoStats leaderboard") && leaderboardRoute.includes("signedIn: Boolean(currentUserId)"), "leaderboard API is not public with optional current-player context");
 check(!fs.existsSync(path.join(root, "components/AccountLeaderboard.tsx")), "obsolete manual leaderboard score-submission component still exists");
 for (const token of [
-  "Your score saves automatically",
+  "separate verified standings",
   'role="tabpanel"',
   'aria-selected=',
-  "Your session expired",
   "Try again",
   "updateLocation",
 ]) check(leaderboardView.includes(token), `leaderboard resilience/accessibility missing ${token}`);
-for (const token of ["Position", "Average score", "Games", "Rating"]) check(leaderboardView.includes(token), `leaderboard table missing ${token}`);
+for (const token of ["Rank", "Player", "Average score", "Rating", "Completed games"]) check(leaderboardView.includes(token), `leaderboard table missing ${token}`);
+check(!leaderboardView.includes('>Today</button>') && !leaderboardView.includes('view=${tab}'), "daily leaderboard controls or API parameters remain");
+check(leaderboardView.includes("leader.averageScore.toFixed") && leaderboardView.includes("leader.isCurrentPlayer"), "leaderboard score scale or current-player highlight missing");
 for (const token of ["Board adj.", "Avg. place", "ratingExplainer", "normalizedPerformance.toFixed"]) check(!leaderboardView.includes(token), `leaderboard still exposes ${token}`);
 for (const token of [
-  '"Cache-Control": "private, no-store"',
+  '"Cache-Control": "no-store"',
   "The standings could not be loaded right now",
   "console.error(\"Leaderboard query failed\"",
 ]) check(leaderboardRoute.includes(token), `leaderboard API hardening missing ${token}`);
+for (const token of ["signInWithOAuth", 'provider: "google"', "Continue with Google", "spam or junk"]) check(accountControls.includes(token), `Google/email sign-in flow missing ${token}`);
 for (const token of [
   "account_authenticated",
   "analytics_difficulty_30d",
@@ -266,7 +268,7 @@ for (const token of [
   'create policy "users read own profile"',
   'create policy "users read own scores"',
 ]) check(privacyMigration.includes(token), `private account-row policy missing ${token}`);
-for (const token of ["check-v16-2-8", "316-category", "LAUNCH_DOCKET_V16_2_8.md", "RELEASE_NOTES_V16_2_8.md", "VALIDATION_V16_2_8.md"]) {
+for (const token of ["check-v16-2-9", "LAUNCH_DOCKET_V16_2_8.md", "RELEASE_NOTES_V16_2_8.md", "VALIDATION_V16_2_8.md"]) {
   check(readme.includes(token), `README launch handoff missing ${token}`);
 }
 for (const token of ["automatic standings", "first-party analytics", "four bounded feasibility passes", "custom SMTP"]) {
@@ -283,7 +285,7 @@ for (const token of [
   "Natural and physical geography",
   "Country history",
   "Ethnic, religious, and racial demographics",
-  "Custom authentication email",
+  "External owner approval gates",
 ]) check(launchDocket.includes(token), `canonical launch docket missing ${token}`);
 for (const token of ["loadPuzzleCatalogSnapshot", "estimatePlayableBoardCapacity", "global Top-20 winner requirement", "within five minutes"]) {
   check(boardCapacityRoute.includes(token), `board-capacity route missing ${token}`);

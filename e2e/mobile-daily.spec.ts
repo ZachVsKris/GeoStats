@@ -198,6 +198,9 @@ for (const viewport of mobileCases) {
       const browserErrors: string[] = [];
       page.on("console", (message) => { if (message.type() === "error") browserErrors.push(message.text()); });
       page.on("pageerror", (error) => browserErrors.push(error.message));
+      page.on("response", (response) => {
+        if (response.status() >= 400) browserErrors.push(`${response.status()} ${response.url()}`);
+      });
       await page.setViewportSize(viewport);
       await installRoutes(page);
       await page.goto(mode.path);
@@ -386,18 +389,29 @@ test("legacy Seeded links preserve the seed before private Random gates public u
   await expect(page).toHaveURL(/\/daily$/);
 });
 
-test("leaderboard clearly requires a GeoStats account", async ({ page }) => {
+test("leaderboard is public and invites guests to join the all-time standings", async ({ page }) => {
+  await page.route("**/api/leaderboard?difficulty=easy", async (route) => route.fulfill({
+    status: 200,
+    contentType: "application/json",
+    body: JSON.stringify({ signedIn: false, difficulty: "easy", maxScore: 400, leaders: [
+      { rank: 1, username: "AtlasAce", averageScore: 327.4, rating: 62.1, completedGames: 12, isCurrentPlayer: false },
+    ] }),
+  }));
   await page.goto("/leaderboard");
-  await expect(page.getByText("Account-only standings")).toBeVisible();
+  await expect(page.getByText("All-time standings")).toBeVisible();
   await expect(page.getByRole("heading", { name: "Leaderboard" })).toBeVisible();
-  await expect(page.getByRole("button", { name: /sign in to view leaderboard/i })).toBeVisible();
+  await expect(page.getByRole("columnheader", { name: "Average score" })).toBeVisible();
+  await expect(page.getByText("327.4 / 400")).toBeVisible();
+  await expect(page.getByRole("button", { name: /sign in to join leaderboard/i })).toBeVisible();
   await expect(page.getByText("Scout and Adventurer remain playable without an account.")).toBeVisible();
+  await expect(page.getByRole("tab", { name: "Scout" })).toBeVisible();
+  await expect(page.getByRole("tab", { name: "Adventurer" })).toBeVisible();
+  await expect(page.getByRole("tab", { name: "Expert" })).toBeVisible();
+  await expect(page.getByRole("tab", { name: "Today" })).toHaveCount(0);
 
-  const apiResponse = await page.request.get("/api/leaderboard?view=today&difficulty=easy");
-  expect([401, 503]).toContain(apiResponse.status());
-  expect(apiResponse.headers()["cache-control"]).toBe("private, no-store");
-  const apiBody = await apiResponse.json();
-  expect(apiBody.error).toMatch(/Sign in to view|Accounts are not configured/);
+  const apiResponse = await page.request.get("/api/leaderboard?difficulty=easy");
+  expect(apiResponse.status()).not.toBe(401);
+  expect(apiResponse.headers()["cache-control"]).toContain("no-store");
 });
 
 test("board card colors have a clear non-scoring key", async ({ page }) => {

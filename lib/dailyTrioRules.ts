@@ -1,6 +1,7 @@
 import type { Category } from "./categories";
 import type { Round } from "./challengeCodec";
 import { validateRound } from "./dataEngine";
+import { semanticConflict } from "./categorySemantics";
 import {
   DAILY_DIFFICULTIES,
   ROUND_CONFIGS,
@@ -45,7 +46,7 @@ function isServiceCompositionCategory(category: Category) {
 }
 
 export function categoryConflictsWithExistingTrio(category: Category, existing: Category[]) {
-  if (existing.some((other) => other.id === category.id)) return true;
+  if (existing.some((other) => other.id === category.id || semanticConflict(other, category))) return true;
   if (isDisplacementCategory(category) && existing.filter(isDisplacementCategory).length >= MAX_TRIO_DISPLACEMENT_CATEGORIES) return true;
   if (isDemographicCategory(category) && existing.filter(isDemographicCategory).length >= MAX_TRIO_DEMOGRAPHIC_CATEGORIES) return true;
   if (isAgricultureCategory(category) && existing.filter(isAgricultureCategory).length >= MAX_TRIO_AGRICULTURE_CATEGORIES) return true;
@@ -140,6 +141,8 @@ export function validateDailyTrio(trio: DailyTrioLike, options: { allowLegacyDim
         for (const secondDataset of second.categories) {
           if (firstDataset.category.id === secondDataset.category.id) {
             errors.push(`${firstDataset.category.name} appears in more than one Daily mode.`);
+          } else if (semanticConflict(firstDataset.category, secondDataset.category)) {
+            errors.push(`${firstDataset.category.name} and ${secondDataset.category.name} are too conceptually similar to appear across Daily modes.`);
           }
         }
       }

@@ -82,3 +82,21 @@ export async function loadServerPlayableCategoryCatalog(): Promise<Category[]> {
 export async function loadServerCategoryRegistry(): Promise<Category[]> {
   return loadCachedRegistry();
 }
+
+/**
+ * Fetch only the categories present on one saved board. This keeps historical
+ * copy hydration fast and still includes rows retired from future generation.
+ */
+export async function loadServerCategoryRegistryForIds(ids: string[]): Promise<Category[]> {
+  const uniqueIds = [...new Set(ids.filter(Boolean))];
+  if (!uniqueIds.length) return [];
+  const admin = createSupabaseAdminClient();
+  if (!admin) throw new Error("Supabase is not configured.");
+  const result = await admin
+    .from("category_runtime_review_v16_2")
+    .select(V16_SELECT)
+    .in("id", uniqueIds)
+    .limit(uniqueIds.length);
+  if (result.error) throw catalogError(result.error.message ?? "Unknown Supabase error");
+  return buildCategoryRegistry((result.data ?? []) as PlayableCategoryRow[]);
+}

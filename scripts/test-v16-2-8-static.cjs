@@ -193,7 +193,7 @@ for (const token of [
 ]) check(challengeCodec.includes(token), `saved-board player-copy hydration missing ${token}`);
 for (const token of [
   "hydrateCurrentPlayerCopy",
-  "loadServerCategoryRegistry",
+  "loadServerCategoryRegistryForIds",
   "geostats-public-daily-trio-player-copy",
   "PLAYER_COPY_VERSION",
   "original countries, values, rules, and scoring",

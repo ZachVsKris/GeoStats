@@ -339,6 +339,7 @@ function playerFacingIcon(row: PlayableCategoryRow, existing?: Category) {
   const copy = `${row.title} ${row.short_title ?? ""} ${row.description ?? ""}`.toLowerCase();
   // v16.2.5: prefer a semantically correct neutral icon over a misleading
   // inherited emoji. Specific rules intentionally run before stored icons.
+  if (/other religions|outside (?:the )?(?:five )?major groups/.test(copy)) return "🕯️";
   if (/vegetable oil/.test(copy)) return "🫙";
   if (/spice exports/.test(copy)) return "🫙";
   if (/computer[- ]chip|semiconductor/.test(copy)) return "⚙️";

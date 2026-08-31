@@ -100,7 +100,7 @@ export type Category = {
   measureType?: "total" | "share" | "rate" | "index" | "count" | "physical" | "historical" | "other";
   normalizationType?: "absolute" | "per-person" | "per-area" | "percentage" | "rate" | "none" | "other";
   // Player-facing measurement family used for subtle visual coding.
-  measurementType?: "total" | "share" | "per_capita" | "historical_date" | "other";
+  measurementType?: "total" | "share" | "per_capita" | "historical_date" | "rate" | "value" | "other";
   historicalValueFormat?: "year" | "date";
   // v15.4 board-composition metadata. Broad domains balance the board;
   // knowledge clusters prevent multiple categories that reward the same strategy.

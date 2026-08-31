@@ -1097,7 +1097,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:6px
 }
 
 /* GeoStats v16.2.5 measurement labels are deliberately neutral. */
-.measure-total,.measure-share,.measure-per-capita,.measure-historical-date,.measure-other{--measurement-accent:var(--muted)}
+.measure-total,.measure-share,.measure-per-capita,.measure-historical-date,.measure-rate,.measure-value,.measure-other{--measurement-accent:var(--muted)}
 .playGrid .slot[class*="measure-"] .category::after,
 .resultWrap[class*="measure-"] .resultMain::after,
 .perfectRow[class*="measure-"]::after,

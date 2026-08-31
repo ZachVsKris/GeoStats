@@ -106,7 +106,7 @@ export function dailyTrioPreferenceWarnings(trio: DailyTrioLike) {
   return warnings;
 }
 
-export function validateDailyTrio(trio: DailyTrioLike, options: { allowLegacyDimensions?: boolean } = {}) {
+export function validateDailyTrio(trio: DailyTrioLike, options: { allowLegacyDimensions?: boolean; allowLegacyComposition?: boolean } = {}) {
   const errors: string[] = [];
 
   for (const difficulty of DAILY_DIFFICULTIES) {
@@ -126,6 +126,10 @@ export function validateDailyTrio(trio: DailyTrioLike, options: { allowLegacyDim
       errors.push(`${config.label}: ${error}`);
     }
   }
+
+  // A published board is immutable. New cross-mode similarity and mix rules
+  // govern future generation, but must not make an older, valid board vanish.
+  if (options.allowLegacyComposition === true) return errors;
 
   for (let firstIndex = 0; firstIndex < DAILY_DIFFICULTIES.length; firstIndex += 1) {
     const firstDifficulty = DAILY_DIFFICULTIES[firstIndex];

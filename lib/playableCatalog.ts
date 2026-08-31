@@ -340,6 +340,7 @@ function playerFacingIcon(row: PlayableCategoryRow, existing?: Category) {
   // v16.2.5: prefer a semantically correct neutral icon over a misleading
   // inherited emoji. Specific rules intentionally run before stored icons.
   if (/other religions|outside (?:the )?(?:five )?major groups/.test(copy)) return "🕯️";
+  if (/largest lake/.test(copy)) return "🏞️";
   if (/vegetable oil/.test(copy)) return "🫙";
   if (/spice exports/.test(copy)) return "🫙";
   if (/computer[- ]chip|semiconductor/.test(copy)) return "⚙️";
@@ -431,12 +432,13 @@ function failsEditorialConceptGate(row: PlayableCategoryRow) {
 
 function structuredMeasurementType(row: PlayableCategoryRow): Category["measurementType"] {
   const explicit = String(row.measurement_type ?? metadataString(row.metadata, "measurementType") ?? "").toLowerCase();
-  if (["total", "share", "per_capita", "historical_date", "other"].includes(explicit)) return explicit as Category["measurementType"];
+  if (["total", "share", "per_capita", "historical_date", "rate", "value", "other"].includes(explicit)) return explicit as Category["measurementType"];
   const text = `${row.value_type ?? ""} ${row.unit ?? ""}`.toLowerCase();
   if (/historical|admission date|constitution year|date adopted/.test(text)) return "historical_date";
   if (/per (person|capita)|per 100|per 1,000|per 100,000/.test(text)) return "per_capita";
   if (/%|percent|share/.test(text)) return "share";
-  if (/index|score|rate/.test(text)) return "other";
+  if (/rate|density|per (km|square|area|neighbor|unit)/.test(text)) return "rate";
+  if (/index|score|magnitude|degrees|years|kilometers|meters/.test(text)) return "value";
   return "total";
 }
 

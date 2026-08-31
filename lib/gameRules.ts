@@ -241,6 +241,8 @@ export function isAgricultureCategory(category: Category) {
 
 export function measureKind(category: Category) {
   if (category.measurementType === "historical_date" || category.measureType === "historical") return "historical";
+  if (category.measurementType === "rate") return "rate";
+  if (category.measurementType === "value") return "total";
   if (category.normalizationType === "per-person") return "per-person";
   if (category.normalizationType === "percentage") return "percentage";
   if (category.normalizationType === "rate" || category.normalizationType === "per-area") return "rate";

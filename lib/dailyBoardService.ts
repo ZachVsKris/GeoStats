@@ -112,7 +112,11 @@ export function inspectStoredTrio(rows: StoredDailyRow[], dependencies?: Depende
   }
 
   const complete = Boolean(rounds.easy && rounds.normal && rounds.expert && !Object.keys(errors).length);
-  const trioErrors = complete ? validateDailyTrio(rounds as DailyTrioLike, { allowLegacyDimensions: true }) : [];
+  const legacyComposition = rows.some((row) => row.rules_version !== RULES_VERSION);
+  const trioErrors = complete ? validateDailyTrio(rounds as DailyTrioLike, {
+    allowLegacyDimensions: true,
+    allowLegacyComposition: legacyComposition,
+  }) : [];
   return { rounds, errors, outdated, trioErrors, complete: complete && trioErrors.length === 0 };
 }
 

@@ -267,7 +267,7 @@
 
 /* GeoStats v16.2.5: readability-first board polish and neutral measurement UI. */
 /* Measurement type is communicated by text only; no color encoding or decorative strokes. */
-.measure-total,.measure-share,.measure-per-capita,.measure-historical-date,.measure-other{--measurement-accent:var(--muted)}
+.measure-total,.measure-share,.measure-per-capita,.measure-historical-date,.measure-rate,.measure-value,.measure-other{--measurement-accent:var(--muted)}
 .playGrid .slot[class*="measure-"] .category::after,
 .resultWrap[class*="measure-"] .resultMain::after,
 .perfectRow[class*="measure-"]::after,

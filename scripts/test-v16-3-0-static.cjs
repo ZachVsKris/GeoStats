@@ -28,7 +28,7 @@ const serverPlayableCatalog = read("lib/serverPlayableCatalog.ts");
 
 check(pkg.version === "16.3.0", "package version is not v16.3.0");
 check(pkg.scripts.test === "npm run test-v16-3-0" && pkg.scripts.check === "npm run check-v16-3-0", "default validation does not target v16.3.0");
-for (const token of ['APP_VERSION = "16.3.0"', 'RULES_VERSION = "16.3.0"', 'PLAYER_COPY_VERSION = "16.3.0.6"', 'PLAYABLE_CATALOG_CACHE_VERSION = "16.3.0.337"', 'LEADERBOARD_RATING_VERSION = "hybrid-absolute-peer-bayesian-v2"']) check(version.includes(token), `v16.3.0 version contract missing ${token}`);
+for (const token of ['APP_VERSION = "16.3.0"', 'RULES_VERSION = "16.3.0"', 'PLAYER_COPY_VERSION = "16.3.0.7"', 'PLAYABLE_CATALOG_CACHE_VERSION = "16.3.0.337"', 'LEADERBOARD_RATING_VERSION = "hybrid-absolute-peer-bayesian-v2"']) check(version.includes(token), `v16.3.0 version contract missing ${token}`);
 for (const token of ["0°C", "18°C", "60 mm", "100 minus annual rainfall divided by 25", "CLIMATE_TECHNICAL_DEFINITIONS"]) check(importer.includes(token), `climate definition contract missing ${token}`);
 for (const token of ["taxonomyVersion", "category_macro_domain_v16_2_7", "tropical-savanna-share", "temperate-share", "enable row level security"]) check(migration.includes(token), `clarity/taxonomy migration missing ${token}`);
 check(/^begin;/m.test(migration) && /commit;\s*$/.test(migration), "v16.3.0 migration is not transaction wrapped");
@@ -44,6 +44,9 @@ check(playableCatalog.includes('"koppen-geiger:tropical-savanna-share"'), "tropi
 check(importer.includes("'tropical-savanna-share'") === false, "tropical-savanna category remains discoverable by the importer");
 const dailyBoardService = read("lib/dailyBoardService.ts");
 check(dailyBoardService.includes("isHardRetiredCategoryId") && dailyBoardService.includes("Board contains retired categories"), "saved boards do not reject hard-retired categories");
+check(dailyBoardService.includes("const inspected = inspectStoredTrio(sameDate, undefined") && dailyBoardService.includes("allowLegacyComposition: false"), "public fallback selection can still bypass current cross-mode semantic rules");
+check(dailyBoardService.includes("Christian share + total"), "fallback semantic-regression intent is not documented");
+check(dailyBoardService.includes("eligibleCategoryIds") && dailyBoardService.includes("no longer Daily-eligible") && dailyBoardService.includes("loadServerPlayableCategoryCatalog"), "saved and fallback Dailies can still resurface categories removed from the current playable catalog");
 for (const token of ["koppen-geiger:steppe-share", "temperature-adjusted rainfall limit", "koppen-geiger:tropical-monsoon-share", "18°C year-round", "under 60 mm"]) check(climateCopySimplification.includes(token), `climate card-copy simplification missing ${token}`);
 for (const token of ["LEADERBOARD_CONFIDENCE_GAMES = 10", "PEER_BLEND_START_PLAYERS = 5", "PEER_BLEND_FULL_PLAYERS = 20", "hybridDailyPerformance", "bayesianLeaderboardRating"]) check(rating.includes(token), `rating v2 contract missing ${token}`);
 check(ratingApi.includes("ratingSortValue") && ratingApi.includes("hybridDailyPerformance") && ratingApi.includes("LEADERBOARD_MINIMUM_GAMES"), "leaderboard API does not use full-precision hybrid rating");

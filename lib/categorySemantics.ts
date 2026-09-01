@@ -370,8 +370,8 @@ function hardConflictConcept(category: Category, profile: CategorySemanticProfil
   if (contains(text, [/mobile.*subscription/, /telephone.*subscription/, /broadband.*subscription/, /internet.*subscription/])
     || cluster === "telecommunications-adoption") return "telecommunications-adoption";
 
-  if (contains(text, [/export/]) && (profile.broadDomain === "trade" || category.source === "comtrade" || category.productSpecificTrade)) return "trade-exports";
-  if (contains(text, [/import/]) && (profile.broadDomain === "trade" || category.source === "comtrade" || category.productSpecificTrade)) return "trade-imports";
+  if (contains(text, [/export/])) return "trade-exports";
+  if (contains(text, [/import/])) return "trade-imports";
 
   if (category.source === "faostat") {
     const livestock = contains(text, [

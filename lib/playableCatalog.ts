@@ -263,10 +263,6 @@ function playerFacingTitle(row: PlayableCategoryRow) {
   return row.title.trim();
 }
 
-function shortTitle(title: string) {
-  return title.replace(/^(Highest|Lowest|Largest|Most|Fastest|Best)\s+/i, "").slice(0, 70);
-}
-
 function cardDescriptionWithoutTerminalPeriod(value: string) {
   return value.replace(/[.]\s*$/, "").trim();
 }
@@ -537,7 +533,10 @@ export function buildCategoryCatalog(rows: PlayableCategoryRow[], options: Build
       source,
       dataset: row.source_dataset,
       name: title,
-      shortName: row.short_title?.trim() || existing?.shortName || shortTitle(title),
+      // Cards should retain the direction word and reviewed player title. Raw
+      // source short labels often drop “Highest/Lowest/Largest” or preserve
+      // awkward source ordering, which makes the game prompt ambiguous.
+      shortName: title,
       indicator: existing?.indicator ?? row.source_indicator_code,
       warehouseSourceIndicatorCode: row.source_indicator_code,
       icon: playerFacingIcon(row, existing),

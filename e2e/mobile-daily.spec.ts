@@ -282,8 +282,15 @@ for (const viewport of mobileCases) {
         const removeControlsCentered = await page.locator(".removePiece").evaluateAll((controls) => controls.every((control) => {
           const button = control.getBoundingClientRect();
           const icon = control.querySelector("svg")!.getBoundingClientRect();
+          const choice = control.closest<HTMLElement>(".choice")!.getBoundingClientRect();
+          const topGap = button.top - choice.top;
+          const bottomGap = choice.bottom - button.bottom;
           return Math.abs((button.left + button.width / 2) - (icon.left + icon.width / 2)) <= 1
-            && Math.abs((button.top + button.height / 2) - (icon.top + icon.height / 2)) <= 1;
+            && Math.abs((button.top + button.height / 2) - (icon.top + icon.height / 2)) <= 1
+            && Math.abs(topGap - bottomGap) <= 1
+            && button.left > choice.left + choice.width / 2
+            && choice.right - button.right >= 4
+            && choice.right - button.right <= 12;
         }));
         expect(removeControlsCentered).toBeTruthy();
         await expect(page.getByRole("button", { name: /lock in draft/i })).toBeEnabled();
@@ -381,6 +388,38 @@ test("13-inch Adventurer and Expert boards use tall two-column country banks", a
     expect(layout.choiceRowsAligned).toBeTruthy();
     expect(layout.countryLabelsContained).toBeTruthy();
     await page.screenshot({ path: testInfo.outputPath(`${mode.name}-1440x900.png`), fullPage: true });
+  }
+});
+
+test("assignment remove control stays right-aligned and vertically centered on phone and desktop", async ({ page }) => {
+  await installRoutes(page);
+
+  for (const viewport of [{ width: 390, height: 844 }, { width: 1440, height: 900 }]) {
+    await page.setViewportSize(viewport);
+    await page.goto("/daily/adventurer");
+    await page.locator(".countries .country:not(:disabled)").first().click();
+    await page.locator(".slots .slot").first().click();
+    const control = page.locator(".removePiece").first();
+    await expect(control).toBeVisible();
+    const geometry = await control.evaluate((element) => {
+      const button = element.getBoundingClientRect();
+      const icon = element.querySelector("svg")!.getBoundingClientRect();
+      const choice = element.closest<HTMLElement>(".choice")!.getBoundingClientRect();
+      return {
+        topGap: button.top - choice.top,
+        bottomGap: choice.bottom - button.bottom,
+        rightGap: choice.right - button.right,
+        onRight: button.left > choice.left + choice.width / 2,
+        iconCenterDeltaX: Math.abs((button.left + button.width / 2) - (icon.left + icon.width / 2)),
+        iconCenterDeltaY: Math.abs((button.top + button.height / 2) - (icon.top + icon.height / 2)),
+      };
+    });
+    expect(Math.abs(geometry.topGap - geometry.bottomGap)).toBeLessThanOrEqual(1);
+    expect(geometry.rightGap).toBeGreaterThanOrEqual(4);
+    expect(geometry.rightGap).toBeLessThanOrEqual(12);
+    expect(geometry.onRight).toBeTruthy();
+    expect(geometry.iconCenterDeltaX).toBeLessThanOrEqual(1);
+    expect(geometry.iconCenterDeltaY).toBeLessThanOrEqual(1);
   }
 });
 

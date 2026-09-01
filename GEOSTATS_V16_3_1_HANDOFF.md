@@ -21,8 +21,9 @@ The catalog-integrity and semantic-review build is complete. GeoStats now has on
 1. `20260901203000_v16_3_1_catalog_integrity_and_editorial_audit.sql`
 2. `20260901204500_v16_3_1_semantic_icon_followup.sql`
 3. `20260901205500_v16_3_1_restore_reachability_exclusions.sql`
+4. `20260901210500_v16_3_1_greenhouse_icon_precedence.sql`
 
-All three are transaction wrapped, include release assertions, and are recorded in the connected production Supabase project.
+All four are transaction wrapped, include release assertions, and are recorded in the connected production Supabase project.
 
 ## Validation
 

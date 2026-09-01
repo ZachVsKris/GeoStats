@@ -17,6 +17,7 @@ const css = read("app/globals.css");
 const migration = read("supabase/migrations/20260901203000_v16_3_1_catalog_integrity_and_editorial_audit.sql");
 const iconFollowup = read("supabase/migrations/20260901204500_v16_3_1_semantic_icon_followup.sql");
 const reachabilityFollowup = read("supabase/migrations/20260901205500_v16_3_1_restore_reachability_exclusions.sql");
+const greenhouseIconFollowup = read("supabase/migrations/20260901210500_v16_3_1_greenhouse_icon_precedence.sql");
 
 check(pkg.version === "16.3.1", "package version is not v16.3.1");
 check(pkg.scripts.test === "npm run test-v16-3-1" && pkg.scripts.check === "npm run check-v16-3-1", "default validation does not target v16.3.1");
@@ -30,6 +31,7 @@ check(catalog.includes('if (/arms imports?/.test(copy)) return "🪖"'), "arms-i
 check(catalog.indexOf('if (/pineapple|papaya/.test(copy))') < catalog.indexOf('if (/apple/.test(copy))'), "pineapple is still caught by the apple icon rule");
 check(catalog.indexOf('if (/eggplant/.test(copy))') < catalog.indexOf('if (/egg/.test(copy))'), "eggplant is still caught by the egg icon rule");
 check(catalog.indexOf('if (/orange|mandarin|tangerine|grapefruit|pomelo/.test(copy))') < catalog.indexOf('if (/grapes?/.test(copy))'), "grapefruit is still caught by the grape icon rule");
+check(catalog.indexOf('if (/greenhouse|methane|co2|carbon dioxide|carbon intensity/.test(copy))') < catalog.indexOf('if (/forest/.test(copy))'), "greenhouse emissions are still caught by the forest icon rule");
 check(publicPresentation.includes("!approvedById.has(category.id)"), "public audit can still overwrite approved categories with bundled quarantines");
 check(auditPage.includes("publicCatalogPresentation(approved, CATEGORIES)"), "Audit page does not use the shared catalog presentation");
 check(dataPage.includes("publicCatalogPresentation(categories,CATEGORIES).blocked"), "Data page blocked count does not use the shared catalog presentation");
@@ -45,6 +47,8 @@ for (const token of ["substring-collision icon repair","faostat-qcl-pineapples-p
 check(/^begin;/m.test(iconFollowup) && /commit;\s*$/.test(iconFollowup), "v16.3.1 semantic icon follow-up is not transaction wrapped");
 for (const token of ["restored production-solver reachability exclusion","pew-religion:jewish-share","worldbankclimate:wettest","one 306-category catalog"]) check(reachabilityFollowup.includes(token), `reachability-exclusion follow-up missing ${token}`);
 check(/^begin;/m.test(reachabilityFollowup) && /commit;\s*$/.test(reachabilityFollowup), "v16.3.1 reachability follow-up is not transaction wrapped");
+for (const token of ["greenhouse icon precedence review","en-ghg-all-pc-ce-ar5","icon<>'🌫️'"]) check(greenhouseIconFollowup.includes(token), `greenhouse icon follow-up missing ${token}`);
+check(/^begin;/m.test(greenhouseIconFollowup) && /commit;\s*$/.test(greenhouseIconFollowup), "v16.3.1 greenhouse icon follow-up is not transaction wrapped");
 
 if (failures.length) {
   console.error(`GeoStats v16.3.1 checks FAILED:\n${failures.map((item) => ` - ${item}`).join("\n")}`);

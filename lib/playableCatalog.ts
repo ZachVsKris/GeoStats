@@ -411,6 +411,7 @@ function playerFacingIcon(row: PlayableCategoryRow, existing?: Category) {
   if (/military (?:spending|expenditure)/.test(copy)) return row.unit === "USD" ? "🛡️" : "🪖";
   if (/tax[- ]?revenue/.test(copy)) return "🧾";
   if (/total country area/.test(copy)) return "🗺️";
+  if (/greenhouse|methane|co2|carbon dioxide|carbon intensity/.test(copy)) return "🌫️";
   if (/donkey|asses/.test(copy)) return "🫏";
   if (/mule|hinny/.test(copy)) return "🐎";
   if (/cattle|buffalo/.test(copy)) return "🐄";
@@ -483,7 +484,6 @@ function playerFacingIcon(row: PlayableCategoryRow, existing?: Category) {
   if (/refugee|asylum|stateless|migrant population/.test(copy)) return "🧳";
   if (/hindu/.test(copy)) return "🕉️";
   if (/volcano/.test(copy)) return "🌋";
-  if (/greenhouse|methane|co2|carbon dioxide|carbon intensity/.test(copy)) return "🌫️";
   if (/freshwater|water stress|water withdrawal/.test(copy)) return "💧";
   if (/health spending/.test(copy)) return "🏥";
   if (/sanitation/.test(copy)) return "🚰";

@@ -22,7 +22,7 @@ The connected production Supabase project passed all transaction assertions and 
 - generic grain icons: 8, down from 92 before the semantic review
 - prior production-solver reachability exclusions accidentally omitted from a later function definition: restored and all 8 remain non-playable
 
-Spot checks passed for arms imports (`🪖`), total country area (`🗺️`, physical geography), calorie intake (`🍽️`, consumption), urban population (Population/demographics), bananas (`🍌`), pineapple (`🍍`), eggplant (`🍆`), and grapefruit (`🍊`).
+Spot checks passed for arms imports (`🪖`), total country area (`🗺️`, physical geography), greenhouse-gas emissions (`🌫️`), calorie intake (`🍽️`, consumption), urban population (Population/demographics), bananas (`🍌`), pineapple (`🍍`), eggplant (`🍆`), and grapefruit (`🍊`).
 
 ## Public-catalog contract
 
@@ -33,7 +33,7 @@ Spot checks passed for arms imports (`🪖`), total country area (`🗺️`, phy
 
 ## Security and operations
 
-- The three v16.3.1 migrations are recorded in production.
+- The four v16.3.1 migrations are recorded in production.
 - Post-migration Postgres logs contain no ERROR, FATAL, or PANIC event.
 - Supabase security advisor: 94 informational RLS-without-policy notices for intentionally non-public workbench tables and one warning for owner-controlled leaked-password protection.
 - Supabase performance advisor findings are informational and unchanged by this release.

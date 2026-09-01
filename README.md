@@ -28,7 +28,7 @@ npm run check-v16-3-1
 
 ## Current database release
 
-GeoStats v16.3.1 is the current release candidate. It preserves Scout 4×4 / Adventurer 6×4 / Expert 8×6 scoring while making the database, player, Data page, and Audit page use one 306-category catalog. It also durably retires service import/export measures, repairs reviewed titles and taxonomy, and replaces misleading generic icons with subject-specific symbols.
+GeoStats v16.3.1 is the current production release. It preserves Scout 4×4 / Adventurer 6×4 / Expert 8×6 scoring while making the database, player, Data page, and Audit page use one 306-category catalog. It also durably retires service import/export measures, repairs reviewed titles and taxonomy, and replaces misleading generic icons with subject-specific symbols.
 
 Run the release in this order:
 

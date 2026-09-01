@@ -367,12 +367,11 @@ function hardConflictConcept(category: Category, profile: CategorySemanticProfil
 
   if (contains(text, [/border/, /neighbor/])) return "physical-borders";
   if (contains(text, [/glaciat/, /glacier/, /snow-cover/, /permanent-snow/])) return "physical-ice";
-  if (contains(text, [/mobile-subscription/, /telephone-subscription/, /fixed-broadband/, /internet-subscription/])
+  if (contains(text, [/mobile.*subscription/, /telephone.*subscription/, /broadband.*subscription/, /internet.*subscription/])
     || cluster === "telecommunications-adoption") return "telecommunications-adoption";
 
-  if (category.source === "comtrade" || category.productSpecificTrade) {
-    return contains(text, [/import/]) ? "product-imports" : "product-exports";
-  }
+  if (contains(text, [/export/]) && (profile.broadDomain === "trade" || category.source === "comtrade" || category.productSpecificTrade)) return "trade-exports";
+  if (contains(text, [/import/]) && (profile.broadDomain === "trade" || category.source === "comtrade" || category.productSpecificTrade)) return "trade-imports";
 
   if (category.source === "faostat") {
     const livestock = contains(text, [

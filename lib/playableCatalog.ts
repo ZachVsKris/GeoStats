@@ -156,6 +156,7 @@ const FAMILY_ICONS: Record<string, string> = {
 
 const HARD_RETIRED_CATEGORY_IDS = new Set([
   "comtrade:most-sports-equipment-exported",
+  "koppen-geiger:tropical-savanna-share",
   "natural-earth:largest-geographic-span",
   "natural-earth:largest-north-south-span",
   "natural-earth:largest-east-west-span",

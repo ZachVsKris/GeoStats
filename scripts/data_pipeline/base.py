@@ -40,6 +40,7 @@ MANUAL_REVIEW_SOURCES = {
 # future importer or catalog rebuild cannot spend time on or reactivate them.
 DURABLE_CATEGORY_EXCLUSIONS = {
     "exportsShare",
+    "koppen-geiger:tropical-savanna-share",
     "worldbank-catalog:bx-gsr-gnfs-cd",
     "worldbank-catalog:bm-gsr-gnfs-cd",
     "worldbank-catalog:bx-gsr-totl-cd",

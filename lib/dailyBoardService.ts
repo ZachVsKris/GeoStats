@@ -14,7 +14,7 @@ import { validateDailyTrio, dailyTrioPreferenceWarnings, type DailyTrioLike } fr
 import { acquireDailyGenerationLock, releaseDailyGenerationLock } from "./dailyGenerationLock";
 import { generateDailyTrio } from "./puzzleEngine";
 import { fetchCountries, type CountryInfo } from "./worldBank";
-import { loadServerCategoryRegistry } from "./serverPlayableCatalog";
+import { loadServerCategoryRegistry, loadServerPlayableCategoryCatalog } from "./serverPlayableCatalog";
 import { CATEGORY_SET_VERSION, DATASET_VERSION, RULES_VERSION } from "./version";
 import type { Category } from "./categories";
 import { isHardRetiredCategoryId } from "./playableCatalog";
@@ -89,7 +89,14 @@ function decodeStored(row: StoredDailyRow, dependencies?: Dependencies) {
   return decodeRound(row.encoded_board, dependencies.countries, dependencies.categoryRegistry);
 }
 
-export function inspectStoredTrio(rows: StoredDailyRow[], dependencies?: Dependencies) {
+export function inspectStoredTrio(
+  rows: StoredDailyRow[],
+  dependencies?: Dependencies,
+  options: {
+    allowLegacyComposition?: boolean;
+    eligibleCategoryIds?: ReadonlySet<string>;
+  } = {},
+) {
   const rounds: Partial<Record<DailyDifficulty, Round>> = {};
   const errors: Partial<Record<DailyDifficulty, string[]>> = {};
   const outdated: Partial<Record<DailyDifficulty, string[]>> = {};
@@ -110,6 +117,15 @@ export function inspectStoredTrio(rows: StoredDailyRow[], dependencies?: Depende
         errors[difficulty] = [`Board contains retired categories: ${retiredIds.join(", ")}.`];
         continue;
       }
+      const ineligibleIds = options.eligibleCategoryIds
+        ? round.categories
+          .map((dataset) => dataset.category.id)
+          .filter((id) => !options.eligibleCategoryIds!.has(id))
+        : [];
+      if (ineligibleIds.length) {
+        errors[difficulty] = [`Board contains categories that are no longer Daily-eligible: ${ineligibleIds.join(", ")}.`];
+        continue;
+      }
       rounds[difficulty] = round;
       const warnings: string[] = [];
       if (row.rules_version && row.rules_version !== RULES_VERSION) warnings.push(`Rules ${row.rules_version} predate ${RULES_VERSION}.`);
@@ -121,7 +137,8 @@ export function inspectStoredTrio(rows: StoredDailyRow[], dependencies?: Depende
   }
 
   const complete = Boolean(rounds.easy && rounds.normal && rounds.expert && !Object.keys(errors).length);
-  const legacyComposition = rows.some((row) => row.rules_version !== RULES_VERSION);
+  const legacyComposition = options.allowLegacyComposition
+    ?? rows.some((row) => row.rules_version !== RULES_VERSION);
   const trioErrors = complete ? validateDailyTrio(rounds as DailyTrioLike, {
     allowLegacyDimensions: true,
     allowLegacyComposition: legacyComposition,
@@ -217,18 +234,29 @@ async function loadRecentCountryExposure(admin: any, beforeDate: string) {
 }
 
 export async function loadLatestCompleteFallback(admin: any, beforeDate: string) {
-  const { data, error } = await admin
-    .from("daily_challenges")
-    .select("challenge_date,difficulty,seed,encoded_board,board_payload,rules_version,category_set_version,dataset_version")
-    .lt("challenge_date", beforeDate)
-    .not("board_payload", "is", null)
-    .order("challenge_date", { ascending: false })
-    .limit(60);
+  const [{ data, error }, playableCatalog] = await Promise.all([
+    admin
+      .from("daily_challenges")
+      .select("challenge_date,difficulty,seed,encoded_board,board_payload,rules_version,category_set_version,dataset_version")
+      .lt("challenge_date", beforeDate)
+      .not("board_payload", "is", null)
+      .order("challenge_date", { ascending: false })
+      .limit(90),
+    loadServerPlayableCategoryCatalog(),
+  ]);
   if (error) return null;
+  const eligibleCategoryIds = new Set(playableCatalog.map((category) => category.id));
   const rows = (data ?? []) as StoredDailyRow[];
   for (const date of [...new Set(rows.map((row) => row.challenge_date))]) {
     const sameDate = rows.filter((row) => row.challenge_date === date);
-    const inspected = inspectStoredTrio(sameDate);
+    // A fallback is today's public practice board, not a historical results
+    // replay. It must satisfy the current cross-mode semantic rules even when
+    // the persisted board predates them. Keep scanning older dates rather than
+    // resurfacing stale same-concept pairs such as Christian share + total.
+    const inspected = inspectStoredTrio(sameDate, undefined, {
+      allowLegacyComposition: false,
+      eligibleCategoryIds,
+    });
     if (inspected.complete) return { date, rows: sameDate, boards: packStoredRows(sameDate) };
   }
   return null;
@@ -291,18 +319,26 @@ export async function generateAndPublishDailyTrio(admin: any, date: string, opti
   if (!lockToken) return { ok: false as const, generating: true as const, date };
 
   try {
-    const [stored, scoreCounts, countries, recentCountryExposure, recentCategoryExposure] = await Promise.all([
+    const [stored, scoreCounts, countries, recentCountryExposure, recentCategoryExposure, playableCatalog] = await Promise.all([
       readDailyRows(admin, date),
       scoreCountsByDifficulty(admin, date),
       fetchCountries(),
       loadRecentCountryExposure(admin, date),
       loadRecentCategoryExposure(admin, date),
+      loadServerPlayableCategoryCatalog(),
     ]);
     if (stored.error) throw stored.error;
 
     let dependencies: Dependencies | undefined;
     if (stored.rows.some((row) => !row.board_payload)) dependencies = await loadLegacyDependencies();
-    const current = inspectStoredTrio(stored.rows, dependencies);
+    // Current unscored modes are repairable, so always apply today's semantic
+    // composition rules here. Scored modes are preserved below as fixed inputs
+    // while the generator rebuilds any unscored modes around them.
+    const eligibleCategoryIds = new Set(playableCatalog.map((category) => category.id));
+    const current = inspectStoredTrio(stored.rows, dependencies, {
+      allowLegacyComposition: false,
+      eligibleCategoryIds,
+    });
     if (current.complete) {
       return {
         ok: true as const,
@@ -365,7 +401,10 @@ export async function generateAndPublishDailyTrio(admin: any, date: string, opti
 
     const final = await readDailyRows(admin, date);
     if (final.error) throw final.error;
-    const inspected = inspectStoredTrio(final.rows, dependencies);
+    const inspected = inspectStoredTrio(final.rows, dependencies, {
+      allowLegacyComposition: false,
+      eligibleCategoryIds,
+    });
     if (!inspected.complete) {
       throw new Error(`Published Daily trio failed verification: ${JSON.stringify({ modes: inspected.errors, trio: inspected.trioErrors })}`);
     }

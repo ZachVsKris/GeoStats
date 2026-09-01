@@ -1,5 +1,15 @@
 # GeoStats v16.3.0 release notes
 
+## Daily semantic fallback hotfix
+
+- Public fallback selection now applies the current cross-mode semantic rules
+  instead of bypassing them for legacy saved boards.
+- Same-concept share and total variants, including Christian population share
+  and Christian population total, cannot reappear on different modes through
+  an older practice fallback.
+- Historical scored boards remain stored for result integrity; the public
+  fallback search skips an incompatible date and continues to an eligible one.
+
 ## Clearer, more varied Daily boards
 
 - Same-day semantic conflicts are hard failures within a board and across Scout, Adventurer, and Expert.

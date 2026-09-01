@@ -180,6 +180,19 @@ const savanna = { ...datasets[3].category, id: 'koppen-geiger:tropical-savanna-s
 if (!categoryConflictsWithExistingTrio(savanna, [temperate])) {
   throw new Error('Cross-mode construction did not block two Köppen climate measures.');
 }
+const christianShare = { ...datasets[4].category, id: 'pew-religion:christian-share', name: 'Highest % of population that is Christian', knowledgeCluster: 'religious-composition', strategyFamily: 'religion-christian', semanticFamily: 'religious-composition' };
+const christianPopulation = { ...datasets[5].category, id: 'pew-religion:christian-population', name: 'Largest Christian population', knowledgeCluster: 'religious-composition', strategyFamily: 'religion-christian', semanticFamily: 'religious-composition' };
+if (!categoryConflictsWithExistingTrio(christianPopulation, [christianShare])) {
+  throw new Error('Cross-mode construction did not block Christian share and Christian population.');
+}
+const religionTrio = {
+  ...first.trio,
+  easy: { ...first.trio.easy, categories: first.trio.easy.categories.map((dataset, index) => index === 0 ? { ...dataset, category: christianShare } : dataset) },
+  normal: { ...first.trio.normal, categories: first.trio.normal.categories.map((dataset, index) => index === 0 ? { ...dataset, category: christianPopulation } : dataset) },
+};
+if (!validateDailyTrio(religionTrio).some((error) => error.includes('too conceptually similar'))) {
+  throw new Error('Daily trio validation did not reject Christian share and Christian population across modes.');
+}
 if (!first.diagnostics.generationProfile) throw new Error('Generator did not report the successful profile.');
 for (const difficulty of ['easy', 'normal', 'expert']) {
   if (!first.trio[difficulty]) throw new Error(`Missing ${difficulty} board.`);

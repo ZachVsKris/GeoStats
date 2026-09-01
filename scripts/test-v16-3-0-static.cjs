@@ -29,7 +29,7 @@ const serverPlayableCatalog = read("lib/serverPlayableCatalog.ts");
 
 check(pkg.version === "16.3.0", "package version is not v16.3.0");
 check(pkg.scripts.test === "npm run test-v16-3-0" && pkg.scripts.check === "npm run check-v16-3-0", "default validation does not target v16.3.0");
-for (const token of ['APP_VERSION = "16.3.0"', 'RULES_VERSION = "16.3.0"', 'PLAYER_COPY_VERSION = "16.3.0.9"', 'PLAYABLE_CATALOG_CACHE_VERSION = "16.3.0.338"', 'LEADERBOARD_RATING_VERSION = "hybrid-absolute-peer-bayesian-v2"']) check(version.includes(token), `v16.3.0 version contract missing ${token}`);
+for (const token of ['APP_VERSION = "16.3.0"', 'RULES_VERSION = "16.3.0"', 'PLAYER_COPY_VERSION = "16.3.0.10"', 'PLAYABLE_CATALOG_CACHE_VERSION = "16.3.0.338"', 'LEADERBOARD_RATING_VERSION = "hybrid-absolute-peer-bayesian-v2"']) check(version.includes(token), `v16.3.0 version contract missing ${token}`);
 for (const token of ["0°C", "18°C", "60 mm", "100 minus annual rainfall divided by 25", "CLIMATE_TECHNICAL_DEFINITIONS"]) check(importer.includes(token), `climate definition contract missing ${token}`);
 for (const token of ["taxonomyVersion", "category_macro_domain_v16_2_7", "tropical-savanna-share", "temperate-share", "enable row level security"]) check(migration.includes(token), `clarity/taxonomy migration missing ${token}`);
 check(/^begin;/m.test(migration) && /commit;\s*$/.test(migration), "v16.3.0 migration is not transaction wrapped");
@@ -39,6 +39,7 @@ for (const token of ["this is what GDP measures", "this is what “arable” mea
 for (const token of ["capital-closest-equator", "highest-mean-age-childbearing", "lowest-pop-density", "highest-sex-ratio-at-birth", "measurementType"]) check(measurementCleanup.includes(token), `measurement cleanup missing ${token}`);
 for (const token of ["natural-earth:longest-land-border", "natural-earth:longest-average-land-border", "natural-earth:northernmost-country", "worldbankclimate:hottest", "measurement_type='other'"]) check(finalMeasurementCleanup.includes(token), `final measurement cleanup missing ${token}`);
 check(playableCatalog.includes('measurementType !== "other"'), "runtime playability does not reject unsupported Other measurements");
+check(playableCatalog.includes("shortName: title"), "game cards can still surface raw source short titles without direction words");
 for (const token of ["needs_data_repair", "finite backlog disposition", "editorial_status='pending'", "refresh_v16_2_runtime_catalog"]) check(finiteBacklog.includes(token), `finite backlog migration missing ${token}`);
 for (const token of ["Most threatened vascular plant species", "native vascular plant species", "worldbank-catalog:en-hpt-thrd-no"]) check(vascularPlantCopy.includes(token), `vascular-plant copy cleanup missing ${token}`);
 for (const token of ["koppen-geiger:tropical-savanna-share", "cardinality(expected_ids)", "history:oldest-current-constitution", "history:un-admission"]) check(savannaRetirement.includes(token), `tropical-savanna retirement missing ${token}`);

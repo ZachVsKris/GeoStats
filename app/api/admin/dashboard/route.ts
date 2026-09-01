@@ -34,6 +34,7 @@ const CATEGORY_COLUMNS = [
   "strict_pass_v16_2", "source_quality_floor_v16_2", "suggested_duplicate_of_v16_2",
   "ranking_completeness_status", "ranking_completeness_reason", "top_value_distinct_count", "top_value_feasible",
 ].join(",");
+const CATEGORY_PAGE_SIZE = 200;
 
 type BoardRow = { difficulty: "easy" | "normal" | "expert" };
 type CategoryRow = {
@@ -241,20 +242,24 @@ export async function GET() {
     if (error) console.warn(`[admin/dashboard] ${subsystem} query unavailable`, { code: error.code, message: error.message });
   }
 
-  // Supabase commonly caps a single response at 1,000 rows, so page through the catalog.
-  // Page on the indexed category ID. Ordering this deeply joined review view by
-  // title has caused production statement timeouts; display order is applied in
-  // memory after the complete, stable page set arrives.
+  // Keyset-page the deeply joined review view in small indexed-ID slices. Large
+  // offset pages still make Postgres materialize and discard the preceding view
+  // rows, which can exceed the production statement timeout around row 1,000.
+  // A catalog timeout degrades only that panel; the rest of Admin still loads.
   const categoryRows: CategoryRow[] = [];
-  for (let from = 0; ; from += 1000) {
-    const { data: page, error } = await admin
+  let categoryCatalogError: string | null = null;
+  let afterCategoryId: string | null = null;
+  for (let pageNumber = 0; pageNumber < 20; pageNumber += 1) {
+    let categoryQuery = admin
       .from("category_runtime_review_v16_2")
       .select(CATEGORY_COLUMNS)
       .order("id")
-      .range(from, from + 999);
+      .limit(CATEGORY_PAGE_SIZE);
+    if (afterCategoryId) categoryQuery = categoryQuery.gt("id", afterCategoryId);
+    const { data: page, error } = await categoryQuery;
     if (error) {
-      console.error("[admin/dashboard] category catalog query failed", {
-        from,
+      console.warn("[admin/dashboard] category catalog page unavailable", {
+        afterCategoryId,
         code: error.code,
         message: error.message,
       });
@@ -264,10 +269,18 @@ export async function GET() {
         : /category_runtime_review_v16_2|does not exist/i.test(message)
           ? "Run RUN_THIS_IN_SUPABASE_FOR_V16_2_7.sql after the v16.2.6 baseline before loading the v16.2.7 Admin dashboard."
           : message;
-      return NextResponse.json({ error: guidance }, { status: 500 });
+      categoryCatalogError = guidance;
+      break;
     }
-    categoryRows.push(...((page ?? []) as CategoryRow[]));
-    if ((page ?? []).length < 1000) break;
+    const typedPage = (page ?? []) as CategoryRow[];
+    categoryRows.push(...typedPage);
+    if (typedPage.length < CATEGORY_PAGE_SIZE) break;
+    const nextId = typedPage.at(-1)?.id ?? null;
+    if (!nextId || nextId === afterCategoryId) {
+      categoryCatalogError = "Category catalog pagination did not advance.";
+      break;
+    }
+    afterCategoryId = nextId;
   }
   categoryRows.sort((left, right) => (left.title ?? left.id ?? "").localeCompare(right.title ?? right.id ?? ""));
 
@@ -465,7 +478,7 @@ export async function GET() {
   }
 
   const warehouseChecks = [
-    { label: "Category catalog", healthy: true },
+    { label: "Category catalog", healthy: categoryCatalogError == null },
     { label: "Observation count", healthy: !obsCount.error },
     { label: "Countries", healthy: !countryCount.error },
     { label: "Imports", healthy: !imports.error },
@@ -514,6 +527,7 @@ export async function GET() {
     sources: sources.data ?? [],
     imports: imports.data ?? [],
     categories: computedCategoryRows,
+    categoryCatalogError,
     boards: boardMap,
     todayScoreCount: scoreCount.count ?? 0,
   });

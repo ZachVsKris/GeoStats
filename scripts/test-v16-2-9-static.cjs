@@ -26,6 +26,8 @@ const measurementRefresh = read("supabase/migrations/20260901001000_v16_2_9_meas
 const remainingMeasurementBuckets = read("supabase/migrations/20260901001500_v16_2_9_remaining_measurement_buckets.sql");
 const koppenTimeout = read("supabase/migrations/20260901002000_v16_2_9_koppen_promotion_timeout.sql");
 const koppenYear = read("supabase/migrations/20260901002500_v16_2_9_koppen_climatology_year.sql");
+const securityHardening = read("supabase/migrations/20260901003000_v16_2_9_security_advisor_hardening.sql");
+const searchPathHardening = read("supabase/migrations/20260901003500_v16_2_9_function_search_path_hardening.sql");
 const koppenPromotionScript = read("scripts/promote-v16-2-9-koppen.py");
 const warehouse = read("scripts/data_pipeline/supabase.py");
 const playableCatalog = read("lib/playableCatalog.ts");
@@ -53,7 +55,7 @@ check(leaderboardApi.includes("Number(patch) >= 4"), "leaderboard normalization 
 check(accounts.includes('provider: "google"') && accounts.includes("Continue with Google"), "Google-first authentication UI is missing");
 check(analytics.includes('navigator.sendBeacon("/api/analytics/events", body)') && !analytics.includes("new Blob([body]"), "analytics beacon can still trigger WebKit's empty-Blob 400 response");
 check(trio.includes("semanticConflict(other, category)") && trio.includes("too conceptually similar to appear across Daily modes"), "same-day semantic collision protection is incomplete");
-check(adminDashboard.includes('.order("id")') && adminDashboard.includes("categoryRows.sort") && !adminDashboard.includes('.order("title")'), "Admin catalog paging is still vulnerable to the production title-sort timeout");
+check(adminDashboard.includes('.order("id")') && adminDashboard.includes('.gt("id", afterCategoryId)') && adminDashboard.includes("CATEGORY_PAGE_SIZE = 200") && adminDashboard.includes("categoryCatalogError") && adminDashboard.includes("categoryRows.sort") && !adminDashboard.includes('.order("title")'), "Admin catalog paging is still vulnerable to the production review-view timeout");
 check(baseImporter.includes('"worldbank-catalog:bx-gsr-tran-zs"'), "transport service-share category is not durably filtered at importer boundary");
 for (const token of ["pew-religion:other-religions-population','Largest population following other religions", "worldbank-catalog:er-h2o-fwtl-zs','Highest freshwater use relative to internal resources", "worldbank-catalog:it-net-secr','Most trusted website security certificates", "worldbank-catalog:ne-exp-gnfs-kd-zg','Fastest export growth", "'🕯️'", "'💧'", "'🔒'", "'✈️'"]) check(playerCopyAudit.includes(token), `bounded player-copy audit missing ${token}`);
 check(/^begin;/m.test(playerCopyAudit) && /commit;\s*$/.test(playerCopyAudit), "player-copy audit migration is not transaction wrapped");
@@ -74,6 +76,8 @@ check(koppenTimeout.includes("set statement_timeout='300s'"), "Köppen promotion
 check(koppenYear.includes("minimum_year=2020") && read("scripts/import-koppen-geiger.py").includes("'minimum_year':REFERENCE_YEAR"), "Köppen climatology year contract is missing");
 for (const token of ["publication_is_complete", "EXPECTED_CATEGORY_COUNT = 11", '"(504)"', "upstream request timeout"]) check(koppenPromotionScript.includes(token), `Köppen promotion timeout recovery missing ${token}`);
 check(warehouse.includes("list_v16_2_9_koppen_publication_state") && warehouse.includes("computed_playable_v16_2"), "Köppen promotion postcondition query is missing");
+for (const token of ["security_invoker=true", "stat_latest_values", "category_copy_clarity_v16_2_8", "from public,anon,authenticated", "to service_role"]) check(securityHardening.includes(token), `security-advisor hardening missing ${token}`);
+for (const token of ["set search_path=''", "set_updated_at", "player_source_url_is_safe", "category_macro_domain_v16_2_7", "v16_2_7_durable_exclusion_reason"]) check(searchPathHardening.includes(token), `function search-path hardening missing ${token}`);
 for (const token of ["promote_v16_2_9_koppen_bundle", "validation_status='verified'", "common_year_coverage", "top_value_distinct_count", "computed_playable_v16_2"]) check(migration.includes(token), `bounded climate promotion gate missing ${token}`);
 check(migration.includes("security definer\nset search_path=''"), "Köppen promotion function does not pin an empty search_path");
 for (const token of ["--minimum-pass 10", "--only desert-share", "audit-source-integrity.py", "promote-v16-2-9-koppen.py", "actions/setup-node@v6", "--only-category-prefix=koppen-geiger:"]) check(workflow.includes(token), `bounded climate workflow missing ${token}`);
@@ -81,7 +85,7 @@ check(verify.includes("Verify GeoStats v16.2.9") && verify.includes("geostats-v1
 for (const token of ["Natural and physical geography", "Country history", "Culture", "Ethnic, religious, and racial demographics", "Infrastructure, technology, and science"]) check(ledger.includes(token), `bounded source ledger missing ${token}`);
 check(/^begin;/m.test(migration) && /commit;\s*$/.test(migration), "v16.2.9 migration is not transaction wrapped");
 for (const token of ["Public all-time standings", "Google is the primary", "same-day Scout", "finite no-go outcomes"]) check(releaseNotes.includes(token), `v16.2.9 release notes missing ${token}`);
-for (const token of ["326", "Chromium/Firefox/WebKit", "code-verifier mismatch", "Supabase security and performance advisors"]) check(validation.includes(token), `v16.2.9 validation missing ${token}`);
+for (const token of ["33 successful reachability checks", "Chromium/Firefox/WebKit", "code-verifier mismatch", "Supabase security and performance advisors", "leaked-password protection"]) check(validation.includes(token), `v16.2.9 validation missing ${token}`);
 check(/^begin;/m.test(rollback) && /commit;\s*$/.test(rollback) && rollback.includes("owner-directed transport-services retirement"), "v16.2.9 rollback is incomplete");
 
 if (failures.length) {

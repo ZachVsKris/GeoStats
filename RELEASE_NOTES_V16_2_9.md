@@ -24,7 +24,7 @@
 
 - “Highest transport services as % of service exports” is a durable owner-directed exclusion at the importer and database boundaries
 - A completed, reproducible 195-country Köppen-Geiger feasibility run cleared 11 climate-geography measures
-- A manual production workflow re-proves, imports, independently audits, atomically promotes, and reachability-tests exactly those eleven measures
+- The production workflow re-proved, imported, independently audited, atomically promoted, and passed all 33 Scout/Adventurer/Expert reachability checks for exactly those eleven measures
 - History, culture, demographic, and infrastructure/technology/science passes are recorded as finite no-go outcomes below ten new additions; unchanged failed sources must not be searched repeatedly
 
 ## Quality and launch safety
@@ -32,4 +32,4 @@
 - Admin catalog paging uses the indexed category ID and sorts after retrieval, avoiding the production statement timeout caused by ordering the deeply joined review view by title
 - Versioned cache, rules, data, and player-copy identifiers advance to v16.2.9
 - The production build, TypeScript, static release checks, and focused generator/importer checks are required before publication
-- Production database changes, the climate import, the permanent Google OAuth credential, main-branch merge, and `geostats.xyz` deployment remain explicit owner approval gates
+- Production database changes, the climate import, main-branch merge, Resend SMTP, and `geostats.xyz` deployment are complete; the permanent Google OAuth credential and Supabase leaked-password dashboard toggle remain owner-only gates

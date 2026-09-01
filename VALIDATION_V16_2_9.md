@@ -10,8 +10,8 @@ Run `npm run check-v16-2-9`. The release is blocked unless the inherited catalog
 2. Confirm the removed transport category is not computed playable
 3. Dispatch the bounded Köppen workflow only after the migration exists
 4. Require all eleven stored-source validations, atomic promotion, and full Scout/Adventurer/Expert reachability proof to pass
-5. Confirm the resulting playable catalog count is 326 (316 baseline, minus one transport category, plus eleven climate categories)
-6. Run Supabase security and performance advisors and review any new RLS or index finding
+5. Confirm all eleven Köppen category IDs are computed playable and have 33 successful reachability checks (11 categories × 3 modes); do not use a brittle raw-total assertion while unrelated curation can change the catalog concurrently
+6. Run Supabase security and performance advisors and resolve every error; review any remaining warning or informational finding
 
 ## Production smoke matrix
 
@@ -23,6 +23,12 @@ Run `npm run check-v16-2-9`. The release is blocked unless the inherited catalog
 - Daily generation: no semantically equivalent categories occur within a board or across modes on the same date; no board winner ranks below global Top 20
 - Presentation: current Chrome and Safari phone/desktop checks show no clipped board controls, inaccessible modal, console error, or layout overflow
 - Email: Resend shows SPF and DKIM aligned for `geostats.xyz`; DMARC is present; From name/address are GeoStats-branded; Gmail and one non-Gmail mailbox are checked for inbox/spam placement
+
+## Owner-only final checks
+
+- Enable the Google provider after creating its permanent OAuth client; keep the client secret out of source control and chat
+- Enable Supabase Auth leaked-password protection in the dashboard
+- Recheck the branded magic-link message in Gmail and one non-Gmail mailbox after normal low-volume sending has established domain reputation
 
 ## Rollback
 

@@ -70,8 +70,10 @@ class Importer(WarehouseImporter):
   for key,title,desc,unit,direction,var,dataset in specs:
    source_code=f'CRU-TS4.09:{var}:{START}-{END}' if dataset.startswith('CRU') else f'ERA5-x0.25:{var}:{START}-{END}'
    technical=f'Country-level {dataset} annual {var}, averaged across {START}-{END}.'
-   r=IndicatorRule(key=key,title=title,description=desc,plain_language_description=desc,technical_definition=technical,unit_explanation=unit,family='Climate',icon='🌡️' if var in {'tas','txx','tnn'} else '🌧️',unit=unit,value_type='other',ranking_direction=direction,include=(var,),min_coverage=175,evidence_tier='A',source_priority=5,specificity_score=99,recognizability_score=99,understandability_score=99,fun_score=99)
-   meta={'source_page_url':SOURCE_PAGE,'methodology_url':METHOD,'dataset_release':dataset,'source_query':{'variable':var,'years':[START,END],'aggregation':'country annual indicator then 30-year mean'},'measurementType':'other','broadDomain':'physical-geography','knowledgeCluster':'climate','strategyFamily':f'climate-{var}','v16_2_6_content_reviewed':True,'manual_review_required':True}
+   measurement_type='total' if var in {'fd','tr'} else 'value'
+   value_type='total' if measurement_type=='total' else 'index'
+   r=IndicatorRule(key=key,title=title,description=desc,plain_language_description=desc,technical_definition=technical,unit_explanation=unit,family='Climate',icon='🌡️' if var in {'tas','txx','tnn'} else '🌧️',unit=unit,value_type=value_type,ranking_direction=direction,include=(var,),min_coverage=175,evidence_tier='A',source_priority=5,specificity_score=99,recognizability_score=99,understandability_score=99,fun_score=99)
+   meta={'source_page_url':SOURCE_PAGE,'methodology_url':METHOD,'dataset_release':dataset,'source_query':{'variable':var,'years':[START,END],'aggregation':'country annual indicator then 30-year mean'},'measurementType':measurement_type,'broadDomain':'physical-geography','knowledgeCluster':'climate','strategyFamily':f'climate-{var}','v16_2_6_content_reviewed':True,'manual_review_required':True}
    if dataset.startswith('CRU'): meta['api_url']=API.format(var=var,iso3='{ISO3}')
    else: meta.update({'collection':'era5-x0.25','collection_documentation':ERA5_DOC,'official_bulk_input_required':True,'no_unverified_json_endpoint_fallback':True})
    out.append(CandidateDefinition(r,source_code,title,SOURCE_PAGE,meta))

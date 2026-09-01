@@ -165,6 +165,11 @@ const HARD_RETIRED_CATEGORY_IDS = new Set([
   "natural-earth:most-large-land-areas",
 ]);
 
+/** Categories that must never remain in a current or newly published board. */
+export function isHardRetiredCategoryId(id: string) {
+  return HARD_RETIRED_CATEGORY_IDS.has(id);
+}
+
 
 const FINDEX_SUBGROUP_INDICATOR = /^FX\.OWN\.TOTL\.(YG|FE|MA|OL|40|60|PL|SO)\.ZS$/i;
 
@@ -518,10 +523,12 @@ export function buildCategoryCatalog(rows: PlayableCategoryRow[], options: Build
       ?? byIndicator.get(sourceIndicatorKey(source, row.source_indicator_code, row.ranking_direction));
     const metadata = row.metadata ?? {};
     const title = playerFacingTitle(row);
+    const measurementType = structuredMeasurementType(row);
     const playable = (row.computed_playable_v16_2 ?? row.computed_playable_v16) === true
       && (row.semantic_audit_status == null || row.semantic_audit_status === "pass")
       && !failsEditorialConceptGate(row)
-      && faostatMeasureAllowed(row);
+      && faostatMeasureAllowed(row)
+      && measurementType !== "other";
     if (playableOnly && !playable) continue;
 
     const category: Category = {
@@ -606,7 +613,7 @@ export function buildCategoryCatalog(rows: PlayableCategoryRow[], options: Build
       knowledgeCluster: metadataString(metadata, "knowledgeCluster") || row.concept_group || existing?.knowledgeCluster,
       measureType: structuredMeasureType(row),
       normalizationType: structuredNormalization(row),
-      measurementType: structuredMeasurementType(row),
+      measurementType,
       historicalValueFormat: historicalValueFormat(row),
       // Legacy field is never used for v16 eligibility.
       catalogTier: playable ? "daily" : "quarantined",

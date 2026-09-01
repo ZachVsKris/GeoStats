@@ -10,7 +10,7 @@ export function categoryMeasurementType(category: Category): CategoryMeasurement
   if (category.measureType === "historical") return "historical_date";
   if (category.measureType === "index") return "value";
   if (["total", "count", "physical"].includes(category.measureType ?? "")) return "total";
-  return "other";
+  return "value";
 }
 
 export function categoryMeasurementClass(category: Category): string {
@@ -25,7 +25,7 @@ export function categoryMeasurementLabel(category: Category): string {
     case "rate": return "Rate / density";
     case "value": return "Measured value / score";
     case "total": return "Total / absolute";
-    default: return "Other measure";
+    default: return "Measured value";
   }
 }
 
@@ -37,6 +37,6 @@ export function categoryMeasurementBadgeLabel(category: Category): string {
     case "rate": return "RATE";
     case "value": return "VALUE";
     case "total": return "TOTAL";
-    default: return "OTHER";
+    default: return "VALUE";
   }
 }

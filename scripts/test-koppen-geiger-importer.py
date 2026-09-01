@@ -4,16 +4,14 @@ from pathlib import Path
 import numpy as np, rasterio, shapefile
 from rasterio.transform import from_origin
 p=Path(__file__).with_name('import-koppen-geiger.py');s=importlib.util.spec_from_file_location('kg',p);m=importlib.util.module_from_spec(s);sys.modules[s.name]=m;s.loader.exec_module(m)
-assert len(m.GROUPS)==12 and len(m.CLASS_CODES)==30
+assert len(m.GROUPS)==11 and len(m.CLASS_CODES)==30
 assert all(not title.endswith('.') and ' share' not in title.lower() for _,title in m.GROUPS.values())
 candidates=m.Importer(None,dry_run=True).discover()
 assert all(c.rule.temporal_scope=='climatology' and c.rule.publication_year==2023 for c in candidates)
 assert all(c.metadata.get('source_query') for c in candidates)
 climate_candidates={c.rule.key:c for c in candidates}
 assert '0°C' in climate_candidates['temperate-share'].rule.description
-assert '18°C' in climate_candidates['tropical-savanna-share'].rule.description
-assert '60 mm' in climate_candidates['tropical-savanna-share'].rule.description
-assert '100 minus annual rainfall divided by 25' in climate_candidates['tropical-savanna-share'].rule.description
+assert 'tropical-savanna-share' not in climate_candidates
 assert all(c.metadata.get('broadDomain')=='climate' for c in candidates)
 assert all(c.metadata.get('measurementType') in {'share','total'} for c in candidates)
 assert all(c.rule.description.rstrip('.')==c.rule.description for c in candidates)

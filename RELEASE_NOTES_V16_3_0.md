@@ -10,7 +10,7 @@
 ## Definition and terminology audit
 
 - All ten playable Köppen–Geiger categories define the climate on the card using the Beck et al. (2023) thresholds.
-- The combined tropical-savanna climate class is retired from future boards because its accurate definition requires an awkward rainfall formula and must not be mislabeled as savanna land cover. Historical boards use concise plain-English copy.
+- The combined tropical-savanna climate class is removed from import, future generation, and unscored saved boards because its accurate definition requires an awkward rainfall formula and must not be mislabeled as savanna land cover.
 - Steppe and tropical-monsoon cards keep their defining plain-language thresholds while moving formal classification equations to the technical definition panel.
 - Temperate uses the source release's 0°C to 18°C coldest-month range and above-10°C warmest-month rule.
 - Tropical, Mediterranean, continental, polar, tundra, arid, desert, and steppe copy includes the relevant temperature, precipitation, seasonality, or aridity thresholds.
@@ -36,11 +36,11 @@
 - GeoStats now has a reusable custom globe mark, favicon, web-app manifest, Open Graph image, canonical/social metadata, and consistent branding on public information pages.
 - Branded loading, not-found, page-error, and global-error states replace framework-default dead ends.
 - Reduced-motion preferences apply globally, leaderboard loading uses a skeleton state, and admin pages are explicitly no-index.
-- The production API exposes 278 stable gameplay categories after warehouse-ID aliasing and final editorial gates, with zero missing domains and zero missing card descriptions.
+- The strict live database catalog exposes 314 playable categories before stable-ID aliasing and final runtime editorial gates, with zero missing domains, zero malformed domains, zero generic `other` measurements, and zero missing card descriptions.
 - The refreshed audit view runs with caller permissions. The only remaining non-informational Supabase security advisor is the owner-controlled leaked-password-protection toggle.
 
 ## Expansion discipline
 
-- The source ledger remains the finite source of truth: each source pass must produce at least 10 approved categories, should target 20+, and may exceed 20 when the concepts are genuinely distinct.
+- The source ledger remains the finite source of truth. Ten is a useful target rather than a release floor; a strong source may yield 20+ or any larger defensible set, while a smaller distinct set may still be worthwhile.
 - New household, surface-water, hydrography, lithology, language, volcano, settlement, demographic-yearbook, historical-polity, soil, forest, and cyclone leads are recorded with explicit bounded dispositions.
 - No unverified source lead is promoted merely to meet a numerical target.

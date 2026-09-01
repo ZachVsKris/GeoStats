@@ -81,10 +81,11 @@ EXPLICIT_BLOCKERS = {
         "women-political-empowerment", "core-civil-society",
     },
     # The bounded v16.2.8 proof rejected these two concepts on the actual
-    # global Top-20 distinct-value rule. The other eleven Köppen concepts stay
-    # represented and must continue through staging as one subject bundle.
+    # global Top-20 distinct-value rule. Tropical savanna was subsequently
+    # retired by owner review because its defining rainfall equation is too
+    # awkward for a game card. The other ten concepts remain represented.
     "Köppen-Geiger 1991–2020 climate classification": {
-        "ice-cap-share", "climate-diversity",
+        "ice-cap-share", "climate-diversity", "tropical-savanna-share",
     },
 }
 
@@ -124,7 +125,6 @@ APPROVED_TITLE_REWRITES = {
         "steppe-share": "Highest percentage of land with a steppe climate",
         "tropical-rainforest-share": "Highest percentage of land with a tropical rainforest climate",
         "tropical-monsoon-share": "Highest percentage of land with a tropical monsoon climate",
-        "tropical-savanna-share": "Highest percentage of land with a tropical savanna climate",
         "temperate-share": "Highest percentage of land with a temperate climate",
         "mediterranean-share": "Highest percentage of land with a Mediterranean climate",
         "continental-share": "Highest percentage of land with a continental climate",

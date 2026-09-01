@@ -205,12 +205,12 @@ const conceptCollisionPairs = [
     'livestock-population measures',
   ],
   [
-    { ...datasets[10].category, id: 'comtrade:phones', source: 'comtrade', name: 'Largest telephone exports', strategyFamily: 'phone-exports', similarityGroup: 'phone-exports', knowledgeCluster: 'phone-exports', productSpecificTrade: true },
-    { ...datasets[11].category, id: 'comtrade:computers', source: 'comtrade', name: 'Largest computer exports', strategyFamily: 'computer-exports', similarityGroup: 'computer-exports', knowledgeCluster: 'computer-exports', productSpecificTrade: true },
-    'product-export measures',
+    { ...datasets[10].category, id: 'highTechExports', source: 'worldbank', name: 'Largest high-tech exports', broadDomain: 'trade', strategyFamily: 'high-tech-exports', similarityGroup: 'high-tech-exports', knowledgeCluster: 'high-tech-exports', productSpecificTrade: false },
+    { ...datasets[11].category, id: 'comtrade:railway-equipment', source: 'comtrade', name: 'Largest railway-equipment exports', broadDomain: 'trade', strategyFamily: 'railway-exports', similarityGroup: 'railway-exports', knowledgeCluster: 'railway-exports', productSpecificTrade: true },
+    'export measures',
   ],
   [
-    { ...datasets[12].category, id: 'mobile', source: 'worldbank', name: 'Highest mobile subscriptions per 100 people', strategyFamily: 'mobile', similarityGroup: 'mobile', knowledgeCluster: 'telecommunications-adoption' },
+    { ...datasets[12].category, id: 'worldbank-catalog:it-cel-sets', source: 'worldbank', name: 'Most mobile phone subscriptions', strategyFamily: 'mobile', similarityGroup: 'mobile', knowledgeCluster: 'mobile-subscriptions' },
     { ...datasets[13].category, id: 'fixedBroadband', source: 'worldbank', name: 'Fixed broadband subscriptions', strategyFamily: 'fixed-broadband', similarityGroup: 'fixed-broadband', knowledgeCluster: 'telecommunications-adoption' },
     'telecommunications-subscription measures',
   ],

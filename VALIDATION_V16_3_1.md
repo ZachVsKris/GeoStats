@@ -30,6 +30,7 @@ Spot checks passed for arms imports (`🪖`), total country area (`🗺️`, phy
 - Bundled quarantine rows cannot overwrite a live approved row with the same stable ID.
 - A SQL-approved row rejected by runtime copy or measurement rules throws a catalog-contract error instead of disappearing silently.
 - Daily and hidden Random QA continue to use the same approved catalog.
+- The final semantic-icon follow-up advances the server catalog cache key so a deployment cannot reuse pre-fix player copy or icons.
 
 ## Security and operations
 

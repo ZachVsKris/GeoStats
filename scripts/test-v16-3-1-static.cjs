@@ -21,7 +21,7 @@ const greenhouseIconFollowup = read("supabase/migrations/20260901210500_v16_3_1_
 
 check(pkg.version === "16.3.1", "package version is not v16.3.1");
 check(pkg.scripts.test === "npm run test-v16-3-1" && pkg.scripts.check === "npm run check-v16-3-1", "default validation does not target v16.3.1");
-for (const token of ['APP_VERSION = "16.3.1"','RULES_VERSION = "16.3.1"','EXPERT-8X6-V16-3-1','PLAYABLE_CATALOG_CACHE_VERSION = "16.3.1.306"']) {
+for (const token of ['APP_VERSION = "16.3.1"','RULES_VERSION = "16.3.1"','EXPERT-8X6-V16-3-1','PLAYABLE_CATALOG_CACHE_VERSION = "16.3.1.306.2"']) {
   check(version.includes(token), `v16.3.1 version contract missing ${token}`);
 }
 for (const token of ['"worldbank-catalog:bx-gsr-ccis-cd"','ownerRetiredServiceTrade','GSR\\.MRCH','Catalog contract drift','Most apricots produced','Highest % of population that is male']) {

@@ -19,9 +19,10 @@ const iconFollowup = read("supabase/migrations/20260901204500_v16_3_1_semantic_i
 const reachabilityFollowup = read("supabase/migrations/20260901205500_v16_3_1_restore_reachability_exclusions.sql");
 const greenhouseIconFollowup = read("supabase/migrations/20260901210500_v16_3_1_greenhouse_icon_precedence.sql");
 
-check(pkg.version === "16.3.1", "package version is not v16.3.1");
-check(pkg.scripts.test === "npm run test-v16-3-1" && pkg.scripts.check === "npm run check-v16-3-1", "default validation does not target v16.3.1");
-for (const token of ['APP_VERSION = "16.3.1"','RULES_VERSION = "16.3.1"','EXPERT-8X6-V16-3-1','PLAYABLE_CATALOG_CACHE_VERSION = "16.3.1.306.2"']) {
+check(["16.3.1","16.3.2"].includes(pkg.version), "package version no longer includes the v16.3.1 contract");
+const currentTarget = pkg.version.replaceAll(".", "-");
+check(pkg.scripts.test === `npm run test-v${currentTarget}` && pkg.scripts.check === `npm run check-v${currentTarget}`, "default validation does not target the current v16.3 release");
+for (const token of [`APP_VERSION = "${pkg.version}"`,`RULES_VERSION = "${pkg.version}"`,'PLAYABLE_CATALOG_CACHE_VERSION']) {
   check(version.includes(token), `v16.3.1 version contract missing ${token}`);
 }
 for (const token of ['"worldbank-catalog:bx-gsr-ccis-cd"','ownerRetiredServiceTrade','GSR\\.MRCH','Catalog contract drift','Most apricots produced','Highest % of population that is male']) {

@@ -23,17 +23,17 @@ npm run dev
 Full release validation:
 
 ```bash
-npm run check-v16-3-1
+npm run check-v16-3-2
 ```
 
 ## Current database release
 
-GeoStats v16.3.1 is the current production release. It preserves Scout 4×4 / Adventurer 6×4 / Expert 8×6 scoring while making the database, player, Data page, and Audit page use one 306-category catalog. It also durably retires service import/export measures, repairs reviewed titles and taxonomy, and replaces misleading generic icons with subject-specific symbols.
+GeoStats v16.3.2 is the current production release. It preserves Scout 4×4 / Adventurer 6×4 / Expert 8×6 scoring while reconciling every approved-but-blocked category, restoring 12 verified and solver-reachable categories for one 318-category catalog, and keeping the other 72 behind their independent quality gates. Phone results now use a readable stacked ranking layout, and assigned countries use a centered accessible remove control.
 
 Run the release in this order:
 
-1. Confirm all repository migrations, including the timestamped v16.3.1 catalog-integrity migration, are applied to the healthy Supabase project
-2. Push the v16.3.1 repository and require **Verify GeoStats v16.3.1** to pass
+1. Confirm all repository migrations, including the timestamped v16.3.2 catalog-reconciliation migration, are applied to the healthy Supabase project
+2. Push the v16.3.2 repository and require **Verify GeoStats v16.3.2** to pass
 3. Confirm Vercel deploys that exact commit to production
 4. Verify the public Daily modes and all-time leaderboards, account-gated Expert flow, Admin analytics, and warehouse health
 5. Complete the owner-only Google OAuth, leaked-password protection, and multi-inbox email acceptance checks

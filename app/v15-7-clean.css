@@ -387,6 +387,49 @@
   .activePlay .seedControls{grid-template-columns:minmax(132px,1fr) repeat(3,max-content)}
 }
 
+/* GeoStats v16.3.2: phone results fit the viewport and assignment removal is a real, centered control. */
+.mobileColumnLabel{display:none}
+.activePlay .removePiece{
+  position:relative!important;top:auto!important;right:auto!important;
+  flex:0 0 auto!important;width:20px!important;height:20px!important;margin-left:auto!important;padding:4px!important;
+  border:1px solid rgba(238,233,217,.28)!important;border-radius:50%!important;background:rgba(4,12,9,.62)!important;
+  color:rgba(238,233,217,.78)!important;line-height:0!important
+}
+.activePlay .removePiece svg{display:block;width:100%;height:100%}
+.activePlay .removePiece path{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+
+@media(max-width:700px){
+  .resultsView,.resultsView .results,.resultWrap,.result,.resultMain,.resultMain>div,.leaderboard{min-width:0;max-width:100%}
+  .resultsHeading{padding:15px 14px 11px}.resultsHeading h3{font-size:20px;line-height:1.08}
+  .result{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"main main" "placement action";gap:12px 10px;padding:15px 13px}
+  .resultMain{grid-area:main;align-items:flex-start;gap:9px}.resultMain>span{font-size:25px;line-height:1.05}
+  .resultMain>div>strong{display:block;font-size:18px;line-height:1.08;overflow-wrap:anywhere;text-wrap:balance}
+  .resultMain small{display:block;margin-top:1px;font-size:12px;line-height:1.4;overflow-wrap:anywhere}
+  .placementSummary{grid-area:placement;grid-template-columns:auto auto;justify-content:start;width:auto;min-height:0;padding:0;border-left:0;gap:2px 9px}
+  .placementSummary b{font-size:22px}.placementSummary strong{font-size:8px}.placementSummary span{font-size:7px}
+  .leaderboardButton{grid-area:action;align-self:center;justify-self:end;min-height:34px;padding:7px 2px;font-size:8px}
+  .leaderboard{margin:0 7px 10px;padding:9px;overflow:visible}
+  .leaderboardHeader{min-width:0;flex-direction:column;gap:9px;padding:1px 1px 11px}
+  .leaderboardTitle h4{font-size:19px;line-height:1.08;overflow-wrap:anywhere;text-wrap:balance}
+  .leaderboardSource{width:100%;justify-content:space-between;gap:7px}
+  .leaderboard>div.leaderboardColumns{display:none}
+  .leaderboard>div:not(.leaderboardHeader):not(.leaderboardColumns){
+    min-width:0;display:grid;grid-template-columns:32px minmax(0,1fr) auto;grid-template-areas:"board country world" ". value value" ". reference points";
+    gap:5px 8px;padding:10px 5px;font-size:12px
+  }
+  .leaderboard .boardRank{grid-area:board;align-self:start}
+  .leaderboard .leaderboardCountry{grid-area:country;min-width:0;font-size:13px;line-height:1.25;overflow-wrap:anywhere}
+  .leaderboard .worldRank{grid-area:world;align-self:start;font-size:12px;text-align:right}
+  .leaderboard .leaderboardValue{grid-area:value;display:flex;justify-content:space-between;gap:8px;min-width:0;padding-top:4px;border-top:1px dotted var(--line-soft);font-variant-numeric:tabular-nums;text-align:right;overflow-wrap:anywhere}
+  .leaderboard .leaderboardReference{grid-area:reference;display:flex!important;align-items:baseline;gap:5px;min-width:0;font-size:9px;text-align:left!important;overflow-wrap:anywhere}
+  .leaderboard .leaderboardPoints{grid-area:points;display:block!important;align-self:end;font-size:11px;text-align:right}
+  .mobileColumnLabel{display:inline;color:var(--muted);font-family:var(--label);font-size:7px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+}
+
+@media(max-width:380px), (max-height:700px){
+  .activePlay .removePiece{width:18px!important;height:18px!important;padding:3px!important}
+}
+
 /* v16.2.6 phone-space rebalance: give the Country Bank more of the viewport and
    remove dead vertical space inside category cards without allowing page scroll. */
 @media(max-width:700px), (max-width:900px) and (orientation:landscape) and (max-height:500px){

@@ -3,7 +3,7 @@ import { requireAdmin } from "../../../../lib/supabase/adminAuth";
 
 export const dynamic = "force-dynamic";
 
-type ReviewStatus = "pending" | "approved" | "rejected" | "duplicate" | "needs_rewrite" | "needs_discussion";
+type ReviewStatus = "pending" | "approved" | "rejected" | "duplicate" | "needs_rewrite" | "needs_data_repair" | "needs_discussion";
 
 const STATUSES = new Set<ReviewStatus>([
   "pending",
@@ -11,6 +11,7 @@ const STATUSES = new Set<ReviewStatus>([
   "rejected",
   "duplicate",
   "needs_rewrite",
+  "needs_data_repair",
   "needs_discussion",
 ]);
 
@@ -111,6 +112,7 @@ export async function GET(request: Request) {
   let playable = 0;
   let approvedBlocked = 0;
   let integrityReady = 0;
+  let needsDataRepair = 0;
   for (const row of sourceResult.data ?? []) {
     const name = String(row.source_organization ?? "Unknown");
     const summary = sourceMap.get(name) ?? {
@@ -125,6 +127,7 @@ export async function GET(request: Request) {
     summary.total += 1;
     if (row.editorial_status === "pending") summary.pending += 1;
     if (row.editorial_status === "approved") summary.approved += 1;
+    if (row.editorial_status === "needs_data_repair") needsDataRepair += 1;
     if (["rejected", "duplicate"].includes(String(row.editorial_status))) summary.rejected += 1;
     if (row.hard_gate_ready) {
       summary.ready += 1;
@@ -142,7 +145,7 @@ export async function GET(request: Request) {
 
   return NextResponse.json({
     migrationApplied: true,
-    overview: overviewResult.data ?? {},
+    overview: { ...(overviewResult.data ?? {}), needs_data_repair: needsDataRepair },
     sources: [...sourceMap.entries()]
       .map(([name, summary]) => ({ name, ...summary }))
       .sort((a, b) => b.total - a.total || a.name.localeCompare(b.name)),

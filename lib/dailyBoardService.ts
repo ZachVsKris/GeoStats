@@ -17,6 +17,7 @@ import { fetchCountries, type CountryInfo } from "./worldBank";
 import { loadServerCategoryRegistry } from "./serverPlayableCatalog";
 import { CATEGORY_SET_VERSION, DATASET_VERSION, RULES_VERSION } from "./version";
 import type { Category } from "./categories";
+import { isHardRetiredCategoryId } from "./playableCatalog";
 
 export type StoredDailyRow = {
   challenge_date: string;
@@ -101,7 +102,15 @@ export function inspectStoredTrio(rows: StoredDailyRow[], dependencies?: Depende
       continue;
     }
     try {
-      rounds[difficulty] = decodeStored(row, dependencies);
+      const round = decodeStored(row, dependencies);
+      const retiredIds = round.categories
+        .map((dataset) => dataset.category.id)
+        .filter(isHardRetiredCategoryId);
+      if (retiredIds.length) {
+        errors[difficulty] = [`Board contains retired categories: ${retiredIds.join(", ")}.`];
+        continue;
+      }
+      rounds[difficulty] = round;
       const warnings: string[] = [];
       if (row.rules_version && row.rules_version !== RULES_VERSION) warnings.push(`Rules ${row.rules_version} predate ${RULES_VERSION}.`);
       if (row.category_set_version && row.category_set_version !== CATEGORY_SET_VERSION) warnings.push("Category set predates the current catalog.");

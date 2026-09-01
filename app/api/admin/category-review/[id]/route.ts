@@ -4,7 +4,7 @@ import { requireAdmin } from "../../../../../lib/supabase/adminAuth";
 
 export const dynamic = "force-dynamic";
 
-type ReviewStatus = "pending" | "approved" | "rejected" | "duplicate" | "needs_rewrite" | "needs_discussion";
+type ReviewStatus = "pending" | "approved" | "rejected" | "duplicate" | "needs_rewrite" | "needs_data_repair" | "needs_discussion";
 
 type ReviewUpdate = {
   status?: ReviewStatus;
@@ -27,6 +27,7 @@ const STATUSES = new Set<ReviewStatus>([
   "rejected",
   "duplicate",
   "needs_rewrite",
+  "needs_data_repair",
   "needs_discussion",
 ]);
 

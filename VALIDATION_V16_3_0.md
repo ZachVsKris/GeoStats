@@ -5,27 +5,34 @@
 - `npm run test-v16-3-0`
 - `npm run typecheck`
 - `npm run build`
-- `npm run test-e2e` across Chromium, Edge, Firefox, WebKit, Android, and iPhone profiles
+- `npx playwright test --project=chrome-desktop --project=chrome-android` — 55 passed, 1 intentionally skipped
 - `python scripts/test-koppen-geiger-importer.py`
 - `node --experimental-strip-types scripts/test-leaderboard-rating.mjs`
 - 1,000-date generator propensity/reachability checks inherited from v16.2.6+
 
 ## Production catalog assertions
 
-The post-deployment API and database audit confirmed:
+The pre-deployment live database audit confirmed:
 
-- player-visible stable gameplay IDs: 278
-- strict database rows before stable-ID aliasing and final runtime editorial gates: 310
-- player-visible categories without a subject domain: 0
-- player-visible categories without a card description: 0
-- player-visible Köppen–Geiger categories with climate taxonomy: 10
+- strict database rows before stable-ID aliasing and final runtime editorial gates: 314
+- strict database rows without a subject domain: 0
+- strict database rows with a malformed domain: 0
+- strict database rows with a generic `other` measurement: 0
+- strict database rows without a card description: 0
+- unresolved `pending`, `needs_review`, or `needs_discussion` editorial records: 0
 - tropical-savanna climate category: retired from future generation and protected at the importer, database, promotion, and runtime boundaries
 
 Warehouse row count is not presented as the player-visible category count.
 FAOSTAT and Natural Earth rows retain stable gameplay IDs, and the application
 applies final concept-clarity gates after the database's structural playability
-review. The public `/api/playable-categories` response is the release count of
-record.
+review. The public `/api/playable-categories` response is the deployed release
+count of record and is rechecked after production promotion.
+
+The complete `npm run test-v16-3-0`, `npm run typecheck`, and `npm run build`
+gates pass locally. Chromium desktop and Android pass the focused end-to-end
+suite. Firefox, WebKit, iPhone, and Edge remain CI/browser-farm coverage because
+the current build container lacks the required Firefox/WebKit system libraries
+and a Microsoft Edge installation.
 
 The copy-clarity view uses `security_invoker=true`. Supabase's security advisor
 reports no new migration errors; leaked-password protection remains an owner

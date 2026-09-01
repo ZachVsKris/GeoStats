@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState, type ChangeEvent } from "react";
 
-type ReviewStatus = "pending" | "approved" | "rejected" | "duplicate" | "needs_rewrite" | "needs_discussion";
+type ReviewStatus = "pending" | "approved" | "rejected" | "duplicate" | "needs_rewrite" | "needs_data_repair" | "needs_discussion";
 type Readiness = "all" | "ready" | "blocked";
 type PromotionFilter = "all" | "playable" | "auto_promote" | "manual_review" | "rewrite_required" | "data_repair_required" | "duplicate" | "excluded";
 type SemanticAuditFilter = "all" | "pass" | "rewrite_required" | "data_repair_required" | "review_required" | "excluded";
@@ -24,7 +24,7 @@ type CategoryRow = {
   player_source_status: string | null;
   unit: string | null;
   value_type: string | null;
-  measurement_type?: "total" | "share" | "per_capita" | "historical_date" | "other" | null;
+  measurement_type?: "total" | "share" | "per_capita" | "historical_date" | "rate" | "value" | null;
   ranking_direction: "high" | "low";
   family: string | null;
   semantic_family: string | null;
@@ -94,6 +94,7 @@ type Overview = {
   rejected: number;
   duplicates: number;
   needs_rewrite: number;
+  needs_data_repair: number;
   needs_discussion: number;
   hard_gate_ready: number;
   playable: number;
@@ -157,6 +158,7 @@ const STATUS_LABELS: Record<ReviewStatus, string> = {
   rejected: "Rejected",
   duplicate: "Duplicate",
   needs_rewrite: "Needs rewrite",
+  needs_data_repair: "Needs data repair",
   needs_discussion: "Needs discussion",
 };
 
@@ -167,6 +169,7 @@ const EMPTY_OVERVIEW: Overview = {
   rejected: 0,
   duplicates: 0,
   needs_rewrite: 0,
+  needs_data_repair: 0,
   needs_discussion: 0,
   hard_gate_ready: 0,
   playable: 0,
@@ -413,6 +416,7 @@ export default function CategoryReviewWorkbench() {
       else if (key === "r") { event.preventDefault(); quickDecision("rejected"); }
       else if (key === "d") { event.preventDefault(); quickDecision("duplicate"); }
       else if (key === "w") { event.preventDefault(); quickDecision("needs_rewrite"); }
+      else if (key === "b") { event.preventDefault(); quickDecision("needs_data_repair"); }
       else if (key === "n") { event.preventDefault(); quickDecision("needs_discussion"); }
       else if (key === "p") { event.preventDefault(); quickDecision("rejected", { political_self_reported: true }); }
       else if (key === "c") { event.preventDefault(); quickDecision("rejected", { confusing: true, esoteric: true }); }
@@ -427,6 +431,7 @@ export default function CategoryReviewWorkbench() {
     ["Playable", overview.playable],
     ["Approved but blocked", overview.approved_but_blocked],
     ["Integrity-ready", overview.hard_gate_ready],
+    ["Data repair", overview.needs_data_repair],
     ["Rejected", overview.rejected],
   ] as const;
   const semanticAuditCounts = [
@@ -548,6 +553,7 @@ export default function CategoryReviewWorkbench() {
             <button type="button" className="reject" disabled={saving} onClick={() => quickDecision("rejected")} title="Keyboard: R">Reject <kbd>R</kbd></button>
             <button type="button" className="duplicate" disabled={saving || !draft?.duplicate_of} onClick={() => quickDecision("duplicate")} title="Keyboard: D">Duplicate <kbd>D</kbd></button>
             <button type="button" disabled={saving} onClick={() => quickDecision("needs_rewrite")} title="Keyboard: W">Rewrite <kbd>W</kbd></button>
+            <button type="button" disabled={saving} onClick={() => quickDecision("needs_data_repair")} title="Keyboard: B">Data repair <kbd>B</kbd></button>
             <button type="button" disabled={saving} onClick={() => quickDecision("needs_discussion")} title="Keyboard: N">Discuss <kbd>N</kbd></button>
             <button type="button" className="political" disabled={saving} onClick={() => quickDecision("rejected", { political_self_reported: true })} title="Keyboard: P">Political / self-report <kbd>P</kbd></button>
             <button type="button" className="confusing" disabled={saving} onClick={() => quickDecision("rejected", { confusing: true, esoteric: true })} title="Keyboard: C">Too confusing <kbd>C</kbd></button>

@@ -300,7 +300,6 @@ function hasBoardClusterConflict(selected: Category[], category: Category) {
 export function canAddCategory(selected: Category[], category: Category, config: RoundConfig = ROUND_CONFIGS.normal) {
   // computed_playable_v16_2 is authoritative. Application code may reject a
   // malformed loaded dataset, but it must not recreate a hidden quality tier.
-  if (category.enabled === false) return false;
   const type = roundType(category);
   if (selected.filter((item) => roundType(item) === type).length >= MAX_PER_ROUND_TYPE) return false;
   const group = similarityGroup(category);

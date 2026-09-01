@@ -28,7 +28,7 @@ const serverPlayableCatalog = read("lib/serverPlayableCatalog.ts");
 
 check(pkg.version === "16.3.0", "package version is not v16.3.0");
 check(pkg.scripts.test === "npm run test-v16-3-0" && pkg.scripts.check === "npm run check-v16-3-0", "default validation does not target v16.3.0");
-for (const token of ['APP_VERSION = "16.3.0"', 'RULES_VERSION = "16.3.0"', 'PLAYER_COPY_VERSION = "16.3.0.7"', 'PLAYABLE_CATALOG_CACHE_VERSION = "16.3.0.337"', 'LEADERBOARD_RATING_VERSION = "hybrid-absolute-peer-bayesian-v2"']) check(version.includes(token), `v16.3.0 version contract missing ${token}`);
+for (const token of ['APP_VERSION = "16.3.0"', 'RULES_VERSION = "16.3.0"', 'PLAYER_COPY_VERSION = "16.3.0.8"', 'PLAYABLE_CATALOG_CACHE_VERSION = "16.3.0.337"', 'LEADERBOARD_RATING_VERSION = "hybrid-absolute-peer-bayesian-v2"']) check(version.includes(token), `v16.3.0 version contract missing ${token}`);
 for (const token of ["0°C", "18°C", "60 mm", "100 minus annual rainfall divided by 25", "CLIMATE_TECHNICAL_DEFINITIONS"]) check(importer.includes(token), `climate definition contract missing ${token}`);
 for (const token of ["taxonomyVersion", "category_macro_domain_v16_2_7", "tropical-savanna-share", "temperate-share", "enable row level security"]) check(migration.includes(token), `clarity/taxonomy migration missing ${token}`);
 check(/^begin;/m.test(migration) && /commit;\s*$/.test(migration), "v16.3.0 migration is not transaction wrapped");
@@ -55,7 +55,7 @@ check(accounts.includes("keepFocusInside") && accounts.includes('role="status"')
 for (const file of ["app/not-found.tsx", "app/error.tsx", "app/global-error.tsx", "app/loading.tsx", "app/icon.svg", "app/manifest.ts", "app/opengraph-image.tsx"]) check(fs.existsSync(path.join(root, file)), `missing production polish file ${file}`);
 check(layout.includes("metadataBase") && layout.includes("openGraph") && layout.includes("twitter"), "root social metadata is incomplete");
 for (const token of ["conomy", "economy", "nvironment", "environment"]) check(semantics.includes(token), `runtime malformed-domain repair missing ${token}`);
-for (const token of ["HARD_CONFLICT_KNOWLEDGE_CLUSTERS", "climate-classification", "physical-ice"]) check(semantics.includes(token), `same-day concept collision rule missing ${token}`);
+for (const token of ["HARD_CONFLICT_KNOWLEDGE_CLUSTERS", "hardConflictConcept", "climate-classification", "physical-ice", "physical-borders", "livestock-population", "product-exports", "telecommunications-adoption"]) check(semantics.includes(token), `same-day concept collision rule missing ${token}`);
 check(proxy.includes("clearStaleAuthCookies") && proxy.includes("refresh token") && proxy.includes("throw caught"), "stale Supabase sessions do not recover safely in middleware");
 check(playableCatalog.includes("firstCompleteSentence(value: string, maximum = 200)"), "defined category descriptions are still truncated to the old 82-character limit");
 check(serverPlayableCatalog.includes("const PLAYER_COPY_SELECT") && serverPlayableCatalog.includes(".select(PLAYER_COPY_SELECT)"), "Daily copy hydration must use the compact player-copy projection");

@@ -23,7 +23,7 @@ const serverPlayableCatalog = read("lib/serverPlayableCatalog.ts");
 
 check(pkg.version === "16.3.0", "package version is not v16.3.0");
 check(pkg.scripts.test === "npm run test-v16-3-0" && pkg.scripts.check === "npm run check-v16-3-0", "default validation does not target v16.3.0");
-for (const token of ['APP_VERSION = "16.3.0"', 'RULES_VERSION = "16.3.0"', 'LEADERBOARD_RATING_VERSION = "hybrid-absolute-peer-bayesian-v2"']) check(version.includes(token), `v16.3.0 version contract missing ${token}`);
+for (const token of ['APP_VERSION = "16.3.0"', 'RULES_VERSION = "16.3.0"', 'PLAYER_COPY_VERSION = "16.3.0.2"', 'PLAYABLE_CATALOG_CACHE_VERSION = "16.3.0.333"', 'LEADERBOARD_RATING_VERSION = "hybrid-absolute-peer-bayesian-v2"']) check(version.includes(token), `v16.3.0 version contract missing ${token}`);
 for (const token of ["0°C", "18°C", "60 mm", "100 minus annual rainfall divided by 25", "CLIMATE_TECHNICAL_DEFINITIONS"]) check(importer.includes(token), `climate definition contract missing ${token}`);
 for (const token of ["taxonomyVersion", "category_macro_domain_v16_2_7", "tropical-savanna-share", "temperate-share", "enable row level security"]) check(migration.includes(token), `clarity/taxonomy migration missing ${token}`);
 check(/^begin;/m.test(migration) && /commit;\s*$/.test(migration), "v16.3.0 migration is not transaction wrapped");

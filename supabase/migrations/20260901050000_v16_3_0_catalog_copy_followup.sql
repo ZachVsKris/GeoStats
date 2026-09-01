@@ -62,7 +62,7 @@ set description=d.description,
 from definitions d where c.id=d.id;
 
 -- The computed review view is the single playability authority. Keep legacy
--- flags in sync so every server path sees the same 321-category catalog.
+-- flags in sync before stable-ID aliasing and final application editorial gates.
 update public.stat_categories c
 set enabled=v.computed_playable_v16_2,
     eligible_daily=v.computed_playable_v16_2,

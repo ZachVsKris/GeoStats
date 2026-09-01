@@ -10,18 +10,26 @@
 - `node --experimental-strip-types scripts/test-leaderboard-rating.mjs`
 - 1,000-date generator propensity/reachability checks inherited from v16.2.6+
 
-## Production database assertions
+## Production catalog assertions
 
-The v16.3.0 migrations assert and the post-migration query confirmed:
+The post-deployment API and database audit confirmed:
 
-- computed playable categories: 321
-- enabled Daily categories: 321
-- playable categories without a subject domain: 0
-- playable categories without a card description: 0
-- playable copy-clarity failures: 0
-- playable Köppen–Geiger categories with climate taxonomy: 11
+- player-visible stable gameplay IDs: 278
+- strict database rows before stable-ID aliasing and final runtime editorial gates: 310
+- player-visible categories without a subject domain: 0
+- player-visible categories without a card description: 0
+- player-visible Köppen–Geiger categories with climate taxonomy: 10
+- tropical-savanna climate category: retired from future generation and protected at the importer, database, promotion, and runtime boundaries
 
-The copy-clarity view uses `security_invoker=true`. Supabase's security advisor reports no errors; leaked-password protection remains an owner dashboard setting.
+Warehouse row count is not presented as the player-visible category count.
+FAOSTAT and Natural Earth rows retain stable gameplay IDs, and the application
+applies final concept-clarity gates after the database's structural playability
+review. The public `/api/playable-categories` response is the release count of
+record.
+
+The copy-clarity view uses `security_invoker=true`. Supabase's security advisor
+reports no new migration errors; leaked-password protection remains an owner
+dashboard setting.
 
 ## Manual owner checks after deployment
 

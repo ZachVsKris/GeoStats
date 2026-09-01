@@ -9,7 +9,8 @@
 
 ## Definition and terminology audit
 
-- All eleven playable Köppen–Geiger categories define the climate on the card using the exact Beck et al. (2023) thresholds.
+- All ten playable Köppen–Geiger categories define the climate on the card using the Beck et al. (2023) thresholds.
+- The combined tropical-savanna climate class is retired from future boards because its accurate definition requires an awkward rainfall formula and must not be mislabeled as savanna land cover. Historical boards use concise plain-English copy.
 - Temperate uses the source release's 0°C to 18°C coldest-month range and above-10°C warmest-month rule.
 - Tropical, Mediterranean, continental, polar, tundra, arid, desert, and steppe copy includes the relevant temperature, precipitation, seasonality, or aridity thresholds.
 - Percentage titles consistently use `%`; legacy `share` and incorrect `Largest` wording has been removed from the playable catalog.
@@ -34,7 +35,7 @@
 - GeoStats now has a reusable custom globe mark, favicon, web-app manifest, Open Graph image, canonical/social metadata, and consistent branding on public information pages.
 - Branded loading, not-found, page-error, and global-error states replace framework-default dead ends.
 - Reduced-motion preferences apply globally, leaderboard loading uses a skeleton state, and admin pages are explicitly no-index.
-- The catalog database migration closes with 321 computed-playable and 321 enabled categories, zero missing domains, zero missing card descriptions, and zero copy-clarity issues.
+- The production API exposes 278 stable gameplay categories after warehouse-ID aliasing and final editorial gates, with zero missing domains and zero missing card descriptions.
 - The refreshed audit view runs with caller permissions. The only remaining non-informational Supabase security advisor is the owner-controlled leaked-password-protection toggle.
 
 ## Expansion discipline

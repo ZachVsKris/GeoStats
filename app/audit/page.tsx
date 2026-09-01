@@ -2,8 +2,10 @@ import { CATEGORIES, type Category } from "../../lib/categories";
 import { loadServerPlayableCategoryCatalog } from "../../lib/serverPlayableCatalog";
 import { SOURCE_REGISTRY } from "../../lib/sourceRegistry";
 import { resolvePlayerSourceUrl } from "../../lib/playerSourceLinks";
+import Brand from "../../components/Brand";
 
 export const dynamic = "force-dynamic";
+export const metadata = { title: "Category trust audit" };
 
 async function loadAuditCatalog(): Promise<Category[]> {
   let approved: Category[];
@@ -28,7 +30,7 @@ export default async function AuditPage(){
   const approvedCount = Math.max(0, categories.length - blockedCount);
   return <main className="shell standalonePage infoPage">
     <header>
-      <a href="/daily" className="brand brandLink"><span className="logo">🌍</span><div><h1>GeoStats</h1><p>Geography, with strategy.</p></div></a>
+      <Brand linked />
       <div className="headerButtons infoHeaderNav"><a className="headerButtonLink" href="/daily">Play Daily</a><a className="headerButtonLink" href="/leaderboard">Leaderboard</a><a className="headerButtonLink" href="/data">Data &amp; sources</a></div>
     </header>
 

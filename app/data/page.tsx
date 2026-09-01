@@ -3,8 +3,10 @@ import { loadServerPlayableCategoryCatalog } from "../../lib/serverPlayableCatal
 import { DATASET_VERSION, RULES_VERSION } from "../../lib/version";
 import { SOURCE_REGISTRY } from "../../lib/sourceRegistry";
 import { resolvePlayerSourceUrl } from "../../lib/playerSourceLinks";
+import Brand from "../../components/Brand";
 
 export const dynamic = "force-dynamic";
+export const metadata = { title: "Data & sources" };
 
 async function loadCatalog(): Promise<{ categories: Category[]; warehouseLoaded: boolean }> {
   try {
@@ -24,7 +26,7 @@ export default async function DataPage(){
   const staticQuarantined=CATEGORIES.filter((category)=>category.trustStatus==="quarantined" || category.enabled===false);
   return <main className="shell standalonePage infoPage">
     <header>
-      <a href="/daily" className="brand brandLink"><span className="logo">🌍</span><div><h1>GeoStats</h1><p>Geography, with strategy.</p></div></a>
+      <Brand linked />
       <div className="headerButtons infoHeaderNav"><a className="headerButtonLink" href="/daily">Play Daily</a><a className="headerButtonLink" href="/leaderboard">Leaderboard</a><a className="headerButtonLink" href="/audit">Trust audit</a></div>
     </header>
 

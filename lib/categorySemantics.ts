@@ -84,7 +84,24 @@ function contains(text: string, patterns: RegExp[]) {
 }
 
 function normalizedBroadDomain(category: Category) {
-  if (category.broadDomain?.trim()) return slug(category.broadDomain);
+  if (category.broadDomain?.trim()) {
+    const domain = slug(category.broadDomain);
+    const repaired: Record<string, string> = {
+      conomy: "economy",
+      nvironment: "environment",
+      nergy: "energy",
+      ransport: "transport",
+      echnology: "technology",
+      overnment: "government",
+      rade: "trade",
+      emographics: "demographics",
+      ealth: "health",
+      griculture: "agriculture",
+      ulture: "culture",
+      limate: "climate",
+    };
+    return repaired[domain] ?? domain;
+  }
   const family = slug(category.family || category.roundType || "other");
   if (["crops", "fruit", "vegetables", "livestock", "dairy", "agriculture"].includes(family)) return "agriculture";
   if (["geography", "land", "climate"].includes(family)) return "physical-geography";
@@ -325,6 +342,16 @@ export function categorySemanticSimilarity(first: Category, second: Category) {
 
 export const MAX_SAME_BOARD_SEMANTIC_SIMILARITY = 0.82;
 
+// These clusters describe one underlying concept with several closely related
+// cuts. They are hard one-per-board and one-per-Daily-trio conflicts even when
+// the narrower strategyFamily differs (for example, temperate vs savanna).
+const HARD_CONFLICT_KNOWLEDGE_CLUSTERS = new Set([
+  "climate-classification",
+  "forced-displacement",
+  "physical-ice",
+  "religious-composition",
+]);
+
 export function semanticConflict(first: Category, second: Category) {
   const cached = CONFLICT_CACHE.get(first)?.get(second);
   if (cached !== undefined) return cached;
@@ -333,11 +360,14 @@ export function semanticConflict(first: Category, second: Category) {
   const secondProfile = inferSemanticProfile(second);
   const firstStrategy = slug(first.strategyFamily || firstProfile.family);
   const secondStrategy = slug(second.strategyFamily || secondProfile.family);
+  const firstCluster = slug(first.knowledgeCluster || firstProfile.knowledgeCluster);
+  const secondCluster = slug(second.knowledgeCluster || secondProfile.knowledgeCluster);
   // Title similarity is an editorial warning, not a hard gameplay conflict.
   // Hard conflicts must be grounded in an explicit strategy family or other
   // structured semantic metadata; common words such as “Most” must not block
   // unrelated categories.
-  const conflict = firstStrategy === secondStrategy;
+  const conflict = firstStrategy === secondStrategy
+    || (firstCluster === secondCluster && HARD_CONFLICT_KNOWLEDGE_CLUSTERS.has(firstCluster));
 
   const firstMap = CONFLICT_CACHE.get(first) ?? new WeakMap<Category, boolean>();
   firstMap.set(second, conflict);

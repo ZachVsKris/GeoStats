@@ -182,8 +182,8 @@ for (const token of [
 check(worldBankCatalog.includes("per (?:unit of|kg of|kilogram of)"), "World Bank catalog no longer recognizes per-unit ratios");
 check(worldBankCatalog.includes('prefix = "Most"') && worldBankCatalog.includes('prefix = "Largest"'), "World Bank title rules do not distinguish counts from amounts");
 
-check(/Verify GeoStats v16\.2\.(8|9)/.test(workflow), "verification workflow name is older than v16.2.8");
-check(/npm run test-v16-2-(8|9)/.test(workflow), "verification workflow does not run the v16.2.8-or-newer checks");
+check(/Verify GeoStats v16\.(?:2\.(?:8|9)|[3-9]\.\d+)/.test(workflow), "verification workflow name is older than v16.2.8");
+check(/npm run test-v16-(?:2-(?:8|9)|[3-9]-\d+)/.test(workflow), "verification workflow does not run the v16.2.8-or-newer checks");
 
 for (const token of [
   "hydrateRoundSnapshotPlayerCopy",
@@ -198,8 +198,8 @@ for (const token of [
   "PLAYER_COPY_VERSION",
   "original countries, values, rules, and scoring",
 ]) check(publicDaily.includes(token), `public Daily copy hydration missing ${token}`);
-check(/PLAYER_COPY_VERSION = "16\.2\.(8\.1|9\.[2-9])"/.test(version), "player-copy cache version is older than v16.2.8");
-check(/PLAYABLE_CATALOG_CACHE_VERSION = "16\.2\.(8\.316|9\.(?:32[7-9]|33[0-9]))"/.test(version), "playable-catalog cache version is older than the reviewed v16.2.8 catalog");
+check(/PLAYER_COPY_VERSION = "16\.(?:2\.(?:8\.1|9\.[2-9])|[3-9]\.\d+\.\d+)"/.test(version), "player-copy cache version is older than v16.2.8");
+check(/PLAYABLE_CATALOG_CACHE_VERSION = "16\.(?:2\.(?:8\.316|9\.(?:32[7-9]|33[0-9]))|[3-9]\.\d+\.\d+)"/.test(version), "playable-catalog cache version is older than the reviewed v16.2.8 catalog");
 check(serverPlayableCatalog.match(/PLAYABLE_CATALOG_CACHE_VERSION/g)?.length >= 5, "server catalog caches are not versioned consistently");
 check(playableCatalogRoute.includes("X-GeoStats-Catalog-Version") && playableCatalogRoute.includes("PLAYABLE_CATALOG_CACHE_VERSION"), "catalog endpoint does not disclose its cache version");
 check(game.includes("${PLAYER_COPY_VERSION}:${date}") && game.includes("copy: PLAYER_COPY_VERSION"), "browser/CDN Daily caches are not keyed by player-copy version");

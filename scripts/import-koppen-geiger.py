@@ -32,6 +32,42 @@ GROUPS={
  'tundra-share':({29},'Highest percentage of land with a tundra climate'),
  'ice-cap-share':({30},'Highest percentage of land with an ice-cap climate'),
 }
+
+# Player copy mirrors Table 1 of Beck et al. (2023). The classification uses
+# 0 C, rather than the older -3 C convention, to separate temperate and cold
+# climates. MAP is mean annual precipitation. The aridity threshold in mm is
+# 20 x mean annual temperature, plus 280 when at least 70% of rain falls in the
+# warmer six months, plus 0 when at least 70% falls in the colder six months,
+# and plus 140 otherwise.
+CLIMATE_DEFINITIONS={
+ 'desert-share':'Share of land where annual rainfall is below half the Köppen–Geiger aridity limit: 20× mean annual °C, plus 280 mm for summer rain, 0 mm for winter rain, or 140 mm otherwise',
+ 'arid-share':'Share of land where annual rainfall is below the Köppen–Geiger aridity limit: 20× mean annual °C, plus 280 mm for summer rain, 0 mm for winter rain, or 140 mm otherwise',
+ 'steppe-share':'Share of land receiving at least half, but less than all, of the Köppen–Geiger aridity limit: 20× mean annual °C, plus 280 mm for summer rain, 0 mm for winter rain, or 140 mm otherwise',
+ 'tropical-rainforest-share':'Share of land where every month averages at least 18°C and the driest month receives at least 60 mm of rain',
+ 'tropical-monsoon-share':'Share of land where every month averages at least 18°C and the driest month receives under 60 mm but at least 100 minus annual rainfall divided by 25',
+ 'tropical-savanna-share':'Share of land where every month averages at least 18°C and the driest month receives under 60 mm and less than 100 minus annual rainfall divided by 25',
+ 'temperate-share':'Share of non-arid land where the coldest month averages above 0°C but below 18°C and the warmest month averages above 10°C',
+ 'mediterranean-share':'Share of temperate land where the driest summer month receives under 40 mm and less than one-third the rain of the wettest winter month',
+ 'continental-share':'Share of non-arid land where the coldest month averages 0°C or below and the warmest month averages above 10°C',
+ 'polar-share':'Share of non-arid land where the warmest month averages 10°C or below',
+ 'tundra-share':'Share of non-arid land where the warmest month averages above 0°C but no more than 10°C',
+ 'ice-cap-share':'Share of non-arid land where even the warmest month averages 0°C or below',
+}
+
+CLIMATE_TECHNICAL_DEFINITIONS={
+ 'desert-share':'Area-weighted share in BWh or BWk: MAP < 5 × Pthreshold',
+ 'arid-share':'Area-weighted share in BWh, BWk, BSh, or BSk: MAP < 10 × Pthreshold',
+ 'steppe-share':'Area-weighted share in BSh or BSk: 5 × Pthreshold ≤ MAP < 10 × Pthreshold',
+ 'tropical-rainforest-share':'Area-weighted share in Af: not B, Tcold ≥ 18°C, and Pdry ≥ 60 mm/month',
+ 'tropical-monsoon-share':'Area-weighted share in Am: not B or Af, Tcold ≥ 18°C, and Pdry ≥ 100 − MAP/25',
+ 'tropical-savanna-share':'Area-weighted share in Aw: not B or Af, Tcold ≥ 18°C, and Pdry < 100 − MAP/25',
+ 'temperate-share':'Area-weighted share in C classes: not B, Thot > 10°C, and 0°C < Tcold < 18°C',
+ 'mediterranean-share':'Area-weighted share in Csa, Csb, or Csc: C-class criteria plus Psdry < 40 mm/month and Psdry < Pwwet/3',
+ 'continental-share':'Area-weighted share in D classes: not B, Thot > 10°C, and Tcold ≤ 0°C',
+ 'polar-share':'Area-weighted share in E classes: not B and Thot ≤ 10°C',
+ 'tundra-share':'Area-weighted share in ET: not B and 0°C < Thot ≤ 10°C',
+ 'ice-cap-share':'Area-weighted share in EF: not B and Thot ≤ 0°C',
+}
 DIVERSITY_TITLE='Most climate types'
 def _sha(path):
  h=hashlib.sha256();
@@ -111,12 +147,13 @@ class Importer(WarehouseImporter):
  def discover(self):
   out=[]
   for key,(codes,title) in GROUPS.items():
-   labels=tuple(k for k,v in CLASS_CODES.items() if v in codes);desc=f'Percentage of the country’s land in this climate group during the 1991–2020 climate normal'
-   rule=IndicatorRule(key=key,title=title,description=desc,plain_language_description=desc,technical_definition=f'Area-weighted percentage of national raster cells in exact Köppen-Geiger classes {labels}; WGS84 geodesic pixel-area weighting.',unit_explanation='% of land',family='Climate',icon='🌦️',unit='% of land',value_type='percentage',ranking_direction='high',include=labels,min_coverage=180,evidence_tier='A',source_priority=10,specificity_score=100,recognizability_score=96,understandability_score=96,fun_score=98,temporal_scope='climatology',publication_year=2023)
-   out.append(CandidateDefinition(rule,f'KOPPEN:{key}',title,SOURCE_PAGE,{'source_page_url':SOURCE_PAGE,'reference_period':'1991-2020','minimum_year':REFERENCE_YEAR,'dataset_release':'Scientific Data 2023 climate normal','license_name':'CC BY 4.0','license_url':'https://creativecommons.org/licenses/by/4.0/','source_query':{'raster_release':'1991-2020','included_classes':labels,'aggregation':'geodesic area-weighted share by sovereign country'},'official_raster_input_required':True,'pinned_country_geometry_required':True,'included_classes':labels,'area_weighted':True,'derivation_method':'Geodesic area-weighted intersection of the published 1-km classification raster with canonical sovereign geometry','derivation_version':'geostats-v16.2.8-koppen-v2','manual_review_required':True,'v16_2_6_content_reviewed':True}))
+   labels=tuple(k for k,v in CLASS_CODES.items() if v in codes);desc=CLIMATE_DEFINITIONS[key]
+   technical=f"{CLIMATE_TECHNICAL_DEFINITIONS[key]}; exact classes {labels}; WGS84 geodesic pixel-area weighting"
+   rule=IndicatorRule(key=key,title=title,description=desc,plain_language_description=desc,technical_definition=technical,unit_explanation='% of classified land',family='Climate',icon='🌦️',unit='% of land',value_type='percentage',ranking_direction='high',include=labels,min_coverage=180,evidence_tier='A',source_priority=10,specificity_score=100,recognizability_score=96,understandability_score=98,fun_score=98,temporal_scope='climatology',publication_year=2023)
+   out.append(CandidateDefinition(rule,f'KOPPEN:{key}',title,SOURCE_PAGE,{'source_page_url':SOURCE_PAGE,'reference_period':'1991-2020','minimum_year':REFERENCE_YEAR,'dataset_release':'Scientific Data 2023 climate normal','license_name':'CC BY 4.0','license_url':'https://creativecommons.org/licenses/by/4.0/','source_query':{'raster_release':'1991-2020','included_classes':labels,'aggregation':'geodesic area-weighted share by sovereign country'},'official_raster_input_required':True,'pinned_country_geometry_required':True,'included_classes':labels,'area_weighted':True,'measurementType':'share','broadDomain':'climate','knowledgeCluster':'climate-classification','strategyFamily':f'koppen-climate:{key.removesuffix("-share")}','definition_standard':'Beck et al. 2023 Table 1','derivation_method':'Geodesic area-weighted intersection of the published 1-km classification raster with canonical sovereign geometry','derivation_version':'geostats-v16.3.0-koppen-v3','manual_review_required':True,'v16_2_6_content_reviewed':True}))
   desc='Number of Köppen-Geiger climate types covering at least 1% of the country’s land'
   rule=IndicatorRule(key='climate-diversity',title=DIVERSITY_TITLE,description=desc,plain_language_description=desc,technical_definition='Number of exact Köppen-Geiger classes 1–30 covering at least 1% of the country’s mapped land area, using WGS84 geodesic pixel-area weighting.',unit_explanation='climate types covering ≥1% of land',family='Climate',icon='🌈',unit='climate types',value_type='count',ranking_direction='high',include=tuple(CLASS_CODES),min_coverage=180,evidence_tier='A',source_priority=10,specificity_score=100,recognizability_score=94,understandability_score=95,fun_score=99,temporal_scope='climatology',publication_year=2023)
-  out.append(CandidateDefinition(rule,'KOPPEN:climate-diversity',DIVERSITY_TITLE,SOURCE_PAGE,{'source_page_url':SOURCE_PAGE,'reference_period':'1991-2020','minimum_year':REFERENCE_YEAR,'dataset_release':'Scientific Data 2023 climate normal','license_name':'CC BY 4.0','license_url':'https://creativecommons.org/licenses/by/4.0/','source_query':{'raster_release':'1991-2020','classes':'1-30','minimum_country_share_pct':1.0,'aggregation':'count classes by sovereign country'},'official_raster_input_required':True,'pinned_country_geometry_required':True,'class_share_threshold_pct':1.0,'area_weighted':True,'derivation_method':'Count of published 1-km Köppen-Geiger classes covering at least 1% of canonical sovereign geometry','derivation_version':'geostats-v16.2.8-koppen-v2','manual_review_required':True,'v16_2_6_content_reviewed':True}))
+  out.append(CandidateDefinition(rule,'KOPPEN:climate-diversity',DIVERSITY_TITLE,SOURCE_PAGE,{'source_page_url':SOURCE_PAGE,'reference_period':'1991-2020','minimum_year':REFERENCE_YEAR,'dataset_release':'Scientific Data 2023 climate normal','license_name':'CC BY 4.0','license_url':'https://creativecommons.org/licenses/by/4.0/','source_query':{'raster_release':'1991-2020','classes':'1-30','minimum_country_share_pct':1.0,'aggregation':'count classes by sovereign country'},'official_raster_input_required':True,'pinned_country_geometry_required':True,'class_share_threshold_pct':1.0,'area_weighted':True,'measurementType':'total','broadDomain':'climate','knowledgeCluster':'climate-classification','strategyFamily':'koppen-climate-diversity','definition_standard':'Beck et al. 2023 Table 1','derivation_method':'Count of published 1-km Köppen-Geiger classes covering at least 1% of canonical sovereign geometry','derivation_version':'geostats-v16.3.0-koppen-v3','manual_review_required':True,'v16_2_6_content_reviewed':True}))
   return out
  def fetch_observations(self,c):return self._data().get(c.rule.key,[])
  def category_id(self,c):return f'koppen-geiger:{c.rule.key}'

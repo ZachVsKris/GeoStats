@@ -33,6 +33,16 @@ function redirectOrigin(request: Request, origin: string) {
   return forwardedHost ? `https://${forwardedHost}` : origin;
 }
 
+function friendlyAuthError(value: unknown) {
+  const raw = value instanceof Error ? value.message : String(value ?? "");
+  if (/code challenge.*code verifier|pkce/i.test(raw)) return "This sign-in link was opened in a different browser session. Return to GeoStats and request a new link.";
+  if (/expired|otp_expired/i.test(raw)) return "This sign-in link has expired. Return to GeoStats and request a new one.";
+  if (/already.*used|invalid.*token|token.*invalid/i.test(raw)) return "This sign-in link is invalid or has already been used. Return to GeoStats and request a new one.";
+  if (/provider.*not enabled|unsupported provider/i.test(raw)) return "That sign-in option is not available yet. Use the email sign-in link instead.";
+  if (/rate limit|too many requests/i.test(raw)) return "Too many sign-in attempts were made. Wait a minute, then request a new link.";
+  return "GeoStats could not complete sign-in. Return to the game and try again.";
+}
+
 export async function GET(request: Request) {
   const incoming = new URL(request.url);
   const next = safeNext(incoming);
@@ -41,7 +51,7 @@ export async function GET(request: Request) {
 
   if (queryError) {
     const errorUrl = new URL("/auth/complete", origin);
-    errorUrl.searchParams.set("error", queryError.replace(/\+/g, " "));
+    errorUrl.searchParams.set("error", friendlyAuthError(queryError.replace(/\+/g, " ")));
     return NextResponse.redirect(errorUrl);
   }
 
@@ -88,7 +98,7 @@ export async function GET(request: Request) {
     const errorUrl = new URL("/auth/complete", origin);
     errorUrl.searchParams.set(
       "error",
-      caught instanceof Error ? caught.message : "GeoStats could not complete sign-in.",
+      friendlyAuthError(caught),
     );
     return NextResponse.redirect(errorUrl);
   }

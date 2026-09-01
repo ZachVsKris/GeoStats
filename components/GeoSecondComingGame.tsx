@@ -7,6 +7,7 @@ import { SOURCE_REGISTRY } from "../lib/sourceRegistry";
 import { formatValue, poolLeaderboard, scorePlacements } from "../lib/dataEngine";
 import { decodeRound, deserializeRound, type Round, type RoundCategory } from "../lib/challengeCodec";
 import AccountControls from "./AccountControls";
+import Brand from "./Brand";
 import CategorySourcePanel from "./CategorySourcePanel";
 import { newYorkDate } from "../lib/time";
 import { DAILY_DIFFICULTIES, DEFAULT_DIFFICULTY, ROUND_CONFIGS, configForDifficultyDimensions, type DailyDifficulty, difficultyFromPath } from "../lib/gameRules";
@@ -677,7 +678,7 @@ Can you beat my score?`;
 
   return <div className={`shell ${!scores ? "activePlay" : ""} ${status ? "loadingPlay" : ""} ${error ? "errorPlay" : ""} ${scores ? "resultsView" : ""} ${difficulty}Round ${difficulty === "expert" ? "expertRound" : ""} ${difficulty === "easy" ? "compactRound" : ""} ${legacyDimensions ? "legacyRound" : ""} ${expertPreview ? "expertPreview" : ""}`}>
     {!scores && <header>
-      <div className="brand"><span className="logo">🌍</span><div><h1>GeoStats</h1><p>Geography, with strategy.</p></div></div>
+      <Brand />
       <div className="headerButtons desktopHeaderButtons">
         <a href="/audit" className="headerLink">Data audit</a>
         <button onClick={() => setShowRules(true)}>How it works</button>

@@ -4,7 +4,7 @@ import { newYorkDate } from "../../lib/time";
 
 export const dynamic = "force-dynamic";
 
-export const metadata = { title: "Scout Daily | GeoStats" };
+export const metadata = { title: "Scout Daily" };
 
 export default async function DailyPage() {
   const date = newYorkDate();

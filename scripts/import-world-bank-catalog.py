@@ -28,6 +28,16 @@ OWNER_EXCLUDED_INDICATORS = {
     "BX.GSR.TRAN.ZS",  # Transport services as a share of service exports
 }
 
+PLAYER_COPY_OVERRIDES = {
+    "BX.GSR.CCIS.ZS": ("Highest IT and telecom services as % of service exports", "Telecom, computer and information services as a percentage of all services sold abroad."),
+    "BM.GSR.TRAN.ZS": ("Highest transport services as % of service imports", "Passenger and freight transport bought from providers abroad as a percentage of all services bought from abroad."),
+    "EG.USE.COMM.CL.ZS": ("Highest % of energy from alternative and nuclear sources", "Percentage of energy use supplied by hydropower, nuclear, geothermal and solar power, among other non-fossil sources."),
+    "EG.USE.CRNW.ZS": ("Highest % of energy from biomass and waste", "Percentage of energy use supplied by burnable plant material, animal waste and municipal or industrial waste."),
+    "MS.MIL.XPND.ZS": ("Highest military spending as % of government spending", "Military spending as a percentage of all spending by national, regional and local government."),
+    "ER.MRN.PTMR.ZS": ("Highest % of territorial waters protected", "Percentage of waters under the country’s jurisdiction that are designated as marine protected areas."),
+    "GC.TAX.TOTL.GD.ZS": ("Highest tax revenue as % of GDP", "Tax revenue as a percentage of the country’s total economic output."),
+}
+
 SUBJECTIVE_OR_COMPOSITE = re.compile(
     r"happiness|perception|democracy|freedom|peace index|prosperity|competitiveness|governance indicator|"
     r"voice and accountability|political stability|rule of law|control of corruption|government effectiveness|"
@@ -245,6 +255,8 @@ class WorldBankCatalogImporter(WarehouseImporter):
             note = _text(row.get("sourceNote") or row.get("source_note"))
             description = _first_sentence(note, f"{name}, reported using the World Bank indicator definition")
             title = _player_title(name, value_type)
+            if code.upper() in PLAYER_COPY_OVERRIDES:
+                title, description = PLAYER_COPY_OVERRIDES[code.upper()]
             if not _copy_is_playable(name, title, description):
                 continue
             understandability, fun = _scores(name, note)

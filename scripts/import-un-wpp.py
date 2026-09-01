@@ -119,7 +119,7 @@ SPECS={
  'highest-net-migration-rate':('Highest net migration rate','Net migration rate per 1,000 people.','per 1,000 people','rate','high','Population'),
  'highest-sex-ratio-at-birth':('Most boys born per 100 girls','Male births per 100 female births.','boys per 100 girls','rate','high','Population'),
  'highest-mean-age-childbearing':('Oldest average age of mothers at childbirth','Mean age of childbearing.','years','other','high','Population'),
- 'highest-male-life-expectancy':('Highest male life expectancy','Male life expectancy at birth.','years','other','high','Health'),
+ 'highest-male-life-expectancy':('Highest male life expectancy','Years a newborn boy would live if current male death rates stayed the same throughout his life.','years','other','high','Health'),
  'highest-female-life-expectancy':('Highest female life expectancy','Female life expectancy at birth.','years','other','high','Health'),
 }
 KEY_METRIC={
@@ -164,7 +164,7 @@ class Importer(WarehouseImporter):
   for key,(title,desc,unit,vtype,direction,family) in SPECS.items():
    rule=IndicatorRule(key=key,title=title,description=desc,plain_language_description=desc,technical_definition=f'{desc} WPP 2024 estimate for {YEAR}.',unit_explanation=unit,family=family,icon='👥',unit=unit,value_type=vtype,ranking_direction=direction,include=(key,),min_coverage=180,evidence_tier='A',source_priority=4,specificity_score=98,recognizability_score=97,understandability_score=98,fun_score=95)
    metric=KEY_METRIC[key]
-   metadata={'source_page_url':SOURCE_PAGE,'download_url':DOWNLOAD,'methodology_url':METHOD,'dataset_release':'World Population Prospects 2024','source_query':{'year':YEAR,'metric':metric,'variant':'estimate'},'minimum_year':YEAR,'measurementType':('share' if vtype=='percentage' else 'per_capita' if vtype=='per_capita' else 'total' if vtype=='total' else 'other'),'broadDomain':'population','knowledgeCluster':'demographics','strategyFamily':key,'v16_2_6_content_reviewed':True,'license_name':'CC BY 3.0 IGO'}
+   metadata={'source_page_url':SOURCE_PAGE,'download_url':DOWNLOAD,'methodology_url':METHOD,'dataset_release':'World Population Prospects 2024','source_query':{'year':YEAR,'metric':metric,'variant':'estimate'},'minimum_year':YEAR,'measurementType':('share' if vtype=='percentage' else 'per_capita' if vtype=='per_capita' else 'total' if vtype=='total' else 'other'),'broadDomain':'demographics','knowledgeCluster':'demographics','strategyFamily':key,'v16_2_6_content_reviewed':True,'license_name':'CC BY 3.0 IGO'}
    if metric in OFFICIAL_COLUMN_NAME: metadata['officialSourceColumn']=OFFICIAL_COLUMN_NAME[metric]
    out.append(CandidateDefinition(rule,f'WPP2024:{metric}:{YEAR}',OFFICIAL_SERIES_NAME[metric],SOURCE_PAGE,metadata))
   return out

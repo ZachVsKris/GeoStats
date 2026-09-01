@@ -334,6 +334,9 @@ class NaturalEarthImporter(WarehouseImporter):
                         "scale": "1:10m",
                         "boundary_model": "ISO/map-unit country geometry; dependent territories are not unioned into the administering sovereign",
                     },
+                    "broadDomain": "physical-geography",
+                    "knowledgeCluster": "physical-geography",
+                    "strategyFamily": concept.key,
                     "v16_2_6_content_reviewed": concept.key in {
                         "northernmost-country", "southernmost-country", "largest-north-south-span",
                         "largest-east-west-span", "largest-tropical-land-area", "largest-arctic-land-area", "most-land-neighbors",

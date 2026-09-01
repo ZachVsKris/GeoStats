@@ -174,7 +174,7 @@ export async function POST(request: Request, context: { params: Promise<{ id: st
   }
   for (const key of allowedBooleanKeys) if (body[key] !== undefined) update[key] = body[key];
   const recommendedTitle = cleanText(body.recommended_title, 80);
-  const boardDescription = cleanText(body.board_description, 110);
+  const boardDescription = cleanText(body.board_description, 200);
   const semanticGroup = cleanText(body.semantic_group, 100);
   const notes = cleanText(body.notes, 4000);
   if (body.recommended_title !== undefined) update.recommended_title = recommendedTitle;

@@ -2,6 +2,13 @@ import { NextResponse } from "next/server";
 import { createSupabaseAdminClient, createSupabaseServerClient } from "../../../lib/supabase/server";
 import { LEGACY_V16_2_3_ROUND_CONFIGS, ROUND_CONFIGS, type DailyDifficulty } from "../../../lib/gameRules";
 import { LEADERBOARD_RATING_VERSION } from "../../../lib/version";
+import {
+  LEADERBOARD_CONFIDENCE_GAMES,
+  LEADERBOARD_MINIMUM_GAMES,
+  bayesianLeaderboardRating,
+  hybridDailyPerformance,
+  usesCurrentScoreScale,
+} from "../../../lib/leaderboardRating";
 
 type Profile = { username?: string };
 type ScoreRow = {
@@ -67,9 +74,7 @@ function scoreMaximum(row: Pick<ScoreRow, "difficulty" | "rules_version">) {
   // Every v16.2.4+ release keeps the same board dimensions and score curves.
   // Do not force an ever-growing exact-version allowlist: older valid scores
   // must remain on the current mode scale as later catalog/UI releases ship.
-  const patch = /^16\.2\.(\d+)$/.exec(row.rules_version ?? "")?.[1];
-  const currentDimensionRules = patch !== undefined && Number(patch) >= 4;
-  return currentDimensionRules
+  return usesCurrentScoreScale(row.rules_version)
     ? ROUND_CONFIGS[row.difficulty].maxScore
     : LEGACY_V16_2_3_ROUND_CONFIGS[row.difficulty].maxScore;
 }
@@ -137,7 +142,11 @@ export async function GET(request: Request) {
     };
     const ratio = row.score / scoreMaximum(row);
     const stats = dayStats.get(row.challenge_date) ?? { mean: globalMean, std: Math.sqrt(globalVariance), players: 0 };
-    const performance = clamp(50 + 15 * ((ratio - stats.mean) / stats.std), 0, 100);
+    const peerRelativePerformance = clamp(50 + 15 * ((ratio - stats.mean) / stats.std), 0, 100);
+    // Sparse launch-day cohorts do not contain enough information for a fair
+    // relative rating. Start with the player's normalized score and gradually
+    // blend in same-board peer performance from 5 through 20 participants.
+    const performance = hybridDailyPerformance(ratio, peerRelativePerformance, stats.players);
     current.rawScores.push(row.score);
     current.scoreRatios.push(ratio);
     current.performances.push(performance);
@@ -146,14 +155,14 @@ export async function GET(request: Request) {
     byUser.set(row.user_id, current);
   }
 
-  const baseline = mean(allPerformances, 50);
-  const confidenceGames = 20;
+  const baseline = mean(allPerformances, globalMean * 100);
+  const confidenceGames = LEADERBOARD_CONFIDENCE_GAMES;
   const ranked = [...byUser.values()].map((entry) => {
     const games = entry.rawScores.length;
     const averageScore = mean(entry.scoreRatios) * maxScore;
     const averagePlacement = mean(entry.placements);
     const normalizedPerformance = mean(entry.performances, baseline);
-    const rating = (normalizedPerformance * games + baseline * confidenceGames) / (games + confidenceGames);
+    const rating = bayesianLeaderboardRating(normalizedPerformance, games, baseline, confidenceGames);
     return {
       userId: entry.userId,
       username: entry.username,
@@ -162,9 +171,10 @@ export async function GET(request: Request) {
       averagePlacement: Number(averagePlacement.toFixed(2)),
       normalizedPerformance: Number(normalizedPerformance.toFixed(1)),
       rating: Number(rating.toFixed(1)),
+      ratingSortValue: rating,
     };
-  }).filter((entry) => entry.games >= 5)
-    .sort((a, b) => b.rating - a.rating || a.averagePlacement - b.averagePlacement || b.games - a.games || b.averageScore - a.averageScore);
+  }).filter((entry) => entry.games >= LEADERBOARD_MINIMUM_GAMES)
+    .sort((a, b) => b.ratingSortValue - a.ratingSortValue || a.averagePlacement - b.averagePlacement || b.games - a.games || b.averageScore - a.averageScore);
 
   const rankedWithPosition = ranked.map((entry, index) => ({ ...entry, rank: index + 1 }));
   const visible = rankedWithPosition.slice(0, 100);

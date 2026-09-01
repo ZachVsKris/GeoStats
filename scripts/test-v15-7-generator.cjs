@@ -175,6 +175,11 @@ const glacierTrio = {
 if (!validateDailyTrio(glacierTrio).some((error) => error.includes('too conceptually similar'))) {
   throw new Error('Daily trio validation did not reject the two glacier measures across modes.');
 }
+const temperate = { ...datasets[2].category, id: 'koppen-geiger:temperate-share', name: 'Highest percentage of land with a temperate climate', knowledgeCluster: 'climate-classification', strategyFamily: 'koppen-climate:temperate' };
+const savanna = { ...datasets[3].category, id: 'koppen-geiger:tropical-savanna-share', name: 'Highest percentage of land with a tropical savanna climate', knowledgeCluster: 'climate-classification', strategyFamily: 'koppen-climate:tropical-savanna' };
+if (!categoryConflictsWithExistingTrio(savanna, [temperate])) {
+  throw new Error('Cross-mode construction did not block two Köppen climate measures.');
+}
 if (!first.diagnostics.generationProfile) throw new Error('Generator did not report the successful profile.');
 for (const difficulty of ['easy', 'normal', 'expert']) {
   if (!first.trio[difficulty]) throw new Error(`Missing ${difficulty} board.`);

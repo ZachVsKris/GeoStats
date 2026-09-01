@@ -815,6 +815,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:6px
 }
 
 @media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .playGrid .country,.playGrid .slot,.playGrid .choice,.playGrid .lock button,.touchGhost{transition:none!important;animation:none!important}
 }
 
@@ -1256,3 +1257,34 @@ header{display:flex;align-items:center;justify-content:space-between;padding:6px
   .expertAccessGate strong{font-size:15px;line-height:1.05}
   .expertAccessGate .accountHeaderActions button{min-width:180px;min-height:34px;padding:6px 9px;font-size:7px}
 }
+
+/* v16.3.0 identity and resilient application states */
+.brand{color:var(--ink);text-decoration:none}
+.logo svg{width:31px;height:31px;fill:none;stroke:currentColor;stroke-width:1.35}
+.logo{color:var(--accent)}
+.brandWords{display:grid;gap:2px}
+.brandWords strong{font-family:var(--display);font-size:25px;font-weight:600;letter-spacing:-.025em;line-height:1}
+.brandWords small{color:var(--muted);font-family:var(--label);font-size:9px;font-weight:750;letter-spacing:.1em;text-transform:uppercase}
+.brandLink:hover .logo{color:var(--accent-2)}
+.leaderboardMethodNote{max-width:760px!important;margin-top:10px!important;padding-left:12px;border-left:2px solid var(--accent-2);font-family:var(--sans)!important;font-size:12px!important;line-height:1.55!important}
+.leaderboardSkeleton{display:grid;gap:1px;padding:18px;background:rgba(7,17,14,.28)}
+.leaderboardSkeleton>span{margin-bottom:10px;color:var(--muted);font-family:var(--label);font-size:9px;font-weight:800;letter-spacing:.09em;text-transform:uppercase}
+.leaderboardSkeleton>div{display:grid;grid-template-columns:60px 1.4fr 1fr .7fr .8fr;gap:14px;padding:14px 10px;border-bottom:1px solid var(--line-soft)}
+.leaderboardSkeleton i{display:block;height:11px;border-radius:2px;background:linear-gradient(90deg,var(--line-soft),rgba(120,185,154,.18),var(--line-soft));background-size:240% 100%;animation:leaderboardShimmer 1.4s ease-in-out infinite}
+@keyframes leaderboardShimmer{0%{background-position:100% 0}100%{background-position:-100% 0}}
+.systemStatePage{min-height:100vh;min-height:100dvh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 20% 0,rgba(87,137,111,.2),transparent 36%),var(--bg);color:var(--ink)}
+.systemStateCard{position:relative;width:min(680px,100%);padding:42px;border:1px solid var(--line);background:linear-gradient(120deg,rgba(212,191,114,.055),transparent 52%),var(--surface);box-shadow:0 30px 90px rgba(0,0,0,.42)}
+.systemStateCard:before,.systemStateCard:after{content:"";position:absolute;width:17px;height:17px;border-color:var(--accent);opacity:.6}
+.systemStateCard:before{top:10px;left:10px;border-top:1px solid;border-left:1px solid}
+.systemStateCard:after{right:10px;bottom:10px;border-right:1px solid;border-bottom:1px solid}
+.systemStateCard .brand{margin-bottom:42px}
+.systemStateCard h1{margin:10px 0 14px;font-family:var(--display);font-size:clamp(38px,7vw,62px);font-weight:550;line-height:1;letter-spacing:-.04em}
+.systemStateCard p{max-width:560px;color:var(--muted);font-size:15px;line-height:1.65}
+.systemStateActions{display:flex;flex-wrap:wrap;gap:9px;margin-top:26px}
+.systemStateActions a,.systemStateActions button{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border:1px solid var(--accent);border-radius:2px;background:var(--accent);color:#111a14;font-family:var(--label);font-size:9px;font-weight:850;letter-spacing:.08em;text-decoration:none;text-transform:uppercase;cursor:pointer}
+.systemStateActions a+*,.systemStateActions button+*{background:transparent;color:var(--ink);border-color:var(--line)}
+.systemLoadingCard{text-align:center}
+.systemLoadingMark{width:48px;height:48px;margin:28px auto;border:2px solid var(--line);border-top-color:var(--accent);border-radius:50%;animation:spin .9s linear infinite}
+.systemLoadingCard h1{font-size:clamp(34px,6vw,52px)}
+.systemLoadingCard p{margin-inline:auto}
+@media(max-width:600px){.systemStateCard{padding:30px 23px}.systemStateCard .brand{margin-bottom:34px}.systemStateActions>*{flex:1 1 180px}}

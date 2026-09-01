@@ -87,6 +87,7 @@ export default function LeaderboardView() {
       <span className="kicker">All-time standings</span>
       <h1>Leaderboard</h1>
       <p>See how GeoStats players perform over time. Scout, Adventurer, and Expert each have separate verified standings.</p>
+      <p className="leaderboardMethodNote">Rating balances normalized score with opponent strength once a Daily has enough players. Completed games increase confidence, not points; five games are required to qualify.</p>
     </div>
     <div className="leaderboardModeTabs" role="tablist" aria-label="Daily difficulty">
       <button type="button" role="tab" aria-selected={difficulty === "easy"} aria-controls="leaderboard-results" className={difficulty === "easy" ? "active" : ""} onClick={() => chooseDifficulty("easy")}>Scout</button>
@@ -94,7 +95,10 @@ export default function LeaderboardView() {
       <button type="button" role="tab" aria-selected={difficulty === "expert"} aria-controls="leaderboard-results" className={difficulty === "expert" ? "active" : ""} onClick={() => chooseDifficulty("expert")}>Expert</button>
     </div>
     <div id="leaderboard-results" role="tabpanel" aria-live="polite" aria-busy={loading}>
-      {loading ? <div className="leaderboardEmpty">Loading {config.label} leaderboard…</div> : error ? <div className="leaderboardError" role="alert">
+      {loading ? <div className="leaderboardSkeleton" aria-label={`Loading ${config.label} leaderboard`}>
+        <span>Loading {config.label} standings…</span>
+        {[0, 1, 2, 3, 4].map((row) => <div key={row} aria-hidden="true"><i /><i /><i /><i /><i /></div>)}
+      </div> : error ? <div className="leaderboardError" role="alert">
         <strong>Standings unavailable</strong>
         <p>{error.message}</p>
         <button type="button" onClick={() => setReloadKey((value) => value + 1)}>Try again</button>

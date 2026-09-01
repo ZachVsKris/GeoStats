@@ -1,9 +1,11 @@
-export const metadata = { title: "Terms | GeoStats" };
+import Brand from "../../components/Brand";
+
+export const metadata = { title: "Terms" };
 
 export default function Terms() {
   return <main className="shell standalonePage infoPage">
     <header>
-      <a href="/daily" className="brand brandLink"><span className="logo">🌍</span><div><h1>GeoStats</h1><p>Geography, with strategy.</p></div></a>
+      <Brand linked />
       <div className="headerButtons infoHeaderNav"><a className="headerButtonLink" href="/daily">Play Daily</a><a className="headerButtonLink" href="/data">Data &amp; sources</a><a className="headerButtonLink" href="/privacy">Privacy</a></div>
     </header>
     <section className="panel infoPagePanel">

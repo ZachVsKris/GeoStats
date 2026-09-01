@@ -112,6 +112,12 @@ APPROVED_TITLE_REWRITES = {
         "largest-east-west-span": "Largest east to west span",
         "largest-geodesic-land-area": "Largest land area calculated from country borders",
     },
+    "FAO Global Forest Resources Assessment 2025": {
+        "forest-share": "Highest % of land covered by forest",
+        "protected-forest-share": "Highest % of forest in protected areas",
+        "public-ownership-share": "Highest % of forest publicly owned",
+        "private-ownership-share": "Highest % of forest privately owned",
+    },
     "Köppen-Geiger 1991–2020 climate classification": {
         "desert-share": "Highest percentage of land with a desert climate",
         "arid-share": "Highest percentage of land with an arid climate",
@@ -166,7 +172,7 @@ def main() -> None:
     detail_path = OUTDIR / "source_family_recovery_detail.csv"
     with detail_path.open("w", newline="", encoding="utf-8") as handle:
         fieldnames = list(details[0]) if details else []
-        writer = csv.DictWriter(handle, fieldnames=fieldnames); writer.writeheader(); writer.writerows(details)
+        writer = csv.DictWriter(handle, fieldnames=fieldnames, lineterminator="\n"); writer.writeheader(); writer.writerows(details)
 
     summary = []
     for source in SOURCE_TO_IMPORTER:
@@ -176,7 +182,7 @@ def main() -> None:
             "representation_pct": round(100 * counts["represented"] / counts["tracker_rows"], 1) if counts["tracker_rows"] else 0.0})
     summary_path = OUTDIR / "source_family_recovery_summary.csv"
     with summary_path.open("w", newline="", encoding="utf-8") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(summary[0])); writer.writeheader(); writer.writerows(summary)
+        writer = csv.DictWriter(handle, fieldnames=list(summary[0]), lineterminator="\n"); writer.writeheader(); writer.writerows(summary)
 
     totals = {
         "mapped_source_families": len(SOURCE_TO_IMPORTER),

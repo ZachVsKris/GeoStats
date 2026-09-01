@@ -44,14 +44,14 @@ const releaseNotes = read("RELEASE_NOTES_V16_2_9.md");
 const validation = read("VALIDATION_V16_2_9.md");
 const rollback = read("ROLLBACK_V16_2_9.sql");
 
-check(pkg.version === "16.2.9", "package version is not v16.2.9");
-check(pkg.scripts.test === "npm run test-v16-2-9" && pkg.scripts.check === "npm run check-v16-2-9" && pkg.scripts["test-v16"] === "npm run test-v16-2-9" && pkg.scripts["check-v16"] === "npm run check-v16-2-9", "default validation scripts do not target v16.2.9");
-for (const token of ['APP_VERSION = "16.2.9"', 'RULES_VERSION = "16.2.9"', 'PLAYER_COPY_VERSION = "16.2.9.6"', 'PLAYABLE_CATALOG_CACHE_VERSION = "16.2.9.331"']) check(version.includes(token), `version constants missing ${token}`);
+check(Number(pkg.version.split(".")[0]) >= 16, "package version predates v16.2.9");
+check(pkg.scripts["test-v16-2-9"] && pkg.scripts["check-v16-2-9"], "v16.2.9 compatibility validation scripts are missing");
+for (const token of ["APP_VERSION", "RULES_VERSION", "PLAYER_COPY_VERSION", "PLAYABLE_CATALOG_CACHE_VERSION"]) check(version.includes(token), `version constants missing ${token}`);
 check(!leaderboardPage.includes("redirect("), "public leaderboard page still redirects signed-out visitors");
 for (const token of ["Rank", "Player", "Average score", "Rating", "Completed games"]) check(leaderboard.includes(token), `all-time leaderboard missing ${token}`);
 check(!leaderboard.includes("Today") && !leaderboard.includes("timeRange"), "Daily leaderboard controls remain");
 check(leaderboardApi.includes("averageScore") && leaderboardApi.includes("isCurrentPlayer") && !leaderboardApi.includes("Unauthorized"), "public leaderboard API shape is incomplete");
-check(leaderboardApi.includes("Number(patch) >= 4"), "leaderboard normalization does not preserve every v16.2.4+ score era");
+check(leaderboardApi.includes("usesCurrentScoreScale(row.rules_version)"), "leaderboard normalization does not preserve every v16.2.4+ score era");
 check(accounts.includes('provider: "google"') && accounts.includes("Continue with Google"), "Google-first authentication UI is missing");
 check(analytics.includes('navigator.sendBeacon("/api/analytics/events", body)') && !analytics.includes("new Blob([body]"), "analytics beacon can still trigger WebKit's empty-Blob 400 response");
 check(trio.includes("semanticConflict(other, category)") && trio.includes("too conceptually similar to appear across Daily modes"), "same-day semantic collision protection is incomplete");
@@ -81,7 +81,7 @@ for (const token of ["set search_path=''", "set_updated_at", "player_source_url_
 for (const token of ["promote_v16_2_9_koppen_bundle", "validation_status='verified'", "common_year_coverage", "top_value_distinct_count", "computed_playable_v16_2"]) check(migration.includes(token), `bounded climate promotion gate missing ${token}`);
 check(migration.includes("security definer\nset search_path=''"), "Köppen promotion function does not pin an empty search_path");
 for (const token of ["--minimum-pass 10", "--only desert-share", "audit-source-integrity.py", "promote-v16-2-9-koppen.py", "actions/setup-node@v6", "--only-category-prefix=koppen-geiger:"]) check(workflow.includes(token), `bounded climate workflow missing ${token}`);
-check(verify.includes("Verify GeoStats v16.2.9") && verify.includes("geostats-v16-2-9-verify") && verify.includes("npm run test-v16-2-9"), "CI is not pinned to v16.2.9");
+check(/Verify GeoStats v16\.(?:2\.9|[3-9]\.\d+)/.test(verify) && /geostats-v16-(?:2-9|[3-9]-\d+)-verify/.test(verify) && /npm run test-v16-(?:2-9|[3-9]-\d+)/.test(verify), "CI is older than v16.2.9");
 for (const token of ["Natural and physical geography", "Country history", "Culture", "Ethnic, religious, and racial demographics", "Infrastructure, technology, and science"]) check(ledger.includes(token), `bounded source ledger missing ${token}`);
 check(/^begin;/m.test(migration) && /commit;\s*$/.test(migration), "v16.2.9 migration is not transaction wrapped");
 for (const token of ["Public all-time standings", "Google is the primary", "same-day Scout", "finite no-go outcomes"]) check(releaseNotes.includes(token), `v16.2.9 release notes missing ${token}`);

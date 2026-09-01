@@ -18,6 +18,15 @@ function legacyRandomPath(pathname: string) {
   return redirects[normalized] ?? null;
 }
 
+function clearStaleAuthCookies(request: NextRequest, response: NextResponse) {
+  for (const cookie of request.cookies.getAll()) {
+    if (/^sb-.*-auth-token(?:\.\d+)?$/.test(cookie.name)) {
+      request.cookies.delete(cookie.name);
+      response.cookies.delete(cookie.name);
+    }
+  }
+}
+
 export async function proxy(request: NextRequest) {
   const legacyPath = legacyRandomPath(request.nextUrl.pathname);
   if (legacyPath) {
@@ -58,7 +67,21 @@ export async function proxy(request: NextRequest) {
   // This validates and refreshes the session. Do not put work between client
   // creation and this call, and return the same response so refreshed cookies
   // are not lost.
-  await supabase.auth.getUser();
+  try {
+    const { error } = await supabase.auth.getUser();
+    if (error && /refresh token.*(?:used|invalid|missing)|invalid refresh token/i.test(error.message)) {
+      clearStaleAuthCookies(request, supabaseResponse);
+    }
+  } catch (caught) {
+    // A stale/replayed refresh token should recover as a signed-out request,
+    // not turn every public page into a 500. Keep unrelated failures visible.
+    const message = caught instanceof Error ? caught.message : String(caught);
+    if (/refresh token.*(?:used|invalid|missing)|invalid refresh token/i.test(message)) {
+      clearStaleAuthCookies(request, supabaseResponse);
+    } else {
+      throw caught;
+    }
+  }
   return supabaseResponse;
 }
 

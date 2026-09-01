@@ -1,6 +1,7 @@
 .next
 node_modules
 .vercel
+supabase/.temp/
 .DS_Store
 *.log
 *.tsbuildinfo

@@ -283,6 +283,8 @@ const ONE_PER_BOARD_KNOWLEDGE_CLUSTERS = new Set([
   "tourism",
   "energy-system",
   "religious-composition",
+  "climate-classification",
+  "physical-ice",
 ]);
 
 function onePerBoardCluster(category: Category) {

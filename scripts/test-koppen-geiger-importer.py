@@ -9,6 +9,14 @@ assert all(not title.endswith('.') and ' share' not in title.lower() for _,title
 candidates=m.Importer(None,dry_run=True).discover()
 assert all(c.rule.temporal_scope=='climatology' and c.rule.publication_year==2023 for c in candidates)
 assert all(c.metadata.get('source_query') for c in candidates)
+climate_candidates={c.rule.key:c for c in candidates}
+assert '0°C' in climate_candidates['temperate-share'].rule.description
+assert '18°C' in climate_candidates['tropical-savanna-share'].rule.description
+assert '60 mm' in climate_candidates['tropical-savanna-share'].rule.description
+assert '100 minus annual rainfall divided by 25' in climate_candidates['tropical-savanna-share'].rule.description
+assert all(c.metadata.get('broadDomain')=='climate' for c in candidates)
+assert all(c.metadata.get('measurementType') in {'share','total'} for c in candidates)
+assert all(c.rule.description.rstrip('.')==c.rule.description for c in candidates)
 with tempfile.TemporaryDirectory() as d:
  d=Path(d);rp=d/'k.tif';arr=np.array([[4,4,1,1],[6,6,29,30]],dtype='uint8')
  with rasterio.open(rp,'w',driver='GTiff',height=2,width=4,count=1,dtype='uint8',crs='EPSG:4326',transform=from_origin(-2,2,1,1),nodata=0) as ds:ds.write(arr,1)

@@ -347,10 +347,46 @@ export const MAX_SAME_BOARD_SEMANTIC_SIMILARITY = 0.82;
 // the narrower strategyFamily differs (for example, temperate vs savanna).
 const HARD_CONFLICT_KNOWLEDGE_CLUSTERS = new Set([
   "climate-classification",
+  "emissions",
   "forced-displacement",
   "physical-ice",
   "religious-composition",
+  "service-composition",
+  "telecommunications-adoption",
 ]);
+
+/**
+ * Normalizes concepts whose imported metadata is intentionally specific to one
+ * indicator. These buckets are broader than strategyFamily: they represent
+ * knowledge a player would experience as the same question appearing twice in
+ * one board or Daily trio.
+ */
+function hardConflictConcept(category: Category, profile: CategorySemanticProfile) {
+  const text = searchable(category);
+  const cluster = slug(category.knowledgeCluster || profile.knowledgeCluster);
+
+  if (contains(text, [/border/, /neighbor/])) return "physical-borders";
+  if (contains(text, [/glaciat/, /glacier/, /snow-cover/, /permanent-snow/])) return "physical-ice";
+  if (contains(text, [/mobile-subscription/, /telephone-subscription/, /fixed-broadband/, /internet-subscription/])
+    || cluster === "telecommunications-adoption") return "telecommunications-adoption";
+
+  if (category.source === "comtrade" || category.productSpecificTrade) {
+    return contains(text, [/import/]) ? "product-imports" : "product-exports";
+  }
+
+  if (category.source === "faostat") {
+    const livestock = contains(text, [
+      /livestock/, /cattle/, /cow/, /buffalo/, /sheep/, /goat/, /chicken/, /duck/,
+      /turkey/, /camel/, /horse/, /mule/, /hinny/, /pig/, /animal/, /meat/, /milk/, /egg/,
+    ]);
+    if (livestock && contains(text, [/population/, /stocks?/])) return "livestock-population";
+    if (livestock && contains(text, [/production/, /produced/, /output/])) return "livestock-output";
+    if (!livestock && contains(text, [/production/, /produced/, /output/])) return "crop-output";
+    if (!livestock && contains(text, [/area-harvested/, /harvested-area/])) return "crop-area";
+  }
+
+  return HARD_CONFLICT_KNOWLEDGE_CLUSTERS.has(cluster) ? cluster : null;
+}
 
 export function semanticConflict(first: Category, second: Category) {
   const cached = CONFLICT_CACHE.get(first)?.get(second);
@@ -360,14 +396,17 @@ export function semanticConflict(first: Category, second: Category) {
   const secondProfile = inferSemanticProfile(second);
   const firstStrategy = slug(first.strategyFamily || firstProfile.family);
   const secondStrategy = slug(second.strategyFamily || secondProfile.family);
-  const firstCluster = slug(first.knowledgeCluster || firstProfile.knowledgeCluster);
-  const secondCluster = slug(second.knowledgeCluster || secondProfile.knowledgeCluster);
+  const firstConcept = hardConflictConcept(first, firstProfile);
+  const secondConcept = hardConflictConcept(second, secondProfile);
+  const firstSimilarityGroup = slug(first.similarityGroup || "");
+  const secondSimilarityGroup = slug(second.similarityGroup || "");
   // Title similarity is an editorial warning, not a hard gameplay conflict.
   // Hard conflicts must be grounded in an explicit strategy family or other
   // structured semantic metadata; common words such as “Most” must not block
   // unrelated categories.
   const conflict = firstStrategy === secondStrategy
-    || (firstCluster === secondCluster && HARD_CONFLICT_KNOWLEDGE_CLUSTERS.has(firstCluster));
+    || (Boolean(firstConcept) && firstConcept === secondConcept)
+    || (Boolean(firstSimilarityGroup) && firstSimilarityGroup === secondSimilarityGroup);
 
   const firstMap = CONFLICT_CACHE.get(first) ?? new WeakMap<Category, boolean>();
   firstMap.set(second, conflict);

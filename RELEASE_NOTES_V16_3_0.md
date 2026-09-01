@@ -11,6 +11,7 @@
 
 - All ten playable Köppen–Geiger categories define the climate on the card using the Beck et al. (2023) thresholds.
 - The combined tropical-savanna climate class is retired from future boards because its accurate definition requires an awkward rainfall formula and must not be mislabeled as savanna land cover. Historical boards use concise plain-English copy.
+- Steppe and tropical-monsoon cards keep their defining plain-language thresholds while moving formal classification equations to the technical definition panel.
 - Temperate uses the source release's 0°C to 18°C coldest-month range and above-10°C warmest-month rule.
 - Tropical, Mediterranean, continental, polar, tundra, arid, desert, and steppe copy includes the relevant temperature, precipitation, seasonality, or aridity thresholds.
 - Percentage titles consistently use `%`; legacy `share` and incorrect `Largest` wording has been removed from the playable catalog.

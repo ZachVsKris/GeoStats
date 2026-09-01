@@ -19,6 +19,7 @@ const layout = read("app/layout.tsx");
 const semantics = read("lib/categorySemantics.ts");
 const proxy = read("proxy.ts");
 const playableCatalog = read("lib/playableCatalog.ts");
+const serverPlayableCatalog = read("lib/serverPlayableCatalog.ts");
 
 check(pkg.version === "16.3.0", "package version is not v16.3.0");
 check(pkg.scripts.test === "npm run test-v16-3-0" && pkg.scripts.check === "npm run check-v16-3-0", "default validation does not target v16.3.0");
@@ -39,6 +40,7 @@ for (const token of ["conomy", "economy", "nvironment", "environment"]) check(se
 for (const token of ["HARD_CONFLICT_KNOWLEDGE_CLUSTERS", "climate-classification", "physical-ice"]) check(semantics.includes(token), `same-day concept collision rule missing ${token}`);
 check(proxy.includes("clearStaleAuthCookies") && proxy.includes("refresh token") && proxy.includes("throw caught"), "stale Supabase sessions do not recover safely in middleware");
 check(playableCatalog.includes("firstCompleteSentence(value: string, maximum = 200)"), "defined category descriptions are still truncated to the old 82-character limit");
+check(serverPlayableCatalog.includes("const PLAYER_COPY_SELECT") && serverPlayableCatalog.includes(".select(PLAYER_COPY_SELECT)"), "Daily copy hydration must use the compact player-copy projection");
 
 if (failures.length) {
   console.error(`GeoStats v16.3.0 checks FAILED:\n${failures.map((item) => ` - ${item}`).join("\n")}`);

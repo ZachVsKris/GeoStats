@@ -11,6 +11,11 @@ import { PLAYABLE_CATALOG_CACHE_VERSION } from "./version";
 
 const V16_SELECT = "eligible_universe_type,eligible_universe_rule,eligible_country_count,eligible_country_iso3,coverage_within_eligible_universe,excluded_country_reason,measurement_type,computed_playable_v16_2,promotion_decision_v16_2,promotion_reason_v16_2,primary_blocker_v16_2,blocker_class_v16_2,semantic_audit_status,semantic_audit_issues,semantic_audit_warnings,computed_playable_v16,ranking_completeness_status,ranking_completeness_reason,top_value_distinct_count,top_value_feasible,computed_playable_v15,editorial_status,hard_gate_ready,political_self_reported,confusing,esoteric,subjective_or_composite,stale_data,poor_coverage,duplicate_of,effective_semantic_group,id,title,short_title,description,plain_language_description,technical_definition,unit_explanation,icon,unit,value_type,ranking_direction,family,source_organization,source_dataset,source_indicator_code,source_url,methodology_url,source_page_url,player_source_url,player_source_status,player_source_reason,player_source_checked_at,content_review_status,content_review_reason,content_review_version,immediate_comprehension_score,gameplay_interest_score,uniqueness_score,link_quality_score,exact_query_url,download_url,api_url,dataset_release,retrieved_at,license_name,license_url,source_query,derivation_method,derivation_version,input_datasets,minimum_year,common_year,common_year_coverage,quality_score,concept_group,semantic_family,semantic_topic,metadata,credibility_score,credibility_status,credibility_reason,evidence_label,verifiability_score,verifiability_status,understandability_score,fun_score,objective_status,player_quality_status,player_quality_reason,validation_status,validation_version,validated_at,enabled,eligible_daily,review_status,curation_status";
 
+// Historical Daily hydration only refreshes player-facing metadata. Keeping this
+// projection intentionally compact avoids an oversized PostgREST URL when the
+// day's category IDs are added to the request.
+const PLAYER_COPY_SELECT = "id,title,short_title,description,plain_language_description,technical_definition,unit_explanation,icon,unit,value_type,measurement_type,ranking_direction,family,source_organization,source_dataset,source_indicator_code,source_url,methodology_url,source_page_url,player_source_url,player_source_status,player_source_reason,player_source_checked_at,metadata,minimum_year,common_year,quality_score,credibility_score,credibility_status,credibility_reason,evidence_label";
+
 function catalogError(message: string) {
   if (/schema cache/i.test(message)) {
     return new Error("Supabase has not refreshed its REST schema cache for the v16.2.8 catalog. Run NOTIFY pgrst, 'reload schema'; and retry after 30 seconds.");
@@ -94,7 +99,7 @@ export async function loadServerCategoryRegistryForIds(ids: string[]): Promise<C
   if (!admin) throw new Error("Supabase is not configured.");
   const result = await admin
     .from("category_runtime_review_v16_2")
-    .select(V16_SELECT)
+    .select(PLAYER_COPY_SELECT)
     .in("id", uniqueIds)
     .limit(uniqueIds.length);
   if (result.error) throw catalogError(result.error.message ?? "Unknown Supabase error");

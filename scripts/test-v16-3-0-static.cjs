@@ -16,6 +16,7 @@ const measurementCleanup = read("supabase/migrations/20260901054000_v16_3_0_meas
 const finalMeasurementCleanup = read("supabase/migrations/20260901171000_v16_3_0_eliminate_remaining_other_measurements.sql");
 const finiteBacklog = read("supabase/migrations/20260901172000_v16_3_0_finite_review_backlog_dispositions.sql");
 const vascularPlantCopy = read("supabase/migrations/20260901183000_v16_3_0_vascular_plant_copy.sql");
+const durableRuntimeCorrections = read("supabase/migrations/20260901184500_v16_3_0_durable_runtime_corrections.sql");
 const savannaRetirement = read("supabase/migrations/20260901060000_v16_3_0_tropical_savanna_retirement.sql");
 const climateCopySimplification = read("supabase/migrations/20260901062000_v16_3_0_climate_card_copy_simplification.sql");
 const rating = read("lib/leaderboardRating.ts");
@@ -42,6 +43,7 @@ check(playableCatalog.includes('measurementType !== "other"'), "runtime playabil
 check(playableCatalog.includes("shortName: title"), "game cards can still surface raw source short titles without direction words");
 for (const token of ["needs_data_repair", "finite backlog disposition", "editorial_status='pending'", "refresh_v16_2_runtime_catalog"]) check(finiteBacklog.includes(token), `finite backlog migration missing ${token}`);
 for (const token of ["Most threatened vascular plant species", "native vascular plant species", "worldbank-catalog:en-hpt-thrd-no"]) check(vascularPlantCopy.includes(token), `vascular-plant copy cleanup missing ${token}`);
+for (const token of ["apply_v16_3_runtime_corrections", "refresh_v16_2_runtime_catalog", "measurement_type='other'", "worldbank-catalog:bx-gsr-tran-zs", "koppen-geiger:tropical-savanna-share"]) check(durableRuntimeCorrections.includes(token), `durable runtime correction missing ${token}`);
 for (const token of ["koppen-geiger:tropical-savanna-share", "cardinality(expected_ids)", "history:oldest-current-constitution", "history:un-admission"]) check(savannaRetirement.includes(token), `tropical-savanna retirement missing ${token}`);
 check(playableCatalog.includes('"koppen-geiger:tropical-savanna-share"'), "tropical-savanna category is not hard-retired at runtime");
 check(importer.includes("'tropical-savanna-share'") === false, "tropical-savanna category remains discoverable by the importer");

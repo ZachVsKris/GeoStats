@@ -1,7 +1,7 @@
 import GeoSecondComingGame from "../../../components/GeoSecondComingGame";
 
 export const metadata = {
-  title: "Adventurer Random Challenge | GeoStats",
+  title: "Adventurer Random Challenge",
   description: "Replayable GeoStats challenge generated from a shared seed."
 };
 

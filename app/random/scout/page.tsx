@@ -1,7 +1,7 @@
 import GeoSecondComingGame from "../../../components/GeoSecondComingGame";
 
 export const metadata = {
-  title: "Scout Random Challenge | GeoStats",
+  title: "Scout Random Challenge",
   description: "Replayable GeoStats challenge generated from a shared seed."
 };
 

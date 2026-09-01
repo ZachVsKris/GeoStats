@@ -1,7 +1,7 @@
 import GeoSecondComingGame from "../../../components/GeoSecondComingGame";
 
 export const metadata = {
-  title: "Expert Random Challenge | GeoStats",
+  title: "Expert Random Challenge",
   description: "Replayable GeoStats challenge generated from a shared seed."
 };
 

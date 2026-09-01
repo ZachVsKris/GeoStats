@@ -271,13 +271,21 @@ for (const viewport of mobileCases) {
         await expect(page.locator(".expertAccessGate")).toBeVisible();
         await expect(page.getByRole("button", { name: /sign in to play expert/i })).toBeVisible();
         await expect(page.locator(".countries .country:disabled")).toHaveCount(mode.countries);
-        await expect(page.locator(".slots .slot:disabled")).toHaveCount(mode.categories);
+        await expect(page.locator('.slots .slot[aria-disabled="true"]')).toHaveCount(mode.categories);
         await expect(page.getByRole("button", { name: /sign in above to play/i })).toBeDisabled();
       } else {
         for (let index = 0; index < mode.categories; index += 1) {
           await page.locator(".countries .country:not(:disabled)").first().click();
           await page.locator(".slots .slot").nth(index).click();
         }
+        await expect(page.locator(".removePiece")).toHaveCount(mode.categories);
+        const removeControlsCentered = await page.locator(".removePiece").evaluateAll((controls) => controls.every((control) => {
+          const button = control.getBoundingClientRect();
+          const icon = control.querySelector("svg")!.getBoundingClientRect();
+          return Math.abs((button.left + button.width / 2) - (icon.left + icon.width / 2)) <= 1
+            && Math.abs((button.top + button.height / 2) - (icon.top + icon.height / 2)) <= 1;
+        }));
+        expect(removeControlsCentered).toBeTruthy();
         await expect(page.getByRole("button", { name: /lock in draft/i })).toBeEnabled();
       }
       expect(browserErrors).toEqual([]);
@@ -425,7 +433,7 @@ test("board card colors have a clear non-scoring key", async ({ page }) => {
 });
 
 
-test("unsigned Daily result persists after refresh on the same browser", async ({ page }) => {
+test("unsigned Daily result persists after refresh on the same browser", async ({ page }, testInfo) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await installRoutes(page);
   await page.goto("/daily");
@@ -439,23 +447,37 @@ test("unsigned Daily result persists after refresh on the same browser", async (
   await expect(page.locator(".resultsModeTabs")).toBeVisible();
   await expect(page.locator(".resultsModeTabs a.active")).toHaveText("Scout");
   await page.getByRole("button", { name: "View rankings" }).first().click();
-  await expect(page.locator(".leaderboardColumns")).toBeVisible();
+  await expect(page.locator(".leaderboardColumns")).toBeHidden();
   await expect(page.locator(".leaderboardColumns b")).toHaveText(["Board", "Country", "World Rank", "Value", "Reference", "Points"]);
   await expect(page.locator(".leaderboard .worldRank")).toHaveCount(4);
   const rankingGrid = await page.evaluate(() => {
     const table = document.querySelector<HTMLElement>(".leaderboard")!;
-    const header = document.querySelector<HTMLElement>(".leaderboardColumns")!;
     const row = document.querySelector<HTMLElement>(".leaderboard>div:not(.leaderboardHeader):not(.leaderboardColumns)")!;
+    const value = row.querySelector<HTMLElement>(".leaderboardValue")!;
+    const reference = row.querySelector<HTMLElement>(".leaderboardReference")!;
+    const points = row.querySelector<HTMLElement>(".leaderboardPoints")!;
+    const tableRect = table.getBoundingClientRect();
+    const rowRect = row.getBoundingClientRect();
     return {
-      headerColumns: getComputedStyle(header).gridTemplateColumns,
       rowColumns: getComputedStyle(row).gridTemplateColumns,
       horizontallyScrollable: table.scrollWidth > table.clientWidth,
       worldRankVisible: Boolean(row.querySelector(".worldRank")),
+      valueArea: getComputedStyle(value).gridArea,
+      referenceArea: getComputedStyle(reference).gridArea,
+      pointsArea: getComputedStyle(points).gridArea,
+      tableInsideViewport: tableRect.left >= 0 && tableRect.right <= window.innerWidth + 1,
+      rowInsideTable: rowRect.left >= tableRect.left && rowRect.right <= tableRect.right + 1,
     };
   });
-  expect(rankingGrid.headerColumns).toBe(rankingGrid.rowColumns);
-  expect(rankingGrid.horizontallyScrollable).toBeTruthy();
+  expect(rankingGrid.rowColumns.split(" ")).toHaveLength(3);
+  expect(rankingGrid.horizontallyScrollable).toBeFalsy();
   expect(rankingGrid.worldRankVisible).toBeTruthy();
+  expect(rankingGrid.valueArea).toBe("value");
+  expect(rankingGrid.referenceArea).toBe("reference");
+  expect(rankingGrid.pointsArea).toBe("points");
+  expect(rankingGrid.tableInsideViewport).toBeTruthy();
+  expect(rankingGrid.rowInsideTable).toBeTruthy();
+  await page.screenshot({ path: testInfo.outputPath("mobile-results.png"), fullPage: true });
   await page.reload();
   await expect(page.getByText("Saved on this browser. Sign in to add it to the leaderboard.")).toBeVisible();
   await expect(page.getByText("Final score")).toBeVisible();

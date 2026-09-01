@@ -1,9 +1,9 @@
-export const APP_VERSION = "16.3.1";
-export const DATASET_VERSION = "2026-09-01-catalog-integrity-v16-3-1";
-export const RULES_VERSION = "16.3.1";
-export const CATEGORY_SET_VERSION = "SCOUT-4X4-ADVENTURER-6X4-EXPERT-8X6-V16-3-1";
-export const PLAYER_COPY_VERSION = "16.3.1.2";
-export const PLAYABLE_CATALOG_CACHE_VERSION = "16.3.1.306.2";
+export const APP_VERSION = "16.3.2";
+export const DATASET_VERSION = "2026-09-01-catalog-reconciliation-v16-3-2";
+export const RULES_VERSION = "16.3.2";
+export const CATEGORY_SET_VERSION = "SCOUT-4X4-ADVENTURER-6X4-EXPERT-8X6-V16-3-2";
+export const PLAYER_COPY_VERSION = "16.3.2.1";
+export const PLAYABLE_CATALOG_CACHE_VERSION = "16.3.2.318.1";
 export const MAX_YEAR_SPREAD = 3;
 export const SCORING_VERSION = "placements-v16.2.4";
 export const BOARD_NORMALIZATION_VERSION = "daily-distribution-z-v1";

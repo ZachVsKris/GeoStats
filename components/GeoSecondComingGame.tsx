@@ -53,6 +53,7 @@ type GeoSecondComingGameProps = {
 function categoryThemeClass(category: Category) {
   const subject = `${category.family} ${category.semanticFamily ?? ""} ${category.semanticTopic ?? ""} ${category.name}`.toLowerCase();
   if (/health|disease|mortality|medical|hospital/.test(subject)) return "theme-health";
+  if (/food consumption|consumption per person|calorie intake|protein intake/.test(subject)) return "theme-consumption";
   if (/agricultur|food|crop|livestock|fish|forest/.test(subject)) return "theme-agriculture";
   if (/energy|electric|fuel|oil|gas|coal|renewable/.test(subject)) return "theme-energy";
   if (/technology|science|research|digital|internet|patent|space/.test(subject)) return "theme-technology";
@@ -66,6 +67,7 @@ function categoryThemeClass(category: Category) {
 const CATEGORY_COLOR_KEY = [
   ["theme-population", "People & society"], ["theme-economy", "Economy"],
   ["theme-health", "Health"], ["theme-land", "Geography & environment"],
+  ["theme-consumption", "Consumption"],
   ["theme-agriculture", "Food & agriculture"], ["theme-energy", "Energy"],
   ["theme-technology", "Science & technology"], ["theme-transport", "Travel & transport"],
 ] as const;

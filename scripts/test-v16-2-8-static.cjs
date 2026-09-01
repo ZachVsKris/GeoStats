@@ -268,7 +268,7 @@ for (const token of [
   'create policy "users read own profile"',
   'create policy "users read own scores"',
 ]) check(privacyMigration.includes(token), `private account-row policy missing ${token}`);
-for (const token of ["check-v16-3-0", "LAUNCH_DOCKET_V16_2_8.md", "RELEASE_NOTES_V16_2_8.md", "VALIDATION_V16_2_8.md"]) {
+for (const token of ["check-v16-3-1", "LAUNCH_DOCKET_V16_2_8.md", "RELEASE_NOTES_V16_2_8.md", "VALIDATION_V16_2_8.md"]) {
   check(readme.includes(token), `README launch handoff missing ${token}`);
 }
 for (const token of ["automatic standings", "first-party analytics", "four bounded feasibility passes", "custom SMTP"]) {

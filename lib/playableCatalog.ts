@@ -155,6 +155,31 @@ const FAMILY_ICONS: Record<string, string> = {
 };
 
 const HARD_RETIRED_CATEGORY_IDS = new Set([
+  "exports",
+  "imports",
+  "exportsShare",
+  "worldbank-catalog:bx-gsr-gnfs-cd",
+  "worldbank-catalog:bm-gsr-gnfs-cd",
+  "worldbank-catalog:bx-gsr-totl-cd",
+  "worldbank-catalog:bx-gsr-nfsv-cd",
+  "worldbank-catalog:bm-gsr-nfsv-cd",
+  "worldbank-catalog:bn-gsr-gnfs-cd",
+  "worldbank-catalog:bx-gsr-cmcp-zs",
+  "worldbank-catalog:bm-gsr-cmcp-zs",
+  "worldbank-catalog:bx-gsr-ccis-zs",
+  "worldbank-catalog:bx-gsr-ccis-cd",
+  "worldbank-catalog:bx-gsr-tran-zs",
+  "worldbank-catalog:bm-gsr-tran-zs",
+  "worldbank-catalog:bx-gsr-trvl-zs",
+  "worldbank-catalog:bm-gsr-trvl-zs",
+  "pew-religion:jewish-share",
+  "undp-hdr:gdi",
+  "undp-hdr:gii",
+  "undp-hdr:phdi",
+  "worldbankclimate:coldest",
+  "worldbankclimate:driest",
+  "worldbankclimate:hottest",
+  "worldbankclimate:wettest",
   "comtrade:most-sports-equipment-exported",
   "koppen-geiger:tropical-savanna-share",
   "natural-earth:largest-geographic-span",
@@ -203,6 +228,45 @@ const PLAYER_TITLE_REWRITES: Array<[RegExp, string]> = [
   [/^Highest clean-cooking-fuel access$/i, "Highest share using clean cooking fuels"],
 ];
 
+// These overrides are the player-facing catalog contract. Source refreshes may
+// restore technical source labels, but they must never change reviewed copy or
+// cause SQL-approved categories to disappear only at runtime.
+const PLAYER_TITLE_OVERRIDES: Record<string, string> = {
+  agLand: "Highest % of land used for agriculture",
+  arablePct: "Highest % of land that is arable",
+  education: "Highest education spending as % of GDP",
+  forestPct: "Highest % of land covered by forest",
+  healthSpendShare: "Highest health spending as % of GDP",
+  protected: "Highest % of land protected",
+  "natural-earth:highest-mapped-glaciated-share": "Highest % of land covered by glaciers",
+  "natural-earth:highest-mapped-lake-share": "Highest % of land covered by lakes and reservoirs",
+  "pew-religion:hindu-share": "Highest % of population that is Hindu",
+  "unwpp:highest-male-share": "Highest % of population that is male",
+  "worldbank-catalog:ag-lnd-crop-zs": "Highest % of land in permanent crops",
+  "worldbank-catalog:bx-trf-pwkr-dt-gd-zs": "Highest money sent home from abroad as % of GDP",
+  "worldbank-catalog:eg-elc-fosl-zs": "Highest % of electricity from fossil fuels",
+  "worldbank-catalog:eg-elc-hyro-zs": "Highest % of electricity from hydropower",
+  "worldbank-catalog:eg-elc-ngas-zs": "Highest % of electricity from natural gas",
+  "worldbank-catalog:eg-elc-petr-zs": "Highest % of electricity from oil",
+  "worldbank-catalog:eg-use-comm-cl-zs": "Highest % of energy from alternative and nuclear sources",
+  "worldbank-catalog:eg-use-crnw-zs": "Highest % of energy from biomass and waste",
+  "worldbank-catalog:en-ghg-co2-pi-mt-ce-ar5": "Most CO₂ emissions from power generation",
+  "worldbank-catalog:en-urb-lcty-ur-zs": "Highest % of urban residents living in the largest city",
+  "worldbank-catalog:en-urb-mcty-tl-zs": "Highest % of people in cities over one million",
+  "worldbank-catalog:er-h2o-fwag-zs": "Highest % of freshwater withdrawals used by agriculture",
+  "worldbank-catalog:er-h2o-fwdm-zs": "Highest % of freshwater withdrawals used by households",
+  "worldbank-catalog:er-h2o-fwin-zs": "Highest % of freshwater withdrawals used by industry",
+  "worldbank-catalog:er-mrn-ptmr-zs": "Highest % of territorial waters protected",
+  "worldbank-catalog:fx-own-totl-zs": "Highest % of adults with a financial or mobile money account",
+  "worldbank-catalog:gc-tax-totl-gd-zs": "Highest tax revenue as % of GDP",
+  "worldbank-catalog:ms-mil-xpnd-zs": "Highest military spending as % of government spending",
+  "faostat-qcl-apricots-production-01343-5510-t": "Most apricots produced",
+  "faostat-qcl-avocados-production-01311-5510-t": "Most avocados produced",
+  "faostat-qcl-papayas-production-01317-5510-t": "Most papayas produced",
+  "faostat-qcl-pineapples-production-01318-5510-t": "Most pineapples produced",
+  "faostat-qcl-pulses-total-production-f1726-5510-t": "Most pulses produced",
+};
+
 function metadataString(metadata: Record<string, unknown> | null | undefined, key: string) {
   const value = metadata?.[key];
   return typeof value === "string" && value.trim() ? value.trim() : undefined;
@@ -237,6 +301,8 @@ function staticMatchMaps() {
 }
 
 function playerFacingTitle(row: PlayableCategoryRow) {
+  const override = PLAYER_TITLE_OVERRIDES[row.id];
+  if (override) return override;
   if (row.source_organization === "FAOSTAT Food Balances") {
     const base = row.title
       .replace(/^(?:Most|Highest)\s+/i, "")
@@ -341,6 +407,62 @@ function playerFacingIcon(row: PlayableCategoryRow, existing?: Category) {
   const copy = `${row.title} ${row.short_title ?? ""} ${row.description ?? ""}`.toLowerCase();
   // v16.2.5: prefer a semantically correct neutral icon over a misleading
   // inherited emoji. Specific rules intentionally run before stored icons.
+  if (/arms imports?/.test(copy)) return "🪖";
+  if (/military (?:spending|expenditure)/.test(copy)) return row.unit === "USD" ? "🛡️" : "🪖";
+  if (/tax[- ]?revenue/.test(copy)) return "🧾";
+  if (/total country area/.test(copy)) return "🗺️";
+  if (/donkey|asses/.test(copy)) return "🫏";
+  if (/mule|hinny/.test(copy)) return "🐎";
+  if (/cattle|buffalo/.test(copy)) return "🐄";
+  if (/sheep/.test(copy)) return "🐑";
+  if (/pig population|swine/.test(copy)) return "🐖";
+  if (/pork/.test(copy)) return "🥓";
+  if (/eggplant/.test(copy)) return "🍆";
+  if (/egg/.test(copy)) return "🥚";
+  if (/honey/.test(copy)) return "🍯";
+  if (/almond|walnut|tree nut|peanut/.test(copy)) return "🥜";
+  if (/apricot|peach|nectarine/.test(copy)) return "🍑";
+  if (/pineapple|papaya/.test(copy)) return "🍍";
+  if (/apple/.test(copy)) return "🍎";
+  if (/avocado/.test(copy)) return "🥑";
+  if (/cherr/.test(copy)) return "🍒";
+  if (/coconut/.test(copy)) return "🥥";
+  if (/lemon|lime/.test(copy)) return "🍋";
+  if (/orange|mandarin|tangerine|grapefruit|pomelo/.test(copy)) return "🍊";
+  if (/grapes?/.test(copy)) return "🍇";
+  if (/mango/.test(copy)) return "🥭";
+  if (/pear/.test(copy)) return "🍐";
+  if (/strawberr/.test(copy)) return "🍓";
+  if (/watermelon|melon/.test(copy)) return "🍉";
+  if (/tomato/.test(copy)) return "🍅";
+  if (/sweet potato/.test(copy)) return "🍠";
+  if (/potato|cassava|roots and tubers/.test(copy)) return "🥔";
+  if (/carrot/.test(copy)) return "🥕";
+  if (/cucumber|gherkin/.test(copy)) return "🥒";
+  if (/chili|pepper/.test(copy)) return "🌶️";
+  if (/onion|shallot/.test(copy)) return "🧅";
+  if (/mushroom|truffle/.test(copy)) return "🍄";
+  if (/broccoli|cauliflower/.test(copy)) return "🥦";
+  if (/cabbage|lettuce|vegetable/.test(copy)) return "🥬";
+  if (/pumpkin|squash|gourd/.test(copy)) return "🎃";
+  if (/corn|maize/.test(copy)) return "🌽";
+  if (/rice/.test(copy)) return "🍚";
+  if (/beans?|pulses?|peas|soybean/.test(copy)) return "🫘";
+  if (/coffee/.test(copy)) return "☕";
+  if (/beer/.test(copy)) return "🍺";
+  if (/wine/.test(copy)) return "🍷";
+  if (/cheese/.test(copy)) return "🧀";
+  if (/butter|ghee/.test(copy)) return "🧈";
+  if (/milk/.test(copy)) return "🥛";
+  if (/cotton/.test(copy)) return "🧵";
+  if (/sugar/.test(copy)) return "🍬";
+  if (/sunflower|sesame/.test(copy)) return "🌻";
+  if (/fig/.test(copy)) return "🧺";
+  if (/plum|sloe/.test(copy)) return "🍑";
+  if (/fruit (?:produced|production)/.test(copy)) return "🍎";
+  if (/tobacco/.test(copy)) return "🚬";
+  if (/agricultural land|land used for agriculture|permanent crops|arable land/.test(copy)) return "🚜";
+  if (/calorie intake/.test(copy)) return "🍽️";
   if (/other religions|outside (?:the )?(?:five )?major groups/.test(copy)) return "🕯️";
   if (/largest lake/.test(copy)) return "🏞️";
   if (/vegetable oil/.test(copy)) return "🫙";
@@ -356,6 +478,8 @@ function playerFacingIcon(row: PlayableCategoryRow, existing?: Category) {
   if (/goat/.test(copy)) return "🐐";
   if (/aquaculture|fish species|fish production/.test(copy)) return "🐟";
   if (/bird species/.test(copy)) return "🐦";
+  if (/mammal species/.test(copy)) return "🐾";
+  if (/vascular plant species/.test(copy)) return "🌿";
   if (/refugee|asylum|stateless|migrant population/.test(copy)) return "🧳";
   if (/hindu/.test(copy)) return "🕉️";
   if (/volcano/.test(copy)) return "🌋";
@@ -424,7 +548,12 @@ function failsEditorialConceptGate(row: PlayableCategoryRow) {
   const copy = [row.title, row.description, row.plain_language_description, row.technical_definition]
     .filter(Boolean).join(" ");
   const title = playerFacingTitle(row);
+  const worldBankIndicator = String(row.source_indicator_code ?? "").toUpperCase();
+  const ownerRetiredServiceTrade = row.source_organization === "World Bank"
+    && /^(BM|BX)\.GSR\./.test(worldBankIndicator)
+    && !/^(BM|BX)\.GSR\.MRCH\./.test(worldBankIndicator);
   return HARD_RETIRED_CATEGORY_IDS.has(row.id)
+    || ownerRetiredServiceTrade
     || FINDEX_SUBGROUP_INDICATOR.test(String(row.source_indicator_code ?? ""))
     || (row.source_organization === "UNESCO World Heritage Centre" && row.source_indicator_code !== "WHC:all-sites")
     || HARD_RETIRED_TITLE_PATTERNS.some((pattern) => pattern.test(copy))
@@ -520,11 +649,15 @@ export function buildCategoryCatalog(rows: PlayableCategoryRow[], options: Build
     const metadata = row.metadata ?? {};
     const title = playerFacingTitle(row);
     const measurementType = structuredMeasurementType(row);
-    const playable = (row.computed_playable_v16_2 ?? row.computed_playable_v16) === true
+    const databasePlayable = (row.computed_playable_v16_2 ?? row.computed_playable_v16) === true;
+    const playable = databasePlayable
       && (row.semantic_audit_status == null || row.semantic_audit_status === "pass")
       && !failsEditorialConceptGate(row)
       && faostatMeasureAllowed(row)
       && measurementType !== "other";
+    if (playableOnly && databasePlayable && !playable) {
+      throw new Error(`Catalog contract drift: SQL marked ${row.id} playable but the runtime safety gate rejected it.`);
+    }
     if (playableOnly && !playable) continue;
 
     const category: Category = {

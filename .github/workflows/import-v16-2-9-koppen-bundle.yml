@@ -67,7 +67,10 @@ jobs:
       - name: Promote atomically through database gates
         run: python scripts/promote-v16-2-9-koppen.py
       - name: Prove generator reachability after publication
-        run: node scripts/audit-v16-2-7-reachability.cjs --write --only-category-prefix=koppen-geiger:
+        run: |
+          node scripts/audit-v16-2-7-reachability.cjs \
+            --write \
+            --only-category-prefix=koppen-geiger:
       - name: Activate the reachability-proven bundle
         run: python scripts/promote-v16-2-9-koppen.py
       - name: Upload release evidence

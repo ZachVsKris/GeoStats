@@ -199,7 +199,7 @@ for (const token of [
   "original countries, values, rules, and scoring",
 ]) check(publicDaily.includes(token), `public Daily copy hydration missing ${token}`);
 check(/PLAYER_COPY_VERSION = "16\.(?:2\.(?:8\.1|9\.[2-9])|[3-9]\.\d+\.\d+)"/.test(version), "player-copy cache version is older than v16.2.8");
-check(/PLAYABLE_CATALOG_CACHE_VERSION = "16\.(?:2\.(?:8\.316|9\.(?:32[7-9]|33[0-9]))|[3-9]\.\d+\.\d+)"/.test(version), "playable-catalog cache version is older than the reviewed v16.2.8 catalog");
+check(/PLAYABLE_CATALOG_CACHE_VERSION = "16\.(?:2\.(?:8\.316|9\.(?:32[7-9]|33[0-9]))|[3-9](?:\.\d+){2,})"/.test(version), "playable-catalog cache version is older than the reviewed v16.2.8 catalog");
 check(serverPlayableCatalog.match(/PLAYABLE_CATALOG_CACHE_VERSION/g)?.length >= 5, "server catalog caches are not versioned consistently");
 check(playableCatalogRoute.includes("X-GeoStats-Catalog-Version") && playableCatalogRoute.includes("PLAYABLE_CATALOG_CACHE_VERSION"), "catalog endpoint does not disclose its cache version");
 check(game.includes("${PLAYER_COPY_VERSION}:${date}") && game.includes("copy: PLAYER_COPY_VERSION"), "browser/CDN Daily caches are not keyed by player-copy version");
@@ -268,7 +268,7 @@ for (const token of [
   'create policy "users read own profile"',
   'create policy "users read own scores"',
 ]) check(privacyMigration.includes(token), `private account-row policy missing ${token}`);
-for (const token of ["check-v16-3-0", "LAUNCH_DOCKET_V16_2_8.md", "RELEASE_NOTES_V16_2_8.md", "VALIDATION_V16_2_8.md"]) {
+for (const token of ["check-v16-3-1", "LAUNCH_DOCKET_V16_2_8.md", "RELEASE_NOTES_V16_2_8.md", "VALIDATION_V16_2_8.md"]) {
   check(readme.includes(token), `README launch handoff missing ${token}`);
 }
 for (const token of ["automatic standings", "first-party analytics", "four bounded feasibility passes", "custom SMTP"]) {

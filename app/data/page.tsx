@@ -4,6 +4,7 @@ import { DATASET_VERSION, RULES_VERSION } from "../../lib/version";
 import { SOURCE_REGISTRY } from "../../lib/sourceRegistry";
 import { resolvePlayerSourceUrl } from "../../lib/playerSourceLinks";
 import Brand from "../../components/Brand";
+import { publicCatalogPresentation } from "../../lib/publicCatalogPresentation";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Data & sources" };
@@ -23,7 +24,7 @@ function score(value?: number) {
 
 export default async function DataPage(){
   const { categories, warehouseLoaded } = await loadCatalog();
-  const staticQuarantined=CATEGORIES.filter((category)=>category.trustStatus==="quarantined" || category.enabled===false);
+  const staticQuarantined=publicCatalogPresentation(categories,CATEGORIES).blocked;
   return <main className="shell standalonePage infoPage">
     <header>
       <Brand linked />

@@ -3,6 +3,7 @@ import { loadServerPlayableCategoryCatalog } from "../../lib/serverPlayableCatal
 import { SOURCE_REGISTRY } from "../../lib/sourceRegistry";
 import { resolvePlayerSourceUrl } from "../../lib/playerSourceLinks";
 import Brand from "../../components/Brand";
+import { publicCatalogPresentation } from "../../lib/publicCatalogPresentation";
 
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Category trust audit" };
@@ -14,14 +15,7 @@ async function loadAuditCatalog(): Promise<Category[]> {
   } catch {
     approved = [];
   }
-  const quarantined = CATEGORIES.filter((category) => category.trustStatus === "quarantined" || category.enabled === false);
-  const merged = new Map<string, Category>();
-  for (const category of [...approved, ...quarantined]) merged.set(category.id, category);
-  return [...merged.values()].sort((a,b) => {
-    const aBlocked = a.trustStatus === "quarantined" || a.enabled === false ? 0 : 1;
-    const bBlocked = b.trustStatus === "quarantined" || b.enabled === false ? 0 : 1;
-    return aBlocked - bBlocked || a.name.localeCompare(b.name);
-  });
+  return publicCatalogPresentation(approved, CATEGORIES).categories;
 }
 
 export default async function AuditPage(){

@@ -62,6 +62,6 @@
 
 ## Expansion discipline
 
-- The source ledger remains the finite source of truth. Ten is a useful target rather than a release floor; a strong source may yield 20+ or any larger defensible set, while a smaller distinct set may still be worthwhile.
+- The source ledger remains the finite source of truth. Ten approved categories is the hard publication floor for a source pass, while 20+ is preferred; an exhausted pass is documented instead of padded.
 - New household, surface-water, hydrography, lithology, language, volcano, settlement, demographic-yearbook, historical-polity, soil, forest, and cyclone leads are recorded with explicit bounded dispositions.
 - No unverified source lead is promoted merely to meet a numerical target.

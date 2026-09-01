@@ -23,22 +23,22 @@ npm run dev
 Full release validation:
 
 ```bash
-npm run check-v16-3-0
+npm run check-v16-3-1
 ```
 
 ## Current database release
 
-GeoStats v16.3.0 is the current production release. It preserves Scout 4×4 / Adventurer 6×4 / Expert 8×6 scoring while strengthening same-day semantic-conflict protection, defining unfamiliar category terminology, balancing all-time ratings for small player cohorts, hardening account recovery, and polishing public presentation.
+GeoStats v16.3.1 is the current production release. It preserves Scout 4×4 / Adventurer 6×4 / Expert 8×6 scoring while making the database, player, Data page, and Audit page use one 306-category catalog. It also durably retires service import/export measures, repairs reviewed titles and taxonomy, and replaces misleading generic icons with subject-specific symbols.
 
 Run the release in this order:
 
-1. Confirm all repository migrations, including the timestamped v16.3.0 migrations, are applied to the healthy Supabase project
-2. Push the v16.3.0 repository and require **Verify GeoStats v16.3.0** to pass
+1. Confirm all repository migrations, including the timestamped v16.3.1 catalog-integrity migration, are applied to the healthy Supabase project
+2. Push the v16.3.1 repository and require **Verify GeoStats v16.3.1** to pass
 3. Confirm Vercel deploys that exact commit to production
 4. Verify the public Daily modes and all-time leaderboards, account-gated Expert flow, Admin analytics, and warehouse health
 5. Complete the owner-only Google OAuth, leaked-password protection, and multi-inbox email acceptance checks
 
-Additional catalog work is bounded by subject area and remains fail-closed unless a complete candidate bundle passes the existing source, semantic, coverage, uniqueness, Top-20, and board-generation gates. A source pass targets 20 or more distinct approved categories and never ships fewer than 10; an exhausted pass is documented instead of padded or searched repeatedly. Daily and internal Random QA continue to use one shared approved playable catalog. See `BOUNDED_EXPANSION_LEDGER_V16_2_9.md`, `RELEASE_NOTES_V16_3_0.md`, `VALIDATION_V16_3_0.md`, and `V16_3_0_OWNER_FINISH.md` for the current record.
+Additional catalog work is bounded by subject area and remains fail-closed unless a complete candidate bundle passes the existing source, semantic, coverage, uniqueness, Top-20, and board-generation gates. A source pass targets 20 or more distinct approved categories and never ships fewer than 10; an exhausted pass is documented instead of padded or searched repeatedly. Daily and internal Random QA continue to use one shared approved playable catalog. See `BOUNDED_EXPANSION_LEDGER_V16_2_9.md`, `RELEASE_NOTES_V16_3_1.md`, and `VALIDATION_V16_3_1.md` for the current record.
 
 See `LAUNCH_DOCKET_V16_2_8.md`, `RELEASE_NOTES_V16_2_8.md`, `VALIDATION_V16_2_8.md`, and `ROLLBACK_V16_2_8.sql` for details.
 

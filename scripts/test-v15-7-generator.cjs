@@ -193,6 +193,33 @@ const religionTrio = {
 if (!validateDailyTrio(religionTrio).some((error) => error.includes('too conceptually similar'))) {
   throw new Error('Daily trio validation did not reject Christian share and Christian population across modes.');
 }
+const conceptCollisionPairs = [
+  [
+    { ...datasets[6].category, id: 'natural-earth:longest-single-land-border', source: 'naturalearth', name: 'Longest border with one neighboring country', strategyFamily: 'longest-single-land-border', similarityGroup: 'longest-single-land-border', knowledgeCluster: 'physical-geography' },
+    { ...datasets[7].category, id: 'natural-earth:land-border', source: 'naturalearth', name: 'Longest combined land borders', strategyFamily: 'longest-land-border', similarityGroup: 'land-border-length', knowledgeCluster: 'physical-geography' },
+    'land-border measures',
+  ],
+  [
+    { ...datasets[8].category, id: 'faostat:mules-stock', source: 'faostat', name: 'Largest mule and hinny population', strategyFamily: 'mules-stock', similarityGroup: 'mules-stock', knowledgeCluster: 'mules-stock' },
+    { ...datasets[9].category, id: 'faostat:buffalo-stock', source: 'faostat', name: 'Largest buffalo population', strategyFamily: 'buffalo-stock', similarityGroup: 'buffalo-stock', knowledgeCluster: 'buffalo-stock' },
+    'livestock-population measures',
+  ],
+  [
+    { ...datasets[10].category, id: 'comtrade:phones', source: 'comtrade', name: 'Largest telephone exports', strategyFamily: 'phone-exports', similarityGroup: 'phone-exports', knowledgeCluster: 'phone-exports', productSpecificTrade: true },
+    { ...datasets[11].category, id: 'comtrade:computers', source: 'comtrade', name: 'Largest computer exports', strategyFamily: 'computer-exports', similarityGroup: 'computer-exports', knowledgeCluster: 'computer-exports', productSpecificTrade: true },
+    'product-export measures',
+  ],
+  [
+    { ...datasets[12].category, id: 'mobile', source: 'worldbank', name: 'Highest mobile subscriptions per 100 people', strategyFamily: 'mobile', similarityGroup: 'mobile', knowledgeCluster: 'telecommunications-adoption' },
+    { ...datasets[13].category, id: 'fixedBroadband', source: 'worldbank', name: 'Fixed broadband subscriptions', strategyFamily: 'fixed-broadband', similarityGroup: 'fixed-broadband', knowledgeCluster: 'telecommunications-adoption' },
+    'telecommunications-subscription measures',
+  ],
+];
+for (const [firstCategory, secondCategory, label] of conceptCollisionPairs) {
+  if (!categoryConflictsWithExistingTrio(secondCategory, [firstCategory])) {
+    throw new Error(`Cross-mode construction did not block ${label}.`);
+  }
+}
 if (!first.diagnostics.generationProfile) throw new Error('Generator did not report the successful profile.');
 for (const difficulty of ['easy', 'normal', 'expert']) {
   if (!first.trio[difficulty]) throw new Error(`Missing ${difficulty} board.`);

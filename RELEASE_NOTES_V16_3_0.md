@@ -10,6 +10,17 @@
 - Historical scored boards remain stored for result integrity; the public
   fallback search skips an incompatible date and continues to an eligible one.
 
+## Cross-mode concept buckets
+
+- Daily generation treats land-border variants, livestock-population measures,
+  product exports, and telecommunications subscriptions as one concept each
+  across all three modes.
+- The rule uses normalized player knowledge rather than only importer-specific
+  indicator families, so narrow metadata cannot hide an obvious same-day
+  collision.
+- Regression coverage recreates the exact border, livestock, export, and
+  telecom pairs found during the live September 1 audit.
+
 ## Clearer, more varied Daily boards
 
 - Same-day semantic conflicts are hard failures within a board and across Scout, Adventurer, and Expert.

@@ -26,6 +26,8 @@ const measurementRefresh = read("supabase/migrations/20260901001000_v16_2_9_meas
 const remainingMeasurementBuckets = read("supabase/migrations/20260901001500_v16_2_9_remaining_measurement_buckets.sql");
 const koppenTimeout = read("supabase/migrations/20260901002000_v16_2_9_koppen_promotion_timeout.sql");
 const koppenYear = read("supabase/migrations/20260901002500_v16_2_9_koppen_climatology_year.sql");
+const koppenPromotionScript = read("scripts/promote-v16-2-9-koppen.py");
+const warehouse = read("scripts/data_pipeline/supabase.py");
 const playableCatalog = read("lib/playableCatalog.ts");
 const publicDaily = read("lib/publicDaily.ts");
 const dailyBoardService = read("lib/dailyBoardService.ts");
@@ -70,9 +72,11 @@ for (const token of ["in ('total','share','per_capita','historical_date','rate',
 for (const token of ["unsdg:pm25-exposure", "worldbankclimate:driest", "worldbankclimate:coldest"]) check(remainingMeasurementBuckets.includes(token), `remaining measurement audit missing ${token}`);
 check(koppenTimeout.includes("set statement_timeout='300s'"), "Köppen promotion timeout budget is missing");
 check(koppenYear.includes("minimum_year=2020") && read("scripts/import-koppen-geiger.py").includes("'minimum_year':REFERENCE_YEAR"), "Köppen climatology year contract is missing");
+for (const token of ["publication_is_complete", "EXPECTED_CATEGORY_COUNT = 11", '"(504)"', "upstream request timeout"]) check(koppenPromotionScript.includes(token), `Köppen promotion timeout recovery missing ${token}`);
+check(warehouse.includes("list_v16_2_9_koppen_publication_state") && warehouse.includes("computed_playable_v16_2"), "Köppen promotion postcondition query is missing");
 for (const token of ["promote_v16_2_9_koppen_bundle", "validation_status='verified'", "common_year_coverage", "top_value_distinct_count", "computed_playable_v16_2"]) check(migration.includes(token), `bounded climate promotion gate missing ${token}`);
 check(migration.includes("security definer\nset search_path=''"), "Köppen promotion function does not pin an empty search_path");
-for (const token of ["--minimum-pass 10", "--only desert-share", "audit-source-integrity.py", "promote-v16-2-9-koppen.py", "actions/setup-node@v6", "npm run audit-generator-reachability"]) check(workflow.includes(token), `bounded climate workflow missing ${token}`);
+for (const token of ["--minimum-pass 10", "--only desert-share", "audit-source-integrity.py", "promote-v16-2-9-koppen.py", "actions/setup-node@v6", "--only-category-prefix=koppen-geiger:"]) check(workflow.includes(token), `bounded climate workflow missing ${token}`);
 check(verify.includes("Verify GeoStats v16.2.9") && verify.includes("geostats-v16-2-9-verify") && verify.includes("npm run test-v16-2-9"), "CI is not pinned to v16.2.9");
 for (const token of ["Natural and physical geography", "Country history", "Culture", "Ethnic, religious, and racial demographics", "Infrastructure, technology, and science"]) check(ledger.includes(token), `bounded source ledger missing ${token}`);
 check(/^begin;/m.test(migration) && /commit;\s*$/.test(migration), "v16.2.9 migration is not transaction wrapped");

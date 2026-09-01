@@ -279,6 +279,16 @@ class SupabaseWarehouse:
         """Publish the bounded Köppen-Geiger bundle only after its database gates pass."""
         return self._request("POST", "rpc/promote_v16_2_9_koppen_bundle", {})
 
+    def list_v16_2_9_koppen_publication_state(self) -> list[dict[str, Any]]:
+        """Read the lightweight postcondition used to recover from gateway timeouts."""
+        rows = self._request(
+            "GET",
+            "category_runtime_review_v16_2?"
+            "select=id,computed_playable_v16_2&"
+            f"id=like.{quote('koppen-geiger:%', safe='')}&limit=20",
+        )
+        return [dict(row) for row in rows] if isinstance(rows, list) else []
+
     def finalize_v16_catalog(self, *, release_version: str = "16.2.7") -> Any:
         """Publish only through the guarded v16.2.x finalizer for the requested release."""
         if release_version not in {"16.2.1", "16.2.2", "16.2.3", "16.2.4", "16.2.5", "16.2.6", "16.2.7"}:

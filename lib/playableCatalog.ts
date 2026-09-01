@@ -265,7 +265,7 @@ function cardDescriptionWithoutTerminalPeriod(value: string) {
   return value.replace(/[.]\s*$/, "").trim();
 }
 
-function firstCompleteSentence(value: string, maximum = 82) {
+function firstCompleteSentence(value: string, maximum = 200) {
   const clean = value.replace(/\s+/g, " ").trim().replace(/(?:…|\.\.\.)\s*$/, "");
   if (!clean) return "Compare the official country value for this measure.";
   const sentences = clean.match(/[^.!?]+[.!?]/g) ?? [];

@@ -9,6 +9,8 @@ const root = path.resolve(__dirname, '..');
 const WRITE = process.argv.includes('--write');
 const ASSERT_RELEASE = process.argv.includes('--assert-release');
 const FORCED_ONLY = process.argv.includes('--forced-only');
+const targetPrefixArg = process.argv.find((arg) => arg.startsWith('--only-category-prefix='));
+const TARGET_PREFIX = targetPrefixArg?.slice('--only-category-prefix='.length) || '';
 const sampleArg = process.argv.find((arg) => arg.startsWith('--anchor-samples='));
 const randomArg = process.argv.find((arg) => arg.startsWith('--random-samples='));
 const dailyArg = process.argv.find((arg) => arg.startsWith('--daily-days='));
@@ -248,8 +250,13 @@ async function main() {
   const failures = [];
   const started = Date.now();
 
-  for (let index = 0; index < datasets.length; index += 1) {
-    const dataset = datasets[index];
+  const reachabilityTargets = TARGET_PREFIX
+    ? datasets.filter((dataset) => dataset.category.id.startsWith(TARGET_PREFIX))
+    : datasets;
+  if (TARGET_PREFIX && !reachabilityTargets.length) throw new Error(`No playable categories match prefix ${TARGET_PREFIX}`);
+
+  for (let index = 0; index < reachabilityTargets.length; index += 1) {
+    const dataset = reachabilityTargets[index];
     const warehouseCategoryId = warehouseIdByGameplayId.get(dataset.category.id);
     if (!warehouseCategoryId) throw new Error(`No warehouse identity for reachability proof ${dataset.category.id}`);
     for (const difficulty of difficulties) {
@@ -275,9 +282,35 @@ async function main() {
         failures.push({ ...failed, gameplay_category_id: dataset.category.id });
       }
     }
-    if ((index + 1) % 25 === 0 || index + 1 === datasets.length) {
-      console.log(`Reachability ${index + 1}/${datasets.length} categories; failures=${failures.length}`);
+    if ((index + 1) % 25 === 0 || index + 1 === reachabilityTargets.length) {
+      console.log(`Reachability ${index + 1}/${reachabilityTargets.length} categories; failures=${failures.length}`);
     }
+  }
+
+  // Bounded release workflows may prove one newly imported source family
+  // without repeating the full-catalog distribution simulation. The loaded
+  // candidate universe remains complete, so every forced board still uses the
+  // real production solver and all existing composition rules.
+  if (TARGET_PREFIX) {
+    if (!failures.length && WRITE) {
+      for (const chunk of chunks(reachabilityRows, 250)) {
+        const result = await supabase.from('generator_reachability_v16_2_7').upsert(chunk, { onConflict: 'category_id,difficulty' });
+        if (result.error) throw new Error(`Reachability upsert failed: ${result.error.message}`);
+      }
+    }
+    console.log(JSON.stringify({
+      targetPrefix: TARGET_PREFIX,
+      playableUniverse: datasets.length,
+      targetedCategories: reachabilityTargets.length,
+      checks: reachabilityRows.length,
+      forcedFailures: failures.length,
+      wroteProof: Boolean(WRITE && !failures.length),
+    }, null, 2));
+    if (failures.length) {
+      console.error(JSON.stringify({ forcedReachabilityFailures: failures }, null, 2));
+      process.exitCode = 1;
+    }
+    return;
   }
 
   // Forced-anchor feasibility is the foundational reachability invariant. Stop

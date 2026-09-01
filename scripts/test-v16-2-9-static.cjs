@@ -31,6 +31,7 @@ const dailyBoardService = read("lib/dailyBoardService.ts");
 const dailyTrioRules = read("lib/dailyTrioRules.ts");
 const categoryMeasurement = read("lib/categoryMeasurement.ts");
 const gameRules = read("lib/gameRules.ts");
+const reachabilityAudit = read("scripts/audit-v16-2-7-reachability.cjs");
 const workflow = read(".github/workflows/import-v16-2-9-koppen-bundle.yml");
 const verify = read(".github/workflows/verify-v16.yml");
 const ledger = read("BOUNDED_EXPANSION_LEDGER_V16_2_9.md");
@@ -61,6 +62,7 @@ check(dailyBoardService.includes("allowLegacyComposition: legacyComposition") &&
 for (const token of ["measurement_type = 'rate'", "measurement_type = 'value'", "unwpp:lowest-pop-density", "pew-religion:religious-diversity"]) check(measurementBuckets.includes(token), `measurement-bucket audit missing ${token}`);
 check(categoryMeasurement.includes('case "rate": return "RATE"') && categoryMeasurement.includes('case "value": return "VALUE"'), "RATE and VALUE player badges are missing");
 check(!gameRules.includes("if (category.enabled === false) return false"), "production solver still rejects strict-pass categories before reachability can publish them");
+for (const token of ["--only-category-prefix=", "reachabilityTargets", "wroteProof"]) check(reachabilityAudit.includes(token), `bounded reachability mode missing ${token}`);
 for (const token of ["refresh_category_ranking_completeness_v16", "refresh_category_semantic_audit_v16_1", "stale_data=false", "poor_coverage=false", "computed_playable_v16_2"]) check(koppenLifecycle.includes(token), `Köppen promotion lifecycle hotfix missing ${token}`);
 check(!workflow.includes("push:\n") && workflow.includes("workflow_dispatch:"), "bounded climate workflow still contains its one-time push trigger");
 for (const token of ["in ('total','share','per_capita','historical_date','rate','value')", "classified.inferred_type", "refresh_measurement_types_v16_2_2"]) check(measurementRefresh.includes(token), `measurement refresh hotfix missing ${token}`);

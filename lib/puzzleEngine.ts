@@ -1236,10 +1236,18 @@ export function generateAnchoredRoundFromLoadedCatalog(
 ): { round: Round; profile: string; score: ScoreBreakdown } {
   const anchor = loaded.datasets.find((dataset) => dataset.category.id === anchorCategoryId);
   if (!anchor) throw new Error(`Anchor category ${anchorCategoryId} is not in the loaded playable catalog.`);
+  const diagnostics: string[] = [];
 
   for (const profile of generationProfiles()) {
     const config = profile.configs[difficulty];
-    if (!datasetHasEnoughDisplayedVariety(anchor, config) || !canAddCategory([], anchor.category, config)) continue;
+    if (!datasetHasEnoughDisplayedVariety(anchor, config)) {
+      diagnostics.push(`${profile.name}:anchor-variety`);
+      continue;
+    }
+    if (!canAddCategory([], anchor.category, config)) {
+      diagnostics.push(`${profile.name}:anchor-rule`);
+      continue;
+    }
     const result = composeRoundCandidates(
       loaded.datasets,
       countries,
@@ -1262,8 +1270,9 @@ export function generateAnchoredRoundFromLoadedCatalog(
         score: scoreBoard(candidate.round, config),
       };
     }
+    diagnostics.push(`${profile.name}:category=${result.categorySelectionFailures},winner=${result.winnerSearchFailures},validation=${result.validationFailures}`);
   }
-  throw new Error(`Playable category ${anchorCategoryId} is not reachable in ${difficulty} with the current production solver.`);
+  throw new Error(`Playable category ${anchorCategoryId} is not reachable in ${difficulty} with the current production solver. ${diagnostics.join('; ')}`);
 }
 
 export function generateSeededRoundFromLoadedCatalog(

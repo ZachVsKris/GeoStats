@@ -24,6 +24,7 @@ const measurementBuckets = read("supabase/migrations/20260831235900_v16_2_9_meas
 const koppenLifecycle = read("supabase/migrations/20260901000500_v16_2_9_koppen_promotion_lifecycle_hotfix.sql");
 const measurementRefresh = read("supabase/migrations/20260901001000_v16_2_9_measurement_refresh_hotfix.sql");
 const remainingMeasurementBuckets = read("supabase/migrations/20260901001500_v16_2_9_remaining_measurement_buckets.sql");
+const koppenTimeout = read("supabase/migrations/20260901002000_v16_2_9_koppen_promotion_timeout.sql");
 const playableCatalog = read("lib/playableCatalog.ts");
 const publicDaily = read("lib/publicDaily.ts");
 const dailyBoardService = read("lib/dailyBoardService.ts");
@@ -62,6 +63,7 @@ for (const token of ["refresh_category_ranking_completeness_v16", "refresh_categ
 check(!workflow.includes("push:\n") && workflow.includes("workflow_dispatch:"), "bounded climate workflow still contains its one-time push trigger");
 for (const token of ["in ('total','share','per_capita','historical_date','rate','value')", "classified.inferred_type", "refresh_measurement_types_v16_2_2"]) check(measurementRefresh.includes(token), `measurement refresh hotfix missing ${token}`);
 for (const token of ["unsdg:pm25-exposure", "worldbankclimate:driest", "worldbankclimate:coldest"]) check(remainingMeasurementBuckets.includes(token), `remaining measurement audit missing ${token}`);
+check(koppenTimeout.includes("set statement_timeout='300s'"), "Köppen promotion timeout budget is missing");
 for (const token of ["promote_v16_2_9_koppen_bundle", "validation_status='verified'", "common_year_coverage", "top_value_distinct_count", "computed_playable_v16_2"]) check(migration.includes(token), `bounded climate promotion gate missing ${token}`);
 check(migration.includes("security definer\nset search_path=''"), "Köppen promotion function does not pin an empty search_path");
 for (const token of ["--minimum-pass 10", "--only desert-share", "audit-source-integrity.py", "promote-v16-2-9-koppen.py", "actions/setup-node@v6", "npm run audit-generator-reachability"]) check(workflow.includes(token), `bounded climate workflow missing ${token}`);

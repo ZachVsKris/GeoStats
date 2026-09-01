@@ -14,7 +14,7 @@ import { DATASET_VERSION, PLAYER_COPY_VERSION } from "./version";
 import type { DailyApiPayload } from "./dailyPublicPayload";
 import { DAILY_DIFFICULTIES } from "./gameRules";
 import { hydrateRoundSnapshotPlayerCopy } from "./challengeCodec";
-import { loadServerCategoryRegistryForIds } from "./serverPlayableCatalog";
+import { loadServerCategoryRegistryForIds, loadServerPlayableCategoryCatalog } from "./serverPlayableCatalog";
 
 async function hydrateCurrentPlayerCopy(boards: PackedDailyTrio) {
   try {
@@ -48,7 +48,14 @@ const loadCachedCompleteDaily = unstable_cache(
     if (!admin) throw new Error("Supabase is not configured.");
     const stored = await readDailyRows(admin, date);
     if (stored.error) throw stored.error;
-    const inspected = inspectStoredTrio(stored.rows);
+    // Today's playable trio must meet current cross-mode semantic rules. The
+    // legacy exception is reserved for historical result integrity, not for a
+    // board currently offered to players.
+    const playableCatalog = await loadServerPlayableCategoryCatalog();
+    const inspected = inspectStoredTrio(stored.rows, undefined, {
+      allowLegacyComposition: false,
+      eligibleCategoryIds: new Set(playableCatalog.map((category) => category.id)),
+    });
     if (!inspected.complete) throw new Error("Daily trio is not complete.");
     const boards = await hydrateCurrentPlayerCopy(packStoredRows(stored.rows));
     return {

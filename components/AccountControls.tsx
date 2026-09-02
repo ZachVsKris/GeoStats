@@ -198,6 +198,8 @@ export default function AccountControls({
       disposed = true;
       listener.subscription.unsubscribe();
     };
+  }, [supabase]);
+
   async function saveUsername() {
     if (savingUsername || !usernameDraft.trim()) return;
     setSavingUsername(true);

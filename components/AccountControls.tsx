@@ -148,7 +148,20 @@ export default function AccountControls({
             ? `${label} Daily was already completed. Your original score remains saved.`
             : `${label} Daily score saved to your account.`);
         } else if (response.status !== 401) {
-            async function loadProfile(userId: string, fallbackEmail?: string | null) {
+          setMessage(data.error ?? "Score could not be saved.");
+        }
+      }
+    })();
+    pendingScoreSavePromise = save;
+    try {
+      await save;
+    } finally {
+      if (pendingScoreSavePromise === save) pendingScoreSavePromise = null;
+      setSaving(false);
+    }
+  }
+
+  async function loadProfile(userId: string, fallbackEmail?: string | null) {
     const profile = await getProfile(userId);
     if (!profile) {
       setUserLabel(fallbackEmail?.split("@")[0] || "Account");

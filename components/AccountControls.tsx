@@ -19,6 +19,8 @@ type Props = {
 
 const pendingKey = (difficulty: DailyDifficulty) => `geostats-pending-daily-score-${difficulty}`;
 
+const EMAIL_REQUEST_TIMEOUT_MS = 15000;
+
 export default function AccountControls({
   pendingScore,
   onScoreSaved,
@@ -44,6 +46,7 @@ export default function AccountControls({
   const dialogRef = useRef<HTMLDivElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const usernameCustomizedRef = useRef(usernameCustomized);
+  const emailRequestTimerRef = useRef<number | null>(null);
   const pendingSignature = JSON.stringify(pendingScore ?? null);
 
   useEffect(() => {
@@ -213,8 +216,10 @@ export default function AccountControls({
     if (!supabase || !email.trim() || sendingLink || resendSeconds > 0) return;
     setSendingLink(true);
     setMessage("");
+    let timer: number | null = null;
+    emailRequestTimerRef.current = null;
     try {
-      const { error } = await supabase.auth.signInWithOtp({
+      const request = supabase.auth.signInWithOtp({
         email: email.trim(),
         options: {
           // signInWithOtp is the email sign-in and sign-up flow for GeoStats.
@@ -222,6 +227,13 @@ export default function AccountControls({
           emailRedirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(`${window.location.pathname}${window.location.search}` || "/daily")}`,
         },
       });
+      const { error } = await Promise.race([
+        request,
+        new Promise<never>((_, reject) => {
+          timer = window.setTimeout(() => reject(new Error("email_request_timeout")), EMAIL_REQUEST_TIMEOUT_MS);
+          emailRequestTimerRef.current = timer;
+        }),
+      ]);
       if (error) {
         const rateLimited = /rate limit|too many requests/i.test(error.message);
         if (rateLimited) {
@@ -235,7 +247,17 @@ export default function AccountControls({
       setResendSeconds(60);
       trackAnalytics("account_signin_requested", { metadata: { context } });
       setMessage("Sign-in link sent. Check your inbox—and spam or junk if it doesn’t arrive.");
+    } catch (caught) {
+      const raw = caught instanceof Error ? caught.message : String(caught);
+      if (/email_request_timeout/i.test(raw)) {
+        setResendSeconds(60);
+        setMessage("The email service is taking too long to respond. Check your inbox or spam in case the link arrived; try again in a minute.");
+      } else {
+        setMessage("GeoStats could not send that sign-in link. Check the address and try again.");
+      }
     } finally {
+      if (timer !== null) window.clearTimeout(timer);
+      if (emailRequestTimerRef.current === timer) emailRequestTimerRef.current = null;
       setSendingLink(false);
     }
   }

@@ -197,8 +197,8 @@ export default function AccountControls({
       if (!disposed && customized) await savePendingScore();
     }
 
-    void supabase.auth.getSession().then(({ data }) => {
-      void syncUser(data.session?.user ?? null);
+    void supabase.auth.getSession().then((result: { data: { session: { user: { id: string; email?: string | null } } | null } }) => {
+      void syncUser(result.data.session?.user ?? null);
     });
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
       // Never await profile or network work inside the Supabase auth callback.

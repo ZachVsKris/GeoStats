@@ -18,6 +18,7 @@ check(account.includes("shouldCreateUser: true"), "email flow does not explicitl
 check(account.includes("Continue with email") && account.includes("automatically signed up"), "email sign-up copy is ambiguous");
 check(!account.includes("googleProviderIsEnabled") && !account.includes("googleAvailable"), "Google flow still depends on client-side provider preflight state");
 check(!/onAuthStateChange\(async/.test(account) && account.includes("window.setTimeout"), "auth callback still awaits network work inline");
+check(account.includes("EMAIL_REQUEST_TIMEOUT_MS") && account.includes("email_request_timeout"), "email flow can remain stuck on Sending indefinitely");
 check(browser.includes('flowType: "pkce"') && browser.includes("persistSession: true"), "browser client is not configured for durable PKCE sessions");
 check(callback.includes("exchangeCodeForSession") && callback.includes("verifyOtp"), "callback route does not handle OAuth and email links");
 for (const token of ["accounts@geostats.xyz", "custom SMTP", "SPF", "DKIM", "DMARC", "Google Cloud", "auth/v1/callback"]) check(setup.includes(token), `auth setup guide missing ${token}`);

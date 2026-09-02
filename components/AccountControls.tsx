@@ -21,6 +21,27 @@ const pendingKey = (difficulty: DailyDifficulty) => `geostats-pending-daily-scor
 
 const EMAIL_REQUEST_TIMEOUT_MS = 15000;
 
+type ProfileData = {
+  username?: string | null;
+  displayName?: string | null;
+  usernameCustomized?: boolean;
+};
+
+let profileRequest: { userId: string; promise: Promise<ProfileData | null> } | null = null;
+let pendingScoreSavePromise: Promise<void> | null = null;
+
+function getProfile(userId: string) {
+  if (profileRequest?.userId === userId) return profileRequest.promise;
+  const promise = fetch("/api/profile", { cache: "no-store" })
+    .then(async (response) => {
+      if (!response.ok) return null;
+      return await response.json() as ProfileData;
+    })
+    .catch(() => null);
+  profileRequest = { userId, promise };
+  return promise;
+}
+
 export default function AccountControls({
   pendingScore,
   onScoreSaved,
@@ -47,6 +68,7 @@ export default function AccountControls({
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const usernameCustomizedRef = useRef(usernameCustomized);
   const emailRequestTimerRef = useRef<number | null>(null);
+  const currentUserIdRef = useRef<string | null>(null);
   const pendingSignature = JSON.stringify(pendingScore ?? null);
 
   useEffect(() => {
@@ -99,8 +121,12 @@ export default function AccountControls({
 
   async function savePendingScore() {
     if (saving) return;
+    if (pendingScoreSavePromise) {
+      await pendingScoreSavePromise;
+      return;
+    }
     setSaving(true);
-    try {
+    const save = (async () => {
       for (const difficulty of ["easy", "normal", "expert"] as const) {
         const key = pendingKey(difficulty);
         const raw = localStorage.getItem(key);
@@ -122,43 +148,31 @@ export default function AccountControls({
             ? `${label} Daily was already completed. Your original score remains saved.`
             : `${label} Daily score saved to your account.`);
         } else if (response.status !== 401) {
-          setMessage(data.error ?? "Score could not be saved.");
-        }
-      }
-    } finally { setSaving(false); }
-  }
-
-  async function loadProfile(fallbackEmail?: string | null) {
-    try {
-      const response = await fetch("/api/profile", { cache: "no-store" });
-      if (!response.ok) return;
-      const profile = await response.json() as {
-        username?: string | null;
-        displayName?: string | null;
-        usernameCustomized?: boolean;
-      };
-      const nextUsername = profile.username ?? "";
-      setUsername(nextUsername);
-      setUsernameDraft(nextUsername);
-      setUsernameCustomized(profile.usernameCustomized !== false);
-      setUserLabel(profile.displayName || nextUsername || fallbackEmail?.split("@")[0] || "Account");
-      if (profile.usernameCustomized === false) {
-        setMessage("Choose the GeoStats username that will appear on leaderboards.");
-        setOpen(true);
-      }
-      return profile.usernameCustomized !== false;
-    } catch {
+            async function loadProfile(userId: string, fallbackEmail?: string | null) {
+    const profile = await getProfile(userId);
+    if (!profile) {
       setUserLabel(fallbackEmail?.split("@")[0] || "Account");
       return false;
     }
+    const nextUsername = profile.username ?? "";
+    setUsername(nextUsername);
+    setUsernameDraft(nextUsername);
+    setUsernameCustomized(profile.usernameCustomized !== false);
+    setUserLabel(profile.displayName || nextUsername || fallbackEmail?.split("@")[0] || "Account");
+    if (profile.usernameCustomized === false) {
+      setMessage("Choose the GeoStats username that will appear on leaderboards.");
+      setOpen(true);
+    }
+    return profile.usernameCustomized !== false;
   }
 
   useEffect(() => {
     if (!supabase) return;
     let disposed = false;
 
-    async function syncUser(user: { email?: string | null } | null) {
+    async function syncUser(user: { id: string; email?: string | null } | null) {
       if (disposed) return;
+      currentUserIdRef.current = user?.id ?? null;
       if (!user) {
         setUserLabel(null);
         setUsername("");
@@ -166,12 +180,12 @@ export default function AccountControls({
         setUsernameCustomized(true);
         return;
       }
-      const customized = await loadProfile(user.email);
+      const customized = await loadProfile(user.id, user.email);
       if (!disposed && customized) await savePendingScore();
     }
 
-    void supabase.auth.getUser().then(({ data }) => {
-      void syncUser(data.user);
+    void supabase.auth.getSession().then(({ data }) => {
+      void syncUser(data.session?.user ?? null);
     });
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
       // Never await profile or network work inside the Supabase auth callback.
@@ -184,7 +198,6 @@ export default function AccountControls({
       disposed = true;
       listener.subscription.unsubscribe();
     };
-  }, [supabase]);
   async function saveUsername() {
     if (savingUsername || !usernameDraft.trim()) return;
     setSavingUsername(true);
@@ -204,6 +217,7 @@ export default function AccountControls({
       setUsernameDraft(data.username);
       setUsernameCustomized(true);
       setUserLabel(data.username);
+      profileRequest = null;
       trackAnalytics("account_username_saved", { metadata: { updated: usernameCustomized } });
       setMessage("Username saved. This is how you will appear on GeoStats leaderboards.");
       await savePendingScore();

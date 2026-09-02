@@ -90,7 +90,7 @@
     "check-v16-3-0": "npm run test-v16-3-0 && npm run typecheck && npm run build && npm run test-e2e",
     "test-v16-3-1": "npm run test-v16-3-0 && node scripts/test-v16-3-1-static.cjs",
     "check-v16-3-1": "npm run test-v16-3-1 && npm run typecheck && npm run build && npm run test-e2e",
-    "test-v16-3-2": "npm run test-v16-3-1 && node scripts/test-v16-3-2-static.cjs",
+    "test-v16-3-2": "npm run test-v16-3-1 && node scripts/test-v16-3-2-static.cjs && node scripts/test-auth-static.cjs",
     "check-v16-3-2": "npm run test-v16-3-2 && npm run typecheck && npm run build && npm run test-e2e"
   },
   "dependencies": {

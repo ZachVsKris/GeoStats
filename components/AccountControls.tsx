@@ -40,7 +40,6 @@ export default function AccountControls({
   const [saving, setSaving] = useState(false);
   const [sendingLink, setSendingLink] = useState(false);
   const [signingInWithGoogle, setSigningInWithGoogle] = useState(false);
-  const [googleAvailable, setGoogleAvailable] = useState<boolean | null>(null);
   const [resendSeconds, setResendSeconds] = useState(0);
   const dialogRef = useRef<HTMLDivElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
@@ -94,34 +93,6 @@ export default function AccountControls({
       previousFocusRef.current?.focus();
     };
   }, [open]);
-
-  async function googleProviderIsEnabled() {
-    const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-    if (!url || !key) return false;
-    const controller = new AbortController();
-    const timeout = window.setTimeout(() => controller.abort(), 4000);
-    try {
-      const response = await fetch(`${url}/auth/v1/settings`, {
-        headers: { apikey: key },
-        signal: controller.signal,
-      });
-      if (!response.ok) return false;
-      const settings = await response.json() as { external?: { google?: boolean } };
-      return settings.external?.google === true;
-    } catch {
-      return false;
-    } finally {
-      window.clearTimeout(timeout);
-    }
-  }
-
-  useEffect(() => {
-    if (!open || userLabel) return;
-    let active = true;
-    void googleProviderIsEnabled().then((enabled) => active && setGoogleAvailable(enabled));
-    return () => { active = false; };
-  }, [open, userLabel]);
 
   async function savePendingScore() {
     if (saving) return;
@@ -181,26 +152,36 @@ export default function AccountControls({
 
   useEffect(() => {
     if (!supabase) return;
-    supabase.auth.getUser().then(async ({ data }) => {
-      const user = data.user;
-      if (!user) return;
-      const customized = await loadProfile(user.email);
-      if (customized) await savePendingScore();
-    });
-    const { data: listener } = supabase.auth.onAuthStateChange(async (_event, session) => {
-      if (!session?.user) {
+    let disposed = false;
+
+    async function syncUser(user: { email?: string | null } | null) {
+      if (disposed) return;
+      if (!user) {
         setUserLabel(null);
         setUsername("");
         setUsernameDraft("");
         setUsernameCustomized(true);
         return;
       }
-      const customized = await loadProfile(session.user.email);
-      if (customized) await savePendingScore();
-    });
-    return () => listener.subscription.unsubscribe();
-  }, [supabase]);
+      const customized = await loadProfile(user.email);
+      if (!disposed && customized) await savePendingScore();
+    }
 
+    void supabase.auth.getUser().then(({ data }) => {
+      void syncUser(data.user);
+    });
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+      // Never await profile or network work inside the Supabase auth callback.
+      window.setTimeout(() => {
+        void syncUser(session?.user ?? null);
+      }, 0);
+    });
+
+    return () => {
+      disposed = true;
+      listener.subscription.unsubscribe();
+    };
+  }, [supabase]);
   async function saveUsername() {
     if (savingUsername || !usernameDraft.trim()) return;
     setSavingUsername(true);
@@ -235,7 +216,11 @@ export default function AccountControls({
     try {
       const { error } = await supabase.auth.signInWithOtp({
         email: email.trim(),
-        options: { emailRedirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(`${window.location.pathname}${window.location.search}` || "/daily")}` },
+        options: {
+          // signInWithOtp is the email sign-in and sign-up flow for GeoStats.
+          shouldCreateUser: true,
+          emailRedirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(`${window.location.pathname}${window.location.search}` || "/daily")}`,
+        },
       });
       if (error) {
         const rateLimited = /rate limit|too many requests/i.test(error.message);
@@ -259,30 +244,26 @@ export default function AccountControls({
     if (!supabase || signingInWithGoogle) return;
     setSigningInWithGoogle(true);
     setMessage("");
-    const providerEnabled = googleAvailable === true || await googleProviderIsEnabled();
-    setGoogleAvailable(providerEnabled);
-    if (!providerEnabled) {
-      setMessage("Google sign-in is temporarily unavailable. Use the email sign-in link for now.");
-      setSigningInWithGoogle(false);
-      return;
-    }
     const next = `${window.location.pathname}${window.location.search}` || "/daily";
     trackAnalytics("account_signin_requested", { metadata: { context, provider: "google" } });
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`,
-        queryParams: { prompt: "select_account" },
-      },
-    });
-    if (error) {
-      setMessage(/provider.*not enabled|unsupported provider/i.test(error.message)
+
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+          redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`,
+          queryParams: { prompt: "select_account" },
+        },
+      });
+      if (error) throw error;
+    } catch (caught) {
+      const raw = caught instanceof Error ? caught.message : String(caught);
+      setMessage(/provider.*not enabled|unsupported provider/i.test(raw)
         ? "Google sign-in is temporarily unavailable. Use the email sign-in link for now."
         : "Google sign-in could not be started. Try again or use email instead.");
       setSigningInWithGoogle(false);
     }
   }
-
   async function signOut() {
     await supabase?.auth.signOut();
     setOpen(false);
@@ -302,7 +283,7 @@ export default function AccountControls({
     : context === "leaderboard"
       ? "Join the GeoStats leaderboard"
       : "Sign in or create an account";
-  const guestButtonLabel = ctaLabel ?? (results && pendingScore ? "Sign in to save" : "Sign in");
+  const guestButtonLabel = ctaLabel ?? (results && pendingScore ? "Sign in to save" : "Sign in / sign up");
 
   return <>
     <div className={results ? "resultsAccountActions" : "accountHeaderActions"}>
@@ -321,17 +302,17 @@ export default function AccountControls({
           <p id={`account-dialog-description-${context}`}>Your account unlocks Expert play and lets you join the public leaderboards. Verified Daily scores are saved automatically; your email stays private.</p>
           {saving && <p>Saving your completed Daily…</p>}
         </> : <>
-          <p id={`account-dialog-description-${context}`}>Sign in to save verified scores, join the standings, and unlock Expert Daily.</p>
+          <p id={`account-dialog-description-${context}`}>Sign in to save verified scores, join the standings, and unlock Expert Daily. Use Google or a secure email link; email links automatically create an account for new players.</p>
           <ul className="accountBenefits">
             <li>Play the Expert Daily</li>
             <li>Join Scout, Adventurer, and Expert leaderboards</li>
             <li>Save one verified score per mode each day</li>
           </ul>
-          <button type="button" className="googleSignInButton" onClick={signInWithGoogle} disabled={signingInWithGoogle || sendingLink || googleAvailable === false}>{signingInWithGoogle ? "Opening Google…" : googleAvailable === false ? "Google sign-in unavailable" : <><span aria-hidden="true" className="googleMark">G</span>Continue with Google</>}</button>
+          <button type="button" className="googleSignInButton" onClick={signInWithGoogle} disabled={signingInWithGoogle || sendingLink}>{signingInWithGoogle ? "Opening Google…" : <><span aria-hidden="true" className="googleMark">G</span>Continue with Google</>}</button>
           <div className="accountAuthDivider"><span>or use email</span></div>
           <label className="emailField"><span>Email address</span><input type="email" inputMode="email" autoComplete="email" placeholder="you@example.com" value={email} onChange={(event) => setEmail(event.target.value)} onKeyDown={(event) => event.key === "Enter" && resendSeconds === 0 && !sendingLink && sendMagicLink()} /></label>
-          <button type="button" onClick={sendMagicLink} disabled={!email.trim() || sendingLink || resendSeconds > 0}>{sendingLink ? "Sending…" : resendSeconds > 0 ? `Resend in ${resendSeconds}s` : "Email me a sign-in link"}</button>
-          <small>Your public GeoStats username appears on leaderboards. Your email never does.</small>
+          <button type="button" onClick={sendMagicLink} disabled={!email.trim() || sendingLink || resendSeconds > 0}>{sendingLink ? "Sending…" : resendSeconds > 0 ? `Resend in ${resendSeconds}s` : "Continue with email"}</button>
+          <small>New players are automatically signed up. Your public GeoStats username appears on leaderboards. Your email never does.</small>
         </>}
         {message && <p className="accountMessage" role="status" aria-live="polite">{message}</p>}
       </div>

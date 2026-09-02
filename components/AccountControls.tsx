@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { createSupabaseBrowserClient } from "../lib/supabase/browser";
+import type { AuthChangeEvent, Session } from "@supabase/supabase-js";
 import type { DailyDifficulty } from "../lib/gameRules";
 import { trackAnalytics } from "../lib/analytics";
 
@@ -200,7 +201,7 @@ export default function AccountControls({
     void supabase.auth.getSession().then((result: { data: { session: { user: { id: string; email?: string | null } } | null } }) => {
       void syncUser(result.data.session?.user ?? null);
     });
-    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: listener } = supabase.auth.onAuthStateChange((_event: AuthChangeEvent, session: Session | null) => {
       // Never await profile or network work inside the Supabase auth callback.
       window.setTimeout(() => {
         void syncUser(session?.user ?? null);

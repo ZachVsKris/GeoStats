@@ -290,7 +290,7 @@ for (const token of [
 for (const token of ["loadPuzzleCatalogSnapshot", "estimatePlayableBoardCapacity", "global Top-20 winner requirement", "within five minutes"]) {
   check(boardCapacityRoute.includes(token), `board-capacity route missing ${token}`);
 }
-for (const token of ["categorySetHasFeasibleCountryBank", "countryBankFeasibleSamples", "estimatedPlayableCategorySets", "exactPlayableCount: false"]) {
+for (const token of ["assessCategorySetCountryBank", "unresolvedSamples", "provenInfeasibleSamples", "countryBankFeasibleSamples", "estimatedPlayableCategorySets", "exactPlayableCount: false"]) {
   check(boardCapacity.includes(token), `board-capacity estimator missing ${token}`);
 }
 for (const token of ["distinct global Top-20", "findDistinctWinners", "validateRound(categories, bank)"]) {

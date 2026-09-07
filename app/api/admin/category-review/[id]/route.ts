@@ -3,6 +3,7 @@ import type { SupabaseClient } from "@supabase/supabase-js";
 import { requireAdmin } from "../../../../../lib/supabase/adminAuth";
 
 export const dynamic = "force-dynamic";
+export const maxDuration = 300;
 
 type ReviewStatus = "pending" | "approved" | "rejected" | "duplicate" | "needs_rewrite" | "needs_data_repair" | "needs_discussion";
 
@@ -158,20 +159,9 @@ export async function POST(request: Request, context: { params: Promise<{ id: st
   if (previousError) return NextResponse.json({ error: previousError.message }, { status: 500 });
   if (!previous) return NextResponse.json({ error: "Category review state not found. Run the v16.2 SQL installer." }, { status: 409 });
 
-  const { data: categoryState, error: categoryStateError } = await auth.admin
-    .from("stat_categories")
-    .select("metadata")
-    .eq("id", id)
-    .maybeSingle();
-  if (categoryStateError) return NextResponse.json({ error: categoryStateError.message }, { status: 500 });
-
-  const update: Record<string, unknown> = {
-    updated_at: new Date().toISOString(),
-  };
+  const update: Record<string, unknown> = {};
   if (body.status !== undefined) {
     update.status = body.status;
-    update.reviewed_at = body.status === "pending" ? null : new Date().toISOString();
-    update.reviewed_by = body.status === "pending" ? null : auth.user.id;
   }
   for (const key of allowedBooleanKeys) if (body[key] !== undefined) update[key] = body[key];
   const recommendedTitle = cleanText(body.recommended_title, 80);
@@ -197,79 +187,18 @@ export async function POST(request: Request, context: { params: Promise<{ id: st
     }
   }
 
-  const { data: saved, error: saveError } = await auth.admin
-    .from("category_review_state")
-    .update(update)
-    .eq("category_id", id)
-    .select("*")
-    .single();
-  if (saveError) return NextResponse.json({ error: saveError.message }, { status: 500 });
-
-  const { error: eventError } = await auth.admin.from("category_review_events_v15").insert({
-    category_id: id,
-    reviewer_user_id: auth.user.id,
-    previous_state: previous,
-    next_state: saved,
+  // Decision, copy, audit event, assessments and flags commit together.
+  const { error: saveError } = await auth.admin.rpc("save_category_review_v16_3_4", {
+    p_category_id: id,
+    p_reviewer: auth.user.id,
+    p_patch: update,
+    p_expected_updated_at: previous.updated_at,
+    p_presentation: body.board_description !== undefined ? { board_description: boardDescription } : {},
   });
-  if (eventError) return NextResponse.json({ error: eventError.message }, { status: 500 });
-
-  const { error: refreshError } = await auth.admin.rpc("refresh_v16_2_runtime_catalog");
-  if (refreshError) return NextResponse.json({ error: refreshError.message }, { status: 500 });
-
-  const { data: policy, error: policyError } = await auth.admin
-    .from("category_review_workbench_v16_2")
-    .select("id,editorial_status,computed_playable_v16_2,recommended_title,semantic_group")
-    .eq("id", id)
-    .single();
-  if (policyError) return NextResponse.json({ error: policyError.message }, { status: 500 });
-
-  const legacyStatus = policy.editorial_status === "approved"
-    ? "approved"
-    : ["rejected", "duplicate"].includes(policy.editorial_status)
-      ? "rejected"
-      : "needs_review";
-  const legacyEditorialStatus = policy.editorial_status === "approved"
-    ? "approved"
-    : ["rejected", "duplicate"].includes(policy.editorial_status)
-      ? "excluded"
-      : "pending";
-  const categoryUpdate: Record<string, unknown> = {
-    review_status: legacyStatus,
-    curation_status: legacyEditorialStatus,
-    curation_reason: `GeoStats v16.2 authoritative category review state: ${policy.editorial_status}.`,
-    curation_version: "geostats-v16.2-review-v1",
-    content_review_status: legacyEditorialStatus,
-    content_review_reason: `GeoStats v16.2 authoritative category review state: ${policy.editorial_status}.`,
-    content_review_version: "geostats-v16.2-review-v1",
-    player_quality_status: policy.editorial_status === "approved"
-      ? "approved"
-      : ["rejected", "duplicate"].includes(policy.editorial_status)
-        ? "blocked"
-        : "caution",
-    player_quality_reason: `GeoStats v16.2 authoritative category review state: ${policy.editorial_status}.`,
-    enabled: Boolean(policy.computed_playable_v16_2),
-    eligible_daily: Boolean(policy.computed_playable_v16_2),
-  };
-  if (typeof policy.semantic_group === "string" && policy.semantic_group.trim()) {
-    categoryUpdate.semantic_family = policy.semantic_group.trim();
+  if (saveError) {
+    const status = saveError.code === "40001" ? 409 : saveError.code === "22023" ? 400 : 500;
+    return NextResponse.json({ error: saveError.message }, { status });
   }
-  if (body.board_description !== undefined) {
-    const existingMetadata = categoryState?.metadata && typeof categoryState.metadata === "object"
-      ? categoryState.metadata as Record<string, unknown>
-      : {};
-    categoryUpdate.metadata = {
-      ...existingMetadata,
-      boardDescription: boardDescription,
-      boardDescriptionReviewedAt: new Date().toISOString(),
-      boardDescriptionReviewedBy: auth.user.id,
-    };
-  }
-  if (policy.computed_playable_v16_2 && typeof policy.recommended_title === "string" && policy.recommended_title.trim()) {
-    categoryUpdate.title = policy.recommended_title.trim();
-    categoryUpdate.short_title = policy.recommended_title.trim().slice(0, 70);
-  }
-  const { error: categoryError } = await auth.admin.from("stat_categories").update(categoryUpdate).eq("id", id);
-  if (categoryError) return NextResponse.json({ error: categoryError.message }, { status: 500 });
 
   const loaded = await loadDetail(auth.admin, id);
   const detailError =

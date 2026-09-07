@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { createSupabaseBrowserClient } from "../lib/supabase/browser";
 import type { DailyDifficulty } from "../lib/gameRules";
 import { trackAnalytics } from "../lib/analytics";
+import { checkGoogleProvider, type GoogleProviderStatus } from "../lib/googleProvider";
 
 type PendingScore = { challengeDate: string; difficulty: DailyDifficulty; assignments: Record<string, string> };
 type AccountContext = "default" | "expert" | "leaderboard";
@@ -40,11 +41,12 @@ export default function AccountControls({
   const [saving, setSaving] = useState(false);
   const [sendingLink, setSendingLink] = useState(false);
   const [signingInWithGoogle, setSigningInWithGoogle] = useState(false);
-  const [googleAvailable, setGoogleAvailable] = useState<boolean | null>(null);
+  const [googleAvailable, setGoogleAvailable] = useState<GoogleProviderStatus>("checking");
   const [resendSeconds, setResendSeconds] = useState(0);
   const dialogRef = useRef<HTMLDivElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const usernameCustomizedRef = useRef(usernameCustomized);
+  const scoreSaveInFlight = useRef(false);
   const pendingSignature = JSON.stringify(pendingScore ?? null);
 
   useEffect(() => {
@@ -98,22 +100,7 @@ export default function AccountControls({
   async function googleProviderIsEnabled() {
     const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const key = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-    if (!url || !key) return false;
-    const controller = new AbortController();
-    const timeout = window.setTimeout(() => controller.abort(), 4000);
-    try {
-      const response = await fetch(`${url}/auth/v1/settings`, {
-        headers: { apikey: key },
-        signal: controller.signal,
-      });
-      if (!response.ok) return false;
-      const settings = await response.json() as { external?: { google?: boolean } };
-      return settings.external?.google === true;
-    } catch {
-      return false;
-    } finally {
-      window.clearTimeout(timeout);
-    }
+    return checkGoogleProvider(url, key);
   }
 
   useEffect(() => {
@@ -124,7 +111,8 @@ export default function AccountControls({
   }, [open, userLabel]);
 
   async function savePendingScore() {
-    if (saving) return;
+    if (scoreSaveInFlight.current) return;
+    scoreSaveInFlight.current = true;
     setSaving(true);
     try {
       for (const difficulty of ["easy", "normal", "expert"] as const) {
@@ -151,7 +139,9 @@ export default function AccountControls({
           setMessage(data.error ?? "Score could not be saved.");
         }
       }
-    } finally { setSaving(false); }
+    } catch {
+      setMessage("Your result is kept on this browser. Score saving will retry when you return or sign in again.");
+    } finally { scoreSaveInFlight.current = false; setSaving(false); }
   }
 
   async function loadProfile(fallbackEmail?: string | null) {
@@ -186,8 +176,11 @@ export default function AccountControls({
       if (!user) return;
       const customized = await loadProfile(user.email);
       if (customized) await savePendingScore();
+    }).catch(() => {
+      setMessage("We couldn’t check your account. Your local results are safe; please try signing in again.");
     });
-    const { data: listener } = supabase.auth.onAuthStateChange(async (_event, session) => {
+    const timers = new Set<ReturnType<typeof setTimeout>>();
+    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
       if (!session?.user) {
         setUserLabel(null);
         setUsername("");
@@ -195,10 +188,16 @@ export default function AccountControls({
         setUsernameCustomized(true);
         return;
       }
-      const customized = await loadProfile(session.user.email);
-      if (customized) await savePendingScore();
+      // Leave the auth callback before starting asynchronous profile/score work.
+      const timer = setTimeout(() => {
+        timers.delete(timer);
+        void loadProfile(session.user.email).then((customized) => {
+          if (customized) return savePendingScore();
+        });
+      }, 0);
+      timers.add(timer);
     });
-    return () => listener.subscription.unsubscribe();
+    return () => { listener.subscription.unsubscribe(); timers.forEach(clearTimeout); };
   }, [supabase]);
 
   async function saveUsername() {
@@ -235,7 +234,10 @@ export default function AccountControls({
     try {
       const { error } = await supabase.auth.signInWithOtp({
         email: email.trim(),
-        options: { emailRedirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(`${window.location.pathname}${window.location.search}` || "/daily")}` },
+        options: {
+          shouldCreateUser: true,
+          emailRedirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(`${window.location.pathname}${window.location.search}` || "/daily")}`,
+        },
       });
       if (error) {
         const rateLimited = /rate limit|too many requests/i.test(error.message);
@@ -249,7 +251,9 @@ export default function AccountControls({
       }
       setResendSeconds(60);
       trackAnalytics("account_signin_requested", { metadata: { context } });
-      setMessage("Sign-in link sent. Check your inbox—and spam or junk if it doesn’t arrive.");
+      setMessage("GeoStats sent your secure sign-in link. Check your inbox, then spam or junk if it doesn’t arrive.");
+    } catch {
+      setMessage("The sign-in link request could not be completed. Check your connection and try again.");
     } finally {
       setSendingLink(false);
     }
@@ -259,26 +263,30 @@ export default function AccountControls({
     if (!supabase || signingInWithGoogle) return;
     setSigningInWithGoogle(true);
     setMessage("");
-    const providerEnabled = googleAvailable === true || await googleProviderIsEnabled();
+    const providerEnabled = googleAvailable === "enabled" ? "enabled" : await googleProviderIsEnabled();
     setGoogleAvailable(providerEnabled);
-    if (!providerEnabled) {
+    if (providerEnabled === "disabled") {
       setMessage("Google sign-in is temporarily unavailable. Use the email sign-in link for now.");
       setSigningInWithGoogle(false);
       return;
     }
     const next = `${window.location.pathname}${window.location.search}` || "/daily";
     trackAnalytics("account_signin_requested", { metadata: { context, provider: "google" } });
+    try {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
       options: {
         redirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}`,
-        queryParams: { prompt: "select_account" },
       },
     });
     if (error) {
       setMessage(/provider.*not enabled|unsupported provider/i.test(error.message)
         ? "Google sign-in is temporarily unavailable. Use the email sign-in link for now."
         : "Google sign-in could not be started. Try again or use email instead.");
+      setSigningInWithGoogle(false);
+    }
+    } catch {
+      setMessage("Google sign-in could not be started. Try again or use email instead.");
       setSigningInWithGoogle(false);
     }
   }
@@ -327,11 +335,13 @@ export default function AccountControls({
             <li>Join Scout, Adventurer, and Expert leaderboards</li>
             <li>Save one verified score per mode each day</li>
           </ul>
-          <button type="button" className="googleSignInButton" onClick={signInWithGoogle} disabled={signingInWithGoogle || sendingLink || googleAvailable === false}>{signingInWithGoogle ? "Opening Google…" : googleAvailable === false ? "Google sign-in unavailable" : <><span aria-hidden="true" className="googleMark">G</span>Continue with Google</>}</button>
+          <button type="button" className="googleSignInButton" onClick={signInWithGoogle} disabled={signingInWithGoogle || sendingLink || googleAvailable === "disabled"}>{signingInWithGoogle ? "Opening Google…" : googleAvailable === "disabled" ? "Google sign-in unavailable" : <><span aria-hidden="true" className="googleMark">G</span>Continue with Google</>}</button>
+          {googleAvailable === "unknown" && <small role="status">We couldn’t check Google availability. You can still try Google or use email.</small>}
+          {googleAvailable === "disabled" && <button type="button" className="quietButton" onClick={() => { setGoogleAvailable("checking"); void googleProviderIsEnabled().then(setGoogleAvailable); }}>Check Google availability again</button>}
           <div className="accountAuthDivider"><span>or use email</span></div>
           <label className="emailField"><span>Email address</span><input type="email" inputMode="email" autoComplete="email" placeholder="you@example.com" value={email} onChange={(event) => setEmail(event.target.value)} onKeyDown={(event) => event.key === "Enter" && resendSeconds === 0 && !sendingLink && sendMagicLink()} /></label>
           <button type="button" onClick={sendMagicLink} disabled={!email.trim() || sendingLink || resendSeconds > 0}>{sendingLink ? "Sending…" : resendSeconds > 0 ? `Resend in ${resendSeconds}s` : "Email me a sign-in link"}</button>
-          <small>Your public GeoStats username appears on leaderboards. Your email never does.</small>
+          <small>No password needed. If you’re new, opening the link creates your free account. Your public username appears on leaderboards. Your email never does.</small>
         </>}
         {message && <p className="accountMessage" role="status" aria-live="polite">{message}</p>}
       </div>

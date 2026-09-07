@@ -28,7 +28,7 @@ const proxy = read("proxy.ts");
 const playableCatalog = read("lib/playableCatalog.ts");
 const serverPlayableCatalog = read("lib/serverPlayableCatalog.ts");
 
-check(["16.3.1","16.3.2"].includes(pkg.version), "package version no longer includes the v16.3.0 contract");
+check(["16.3.1","16.3.2","16.3.4"].includes(pkg.version), "package version no longer includes the v16.3.0 contract");
 const currentTarget = pkg.version.replaceAll(".", "-");
 check(pkg.scripts.test === `npm run test-v${currentTarget}` && pkg.scripts.check === `npm run check-v${currentTarget}`, "default validation does not target the current v16.3 release");
 for (const token of [`APP_VERSION = "${pkg.version}"`, `RULES_VERSION = "${pkg.version}"`, 'LEADERBOARD_RATING_VERSION = "hybrid-absolute-peer-bayesian-v2"']) check(version.includes(token), `current v16.3 version contract missing ${token}`);
@@ -57,7 +57,7 @@ for (const token of ["koppen-geiger:steppe-share", "temperature-adjusted rainfal
 for (const token of ["LEADERBOARD_CONFIDENCE_GAMES = 10", "PEER_BLEND_START_PLAYERS = 5", "PEER_BLEND_FULL_PLAYERS = 20", "hybridDailyPerformance", "bayesianLeaderboardRating"]) check(rating.includes(token), `rating v2 contract missing ${token}`);
 check(ratingApi.includes("ratingSortValue") && ratingApi.includes("hybridDailyPerformance") && ratingApi.includes("LEADERBOARD_MINIMUM_GAMES"), "leaderboard API does not use full-precision hybrid rating");
 check(ratingApi.includes("usesCurrentScoreScale(row.rules_version)"), "leaderboard score normalization does not use the tested version boundary");
-check(accounts.includes("keepFocusInside") && accounts.includes('role="status"') && accounts.includes("Google sign-in is temporarily unavailable") && accounts.includes('/auth/v1/settings'), "account modal resilience/accessibility/provider guard is incomplete");
+check(accounts.includes("keepFocusInside") && accounts.includes('role="status"') && accounts.includes("Google sign-in is temporarily unavailable") && accounts.includes('checkGoogleProvider') && read('lib/googleProvider.ts').includes('/auth/v1/settings'), "account modal resilience/accessibility/provider guard is incomplete");
 for (const file of ["app/not-found.tsx", "app/error.tsx", "app/global-error.tsx", "app/loading.tsx", "app/icon.svg", "app/manifest.ts", "app/opengraph-image.tsx"]) check(fs.existsSync(path.join(root, file)), `missing production polish file ${file}`);
 check(layout.includes("metadataBase") && layout.includes("openGraph") && layout.includes("twitter"), "root social metadata is incomplete");
 for (const token of ["conomy", "economy", "nvironment", "environment"]) check(semantics.includes(token), `runtime malformed-domain repair missing ${token}`);

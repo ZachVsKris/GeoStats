@@ -366,6 +366,15 @@ function hardConflictConcept(category: Category, profile: CategorySemanticProfil
   const cluster = slug(category.knowledgeCluster || profile.knowledgeCluster);
 
   if (contains(text, [/border/, /neighbor/])) return "physical-borders";
+  // Lake area, largest single lake, and lake share are different measures, but
+  // they ask players to recall the same physical geography. Keep that concept
+  // to one card per board and one card per Daily trio while still allowing a
+  // river measure as a genuinely different question.
+  if ((category.source === "naturalearth" || category.source === "hydrosheds" || cluster === "physical-waterways")
+    && contains(text, [/lake/, /reservoir/])) return "physical-lakes";
+  if ((category.source === "naturalearth" || category.source === "worldbank")
+    && contains(text, [/total-country-area/, /continuous-land-area/, /largest-land-area/])) return "physical-country-area";
+  if (contains(text, [/freshwater-withdrawal/])) return "freshwater-withdrawals";
   if (contains(text, [/glaciat/, /glacier/, /snow-cover/, /permanent-snow/])) return "physical-ice";
   if (contains(text, [/mobile.*subscription/, /telephone.*subscription/, /broadband.*subscription/, /internet.*subscription/])
     || cluster === "telecommunications-adoption") return "telecommunications-adoption";
@@ -376,7 +385,7 @@ function hardConflictConcept(category: Category, profile: CategorySemanticProfil
   if (category.source === "faostat") {
     const livestock = contains(text, [
       /livestock/, /cattle/, /cow/, /buffalo/, /sheep/, /goat/, /chicken/, /duck/,
-      /turkey/, /camel/, /horse/, /mule/, /hinny/, /pig/, /animal/, /meat/, /milk/, /egg/,
+      /turkey/, /camel/, /horse/, /mule/, /hinny/, /pig/, /animal/, /meat/, /milk/, /egg/, /cheese/, /butter/, /ghee/, /honey/,
     ]);
     if (livestock && contains(text, [/population/, /stocks?/])) return "livestock-population";
     if (livestock && contains(text, [/production/, /produced/, /output/])) return "livestock-output";

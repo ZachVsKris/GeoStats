@@ -294,14 +294,15 @@ export async function loadPuzzleCatalogSnapshot(): Promise<LoadedPuzzleCatalog> 
   return loadCandidateDatasets();
 }
 
-function datasetHasEnoughDisplayedVariety(dataset: RoundCategory, config: RoundConfig) {
+export function datasetHasEnoughDisplayedVariety(dataset: RoundCategory, config: RoundConfig) {
   const quality = scoreCategoryQuality(dataset);
-  const minimumDistinct = Math.max(config.countryCount + 4, config.categoryCount + 6);
   const category = dataset.category;
   if (category.rankingCompletenessStatus === "non_comprehensive") return false;
-  if (category.topValueFeasible === false) return false;
-  if (category.topValueDistinctCount != null && category.topValueDistinctCount < config.countryCount) return false;
-  return quality.distinctDisplayValues >= minimumDistinct;
+  // A board needs one Top-20 winner, not an entire bank drawn from the Top 20.
+  // Ties elsewhere in the global ranking do not invalidate a tie-free bank.
+  // This is only a necessary prefilter: construction and validateRound still
+  // prove the actual bank, winner, displayed-value and diversity constraints.
+  return quality.distinctDisplayValues >= config.countryCount;
 }
 
 function optionScore(
@@ -515,20 +516,22 @@ function findDistinctWinners(
  * winners, all required decoys, distinct displayed values, and continent
  * limits can form a valid board.
  */
-export function categorySetHasFeasibleCountryBank(
+export function assessCategorySetCountryBank(
   categories: RoundCategory[],
   countries: CountryInfo[],
   config: RoundConfig,
   seed: string,
   budgetMs = 20,
-) {
-  if (categories.length !== config.categoryCount) return false;
-  if (!categories.every((dataset) => datasetHasEnoughDisplayedVariety(dataset, config))) return false;
-  if (!roundHasRequiredDiversity(categories.map((dataset) => dataset.category), config)) return false;
+): "feasible" | "infeasible" | "unknown" {
+  if (categories.length !== config.categoryCount) return "infeasible";
+  if (!categories.every((dataset) => datasetHasEnoughDisplayedVariety(dataset, config))) return "infeasible";
+  if (!roundHasRequiredDiversity(categories.map((dataset) => dataset.category), config)) return "infeasible";
 
   const deadline = Date.now() + Math.max(2, budgetMs);
   const solution = findDistinctWinners(categories, countries, `${seed}:countries`, config, deadline);
-  if (!solution) return false;
+  // The production search caps candidates/steps and greedily chooses decoys.
+  // Failing to find a witness is not a proof that no valid bank exists.
+  if (!solution) return "unknown";
 
   const countryById = new Map(countries.map((country) => [country.id, country]));
   const bank = [...solution.winners, ...solution.decoys]
@@ -536,7 +539,13 @@ export function categorySetHasFeasibleCountryBank(
     .filter((country): country is CountryInfo => Boolean(country));
   return bank.length === config.countryCount
     && roundHasCountryDiversity(bank, config)
-    && validateRound(categories, bank).length === 0;
+    && validateRound(categories, bank).length === 0 ? "feasible" : "unknown";
+}
+
+export function categorySetHasFeasibleCountryBank(
+  categories: RoundCategory[], countries: CountryInfo[], config: RoundConfig, seed: string, budgetMs = 20,
+) {
+  return assessCategorySetCountryBank(categories, countries, config, seed, budgetMs) === "feasible";
 }
 
 export function scoreBoard(round: Round, config: RoundConfig): ScoreBreakdown {
@@ -675,6 +684,7 @@ function composeRoundCandidates(
   recentCategoryExposure?: CategoryExposure,
   categoryExplorationNoise = 3.5,
   anchorCandidates?: RoundCategory[],
+  firstFeasibleOnly = false,
 ): CandidateResult {
   const attempted = new Set<string>();
   const candidates: RoundCandidate[] = [];
@@ -721,6 +731,9 @@ function composeRoundCandidates(
       continue;
     }
     candidates.push(candidateFromRound(round, scoreBoard(round, config).overall, recentCountryExposure, recentCategoryExposure));
+    // Feasibility audits need one complete validated witness, not a ranked pool.
+    // Production generation keeps its full search and selection by default.
+    if (firstFeasibleOnly) break;
     if (candidates.length > RAW_ROUND_CANDIDATE_LIMIT) {
       candidates.sort((left, right) => right.score - left.score);
       candidates.length = RAW_ROUND_CANDIDATE_LIMIT;
@@ -1233,6 +1246,7 @@ export function generateAnchoredRoundFromLoadedCatalog(
   difficulty: DailyDifficulty,
   loaded: LoadedPuzzleCatalog,
   seed = `REACHABILITY-${anchorCategoryId}`,
+  firstFeasibleOnly = false,
 ): { round: Round; profile: string; score: ScoreBreakdown } {
   const anchor = loaded.datasets.find((dataset) => dataset.category.id === anchorCategoryId);
   if (!anchor) throw new Error(`Anchor category ${anchorCategoryId} is not in the loaded playable catalog.`);
@@ -1261,6 +1275,7 @@ export function generateAnchoredRoundFromLoadedCatalog(
       undefined,
       80.0,
       [anchor],
+      firstFeasibleOnly,
     );
     if (result.candidates.length) {
       const candidate = chooseSeededAnchoredCandidate(result.candidates, `${difficulty}-${seed}:${profile.name}`);

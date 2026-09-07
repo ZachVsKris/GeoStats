@@ -296,8 +296,8 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
   const isUnranked = isRandom || fallbackPractice;
   const expertPreview = !isRandom && difficulty === "expert" && !canPlayExpert;
 
-  useEffect(() => {
-    if (!round || expertPreview) return;
+  function trackFirstPlacement() {
+    if (!round || expertPreview || isUnranked) return;
     const signature = `${isRandom ? "random" : "daily"}:${difficulty}:${seed}:${round.categories.map((item) => item.category.id).join(",")}`;
     if (trackedRounds.current.has(signature)) return;
     trackedRounds.current.add(signature);
@@ -312,7 +312,7 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
         categoryIds: round.categories.map((category) => category.category.id),
       },
     });
-  }, [round, difficulty, seed, isRandom, expertPreview]);
+  }
 
   useEffect(() => {
     if (!sourceDataset) return;
@@ -606,7 +606,9 @@ Can you beat my score?`;
   }
 
   function assignCountry(categoryId: string, countryId: string) {
-    if (expertPreview) return;
+    if (expertPreview || !round || !round.categories.some((item) => item.category.id === categoryId)
+      || !round.bank.some((country) => country.id === countryId)) return;
+    trackFirstPlacement();
     setAssignments((current) => {
       const next = { ...current };
       for (const key of Object.keys(next)) if (next[key] === countryId) delete next[key];

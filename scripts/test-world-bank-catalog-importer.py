@@ -24,6 +24,11 @@ assert module._unit_and_type("Mortality rate, per 1,000 live births", "")[1] == 
 assert module._unit_and_type("Population, total", "") == ("people", "total")
 assert module._unit_and_type("Surface area (sq. km)", "") == ("km²", "total")
 assert module._unit_and_type("Service imports (BoP, current US$)", "") == ("USD", "total")
+assert module._unit_and_type("Life expectancy at birth, total (years)", "") == ("years", "rate")
+assert module._unit_and_type("Average precipitation in depth (mm per year)", "") == ("mm per year", "rate")
+assert module._unit_and_type("Air transport, freight (million ton-km)", "") == ("million ton-km", "total")
+assert module._unit_and_type("Fertilizer consumption (kilograms per hectare of arable land)", "") == ("kg per hectare of arable land", "rate")
+assert module._unit_and_type("Secure Internet servers (per 1 million people)", "") == ("per 1 million people", "per_capita")
 assert "BX.GSR.TRAN.ZS" in module.OWNER_EXCLUDED_INDICATORS
 understandable, fun = module._scores("Population, total", "Total population counts all residents.")
 assert understandable >= 85 and fun >= 80

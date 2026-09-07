@@ -2,7 +2,7 @@ import type { Category } from "./categories";
 import { roundHasRequiredDiversity, type RoundConfig } from "./gameRules";
 import type { RoundCategory } from "./challengeCodec";
 import type { CountryInfo } from "./worldBank";
-import { categorySetHasFeasibleCountryBank } from "./puzzleEngine";
+import { assessCategorySetCountryBank } from "./puzzleEngine";
 
 export type CategoryCapacityResult = {
   exactRawCategoryCombinations: string;
@@ -27,6 +27,9 @@ export type PlayableBoardCapacityResult = {
   samples: number;
   categoryRuleValidSamples: number;
   countryBankFeasibleSamples: number;
+  unresolvedSamples: number;
+  provenInfeasibleSamples: number;
+  estimatedPossibleCategorySets: string;
   timedOut: boolean;
   exactPlayableCount: false;
   feasibilityRules: string[];
@@ -158,6 +161,9 @@ export function estimatePlayableBoardCapacity(
       samples: 0,
       categoryRuleValidSamples: 0,
       countryBankFeasibleSamples: 0,
+      unresolvedSamples: 0,
+      provenInfeasibleSamples: 0,
+      estimatedPossibleCategorySets: "0",
       timedOut: false,
       exactPlayableCount: false,
       feasibilityRules: ["global Top-20 winner", "distinct winners", "distinct displayed values", "country coverage", "continent limits", "category diversity"],
@@ -169,19 +175,23 @@ export function estimatePlayableBoardCapacity(
   let samples = 0;
   let categoryRuleValidSamples = 0;
   let countryBankFeasibleSamples = 0;
+  let unresolvedSamples = 0;
   while (samples < requestedSamples && Date.now() < deadline) {
     const categorySet = randomCombination(datasets, config.categoryCount, rng);
     const seed = `CAPACITY-${config.difficulty}-${samples}-${categorySet.map((item) => item.category.id).join("|")}`;
     samples += 1;
     if (!roundHasRequiredDiversity(categorySet.map((item) => item.category), config)) continue;
     categoryRuleValidSamples += 1;
-    if (categorySetHasFeasibleCountryBank(categorySet, countries, config, seed, perSetBudgetMs)) {
+    const assessment = assessCategorySetCountryBank(categorySet, countries, config, seed, perSetBudgetMs);
+    if (assessment === "feasible") {
       countryBankFeasibleSamples += 1;
     }
+    if (assessment === "unknown") unresolvedSamples += 1;
   }
 
   const proportion = samples ? countryBankFeasibleSamples / samples : 0;
   const interval = wilsonInterval(countryBankFeasibleSamples, samples);
+  const possibleInterval = wilsonInterval(countryBankFeasibleSamples + unresolvedSamples, samples);
   const rawNumber = Number(raw);
   return {
     exactRawCategoryCombinations: raw.toString(),
@@ -189,16 +199,19 @@ export function estimatePlayableBoardCapacity(
     estimatedPlayableShare: Number(proportion.toFixed(6)),
     confidence95: {
       low: formatEstimated(rawNumber * interval.low),
-      high: formatEstimated(rawNumber * interval.high),
+      high: formatEstimated(rawNumber * possibleInterval.high),
     },
     catalogSize: datasets.length,
     categoryCount: config.categoryCount,
     samples,
     categoryRuleValidSamples,
     countryBankFeasibleSamples,
+    unresolvedSamples,
+    provenInfeasibleSamples: samples - countryBankFeasibleSamples - unresolvedSamples,
+    estimatedPossibleCategorySets: formatEstimated(rawNumber * (samples ? (countryBankFeasibleSamples + unresolvedSamples) / samples : 0)),
     timedOut: samples < requestedSamples,
     exactPlayableCount: false,
     feasibilityRules: ["global Top-20 winner", "distinct winners", "distinct displayed values", "country coverage", "continent limits", "category diversity"],
-    note: "This is a deterministic bounded estimate of unordered category sets that can form at least one real country bank. It is not the number of all possible country-bank permutations.",
+    note: `Bounded search found banks for ${countryBankFeasibleSamples} of ${samples} sampled sets; ${unresolvedSamples} remain unresolved, not infeasible. The playable estimate is a conservative discovered-bank estimate; the interval includes unresolved searches. These are category sets, not country-bank permutations.`,
   };
 }

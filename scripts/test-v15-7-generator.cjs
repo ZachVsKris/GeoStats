@@ -175,6 +175,19 @@ const glacierTrio = {
 if (!validateDailyTrio(glacierTrio).some((error) => error.includes('too conceptually similar'))) {
   throw new Error('Daily trio validation did not reject the two glacier measures across modes.');
 }
+const lakeArea = { ...datasets[0].category, id: 'natural-earth:largest-mapped-lake-area', source: 'naturalearth', name: 'Largest total lake and reservoir area', strategyFamily: 'physical-waterways-lake-area', semanticFamily: 'physical-waterways-lakes', knowledgeCluster: 'physical-waterways' };
+const lakeShare = { ...datasets[1].category, id: 'natural-earth:highest-mapped-lake-share', source: 'naturalearth', name: 'Highest percentage of land covered by lakes and reservoirs', strategyFamily: 'physical-waterways-lake-share', semanticFamily: 'physical-waterways-lakes', knowledgeCluster: 'physical-waterways' };
+if (!categoryConflictsWithExistingTrio(lakeShare, [lakeArea])) {
+  throw new Error('Cross-mode construction did not block two lake measures.');
+}
+const lakeTrio = {
+  ...first.trio,
+  easy: { ...first.trio.easy, categories: first.trio.easy.categories.map((dataset, index) => index === 0 ? { ...dataset, category: lakeArea } : dataset) },
+  normal: { ...first.trio.normal, categories: first.trio.normal.categories.map((dataset, index) => index === 0 ? { ...dataset, category: lakeShare } : dataset) },
+};
+if (!validateDailyTrio(lakeTrio).some((error) => error.includes('too conceptually similar'))) {
+  throw new Error('Daily trio validation did not reject the two lake measures across modes.');
+}
 const temperate = { ...datasets[2].category, id: 'koppen-geiger:temperate-share', name: 'Highest percentage of land with a temperate climate', knowledgeCluster: 'climate-classification', strategyFamily: 'koppen-climate:temperate' };
 const savanna = { ...datasets[3].category, id: 'koppen-geiger:tropical-savanna-share', name: 'Highest percentage of land with a tropical savanna climate', knowledgeCluster: 'climate-classification', strategyFamily: 'koppen-climate:tropical-savanna' };
 if (!categoryConflictsWithExistingTrio(savanna, [temperate])) {

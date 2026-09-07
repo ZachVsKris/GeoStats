@@ -1,0 +1,4906 @@
+{
+  "catalogSize": 381,
+  "proposedCopy": {
+    "gdpGrowth": [
+      "Fastest economic growth rate",
+      "Annual percentage growth in inflation-adjusted gross domestic product."
+    ],
+    "populationGrowth": [
+      "Fastest population growth rate",
+      "Annual percentage growth in the total population."
+    ],
+    "sanitation": [
+      "Highest % using safely managed sanitation",
+      "People using improved, unshared sanitation with waste safely disposed of or treated."
+    ],
+    "worldbank-catalog:bx-klt-dinv-wd-gd-zs": [
+      "Highest inward foreign investment as % of GDP",
+      "Net foreign direct investment entering the country, as a percentage of GDP."
+    ],
+    "worldbank-catalog:er-h2o-fwtl-zs": [
+      "Highest freshwater withdrawals as % of internal resources",
+      "Annual freshwater withdrawals relative to renewable internal freshwater resources; values can exceed 100%."
+    ],
+    "worldbank-catalog:fp-cpi-totl-zg": [
+      "Highest inflation rate",
+      "Annual percentage change in consumer prices."
+    ],
+    "worldbank-catalog:fs-ast-cgov-gd-zs": [
+      "Highest net claims on government as % of GDP",
+      "Credit and other claims on central government, net of government deposits, relative to GDP."
+    ],
+    "worldbank-catalog:bm-klt-dinv-wd-gd-zs": [
+      "Highest outward foreign investment as % of GDP",
+      "Net direct investment abroad by residents, as a percentage of GDP."
+    ],
+    "worldbank-catalog:dt-dod-dect-gn-zs": [
+      "Highest external debt as % of national income",
+      "Total debt owed to nonresidents, as a percentage of gross national income (GNI)."
+    ],
+    "worldbank-catalog:dt-dod-dstc-xp-zs": [
+      "Highest short-term foreign debt as % of export income",
+      "External debt due within one year, relative to exports of goods, services and primary income."
+    ],
+    "worldbank-catalog:dt-dod-pvlx-ex-zs": [
+      "Highest discounted foreign debt as % of export income",
+      "Present value of external debt, relative to exports of goods, services and primary income."
+    ],
+    "worldbank-catalog:dt-dod-pvlx-gn-zs": [
+      "Highest discounted foreign debt as % of national income",
+      "Present value of external debt, as a percentage of gross national income (GNI)."
+    ],
+    "worldbank-catalog:dt-oda-odat-gi-zs": [
+      "Highest development aid as % of capital investment",
+      "Net official development assistance received, relative to gross capital formation."
+    ],
+    "worldbank-catalog:dt-oda-odat-gn-zs": [
+      "Highest development aid as % of national income",
+      "Net official development assistance received, relative to gross national income (GNI)."
+    ],
+    "worldbank-catalog:dt-oda-odat-mp-zs": [
+      "Highest development aid as % of imports",
+      "Net official development assistance received, relative to imports of goods, services and primary income."
+    ],
+    "worldbank-catalog:dt-tds-dect-ex-zs": [
+      "Highest foreign-debt payments as % of export income",
+      "Principal and interest paid on external debt, relative to exports of goods, services and primary income."
+    ],
+    "worldbank-catalog:dt-tds-dect-gn-zs": [
+      "Highest foreign-debt payments as % of national income",
+      "Principal and interest paid on external debt, relative to gross national income (GNI)."
+    ],
+    "worldbank-catalog:dt-tds-dppg-gn-zs": [
+      "Highest public foreign-debt payments as % of national income",
+      "Payments on public and publicly guaranteed external debt, relative to gross national income (GNI)."
+    ],
+    "worldbank-catalog:fb-ast-nper-zs": [
+      "Highest % of bank loans that are nonperforming",
+      "Bank loans classified as nonperforming, as a percentage of total gross loans."
+    ],
+    "worldbank-catalog:fb-bnk-capa-zs": [
+      "Highest bank capital as % of assets",
+      "Bank capital relative to total bank assets, using the source's capital definition."
+    ],
+    "worldbank-catalog:fd-ast-prvt-gd-zs": [
+      "Highest bank credit to the private sector as % of GDP",
+      "Credit supplied to the private sector by deposit-taking banks other than the central bank, relative to GDP."
+    ],
+    "worldbank-catalog:fd-res-liqu-as-zs": [
+      "Highest bank liquid reserves as % of assets",
+      "Banks' domestic currency holdings and deposits with monetary authorities, relative to bank assets."
+    ],
+    "global-findex:account-ownership": [
+      "Highest % of adults with a financial account",
+      "Adults aged 15+ with an account at a financial institution or a mobile-money provider, in the 2024 survey."
+    ],
+    "worldbank-catalog:fm-ast-cgov-zg-m3": [
+      "Fastest growth rate in government credit relative to broad money",
+      "Annual percentage growth in net claims on central government relative to broad money."
+    ],
+    "worldbank-catalog:fm-ast-domo-zg-m3": [
+      "Fastest growth rate in domestic credit relative to broad money",
+      "Annual percentage growth in claims on other domestic sectors relative to broad money."
+    ],
+    "worldbank-catalog:fm-ast-prvt-gd-zs": [
+      "Highest monetary-sector private credit as % of GDP",
+      "Private-sector credit from monetary-sector financial institutions, relative to GDP."
+    ],
+    "worldbank-catalog:fm-ast-prvt-zg-m3": [
+      "Fastest growth rate in private credit relative to broad money",
+      "Annual percentage growth in claims on the private sector relative to broad money."
+    ],
+    "worldbank-catalog:fm-lbl-bmny-zg": [
+      "Fastest broad-money growth rate",
+      "Annual percentage growth in broad money: currency and liquid or readily convertible financial instruments."
+    ],
+    "worldbank-catalog:fs-ast-prvt-gd-zs": [
+      "Highest financial-sector private credit as % of GDP",
+      "Credit supplied to the private sector by financial corporations, relative to GDP."
+    ],
+    "unsdg:three-g-coverage": [
+      "Highest % of people covered by 3G",
+      "Population living within reach of a third-generation mobile network, whether or not they subscribe."
+    ],
+    "unsdg:four-g-coverage": [
+      "Highest % of people covered by 4G",
+      "Population living within reach of a fourth-generation mobile network, whether or not they subscribe."
+    ],
+    "unsdg:five-g-coverage": [
+      "Highest % of people covered by 5G",
+      "Population living within reach of a fifth-generation mobile network, whether or not they subscribe."
+    ],
+    "unsdg:organized-learning": [
+      "Highest pre-primary learning participation rate",
+      "Children one year below the official primary-entry age participating in organized learning."
+    ],
+    "worldbank-catalog:eg-cft-accs-ru-zs": [
+      "Highest % of rural residents using clean cooking fuels",
+      "Rural population primarily using clean fuels and technologies for cooking."
+    ],
+    "worldbank-catalog:eg-cft-accs-ur-zs": [
+      "Highest % of urban residents using clean cooking fuels",
+      "Urban population primarily using clean fuels and technologies for cooking."
+    ],
+    "worldbank-catalog:eg-cft-accs-zs": [
+      "Highest % of people using clean cooking fuels",
+      "Population primarily using clean fuels and technologies for cooking."
+    ],
+    "worldbank-catalog:eg-elc-accs-ru-zs": [
+      "Highest % of rural residents with electricity access",
+      "Rural population with access to electricity."
+    ],
+    "worldbank-catalog:eg-elc-accs-ur-zs": [
+      "Highest % of urban residents with electricity access",
+      "Urban population with access to electricity."
+    ],
+    "electricityAccess": [
+      "Highest % of people with electricity access",
+      "Population with access to electricity."
+    ],
+    "natural-earth:most-mapped-lakes": [
+      "Most lakes and reservoirs in Natural Earth's atlas",
+      "Count of lake and reservoir features covering at least 1 km² inside the country in Natural Earth 1:10m v5.0.0. This is a map inventory, not a census of every lake."
+    ],
+    "natural-earth:most-mapped-rivers": [
+      "Most river features in Natural Earth's atlas",
+      "Count of river features extending at least 1 km inside the country in Natural Earth 1:10m v5.0.0. Separate features may belong to the same river."
+    ],
+    "natural-earth:longest-coastline": [
+      "Longest coastline on Natural Earth's map",
+      "Coastline length measured from the fixed Natural Earth 1:10m map. Results depend on map resolution; this is not a definitive coastline length."
+    ],
+    "natural-earth:highest-coastline-density": [
+      "Most coastline per km² on Natural Earth's map",
+      "Coastline length divided by land area, using the same fixed Natural Earth 1:10m map. Results depend on map resolution."
+    ],
+    "unwpp:highest-natural-change-rate": [
+      "Highest natural population increase rate",
+      "Annual births minus deaths per 1,000 people; negative values mean deaths exceed births."
+    ],
+    "unwpp:highest-net-migration-rate": [
+      "Highest net migration rate",
+      "Annual arrivals minus departures per 1,000 people; negative values mean more people leave than arrive."
+    ],
+    "worldbank-catalog:gc-nfn-totl-gd-zs": [
+      "Highest government asset investment as % of GDP",
+      "Net government investment in nonfinancial assets, including buildings, infrastructure and inventories, relative to GDP."
+    ],
+    "worldbank-catalog:gc-rev-xgrt-gd-zs": [
+      "Highest government revenue excluding grants as % of GDP",
+      "Government revenue other than grants, relative to GDP."
+    ],
+    "worldbank-catalog:gc-tax-gsrv-rv-zs": [
+      "Highest goods-and-services taxes as % of government revenue",
+      "Government taxes on goods and services, relative to total government revenue."
+    ],
+    "worldbank-catalog:gc-tax-ypkg-rv-zs": [
+      "Highest income and profit taxes as % of government revenue",
+      "Taxes on income, profits and capital gains, relative to total government revenue."
+    ],
+    "worldbank-catalog:gc-tax-ypkg-zs": [
+      "Highest income and profit taxes as % of all taxes",
+      "Taxes on income, profits and capital gains, relative to total tax revenue."
+    ],
+    "worldbank-catalog:gc-xpn-intp-rv-zs": [
+      "Highest debt interest as % of government revenue",
+      "Government interest payments on debt, relative to total government revenue."
+    ]
+  },
+  "proofs": [
+    {
+      "category_id": "sports:fifa-world-cup-first-appearance",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:00:59.975Z",
+      "fingerprint": "6ef3b320ca95816dc794b4021820933f5ac8a1b2aae457c600922fd116337aba",
+      "witness": {
+        "categories": [
+          "sports:fifa-world-cup-first-appearance",
+          "pew-religion:hindu-population",
+          "history:worldbank-life-expectancy-70",
+          "unwpp:lowest-pop-density"
+        ],
+        "countries": [
+          "SAU",
+          "ARE",
+          "SRB",
+          "HND"
+        ]
+      }
+    },
+    {
+      "category_id": "sports:fifa-world-cup-first-appearance",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:00.010Z",
+      "fingerprint": "6ef3b320ca95816dc794b4021820933f5ac8a1b2aae457c600922fd116337aba",
+      "witness": {
+        "categories": [
+          "sports:fifa-world-cup-first-appearance",
+          "faostat-qcl-cattle-and-buffaloes-stocks-f1746-5111-an",
+          "worldbank-catalog:gc-tax-totl-gd-zs",
+          "history:worldbank-life-expectancy-70"
+        ],
+        "countries": [
+          "IRL",
+          "SLV",
+          "ITA",
+          "MEX",
+          "CHN",
+          "UZB"
+        ]
+      }
+    },
+    {
+      "category_id": "sports:fifa-world-cup-first-appearance",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:00.149Z",
+      "fingerprint": "6ef3b320ca95816dc794b4021820933f5ac8a1b2aae457c600922fd116337aba",
+      "witness": {
+        "categories": [
+          "sports:fifa-world-cup-first-appearance",
+          "faostat:01213:5510",
+          "worldbank-catalog:eg-elc-petr-zs",
+          "faostat-fbs:tomatoes",
+          "natural-earth:highest-land-border-density",
+          "unhcr:most-asylum-applications-by-origin"
+        ],
+        "countries": [
+          "DZA",
+          "MAR",
+          "ECU",
+          "UKR",
+          "ROU",
+          "ARE",
+          "JAM",
+          "CHE"
+        ]
+      }
+    },
+    {
+      "category_id": "natural-earth:highest-coastline-density",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:00.175Z",
+      "fingerprint": "1f7399b7138eb4a11bf0d19fb74d7fb05580e447a07a79caf9533f29ef217ae0",
+      "witness": {
+        "categories": [
+          "natural-earth:highest-coastline-density",
+          "smithsonian-gvp:most-holocene-volcanoes",
+          "history:worldbank-life-expectancy-70",
+          "pew-religion:other-religions-share"
+        ],
+        "countries": [
+          "GRD",
+          "TON",
+          "GTM",
+          "JPN"
+        ]
+      }
+    },
+    {
+      "category_id": "natural-earth:highest-coastline-density",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:00.197Z",
+      "fingerprint": "1f7399b7138eb4a11bf0d19fb74d7fb05580e447a07a79caf9533f29ef217ae0",
+      "witness": {
+        "categories": [
+          "natural-earth:highest-coastline-density",
+          "history:worldbank-majority-urban",
+          "pew-religion:christian-population",
+          "worldbank-catalog:gc-tax-ypkg-zs"
+        ],
+        "countries": [
+          "ZAF",
+          "IRL",
+          "MNG",
+          "HRV",
+          "NAM",
+          "KIR"
+        ]
+      }
+    },
+    {
+      "category_id": "natural-earth:highest-coastline-density",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:00.413Z",
+      "fingerprint": "1f7399b7138eb4a11bf0d19fb74d7fb05580e447a07a79caf9533f29ef217ae0",
+      "witness": {
+        "categories": [
+          "natural-earth:highest-coastline-density",
+          "faostat-qcl-cattle-and-buffaloes-stocks-f1746-5111-an",
+          "worldbank-catalog:fs-ast-cgov-gd-zs",
+          "pew-religion:religious-diversity",
+          "sports:fifa-world-cup-first-appearance",
+          "faostat-fbs:poultry"
+        ],
+        "countries": [
+          "FRA",
+          "CPV",
+          "KOR",
+          "EGY",
+          "CHN",
+          "AUS",
+          "PRT",
+          "POL"
+        ]
+      }
+    },
+    {
+      "category_id": "natural-earth:landlocked-fewest-neighbors",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:00.589Z",
+      "fingerprint": "76700112f5955d728806562ae92312b0eaba9f74ad2d685169a6cf1746379228",
+      "witness": {
+        "categories": [
+          "natural-earth:landlocked-fewest-neighbors",
+          "worldbank-catalog:gc-rev-xgrt-gd-zs",
+          "faostat-qcl-asses-stocks-02132-5111-an",
+          "unwpp:highest-natural-change-rate"
+        ],
+        "countries": [
+          "HUN",
+          "MNG",
+          "BFA",
+          "MWI"
+        ]
+      }
+    },
+    {
+      "category_id": "natural-earth:landlocked-fewest-neighbors",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:00.718Z",
+      "fingerprint": "76700112f5955d728806562ae92312b0eaba9f74ad2d685169a6cf1746379228",
+      "witness": {
+        "categories": [
+          "natural-earth:landlocked-fewest-neighbors",
+          "rural",
+          "history:un-admission",
+          "faostat-qcl-cattle-and-buffaloes-stocks-f1746-5111-an"
+        ],
+        "countries": [
+          "NER",
+          "BTN",
+          "UZB",
+          "MWI",
+          "AUT",
+          "MKD"
+        ]
+      }
+    },
+    {
+      "category_id": "natural-earth:landlocked-fewest-neighbors",
+      "difficulty": "expert",
+      "reachable": null,
+      "error": "Playable category natural-earth:landlocked-fewest-neighbors is not reachable in expert with the current production solver. strict:category=0,winner=140,validation=0; catalog-balanced:category=0,winner=140,validation=0; catalog-recovery:category=0,winner=140,validation=0; availability-first:category=0,winner=140,validation=0"
+    },
+    {
+      "category_id": "natural-earth:landlocked-most-neighbors",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:13.811Z",
+      "fingerprint": "669911d48d4e41725cf420bfc209909eae2191928c19031db032bf358e7af654",
+      "witness": {
+        "categories": [
+          "natural-earth:landlocked-most-neighbors",
+          "unwpp:lowest-pop-density",
+          "worldbank-catalog:gc-rev-xgrt-gd-zs",
+          "history:oldest-current-constitution"
+        ],
+        "countries": [
+          "MNG",
+          "UZB",
+          "LSO",
+          "LUX"
+        ]
+      }
+    },
+    {
+      "category_id": "natural-earth:landlocked-most-neighbors",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:13.858Z",
+      "fingerprint": "669911d48d4e41725cf420bfc209909eae2191928c19031db032bf358e7af654",
+      "witness": {
+        "categories": [
+          "natural-earth:landlocked-most-neighbors",
+          "worldbank-catalog:en-ghg-all-pc-ce-ar5",
+          "history:worldbank-infant-mortality-below-25",
+          "unsdg:unsentenced-detainees"
+        ],
+        "countries": [
+          "MNG",
+          "BOL",
+          "PRY",
+          "ARM",
+          "AUT",
+          "HUN"
+        ]
+      }
+    },
+    {
+      "category_id": "natural-earth:landlocked-most-neighbors",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:18.982Z",
+      "fingerprint": "669911d48d4e41725cf420bfc209909eae2191928c19031db032bf358e7af654",
+      "witness": {
+        "categories": [
+          "natural-earth:landlocked-most-neighbors",
+          "history:worldbank-mobile-subscriptions-50",
+          "pew-religion:muslim-share",
+          "faostat-fbs:pork",
+          "faostat-qcl-swine-pigs-stocks-02140-5111-an",
+          "unwpp:highest-mean-age-childbearing"
+        ],
+        "countries": [
+          "AUT",
+          "MWI",
+          "HUN",
+          "ETH",
+          "NPL",
+          "LSO",
+          "TJK",
+          "CHE"
+        ]
+      }
+    },
+    {
+      "category_id": "natural-earth:longest-coastline",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:18.998Z",
+      "fingerprint": "058ec759ae71b962588f62450df12e1e29a267930c1a2baab9ba9c9627a91647",
+      "witness": {
+        "categories": [
+          "natural-earth:coastline",
+          "history:worldbank-infant-mortality-below-25",
+          "worldbank-catalog:eg-elc-petr-zs",
+          "pew-religion:hindu-share"
+        ],
+        "countries": [
+          "BGD",
+          "JPN",
+          "CUB",
+          "SUR"
+        ]
+      }
+    },
+    {
+      "category_id": "natural-earth:longest-coastline",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.014Z",
+      "fingerprint": "058ec759ae71b962588f62450df12e1e29a267930c1a2baab9ba9c9627a91647",
+      "witness": {
+        "categories": [
+          "natural-earth:coastline",
+          "worldbank-catalog:gc-tax-ypkg-rv-zs",
+          "history:un-admission",
+          "faostat-qcl-horses-stocks-02131-5111-an"
+        ],
+        "countries": [
+          "PNG",
+          "MUS",
+          "MEX",
+          "ETH",
+          "GEO",
+          "USA"
+        ]
+      }
+    },
+    {
+      "category_id": "natural-earth:longest-coastline",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.070Z",
+      "fingerprint": "058ec759ae71b962588f62450df12e1e29a267930c1a2baab9ba9c9627a91647",
+      "witness": {
+        "categories": [
+          "natural-earth:coastline",
+          "rural",
+          "history:worldbank-under-five-mortality-below-50",
+          "faostat-qcl-sheep-and-goats-stocks-f1749-5111-an",
+          "eia:most-natural-gas-produced",
+          "faostat-fbs:meat"
+        ],
+        "countries": [
+          "IRQ",
+          "QAT",
+          "SWZ",
+          "ARG",
+          "AZE",
+          "AGO",
+          "MEX",
+          "DZA"
+        ]
+      }
+    },
+    {
+      "category_id": "natural-earth:most-land-neighbors",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.088Z",
+      "fingerprint": "ade194f686368ac43def978af13996aae13000e12c3d512937aaa33228bbd865",
+      "witness": {
+        "categories": [
+          "natural-earth:land-neighbors",
+          "history:worldbank-majority-urban",
+          "koppen-geiger:steppe-share",
+          "unwpp:lowest-pop-density"
+        ],
+        "countries": [
+          "KAZ",
+          "PSE",
+          "BRA",
+          "GNQ"
+        ]
+      }
+    },
+    {
+      "category_id": "natural-earth:most-land-neighbors",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.104Z",
+      "fingerprint": "ade194f686368ac43def978af13996aae13000e12c3d512937aaa33228bbd865",
+      "witness": {
+        "categories": [
+          "natural-earth:land-neighbors",
+          "sports:fifa-world-cup-first-appearance",
+          "worldbank-catalog:ms-mil-xpnd-zs",
+          "unwpp:highest-median-age"
+        ],
+        "countries": [
+          "BOL",
+          "SLV",
+          "AUT",
+          "HND",
+          "SAU",
+          "CHN"
+        ]
+      }
+    },
+    {
+      "category_id": "natural-earth:most-land-neighbors",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.134Z",
+      "fingerprint": "ade194f686368ac43def978af13996aae13000e12c3d512937aaa33228bbd865",
+      "witness": {
+        "categories": [
+          "natural-earth:land-neighbors",
+          "history:un-admission",
+          "agLand",
+          "unwpp:highest-sex-ratio-at-birth",
+          "pew-religion:other-religions-population",
+          "unsdg:three-g-coverage"
+        ],
+        "countries": [
+          "AUT",
+          "BRN",
+          "JPN",
+          "KWT",
+          "COD",
+          "SEN",
+          "UKR",
+          "SSD"
+        ]
+      }
+    },
+    {
+      "category_id": "natural-earth:most-mapped-lakes",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.152Z",
+      "fingerprint": "872a160a45e12a9b6be87a4f34c195af785c385d79f455fc97ee7314e07ae9ae",
+      "witness": {
+        "categories": [
+          "natural-earth:most-mapped-lakes",
+          "history:worldbank-under-five-mortality-below-50",
+          "pew-religion:unaffiliated-share",
+          "faostat-qcl-goats-stocks-02123-5111-an"
+        ],
+        "countries": [
+          "PRK",
+          "AGO",
+          "UGA",
+          "KAZ"
+        ]
+      }
+    },
+    {
+      "category_id": "natural-earth:most-mapped-lakes",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.165Z",
+      "fingerprint": "872a160a45e12a9b6be87a4f34c195af785c385d79f455fc97ee7314e07ae9ae",
+      "witness": {
+        "categories": [
+          "natural-earth:most-mapped-lakes",
+          "rural",
+          "faostat:0113:5510",
+          "usgs:most-major-earthquakes-since-1970"
+        ],
+        "countries": [
+          "CHL",
+          "CRI",
+          "UGA",
+          "ETH",
+          "IND",
+          "CHN"
+        ]
+      }
+    },
+    {
+      "category_id": "natural-earth:most-mapped-lakes",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.190Z",
+      "fingerprint": "872a160a45e12a9b6be87a4f34c195af785c385d79f455fc97ee7314e07ae9ae",
+      "witness": {
+        "categories": [
+          "natural-earth:most-mapped-lakes",
+          "history:worldbank-infant-mortality-below-25",
+          "worldbank-catalog:gc-tax-ypkg-rv-zs",
+          "faostat-qcl-cattle-stocks-02111-5111-an",
+          "comtrade:most-olive-oil-exported",
+          "unhcr:most-asylum-applications-received"
+        ],
+        "countries": [
+          "IRL",
+          "GTM",
+          "KAZ",
+          "TUR",
+          "ISR",
+          "GRC",
+          "ARG",
+          "PRT"
+        ]
+      }
+    },
+    {
+      "category_id": "natural-earth:most-mapped-rivers",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.206Z",
+      "fingerprint": "b168ee5ceb421c832f0faabeca4ba4702e6d11850535d3f0cad46818704eaaed",
+      "witness": {
+        "categories": [
+          "natural-earth:most-mapped-rivers",
+          "history:worldbank-mobile-subscriptions-50",
+          "pew-religion:christian-share",
+          "unwpp:highest-mean-age-childbearing"
+        ],
+        "countries": [
+          "SLE",
+          "PER",
+          "MEX",
+          "PRT"
+        ]
+      }
+    },
+    {
+      "category_id": "natural-earth:most-mapped-rivers",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.218Z",
+      "fingerprint": "b168ee5ceb421c832f0faabeca4ba4702e6d11850535d3f0cad46818704eaaed",
+      "witness": {
+        "categories": [
+          "natural-earth:most-mapped-rivers",
+          "arablePct",
+          "sports:fifa-world-cup-first-appearance",
+          "faostat-fbs:eggs"
+        ],
+        "countries": [
+          "HND",
+          "ESP",
+          "AUS",
+          "SLV",
+          "SAU",
+          "SRB"
+        ]
+      }
+    },
+    {
+      "category_id": "natural-earth:most-mapped-rivers",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.242Z",
+      "fingerprint": "b168ee5ceb421c832f0faabeca4ba4702e6d11850535d3f0cad46818704eaaed",
+      "witness": {
+        "categories": [
+          "natural-earth:most-mapped-rivers",
+          "history:worldbank-majority-urban",
+          "unwpp:lowest-death-rate",
+          "worldbank-catalog:gc-nfn-totl-gd-zs",
+          "faostat:01312:5510",
+          "koppen-geiger:tropical-monsoon-share"
+        ],
+        "countries": [
+          "PRY",
+          "MYS",
+          "COL",
+          "PHL",
+          "DOM",
+          "SAU",
+          "CIV",
+          "PAN"
+        ]
+      }
+    },
+    {
+      "category_id": "comtrade:most-coal-exported",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.256Z",
+      "fingerprint": "89917590fef845a4eb60536d1098004aa3dca02700ccebe395738f99238d29cc",
+      "witness": {
+        "categories": [
+          "comtrade:most-coal-exported",
+          "pew-religion:buddhist-share",
+          "history:oldest-current-constitution",
+          "natural-earth-capital:southernmost-capital"
+        ],
+        "countries": [
+          "NZL",
+          "CAN",
+          "BEL",
+          "THA"
+        ]
+      }
+    },
+    {
+      "category_id": "comtrade:most-coal-exported",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.282Z",
+      "fingerprint": "89917590fef845a4eb60536d1098004aa3dca02700ccebe395738f99238d29cc",
+      "witness": {
+        "categories": [
+          "comtrade:most-coal-exported",
+          "history:worldbank-infant-mortality-below-25",
+          "worldbank-catalog:gc-tax-totl-gd-zs",
+          "faostat:01221:5510"
+        ],
+        "countries": [
+          "TUR",
+          "COL",
+          "MLT",
+          "USA",
+          "ZAF",
+          "AUT"
+        ]
+      }
+    },
+    {
+      "category_id": "comtrade:most-coal-exported",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.306Z",
+      "fingerprint": "89917590fef845a4eb60536d1098004aa3dca02700ccebe395738f99238d29cc",
+      "witness": {
+        "categories": [
+          "comtrade:most-coal-exported",
+          "worldbank-catalog:ms-mil-xpnd-zs",
+          "faostat-fbs:fruit",
+          "unwpp:highest-mean-age-childbearing",
+          "faostat-qcl-sheep-stocks-02122-5111-an",
+          "history:un-admission"
+        ],
+        "countries": [
+          "CAN",
+          "HRV",
+          "BGR",
+          "IDN",
+          "NLD",
+          "KOR",
+          "AZE",
+          "NZL"
+        ]
+      }
+    },
+    {
+      "category_id": "comtrade:most-crude-oil-exported",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.319Z",
+      "fingerprint": "43cd53689e15fa694e165f4b6b28ae70d2542491cd3e65db154fdc566f518526",
+      "witness": {
+        "categories": [
+          "comtrade:most-crude-oil-exported",
+          "pew-religion:christian-share",
+          "faostat:01221:5510",
+          "history:un-admission"
+        ],
+        "countries": [
+          "HRV",
+          "ROU",
+          "PAK",
+          "SAU"
+        ]
+      }
+    },
+    {
+      "category_id": "comtrade:most-crude-oil-exported",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.332Z",
+      "fingerprint": "43cd53689e15fa694e165f4b6b28ae70d2542491cd3e65db154fdc566f518526",
+      "witness": {
+        "categories": [
+          "comtrade:most-crude-oil-exported",
+          "worldbank-catalog:eg-gdp-puse-ko-pp",
+          "natural-earth-capital:northernmost-capital",
+          "koppen-geiger:polar-share"
+        ],
+        "countries": [
+          "USA",
+          "LTU",
+          "IDN",
+          "ARG",
+          "ROU",
+          "KAZ"
+        ]
+      }
+    },
+    {
+      "category_id": "comtrade:most-crude-oil-exported",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.353Z",
+      "fingerprint": "43cd53689e15fa694e165f4b6b28ae70d2542491cd3e65db154fdc566f518526",
+      "witness": {
+        "categories": [
+          "comtrade:most-crude-oil-exported",
+          "worldbank-catalog:eg-elc-hyro-zs",
+          "history:un-admission",
+          "faostat-qcl-goats-stocks-02123-5111-an",
+          "natural-earth:most-mapped-rivers",
+          "unwpp:highest-median-age"
+        ],
+        "countries": [
+          "KOR",
+          "KAZ",
+          "GHA",
+          "HRV",
+          "ZAF",
+          "ISL",
+          "CZE",
+          "NGA"
+        ]
+      }
+    },
+    {
+      "category_id": "comtrade:most-electricity-exported",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.367Z",
+      "fingerprint": "b28fd004596414b4ef000896dd016a9c18706111555eba76bcc18368f3fb5752",
+      "witness": {
+        "categories": [
+          "comtrade:most-electricity-exported",
+          "history:worldbank-majority-urban",
+          "populationGrowth",
+          "faostat-fbs:fish"
+        ],
+        "countries": [
+          "IDN",
+          "BIH",
+          "GEO",
+          "PRY"
+        ]
+      }
+    },
+    {
+      "category_id": "comtrade:most-electricity-exported",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.379Z",
+      "fingerprint": "b28fd004596414b4ef000896dd016a9c18706111555eba76bcc18368f3fb5752",
+      "witness": {
+        "categories": [
+          "comtrade:most-electricity-exported",
+          "history:worldbank-majority-urban",
+          "natural-earth:highest-land-border-density",
+          "worldbank-catalog:fs-ast-cgov-gd-zs"
+        ],
+        "countries": [
+          "SLV",
+          "KAZ",
+          "AUT",
+          "PRY",
+          "THA",
+          "MNE"
+        ]
+      }
+    },
+    {
+      "category_id": "comtrade:most-electricity-exported",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.422Z",
+      "fingerprint": "b28fd004596414b4ef000896dd016a9c18706111555eba76bcc18368f3fb5752",
+      "witness": {
+        "categories": [
+          "comtrade:most-electricity-exported",
+          "history:worldbank-life-expectancy-70",
+          "worldbank-catalog:gc-nfn-totl-gd-zs",
+          "unwpp:highest-sex-ratio-at-birth",
+          "faostat:01970:5510",
+          "faostat-fbs:coffee"
+        ],
+        "countries": [
+          "ARM",
+          "POL",
+          "SLV",
+          "MLT",
+          "MYS",
+          "THA",
+          "GTM",
+          "COL"
+        ]
+      }
+    },
+    {
+      "category_id": "unwpp:highest-natural-change-rate",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.435Z",
+      "fingerprint": "78e331c6b3293a5add1b2e99d935344cd8a9dcddfa83ae5aa8c8e6ba5abef0a6",
+      "witness": {
+        "categories": [
+          "unwpp:highest-natural-change-rate",
+          "history:oldest-current-constitution",
+          "worldbank-catalog:ms-mil-xpnd-zs",
+          "natural-earth:most-mapped-rivers"
+        ],
+        "countries": [
+          "DZA",
+          "AGO",
+          "RUS",
+          "USA"
+        ]
+      }
+    },
+    {
+      "category_id": "unwpp:highest-natural-change-rate",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.449Z",
+      "fingerprint": "78e331c6b3293a5add1b2e99d935344cd8a9dcddfa83ae5aa8c8e6ba5abef0a6",
+      "witness": {
+        "categories": [
+          "unwpp:highest-natural-change-rate",
+          "pew-religion:hindu-population",
+          "worldbank-catalog:fd-ast-prvt-gd-zs",
+          "history:worldbank-majority-urban"
+        ],
+        "countries": [
+          "MYS",
+          "SOM",
+          "KOR",
+          "PAN",
+          "JAM",
+          "NAM"
+        ]
+      }
+    },
+    {
+      "category_id": "unwpp:highest-natural-change-rate",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.536Z",
+      "fingerprint": "78e331c6b3293a5add1b2e99d935344cd8a9dcddfa83ae5aa8c8e6ba5abef0a6",
+      "witness": {
+        "categories": [
+          "unwpp:highest-natural-change-rate",
+          "faostat:0141:5510",
+          "worldbank-catalog:fx-own-totl-zs",
+          "faostat-fbs:beer",
+          "history:worldbank-mobile-subscriptions-50",
+          "eia:most-crude-oil-produced"
+        ],
+        "countries": [
+          "RUS",
+          "IDN",
+          "CZE",
+          "GTM",
+          "CMR",
+          "DEU",
+          "LBR",
+          "IND"
+        ]
+      }
+    },
+    {
+      "category_id": "unwpp:highest-net-migration-rate",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.548Z",
+      "fingerprint": "3a8c6076130042687c47d31399f1e6ad71630a839abc0c19905745b7179465e9",
+      "witness": {
+        "categories": [
+          "unwpp:highest-net-migration-rate",
+          "faostat:F1745:5510",
+          "history:un-admission",
+          "pew-religion:hindu-share"
+        ],
+        "countries": [
+          "BGD",
+          "AUS",
+          "ERI",
+          "MLT"
+        ]
+      }
+    },
+    {
+      "category_id": "unwpp:highest-net-migration-rate",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.560Z",
+      "fingerprint": "3a8c6076130042687c47d31399f1e6ad71630a839abc0c19905745b7179465e9",
+      "witness": {
+        "categories": [
+          "unwpp:highest-net-migration-rate",
+          "faostat:01212:5510",
+          "history:worldbank-mobile-subscriptions-50",
+          "worldbank-catalog:gc-tax-totl-gd-zs"
+        ],
+        "countries": [
+          "ISL",
+          "ETH",
+          "THA",
+          "GEO",
+          "RUS",
+          "CAN"
+        ]
+      }
+    },
+    {
+      "category_id": "unwpp:highest-net-migration-rate",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.587Z",
+      "fingerprint": "3a8c6076130042687c47d31399f1e6ad71630a839abc0c19905745b7179465e9",
+      "witness": {
+        "categories": [
+          "unwpp:highest-net-migration-rate",
+          "natural-earth-capital:capital-closest-equator",
+          "pew-religion:hindu-share",
+          "worldbank-catalog:fs-ast-cgov-gd-zs",
+          "faostat-qcl-cattle-and-buffaloes-stocks-f1746-5111-an",
+          "history:worldbank-under-five-mortality-below-50"
+        ],
+        "countries": [
+          "KWT",
+          "SUR",
+          "IND",
+          "PRT",
+          "GUY",
+          "ECU",
+          "SWZ",
+          "NPL"
+        ]
+      }
+    },
+    {
+      "category_id": "unsdg:three-g-coverage",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.603Z",
+      "fingerprint": "33bb50ac6284b73ee95ec67aba0a527f2d39fb4d90bea6a1fa9b473e35d9f7e4",
+      "witness": {
+        "categories": [
+          "unsdg:three-g-coverage",
+          "pew-religion:unaffiliated-population",
+          "history:worldbank-under-five-mortality-below-50",
+          "natural-earth-capital:capital-closest-equator"
+        ],
+        "countries": [
+          "MWI",
+          "SUR",
+          "PRK",
+          "BRN"
+        ]
+      }
+    },
+    {
+      "category_id": "unsdg:three-g-coverage",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.614Z",
+      "fingerprint": "33bb50ac6284b73ee95ec67aba0a527f2d39fb4d90bea6a1fa9b473e35d9f7e4",
+      "witness": {
+        "categories": [
+          "unsdg:three-g-coverage",
+          "faostat-qcl-swine-pigs-stocks-02140-5111-an",
+          "smithsonian-gvp:most-holocene-volcanoes",
+          "rural"
+        ],
+        "countries": [
+          "DZA",
+          "ECU",
+          "DMA",
+          "VNM",
+          "PAN",
+          "VUT"
+        ]
+      }
+    },
+    {
+      "category_id": "unsdg:three-g-coverage",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.637Z",
+      "fingerprint": "33bb50ac6284b73ee95ec67aba0a527f2d39fb4d90bea6a1fa9b473e35d9f7e4",
+      "witness": {
+        "categories": [
+          "unsdg:three-g-coverage",
+          "faostat:01213:5510",
+          "history:oldest-current-constitution",
+          "natural-earth:highest-mapped-river-density",
+          "worldbank-catalog:gc-tax-ypkg-rv-zs",
+          "comtrade:most-paper-exported"
+        ],
+        "countries": [
+          "MAR",
+          "DOM",
+          "PAN",
+          "TUR",
+          "LVA",
+          "ROU",
+          "SAU",
+          "KOR"
+        ]
+      }
+    },
+    {
+      "category_id": "unsdg:four-g-coverage",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.653Z",
+      "fingerprint": "b2f37295e1be072036f70a5385c76b807f707b2149d9e69fbb7c023bf4cd11f2",
+      "witness": {
+        "categories": [
+          "unsdg:four-g-coverage",
+          "history:worldbank-life-expectancy-70",
+          "unwpp:highest-male-share",
+          "pew-religion:buddhist-population"
+        ],
+        "countries": [
+          "OMN",
+          "ITA",
+          "KOR",
+          "SLB"
+        ]
+      }
+    },
+    {
+      "category_id": "unsdg:four-g-coverage",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.664Z",
+      "fingerprint": "b2f37295e1be072036f70a5385c76b807f707b2149d9e69fbb7c023bf4cd11f2",
+      "witness": {
+        "categories": [
+          "unsdg:four-g-coverage",
+          "faostat:01312:5510",
+          "sports:fifa-world-cup-first-appearance",
+          "natural-earth:highest-coastline-density"
+        ],
+        "countries": [
+          "AUS",
+          "TTO",
+          "FRA",
+          "CPV",
+          "NGA",
+          "SWE"
+        ]
+      }
+    },
+    {
+      "category_id": "unsdg:four-g-coverage",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.688Z",
+      "fingerprint": "b2f37295e1be072036f70a5385c76b807f707b2149d9e69fbb7c023bf4cd11f2",
+      "witness": {
+        "categories": [
+          "unsdg:four-g-coverage",
+          "faostat:01214:5510",
+          "faostat-fbs:onions",
+          "history:un-admission",
+          "density",
+          "natural-earth:northernmost"
+        ],
+        "countries": [
+          "CZE",
+          "LVA",
+          "AUS",
+          "CYP",
+          "LBN",
+          "ATG",
+          "ZWE",
+          "GIN"
+        ]
+      }
+    },
+    {
+      "category_id": "unsdg:five-g-coverage",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.701Z",
+      "fingerprint": "807f2c177a8dde49fc18c9963d1229b153c8649a8912416d5f44d11de705208b",
+      "witness": {
+        "categories": [
+          "unsdg:five-g-coverage",
+          "pew-religion:buddhist-population",
+          "faostat-qcl-asses-stocks-02132-5111-an",
+          "sports:fifa-world-cup-first-appearance"
+        ],
+        "countries": [
+          "PER",
+          "IRN",
+          "CHE",
+          "CHN"
+        ]
+      }
+    },
+    {
+      "category_id": "unsdg:five-g-coverage",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.713Z",
+      "fingerprint": "807f2c177a8dde49fc18c9963d1229b153c8649a8912416d5f44d11de705208b",
+      "witness": {
+        "categories": [
+          "unsdg:five-g-coverage",
+          "faostat-qcl-swine-pigs-stocks-02140-5111-an",
+          "history:worldbank-mobile-subscriptions-50",
+          "fertility"
+        ],
+        "countries": [
+          "AGO",
+          "ECU",
+          "KIR",
+          "KAZ",
+          "SWE",
+          "CAN"
+        ]
+      }
+    },
+    {
+      "category_id": "unsdg:five-g-coverage",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.759Z",
+      "fingerprint": "807f2c177a8dde49fc18c9963d1229b153c8649a8912416d5f44d11de705208b",
+      "witness": {
+        "categories": [
+          "unsdg:five-g-coverage",
+          "natural-earth:largest-single-mapped-lake",
+          "history:oldest-current-constitution",
+          "faostat-qcl-horses-stocks-02131-5111-an",
+          "worldbank-catalog:ms-mil-xpnd-zs",
+          "faostat-fbs:milk"
+        ],
+        "countries": [
+          "NZL",
+          "ARM",
+          "URY",
+          "IRL",
+          "CHN",
+          "KEN",
+          "PRT",
+          "NGA"
+        ]
+      }
+    },
+    {
+      "category_id": "unsdg:organized-learning",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.771Z",
+      "fingerprint": "18ea6296940b72cb21c3fae4f4089bc1d6c161a7e2a9db5124a5f95eec2be913",
+      "witness": {
+        "categories": [
+          "unsdg:organized-learning",
+          "history:worldbank-mobile-subscriptions-50",
+          "faostat:01371:5510",
+          "worldbank-catalog:gc-tax-totl-gd-zs"
+        ],
+        "countries": [
+          "MAR",
+          "FIN",
+          "ARE",
+          "BFA"
+        ]
+      }
+    },
+    {
+      "category_id": "unsdg:organized-learning",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.799Z",
+      "fingerprint": "18ea6296940b72cb21c3fae4f4089bc1d6c161a7e2a9db5124a5f95eec2be913",
+      "witness": {
+        "categories": [
+          "unsdg:organized-learning",
+          "natural-earth:highest-land-border-density",
+          "faostat:01311:5510",
+          "history:worldbank-life-expectancy-70"
+        ],
+        "countries": [
+          "FRA",
+          "SUR",
+          "LBN",
+          "LUX",
+          "SLV",
+          "PAN"
+        ]
+      }
+    },
+    {
+      "category_id": "unsdg:organized-learning",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.919Z",
+      "fingerprint": "18ea6296940b72cb21c3fae4f4089bc1d6c161a7e2a9db5124a5f95eec2be913",
+      "witness": {
+        "categories": [
+          "unsdg:organized-learning",
+          "natural-earth:southernmost",
+          "history:un-admission",
+          "unwpp:lowest-death-rate",
+          "faostat-fbs:sugar",
+          "worldbank-catalog:eg-elc-petr-zs"
+        ],
+        "countries": [
+          "CHL",
+          "EST",
+          "OMN",
+          "HND",
+          "SWE",
+          "BGD",
+          "CHE",
+          "TTO"
+        ]
+      }
+    },
+    {
+      "category_id": "who:WHS4_117",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.933Z",
+      "fingerprint": "4e3030c0c550e7a71ec25b9f9d4349b2a8c063213d2517887051bb4baac3b204",
+      "witness": {
+        "categories": [
+          "who:WHS4_117",
+          "sports:fifa-world-cup-first-appearance",
+          "pew-religion:muslim-population",
+          "forestArea"
+        ],
+        "countries": [
+          "ROU",
+          "TUR",
+          "CUB",
+          "CAN"
+        ]
+      }
+    },
+    {
+      "category_id": "who:WHS4_117",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.946Z",
+      "fingerprint": "4e3030c0c550e7a71ec25b9f9d4349b2a8c063213d2517887051bb4baac3b204",
+      "witness": {
+        "categories": [
+          "who:WHS4_117",
+          "pew-religion:muslim-population",
+          "worldbank-catalog:eg-gdp-puse-ko-pp",
+          "faostat-qcl-mules-and-hinnies-stocks-02133-5111-an"
+        ],
+        "countries": [
+          "EGY",
+          "PRY",
+          "ETH",
+          "IND",
+          "CRI",
+          "GEO"
+        ]
+      }
+    },
+    {
+      "category_id": "who:WHS4_117",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.971Z",
+      "fingerprint": "4e3030c0c550e7a71ec25b9f9d4349b2a8c063213d2517887051bb4baac3b204",
+      "witness": {
+        "categories": [
+          "who:WHS4_117",
+          "faostat:01234:5510",
+          "fixedBroadband",
+          "history:worldbank-internet-half",
+          "faostat-fbs:eggs",
+          "sports:fifa-world-cup-first-appearance"
+        ],
+        "countries": [
+          "JOR",
+          "UKR",
+          "GRC",
+          "ARE",
+          "HUN",
+          "MAR",
+          "IRQ",
+          "COL"
+        ]
+      }
+    },
+    {
+      "category_id": "who:WHS8_110",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.984Z",
+      "fingerprint": "ea305d21bb81cbedcfacd42c629b97be6ae90b4fbfdb08cb89b0ad6733eb819b",
+      "witness": {
+        "categories": [
+          "who:WHS8_110",
+          "faostat-qcl-horses-stocks-02131-5111-an",
+          "natural-earth:landlocked-fewest-neighbors",
+          "unwpp:highest-male-share"
+        ],
+        "countries": [
+          "UZB",
+          "ETH",
+          "LSO",
+          "BTN"
+        ]
+      }
+    },
+    {
+      "category_id": "who:WHS8_110",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:19.997Z",
+      "fingerprint": "ea305d21bb81cbedcfacd42c629b97be6ae90b4fbfdb08cb89b0ad6733eb819b",
+      "witness": {
+        "categories": [
+          "who:WHS8_110",
+          "faostat-qcl-asses-stocks-02132-5111-an",
+          "sports:fifa-world-cup-first-appearance",
+          "natural-earth:highest-land-border-density"
+        ],
+        "countries": [
+          "MAR",
+          "HND",
+          "CHN",
+          "AUS",
+          "BOL",
+          "TGO"
+        ]
+      }
+    },
+    {
+      "category_id": "who:WHS8_110",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.021Z",
+      "fingerprint": "ea305d21bb81cbedcfacd42c629b97be6ae90b4fbfdb08cb89b0ad6733eb819b",
+      "witness": {
+        "categories": [
+          "who:WHS8_110",
+          "faostat-qcl-mules-and-hinnies-stocks-02133-5111-an",
+          "history:worldbank-majority-urban",
+          "natural-earth:highest-coastline-density",
+          "militarySpend",
+          "pew-religion:jewish-population"
+        ],
+        "countries": [
+          "ZAF",
+          "PER",
+          "IRN",
+          "GTM",
+          "TTO",
+          "TUR",
+          "AZE",
+          "CPV"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:bm-klt-dinv-wd-gd-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.035Z",
+      "fingerprint": "49eba9b191678f0ebb6b5171e01858ea4c4d0521c3594b6e3deba519b7ba1ab2",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:bm-klt-dinv-wd-gd-zs",
+          "history:worldbank-internet-half",
+          "faostat:01610:5510",
+          "natural-earth:highest-mapped-river-density"
+        ],
+        "countries": [
+          "MYS",
+          "SLV",
+          "HND",
+          "IDN"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:bm-klt-dinv-wd-gd-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.048Z",
+      "fingerprint": "49eba9b191678f0ebb6b5171e01858ea4c4d0521c3594b6e3deba519b7ba1ab2",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:bm-klt-dinv-wd-gd-zs",
+          "history:worldbank-internet-half",
+          "faostat-qcl-cattle-and-buffaloes-stocks-f1746-5111-an",
+          "pew-religion:christian-population"
+        ],
+        "countries": [
+          "AUS",
+          "GHA",
+          "LUX",
+          "TJK",
+          "EGY",
+          "GBR"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:bm-klt-dinv-wd-gd-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.074Z",
+      "fingerprint": "49eba9b191678f0ebb6b5171e01858ea4c4d0521c3594b6e3deba519b7ba1ab2",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:bm-klt-dinv-wd-gd-zs",
+          "faostat-qcl-cattle-stocks-02111-5111-an",
+          "unwpp:highest-male-share",
+          "history:worldbank-internet-half",
+          "faostat-fbs:bananas",
+          "koppen-geiger:continental-share"
+        ],
+        "countries": [
+          "MAR",
+          "CHN",
+          "ISL",
+          "BLR",
+          "CZE",
+          "NZL",
+          "IDN",
+          "TJK"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:bx-klt-dinv-wd-gd-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.086Z",
+      "fingerprint": "d645ed25fa0387f1e6eb6672ed1c097c553f049675d261a8339b3b793b9a331a",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:bx-klt-dinv-wd-gd-zs",
+          "faostat:01212:5510",
+          "natural-earth:highest-mapped-river-density",
+          "history:un-admission"
+        ],
+        "countries": [
+          "NLD",
+          "KOR",
+          "MNG",
+          "SRB"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:bx-klt-dinv-wd-gd-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.097Z",
+      "fingerprint": "d645ed25fa0387f1e6eb6672ed1c097c553f049675d261a8339b3b793b9a331a",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:bx-klt-dinv-wd-gd-zs",
+          "faostat:01212:5510",
+          "unwpp:lowest-death-rate",
+          "history:worldbank-mobile-subscriptions-50"
+        ],
+        "countries": [
+          "BIH",
+          "HTI",
+          "TLS",
+          "ARE",
+          "KEN",
+          "TUN"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:bx-klt-dinv-wd-gd-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.120Z",
+      "fingerprint": "d645ed25fa0387f1e6eb6672ed1c097c553f049675d261a8339b3b793b9a331a",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:bx-klt-dinv-wd-gd-zs",
+          "faostat:01312:5510",
+          "history:oldest-current-constitution",
+          "faostat-fbs:coffee",
+          "unwpp:lowest-pop-density",
+          "unsdg:unsentenced-detainees"
+        ],
+        "countries": [
+          "LTU",
+          "FRA",
+          "MEX",
+          "BRB",
+          "SUR",
+          "ARG",
+          "GUY",
+          "ZWE"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-dod-dect-gn-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.134Z",
+      "fingerprint": "673b9ce832dd3d1be2d92bc3a44289577dd6e91e5e9b7c0ea2a2a7a9a99cc1ec",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-dod-dect-gn-zs",
+          "faostat-qcl-horses-stocks-02131-5111-an",
+          "natural-earth:highest-mapped-river-density",
+          "history:oldest-current-constitution"
+        ],
+        "countries": [
+          "SRB",
+          "TUN",
+          "COL",
+          "IDN"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-dod-dect-gn-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.162Z",
+      "fingerprint": "673b9ce832dd3d1be2d92bc3a44289577dd6e91e5e9b7c0ea2a2a7a9a99cc1ec",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-dod-dect-gn-zs",
+          "natural-earth:land-neighbors",
+          "faostat:01212:5510",
+          "history:worldbank-life-expectancy-70"
+        ],
+        "countries": [
+          "EGY",
+          "UKR",
+          "MNG",
+          "PER",
+          "GUY",
+          "IND"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-dod-dect-gn-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.229Z",
+      "fingerprint": "673b9ce832dd3d1be2d92bc3a44289577dd6e91e5e9b7c0ea2a2a7a9a99cc1ec",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-dod-dect-gn-zs",
+          "faostat:0142:5510",
+          "unwpp:lowest-fertility",
+          "natural-earth-capital:northernmost-capital",
+          "history:oldest-current-constitution",
+          "faostat-fbs:calories"
+        ],
+        "countries": [
+          "KAZ",
+          "SEN",
+          "MEX",
+          "TUR",
+          "IND",
+          "MUS",
+          "RWA",
+          "JAM"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-dod-dstc-xp-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.242Z",
+      "fingerprint": "b65c156df632c631235249d163a8caec18930216bc1dada89fbe3159f7dcc959",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-dod-dstc-xp-zs",
+          "history:worldbank-internet-half",
+          "pew-religion:buddhist-population",
+          "natural-earth:most-mapped-river-length"
+        ],
+        "countries": [
+          "SWZ",
+          "BRA",
+          "TUR",
+          "THA"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-dod-dstc-xp-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.274Z",
+      "fingerprint": "b65c156df632c631235249d163a8caec18930216bc1dada89fbe3159f7dcc959",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-dod-dstc-xp-zs",
+          "faostat-qcl-cattle-stocks-02111-5111-an",
+          "history:un-admission",
+          "unwpp:lowest-fertility"
+        ],
+        "countries": [
+          "UKR",
+          "MDA",
+          "COM",
+          "BEN",
+          "MEX",
+          "GEO"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-dod-dstc-xp-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.327Z",
+      "fingerprint": "b65c156df632c631235249d163a8caec18930216bc1dada89fbe3159f7dcc959",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-dod-dstc-xp-zs",
+          "history:worldbank-internet-half",
+          "faostat:01233:5510",
+          "unwpp:lowest-death-rate",
+          "faostat-fbs:vegetables",
+          "natural-earth:northernmost"
+        ],
+        "countries": [
+          "ALB",
+          "MKD",
+          "MUS",
+          "IRQ",
+          "THA",
+          "KAZ",
+          "HND",
+          "MAR"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-dod-pvlx-ex-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.340Z",
+      "fingerprint": "6217cf28b591e766c3574a6752dcd68b5a9761a5afe72c8ce6f3f863085e790e",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-dod-pvlx-ex-zs",
+          "history:worldbank-electricity-half",
+          "natural-earth-capital:southernmost-capital",
+          "pew-religion:christian-share"
+        ],
+        "countries": [
+          "RWA",
+          "VUT",
+          "HTI",
+          "ETH"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-dod-pvlx-ex-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.352Z",
+      "fingerprint": "6217cf28b591e766c3574a6752dcd68b5a9761a5afe72c8ce6f3f863085e790e",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-dod-pvlx-ex-zs",
+          "history:oldest-current-constitution",
+          "pew-religion:hindu-population",
+          "koppen-geiger:tropical-monsoon-share"
+        ],
+        "countries": [
+          "PER",
+          "MUS",
+          "TON",
+          "IND",
+          "SLV",
+          "COL"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-dod-pvlx-ex-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.376Z",
+      "fingerprint": "6217cf28b591e766c3574a6752dcd68b5a9761a5afe72c8ce6f3f863085e790e",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-dod-pvlx-ex-zs",
+          "eia:most-natural-gas-produced",
+          "history:un-admission",
+          "natural-earth:highest-coastline-density",
+          "faostat-fbs:vegetable-oil",
+          "faostat:01231:5510"
+        ],
+        "countries": [
+          "VCT",
+          "IRN",
+          "GHA",
+          "IDN",
+          "DZA",
+          "ECU",
+          "NER",
+          "GEO"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-dod-pvlx-gn-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.389Z",
+      "fingerprint": "17e5afa7e03a2f5d9ff7428be6d75e2c6ae180c8694cb970e18f5936b152a867",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-dod-pvlx-gn-zs",
+          "faostat:01312:5510",
+          "history:worldbank-majority-urban",
+          "natural-earth:highest-mapped-river-density"
+        ],
+        "countries": [
+          "BEN",
+          "DOM",
+          "SLV",
+          "SEN"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-dod-pvlx-gn-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.403Z",
+      "fingerprint": "17e5afa7e03a2f5d9ff7428be6d75e2c6ae180c8694cb970e18f5936b152a867",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-dod-pvlx-gn-zs",
+          "faostat:01530:5510",
+          "faostat-fbs:maize",
+          "history:worldbank-infant-mortality-below-25"
+        ],
+        "countries": [
+          "GUY",
+          "SLB",
+          "BGD",
+          "SLV",
+          "BRA",
+          "GRD"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-dod-pvlx-gn-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.453Z",
+      "fingerprint": "17e5afa7e03a2f5d9ff7428be6d75e2c6ae180c8694cb970e18f5936b152a867",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-dod-pvlx-gn-zs",
+          "natural-earth:highest-land-border-density",
+          "faostat-qcl-cattle-stocks-02111-5111-an",
+          "history:worldbank-life-expectancy-70",
+          "faostat-fbs:vegetable-oil",
+          "eia:most-crude-oil-produced"
+        ],
+        "countries": [
+          "MDA",
+          "IRN",
+          "MEX",
+          "ECU",
+          "MNG",
+          "GUY",
+          "IRQ",
+          "ALB"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-oda-odat-gi-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.477Z",
+      "fingerprint": "1464564c6ea3e83b3274e2c13e04071952e941dbfc360bf05736c6da24365b66",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-oda-odat-gi-zs",
+          "faostat:01212:5510",
+          "natural-earth:highest-coastline-density",
+          "pew-religion:jewish-population"
+        ],
+        "countries": [
+          "CPV",
+          "MEX",
+          "SLE",
+          "IDN"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-oda-odat-gi-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.490Z",
+      "fingerprint": "1464564c6ea3e83b3274e2c13e04071952e941dbfc360bf05736c6da24365b66",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-oda-odat-gi-zs",
+          "faostat:01312:5510",
+          "history:worldbank-internet-half",
+          "unwpp:highest-sex-ratio-at-birth"
+        ],
+        "countries": [
+          "TON",
+          "MEX",
+          "HND",
+          "VNM",
+          "PER",
+          "MAR"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-oda-odat-gi-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.600Z",
+      "fingerprint": "1464564c6ea3e83b3274e2c13e04071952e941dbfc360bf05736c6da24365b66",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-oda-odat-gi-zs",
+          "history:worldbank-under-five-mortality-below-50",
+          "faostat:F1806:5510",
+          "faostat-fbs:potatoes",
+          "unwpp:lowest-fertility",
+          "koppen-geiger:arid-share"
+        ],
+        "countries": [
+          "MWI",
+          "BOL",
+          "DZA",
+          "IRQ",
+          "THA",
+          "COL",
+          "ETH",
+          "PER"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-oda-odat-gn-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.616Z",
+      "fingerprint": "0f60e4c3a9963a0c8c87248a830c90b638aa41894ddb3c5a341837a9a776e69e",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-oda-odat-gn-zs",
+          "natural-earth-capital:northernmost-capital",
+          "history:worldbank-mobile-subscriptions-50",
+          "faostat-qcl-sheep-stocks-02122-5111-an"
+        ],
+        "countries": [
+          "KAZ",
+          "CHN",
+          "MOZ",
+          "ETH"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-oda-odat-gn-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.640Z",
+      "fingerprint": "0f60e4c3a9963a0c8c87248a830c90b638aa41894ddb3c5a341837a9a776e69e",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-oda-odat-gn-zs",
+          "faostat:01312:5510",
+          "natural-earth:highest-coastline-density",
+          "history:un-admission"
+        ],
+        "countries": [
+          "FSM",
+          "VNM",
+          "STP",
+          "MDV",
+          "CAF",
+          "TON"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-oda-odat-gn-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.663Z",
+      "fingerprint": "0f60e4c3a9963a0c8c87248a830c90b638aa41894ddb3c5a341837a9a776e69e",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-oda-odat-gn-zs",
+          "faostat-qcl-cattle-stocks-02111-5111-an",
+          "pew-religion:christian-share",
+          "history:un-admission",
+          "natural-earth:highest-land-border-density",
+          "unsdg:four-g-coverage"
+        ],
+        "countries": [
+          "ALB",
+          "AZE",
+          "GHA",
+          "PAK",
+          "ZMB",
+          "TON",
+          "TGO",
+          "UKR"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-oda-odat-mp-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.677Z",
+      "fingerprint": "4b3f3a3233fc8d6be881f38d6ae5f8160c08b578d24aba48919323ae5a0d32bc",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-oda-odat-mp-zs",
+          "history:worldbank-electricity-half",
+          "faostat-qcl-cattle-stocks-02111-5111-an",
+          "pew-religion:hindu-population"
+        ],
+        "countries": [
+          "HTI",
+          "NPL",
+          "NGA",
+          "COM"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-oda-odat-mp-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.689Z",
+      "fingerprint": "4b3f3a3233fc8d6be881f38d6ae5f8160c08b578d24aba48919323ae5a0d32bc",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-oda-odat-mp-zs",
+          "faostat-qcl-goats-stocks-02123-5111-an",
+          "history:worldbank-infant-mortality-below-25",
+          "natural-earth:largest-continuous-land-area"
+        ],
+        "countries": [
+          "STP",
+          "GUY",
+          "UKR",
+          "NPL",
+          "ALB",
+          "BRA"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-oda-odat-mp-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.801Z",
+      "fingerprint": "4b3f3a3233fc8d6be881f38d6ae5f8160c08b578d24aba48919323ae5a0d32bc",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-oda-odat-mp-zs",
+          "faostat:21121:5510",
+          "history:worldbank-majority-urban",
+          "faostat-fbs:sugar",
+          "unwpp:highest-sex-ratio-at-birth",
+          "natural-earth:largest-mapped-lake-area"
+        ],
+        "countries": [
+          "HTI",
+          "AZE",
+          "MKD",
+          "SLV",
+          "GMB",
+          "GHA",
+          "ZAF",
+          "JOR"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-tds-dect-ex-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.812Z",
+      "fingerprint": "6e664ee0bf060e9a57045ed76085d379389767b072570976aba0fcf1a0d2a07f",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-tds-dect-ex-zs",
+          "faostat-qcl-sheep-and-goats-stocks-f1749-5111-an",
+          "history:oldest-current-constitution",
+          "pew-religion:muslim-population"
+        ],
+        "countries": [
+          "CHN",
+          "TON",
+          "COL",
+          "NGA"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-tds-dect-ex-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.843Z",
+      "fingerprint": "6e664ee0bf060e9a57045ed76085d379389767b072570976aba0fcf1a0d2a07f",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-tds-dect-ex-zs",
+          "faostat-qcl-horses-stocks-02131-5111-an",
+          "unwpp:highest-median-age",
+          "history:oldest-current-constitution"
+        ],
+        "countries": [
+          "SRB",
+          "PAK",
+          "IDN",
+          "GNB",
+          "ETH",
+          "FJI"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-tds-dect-ex-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.910Z",
+      "fingerprint": "6e664ee0bf060e9a57045ed76085d379389767b072570976aba0fcf1a0d2a07f",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-tds-dect-ex-zs",
+          "faostat:01323:5510",
+          "history:oldest-current-constitution",
+          "unwpp:highest-median-age",
+          "faostat-fbs:beer",
+          "pew-religion:other-religions-share"
+        ],
+        "countries": [
+          "KHM",
+          "KEN",
+          "BGR",
+          "DOM",
+          "LBN",
+          "GRD",
+          "CHN",
+          "SWZ"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-tds-dect-gn-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.940Z",
+      "fingerprint": "bf87adf93a0e778959dbfece141a744c7aa475c390e1cf4913d844dc92b60d9e",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-tds-dect-gn-zs",
+          "history:oldest-current-constitution",
+          "natural-earth-capital:northernmost-capital",
+          "faostat-qcl-asses-stocks-02132-5111-an"
+        ],
+        "countries": [
+          "SEN",
+          "KAZ",
+          "LBN",
+          "SLV"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-tds-dect-gn-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:20.952Z",
+      "fingerprint": "bf87adf93a0e778959dbfece141a744c7aa475c390e1cf4913d844dc92b60d9e",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-tds-dect-gn-zs",
+          "faostat-qcl-cattle-stocks-02111-5111-an",
+          "history:un-admission",
+          "unwpp:highest-net-migration-rate"
+        ],
+        "countries": [
+          "CMR",
+          "SRB",
+          "TON",
+          "MOZ",
+          "TUR",
+          "ARM"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-tds-dect-gn-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:21.001Z",
+      "fingerprint": "bf87adf93a0e778959dbfece141a744c7aa475c390e1cf4913d844dc92b60d9e",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-tds-dect-gn-zs",
+          "faostat:F1717:5510",
+          "history:oldest-current-constitution",
+          "natural-earth:highest-coastline-density",
+          "faostat-fbs:beef",
+          "pew-religion:hindu-population"
+        ],
+        "countries": [
+          "GHA",
+          "NPL",
+          "IDN",
+          "TKM",
+          "GRD",
+          "MOZ",
+          "RUS",
+          "JAM"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-tds-dppg-gn-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:21.017Z",
+      "fingerprint": "0fc9abb1db0ca1f07c7dd9836b702e94b4f6d91cff95003eda470b09c039657b",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-tds-dppg-gn-zs",
+          "natural-earth:highest-land-border-density",
+          "faostat-qcl-sheep-stocks-02122-5111-an",
+          "history:worldbank-infant-mortality-below-25"
+        ],
+        "countries": [
+          "DZA",
+          "BTN",
+          "GUY",
+          "ARM"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-tds-dppg-gn-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:21.029Z",
+      "fingerprint": "0fc9abb1db0ca1f07c7dd9836b702e94b4f6d91cff95003eda470b09c039657b",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-tds-dppg-gn-zs",
+          "faostat:01221:5510",
+          "natural-earth:highest-land-border-density",
+          "history:worldbank-majority-urban"
+        ],
+        "countries": [
+          "DMA",
+          "SEN",
+          "JOR",
+          "LBN",
+          "BIH",
+          "ZAF"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-tds-dppg-gn-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:21.126Z",
+      "fingerprint": "0fc9abb1db0ca1f07c7dd9836b702e94b4f6d91cff95003eda470b09c039657b",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-tds-dppg-gn-zs",
+          "history:worldbank-life-expectancy-70",
+          "faostat:F1745:5510",
+          "natural-earth:highest-mapped-river-density",
+          "comtrade:most-ceramics-exported",
+          "unhcr:most-stateless-people"
+        ],
+        "countries": [
+          "MDA",
+          "MEX",
+          "THA",
+          "KAZ",
+          "BRA",
+          "GEO",
+          "ARG",
+          "SRB"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:eg-cft-accs-ru-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:21.139Z",
+      "fingerprint": "01f4f710ae27a75c01fdcc41dd2b6cf111e90e82d3d4c09792349c12d848e7dc",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:eg-cft-accs-ru-zs",
+          "faostat:01212:5510",
+          "history:worldbank-infant-mortality-below-25",
+          "natural-earth:largest-mapped-lake-area"
+        ],
+        "countries": [
+          "MNG",
+          "TUR",
+          "BHS",
+          "ZAF"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:eg-cft-accs-ru-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:21.152Z",
+      "fingerprint": "01f4f710ae27a75c01fdcc41dd2b6cf111e90e82d3d4c09792349c12d848e7dc",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:eg-cft-accs-ru-zs",
+          "faostat-qcl-cattle-stocks-02111-5111-an",
+          "history:worldbank-infant-mortality-below-25",
+          "natural-earth:largest-mapped-lake-area"
+        ],
+        "countries": [
+          "EGY",
+          "VEN",
+          "ERI",
+          "HUN",
+          "TUR",
+          "KAZ"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:eg-cft-accs-ru-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:21.177Z",
+      "fingerprint": "01f4f710ae27a75c01fdcc41dd2b6cf111e90e82d3d4c09792349c12d848e7dc",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:eg-cft-accs-ru-zs",
+          "faostat-qcl-swine-pigs-stocks-02140-5111-an",
+          "unwpp:highest-median-age",
+          "faostat-fbs:beef",
+          "history:worldbank-majority-urban",
+          "natural-earth:land-border"
+        ],
+        "countries": [
+          "NAM",
+          "PHL",
+          "BOL",
+          "BWA",
+          "CIV",
+          "SVK",
+          "BIH",
+          "GEO"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:eg-cft-accs-ur-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:21.200Z",
+      "fingerprint": "f85b3052b904efff04cdc4e2dd7a2ed286ec9794a6429355bddb752199b1bfce",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:eg-cft-accs-ur-zs",
+          "history:worldbank-infant-mortality-below-25",
+          "faostat-qcl-asses-stocks-02132-5111-an",
+          "sports:fifa-world-cup-first-appearance"
+        ],
+        "countries": [
+          "CHN",
+          "TTO",
+          "PRY",
+          "EGY"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:eg-cft-accs-ur-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:21.212Z",
+      "fingerprint": "f85b3052b904efff04cdc4e2dd7a2ed286ec9794a6429355bddb752199b1bfce",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:eg-cft-accs-ur-zs",
+          "faostat:01221:5510",
+          "history:oldest-current-constitution",
+          "unwpp:highest-natural-change-rate"
+        ],
+        "countries": [
+          "UKR",
+          "MEX",
+          "MRT",
+          "UZB",
+          "HND",
+          "ISR"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:eg-cft-accs-ur-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:21.256Z",
+      "fingerprint": "f85b3052b904efff04cdc4e2dd7a2ed286ec9794a6429355bddb752199b1bfce",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:eg-cft-accs-ur-zs",
+          "faostat:01221:5510",
+          "history:worldbank-infant-mortality-below-25",
+          "natural-earth:highest-mapped-lake-share",
+          "faostat-fbs:rice",
+          "comtrade:most-beer-exported"
+        ],
+        "countries": [
+          "HUN",
+          "SLV",
+          "EGY",
+          "KGZ",
+          "THA",
+          "ECU",
+          "PHL",
+          "ZAF"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:eg-cft-accs-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:21.272Z",
+      "fingerprint": "8ebf27fbad5b69e5524aae8a8637187ac9510537e39cd3c7a5acc2d5127906e7",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:eg-cft-accs-zs",
+          "natural-earth:largest-continuous-land-area",
+          "history:worldbank-life-expectancy-70",
+          "pew-religion:hindu-population"
+        ],
+        "countries": [
+          "BRN",
+          "MUS",
+          "BRA",
+          "BTN"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:eg-cft-accs-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:21.285Z",
+      "fingerprint": "8ebf27fbad5b69e5524aae8a8637187ac9510537e39cd3c7a5acc2d5127906e7",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:eg-cft-accs-zs",
+          "sports:fifa-world-cup-first-appearance",
+          "faostat:F1745:5510",
+          "unwpp:highest-birth-rate"
+        ],
+        "countries": [
+          "AGO",
+          "UZB",
+          "SRB",
+          "DZA",
+          "ESP",
+          "TUR"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:eg-cft-accs-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:21.309Z",
+      "fingerprint": "8ebf27fbad5b69e5524aae8a8637187ac9510537e39cd3c7a5acc2d5127906e7",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:eg-cft-accs-zs",
+          "faostat-qcl-sheep-and-goats-stocks-f1749-5111-an",
+          "natural-earth:highest-mapped-river-density",
+          "history:worldbank-majority-urban",
+          "faostat-fbs:potatoes",
+          "comtrade:most-medical-optical-exported"
+        ],
+        "countries": [
+          "MYS",
+          "TTO",
+          "BRA",
+          "AZE",
+          "TUR",
+          "MRT",
+          "ALB",
+          "PER"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:eg-elc-accs-ru-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:21.321Z",
+      "fingerprint": "430a84730018fb9ba47e0f06b33461fcda102eb9015a0fd7a076e3802d684e1f",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:eg-elc-accs-ru-zs",
+          "history:worldbank-under-five-mortality-below-50",
+          "natural-earth:most-mapped-rivers",
+          "unwpp:lowest-death-rate"
+        ],
+        "countries": [
+          "POL",
+          "MEX",
+          "TJK",
+          "SEN"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:eg-elc-accs-ru-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:21.334Z",
+      "fingerprint": "430a84730018fb9ba47e0f06b33461fcda102eb9015a0fd7a076e3802d684e1f",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:eg-elc-accs-ru-zs",
+          "history:un-admission",
+          "usgs:most-major-earthquakes-since-1970",
+          "natural-earth:highest-mapped-river-density"
+        ],
+        "countries": [
+          "LAO",
+          "SLB",
+          "ETH",
+          "BTN",
+          "ARG",
+          "SSD"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:eg-elc-accs-ru-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:21.440Z",
+      "fingerprint": "430a84730018fb9ba47e0f06b33461fcda102eb9015a0fd7a076e3802d684e1f",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:eg-elc-accs-ru-zs",
+          "history:worldbank-mobile-subscriptions-50",
+          "natural-earth:most-mapped-rivers",
+          "unwpp:lowest-death-rate",
+          "pew-religion:muslim-population",
+          "faostat-fbs:fruit"
+        ],
+        "countries": [
+          "MWI",
+          "GRC",
+          "AFG",
+          "MEX",
+          "JAM",
+          "COG",
+          "TJK",
+          "COD"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:eg-elc-accs-ur-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:21.458Z",
+      "fingerprint": "ac205b969faf560d6a9cbe73ebc066e5e194bd1a4d3eba540db75ec32cf6dade",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:eg-elc-accs-ur-zs",
+          "history:worldbank-life-expectancy-70",
+          "pew-religion:christian-share",
+          "natural-earth-capital:capital-closest-equator"
+        ],
+        "countries": [
+          "PER",
+          "GTM",
+          "LTU",
+          "COL"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:eg-elc-accs-ur-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:21.481Z",
+      "fingerprint": "ac205b969faf560d6a9cbe73ebc066e5e194bd1a4d3eba540db75ec32cf6dade",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:eg-elc-accs-ur-zs",
+          "history:worldbank-under-five-mortality-below-50",
+          "faostat-qcl-swine-pigs-stocks-02140-5111-an",
+          "sports:fifa-world-cup-first-appearance"
+        ],
+        "countries": [
+          "PER",
+          "COL",
+          "PAN",
+          "ITA",
+          "GHA",
+          "ZAF"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:eg-elc-accs-ur-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:21.680Z",
+      "fingerprint": "ac205b969faf560d6a9cbe73ebc066e5e194bd1a4d3eba540db75ec32cf6dade",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:eg-elc-accs-ur-zs",
+          "faostat:F1738:5510",
+          "faostat-fbs:onions",
+          "history:worldbank-life-expectancy-70",
+          "natural-earth:highest-coastline-density",
+          "unsdg:pm25-exposure"
+        ],
+        "countries": [
+          "LBY",
+          "JAM",
+          "CPV",
+          "PAN",
+          "TJK",
+          "BGD",
+          "SLB",
+          "PHL"
+        ]
+      }
+    },
+    {
+      "category_id": "electricityAccess",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:21.757Z",
+      "fingerprint": "efac07c4b4a165fa6c903af800b7b6c57fe2e040dcffe7b102a7a3876c2f57e3",
+      "witness": {
+        "categories": [
+          "electricityAccess",
+          "history:oldest-current-constitution",
+          "pew-religion:buddhist-population",
+          "smithsonian-gvp:most-holocene-volcanoes"
+        ],
+        "countries": [
+          "MEX",
+          "ITA",
+          "IND",
+          "ARG"
+        ]
+      }
+    },
+    {
+      "category_id": "electricityAccess",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:21.780Z",
+      "fingerprint": "efac07c4b4a165fa6c903af800b7b6c57fe2e040dcffe7b102a7a3876c2f57e3",
+      "witness": {
+        "categories": [
+          "electricityAccess",
+          "natural-earth:most-mapped-rivers",
+          "history:un-admission",
+          "unwpp:highest-mean-age-childbearing"
+        ],
+        "countries": [
+          "IDN",
+          "CZE",
+          "CRI",
+          "PAN",
+          "SSD",
+          "LBY"
+        ]
+      }
+    },
+    {
+      "category_id": "electricityAccess",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.031Z",
+      "fingerprint": "efac07c4b4a165fa6c903af800b7b6c57fe2e040dcffe7b102a7a3876c2f57e3",
+      "witness": {
+        "categories": [
+          "electricityAccess",
+          "faostat:F1745:5510",
+          "unwpp:highest-net-migration-rate",
+          "faostat-fbs:protein",
+          "koppen-geiger:desert-share",
+          "history:worldbank-under-five-mortality-below-50"
+        ],
+        "countries": [
+          "MAR",
+          "SYR",
+          "BWA",
+          "MMR",
+          "BOL",
+          "MNG",
+          "MRT",
+          "ARG"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:er-h2o-fwtl-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.044Z",
+      "fingerprint": "40a262fbfd7da60b7d03b2d4b84afc51f99199a9bed0ebd44d8ec79df9c6aadf",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:er-h2o-fwtl-zs",
+          "faostat-qcl-cattle-stocks-02111-5111-an",
+          "history:un-admission",
+          "unwpp:highest-natural-change-rate"
+        ],
+        "countries": [
+          "SSD",
+          "QAT",
+          "BRA",
+          "ZMB"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:er-h2o-fwtl-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.057Z",
+      "fingerprint": "40a262fbfd7da60b7d03b2d4b84afc51f99199a9bed0ebd44d8ec79df9c6aadf",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:er-h2o-fwtl-zs",
+          "sports:fifa-world-cup-first-appearance",
+          "faostat-qcl-sheep-stocks-02122-5111-an",
+          "history:worldbank-mobile-subscriptions-50"
+        ],
+        "countries": [
+          "CAN",
+          "CHN",
+          "AGO",
+          "DZA",
+          "POL",
+          "SWE"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:er-h2o-fwtl-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.080Z",
+      "fingerprint": "40a262fbfd7da60b7d03b2d4b84afc51f99199a9bed0ebd44d8ec79df9c6aadf",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:er-h2o-fwtl-zs",
+          "faostat:F1729:5510",
+          "unwpp:highest-male-life-expectancy",
+          "history:worldbank-majority-urban",
+          "faostat-fbs:tea",
+          "unsdg:four-g-coverage"
+        ],
+        "countries": [
+          "PRT",
+          "UZB",
+          "GMB",
+          "UKR",
+          "KOR",
+          "BIH",
+          "BRA",
+          "IDN"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fb-ast-nper-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.124Z",
+      "fingerprint": "1ce163536e4374f98c4a45779a907a82bf500c3c423795a57e401844c32912e4",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fb-ast-nper-zs",
+          "history:worldbank-mobile-subscriptions-50",
+          "faostat:01221:5510",
+          "koppen-geiger:tropical-rainforest-share"
+        ],
+        "countries": [
+          "GIN",
+          "BRA",
+          "KEN",
+          "IDN"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fb-ast-nper-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.151Z",
+      "fingerprint": "1ce163536e4374f98c4a45779a907a82bf500c3c423795a57e401844c32912e4",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fb-ast-nper-zs",
+          "pew-religion:hindu-population",
+          "history:worldbank-under-five-mortality-below-50",
+          "faostat:F1726:5510"
+        ],
+        "countries": [
+          "MYS",
+          "POL",
+          "GRD",
+          "ZMB",
+          "SWZ",
+          "CHL"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fb-ast-nper-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.242Z",
+      "fingerprint": "1ce163536e4374f98c4a45779a907a82bf500c3c423795a57e401844c32912e4",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fb-ast-nper-zs",
+          "history:worldbank-mobile-subscriptions-50",
+          "unwpp:lowest-pop-density",
+          "faostat:0118:5510",
+          "faostat-fbs:bananas",
+          "usgs:most-major-earthquakes-since-1970"
+        ],
+        "countries": [
+          "IND",
+          "KGZ",
+          "MEX",
+          "BWA",
+          "ARG",
+          "NPL",
+          "TZA",
+          "AUS"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fb-bnk-capa-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.257Z",
+      "fingerprint": "5065f1c08ce5858f7e7da443a8a706c385a5978d81c24b7c4a915c48900c0792",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fb-bnk-capa-zs",
+          "pew-religion:buddhist-population",
+          "natural-earth:largest-single-mapped-lake",
+          "faostat-qcl-cattle-and-buffaloes-stocks-f1746-5111-an"
+        ],
+        "countries": [
+          "TON",
+          "IDN",
+          "PER",
+          "LKA"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fb-bnk-capa-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.271Z",
+      "fingerprint": "5065f1c08ce5858f7e7da443a8a706c385a5978d81c24b7c4a915c48900c0792",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fb-bnk-capa-zs",
+          "sports:fifa-world-cup-first-appearance",
+          "faostat-qcl-cattle-and-buffaloes-stocks-f1746-5111-an",
+          "koppen-geiger:temperate-share"
+        ],
+        "countries": [
+          "SAU",
+          "AUS",
+          "GBR",
+          "FRA",
+          "SLV",
+          "IRQ"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fb-bnk-capa-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.293Z",
+      "fingerprint": "5065f1c08ce5858f7e7da443a8a706c385a5978d81c24b7c4a915c48900c0792",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fb-bnk-capa-zs",
+          "faostat:01232:5510",
+          "history:un-admission",
+          "unwpp:highest-mean-age-childbearing",
+          "faostat-fbs:poultry",
+          "comtrade:most-railway-equipment-exported"
+        ],
+        "countries": [
+          "DEU",
+          "CHE",
+          "ARM",
+          "IRL",
+          "TUR",
+          "PAN",
+          "MEX",
+          "ISR"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fd-ast-prvt-gd-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.305Z",
+      "fingerprint": "36abd0bf6239896efdaf12f8ab74fea13b04249362833165ca7f509211a86ce8",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fd-ast-prvt-gd-zs",
+          "faostat:F1745:5510",
+          "natural-earth:highest-land-border-density",
+          "history:worldbank-life-expectancy-70"
+        ],
+        "countries": [
+          "HRV",
+          "HND",
+          "CHN",
+          "TUR"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fd-ast-prvt-gd-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.337Z",
+      "fingerprint": "36abd0bf6239896efdaf12f8ab74fea13b04249362833165ca7f509211a86ce8",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fd-ast-prvt-gd-zs",
+          "history:worldbank-life-expectancy-70",
+          "faostat-qcl-buffalo-stocks-02112-5111-an",
+          "natural-earth:highest-mapped-river-density"
+        ],
+        "countries": [
+          "SUR",
+          "EGY",
+          "BRA",
+          "MUS",
+          "FIN",
+          "AZE"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fd-ast-prvt-gd-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.405Z",
+      "fingerprint": "36abd0bf6239896efdaf12f8ab74fea13b04249362833165ca7f509211a86ce8",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fd-ast-prvt-gd-zs",
+          "faostat-qcl-mules-and-hinnies-stocks-02133-5111-an",
+          "history:oldest-current-constitution",
+          "unsdg:pm25-exposure",
+          "natural-earth:highest-land-border-density",
+          "faostat-fbs:bananas"
+        ],
+        "countries": [
+          "HND",
+          "DOM",
+          "ARG",
+          "PAK",
+          "GUY",
+          "SLV",
+          "MAR",
+          "ISR"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fd-res-liqu-as-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.417Z",
+      "fingerprint": "66d906611d7e32647b2b33b9ed42b4387a0a8b9b5c87a1d44fcfcd58315797a0",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fd-res-liqu-as-zs",
+          "faostat-qcl-horses-stocks-02131-5111-an",
+          "unwpp:highest-birth-rate",
+          "history:un-admission"
+        ],
+        "countries": [
+          "AGO",
+          "IRQ",
+          "GEO",
+          "SEN"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fd-res-liqu-as-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.455Z",
+      "fingerprint": "66d906611d7e32647b2b33b9ed42b4387a0a8b9b5c87a1d44fcfcd58315797a0",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fd-res-liqu-as-zs",
+          "sports:fifa-world-cup-first-appearance",
+          "pew-religion:muslim-population",
+          "faostat-fbs:poultry"
+        ],
+        "countries": [
+          "MEX",
+          "AUS",
+          "UZB",
+          "KWT",
+          "UKR",
+          "ECU"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fd-res-liqu-as-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.503Z",
+      "fingerprint": "66d906611d7e32647b2b33b9ed42b4387a0a8b9b5c87a1d44fcfcd58315797a0",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fd-res-liqu-as-zs",
+          "faostat-qcl-swine-pigs-stocks-02140-5111-an",
+          "unwpp:highest-mean-age-childbearing",
+          "faostat-fbs:beer",
+          "smithsonian-gvp:most-holocene-volcanoes",
+          "history:un-admission"
+        ],
+        "countries": [
+          "MEX",
+          "TON",
+          "ISL",
+          "DZA",
+          "LCA",
+          "NZL",
+          "KOR",
+          "SLB"
+        ]
+      }
+    },
+    {
+      "category_id": "global-findex:account-ownership",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.517Z",
+      "fingerprint": "e6e54275453a0bd1be81101f8021fff9aa80ebd0fcfd107e011560fa28225344",
+      "witness": {
+        "categories": [
+          "global-findex:account-ownership",
+          "history:worldbank-infant-mortality-below-25",
+          "faostat-qcl-sheep-stocks-02122-5111-an",
+          "natural-earth:most-mapped-river-length"
+        ],
+        "countries": [
+          "BRA",
+          "BOL",
+          "MNG",
+          "ESP"
+        ]
+      }
+    },
+    {
+      "category_id": "global-findex:account-ownership",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.532Z",
+      "fingerprint": "e6e54275453a0bd1be81101f8021fff9aa80ebd0fcfd107e011560fa28225344",
+      "witness": {
+        "categories": [
+          "global-findex:account-ownership",
+          "pew-religion:hindu-population",
+          "natural-earth:coastline",
+          "unwpp:highest-natural-change-rate"
+        ],
+        "countries": [
+          "GEO",
+          "LTU",
+          "COG",
+          "ETH",
+          "GRC",
+          "KWT"
+        ]
+      }
+    },
+    {
+      "category_id": "global-findex:account-ownership",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.556Z",
+      "fingerprint": "e6e54275453a0bd1be81101f8021fff9aa80ebd0fcfd107e011560fa28225344",
+      "witness": {
+        "categories": [
+          "global-findex:account-ownership",
+          "faostat:0117:5510",
+          "sports:fifa-world-cup-first-appearance",
+          "history:oldest-current-constitution",
+          "unwpp:highest-net-migration-rate",
+          "natural-earth-capital:capital-closest-equator"
+        ],
+        "countries": [
+          "COD",
+          "GRC",
+          "CHE",
+          "CHN",
+          "NZL",
+          "ISR",
+          "IRL",
+          "MEX"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fm-ast-cgov-zg-m3",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.581Z",
+      "fingerprint": "b73a6773eb60fc78de67e2c6d3d14f3a59576230edca489540b43feb9d13afdb",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fm-ast-cgov-zg-m3",
+          "faostat:2351f:5510",
+          "sports:fifa-world-cup-first-appearance",
+          "natural-earth:highest-mapped-river-density"
+        ],
+        "countries": [
+          "CHL",
+          "COL",
+          "IRQ",
+          "HUN"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fm-ast-cgov-zg-m3",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.593Z",
+      "fingerprint": "b73a6773eb60fc78de67e2c6d3d14f3a59576230edca489540b43feb9d13afdb",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fm-ast-cgov-zg-m3",
+          "pew-religion:buddhist-population",
+          "history:worldbank-under-five-mortality-below-50",
+          "unwpp:lowest-death-rate"
+        ],
+        "countries": [
+          "TON",
+          "DJI",
+          "ARG",
+          "UGA",
+          "DOM",
+          "BGD"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fm-ast-cgov-zg-m3",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.633Z",
+      "fingerprint": "b73a6773eb60fc78de67e2c6d3d14f3a59576230edca489540b43feb9d13afdb",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fm-ast-cgov-zg-m3",
+          "faostat:02292:5510",
+          "natural-earth:highest-mapped-river-density",
+          "history:worldbank-internet-half",
+          "pew-religion:unaffiliated-share",
+          "faostat-fbs:maize"
+        ],
+        "countries": [
+          "BOL",
+          "MEX",
+          "JAM",
+          "GTM",
+          "ECU",
+          "TUR",
+          "HUN",
+          "MNG"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fm-ast-domo-zg-m3",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.649Z",
+      "fingerprint": "5d63a27d486e78d769861d190d373cc08291069fe69de24a29ed1df1ce070f76",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fm-ast-domo-zg-m3",
+          "history:worldbank-internet-half",
+          "faostat:01221:5510",
+          "pew-religion:other-religions-share"
+        ],
+        "countries": [
+          "JAM",
+          "BOL",
+          "MEX",
+          "ARM"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fm-ast-domo-zg-m3",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.666Z",
+      "fingerprint": "5d63a27d486e78d769861d190d373cc08291069fe69de24a29ed1df1ce070f76",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fm-ast-domo-zg-m3",
+          "history:oldest-current-constitution",
+          "unwpp:lowest-death-rate",
+          "faostat:01610:5510"
+        ],
+        "countries": [
+          "TTO",
+          "PRY",
+          "HND",
+          "TON",
+          "SLE",
+          "IDN"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fm-ast-domo-zg-m3",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.786Z",
+      "fingerprint": "5d63a27d486e78d769861d190d373cc08291069fe69de24a29ed1df1ce070f76",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fm-ast-domo-zg-m3",
+          "faostat:01445:5510",
+          "faostat-fbs:bananas",
+          "natural-earth:highest-mapped-lake-share",
+          "unwpp:lowest-death-rate",
+          "koppen-geiger:mediterranean-share"
+        ],
+        "countries": [
+          "TZA",
+          "UGA",
+          "DZA",
+          "UKR",
+          "ALB",
+          "USA",
+          "TUR",
+          "AZE"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fm-ast-prvt-gd-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.801Z",
+      "fingerprint": "9b1965425c875c7dcef34224eae8db902ee2cb9d371deef19439badd247b213f",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fm-ast-prvt-gd-zs",
+          "history:worldbank-internet-half",
+          "natural-earth:most-mapped-river-length",
+          "unwpp:lowest-fertility"
+        ],
+        "countries": [
+          "LSO",
+          "IND",
+          "ESP",
+          "ISL"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fm-ast-prvt-gd-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.814Z",
+      "fingerprint": "9b1965425c875c7dcef34224eae8db902ee2cb9d371deef19439badd247b213f",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fm-ast-prvt-gd-zs",
+          "history:worldbank-under-five-mortality-below-50",
+          "faostat-qcl-horses-stocks-02131-5111-an",
+          "faostat-fbs:coffee"
+        ],
+        "countries": [
+          "LBY",
+          "KHM",
+          "MEX",
+          "AGO",
+          "SLB",
+          "TLS"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fm-ast-prvt-gd-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.843Z",
+      "fingerprint": "9b1965425c875c7dcef34224eae8db902ee2cb9d371deef19439badd247b213f",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fm-ast-prvt-gd-zs",
+          "faostat:01324:5510",
+          "unwpp:highest-sex-ratio-at-birth",
+          "faostat-fbs:calories",
+          "natural-earth-capital:northernmost-capital",
+          "comtrade:most-cars-exported"
+        ],
+        "countries": [
+          "DOM",
+          "LUX",
+          "CHL",
+          "PHL",
+          "COL",
+          "MNE",
+          "FRA",
+          "AUS"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fm-ast-prvt-zg-m3",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.896Z",
+      "fingerprint": "1b506d2c6ea7a4c17716ab194b688b4ace4e2328d94883a3fab29df1e810807b",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fm-ast-prvt-zg-m3",
+          "pew-religion:buddhist-population",
+          "faostat-qcl-goats-stocks-02123-5111-an",
+          "history:worldbank-mobile-subscriptions-50"
+        ],
+        "countries": [
+          "JPN",
+          "MNG",
+          "ARG",
+          "RWA"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fm-ast-prvt-zg-m3",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.912Z",
+      "fingerprint": "1b506d2c6ea7a4c17716ab194b688b4ace4e2328d94883a3fab29df1e810807b",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fm-ast-prvt-zg-m3",
+          "natural-earth:most-mapped-river-length",
+          "faostat-fbs:milk",
+          "faostat-qcl-sheep-and-goats-stocks-f1749-5111-an"
+        ],
+        "countries": [
+          "AGO",
+          "SWE",
+          "BRA",
+          "MNE",
+          "HND",
+          "TZA"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fm-ast-prvt-zg-m3",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.959Z",
+      "fingerprint": "1b506d2c6ea7a4c17716ab194b688b4ace4e2328d94883a3fab29df1e810807b",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fm-ast-prvt-zg-m3",
+          "history:worldbank-majority-urban",
+          "faostat:01354:5510",
+          "faostat-fbs:fruit",
+          "unwpp:highest-male-share",
+          "natural-earth:largest-mapped-lake-area"
+        ],
+        "countries": [
+          "KAZ",
+          "PRY",
+          "ALB",
+          "DOM",
+          "GTM",
+          "ZAF",
+          "MAR",
+          "JOR"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fm-lbl-bmny-zg",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.973Z",
+      "fingerprint": "974b1423b1907f83e686a37857992d700d651a1c3f2021be1aa258eba00a0b27",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fm-lbl-bmny-zg",
+          "faostat:F1745:5510",
+          "history:worldbank-mobile-subscriptions-50",
+          "natural-earth:largest-single-mapped-lake"
+        ],
+        "countries": [
+          "EGY",
+          "POL",
+          "AGO",
+          "BRA"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fm-lbl-bmny-zg",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:22.984Z",
+      "fingerprint": "974b1423b1907f83e686a37857992d700d651a1c3f2021be1aa258eba00a0b27",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fm-lbl-bmny-zg",
+          "faostat-qcl-asses-stocks-02132-5111-an",
+          "history:worldbank-infant-mortality-below-25",
+          "pew-religion:religious-diversity"
+        ],
+        "countries": [
+          "MAR",
+          "TUR",
+          "SLV",
+          "MNG",
+          "WSM",
+          "BOL"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fm-lbl-bmny-zg",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.076Z",
+      "fingerprint": "974b1423b1907f83e686a37857992d700d651a1c3f2021be1aa258eba00a0b27",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fm-lbl-bmny-zg",
+          "natural-earth:largest-continuous-land-area",
+          "history:worldbank-majority-urban",
+          "faostat-fbs:vegetables",
+          "unwpp:highest-natural-change-rate",
+          "faostat:F1745:5510"
+        ],
+        "countries": [
+          "POL",
+          "HND",
+          "BOL",
+          "JOR",
+          "BRA",
+          "AGO",
+          "TUN",
+          "TUR"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fp-cpi-totl-zg",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.089Z",
+      "fingerprint": "bea61806dcd538a392948d2e90a7f0d9468777eb2852d54d1dd5b5a5aba9dcdc",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fp-cpi-totl-zg",
+          "faostat-qcl-mules-and-hinnies-stocks-02133-5111-an",
+          "history:worldbank-majority-urban",
+          "sports:fifa-world-cup-first-appearance"
+        ],
+        "countries": [
+          "HND",
+          "IRN",
+          "PRY",
+          "MAR"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fp-cpi-totl-zg",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.111Z",
+      "fingerprint": "bea61806dcd538a392948d2e90a7f0d9468777eb2852d54d1dd5b5a5aba9dcdc",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fp-cpi-totl-zg",
+          "pew-religion:unaffiliated-population",
+          "history:worldbank-mobile-subscriptions-50",
+          "faostat-fbs:vegetables"
+        ],
+        "countries": [
+          "RWA",
+          "HUN",
+          "KAZ",
+          "BOL",
+          "KOR",
+          "RUS"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fp-cpi-totl-zg",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.152Z",
+      "fingerprint": "bea61806dcd538a392948d2e90a7f0d9468777eb2852d54d1dd5b5a5aba9dcdc",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fp-cpi-totl-zg",
+          "faostat:02211:5510",
+          "unwpp:lowest-fertility",
+          "natural-earth:longest-single-land-border",
+          "history:worldbank-life-expectancy-70",
+          "comtrade:most-railway-equipment-exported"
+        ],
+        "countries": [
+          "BRA",
+          "SLV",
+          "EGY",
+          "POL",
+          "ARM",
+          "KOR",
+          "CHL",
+          "PHL"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fs-ast-cgov-gd-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.175Z",
+      "fingerprint": "bb05cd89ecbc0d1d95639a6b34942dce9cb6e82427632c81775a675ca7e66b3c",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fs-ast-cgov-gd-zs",
+          "history:worldbank-majority-urban",
+          "natural-earth:highest-mapped-river-density",
+          "faostat-qcl-cattle-and-buffaloes-stocks-f1746-5111-an"
+        ],
+        "countries": [
+          "CHN",
+          "AUT",
+          "MAR",
+          "SOM"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fs-ast-cgov-gd-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.187Z",
+      "fingerprint": "bb05cd89ecbc0d1d95639a6b34942dce9cb6e82427632c81775a675ca7e66b3c",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fs-ast-cgov-gd-zs",
+          "natural-earth-capital:northernmost-capital",
+          "faostat-fbs:vegetables",
+          "history:worldbank-majority-urban"
+        ],
+        "countries": [
+          "PER",
+          "PHL",
+          "HTI",
+          "SEN",
+          "POL",
+          "UZB"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fs-ast-cgov-gd-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.225Z",
+      "fingerprint": "bb05cd89ecbc0d1d95639a6b34942dce9cb6e82427632c81775a675ca7e66b3c",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fs-ast-cgov-gd-zs",
+          "faostat:02211:5510",
+          "history:worldbank-majority-urban",
+          "unwpp:highest-mean-age-childbearing",
+          "unsdg:pm25-exposure",
+          "faostat-fbs:sugar"
+        ],
+        "countries": [
+          "BWA",
+          "IRQ",
+          "PRT",
+          "SEN",
+          "HTI",
+          "NAM",
+          "CHN",
+          "SLV"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fs-ast-prvt-gd-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.237Z",
+      "fingerprint": "b3b19d1ba57637c2e2fead67358bb9d73426891d3c9f5b3d07d302c1d6d13d85",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fs-ast-prvt-gd-zs",
+          "faostat-qcl-goats-stocks-02123-5111-an",
+          "history:oldest-current-constitution",
+          "natural-earth:landlocked-most-neighbors"
+        ],
+        "countries": [
+          "LUX",
+          "NPL",
+          "SSD",
+          "ZMB"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fs-ast-prvt-gd-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.248Z",
+      "fingerprint": "b3b19d1ba57637c2e2fead67358bb9d73426891d3c9f5b3d07d302c1d6d13d85",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fs-ast-prvt-gd-zs",
+          "faostat:24212.02:5510",
+          "natural-earth:most-mapped-river-length",
+          "history:oldest-current-constitution"
+        ],
+        "countries": [
+          "ESP",
+          "KGZ",
+          "TUN",
+          "THA",
+          "GBR",
+          "ZAF"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:fs-ast-prvt-gd-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.272Z",
+      "fingerprint": "b3b19d1ba57637c2e2fead67358bb9d73426891d3c9f5b3d07d302c1d6d13d85",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:fs-ast-prvt-gd-zs",
+          "faostat:01251:5510",
+          "natural-earth:highest-coastline-density",
+          "history:worldbank-mobile-subscriptions-50",
+          "sports:fifa-world-cup-first-appearance",
+          "faostat-fbs:onions"
+        ],
+        "countries": [
+          "CPV",
+          "DZA",
+          "QAT",
+          "AGO",
+          "PER",
+          "CRI",
+          "TUR",
+          "HRV"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:gc-nfn-totl-gd-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.293Z",
+      "fingerprint": "0fa611626026c927ef9da0b7ccd2941ca59e66da68d85243b37f7c873919b372",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:gc-nfn-totl-gd-zs",
+          "history:worldbank-mobile-subscriptions-50",
+          "natural-earth-capital:capital-closest-equator",
+          "faostat-qcl-cattle-and-buffaloes-stocks-f1746-5111-an"
+        ],
+        "countries": [
+          "TZA",
+          "TJK",
+          "KEN",
+          "SLB"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:gc-nfn-totl-gd-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.305Z",
+      "fingerprint": "0fa611626026c927ef9da0b7ccd2941ca59e66da68d85243b37f7c873919b372",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:gc-nfn-totl-gd-zs",
+          "history:worldbank-infant-mortality-below-25",
+          "pew-religion:religious-diversity",
+          "unwpp:highest-male-life-expectancy"
+        ],
+        "countries": [
+          "MAR",
+          "SLB",
+          "ITA",
+          "ARE",
+          "WSM",
+          "KOR"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:gc-nfn-totl-gd-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.326Z",
+      "fingerprint": "0fa611626026c927ef9da0b7ccd2941ca59e66da68d85243b37f7c873919b372",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:gc-nfn-totl-gd-zs",
+          "natural-earth:most-mapped-river-length",
+          "unsdg:pm25-exposure",
+          "faostat:01234:5510",
+          "faostat-fbs:poultry",
+          "sports:fifa-world-cup-first-appearance"
+        ],
+        "countries": [
+          "JOR",
+          "ESP",
+          "GBR",
+          "ROU",
+          "SAU",
+          "ZAF",
+          "SEN",
+          "ISR"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:gc-rev-xgrt-gd-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.340Z",
+      "fingerprint": "1635d42d153a702c914e2114661bc7a19c96baa7fb4e3540b84e1ce6ea207b00",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:gc-rev-xgrt-gd-zs",
+          "history:worldbank-infant-mortality-below-25",
+          "natural-earth:longest-single-land-border",
+          "faostat-qcl-sheep-and-goats-stocks-f1749-5111-an"
+        ],
+        "countries": [
+          "ITA",
+          "NPL",
+          "CHN",
+          "ARG"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:gc-rev-xgrt-gd-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.362Z",
+      "fingerprint": "1635d42d153a702c914e2114661bc7a19c96baa7fb4e3540b84e1ce6ea207b00",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:gc-rev-xgrt-gd-zs",
+          "history:un-admission",
+          "natural-earth:landlocked-fewest-neighbors",
+          "unwpp:highest-net-migration-rate"
+        ],
+        "countries": [
+          "SVK",
+          "ZMB",
+          "NPL",
+          "LUX",
+          "ETH",
+          "ARM"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:gc-rev-xgrt-gd-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.531Z",
+      "fingerprint": "1635d42d153a702c914e2114661bc7a19c96baa7fb4e3540b84e1ce6ea207b00",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:gc-rev-xgrt-gd-zs",
+          "faostat:01970:5510",
+          "faostat-fbs:pork",
+          "unwpp:lowest-fertility",
+          "natural-earth:land-border",
+          "history:worldbank-infant-mortality-below-25"
+        ],
+        "countries": [
+          "ITA",
+          "UKR",
+          "GTM",
+          "KAZ",
+          "TUR",
+          "POL",
+          "PAN",
+          "CYP"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:gc-tax-gsrv-rv-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.542Z",
+      "fingerprint": "97f2bc820d54a470a55f6fce1b15421d258501b57ecc26727e071b133831375c",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:gc-tax-gsrv-rv-zs",
+          "faostat-qcl-sheep-and-goats-stocks-f1749-5111-an",
+          "history:oldest-current-constitution",
+          "unwpp:lowest-pop-density"
+        ],
+        "countries": [
+          "CHN",
+          "ITA",
+          "GTM",
+          "KAZ"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:gc-tax-gsrv-rv-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.554Z",
+      "fingerprint": "97f2bc820d54a470a55f6fce1b15421d258501b57ecc26727e071b133831375c",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:gc-tax-gsrv-rv-zs",
+          "natural-earth-capital:northernmost-capital",
+          "faostat:F1735:5510",
+          "history:worldbank-under-five-mortality-below-50"
+        ],
+        "countries": [
+          "PRY",
+          "KOR",
+          "GHA",
+          "AGO",
+          "KAZ",
+          "MDA"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:gc-tax-gsrv-rv-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.617Z",
+      "fingerprint": "97f2bc820d54a470a55f6fce1b15421d258501b57ecc26727e071b133831375c",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:gc-tax-gsrv-rv-zs",
+          "faostat:21121:5510",
+          "natural-earth:highest-coastline-density",
+          "history:worldbank-life-expectancy-70",
+          "faostat-fbs:maize",
+          "unsdg:three-g-coverage"
+        ],
+        "countries": [
+          "PAN",
+          "MYS",
+          "GEO",
+          "PRY",
+          "UKR",
+          "TON",
+          "EST",
+          "KHM"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:gc-tax-ypkg-rv-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.631Z",
+      "fingerprint": "89ea0e5cd4b3f08796dc176a5556ed27eae0625e4df7cf04d996a4800304f5fb",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:gc-tax-ypkg-rv-zs",
+          "natural-earth-capital:northernmost-capital",
+          "history:oldest-current-constitution",
+          "pew-religion:hindu-population"
+        ],
+        "countries": [
+          "PNG",
+          "ISL",
+          "NOR",
+          "CAN"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:gc-tax-ypkg-rv-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.646Z",
+      "fingerprint": "89ea0e5cd4b3f08796dc176a5556ed27eae0625e4df7cf04d996a4800304f5fb",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:gc-tax-ypkg-rv-zs",
+          "natural-earth:highest-land-border-density",
+          "unhcr:most-stateless-people",
+          "sports:fifa-world-cup-first-appearance"
+        ],
+        "countries": [
+          "PAN",
+          "SVN",
+          "URY",
+          "SAU",
+          "CIV",
+          "IRL"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:gc-tax-ypkg-rv-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.670Z",
+      "fingerprint": "89ea0e5cd4b3f08796dc176a5556ed27eae0625e4df7cf04d996a4800304f5fb",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:gc-tax-ypkg-rv-zs",
+          "natural-earth:coastline",
+          "unwpp:lowest-death-rate",
+          "history:worldbank-under-five-mortality-below-50",
+          "faostat:01251:5510",
+          "faostat-fbs:milk"
+        ],
+        "countries": [
+          "ALB",
+          "CHL",
+          "PAN",
+          "MAR",
+          "MWI",
+          "NAM",
+          "CHN",
+          "JOR"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:gc-tax-ypkg-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.681Z",
+      "fingerprint": "63df266fa1d54fc4437337177152786d7b2d892336529f241cc70168180c7f3b",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:gc-tax-ypkg-zs",
+          "history:worldbank-infant-mortality-below-25",
+          "faostat:01221:5510",
+          "natural-earth:highest-coastline-density"
+        ],
+        "countries": [
+          "USA",
+          "BRA",
+          "ZAF",
+          "TON"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:gc-tax-ypkg-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.693Z",
+      "fingerprint": "63df266fa1d54fc4437337177152786d7b2d892336529f241cc70168180c7f3b",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:gc-tax-ypkg-zs",
+          "natural-earth:landlocked-most-neighbors",
+          "unwpp:lowest-fertility",
+          "faostat-qcl-cattle-stocks-02111-5111-an"
+        ],
+        "countries": [
+          "ETH",
+          "BLR",
+          "LUX",
+          "MNG",
+          "TJK",
+          "ZMB"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:gc-tax-ypkg-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.714Z",
+      "fingerprint": "63df266fa1d54fc4437337177152786d7b2d892336529f241cc70168180c7f3b",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:gc-tax-ypkg-zs",
+          "faostat:0114:5510",
+          "history:un-admission",
+          "unsdg:pm25-exposure",
+          "unhcr:most-stateless-people",
+          "faostat-fbs:protein"
+        ],
+        "countries": [
+          "KOR",
+          "MEX",
+          "SVK",
+          "FIN",
+          "SAU",
+          "CIV",
+          "TJK",
+          "GRC"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:gc-xpn-intp-rv-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.734Z",
+      "fingerprint": "aa27cd17e3f9aacb792524947aa6d21840a8a3290e53f27d280f034b35097ebb",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:gc-xpn-intp-rv-zs",
+          "faostat:F1745:5510",
+          "sports:fifa-world-cup-first-appearance",
+          "natural-earth-capital:northernmost-capital"
+        ],
+        "countries": [
+          "HUN",
+          "UKR",
+          "JOR",
+          "CAN"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:gc-xpn-intp-rv-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.748Z",
+      "fingerprint": "aa27cd17e3f9aacb792524947aa6d21840a8a3290e53f27d280f034b35097ebb",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:gc-xpn-intp-rv-zs",
+          "sports:fifa-world-cup-first-appearance",
+          "faostat:01212:5510",
+          "history:worldbank-life-expectancy-70"
+        ],
+        "countries": [
+          "UZB",
+          "PAN",
+          "SAU",
+          "AUT",
+          "URY",
+          "UKR"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:gc-xpn-intp-rv-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.766Z",
+      "fingerprint": "aa27cd17e3f9aacb792524947aa6d21840a8a3290e53f27d280f034b35097ebb",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:gc-xpn-intp-rv-zs",
+          "faostat:F1807:5510",
+          "history:worldbank-mobile-subscriptions-50",
+          "faostat-fbs:coffee",
+          "pew-religion:muslim-share",
+          "unsdg:pm25-exposure"
+        ],
+        "countries": [
+          "NZL",
+          "MOZ",
+          "TUR",
+          "IRL",
+          "LKA",
+          "MAR",
+          "BFA",
+          "TON"
+        ]
+      }
+    },
+    {
+      "category_id": "history:worldbank-electricity-half",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.789Z",
+      "fingerprint": "7ff882b51c4586148877cb57b22dd673e356be5fa6c6fee7ca55e68a7dfc9c0f",
+      "witness": {
+        "categories": [
+          "history:worldbank-electricity-half",
+          "fertility",
+          "natural-earth:land-border",
+          "faostat-fbs:fruit"
+        ],
+        "countries": [
+          "GHA",
+          "CMR",
+          "IND",
+          "VUT"
+        ]
+      }
+    },
+    {
+      "category_id": "history:worldbank-electricity-half",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:23.894Z",
+      "fingerprint": "7ff882b51c4586148877cb57b22dd673e356be5fa6c6fee7ca55e68a7dfc9c0f",
+      "witness": {
+        "categories": [
+          "history:worldbank-electricity-half",
+          "pew-religion:hindu-population",
+          "worldbank-catalog:fs-ast-cgov-gd-zs",
+          "unwpp:lowest-pop-density"
+        ],
+        "countries": [
+          "IND",
+          "KHM",
+          "MAR",
+          "BWA",
+          "SLB",
+          "VUT"
+        ]
+      }
+    },
+    {
+      "category_id": "history:worldbank-electricity-half",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:26.510Z",
+      "fingerprint": "7ff882b51c4586148877cb57b22dd673e356be5fa6c6fee7ca55e68a7dfc9c0f",
+      "witness": {
+        "categories": [
+          "history:worldbank-electricity-half",
+          "faostat:01510:5510",
+          "populationGrowth",
+          "faostat-fbs:pulses",
+          "natural-earth:highest-coastline-density",
+          "pew-religion:christian-population"
+        ],
+        "countries": [
+          "IND",
+          "HTI",
+          "NGA",
+          "VUT",
+          "CMR",
+          "AFG",
+          "YEM",
+          "COM"
+        ]
+      }
+    },
+    {
+      "category_id": "history:worldbank-internet-half",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:26.523Z",
+      "fingerprint": "36a79087b33f997029e09193e068d6019cb084cae7a4743a1ea66842d852306e",
+      "witness": {
+        "categories": [
+          "history:worldbank-internet-half",
+          "pew-religion:christian-population",
+          "unwpp:highest-net-migration-rate",
+          "koppen-geiger:arid-share"
+        ],
+        "countries": [
+          "ESP",
+          "BWA",
+          "TJK",
+          "SYC"
+        ]
+      }
+    },
+    {
+      "category_id": "history:worldbank-internet-half",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:26.533Z",
+      "fingerprint": "36a79087b33f997029e09193e068d6019cb084cae7a4743a1ea66842d852306e",
+      "witness": {
+        "categories": [
+          "history:worldbank-internet-half",
+          "faostat:01221:5510",
+          "koppen-geiger:continental-share",
+          "unwpp:highest-net-migration-rate"
+        ],
+        "countries": [
+          "GEO",
+          "RUS",
+          "BOL",
+          "CAN",
+          "TUR",
+          "ITA"
+        ]
+      }
+    },
+    {
+      "category_id": "history:worldbank-internet-half",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:26.555Z",
+      "fingerprint": "36a79087b33f997029e09193e068d6019cb084cae7a4743a1ea66842d852306e",
+      "witness": {
+        "categories": [
+          "history:worldbank-internet-half",
+          "faostat-qcl-goats-stocks-02123-5111-an",
+          "forestPct",
+          "unwpp:highest-sex-ratio-at-birth",
+          "faostat-fbs:calories",
+          "pew-religion:jewish-population"
+        ],
+        "countries": [
+          "HND",
+          "UZB",
+          "ARE",
+          "DEU",
+          "GBR",
+          "BRA",
+          "GAB",
+          "IRN"
+        ]
+      }
+    },
+    {
+      "category_id": "history:worldbank-under-five-mortality-below-50",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:26.566Z",
+      "fingerprint": "171399b193b61be9abf964d42915e6a963fe5f1fa6335568b39786a54f9fa989",
+      "witness": {
+        "categories": [
+          "history:worldbank-under-five-mortality-below-50",
+          "faostat:01212:5510",
+          "unwpp:highest-mean-age-childbearing",
+          "pew-religion:hindu-population"
+        ],
+        "countries": [
+          "TUR",
+          "OMN",
+          "AGO",
+          "MUS"
+        ]
+      }
+    },
+    {
+      "category_id": "history:worldbank-under-five-mortality-below-50",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:26.578Z",
+      "fingerprint": "171399b193b61be9abf964d42915e6a963fe5f1fa6335568b39786a54f9fa989",
+      "witness": {
+        "categories": [
+          "history:worldbank-under-five-mortality-below-50",
+          "natural-earth:land-border",
+          "pew-religion:other-religions-share",
+          "faostat-qcl-asses-stocks-02132-5111-an"
+        ],
+        "countries": [
+          "ZAF",
+          "ARG",
+          "KAZ",
+          "LBN",
+          "BOL",
+          "ZMB"
+        ]
+      }
+    },
+    {
+      "category_id": "history:worldbank-under-five-mortality-below-50",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:26.602Z",
+      "fingerprint": "171399b193b61be9abf964d42915e6a963fe5f1fa6335568b39786a54f9fa989",
+      "witness": {
+        "categories": [
+          "history:worldbank-under-five-mortality-below-50",
+          "faostat-qcl-swine-pigs-stocks-02140-5111-an",
+          "worldbank-catalog:bx-klt-dinv-wd-gd-zs",
+          "unsdg:pm25-exposure",
+          "natural-earth:highest-mapped-river-density",
+          "faostat-fbs:protein"
+        ],
+        "countries": [
+          "MNG",
+          "ZAF",
+          "SLV",
+          "GHA",
+          "URY",
+          "MEX",
+          "TLS",
+          "AGO"
+        ]
+      }
+    },
+    {
+      "category_id": "gdpGrowth",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:26.616Z",
+      "fingerprint": "3346eaf8380a829f1452a19702e1f7e5dab2e2c76e7e7c4fcb625643d520e6d0",
+      "witness": {
+        "categories": [
+          "gdpGrowth",
+          "faostat:F1745:5510",
+          "history:oldest-current-constitution",
+          "pew-religion:muslim-population"
+        ],
+        "countries": [
+          "GEO",
+          "ESP",
+          "CHN",
+          "AUT"
+        ]
+      }
+    },
+    {
+      "category_id": "gdpGrowth",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:26.641Z",
+      "fingerprint": "3346eaf8380a829f1452a19702e1f7e5dab2e2c76e7e7c4fcb625643d520e6d0",
+      "witness": {
+        "categories": [
+          "gdpGrowth",
+          "pew-religion:jewish-population",
+          "sports:fifa-world-cup-first-appearance",
+          "unwpp:highest-mean-age-childbearing"
+        ],
+        "countries": [
+          "ITA",
+          "GBR",
+          "SEN",
+          "NZL",
+          "CPV",
+          "ARG"
+        ]
+      }
+    },
+    {
+      "category_id": "gdpGrowth",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:26.663Z",
+      "fingerprint": "3346eaf8380a829f1452a19702e1f7e5dab2e2c76e7e7c4fcb625643d520e6d0",
+      "witness": {
+        "categories": [
+          "gdpGrowth",
+          "faostat:0142:5510",
+          "natural-earth:most-mapped-rivers",
+          "history:worldbank-majority-urban",
+          "faostat-fbs:rice",
+          "unwpp:lowest-death-rate"
+        ],
+        "countries": [
+          "UZB",
+          "HTI",
+          "GMB",
+          "CRI",
+          "CMR",
+          "COL",
+          "BWA",
+          "IRN"
+        ]
+      }
+    },
+    {
+      "category_id": "sanitation",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:26.677Z",
+      "fingerprint": "51219050418c42badf7fd1865cf91d8b59882a1e3e896722b672a0152b8477fc",
+      "witness": {
+        "categories": [
+          "sanitation",
+          "faostat:F1745:5510",
+          "history:worldbank-mobile-subscriptions-50",
+          "sports:fifa-world-cup-first-appearance"
+        ],
+        "countries": [
+          "CHE",
+          "UZB",
+          "MEX",
+          "CUB"
+        ]
+      }
+    },
+    {
+      "category_id": "sanitation",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:26.690Z",
+      "fingerprint": "51219050418c42badf7fd1865cf91d8b59882a1e3e896722b672a0152b8477fc",
+      "witness": {
+        "categories": [
+          "sanitation",
+          "pew-religion:jewish-population",
+          "history:oldest-current-constitution",
+          "natural-earth:highest-mapped-river-density"
+        ],
+        "countries": [
+          "ISR",
+          "GNB",
+          "MAR",
+          "DEU",
+          "KOR",
+          "IRL"
+        ]
+      }
+    },
+    {
+      "category_id": "sanitation",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:26.737Z",
+      "fingerprint": "51219050418c42badf7fd1865cf91d8b59882a1e3e896722b672a0152b8477fc",
+      "witness": {
+        "categories": [
+          "sanitation",
+          "faostat-qcl-cattle-stocks-02111-5111-an",
+          "natural-earth-capital:northernmost-capital",
+          "history:worldbank-under-five-mortality-below-50",
+          "unhcr:most-asylum-applications-by-origin",
+          "unsdg:pm25-exposure"
+        ],
+        "countries": [
+          "COL",
+          "EGY",
+          "KWT",
+          "TZA",
+          "KHM",
+          "POL",
+          "GMB",
+          "LBN"
+        ]
+      }
+    },
+    {
+      "category_id": "populationGrowth",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:26.751Z",
+      "fingerprint": "ae6637f42d40521d2f178986c5985e22814161758adcebbdcd3284f9ca28b87d",
+      "witness": {
+        "categories": [
+          "populationGrowth",
+          "history:worldbank-majority-urban",
+          "natural-earth:longest-average-land-border",
+          "faostat:24212.02:5510"
+        ],
+        "countries": [
+          "THA",
+          "ROU",
+          "BOL",
+          "GEO"
+        ]
+      }
+    },
+    {
+      "category_id": "populationGrowth",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:26.762Z",
+      "fingerprint": "ae6637f42d40521d2f178986c5985e22814161758adcebbdcd3284f9ca28b87d",
+      "witness": {
+        "categories": [
+          "populationGrowth",
+          "faostat-qcl-asses-stocks-02132-5111-an",
+          "history:un-admission",
+          "natural-earth:highest-mapped-river-density"
+        ],
+        "countries": [
+          "SLV",
+          "SSD",
+          "ETH",
+          "COL",
+          "JOR",
+          "GEO"
+        ]
+      }
+    },
+    {
+      "category_id": "populationGrowth",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:01:26.787Z",
+      "fingerprint": "ae6637f42d40521d2f178986c5985e22814161758adcebbdcd3284f9ca28b87d",
+      "witness": {
+        "categories": [
+          "populationGrowth",
+          "history:worldbank-internet-half",
+          "faostat:F1720:5510",
+          "faostat-fbs:pulses",
+          "natural-earth:largest-mapped-lake-area",
+          "comtrade:most-ships-exported"
+        ],
+        "countries": [
+          "ITA",
+          "LTU",
+          "CAN",
+          "LKA",
+          "LVA",
+          "USA",
+          "SAU",
+          "KAZ"
+        ]
+      }
+    }
+  ],
+  "trio": {
+    "valid": true,
+    "modes": {
+      "easy": {
+        "categories": [
+          "comtrade:most-railway-equipment-exported",
+          "history:worldbank-infant-mortality-below-25",
+          "forestPct",
+          "unwpp:lowest-death-rate"
+        ],
+        "countries": [
+          "BOL",
+          "SAU",
+          "POL",
+          "JPN"
+        ]
+      },
+      "normal": {
+        "categories": [
+          "unsdg:organized-learning",
+          "history:un-admission",
+          "faostat:01610:5510",
+          "unwpp:highest-natural-change-rate"
+        ],
+        "countries": [
+          "CRI",
+          "GTM",
+          "ETH",
+          "BRA",
+          "TON",
+          "NPL"
+        ]
+      },
+      "expert": {
+        "categories": [
+          "sports:fifa-world-cup-first-appearance",
+          "faostat-qcl-sheep-stocks-02122-5111-an",
+          "worldbank-catalog:fs-ast-cgov-gd-zs",
+          "natural-earth:longest-average-land-border",
+          "history:worldbank-majority-urban",
+          "faostat-fbs:sugar"
+        ],
+        "countries": [
+          "ECU",
+          "AUT",
+          "ZAF",
+          "JOR",
+          "PRT",
+          "HND",
+          "KOR",
+          "AGO"
+        ]
+      }
+    }
+  }
+}

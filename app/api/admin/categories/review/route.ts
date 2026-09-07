@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { requireAdmin } from "../../../../../lib/supabase/adminAuth";
 
 export const dynamic = "force-dynamic";
+export const maxDuration = 300;
 
 type Decision = "approved" | "rejected" | "reset";
 
@@ -27,6 +28,7 @@ type ReviewState = {
   notes: string | null;
   reviewed_by: string | null;
   reviewed_at: string | null;
+  updated_at: string;
 };
 
 type WorkbenchRow = {
@@ -49,9 +51,7 @@ const BLOCKING_FLAG_KEYS = [
 
 function approvalBlockers(category: WorkbenchRow, state: ReviewState): string[] {
   const blockers: string[] = [];
-  if (!category.strict_pass_v16_2) {
-    blockers.push(category.primary_blocker_v16_2 || "The category has not passed the current source, semantic, ranking, clarity, and board-feasibility gates.");
-  }
+  // Editorial approval is distinct from publication; technical gates still apply at refresh.
   for (const key of BLOCKING_FLAG_KEYS) if (state[key]) blockers.push(key);
   if (state.duplicate_of) blockers.push("duplicate_of");
   return Array.from(new Set(blockers));
@@ -80,7 +80,7 @@ export async function POST(request: Request) {
       .in("id", categoryIds),
     auth.admin
       .from("category_review_state")
-      .select("category_id,status,political_self_reported,confusing,esoteric,subjective_or_composite,stale_data,poor_coverage,duplicate_of,recommended_title,semantic_group,notes,reviewed_by,reviewed_at")
+      .select("category_id,status,political_self_reported,confusing,esoteric,subjective_or_composite,stale_data,poor_coverage,duplicate_of,recommended_title,semantic_group,notes,reviewed_by,reviewed_at,updated_at")
       .in("category_id", categoryIds),
   ]);
 
@@ -103,68 +103,34 @@ export async function POST(request: Request) {
     });
     if (blocked.length) {
       return NextResponse.json({
-        error: `${blocked.length} selected categor${blocked.length === 1 ? "y is" : "ies are"} not ready for approval under the current source, semantic, ranking, clarity, board-feasibility, and editorial gates.`,
+        error: `${blocked.length} selected categor${blocked.length === 1 ? "y is" : "ies are"} blocked by editorial flags or duplicate links. Technical playability is assessed separately.`,
         blocked,
         missing,
       }, { status: 409 });
     }
   }
 
-  const reviewed: string[] = [];
-  const failures: { id: string; error: string }[] = [];
-  const now = new Date().toISOString();
-
-  for (const id of categoryIds) {
-    const category = workbenchById.get(id);
-    const previous = stateById.get(id);
-    if (!category || !previous) continue;
-
-    const update: Record<string, unknown> = {
+  if (missing.length) {
+    return NextResponse.json({ error: "Some categories no longer exist. Reload before reviewing.", missing }, { status: 409 });
+  }
+  const changes = categoryIds.map((id) => ({
+    category_id: id,
+    expected_updated_at: stateById.get(id)!.updated_at,
+    patch: {
       status: decision === "reset" ? "pending" : decision,
-      reviewed_by: decision === "reset" ? null : auth.user.id,
-      reviewed_at: decision === "reset" ? null : now,
-      updated_at: now,
-    };
-    if (notes !== null) update.notes = notes;
-    if (decision === "approved") update.duplicate_of = null;
-
-    const { data: saved, error: saveError } = await auth.admin
-      .from("category_review_state")
-      .update(update)
-      .eq("category_id", id)
-      .select("*")
-      .single();
-    if (saveError) {
-      failures.push({ id, error: saveError.message });
-      continue;
-    }
-
-    const { error: eventError } = await auth.admin.from("category_review_events_v15").insert({
-      category_id: id,
-      reviewer_user_id: auth.user.id,
-      previous_state: previous,
-      next_state: saved,
-    });
-    if (eventError) {
-      failures.push({ id, error: eventError.message });
-      continue;
-    }
-
-    reviewed.push(id);
+      ...(notes !== null ? { notes } : {}),
+      ...(decision === "approved" ? { duplicate_of: null } : {}),
+    },
+    presentation: {},
+  }));
+  const { error } = await auth.admin.rpc("save_category_reviews_v16_3_4", {
+    p_reviewer: auth.user.id,
+    p_changes: changes,
+  });
+  if (error) {
+    return NextResponse.json({
+      ok: false, error: error.message, reviewed: [],
+    }, { status: error.code === "40001" ? 409 : error.code === "22023" ? 400 : 500 });
   }
-
-  if (reviewed.length) {
-    const { error: refreshError } = await auth.admin.rpc("refresh_v16_2_runtime_catalog");
-    if (refreshError) {
-      failures.push({ id: "catalog-refresh", error: refreshError.message });
-    }
-  }
-
-  return NextResponse.json({
-    ok: failures.length === 0,
-    decision,
-    reviewed,
-    missing,
-    failures,
-  }, { status: failures.length ? 207 : 200 });
+  return NextResponse.json({ ok: true, decision, reviewed: categoryIds, missing: [], failures: [] });
 }

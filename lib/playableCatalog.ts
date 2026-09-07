@@ -232,6 +232,7 @@ const PLAYER_TITLE_REWRITES: Array<[RegExp, string]> = [
 // restore technical source labels, but they must never change reviewed copy or
 // cause SQL-approved categories to disappear only at runtime.
 const PLAYER_TITLE_OVERRIDES: Record<string, string> = {
+  "pew-religion:other-religions-population": "Most people following religions outside the five major groups",
   agLand: "Highest % of land used for agriculture",
   arablePct: "Highest % of land that is arable",
   education: "Highest education spending as % of GDP",
@@ -356,6 +357,27 @@ function generatedBoardDescription(row: PlayableCategoryRow, title: string) {
 }
 
 function boardDescription(row: PlayableCategoryRow, title: string, existing?: Category) {
+  const climateDescriptions: Record<string, string> = {
+    "arid-share": "Land classified as desert or steppe, using rainfall and temperature—not rainfall alone",
+    "desert-share": "Land below half the Köppen–Geiger aridity threshold, which depends on temperature and rainfall seasonality",
+    "steppe-share": "Semi-arid land between half and all of the Köppen–Geiger aridity threshold",
+    "tropical-rainforest-share": "Land where every month averages at least 18°C and receives at least 60 mm of rain",
+    "tropical-monsoon-share": "Hot tropical land with a short dry season, classified using monthly and annual rainfall",
+    "temperate-share": "Non-arid land with a coldest-month average above 0°C but below 18°C, and a warmest month above 10°C",
+    "mediterranean-share": "Land with a temperate, dry-summer climate under the Köppen–Geiger classification",
+    "continental-share": "Non-arid land with a coldest-month average at or below 0°C and a warmest month above 10°C",
+    "polar-share": "Non-arid land where even the warmest month averages 10°C or below",
+    "tundra-share": "Non-arid land where the warmest month averages above 0°C but no more than 10°C",
+    "ice-cap-share": "Non-arid land where even the warmest month averages 0°C or below",
+    "climate-diversity": "Number of Köppen–Geiger climate types each covering at least 1% of the country",
+  };
+  if (row.id.startsWith("koppen-geiger:")) {
+    const description = climateDescriptions[row.id.slice("koppen-geiger:".length)];
+    if (description) return description;
+  }
+  if (row.id.startsWith("pew-religion:other-religions-")) {
+    return "Religions other than Christianity, Islam, Hinduism, Buddhism or Judaism";
+  }
   if (row.source_organization === "FAOSTAT Food Balances") {
     return title.includes("calorie") || title.includes("protein")
       ? "Estimated from national food-balance data; not measured household intake."
@@ -404,6 +426,15 @@ function copyClarityAllowed(row: PlayableCategoryRow, title: string) {
 }
 
 function playerFacingIcon(row: PlayableCategoryRow, existing?: Category) {
+  // Classifications describe a climate, not whichever weather word occurs in
+  // their technical definition. Evaluate the source identity before copy.
+  if (row.id.startsWith("koppen-geiger:")) {
+    if (/arid|desert|steppe/.test(row.id)) return "🏜️";
+    if (/polar|tundra/.test(row.id)) return "❄️";
+    if (/rainforest/.test(row.id)) return "🌴";
+    if (/monsoon/.test(row.id)) return "🌧️";
+    return "🌤️";
+  }
   const copy = `${row.title} ${row.short_title ?? ""} ${row.description ?? ""}`.toLowerCase();
   // v16.2.5: prefer a semantically correct neutral icon over a misleading
   // inherited emoji. Specific rules intentionally run before stored icons.
@@ -562,6 +593,9 @@ function failsEditorialConceptGate(row: PlayableCategoryRow) {
 
 
 function structuredMeasurementType(row: PlayableCategoryRow): Category["measurementType"] {
+  // An area denominator never means per person, even if legacy metadata used
+  // the old catch-all per_capita label for every normalized quantity.
+  if (/per\s+(?:[\d,.]+\s+)?(?:km|square|hectare)/i.test(row.unit ?? "")) return "rate";
   const explicit = String(row.measurement_type ?? metadataString(row.metadata, "measurementType") ?? "").toLowerCase();
   if (["total", "share", "per_capita", "historical_date", "rate", "value", "other"].includes(explicit)) return explicit as Category["measurementType"];
   const text = `${row.value_type ?? ""} ${row.unit ?? ""}`.toLowerCase();
@@ -660,6 +694,8 @@ export function buildCategoryCatalog(rows: PlayableCategoryRow[], options: Build
     }
     if (playableOnly && !playable) continue;
 
+    const animalOutput = source === "faostat" && /(?:cheese|butter|ghee|honey)/i.test(title)
+      && /5510/.test(row.source_indicator_code);
     const category: Category = {
       ...(existing ?? {} as Category),
       id: existing?.id ?? row.id,
@@ -738,11 +774,11 @@ export function buildCategoryCatalog(rows: PlayableCategoryRow[], options: Build
       playerQualityReason: row.player_quality_reason || existing?.playerQualityReason,
       roundType: existing?.roundType || metadataString(metadata, "roundType") || (source === "comtrade" ? "product-trade" : row.family),
       similarityGroup: existing?.similarityGroup || row.concept_group || metadataString(metadata, "similarityGroup") || `${source}:${row.source_indicator_code}`,
-      semanticFamily: row.semantic_family || existing?.semanticFamily || metadataString(metadata, "semanticFamily"),
+      semanticFamily: animalOutput ? "livestock-production" : row.semantic_family || existing?.semanticFamily || metadataString(metadata, "semanticFamily"),
       semanticTopic: row.semantic_topic || existing?.semanticTopic || metadataString(metadata, "semanticTopic") || row.concept_group || undefined,
-      strategyFamily: metadataString(metadata, "strategyFamily") || row.effective_semantic_group || row.semantic_family || existing?.strategyFamily,
+      strategyFamily: animalOutput ? "livestock-production" : metadataString(metadata, "strategyFamily") || row.effective_semantic_group || row.semantic_family || existing?.strategyFamily,
       broadDomain: metadataString(metadata, "broadDomain") || existing?.broadDomain,
-      knowledgeCluster: metadataString(metadata, "knowledgeCluster") || row.concept_group || existing?.knowledgeCluster,
+      knowledgeCluster: animalOutput ? "livestock-output" : metadataString(metadata, "knowledgeCluster") || row.concept_group || existing?.knowledgeCluster,
       measureType: structuredMeasureType(row),
       normalizationType: structuredNormalization(row),
       measurementType,

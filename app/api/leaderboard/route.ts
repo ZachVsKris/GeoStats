@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { readAllPages } from "../../../lib/pagedRead";
 import { createSupabaseAdminClient, createSupabaseServerClient } from "../../../lib/supabase/server";
 import { LEGACY_V16_2_3_ROUND_CONFIGS, ROUND_CONFIGS, type DailyDifficulty } from "../../../lib/gameRules";
 import { LEADERBOARD_RATING_VERSION } from "../../../lib/version";
@@ -87,11 +88,15 @@ export async function GET(request: Request) {
   if (!supabase) return publicJson({ error: "The standings service is not configured." }, 503);
   const url = new URL(request.url);
   const difficulty = parseDifficulty(url.searchParams.get("difficulty"));
+  const cutoff = new Date().toISOString();
   const buildQuery = (columns: string) => {
-    return supabase
+    return readAllPages((from, to) => supabase
       .from("daily_scores")
       .select(columns)
-      .eq("difficulty", difficulty);
+      .eq("difficulty", difficulty)
+      .lte("completed_at", cutoff)
+      .order("id", { ascending: true })
+      .range(from, to));
   };
 
   let { data, error } = await buildQuery("user_id,challenge_date,difficulty,score,average_placement,firsts,top_fives,board_normalization_version,leaderboard_rating_version,rules_version,profiles(username)");

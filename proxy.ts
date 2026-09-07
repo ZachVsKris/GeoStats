@@ -68,7 +68,7 @@ export async function proxy(request: NextRequest) {
   // creation and this call, and return the same response so refreshed cookies
   // are not lost.
   try {
-    const { error } = await supabase.auth.getUser();
+    const { error } = await supabase.auth.getClaims();
     if (error && /refresh token.*(?:used|invalid|missing)|invalid refresh token/i.test(error.message)) {
       clearStaleAuthCookies(request, supabaseResponse);
     }

@@ -50,6 +50,8 @@
 - The account dialog traps focus, closes predictably, restores focus, exposes live status, and uses friendly errors.
 - Google provider availability is checked before redirecting, preventing the raw `Unsupported provider` page while setup is incomplete.
 - Google remains the intended primary option once the provider is enabled; branded token-hash email remains the fallback and explicitly mentions spam/junk folders.
+- Email-link requests explicitly create new accounts, explain the passwordless flow before submission, and identify the secure GeoStats message after it is sent.
+- Returning Google users are no longer forced through an extra account-picker prompt when Google can safely reuse their current session.
 - Confirmation, magic-link, and recovery templates remain short, transactional, and compatible with links opened in a different browser context.
 
 ## Production polish and safety

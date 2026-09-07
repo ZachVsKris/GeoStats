@@ -1,0 +1,206 @@
+{
+  "gdpGrowth": [
+    "Fastest economic growth rate",
+    "Annual percentage growth in inflation-adjusted gross domestic product."
+  ],
+  "populationGrowth": [
+    "Fastest population growth rate",
+    "Annual percentage growth in the total population."
+  ],
+  "sanitation": [
+    "Highest % using safely managed sanitation",
+    "People using improved, unshared sanitation with waste safely disposed of or treated."
+  ],
+  "worldbank-catalog:bm-klt-dinv-wd-gd-zs": [
+    "Highest outward foreign investment as % of GDP",
+    "Net direct investment abroad by residents, as a percentage of GDP."
+  ],
+  "worldbank-catalog:bx-klt-dinv-wd-gd-zs": [
+    "Highest inward foreign investment as % of GDP",
+    "Net foreign direct investment entering the country, as a percentage of GDP."
+  ],
+  "worldbank-catalog:dt-dod-dect-gn-zs": [
+    "Highest external debt as % of national income",
+    "Total debt owed to nonresidents, as a percentage of gross national income (GNI)."
+  ],
+  "worldbank-catalog:dt-dod-dstc-xp-zs": [
+    "Highest short-term foreign debt as % of export income",
+    "External debt due within one year, relative to exports of goods, services and primary income."
+  ],
+  "worldbank-catalog:dt-dod-pvlx-ex-zs": [
+    "Highest discounted foreign debt as % of export income",
+    "Present value of external debt, relative to exports of goods, services and primary income."
+  ],
+  "worldbank-catalog:dt-dod-pvlx-gn-zs": [
+    "Highest discounted foreign debt as % of national income",
+    "Present value of external debt, as a percentage of gross national income (GNI)."
+  ],
+  "worldbank-catalog:dt-oda-odat-gi-zs": [
+    "Highest development aid as % of capital investment",
+    "Net official development assistance received, relative to gross capital formation."
+  ],
+  "worldbank-catalog:dt-oda-odat-gn-zs": [
+    "Highest development aid as % of national income",
+    "Net official development assistance received, relative to gross national income (GNI)."
+  ],
+  "worldbank-catalog:dt-oda-odat-mp-zs": [
+    "Highest development aid as % of imports",
+    "Net official development assistance received, relative to imports of goods, services and primary income."
+  ],
+  "worldbank-catalog:dt-tds-dect-ex-zs": [
+    "Highest foreign-debt payments as % of export income",
+    "Principal and interest paid on external debt, relative to exports of goods, services and primary income."
+  ],
+  "worldbank-catalog:dt-tds-dect-gn-zs": [
+    "Highest foreign-debt payments as % of national income",
+    "Principal and interest paid on external debt, relative to gross national income (GNI)."
+  ],
+  "worldbank-catalog:dt-tds-dppg-gn-zs": [
+    "Highest public foreign-debt payments as % of national income",
+    "Payments on public and publicly guaranteed external debt, relative to gross national income (GNI)."
+  ],
+  "worldbank-catalog:er-h2o-fwtl-zs": [
+    "Highest freshwater withdrawals as % of internal resources",
+    "Annual freshwater withdrawals relative to renewable internal freshwater resources; values can exceed 100%."
+  ],
+  "worldbank-catalog:fb-ast-nper-zs": [
+    "Highest % of bank loans that are nonperforming",
+    "Bank loans classified as nonperforming, as a percentage of total gross loans."
+  ],
+  "worldbank-catalog:fb-bnk-capa-zs": [
+    "Highest bank capital as % of assets",
+    "Bank capital relative to total bank assets, using the source's capital definition."
+  ],
+  "worldbank-catalog:fd-ast-prvt-gd-zs": [
+    "Highest bank credit to the private sector as % of GDP",
+    "Credit supplied to the private sector by deposit-taking banks other than the central bank, relative to GDP."
+  ],
+  "worldbank-catalog:fd-res-liqu-as-zs": [
+    "Highest bank liquid reserves as % of assets",
+    "Banks' domestic currency holdings and deposits with monetary authorities, relative to bank assets."
+  ],
+  "global-findex:account-ownership": [
+    "Highest % of adults with a financial account",
+    "Adults aged 15+ with an account at a financial institution or a mobile-money provider, in the 2024 survey."
+  ],
+  "worldbank-catalog:fm-ast-cgov-zg-m3": [
+    "Fastest growth rate in government credit relative to broad money",
+    "Annual percentage growth in net claims on central government relative to broad money."
+  ],
+  "worldbank-catalog:fm-ast-domo-zg-m3": [
+    "Fastest growth rate in domestic credit relative to broad money",
+    "Annual percentage growth in claims on other domestic sectors relative to broad money."
+  ],
+  "worldbank-catalog:fm-ast-prvt-gd-zs": [
+    "Highest monetary-sector private credit as % of GDP",
+    "Private-sector credit from monetary-sector financial institutions, relative to GDP."
+  ],
+  "worldbank-catalog:fm-ast-prvt-zg-m3": [
+    "Fastest growth rate in private credit relative to broad money",
+    "Annual percentage growth in claims on the private sector relative to broad money."
+  ],
+  "worldbank-catalog:fm-lbl-bmny-zg": [
+    "Fastest broad-money growth rate",
+    "Annual percentage growth in broad money: currency and liquid or readily convertible financial instruments."
+  ],
+  "worldbank-catalog:fp-cpi-totl-zg": [
+    "Highest inflation rate",
+    "Annual percentage change in consumer prices."
+  ],
+  "worldbank-catalog:fs-ast-cgov-gd-zs": [
+    "Highest net claims on government as % of GDP",
+    "Credit and other claims on central government, net of government deposits, relative to GDP."
+  ],
+  "worldbank-catalog:fs-ast-prvt-gd-zs": [
+    "Highest financial-sector private credit as % of GDP",
+    "Credit supplied to the private sector by financial corporations, relative to GDP."
+  ],
+  "unsdg:three-g-coverage": [
+    "Highest % of people covered by 3G",
+    "Population living within reach of a third-generation mobile network, whether or not they subscribe."
+  ],
+  "unsdg:four-g-coverage": [
+    "Highest % of people covered by 4G",
+    "Population living within reach of a fourth-generation mobile network, whether or not they subscribe."
+  ],
+  "unsdg:five-g-coverage": [
+    "Highest % of people covered by 5G",
+    "Population living within reach of a fifth-generation mobile network, whether or not they subscribe."
+  ],
+  "unsdg:organized-learning": [
+    "Highest pre-primary learning participation rate",
+    "Children one year below the official primary-entry age participating in organized learning."
+  ],
+  "worldbank-catalog:eg-cft-accs-ru-zs": [
+    "Highest % of rural residents using clean cooking fuels",
+    "Rural population primarily using clean fuels and technologies for cooking."
+  ],
+  "worldbank-catalog:eg-cft-accs-ur-zs": [
+    "Highest % of urban residents using clean cooking fuels",
+    "Urban population primarily using clean fuels and technologies for cooking."
+  ],
+  "worldbank-catalog:eg-cft-accs-zs": [
+    "Highest % of people using clean cooking fuels",
+    "Population primarily using clean fuels and technologies for cooking."
+  ],
+  "worldbank-catalog:eg-elc-accs-ru-zs": [
+    "Highest % of rural residents with electricity access",
+    "Rural population with access to electricity."
+  ],
+  "worldbank-catalog:eg-elc-accs-ur-zs": [
+    "Highest % of urban residents with electricity access",
+    "Urban population with access to electricity."
+  ],
+  "electricityAccess": [
+    "Highest % of people with electricity access",
+    "Population with access to electricity."
+  ],
+  "natural-earth:most-mapped-lakes": [
+    "Most lakes and reservoirs in Natural Earth's atlas",
+    "Count of lake and reservoir features covering at least 1 km² inside the country in Natural Earth 1:10m v5.0.0. This is a map inventory, not a census of every lake."
+  ],
+  "natural-earth:most-mapped-rivers": [
+    "Most river features in Natural Earth's atlas",
+    "Count of river features extending at least 1 km inside the country in Natural Earth 1:10m v5.0.0. Separate features may belong to the same river."
+  ],
+  "natural-earth:longest-coastline": [
+    "Longest coastline on Natural Earth's map",
+    "Coastline length measured from the fixed Natural Earth 1:10m map. Results depend on map resolution; this is not a definitive coastline length."
+  ],
+  "natural-earth:highest-coastline-density": [
+    "Most coastline per km² on Natural Earth's map",
+    "Coastline length divided by land area, using the same fixed Natural Earth 1:10m map. Results depend on map resolution."
+  ],
+  "unwpp:highest-natural-change-rate": [
+    "Highest natural population increase rate",
+    "Annual births minus deaths per 1,000 people; negative values mean deaths exceed births."
+  ],
+  "unwpp:highest-net-migration-rate": [
+    "Highest net migration rate",
+    "Annual arrivals minus departures per 1,000 people; negative values mean more people leave than arrive."
+  ],
+  "worldbank-catalog:gc-nfn-totl-gd-zs": [
+    "Highest government asset investment as % of GDP",
+    "Net government investment in nonfinancial assets, including buildings, infrastructure and inventories, relative to GDP."
+  ],
+  "worldbank-catalog:gc-rev-xgrt-gd-zs": [
+    "Highest government revenue excluding grants as % of GDP",
+    "Government revenue other than grants, relative to GDP."
+  ],
+  "worldbank-catalog:gc-tax-gsrv-rv-zs": [
+    "Highest goods-and-services taxes as % of government revenue",
+    "Government taxes on goods and services, relative to total government revenue."
+  ],
+  "worldbank-catalog:gc-tax-ypkg-rv-zs": [
+    "Highest income and profit taxes as % of government revenue",
+    "Taxes on income, profits and capital gains, relative to total government revenue."
+  ],
+  "worldbank-catalog:gc-tax-ypkg-zs": [
+    "Highest income and profit taxes as % of all taxes",
+    "Taxes on income, profits and capital gains, relative to total tax revenue."
+  ],
+  "worldbank-catalog:gc-xpn-intp-rv-zs": [
+    "Highest debt interest as % of government revenue",
+    "Government interest payments on debt, relative to total government revenue."
+  ]
+}

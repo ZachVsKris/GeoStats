@@ -115,6 +115,18 @@ def _first_sentence(value: str, fallback: str) -> str:
 def _unit_and_type(name: str, unit: str) -> tuple[str, str]:
     haystack = f"{name} {unit}".lower()
     cleaned = unit.strip() or "reported value"
+    # WDI frequently leaves its unit field blank and puts the scale in the
+    # official series name. Preserve that scale before generic count/rate rules.
+    if "life expectancy at birth" in haystack and "years" in haystack:
+        return ("years", "rate")
+    if "precipitation" in haystack and "mm per year" in haystack:
+        return ("mm per year", "rate")
+    if re.search(r"million (?:ton|tonne)[- ]km", haystack):
+        return ("million ton-km", "total")
+    if "kilograms per hectare of arable land" in haystack:
+        return ("kg per hectare of arable land", "rate")
+    if re.search(r"per 1[ ,]?million people", haystack):
+        return ("per 1 million people", "per_capita")
     if re.search(r"current us\$ per capita|current u\.s\. dollars? per capita|usd per capita", haystack):
         return ("USD/person", "per_capita")
     if re.search(r"current us\$|current u\.s\. dollars?|usd", haystack):

@@ -19,7 +19,7 @@ const iconFollowup = read("supabase/migrations/20260901204500_v16_3_1_semantic_i
 const reachabilityFollowup = read("supabase/migrations/20260901205500_v16_3_1_restore_reachability_exclusions.sql");
 const greenhouseIconFollowup = read("supabase/migrations/20260901210500_v16_3_1_greenhouse_icon_precedence.sql");
 
-check(["16.3.1","16.3.2"].includes(pkg.version), "package version no longer includes the v16.3.1 contract");
+check(["16.3.1","16.3.2","16.3.4"].includes(pkg.version), "package version no longer includes the v16.3.1 contract");
 const currentTarget = pkg.version.replaceAll(".", "-");
 check(pkg.scripts.test === `npm run test-v${currentTarget}` && pkg.scripts.check === `npm run check-v${currentTarget}`, "default validation does not target the current v16.3 release");
 for (const token of [`APP_VERSION = "${pkg.version}"`,`RULES_VERSION = "${pkg.version}"`,'PLAYABLE_CATALOG_CACHE_VERSION']) {

@@ -1,0 +1,562 @@
+{
+  "catalogSize": 410,
+  "proposedCopy": {
+    "gdpGrowth": [
+      "Fastest economic growth rate",
+      "Annual percentage growth in inflation-adjusted gross domestic product."
+    ],
+    "populationGrowth": [
+      "Fastest population growth rate",
+      "Annual percentage growth in the total population."
+    ],
+    "sanitation": [
+      "Highest % using safely managed sanitation",
+      "People using improved, unshared sanitation with waste safely disposed of or treated."
+    ],
+    "worldbank-catalog:bx-klt-dinv-wd-gd-zs": [
+      "Highest inward foreign investment as % of GDP",
+      "Net foreign direct investment entering the country, as a percentage of GDP."
+    ],
+    "worldbank-catalog:er-h2o-fwtl-zs": [
+      "Highest freshwater withdrawals as % of internal resources",
+      "Annual freshwater withdrawals relative to renewable internal freshwater resources; values can exceed 100%."
+    ],
+    "worldbank-catalog:fp-cpi-totl-zg": [
+      "Highest inflation rate",
+      "Annual percentage change in consumer prices."
+    ],
+    "worldbank-catalog:fs-ast-cgov-gd-zs": [
+      "Highest net claims on government as % of GDP",
+      "Credit and other claims on central government, net of government deposits, relative to GDP."
+    ],
+    "worldbank-catalog:bm-klt-dinv-wd-gd-zs": [
+      "Highest outward foreign investment as % of GDP",
+      "Net direct investment abroad by residents, as a percentage of GDP."
+    ],
+    "worldbank-catalog:dt-dod-dect-gn-zs": [
+      "Highest external debt as % of national income",
+      "Total debt owed to nonresidents, as a percentage of gross national income (GNI)."
+    ],
+    "worldbank-catalog:dt-dod-dstc-xp-zs": [
+      "Highest short-term foreign debt as % of export income",
+      "External debt due within one year, relative to exports of goods, services and primary income."
+    ],
+    "worldbank-catalog:dt-dod-pvlx-ex-zs": [
+      "Highest discounted foreign debt as % of export income",
+      "Present value of external debt, relative to exports of goods, services and primary income."
+    ],
+    "worldbank-catalog:dt-dod-pvlx-gn-zs": [
+      "Highest discounted foreign debt as % of national income",
+      "Present value of external debt, as a percentage of gross national income (GNI)."
+    ],
+    "worldbank-catalog:dt-oda-odat-gi-zs": [
+      "Highest development aid as % of capital investment",
+      "Net official development assistance received, relative to gross capital formation."
+    ],
+    "worldbank-catalog:dt-oda-odat-gn-zs": [
+      "Highest development aid as % of national income",
+      "Net official development assistance received, relative to gross national income (GNI)."
+    ],
+    "worldbank-catalog:dt-oda-odat-mp-zs": [
+      "Highest development aid as % of imports",
+      "Net official development assistance received, relative to imports of goods, services and primary income."
+    ],
+    "worldbank-catalog:dt-tds-dect-ex-zs": [
+      "Highest foreign-debt payments as % of export income",
+      "Principal and interest paid on external debt, relative to exports of goods, services and primary income."
+    ],
+    "worldbank-catalog:dt-tds-dect-gn-zs": [
+      "Highest foreign-debt payments as % of national income",
+      "Principal and interest paid on external debt, relative to gross national income (GNI)."
+    ],
+    "worldbank-catalog:dt-tds-dppg-gn-zs": [
+      "Highest public foreign-debt payments as % of national income",
+      "Payments on public and publicly guaranteed external debt, relative to gross national income (GNI)."
+    ],
+    "worldbank-catalog:fb-ast-nper-zs": [
+      "Highest % of bank loans that are nonperforming",
+      "Bank loans classified as nonperforming, as a percentage of total gross loans."
+    ],
+    "worldbank-catalog:fb-bnk-capa-zs": [
+      "Highest bank capital as % of assets",
+      "Bank capital relative to total bank assets, using the source's capital definition."
+    ],
+    "worldbank-catalog:fd-ast-prvt-gd-zs": [
+      "Highest bank credit to the private sector as % of GDP",
+      "Credit supplied to the private sector by deposit-taking banks other than the central bank, relative to GDP."
+    ],
+    "worldbank-catalog:fd-res-liqu-as-zs": [
+      "Highest bank liquid reserves as % of assets",
+      "Banks' domestic currency holdings and deposits with monetary authorities, relative to bank assets."
+    ],
+    "global-findex:account-ownership": [
+      "Highest % of adults with a financial account",
+      "Adults aged 15+ with an account at a financial institution or a mobile-money provider, in the 2024 survey."
+    ],
+    "worldbank-catalog:fm-ast-cgov-zg-m3": [
+      "Fastest growth rate in government credit relative to broad money",
+      "Annual percentage growth in net claims on central government relative to broad money."
+    ],
+    "worldbank-catalog:fm-ast-domo-zg-m3": [
+      "Fastest growth rate in domestic credit relative to broad money",
+      "Annual percentage growth in claims on other domestic sectors relative to broad money."
+    ],
+    "worldbank-catalog:fm-ast-prvt-gd-zs": [
+      "Highest monetary-sector private credit as % of GDP",
+      "Private-sector credit from monetary-sector financial institutions, relative to GDP."
+    ],
+    "worldbank-catalog:fm-ast-prvt-zg-m3": [
+      "Fastest growth rate in private credit relative to broad money",
+      "Annual percentage growth in claims on the private sector relative to broad money."
+    ],
+    "worldbank-catalog:fm-lbl-bmny-zg": [
+      "Fastest broad-money growth rate",
+      "Annual percentage growth in broad money: currency and liquid or readily convertible financial instruments."
+    ],
+    "worldbank-catalog:fs-ast-prvt-gd-zs": [
+      "Highest financial-sector private credit as % of GDP",
+      "Credit supplied to the private sector by financial corporations, relative to GDP."
+    ],
+    "unsdg:three-g-coverage": [
+      "Highest % of people covered by 3G",
+      "Population living within reach of a third-generation mobile network, whether or not they subscribe."
+    ],
+    "unsdg:four-g-coverage": [
+      "Highest % of people covered by 4G",
+      "Population living within reach of a fourth-generation mobile network, whether or not they subscribe."
+    ],
+    "unsdg:five-g-coverage": [
+      "Highest % of people covered by 5G",
+      "Population living within reach of a fifth-generation mobile network, whether or not they subscribe."
+    ],
+    "unsdg:organized-learning": [
+      "Highest pre-primary learning participation rate",
+      "Children one year below the official primary-entry age participating in organized learning."
+    ],
+    "worldbank-catalog:eg-cft-accs-ru-zs": [
+      "Highest % of rural residents using clean cooking fuels",
+      "Rural population primarily using clean fuels and technologies for cooking."
+    ],
+    "worldbank-catalog:eg-cft-accs-ur-zs": [
+      "Highest % of urban residents using clean cooking fuels",
+      "Urban population primarily using clean fuels and technologies for cooking."
+    ],
+    "worldbank-catalog:eg-cft-accs-zs": [
+      "Highest % of people using clean cooking fuels",
+      "Population primarily using clean fuels and technologies for cooking."
+    ],
+    "worldbank-catalog:eg-elc-accs-ru-zs": [
+      "Highest % of rural residents with electricity access",
+      "Rural population with access to electricity."
+    ],
+    "worldbank-catalog:eg-elc-accs-ur-zs": [
+      "Highest % of urban residents with electricity access",
+      "Urban population with access to electricity."
+    ],
+    "electricityAccess": [
+      "Highest % of people with electricity access",
+      "Population with access to electricity."
+    ],
+    "natural-earth:most-mapped-lakes": [
+      "Most lakes and reservoirs in Natural Earth's atlas",
+      "Count of lake and reservoir features covering at least 1 km² inside the country in Natural Earth 1:10m v5.0.0. This is a map inventory, not a census of every lake."
+    ],
+    "natural-earth:most-mapped-rivers": [
+      "Most river features in Natural Earth's atlas",
+      "Count of river features extending at least 1 km inside the country in Natural Earth 1:10m v5.0.0. Separate features may belong to the same river."
+    ],
+    "natural-earth:longest-coastline": [
+      "Longest coastline on Natural Earth's map",
+      "Coastline length measured from the fixed Natural Earth 1:10m map. Results depend on map resolution; this is not a definitive coastline length."
+    ],
+    "natural-earth:highest-coastline-density": [
+      "Most coastline per km² on Natural Earth's map",
+      "Coastline length divided by land area, using the same fixed Natural Earth 1:10m map. Results depend on map resolution."
+    ],
+    "unwpp:highest-natural-change-rate": [
+      "Highest natural population increase rate",
+      "Annual births minus deaths per 1,000 people; negative values mean deaths exceed births."
+    ],
+    "unwpp:highest-net-migration-rate": [
+      "Highest net migration rate",
+      "Annual arrivals minus departures per 1,000 people; negative values mean more people leave than arrive."
+    ],
+    "worldbank-catalog:gc-nfn-totl-gd-zs": [
+      "Highest government asset investment as % of GDP",
+      "Net government investment in nonfinancial assets, including buildings, infrastructure and inventories, relative to GDP."
+    ],
+    "worldbank-catalog:gc-rev-xgrt-gd-zs": [
+      "Highest government revenue excluding grants as % of GDP",
+      "Government revenue other than grants, relative to GDP."
+    ],
+    "worldbank-catalog:gc-tax-gsrv-rv-zs": [
+      "Highest goods-and-services taxes as % of government revenue",
+      "Government taxes on goods and services, relative to total government revenue."
+    ],
+    "worldbank-catalog:gc-tax-ypkg-rv-zs": [
+      "Highest income and profit taxes as % of government revenue",
+      "Taxes on income, profits and capital gains, relative to total government revenue."
+    ],
+    "worldbank-catalog:gc-tax-ypkg-zs": [
+      "Highest income and profit taxes as % of all taxes",
+      "Taxes on income, profits and capital gains, relative to total tax revenue."
+    ],
+    "worldbank-catalog:gc-xpn-intp-rv-zs": [
+      "Highest debt interest as % of government revenue",
+      "Government interest payments on debt, relative to total government revenue."
+    ]
+  },
+  "proofs": [
+    {
+      "category_id": "natural-earth:landlocked-fewest-neighbors",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:32:18.886Z",
+      "fingerprint": "881d0e3964569909e6dfa58a43e8faecbc58bfddd69b381129af2045400cdcef",
+      "witness": {
+        "categories": [
+          "natural-earth:landlocked-fewest-neighbors",
+          "history:worldbank-under-five-mortality-below-50",
+          "pew-religion:muslim-share",
+          "unwpp:highest-sex-ratio-at-birth"
+        ],
+        "countries": [
+          "TJK",
+          "SWZ",
+          "UZB",
+          "MWI"
+        ]
+      }
+    },
+    {
+      "category_id": "natural-earth:landlocked-fewest-neighbors",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:32:19.196Z",
+      "fingerprint": "881d0e3964569909e6dfa58a43e8faecbc58bfddd69b381129af2045400cdcef",
+      "witness": {
+        "categories": [
+          "natural-earth:landlocked-fewest-neighbors",
+          "unwpp:highest-birth-rate",
+          "worldbank-catalog:gc-nld-totl-gd-zs",
+          "faostat-fbs:eggs"
+        ],
+        "countries": [
+          "UGA",
+          "AUT",
+          "ZMB",
+          "PRY",
+          "NPL",
+          "KGZ"
+        ]
+      }
+    },
+    {
+      "category_id": "natural-earth:landlocked-fewest-neighbors",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:32:22.786Z",
+      "fingerprint": "881d0e3964569909e6dfa58a43e8faecbc58bfddd69b381129af2045400cdcef",
+      "witness": {
+        "categories": [
+          "natural-earth:landlocked-fewest-neighbors",
+          "worldbank-catalog:ms-mil-xpnd-zs",
+          "faostat-fbs:sugar",
+          "history:un-admission",
+          "unwpp:highest-birth-rate",
+          "faostat-qcl-cattle-stocks-02111-5111-an"
+        ],
+        "countries": [
+          "SRB",
+          "LSO",
+          "UGA",
+          "MNG",
+          "ARM",
+          "AUT",
+          "PRY",
+          "ETH"
+        ]
+      }
+    },
+    {
+      "category_id": "unwpp:fastest-pop-decline",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:32:22.803Z",
+      "fingerprint": "80ba174d04e0af57f1cf5ff4fc17e511e815453e2438f09d346e1f1beeb08cbf",
+      "witness": {
+        "categories": [
+          "unwpp:fastest-pop-decline",
+          "natural-earth-capital:capital-closest-equator",
+          "faostat-qcl-asses-stocks-02132-5111-an",
+          "history:worldbank-majority-urban"
+        ],
+        "countries": [
+          "MAR",
+          "BLR",
+          "COL",
+          "HND"
+        ]
+      }
+    },
+    {
+      "category_id": "unwpp:fastest-pop-decline",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:32:22.819Z",
+      "fingerprint": "80ba174d04e0af57f1cf5ff4fc17e511e815453e2438f09d346e1f1beeb08cbf",
+      "witness": {
+        "categories": [
+          "unwpp:fastest-pop-decline",
+          "faostat-qcl-mules-and-hinnies-stocks-02133-5111-an",
+          "rain",
+          "sports:fifa-world-cup-first-appearance"
+        ],
+        "countries": [
+          "CHN",
+          "COL",
+          "URY",
+          "CHE",
+          "TTO",
+          "CUB"
+        ]
+      }
+    },
+    {
+      "category_id": "unwpp:fastest-pop-decline",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:32:22.846Z",
+      "fingerprint": "80ba174d04e0af57f1cf5ff4fc17e511e815453e2438f09d346e1f1beeb08cbf",
+      "witness": {
+        "categories": [
+          "unwpp:fastest-pop-decline",
+          "faostat:01253.02:5510",
+          "natural-earth:highest-land-border-density",
+          "worldbank-catalog:fs-ast-cgov-gd-zs",
+          "unsdg:five-g-coverage",
+          "history:worldbank-infant-mortality-below-25"
+        ],
+        "countries": [
+          "MEX",
+          "BGR",
+          "OMN",
+          "BEL",
+          "UZB",
+          "DZA",
+          "ITA",
+          "ARM"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:bn-cab-xoka-gd-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:32:22.863Z",
+      "fingerprint": "96d3cc625fa9bbd75190768ba6bfa6ef3a481078675b9d89b095011b7697937a",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:bn-cab-xoka-gd-zs",
+          "faostat-qcl-swine-pigs-stocks-02140-5111-an",
+          "natural-earth:longest-average-land-border",
+          "history:worldbank-infant-mortality-below-25"
+        ],
+        "countries": [
+          "CHL",
+          "MEX",
+          "GTM",
+          "IRL"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:bn-cab-xoka-gd-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:32:22.878Z",
+      "fingerprint": "96d3cc625fa9bbd75190768ba6bfa6ef3a481078675b9d89b095011b7697937a",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:bn-cab-xoka-gd-zs",
+          "sports:fifa-world-cup-first-appearance",
+          "pew-religion:hindu-population",
+          "unwpp:highest-natural-change-rate"
+        ],
+        "countries": [
+          "SAU",
+          "AUT",
+          "COL",
+          "KOR",
+          "COD",
+          "DNK"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:bn-cab-xoka-gd-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:32:22.905Z",
+      "fingerprint": "96d3cc625fa9bbd75190768ba6bfa6ef3a481078675b9d89b095011b7697937a",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:bn-cab-xoka-gd-zs",
+          "faostat-qcl-sheep-stocks-02122-5111-an",
+          "faostat-fbs:wheat-products",
+          "unwpp:highest-male-life-expectancy",
+          "unsdg:unsentenced-detainees",
+          "history:worldbank-majority-urban"
+        ],
+        "countries": [
+          "DZA",
+          "NOR",
+          "CRI",
+          "NGA",
+          "HTI",
+          "MNG",
+          "CIV",
+          "IRL"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-tds-mlat-pg-zs",
+      "difficulty": "easy",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:32:22.925Z",
+      "fingerprint": "794915a22ef20c6ce962d66b8060a6ef8fd766f5c8c395ee8993f29db581c0b4",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-tds-mlat-pg-zs",
+          "pew-religion:other-religions-population",
+          "history:oldest-current-constitution",
+          "natural-earth:longest-average-land-border"
+        ],
+        "countries": [
+          "BRA",
+          "IDN",
+          "RUS",
+          "NPL"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-tds-mlat-pg-zs",
+      "difficulty": "normal",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:32:22.940Z",
+      "fingerprint": "794915a22ef20c6ce962d66b8060a6ef8fd766f5c8c395ee8993f29db581c0b4",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-tds-mlat-pg-zs",
+          "faostat:01312:5510",
+          "faostat-fbs:coffee",
+          "unwpp:lowest-death-rate"
+        ],
+        "countries": [
+          "BOL",
+          "YEM",
+          "PNG",
+          "TLS",
+          "GIN",
+          "HND"
+        ]
+      }
+    },
+    {
+      "category_id": "worldbank-catalog:dt-tds-mlat-pg-zs",
+      "difficulty": "expert",
+      "reachable": true,
+      "audit_version": "geostats-v16.3.4-production-solver-v1",
+      "checked_at": "2026-09-07T20:32:23.084Z",
+      "fingerprint": "794915a22ef20c6ce962d66b8060a6ef8fd766f5c8c395ee8993f29db581c0b4",
+      "witness": {
+        "categories": [
+          "worldbank-catalog:dt-tds-mlat-pg-zs",
+          "faostat:01221:5510",
+          "natural-earth:largest-single-mapped-lake",
+          "history:worldbank-mobile-subscriptions-50",
+          "unwpp:lowest-fertility",
+          "koppen-geiger:desert-share"
+        ],
+        "countries": [
+          "PAK",
+          "EGY",
+          "KAZ",
+          "SOM",
+          "UKR",
+          "SDN",
+          "YEM",
+          "BOL"
+        ]
+      }
+    }
+  ],
+  "trio": {
+    "valid": true,
+    "modes": {
+      "easy": {
+        "categories": [
+          "comtrade:most-potatoes-exported",
+          "history:worldbank-life-expectancy-70",
+          "natural-earth:highest-mapped-glaciated-share",
+          "unwpp:highest-net-migration-rate"
+        ],
+        "countries": [
+          "USA",
+          "LUX",
+          "KGZ",
+          "IND"
+        ]
+      },
+      "normal": {
+        "categories": [
+          "faostat:01318:5510",
+          "history:worldbank-majority-urban",
+          "natural-earth:highest-mapped-lake-share",
+          "fertility"
+        ],
+        "countries": [
+          "BOL",
+          "PAN",
+          "CMR",
+          "GHA",
+          "IDN",
+          "CRI"
+        ]
+      },
+      "expert": {
+        "categories": [
+          "faostat-fbs:vegetables",
+          "history:un-admission",
+          "faostat-qcl-horses-stocks-02131-5111-an",
+          "worldbank-catalog:gc-xpn-totl-gd-zs",
+          "natural-earth:longest-average-land-border",
+          "sports:fifa-world-cup-first-appearance"
+        ],
+        "countries": [
+          "UZB",
+          "PRY",
+          "ISR",
+          "NLD",
+          "SEN",
+          "BIH",
+          "PRT",
+          "CAN"
+        ]
+      }
+    }
+  }
+}

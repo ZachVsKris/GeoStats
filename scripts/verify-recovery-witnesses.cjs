@@ -14,7 +14,8 @@ const [catalogPath, valuesPath, proofsPath] = process.argv.slice(2);
 const rows = JSON.parse(fs.readFileSync(catalogPath));
 const values = JSON.parse(fs.readFileSync(valuesPath));
 const saved = JSON.parse(fs.readFileSync(proofsPath));
-const overrides = require('../audits/maximum-recovery-overrides-2026-09-07.json');
+const live = process.argv.includes('--live');
+const overrides = live ? {} : require('../audits/maximum-recovery-overrides-2026-09-07.json');
 const byId = new Map(), byWarehouse = new Map(), rowByWarehouse = new Map();
 for (const original of rows.filter(r => r.computed_playable_v16_2 || overrides[r.id])) {
   const row = { ...original, ...overrides[original.id] };
@@ -48,4 +49,4 @@ const proofs = saved.proofs.filter(proof => proof.reachable === true).map(proof 
 });
 const trio = Object.fromEntries(Object.entries(saved.trio.modes).map(([mode,w])=>[mode,reconstruct(w)]));
 assert.deepEqual(validateDailyTrio(trio),[]);
-console.log(JSON.stringify({ catalogSize:byId.size,proofs,unresolved,trio:saved.trio,exactValueReplay:true },null,2));
+console.log(JSON.stringify({ catalogSize:byId.size,proofs,unresolved,trio:saved.trio,exactValueReplay:true,liveCatalogReplay:live },null,2));

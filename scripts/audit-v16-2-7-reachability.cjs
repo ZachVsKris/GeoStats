@@ -17,13 +17,6 @@ const dailyArg = process.argv.find((arg) => arg.startsWith('--daily-days='));
 const ANCHOR_SAMPLES = Number(sampleArg?.split('=')[1] || 30000);
 const RANDOM_SAMPLES = Number(randomArg?.split('=')[1] || 240);
 const DAILY_DAYS = Number(dailyArg?.split('=')[1] || 30);
-const url = process.env.SUPABASE_URL;
-const key = process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY;
-if (!url || !key) {
-  console.error('SUPABASE_URL and a Supabase service-role key are required for the production reachability audit.');
-  process.exit(2);
-}
-const supabase = createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
 
 function compileTree(sourceDir, outputDir) {
   for (const entry of fs.readdirSync(sourceDir, { withFileTypes: true })) {
@@ -55,14 +48,20 @@ function chunks(items, size) {
 
 async function fetchAll(queryFactory, pageSize = 1000) {
   const rows = [];
-  for (let from = 0; ; from += pageSize) {
+  for (let from = 0; ;) {
     const result = await queryFactory(from, from + pageSize - 1);
     if (result.error) throw new Error(result.error.message);
     const page = result.data || [];
+    if (!page.length) break;
     rows.push(...page);
-    if (page.length < pageSize) break;
+    from += page.length;
   }
   return rows;
+}
+
+function supportedDifficulties(category) {
+  return (category.playableDifficulties ?? ['easy', 'normal', 'expert'])
+    .filter((difficulty) => ['easy', 'normal', 'expert'].includes(difficulty));
 }
 
 function assertTop20(round) {
@@ -140,6 +139,10 @@ function recentCountryExposure(history, maxDays = 7) {
 }
 
 async function main() {
+  const url = process.env.SUPABASE_URL;
+  const key = process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!url || !key) throw new Error('SUPABASE_URL and a Supabase service-role key are required for the production reachability audit.');
+  const supabase = createClient(url, key, { auth: { persistSession: false, autoRefreshToken: false } });
   const output = fs.mkdtempSync(path.join(os.tmpdir(), 'geostats-v16-2-7-reachability-'));
   compileTree(path.join(root, 'lib'), path.join(output, 'lib'));
   // The audit supplies a real loaded catalog explicitly. Stub only the cached
@@ -259,7 +262,9 @@ async function main() {
     const dataset = reachabilityTargets[index];
     const warehouseCategoryId = warehouseIdByGameplayId.get(dataset.category.id);
     if (!warehouseCategoryId) throw new Error(`No warehouse identity for reachability proof ${dataset.category.id}`);
-    for (const difficulty of difficulties) {
+    const categoryDifficulties = supportedDifficulties(dataset.category);
+    if (!categoryDifficulties.length) throw new Error(`No approved modes for ${dataset.category.id}`);
+    for (const difficulty of categoryDifficulties) {
       try {
         const generated = generateAnchoredRoundFromLoadedCatalog(
           countries,
@@ -329,7 +334,7 @@ async function main() {
       console.error(JSON.stringify({ forcedReachabilityFailures: failures }, null, 2));
       process.exitCode = 1;
     } else {
-      console.log('Every playable category passed forced reachability in all three difficulty modes.');
+      console.log('Every playable category passed forced reachability in all of its approved difficulty modes.');
     }
     return;
   }
@@ -479,7 +484,7 @@ async function main() {
     playable: datasets.length,
     checks: reachabilityRows.length,
     failures: failures.length,
-    allModesProven: failures.length === 0,
+    allApprovedModesProven: failures.length === 0,
     anchorSamplesPerDifficulty: ANCHOR_SAMPLES,
     distinctAnchorsObserved: anchorCounts.size,
     missingAnchors: missingAnchors.length,
@@ -506,13 +511,14 @@ async function main() {
     return;
   }
   if (ASSERT_RELEASE) {
-    const result = await supabase.rpc('assert_v16_2_7_release');
-    if (result.error) throw new Error(`v16.2.7 release assertion failed: ${result.error.message}`);
-    console.log('v16.2.7 release assertion:', JSON.stringify(result.data));
+    const result = await supabase.rpc('assert_v16_3_4_runtime_catalog');
+    if (result.error) throw new Error(`v16.3.4 release assertion failed: ${result.error.message}`);
+    console.log('v16.3.4 release assertion:', JSON.stringify(result.data));
   }
 }
 
-main().catch((error) => {
+module.exports = { fetchAll, supportedDifficulties };
+if (require.main === module) main().catch((error) => {
   console.error(error instanceof Error ? error.stack || error.message : error);
   process.exit(1);
 });

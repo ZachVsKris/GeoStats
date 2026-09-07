@@ -41,9 +41,27 @@
     "short_title": "Most coastline per km² on Natural Earth's map",
     "title": "Most coastline per km² on Natural Earth's map"
   },
+  "natural-earth:landlocked-fewest-neighbors": {
+    "measurement_type": "total",
+    "plain_language_description": "Number of countries sharing a land border, within the complete defined set of landlocked countries in Natural Earth's fixed map.",
+    "short_title": "Fewest land-border neighbors among landlocked countries",
+    "title": "Fewest land-border neighbors among landlocked countries",
+    "value_type": "total"
+  },
   "natural-earth:landlocked-most-neighbors": {
     "measurement_type": "total",
     "value_type": "total"
+  },
+  "natural-earth:largest-arctic-land-area": {
+    "measurement_type": "total",
+    "metadata": {
+      "playableDifficulties": [
+        "easy"
+      ]
+    },
+    "plain_language_description": "Land north of the Arctic Circle, calculated from Natural Earth's fixed-scale country geometries.",
+    "short_title": "Largest Arctic land area",
+    "title": "Largest Arctic land area"
   },
   "natural-earth:longest-coastline": {
     "plain_language_description": "Coastline length measured from the fixed Natural Earth 1:10m map. Results depend on map resolution; this is not a definitive coastline length.",
@@ -87,6 +105,21 @@
     "title": "Highest % using safely managed sanitation"
   },
   "sports:fifa-world-cup-first-appearance": {},
+  "undp-hdr:education-inequality": {
+    "plain_language_description": "UNDP's Atkinson measure of inequality in years of schooling. Higher percentages mean a less equal distribution.",
+    "short_title": "Highest inequality in schooling (%)",
+    "title": "Highest inequality in schooling (%)"
+  },
+  "undp-hdr:income-inequality": {
+    "plain_language_description": "UNDP's Atkinson measure of income inequality. Higher percentages mean a less equal distribution.",
+    "short_title": "Highest income inequality (Atkinson %)",
+    "title": "Highest income inequality (Atkinson %)"
+  },
+  "undp-hdr:life-expectancy-inequality": {
+    "plain_language_description": "UNDP's Atkinson measure of inequality in length of life. Higher percentages mean a less equal distribution.",
+    "short_title": "Highest inequality in length of life (%)",
+    "title": "Highest inequality in length of life (%)"
+  },
   "unsdg:five-g-coverage": {
     "plain_language_description": "Population living within reach of a fifth-generation mobile network, whether or not they subscribe.",
     "short_title": "Highest % of people covered by 5G",
@@ -106,6 +139,11 @@
     "plain_language_description": "Population living within reach of a third-generation mobile network, whether or not they subscribe.",
     "short_title": "Highest % of people covered by 3G",
     "title": "Highest % of people covered by 3G"
+  },
+  "unwpp:fastest-pop-decline": {
+    "plain_language_description": "Annual population change as a percentage. The most negative rate wins; this measures decline relative to population size, not the number of people lost.",
+    "short_title": "Lowest annual population growth rate",
+    "title": "Lowest annual population growth rate"
   },
   "unwpp:highest-natural-change-rate": {
     "measurement_type": "rate",
@@ -134,6 +172,11 @@
     "short_title": "Highest outward foreign investment as % of GDP",
     "title": "Highest outward foreign investment as % of GDP"
   },
+  "worldbank-catalog:bn-cab-xoka-gd-zs": {
+    "plain_language_description": "Net cross-border trade, earned income and transfers relative to the economy's size. Positive means a surplus; negative means a deficit. This is broader than an export/import trade balance.",
+    "short_title": "Largest current-account surplus as % of GDP",
+    "title": "Largest current-account surplus as % of GDP"
+  },
   "worldbank-catalog:bx-klt-dinv-wd-gd-zs": {
     "plain_language_description": "Net foreign direct investment entering the country, as a percentage of GDP.",
     "short_title": "Highest inward foreign investment as % of GDP",
@@ -143,6 +186,11 @@
     "plain_language_description": "Total debt owed to nonresidents, as a percentage of gross national income (GNI).",
     "short_title": "Highest external debt as % of national income",
     "title": "Highest external debt as % of national income"
+  },
+  "worldbank-catalog:dt-dod-dstc-ir-zs": {
+    "plain_language_description": "External debt due within one year, plus overdue interest on long-term debt, relative to total reserves including gold.",
+    "short_title": "Highest short-term foreign debt as % of reserves",
+    "title": "Highest short-term foreign debt as % of reserves"
   },
   "worldbank-catalog:dt-dod-dstc-xp-zs": {
     "plain_language_description": "External debt due within one year, relative to exports of goods, services and primary income.",
@@ -158,6 +206,11 @@
     "plain_language_description": "Present value of external debt, as a percentage of gross national income (GNI).",
     "short_title": "Highest discounted foreign debt as % of national income",
     "title": "Highest discounted foreign debt as % of national income"
+  },
+  "worldbank-catalog:dt-nfl-mida-cd": {
+    "plain_language_description": "International Development Association loan disbursements minus principal repayments, in current US dollars.",
+    "short_title": "Most net IDA development lending received",
+    "title": "Most net IDA development lending received"
   },
   "worldbank-catalog:dt-oda-odat-gi-zs": {
     "plain_language_description": "Net official development assistance received, relative to gross capital formation.",
@@ -184,10 +237,25 @@
     "short_title": "Highest foreign-debt payments as % of national income",
     "title": "Highest foreign-debt payments as % of national income"
   },
+  "worldbank-catalog:dt-tds-dppf-xp-zs": {
+    "plain_language_description": "Payments on long-term public and publicly guaranteed debt plus IMF repayments, relative to exports of goods and services.",
+    "short_title": "Highest public and IMF debt payments as % of exports",
+    "title": "Highest public and IMF debt payments as % of exports"
+  },
   "worldbank-catalog:dt-tds-dppg-gn-zs": {
     "plain_language_description": "Payments on public and publicly guaranteed external debt, relative to gross national income (GNI).",
     "short_title": "Highest public foreign-debt payments as % of national income",
     "title": "Highest public foreign-debt payments as % of national income"
+  },
+  "worldbank-catalog:dt-tds-dppg-xp-zs": {
+    "plain_language_description": "Payments on long-term public and publicly guaranteed external debt, relative to exports of goods, services and primary income.",
+    "short_title": "Highest public foreign-debt payments as % of export income",
+    "title": "Highest public foreign-debt payments as % of export income"
+  },
+  "worldbank-catalog:dt-tds-mlat-pg-zs": {
+    "plain_language_description": "Share of public and publicly guaranteed external debt-service payments made to institutions such as the World Bank and regional development banks. Measures the creditor mix, not debt size.",
+    "short_title": "Highest share of public foreign-debt payments to multilateral lenders",
+    "title": "Highest share of public foreign-debt payments to multilateral lenders"
   },
   "worldbank-catalog:eg-cft-accs-ru-zs": {
     "plain_language_description": "Rural population primarily using clean fuels and technologies for cooking.",
@@ -214,6 +282,11 @@
     "short_title": "Highest % of urban residents with electricity access",
     "title": "Highest % of urban residents with electricity access"
   },
+  "worldbank-catalog:eg-imp-cons-zs": {
+    "plain_language_description": "Energy imports minus exports, relative to primary energy use. Negative values identify net exporters.",
+    "short_title": "Highest net energy imports as % of energy use",
+    "title": "Highest net energy imports as % of energy use"
+  },
   "worldbank-catalog:er-h2o-fwtl-zs": {
     "plain_language_description": "Annual freshwater withdrawals relative to renewable internal freshwater resources; values can exceed 100%.",
     "short_title": "Highest freshwater withdrawals as % of internal resources",
@@ -239,6 +312,11 @@
     "short_title": "Highest bank liquid reserves as % of assets",
     "title": "Highest bank liquid reserves as % of assets"
   },
+  "worldbank-catalog:fi-res-totl-dt-zs": {
+    "plain_language_description": "Official reserve assets, including monetary gold, relative to total external debt.",
+    "short_title": "Highest reserves as % of foreign debt",
+    "title": "Highest reserves as % of foreign debt"
+  },
   "worldbank-catalog:fm-ast-cgov-zg-m3": {
     "plain_language_description": "Annual percentage growth in net claims on central government relative to broad money.",
     "short_title": "Fastest growth rate in government credit relative to broad money",
@@ -258,6 +336,11 @@
     "plain_language_description": "Annual percentage growth in claims on the private sector relative to broad money.",
     "short_title": "Fastest growth rate in private credit relative to broad money",
     "title": "Fastest growth rate in private credit relative to broad money"
+  },
+  "worldbank-catalog:fm-lbl-bmny-gd-zs": {
+    "plain_language_description": "Currency and liquid or readily convertible financial instruments held in the economy, relative to GDP.",
+    "short_title": "Highest broad money as % of GDP",
+    "title": "Highest broad money as % of GDP"
   },
   "worldbank-catalog:fm-lbl-bmny-zg": {
     "plain_language_description": "Annual percentage growth in broad money: currency and liquid or readily convertible financial instruments.",
@@ -284,6 +367,16 @@
     "short_title": "Highest government asset investment as % of GDP",
     "title": "Highest government asset investment as % of GDP"
   },
+  "worldbank-catalog:gc-nld-totl-gd-zs": {
+    "plain_language_description": "Government net lending or borrowing after revenue, expense and net nonfinancial investment. Positive values indicate a surplus.",
+    "short_title": "Highest government budget balance as % of GDP",
+    "title": "Highest government budget balance as % of GDP"
+  },
+  "worldbank-catalog:gc-rev-gotr-zs": {
+    "plain_language_description": "Government grants and non-tax receipts, excluding social contributions, relative to total government revenue.",
+    "short_title": "Highest grants and other receipts as % of government revenue",
+    "title": "Highest grants and other receipts as % of government revenue"
+  },
   "worldbank-catalog:gc-rev-xgrt-gd-zs": {
     "plain_language_description": "Government revenue other than grants, relative to GDP.",
     "short_title": "Highest government revenue excluding grants as % of GDP",
@@ -293,6 +386,16 @@
     "plain_language_description": "Government taxes on goods and services, relative to total government revenue.",
     "short_title": "Highest goods-and-services taxes as % of government revenue",
     "title": "Highest goods-and-services taxes as % of government revenue"
+  },
+  "worldbank-catalog:gc-tax-gsrv-va-zs": {
+    "plain_language_description": "Taxes on goods and services, relative to value added in industry and services.",
+    "short_title": "Highest consumption taxes as % of industry and services output",
+    "title": "Highest consumption taxes as % of industry and services output"
+  },
+  "worldbank-catalog:gc-tax-othr-rv-zs": {
+    "plain_language_description": "Payroll, property and other taxes outside the source's main tax categories, relative to total government revenue.",
+    "short_title": "Highest miscellaneous taxes as % of government revenue",
+    "title": "Highest miscellaneous taxes as % of government revenue"
   },
   "worldbank-catalog:gc-tax-ypkg-rv-zs": {
     "plain_language_description": "Taxes on income, profits and capital gains, relative to total government revenue.",
@@ -304,10 +407,40 @@
     "short_title": "Highest income and profit taxes as % of all taxes",
     "title": "Highest income and profit taxes as % of all taxes"
   },
+  "worldbank-catalog:gc-xpn-comp-zs": {
+    "plain_language_description": "Compensation of government employees, relative to total government expense.",
+    "short_title": "Highest government payroll as % of expenses",
+    "title": "Highest government payroll as % of expenses"
+  },
+  "worldbank-catalog:gc-xpn-gsrv-zs": {
+    "plain_language_description": "Government purchases of goods and services used in production, excluding own-account capital formation, relative to total expense.",
+    "short_title": "Highest government purchases as % of expenses",
+    "title": "Highest government purchases as % of expenses"
+  },
   "worldbank-catalog:gc-xpn-intp-rv-zs": {
     "plain_language_description": "Government interest payments on debt, relative to total government revenue.",
     "short_title": "Highest debt interest as % of government revenue",
     "title": "Highest debt interest as % of government revenue"
+  },
+  "worldbank-catalog:gc-xpn-intp-zs": {
+    "plain_language_description": "Interest paid on government debt, relative to total government expense.",
+    "short_title": "Highest debt interest as % of government expenses",
+    "title": "Highest debt interest as % of government expenses"
+  },
+  "worldbank-catalog:gc-xpn-othr-zs": {
+    "plain_language_description": "Government spending on rent, dividends and other miscellaneous expense, relative to total expense.",
+    "short_title": "Highest miscellaneous government spending as % of expenses",
+    "title": "Highest miscellaneous government spending as % of expenses"
+  },
+  "worldbank-catalog:gc-xpn-totl-gd-zs": {
+    "plain_language_description": "Government expense, which reduces net worth and excludes net investment in nonfinancial assets, relative to GDP.",
+    "short_title": "Highest government expenses as % of GDP",
+    "title": "Highest government expenses as % of GDP"
+  },
+  "worldbank-catalog:gc-xpn-trft-zs": {
+    "plain_language_description": "Government subsidies and other transfers, relative to total government expense.",
+    "short_title": "Highest subsidies and transfers as % of government expenses",
+    "title": "Highest subsidies and transfers as % of government expenses"
   },
   "worldbank-catalog:it-net-secr-p6": {
     "measurement_type": "per_capita",
@@ -316,112 +449,5 @@
     "title": "Most secure Internet servers per million people",
     "unit": "per 1 million people",
     "value_type": "per_capita"
-  },
-  "worldbank-catalog:dt-dod-dstc-ir-zs": {
-    "title": "Highest short-term foreign debt as % of reserves",
-    "short_title": "Highest short-term foreign debt as % of reserves",
-    "plain_language_description": "External debt due within one year, plus overdue interest on long-term debt, relative to total reserves including gold."
-  },
-  "worldbank-catalog:dt-nfl-mida-cd": {
-    "title": "Most net IDA development lending received",
-    "short_title": "Most net IDA development lending received",
-    "plain_language_description": "International Development Association loan disbursements minus principal repayments, in current US dollars."
-  },
-  "worldbank-catalog:dt-tds-dppf-xp-zs": {
-    "title": "Highest public and IMF debt payments as % of exports",
-    "short_title": "Highest public and IMF debt payments as % of exports",
-    "plain_language_description": "Payments on long-term public and publicly guaranteed debt plus IMF repayments, relative to exports of goods and services."
-  },
-  "worldbank-catalog:dt-tds-dppg-xp-zs": {
-    "title": "Highest public foreign-debt payments as % of export income",
-    "short_title": "Highest public foreign-debt payments as % of export income",
-    "plain_language_description": "Payments on long-term public and publicly guaranteed external debt, relative to exports of goods, services and primary income."
-  },
-  "worldbank-catalog:eg-imp-cons-zs": {
-    "title": "Highest net energy imports as % of energy use",
-    "short_title": "Highest net energy imports as % of energy use",
-    "plain_language_description": "Energy imports minus exports, relative to primary energy use. Negative values identify net exporters."
-  },
-  "worldbank-catalog:fi-res-totl-dt-zs": {
-    "title": "Highest reserves as % of foreign debt",
-    "short_title": "Highest reserves as % of foreign debt",
-    "plain_language_description": "Official reserve assets, including monetary gold, relative to total external debt."
-  },
-  "worldbank-catalog:fm-lbl-bmny-gd-zs": {
-    "title": "Highest broad money as % of GDP",
-    "short_title": "Highest broad money as % of GDP",
-    "plain_language_description": "Currency and liquid or readily convertible financial instruments held in the economy, relative to GDP."
-  },
-  "worldbank-catalog:gc-nld-totl-gd-zs": {
-    "title": "Highest government budget balance as % of GDP",
-    "short_title": "Highest government budget balance as % of GDP",
-    "plain_language_description": "Government net lending or borrowing after revenue, expense and net nonfinancial investment. Positive values indicate a surplus."
-  },
-  "worldbank-catalog:gc-rev-gotr-zs": {
-    "title": "Highest grants and other receipts as % of government revenue",
-    "short_title": "Highest grants and other receipts as % of government revenue",
-    "plain_language_description": "Government grants and non-tax receipts, excluding social contributions, relative to total government revenue."
-  },
-  "worldbank-catalog:gc-tax-gsrv-va-zs": {
-    "title": "Highest consumption taxes as % of industry and services output",
-    "short_title": "Highest consumption taxes as % of industry and services output",
-    "plain_language_description": "Taxes on goods and services, relative to value added in industry and services."
-  },
-  "worldbank-catalog:gc-tax-othr-rv-zs": {
-    "title": "Highest miscellaneous taxes as % of government revenue",
-    "short_title": "Highest miscellaneous taxes as % of government revenue",
-    "plain_language_description": "Payroll, property and other taxes outside the source's main tax categories, relative to total government revenue."
-  },
-  "worldbank-catalog:gc-xpn-comp-zs": {
-    "title": "Highest government payroll as % of expenses",
-    "short_title": "Highest government payroll as % of expenses",
-    "plain_language_description": "Compensation of government employees, relative to total government expense."
-  },
-  "worldbank-catalog:gc-xpn-gsrv-zs": {
-    "title": "Highest government purchases as % of expenses",
-    "short_title": "Highest government purchases as % of expenses",
-    "plain_language_description": "Government purchases of goods and services used in production, excluding own-account capital formation, relative to total expense."
-  },
-  "worldbank-catalog:gc-xpn-intp-zs": {
-    "title": "Highest debt interest as % of government expenses",
-    "short_title": "Highest debt interest as % of government expenses",
-    "plain_language_description": "Interest paid on government debt, relative to total government expense."
-  },
-  "worldbank-catalog:gc-xpn-othr-zs": {
-    "title": "Highest miscellaneous government spending as % of expenses",
-    "short_title": "Highest miscellaneous government spending as % of expenses",
-    "plain_language_description": "Government spending on rent, dividends and other miscellaneous expense, relative to total expense."
-  },
-  "worldbank-catalog:gc-xpn-totl-gd-zs": {
-    "title": "Highest government expenses as % of GDP",
-    "short_title": "Highest government expenses as % of GDP",
-    "plain_language_description": "Government expense, which reduces net worth and excludes net investment in nonfinancial assets, relative to GDP."
-  },
-  "worldbank-catalog:gc-xpn-trft-zs": {
-    "title": "Highest subsidies and transfers as % of government expenses",
-    "short_title": "Highest subsidies and transfers as % of government expenses",
-    "plain_language_description": "Government subsidies and other transfers, relative to total government expense."
-  },
-  "undp-hdr:education-inequality": {
-    "title": "Highest inequality in schooling (%)",
-    "short_title": "Highest inequality in schooling (%)",
-    "plain_language_description": "UNDP's Atkinson measure of inequality in years of schooling. Higher percentages mean a less equal distribution."
-  },
-  "undp-hdr:income-inequality": {
-    "title": "Highest income inequality (Atkinson %)",
-    "short_title": "Highest income inequality (Atkinson %)",
-    "plain_language_description": "UNDP's Atkinson measure of income inequality. Higher percentages mean a less equal distribution."
-  },
-  "undp-hdr:life-expectancy-inequality": {
-    "title": "Highest inequality in length of life (%)",
-    "short_title": "Highest inequality in length of life (%)",
-    "plain_language_description": "UNDP's Atkinson measure of inequality in length of life. Higher percentages mean a less equal distribution."
-  },
-  "natural-earth:largest-arctic-land-area": {
-    "title": "Largest Arctic land area",
-    "short_title": "Largest Arctic land area",
-    "plain_language_description": "Land north of the Arctic Circle, calculated from Natural Earth's fixed-scale country geometries.",
-    "measurement_type": "total",
-    "metadata": { "playableDifficulties": ["easy"] }
   }
 }

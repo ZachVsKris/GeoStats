@@ -92,7 +92,14 @@ async function main() {
   assert.equal(datasetHasEnoughDisplayedVariety({ ...scoped, category: { ...scoped.category, playableDifficulties: [] } }, ROUND_CONFIGS.easy), false, 'Empty mode scope fails closed');
   assert.equal(datasetHasEnoughDisplayedVariety({ ...tied, category: { ...tied.category, rankingCompletenessStatus: 'non_comprehensive' } }, ROUND_CONFIGS.easy), false, 'Removing tie gates must not waive coverage');
   assert.equal(assessCategorySetCountryBank([], [], ROUND_CONFIGS.easy, 'invalid'), 'infeasible');
-  console.log('Catalog recovery behavior checks passed: real metadata, safe redirects, provider failures, complete paging.');
+  const { fetchAll: fetchAuditPages, supportedDifficulties } = require('./audit-v16-2-7-reachability.cjs');
+  assert.deepEqual(supportedDifficulties({}), ['easy', 'normal', 'expert']);
+  assert.deepEqual(supportedDifficulties({ playableDifficulties: ['easy'] }), ['easy']);
+  assert.deepEqual(supportedDifficulties({ playableDifficulties: [] }), []);
+  const auditRows = Array.from({ length: 407 }, (_, id) => ({ id }));
+  assert.deepEqual(await fetchAuditPages(async (from, to) => ({ data: auditRows.slice(from, Math.min(to + 1, from + 200)), error: null })), auditRows, 'Audit paging must not silently truncate at a lower server row cap');
+  await assert.rejects(fetchAuditPages(async () => ({ data: null, error: { message: 'unavailable' } })), /unavailable/);
+  console.log('Catalog recovery behavior checks passed: real metadata, safe redirects, provider failures, complete paging, mode-aware maintenance audit.');
 }
 module.exports = { load };
 if (require.main === module) main().catch(error => { console.error(error); process.exitCode = 1; });

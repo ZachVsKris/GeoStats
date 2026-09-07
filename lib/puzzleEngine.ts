@@ -297,6 +297,7 @@ export async function loadPuzzleCatalogSnapshot(): Promise<LoadedPuzzleCatalog> 
 export function datasetHasEnoughDisplayedVariety(dataset: RoundCategory, config: RoundConfig) {
   const quality = scoreCategoryQuality(dataset);
   const category = dataset.category;
+  if (category.playableDifficulties && !category.playableDifficulties.includes(config.difficulty)) return false;
   if (category.rankingCompletenessStatus === "non_comprehensive") return false;
   // A board needs one Top-20 winner, not an entire bank drawn from the Top 20.
   // Ties elsewhere in the global ranking do not invalidate a tie-free bank.

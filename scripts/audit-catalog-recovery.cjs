@@ -41,7 +41,7 @@ for (const row of rows) {
   if (maximum && row.id.startsWith('unwpp:highest-')) candidate = { ...candidate, measurement_type: 'rate' };
   if (maximumOverrides[row.id]) {
     candidate = { ...candidate, ...maximumOverrides[row.id] };
-    candidate.metadata = { ...candidate.metadata, boardDescription: candidate.plain_language_description };
+    candidate.metadata = { ...row.metadata, ...maximumOverrides[row.id].metadata, boardDescription: candidate.plain_language_description };
   }
   // Candidate construction is deliberately not a claim of database approval.
   const category = buildCategoryCatalog([candidate], { playableOnly: !maximum && !proposal })[0];
@@ -49,6 +49,8 @@ for (const row of rows) {
   const values = observations[row.id];
   if (!values || values.length !== row.common_year_coverage) throw new Error(`Incomplete snapshot for ${row.id}`);
   const dataset = canonicalizeDataset({ category, year: String(row.common_year), observations: values.map(([countryId,value]) => ({ countryId, countryName: countries.find(c => c.id === countryId)?.name || countryId, value: Number(value), year: String(row.common_year) })) });
+  if (dataset.ranked.length !== values.length) throw new Error(`Runtime silently filtered source observations for ${row.id}`);
+  if (warehouseById.has(category.id)) throw new Error(`Duplicate runtime ID ${category.id}`);
   datasets.push(dataset); warehouseById.set(category.id,row.id); byId.set(row.id,candidate);
 }
 const loaded = { datasets, catalogSize: datasets.length, datasetLoadFailures: 0, datasetLoadErrorSamples: [], qualityRejections: 0, candidateSources: {} };

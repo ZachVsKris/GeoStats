@@ -82,6 +82,14 @@ async function main() {
   const sevenValues = canonicalizeDataset({ ...tied, observations: tied.observations.slice(0, 26) });
   assert.equal(datasetHasEnoughDisplayedVariety(sevenValues, ROUND_CONFIGS.expert), false, 'Eight countries still require eight displayed values');
   assert.ok(datasetHasEnoughDisplayedVariety(sevenValues, ROUND_CONFIGS.easy), 'A smaller mode is assessed on its own bank size');
+  const scoped = { ...tied, category: { ...tied.category, playableDifficulties: ['easy'] } };
+  assert.ok(datasetHasEnoughDisplayedVariety(scoped, ROUND_CONFIGS.easy));
+  assert.equal(datasetHasEnoughDisplayedVariety(scoped, ROUND_CONFIGS.normal), false, 'A successful Scout proof does not authorize Adventurer');
+  const { validateRound } = load('lib/dataEngine.ts');
+  const { STATIC_COUNTRIES } = load('lib/staticCountries.ts');
+  const wrongScope = { ...scoped, category: { ...scoped.category, playableDifficulties: ['normal'] } };
+  assert.ok(validateRound(Array(4).fill(wrongScope), STATIC_COUNTRIES.slice(0,4)).some(error => error.includes('not approved for Scout')));
+  assert.equal(datasetHasEnoughDisplayedVariety({ ...scoped, category: { ...scoped.category, playableDifficulties: [] } }, ROUND_CONFIGS.easy), false, 'Empty mode scope fails closed');
   assert.equal(datasetHasEnoughDisplayedVariety({ ...tied, category: { ...tied.category, rankingCompletenessStatus: 'non_comprehensive' } }, ROUND_CONFIGS.easy), false, 'Removing tie gates must not waive coverage');
   assert.equal(assessCategorySetCountryBank([], [], ROUND_CONFIGS.easy, 'invalid'), 'infeasible');
   console.log('Catalog recovery behavior checks passed: real metadata, safe redirects, provider failures, complete paging.');

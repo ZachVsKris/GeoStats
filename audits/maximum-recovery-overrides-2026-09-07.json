@@ -1,320 +1,427 @@
 {
-  "sports:fifa-world-cup-first-appearance": {},
+  "airFreight": {
+    "measurement_type": "total",
+    "plain_language_description": "Freight carried by air, weighted by distance flown, in millions of tonne-kilometers.",
+    "short_title": "Most air freight by weight and distance",
+    "title": "Most air freight by weight and distance",
+    "unit": "million ton-km",
+    "value_type": "total"
+  },
+  "comtrade:most-coal-exported": {},
+  "comtrade:most-crude-oil-exported": {},
+  "comtrade:most-electricity-exported": {},
+  "electricityAccess": {
+    "plain_language_description": "Population with access to electricity.",
+    "short_title": "Highest % of people with electricity access",
+    "title": "Highest % of people with electricity access"
+  },
+  "gdpGrowth": {
+    "plain_language_description": "Annual percentage growth in inflation-adjusted gross domestic product.",
+    "short_title": "Fastest economic growth rate",
+    "title": "Fastest economic growth rate"
+  },
+  "global-findex:account-ownership": {
+    "plain_language_description": "Adults aged 15+ with an account at a financial institution or a mobile-money provider, in the 2024 survey.",
+    "short_title": "Highest % of adults with a financial account",
+    "title": "Highest % of adults with a financial account"
+  },
+  "history:worldbank-electricity-half": {},
+  "history:worldbank-internet-half": {},
+  "history:worldbank-under-five-mortality-below-50": {},
+  "life": {
+    "measurement_type": "value",
+    "plain_language_description": "Expected years of life at birth if current age-specific mortality rates continue.",
+    "short_title": "Highest life expectancy",
+    "title": "Highest life expectancy",
+    "unit": "years",
+    "value_type": "rate"
+  },
   "natural-earth:highest-coastline-density": {
-    "title": "Most coastline per km² on Natural Earth's map",
+    "plain_language_description": "Coastline length divided by land area, using the same fixed Natural Earth 1:10m map. Results depend on map resolution.",
     "short_title": "Most coastline per km² on Natural Earth's map",
-    "plain_language_description": "Coastline length divided by land area, using the same fixed Natural Earth 1:10m map. Results depend on map resolution."
+    "title": "Most coastline per km² on Natural Earth's map"
   },
   "natural-earth:landlocked-most-neighbors": {
     "measurement_type": "total",
     "value_type": "total"
   },
   "natural-earth:longest-coastline": {
-    "title": "Longest coastline on Natural Earth's map",
+    "plain_language_description": "Coastline length measured from the fixed Natural Earth 1:10m map. Results depend on map resolution; this is not a definitive coastline length.",
     "short_title": "Longest coastline on Natural Earth's map",
-    "plain_language_description": "Coastline length measured from the fixed Natural Earth 1:10m map. Results depend on map resolution; this is not a definitive coastline length."
+    "title": "Longest coastline on Natural Earth's map"
   },
   "natural-earth:most-land-neighbors": {
     "measurement_type": "total",
     "value_type": "total"
   },
   "natural-earth:most-mapped-lakes": {
-    "title": "Most lakes and reservoirs in Natural Earth's atlas",
-    "short_title": "Most lakes and reservoirs in Natural Earth's atlas",
-    "plain_language_description": "Count of lake and reservoir features covering at least 1 km² inside the country in Natural Earth 1:10m v5.0.0. This is a map inventory, not a census of every lake.",
     "measurement_type": "total",
+    "plain_language_description": "Count of lake and reservoir features covering at least 1 km² inside the country in Natural Earth 1:10m v5.0.0. This is a map inventory, not a census of every lake.",
+    "short_title": "Most lakes and reservoirs in Natural Earth's atlas",
+    "title": "Most lakes and reservoirs in Natural Earth's atlas",
     "value_type": "total"
   },
   "natural-earth:most-mapped-rivers": {
-    "title": "Most river features in Natural Earth's atlas",
-    "short_title": "Most river features in Natural Earth's atlas",
-    "plain_language_description": "Count of river features extending at least 1 km inside the country in Natural Earth 1:10m v5.0.0. Separate features may belong to the same river.",
     "measurement_type": "total",
+    "plain_language_description": "Count of river features extending at least 1 km inside the country in Natural Earth 1:10m v5.0.0. Separate features may belong to the same river.",
+    "short_title": "Most river features in Natural Earth's atlas",
+    "title": "Most river features in Natural Earth's atlas",
     "value_type": "total"
   },
-  "comtrade:most-coal-exported": {},
-  "comtrade:most-crude-oil-exported": {},
-  "comtrade:most-electricity-exported": {},
-  "unwpp:highest-natural-change-rate": {
-    "title": "Highest natural population increase rate",
-    "short_title": "Highest natural population increase rate",
-    "plain_language_description": "Annual births minus deaths per 1,000 people; negative values mean deaths exceed births.",
-    "measurement_type": "rate"
+  "populationGrowth": {
+    "plain_language_description": "Annual percentage growth in the total population.",
+    "short_title": "Fastest population growth rate",
+    "title": "Fastest population growth rate"
   },
-  "unwpp:highest-net-migration-rate": {
-    "title": "Highest net migration rate",
-    "short_title": "Highest net migration rate",
-    "plain_language_description": "Annual arrivals minus departures per 1,000 people; negative values mean more people leave than arrive.",
-    "measurement_type": "rate"
+  "rain": {
+    "measurement_type": "rate",
+    "plain_language_description": "Long-term average precipitation depth, including rain and snow, in millimeters per year.",
+    "short_title": "Highest average annual precipitation",
+    "title": "Highest average annual precipitation",
+    "unit": "mm per year",
+    "value_type": "rate"
   },
-  "unsdg:three-g-coverage": {
-    "title": "Highest % of people covered by 3G",
-    "short_title": "Highest % of people covered by 3G",
-    "plain_language_description": "Population living within reach of a third-generation mobile network, whether or not they subscribe."
+  "sanitation": {
+    "plain_language_description": "People using improved, unshared sanitation with waste safely disposed of or treated.",
+    "short_title": "Highest % using safely managed sanitation",
+    "title": "Highest % using safely managed sanitation"
+  },
+  "sports:fifa-world-cup-first-appearance": {},
+  "unsdg:five-g-coverage": {
+    "plain_language_description": "Population living within reach of a fifth-generation mobile network, whether or not they subscribe.",
+    "short_title": "Highest % of people covered by 5G",
+    "title": "Highest % of people covered by 5G"
   },
   "unsdg:four-g-coverage": {
-    "title": "Highest % of people covered by 4G",
+    "plain_language_description": "Population living within reach of a fourth-generation mobile network, whether or not they subscribe.",
     "short_title": "Highest % of people covered by 4G",
-    "plain_language_description": "Population living within reach of a fourth-generation mobile network, whether or not they subscribe."
-  },
-  "unsdg:five-g-coverage": {
-    "title": "Highest % of people covered by 5G",
-    "short_title": "Highest % of people covered by 5G",
-    "plain_language_description": "Population living within reach of a fifth-generation mobile network, whether or not they subscribe."
+    "title": "Highest % of people covered by 4G"
   },
   "unsdg:organized-learning": {
-    "title": "Highest pre-primary learning participation rate",
+    "plain_language_description": "Children one year below the official primary-entry age participating in organized learning.",
     "short_title": "Highest pre-primary learning participation rate",
-    "plain_language_description": "Children one year below the official primary-entry age participating in organized learning."
+    "title": "Highest pre-primary learning participation rate"
+  },
+  "unsdg:three-g-coverage": {
+    "plain_language_description": "Population living within reach of a third-generation mobile network, whether or not they subscribe.",
+    "short_title": "Highest % of people covered by 3G",
+    "title": "Highest % of people covered by 3G"
+  },
+  "unwpp:highest-natural-change-rate": {
+    "measurement_type": "rate",
+    "plain_language_description": "Annual births minus deaths per 1,000 people; negative values mean deaths exceed births.",
+    "short_title": "Highest natural population increase rate",
+    "title": "Highest natural population increase rate"
+  },
+  "unwpp:highest-net-migration-rate": {
+    "measurement_type": "rate",
+    "plain_language_description": "Annual arrivals minus departures per 1,000 people; negative values mean more people leave than arrive.",
+    "short_title": "Highest net migration rate",
+    "title": "Highest net migration rate"
   },
   "who:WHS4_117": {},
   "who:WHS8_110": {},
+  "worldbank-catalog:ag-con-fert-zs": {
+    "measurement_type": "rate",
+    "plain_language_description": "Kilograms of nitrogen, phosphate and potash nutrients used per hectare of arable land; excludes manure.",
+    "short_title": "Most fertilizer used per hectare of arable land",
+    "title": "Most fertilizer used per hectare of arable land",
+    "unit": "kg per hectare of arable land",
+    "value_type": "rate"
+  },
   "worldbank-catalog:bm-klt-dinv-wd-gd-zs": {
-    "title": "Highest outward foreign investment as % of GDP",
+    "plain_language_description": "Net direct investment abroad by residents, as a percentage of GDP.",
     "short_title": "Highest outward foreign investment as % of GDP",
-    "plain_language_description": "Net direct investment abroad by residents, as a percentage of GDP."
+    "title": "Highest outward foreign investment as % of GDP"
   },
   "worldbank-catalog:bx-klt-dinv-wd-gd-zs": {
-    "title": "Highest inward foreign investment as % of GDP",
+    "plain_language_description": "Net foreign direct investment entering the country, as a percentage of GDP.",
     "short_title": "Highest inward foreign investment as % of GDP",
-    "plain_language_description": "Net foreign direct investment entering the country, as a percentage of GDP."
+    "title": "Highest inward foreign investment as % of GDP"
   },
   "worldbank-catalog:dt-dod-dect-gn-zs": {
-    "title": "Highest external debt as % of national income",
+    "plain_language_description": "Total debt owed to nonresidents, as a percentage of gross national income (GNI).",
     "short_title": "Highest external debt as % of national income",
-    "plain_language_description": "Total debt owed to nonresidents, as a percentage of gross national income (GNI)."
+    "title": "Highest external debt as % of national income"
   },
   "worldbank-catalog:dt-dod-dstc-xp-zs": {
-    "title": "Highest short-term foreign debt as % of export income",
+    "plain_language_description": "External debt due within one year, relative to exports of goods, services and primary income.",
     "short_title": "Highest short-term foreign debt as % of export income",
-    "plain_language_description": "External debt due within one year, relative to exports of goods, services and primary income."
+    "title": "Highest short-term foreign debt as % of export income"
   },
   "worldbank-catalog:dt-dod-pvlx-ex-zs": {
-    "title": "Highest discounted foreign debt as % of export income",
+    "plain_language_description": "Present value of external debt, relative to exports of goods, services and primary income.",
     "short_title": "Highest discounted foreign debt as % of export income",
-    "plain_language_description": "Present value of external debt, relative to exports of goods, services and primary income."
+    "title": "Highest discounted foreign debt as % of export income"
   },
   "worldbank-catalog:dt-dod-pvlx-gn-zs": {
-    "title": "Highest discounted foreign debt as % of national income",
+    "plain_language_description": "Present value of external debt, as a percentage of gross national income (GNI).",
     "short_title": "Highest discounted foreign debt as % of national income",
-    "plain_language_description": "Present value of external debt, as a percentage of gross national income (GNI)."
+    "title": "Highest discounted foreign debt as % of national income"
   },
   "worldbank-catalog:dt-oda-odat-gi-zs": {
-    "title": "Highest development aid as % of capital investment",
+    "plain_language_description": "Net official development assistance received, relative to gross capital formation.",
     "short_title": "Highest development aid as % of capital investment",
-    "plain_language_description": "Net official development assistance received, relative to gross capital formation."
+    "title": "Highest development aid as % of capital investment"
   },
   "worldbank-catalog:dt-oda-odat-gn-zs": {
-    "title": "Highest development aid as % of national income",
+    "plain_language_description": "Net official development assistance received, relative to gross national income (GNI).",
     "short_title": "Highest development aid as % of national income",
-    "plain_language_description": "Net official development assistance received, relative to gross national income (GNI)."
+    "title": "Highest development aid as % of national income"
   },
   "worldbank-catalog:dt-oda-odat-mp-zs": {
-    "title": "Highest development aid as % of imports",
+    "plain_language_description": "Net official development assistance received, relative to imports of goods, services and primary income.",
     "short_title": "Highest development aid as % of imports",
-    "plain_language_description": "Net official development assistance received, relative to imports of goods, services and primary income."
+    "title": "Highest development aid as % of imports"
   },
   "worldbank-catalog:dt-tds-dect-ex-zs": {
-    "title": "Highest foreign-debt payments as % of export income",
+    "plain_language_description": "Principal and interest paid on external debt, relative to exports of goods, services and primary income.",
     "short_title": "Highest foreign-debt payments as % of export income",
-    "plain_language_description": "Principal and interest paid on external debt, relative to exports of goods, services and primary income."
+    "title": "Highest foreign-debt payments as % of export income"
   },
   "worldbank-catalog:dt-tds-dect-gn-zs": {
-    "title": "Highest foreign-debt payments as % of national income",
+    "plain_language_description": "Principal and interest paid on external debt, relative to gross national income (GNI).",
     "short_title": "Highest foreign-debt payments as % of national income",
-    "plain_language_description": "Principal and interest paid on external debt, relative to gross national income (GNI)."
+    "title": "Highest foreign-debt payments as % of national income"
   },
   "worldbank-catalog:dt-tds-dppg-gn-zs": {
-    "title": "Highest public foreign-debt payments as % of national income",
+    "plain_language_description": "Payments on public and publicly guaranteed external debt, relative to gross national income (GNI).",
     "short_title": "Highest public foreign-debt payments as % of national income",
-    "plain_language_description": "Payments on public and publicly guaranteed external debt, relative to gross national income (GNI)."
+    "title": "Highest public foreign-debt payments as % of national income"
   },
   "worldbank-catalog:eg-cft-accs-ru-zs": {
-    "title": "Highest % of rural residents using clean cooking fuels",
+    "plain_language_description": "Rural population primarily using clean fuels and technologies for cooking.",
     "short_title": "Highest % of rural residents using clean cooking fuels",
-    "plain_language_description": "Rural population primarily using clean fuels and technologies for cooking."
+    "title": "Highest % of rural residents using clean cooking fuels"
   },
   "worldbank-catalog:eg-cft-accs-ur-zs": {
-    "title": "Highest % of urban residents using clean cooking fuels",
+    "plain_language_description": "Urban population primarily using clean fuels and technologies for cooking.",
     "short_title": "Highest % of urban residents using clean cooking fuels",
-    "plain_language_description": "Urban population primarily using clean fuels and technologies for cooking."
+    "title": "Highest % of urban residents using clean cooking fuels"
   },
   "worldbank-catalog:eg-cft-accs-zs": {
-    "title": "Highest % of people using clean cooking fuels",
+    "plain_language_description": "Population primarily using clean fuels and technologies for cooking.",
     "short_title": "Highest % of people using clean cooking fuels",
-    "plain_language_description": "Population primarily using clean fuels and technologies for cooking."
+    "title": "Highest % of people using clean cooking fuels"
   },
   "worldbank-catalog:eg-elc-accs-ru-zs": {
-    "title": "Highest % of rural residents with electricity access",
+    "plain_language_description": "Rural population with access to electricity.",
     "short_title": "Highest % of rural residents with electricity access",
-    "plain_language_description": "Rural population with access to electricity."
+    "title": "Highest % of rural residents with electricity access"
   },
   "worldbank-catalog:eg-elc-accs-ur-zs": {
-    "title": "Highest % of urban residents with electricity access",
+    "plain_language_description": "Urban population with access to electricity.",
     "short_title": "Highest % of urban residents with electricity access",
-    "plain_language_description": "Urban population with access to electricity."
-  },
-  "electricityAccess": {
-    "title": "Highest % of people with electricity access",
-    "short_title": "Highest % of people with electricity access",
-    "plain_language_description": "Population with access to electricity."
+    "title": "Highest % of urban residents with electricity access"
   },
   "worldbank-catalog:er-h2o-fwtl-zs": {
-    "title": "Highest freshwater withdrawals as % of internal resources",
+    "plain_language_description": "Annual freshwater withdrawals relative to renewable internal freshwater resources; values can exceed 100%.",
     "short_title": "Highest freshwater withdrawals as % of internal resources",
-    "plain_language_description": "Annual freshwater withdrawals relative to renewable internal freshwater resources; values can exceed 100%."
+    "title": "Highest freshwater withdrawals as % of internal resources"
   },
   "worldbank-catalog:fb-ast-nper-zs": {
-    "title": "Highest % of bank loans that are nonperforming",
+    "plain_language_description": "Bank loans classified as nonperforming, as a percentage of total gross loans.",
     "short_title": "Highest % of bank loans that are nonperforming",
-    "plain_language_description": "Bank loans classified as nonperforming, as a percentage of total gross loans."
+    "title": "Highest % of bank loans that are nonperforming"
   },
   "worldbank-catalog:fb-bnk-capa-zs": {
-    "title": "Highest bank capital as % of assets",
+    "plain_language_description": "Bank capital relative to total bank assets, using the source's capital definition.",
     "short_title": "Highest bank capital as % of assets",
-    "plain_language_description": "Bank capital relative to total bank assets, using the source's capital definition."
+    "title": "Highest bank capital as % of assets"
   },
   "worldbank-catalog:fd-ast-prvt-gd-zs": {
-    "title": "Highest bank credit to the private sector as % of GDP",
+    "plain_language_description": "Credit supplied to the private sector by deposit-taking banks other than the central bank, relative to GDP.",
     "short_title": "Highest bank credit to the private sector as % of GDP",
-    "plain_language_description": "Credit supplied to the private sector by deposit-taking banks other than the central bank, relative to GDP."
+    "title": "Highest bank credit to the private sector as % of GDP"
   },
   "worldbank-catalog:fd-res-liqu-as-zs": {
-    "title": "Highest bank liquid reserves as % of assets",
+    "plain_language_description": "Banks' domestic currency holdings and deposits with monetary authorities, relative to bank assets.",
     "short_title": "Highest bank liquid reserves as % of assets",
-    "plain_language_description": "Banks' domestic currency holdings and deposits with monetary authorities, relative to bank assets."
-  },
-  "global-findex:account-ownership": {
-    "title": "Highest % of adults with a financial account",
-    "short_title": "Highest % of adults with a financial account",
-    "plain_language_description": "Adults aged 15+ with an account at a financial institution or a mobile-money provider, in the 2024 survey."
+    "title": "Highest bank liquid reserves as % of assets"
   },
   "worldbank-catalog:fm-ast-cgov-zg-m3": {
-    "title": "Fastest growth rate in government credit relative to broad money",
+    "plain_language_description": "Annual percentage growth in net claims on central government relative to broad money.",
     "short_title": "Fastest growth rate in government credit relative to broad money",
-    "plain_language_description": "Annual percentage growth in net claims on central government relative to broad money."
+    "title": "Fastest growth rate in government credit relative to broad money"
   },
   "worldbank-catalog:fm-ast-domo-zg-m3": {
-    "title": "Fastest growth rate in domestic credit relative to broad money",
+    "plain_language_description": "Annual percentage growth in claims on other domestic sectors relative to broad money.",
     "short_title": "Fastest growth rate in domestic credit relative to broad money",
-    "plain_language_description": "Annual percentage growth in claims on other domestic sectors relative to broad money."
+    "title": "Fastest growth rate in domestic credit relative to broad money"
   },
   "worldbank-catalog:fm-ast-prvt-gd-zs": {
-    "title": "Highest monetary-sector private credit as % of GDP",
+    "plain_language_description": "Private-sector credit from monetary-sector financial institutions, relative to GDP.",
     "short_title": "Highest monetary-sector private credit as % of GDP",
-    "plain_language_description": "Private-sector credit from monetary-sector financial institutions, relative to GDP."
+    "title": "Highest monetary-sector private credit as % of GDP"
   },
   "worldbank-catalog:fm-ast-prvt-zg-m3": {
-    "title": "Fastest growth rate in private credit relative to broad money",
+    "plain_language_description": "Annual percentage growth in claims on the private sector relative to broad money.",
     "short_title": "Fastest growth rate in private credit relative to broad money",
-    "plain_language_description": "Annual percentage growth in claims on the private sector relative to broad money."
+    "title": "Fastest growth rate in private credit relative to broad money"
   },
   "worldbank-catalog:fm-lbl-bmny-zg": {
-    "title": "Fastest broad-money growth rate",
+    "plain_language_description": "Annual percentage growth in broad money: currency and liquid or readily convertible financial instruments.",
     "short_title": "Fastest broad-money growth rate",
-    "plain_language_description": "Annual percentage growth in broad money: currency and liquid or readily convertible financial instruments."
+    "title": "Fastest broad-money growth rate"
   },
   "worldbank-catalog:fp-cpi-totl-zg": {
-    "title": "Highest inflation rate",
+    "plain_language_description": "Annual percentage change in consumer prices.",
     "short_title": "Highest inflation rate",
-    "plain_language_description": "Annual percentage change in consumer prices."
+    "title": "Highest inflation rate"
   },
   "worldbank-catalog:fs-ast-cgov-gd-zs": {
-    "title": "Highest net claims on government as % of GDP",
+    "plain_language_description": "Credit and other claims on central government, net of government deposits, relative to GDP.",
     "short_title": "Highest net claims on government as % of GDP",
-    "plain_language_description": "Credit and other claims on central government, net of government deposits, relative to GDP."
+    "title": "Highest net claims on government as % of GDP"
   },
   "worldbank-catalog:fs-ast-prvt-gd-zs": {
-    "title": "Highest financial-sector private credit as % of GDP",
+    "plain_language_description": "Credit supplied to the private sector by financial corporations, relative to GDP.",
     "short_title": "Highest financial-sector private credit as % of GDP",
-    "plain_language_description": "Credit supplied to the private sector by financial corporations, relative to GDP."
+    "title": "Highest financial-sector private credit as % of GDP"
   },
   "worldbank-catalog:gc-nfn-totl-gd-zs": {
-    "title": "Highest government asset investment as % of GDP",
+    "plain_language_description": "Net government investment in nonfinancial assets, including buildings, infrastructure and inventories, relative to GDP.",
     "short_title": "Highest government asset investment as % of GDP",
-    "plain_language_description": "Net government investment in nonfinancial assets, including buildings, infrastructure and inventories, relative to GDP."
+    "title": "Highest government asset investment as % of GDP"
   },
   "worldbank-catalog:gc-rev-xgrt-gd-zs": {
-    "title": "Highest government revenue excluding grants as % of GDP",
+    "plain_language_description": "Government revenue other than grants, relative to GDP.",
     "short_title": "Highest government revenue excluding grants as % of GDP",
-    "plain_language_description": "Government revenue other than grants, relative to GDP."
+    "title": "Highest government revenue excluding grants as % of GDP"
   },
   "worldbank-catalog:gc-tax-gsrv-rv-zs": {
-    "title": "Highest goods-and-services taxes as % of government revenue",
+    "plain_language_description": "Government taxes on goods and services, relative to total government revenue.",
     "short_title": "Highest goods-and-services taxes as % of government revenue",
-    "plain_language_description": "Government taxes on goods and services, relative to total government revenue."
+    "title": "Highest goods-and-services taxes as % of government revenue"
   },
   "worldbank-catalog:gc-tax-ypkg-rv-zs": {
-    "title": "Highest income and profit taxes as % of government revenue",
+    "plain_language_description": "Taxes on income, profits and capital gains, relative to total government revenue.",
     "short_title": "Highest income and profit taxes as % of government revenue",
-    "plain_language_description": "Taxes on income, profits and capital gains, relative to total government revenue."
+    "title": "Highest income and profit taxes as % of government revenue"
   },
   "worldbank-catalog:gc-tax-ypkg-zs": {
-    "title": "Highest income and profit taxes as % of all taxes",
+    "plain_language_description": "Taxes on income, profits and capital gains, relative to total tax revenue.",
     "short_title": "Highest income and profit taxes as % of all taxes",
-    "plain_language_description": "Taxes on income, profits and capital gains, relative to total tax revenue."
+    "title": "Highest income and profit taxes as % of all taxes"
   },
   "worldbank-catalog:gc-xpn-intp-rv-zs": {
-    "title": "Highest debt interest as % of government revenue",
+    "plain_language_description": "Government interest payments on debt, relative to total government revenue.",
     "short_title": "Highest debt interest as % of government revenue",
-    "plain_language_description": "Government interest payments on debt, relative to total government revenue."
-  },
-  "history:worldbank-electricity-half": {},
-  "history:worldbank-internet-half": {},
-  "history:worldbank-under-five-mortality-below-50": {},
-  "gdpGrowth": {
-    "title": "Fastest economic growth rate",
-    "short_title": "Fastest economic growth rate",
-    "plain_language_description": "Annual percentage growth in inflation-adjusted gross domestic product."
-  },
-  "sanitation": {
-    "title": "Highest % using safely managed sanitation",
-    "short_title": "Highest % using safely managed sanitation",
-    "plain_language_description": "People using improved, unshared sanitation with waste safely disposed of or treated."
-  },
-  "populationGrowth": {
-    "title": "Fastest population growth rate",
-    "short_title": "Fastest population growth rate",
-    "plain_language_description": "Annual percentage growth in the total population."
-  },
-  "life": {
-    "unit": "years",
-    "value_type": "rate",
-    "measurement_type": "value",
-    "title": "Highest life expectancy",
-    "short_title": "Highest life expectancy",
-    "plain_language_description": "Expected years of life at birth if current age-specific mortality rates continue."
-  },
-  "rain": {
-    "unit": "mm per year",
-    "value_type": "rate",
-    "measurement_type": "rate",
-    "title": "Highest average annual precipitation",
-    "short_title": "Highest average annual precipitation",
-    "plain_language_description": "Long-term average precipitation depth, including rain and snow, in millimeters per year."
-  },
-  "airFreight": {
-    "unit": "million ton-km",
-    "value_type": "total",
-    "measurement_type": "total",
-    "title": "Most air freight by weight and distance",
-    "short_title": "Most air freight by weight and distance",
-    "plain_language_description": "Freight carried by air, weighted by distance flown, in millions of tonne-kilometers."
-  },
-  "worldbank-catalog:ag-con-fert-zs": {
-    "unit": "kg per hectare of arable land",
-    "value_type": "rate",
-    "measurement_type": "rate",
-    "title": "Most fertilizer used per hectare of arable land",
-    "short_title": "Most fertilizer used per hectare of arable land",
-    "plain_language_description": "Kilograms of nitrogen, phosphate and potash nutrients used per hectare of arable land; excludes manure."
+    "title": "Highest debt interest as % of government revenue"
   },
   "worldbank-catalog:it-net-secr-p6": {
-    "unit": "per 1 million people",
-    "value_type": "per_capita",
     "measurement_type": "per_capita",
-    "title": "Most secure Internet servers per million people",
+    "plain_language_description": "Publicly trusted TLS/SSL certificates counted by hosting country, per million residents.",
     "short_title": "Most secure Internet servers per million people",
-    "plain_language_description": "Publicly trusted TLS/SSL certificates counted by hosting country, per million residents."
+    "title": "Most secure Internet servers per million people",
+    "unit": "per 1 million people",
+    "value_type": "per_capita"
+  },
+  "worldbank-catalog:dt-dod-dstc-ir-zs": {
+    "title": "Highest short-term foreign debt as % of reserves",
+    "short_title": "Highest short-term foreign debt as % of reserves",
+    "plain_language_description": "External debt due within one year, plus overdue interest on long-term debt, relative to total reserves including gold."
+  },
+  "worldbank-catalog:dt-nfl-mida-cd": {
+    "title": "Most net IDA development lending received",
+    "short_title": "Most net IDA development lending received",
+    "plain_language_description": "International Development Association loan disbursements minus principal repayments, in current US dollars."
+  },
+  "worldbank-catalog:dt-tds-dppf-xp-zs": {
+    "title": "Highest public and IMF debt payments as % of exports",
+    "short_title": "Highest public and IMF debt payments as % of exports",
+    "plain_language_description": "Payments on long-term public and publicly guaranteed debt plus IMF repayments, relative to exports of goods and services."
+  },
+  "worldbank-catalog:dt-tds-dppg-xp-zs": {
+    "title": "Highest public foreign-debt payments as % of export income",
+    "short_title": "Highest public foreign-debt payments as % of export income",
+    "plain_language_description": "Payments on long-term public and publicly guaranteed external debt, relative to exports of goods, services and primary income."
+  },
+  "worldbank-catalog:eg-imp-cons-zs": {
+    "title": "Highest net energy imports as % of energy use",
+    "short_title": "Highest net energy imports as % of energy use",
+    "plain_language_description": "Energy imports minus exports, relative to primary energy use. Negative values identify net exporters."
+  },
+  "worldbank-catalog:fi-res-totl-dt-zs": {
+    "title": "Highest reserves as % of foreign debt",
+    "short_title": "Highest reserves as % of foreign debt",
+    "plain_language_description": "Official reserve assets, including monetary gold, relative to total external debt."
+  },
+  "worldbank-catalog:fm-lbl-bmny-gd-zs": {
+    "title": "Highest broad money as % of GDP",
+    "short_title": "Highest broad money as % of GDP",
+    "plain_language_description": "Currency and liquid or readily convertible financial instruments held in the economy, relative to GDP."
+  },
+  "worldbank-catalog:gc-nld-totl-gd-zs": {
+    "title": "Highest government budget balance as % of GDP",
+    "short_title": "Highest government budget balance as % of GDP",
+    "plain_language_description": "Government net lending or borrowing after revenue, expense and net nonfinancial investment. Positive values indicate a surplus."
+  },
+  "worldbank-catalog:gc-rev-gotr-zs": {
+    "title": "Highest grants and other receipts as % of government revenue",
+    "short_title": "Highest grants and other receipts as % of government revenue",
+    "plain_language_description": "Government grants and non-tax receipts, excluding social contributions, relative to total government revenue."
+  },
+  "worldbank-catalog:gc-tax-gsrv-va-zs": {
+    "title": "Highest consumption taxes as % of industry and services output",
+    "short_title": "Highest consumption taxes as % of industry and services output",
+    "plain_language_description": "Taxes on goods and services, relative to value added in industry and services."
+  },
+  "worldbank-catalog:gc-tax-othr-rv-zs": {
+    "title": "Highest miscellaneous taxes as % of government revenue",
+    "short_title": "Highest miscellaneous taxes as % of government revenue",
+    "plain_language_description": "Payroll, property and other taxes outside the source's main tax categories, relative to total government revenue."
+  },
+  "worldbank-catalog:gc-xpn-comp-zs": {
+    "title": "Highest government payroll as % of expenses",
+    "short_title": "Highest government payroll as % of expenses",
+    "plain_language_description": "Compensation of government employees, relative to total government expense."
+  },
+  "worldbank-catalog:gc-xpn-gsrv-zs": {
+    "title": "Highest government purchases as % of expenses",
+    "short_title": "Highest government purchases as % of expenses",
+    "plain_language_description": "Government purchases of goods and services used in production, excluding own-account capital formation, relative to total expense."
+  },
+  "worldbank-catalog:gc-xpn-intp-zs": {
+    "title": "Highest debt interest as % of government expenses",
+    "short_title": "Highest debt interest as % of government expenses",
+    "plain_language_description": "Interest paid on government debt, relative to total government expense."
+  },
+  "worldbank-catalog:gc-xpn-othr-zs": {
+    "title": "Highest miscellaneous government spending as % of expenses",
+    "short_title": "Highest miscellaneous government spending as % of expenses",
+    "plain_language_description": "Government spending on rent, dividends and other miscellaneous expense, relative to total expense."
+  },
+  "worldbank-catalog:gc-xpn-totl-gd-zs": {
+    "title": "Highest government expenses as % of GDP",
+    "short_title": "Highest government expenses as % of GDP",
+    "plain_language_description": "Government expense, which reduces net worth and excludes net investment in nonfinancial assets, relative to GDP."
+  },
+  "worldbank-catalog:gc-xpn-trft-zs": {
+    "title": "Highest subsidies and transfers as % of government expenses",
+    "short_title": "Highest subsidies and transfers as % of government expenses",
+    "plain_language_description": "Government subsidies and other transfers, relative to total government expense."
+  },
+  "undp-hdr:education-inequality": {
+    "title": "Highest inequality in schooling (%)",
+    "short_title": "Highest inequality in schooling (%)",
+    "plain_language_description": "UNDP's Atkinson measure of inequality in years of schooling. Higher percentages mean a less equal distribution."
+  },
+  "undp-hdr:income-inequality": {
+    "title": "Highest income inequality (Atkinson %)",
+    "short_title": "Highest income inequality (Atkinson %)",
+    "plain_language_description": "UNDP's Atkinson measure of income inequality. Higher percentages mean a less equal distribution."
+  },
+  "undp-hdr:life-expectancy-inequality": {
+    "title": "Highest inequality in length of life (%)",
+    "short_title": "Highest inequality in length of life (%)",
+    "plain_language_description": "UNDP's Atkinson measure of inequality in length of life. Higher percentages mean a less equal distribution."
+  },
+  "natural-earth:largest-arctic-land-area": {
+    "title": "Largest Arctic land area",
+    "short_title": "Largest Arctic land area",
+    "plain_language_description": "Land north of the Arctic Circle, calculated from Natural Earth's fixed-scale country geometries.",
+    "measurement_type": "total",
+    "metadata": { "playableDifficulties": ["easy"] }
   }
 }

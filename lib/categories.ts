@@ -64,6 +64,8 @@ export type Category = {
   unit: string;
   family: string;
   direction: Direction;
+  // Optional audited mode scope; absence retains the ordinary all-mode catalog.
+  playableDifficulties?: Array<"easy" | "normal" | "expert">;
   // Full plain-language explanation used in source/detail views.
   description: string;
   // Short, complete sentence shown on the board. Never an ellipsized source definition.

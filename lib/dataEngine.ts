@@ -200,6 +200,9 @@ export function validateRound(categories: CanonicalDataset[], bank: CountryInfo[
   }
 
   for (const dataset of categories) {
+    if (config && dataset.category.playableDifficulties && !dataset.category.playableDifficulties.includes(config.difficulty)) {
+      errors.push(`${dataset.category.name} is not approved for ${config.label} boards.`);
+    }
     const leaderboard = poolLeaderboard(dataset, bank);
     const winner = leaderboard[0];
     const winnerLimit = strongestGlobalWinnerRankForCategory(dataset.category, dataset.category.globalCoverage ?? dataset.ranked.length);
@@ -241,4 +244,3 @@ export function validateRound(categories: CanonicalDataset[], bank: CountryInfo[
 export function formatValue(value: number, category: Category) {
   return formatCategoryValue(value, category);
 }
-

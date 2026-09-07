@@ -790,6 +790,9 @@ export function buildCategoryCatalog(rows: PlayableCategoryRow[], options: Build
       rankingCompletenessReason: row.ranking_completeness_reason || undefined,
       topValueDistinctCount: row.top_value_distinct_count == null ? undefined : Number(row.top_value_distinct_count),
       topValueFeasible: row.top_value_feasible === true,
+      playableDifficulties: Array.isArray(metadata.playableDifficulties)
+        ? metadata.playableDifficulties.filter((mode): mode is "easy" | "normal" | "expert" => mode === "easy" || mode === "normal" || mode === "expert")
+        : undefined,
       playabilityWarnings: [
         ...(row.player_source_status === "general" ? ["General official source page only."] : []),
         ...(row.ranking_completeness_status === "top_end_complete" ? ["Ranking is top-end complete rather than fully comprehensive."] : []),

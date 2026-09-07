@@ -36,8 +36,9 @@ check(catalog.indexOf('if (/greenhouse|methane|co2|carbon dioxide|carbon intensi
 check(publicPresentation.includes("!approvedById.has(category.id)"), "public audit can still overwrite approved categories with bundled quarantines");
 check(auditPage.includes("publicCatalogPresentation(approved, CATEGORIES)"), "Audit page does not use the shared catalog presentation");
 check(dataPage.includes("publicCatalogPresentation(categories,CATEGORIES).blocked"), "Data page blocked count does not use the shared catalog presentation");
-check(game.includes('return "theme-consumption"') && game.includes('["theme-consumption", "Consumption"]'), "consumption taxonomy is missing from the color key");
-check(css.includes(".theme-consumption"), "consumption theme color is missing");
+// Owner's six-core-subject request supersedes the former separate Consumption color.
+check(game.includes('from "../lib/categoryTheme"'), "game does not use the shared subject-color key");
+check(css.includes(".theme-food"), "consolidated Food theme color is missing");
 for (const token of [
   "apply_v16_3_1_catalog_integrity","v16.3.1 durable owner-directed services-import/export exclusion",
   "expected one 306-category SQL/runtime catalog","source_organization='FAOSTAT Food Balances'",

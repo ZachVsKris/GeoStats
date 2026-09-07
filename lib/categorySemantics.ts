@@ -383,9 +383,14 @@ function hardConflictConcept(category: Category, profile: CategorySemanticProfil
   if (contains(text, [/import/])) return "trade-imports";
 
   if (category.source === "faostat") {
+    // QCL stock elements identify animal counts even when a species name or
+    // importer-specific family was absent from the old English keyword list.
+    const stockElement = /(?:^|:)511[12](?:$|:)/.test(category.indicator ?? "")
+      || /(?:^|:)511[12](?:$|:)/.test(category.warehouseSourceIndicatorCode ?? "");
+    if (stockElement || contains(text, [/stocks?/, /animal-population/, /livestock-population/])) return "livestock-population";
     const livestock = contains(text, [
       /livestock/, /cattle/, /cow/, /buffalo/, /sheep/, /goat/, /chicken/, /duck/,
-      /turkey/, /camel/, /horse/, /mule/, /hinny/, /pig/, /animal/, /meat/, /milk/, /egg/, /cheese/, /butter/, /ghee/, /honey/,
+      /turkey/, /camel/, /horse/, /donkey/, /(^|-)asses?($|-)/, /mule/, /hinny/, /pig/, /animal/, /meat/, /milk/, /egg/, /cheese/, /butter/, /ghee/, /honey/,
     ]);
     if (livestock && contains(text, [/population/, /stocks?/])) return "livestock-population";
     if (livestock && contains(text, [/production/, /produced/, /output/])) return "livestock-output";

@@ -22,6 +22,7 @@ import {
   categoryConflictsWithExistingTrio,
   dailyTrioPreferenceWarnings,
   pairwiseCountryOverlap,
+  TARGET_TRIO_PHYSICAL_CATEGORIES,
   validateDailyTrio,
 } from "./dailyTrioRules";
 import { generationProfiles } from "./generationProfiles";
@@ -354,6 +355,11 @@ function chooseCategorySet(
   const selected: RoundCategory[] = [];
   const used = new Set<string>();
   const existingCategories = existingRounds.flatMap((round) => round.categories.map((dataset) => dataset.category));
+  // Reserve slots for the geography minimum while completing the final mode.
+  // Checking only after three boards wastes the bounded search on invalid trios.
+  const requiredPhysical = existingRounds.length >= 2
+    ? Math.max(0, TARGET_TRIO_PHYSICAL_CATEGORIES - existingCategories.filter(isPhysicalCategory).length)
+    : 0;
   if (forcedAnchor) {
     const anchor = eligible.find((dataset) => dataset.category.id === forcedAnchor.category.id);
     if (!anchor
@@ -368,13 +374,17 @@ function chooseCategorySet(
     steps += 1;
     if (steps > MAX_CATEGORY_SEARCH_STEPS || Date.now() > deadline) return null;
     if (depth === config.categoryCount) {
-      return roundHasRequiredDiversity(selected.map((dataset) => dataset.category), config)
+      return selected.filter((dataset) => isPhysicalCategory(dataset.category)).length >= requiredPhysical
+        && roundHasRequiredDiversity(selected.map((dataset) => dataset.category), config)
         ? [...selected]
         : null;
     }
 
+    const physicalNeeded = Math.max(0, requiredPhysical - selected.filter((dataset) => isPhysicalCategory(dataset.category)).length);
+    const slotsLeft = config.categoryCount - depth;
     const options = eligible
       .filter((dataset) => !used.has(dataset.category.id)
+        && (slotsLeft > physicalNeeded || isPhysicalCategory(dataset.category))
         && !categoryConflictsWithExistingTrio(dataset.category, [...existingCategories, ...selected.map((item) => item.category)])
         && canAddCategory(selected.map((item) => item.category), dataset.category, config))
       .map((dataset) => ({ dataset, score: optionScore(selected, dataset, rng, config, recentCategoryExposure, explorationNoise) }))

@@ -61,11 +61,24 @@ async function main() {
   const catalog = buildPlayableCategoryCatalog(fixtures);
   assert.equal(catalog.length, fixtures.length, 'Presentation repairs must not hide approved categories');
   const find = id => { const c = catalog.find(c => c.id === id); assert.ok(c, id); return c; };
+  const { categoryThemeClass, CATEGORY_COLOR_KEY } = load('lib/categoryTheme.ts');
+  assert.deepEqual(CATEGORY_COLOR_KEY.map(([,label])=>label), ['Nature','People','Culture','Food','Economy','Technology']);
+  const sample = (patch) => ({ ...catalog[0], ...patch });
+  assert.equal(categoryThemeClass(find('natural-earth:largest-single-mapped-lake')), 'theme-nature');
+  assert.equal(categoryThemeClass(find('pew-religion:other-religions-population')), 'theme-culture');
+  assert.equal(categoryThemeClass(sample({ id:'faostat-fbs:tomatoes', name:'Highest tomato consumption per person', family:'Food consumption', broadDomain:'consumption', source:'faostatfbs' })), 'theme-food');
+  assert.equal(categoryThemeClass(sample({ id:'comtrade:citrus', name:'Largest citrus fruit exports', family:'Trade', broadDomain:'trade', source:'comtrade' })), 'theme-economy');
+  assert.equal(categoryThemeClass(sample({ id:'history:worldbank-infant-mortality-below-25', name:'Most recently cut infant mortality below 25', family:'History', broadDomain:'history', source:'history' })), 'theme-culture');
+  assert.equal(categoryThemeClass(sample({ id:'unsdg:unsentenced-detainees', name:'Highest % of prisoners awaiting trial', family:'Government', broadDomain:'government', source:'unsdg' })), 'theme-people');
   const lakes = catalog.filter(c => /natural-earth:.*lake/.test(c.id));
   for (let i = 0; i < lakes.length; i++) for (let j = i + 1; j < lakes.length; j++) {
     assert.ok(semanticConflict(lakes[i], lakes[j]), `Actual lake metadata: ${lakes[i].id} / ${lakes[j].id}`);
   }
   assert.ok(semanticConflict(find('natural-earth:highest-mapped-glaciated-share'), find('natural-earth:largest-mapped-glaciated-area')));
+  const donkey = sample({ id:'faostat-qcl-asses-stocks', source:'faostat', name:'Largest donkey population', family:'Agriculture', indicator:"QCL:'02132:5111", strategyFamily:'asses-stocks', semanticFamily:'asses-stocks', knowledgeCluster:'asses-stocks', similarityGroup:'asses-stocks' });
+  const goats = { ...donkey, id:'goats-stocks', name:'Largest goat population', indicator:"QCL:'02123:5111", strategyFamily:'goat-stocks', semanticFamily:'goat-stocks', knowledgeCluster:'goat-stocks', similarityGroup:'goat-stocks' };
+  assert.ok(semanticConflict(donkey,goats), 'Real donkey and goat stock metadata must conflict despite distinct imported labels');
+  assert.ok(semanticConflict({ ...donkey, name:'Unrecognized species', id:'unknown-species', indicator:'QCL:999:5112' },goats), 'Official livestock stock elements must not depend on a species keyword list');
   assert.ok(semanticConflict(find('pew-religion:other-religions-population'), find('pew-religion:other-religions-share')));
   assert.match(find('pew-religion:other-religions-population').name, /outside the five major groups/);
   assert.match(find('pew-religion:other-religions-population').boardDescription, /Christianity, Islam, Hinduism, Buddhism or Judaism/);

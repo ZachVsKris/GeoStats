@@ -11,10 +11,21 @@ The original queue now has **146 unresolved categories**: 38 editorial-approved 
 
 ## Verification correction
 
+The subsequent history check found additional composition drift: the locked one-demographic maximum had become two, and the two-physical-geography minimum had become optional. Both are restored. FAOSTAT donkey stocks also bypassed livestock-family detection; stock element codes now enforce the shared family regardless of species spelling. The earlier `live-414-freshness` run did not enforce these missing rules and is not acceptance evidence for the restored contract. The first stricter simulation found one failed generation date; the final-mode constructor now reserves slots for the physical-geography minimum. The failed run is retained as `history-414-freshness` rather than erased.
+
+GitHub run 34164319208 on 30c7779 failed a landscape remove-control geometry check (and had one Firefox retry). It is not a green release. The follow-up removes hover scaling, increases compact right inset, polls for settled geometry without weakening tolerances, and explicitly covers hovered controls in landscape.
+
 The earlier 410-category checkpoint overstated application verification. Its “live” replay bypassed the runtime safety gate. Production logs exposed four rejected categories and an oversized raw catalog cache.
 The runtime gate, cache and verifier are now repaired. The original 274 witnesses passed strict replay; 12 new livestock witnesses also passed strict live replay, for 286 recovery-board checks.
 
 ## Completed in this pass
+
+- Consolidated the visible subject key to **Nature, People, Culture, Food, Economy, Technology**, retaining finer semantic families and generation balancing. No categories were removed by the visual consolidation.
+- Restored the one-demographic maximum and two-physical-geography minimum across each Daily trio, with rejection tests.
+- Reproved all 1,240 approved category/mode combinations under the livestock fix and refreshed all 96 source-bound recovery records. All 414 remain playable.
+- After reserving geography slots during final-mode construction, the fresh 30-day simulation passed all 90 boards and all 30 strict trio validations: 242 categories, 159 countries, maximum 7 dates for any category. The separate 9,000-anchor sample represented 413 categories; the remaining category has a successful forced witness.
+- Replaced only the unscored September 7 Adventurer board to remove its goat/donkey conflict with Expert. Scout hash `937766a3…`, Expert hash `9e057239…`, and the existing Scout score were preserved; new Adventurer hash `dc4e950e…`. The transaction guarded scores, sources, all old hashes, date and generation locks.
+- The final follow-up deployment and browser-matrix outcome must be checked separately; earlier successful runs do not certify this commit.
 
 - Fixed approved-copy/runtime mismatches and sourced coastline/population-rate measurement handling. Hard exclusions and source/semantic checks remain.
 - Replaced oversized raw catalog caches with bounded player-facing pages. Added tests for smaller server row caps and cross-page duplicate identities.
@@ -35,7 +46,7 @@ The runtime gate, cache and verifier are now repaired. The original 274 witnesse
 - Full npm tests and TypeScript passed again after the capacity and source-integrity changes.
 - Strict runtime accepted all 414 categories; 96 source-bound recovery records remain current.
 - Fresh exact-source-hash audit proved 1,240 category/mode board witnesses: all 414 Scout, 413 Adventurer and 413 Expert, with no unresolved category.
-- Fresh 30-day simulation (September 8–October 7) passed all 90 boards and all 30 cross-mode trio validations. It represented 247 categories and 159 countries; the most frequent category appeared on 7 dates. A separate 9,000-anchor sample selected 413 categories; the finite sample does not establish zero probability for the unselected category, which has a successful forced witness. These simulated boards were not published or used to replace scored Dailies.
+- Earlier, superseded 30-day simulation (September 8–October 7): 90 boards passed the then-incomplete validators. It represented 247 categories and 159 countries, with a maximum of 7 dates per category. It does not certify the restored geography/demographic requirements. The separate 9,000-anchor sample selected 413 categories; the finite sample does not establish zero probability for the unselected category, which has a successful forced witness. No simulation replaces scored Dailies.
 - Actual country-bank capacity sampling completed 3,000 sets in every mode. Discovered feasible: Scout 1,302; Adventurer 1,189; Expert 276. Unresolved, not rejected: 205, 252 and 268 respectively. The JSON records statistical estimates and uncertainty; these are category sets, not every possible country-bank permutation.
 - GitHub run 34162671543 passed the full Chromium, Firefox, WebKit, responsive, build, TypeScript, importer and source-fixture matrix on 0e3c1e325116bf0593380b70fbce59b089dd5f22. That commit reached production READY as dpl_EKWifiP1waqQc6L1J9MmT7YDwJ9E; its checked one-hour error/warning scan returned no logs.
 - Engagement tables are populated: 70 category and 76 country rows. Production Privacy and Terms render with current public/account access rules; signed-out Admin redirects to Daily.
@@ -49,7 +60,7 @@ The runtime gate, cache and verifier are now repaired. The original 274 witnesse
 
 - **Google/account flow:** both Google and email options are visible. New and returning user authorization, callback, username, Expert access, authenticated score save and relogin need an authorized test account.
 - **Email deliverability:** SMTP settings, sent-message authentication/alignment and actual Gmail/Outlook/iCloud delivery remain unverified. Published DNS records alone do not establish delivery. Inbox placement cannot be guaranteed.
-- **Phone QA:** the CI browser/responsive matrix passed. Real iPhone/Safari testing remains separate and unverified.
+- **Phone QA:** an earlier release passed its browser/responsive matrix; the next release failed landscape centering. The geometry repair needs a green follow-up run. Real iPhone/Safari testing remains separate and unverified.
 - **Remaining categories:** 92 source-verification cases (many also involve coverage), 30 coverage cases, 11 stale-data cases, 7 subjective/composite measures, 2 source-link checks, 2 duplicates, 1 product exclusion and 1 noncomparable-unit case. They were not silently rejected or bulk-promoted.
 - **Long-horizon distribution:** current evidence is the bounded 30-day simulation and 9,000-anchor sample, not an exhaustive long-term fairness guarantee. Older 1,000-day simulations remain regression fixtures.
 
@@ -64,4 +75,10 @@ The runtime gate, cache and verifier are now repaired. The original 274 witnesse
 - audits/live-414-reachability-2026-09-07.json
 - audits/live-414-capacity-2026-09-07.json
 - audits/live-414-freshness-2026-09-07.json
+- audits/history-414-reachability-2026-09-07.json
+- audits/history-414-freshness-2026-09-07.json (failed generation before construction repair)
+- audits/history-repaired-414-freshness-2026-09-07.json
+- audits/history-recovery-proof-refresh-2026-09-07.sql
+- audits/history-daily-repair-before-2026-09-07.json
+- audits/history-daily-repair-publication-2026-09-07.sql
 - Exact applied SQL under supabase/migrations.

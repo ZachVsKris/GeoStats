@@ -21,7 +21,7 @@ import {
 export type DailyTrioLike = Record<DailyDifficulty, Round>;
 
 export const MAX_TRIO_DISPLACEMENT_CATEGORIES = 1;
-export const MAX_TRIO_DEMOGRAPHIC_CATEGORIES = 2;
+export const MAX_TRIO_DEMOGRAPHIC_CATEGORIES = 1;
 export const MAX_TRIO_AGRICULTURE_CATEGORIES = 3;
 export const MAX_TRIO_TRADE_CATEGORIES = 3;
 export const MAX_TRIO_RELIGION_CATEGORIES = 2;
@@ -29,11 +29,7 @@ export const MAX_TRIO_FOOD_CONSUMPTION_CATEGORIES = 3;
 export const MAX_TRIO_EMISSIONS_CATEGORIES = 1;
 export const MAX_TRIO_SERVICE_COMPOSITION_CATEGORIES = 1;
 
-/**
- * Physical geography is a strong selection target, not a validity requirement.
- * Until the physical catalog is larger, failing to reach the target must never
- * make all three Daily modes unavailable.
- */
+/** Owner's minimum for newly generated trios; historical result snapshots remain immutable. */
 export const TARGET_TRIO_PHYSICAL_CATEGORIES = 2;
 
 function isEmissionsCategory(category: Category) {
@@ -87,18 +83,10 @@ export function trioCategoryCounts(trio: DailyTrioLike) {
   };
 }
 
-/**
- * These are nonfatal quality signals. They are recorded in generation
- * diagnostics but are deliberately excluded from validateDailyTrio().
- */
+/** Additional nonfatal signals; required composition is checked below. */
 export function dailyTrioPreferenceWarnings(trio: DailyTrioLike) {
   const counts = trioCategoryCounts(trio);
   const warnings: string[] = [];
-  if (counts.physical < TARGET_TRIO_PHYSICAL_CATEGORIES) {
-    warnings.push(
-      `The Daily trio contains ${counts.physical} physical-geography categor${counts.physical === 1 ? "y" : "ies"}; ${TARGET_TRIO_PHYSICAL_CATEGORIES} remain the preferred target.`,
-    );
-  }
   const largestDomain = Math.max(0, ...counts.domains.values());
   if (largestDomain > 6) {
     warnings.push(`One broad domain appears ${largestDomain} times across the trio; greater domain variety is preferred.`);
@@ -154,6 +142,9 @@ export function validateDailyTrio(trio: DailyTrioLike, options: { allowLegacyDim
   }
 
   const counts = trioCategoryCounts(trio);
+  if (counts.physical < TARGET_TRIO_PHYSICAL_CATEGORIES) {
+    errors.push(`The Daily trio needs at least ${TARGET_TRIO_PHYSICAL_CATEGORIES} physical-geography categories; found ${counts.physical}.`);
+  }
   if (counts.displacement > MAX_TRIO_DISPLACEMENT_CATEGORIES) {
     errors.push(`The Daily trio uses ${counts.displacement} forced-displacement categories; at most ${MAX_TRIO_DISPLACEMENT_CATEGORIES} is allowed.`);
   }

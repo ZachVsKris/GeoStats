@@ -1,0 +1,4958 @@
+{
+  "catalogSize": 414,
+  "rulesVersion": "16.3.4",
+  "startedAt": "2026-09-07T22:10:22.564Z",
+  "sourceHashes": [
+    {
+      "id": "agLand",
+      "common_year": 2023,
+      "n": 193,
+      "hash": "ee1b832e0c17bcaa82cbcdc9d50913f1"
+    },
+    {
+      "id": "agValue",
+      "common_year": 2025,
+      "n": 156,
+      "hash": "bcdcf627c168ce43df6895998f8fa25c"
+    },
+    {
+      "id": "airFreight",
+      "common_year": 2023,
+      "n": 135,
+      "hash": "9427f74ad374d06d4657446d8bd3e33e"
+    },
+    {
+      "id": "airPassengers",
+      "common_year": 2023,
+      "n": 147,
+      "hash": "7f72fdcd973117ffb8d04ae708639019"
+    },
+    {
+      "id": "arableHa",
+      "common_year": 2023,
+      "n": 191,
+      "hash": "c9bbb781bae1c189057becfe523c41a1"
+    },
+    {
+      "id": "arablePct",
+      "common_year": 2023,
+      "n": 191,
+      "hash": "d648388d1315a90f7d211408f3efefe3"
+    },
+    {
+      "id": "comtrade:most-aircraft-exported",
+      "common_year": 2025,
+      "n": 87,
+      "hash": "18321474a7d3591f0a7d4804973197db"
+    },
+    {
+      "id": "comtrade:most-aluminum-exported",
+      "common_year": 2024,
+      "n": 131,
+      "hash": "94bdce93d98686687d315d268545bf07"
+    },
+    {
+      "id": "comtrade:most-apples-pears-exported",
+      "common_year": 2025,
+      "n": 73,
+      "hash": "d7d2f648ae7ebcb049eed9fd0cfac804"
+    },
+    {
+      "id": "comtrade:most-bananas-exported",
+      "common_year": 2025,
+      "n": 79,
+      "hash": "e04c76af53db54a4192adae41232e894"
+    },
+    {
+      "id": "comtrade:most-beef-exported",
+      "common_year": 2025,
+      "n": 82,
+      "hash": "8c91e90b63f4896bb3a6aca2e1724943"
+    },
+    {
+      "id": "comtrade:most-beer-exported",
+      "common_year": 2025,
+      "n": 88,
+      "hash": "c0fefe708f4305f94b385720ede975d3"
+    },
+    {
+      "id": "comtrade:most-cars-exported",
+      "common_year": 2025,
+      "n": 88,
+      "hash": "f6a6c96d96b908f0c711979645646caa"
+    },
+    {
+      "id": "comtrade:most-ceramics-exported",
+      "common_year": 2025,
+      "n": 92,
+      "hash": "41f486bd83deb76fbc9dfafbdb8a339f"
+    },
+    {
+      "id": "comtrade:most-cheese-exported",
+      "common_year": 2025,
+      "n": 82,
+      "hash": "f08d3da80fafee4769aee07e6fd70d8c"
+    },
+    {
+      "id": "comtrade:most-chemicals-exported",
+      "common_year": 2024,
+      "n": 130,
+      "hash": "7f2f0f2671dcc3aca83c80e727f157dd"
+    },
+    {
+      "id": "comtrade:most-chocolate-exported",
+      "common_year": 2025,
+      "n": 88,
+      "hash": "5609cc04fd48173ba4ae4933e3186727"
+    },
+    {
+      "id": "comtrade:most-citrus-exported",
+      "common_year": 2025,
+      "n": 83,
+      "hash": "21ea731c556dc44a7d75d875e75e8cdb"
+    },
+    {
+      "id": "comtrade:most-clothing-exported",
+      "common_year": 2024,
+      "n": 131,
+      "hash": "b68229962177ae11172bde74b35bc5ca"
+    },
+    {
+      "id": "comtrade:most-coal-exported",
+      "common_year": 2025,
+      "n": 60,
+      "hash": "062e198135f3bd31d117404f20406cbe"
+    },
+    {
+      "id": "comtrade:most-cocoa-beans-exported",
+      "common_year": 2025,
+      "n": 64,
+      "hash": "8c80a076913ddf38c1d95e70d2960eff"
+    },
+    {
+      "id": "comtrade:most-coffee-exported",
+      "common_year": 2025,
+      "n": 87,
+      "hash": "c80c007e4617333c8246f1a15780a074"
+    },
+    {
+      "id": "comtrade:most-computers-exported",
+      "common_year": 2025,
+      "n": 90,
+      "hash": "9c29bdb94c5ba928a0fb2ba34eef6ea1"
+    },
+    {
+      "id": "comtrade:most-copper-exported",
+      "common_year": 2025,
+      "n": 91,
+      "hash": "28db3ed41a1db5651b320337b7ce4850"
+    },
+    {
+      "id": "comtrade:most-cotton-exported",
+      "common_year": 2025,
+      "n": 88,
+      "hash": "5ef162e9a6da180e5e01b423c0b9d8f9"
+    },
+    {
+      "id": "comtrade:most-crude-oil-exported",
+      "common_year": 2025,
+      "n": 61,
+      "hash": "ab22825601069f72ad9753da8aefad1c"
+    },
+    {
+      "id": "comtrade:most-electrical-equipment-exported",
+      "common_year": 2024,
+      "n": 131,
+      "hash": "2299493e81e17de6cd1aece02f71f74a"
+    },
+    {
+      "id": "comtrade:most-electricity-exported",
+      "common_year": 2025,
+      "n": 61,
+      "hash": "9233caa7b9feceebbbdf7257d147197e"
+    },
+    {
+      "id": "comtrade:most-fish-exported",
+      "common_year": 2024,
+      "n": 129,
+      "hash": "f0f6428c3b944851148b3cb4c929582b"
+    },
+    {
+      "id": "comtrade:most-footwear-exported",
+      "common_year": 2025,
+      "n": 91,
+      "hash": "2a48b2ad18c8cbb66b198bd1559680c7"
+    },
+    {
+      "id": "comtrade:most-furniture-exported",
+      "common_year": 2024,
+      "n": 130,
+      "hash": "37bc722122f297145439739dd9faadf5"
+    },
+    {
+      "id": "comtrade:most-glass-exported",
+      "common_year": 2024,
+      "n": 131,
+      "hash": "479373e2a8ae901ae9fc1a462b38a048"
+    },
+    {
+      "id": "comtrade:most-gold-exported",
+      "common_year": 2025,
+      "n": 81,
+      "hash": "89c63e292cf698821d9b7725e3b5bba7"
+    },
+    {
+      "id": "comtrade:most-integrated-circuits-exported",
+      "common_year": 2025,
+      "n": 86,
+      "hash": "96e028340636451534ac1ccc35ddc56b"
+    },
+    {
+      "id": "comtrade:most-iron-steel-exported",
+      "common_year": 2024,
+      "n": 131,
+      "hash": "981fc1c1697c0d7fde9271e777eb5fb1"
+    },
+    {
+      "id": "comtrade:most-machinery-exported",
+      "common_year": 2024,
+      "n": 131,
+      "hash": "1c3ba6f76331c124d212b7388074b26f"
+    },
+    {
+      "id": "comtrade:most-maize-exported",
+      "common_year": 2025,
+      "n": 84,
+      "hash": "6a89c762c6f26e670613cd22139c989e"
+    },
+    {
+      "id": "comtrade:most-medical-optical-exported",
+      "common_year": 2024,
+      "n": 130,
+      "hash": "e4d38a253d1a23af631776eb6de77991"
+    },
+    {
+      "id": "comtrade:most-motorcycles-exported",
+      "common_year": 2025,
+      "n": 86,
+      "hash": "e54005c7cba562468490a27cf8ddac52"
+    },
+    {
+      "id": "comtrade:most-natural-gas-exported",
+      "common_year": 2025,
+      "n": 76,
+      "hash": "433aef7ce3dd9ff8deb099ce0a04fafa"
+    },
+    {
+      "id": "comtrade:most-olive-oil-exported",
+      "common_year": 2025,
+      "n": 80,
+      "hash": "13aeaaf6039a725d2c5c1973fd0d0d59"
+    },
+    {
+      "id": "comtrade:most-paper-exported",
+      "common_year": 2024,
+      "n": 130,
+      "hash": "491c3db9c3e172f31f7cc79568b13fc0"
+    },
+    {
+      "id": "comtrade:most-pharmaceuticals-exported",
+      "common_year": 2024,
+      "n": 130,
+      "hash": "da82dd69fad3973cf92ba696b40b732f"
+    },
+    {
+      "id": "comtrade:most-phones-exported",
+      "common_year": 2025,
+      "n": 90,
+      "hash": "79f245a8c81cdb6e9ff5710bb2662edd"
+    },
+    {
+      "id": "comtrade:most-plastics-exported",
+      "common_year": 2024,
+      "n": 131,
+      "hash": "cadd65e894417c74252b2bb81e390166"
+    },
+    {
+      "id": "comtrade:most-potatoes-exported",
+      "common_year": 2025,
+      "n": 74,
+      "hash": "77b56617bbe778ed013dd6d5e8ff6e0c"
+    },
+    {
+      "id": "comtrade:most-poultry-exported",
+      "common_year": 2025,
+      "n": 79,
+      "hash": "877243cf4574f98370fbf2d7878c9224"
+    },
+    {
+      "id": "comtrade:most-railway-equipment-exported",
+      "common_year": 2025,
+      "n": 87,
+      "hash": "ca8ca95624e756c2219b9735c19dea23"
+    },
+    {
+      "id": "comtrade:most-rice-exported",
+      "common_year": 2025,
+      "n": 87,
+      "hash": "abd0f4f138cfe25e1b5736b1d4acfb70"
+    },
+    {
+      "id": "comtrade:most-rubber-products-exported",
+      "common_year": 2024,
+      "n": 130,
+      "hash": "6c153f7143ecfaf0f1b315106db09e51"
+    },
+    {
+      "id": "comtrade:most-ships-exported",
+      "common_year": 2025,
+      "n": 87,
+      "hash": "df264f9570446416c30f5c28e3b02833"
+    },
+    {
+      "id": "comtrade:most-soybeans-exported",
+      "common_year": 2025,
+      "n": 77,
+      "hash": "a5fb6ec7879cba0a9613c0c901e2ca9c"
+    },
+    {
+      "id": "comtrade:most-spices-exported",
+      "common_year": 2024,
+      "n": 130,
+      "hash": "05d270510c1525f4ad905a79cdcaa84b"
+    },
+    {
+      "id": "comtrade:most-sugar-exported",
+      "common_year": 2025,
+      "n": 87,
+      "hash": "866a2a1a8122942c9ea50c2194018bfc"
+    },
+    {
+      "id": "comtrade:most-tea-exported",
+      "common_year": 2025,
+      "n": 88,
+      "hash": "32178fa89f82c80c7d7114f41d2294ba"
+    },
+    {
+      "id": "comtrade:most-tomatoes-exported",
+      "common_year": 2025,
+      "n": 74,
+      "hash": "7e3961f9db4a61360c7aafed185a4139"
+    },
+    {
+      "id": "comtrade:most-toys-exported",
+      "common_year": 2025,
+      "n": 91,
+      "hash": "fad9bab283927f546ce3a972d9fd725d"
+    },
+    {
+      "id": "comtrade:most-wheat-exported",
+      "common_year": 2025,
+      "n": 70,
+      "hash": "b49e84ace819769cdb363df297c0b7d6"
+    },
+    {
+      "id": "comtrade:most-wine-exported",
+      "common_year": 2025,
+      "n": 85,
+      "hash": "4dadb4c16c768d199f2aca50811afca1"
+    },
+    {
+      "id": "comtrade:most-wood-exported",
+      "common_year": 2024,
+      "n": 131,
+      "hash": "142d66227f514e8d915996f210b28e3f"
+    },
+    {
+      "id": "density",
+      "common_year": 2023,
+      "n": 194,
+      "hash": "565df3ea97bb55cad8626ebed8eed175"
+    },
+    {
+      "id": "education",
+      "common_year": 2023,
+      "n": 112,
+      "hash": "d841556a492e886612a37a8758a034c0"
+    },
+    {
+      "id": "eia:most-crude-oil-produced",
+      "common_year": 2025,
+      "n": 186,
+      "hash": "66568801106a30a83553ce4e201a2930"
+    },
+    {
+      "id": "eia:most-natural-gas-produced",
+      "common_year": 2024,
+      "n": 187,
+      "hash": "0fbc2139f836e434fcd6f3b0688402c0"
+    },
+    {
+      "id": "electricityAccess",
+      "common_year": 2024,
+      "n": 194,
+      "hash": "7789d5d579fca32a55ce3b2c15fb010c"
+    },
+    {
+      "id": "electricUse",
+      "common_year": 2023,
+      "n": 145,
+      "hash": "a7f79bad253638019aec7121fc772036"
+    },
+    {
+      "id": "energyUse",
+      "common_year": 2023,
+      "n": 146,
+      "hash": "bd0c516bbb12b231022c36f909e64f21"
+    },
+    {
+      "id": "faostat-fbs:bananas",
+      "common_year": 2023,
+      "n": 169,
+      "hash": "9e80df1213539f3af28c0018d2751f63"
+    },
+    {
+      "id": "faostat-fbs:beef",
+      "common_year": 2023,
+      "n": 171,
+      "hash": "6c4fdabb55be3c3c39f79f482b4289a5"
+    },
+    {
+      "id": "faostat-fbs:beer",
+      "common_year": 2023,
+      "n": 170,
+      "hash": "7754e9cdcf8aa4b3c74e286707624578"
+    },
+    {
+      "id": "faostat-fbs:calories",
+      "common_year": 2023,
+      "n": 171,
+      "hash": "7cd633dd7cd5151036e30ed746d93e81"
+    },
+    {
+      "id": "faostat-fbs:coffee",
+      "common_year": 2023,
+      "n": 171,
+      "hash": "83534a57c0b96dfeae51dbced877ed6f"
+    },
+    {
+      "id": "faostat-fbs:eggs",
+      "common_year": 2023,
+      "n": 171,
+      "hash": "475a9568189232d61f3ba3170d99aa97"
+    },
+    {
+      "id": "faostat-fbs:fish",
+      "common_year": 2023,
+      "n": 171,
+      "hash": "f82fa5e597ace5dfc2883d72b430c900"
+    },
+    {
+      "id": "faostat-fbs:fruit",
+      "common_year": 2023,
+      "n": 171,
+      "hash": "e581b4c0250505a9b64cc40d77581690"
+    },
+    {
+      "id": "faostat-fbs:maize",
+      "common_year": 2023,
+      "n": 168,
+      "hash": "b66bb944548dc43ec0662957e407b226"
+    },
+    {
+      "id": "faostat-fbs:meat",
+      "common_year": 2023,
+      "n": 171,
+      "hash": "6120fe4ec239373d562c67e10290ec73"
+    },
+    {
+      "id": "faostat-fbs:milk",
+      "common_year": 2023,
+      "n": 171,
+      "hash": "48e83221134375569c87564dcdbc92d0"
+    },
+    {
+      "id": "faostat-fbs:onions",
+      "common_year": 2023,
+      "n": 166,
+      "hash": "667dfc470758b57686dd444a2500ae97"
+    },
+    {
+      "id": "faostat-fbs:pork",
+      "common_year": 2023,
+      "n": 170,
+      "hash": "35d616324cc1272928c4507598353636"
+    },
+    {
+      "id": "faostat-fbs:potatoes",
+      "common_year": 2023,
+      "n": 171,
+      "hash": "c76001ba07f9cf67783fcb90fc49ae20"
+    },
+    {
+      "id": "faostat-fbs:poultry",
+      "common_year": 2023,
+      "n": 171,
+      "hash": "4cf3668df6fd2e07b17fc0783cc2a8bb"
+    },
+    {
+      "id": "faostat-fbs:protein",
+      "common_year": 2023,
+      "n": 171,
+      "hash": "adb7d9efd58d1e48f38d57429f9a7354"
+    },
+    {
+      "id": "faostat-fbs:pulses",
+      "common_year": 2023,
+      "n": 171,
+      "hash": "8893347652bf5430a834637a6c189b46"
+    },
+    {
+      "id": "faostat-fbs:rice",
+      "common_year": 2023,
+      "n": 171,
+      "hash": "32a8606d588d7fe628e7b55bd04308ce"
+    },
+    {
+      "id": "faostat-fbs:sugar",
+      "common_year": 2023,
+      "n": 171,
+      "hash": "d3c33b5d252ecdc5b004fd7c38e6e2d5"
+    },
+    {
+      "id": "faostat-fbs:tea",
+      "common_year": 2023,
+      "n": 170,
+      "hash": "9e3db71111d55cfd2e7ae087526120a9"
+    },
+    {
+      "id": "faostat-fbs:tomatoes",
+      "common_year": 2023,
+      "n": 171,
+      "hash": "e6b5edcefa74b2d4824b679a811127df"
+    },
+    {
+      "id": "faostat-fbs:vegetable-oil",
+      "common_year": 2023,
+      "n": 171,
+      "hash": "53838ec7b3567592a9338ba327100637"
+    },
+    {
+      "id": "faostat-fbs:vegetables",
+      "common_year": 2023,
+      "n": 171,
+      "hash": "7b7c6384e94d6d822958aebfd1ecd86d"
+    },
+    {
+      "id": "faostat-fbs:wheat-products",
+      "common_year": 2023,
+      "n": 171,
+      "hash": "ff78f30bc7e849d6089872f4720e80da"
+    },
+    {
+      "id": "faostat-fbs:wine",
+      "common_year": 2023,
+      "n": 171,
+      "hash": "acc0bc12909ceb8ce989187e58dbab8e"
+    },
+    {
+      "id": "faostat-qcl-almonds-in-shell-production-01371-5510-t",
+      "common_year": 2024,
+      "n": 61,
+      "hash": "dc1442a310900c9fb90027cee5d6fefa"
+    },
+    {
+      "id": "faostat-qcl-apples-production-01341-5510-t",
+      "common_year": 2024,
+      "n": 93,
+      "hash": "542b644d7dff14057754e88ac3dffedc"
+    },
+    {
+      "id": "faostat-qcl-apricots-production-01343-5510-t",
+      "common_year": 2024,
+      "n": 76,
+      "hash": "7c7c79d8b16b0f074852babdb274bd72"
+    },
+    {
+      "id": "faostat-qcl-asses-stocks-02132-5111-an",
+      "common_year": 2024,
+      "n": 104,
+      "hash": "1ab01a92fdba9aaddf4a10c89e28734a"
+    },
+    {
+      "id": "faostat-qcl-avocados-production-01311-5510-t",
+      "common_year": 2024,
+      "n": 92,
+      "hash": "92ed2535e15c99cfa2e560c303b940ea"
+    },
+    {
+      "id": "faostat-qcl-bananas-production-01312-5510-t",
+      "common_year": 2024,
+      "n": 134,
+      "hash": "8e968c2a42736a477d2c6ec744ab2ff3"
+    },
+    {
+      "id": "faostat-qcl-barley-production-0115-5510-t",
+      "common_year": 2024,
+      "n": 101,
+      "hash": "df6d65ecf9b03a35321b7ac082720c0e"
+    },
+    {
+      "id": "faostat-qcl-beans-dry-production-01701-5510-t",
+      "common_year": 2024,
+      "n": 104,
+      "hash": "b980930670afd5ad345a167405d931b5"
+    },
+    {
+      "id": "faostat-qcl-beef-and-buffalo-meat-primary-production-f1806-5510-t",
+      "common_year": 2024,
+      "n": 182,
+      "hash": "45f13ceeb06a2a907715eb835c05839e"
+    },
+    {
+      "id": "faostat-qcl-beer-of-barley-malted-production-24310-01-5510-t",
+      "common_year": 2023,
+      "n": 161,
+      "hash": "34f97701cf3cf9d979b74c8ada4bd4c4"
+    },
+    {
+      "id": "faostat-qcl-buffalo-stocks-02112-5111-an",
+      "common_year": 2024,
+      "n": 60,
+      "hash": "6297212fb8040482274f3ae0c40244a8"
+    },
+    {
+      "id": "faostat-qcl-butter-and-ghee-production-f1811-5510-t",
+      "common_year": 2023,
+      "n": 125,
+      "hash": "dea7dad2167a40d5d98204140c36f2f2"
+    },
+    {
+      "id": "faostat-qcl-cabbages-production-01212-5510-t",
+      "common_year": 2024,
+      "n": 143,
+      "hash": "e7cc30cd5bd55127f17d8068bf86e2d2"
+    },
+    {
+      "id": "faostat-qcl-camels-stocks-02121-01-5111-an",
+      "common_year": 2024,
+      "n": 46,
+      "hash": "eafde9e4fc55206f70ec8b2f9930aa1f"
+    },
+    {
+      "id": "faostat-qcl-cantaloupes-and-other-melons-production-01229-5510-t",
+      "common_year": 2024,
+      "n": 103,
+      "hash": "48d3e7c8af63de85bb6325886a18edad"
+    },
+    {
+      "id": "faostat-qcl-carrots-and-turnips-production-01251-5510-t",
+      "common_year": 2024,
+      "n": 128,
+      "hash": "6c9c0556aef32564fe6727c41c687eab"
+    },
+    {
+      "id": "faostat-qcl-cassava-fresh-production-01520-01-5510-t",
+      "common_year": 2024,
+      "n": 91,
+      "hash": "b3257c7091777372b30423011e2c73ca"
+    },
+    {
+      "id": "faostat-qcl-cattle-and-buffaloes-stocks-f1746-5111-an",
+      "common_year": 2024,
+      "n": 182,
+      "hash": "dfb5bda74da9dd172e678cd64aee7ae5"
+    },
+    {
+      "id": "faostat-qcl-cattle-stocks-02111-5111-an",
+      "common_year": 2024,
+      "n": 182,
+      "hash": "15d0de3a6e5321c7986b1008265673f1"
+    },
+    {
+      "id": "faostat-qcl-cauliflowers-and-broccoli-production-01213-5510-t",
+      "common_year": 2024,
+      "n": 96,
+      "hash": "4074c1782977d53cceca091a04fc247c"
+    },
+    {
+      "id": "faostat-qcl-cereals-primary-production-f1717-5510-t",
+      "common_year": 2024,
+      "n": 175,
+      "hash": "6c22de4378fb0506416af4b59c262ef6"
+    },
+    {
+      "id": "faostat-qcl-cheese-all-kinds-production-f1745-5510-t",
+      "common_year": 2023,
+      "n": 107,
+      "hash": "7753a87456d4dbada1607c1a4cea5955"
+    },
+    {
+      "id": "faostat-qcl-cherries-production-01344-02-5510-t",
+      "common_year": 2024,
+      "n": 66,
+      "hash": "7b3cdd044a23f1a8466c3ba768e1dd17"
+    },
+    {
+      "id": "faostat-qcl-chickens-stocks-02151-5112-1000-an",
+      "common_year": 2024,
+      "n": 171,
+      "hash": "bb5be646c731ba3b9db794ab04c42b17"
+    },
+    {
+      "id": "faostat-qcl-chillies-and-peppers-green-capsicu-production-01231-5510-t",
+      "common_year": 2024,
+      "n": 124,
+      "hash": "fba5b4a8749ab6a3cb8a4ab5f2fafdf2"
+    },
+    {
+      "id": "faostat-qcl-coconuts-in-shell-production-01460-5510-t",
+      "common_year": 2024,
+      "n": 78,
+      "hash": "c6be50283128243dccca48ddd5b4c24c"
+    },
+    {
+      "id": "faostat-qcl-coffee-green-production-01610-5510-t",
+      "common_year": 2024,
+      "n": 73,
+      "hash": "aba550aec51c2222985dd1ba078964a2"
+    },
+    {
+      "id": "faostat-qcl-cotton-lint-ginned-production-01921-02-5510-t",
+      "common_year": 2023,
+      "n": 87,
+      "hash": "09686ec83847308573b0c03e9d868f86"
+    },
+    {
+      "id": "faostat-qcl-cucumbers-and-gherkins-production-01232-5510-t",
+      "common_year": 2024,
+      "n": 131,
+      "hash": "dfeca7aee9b54482015c8299da307cba"
+    },
+    {
+      "id": "faostat-qcl-ducks-stocks-02154-5112-1000-an",
+      "common_year": 2023,
+      "n": 83,
+      "hash": "ff9206c5bc7fa339735530b95fc7a19e"
+    },
+    {
+      "id": "faostat-qcl-eggplants-aubergines-production-01233-5510-t",
+      "common_year": 2024,
+      "n": 97,
+      "hash": "e0b07a74437e5bcb6782a823673e3eef"
+    },
+    {
+      "id": "faostat-qcl-figs-production-01315-5510-t",
+      "common_year": 2024,
+      "n": 65,
+      "hash": "bd55a3bfa8147ae8cb7be85587885882"
+    },
+    {
+      "id": "faostat-qcl-fruit-primary-production-f1738-5510-t",
+      "common_year": 2024,
+      "n": 185,
+      "hash": "c9cf4cc70729bd7c007e334f37233e3e"
+    },
+    {
+      "id": "faostat-qcl-goats-stocks-02123-5111-an",
+      "common_year": 2024,
+      "n": 175,
+      "hash": "97138e22ffa8f7aaa11718dff44519e9"
+    },
+    {
+      "id": "faostat-qcl-grapes-production-01330-5510-t",
+      "common_year": 2024,
+      "n": 95,
+      "hash": "b7c29ac5883d86cea36559ae2847551b"
+    },
+    {
+      "id": "faostat-qcl-groundnuts-excluding-shelled-production-0142-5510-t",
+      "common_year": 2024,
+      "n": 107,
+      "hash": "4e2624699afbff94812ed9f2ad924a9a"
+    },
+    {
+      "id": "faostat-qcl-hen-eggs-in-shell-fresh-production-0231-5513-1000-no",
+      "common_year": 2024,
+      "n": 176,
+      "hash": "fbb7ad428b79e6c0092d200f564b4771"
+    },
+    {
+      "id": "faostat-qcl-horses-stocks-02131-5111-an",
+      "common_year": 2024,
+      "n": 137,
+      "hash": "c4d40c331ca32b2519bf4227bc76569d"
+    },
+    {
+      "id": "faostat-qcl-lemons-and-limes-production-01322-5510-t",
+      "common_year": 2024,
+      "n": 121,
+      "hash": "0d582ca5ed552116232f4f58d0de2a7e"
+    },
+    {
+      "id": "faostat-qcl-lettuce-and-chicory-production-01214-5510-t",
+      "common_year": 2024,
+      "n": 103,
+      "hash": "e7057beed6ca6b8ec252985c09770c24"
+    },
+    {
+      "id": "faostat-qcl-maize-corn-production-0112-5510-t",
+      "common_year": 2024,
+      "n": 166,
+      "hash": "148ff79ccd5fae22d2977a62851264ff"
+    },
+    {
+      "id": "faostat-qcl-mangoes-guavas-and-mangosteens-production-01316-5510-t",
+      "common_year": 2024,
+      "n": 96,
+      "hash": "b89d07e0fbb5f1d6f0bd29964993b82d"
+    },
+    {
+      "id": "faostat-qcl-meat-of-chickens-fresh-or-chilled-production-21121-5510-t",
+      "common_year": 2024,
+      "n": 182,
+      "hash": "ac3121ee601ccb7db9eeafc9e4ccc9a8"
+    },
+    {
+      "id": "faostat-qcl-meat-of-pig-with-the-bone-fresh-or-production-21113-01-5510-t",
+      "common_year": 2024,
+      "n": 163,
+      "hash": "809d4745f5a31601d11bf223c78ec679"
+    },
+    {
+      "id": "faostat-qcl-millet-production-0118-5510-t",
+      "common_year": 2024,
+      "n": 75,
+      "hash": "2aabbca27c03a9c785b07ee87dae0278"
+    },
+    {
+      "id": "faostat-qcl-mules-and-hinnies-stocks-02133-5111-an",
+      "common_year": 2024,
+      "n": 64,
+      "hash": "67af208e6af9a8f29d90ca3394134bad"
+    },
+    {
+      "id": "faostat-qcl-mushrooms-and-truffles-production-01270-5510-t",
+      "common_year": 2024,
+      "n": 64,
+      "hash": "0fd1ba2dd9620bc00591a4b4857a2e90"
+    },
+    {
+      "id": "faostat-qcl-natural-honey-production-02910-5510-t",
+      "common_year": 2024,
+      "n": 115,
+      "hash": "2174880e0343cc06212b5a926c3a949b"
+    },
+    {
+      "id": "faostat-qcl-oats-production-0117-5510-t",
+      "common_year": 2024,
+      "n": 76,
+      "hash": "1364df2c73d4b6ad24f1a86103dc9121"
+    },
+    {
+      "id": "faostat-qcl-onions-and-shallots-dry-excluding-production-01253-02-5510-t",
+      "common_year": 2024,
+      "n": 138,
+      "hash": "5e6eae4586b715ee65bc6c9ede08bc03"
+    },
+    {
+      "id": "faostat-qcl-oranges-production-01323-5510-t",
+      "common_year": 2024,
+      "n": 130,
+      "hash": "73472c4a5ed8e043ab7956acd7656671"
+    },
+    {
+      "id": "faostat-qcl-papayas-production-01317-5510-t",
+      "common_year": 2024,
+      "n": 68,
+      "hash": "5ddd1586dbdb48ed773c34994bf9702d"
+    },
+    {
+      "id": "faostat-qcl-peaches-and-nectarines-production-01345-5510-t",
+      "common_year": 2024,
+      "n": 89,
+      "hash": "35239e0401f24887dfce099b99ebe0e4"
+    },
+    {
+      "id": "faostat-qcl-pears-production-01342-01-5510-t",
+      "common_year": 2024,
+      "n": 85,
+      "hash": "0611e7d71c988c6351024e09f232f236"
+    },
+    {
+      "id": "faostat-qcl-peas-dry-production-01705-5510-t",
+      "common_year": 2024,
+      "n": 96,
+      "hash": "02ae1525941b70c79db63ad617d7b653"
+    },
+    {
+      "id": "faostat-qcl-peas-green-production-01242-5510-t",
+      "common_year": 2024,
+      "n": 83,
+      "hash": "23cdc8950afc84d7a047532509185dad"
+    },
+    {
+      "id": "faostat-qcl-pineapples-production-01318-5510-t",
+      "common_year": 2024,
+      "n": 81,
+      "hash": "a3103507bdfba391a2af1a64d8da0d9e"
+    },
+    {
+      "id": "faostat-qcl-plums-and-sloes-production-01346-5510-t",
+      "common_year": 2024,
+      "n": 88,
+      "hash": "6d44c62bfa5560b4ac92a7f42db6a363"
+    },
+    {
+      "id": "faostat-qcl-pomelos-and-grapefruits-production-01321-5510-t",
+      "common_year": 2024,
+      "n": 91,
+      "hash": "308a971169d74ce6c12eaf38c4f81f2f"
+    },
+    {
+      "id": "faostat-qcl-potatoes-production-01510-5510-t",
+      "common_year": 2024,
+      "n": 151,
+      "hash": "b0a196318d887a6a0d8429e0fd230e9e"
+    },
+    {
+      "id": "faostat-qcl-pulses-total-production-f1726-5510-t",
+      "common_year": 2024,
+      "n": 168,
+      "hash": "2ad9712743c25c1019b9745389e16184"
+    },
+    {
+      "id": "faostat-qcl-pumpkins-squash-and-gourds-production-01235-5510-t",
+      "common_year": 2024,
+      "n": 122,
+      "hash": "e6f9fca56dd6412a80eec9bab753f26e"
+    },
+    {
+      "id": "faostat-qcl-raw-cane-or-beet-sugar-centrifugal-production-2351f-5510-t",
+      "common_year": 2023,
+      "n": 123,
+      "hash": "7b8cb65e215ef7fa1e3bbe792a5fec86"
+    },
+    {
+      "id": "faostat-qcl-raw-milk-of-cattle-production-02211-5510-t",
+      "common_year": 2024,
+      "n": 176,
+      "hash": "3afa46f35c664a529ee818cefda4d721"
+    },
+    {
+      "id": "faostat-qcl-raw-milk-of-goats-production-02292-5510-t",
+      "common_year": 2024,
+      "n": 111,
+      "hash": "66707a1f140112558387bcbb39ddac07"
+    },
+    {
+      "id": "faostat-qcl-rice-production-0113-5510-t",
+      "common_year": 2024,
+      "n": 133,
+      "hash": "7d3e78483bd24fabe87cf441b0c791de"
+    },
+    {
+      "id": "faostat-qcl-roots-and-tubers-total-production-f1720-5510-t",
+      "common_year": 2024,
+      "n": 184,
+      "hash": "1b3afd98722ebdf9fb3083e64399b42d"
+    },
+    {
+      "id": "faostat-qcl-sesame-seed-production-01444-5510-t",
+      "common_year": 2024,
+      "n": 68,
+      "hash": "050cde24d2f0f1c2a6018cabd4663312"
+    },
+    {
+      "id": "faostat-qcl-sheep-and-goat-meat-production-f1807-5510-t",
+      "common_year": 2024,
+      "n": 178,
+      "hash": "506ea8fbeab8d9e551a2b20151697733"
+    },
+    {
+      "id": "faostat-qcl-sheep-and-goats-stocks-f1749-5111-an",
+      "common_year": 2024,
+      "n": 178,
+      "hash": "cee3bf768a476bb086e673fb0ee7143b"
+    },
+    {
+      "id": "faostat-qcl-sheep-stocks-02122-5111-an",
+      "common_year": 2024,
+      "n": 171,
+      "hash": "907eaaa40be0970f914ce33f7d2381bc"
+    },
+    {
+      "id": "faostat-qcl-sorghum-production-0114-5510-t",
+      "common_year": 2024,
+      "n": 115,
+      "hash": "be3a7a877723b6be719361cdc9d05aaa"
+    },
+    {
+      "id": "faostat-qcl-soya-beans-production-0141-5510-t",
+      "common_year": 2024,
+      "n": 106,
+      "hash": "3df92e7b4f352de7206a5531e23778aa"
+    },
+    {
+      "id": "faostat-qcl-strawberries-production-01354-5510-t",
+      "common_year": 2024,
+      "n": 80,
+      "hash": "cde1d674a97264539e4d698e83730b10"
+    },
+    {
+      "id": "faostat-qcl-sugar-beet-production-01801-5510-t",
+      "common_year": 2024,
+      "n": 62,
+      "hash": "09a79c34161bb783061b227f4fb52b9f"
+    },
+    {
+      "id": "faostat-qcl-sugar-cane-production-01802-5510-t",
+      "common_year": 2024,
+      "n": 92,
+      "hash": "15a92cedc3528d2d62cd20704f27eb31"
+    },
+    {
+      "id": "faostat-qcl-sunflower-seed-production-01445-5510-t",
+      "common_year": 2024,
+      "n": 79,
+      "hash": "279ba5b0f5020efc0f897f9d46ead4f3"
+    },
+    {
+      "id": "faostat-qcl-sweet-potatoes-production-01530-5510-t",
+      "common_year": 2024,
+      "n": 105,
+      "hash": "4115f894f37d8ce53ad1e115290acbb3"
+    },
+    {
+      "id": "faostat-qcl-swine-pigs-stocks-02140-5111-an",
+      "common_year": 2024,
+      "n": 164,
+      "hash": "a2d765585a2ba52ec358d690bfb40eca"
+    },
+    {
+      "id": "faostat-qcl-tangerines-mandarins-clementines-production-01324-5510-t",
+      "common_year": 2024,
+      "n": 90,
+      "hash": "fb68f40c3616a8e43185a2a4856603d5"
+    },
+    {
+      "id": "faostat-qcl-tomatoes-production-01234-5510-t",
+      "common_year": 2024,
+      "n": 163,
+      "hash": "353cfa443405c3f97629c819c72030d9"
+    },
+    {
+      "id": "faostat-qcl-treenuts-total-production-f1729-5510-t",
+      "common_year": 2024,
+      "n": 123,
+      "hash": "c9c47c739c0b34f98f34da5d98f16f17"
+    },
+    {
+      "id": "faostat-qcl-turkeys-stocks-02152-5112-1000-an",
+      "common_year": 2023,
+      "n": 73,
+      "hash": "f6a3fb5673a60df40195119c09bf53e4"
+    },
+    {
+      "id": "faostat-qcl-unmanufactured-tobacco-production-01970-5510-t",
+      "common_year": 2024,
+      "n": 128,
+      "hash": "b3a86d82a27b99069c79603c1953295b"
+    },
+    {
+      "id": "faostat-qcl-vegetables-primary-production-f1735-5510-t",
+      "common_year": 2024,
+      "n": 185,
+      "hash": "cdbf359ad5cefac38c4956aaee7beb63"
+    },
+    {
+      "id": "faostat-qcl-walnuts-in-shell-production-01376-5510-t",
+      "common_year": 2024,
+      "n": 61,
+      "hash": "f6f8287da0d39ca0551aa0af92341eb3"
+    },
+    {
+      "id": "faostat-qcl-watermelons-production-01221-5510-t",
+      "common_year": 2024,
+      "n": 130,
+      "hash": "826629ab10cecc9557d2c0a7f5af7ead"
+    },
+    {
+      "id": "faostat-qcl-wheat-production-0111-5510-t",
+      "common_year": 2024,
+      "n": 121,
+      "hash": "e6efc413e77f1a823c81526d2c2ecec8"
+    },
+    {
+      "id": "faostat-qcl-wine-production-24212-02-5510-t",
+      "common_year": 2023,
+      "n": 76,
+      "hash": "3c102f9a19cfac2b8aa6891fa846f529"
+    },
+    {
+      "id": "fertility",
+      "common_year": 2024,
+      "n": 194,
+      "hash": "1ded32d234d223855e945fa3e7641e7c"
+    },
+    {
+      "id": "fixedBroadband",
+      "common_year": 2024,
+      "n": 146,
+      "hash": "6c2061af24f8fc279325fc5651ea888a"
+    },
+    {
+      "id": "foodExportsShare",
+      "common_year": 2024,
+      "n": 126,
+      "hash": "7ec4d97c8c06602ea668fcb45ec29e19"
+    },
+    {
+      "id": "foodImportsShare",
+      "common_year": 2024,
+      "n": 126,
+      "hash": "7519195331bfcb9d0ec18ea7b480b218"
+    },
+    {
+      "id": "forestArea",
+      "common_year": 2023,
+      "n": 194,
+      "hash": "dd46a5d7d94fcdc891d5e542d21bc575"
+    },
+    {
+      "id": "forestPct",
+      "common_year": 2023,
+      "n": 194,
+      "hash": "740775e998c1c0ce81103b045719f091"
+    },
+    {
+      "id": "freshwater",
+      "common_year": 2022,
+      "n": 180,
+      "hash": "df57a5600ab26b990c8417ccfb9979ee"
+    },
+    {
+      "id": "gdp",
+      "common_year": 2025,
+      "n": 181,
+      "hash": "4afd8b3abe8eab5d73c4fa7dc6ea1b56"
+    },
+    {
+      "id": "gdpGrowth",
+      "common_year": 2025,
+      "n": 181,
+      "hash": "c2a4fe018021e047bf50d0a3bb1fa07d"
+    },
+    {
+      "id": "gdpPc",
+      "common_year": 2025,
+      "n": 181,
+      "hash": "c3c8bca0c3f1b80d2789372c46e22cf2"
+    },
+    {
+      "id": "global-findex:account-ownership",
+      "common_year": 2024,
+      "n": 138,
+      "hash": "4caa976eb72487cd896a7cad18e665da"
+    },
+    {
+      "id": "healthSpend",
+      "common_year": 2023,
+      "n": 191,
+      "hash": "c1b9b8633a6448a057d3fd88401f90ea"
+    },
+    {
+      "id": "healthSpendShare",
+      "common_year": 2023,
+      "n": 192,
+      "hash": "f14405496395ebee76bda415aedbbb78"
+    },
+    {
+      "id": "highTechExports",
+      "common_year": 2024,
+      "n": 121,
+      "hash": "ad956b7c5b34e38aa62e70d8deb8e412"
+    },
+    {
+      "id": "history:oldest-current-constitution",
+      "common_year": 2026,
+      "n": 176,
+      "hash": "71b66c98ac493625e220cba0bc82c2f5"
+    },
+    {
+      "id": "history:un-admission",
+      "common_year": 2026,
+      "n": 193,
+      "hash": "c85da2c23fe5707183ac2f9572588fac"
+    },
+    {
+      "id": "history:worldbank-electricity-half",
+      "common_year": 2026,
+      "n": 46,
+      "hash": "1a694a0a31830195e48726a2982c8ec7"
+    },
+    {
+      "id": "history:worldbank-infant-mortality-below-25",
+      "common_year": 2026,
+      "n": 120,
+      "hash": "0628e0e5c84e2c4674995882c10a9fcc"
+    },
+    {
+      "id": "history:worldbank-internet-half",
+      "common_year": 2026,
+      "n": 141,
+      "hash": "7781600144d246a17f1f0bb1aca9a3fb"
+    },
+    {
+      "id": "history:worldbank-life-expectancy-70",
+      "common_year": 2026,
+      "n": 116,
+      "hash": "f85eadc57f9a97e7a5b17a74a590040e"
+    },
+    {
+      "id": "history:worldbank-majority-urban",
+      "common_year": 2026,
+      "n": 89,
+      "hash": "fbec3b21286fac2924da6f5ff6beea08"
+    },
+    {
+      "id": "history:worldbank-mobile-subscriptions-50",
+      "common_year": 2026,
+      "n": 182,
+      "hash": "0c95627bdcb078b902a50b69696c5457"
+    },
+    {
+      "id": "history:worldbank-under-five-mortality-below-50",
+      "common_year": 2026,
+      "n": 125,
+      "hash": "3fd2b7a1a0fe8aa95450354b12d82dba"
+    },
+    {
+      "id": "infantMortality",
+      "common_year": 2024,
+      "n": 193,
+      "hash": "188359fc8c3b6615c18ed9c25fa87e79"
+    },
+    {
+      "id": "journalArticles",
+      "common_year": 2023,
+      "n": 194,
+      "hash": "34e75769f1fbc486b44020e61239b92c"
+    },
+    {
+      "id": "koppen-geiger:arid-share",
+      "common_year": 2020,
+      "n": 195,
+      "hash": "042349cbdb3876a091d021708848a761"
+    },
+    {
+      "id": "koppen-geiger:continental-share",
+      "common_year": 2020,
+      "n": 195,
+      "hash": "da5ff93959b596e8d6deaa9295c6fff6"
+    },
+    {
+      "id": "koppen-geiger:desert-share",
+      "common_year": 2020,
+      "n": 195,
+      "hash": "a13efc55d68e314f0f7946ad2f288eac"
+    },
+    {
+      "id": "koppen-geiger:mediterranean-share",
+      "common_year": 2020,
+      "n": 195,
+      "hash": "9e297b6a7d6f04ab6cfb7670c4c8af60"
+    },
+    {
+      "id": "koppen-geiger:polar-share",
+      "common_year": 2020,
+      "n": 195,
+      "hash": "4aa3cc7a2f5a776bde3409f126fbf034"
+    },
+    {
+      "id": "koppen-geiger:steppe-share",
+      "common_year": 2020,
+      "n": 195,
+      "hash": "0b5af9f20b4928ecc6618c616925a641"
+    },
+    {
+      "id": "koppen-geiger:temperate-share",
+      "common_year": 2020,
+      "n": 195,
+      "hash": "9551575d1220118ca93929628723d3be"
+    },
+    {
+      "id": "koppen-geiger:tropical-monsoon-share",
+      "common_year": 2020,
+      "n": 195,
+      "hash": "57aea1bf8fac893e119d3ae394260d31"
+    },
+    {
+      "id": "koppen-geiger:tropical-rainforest-share",
+      "common_year": 2020,
+      "n": 195,
+      "hash": "5433c76d81dd77630cee48e6be024c24"
+    },
+    {
+      "id": "koppen-geiger:tundra-share",
+      "common_year": 2020,
+      "n": 195,
+      "hash": "c74e79ebf39f6be6e1fc3442c405081f"
+    },
+    {
+      "id": "land",
+      "common_year": 2023,
+      "n": 194,
+      "hash": "982b9c72ced2d4ed3f0d1019576be622"
+    },
+    {
+      "id": "life",
+      "common_year": 2024,
+      "n": 194,
+      "hash": "af423e041bc80b44f71b9efdef975fb2"
+    },
+    {
+      "id": "manufacturing",
+      "common_year": 2025,
+      "n": 130,
+      "hash": "5b19efcca2d71e913ba2fcfeecca1412"
+    },
+    {
+      "id": "merchExports",
+      "common_year": 2025,
+      "n": 190,
+      "hash": "330c204365b3139a50ddd64682a53508"
+    },
+    {
+      "id": "merchImports",
+      "common_year": 2025,
+      "n": 190,
+      "hash": "9286adbd3eee281e8a8b6751930f2b94"
+    },
+    {
+      "id": "militaryShare",
+      "common_year": 2024,
+      "n": 146,
+      "hash": "27db74b94fd8db40ebc607f465111c80"
+    },
+    {
+      "id": "militarySpend",
+      "common_year": 2024,
+      "n": 150,
+      "hash": "566c72729417b5c39d3b535546701205"
+    },
+    {
+      "id": "mobile",
+      "common_year": 2024,
+      "n": 146,
+      "hash": "99e9a958ef5f5f2e912fb85db70c3cd3"
+    },
+    {
+      "id": "natural-earth-capital:capital-closest-equator",
+      "common_year": 2026,
+      "n": 188,
+      "hash": "5bed178199e4930ea8b3e6bc84ef12c9"
+    },
+    {
+      "id": "natural-earth-capital:northernmost-capital",
+      "common_year": 2026,
+      "n": 188,
+      "hash": "2ba2be380f62c7caa83580485b3c70b4"
+    },
+    {
+      "id": "natural-earth-capital:southernmost-capital",
+      "common_year": 2026,
+      "n": 188,
+      "hash": "2ba2be380f62c7caa83580485b3c70b4"
+    },
+    {
+      "id": "natural-earth:highest-coastline-density",
+      "common_year": 2022,
+      "n": 195,
+      "hash": "fe3ab26cccf23cee4e621ce133b322a6"
+    },
+    {
+      "id": "natural-earth:highest-land-border-density",
+      "common_year": 2022,
+      "n": 195,
+      "hash": "20b6042b41637f618038e3a780b503c9"
+    },
+    {
+      "id": "natural-earth:highest-mapped-glaciated-share",
+      "common_year": 2022,
+      "n": 195,
+      "hash": "04f432426fd1567e7009f9459acaa7ac"
+    },
+    {
+      "id": "natural-earth:highest-mapped-lake-share",
+      "common_year": 2022,
+      "n": 195,
+      "hash": "d87d0829bda1cd27526ed44e0b0826a5"
+    },
+    {
+      "id": "natural-earth:highest-mapped-river-density",
+      "common_year": 2022,
+      "n": 195,
+      "hash": "a393257eb807276e392e88b01f204d92"
+    },
+    {
+      "id": "natural-earth:landlocked-fewest-neighbors",
+      "common_year": 2022,
+      "n": 41,
+      "hash": "6c763674f7d97c6116fb68d273839cab"
+    },
+    {
+      "id": "natural-earth:landlocked-most-neighbors",
+      "common_year": 2022,
+      "n": 41,
+      "hash": "6c763674f7d97c6116fb68d273839cab"
+    },
+    {
+      "id": "natural-earth:largest-arctic-land-area",
+      "common_year": 2022,
+      "n": 195,
+      "hash": "561ce3578b06b060f0dd787b1e1a0b7c"
+    },
+    {
+      "id": "natural-earth:largest-continuous-land-area",
+      "common_year": 2022,
+      "n": 195,
+      "hash": "a88c80adae3083c81c0a538d93aa98d9"
+    },
+    {
+      "id": "natural-earth:largest-mapped-glaciated-area",
+      "common_year": 2022,
+      "n": 195,
+      "hash": "b1504d0b8ae5200ef71b7675d0d8a465"
+    },
+    {
+      "id": "natural-earth:largest-mapped-lake-area",
+      "common_year": 2022,
+      "n": 195,
+      "hash": "b492307f0ef97cc338535abbddaf1131"
+    },
+    {
+      "id": "natural-earth:largest-single-mapped-lake",
+      "common_year": 2022,
+      "n": 195,
+      "hash": "949d19e76253c559183238ee91980bf6"
+    },
+    {
+      "id": "natural-earth:longest-average-land-border",
+      "common_year": 2022,
+      "n": 153,
+      "hash": "72c51735a90f8f6a5cc0c359f2f4703a"
+    },
+    {
+      "id": "natural-earth:longest-coastline",
+      "common_year": 2022,
+      "n": 195,
+      "hash": "a0a64813bb7143fa687d7bb7f2e9f069"
+    },
+    {
+      "id": "natural-earth:longest-land-border",
+      "common_year": 2022,
+      "n": 195,
+      "hash": "18752cbca5bc7a203c6ea0c28451fc58"
+    },
+    {
+      "id": "natural-earth:longest-single-land-border",
+      "common_year": 2022,
+      "n": 195,
+      "hash": "6e246d4b2b59b357f628742db754926a"
+    },
+    {
+      "id": "natural-earth:most-land-neighbors",
+      "common_year": 2022,
+      "n": 195,
+      "hash": "836b18948f9f660ef7d2417dad233491"
+    },
+    {
+      "id": "natural-earth:most-mapped-lakes",
+      "common_year": 2022,
+      "n": 195,
+      "hash": "87258af0af8e6626d9ec88014775f846"
+    },
+    {
+      "id": "natural-earth:most-mapped-river-length",
+      "common_year": 2022,
+      "n": 195,
+      "hash": "eb33679f1a5b03d1909a8042465574e7"
+    },
+    {
+      "id": "natural-earth:most-mapped-rivers",
+      "common_year": 2022,
+      "n": 195,
+      "hash": "1ad49f093a901fe887093ca039f03f80"
+    },
+    {
+      "id": "natural-earth:northernmost-country",
+      "common_year": 2022,
+      "n": 195,
+      "hash": "7c66cfb33f63bb459e6c419e24e38615"
+    },
+    {
+      "id": "natural-earth:southernmost-country",
+      "common_year": 2022,
+      "n": 195,
+      "hash": "fec1ef6e9a33ad46703c69ad5cce9809"
+    },
+    {
+      "id": "older",
+      "common_year": 2025,
+      "n": 194,
+      "hash": "503f2e5754ebeae9fd26cc2d4943f5f8"
+    },
+    {
+      "id": "pew-religion:buddhist-population",
+      "common_year": 2020,
+      "n": 179,
+      "hash": "b4e3573a374e7737bbdf58920b0ad6ea"
+    },
+    {
+      "id": "pew-religion:buddhist-share",
+      "common_year": 2020,
+      "n": 179,
+      "hash": "fd6f49e75727efd700260fcc600b20cf"
+    },
+    {
+      "id": "pew-religion:christian-population",
+      "common_year": 2020,
+      "n": 179,
+      "hash": "cdc8fb3b629550a064d190ba88fa4c6e"
+    },
+    {
+      "id": "pew-religion:christian-share",
+      "common_year": 2020,
+      "n": 179,
+      "hash": "75a7e49b05eb39c3978b5e6b63caf8bc"
+    },
+    {
+      "id": "pew-religion:hindu-population",
+      "common_year": 2020,
+      "n": 179,
+      "hash": "009a4b12473dc46a26312912b15ddd2a"
+    },
+    {
+      "id": "pew-religion:hindu-share",
+      "common_year": 2020,
+      "n": 179,
+      "hash": "06df6aae4ca25bc6fd21d97e45acb4b3"
+    },
+    {
+      "id": "pew-religion:jewish-population",
+      "common_year": 2020,
+      "n": 179,
+      "hash": "6c16354178cbebd3df5491825e4f99a6"
+    },
+    {
+      "id": "pew-religion:muslim-population",
+      "common_year": 2020,
+      "n": 179,
+      "hash": "b06a908edc2abd94dd380c6eda9c9482"
+    },
+    {
+      "id": "pew-religion:muslim-share",
+      "common_year": 2020,
+      "n": 179,
+      "hash": "88c2a8b290f899b5d48733ba67427bea"
+    },
+    {
+      "id": "pew-religion:other-religions-population",
+      "common_year": 2020,
+      "n": 179,
+      "hash": "8d7dd32631ece54c02e5c27fc4725dcb"
+    },
+    {
+      "id": "pew-religion:other-religions-share",
+      "common_year": 2020,
+      "n": 179,
+      "hash": "36a32aedc041ddd69d72be13831c1e2f"
+    },
+    {
+      "id": "pew-religion:religious-diversity",
+      "common_year": 2020,
+      "n": 179,
+      "hash": "07c17babad1b71f1e6d4f643bc0bad1c"
+    },
+    {
+      "id": "pew-religion:unaffiliated-population",
+      "common_year": 2020,
+      "n": 179,
+      "hash": "f6e9ddc924f020a394a018aa8e01ef7d"
+    },
+    {
+      "id": "pew-religion:unaffiliated-share",
+      "common_year": 2020,
+      "n": 179,
+      "hash": "2f48604b0ed540578519e65ef5cb2ac3"
+    },
+    {
+      "id": "population",
+      "common_year": 2025,
+      "n": 194,
+      "hash": "6713740e9b782f257c3e457a82c30218"
+    },
+    {
+      "id": "populationGrowth",
+      "common_year": 2025,
+      "n": 194,
+      "hash": "7d407528036e58e6a63e99ddf9da9f75"
+    },
+    {
+      "id": "protected",
+      "common_year": 2025,
+      "n": 193,
+      "hash": "f0ab2821f7eb3146d94f6fc5058ee47e"
+    },
+    {
+      "id": "rain",
+      "common_year": 2022,
+      "n": 179,
+      "hash": "48df6523f1e04437abe8ff32a04bd5fc"
+    },
+    {
+      "id": "rural",
+      "common_year": 2025,
+      "n": 194,
+      "hash": "22fab7741a3ea7e68cb62b495ab887b5"
+    },
+    {
+      "id": "sanitation",
+      "common_year": 2024,
+      "n": 135,
+      "hash": "cdfbf540c9628c178b47ea07908aabd5"
+    },
+    {
+      "id": "smithsonian-gvp:highest-volcano",
+      "common_year": 2026,
+      "n": 67,
+      "hash": "b58bb587a68a1b17b657e2ff300ebbe6"
+    },
+    {
+      "id": "smithsonian-gvp:most-holocene-volcanoes",
+      "common_year": 2026,
+      "n": 67,
+      "hash": "2ed49bd35f880da1516c76f0171970e4"
+    },
+    {
+      "id": "sports:fifa-world-cup-first-appearance",
+      "common_year": 2026,
+      "n": 73,
+      "hash": "142e7a7678c6ac8e6362606bd9aef70b"
+    },
+    {
+      "id": "undp-hdr:education-inequality",
+      "common_year": 2023,
+      "n": 186,
+      "hash": "e7c761f6f95c7d3fc134d487647e9284"
+    },
+    {
+      "id": "undp-hdr:income-inequality",
+      "common_year": 2023,
+      "n": 170,
+      "hash": "bef9591d589a25898ea061935818bb57"
+    },
+    {
+      "id": "undp-hdr:life-expectancy-inequality",
+      "common_year": 2023,
+      "n": 194,
+      "hash": "f09884d8027b5ca67446398053c671c9"
+    },
+    {
+      "id": "unhcr:most-asylum-applications-by-origin",
+      "common_year": 2025,
+      "n": 187,
+      "hash": "dd774d2e09c10dfc206cd80044c07aeb"
+    },
+    {
+      "id": "unhcr:most-asylum-applications-received",
+      "common_year": 2025,
+      "n": 137,
+      "hash": "f083a41b6d8854e3fae68facfa2cdcfb"
+    },
+    {
+      "id": "unhcr:most-refugees-hosted",
+      "common_year": 2025,
+      "n": 162,
+      "hash": "9f8118b2c825090099d07e90320a0bfb"
+    },
+    {
+      "id": "unhcr:most-refugees-originating",
+      "common_year": 2025,
+      "n": 186,
+      "hash": "1e6ce626a514bd5f04b17d31b65ceb1b"
+    },
+    {
+      "id": "unhcr:most-stateless-people",
+      "common_year": 2025,
+      "n": 94,
+      "hash": "bee2801fa5191209d58855fc1107b3cc"
+    },
+    {
+      "id": "unsdg:five-g-coverage",
+      "common_year": 2024,
+      "n": 108,
+      "hash": "e4f2f24ed41a03bddb80ce188c87ce04"
+    },
+    {
+      "id": "unsdg:four-g-coverage",
+      "common_year": 2024,
+      "n": 192,
+      "hash": "b5d80360b8ad9b7d38b9825586061b2e"
+    },
+    {
+      "id": "unsdg:organized-learning",
+      "common_year": 2024,
+      "n": 103,
+      "hash": "cca3cfcaa66b809bf9c22c413d947bde"
+    },
+    {
+      "id": "unsdg:pm25-exposure",
+      "common_year": 2023,
+      "n": 195,
+      "hash": "7fad22884a022b679b3cd86e911df685"
+    },
+    {
+      "id": "unsdg:three-g-coverage",
+      "common_year": 2024,
+      "n": 193,
+      "hash": "06c2a62a573ec2a8753cd2dd76351865"
+    },
+    {
+      "id": "unsdg:unsentenced-detainees",
+      "common_year": 2024,
+      "n": 102,
+      "hash": "d7ccb68cf6e9689f8f632560a2ba9e38"
+    },
+    {
+      "id": "unsdg:urban-slum-share",
+      "common_year": 2024,
+      "n": 160,
+      "hash": "8175681f62ac8657db7f9d6c22a8fdd4"
+    },
+    {
+      "id": "unwpp:fastest-pop-decline",
+      "common_year": 2023,
+      "n": 195,
+      "hash": "932fb7a6f19de42c5ecf26086ad54578"
+    },
+    {
+      "id": "unwpp:highest-birth-rate",
+      "common_year": 2023,
+      "n": 195,
+      "hash": "d5cd11eab0851f384c2c9332c47f11df"
+    },
+    {
+      "id": "unwpp:highest-male-life-expectancy",
+      "common_year": 2023,
+      "n": 195,
+      "hash": "9ec128c5143858d59fc97c46d48a3681"
+    },
+    {
+      "id": "unwpp:highest-male-share",
+      "common_year": 2023,
+      "n": 195,
+      "hash": "73bf81eedb517d6e1ab39979cdd1f3aa"
+    },
+    {
+      "id": "unwpp:highest-mean-age-childbearing",
+      "common_year": 2023,
+      "n": 195,
+      "hash": "a562bed3e28b5533f3afa921bc03ae6c"
+    },
+    {
+      "id": "unwpp:highest-median-age",
+      "common_year": 2023,
+      "n": 195,
+      "hash": "c913ce28ec002328cc6790ee9468dd06"
+    },
+    {
+      "id": "unwpp:highest-natural-change-rate",
+      "common_year": 2023,
+      "n": 195,
+      "hash": "1f4ac555c30e0fdc8dbf0db1dd1f6bc9"
+    },
+    {
+      "id": "unwpp:highest-net-migration-rate",
+      "common_year": 2023,
+      "n": 195,
+      "hash": "12c24f93b0f872a52a7b58bc1cf9c9d6"
+    },
+    {
+      "id": "unwpp:highest-sex-ratio-at-birth",
+      "common_year": 2023,
+      "n": 195,
+      "hash": "e7daa9c4671587845143cb4aed7d79d1"
+    },
+    {
+      "id": "unwpp:lowest-death-rate",
+      "common_year": 2023,
+      "n": 195,
+      "hash": "9ca9c5477ad42e066f303fc15fa5f85c"
+    },
+    {
+      "id": "unwpp:lowest-fertility",
+      "common_year": 2023,
+      "n": 195,
+      "hash": "0fb58ceffccd134349f4a9f92fa9868c"
+    },
+    {
+      "id": "unwpp:lowest-median-age",
+      "common_year": 2023,
+      "n": 195,
+      "hash": "c913ce28ec002328cc6790ee9468dd06"
+    },
+    {
+      "id": "unwpp:lowest-pop-density",
+      "common_year": 2023,
+      "n": 195,
+      "hash": "463bdfec88acf1e6c6a0a53c4b219791"
+    },
+    {
+      "id": "usgs:most-major-earthquakes-since-1970",
+      "common_year": 2026,
+      "n": 74,
+      "hash": "0e82d83137db7e7be6bd5dbf588774fb"
+    },
+    {
+      "id": "who:WHS4_117",
+      "common_year": 2025,
+      "n": 193,
+      "hash": "d19593866ac7ba636cbb97e17e94e015"
+    },
+    {
+      "id": "who:WHS8_110",
+      "common_year": 2025,
+      "n": 193,
+      "hash": "43753842442c3d5588aa5c7ac31ee641"
+    },
+    {
+      "id": "worldbank-catalog:ag-con-fert-zs",
+      "common_year": 2023,
+      "n": 184,
+      "hash": "9245b41425eb7d8ef81fb73dd135cd24"
+    },
+    {
+      "id": "worldbank-catalog:ag-lnd-arbl-ha-pc",
+      "common_year": 2023,
+      "n": 191,
+      "hash": "49d5c1d1e63576f272b71ab92567fc79"
+    },
+    {
+      "id": "worldbank-catalog:ag-lnd-crel-ha",
+      "common_year": 2023,
+      "n": 177,
+      "hash": "b5883c18bdd1b2f5846f5fb04ce15b32"
+    },
+    {
+      "id": "worldbank-catalog:ag-lnd-crop-zs",
+      "common_year": 2023,
+      "n": 190,
+      "hash": "7c0382d7849234ed82cac8605517a7cd"
+    },
+    {
+      "id": "worldbank-catalog:ag-srf-totl-k2",
+      "common_year": 2023,
+      "n": 194,
+      "hash": "bfc36b82bd2b147f44fe17550e5aafd8"
+    },
+    {
+      "id": "worldbank-catalog:bm-gsr-mrch-cd",
+      "common_year": 2024,
+      "n": 161,
+      "hash": "99c35a099268b68acaec9d921c8c04ad"
+    },
+    {
+      "id": "worldbank-catalog:bm-klt-dinv-wd-gd-zs",
+      "common_year": 2024,
+      "n": 160,
+      "hash": "9ffeafa8eb94fcea5fb86aaa992c0843"
+    },
+    {
+      "id": "worldbank-catalog:bn-cab-xoka-gd-zs",
+      "common_year": 2024,
+      "n": 161,
+      "hash": "a130838e3db74aa62b0952b6d67c7bba"
+    },
+    {
+      "id": "worldbank-catalog:bn-gsr-mrch-cd",
+      "common_year": 2024,
+      "n": 161,
+      "hash": "a23320dd3129a4440276336da6f5bbb6"
+    },
+    {
+      "id": "worldbank-catalog:bn-klt-dinv-cd",
+      "common_year": 2024,
+      "n": 161,
+      "hash": "18444e176353e10ad488a01ed31bcb01"
+    },
+    {
+      "id": "worldbank-catalog:bx-gsr-mrch-cd",
+      "common_year": 2024,
+      "n": 161,
+      "hash": "f2588d44b9772a763b559592c95cb49e"
+    },
+    {
+      "id": "worldbank-catalog:bx-klt-dinv-wd-gd-zs",
+      "common_year": 2024,
+      "n": 181,
+      "hash": "1f158c53d9efe7ca7a7a69eb7b4690b8"
+    },
+    {
+      "id": "worldbank-catalog:bx-trf-pwkr-dt-gd-zs",
+      "common_year": 2024,
+      "n": 156,
+      "hash": "dc92e3ec2db0c836cfe82989e207277b"
+    },
+    {
+      "id": "worldbank-catalog:dt-dod-dect-gn-zs",
+      "common_year": 2024,
+      "n": 109,
+      "hash": "b89d3c331e2929bbfe3bce223d810c42"
+    },
+    {
+      "id": "worldbank-catalog:dt-dod-dstc-ir-zs",
+      "common_year": 2022,
+      "n": 102,
+      "hash": "d6de027ce2caa0a3e7e98bfd12b0308c"
+    },
+    {
+      "id": "worldbank-catalog:dt-dod-dstc-xp-zs",
+      "common_year": 2023,
+      "n": 103,
+      "hash": "cd09400bb18bae1d6ba72e3f49822176"
+    },
+    {
+      "id": "worldbank-catalog:dt-dod-pvlx-ex-zs",
+      "common_year": 2024,
+      "n": 106,
+      "hash": "234d2c2ca8671d0a53cda515d5c6af36"
+    },
+    {
+      "id": "worldbank-catalog:dt-dod-pvlx-gn-zs",
+      "common_year": 2024,
+      "n": 109,
+      "hash": "07d398c944097d248b7f11fa6f5dd981"
+    },
+    {
+      "id": "worldbank-catalog:dt-nfl-mida-cd",
+      "common_year": 2022,
+      "n": 100,
+      "hash": "88b7c8e42d84c39525222a0e99cc2869"
+    },
+    {
+      "id": "worldbank-catalog:dt-oda-alld-cd",
+      "common_year": 2023,
+      "n": 135,
+      "hash": "fbef2a2496ea498b50f980584f75e4a6"
+    },
+    {
+      "id": "worldbank-catalog:dt-oda-odat-cd",
+      "common_year": 2023,
+      "n": 135,
+      "hash": "fbef2a2496ea498b50f980584f75e4a6"
+    },
+    {
+      "id": "worldbank-catalog:dt-oda-odat-gi-zs",
+      "common_year": 2023,
+      "n": 111,
+      "hash": "1620f3d94cc70c786ce58e32098e2cdc"
+    },
+    {
+      "id": "worldbank-catalog:dt-oda-odat-gn-zs",
+      "common_year": 2023,
+      "n": 129,
+      "hash": "cdd5ee47b81e43579511c33596e88f2f"
+    },
+    {
+      "id": "worldbank-catalog:dt-oda-odat-mp-zs",
+      "common_year": 2023,
+      "n": 115,
+      "hash": "1990e209c0ba119312f34eee3be85073"
+    },
+    {
+      "id": "worldbank-catalog:dt-tds-dect-ex-zs",
+      "common_year": 2024,
+      "n": 108,
+      "hash": "f39a2f68a1b7577600db16a94c0149cd"
+    },
+    {
+      "id": "worldbank-catalog:dt-tds-dect-gn-zs",
+      "common_year": 2024,
+      "n": 116,
+      "hash": "fc84a6cdd0451e734e3b8f5f64df502b"
+    },
+    {
+      "id": "worldbank-catalog:dt-tds-dppf-xp-zs",
+      "common_year": 2023,
+      "n": 104,
+      "hash": "4630e8d9a9b9b7cecba7347fa9c92221"
+    },
+    {
+      "id": "worldbank-catalog:dt-tds-dppg-gn-zs",
+      "common_year": 2024,
+      "n": 116,
+      "hash": "172ecf2fc314006899030983eb1edc76"
+    },
+    {
+      "id": "worldbank-catalog:dt-tds-dppg-xp-zs",
+      "common_year": 2023,
+      "n": 105,
+      "hash": "74ca71e327dccd6e6e78221cbc98095e"
+    },
+    {
+      "id": "worldbank-catalog:dt-tds-mlat-pg-zs",
+      "common_year": 2024,
+      "n": 118,
+      "hash": "1a8ab54307c01416b42094a4fe740e06"
+    },
+    {
+      "id": "worldbank-catalog:eg-cft-accs-ru-zs",
+      "common_year": 2023,
+      "n": 189,
+      "hash": "dde7c1bf568dec619748b0112b4e8e0e"
+    },
+    {
+      "id": "worldbank-catalog:eg-cft-accs-ur-zs",
+      "common_year": 2023,
+      "n": 189,
+      "hash": "9f6cb2ff593569523ddd6460513172d4"
+    },
+    {
+      "id": "worldbank-catalog:eg-cft-accs-zs",
+      "common_year": 2023,
+      "n": 189,
+      "hash": "64364e9b682da2238f90a5bc633ca301"
+    },
+    {
+      "id": "worldbank-catalog:eg-elc-accs-ru-zs",
+      "common_year": 2024,
+      "n": 189,
+      "hash": "878b5a92dd488af0d868b33d7041c5df"
+    },
+    {
+      "id": "worldbank-catalog:eg-elc-accs-ur-zs",
+      "common_year": 2024,
+      "n": 192,
+      "hash": "3ccde9653bc885c9aa060d0382d3615c"
+    },
+    {
+      "id": "worldbank-catalog:eg-elc-fosl-zs",
+      "common_year": 2022,
+      "n": 145,
+      "hash": "df9027077598c27bbe90df0ff12ae25e"
+    },
+    {
+      "id": "worldbank-catalog:eg-elc-hyro-zs",
+      "common_year": 2023,
+      "n": 126,
+      "hash": "08fb57eab18514deef8301f3bbfd84e8"
+    },
+    {
+      "id": "worldbank-catalog:eg-elc-ngas-zs",
+      "common_year": 2023,
+      "n": 111,
+      "hash": "e6e206f515086192b4a01c14f18b0b38"
+    },
+    {
+      "id": "worldbank-catalog:eg-elc-petr-zs",
+      "common_year": 2023,
+      "n": 133,
+      "hash": "c4355059331c9c45fa547208054ad5d6"
+    },
+    {
+      "id": "worldbank-catalog:eg-gdp-puse-ko-pp",
+      "common_year": 2023,
+      "n": 139,
+      "hash": "2918561970c9c7c6135c1135652369e6"
+    },
+    {
+      "id": "worldbank-catalog:eg-imp-cons-zs",
+      "common_year": 2022,
+      "n": 138,
+      "hash": "998a4169821d072ed939d384ba99d68f"
+    },
+    {
+      "id": "worldbank-catalog:eg-use-comm-cl-zs",
+      "common_year": 2023,
+      "n": 146,
+      "hash": "65da1291035f61626408649642956f9e"
+    },
+    {
+      "id": "worldbank-catalog:eg-use-crnw-zs",
+      "common_year": 2023,
+      "n": 143,
+      "hash": "b98a331807947a31faf21cbcffba78f4"
+    },
+    {
+      "id": "worldbank-catalog:en-bir-thrd-no",
+      "common_year": 2022,
+      "n": 194,
+      "hash": "fb75639b64df5b6969dd3120907dee8f"
+    },
+    {
+      "id": "worldbank-catalog:en-fsh-thrd-no",
+      "common_year": 2022,
+      "n": 194,
+      "hash": "6cc594ba60cad215319b5a6bb975cb25"
+    },
+    {
+      "id": "worldbank-catalog:en-ghg-all-mt-ce-ar5",
+      "common_year": 2024,
+      "n": 186,
+      "hash": "fadd12ecbb0d73bcbf7c13da5fe804e3"
+    },
+    {
+      "id": "worldbank-catalog:en-ghg-all-pc-ce-ar5",
+      "common_year": 2024,
+      "n": 186,
+      "hash": "5ae476444cc5e0fbe90a2a6c7c569dc1"
+    },
+    {
+      "id": "worldbank-catalog:en-ghg-co2-pi-mt-ce-ar5",
+      "common_year": 2024,
+      "n": 182,
+      "hash": "672020fff24e528ecb975a9d14758292"
+    },
+    {
+      "id": "worldbank-catalog:en-hpt-thrd-no",
+      "common_year": 2022,
+      "n": 194,
+      "hash": "057fb31f5045c27a98ba4b0091a41d00"
+    },
+    {
+      "id": "worldbank-catalog:en-mam-thrd-no",
+      "common_year": 2022,
+      "n": 194,
+      "hash": "fe2869a8a887e8cffacfe54de40a17d2"
+    },
+    {
+      "id": "worldbank-catalog:en-urb-lcty",
+      "common_year": 2025,
+      "n": 150,
+      "hash": "a607bfceb15cef1185a8c418468b085e"
+    },
+    {
+      "id": "worldbank-catalog:en-urb-lcty-ur-zs",
+      "common_year": 2025,
+      "n": 150,
+      "hash": "fbd62d5d310819fecc1a141571488925"
+    },
+    {
+      "id": "worldbank-catalog:en-urb-mcty",
+      "common_year": 2025,
+      "n": 119,
+      "hash": "f3594b87d1510d4f65364a8cebe136d2"
+    },
+    {
+      "id": "worldbank-catalog:en-urb-mcty-tl-zs",
+      "common_year": 2025,
+      "n": 119,
+      "hash": "22d21e82cc2f81b930bce4f42d8ab68c"
+    },
+    {
+      "id": "worldbank-catalog:er-fsh-aqua-mt",
+      "common_year": 2024,
+      "n": 194,
+      "hash": "2de0a24ef896f396a0cf56f1b7d5fd26"
+    },
+    {
+      "id": "worldbank-catalog:er-fsh-capt-mt",
+      "common_year": 2024,
+      "n": 194,
+      "hash": "3ca5416cfe4aa8723aa8938d25cced61"
+    },
+    {
+      "id": "worldbank-catalog:er-fsh-prod-mt",
+      "common_year": 2024,
+      "n": 194,
+      "hash": "2ed087b0fa522804a815618ec88d8eb4"
+    },
+    {
+      "id": "worldbank-catalog:er-h2o-fwag-zs",
+      "common_year": 2022,
+      "n": 177,
+      "hash": "3b751dd909611d333112ae73f7c6bb84"
+    },
+    {
+      "id": "worldbank-catalog:er-h2o-fwdm-zs",
+      "common_year": 2022,
+      "n": 177,
+      "hash": "3ddf1df4cd96992e4916141e61047eb9"
+    },
+    {
+      "id": "worldbank-catalog:er-h2o-fwin-zs",
+      "common_year": 2022,
+      "n": 176,
+      "hash": "6355b46c55697b4ff3912452bc2d2701"
+    },
+    {
+      "id": "worldbank-catalog:er-h2o-fwtl-k3",
+      "common_year": 2022,
+      "n": 178,
+      "hash": "419c1763f441085a1cae423575844182"
+    },
+    {
+      "id": "worldbank-catalog:er-h2o-fwtl-zs",
+      "common_year": 2022,
+      "n": 174,
+      "hash": "a23c12653626e1ac95f7fc050c67bcb2"
+    },
+    {
+      "id": "worldbank-catalog:er-h2o-intr-pc",
+      "common_year": 2022,
+      "n": 180,
+      "hash": "b17ff44d2aa1e3dc77f5edcacf15a9c2"
+    },
+    {
+      "id": "worldbank-catalog:er-mrn-ptmr-zs",
+      "common_year": 2025,
+      "n": 154,
+      "hash": "094b8f40e6c62e1daa5ef7cff30962fc"
+    },
+    {
+      "id": "worldbank-catalog:fb-ast-nper-zs",
+      "common_year": 2024,
+      "n": 125,
+      "hash": "2049a6b9b6f1090d324e96f8623d97f6"
+    },
+    {
+      "id": "worldbank-catalog:fb-atm-totl-p5",
+      "common_year": 2024,
+      "n": 147,
+      "hash": "b4f005a6f6994f836d2d18d764bbb367"
+    },
+    {
+      "id": "worldbank-catalog:fb-bnk-capa-zs",
+      "common_year": 2024,
+      "n": 119,
+      "hash": "7641fc478b59d83ef3f584b8d885cddc"
+    },
+    {
+      "id": "worldbank-catalog:fb-cbk-brch-p5",
+      "common_year": 2024,
+      "n": 149,
+      "hash": "3822ce85163411efade8010b1441ae9b"
+    },
+    {
+      "id": "worldbank-catalog:fd-ast-prvt-gd-zs",
+      "common_year": 2024,
+      "n": 146,
+      "hash": "316e1b461975fbd1ac7d2e56f5b3440b"
+    },
+    {
+      "id": "worldbank-catalog:fd-res-liqu-as-zs",
+      "common_year": 2024,
+      "n": 127,
+      "hash": "4ea9b6f62f8a25dedc6dd27d54fa3423"
+    },
+    {
+      "id": "worldbank-catalog:fi-res-totl-cd",
+      "common_year": 2025,
+      "n": 121,
+      "hash": "f295aaba04bcd2217fab3c446a90d192"
+    },
+    {
+      "id": "worldbank-catalog:fi-res-totl-dt-zs",
+      "common_year": 2022,
+      "n": 102,
+      "hash": "c82bb3b9e750fcb777bb0a20dc209512"
+    },
+    {
+      "id": "worldbank-catalog:fm-ast-cgov-zg-m3",
+      "common_year": 2024,
+      "n": 111,
+      "hash": "c66a6fa98d4e5b52a1445435f58ff0cb"
+    },
+    {
+      "id": "worldbank-catalog:fm-ast-domo-zg-m3",
+      "common_year": 2024,
+      "n": 107,
+      "hash": "a40e99104a16574d54268d94d4a8d208"
+    },
+    {
+      "id": "worldbank-catalog:fm-ast-prvt-gd-zs",
+      "common_year": 2024,
+      "n": 140,
+      "hash": "76a47b75c0f1d912d8246e399b858726"
+    },
+    {
+      "id": "worldbank-catalog:fm-ast-prvt-zg-m3",
+      "common_year": 2024,
+      "n": 110,
+      "hash": "5f29d1bfb17f23f4288dcafb949e1ef3"
+    },
+    {
+      "id": "worldbank-catalog:fm-lbl-bmny-gd-zs",
+      "common_year": 2024,
+      "n": 112,
+      "hash": "84986f17aa8cb4b500dcfaabded4b3c6"
+    },
+    {
+      "id": "worldbank-catalog:fm-lbl-bmny-zg",
+      "common_year": 2024,
+      "n": 112,
+      "hash": "a1b3afdd6121365f0c0e8f11b3679119"
+    },
+    {
+      "id": "worldbank-catalog:fp-cpi-totl-zg",
+      "common_year": 2025,
+      "n": 162,
+      "hash": "1f39ac6405d94850a92d01441493e380"
+    },
+    {
+      "id": "worldbank-catalog:fs-ast-cgov-gd-zs",
+      "common_year": 2024,
+      "n": 144,
+      "hash": "4d63a23a5ec23ec78093215ef7d3c884"
+    },
+    {
+      "id": "worldbank-catalog:fs-ast-prvt-gd-zs",
+      "common_year": 2024,
+      "n": 140,
+      "hash": "919a93a41c630114bf2b707de6da40d8"
+    },
+    {
+      "id": "worldbank-catalog:fx-own-totl-zs",
+      "common_year": 2024,
+      "n": 137,
+      "hash": "791f099393a05cbc1c3ce041f1b38fd2"
+    },
+    {
+      "id": "worldbank-catalog:gc-nfn-totl-gd-zs",
+      "common_year": 2023,
+      "n": 107,
+      "hash": "a837825615b61a06e5c2f4efa07487b7"
+    },
+    {
+      "id": "worldbank-catalog:gc-nld-totl-gd-zs",
+      "common_year": 2023,
+      "n": 107,
+      "hash": "ab4aa062ae44ddec5457c5931d7c4778"
+    },
+    {
+      "id": "worldbank-catalog:gc-rev-gotr-zs",
+      "common_year": 2023,
+      "n": 101,
+      "hash": "07950e66a33d430225318e8a32b7c726"
+    },
+    {
+      "id": "worldbank-catalog:gc-rev-xgrt-gd-zs",
+      "common_year": 2023,
+      "n": 110,
+      "hash": "f67082aac1047e10931ba248e5fb8be4"
+    },
+    {
+      "id": "worldbank-catalog:gc-tax-gsrv-rv-zs",
+      "common_year": 2023,
+      "n": 110,
+      "hash": "ad61ad020e344e191d8b4d574f4926d6"
+    },
+    {
+      "id": "worldbank-catalog:gc-tax-gsrv-va-zs",
+      "common_year": 2023,
+      "n": 106,
+      "hash": "14b675cda8474064f2d43e5df88d4a71"
+    },
+    {
+      "id": "worldbank-catalog:gc-tax-othr-rv-zs",
+      "common_year": 2022,
+      "n": 104,
+      "hash": "f9ebf36f4b83e752b1c7be5f95f60b5f"
+    },
+    {
+      "id": "worldbank-catalog:gc-tax-totl-gd-zs",
+      "common_year": 2023,
+      "n": 110,
+      "hash": "dc1b908eee5923ffc9dc337e39073517"
+    },
+    {
+      "id": "worldbank-catalog:gc-tax-ypkg-rv-zs",
+      "common_year": 2023,
+      "n": 107,
+      "hash": "2932b73d57d742bf52b732e489be0013"
+    },
+    {
+      "id": "worldbank-catalog:gc-tax-ypkg-zs",
+      "common_year": 2023,
+      "n": 107,
+      "hash": "432ae2c67184d361c697053635f818d5"
+    },
+    {
+      "id": "worldbank-catalog:gc-xpn-comp-zs",
+      "common_year": 2022,
+      "n": 108,
+      "hash": "3b26981e28da4bbf3b7f4a40e8c7722c"
+    },
+    {
+      "id": "worldbank-catalog:gc-xpn-gsrv-zs",
+      "common_year": 2022,
+      "n": 108,
+      "hash": "b2310867a4206c90089958cded05c23d"
+    },
+    {
+      "id": "worldbank-catalog:gc-xpn-intp-rv-zs",
+      "common_year": 2023,
+      "n": 108,
+      "hash": "14f2a4653634a4c1767aa84cca6926e9"
+    },
+    {
+      "id": "worldbank-catalog:gc-xpn-intp-zs",
+      "common_year": 2022,
+      "n": 108,
+      "hash": "356e58dfceafa32288ba4116519f15f0"
+    },
+    {
+      "id": "worldbank-catalog:gc-xpn-othr-zs",
+      "common_year": 2022,
+      "n": 107,
+      "hash": "ce48ed827681331bc086e2adda8545ea"
+    },
+    {
+      "id": "worldbank-catalog:gc-xpn-totl-gd-zs",
+      "common_year": 2022,
+      "n": 110,
+      "hash": "21d135ec816359ab8c676f33744abc42"
+    },
+    {
+      "id": "worldbank-catalog:gc-xpn-trft-zs",
+      "common_year": 2022,
+      "n": 108,
+      "hash": "33c28121e2fcaed1e2a999c487940935"
+    },
+    {
+      "id": "worldbank-catalog:ic-bus-ndns-zs",
+      "common_year": 2024,
+      "n": 128,
+      "hash": "941c12cd33f7f8ce4dc6159cc2c72e2f"
+    },
+    {
+      "id": "worldbank-catalog:ic-bus-nreg",
+      "common_year": 2024,
+      "n": 128,
+      "hash": "d9ee1e245ea271b2d620f08538370177"
+    },
+    {
+      "id": "worldbank-catalog:is-air-dprt",
+      "common_year": 2023,
+      "n": 148,
+      "hash": "155c6a4de6e382daca67111ae6d131f9"
+    },
+    {
+      "id": "worldbank-catalog:it-cel-sets",
+      "common_year": 2024,
+      "n": 146,
+      "hash": "b07308ca7429ad16af82e866242cd16f"
+    },
+    {
+      "id": "worldbank-catalog:it-mlt-main",
+      "common_year": 2024,
+      "n": 141,
+      "hash": "42627b081961ad4184416a1011f52bb5"
+    },
+    {
+      "id": "worldbank-catalog:it-net-bbnd",
+      "common_year": 2024,
+      "n": 146,
+      "hash": "6ff6391de963d6743cca21d90bcb659c"
+    },
+    {
+      "id": "worldbank-catalog:it-net-secr",
+      "common_year": 2024,
+      "n": 194,
+      "hash": "b83948de064ff9fd3bf2b40ff0d9c39f"
+    },
+    {
+      "id": "worldbank-catalog:it-net-secr-p6",
+      "common_year": 2024,
+      "n": 194,
+      "hash": "478e223e6e585568e2baa5668e98acdd"
+    },
+    {
+      "id": "worldbank-catalog:ms-mil-mprt-kd",
+      "common_year": 2024,
+      "n": 111,
+      "hash": "141cb53962d53085ac599a1f6702c6c3"
+    },
+    {
+      "id": "worldbank-catalog:ms-mil-xpnd-zs",
+      "common_year": 2024,
+      "n": 143,
+      "hash": "2bc014436cfe4531de3762a60d6b0b71"
+    },
+    {
+      "id": "young",
+      "common_year": 2025,
+      "n": 194,
+      "hash": "f467fa23ced5858035f25982a9fe0099"
+    }
+  ],
+  "mode": "freshness",
+  "days": [
+    {
+      "date": "2026-09-08",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "unsdg:organized-learning",
+            "history:worldbank-majority-urban",
+            "pew-religion:unaffiliated-population",
+            "rain"
+          ],
+          "countries": [
+            "FJI",
+            "LTU",
+            "THA",
+            "BRA"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "worldbank-catalog:gc-tax-othr-rv-zs",
+            "history:worldbank-under-five-mortality-below-50",
+            "faostat:01312:5510",
+            "natural-earth:highest-coastline-density"
+          ],
+          "countries": [
+            "SEN",
+            "COL",
+            "VUT",
+            "CRI",
+            "ROU",
+            "TON"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "smithsonian-gvp:most-holocene-volcanoes",
+            "history:un-admission",
+            "worldbank-catalog:fs-ast-cgov-gd-zs",
+            "natural-earth:highest-land-border-density",
+            "faostat-qcl-chickens-stocks-02151-5112-1000-an",
+            "faostat-fbs:potatoes"
+          ],
+          "countries": [
+            "PNG",
+            "ECU",
+            "NER",
+            "MEX",
+            "NLD",
+            "ARM",
+            "TON",
+            "FRA"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-09",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "comtrade:most-computers-exported",
+            "history:worldbank-mobile-subscriptions-50",
+            "worldbank-catalog:ms-mil-xpnd-zs",
+            "natural-earth:longest-average-land-border"
+          ],
+          "countries": [
+            "HUN",
+            "AGO",
+            "IND",
+            "SAU"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "global-findex:account-ownership",
+            "usgs:most-major-earthquakes-since-1970",
+            "history:worldbank-internet-half",
+            "worldbank-catalog:en-ghg-all-pc-ce-ar5"
+          ],
+          "countries": [
+            "IND",
+            "NIC",
+            "BOL",
+            "MNG",
+            "ISL",
+            "PRY"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "natural-earth:highest-mapped-river-density",
+            "populationGrowth",
+            "sports:fifa-world-cup-first-appearance",
+            "faostat-qcl-goats-stocks-02123-5111-an",
+            "history:worldbank-infant-mortality-below-25",
+            "eia:most-crude-oil-produced"
+          ],
+          "countries": [
+            "ARG",
+            "CHN",
+            "POL",
+            "CAN",
+            "AUT",
+            "UKR",
+            "KWT",
+            "ZAF"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-10",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "undp-hdr:education-inequality",
+            "worldbank-catalog:it-net-secr-p6",
+            "natural-earth:highest-mapped-lake-share",
+            "koppen-geiger:tundra-share"
+          ],
+          "countries": [
+            "PER",
+            "UGA",
+            "EST",
+            "PAK"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "worldbank-catalog:dt-oda-odat-mp-zs",
+            "history:worldbank-electricity-half",
+            "pew-religion:religious-diversity",
+            "unsdg:pm25-exposure"
+          ],
+          "countries": [
+            "SLB",
+            "TLS",
+            "COM",
+            "HTI",
+            "BGD",
+            "CIV"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "worldbank-catalog:er-h2o-fwin-zs",
+            "unwpp:lowest-fertility",
+            "faostat-qcl-ducks-stocks-02154-5112-1000-an",
+            "history:worldbank-life-expectancy-70",
+            "natural-earth-capital:southernmost-capital",
+            "comtrade:most-coffee-exported"
+          ],
+          "countries": [
+            "KOR",
+            "EGY",
+            "PAN",
+            "SRB",
+            "POL",
+            "CYP",
+            "MUS",
+            "MYS"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-11",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "worldbank-catalog:gc-tax-gsrv-rv-zs",
+            "natural-earth:land-border",
+            "koppen-geiger:mediterranean-share",
+            "fertility"
+          ],
+          "countries": [
+            "TZA",
+            "UZB",
+            "GEO",
+            "ESP"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "worldbank-catalog:bn-cab-xoka-gd-zs",
+            "pew-religion:other-religions-population",
+            "natural-earth:most-mapped-river-length",
+            "unsdg:urban-slum-share"
+          ],
+          "countries": [
+            "USA",
+            "BDI",
+            "NZL",
+            "STP",
+            "VNM",
+            "RUS"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "worldbank-catalog:it-net-secr",
+            "unwpp:highest-net-migration-rate",
+            "undp-hdr:income-inequality",
+            "faostat-qcl-cattle-stocks-02111-5111-an",
+            "comtrade:most-aircraft-exported",
+            "unsdg:unsentenced-detainees"
+          ],
+          "countries": [
+            "CHL",
+            "PRY",
+            "GHA",
+            "TUR",
+            "SGP",
+            "IRL",
+            "MLT",
+            "PRT"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-12",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "healthSpend",
+            "koppen-geiger:steppe-share",
+            "natural-earth:longest-single-land-border",
+            "comtrade:most-olive-oil-exported"
+          ],
+          "countries": [
+            "TUR",
+            "CAN",
+            "SWE",
+            "KAZ"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "natural-earth:most-mapped-rivers",
+            "pew-religion:muslim-share",
+            "militarySpend",
+            "smithsonian-gvp:highest-volcano"
+          ],
+          "countries": [
+            "MEX",
+            "DZA",
+            "GNQ",
+            "CHL",
+            "ITA",
+            "GBR"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "faostat-fbs:rice",
+            "worldbank-catalog:ms-mil-mprt-kd",
+            "unwpp:lowest-death-rate",
+            "unsdg:three-g-coverage",
+            "history:oldest-current-constitution",
+            "faostat-qcl-swine-pigs-stocks-02140-5111-an"
+          ],
+          "countries": [
+            "MMR",
+            "NGA",
+            "IDN",
+            "BLR",
+            "EST",
+            "COD",
+            "DZA",
+            "KAZ"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-13",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "worldbank-catalog:fx-own-totl-zs",
+            "natural-earth:coastline",
+            "faostat:01212:5510",
+            "militaryShare"
+          ],
+          "countries": [
+            "SAU",
+            "KEN",
+            "AUS",
+            "DEU"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "education",
+            "pew-religion:buddhist-population",
+            "natural-earth:largest-single-mapped-lake",
+            "who:WHS8_110"
+          ],
+          "countries": [
+            "LKA",
+            "DOM",
+            "LSO",
+            "KGZ",
+            "ALB",
+            "URY"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "worldbank-catalog:fm-ast-domo-zg-m3",
+            "faostat-qcl-sheep-and-goats-stocks-f1749-5111-an",
+            "unwpp:lowest-pop-density",
+            "unsdg:four-g-coverage",
+            "koppen-geiger:tropical-monsoon-share",
+            "comtrade:most-phones-exported"
+          ],
+          "countries": [
+            "IDN",
+            "GUY",
+            "FJI",
+            "DNK",
+            "JAM",
+            "MYS",
+            "DOM",
+            "SLV"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-14",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "natural-earth:largest-mapped-glaciated-area",
+            "worldbank-catalog:eg-elc-petr-zs",
+            "faostat-fbs:pulses",
+            "sports:fifa-world-cup-first-appearance"
+          ],
+          "countries": [
+            "NOR",
+            "CHN",
+            "ARG",
+            "HND"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "worldbank-catalog:bm-gsr-mrch-cd",
+            "unsdg:five-g-coverage",
+            "pew-religion:jewish-population",
+            "eia:most-natural-gas-produced"
+          ],
+          "countries": [
+            "NLD",
+            "EGY",
+            "BHR",
+            "ITA",
+            "NZL",
+            "MOZ"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "comtrade:most-copper-exported",
+            "fixedBroadband",
+            "koppen-geiger:temperate-share",
+            "unhcr:most-asylum-applications-by-origin",
+            "faostat-qcl-cattle-and-buffaloes-stocks-f1746-5111-an",
+            "natural-earth:largest-continuous-land-area"
+          ],
+          "countries": [
+            "THA",
+            "SWE",
+            "GTM",
+            "SRB",
+            "NZL",
+            "ARG",
+            "TUR",
+            "PAK"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-15",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "faostat-fbs:wheat-products",
+            "natural-earth:landlocked-fewest-neighbors",
+            "worldbank-catalog:gc-tax-ypkg-rv-zs",
+            "life"
+          ],
+          "countries": [
+            "CHE",
+            "TJK",
+            "MDA",
+            "MWI"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "natural-earth:most-mapped-lakes",
+            "healthSpendShare",
+            "koppen-geiger:polar-share",
+            "mobile"
+          ],
+          "countries": [
+            "ETH",
+            "ISR",
+            "VEN",
+            "UGA",
+            "AUT",
+            "BTN"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "worldbank-catalog:er-h2o-fwtl-k3",
+            "unwpp:highest-male-share",
+            "comtrade:most-tomatoes-exported",
+            "faostat-qcl-sheep-stocks-02122-5111-an",
+            "infantMortality",
+            "pew-religion:christian-share"
+          ],
+          "countries": [
+            "ARM",
+            "ESP",
+            "KOR",
+            "SRB",
+            "COL",
+            "CAN",
+            "KWT",
+            "ZAF"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-16",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "electricityAccess",
+            "natural-earth:land-neighbors",
+            "history:un-admission",
+            "smithsonian-gvp:most-holocene-volcanoes"
+          ],
+          "countries": [
+            "ISL",
+            "IND",
+            "ERI",
+            "PNG"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "history:worldbank-under-five-mortality-below-50",
+            "worldbank-catalog:gc-xpn-othr-zs",
+            "natural-earth:largest-mapped-lake-area",
+            "pew-religion:unaffiliated-share"
+          ],
+          "countries": [
+            "KOR",
+            "ARM",
+            "KEN",
+            "MKD",
+            "PNG",
+            "BRA"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "history:worldbank-majority-urban",
+            "worldbank-catalog:gc-xpn-intp-zs",
+            "comtrade:most-railway-equipment-exported",
+            "unwpp:highest-sex-ratio-at-birth",
+            "faostat-qcl-asses-stocks-02132-5111-an",
+            "koppen-geiger:arid-share"
+          ],
+          "countries": [
+            "GTM",
+            "AZE",
+            "MAR",
+            "SAU",
+            "BRA",
+            "DOM",
+            "TUR",
+            "ZAF"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-17",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "faostat:01343:5510",
+            "forestPct",
+            "history:worldbank-infant-mortality-below-25",
+            "worldbank-catalog:fb-cbk-brch-p5"
+          ],
+          "countries": [
+            "GRC",
+            "EGY",
+            "BGR",
+            "JPN"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "usgs:most-major-earthquakes-since-1970",
+            "worldbank-catalog:gc-xpn-intp-rv-zs",
+            "history:worldbank-internet-half",
+            "pew-religion:hindu-population"
+          ],
+          "countries": [
+            "PHL",
+            "HRV",
+            "USA",
+            "CHL",
+            "DOM",
+            "ROU"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "land",
+            "koppen-geiger:continental-share",
+            "unwpp:highest-birth-rate",
+            "history:worldbank-mobile-subscriptions-50",
+            "comtrade:most-ceramics-exported",
+            "faostat-qcl-horses-stocks-02131-5111-an"
+          ],
+          "countries": [
+            "MMR",
+            "NGA",
+            "CAN",
+            "CHL",
+            "LVA",
+            "KAZ",
+            "JPN",
+            "HUN"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-18",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "worldbank-catalog:bn-gsr-mrch-cd",
+            "history:worldbank-life-expectancy-70",
+            "natural-earth:highest-mapped-glaciated-share",
+            "faostat-qcl-buffalo-stocks-02112-5111-an"
+          ],
+          "countries": [
+            "IRQ",
+            "GEO",
+            "ITA",
+            "RUS"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "comtrade:most-toys-exported",
+            "koppen-geiger:tropical-rainforest-share",
+            "unwpp:fastest-pop-decline",
+            "worldbank-catalog:er-h2o-intr-pc"
+          ],
+          "countries": [
+            "MUS",
+            "FJI",
+            "BOL",
+            "IDN",
+            "MKD",
+            "FRA"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "history:worldbank-mobile-subscriptions-50",
+            "manufacturing",
+            "unsdg:organized-learning",
+            "natural-earth-capital:northernmost-capital",
+            "pew-religion:muslim-population",
+            "worldbank-catalog:gc-rev-gotr-zs"
+          ],
+          "countries": [
+            "LVA",
+            "CHE",
+            "WSM",
+            "MAR",
+            "MUS",
+            "KOR",
+            "ZMB",
+            "KAZ"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-19",
+      "valid": false,
+      "error": "The generator built valid mode candidates but could not find a cross-mode-compatible Daily trio."
+    },
+    {
+      "date": "2026-09-20",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "natural-earth:longest-single-land-border",
+            "koppen-geiger:desert-share",
+            "faostat-qcl-turkeys-stocks-02152-5112-1000-an",
+            "worldbank-catalog:ic-bus-ndns-zs"
+          ],
+          "countries": [
+            "BRA",
+            "TUN",
+            "AUS",
+            "UZB"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "worldbank-catalog:er-fsh-capt-mt",
+            "unwpp:highest-natural-change-rate",
+            "pew-religion:other-religions-share",
+            "comtrade:most-bananas-exported"
+          ],
+          "countries": [
+            "GBR",
+            "BLZ",
+            "NOR",
+            "PAK",
+            "GHA",
+            "AGO"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "worldbank-catalog:dt-dod-dstc-ir-zs",
+            "natural-earth:southernmost",
+            "undp-hdr:education-inequality",
+            "history:worldbank-electricity-half",
+            "faostat-fbs:bananas",
+            "unsdg:pm25-exposure"
+          ],
+          "countries": [
+            "HTI",
+            "VUT",
+            "ZWE",
+            "CMR",
+            "YEM",
+            "LAO",
+            "SWZ",
+            "IND"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-21",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "worldbank-catalog:er-fsh-aqua-mt",
+            "natural-earth:largest-arctic-land-area",
+            "history:oldest-current-constitution",
+            "worldbank-catalog:gc-xpn-trft-zs"
+          ],
+          "countries": [
+            "CAN",
+            "SWE",
+            "USA",
+            "ECU"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "airPassengers",
+            "unsdg:unsentenced-detainees",
+            "natural-earth:landlocked-most-neighbors",
+            "pew-religion:christian-population"
+          ],
+          "countries": [
+            "BFA",
+            "ARM",
+            "MNG",
+            "AUT",
+            "HUN",
+            "UGA"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "faostat:02910:5510",
+            "sanitation",
+            "unhcr:most-stateless-people",
+            "comtrade:most-crude-oil-exported",
+            "natural-earth:northernmost",
+            "worldbank-catalog:gc-tax-ypkg-zs"
+          ],
+          "countries": [
+            "LVA",
+            "GBR",
+            "SVN",
+            "NZL",
+            "KOR",
+            "AZE",
+            "MEX",
+            "SAU"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-22",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "worldbank-catalog:dt-oda-odat-cd",
+            "koppen-geiger:tropical-monsoon-share",
+            "natural-earth:highest-mapped-river-density",
+            "faostat:01221:5510"
+          ],
+          "countries": [
+            "VNM",
+            "GRD",
+            "TZA",
+            "SRB"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "worldbank-catalog:fp-cpi-totl-zg",
+            "smithsonian-gvp:highest-volcano",
+            "pew-religion:buddhist-share",
+            "natural-earth:highest-coastline-density"
+          ],
+          "countries": [
+            "RUS",
+            "TUR",
+            "CPV",
+            "ISL",
+            "SLB",
+            "IND"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "sports:fifa-world-cup-first-appearance",
+            "airFreight",
+            "who:WHS4_117",
+            "unwpp:highest-male-life-expectancy",
+            "comtrade:most-wine-exported",
+            "faostat-qcl-mules-and-hinnies-stocks-02133-5111-an"
+          ],
+          "countries": [
+            "ARG",
+            "CAN",
+            "CHE",
+            "TUR",
+            "ECU",
+            "PAN",
+            "SLV",
+            "ZAF"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-23",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "foodImportsShare",
+            "natural-earth-capital:capital-closest-equator",
+            "eia:most-crude-oil-produced",
+            "pew-religion:hindu-share"
+          ],
+          "countries": [
+            "BRB",
+            "KWT",
+            "CAF",
+            "OMN"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "unsdg:four-g-coverage",
+            "worldbank-catalog:en-ghg-all-mt-ce-ar5",
+            "faostat-qcl-camels-stocks-02121-01-5111-an",
+            "natural-earth:highest-land-border-density"
+          ],
+          "countries": [
+            "RUS",
+            "UKR",
+            "QAT",
+            "LBN",
+            "DZA",
+            "DJI"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "natural-earth:largest-single-mapped-lake",
+            "worldbank-catalog:gc-xpn-comp-zs",
+            "unhcr:most-refugees-hosted",
+            "comtrade:most-medical-optical-exported",
+            "worldbank-catalog:it-mlt-main",
+            "faostat-fbs:calories"
+          ],
+          "countries": [
+            "JOR",
+            "GHA",
+            "LTU",
+            "ARG",
+            "HUN",
+            "CRI",
+            "URY",
+            "KGZ"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-24",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "healthSpendShare",
+            "natural-earth:most-mapped-river-length",
+            "history:worldbank-under-five-mortality-below-50",
+            "koppen-geiger:steppe-share"
+          ],
+          "countries": [
+            "MEX",
+            "ETH",
+            "CHN",
+            "PLW"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "worldbank-catalog:eg-use-crnw-zs",
+            "faostat-qcl-chickens-stocks-02151-5112-1000-an",
+            "natural-earth:longest-average-land-border",
+            "worldbank-catalog:gc-rev-xgrt-gd-zs"
+          ],
+          "countries": [
+            "POL",
+            "TZA",
+            "LUX",
+            "DOM",
+            "KEN",
+            "NPL"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "faostat-fbs:meat",
+            "unwpp:highest-mean-age-childbearing",
+            "worldbank-catalog:gc-xpn-gsrv-zs",
+            "comtrade:most-machinery-exported",
+            "worldbank-catalog:fb-atm-totl-p5",
+            "unsdg:five-g-coverage"
+          ],
+          "countries": [
+            "MOZ",
+            "TZA",
+            "THA",
+            "MLT",
+            "MEX",
+            "BHS",
+            "CAN",
+            "GRC"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-25",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "worldbank-catalog:fm-ast-prvt-zg-m3",
+            "pew-religion:unaffiliated-population",
+            "rain",
+            "history:worldbank-internet-half"
+          ],
+          "countries": [
+            "MYS",
+            "BWA",
+            "ISL",
+            "AUS"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "worldbank-catalog:er-h2o-fwtl-k3",
+            "history:un-admission",
+            "unsdg:urban-slum-share",
+            "smithsonian-gvp:most-holocene-volcanoes"
+          ],
+          "countries": [
+            "PER",
+            "NLD",
+            "NER",
+            "TUR",
+            "ERI",
+            "PNG"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "worldbank-catalog:ms-mil-xpnd-zs",
+            "unwpp:highest-median-age",
+            "history:worldbank-majority-urban",
+            "comtrade:most-cotton-exported",
+            "global-findex:account-ownership",
+            "faostat-qcl-goats-stocks-02123-5111-an"
+          ],
+          "countries": [
+            "NGA",
+            "PRT",
+            "IRL",
+            "SAU",
+            "DOM",
+            "BIH",
+            "COL",
+            "MYS"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-26",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "unsdg:three-g-coverage",
+            "forestArea",
+            "sports:fifa-world-cup-first-appearance",
+            "faostat:01610:5510"
+          ],
+          "countries": [
+            "HND",
+            "TTO",
+            "BOL",
+            "COD"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "merchImports",
+            "koppen-geiger:tundra-share",
+            "faostat-qcl-ducks-stocks-02154-5112-1000-an",
+            "natural-earth:highest-mapped-lake-share"
+          ],
+          "countries": [
+            "FRA",
+            "KGZ",
+            "IDN",
+            "SWE",
+            "PAN",
+            "PRY"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "worldbank-catalog:fb-ast-nper-zs",
+            "comtrade:most-rice-exported",
+            "unwpp:lowest-fertility",
+            "history:worldbank-infant-mortality-below-25",
+            "usgs:most-major-earthquakes-since-1970",
+            "pew-religion:religious-diversity"
+          ],
+          "countries": [
+            "IDN",
+            "USA",
+            "BTN",
+            "CAN",
+            "MAR",
+            "ROU",
+            "CHL",
+            "GEO"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-27",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "worldbank-catalog:dt-tds-dect-gn-zs",
+            "faostat-qcl-cattle-stocks-02111-5111-an",
+            "worldbank-catalog:it-net-secr-p6",
+            "natural-earth:largest-continuous-land-area"
+          ],
+          "countries": [
+            "KAZ",
+            "DMA",
+            "RUS",
+            "SDN"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "worldbank-catalog:dt-oda-odat-mp-zs",
+            "history:worldbank-mobile-subscriptions-50",
+            "natural-earth:land-border",
+            "fertility"
+          ],
+          "countries": [
+            "ARG",
+            "BDI",
+            "ECU",
+            "HTI",
+            "TUV",
+            "MWI"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "comtrade:most-fish-exported",
+            "older",
+            "history:worldbank-life-expectancy-70",
+            "koppen-geiger:mediterranean-share",
+            "undp-hdr:income-inequality",
+            "unsdg:organized-learning"
+          ],
+          "countries": [
+            "HND",
+            "PER",
+            "BRB",
+            "BGR",
+            "ARM",
+            "CHL",
+            "MAR",
+            "AZE"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-28",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "worldbank-catalog:gc-xpn-intp-zs",
+            "faostat-qcl-swine-pigs-stocks-02140-5111-an",
+            "comtrade:most-coffee-exported",
+            "natural-earth:most-mapped-rivers"
+          ],
+          "countries": [
+            "NZL",
+            "COL",
+            "ZAF",
+            "DEU"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "worldbank-catalog:fb-bnk-capa-zs",
+            "unwpp:lowest-median-age",
+            "history:worldbank-electricity-half",
+            "faostat-fbs:beer"
+          ],
+          "countries": [
+            "KEN",
+            "SLB",
+            "IND",
+            "NGA",
+            "KHM",
+            "FSM"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "pew-religion:other-religions-population",
+            "worldbank-catalog:gc-tax-gsrv-va-zs",
+            "undp-hdr:education-inequality",
+            "worldbank-catalog:en-ghg-all-pc-ce-ar5",
+            "koppen-geiger:arid-share",
+            "natural-earth:coastline"
+          ],
+          "countries": [
+            "NAM",
+            "BFA",
+            "ITA",
+            "NZL",
+            "BRA",
+            "DOM",
+            "GRC",
+            "CHL"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-29",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "worldbank-catalog:fs-ast-cgov-gd-zs",
+            "natural-earth-capital:southernmost-capital",
+            "militaryShare",
+            "koppen-geiger:tropical-rainforest-share"
+          ],
+          "countries": [
+            "GUY",
+            "BRA",
+            "MUS",
+            "MLI"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "worldbank-catalog:er-h2o-fwtl-zs",
+            "militarySpend",
+            "history:oldest-current-constitution",
+            "pew-religion:muslim-share"
+          ],
+          "countries": [
+            "MRT",
+            "ALB",
+            "MMR",
+            "TUN",
+            "LBN",
+            "DEU"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "worldbank-catalog:en-mam-thrd-no",
+            "undp-hdr:life-expectancy-inequality",
+            "comtrade:most-natural-gas-exported",
+            "faostat:F1811:5510",
+            "unsdg:unsentenced-detainees",
+            "worldbank-catalog:it-net-bbnd"
+          ],
+          "countries": [
+            "BEL",
+            "NOR",
+            "CYP",
+            "ESP",
+            "AGO",
+            "DOM",
+            "COL",
+            "ARG"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "worldbank-catalog:er-h2o-fwag-zs",
+            "natural-earth:largest-mapped-glaciated-area",
+            "sports:fifa-world-cup-first-appearance",
+            "eia:most-natural-gas-produced"
+          ],
+          "countries": [
+            "AUS",
+            "UZB",
+            "BOL",
+            "CHE"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "natural-earth:landlocked-most-neighbors",
+            "protected",
+            "pew-religion:jewish-population",
+            "koppen-geiger:temperate-share"
+          ],
+          "countries": [
+            "AUT",
+            "ARM",
+            "AFG",
+            "LSO",
+            "ZMB",
+            "CHE"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "worldbank-catalog:en-bir-thrd-no",
+            "unwpp:highest-net-migration-rate",
+            "who:WHS8_110",
+            "comtrade:most-poultry-exported",
+            "faostat-qcl-cattle-and-buffaloes-stocks-f1746-5111-an",
+            "smithsonian-gvp:highest-volcano"
+          ],
+          "countries": [
+            "GTM",
+            "AUS",
+            "PHL",
+            "GBR",
+            "CAN",
+            "PRT",
+            "ZAF",
+            "KOR"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-10-01",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "infantMortality",
+            "natural-earth:most-mapped-lakes",
+            "koppen-geiger:polar-share",
+            "faostat:24212.02:5510"
+          ],
+          "countries": [
+            "CHN",
+            "MNE",
+            "ESP",
+            "USA"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "pew-religion:buddhist-population",
+            "worldbank-catalog:gc-tax-othr-rv-zs",
+            "natural-earth:highest-land-border-density",
+            "worldbank-catalog:is-air-dprt"
+          ],
+          "countries": [
+            "CZE",
+            "UGA",
+            "RWA",
+            "CRI",
+            "MEX",
+            "LAO"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "worldbank-catalog:dt-oda-odat-gi-zs",
+            "unhcr:most-refugees-originating",
+            "comtrade:most-glass-exported",
+            "worldbank-catalog:it-cel-sets",
+            "faostat-fbs:sugar",
+            "faostat-qcl-sheep-stocks-02122-5111-an"
+          ],
+          "countries": [
+            "PAK",
+            "PER",
+            "MYS",
+            "NAM",
+            "SLV",
+            "GMB",
+            "BRA",
+            "BFA"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-10-02",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "electricUse",
+            "pew-religion:christian-share",
+            "natural-earth:landlocked-fewest-neighbors",
+            "mobile"
+          ],
+          "countries": [
+            "BWA",
+            "AUT",
+            "NPL",
+            "RWA"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "worldbank-catalog:dt-oda-alld-cd",
+            "unsdg:four-g-coverage",
+            "natural-earth:highest-mapped-river-density",
+            "history:worldbank-infant-mortality-below-25"
+          ],
+          "countries": [
+            "BGD",
+            "ERI",
+            "UKR",
+            "GTM",
+            "NIC",
+            "MDV"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "faostat-fbs:coffee",
+            "highTechExports",
+            "unwpp:highest-sex-ratio-at-birth",
+            "history:worldbank-under-five-mortality-below-50",
+            "worldbank-catalog:fm-ast-cgov-zg-m3",
+            "faostat-qcl-sheep-and-goats-stocks-f1749-5111-an"
+          ],
+          "countries": [
+            "FJI",
+            "POL",
+            "HUN",
+            "ARG",
+            "TZA",
+            "CHL",
+            "AGO",
+            "BIH"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-10-03",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "smithsonian-gvp:most-holocene-volcanoes",
+            "worldbank-catalog:ms-mil-xpnd-zs",
+            "history:un-admission",
+            "koppen-geiger:continental-share"
+          ],
+          "countries": [
+            "DZA",
+            "GEO",
+            "JPN",
+            "RUS"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "worldbank-catalog:eg-elc-hyro-zs",
+            "history:worldbank-majority-urban",
+            "faostat-qcl-horses-stocks-02131-5111-an",
+            "natural-earth:land-neighbors"
+          ],
+          "countries": [
+            "CRI",
+            "GEO",
+            "CMR",
+            "SRB",
+            "PRK",
+            "COL"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "unwpp:highest-male-share",
+            "worldbank-catalog:ic-bus-nreg",
+            "history:worldbank-internet-half",
+            "comtrade:most-gold-exported",
+            "natural-earth:largest-mapped-lake-area",
+            "fixedBroadband"
+          ],
+          "countries": [
+            "ZAF",
+            "IND",
+            "SAU",
+            "NOR",
+            "AZE",
+            "FIN",
+            "NZL",
+            "ITA"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-10-04",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "foodImportsShare",
+            "natural-earth-capital:northernmost-capital",
+            "sports:fifa-world-cup-first-appearance",
+            "worldbank-catalog:gc-nfn-totl-gd-zs"
+          ],
+          "countries": [
+            "ARG",
+            "TGO",
+            "JOR",
+            "NLD"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "faostat-fbs:fish",
+            "worldbank-catalog:gc-tax-ypkg-rv-zs",
+            "pew-religion:hindu-population",
+            "natural-earth:highest-mapped-glaciated-share"
+          ],
+          "countries": [
+            "ISL",
+            "CAN",
+            "FRA",
+            "CHN",
+            "ZAF",
+            "TJK"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "usgs:most-major-earthquakes-since-1970",
+            "worldbank-catalog:gc-tax-gsrv-rv-zs",
+            "unwpp:lowest-pop-density",
+            "comtrade:most-maize-exported",
+            "faostat-qcl-asses-stocks-02132-5111-an",
+            "worldbank-catalog:fi-res-totl-cd"
+          ],
+          "countries": [
+            "SLV",
+            "COL",
+            "DOM",
+            "CHL",
+            "KAZ",
+            "TUR",
+            "THA",
+            "MEX"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-10-05",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "faostat:F1807:5510",
+            "worldbank-catalog:eg-elc-petr-zs",
+            "natural-earth:highest-coastline-density",
+            "global-findex:account-ownership"
+          ],
+          "countries": [
+            "SVN",
+            "MNG",
+            "KWT",
+            "MLT"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "land",
+            "koppen-geiger:desert-share",
+            "history:worldbank-mobile-subscriptions-50",
+            "unsdg:pm25-exposure"
+          ],
+          "countries": [
+            "KIR",
+            "JOR",
+            "MEX",
+            "TCD",
+            "ZWE",
+            "KGZ"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "faostat-fbs:vegetable-oil",
+            "unwpp:lowest-death-rate",
+            "worldbank-catalog:it-net-secr",
+            "unsdg:organized-learning",
+            "history:worldbank-life-expectancy-70",
+            "comtrade:most-beef-exported"
+          ],
+          "countries": [
+            "MAR",
+            "FRA",
+            "DOM",
+            "KOR",
+            "PHL",
+            "GTM",
+            "PRY",
+            "CYP"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-10-06",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "natural-earth:southernmost",
+            "history:worldbank-electricity-half",
+            "arablePct",
+            "undp-hdr:education-inequality"
+          ],
+          "countries": [
+            "RWA",
+            "HTI",
+            "BTN",
+            "LSO"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "sports:fifa-world-cup-first-appearance",
+            "density",
+            "comtrade:most-olive-oil-exported",
+            "pew-religion:other-religions-share"
+          ],
+          "countries": [
+            "ISR",
+            "ROU",
+            "CAN",
+            "AUT",
+            "JAM",
+            "AUS"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "healthSpend",
+            "unsdg:five-g-coverage",
+            "faostat-qcl-turkeys-stocks-02152-5112-1000-an",
+            "worldbank-catalog:ic-bus-ndns-zs",
+            "natural-earth:longest-single-land-border",
+            "eia:most-crude-oil-produced"
+          ],
+          "countries": [
+            "ZAF",
+            "DZA",
+            "UZB",
+            "AUS",
+            "POL",
+            "ECU",
+            "DEU",
+            "EST"
+          ]
+        }
+      }
+    },
+    {
+      "date": "2026-10-07",
+      "valid": true,
+      "modes": {
+        "easy": {
+          "categories": [
+            "worldbank-catalog:fx-own-totl-zs",
+            "natural-earth:largest-arctic-land-area",
+            "pew-religion:muslim-population",
+            "militarySpend"
+          ],
+          "countries": [
+            "RUS",
+            "NOR",
+            "MYS",
+            "USA"
+          ]
+        },
+        "normal": {
+          "categories": [
+            "journalArticles",
+            "koppen-geiger:tropical-monsoon-share",
+            "history:oldest-current-constitution",
+            "natural-earth:longest-average-land-border"
+          ],
+          "countries": [
+            "COD",
+            "TUR",
+            "IDN",
+            "PAN",
+            "VEN",
+            "PRY"
+          ]
+        },
+        "expert": {
+          "categories": [
+            "faostat-fbs:eggs",
+            "worldbank-catalog:ms-mil-mprt-kd",
+            "unwpp:highest-birth-rate",
+            "comtrade:most-tea-exported",
+            "who:WHS4_117",
+            "faostat:F1745:5510"
+          ],
+          "countries": [
+            "ARM",
+            "PRT",
+            "LUX",
+            "THA",
+            "NGA",
+            "NZL",
+            "GRC",
+            "MEX"
+          ]
+        }
+      }
+    }
+  ],
+  "anchors": {
+    "manufacturing": 16,
+    "faostat-fbs:vegetables": 16,
+    "faostat-fbs:protein": 15,
+    "unwpp:highest-sex-ratio-at-birth": 14,
+    "worldbank-catalog:er-h2o-fwtl-k3": 23,
+    "worldbank-catalog:it-net-secr": 44,
+    "smithsonian-gvp:highest-volcano": 260,
+    "worldbank-catalog:er-mrn-ptmr-zs": 32,
+    "unwpp:highest-natural-change-rate": 19,
+    "education": 230,
+    "history:oldest-current-constitution": 103,
+    "worldbank-catalog:fi-res-totl-cd": 17,
+    "worldbank-catalog:en-urb-lcty": 25,
+    "worldbank-catalog:eg-use-comm-cl-zs": 17,
+    "smithsonian-gvp:most-holocene-volcanoes": 245,
+    "faostat:01342.01:5510": 10,
+    "history:worldbank-internet-half": 114,
+    "undp-hdr:education-inequality": 187,
+    "sports:fifa-world-cup-first-appearance": 993,
+    "worldbank-catalog:it-cel-sets": 37,
+    "faostat:F1807:5510": 11,
+    "worldbank-catalog:is-air-dprt": 44,
+    "faostat:F1726:5510": 9,
+    "usgs:most-major-earthquakes-since-1970": 262,
+    "worldbank-catalog:en-urb-mcty": 17,
+    "natural-earth:largest-single-mapped-lake": 25,
+    "comtrade:most-apples-pears-exported": 13,
+    "history:worldbank-mobile-subscriptions-50": 109,
+    "unwpp:highest-median-age": 21,
+    "natural-earth:most-mapped-rivers": 24,
+    "rain": 33,
+    "unsdg:organized-learning": 178,
+    "healthSpendShare": 15,
+    "faostat-qcl-swine-pigs-stocks-02140-5111-an": 8,
+    "history:worldbank-life-expectancy-70": 109,
+    "unhcr:most-asylum-applications-by-origin": 14,
+    "worldbank-catalog:fm-lbl-bmny-gd-zs": 11,
+    "worldbank-catalog:er-h2o-fwdm-zs": 20,
+    "history:worldbank-majority-urban": 109,
+    "history:worldbank-infant-mortality-below-25": 103,
+    "worldbank-catalog:gc-xpn-othr-zs": 23,
+    "faostat:24310.01:5510": 10,
+    "faostat:01213:5510": 3,
+    "worldbank-catalog:en-mam-thrd-no": 17,
+    "worldbank-catalog:ms-mil-mprt-kd": 30,
+    "faostat-fbs:wheat-products": 30,
+    "freshwater": 12,
+    "worldbank-catalog:it-mlt-main": 41,
+    "worldbank-catalog:eg-use-crnw-zs": 14,
+    "infantMortality": 22,
+    "worldbank-catalog:fm-ast-cgov-zg-m3": 32,
+    "natural-earth:highest-coastline-density": 20,
+    "merchImports": 10,
+    "worldbank-catalog:gc-xpn-intp-rv-zs": 39,
+    "natural-earth-capital:southernmost-capital": 41,
+    "worldbank-catalog:en-ghg-all-pc-ce-ar5": 19,
+    "faostat-fbs:sugar": 16,
+    "worldbank-catalog:en-ghg-co2-pi-mt-ce-ar5": 18,
+    "faostat-fbs:eggs": 25,
+    "worldbank-catalog:ms-mil-xpnd-zs": 31,
+    "sanitation": 34,
+    "young": 16,
+    "faostat-fbs:rice": 17,
+    "unsdg:pm25-exposure": 17,
+    "worldbank-catalog:en-bir-thrd-no": 18,
+    "koppen-geiger:arid-share": 15,
+    "natural-earth-capital:northernmost-capital": 23,
+    "worldbank-catalog:ag-lnd-crel-ha": 9,
+    "pew-religion:jewish-population": 7,
+    "worldbank-catalog:gc-tax-gsrv-va-zs": 25,
+    "worldbank-catalog:en-ghg-all-mt-ce-ar5": 17,
+    "worldbank-catalog:er-fsh-prod-mt": 19,
+    "worldbank-catalog:dt-tds-dppf-xp-zs": 10,
+    "pew-religion:muslim-share": 6,
+    "worldbank-catalog:bx-trf-pwkr-dt-gd-zs": 15,
+    "unwpp:lowest-pop-density": 22,
+    "eia:most-crude-oil-produced": 19,
+    "faostat-fbs:fish": 17,
+    "population": 25,
+    "unsdg:unsentenced-detainees": 26,
+    "history:worldbank-electricity-half": 101,
+    "faostat-fbs:pulses": 15,
+    "worldbank-catalog:fs-ast-prvt-gd-zs": 10,
+    "worldbank-catalog:gc-tax-ypkg-rv-zs": 39,
+    "worldbank-catalog:gc-nfn-totl-gd-zs": 43,
+    "worldbank-catalog:bx-klt-dinv-wd-gd-zs": 10,
+    "worldbank-catalog:er-fsh-capt-mt": 19,
+    "faostat-fbs:potatoes": 15,
+    "faostat-fbs:poultry": 20,
+    "comtrade:most-fish-exported": 9,
+    "history:worldbank-under-five-mortality-below-50": 110,
+    "worldbank-catalog:dt-dod-dstc-ir-zs": 14,
+    "worldbank-catalog:fx-own-totl-zs": 17,
+    "faostat:0115:5510": 6,
+    "natural-earth:most-mapped-lakes": 17,
+    "worldbank-catalog:gc-tax-ypkg-zs": 26,
+    "natural-earth:highest-mapped-river-density": 20,
+    "worldbank-catalog:dt-tds-dppg-xp-zs": 10,
+    "faostat:0231:5513": 5,
+    "koppen-geiger:tropical-monsoon-share": 9,
+    "agValue": 8,
+    "unwpp:lowest-fertility": 16,
+    "natural-earth:largest-mapped-glaciated-area": 16,
+    "faostat-fbs:tea": 18,
+    "worldbank-catalog:fm-ast-prvt-zg-m3": 11,
+    "history:un-admission": 101,
+    "comtrade:most-cocoa-beans-exported": 13,
+    "worldbank-catalog:dt-tds-dppg-gn-zs": 12,
+    "fixedBroadband": 38,
+    "natural-earth:most-mapped-river-length": 25,
+    "worldbank-catalog:eg-elc-petr-zs": 22,
+    "natural-earth:largest-mapped-lake-area": 25,
+    "worldbank-catalog:dt-oda-odat-gi-zs": 8,
+    "unwpp:highest-male-life-expectancy": 21,
+    "comtrade:most-machinery-exported": 8,
+    "worldbank-catalog:eg-elc-fosl-zs": 12,
+    "koppen-geiger:tundra-share": 11,
+    "eia:most-natural-gas-produced": 13,
+    "faostat:01316:5510": 10,
+    "worldbank-catalog:gc-xpn-totl-gd-zs": 32,
+    "faostat:01312:5510": 10,
+    "unsdg:five-g-coverage": 39,
+    "gdpPc": 20,
+    "worldbank-catalog:eg-cft-accs-zs": 17,
+    "faostat:21121:5510": 7,
+    "faostat-fbs:calories": 20,
+    "faostat-qcl-chickens-stocks-02151-5112-1000-an": 12,
+    "airPassengers": 49,
+    "unsdg:four-g-coverage": 28,
+    "worldbank-catalog:gc-rev-gotr-zs": 32,
+    "faostat-qcl-buffalo-stocks-02112-5111-an": 10,
+    "worldbank-catalog:it-net-secr-p6": 36,
+    "worldbank-catalog:fm-lbl-bmny-zg": 15,
+    "natural-earth:highest-mapped-lake-share": 18,
+    "worldbank-catalog:fb-cbk-brch-p5": 15,
+    "electricUse": 11,
+    "fertility": 17,
+    "worldbank-catalog:fb-bnk-capa-zs": 15,
+    "older": 21,
+    "worldbank-catalog:gc-tax-othr-rv-zs": 31,
+    "natural-earth-capital:capital-closest-equator": 25,
+    "unsdg:urban-slum-share": 40,
+    "koppen-geiger:temperate-share": 20,
+    "natural-earth:southernmost": 17,
+    "faostat:01322:5510": 6,
+    "faostat-fbs:maize": 16,
+    "comtrade:most-coal-exported": 6,
+    "natural-earth:coastline": 35,
+    "comtrade:most-wine-exported": 11,
+    "comtrade:most-plastics-exported": 11,
+    "worldbank-catalog:fb-ast-nper-zs": 15,
+    "faostat-fbs:milk": 14,
+    "unwpp:highest-net-migration-rate": 24,
+    "faostat:01232:5510": 11,
+    "comtrade:most-wheat-exported": 6,
+    "faostat:F1745:5510": 9,
+    "worldbank-catalog:fm-ast-prvt-gd-zs": 15,
+    "journalArticles": 15,
+    "unhcr:most-refugees-originating": 15,
+    "faostat-fbs:wine": 9,
+    "faostat:01354:5510": 7,
+    "worldbank-catalog:gc-tax-gsrv-rv-zs": 38,
+    "natural-earth:longest-average-land-border": 28,
+    "comtrade:most-olive-oil-exported": 14,
+    "koppen-geiger:continental-share": 11,
+    "faostat:01251:5510": 10,
+    "comtrade:most-railway-equipment-exported": 53,
+    "unsdg:three-g-coverage": 36,
+    "comtrade:most-beer-exported": 9,
+    "faostat:01253.02:5510": 8,
+    "faostat:01330:5510": 4,
+    "worldbank-catalog:gc-rev-xgrt-gd-zs": 31,
+    "faostat:01231:5510": 9,
+    "who:WHS8_110": 10,
+    "worldbank-catalog:bm-klt-dinv-wd-gd-zs": 16,
+    "unwpp:highest-birth-rate": 23,
+    "faostat-fbs:tomatoes": 22,
+    "faostat-qcl-camels-stocks-02121-01-5111-an": 7,
+    "unhcr:most-refugees-hosted": 24,
+    "rural": 24,
+    "worldbank-catalog:eg-elc-ngas-zs": 13,
+    "unhcr:most-asylum-applications-received": 19,
+    "faostat:01214:5510": 12,
+    "worldbank-catalog:it-net-bbnd": 29,
+    "density": 16,
+    "faostat:01344.02:5510": 7,
+    "worldbank-catalog:gc-xpn-intp-zs": 28,
+    "natural-earth:landlocked-most-neighbors": 24,
+    "faostat-fbs:meat": 23,
+    "populationGrowth": 17,
+    "worldbank-catalog:er-fsh-aqua-mt": 3,
+    "unwpp:highest-mean-age-childbearing": 13,
+    "faostat:01317:5510": 4,
+    "worldbank-catalog:dt-dod-dect-gn-zs": 11,
+    "worldbank-catalog:gc-tax-totl-gd-zs": 41,
+    "arableHa": 9,
+    "worldbank-catalog:dt-tds-dect-ex-zs": 5,
+    "militarySpend": 37,
+    "worldbank-catalog:dt-oda-odat-gn-zs": 7,
+    "worldbank-catalog:en-hpt-thrd-no": 12,
+    "comtrade:most-poultry-exported": 8,
+    "faostat:2351f:5510": 8,
+    "natural-earth:highest-mapped-glaciated-share": 22,
+    "worldbank-catalog:gc-xpn-gsrv-zs": 26,
+    "faostat:0114:5510": 5,
+    "faostat:01270:5510": 10,
+    "life": 18,
+    "faostat-fbs:bananas": 17,
+    "pew-religion:hindu-share": 7,
+    "worldbank-catalog:bm-gsr-mrch-cd": 7,
+    "comtrade:most-tea-exported": 9,
+    "worldbank-catalog:gc-xpn-trft-zs": 23,
+    "militaryShare": 40,
+    "koppen-geiger:mediterranean-share": 12,
+    "comtrade:most-electrical-equipment-exported": 6,
+    "foodExportsShare": 11,
+    "worldbank-catalog:dt-oda-alld-cd": 7,
+    "forestArea": 30,
+    "comtrade:most-bananas-exported": 7,
+    "natural-earth:land-neighbors": 20,
+    "natural-earth:northernmost": 19,
+    "worldbank-catalog:dt-oda-odat-mp-zs": 10,
+    "comtrade:most-electricity-exported": 10,
+    "worldbank-catalog:eg-elc-hyro-zs": 12,
+    "faostat-fbs:beef": 19,
+    "faostat:01801:5510": 6,
+    "forestPct": 22,
+    "natural-earth:highest-land-border-density": 15,
+    "global-findex:account-ownership": 17,
+    "worldbank-catalog:fi-res-totl-dt-zs": 12,
+    "faostat:01460:5510": 7,
+    "comtrade:most-glass-exported": 6,
+    "worldbank-catalog:dt-tds-dect-gn-zs": 13,
+    "faostat-qcl-turkeys-stocks-02152-5112-1000-an": 11,
+    "worldbank-catalog:er-h2o-fwtl-zs": 18,
+    "koppen-geiger:tropical-rainforest-share": 17,
+    "natural-earth:longest-single-land-border": 25,
+    "koppen-geiger:polar-share": 8,
+    "faostat:01229:5510": 7,
+    "worldbank-catalog:ag-srf-totl-k2": 16,
+    "airFreight": 30,
+    "worldbank-catalog:er-h2o-fwag-zs": 7,
+    "comtrade:most-rice-exported": 7,
+    "faostat:01221:5510": 5,
+    "faostat:01242:5510": 11,
+    "koppen-geiger:steppe-share": 18,
+    "highTechExports": 38,
+    "faostat:02211:5510": 8,
+    "worldbank-catalog:ic-bus-nreg": 13,
+    "healthSpend": 13,
+    "worldbank-catalog:eg-imp-cons-zs": 13,
+    "faostat:0141:5510": 5,
+    "faostat:01376:5510": 4,
+    "unwpp:fastest-pop-decline": 22,
+    "faostat-fbs:vegetable-oil": 16,
+    "faostat-fbs:coffee": 21,
+    "faostat:01234:5510": 6,
+    "worldbank-catalog:eg-cft-accs-ur-zs": 16,
+    "pew-religion:christian-share": 5,
+    "faostat:F1811:5510": 5,
+    "mobile": 31,
+    "faostat:02292:5510": 7,
+    "faostat-qcl-ducks-stocks-02154-5112-1000-an": 5,
+    "comtrade:most-toys-exported": 7,
+    "protected": 19,
+    "comtrade:most-integrated-circuits-exported": 11,
+    "worldbank-catalog:fs-ast-cgov-gd-zs": 36,
+    "worldbank-catalog:dt-oda-odat-cd": 8,
+    "faostat-fbs:onions": 22,
+    "worldbank-catalog:gc-nld-totl-gd-zs": 28,
+    "undp-hdr:income-inequality": 15,
+    "unwpp:lowest-death-rate": 14,
+    "pew-religion:unaffiliated-population": 8,
+    "worldbank-catalog:dt-tds-mlat-pg-zs": 15,
+    "faostat:01235:5510": 13,
+    "land": 24,
+    "comtrade:most-clothing-exported": 12,
+    "foodImportsShare": 6,
+    "worldbank-catalog:gc-xpn-comp-zs": 19,
+    "faostat:0117:5510": 6,
+    "faostat:01311:5510": 10,
+    "faostat:01921.02:5510": 7,
+    "koppen-geiger:desert-share": 11,
+    "pew-religion:religious-diversity": 6,
+    "comtrade:most-iron-steel-exported": 4,
+    "who:WHS4_117": 5,
+    "comtrade:most-maize-exported": 7,
+    "faostat-qcl-sheep-and-goats-stocks-f1749-5111-an": 8,
+    "worldbank-catalog:en-fsh-thrd-no": 26,
+    "comtrade:most-cheese-exported": 5,
+    "undp-hdr:life-expectancy-inequality": 14,
+    "faostat:01705:5510": 7,
+    "faostat:01212:5510": 7,
+    "worldbank-catalog:eg-cft-accs-ru-zs": 22,
+    "comtrade:most-paper-exported": 9,
+    "faostat:0111:5510": 8,
+    "comtrade:most-phones-exported": 11,
+    "worldbank-catalog:eg-elc-accs-ur-zs": 12,
+    "worldbank-catalog:ag-lnd-arbl-ha-pc": 6,
+    "faostat:F1720:5510": 7,
+    "faostat-qcl-horses-stocks-02131-5111-an": 7,
+    "worldbank-catalog:fd-ast-prvt-gd-zs": 15,
+    "faostat:01970:5510": 8,
+    "comtrade:most-medical-optical-exported": 6,
+    "faostat-fbs:beer": 21,
+    "worldbank-catalog:fm-ast-domo-zg-m3": 10,
+    "faostat:F1717:5510": 7,
+    "natural-earth:landlocked-fewest-neighbors": 18,
+    "electricityAccess": 24,
+    "comtrade:most-wood-exported": 8,
+    "faostat:0113:5510": 5,
+    "energyUse": 15,
+    "natural-earth:largest-continuous-land-area": 31,
+    "worldbank-catalog:ic-bus-ndns-zs": 13,
+    "natural-earth:land-border": 15,
+    "faostat:0112:5510": 10,
+    "faostat:01233:5510": 8,
+    "comtrade:most-sugar-exported": 7,
+    "comtrade:most-rubber-products-exported": 9,
+    "natural-earth:largest-arctic-land-area": 6,
+    "faostat-qcl-asses-stocks-02132-5111-an": 9,
+    "comtrade:most-footwear-exported": 9,
+    "unwpp:highest-male-share": 16,
+    "comtrade:most-aluminum-exported": 7,
+    "pew-religion:christian-population": 10,
+    "worldbank-catalog:bn-klt-dinv-cd": 8,
+    "worldbank-catalog:bx-gsr-mrch-cd": 8,
+    "pew-religion:other-religions-share": 3,
+    "faostat:21113.01:5510": 11,
+    "comtrade:most-beef-exported": 8,
+    "faostat:F1738:5510": 6,
+    "worldbank-catalog:dt-nfl-mida-cd": 9,
+    "faostat:01321:5510": 9,
+    "worldbank-catalog:fp-cpi-totl-zg": 10,
+    "worldbank-catalog:fd-res-liqu-as-zs": 11,
+    "faostat-fbs:pork": 17,
+    "worldbank-catalog:en-urb-mcty-tl-zs": 11,
+    "comtrade:most-crude-oil-exported": 4,
+    "comtrade:most-chemicals-exported": 5,
+    "faostat:F1735:5510": 5,
+    "faostat:01445:5510": 6,
+    "comtrade:most-spices-exported": 7,
+    "faostat-fbs:fruit": 12,
+    "faostat:02910:5510": 6,
+    "faostat:01444:5510": 9,
+    "pew-religion:other-religions-population": 4,
+    "worldbank-catalog:eg-elc-accs-ru-zs": 3,
+    "faostat-qcl-sheep-stocks-02122-5111-an": 6,
+    "comtrade:most-motorcycles-exported": 5,
+    "worldbank-catalog:en-urb-lcty-ur-zs": 20,
+    "gdp": 9,
+    "faostat:24212.02:5510": 5,
+    "faostat:01802:5510": 5,
+    "worldbank-catalog:fb-atm-totl-p5": 13,
+    "faostat:01371:5510": 6,
+    "faostat:01315:5510": 8,
+    "faostat:01341:5510": 8,
+    "arablePct": 7,
+    "pew-religion:muslim-population": 6,
+    "faostat:F1806:5510": 6,
+    "faostat-qcl-goats-stocks-02123-5111-an": 9,
+    "pew-religion:hindu-population": 7,
+    "faostat:F1729:5510": 9,
+    "worldbank-catalog:er-h2o-fwin-zs": 14,
+    "faostat:01610:5510": 6,
+    "pew-religion:unaffiliated-share": 4,
+    "faostat:01346:5510": 6,
+    "faostat-qcl-mules-and-hinnies-stocks-02133-5111-an": 11,
+    "merchExports": 2,
+    "comtrade:most-aircraft-exported": 7,
+    "faostat:01510:5510": 3,
+    "comtrade:most-ships-exported": 7,
+    "unwpp:lowest-median-age": 13,
+    "worldbank-catalog:ag-con-fert-zs": 5,
+    "worldbank-catalog:eg-gdp-puse-ko-pp": 14,
+    "faostat:01343:5510": 6,
+    "comtrade:most-pharmaceuticals-exported": 10,
+    "comtrade:most-cotton-exported": 4,
+    "faostat:01520.01:5510": 6,
+    "pew-religion:buddhist-population": 2,
+    "unhcr:most-stateless-people": 20,
+    "comtrade:most-computers-exported": 5,
+    "comtrade:most-ceramics-exported": 5,
+    "comtrade:most-tomatoes-exported": 4,
+    "comtrade:most-soybeans-exported": 4,
+    "faostat:01701:5510": 10,
+    "pew-religion:buddhist-share": 6,
+    "comtrade:most-potatoes-exported": 4,
+    "comtrade:most-copper-exported": 9,
+    "faostat:01318:5510": 5,
+    "worldbank-catalog:er-h2o-intr-pc": 21,
+    "faostat-qcl-cattle-and-buffaloes-stocks-f1746-5111-an": 8,
+    "comtrade:most-natural-gas-exported": 4,
+    "worldbank-catalog:bn-cab-xoka-gd-zs": 6,
+    "comtrade:most-chocolate-exported": 2,
+    "comtrade:most-coffee-exported": 5,
+    "faostat-qcl-cattle-stocks-02111-5111-an": 7,
+    "comtrade:most-furniture-exported": 3,
+    "faostat:0118:5510": 8,
+    "faostat:01530:5510": 4,
+    "comtrade:most-gold-exported": 3,
+    "gdpGrowth": 7,
+    "faostat:01323:5510": 8,
+    "faostat:01345:5510": 5,
+    "faostat:01324:5510": 6,
+    "agLand": 4,
+    "worldbank-catalog:dt-dod-pvlx-gn-zs": 6,
+    "worldbank-catalog:ag-lnd-crop-zs": 7,
+    "comtrade:most-cars-exported": 3,
+    "worldbank-catalog:dt-dod-pvlx-ex-zs": 3,
+    "worldbank-catalog:dt-dod-dstc-xp-zs": 6,
+    "faostat:0142:5510": 5,
+    "worldbank-catalog:bn-gsr-mrch-cd": 4
+  },
+  "anchorSamplesPerMode": 3000,
+  "summary": {
+    "validDays": 29,
+    "failedDays": 1,
+    "anchorCategories": 413,
+    "representedCategories": 243,
+    "representedCountries": 163,
+    "mostFrequentCategoryDays": 7,
+    "categoryDays": {
+      "unsdg:organized-learning": 4,
+      "history:worldbank-majority-urban": 4,
+      "pew-religion:unaffiliated-population": 2,
+      "rain": 2,
+      "worldbank-catalog:gc-tax-othr-rv-zs": 2,
+      "history:worldbank-under-five-mortality-below-50": 4,
+      "faostat:01312:5510": 1,
+      "natural-earth:highest-coastline-density": 3,
+      "smithsonian-gvp:most-holocene-volcanoes": 4,
+      "history:un-admission": 4,
+      "worldbank-catalog:fs-ast-cgov-gd-zs": 2,
+      "natural-earth:highest-land-border-density": 3,
+      "faostat-qcl-chickens-stocks-02151-5112-1000-an": 2,
+      "faostat-fbs:potatoes": 1,
+      "comtrade:most-computers-exported": 1,
+      "history:worldbank-mobile-subscriptions-50": 5,
+      "worldbank-catalog:ms-mil-xpnd-zs": 3,
+      "natural-earth:longest-average-land-border": 3,
+      "global-findex:account-ownership": 3,
+      "usgs:most-major-earthquakes-since-1970": 4,
+      "history:worldbank-internet-half": 4,
+      "worldbank-catalog:en-ghg-all-pc-ce-ar5": 2,
+      "natural-earth:highest-mapped-river-density": 3,
+      "populationGrowth": 1,
+      "sports:fifa-world-cup-first-appearance": 7,
+      "faostat-qcl-goats-stocks-02123-5111-an": 2,
+      "history:worldbank-infant-mortality-below-25": 4,
+      "eia:most-crude-oil-produced": 3,
+      "undp-hdr:education-inequality": 4,
+      "worldbank-catalog:it-net-secr-p6": 2,
+      "natural-earth:highest-mapped-lake-share": 2,
+      "koppen-geiger:tundra-share": 2,
+      "worldbank-catalog:dt-oda-odat-mp-zs": 2,
+      "history:worldbank-electricity-half": 4,
+      "pew-religion:religious-diversity": 2,
+      "unsdg:pm25-exposure": 3,
+      "worldbank-catalog:er-h2o-fwin-zs": 1,
+      "unwpp:lowest-fertility": 2,
+      "faostat-qcl-ducks-stocks-02154-5112-1000-an": 2,
+      "history:worldbank-life-expectancy-70": 4,
+      "natural-earth-capital:southernmost-capital": 2,
+      "comtrade:most-coffee-exported": 2,
+      "worldbank-catalog:gc-tax-gsrv-rv-zs": 2,
+      "natural-earth:land-border": 2,
+      "koppen-geiger:mediterranean-share": 2,
+      "fertility": 2,
+      "worldbank-catalog:bn-cab-xoka-gd-zs": 1,
+      "pew-religion:other-religions-population": 2,
+      "natural-earth:most-mapped-river-length": 2,
+      "unsdg:urban-slum-share": 2,
+      "worldbank-catalog:it-net-secr": 2,
+      "unwpp:highest-net-migration-rate": 2,
+      "undp-hdr:income-inequality": 2,
+      "faostat-qcl-cattle-stocks-02111-5111-an": 2,
+      "comtrade:most-aircraft-exported": 1,
+      "unsdg:unsentenced-detainees": 3,
+      "healthSpend": 2,
+      "koppen-geiger:steppe-share": 2,
+      "natural-earth:longest-single-land-border": 3,
+      "comtrade:most-olive-oil-exported": 2,
+      "natural-earth:most-mapped-rivers": 2,
+      "pew-religion:muslim-share": 2,
+      "militarySpend": 3,
+      "smithsonian-gvp:highest-volcano": 3,
+      "faostat-fbs:rice": 1,
+      "worldbank-catalog:ms-mil-mprt-kd": 2,
+      "unwpp:lowest-death-rate": 2,
+      "unsdg:three-g-coverage": 2,
+      "history:oldest-current-constitution": 4,
+      "faostat-qcl-swine-pigs-stocks-02140-5111-an": 2,
+      "worldbank-catalog:fx-own-totl-zs": 2,
+      "natural-earth:coastline": 2,
+      "faostat:01212:5510": 1,
+      "militaryShare": 2,
+      "education": 1,
+      "pew-religion:buddhist-population": 2,
+      "natural-earth:largest-single-mapped-lake": 2,
+      "who:WHS8_110": 2,
+      "worldbank-catalog:fm-ast-domo-zg-m3": 1,
+      "faostat-qcl-sheep-and-goats-stocks-f1749-5111-an": 2,
+      "unwpp:lowest-pop-density": 2,
+      "unsdg:four-g-coverage": 3,
+      "koppen-geiger:tropical-monsoon-share": 3,
+      "comtrade:most-phones-exported": 1,
+      "natural-earth:largest-mapped-glaciated-area": 2,
+      "worldbank-catalog:eg-elc-petr-zs": 2,
+      "faostat-fbs:pulses": 1,
+      "worldbank-catalog:bm-gsr-mrch-cd": 1,
+      "unsdg:five-g-coverage": 3,
+      "pew-religion:jewish-population": 2,
+      "eia:most-natural-gas-produced": 2,
+      "comtrade:most-copper-exported": 1,
+      "fixedBroadband": 2,
+      "koppen-geiger:temperate-share": 2,
+      "unhcr:most-asylum-applications-by-origin": 1,
+      "faostat-qcl-cattle-and-buffaloes-stocks-f1746-5111-an": 2,
+      "natural-earth:largest-continuous-land-area": 2,
+      "faostat-fbs:wheat-products": 1,
+      "natural-earth:landlocked-fewest-neighbors": 2,
+      "worldbank-catalog:gc-tax-ypkg-rv-zs": 2,
+      "life": 1,
+      "natural-earth:most-mapped-lakes": 2,
+      "healthSpendShare": 2,
+      "koppen-geiger:polar-share": 2,
+      "mobile": 2,
+      "worldbank-catalog:er-h2o-fwtl-k3": 2,
+      "unwpp:highest-male-share": 2,
+      "comtrade:most-tomatoes-exported": 1,
+      "faostat-qcl-sheep-stocks-02122-5111-an": 2,
+      "infantMortality": 2,
+      "pew-religion:christian-share": 2,
+      "electricityAccess": 1,
+      "natural-earth:land-neighbors": 2,
+      "worldbank-catalog:gc-xpn-othr-zs": 1,
+      "natural-earth:largest-mapped-lake-area": 2,
+      "pew-religion:unaffiliated-share": 1,
+      "worldbank-catalog:gc-xpn-intp-zs": 2,
+      "comtrade:most-railway-equipment-exported": 1,
+      "unwpp:highest-sex-ratio-at-birth": 2,
+      "faostat-qcl-asses-stocks-02132-5111-an": 2,
+      "koppen-geiger:arid-share": 2,
+      "faostat:01343:5510": 1,
+      "forestPct": 1,
+      "worldbank-catalog:fb-cbk-brch-p5": 1,
+      "worldbank-catalog:gc-xpn-intp-rv-zs": 1,
+      "pew-religion:hindu-population": 2,
+      "land": 2,
+      "koppen-geiger:continental-share": 2,
+      "unwpp:highest-birth-rate": 2,
+      "comtrade:most-ceramics-exported": 1,
+      "faostat-qcl-horses-stocks-02131-5111-an": 2,
+      "worldbank-catalog:bn-gsr-mrch-cd": 1,
+      "natural-earth:highest-mapped-glaciated-share": 2,
+      "faostat-qcl-buffalo-stocks-02112-5111-an": 1,
+      "comtrade:most-toys-exported": 1,
+      "koppen-geiger:tropical-rainforest-share": 2,
+      "unwpp:fastest-pop-decline": 1,
+      "worldbank-catalog:er-h2o-intr-pc": 1,
+      "manufacturing": 1,
+      "natural-earth-capital:northernmost-capital": 2,
+      "pew-religion:muslim-population": 2,
+      "worldbank-catalog:gc-rev-gotr-zs": 1,
+      "koppen-geiger:desert-share": 2,
+      "faostat-qcl-turkeys-stocks-02152-5112-1000-an": 2,
+      "worldbank-catalog:ic-bus-ndns-zs": 2,
+      "worldbank-catalog:er-fsh-capt-mt": 1,
+      "unwpp:highest-natural-change-rate": 1,
+      "pew-religion:other-religions-share": 2,
+      "comtrade:most-bananas-exported": 1,
+      "worldbank-catalog:dt-dod-dstc-ir-zs": 1,
+      "natural-earth:southernmost": 2,
+      "faostat-fbs:bananas": 1,
+      "worldbank-catalog:er-fsh-aqua-mt": 1,
+      "natural-earth:largest-arctic-land-area": 2,
+      "worldbank-catalog:gc-xpn-trft-zs": 1,
+      "airPassengers": 1,
+      "natural-earth:landlocked-most-neighbors": 2,
+      "pew-religion:christian-population": 1,
+      "faostat:02910:5510": 1,
+      "sanitation": 1,
+      "unhcr:most-stateless-people": 1,
+      "comtrade:most-crude-oil-exported": 1,
+      "natural-earth:northernmost": 1,
+      "worldbank-catalog:gc-tax-ypkg-zs": 1,
+      "worldbank-catalog:dt-oda-odat-cd": 1,
+      "faostat:01221:5510": 1,
+      "worldbank-catalog:fp-cpi-totl-zg": 1,
+      "pew-religion:buddhist-share": 1,
+      "airFreight": 1,
+      "who:WHS4_117": 2,
+      "unwpp:highest-male-life-expectancy": 1,
+      "comtrade:most-wine-exported": 1,
+      "faostat-qcl-mules-and-hinnies-stocks-02133-5111-an": 1,
+      "foodImportsShare": 2,
+      "natural-earth-capital:capital-closest-equator": 1,
+      "pew-religion:hindu-share": 1,
+      "worldbank-catalog:en-ghg-all-mt-ce-ar5": 1,
+      "faostat-qcl-camels-stocks-02121-01-5111-an": 1,
+      "worldbank-catalog:gc-xpn-comp-zs": 1,
+      "unhcr:most-refugees-hosted": 1,
+      "comtrade:most-medical-optical-exported": 1,
+      "worldbank-catalog:it-mlt-main": 1,
+      "faostat-fbs:calories": 1,
+      "worldbank-catalog:eg-use-crnw-zs": 1,
+      "worldbank-catalog:gc-rev-xgrt-gd-zs": 1,
+      "faostat-fbs:meat": 1,
+      "unwpp:highest-mean-age-childbearing": 1,
+      "worldbank-catalog:gc-xpn-gsrv-zs": 1,
+      "comtrade:most-machinery-exported": 1,
+      "worldbank-catalog:fb-atm-totl-p5": 1,
+      "worldbank-catalog:fm-ast-prvt-zg-m3": 1,
+      "unwpp:highest-median-age": 1,
+      "comtrade:most-cotton-exported": 1,
+      "forestArea": 1,
+      "faostat:01610:5510": 1,
+      "merchImports": 1,
+      "worldbank-catalog:fb-ast-nper-zs": 1,
+      "comtrade:most-rice-exported": 1,
+      "worldbank-catalog:dt-tds-dect-gn-zs": 1,
+      "comtrade:most-fish-exported": 1,
+      "older": 1,
+      "worldbank-catalog:fb-bnk-capa-zs": 1,
+      "unwpp:lowest-median-age": 1,
+      "faostat-fbs:beer": 1,
+      "worldbank-catalog:gc-tax-gsrv-va-zs": 1,
+      "worldbank-catalog:er-h2o-fwtl-zs": 1,
+      "worldbank-catalog:en-mam-thrd-no": 1,
+      "undp-hdr:life-expectancy-inequality": 1,
+      "comtrade:most-natural-gas-exported": 1,
+      "faostat:F1811:5510": 1,
+      "worldbank-catalog:it-net-bbnd": 1,
+      "worldbank-catalog:er-h2o-fwag-zs": 1,
+      "protected": 1,
+      "worldbank-catalog:en-bir-thrd-no": 1,
+      "comtrade:most-poultry-exported": 1,
+      "faostat:24212.02:5510": 1,
+      "worldbank-catalog:is-air-dprt": 1,
+      "worldbank-catalog:dt-oda-odat-gi-zs": 1,
+      "unhcr:most-refugees-originating": 1,
+      "comtrade:most-glass-exported": 1,
+      "worldbank-catalog:it-cel-sets": 1,
+      "faostat-fbs:sugar": 1,
+      "electricUse": 1,
+      "worldbank-catalog:dt-oda-alld-cd": 1,
+      "faostat-fbs:coffee": 1,
+      "highTechExports": 1,
+      "worldbank-catalog:fm-ast-cgov-zg-m3": 1,
+      "worldbank-catalog:eg-elc-hyro-zs": 1,
+      "worldbank-catalog:ic-bus-nreg": 1,
+      "comtrade:most-gold-exported": 1,
+      "worldbank-catalog:gc-nfn-totl-gd-zs": 1,
+      "faostat-fbs:fish": 1,
+      "comtrade:most-maize-exported": 1,
+      "worldbank-catalog:fi-res-totl-cd": 1,
+      "faostat:F1807:5510": 1,
+      "faostat-fbs:vegetable-oil": 1,
+      "comtrade:most-beef-exported": 1,
+      "arablePct": 1,
+      "density": 1,
+      "journalArticles": 1,
+      "faostat-fbs:eggs": 1,
+      "comtrade:most-tea-exported": 1,
+      "faostat:F1745:5510": 1
+    },
+    "countryDays": {
+      "FJI": 4,
+      "LTU": 2,
+      "THA": 5,
+      "BRA": 6,
+      "SEN": 1,
+      "COL": 7,
+      "VUT": 2,
+      "CRI": 4,
+      "ROU": 4,
+      "TON": 1,
+      "PNG": 3,
+      "ECU": 5,
+      "NER": 2,
+      "MEX": 8,
+      "NLD": 4,
+      "ARM": 7,
+      "FRA": 5,
+      "HUN": 5,
+      "AGO": 4,
+      "IND": 6,
+      "SAU": 6,
+      "NIC": 2,
+      "BOL": 4,
+      "MNG": 3,
+      "ISL": 5,
+      "PRY": 5,
+      "ARG": 8,
+      "CHN": 5,
+      "POL": 5,
+      "CAN": 11,
+      "AUT": 6,
+      "UKR": 3,
+      "KWT": 4,
+      "ZAF": 9,
+      "PER": 4,
+      "UGA": 4,
+      "EST": 3,
+      "PAK": 4,
+      "SLB": 3,
+      "TLS": 1,
+      "COM": 1,
+      "HTI": 4,
+      "BGD": 2,
+      "CIV": 1,
+      "KOR": 7,
+      "EGY": 3,
+      "PAN": 4,
+      "SRB": 5,
+      "CYP": 3,
+      "MUS": 3,
+      "MYS": 5,
+      "TZA": 4,
+      "UZB": 4,
+      "GEO": 4,
+      "ESP": 4,
+      "USA": 6,
+      "BDI": 2,
+      "NZL": 6,
+      "STP": 1,
+      "VNM": 2,
+      "RUS": 7,
+      "CHL": 8,
+      "GHA": 3,
+      "TUR": 8,
+      "SGP": 1,
+      "IRL": 2,
+      "MLT": 3,
+      "PRT": 4,
+      "SWE": 4,
+      "KAZ": 5,
+      "DZA": 4,
+      "GNQ": 1,
+      "ITA": 5,
+      "GBR": 4,
+      "MMR": 3,
+      "NGA": 5,
+      "IDN": 5,
+      "BLR": 1,
+      "COD": 3,
+      "KEN": 4,
+      "AUS": 5,
+      "DEU": 4,
+      "LKA": 1,
+      "DOM": 9,
+      "LSO": 3,
+      "KGZ": 4,
+      "ALB": 2,
+      "URY": 2,
+      "GUY": 2,
+      "DNK": 1,
+      "JAM": 2,
+      "SLV": 4,
+      "NOR": 5,
+      "HND": 3,
+      "BHR": 1,
+      "MOZ": 2,
+      "GTM": 5,
+      "CHE": 4,
+      "TJK": 2,
+      "MDA": 1,
+      "MWI": 2,
+      "ETH": 2,
+      "ISR": 2,
+      "VEN": 2,
+      "BTN": 3,
+      "ERI": 3,
+      "MKD": 2,
+      "AZE": 4,
+      "MAR": 5,
+      "GRC": 4,
+      "BGR": 2,
+      "JPN": 2,
+      "PHL": 3,
+      "HRV": 1,
+      "LVA": 3,
+      "IRQ": 1,
+      "WSM": 1,
+      "ZMB": 2,
+      "TUN": 2,
+      "BLZ": 1,
+      "ZWE": 2,
+      "CMR": 2,
+      "YEM": 1,
+      "LAO": 2,
+      "SWZ": 1,
+      "BFA": 3,
+      "SVN": 2,
+      "GRD": 1,
+      "CPV": 1,
+      "BRB": 2,
+      "CAF": 1,
+      "OMN": 1,
+      "QAT": 1,
+      "LBN": 2,
+      "DJI": 1,
+      "JOR": 3,
+      "PLW": 1,
+      "LUX": 2,
+      "NPL": 2,
+      "BHS": 1,
+      "BWA": 2,
+      "BIH": 2,
+      "TTO": 1,
+      "DMA": 1,
+      "SDN": 1,
+      "TUV": 1,
+      "KHM": 1,
+      "FSM": 1,
+      "NAM": 2,
+      "MLI": 1,
+      "MRT": 1,
+      "BEL": 1,
+      "AFG": 1,
+      "MNE": 1,
+      "CZE": 1,
+      "RWA": 3,
+      "GMB": 1,
+      "MDV": 1,
+      "PRK": 1,
+      "FIN": 1,
+      "TGO": 1,
+      "KIR": 1,
+      "TCD": 1
+    }
+  },
+  "completedAt": "2026-09-07T22:13:17.078Z"
+}

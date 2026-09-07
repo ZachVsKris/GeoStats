@@ -279,20 +279,20 @@ for (const viewport of mobileCases) {
           await page.locator(".slots .slot").nth(index).click();
         }
         await expect(page.locator(".removePiece")).toHaveCount(mode.categories);
-        const removeControlsCentered = await page.locator(".removePiece").evaluateAll((controls) => controls.every((control) => {
+        await expect.poll(async () => page.locator(".removePiece").evaluateAll((controls) => controls.flatMap((control) => {
           const button = control.getBoundingClientRect();
           const icon = control.querySelector("svg")!.getBoundingClientRect();
           const choice = control.closest<HTMLElement>(".choice")!.getBoundingClientRect();
           const topGap = button.top - choice.top;
           const bottomGap = choice.bottom - button.bottom;
-          return Math.abs((button.left + button.width / 2) - (icon.left + icon.width / 2)) <= 1
+          const centered = Math.abs((button.left + button.width / 2) - (icon.left + icon.width / 2)) <= 1
             && Math.abs((button.top + button.height / 2) - (icon.top + icon.height / 2)) <= 1
             && Math.abs(topGap - bottomGap) <= 1
             && button.left > choice.left + choice.width / 2
             && choice.right - button.right >= 4
             && choice.right - button.right <= 12;
-        }));
-        expect(removeControlsCentered).toBeTruthy();
+          return centered ? [] : [{label: control.getAttribute("aria-label"), topGap, bottomGap, rightGap: choice.right - button.right}];
+        }))).toEqual([]);
         await expect(page.getByRole("button", { name: /lock in draft/i })).toBeEnabled();
       }
       expect(browserErrors).toEqual([]);
@@ -394,13 +394,14 @@ test("13-inch Adventurer and Expert boards use tall two-column country banks", a
 test("assignment remove control stays right-aligned and vertically centered on phone and desktop", async ({ page }) => {
   await installRoutes(page);
 
-  for (const viewport of [{ width: 390, height: 844 }, { width: 1440, height: 900 }]) {
+  for (const viewport of [{ width: 390, height: 844 }, { width: 1440, height: 900 }, { width: 667, height: 375 }, { width: 844, height: 390 }]) {
     await page.setViewportSize(viewport);
     await page.goto("/daily/adventurer");
     await page.locator(".countries .country:not(:disabled)").first().click();
     await page.locator(".slots .slot").first().click();
     const control = page.locator(".removePiece").first();
     await expect(control).toBeVisible();
+    await control.hover();
     const geometry = await control.evaluate((element) => {
       const button = element.getBoundingClientRect();
       const icon = element.querySelector("svg")!.getBoundingClientRect();
@@ -468,7 +469,15 @@ test("board card colors have a clear non-scoring key", async ({ page }) => {
   await colorKey.locator("summary").click();
   await expect(colorKey.getByText("Card-edge colors group subjects")).toBeVisible();
   await expect(colorKey.getByText("They are guides only and do not change scoring")).toBeVisible();
-  await expect(colorKey.getByText("Geography & environment")).toBeVisible();
+  await expect(colorKey.locator("div > span")).toHaveCount(6);
+  for (const label of ["Nature", "People", "Culture", "Food", "Economy", "Technology"]) {
+    await expect(colorKey.getByText(label, { exact: true })).toBeVisible();
+  }
+  const themes = await page.locator(".slots .slot").evaluateAll(slots => slots.map(slot => [...slot.classList].filter(c => c.startsWith("theme-"))));
+  for (const theme of themes) {
+    expect(theme).toHaveLength(1);
+    expect(["theme-nature", "theme-people", "theme-culture", "theme-food", "theme-economy", "theme-technology"]).toContain(theme[0]);
+  }
 });
 
 

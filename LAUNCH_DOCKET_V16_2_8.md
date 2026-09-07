@@ -2,7 +2,7 @@
 
 This is the single source of truth for the launch work discussed with the product owner. A package is complete only when its application, database, GitHub Actions, and production checks have the evidence required below. Ordinary implementation work is not a stopping point.
 
-Current evidence: `REPAIR_ACCEPTANCE_2026_09_07.md` and `audits/live-414-*.json`. The catalog is 414 (318 baseline + 96 recovered), with no baseline removals. Historical checkboxes below describe implementation; current acceptance and remaining limitations take precedence in the acceptance report.
+Current evidence: `REPAIR_ACCEPTANCE_2026_09_07.md` and `audits/history-*.json`. The catalog is 414 (318 baseline + 96 recovered), with no baseline removals. Historical checkboxes below describe implementation; current acceptance and remaining limitations take precedence in the acceptance report. The older freshness audit omitted two owner constraints and is superseded. Run 34164319208 failed landscape geometry; the final follow-up must pass independently.
 
 ## 1. Reviewed playable catalog and player copy
 
@@ -54,6 +54,7 @@ Current evidence: `REPAIR_ACCEPTANCE_2026_09_07.md` and `audits/live-414-*.json`
 ## 5. Game presentation and cross-browser quality
 
 - [x] Explain the color-coded card edges with a visible subject key and state that colors do not affect scoring
+- [x] Use six short visual groups: Nature, People, Culture, Food, Economy, Technology; retain finer generation semantics
 - [x] Preserve the dark atlas aesthetic while improving hierarchy, spacing, legibility, and action clarity
 - [x] Fit Scout, Adventurer, and Expert boards on supported phone, tablet, 13-inch laptop, and desktop layouts
 - [x] Cover portrait and landscape behavior, scroll containment, touch targets, keyboard actions, and reduced motion
@@ -64,13 +65,15 @@ Current evidence: `REPAIR_ACCEPTANCE_2026_09_07.md` and `audits/live-414-*.json`
 ## 6. Board correctness, scale, and freshness
 
 - [x] Enforce the global Top-20 winner requirement with no category exemptions
+- [x] Restore at most one demographic/settlement category and at least two physical-geography categories across the Daily trio; guide final-mode construction to satisfy the minimum
 - [x] Enforce different category winners, distinguishable displayed values, one use per country, country/continent limits, category-family conflicts, and cross-mode Daily-trio constraints
 - [x] Treat semantically equivalent or nested measures as conflicts both within one board and across all three boards on the same date
 - [x] Prove forced reachability for every playable category in Scout, Adventurer, and Expert
 - [x] Penalize recent category, family, bucket, and country exposure during generation
 - [x] Audit a rolling Daily simulation for excessive category repetition and meaningful country opportunity coverage
 - [x] Report Scout, Adventurer, and Expert board capacity using actual country-bank feasibility; 3,000 sampled sets per mode, with unresolved searches separately reported in audits/live-414-capacity-2026-09-07.json
-- [x] Re-run production-engine reachability and freshness on the expanded catalog: 1,240 forced witnesses and 30 simulated Daily trios passed; 247 categories and 159 countries appeared in the bounded run
+- [x] Re-run production-engine reachability on the expanded catalog: all 1,240 approved category/mode witnesses passed the corrected semantic rules
+- [x] Accept the follow-up 30-day freshness simulation with restored geography/demographic constraints: 90 valid boards, 30 valid trios, 242 categories, 159 countries, maximum 7 dates per category; the prior run is superseded
 
 ## 7. Bounded expansion — no spinning and no partial bundles
 

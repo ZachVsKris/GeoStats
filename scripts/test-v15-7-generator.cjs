@@ -161,6 +161,10 @@ const secondShape = JSON.stringify(Object.fromEntries(Object.entries(second.trio
 if (firstShape !== secondShape) throw new Error('Daily generation is not deterministic for one date and catalog snapshot.');
 const errors = validateDailyTrio(first.trio);
 if (errors.length) throw new Error(`Synthetic Daily trio failed validation: ${errors.join(' ')}`);
+const allEconomy = Object.fromEntries(Object.entries(first.trio).map(([mode, round]) => [mode, { ...round, categories: round.categories.map(dataset => ({ ...dataset, category: { ...dataset.category, source:'worldbank', broadDomain:'economy', knowledgeCluster:'economy-fixture', semanticFamily:'economy-fixture-'+dataset.category.id } })) }]));
+if (!validateDailyTrio(allEconomy).some(error => error.includes('at least 2 physical-geography'))) throw new Error('Required physical geography was downgraded to a preference');
+const tooManyDemographics = { ...first.trio, easy: { ...first.trio.easy, categories: first.trio.easy.categories.map((dataset,index) => index < 2 ? { ...dataset, category: { ...dataset.category, source:'worldbank', broadDomain:'demographics', knowledgeCluster:'population-size', semanticFamily:'demographic-fixture-'+index } } : dataset) } };
+if (!validateDailyTrio(tooManyDemographics).some(error => error.includes('population, demographic, or settlement') && error.includes('at most 1'))) throw new Error('Owner demographic cap must apply across the full trio');
 
 const glacierArea = { ...datasets[0].category, id: 'glacier-area', name: 'Largest area covered by glaciers', strategyFamily: 'physical-ice', semanticFamily: 'physical-ice' };
 const glacierShare = { ...datasets[1].category, id: 'glacier-share', name: 'Highest % of land covered by glaciers', strategyFamily: 'physical-ice', semanticFamily: 'physical-ice' };

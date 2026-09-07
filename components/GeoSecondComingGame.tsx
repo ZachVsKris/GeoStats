@@ -16,6 +16,7 @@ import { CATEGORY_SET_VERSION, DATASET_VERSION, PLAYER_COPY_VERSION, RULES_VERSI
 import { categoryMeasurementBadgeLabel, categoryMeasurementLabel } from "../lib/categoryMeasurement";
 import type { DailyApiPayload, PackedApiBoard } from "../lib/dailyPublicPayload";
 import type { Category } from "../lib/categories";
+import { CATEGORY_COLOR_KEY, categoryThemeClass } from "../lib/categoryTheme";
 
 type Assignment = Record<string, string>;
 type ScoreRow = {
@@ -49,28 +50,6 @@ type GeoSecondComingGameProps = {
   initialDailyPayload?: DailyApiPayload;
   canPlayExpert?: boolean;
 };
-
-function categoryThemeClass(category: Category) {
-  const subject = `${category.family} ${category.semanticFamily ?? ""} ${category.semanticTopic ?? ""} ${category.name}`.toLowerCase();
-  if (/health|disease|mortality|medical|hospital/.test(subject)) return "theme-health";
-  if (/food consumption|consumption per person|calorie intake|protein intake/.test(subject)) return "theme-consumption";
-  if (/agricultur|food|crop|livestock|fish|forest/.test(subject)) return "theme-agriculture";
-  if (/energy|electric|fuel|oil|gas|coal|renewable/.test(subject)) return "theme-energy";
-  if (/technology|science|research|digital|internet|patent|space/.test(subject)) return "theme-technology";
-  if (/transport|travel|tourism|aviation|road|rail|shipping/.test(subject)) return "theme-transport";
-  if (/econom|trade|finance|income|price|wealth|business|industry/.test(subject)) return "theme-economy";
-  if (/land|climate|environment|geograph|water|lake|river|desert|mountain|coast|glacier|weather|natural/.test(subject)) return "theme-land";
-  if (/population|people|demograph|religion|culture|history|society|education|labor|urban|migration/.test(subject)) return "theme-population";
-  return "theme-other";
-}
-
-const CATEGORY_COLOR_KEY = [
-  ["theme-population", "People & society"], ["theme-economy", "Economy"],
-  ["theme-health", "Health"], ["theme-land", "Geography & environment"],
-  ["theme-consumption", "Consumption"],
-  ["theme-agriculture", "Food & agriculture"], ["theme-energy", "Energy"],
-  ["theme-technology", "Science & technology"], ["theme-transport", "Travel & transport"],
-] as const;
 
 function CategoryColorKey({ mobile = false }: { mobile?: boolean }) {
   return <details className={`categoryColorKey ${mobile ? "mobileBoardColorKey" : ""}`}><summary>Color key</summary><div><strong>Card-edge colors group subjects</strong><p>They are guides only and do not change scoring</p>{CATEGORY_COLOR_KEY.map(([theme, label]) => <span key={theme} className={theme}><i />{label}</span>)}</div></details>;

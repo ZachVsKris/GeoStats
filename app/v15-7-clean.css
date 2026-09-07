@@ -400,13 +400,12 @@
 }
 .activePlay .removePiece svg{display:block;width:100%;height:100%}
 .activePlay .removePiece path{fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
-.activePlay .removePiece:hover{transform:translateY(-50%) scale(1.08)!important}
-.activePlay .removePiece:active{transform:translateY(-50%) scale(.94)!important}
+.activePlay .removePiece:hover,.activePlay .removePiece:active{transform:translateY(-50%)!important}
 .activePlay .removePiece:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 
 @media(max-width:700px){
-  .activePlay .choice.filled{padding-right:36px!important;min-height:32px!important}
-  .activePlay .removePiece{right:4px!important;width:28px!important;height:28px!important;padding:7px!important}
+  .activePlay .choice.filled{padding-right:38px!important;min-height:32px!important}
+  .activePlay .removePiece{right:5px!important;width:28px!important;height:28px!important;padding:7px!important}
   .resultsView,.resultsView .results,.resultWrap,.result,.resultMain,.resultMain>div,.leaderboard{min-width:0;max-width:100%}
   .resultsHeading{padding:15px 14px 11px}.resultsHeading h3{font-size:20px;line-height:1.08}
   .result{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"main main" "placement action";gap:12px 10px;padding:15px 13px}
@@ -435,8 +434,8 @@
 }
 
 @media(max-width:380px), (max-height:700px){
-  .activePlay .choice.filled{padding-right:32px!important;min-height:28px!important}
-  .activePlay .removePiece{right:3px!important;width:24px!important;height:24px!important;padding:5px!important}
+  .activePlay .choice.filled{padding-right:34px!important;min-height:28px!important}
+  .activePlay .removePiece{right:5px!important;width:24px!important;height:24px!important;padding:5px!important}
 }
 
 /* v16.2.6 phone-space rebalance: give the Country Bank more of the viewport and

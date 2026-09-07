@@ -46,7 +46,9 @@ type StoredChallenge = {
 
 async function loadStoredRound(challenge: StoredChallenge): Promise<Round> {
   if (challenge.board_payload) {
-    return deserializeRound(challenge.board_payload);
+    return deserializeRound(challenge.board_payload, {
+      allowLegacyComposition: Boolean(challenge.rules_version && challenge.rules_version !== RULES_VERSION),
+    });
   }
 
   // Legacy boards decode against the complete category registry, not only the
@@ -172,7 +174,11 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "This Daily board has unsupported dimensions and must be reloaded before scoring." }, { status: 409 });
     }
 
-    const ruleErrors = validateRound(round.categories, round.bank);
+    // Version comes from the database row, never from the submitted assignments.
+    // Historical composition changes cannot invalidate an otherwise sound saved board.
+    const ruleErrors = validateRound(round.categories, round.bank, {
+      allowLegacyComposition: Boolean(storedChallenge.rules_version && storedChallenge.rules_version !== RULES_VERSION),
+    });
     if (ruleErrors.length) {
       return NextResponse.json({ error: "This Daily board does not contain a valid scoreable round." }, { status: 409 });
     }

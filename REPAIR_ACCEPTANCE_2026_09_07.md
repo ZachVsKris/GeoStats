@@ -26,6 +26,8 @@ The runtime gate, cache and verifier are now repaired. The original 274 witnesse
 - After reserving geography slots during final-mode construction, the fresh 30-day simulation passed all 90 boards and all 30 strict trio validations: 242 categories, 159 countries, maximum 7 dates for any category. The separate 9,000-anchor sample represented 413 categories; the remaining category has a successful forced witness.
 - Replaced only the unscored September 7 Adventurer board to remove its goat/donkey conflict with Expert. Scout hash `937766a3…`, Expert hash `9e057239…`, and the existing Scout score were preserved; new Adventurer hash `dc4e950e…`. The transaction guarded scores, sources, all old hashes, date and generation locks.
 - The final follow-up deployment and browser-matrix outcome must be checked separately; earlier successful runs do not certify this commit.
+- UI/rules release `c92b7517ddf91a7112fec4bc3059e3c7bca77b57` reached production READY as `dpl_4QHobzTqo4mKVX3Yx8moeCQkFPTR`. Its full GitHub run `34166093416` passed. Production showed the six exact labels, and a hovered desktop remove control measured 3 px above/below, 8 px from the right, with the SVG centered.
+- A later history replay found September 5 Expert being rejected by newer freshwater-composition rules. Trusted historical reads now permit legacy composition while retaining numeric, ranking, country, display-value and scoring checks. Recent-exposure weighting counts those historical categories again. New publication and current-board validation remain strict. All 21 saved snapshots in the reviewed week pass historical replay; corrupt-value/country/rank fixtures still fail. Score submission chooses historical handling from the stored database rules version, never a client-supplied flag.
 
 - Fixed approved-copy/runtime mismatches and sourced coastline/population-rate measurement handling. Hard exclusions and source/semantic checks remain.
 - Replaced oversized raw catalog caches with bounded player-facing pages. Added tests for smaller server row caps and cross-page duplicate identities.
@@ -58,9 +60,9 @@ The runtime gate, cache and verifier are now repaired. The original 274 witnesse
 
 ## Not yet accepted
 
-- **Google/account flow:** both Google and email options are visible. New and returning user authorization, callback, username, Expert access, authenticated score save and relogin need an authorized test account.
+- **Google/account flow:** production's provider check explicitly reports **Google sign-in unavailable**. The Google provider must be configured/enabled; the connected tools do not expose that setting. New and returning user authorization, callback, username, Expert access, authenticated score save and relogin still need an authorized test account. The visible Google button alone is not acceptance.
 - **Email deliverability:** SMTP settings, sent-message authentication/alignment and actual Gmail/Outlook/iCloud delivery remain unverified. Published DNS records alone do not establish delivery. Inbox placement cannot be guaranteed.
-- **Phone QA:** an earlier release passed its browser/responsive matrix; the next release failed landscape centering. The geometry repair needs a green follow-up run. Real iPhone/Safari testing remains separate and unverified.
+- **Phone QA:** the geometry repair passed the full responsive/browser matrix on `c92b751` (run `34166093416`). Real iPhone/Safari testing remains separate and unverified.
 - **Remaining categories:** 92 source-verification cases (many also involve coverage), 30 coverage cases, 11 stale-data cases, 7 subjective/composite measures, 2 source-link checks, 2 duplicates, 1 product exclusion and 1 noncomparable-unit case. They were not silently rejected or bulk-promoted.
 - **Long-horizon distribution:** current evidence is the bounded 30-day simulation and 9,000-anchor sample, not an exhaustive long-term fairness guarantee. Older 1,000-day simulations remain regression fixtures.
 

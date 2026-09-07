@@ -4,6 +4,8 @@ This is the single source of truth for the launch work discussed with the produc
 
 Current evidence: `REPAIR_ACCEPTANCE_2026_09_07.md` and `audits/history-*.json`. The catalog is 414 (318 baseline + 96 recovered), with no baseline removals. Historical checkboxes below describe implementation; current acceptance and remaining limitations take precedence in the acceptance report. The older freshness audit omitted two owner constraints and is superseded. Run 34164319208 failed landscape geometry; the final follow-up must pass independently.
 
+Follow-up `c92b751` passed full run `34166093416` and is deployed. A subsequent historical-composition repair preserves old-board replay and recent-exposure tracking; its release verification is separate. Google provider availability is confirmed disabled in production, so account signup is not accepted until configured and tested.
+
 ## 1. Reviewed playable catalog and player copy
 
 - [x] Keep only categories that pass the reviewed, computed-playable, source-integrity, clarity, duplicate, coverage, distinct-value, and global Top-20 winner gates
@@ -25,6 +27,7 @@ Current evidence: `REPAIR_ACCEPTANCE_2026_09_07.md` and `audits/history-*.json`.
 - [x] Explain the account benefit at the point of friction: Expert play, automatic verified score saving, and leaderboards
 - [x] Keep account emails private and show only GeoStats usernames publicly
 - [ ] Enable verified custom SMTP so authentication mail is sent as GeoStats rather than Supabase
+- [ ] Configure/enable the currently disabled Google provider and verify new and returning user login
 - [ ] Externally verify From name/address, SPF, DKIM, DMARC, confirmation, magic-link, recovery, deliverability, and mobile rendering
 
 ## 3. Leaderboards — standalone launch package

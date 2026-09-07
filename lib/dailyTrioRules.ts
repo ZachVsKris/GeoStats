@@ -110,7 +110,7 @@ export function validateDailyTrio(trio: DailyTrioLike, options: { allowLegacyDim
       errors.push(`${currentConfig.label} must contain ${currentConfig.categoryCount} categories and ${currentConfig.countryCount} countries.`);
       continue;
     }
-    for (const error of validateRound(round.categories, round.bank)) {
+    for (const error of validateRound(round.categories, round.bank, { allowLegacyComposition: options.allowLegacyComposition })) {
       errors.push(`${config.label}: ${error}`);
     }
   }

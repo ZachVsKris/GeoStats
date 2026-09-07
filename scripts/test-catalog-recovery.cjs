@@ -19,6 +19,34 @@ function load(file) {
 }
 
 async function main() {
+  {
+  const { deserializeRound } = load('lib/challengeCodec.ts');
+  const { validateRound } = load('lib/dataEngine.ts');
+  const historicalRow = require('./fixtures/historical-expert-2026-09-05.json');
+  assert.throws(() => deserializeRound(historicalRow.board_payload), /source and variety/);
+  const historicalRound = deserializeRound(historicalRow.board_payload, { allowLegacyComposition: true });
+  assert.equal(historicalRound.categories.length, 6);
+  assert.ok(validateRound(historicalRound.categories, historicalRound.bank).some(e => e.includes('source and variety')));
+  assert.deepEqual(validateRound(historicalRound.categories, historicalRound.bank, { allowLegacyComposition: true }), []);
+  for (const corrupt of ['missing-country', 'duplicate-country', 'bad-rank', 'tied-values']) {
+    const broken = structuredClone(historicalRow.board_payload);
+    if (corrupt === 'missing-country') broken.categories[0].ranked.pop();
+    if (corrupt === 'duplicate-country') broken.bank[0] = broken.bank[1];
+    if (corrupt === 'bad-rank') for (const r of broken.categories[0].ranked) r.globalRank = 999;
+    if (corrupt === 'tied-values') broken.categories[0].ranked[1].value = broken.categories[0].ranked[0].value;
+    assert.throws(() => deserializeRound(broken, { allowLegacyComposition: true }), /saved board snapshot/, corrupt);
+  }
+  // Exercise the production history-weighting functions on the real legacy row.
+  const service = fs.readFileSync(path.join(root, 'lib/dailyBoardService.ts'), 'utf8');
+  const historyStart = service.indexOf('export function recentCountryExposureFromRows');
+  const historyEnd = service.indexOf('async function loadRecentCategoryExposure', historyStart);
+  assert.ok(historyStart > 0 && historyEnd > historyStart);
+  const historyModule = { exports: {} };
+  new Function('exports', 'deserializeRound', 'semanticFamily', 'worldKnowledgeBucket', ts.transpileModule(service.slice(historyStart, historyEnd), { compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.CommonJS } }).outputText)(historyModule.exports, deserializeRound, load('lib/gameRules.ts').semanticFamily, load('lib/categoryGeneration.ts').worldKnowledgeBucket);
+  assert.equal(Object.keys(historyModule.exports.recentCountryExposureFromRows([historicalRow])).length, 8);
+  assert.equal(Object.keys(historyModule.exports.recentCategoryExposureFromRows([historicalRow]).category).length, 6);
+  }
+
   const { safeRelativePath, safeAuthNext } = load('lib/authRedirect.ts');
   const origin = 'https://geostats.xyz';
   for (const unsafe of ['//evil.test', '/\\evil.test', '/%5cevil.test', '/%2fevil.test', '/%252fevil.test', '/%0a/evil.test', '/%zz', 'https://evil.test']) {

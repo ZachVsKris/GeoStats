@@ -80,11 +80,11 @@ async function scoreCountsByDifficulty(admin: any, date: string) {
 
 function decodeWithPayload(row: StoredDailyRow) {
   if (!row.board_payload) throw new Error(`${row.difficulty} is missing its self-contained board payload.`);
-  return deserializeRound(row.board_payload);
+  return deserializeRound(row.board_payload, { allowLegacyComposition: Boolean(row.rules_version && row.rules_version !== RULES_VERSION) });
 }
 
 function decodeStored(row: StoredDailyRow, dependencies?: Dependencies) {
-  if (row.board_payload) return deserializeRound(row.board_payload);
+  if (row.board_payload) return deserializeRound(row.board_payload, { allowLegacyComposition: Boolean(row.rules_version && row.rules_version !== RULES_VERSION) });
   if (!dependencies) throw new Error(`${row.difficulty} uses a legacy encoded board and needs the category registry.`);
   return decodeRound(row.encoded_board, dependencies.countries, dependencies.categoryRegistry);
 }
@@ -171,7 +171,7 @@ export function recentCountryExposureFromRows(rows: StoredDailyRow[], maxDays = 
     const weight = dateWeights.get(row.challenge_date);
     if (!weight || !row.board_payload) continue;
     try {
-      const round = deserializeRound(row.board_payload);
+      const round = deserializeRound(row.board_payload, { allowLegacyComposition: true });
       for (const country of round.bank) exposure[country.id] = (exposure[country.id] ?? 0) + weight;
     } catch {
       // Historical repetition is a preference only. Ignore malformed legacy rows.
@@ -193,7 +193,7 @@ export function recentCategoryExposureFromRows(rows: StoredDailyRow[], maxDays =
     const weight = dateWeights.get(row.challenge_date);
     if (!weight || !row.board_payload) continue;
     try {
-      const round = deserializeRound(row.board_payload);
+      const round = deserializeRound(row.board_payload, { allowLegacyComposition: true });
       for (const dataset of round.categories) {
         const category = dataset.category;
         const family = semanticFamily(category);

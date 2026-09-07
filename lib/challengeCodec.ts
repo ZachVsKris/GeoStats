@@ -289,7 +289,7 @@ export function serializeRound(round: Round): RoundSnapshot {
   };
 }
 
-export function deserializeRound(snapshot: RoundSnapshot): Round {
+export function deserializeRound(snapshot: RoundSnapshot, options: { allowLegacyComposition?: boolean } = {}): Round {
   if (!snapshot || snapshot.version !== 1 || !Array.isArray(snapshot.bank) || !Array.isArray(snapshot.categories)) {
     throw new Error("This saved board snapshot is invalid.");
   }
@@ -332,7 +332,9 @@ export function deserializeRound(snapshot: RoundSnapshot): Round {
     };
   });
 
-  const errors = validateRound(categories, bank);
+  // Only trusted stored-history callers opt out of today's composition mix.
+  // Numeric, ranking, country-bank, and displayed-value validation still runs.
+  const errors = validateRound(categories, bank, options);
   if (errors.length) throw new Error(`This saved board snapshot is inconsistent: ${errors[0]}`);
   return { bank, categories };
 }

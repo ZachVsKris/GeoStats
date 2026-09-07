@@ -181,7 +181,7 @@ export function scorePlacements(
   });
 }
 
-export function validateRound(categories: CanonicalDataset[], bank: CountryInfo[]) {
+export function validateRound(categories: CanonicalDataset[], bank: CountryInfo[], options: { allowLegacyComposition?: boolean } = {}) {
   const errors: string[] = [];
   const config = configForDimensions(categories.length, bank.length);
   if (!config) {
@@ -192,7 +192,7 @@ export function validateRound(categories: CanonicalDataset[], bank: CountryInfo[
   if (new Set(winners).size !== categories.length) {
     errors.push(`The ${categories.length} categories do not have ${categories.length} distinct pool winners.`);
   }
-  if (config && !roundHasRequiredDiversity(categories.map((dataset) => dataset.category), config)) {
+  if (config && !options.allowLegacyComposition && !roundHasRequiredDiversity(categories.map((dataset) => dataset.category), config)) {
     errors.push("The board does not satisfy the category source and variety rules.");
   }
   if (config && !roundHasCountryDiversity(bank, config)) {

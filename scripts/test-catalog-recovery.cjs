@@ -50,6 +50,12 @@ async function main() {
   assert.deepEqual(failure, { data: null, error: 'offline' });
 
   const { buildPlayableCategoryCatalog } = load('lib/playableCatalog.ts');
+  const driftRows = require('./fixtures/runtime-catalog-drift-2026-09-07.json');
+  const repaired = buildPlayableCategoryCatalog(driftRows);
+  assert.equal(repaired.length, 4, 'Strict runtime must accept all four SQL-approved regression rows');
+  assert.equal(repaired.find(c => c.id === 'natural-earth:coastline').measurementType, 'total');
+  assert.equal(repaired.find(c => c.id === 'unwpp:fastest-pop-decline').measurementType, 'rate');
+  assert.throws(() => buildPlayableCategoryCatalog([{ ...driftRows[0], source_organization: 'Unknown organization' }]), /contract drift/i);
   const { semanticConflict, inferSemanticProfile } = load('lib/categorySemantics.ts');
   const fixtures = require('./fixtures/catalog-recovery-2026-09-07.json');
   const catalog = buildPlayableCategoryCatalog(fixtures);

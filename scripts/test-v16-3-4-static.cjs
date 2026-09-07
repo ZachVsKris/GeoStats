@@ -19,7 +19,7 @@ for (const token of [
   'APP_VERSION = "16.3.4"',
   'RULES_VERSION = "16.3.4"',
   'EXPERT-8X6-V16-3-4',
-  'PLAYABLE_CATALOG_CACHE_VERSION = "16.3.4.maximum.1"',
+  'PLAYABLE_CATALOG_CACHE_VERSION = "16.3.4.2"',
 ]) check(version.includes(token), `v16.3.4 version contract missing ${token}`);
 check(semantics.includes('cluster === "physical-waterways"') && semantics.includes('return "physical-lakes"'), "lake measures are not protected as one semantic concept");
 for (const token of [

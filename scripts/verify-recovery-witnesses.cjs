@@ -20,7 +20,7 @@ const byId = new Map(), byWarehouse = new Map(), rowByWarehouse = new Map();
 for (const original of rows.filter(r => r.computed_playable_v16_2 || overrides[r.id])) {
   const row = { ...original, ...overrides[original.id] };
   row.metadata = { ...original.metadata, ...overrides[original.id]?.metadata, boardDescription: row.plain_language_description };
-  const category = buildCategoryCatalog([row], { playableOnly: false })[0];
+  const category = buildCategoryCatalog([row], { playableOnly: live })[0];
   assert.ok(category, row.id);
   assert.ok(!byId.has(category.id), `Duplicate ${category.id}`);
   const observations = values[row.id].map(([countryId,value]) => ({ countryId, countryName: STATIC_COUNTRIES.find(c => c.id === countryId)?.name || countryId, value: Number(value), year: String(row.common_year) }));

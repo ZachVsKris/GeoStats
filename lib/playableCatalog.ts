@@ -588,11 +588,15 @@ function failsEditorialConceptGate(row: PlayableCategoryRow) {
     || FINDEX_SUBGROUP_INDICATOR.test(String(row.source_indicator_code ?? ""))
     || (row.source_organization === "UNESCO World Heritage Centre" && row.source_indicator_code !== "WHC:all-sites")
     || HARD_RETIRED_TITLE_PATTERNS.some((pattern) => pattern.test(copy))
-    || !copyClarityAllowed(row, title);
+    // Approved, source-reviewed copy is governed by the SQL review contract.
+    // Heuristics such as banning the word "share" must not undo that decision.
+    || (row.content_review_status !== "approved" && !copyClarityAllowed(row, title));
 }
 
 
 function structuredMeasurementType(row: PlayableCategoryRow): Category["measurementType"] {
+  if (row.source_organization === "Natural Earth" && row.id === "natural-earth:longest-coastline" && /km|kilomet/i.test(row.unit)) return "total";
+  if (row.source_organization === "United Nations Population Division" && row.id === "unwpp:fastest-pop-decline" && row.value_type === "rate") return "rate";
   // An area denominator never means per person, even if legacy metadata used
   // the old catch-all per_capita label for every normalized quantity.
   if (/per\s+(?:[\d,.]+\s+)?(?:km|square|hectare)/i.test(row.unit ?? "")) return "rate";
@@ -677,7 +681,10 @@ export function buildCategoryCatalog(rows: PlayableCategoryRow[], options: Build
 
   for (const row of rows) {
     const source = resolvedSourceId(row);
-    if (!source) continue;
+    if (!source) {
+      if (playableOnly && (row.computed_playable_v16_2 ?? row.computed_playable_v16) === true) throw new Error(`Catalog contract drift: unknown source for ${row.id}.`);
+      continue;
+    }
     const existing = byId.get(row.id)
       ?? byIndicator.get(sourceIndicatorKey(source, row.source_indicator_code, row.ranking_direction));
     const metadata = row.metadata ?? {};

@@ -26,7 +26,7 @@ function catalogError(message: string) {
   return new Error(`The verified category catalog is unavailable: ${message}`);
 }
 
-async function loadRows(options: { playableOnly?: boolean } = {}) {
+async function loadRows(options: { playableOnly: boolean; from: number }) {
   const admin = createSupabaseAdminClient();
   if (!admin) throw new Error("Supabase is not configured.");
 
@@ -45,39 +45,46 @@ async function loadRows(options: { playableOnly?: boolean } = {}) {
 
   const result = await query
     .order("quality_score", { ascending: false })
-    .limit(options.playableOnly ? 1000 : 5000);
+    .order("id")
+    .range(options.from, options.from + 99);
 
   if (result.error) throw catalogError(result.error.message ?? "Unknown Supabase error");
   return (result.data ?? []) as PlayableCategoryRow[];
 }
 
-const loadCachedPlayableRows = unstable_cache(
-  () => loadRows({ playableOnly: true }),
-  ["geostats-playable-category-rows", PLAYABLE_CATALOG_CACHE_VERSION],
+// Cache bounded, player-facing pages, never the multi-megabyte raw review rows.
+// Raw metadata includes source-audit evidence that the player does not need.
+const loadCachedCatalogPage = unstable_cache(
+  async (playableOnly: boolean, from: number) => {
+    const rows = await loadRows({ playableOnly, from });
+    return {
+      rowsRead: rows.length,
+      categories: playableOnly ? buildPlayableCategoryCatalog(rows) : buildCategoryRegistry(rows),
+    };
+  },
+  ["geostats-catalog-page", PLAYABLE_CATALOG_CACHE_VERSION],
   { revalidate: 300, tags: ["geostats-playable-category-catalog"] },
 );
 
-const loadCachedRegistryRows = unstable_cache(
-  () => loadRows(),
-  ["geostats-category-registry-rows", PLAYABLE_CATALOG_CACHE_VERSION],
-  { revalidate: 300, tags: ["geostats-playable-category-catalog"] },
-);
-
-const loadCachedApprovedCatalog = unstable_cache(
-  async (): Promise<Category[]> => buildPlayableCategoryCatalog(await loadCachedPlayableRows()),
-  ["geostats-approved-category-catalog", PLAYABLE_CATALOG_CACHE_VERSION],
-  { revalidate: 300, tags: ["geostats-playable-category-catalog"] },
-);
-
-const loadCachedRegistry = unstable_cache(
-  async (): Promise<Category[]> => buildCategoryRegistry(await loadCachedRegistryRows()),
-  ["geostats-all-category-registry", PLAYABLE_CATALOG_CACHE_VERSION],
-  { revalidate: 300, tags: ["geostats-playable-category-catalog"] },
-);
+async function loadCatalog(playableOnly: boolean): Promise<Category[]> {
+  const categories = new Map<string, Category>();
+  let from = 0;
+  for (;;) {
+    const page = await loadCachedCatalogPage(playableOnly, from);
+    if (!page.rowsRead) break;
+    for (const category of page.categories) {
+      if (playableOnly && categories.has(category.id)) throw new Error(`Catalog identity collision across pages: ${category.id}`);
+      categories.set(category.id, category);
+    }
+    // Server row caps may be below the requested page size. Only empty ends it.
+    from += page.rowsRead;
+  }
+  return [...categories.values()].sort((a, b) => a.id.localeCompare(b.id));
+}
 
 /** GeoStats has one authoritative approved gameplay catalog. */
 export async function loadServerPlayableCategoryCatalog(): Promise<Category[]> {
-  return loadCachedApprovedCatalog();
+  return loadCatalog(true);
 }
 
 /**
@@ -85,7 +92,7 @@ export async function loadServerPlayableCategoryCatalog(): Promise<Category[]> {
  * only the categories that are playable today.
  */
 export async function loadServerCategoryRegistry(): Promise<Category[]> {
-  return loadCachedRegistry();
+  return loadCatalog(false);
 }
 
 /**

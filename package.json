@@ -92,7 +92,7 @@
     "check-v16-3-1": "npm run test-v16-3-1 && npm run typecheck && npm run build && npm run test-e2e",
     "test-v16-3-2": "npm run test-v16-3-1 && node scripts/test-v16-3-2-static.cjs",
     "check-v16-3-2": "npm run test-v16-3-2 && npm run typecheck && npm run build && npm run test-e2e",
-    "test-v16-3-4": "npm run test-v16-3-2 && node scripts/test-v16-3-4-static.cjs && node scripts/test-catalog-recovery.cjs",
+    "test-v16-3-4": "npm run test-v16-3-2 && node scripts/test-v16-3-4-static.cjs && node scripts/test-catalog-recovery.cjs && node scripts/test-server-catalog-cache.cjs",
     "check-v16-3-4": "npm run test-v16-3-4 && npm run typecheck && npm run build && npm run test-e2e"
   },
   "dependencies": {

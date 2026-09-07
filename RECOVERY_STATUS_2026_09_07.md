@@ -1,5 +1,7 @@
 # GeoStats recovery checkpoint — 2026-09-07
 
+> Historical checkpoint. See REPAIR_ACCEPTANCE_2026_09_07.md for **414 playable categories**, completed runtime/cache/Daily/source repairs, corrected verification claims and current open items.
+
 Production code and catalog recovery are deployed. This supersedes the earlier local-only checkpoint.
 
 ## Accepted catalog result

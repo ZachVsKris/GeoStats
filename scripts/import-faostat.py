@@ -371,7 +371,7 @@ def livestock_population_allowed(item: str, element: str, unit: str) -> bool:
         normalized_element in LIVESTOCK_POPULATION_ELEMENTS
         and any(token in normalized_item for token in LIVESTOCK_ITEM_TOKENS)
         and (
-            normalized_unit == "an"
+            normalized_unit in {"an", "1000 an"}
             or any(token in normalized_unit for token in ("head", "number", "animals", "beehives"))
         )
     )
@@ -382,6 +382,13 @@ def livestock_population_allowed(item: str, element: str, unit: str) -> bool:
 def display_unit(item: str, element: str, unit: str) -> str:
     """Use a player-readable unit while retaining the official unit separately."""
     return "animals" if livestock_population_allowed(item, element, unit) else unit.strip()
+
+
+def display_value(item: str, element: str, unit: str, value: float) -> float:
+    """FAOSTAT 5112 stocks are thousands of animals, not individual animals."""
+    if livestock_population_allowed(item, element, unit) and normalize_element(unit) == "1000 an":
+        return value * 1000
+    return value
 
 def element_allowed(element: str, item: str = "", unit: str = "") -> bool:
     """Allow total production and clear national livestock-population totals."""
@@ -753,7 +760,7 @@ def build_sqlite(zip_path: Path, database_path: Path) -> tuple[sqlite3.Connectio
                         iso3,
                         (row.get(columns.area) or iso3).strip(),
                         year,
-                        value,
+                        display_value(item, element, unit, value),
                         flag.strip(),
                         flag_description.strip(),
                         ((row.get(columns.note) if columns.note else "") or "").strip(),

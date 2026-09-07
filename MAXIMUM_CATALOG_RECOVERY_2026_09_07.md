@@ -1,5 +1,7 @@
 # GeoStats: maximum verified category recovery
 
+> Superseded checkpoint: REPAIR_ACCEPTANCE_2026_09_07.md records **414 playable categories (96 restored)** and subsequent runtime/cache, Daily and official-source livestock repairs. The earlier live verifier bypassed runtime gating; that gap was found and fixed. The full importer suite has since passed. Below is the historical 410-category milestone, not final acceptance.
+
 Verified 7 September 2026. The production database now has **410 playable/enabled categories**, up from **318**: **92 additions**, with no previously playable category removed.
 
 | Mode | Eligible categories |

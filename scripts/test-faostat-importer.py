@@ -41,6 +41,11 @@ def write_disallowed_series(writer, countries, item_code, item, element_code, el
 def main() -> None:
     assert "Authorization" not in IMPORTER.SupabaseRest("https://example.supabase.co", "sb_secret_test").headers
     assert "Authorization" in IMPORTER.SupabaseRest("https://example.supabase.co", "legacy.jwt.key").headers
+    assert IMPORTER.livestock_population_allowed("Chickens", "Stocks", "1000 An")
+    assert IMPORTER.display_unit("Chickens", "Stocks", "1000 An") == "animals"
+    assert IMPORTER.display_value("Chickens", "Stocks", "1000 An", 13480) == 13480000
+    assert IMPORTER.display_value("Cattle", "Stocks", "An", 123) == 123
+    assert IMPORTER.display_value("Chicken meat", "Production", "t", 123) == 123
     countries = [country for country in pycountry.countries if country.alpha_3 in IMPORTER.UN_ISO3][:190]
 
     with tempfile.TemporaryDirectory(prefix="geostats-faostat-test-") as temporary:
@@ -61,6 +66,7 @@ def main() -> None:
             write_disallowed_series(writer, countries, "0111", "Wheat", "5412", "Yield", "kg/ha")
             write_disallowed_series(writer, countries, "0111", "Wheat", "5312", "Area harvested", "ha")
             write_disallowed_series(writer, countries, "02111", "Cattle", "5111", "Stocks", "An")
+            write_disallowed_series(writer, countries, "02151", "Chickens", "5112", "Stocks", "1000 An")
             write_disallowed_series(writer, countries, "21111", "Cattle meat", "5320", "Animals slaughtered", "An")
             # Aggregate and missing records must not enter the warehouse snapshot.
             writer.writerow(["001", "World", "0111", "Wheat", "5510", "Production", 2025, "t", 999999, "A", "Official data", ""])
@@ -71,11 +77,12 @@ def main() -> None:
             archive.write(csv_path, csv_path.name)
         connection, staged = IMPORTER.build_sqlite(archive_path, directory / "qcl.sqlite")
         candidates = IMPORTER.category_candidates(connection)
+        assert connection.execute("select value from observations where item='Chickens' limit 1").fetchone()[0] == 100000
         connection.close()
 
-    expected_staged = 190 * 2 * 4 + 70 * 2 + 59 * 2 + 80
+    expected_staged = 190 * 2 * 4 + 70 * 2 + 59 * 2 + 80 * 2
     assert staged == expected_staged, staged
-    assert len(candidates) == 7, len(candidates)
+    assert len(candidates) == 8, len(candidates)
     by_item = {candidate["item"]: candidate for candidate in candidates}
 
     assert by_item["Wheat"]["auto_qualified"] is True

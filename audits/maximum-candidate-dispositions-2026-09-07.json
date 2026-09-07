@@ -1,110 +1,115 @@
 {
+  "added": 96,
   "baseline": 318,
-  "live": 410,
-  "added": 92,
-  "remaining": 150,
   "counts": {
-    "source_verification": 93,
-    "data_repair": 3,
-    "promoted": 92,
     "coverage": 30,
-    "source_link_verification": 2,
-    "subjective_or_composite": 7,
-    "stale_data": 11,
     "duplicate": 2,
+    "noncomparable_units": 1,
     "product_exclusion": 1,
-    "noncomparable_units": 1
+    "promoted": 96,
+    "source_link_verification": 2,
+    "source_verification": 92,
+    "stale_data": 11,
+    "subjective_or_composite": 7
   },
   "dispositions": [
     {
-      "blockers": [
-        "Official-source value and ranking audit has not completed."
-      ],
+      "blockers": [],
       "completeness": "top_end_complete",
       "coverage": 46,
       "current_status": "approved",
-      "disposition": "source_verification",
+      "disposition": "promoted",
       "duplicate_of": null,
       "id": "faostat-qcl-camels-stocks-02121-01-5111-an",
       "minimum_year": 2020,
-      "playable_modes": [],
+      "playable_modes": [
+        "easy",
+        "normal",
+        "expert"
+      ],
       "previous_status": "approved",
-      "promoted": false,
+      "promoted": true,
       "reference_year": 2024,
-      "review_findings": null,
+      "review_findings": "Recovered original observations and removed the legacy unit rejection. Three-mode production-solver witnesses and strict runtime replay pass.",
       "source": "FAOSTAT",
       "source_link_status": "general",
-      "source_validation": "pending",
-      "source_validation_reason": "Awaiting end-to-end comparison with the official FAOSTAT QCL bulk snapshot.",
+      "source_validation": "verified",
+      "source_validation_reason": "Official QCL archive independently extracted; exact stored values and ranks verified after conversion to individual animals.",
       "stale": false,
       "title": "Largest camel population"
     },
     {
-      "blockers": [
-        "Semantic audit identified a substantive data repair."
-      ],
-      "completeness": "non_comprehensive",
+      "blockers": [],
+      "completeness": "top_end_complete",
       "coverage": 171,
       "current_status": "approved",
-      "disposition": "data_repair",
+      "disposition": "promoted",
       "duplicate_of": null,
       "id": "faostat-qcl-chickens-stocks-02151-5112-1000-an",
       "minimum_year": 2020,
-      "playable_modes": [],
+      "playable_modes": [
+        "easy",
+        "normal",
+        "expert"
+      ],
       "previous_status": "approved",
-      "promoted": false,
+      "promoted": true,
       "reference_year": 2024,
-      "review_findings": "Metadata claims historical validated coverage, but no country observations exist in the warehouse at any year. Reimport and independently verify the source snapshot before promotion.",
+      "review_findings": "Recovered original observations and removed the legacy unit rejection. Three-mode production-solver witnesses and strict runtime replay pass.",
       "source": "FAOSTAT",
       "source_link_status": "general",
       "source_validation": "verified",
-      "source_validation_reason": "Official-source values, metadata, coverage, and rankings matched the stored common-year snapshot.",
+      "source_validation_reason": "Official QCL archive independently extracted; exact stored values and ranks verified after conversion to individual animals.",
       "stale": false,
       "title": "Largest chicken population"
     },
     {
-      "blockers": [
-        "Semantic audit identified a substantive data repair."
-      ],
-      "completeness": "non_comprehensive",
+      "blockers": [],
+      "completeness": "top_end_complete",
       "coverage": 73,
       "current_status": "approved",
-      "disposition": "data_repair",
+      "disposition": "promoted",
       "duplicate_of": null,
       "id": "faostat-qcl-turkeys-stocks-02152-5112-1000-an",
       "minimum_year": 2020,
-      "playable_modes": [],
+      "playable_modes": [
+        "easy",
+        "normal",
+        "expert"
+      ],
       "previous_status": "approved",
-      "promoted": false,
+      "promoted": true,
       "reference_year": 2023,
-      "review_findings": "Metadata claims historical validated coverage, but no country observations exist in the warehouse at any year. Reimport and independently verify the source snapshot before promotion.",
+      "review_findings": "Recovered original observations and removed the legacy unit rejection. Three-mode production-solver witnesses and strict runtime replay pass.",
       "source": "FAOSTAT",
       "source_link_status": "general",
       "source_validation": "verified",
-      "source_validation_reason": "Official-source values, metadata, coverage, and rankings matched the stored common-year snapshot.",
+      "source_validation_reason": "Official QCL archive independently extracted; exact stored values and ranks verified after conversion to individual animals.",
       "stale": false,
       "title": "Largest turkey population"
     },
     {
-      "blockers": [
-        "Semantic audit identified a substantive data repair."
-      ],
-      "completeness": "non_comprehensive",
+      "blockers": [],
+      "completeness": "top_end_complete",
       "coverage": 83,
       "current_status": "approved",
-      "disposition": "data_repair",
+      "disposition": "promoted",
       "duplicate_of": null,
       "id": "faostat-qcl-ducks-stocks-02154-5112-1000-an",
       "minimum_year": 2020,
-      "playable_modes": [],
+      "playable_modes": [
+        "easy",
+        "normal",
+        "expert"
+      ],
       "previous_status": "approved",
-      "promoted": false,
+      "promoted": true,
       "reference_year": 2023,
-      "review_findings": "Metadata claims historical validated coverage, but no country observations exist in the warehouse at any year. Reimport and independently verify the source snapshot before promotion.",
+      "review_findings": "Recovered original observations and removed the legacy unit rejection. Three-mode production-solver witnesses and strict runtime replay pass.",
       "source": "FAOSTAT",
       "source_link_status": "general",
       "source_validation": "verified",
-      "source_validation_reason": "Official-source values, metadata, coverage, and rankings matched the stored common-year snapshot.",
+      "source_validation_reason": "Official QCL archive independently extracted; exact stored values and ranks verified after conversion to individual animals.",
       "stale": false,
       "title": "Largest duck population"
     },
@@ -5772,5 +5777,7 @@
       "stale": true,
       "title": "Largest tourism-revenue share of exports"
     }
-  ]
+  ],
+  "live": 414,
+  "remaining": 146
 }

@@ -87,6 +87,7 @@ export function estimateValidCategorySets(
   config: RoundConfig,
   samples = 50_000,
 ): CategoryCapacityResult {
+  categories = categories.filter(category => category.playableDifficulties?.includes(config.difficulty) ?? true);
   const raw = combinations(categories.length, config.categoryCount);
   if (raw === BigInt(0)) {
     return {
@@ -146,6 +147,7 @@ export function estimatePlayableBoardCapacity(
   config: RoundConfig,
   options: { samples?: number; budgetMs?: number; perSetBudgetMs?: number } = {},
 ): PlayableBoardCapacityResult {
+  datasets = datasets.filter(dataset => dataset.category.playableDifficulties?.includes(config.difficulty) ?? true);
   const requestedSamples = Math.max(100, options.samples ?? 3_000);
   const deadline = Date.now() + Math.max(1_000, options.budgetMs ?? 80_000);
   const perSetBudgetMs = Math.max(2, options.perSetBudgetMs ?? 20);

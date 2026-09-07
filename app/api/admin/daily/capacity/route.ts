@@ -21,6 +21,11 @@ export async function GET() {
       config,
       { samples: 3_000, budgetMs: 80_000, perSetBudgetMs: 20 },
     );
+    const modes = {
+      scout: estimate(ROUND_CONFIGS.easy),
+      adventurer: estimate(ROUND_CONFIGS.normal),
+      expert: estimate(ROUND_CONFIGS.expert),
+    };
     return NextResponse.json({
       generatedAt: new Date().toISOString(),
       elapsedMs: Date.now() - startedAt,
@@ -32,11 +37,7 @@ export async function GET() {
         loadFailures: catalog.datasetLoadFailures,
         qualityRejections: catalog.qualityRejections,
       },
-      modes: {
-        scout: estimate(ROUND_CONFIGS.easy),
-        adventurer: estimate(ROUND_CONFIGS.normal),
-        expert: estimate(ROUND_CONFIGS.expert),
-      },
+      modes,
     });
   } catch (error) {
     return NextResponse.json({ error: error instanceof Error ? error.message : "Capacity count failed." }, { status: 500 });

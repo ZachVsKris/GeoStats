@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
+from dataclasses import replace
+from data_pipeline.quality import score_observations
 
 from data_pipeline.integrity import VALIDATION_VERSION, competition_ranks, snapshot_checksum, source_identity_checks, units_compatible, validate_category_snapshot
 from data_pipeline.models import CandidateDefinition, IndicatorRule, QualityResult, SourceObservation
@@ -45,6 +47,20 @@ passed = validate_category_snapshot(
 assert passed.status == "verified", passed
 assert passed.expected_count == 3 and passed.compared_count == 3
 assert passed.source_checksum == passed.stored_checksum
+limited_candidate = replace(candidate, rule=replace(rule, min_coverage=100))
+def limited_snapshot(rows):
+    return validate_category_snapshot(
+        source_slug="worldbank", source_organization="World Bank", source_dataset="World Development Indicators",
+        category_id=expected_row["id"], candidate=limited_candidate, quality=quality, source_observations=observations,
+        expected_category_row=expected_row, stored_category=stored_category, stored_observations=rows,
+    )
+limited = limited_snapshot(stored_rows)
+assert limited.status == "verified"
+assert limited.metadata_checks["minimum_coverage"] is False
+assert score_observations(limited_candidate.rule, observations).auto_qualified is False
+assert "does not authorize gameplay" in limited.details["warnings"][0]
+assert limited_snapshot(stored_rows[:-1]).status == "failed", "Missing stored countries remain an integrity failure"
+assert limited_snapshot([{**row, "value": row["value"] + 1} for row in stored_rows]).status == "failed"
 assert competition_ranks({"USA": 100, "CAN": 50, "MEX": 50}, "high") == {"USA": 1, "CAN": 2, "MEX": 2}
 assert len(snapshot_checksum({"USA": 1.0})) == 64
 

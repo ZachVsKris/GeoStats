@@ -10,7 +10,7 @@ from typing import Any, Iterable, Mapping
 from .countries import UN_COUNTRY_ISO3
 from .models import CandidateDefinition, QualityResult, SourceObservation
 
-VALIDATION_VERSION = "geostats-v16.2.1-source-integrity-v3"
+VALIDATION_VERSION = "geostats-v16.2.1-source-integrity-v4"
 
 
 @dataclass(frozen=True)
@@ -427,7 +427,13 @@ def validate_category_snapshot(
         if expected_ranks[iso3] != stored_ranks[iso3]
     ]
 
-    metadata_failures = sorted(key for key, passed in metadata_checks.items() if not passed)
+    # A publication coverage floor does not establish whether stored data match
+    # the official source. Keep it visible, while quality.py independently gates
+    # automatic qualification and runtime policy gates playable coverage.
+    metadata_failures = sorted(
+        key for key, passed in metadata_checks.items()
+        if not passed and key != "minimum_coverage"
+    )
     source_identity_keys = {
         "source_organization", "source_dataset", "source_indicator_code", "official_series_name",
         "source_url_present", "source_indicator_present", "official_series_name_present",
@@ -517,7 +523,10 @@ def validate_category_snapshot(
         "sourceQuery": candidate.metadata.get("source_query") or {},
         "failureTypes": failure_types,
         "failureBuckets": failure_buckets,
-        "warnings": (["Snapshot checksums differ, but normalized values, coverage and rankings match."] if checksum_only_warning else []),
+        "warnings": (
+            (["Snapshot checksums differ, but normalized values, coverage and rankings match."] if checksum_only_warning else [])
+            + ([f"Source snapshot covers only {len(expected)} countries; publication minimum is {candidate.rule.min_coverage}. This does not authorize gameplay."] if not metadata_checks["minimum_coverage"] else [])
+        ),
     }
     return IntegrityResult(
         status="verified" if not failure_parts else "failed",

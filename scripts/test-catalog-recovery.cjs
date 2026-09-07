@@ -98,6 +98,11 @@ async function main() {
   assert.equal(datasetHasEnoughDisplayedVariety({ ...scoped, category: { ...scoped.category, playableDifficulties: [] } }, ROUND_CONFIGS.easy), false, 'Empty mode scope fails closed');
   assert.equal(datasetHasEnoughDisplayedVariety({ ...tied, category: { ...tied.category, rankingCompletenessStatus: 'non_comprehensive' } }, ROUND_CONFIGS.easy), false, 'Removing tie gates must not waive coverage');
   assert.equal(assessCategorySetCountryBank([], [], ROUND_CONFIGS.easy, 'invalid'), 'infeasible');
+  const { estimatePlayableBoardCapacity, estimateValidCategorySets } = load('lib/seedCapacity.ts');
+  const capacityRows = [scoped, scoped, scoped, { ...scoped, category: { ...scoped.category, playableDifficulties: [] } }];
+  assert.equal(estimatePlayableBoardCapacity(capacityRows, [], ROUND_CONFIGS.normal).catalogSize, 0);
+  assert.equal(estimatePlayableBoardCapacity(capacityRows, [], ROUND_CONFIGS.easy).catalogSize, 3);
+  assert.equal(estimateValidCategorySets(capacityRows.map(d => d.category), ROUND_CONFIGS.normal).exactRawCategoryCombinations, '0');
   const { fetchAll: fetchAuditPages, supportedDifficulties } = require('./audit-v16-2-7-reachability.cjs');
   assert.deepEqual(supportedDifficulties({}), ['easy', 'normal', 'expert']);
   assert.deepEqual(supportedDifficulties({ playableDifficulties: ['easy'] }), ['easy']);

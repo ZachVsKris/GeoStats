@@ -50,6 +50,11 @@ export default function AccountControls({
   const previousFocusRef = useRef<HTMLElement | null>(null);
   const usernameCustomizedRef = useRef(usernameCustomized);
   const scoreSaveInFlight = useRef(false);
+  const profileRevision = useRef(0);
+  const profileRequest = useRef<AbortController | null>(null);
+  const currentUserId = useRef<string | null>(null);
+  const usernameSaveInFlight = useRef(false);
+  const [profileError, setProfileError] = useState(false);
   const pendingSignature = JSON.stringify(pendingScore ?? null);
 
   useEffect(() => {
@@ -148,66 +153,104 @@ export default function AccountControls({
   }
 
   async function loadProfile(fallbackEmail?: string | null) {
+    if (usernameSaveInFlight.current) return false;
+    profileRequest.current?.abort();
+    const controller = new AbortController();
+    profileRequest.current = controller;
+    const revision = ++profileRevision.current;
+    const timer = window.setTimeout(() => controller.abort(), 12_000);
     setSignedInEmail(fallbackEmail ?? "");
-    setUserLabel(fallbackEmail?.split("@")[0] || "Account");
+    setUserLabel((previous) => previous || fallbackEmail?.split("@")[0] || "Account");
+    setProfileError(false);
     try {
-      const response = await fetch("/api/profile", { cache: "no-store" });
-      if (!response.ok) return;
+      const response = await fetch("/api/profile", { cache: "no-store", signal: controller.signal });
+      if (!response.ok) throw new Error("Profile unavailable");
       const profile = await response.json() as {
         username?: string | null;
-        displayName?: string | null;
         usernameCustomized?: boolean;
       };
+      if (revision !== profileRevision.current) return false;
       const nextUsername = profile.username ?? "";
       setUsername(nextUsername);
       setUsernameDraft(nextUsername);
       setUsernameCustomized(profile.usernameCustomized !== false);
-      setUserLabel(profile.displayName || nextUsername || fallbackEmail?.split("@")[0] || "Account");
+      // The chosen public username takes precedence over a Google display name.
+      setUserLabel(nextUsername || fallbackEmail?.split("@")[0] || "Account");
       if (profile.usernameCustomized === false) {
         setMessage("Choose the GeoStats username that will appear on leaderboards.");
         setOpen(true);
       }
       return profile.usernameCustomized !== false;
     } catch {
-      setUserLabel(fallbackEmail?.split("@")[0] || "Account");
+      if (revision === profileRevision.current) setProfileError(true);
       return false;
+    } finally {
+      window.clearTimeout(timer);
+      if (profileRequest.current === controller) profileRequest.current = null;
     }
   }
 
   useEffect(() => {
     if (!supabase) return;
-    supabase.auth.getUser().then(async ({ data }) => {
-      const user = data.user;
-      if (!user) return;
-      const customized = await loadProfile(user.email);
-      if (customized) await savePendingScore();
-    }).catch(() => {
-      setMessage("We couldn’t check your account. Your local results are safe; please try signing in again.");
-    });
     const timers = new Set<ReturnType<typeof setTimeout>>();
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
-      if (!session?.user) {
+      const user = session?.user;
+      if (!user) {
+        currentUserId.current = null;
+        profileRevision.current++;
+        profileRequest.current?.abort();
         setUserLabel(null);
         setSignedInEmail("");
         setUsername("");
         setUsernameDraft("");
         setUsernameCustomized(true);
+        setProfileError(false);
         return;
       }
-      // Leave the auth callback before starting asynchronous profile/score work.
+      // Session data is a display hint only; the profile and score APIs authorize
+      // every request. INITIAL_SESSION avoids a duplicate getUser round trip.
+      if (currentUserId.current === user.id) return;
+      currentUserId.current = user.id;
+      setSignedInEmail(user.email ?? "");
+      setUserLabel(user.email?.split("@")[0] || "Account");
       const timer = setTimeout(() => {
         timers.delete(timer);
-        void loadProfile(session.user.email).then((customized) => {
+        void loadProfile(user.email).then((customized) => {
           if (customized) return savePendingScore();
         });
       }, 0);
       timers.add(timer);
     });
-    return () => { listener.subscription.unsubscribe(); timers.forEach(clearTimeout); };
+    function profileUpdated(event: Event) {
+      const detail = (event as CustomEvent<{ userId: string; username: string }>).detail;
+      if (!detail || detail.userId !== currentUserId.current) return;
+      profileRevision.current++;
+      profileRequest.current?.abort();
+      setUsername(detail.username);
+      setUsernameDraft(detail.username);
+      setUsernameCustomized(true);
+      setUserLabel(detail.username);
+      setProfileError(false);
+    }
+    window.addEventListener("geostats-profile-updated", profileUpdated);
+    return () => {
+      listener.subscription.unsubscribe();
+      timers.forEach(clearTimeout);
+      profileRevision.current++;
+      profileRequest.current?.abort();
+      currentUserId.current = null;
+      window.removeEventListener("geostats-profile-updated", profileUpdated);
+    };
   }, [supabase]);
 
   async function saveUsername() {
-    if (savingUsername || !usernameDraft.trim()) return;
+    if (usernameSaveInFlight.current || !usernameDraft.trim()) return;
+    usernameSaveInFlight.current = true;
+    profileRevision.current++;
+    profileRequest.current?.abort();
+    const userId = currentUserId.current;
+    const controller = new AbortController();
+    const timer = window.setTimeout(() => controller.abort(), 12_000);
     setSavingUsername(true);
     setMessage("");
     try {
@@ -215,20 +258,26 @@ export default function AccountControls({
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username: usernameDraft.trim() }),
+        signal: controller.signal,
       });
       const data = await response.json().catch(() => ({})) as { error?: string; username?: string };
+      if (userId !== currentUserId.current) return;
       if (!response.ok || !data.username) {
-        setMessage(data.error ?? "Username could not be saved.");
+        setMessage(data.error ?? "Username could not be saved. Please try again.");
         return;
       }
-      setUsername(data.username);
-      setUsernameDraft(data.username);
-      setUsernameCustomized(true);
-      setUserLabel(data.username);
+      window.dispatchEvent(new CustomEvent("geostats-profile-updated", { detail: { userId, username: data.username } }));
       trackAnalytics("account_username_saved", { metadata: { updated: usernameCustomized } });
       setMessage("Username saved. This is how you will appear on GeoStats leaderboards.");
-      await savePendingScore();
+      // Score verification can be slow; it must not keep username saving busy.
+      void savePendingScore();
+    } catch {
+      if (userId === currentUserId.current) {
+        setMessage("Saving took too long or the connection was interrupted. Retry to confirm your username.");
+      }
     } finally {
+      window.clearTimeout(timer);
+      usernameSaveInFlight.current = false;
       setSavingUsername(false);
     }
   }
@@ -333,6 +382,7 @@ export default function AccountControls({
         <h2 id={`account-dialog-title-${context}`}>{userLabel ? `Signed in as ${userLabel}` : guestHeading}</h2>
         {userLabel ? <>
           <p className="signedInIdentity">Signed in as <strong>{signedInEmail || userLabel}</strong></p>
+          {profileError && <p role="status">Your account is signed in, but your username could not be loaded. <button type="button" className="quietButton" onClick={() => void loadProfile(signedInEmail)}>Retry account details</button></p>}
           {!usernameCustomized && <p className="usernameRequired">Before joining the leaderboard, choose a public GeoStats username.</p>}
           <label className="emailField"><span>GeoStats username</span><input type="text" inputMode="text" autoComplete="username" maxLength={20} placeholder="3–20 letters, numbers, or underscores" value={usernameDraft} onChange={(event) => setUsernameDraft(event.target.value.replace(/[^A-Za-z0-9_]/g, ""))} onKeyDown={(event) => event.key === "Enter" && saveUsername()} /></label>
           <div className="accountModalActions"><button type="button" onClick={saveUsername} disabled={savingUsername || usernameDraft.length < 3 || usernameDraft === username}>{savingUsername ? "Saving…" : usernameCustomized ? "Update username" : "Save username"}</button><button type="button" className="quietButton" onClick={signOut}>Sign out</button></div>

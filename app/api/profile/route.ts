@@ -25,7 +25,8 @@ type ProfileRow = {
 async function authenticatedClient() {
   const supabase = await createSupabaseServerClient();
   if (!supabase) return { error: NextResponse.json({ error: "Accounts are not configured." }, { status: 503 }) } as const;
-  const { data: { user } } = await supabase.auth.getUser();
+  const { data, error } = await supabase.auth.getClaims();
+  const user = !error && data?.claims?.sub ? { id: data.claims.sub, email: data.claims.email } : null;
   if (!user) return { error: NextResponse.json({ error: "Not signed in." }, { status: 401 }) } as const;
   return { supabase, user } as const;
 }
@@ -97,7 +98,9 @@ export async function PATCH(request: Request) {
   let result = await auth.supabase
     .from("profiles")
     .update({ username, username_customized: true, updated_at: new Date().toISOString() })
-    .eq("id", auth.user.id);
+    .eq("id", auth.user.id)
+    .select("username")
+    .maybeSingle();
 
   // Graceful pre-migration fallback. The v13.5 SQL should still be applied so
   // new users are prompted exactly once rather than on every visit.
@@ -105,10 +108,13 @@ export async function PATCH(request: Request) {
     result = await auth.supabase
       .from("profiles")
       .update({ username, updated_at: new Date().toISOString() })
-      .eq("id", auth.user.id);
+      .eq("id", auth.user.id)
+    .select("username")
+    .maybeSingle();
   }
   if (result.error) {
     return NextResponse.json({ error: result.error.code === "23505" ? "That username is taken." : result.error.message }, { status: 400 });
   }
-  return NextResponse.json({ saved: true, username, usernameCustomized: true });
+  if (!result.data) return NextResponse.json({ error: "Your account profile could not be found. Please contact GeoStats support." }, { status: 409 });
+  return NextResponse.json({ saved: true, username: result.data.username, usernameCustomized: true }, { headers: { "Cache-Control": "private, no-store" } });
 }

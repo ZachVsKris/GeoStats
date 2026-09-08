@@ -20,6 +20,36 @@ function load(file) {
 
 async function main() {
   {
+    const { playerFacingIcon } = load('lib/playableCatalog.ts');
+    const rows = require('./fixtures/icon-catalog-2026-09-08.json');
+    const expected = {
+      rain: '🌧️', agValue: '🚜',
+      'faostat-fbs:vegetable-oil': '🫙',
+      'faostat-qcl-mules-and-hinnies-stocks-02133-5111-an': '🐎',
+      'unsdg:urban-slum-share': '🏙️',
+      'worldbank-catalog:ag-lnd-crop-zs': '🚜',
+      'undp-hdr:life-expectancy-inequality': '❤️',
+      'sports:fifa-world-cup-first-appearance': '🏅',
+      'worldbank-catalog:fp-cpi-totl-zg': '📈',
+      'faostat-qcl-lemons-and-limes-production-01322-5510-t': '🍋',
+      'faostat-qcl-pears-production-01342-01-5510-t': '🍐',
+      'faostat-qcl-pineapples-production-01318-5510-t': '🍍',
+      'faostat-qcl-eggplants-aubergines-production-01233-5510-t': '🍆',
+      'faostat-qcl-pomelos-and-grapefruits-production-01321-5510-t': '🍊',
+    };
+    for (const [id, icon] of Object.entries(expected)) {
+      const row = rows.find(row => row.id === id);
+      assert.ok(row, id);
+      assert.equal(playerFacingIcon(row), icon, id);
+    }
+    for (const row of rows) {
+      // Incidental words in explanations must never change a subject's icon.
+      assert.equal(playerFacingIcon({...row, description: 'millimeters price appearance figs forestry'}), playerFacingIcon(row), row.id);
+    }
+    console.log(`Icon audit: ${rows.length} live catalog subjects checked`);
+  }
+
+  {
   const { deserializeRound } = load('lib/challengeCodec.ts');
   const { validateRound } = load('lib/dataEngine.ts');
   const historicalRow = require('./fixtures/historical-expert-2026-09-05.json');

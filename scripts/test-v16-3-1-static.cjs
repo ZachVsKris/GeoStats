@@ -30,7 +30,7 @@ for (const token of ['"worldbank-catalog:bx-gsr-ccis-cd"','ownerRetiredServiceTr
 }
 check(catalog.includes('if (/arms imports?/.test(copy)) return "🪖"'), "arms-import icon is not semantically corrected");
 check(catalog.indexOf('if (/pineapple|papaya/.test(copy))') < catalog.indexOf('if (/apple/.test(copy))'), "pineapple is still caught by the apple icon rule");
-check(catalog.indexOf('if (/eggplant/.test(copy))') < catalog.indexOf('if (/egg/.test(copy))'), "eggplant is still caught by the egg icon rule");
+check(catalog.indexOf('if (/eggplant/.test(copy))') < catalog.indexOf(String.raw`if (/\beggs?\b/.test(copy))`), "eggplant is still caught by the egg icon rule");
 check(catalog.indexOf('if (/orange|mandarin|tangerine|grapefruit|pomelo/.test(copy))') < catalog.indexOf('if (/grapes?/.test(copy))'), "grapefruit is still caught by the grape icon rule");
 check(catalog.indexOf('if (/greenhouse|methane|co2|carbon dioxide|carbon intensity/.test(copy))') < catalog.indexOf('if (/forest/.test(copy))'), "greenhouse emissions are still caught by the forest icon rule");
 check(publicPresentation.includes("!approvedById.has(category.id)"), "public audit can still overwrite approved categories with bundled quarantines");

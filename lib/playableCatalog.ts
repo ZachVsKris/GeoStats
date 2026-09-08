@@ -425,7 +425,7 @@ function copyClarityAllowed(row: PlayableCategoryRow, title: string) {
   return true;
 }
 
-function playerFacingIcon(row: PlayableCategoryRow, existing?: Category) {
+export function playerFacingIcon(row: PlayableCategoryRow, existing?: Category) {
   // Classifications describe a climate, not whichever weather word occurs in
   // their technical definition. Evaluate the source identity before copy.
   if (row.id.startsWith("koppen-geiger:")) {
@@ -435,22 +435,24 @@ function playerFacingIcon(row: PlayableCategoryRow, existing?: Category) {
     if (/monsoon/.test(row.id)) return "🌧️";
     return "🌤️";
   }
-  const copy = `${row.title} ${row.short_title ?? ""} ${row.description ?? ""}`.toLowerCase();
+  // Match the category subject; definitions can mention unrelated industries or units.
+  const copy = `${row.title} ${row.short_title ?? ""}`.toLowerCase();
   // v16.2.5: prefer a semantically correct neutral icon over a misleading
   // inherited emoji. Specific rules intentionally run before stored icons.
+  if (/vegetable oil|spice exports/.test(copy)) return "🫙";
   if (/arms imports?/.test(copy)) return "🪖";
   if (/military (?:spending|expenditure)/.test(copy)) return row.unit === "USD" ? "🛡️" : "🪖";
   if (/tax[- ]?revenue/.test(copy)) return "🧾";
   if (/total country area/.test(copy)) return "🗺️";
   if (/greenhouse|methane|co2|carbon dioxide|carbon intensity/.test(copy)) return "🌫️";
-  if (/donkey|asses/.test(copy)) return "🫏";
+  if (/\b(?:donkeys?|asses)\b/.test(copy)) return "🫏";
   if (/mule|hinny/.test(copy)) return "🐎";
   if (/cattle|buffalo/.test(copy)) return "🐄";
   if (/sheep/.test(copy)) return "🐑";
   if (/pig population|swine/.test(copy)) return "🐖";
   if (/pork/.test(copy)) return "🥓";
   if (/eggplant/.test(copy)) return "🍆";
-  if (/egg/.test(copy)) return "🥚";
+  if (/\beggs?\b/.test(copy)) return "🥚";
   if (/honey/.test(copy)) return "🍯";
   if (/almond|walnut|tree nut|peanut/.test(copy)) return "🥜";
   if (/apricot|peach|nectarine/.test(copy)) return "🍑";
@@ -459,11 +461,11 @@ function playerFacingIcon(row: PlayableCategoryRow, existing?: Category) {
   if (/avocado/.test(copy)) return "🥑";
   if (/cherr/.test(copy)) return "🍒";
   if (/coconut/.test(copy)) return "🥥";
-  if (/lemon|lime/.test(copy)) return "🍋";
+  if (/\b(?:lemons?|limes?)\b/.test(copy)) return "🍋";
   if (/orange|mandarin|tangerine|grapefruit|pomelo/.test(copy)) return "🍊";
   if (/grapes?/.test(copy)) return "🍇";
   if (/mango/.test(copy)) return "🥭";
-  if (/pear/.test(copy)) return "🍐";
+  if (/\bpears?\b/.test(copy)) return "🍐";
   if (/strawberr/.test(copy)) return "🍓";
   if (/watermelon|melon/.test(copy)) return "🍉";
   if (/tomato/.test(copy)) return "🍅";
@@ -478,7 +480,7 @@ function playerFacingIcon(row: PlayableCategoryRow, existing?: Category) {
   if (/cabbage|lettuce|vegetable/.test(copy)) return "🥬";
   if (/pumpkin|squash|gourd/.test(copy)) return "🎃";
   if (/corn|maize/.test(copy)) return "🌽";
-  if (/rice/.test(copy)) return "🍚";
+  if (/\brice\b/.test(copy)) return "🍚";
   if (/beans?|pulses?|peas|soybean/.test(copy)) return "🫘";
   if (/coffee/.test(copy)) return "☕";
   if (/beer/.test(copy)) return "🍺";
@@ -489,7 +491,7 @@ function playerFacingIcon(row: PlayableCategoryRow, existing?: Category) {
   if (/cotton/.test(copy)) return "🧵";
   if (/sugar/.test(copy)) return "🍬";
   if (/sunflower|sesame/.test(copy)) return "🌻";
-  if (/fig/.test(copy)) return "🧺";
+  if (/\bfigs?\b/.test(copy)) return "🧺";
   if (/plum|sloe/.test(copy)) return "🍑";
   if (/fruit (?:produced|production)/.test(copy)) return "🍎";
   if (/tobacco/.test(copy)) return "🚬";
@@ -497,8 +499,6 @@ function playerFacingIcon(row: PlayableCategoryRow, existing?: Category) {
   if (/calorie intake/.test(copy)) return "🍽️";
   if (/other religions|outside (?:the )?(?:five )?major groups/.test(copy)) return "🕯️";
   if (/largest lake/.test(copy)) return "🏞️";
-  if (/vegetable oil/.test(copy)) return "🫙";
-  if (/spice exports/.test(copy)) return "🫙";
   if (/computer[- ]chip|semiconductor/.test(copy)) return "⚙️";
   if (/territorial waters|marine protected|protected waters/.test(copy)) return "🌊";
   if (/forest/.test(copy)) return "🌲";
@@ -525,7 +525,7 @@ function playerFacingIcon(row: PlayableCategoryRow, existing?: Category) {
   if (/touris|tourist/.test(copy)) return "✈️";
   if (/air freight/.test(copy)) return "✈️";
   if (/rainfall/.test(copy)) return "🌧️";
-  if (/life expectancy/.test(copy)) return "❤️";
+  if (/life expectancy|length of life/.test(copy)) return "❤️";
   if (/inflation/.test(copy)) return "📈";
   return row.icon?.trim() || existing?.icon || FAMILY_ICONS[row.family] || "📊";
 }

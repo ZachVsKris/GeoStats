@@ -68,9 +68,27 @@ already in baseline main (2e81c3a). This pass does not regenerate scored Dailies
 
 ## Verification record
 
-Local route behavior tests, catalog recovery tests, TypeScript and the initial
-production build passed. The local full importer suite stopped at missing Shapely;
-local browser execution stopped at absent browser binaries. These environment
-failures are not reported as passing tests. PR #17 CI installs those dependencies
-and is the required full-suite/browser acceptance gate. Consult its final status
-and the production deployment before treating these changes as released.
+Released through [PR #17](https://github.com/ZachVsKris/GeoStats/pull/17), squash
+commit `d8b9c1a7d6c82dcd3364b12d7daaa33deade9484`. Production deployment
+`dpl_6D5AAhVR2hNSXkqyuwcFG6hs79Gd` reached READY with `geostats.xyz` assigned.
+The live Daily header has one account control, and the live email landing page
+shows the explicit confirmation button for a synthetic test link without
+consuming a real credential. Hosted template activation is still outstanding.
+
+[CI run 34196755794](https://github.com/ZachVsKris/GeoStats/actions/runs/34196755794)
+passed the complete code/importer/source-policy suite, TypeScript, pinned Natural
+Earth data, production build and six browser/device profiles. Browser result:
+181 passed, one Safari desktop email-landing test passed on retry, four intentional
+phone-only skips on desktop profiles. The first Safari attempt timed out waiting
+for the confirmation button; do not describe this run as having no retries.
+
+Local route and catalog behavior tests passed. The initial local full importer
+run stopped at missing Shapely and the initial browser run lacked binaries.
+After installing Chromium, both email checks passed on desktop; both email checks
+and the small-screen rules/menu check passed on Android emulation (five focused
+checks total). The final production build also passed locally.
+
+Actual Gmail/Yahoo recipient confirmation, first-time inbox placement and the
+signed-in identity on the user's physical phone remain acceptance steps after
+hosted template activation. Neither synthetic credentials nor mocked tests prove
+those outcomes.

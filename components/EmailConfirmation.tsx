@@ -8,6 +8,7 @@ export default function EmailConfirmation() {
   const [details, setDetails] = useState<{ token: string; type: string; next: string } | null>(null);
   const [pending, setPending] = useState(false);
   useEffect(() => {
+    function readLink() {
     // Fragments never reach server access logs or HTTP Referer headers.
     if (!window.location.hash) return;
     const incoming = new URL(window.location.href);
@@ -18,6 +19,10 @@ export default function EmailConfirmation() {
       setDetails({ token, type, next: safeAuthNext(incoming) });
     }
     window.history.replaceState(window.history.state, "", window.location.pathname);
+    }
+    readLink();
+    window.addEventListener("hashchange", readLink);
+    return () => window.removeEventListener("hashchange", readLink);
   }, []);
   if (!details) return <>
     <p>Open the latest GeoStats email link to continue. If you refreshed this page, reopen the link from your email.</p>

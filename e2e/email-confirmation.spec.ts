@@ -4,6 +4,7 @@ test("email link waits for a person and keeps its token out of requests", async 
   const token = "a".repeat(64);
   const requests: string[] = [];
   page.on("request", request => requests.push(request.url()));
+  await page.goto("/auth/email");
   await page.goto(`/auth/email#token_hash=${token}&type=email&redirect_to=https://geostats.xyz/auth/callback?next=%2Fdaily`);
   const button = page.getByRole("button", { name: "Confirm and sign in" });
   await expect(button).toBeVisible();

@@ -352,6 +352,7 @@ export default function AccountControls({
           <label className="emailField"><span>Email address</span><input type="email" inputMode="email" autoComplete="email" placeholder="you@example.com" value={email} onChange={(event) => setEmail(event.target.value)} onKeyDown={(event) => event.key === "Enter" && resendSeconds === 0 && !sendingLink && sendMagicLink()} /></label>
           <button type="button" onClick={sendMagicLink} disabled={!email.trim() || sendingLink || resendSeconds > 0}>{sendingLink ? "Sending…" : resendSeconds > 0 ? `Resend in ${resendSeconds}s` : "Email me a sign-in link"}</button>
           <small>No password needed. If you’re new, confirming your email activates your free account. Your public username appears on leaderboards. Your email never does.</small>
+          <small>Can’t find the email? Check your spam or junk folder for a message from accounts@geostats.xyz.</small>
         </>}
         {message && <p className="accountMessage" role="status" aria-live="polite">{message}</p>}
       </div>

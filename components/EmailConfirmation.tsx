@@ -9,16 +9,19 @@ export default function EmailConfirmation() {
   const [pending, setPending] = useState(false);
   useEffect(() => {
     function readLink() {
-    // Fragments never reach server access logs or HTTP Referer headers.
-    if (!window.location.hash) return;
-    const incoming = new URL(window.location.href);
-    incoming.search = incoming.hash.slice(1);
-    const token = incoming.searchParams.get("token_hash") || "";
-    const type = incoming.searchParams.get("type") || "email";
-    if (/^[a-zA-Z0-9_-]{20,512}$/.test(token) && ["email", "recovery"].includes(type)) {
-      setDetails({ token, type, next: safeAuthNext(incoming) });
-    }
-    window.history.replaceState(window.history.state, "", window.location.pathname);
+      // Fragments never reach server access logs or HTTP Referer headers.
+      if (!window.location.hash) return;
+      const incoming = new URL(window.location.href);
+      incoming.search = incoming.hash.slice(1);
+      const token = incoming.searchParams.get("token_hash") || "";
+      const type = incoming.searchParams.get("type") || "email";
+      setPending(false);
+      if (/^[a-zA-Z0-9_-]{20,512}$/.test(token) && ["email", "recovery"].includes(type)) {
+        setDetails({ token, type, next: safeAuthNext(incoming) });
+      } else {
+        setDetails(null);
+      }
+      window.history.replaceState(window.history.state, "", window.location.pathname);
     }
     readLink();
     window.addEventListener("hashchange", readLink);

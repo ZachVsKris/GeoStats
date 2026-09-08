@@ -192,6 +192,36 @@ const modes = [
   { difficulty: "expert" as const, path: "/daily/expert", countries: 8, categories: 6, minBankHeight: 98, minCountryCardHeight: 44 },
 ];
 
+for (const width of [320, 375, 430]) {
+  test(`mobile header keeps account and menu in one row at ${width}px`, async ({ page }, testInfo) => {
+    await page.setViewportSize({ width, height: 740 });
+    await installRoutes(page);
+    await page.goto('/daily');
+    await expect(page.locator('.country')).toHaveCount(4);
+    const account = page.locator('.gameAccount .accountHeaderActions > button');
+    // Both auth states use this same button; vary the rendered label to test
+    // layout independently of real credentials or the remote auth provider.
+    for (const label of ['Sign in', '✓ VeryLongGeoStatsPlayerName']) {
+      await account.evaluate((button, text) => { button.textContent = text; }, label);
+      const header = await page.locator('.activePlay > header').boundingBox();
+      const brand = await page.locator('.activePlay > header > .brand').boundingBox();
+      const accountBox = await account.boundingBox();
+      const menu = await page.locator('.mobileMenu > summary').boundingBox();
+      const status = await page.locator('.challengeBar').boundingBox();
+      expect(header && brand && accountBox && menu && status).toBeTruthy();
+      expect(brand!.x + brand!.width).toBeLessThanOrEqual(accountBox!.x);
+      expect(accountBox!.x + accountBox!.width).toBeLessThanOrEqual(menu!.x);
+      expect(menu!.y).toBeGreaterThanOrEqual(header!.y);
+      expect(menu!.y + menu!.height).toBeLessThanOrEqual(header!.y + header!.height);
+      expect(status!.y).toBeGreaterThanOrEqual(header!.y + header!.height);
+      expect(menu!.x + menu!.width).toBeLessThanOrEqual(width);
+      await page.screenshot({ path: testInfo.outputPath(label === 'Sign in' ? 'header-guest.png' : 'header-long-username.png') });
+    }
+    await page.getByLabel('Open game menu').click();
+    await expect(page.locator('.mobileMenu').getByRole('button', { name: 'How it works' })).toBeVisible();
+  });
+}
+
 for (const viewport of mobileCases) {
   for (const mode of modes) {
     test(`${mode.difficulty} Daily is usable at ${viewport.width}×${viewport.height}`, async ({ page }, testInfo) => {

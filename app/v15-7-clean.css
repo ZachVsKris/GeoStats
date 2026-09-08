@@ -465,10 +465,17 @@
 .gameAccount{display:block}
 .signedInIdentity{overflow-wrap:anywhere}
 @media(max-width:700px), (max-width:900px) and (orientation:landscape) and (max-height:500px){
- .gameAccount{display:block;margin-left:auto;min-width:0;max-width:32vw}
+ .activePlay > header{display:flex;flex:0 0 auto;min-height:38px;gap:6px;padding:0 1px 4px;align-items:center}
+ .activePlay > header > .brand{flex:1 1 auto;min-width:0;gap:5px}
+ .activePlay > header .brandWords{min-width:0}
+ .activePlay > header .brandWords > strong{font-size:clamp(17px,5vw,22px);line-height:1.1;white-space:nowrap}
+ .activePlay > header .logo{flex:0 0 27px;width:27px;height:27px}
+ .gameAccount{display:block;flex:0 1 auto;margin-left:0;min-width:0;max-width:28vw}
  .gameAccount .accountHeaderActions{display:flex;min-width:0}
- .gameAccount .accountHeaderActions>button{min-height:32px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:5px 7px;font-size:9px;background:transparent;color:var(--ink);border:1px solid var(--accent)}
- .gameAccount+.mobileMenu{margin-left:5px}
+ .gameAccount .accountHeaderActions>button{height:32px;min-height:32px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:5px 7px;font-size:9px;background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:3px}
+ .activePlay > header > .mobileMenu{flex:0 0 auto;margin-left:0}
+ .activePlay > header > .mobileMenu > summary{box-sizing:border-box;height:32px;min-height:32px;min-width:42px;padding:5px 7px;font-size:9px;font-weight:800;border-radius:3px;line-height:1}
+ .activePlay > header > .mobileMenu[open] > div{top:calc(100% + 6px)}
 }
 
 .authCallbackCard form button{display:inline-block;background:var(--accent);color:var(--bg);padding:18px 22px;border:0;font:inherit;font-weight:bold;cursor:pointer}

@@ -20,6 +20,21 @@ type AnalyticsPayload = {
   metadata?: Record<string, unknown>;
 };
 
+const VISITOR_KEY = "geostats-analytics-visitor-v1";
+let inMemoryVisitor = "";
+
+export function analyticsVisitorId() {
+  if (inMemoryVisitor) return inMemoryVisitor;
+  try {
+    const prior = JSON.parse(localStorage.getItem(VISITOR_KEY) || "null");
+    if (prior && /^[a-f0-9-]{36}$/i.test(prior.id) && Date.now() - prior.createdAt < 90 * 86400000) return (inMemoryVisitor = prior.id);
+  } catch { /* storage is optional */ }
+  if (typeof crypto === "undefined" || !crypto.randomUUID) return undefined;
+  inMemoryVisitor = crypto.randomUUID();
+  try { localStorage.setItem(VISITOR_KEY, JSON.stringify({ id: inMemoryVisitor, createdAt: Date.now() })); } catch { /* in-memory fallback */ }
+  return inMemoryVisitor;
+}
+
 const STORAGE_KEY = "geostats-analytics-session";
 const RETURNING_KEY = "geostats-returning-visitor";
 let inMemorySession = "";
@@ -80,7 +95,8 @@ export function trackAnalytics(eventName: AnalyticsEventName, payload: Analytics
     const body = JSON.stringify({
       eventName,
       sessionId: sessionId(),
-      path: `${window.location.pathname}${window.location.search}`,
+      visitorId: analyticsVisitorId(),
+      path: window.location.pathname,
       ...acquisition(),
       ...payload,
     });

@@ -15,7 +15,9 @@ export default function Privacy() {
         <h2>Accounts and leaderboards</h2>
         <p>Anyone may view the leaderboards. An account is required to play Expert, save verified Daily scores, or appear in the standings. If you sign in, GeoStats stores the information needed to authenticate you, your GeoStats username, and your saved Daily scores. Public leaderboards show your GeoStats username, never your email address.</p>
         <h2>First-party analytics</h2>
-        <p>GeoStats records limited first-party product analytics such as page views, game starts and completions, difficulty, coarse referrer hostname, campaign parameters you arrived with, and whether the same browser has visited before. Analytics uses a session identifier and does not intentionally collect precise location, advertising identifiers, or cross-site browsing history.</p>
+        <p>GeoStats records limited first-party product analytics such as page views, game starts and completions, difficulty, coarse referrer hostname, campaign parameters you arrived with, and whether the same browser has visited before. Analytics uses a session identifier and a random first-party browser identifier, refreshed after 90 days, to measure repeat play and next-day returns. Clearing browser storage resets that identifier. It does not intentionally collect precise location, advertising identifiers, or cross-site browsing history.</p>
+        <h2>Problem reports</h2>
+        <p>If you submit a problem report, GeoStats stores your description and the relevant game, category, and page. Reports are visible only to administrators. If you are signed in, a report may be linked to your account. A hashed network identifier helps limit spam; the report does not store your raw IP address. Please avoid including sensitive personal information.</p>
         <h2>Technical logs</h2>
         <p>Hosting and database providers may process normal technical information such as IP address, browser type, request time, and security logs to operate and protect the service.</p>
         <h2>Data sources</h2>

@@ -1,5 +1,6 @@
 "use client";
 
+import LaunchDashboard from "../../components/LaunchDashboard";
 import { useCallback, useEffect, useMemo, useState, type ChangeEvent, type MouseEvent } from "react";
 
 type ReviewStatus = "candidate" | "needs_review" | "approved" | "rejected";
@@ -624,6 +625,7 @@ export default function AdminDashboard() {
       </section>
 
       <section style={{ ...card, marginTop: 16 }}>
+        <LaunchDashboard />
         <h2 style={{ marginTop: 0 }}>Last 30 days</h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(150px,1fr))", gap: 10 }}>
           {[

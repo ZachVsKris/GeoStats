@@ -594,3 +594,27 @@ test("private Random API rejects unauthenticated seeded requests", async ({ page
     expect(error).toMatch(/sign in/i);
   }
 });
+
+test('problem report is accessible on phone and preserves text after failure', async ({page})=>{
+ await page.setViewportSize({width:375,height:667}); await installRoutes(page);
+ let attempts=0;
+ await page.route('**/api/reports',async route=>{attempts++;await route.fulfill({status:attempts===1?503:200,contentType:'application/json',body:JSON.stringify(attempts===1?{error:'Please retry.'}:{saved:true})});});
+ await page.goto('/daily');await page.getByLabel('Open game menu').click();await page.getByRole('button',{name:'Report a problem',exact:true}).click();
+ const dialog=page.getByRole('dialog',{name:'Report a problem'});await expect(dialog).toBeVisible();
+ const message=dialog.getByLabel('Describe the problem');await message.fill('Synthetic test report about the displayed units.');
+ await dialog.getByRole('button',{name:'Send report',exact:true}).click();await expect(dialog.getByRole('status')).toHaveText('Please retry.');await expect(message).toHaveValue('Synthetic test report about the displayed units.');
+ await dialog.getByRole('button',{name:'Send report',exact:true}).click();await expect(dialog.getByRole('status')).toContainText('saved for review');await dialog.getByRole('button',{name:'Back to the game'}).click();await expect(dialog).toHaveCount(0);
+});
+
+test('Daily mode switches reuse loaded boards without document navigation',async({page})=>{
+ await page.setViewportSize({width:390,height:844});await installRoutes(page);await page.goto('/daily');await expect(page.locator('.country')).toHaveCount(4);
+ let navigations=0;page.on('request',request=>{if(request.isNavigationRequest()&&request.frame()===page.mainFrame())navigations++;});
+ await page.locator('.mobileModeTabs').getByRole('link',{name:'Adventurer'}).click();await expect(page.locator('.country')).toHaveCount(6);expect(navigations).toBe(0);
+ await page.locator('.mobileModeTabs').getByRole('link',{name:'Scout'}).click();await expect(page.locator('.country')).toHaveCount(4);expect(navigations).toBe(0);
+});
+
+test('friend challenge shares no country answers before completion',async({page})=>{
+ await page.addInitScript(()=>Object.defineProperty(navigator,'share',{configurable:true,value:async(data:unknown)=>{(window as unknown as {shared:unknown}).shared=data;}}));
+ await page.setViewportSize({width:390,height:844});await installRoutes(page);await page.goto('/daily');await page.getByLabel('Open game menu').click();await page.getByRole('button',{name:'Challenge a friend',exact:true}).click();
+ const shared=await page.evaluate(()=>(window as unknown as {shared:{url:string;text:string}}).shared);expect(shared.url).toContain('/daily');expect(shared.text).toContain('GeoStats Scout Daily');for(const country of countries)expect(shared.text).not.toContain(country.name);
+});

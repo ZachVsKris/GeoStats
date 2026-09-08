@@ -231,6 +231,7 @@ export default function AccountControls({
       setUsernameCustomized(true);
       setUserLabel(detail.username);
       setProfileError(false);
+      setOpen(false);
     }
     window.addEventListener("geostats-profile-updated", profileUpdated);
     return () => {

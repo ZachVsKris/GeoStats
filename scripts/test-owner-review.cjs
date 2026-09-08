@@ -21,3 +21,10 @@ assert.ok(!isPreservedOwnerRetirement('unrelated-invalid-category','2026-09-08')
 assert.ok(!isPreservedOwnerRetirement('arablePct',''));
 assert.equal(notes.filter(n=>n.action==='retire').length,49);
 console.log('Owner review copy, refreshed years, and dated-board retirement checks passed');
+
+// New boundary wording must never be applied to old frozen board values.
+const {hydrateRoundSnapshotPlayerCopy}=load('lib/challengeCodec.ts');
+const oldBoundary={id:'north',derivationVersion:'old',description:'old scope'};
+const newBoundary={...oldBoundary,derivationVersion:'geostats-map-unit-extremes-2026-09-08-v1',description:'new scope'};
+const frozen={bank:[],categories:[{category:oldBoundary,ranked:[{value:80.770087}]}]};
+assert.deepEqual(hydrateRoundSnapshotPlayerCopy(frozen,[newBoundary]),frozen);

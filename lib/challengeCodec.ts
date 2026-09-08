@@ -221,7 +221,10 @@ export function hydrateRoundSnapshotPlayerCopy(snapshot: RoundSnapshot, category
     bank: snapshot.bank.map((country) => ({ ...country })),
     categories: snapshot.categories.map((item) => {
       const current = currentById.get(item.category.id);
-      if (!current) return { ...item, category: { ...item.category }, ranked: item.ranked.map((row) => ({ ...row })) };
+      // A changed geographic definition must not relabel frozen historical values.
+      const changedBoundaryScope = current?.derivationVersion === "geostats-map-unit-extremes-2026-09-08-v1"
+        && item.category.derivationVersion !== current.derivationVersion;
+      if (!current || changedBoundaryScope) return { ...item, category: { ...item.category }, ranked: item.ranked.map((row) => ({ ...row })) };
       return {
         ...item,
         category: {

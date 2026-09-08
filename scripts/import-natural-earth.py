@@ -24,6 +24,10 @@ from data_pipeline.models import CandidateDefinition, IndicatorRule, SourceObser
 from data_pipeline.supabase import SupabaseWarehouse
 
 NE_COUNTRIES = "https://naturalearth.s3.amazonaws.com/10m_cultural/ne_10m_admin_0_countries.zip"
+NE_MAP_UNITS = "https://naturalearth.s3.amazonaws.com/10m_cultural/ne_10m_admin_0_map_units.zip"
+NE_MAP_UNIT_PAGE = "https://www.naturalearthdata.com/downloads/10m-cultural-vectors/10m-admin-0-details/"
+EXTREME_DERIVATION_VERSION = "geostats-map-unit-extremes-2026-09-08-v1"
+EXTREME_POLICY = "Country map units, excluding dependencies, leases and separately coded overseas territories; integral islands remain included."
 NE_RIVERS = "https://naturalearth.s3.amazonaws.com/10m_physical/ne_10m_rivers_lake_centerlines.zip"
 NE_LAKES = "https://naturalearth.s3.amazonaws.com/10m_physical/ne_10m_lakes.zip"
 NE_GLACIATED = "https://naturalearth.s3.amazonaws.com/10m_physical/ne_10m_glaciated_areas.zip"
@@ -32,7 +36,7 @@ NE_COUNTRY_PAGE = "https://www.naturalearthdata.com/downloads/10m-cultural-vecto
 NE_PHYSICAL_PAGE = "https://www.naturalearthdata.com/downloads/10m-physical-vectors/"
 NE_LICENSE = "https://www.naturalearthdata.com/about/terms-of-use/"
 COUNTRY_VERSION = "5.1.1"
-LAYER_VERSIONS = {"countries": COUNTRY_VERSION, "rivers": "5.0.0", "lakes": "5.0.0", "glaciated": "4.0.0", "ocean": "5.0.0"}
+LAYER_VERSIONS = {"countries": COUNTRY_VERSION, "map_units": COUNTRY_VERSION, "rivers": "5.0.0", "lakes": "5.0.0", "glaciated": "4.0.0", "ocean": "5.0.0"}
 GEOD = Geod(ellps="WGS84")
 STATIC_YEAR = 2022  # Stable reference year for the pinned Natural Earth v5.x release family; UI shows the dataset version instead.
 DERIVATION_VERSION = "geostats-natural-earth-v16.2.7-physical-v1"
@@ -40,6 +44,7 @@ STABLE_DECIMALS = 6
 
 LAYER_URLS = {
     "countries": NE_COUNTRIES,
+    "map_units": NE_MAP_UNITS,
     "rivers": NE_RIVERS,
     "lakes": NE_LAKES,
     "glaciated": NE_GLACIATED,
@@ -86,8 +91,8 @@ def rule(
 
 
 RULES: tuple[IndicatorRule, ...] = (
-    rule("northernmost-country", "Northernmost country", "Latitude of the country’s northernmost land point.", "🧭", "degrees north", "high", understandability=99, fun=99, value_type="index"),
-    rule("southernmost-country", "Southernmost country", "Latitude of the country’s southernmost land point.", "🧭", "degrees latitude", "low", understandability=99, fun=99, value_type="index"),
+    rule("northernmost-country", "Northernmost country", "Latitude of the country’s northernmost land point, excluding dependencies and separately coded overseas territories.", "🧭", "degrees north", "high", understandability=99, fun=99, value_type="index"),
+    rule("southernmost-country", "Southernmost country", "Latitude of the country’s southernmost land point, excluding dependencies and separately coded overseas territories.", "🧭", "degrees latitude", "low", understandability=99, fun=99, value_type="index"),
     rule("largest-north-south-span", "Largest north to south span", "Distance between the country’s southernmost and northernmost land points.", "↕️", "kilometers", "high", understandability=96, fun=96),
     rule("largest-east-west-span", "Largest east to west span", "Width from the country’s westernmost to easternmost land, accounting for the date line.", "↔️", "kilometers", "high", understandability=94, fun=94),
     rule("largest-tropical-land-area", "Largest tropical land area", "Land area between the Tropic of Cancer and Tropic of Capricorn.", "🌴", "square kilometers", "high", fun=96),
@@ -117,6 +122,7 @@ RULES: tuple[IndicatorRule, ...] = (
 RULE_LAYER = {
     key: layer
     for layer, keys in {
+        "map_units": {"northernmost-country", "southernmost-country"},
         "rivers": {"most-mapped-river-length", "highest-mapped-river-density", "most-mapped-rivers"},
         "lakes": {"largest-mapped-lake-area", "largest-single-mapped-lake", "most-mapped-lakes", "highest-mapped-lake-share"},
         "glaciated": {"largest-mapped-glaciated-area", "highest-mapped-glaciated-share"},
@@ -291,6 +297,14 @@ def _country_iso3(properties: dict[str, Any]) -> str | None:
     return normalize_iso3(raw_code)
 
 
+def _extreme_country_iso3(properties: dict[str, Any]) -> str | None:
+    # UMI units carry ISO_A3_EH=USA despite a separate administrative identity.
+    # TYPE alone misses these islands; their ISO administrative code is explicit.
+    if properties.get("TYPE") in {"Dependency", "Lease"} or properties.get("ADM0_A3") == "UMI":
+        return None
+    return _country_iso3(properties)
+
+
 class NaturalEarthImporter(WarehouseImporter):
     source_organization = "Natural Earth"
     source_dataset = "Natural Earth 1:10m cultural and physical vectors"
@@ -315,7 +329,7 @@ class NaturalEarthImporter(WarehouseImporter):
                 source_indicator_name=concept.title,
                 source_url=download_url,
                 metadata={
-                    "source_page_url": NE_PHYSICAL_PAGE if layer != "countries" else NE_COUNTRY_PAGE,
+                    "source_page_url": NE_MAP_UNIT_PAGE if layer == "map_units" else (NE_PHYSICAL_PAGE if layer != "countries" else NE_COUNTRY_PAGE),
                     "download_url": download_url,
                     "exact_query_url": None,
                     "dataset_release": f"Natural Earth {layer} v{LAYER_VERSIONS[layer]}",
@@ -327,12 +341,12 @@ class NaturalEarthImporter(WarehouseImporter):
                     "static_geography": True,
                     "derivation": concept.key,
                     "derivation_method": concept.technical_definition,
-                    "derivation_version": DERIVATION_VERSION,
+                    "derivation_version": EXTREME_DERIVATION_VERSION if layer == "map_units" else DERIVATION_VERSION,
                     "input_datasets": [{"name": f"Natural Earth {layer}", "version": LAYER_VERSIONS[layer], "url": download_url}],
                     "source_query": {
                         "layer": layer,
                         "scale": "1:10m",
-                        "boundary_model": "ISO/map-unit country geometry; dependent territories are not unioned into the administering sovereign",
+                        "boundary_model": EXTREME_POLICY if layer == "map_units" else "ISO country geometry from the Natural Earth countries layer",
                     },
                     "broadDomain": "physical-geography",
                     "knowledgeCluster": "physical-geography",
@@ -350,10 +364,10 @@ class NaturalEarthImporter(WarehouseImporter):
                     },
                     "inventory_scope_warning": (
                         "Natural Earth physical feature layers are cartographic selections, not exhaustive inventories; river/lake/glacier feature-count categories remain review-only."
-                        if layer != "countries" else None
+                        if layer not in {"countries", "map_units"} else None
                     ),
-                    "boundary_model": "ISO/map-unit country geometry; dependent territories are not unioned into the administering sovereign",
-                    "territory_policy": "Use ISO_A3_EH/ISO_A3 map-unit identity first. Distant dependencies with their own codes are excluded from the administering sovereign's geometry.",
+                    "boundary_model": EXTREME_POLICY if layer == "map_units" else "ISO country geometry from the Natural Earth countries layer",
+                    "territory_policy": EXTREME_POLICY if layer == "map_units" else "Use the Natural Earth countries layer without sovereign unions.",
                     "referenceLabel": f"Natural Earth {layer} v{LAYER_VERSIONS[layer]}",
                     "showObservationYear": False,
                     "layer": layer,
@@ -399,9 +413,9 @@ class NaturalEarthImporter(WarehouseImporter):
                 "reference_year": STATIC_YEAR,
                 "reference_label": f"Natural Earth {layer} v{LAYER_VERSIONS[layer]}",
                 "show_observation_year": False,
-                "boundary_model": "ISO/map-unit country geometry; dependent territories are not unioned into the administering sovereign",
-                "territory_policy": "Use ISO_A3_EH/ISO_A3 first; do not merge separately coded dependencies into the administering sovereign.",
-                "derivation_version": DERIVATION_VERSION,
+                "boundary_model": EXTREME_POLICY if layer == "map_units" else "ISO country geometry from the Natural Earth countries layer",
+                "territory_policy": EXTREME_POLICY if layer == "map_units" else "Use the Natural Earth countries layer without sovereign unions.",
+                "derivation_version": EXTREME_DERIVATION_VERSION if layer == "map_units" else DERIVATION_VERSION,
                 "derivation_method": candidate.rule.technical_definition,
                 "archive_sha256": self._layer_hashes.get(layer),
                 "stable_decimals": STABLE_DECIMALS,
@@ -436,6 +450,7 @@ class NaturalEarthImporter(WarehouseImporter):
             directory = Path(raw_directory)
             country_path = self._download_shapefile(directory, "countries")
             geometries, names = self._read_countries(country_path)
+            extreme_geometries, extreme_names = self._read_countries(self._download_shapefile(directory, "map_units"), country_extremes=True)
             feature_layers: dict[str, list[Any]] = {}
             for layer in ("rivers", "lakes", "glaciated", "ocean"):
                 try:
@@ -446,17 +461,18 @@ class NaturalEarthImporter(WarehouseImporter):
                     feature_layers[layer] = []
                     print(f"Natural Earth optional layer warning ({layer}): {error}", flush=True)
         self._metrics = self._derive_metrics(geometries, names, feature_layers)
+        self._metrics.update(self._derive_extremes(extreme_geometries, extreme_names))
         return self._metrics
 
     @staticmethod
-    def _read_countries(path: Path) -> tuple[dict[str, Any], dict[str, str]]:
+    def _read_countries(path: Path, *, country_extremes: bool = False) -> tuple[dict[str, Any], dict[str, str]]:
         reader = shapefile.Reader(str(path), encoding="utf-8")
         fields = [field[0] for field in reader.fields[1:]]
         pieces: dict[str, list[Any]] = defaultdict(list)
         names: dict[str, str] = {}
         for shape_record in reader.iterShapeRecords():
             properties = dict(zip(fields, shape_record.record))
-            iso3 = _country_iso3(properties)
+            iso3 = _extreme_country_iso3(properties) if country_extremes else _country_iso3(properties)
             if not iso3:
                 continue
             geometry = _valid_geometry(shape_record.shape)
@@ -468,6 +484,14 @@ class NaturalEarthImporter(WarehouseImporter):
         if len(geometries) < 180:
             raise RuntimeError(f"Natural Earth normalization produced only {len(geometries)} GeoStats countries.")
         return geometries, names
+
+    @staticmethod
+    def _derive_extremes(geometries: dict[str, Any], names: dict[str, str]) -> dict[str, dict[str, tuple[str, float]]]:
+        return {
+            key: {iso3: (names[iso3], round(float(geometry.bounds[index]), STABLE_DECIMALS))
+                  for iso3, geometry in geometries.items()}
+            for key, index in (("southernmost-country", 1), ("northernmost-country", 3))
+        }
 
     @staticmethod
     def _read_feature_geometries(path: Path) -> list[Any]:

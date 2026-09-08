@@ -64,6 +64,17 @@ with tempfile.TemporaryDirectory(prefix="geostats-ne-real-") as directory_name:
     assert 190 <= len(geometries) <= 195
     assert all(code in geometries for code in ("RUS", "CAN", "USA", "CHN", "BRA", "AUS", "FRA", "NLD"))
 
+    map_path = importer._download_shapefile(directory, "map_units")
+    proper, proper_names = importer._read_countries(map_path, country_extremes=True)
+    extremes = importer._derive_extremes(proper, proper_names)
+    assert len(proper) == 195
+    for iso, south, north in [("NOR", 57.993150, 71.165269), ("FRA", 41.365912, 51.087541),
+                              ("USA", 18.906117, 71.412502), ("NZL", -52.600313, -29.221938),
+                              ("DNK", 54.568590, 57.751166)]:
+        assert extremes["southernmost-country"][iso][1] == south, iso
+        assert extremes["northernmost-country"][iso][1] == north, iso
+    assert "PRT" in proper and "GBR" in proper  # Integral map units must remain united.
+
     ocean_features = importer._read_feature_geometries(ocean_path)
     metrics = importer._derive_metrics(geometries, names, {"ocean": ocean_features})
     area = metrics["largest-geodesic-land-area"]

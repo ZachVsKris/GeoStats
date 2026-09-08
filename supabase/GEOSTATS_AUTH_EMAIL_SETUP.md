@@ -1,26 +1,50 @@
-# GeoStats authentication email production setup
+# GeoStats email sign-in activation
 
-The HTML templates in `supabase/email-templates/` are GeoStats-branded and ready
-to paste into Supabase Auth email templates. The visible sender also requires a
-custom SMTP provider; it cannot be established safely from repository code.
+Deploy the account reliability change before updating hosted templates.
+Repository templates do not automatically update hosted Supabase Auth settings.
 
-## Production settings
+## Existing sender settings
 
-- Sender name: `GeoStats`
-- Sender address: `accounts@geostats.xyz`
+- Sender: `GeoStats <accounts@geostats.xyz>`
 - Site URL: `https://geostats.xyz`
-- Allowed redirect URL: `https://geostats.xyz/auth/callback`
-- Templates: use the confirmation, magic-link, and recovery HTML files in this
-  directory without changing their `TokenHash`, `type`, or `redirect_to` values.
+- OAuth/legacy redirect URL: `https://geostats.xyz/auth/callback`
+- Keep Resend open and click tracking off for authentication emails.
 
-## Activation boundary
+The supplied Yahoo message passed SPF, DKIM and DMARC. Resend domain verification
+and SMTP acceptance are confirmed, but neither proves inbox placement. The
+first-time Gmail/Yahoo spam issue remains with the deliverability investigation.
+Do not replace working DNS authentication records as a speculative fix.
 
-In Supabase Dashboard, open Authentication → Email/SMTP and enter the SMTP host,
-port, username, and password issued by the chosen mail provider. Verify
-`geostats.xyz` with that provider first and publish its SPF and DKIM DNS records;
-add a DMARC policy after delivery tests pass. Turn off provider click tracking
-for authentication mail because rewritten links can invalidate one-time tokens.
+## Hosted templates to replace after deployment
 
-Send a test magic link to an owner-controlled address, confirm that the inbox
-shows `GeoStats <accounts@geostats.xyz>`, and verify that it returns to the
-original GeoStats path through `/auth/callback`.
+Supabase → Authentication → Emails → Templates:
+
+1. **Confirm sign up**: copy `email-templates/confirmation.html`.
+   Subject: `Confirm your email for GeoStats`.
+2. **Magic link or OTP**: copy `email-templates/magic-link.html`.
+   Subject: `Your GeoStats sign-in link`.
+3. **Reset password**, if used: copy `email-templates/recovery.html`.
+   Subject: `Recover your GeoStats account`.
+
+The new link is `/auth/email#token_hash={{ .TokenHash }}&type=email&redirect_to={{ .RedirectTo }}`
+(the recovery template uses `type=recovery`). Preserve the template's HTML escaping.
+The fragment keeps the credential out of server request URLs. Opening the page
+never verifies the token. The user must press **Confirm and sign in**, which sends
+a same-origin POST and sets the session cookies. This also avoids requiring the
+browser session that originally requested a PKCE email link. Google sign-in still
+uses the existing OAuth callback.
+
+The connected database tools cannot update hosted Auth templates. If dashboard
+access is unavailable, this is the remaining owner activation step; do not claim
+email authentication fixed in production until it is done.
+
+## Acceptance
+
+Request a fresh email after template activation. Open it on Yahoo/Gmail, press
+**Confirm and sign in**, and verify the account indicator and email in the private
+account panel. Repeat in a different browser from the requesting browser. Reusing
+the same token should show the invalid/used/expired recovery message. A GET or a
+mail scanner opening the landing page should not consume the token. Keep Google
+sign-in, refresh persistence, sign-out and saved Daily scores in the smoke test.
+
+Reference: https://supabase.com/docs/guides/auth/auth-email-templates

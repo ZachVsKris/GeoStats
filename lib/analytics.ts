@@ -75,7 +75,7 @@ function acquisition() {
 export function trackAnalytics(eventName: AnalyticsEventName, payload: AnalyticsPayload = {}) {
   if (typeof window === "undefined") return;
   // Random is a private QA surface in v16.2.6 and must never pollute public product analytics.
-  if (window.location.pathname.startsWith("/random")) return;
+  if (window.location.pathname.startsWith("/random") || window.location.pathname.startsWith("/auth/")) return;
   try {
     const body = JSON.stringify({
       eventName,

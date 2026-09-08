@@ -302,6 +302,15 @@ function staticMatchMaps() {
 }
 
 function playerFacingTitle(row: PlayableCategoryRow) {
+  const reviewed = metadataString(row.metadata ?? {}, "ownerReviewTitle");
+  const title = reviewed
+    ? reviewed.replace("{year}", String(row.common_year ?? row.minimum_year ?? "the reference year"))
+    : legacyPlayerFacingTitle(row);
+  // Remove ornamental compound hyphens, preserving numeric ranges and minus signs.
+  return title.replace(/(?<=[A-Za-z])[-–—](?=[A-Za-z])/g, " ");
+}
+
+function legacyPlayerFacingTitle(row: PlayableCategoryRow) {
   const override = PLAYER_TITLE_OVERRIDES[row.id];
   if (override) return override;
   if (row.source_organization === "FAOSTAT Food Balances") {
@@ -357,6 +366,8 @@ function generatedBoardDescription(row: PlayableCategoryRow, title: string) {
 }
 
 function boardDescription(row: PlayableCategoryRow, title: string, existing?: Category) {
+  const reviewed = metadataString(row.metadata ?? {}, "ownerReviewDescription");
+  if (reviewed) return reviewed;
   const climateDescriptions: Record<string, string> = {
     "arid-share": "Land classified as desert or steppe, using rainfall and temperature—not rainfall alone",
     "desert-share": "Land below half the Köppen–Geiger aridity threshold, which depends on temperature and rainfall seasonality",

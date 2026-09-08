@@ -1,0 +1,143 @@
+[
+  {
+    "id": "koppen-geiger:temperate-share",
+    "title": "Highest percentage of land with a temperate climate",
+    "description": "Share of non-arid land where the coldest month averages above 0°C but below 18°C and the warmest month averages above 10°C",
+    "plain_language_description": "Share of non-arid land where the coldest month averages above 0°C but below 18°C and the warmest month averages above 10°C",
+    "source_organization": "Beck et al.",
+    "source_dataset": "Köppen-Geiger 1991–2020 climate classification",
+    "source_indicator_code": "KOPPEN:temperate-share",
+    "ranking_direction": "high",
+    "unit": "% of land",
+    "value_type": "percentage",
+    "measurement_type": "share",
+    "common_year": 2020,
+    "minimum_year": 2020,
+    "family": "Climate",
+    "metadata": {
+      "broadDomain": "climate",
+      "semanticTopic": "temperate-share",
+      "semanticFamily": "temperate-share",
+      "strategyFamily": "koppen-climate:temperate",
+      "measurementType": "share",
+      "knowledgeCluster": "climate-classification"
+    }
+  },
+  {
+    "id": "worldbank-catalog:fb-ast-nper-zs",
+    "title": "Highest % of bank loans that are nonperforming",
+    "description": "The indicator measures the proportion of a deposit taker’s loan portfolio that is impaired or at risk of default.",
+    "plain_language_description": "Bank loans classified as nonperforming, as a percentage of total gross loans.",
+    "source_organization": "World Bank",
+    "source_dataset": "World Development Indicators",
+    "source_indicator_code": "FB.AST.NPER.ZS",
+    "ranking_direction": "high",
+    "unit": "%",
+    "value_type": "percentage",
+    "measurement_type": "share",
+    "common_year": 2024,
+    "minimum_year": 2022,
+    "family": "Economy",
+    "metadata": {
+      "broadDomain": "economy",
+      "semanticTopic": "wb-fb-ast-nper-zs",
+      "semanticFamily": "wb-fb-ast-nper-zs",
+      "strategyFamily": "wb-fb-ast-nper-zs",
+      "knowledgeCluster": "wb-fb-ast-nper-zs"
+    }
+  },
+  {
+    "id": "history:worldbank-under-five-mortality-below-50",
+    "title": "Most recently cut under-five mortality below 50",
+    "description": "Year under-five mortality first fell below 50 deaths per 1,000 live births.",
+    "plain_language_description": "Year under-five mortality first fell below 50 deaths per 1,000 live births.",
+    "source_organization": "World Bank",
+    "source_dataset": "World Development Indicators: historical threshold milestones",
+    "source_indicator_code": "MILESTONE:SH.DYN.MORT:50",
+    "ranking_direction": "high",
+    "unit": "milestone year",
+    "value_type": "other",
+    "measurement_type": "historical_date",
+    "common_year": 2026,
+    "minimum_year": 2026,
+    "family": "History",
+    "metadata": {
+      "broadDomain": "history",
+      "semanticTopic": "under-five-mortality-below-50",
+      "semanticFamily": "under-five-mortality-below-50",
+      "strategyFamily": "under-five-mortality-below-50",
+      "measurementType": "historical_date",
+      "knowledgeCluster": "child-survival-history"
+    }
+  },
+  {
+    "id": "gdpGrowth",
+    "title": "Fastest economic growth rate",
+    "description": "Fastest economic growth according to World Bank.",
+    "plain_language_description": "Annual percentage growth in inflation-adjusted gross domestic product.",
+    "source_organization": "World Bank",
+    "source_dataset": "World Development Indicators",
+    "source_indicator_code": "NY.GDP.MKTP.KD.ZG",
+    "ranking_direction": "high",
+    "unit": "%",
+    "value_type": "percentage",
+    "measurement_type": "share",
+    "common_year": 2025,
+    "minimum_year": 2022,
+    "family": "Economy",
+    "metadata": {
+      "broadDomain": "economy",
+      "semanticTopic": "gdpGrowth",
+      "semanticFamily": "economic-output",
+      "strategyFamily": "economic-output",
+      "knowledgeCluster": "economic-output"
+    }
+  },
+  {
+    "id": "education",
+    "title": "Highest education spending as % of GDP",
+    "description": "Government education spending as a percentage of the country’s total economic output; this is what GDP measures.",
+    "plain_language_description": "Government education spending as a percentage of the country’s total economic output; this is what GDP measures.",
+    "source_organization": "World Bank",
+    "source_dataset": "World Development Indicators",
+    "source_indicator_code": "SE.XPD.TOTL.GD.ZS",
+    "ranking_direction": "high",
+    "unit": "%",
+    "value_type": "percentage",
+    "measurement_type": "share",
+    "common_year": 2023,
+    "minimum_year": 2022,
+    "family": "Education",
+    "metadata": {
+      "broadDomain": "education",
+      "semanticTopic": "education-spending-share-gdp",
+      "semanticFamily": "economic-output",
+      "strategyFamily": "economic-output",
+      "knowledgeCluster": "economic-output"
+    }
+  },
+  {
+    "id": "fertility",
+    "title": "Highest fertility rate",
+    "description": "Average number of children a woman would have under current birth rates.",
+    "plain_language_description": "Average number of children a woman would have under current birth rates.",
+    "source_organization": "World Bank",
+    "source_dataset": "World Development Indicators",
+    "source_indicator_code": "SP.DYN.TFRT.IN",
+    "ranking_direction": "high",
+    "unit": "rate",
+    "value_type": "rate",
+    "measurement_type": "rate",
+    "common_year": 2024,
+    "minimum_year": 2022,
+    "family": "Health",
+    "metadata": {
+      "broadDomain": "health",
+      "semanticTopic": "fertility",
+      "semanticFamily": "fertility",
+      "strategyFamily": "fertility",
+      "measurementType": "rate",
+      "knowledgeCluster": "fertility"
+    }
+  }
+]

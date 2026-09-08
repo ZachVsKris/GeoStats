@@ -13,6 +13,7 @@ const DIFFICULTIES = new Set(["easy", "normal", "expert"]);
 type Payload = {
   eventName?: string;
   sessionId?: string;
+  visitorId?: string;
   path?: string;
   difficulty?: string;
   challengeDate?: string;
@@ -34,6 +35,7 @@ export async function POST(request: Request) {
   if (sessionId.length < 8 || sessionId.length > 80) {
     return NextResponse.json({ error: "Invalid analytics session." }, { status: 400 });
   }
+  const visitorId = typeof body.visitorId === "string" && /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(body.visitorId) ? body.visitorId : null;
   const metadata = body.metadata && typeof body.metadata === "object" ? body.metadata : {};
   if (JSON.stringify(metadata).length > 3000) {
     return NextResponse.json({ error: "Analytics metadata is too large." }, { status: 400 });
@@ -67,6 +69,7 @@ export async function POST(request: Request) {
   const { error } = await admin.from("analytics_events").insert({
     event_name: body.eventName,
     session_id: sessionId,
+    visitor_id: visitorId,
     user_id: user?.id ?? null,
     path,
     difficulty,

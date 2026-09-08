@@ -6,6 +6,7 @@ import { fetchCountries, type CountryInfo } from "../lib/worldBank";
 import { SOURCE_REGISTRY } from "../lib/sourceRegistry";
 import { formatValue, poolLeaderboard, scorePlacements } from "../lib/dataEngine";
 import { decodeRound, deserializeRound, type Round, type RoundCategory } from "../lib/challengeCodec";
+import GameTools from "./GameTools";
 import AccountControls from "./AccountControls";
 import Brand from "./Brand";
 import CategorySourcePanel from "./CategorySourcePanel";
@@ -672,11 +673,14 @@ Can you beat my score?`;
   const bestPossibleCount = scores?.filter((row) => row.rank === 1).length ?? 0;
   const topFinishCount = scores?.filter((row) => row.rank <= topFinishRank).length ?? 0;
 
+  const gameTools = <GameTools categories={round?.categories.map(item=>({id:item.category.id,name:item.category.name}))??[]} difficulty={difficulty} challengeDate={isRandom?undefined:dailyDateFromSeed(seed)} path={challengePath(difficulty,seed)} privateBoard={isRandom}/>;
+
   return <div className={`shell ${!scores ? "activePlay" : ""} ${status ? "loadingPlay" : ""} ${error ? "errorPlay" : ""} ${scores ? "resultsView" : ""} ${difficulty}Round ${difficulty === "expert" ? "expertRound" : ""} ${difficulty === "easy" ? "compactRound" : ""} ${legacyDimensions ? "legacyRound" : ""} ${expertPreview ? "expertPreview" : ""}`}>
     {!scores && <header>
       <Brand />
       <div className="headerButtons desktopHeaderButtons">
         <a href="/audit" className="headerLink">Data audit</a>
+        {gameTools}
         <button onClick={() => setShowRules(true)}>How it works</button>
         {isRandom && <a href="/random" className="dailyModeButton active">Random QA</a>}
         <a href={challengePath("easy", seed)} onClick={(event) => switchCachedDaily(event, "easy")} className={`dailyModeButton ${difficulty === "easy" ? "active" : ""}`}>Scout</a>
@@ -686,6 +690,7 @@ Can you beat my score?`;
       </div>
       {!isRandom && <div className="gameAccount"><AccountControls difficulty={difficulty} hideLeaderboardLink compact /></div>}
       <details className="mobileMenu"><summary aria-label="Open game menu">Menu</summary><div>
+        {gameTools}
         <a href="/audit">Data audit</a><button onClick={() => setShowRules(true)}>How it works</button>
         {isRandom && <a href="/daily">Daily modes</a>}
         {!isRandom && <a href={`/leaderboard?difficulty=${difficulty}`}>Leaderboard</a>}
@@ -772,6 +777,7 @@ Can you beat my score?`;
 
     {!scores && <section className="dataNote"><strong>Atlas index · trusted category library</strong><p><a href="/data">Data & methodology</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p><p>Population, economy, land, agriculture, food, religion, energy, health, labor, trade, displacement, travel, technology, and environment. New official-source categories stay out of play until they pass integrity, clarity, coverage, and duplicate review.</p></section>}
 
+    {scores && <div className="resultsGameTools">{gameTools}</div>}
     {sourceDataset && <CategorySourcePanel dataset={sourceDataset} boardCountryIds={round?.bank.map((country) => country.id) ?? []} onClose={()=>setSourceDataset(null)} />}
 
     {showRules&&<div className="modal rulesModal" onClick={(e)=>e.currentTarget===e.target&&setShowRules(false)}><div className="rulesModalCard"><h2>How GeoStats works</h2><p><strong>{isRandom ? "Choose a Random difficulty:" : "Progress through the Dailies:"}</strong> Scout has 4 countries and 4 categories, Adventurer has 6 countries and 4 categories, and Expert has 8 countries and 6 categories.</p><ol><li><strong>Each category has a different winner.</strong> Among today’s countries, every category’s #1 country is unique.</li><li><strong>No tied values on the board.</strong> Countries in the same round always show distinct values for every category.</li><li><strong>Match countries to categories.</strong> Assign one country to each category, and use each country only once.</li><li><strong>Score as many points as possible.</strong> Higher-ranked countries earn more points. A perfect game matches every category with its #1 country.</li></ol><p>{isRandom ? "Random games are unranked, repeatable, and reproducible from the seed in the URL." : "New Scout, Adventurer, and Expert challenges unlock every day."}</p><button onClick={()=>setShowRules(false)}>Start drafting</button></div></div>}

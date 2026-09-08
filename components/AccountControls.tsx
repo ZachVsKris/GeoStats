@@ -54,6 +54,7 @@ export default function AccountControls({
   const profileRequest = useRef<AbortController | null>(null);
   const currentUserId = useRef<string | null>(null);
   const usernameSaveInFlight = useRef(false);
+  const profileChannel = useRef<BroadcastChannel | null>(null);
   const [profileError, setProfileError] = useState(false);
   const pendingSignature = JSON.stringify(pendingScore ?? null);
 
@@ -234,12 +235,24 @@ export default function AccountControls({
       setOpen(false);
     }
     window.addEventListener("geostats-profile-updated", profileUpdated);
+    if (typeof window.BroadcastChannel === "function") {
+      const channel = new BroadcastChannel("geostats-profile-v1");
+      profileChannel.current = channel;
+      channel.onmessage = (event) => {
+        const detail = event.data;
+        if (typeof detail?.userId === "string" && typeof detail?.username === "string") {
+          window.dispatchEvent(new CustomEvent("geostats-profile-updated", { detail }));
+        }
+      };
+    }
     return () => {
       listener.subscription.unsubscribe();
       timers.forEach(clearTimeout);
       profileRevision.current++;
       profileRequest.current?.abort();
       currentUserId.current = null;
+      profileChannel.current?.close();
+      profileChannel.current = null;
       window.removeEventListener("geostats-profile-updated", profileUpdated);
     };
   }, [supabase]);
@@ -268,6 +281,7 @@ export default function AccountControls({
         return;
       }
       window.dispatchEvent(new CustomEvent("geostats-profile-updated", { detail: { userId, username: data.username } }));
+      profileChannel.current?.postMessage({ userId, username: data.username });
       trackAnalytics("account_username_saved", { metadata: { updated: usernameCustomized } });
       setMessage("Username saved. This is how you will appear on GeoStats leaderboards.");
       // Score verification can be slow; it must not keep username saving busy.

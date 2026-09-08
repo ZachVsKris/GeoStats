@@ -18,6 +18,7 @@ import { loadServerCategoryRegistry, loadServerPlayableCategoryCatalog } from ".
 import { CATEGORY_SET_VERSION, DATASET_VERSION, RULES_VERSION } from "./version";
 import type { Category } from "./categories";
 import { isHardRetiredCategoryId } from "./playableCatalog";
+import { isPreservedOwnerRetirement } from "./ownerCategoryRetirements";
 
 export type StoredDailyRow = {
   challenge_date: string;
@@ -120,7 +121,8 @@ export function inspectStoredTrio(
       const ineligibleIds = options.eligibleCategoryIds
         ? round.categories
           .map((dataset) => dataset.category.id)
-          .filter((id) => !options.eligibleCategoryIds!.has(id))
+          .filter((id) => !options.eligibleCategoryIds!.has(id)
+            && !isPreservedOwnerRetirement(id, row.challenge_date))
         : [];
       if (ineligibleIds.length) {
         errors[difficulty] = [`Board contains categories that are no longer Daily-eligible: ${ineligibleIds.join(", ")}.`];

@@ -1,0 +1,67 @@
+{
+  "catalogSize": 354,
+  "days": [
+    {
+      "date": "2026-09-09",
+      "valid": true,
+      "categories": [
+        "protected",
+        "history:worldbank-life-expectancy-70",
+        "faostat-qcl-horses-stocks-02131-5111-an",
+        "natural-earth:highest-land-border-density",
+        "faostat-qcl-pulses-total-production-f1726-5510-t",
+        "history:worldbank-mobile-subscriptions-50",
+        "forestPct",
+        "smithsonian-gvp:most-holocene-volcanoes",
+        "worldbank-catalog:en-ghg-co2-pi-mt-ce-ar5",
+        "history:oldest-current-constitution",
+        "pew-religion:unaffiliated-share",
+        "unwpp:lowest-fertility",
+        "sports:fifa-world-cup-first-appearance",
+        "faostat-fbs:potatoes"
+      ]
+    },
+    {
+      "date": "2026-09-10",
+      "valid": true,
+      "categories": [
+        "pew-religion:muslim-share",
+        "history:worldbank-majority-urban",
+        "smithsonian-gvp:highest-volcano",
+        "rain",
+        "unsdg:urban-slum-share",
+        "history:worldbank-internet-half",
+        "faostat-qcl-bananas-production-01312-5510-t",
+        "natural-earth:highest-land-border-density",
+        "history:oldest-current-constitution",
+        "faostat-qcl-cattle-and-buffaloes-stocks-f1746-5111-an",
+        "militaryShare",
+        "unwpp:highest-natural-change-rate",
+        "sports:fifa-world-cup-first-appearance",
+        "faostat-fbs:sugar"
+      ]
+    },
+    {
+      "date": "2026-09-11",
+      "valid": true,
+      "categories": [
+        "comtrade:most-aluminum-exported",
+        "history:worldbank-internet-half",
+        "pew-religion:christian-share",
+        "rain",
+        "faostat-qcl-apricots-production-01343-5510-t",
+        "history:worldbank-infant-mortality-below-25",
+        "forestPct",
+        "smithsonian-gvp:highest-volcano",
+        "faostat-fbs:tomatoes",
+        "sports:fifa-world-cup-first-appearance",
+        "faostat-qcl-chickens-stocks-02151-5112-1000-an",
+        "worldbank-catalog:fs-ast-cgov-gd-zs",
+        "unwpp:lowest-pop-density",
+        "history:worldbank-mobile-subscriptions-50"
+      ]
+    }
+  ],
+  "failures": [],
+  "completedAt": "2026-09-08T17:06:40.679Z"
+}

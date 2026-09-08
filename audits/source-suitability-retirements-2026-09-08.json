@@ -1,0 +1,57 @@
+[
+  {
+    "id": "unhcr:most-stateless-people",
+    "status": "rejected",
+    "reason": "Owner-approved source suitability removal: incomplete country reporting cannot support an unrestricted stateless-population ranking."
+  },
+  {
+    "id": "natural-earth:largest-mapped-glaciated-area",
+    "status": "rejected",
+    "reason": "Owner-approved source suitability removal: Natural Earth glaciated areas include outdated glacier extents."
+  },
+  {
+    "id": "natural-earth:highest-mapped-glaciated-share",
+    "status": "rejected",
+    "reason": "Owner-approved source suitability removal: Natural Earth glaciated areas include outdated glacier extents."
+  },
+  {
+    "id": "natural-earth:highest-mapped-river-density",
+    "status": "rejected",
+    "reason": "Owner-approved source suitability removal: selective cartographic river/lake coverage is unsuitable for comprehensive country counts, totals or density rankings."
+  },
+  {
+    "id": "natural-earth:most-mapped-river-length",
+    "status": "rejected",
+    "reason": "Owner-approved source suitability removal: selective cartographic river/lake coverage is unsuitable for comprehensive country counts, totals or density rankings."
+  },
+  {
+    "id": "natural-earth:most-mapped-rivers",
+    "status": "rejected",
+    "reason": "Owner-approved source suitability removal: selective cartographic river/lake coverage is unsuitable for comprehensive country counts, totals or density rankings."
+  },
+  {
+    "id": "natural-earth:most-mapped-lakes",
+    "status": "rejected",
+    "reason": "Owner-approved source suitability removal: selective cartographic river/lake coverage is unsuitable for comprehensive country counts, totals or density rankings."
+  },
+  {
+    "id": "natural-earth:largest-mapped-lake-area",
+    "status": "rejected",
+    "reason": "Owner-approved source suitability removal: selective cartographic river/lake coverage is unsuitable for comprehensive country counts, totals or density rankings."
+  },
+  {
+    "id": "natural-earth:highest-mapped-lake-share",
+    "status": "rejected",
+    "reason": "Owner-approved source suitability removal: selective cartographic river/lake coverage is unsuitable for comprehensive country counts, totals or density rankings."
+  },
+  {
+    "id": "natural-earth:longest-coastline",
+    "status": "needs_data_repair",
+    "reason": "Paused by owner-approved source suitability review: generalized coastline rankings require stronger cross-source validation."
+  },
+  {
+    "id": "natural-earth:highest-coastline-density",
+    "status": "needs_data_repair",
+    "reason": "Paused by owner-approved source suitability review: generalized coastline rankings require stronger cross-source validation."
+  }
+]

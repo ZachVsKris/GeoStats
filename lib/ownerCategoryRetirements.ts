@@ -1,5 +1,15 @@
 // Owner-approved editorial retirements. Existing dated boards retain their scoring data.
 const retired = new Set([
+  "natural-earth:coastline",
+  "natural-earth:highest-coastline-density",
+  "natural-earth:highest-mapped-lake-share",
+  "natural-earth:highest-mapped-river-density",
+  "natural-earth:largest-mapped-glaciated-area",
+  "natural-earth:largest-mapped-lake-area",
+  "natural-earth:most-mapped-lakes",
+  "natural-earth:most-mapped-river-length",
+  "natural-earth:most-mapped-rivers",
+  "unhcr:most-stateless-people",
   "unwpp:lowest-death-rate",
   "natural-earth:highest-mapped-glaciated-share",
   "natural-earth:longest-average-land-border",

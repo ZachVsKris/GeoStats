@@ -46,12 +46,14 @@ const loadCachedCompleteDaily = unstable_cache(
   async (date: string): Promise<DailyApiPayload> => {
     const admin = createSupabaseAdminClient();
     if (!admin) throw new Error("Supabase is not configured.");
-    const stored = await readDailyRows(admin, date);
+    const [stored, playableCatalog] = await Promise.all([
+      readDailyRows(admin, date),
+      loadServerPlayableCategoryCatalog(),
+    ]);
     if (stored.error) throw stored.error;
     // Today's playable trio must meet current cross-mode semantic rules. The
     // legacy exception is reserved for historical result integrity, not for a
     // board currently offered to players.
-    const playableCatalog = await loadServerPlayableCategoryCatalog();
     const inspected = inspectStoredTrio(stored.rows, undefined, {
       allowLegacyComposition: false,
       eligibleCategoryIds: new Set(playableCatalog.map((category) => category.id)),

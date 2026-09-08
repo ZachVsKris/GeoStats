@@ -42,12 +42,17 @@ async function run(rows, cap, expectedError) {
   async function snapshot(revision, count) {
     const mocks = {
       'server-only': {},
+      'node:zlib': require('node:zlib'),
       './version': {DATASET_VERSION:'same-data',CATEGORY_SET_VERSION:'same-rules',PLAYABLE_CATALOG_CACHE_VERSION:revision},
       './serverPlayableCatalog': {loadServerPlayableCategoryCatalog:async()=>Array.from({length:count},(_,id)=>({id}))},
-      './serverWarehouseCategoriesV16_2_7': {fetchServerWarehouseCategories:async categories=>({datasets:categories,errors:[]})},
+      './serverWarehouseCategoriesV16_2_7': {fetchServerWarehouseCategories:async categories=>({datasets:categories.map(category=>({...category, evidence:'preserved source metadata '.repeat(400)})),errors:[]})},
       'next/cache': {unstable_cache:(fn,key)=>async()=>{
         const serialized=JSON.stringify(key);
-        if(!sharedCache.has(serialized))sharedCache.set(serialized,await fn());
+        if(!sharedCache.has(serialized)) {
+          const value=await fn();
+          assert.ok(Buffer.byteLength(JSON.stringify(value)) < 2*1024*1024, "Warehouse cache entry fits provider limit");
+          sharedCache.set(serialized,value);
+        }
         return sharedCache.get(serialized);
       }},
     };
@@ -55,7 +60,10 @@ async function run(rows, cap, expectedError) {
     new Function('require','module','exports',snapshotCode)(id=>{assert.ok(id in mocks,id);return mocks[id];},mod,mod.exports);
     return mod.exports.loadCachedPuzzleWarehouseSnapshot();
   }
-  assert.equal((await snapshot('before-owner-review',414)).catalogSize,414);
+  const original=await snapshot('before-owner-review',414);
+  assert.equal(original.catalogSize,414);
+  assert.equal(original.datasets[0].evidence,'preserved source metadata '.repeat(400),'Compression retains full source content');
+  assert.deepEqual(await snapshot('before-owner-review',414),original,'Cached decompression is lossless');
   assert.equal((await snapshot('after-owner-review',365)).catalogSize,365,'Random must not reuse the retired catalog');
   console.log('Server catalog bounded-page cache behavior passed.');
 })().catch(error => { console.error(error); process.exitCode = 1; });

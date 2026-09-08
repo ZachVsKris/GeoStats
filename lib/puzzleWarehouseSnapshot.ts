@@ -1,5 +1,6 @@
 import "server-only";
 
+import { gzipSync, gunzipSync } from "node:zlib";
 import { unstable_cache } from "next/cache";
 import { fetchServerWarehouseCategories } from "./serverWarehouseCategoriesV16_2_7";
 import { loadServerPlayableCategoryCatalog } from "./serverPlayableCatalog";
@@ -10,15 +11,18 @@ export type SerializableWarehouseSnapshot = Awaited<ReturnType<typeof fetchServe
 };
 
 const loadVersionedWarehouseSnapshot = unstable_cache(
-  async (): Promise<SerializableWarehouseSnapshot> => {
+  async (): Promise<string> => {
     const catalog = await loadServerPlayableCategoryCatalog();
     const bulk = await fetchServerWarehouseCategories(catalog);
-    return { ...bulk, catalogSize: catalog.length };
+    // Lossless compression keeps the complete snapshot below the Data Cache
+    // entry limit; no observations or category metadata are discarded.
+    return gzipSync(JSON.stringify({ ...bulk, catalogSize: catalog.length })).toString("base64");
   },
-  ["geostats-puzzle-warehouse-snapshot", DATASET_VERSION, CATEGORY_SET_VERSION, PLAYABLE_CATALOG_CACHE_VERSION, "warehouse-id-hotfix2"],
+  ["geostats-puzzle-warehouse-snapshot", DATASET_VERSION, CATEGORY_SET_VERSION, PLAYABLE_CATALOG_CACHE_VERSION, "warehouse-gzip-v1"],
   { revalidate: 60 * 60, tags: ["geostats-puzzle-warehouse-snapshot"] },
 );
 
 export async function loadCachedPuzzleWarehouseSnapshot() {
-  return loadVersionedWarehouseSnapshot();
+  const compressed = await loadVersionedWarehouseSnapshot();
+  return JSON.parse(gunzipSync(Buffer.from(compressed, "base64")).toString("utf8")) as SerializableWarehouseSnapshot;
 }

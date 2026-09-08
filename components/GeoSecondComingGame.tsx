@@ -232,13 +232,13 @@ function buildScoreRows(round: Round, assignments: Assignment): ScoreRow[] {
 
 export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFICULTY, mode = "daily", initialDailyDate, initialDailyPayload, canPlayExpert = false }: GeoSecondComingGameProps = {}) {
   const initialPacked = mode === "daily" ? initialDailyPayload?.[initialDifficulty] : undefined;
-  const serverInitialRound = (() => {
+  const serverInitialRound = useMemo(() => {
     try {
       return initialPacked?.board_payload ? deserializeRound(initialPacked.board_payload) : null;
     } catch {
       return null;
     }
-  })();
+  }, [initialPacked]);
   const initialChallengeDate = initialDailyDate ?? newYorkDate();
   const [round, setRound] = useState<Round | null>(serverInitialRound);
   const [assignments, setAssignments] = useState<Assignment>({});
@@ -261,6 +261,7 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
   const touchStart = useRef<{ countryId: string; x: number; y: number } | null>(null);
   const touchTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const trackedRounds = useRef(new Set<string>());
+  const boardLoadRevision = useRef(0);
 
   const used = useMemo(() => new Set(Object.values(assignments)), [assignments]);
   const activeConfig = ROUND_CONFIGS[difficulty];
@@ -318,6 +319,7 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
   }
 
   function resetRoundState(nextSeed: string, nextDifficulty: DailyDifficulty) {
+    boardLoadRevision.current++;
     setError("");
     setRound(null);
     setScores(null);
@@ -348,6 +350,7 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
   }
 
   async function restoreSavedCompletion(activeRound: Round, nextDifficulty: DailyDifficulty, challengeDate: string) {
+    const revision = boardLoadRevision.current;
     try {
       const params = new URLSearchParams({ challengeDate, difficulty: nextDifficulty });
       const response = await fetch(`/api/scores?${params.toString()}`, { cache: "no-store" });
@@ -356,6 +359,7 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
           completed?: boolean;
           result?: SavedDailyScore | null;
         } | null;
+        if (revision !== boardLoadRevision.current) return false;
         const accountAssignments = data?.completed ? data.result?.assignments : null;
         if (accountAssignments && restoreAssignments(activeRound, accountAssignments, "account")) return true;
       }
@@ -363,6 +367,7 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
       // Account lookup failure falls through to same-browser local persistence.
     }
 
+    if (revision !== boardLoadRevision.current) return false;
     const local = readLocalDailyResult(challengeDate, nextDifficulty);
     if (!local || local.boardSignature !== boardSignature(activeRound)) return false;
     return restoreAssignments(activeRound, local.assignments, "local");
@@ -480,6 +485,14 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
       }
     })();
   }, []);
+
+  function switchCachedDaily(event: React.MouseEvent<HTMLAnchorElement>, nextDifficulty: DailyDifficulty) {
+    if (isRandom || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    const packed = readCachedDaily(newYorkDate())?.[nextDifficulty];
+    if (!packed?.board_payload) return;
+    event.preventDefault();
+    if (nextDifficulty !== difficulty) void loadDailyRound(nextDifficulty);
+  }
 
   function retryCurrentRound() {
     if (isRandom) loadRandomRound(difficulty, seed || createRandomSeed());
@@ -666,8 +679,8 @@ Can you beat my score?`;
         <a href="/audit" className="headerLink">Data audit</a>
         <button onClick={() => setShowRules(true)}>How it works</button>
         {isRandom && <a href="/random" className="dailyModeButton active">Random QA</a>}
-        <a href={challengePath("easy", seed)} className={`dailyModeButton ${difficulty === "easy" ? "active" : ""}`}>Scout</a>
-        <a href={challengePath("normal", seed)} className={`dailyModeButton ${difficulty === "normal" ? "active" : ""}`}>Adventurer</a>
+        <a href={challengePath("easy", seed)} onClick={(event) => switchCachedDaily(event, "easy")} className={`dailyModeButton ${difficulty === "easy" ? "active" : ""}`}>Scout</a>
+        <a href={challengePath("normal", seed)} onClick={(event) => switchCachedDaily(event, "normal")} className={`dailyModeButton ${difficulty === "normal" ? "active" : ""}`}>Adventurer</a>
         <a href={challengePath("expert", seed)} className={`dailyModeButton ${difficulty === "expert" ? "active" : ""}`}>Expert</a>
         {!isRandom && <a href={`/leaderboard?difficulty=${difficulty}`} className="headerLink">Leaderboard</a>}
       </div>
@@ -694,8 +707,8 @@ Can you beat my score?`;
       </div>
     </section>
     {!scores && <><nav className="mobileModeTabs" aria-label="Game difficulty">
-      <a href={challengePath("easy", seed)} className={difficulty === "easy" ? "active" : ""}>Scout</a>
-      <a href={challengePath("normal", seed)} className={difficulty === "normal" ? "active" : ""}>Adventurer</a>
+      <a href={challengePath("easy", seed)} onClick={(event) => switchCachedDaily(event, "easy")} className={difficulty === "easy" ? "active" : ""}>Scout</a>
+      <a href={challengePath("normal", seed)} onClick={(event) => switchCachedDaily(event, "normal")} className={difficulty === "normal" ? "active" : ""}>Adventurer</a>
       <a href={challengePath("expert", seed)} className={difficulty === "expert" ? "active" : ""}>Expert</a>
     </nav><div className="mobileGameSummary"><strong>{ROUND_CONFIGS[difficulty].label}</strong><span>{poolSize} countries · {categoryTarget} measures · {unusedCount ? `leave ${unusedCount}` : "use all"}</span></div></>}
     {boardNotice && <div className="boardNotice">{boardNotice}</div>}
@@ -743,8 +756,8 @@ Can you beat my score?`;
     </main>}
 
     {round && scores && <section className="panel results"><nav className="resultsModeTabs" aria-label="Results difficulty">
-        <a href={challengePath("easy", seed)} className={difficulty === "easy" ? "active" : ""}>Scout</a>
-        <a href={challengePath("normal", seed)} className={difficulty === "normal" ? "active" : ""}>Adventurer</a>
+        <a href={challengePath("easy", seed)} onClick={(event) => switchCachedDaily(event, "easy")} className={difficulty === "easy" ? "active" : ""}>Scout</a>
+        <a href={challengePath("normal", seed)} onClick={(event) => switchCachedDaily(event, "normal")} className={difficulty === "normal" ? "active" : ""}>Adventurer</a>
         <a href={challengePath("expert", seed)} className={difficulty === "expert" ? "active" : ""}>Expert</a>
       </nav><div className="score"><span>Final score</span>{completionSource === "account" && <p className="savedDailyNotice">Saved automatically to your account and included in the verified standings.</p>}{completionSource === "local" && <p className="savedDailyNotice">Saved on this browser. Sign in to add it to the leaderboard.</p>}<div className="scoreValue"><strong>{total}</strong><b>/ {roundMaxScore}</b></div><div className="scoreInsights"><div><strong>{averagePlacement}</strong><span>Average placement</span></div><div><strong>{bestPossibleCount}</strong><span>First-place picks</span></div><div><strong>{topFinishCount}/{categoryTarget}</strong><span>Top {topFinishRank}</span></div></div><div className="scoreBreakdown">{[1,2,3].map((rank)=><span key={rank}>{rank===1?"🥇":rank===2?"🥈":"🥉"} {scores.filter((row)=>row.rank===rank).length}</span>)}</div><p>{total>=roundMaxScore*.8125?"Elite allocation.":total>=roundMaxScore*.65?"Strong draft with room to optimize.":"A few specialists were spent in the wrong places."}</p><div className="scoreActions"><button className="shareScore" onClick={shareScore}>{copied ? "Score copied ✓" : "Share score"}</button>{isUnranked ? (isRandom ? <button className="secondaryScoreAction" onClick={generateNewRandomRound}>Generate another board</button> : <span className="unrankedNotice">Practice board · score not saved</span>) : <AccountControls results difficulty={difficulty} pendingScore={completionSource === "account" ? undefined : { challengeDate: dailyDateFromSeed(seed), difficulty, assignments }} onScoreSaved={(saved) => {
         if (saved.challengeDate === dailyDateFromSeed(seed) && saved.difficulty === difficulty) setCompletionSource("account");

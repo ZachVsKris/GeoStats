@@ -1,0 +1,3728 @@
+[
+  {
+    "description": "Percent of land area used for agriculture",
+    "family": "Agriculture",
+    "icon": "🚜",
+    "id": "agLand",
+    "short_title": "Largest share of land used for agriculture",
+    "title": "Highest % of land used for agriculture",
+    "unit": "%"
+  },
+  {
+    "description": "Value created by agriculture, forestry and fishing during the year.",
+    "family": "Agriculture",
+    "icon": "🚜",
+    "id": "agValue",
+    "short_title": "Largest agricultural economy",
+    "title": "Largest agricultural economy",
+    "unit": "USD"
+  },
+  {
+    "description": "Freight carried by air, weighted by distance flown, in millions of tonne-kilometers.",
+    "family": "Transport",
+    "icon": "🛫",
+    "id": "airFreight",
+    "short_title": "Most air freight by weight and distance",
+    "title": "Most air freight by weight and distance",
+    "unit": "million ton-km"
+  },
+  {
+    "description": "Domestic and international passengers carried by airlines based in each country.",
+    "family": "Transport",
+    "icon": "✈️",
+    "id": "airPassengers",
+    "short_title": "Most airline passengers",
+    "title": "Most passengers carried by airlines based in the country",
+    "unit": "reported value"
+  },
+  {
+    "description": "Land suitable for temporary crops or pasture, measured in hectares; this is what “arable” means here.",
+    "family": "Agriculture",
+    "icon": "🧑‍🌾",
+    "id": "arableHa",
+    "short_title": "Most arable land",
+    "title": "Most arable land",
+    "unit": "reported value"
+  },
+  {
+    "description": "Percentage of a country's land area classified as arable land.",
+    "family": "Agriculture",
+    "icon": "🌱",
+    "id": "arablePct",
+    "short_title": "Arable land share",
+    "title": "Highest % of land that is arable",
+    "unit": "%"
+  },
+  {
+    "description": "Annual value of aircraft exported from the country.",
+    "family": "Trade",
+    "icon": "✈️",
+    "id": "comtrade:most-aircraft-exported",
+    "short_title": "Largest aircraft exports",
+    "title": "Largest aircraft exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of aluminum exported from the country.",
+    "family": "Trade",
+    "icon": "🔩",
+    "id": "comtrade:most-aluminum-exported",
+    "short_title": "Largest aluminum exports",
+    "title": "Largest aluminum exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of apple and pear exported from the country.",
+    "family": "Trade",
+    "icon": "🍎",
+    "id": "comtrade:most-apples-pears-exported",
+    "short_title": "Largest apple-and-pear exports",
+    "title": "Largest apple and pear exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of banana exported from the country.",
+    "family": "Trade",
+    "icon": "🍌",
+    "id": "comtrade:most-bananas-exported",
+    "short_title": "Largest banana exports",
+    "title": "Largest banana exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of beef exported from the country.",
+    "family": "Trade",
+    "icon": "🥩",
+    "id": "comtrade:most-beef-exported",
+    "short_title": "Largest beef exports",
+    "title": "Largest beef exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of beer exported from the country.",
+    "family": "Trade",
+    "icon": "🍺",
+    "id": "comtrade:most-beer-exported",
+    "short_title": "Largest beer exports",
+    "title": "Largest beer exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of car exported from the country.",
+    "family": "Trade",
+    "icon": "🚗",
+    "id": "comtrade:most-cars-exported",
+    "short_title": "Largest car exports",
+    "title": "Largest car exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of ceramic exported from the country.",
+    "family": "Trade",
+    "icon": "🏺",
+    "id": "comtrade:most-ceramics-exported",
+    "short_title": "Largest ceramic exports",
+    "title": "Largest ceramic exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of cheese exported from the country.",
+    "family": "Trade",
+    "icon": "🧀",
+    "id": "comtrade:most-cheese-exported",
+    "short_title": "Largest cheese exports",
+    "title": "Largest cheese exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of chemical exported from the country.",
+    "family": "Trade",
+    "icon": "🧪",
+    "id": "comtrade:most-chemicals-exported",
+    "short_title": "Largest chemical exports",
+    "title": "Largest chemical exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of chocolate exported from the country.",
+    "family": "Trade",
+    "icon": "🍫",
+    "id": "comtrade:most-chocolate-exported",
+    "short_title": "Largest chocolate exports",
+    "title": "Largest chocolate exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of citrus fruit exported from the country.",
+    "family": "Trade",
+    "icon": "🍊",
+    "id": "comtrade:most-citrus-exported",
+    "short_title": "Largest citrus-fruit exports",
+    "title": "Largest citrus fruit exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of clothing exported from the country.",
+    "family": "Trade",
+    "icon": "👕",
+    "id": "comtrade:most-clothing-exported",
+    "short_title": "Largest clothing exports",
+    "title": "Largest clothing exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of coal exported from the country.",
+    "family": "Trade",
+    "icon": "⚫",
+    "id": "comtrade:most-coal-exported",
+    "short_title": "Largest coal exports",
+    "title": "Largest coal exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of cocoa bean exported from the country.",
+    "family": "Trade",
+    "icon": "🍫",
+    "id": "comtrade:most-cocoa-beans-exported",
+    "short_title": "Largest cocoa-bean exports",
+    "title": "Largest cocoa bean exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of coffee exported from the country.",
+    "family": "Trade",
+    "icon": "☕",
+    "id": "comtrade:most-coffee-exported",
+    "short_title": "Largest coffee exports",
+    "title": "Largest coffee exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of computer exported from the country.",
+    "family": "Trade",
+    "icon": "💻",
+    "id": "comtrade:most-computers-exported",
+    "short_title": "Largest computer exports",
+    "title": "Largest computer exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of copper exported from the country.",
+    "family": "Trade",
+    "icon": "🟠",
+    "id": "comtrade:most-copper-exported",
+    "short_title": "Largest copper exports",
+    "title": "Largest copper exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of cotton exported from the country.",
+    "family": "Trade",
+    "icon": "🧵",
+    "id": "comtrade:most-cotton-exported",
+    "short_title": "Largest cotton exports",
+    "title": "Largest cotton exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of crude-oil exported from the country.",
+    "family": "Trade",
+    "icon": "🛢️",
+    "id": "comtrade:most-crude-oil-exported",
+    "short_title": "Largest crude-oil exports",
+    "title": "Largest crude-oil exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of electrical equipment exported from the country.",
+    "family": "Trade",
+    "icon": "🔌",
+    "id": "comtrade:most-electrical-equipment-exported",
+    "short_title": "Largest electrical-equipment exports",
+    "title": "Largest electrical equipment exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of electricity exported from the country.",
+    "family": "Trade",
+    "icon": "⚡",
+    "id": "comtrade:most-electricity-exported",
+    "short_title": "Largest electricity exports",
+    "title": "Largest electricity exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of fish exported from the country.",
+    "family": "Trade",
+    "icon": "🐟",
+    "id": "comtrade:most-fish-exported",
+    "short_title": "Largest fish exports",
+    "title": "Largest fish exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of footwear exported from the country.",
+    "family": "Trade",
+    "icon": "👟",
+    "id": "comtrade:most-footwear-exported",
+    "short_title": "Largest footwear exports",
+    "title": "Largest footwear exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of furniture exported from the country.",
+    "family": "Trade",
+    "icon": "🪑",
+    "id": "comtrade:most-furniture-exported",
+    "short_title": "Largest furniture exports",
+    "title": "Largest furniture exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of glass exported from the country.",
+    "family": "Trade",
+    "icon": "🪟",
+    "id": "comtrade:most-glass-exported",
+    "short_title": "Largest glass exports",
+    "title": "Largest glass exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of gold exported from the country.",
+    "family": "Trade",
+    "icon": "🥇",
+    "id": "comtrade:most-gold-exported",
+    "short_title": "Largest gold exports",
+    "title": "Largest gold exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of computer chip exported from the country.",
+    "family": "Trade",
+    "icon": "💾",
+    "id": "comtrade:most-integrated-circuits-exported",
+    "short_title": "Largest computer-chip exports",
+    "title": "Largest computer chip exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of iron and steel exported from the country.",
+    "family": "Trade",
+    "icon": "🏗️",
+    "id": "comtrade:most-iron-steel-exported",
+    "short_title": "Largest iron-and-steel exports",
+    "title": "Largest iron and steel exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of machinery exported from the country.",
+    "family": "Trade",
+    "icon": "⚙️",
+    "id": "comtrade:most-machinery-exported",
+    "short_title": "Largest machinery exports",
+    "title": "Largest machinery exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of maize exported from the country.",
+    "family": "Trade",
+    "icon": "🌽",
+    "id": "comtrade:most-maize-exported",
+    "short_title": "Largest maize exports",
+    "title": "Largest maize exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of medical and optical equipment exported from the country.",
+    "family": "Trade",
+    "icon": "🔬",
+    "id": "comtrade:most-medical-optical-exported",
+    "short_title": "Largest medical-and-optical equipment exports",
+    "title": "Largest medical and optical equipment exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of motorcycle exported from the country.",
+    "family": "Trade",
+    "icon": "🏍️",
+    "id": "comtrade:most-motorcycles-exported",
+    "short_title": "Largest motorcycle exports",
+    "title": "Largest motorcycle exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of natural gas exported from the country.",
+    "family": "Trade",
+    "icon": "🔥",
+    "id": "comtrade:most-natural-gas-exported",
+    "short_title": "Largest natural gas exports",
+    "title": "Largest natural gas exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of olive oil exported from the country.",
+    "family": "Trade",
+    "icon": "🫒",
+    "id": "comtrade:most-olive-oil-exported",
+    "short_title": "Largest olive oil exports",
+    "title": "Largest olive oil exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of paper exported from the country.",
+    "family": "Trade",
+    "icon": "📄",
+    "id": "comtrade:most-paper-exported",
+    "short_title": "Largest paper exports",
+    "title": "Largest paper exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of pharmaceutical exported from the country.",
+    "family": "Trade",
+    "icon": "💊",
+    "id": "comtrade:most-pharmaceuticals-exported",
+    "short_title": "Largest pharmaceutical exports",
+    "title": "Largest pharmaceutical exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of telephone exported from the country.",
+    "family": "Trade",
+    "icon": "📱",
+    "id": "comtrade:most-phones-exported",
+    "short_title": "Largest telephone exports",
+    "title": "Largest telephone exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of plastics exported from the country.",
+    "family": "Trade",
+    "icon": "🧴",
+    "id": "comtrade:most-plastics-exported",
+    "short_title": "Largest plastics exports",
+    "title": "Largest plastics exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of potato exported from the country.",
+    "family": "Trade",
+    "icon": "🥔",
+    "id": "comtrade:most-potatoes-exported",
+    "short_title": "Largest potato exports",
+    "title": "Largest potato exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of poultry meat exported from the country.",
+    "family": "Trade",
+    "icon": "🍗",
+    "id": "comtrade:most-poultry-exported",
+    "short_title": "Largest poultry meat exports",
+    "title": "Largest poultry meat exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of railway equipment exported from the country.",
+    "family": "Trade",
+    "icon": "🚆",
+    "id": "comtrade:most-railway-equipment-exported",
+    "short_title": "Largest railway-equipment exports",
+    "title": "Largest railway equipment exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of rice exported from the country.",
+    "family": "Trade",
+    "icon": "🍚",
+    "id": "comtrade:most-rice-exported",
+    "short_title": "Largest rice exports",
+    "title": "Largest rice exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of rubber product exported from the country.",
+    "family": "Trade",
+    "icon": "🛞",
+    "id": "comtrade:most-rubber-products-exported",
+    "short_title": "Largest rubber-product exports",
+    "title": "Largest rubber product exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of ship exported from the country.",
+    "family": "Trade",
+    "icon": "🚢",
+    "id": "comtrade:most-ships-exported",
+    "short_title": "Largest ship exports",
+    "title": "Largest ship exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of soybean exported from the country.",
+    "family": "Trade",
+    "icon": "🫘",
+    "id": "comtrade:most-soybeans-exported",
+    "short_title": "Largest soybean exports",
+    "title": "Largest soybean exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of spice exported from the country.",
+    "family": "Trade",
+    "icon": "🫙",
+    "id": "comtrade:most-spices-exported",
+    "short_title": "Spice exports",
+    "title": "Largest spice exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of sugar exported from the country.",
+    "family": "Trade",
+    "icon": "🍬",
+    "id": "comtrade:most-sugar-exported",
+    "short_title": "Largest sugar exports",
+    "title": "Largest sugar exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of tea exported from the country.",
+    "family": "Trade",
+    "icon": "🍵",
+    "id": "comtrade:most-tea-exported",
+    "short_title": "Largest tea exports",
+    "title": "Largest tea exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of tomato exported from the country.",
+    "family": "Trade",
+    "icon": "🍅",
+    "id": "comtrade:most-tomatoes-exported",
+    "short_title": "Largest tomato exports",
+    "title": "Largest tomato exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of toy exported from the country.",
+    "family": "Trade",
+    "icon": "🧸",
+    "id": "comtrade:most-toys-exported",
+    "short_title": "Largest toy exports",
+    "title": "Largest toy exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of wheat exported from the country.",
+    "family": "Trade",
+    "icon": "🌾",
+    "id": "comtrade:most-wheat-exported",
+    "short_title": "Largest wheat exports",
+    "title": "Largest wheat exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of wine exported from the country.",
+    "family": "Trade",
+    "icon": "🍷",
+    "id": "comtrade:most-wine-exported",
+    "short_title": "Largest wine exports",
+    "title": "Largest wine exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "Annual value of wood exported from the country.",
+    "family": "Trade",
+    "icon": "🪵",
+    "id": "comtrade:most-wood-exported",
+    "short_title": "Largest wood exports",
+    "title": "Largest wood exports",
+    "unit": "current US$"
+  },
+  {
+    "description": "People living in each square kilometer of land.",
+    "family": "Population",
+    "icon": "🏙️",
+    "id": "density",
+    "short_title": "Highest population density",
+    "title": "Highest population density",
+    "unit": "people/km²"
+  },
+  {
+    "description": "Government education spending as a percentage of the country’s total economic output; this is what GDP measures.",
+    "family": "Education",
+    "icon": "🎓",
+    "id": "education",
+    "short_title": "Highest education-spending share of GDP",
+    "title": "Highest education spending as % of GDP",
+    "unit": "%"
+  },
+  {
+    "description": "The reported country value for crude oil produced.",
+    "family": "Energy",
+    "icon": "🛢️",
+    "id": "eia:most-crude-oil-produced",
+    "short_title": "Most crude oil produced",
+    "title": "Most crude oil produced",
+    "unit": "TBPD"
+  },
+  {
+    "description": "The reported country value for natural gas produced.",
+    "family": "Energy",
+    "icon": "🔥",
+    "id": "eia:most-natural-gas-produced",
+    "short_title": "Most natural gas produced",
+    "title": "Most natural gas produced",
+    "unit": "BCF"
+  },
+  {
+    "description": "Share of the population with access to electricity.",
+    "family": "Infrastructure",
+    "icon": "🔋",
+    "id": "electricityAccess",
+    "short_title": "Highest % of people with electricity access",
+    "title": "Highest % of people with electricity access",
+    "unit": "%"
+  },
+  {
+    "description": "Electricity used per person during the year, measured in kilowatt-hours.",
+    "family": "Energy",
+    "icon": "💡",
+    "id": "electricUse",
+    "short_title": "Highest electricity use per person",
+    "title": "Highest electricity use per person",
+    "unit": "per person"
+  },
+  {
+    "description": "Energy used per person, converted to kilograms of oil equivalent.",
+    "family": "Energy",
+    "icon": "🔌",
+    "id": "energyUse",
+    "short_title": "Highest energy use per person",
+    "title": "Highest energy use per person",
+    "unit": "per person"
+  },
+  {
+    "description": "Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "🍌",
+    "id": "faostat-fbs:bananas",
+    "short_title": "banana consumption per person",
+    "title": "Highest estimated banana consumption per person",
+    "unit": "kg per person per year"
+  },
+  {
+    "description": "Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "🥩",
+    "id": "faostat-fbs:beef",
+    "short_title": "beef consumption per person",
+    "title": "Highest estimated beef consumption per person",
+    "unit": "kg per person per year"
+  },
+  {
+    "description": "Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "🍺",
+    "id": "faostat-fbs:beer",
+    "short_title": "beer consumption per person",
+    "title": "Highest estimated beer consumption per person",
+    "unit": "kg per person per year"
+  },
+  {
+    "description": "Estimated calorie intake per person from national food-balance data; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "🍽️",
+    "id": "faostat-fbs:calories",
+    "short_title": "calorie intake per person",
+    "title": "Highest estimated calorie intake per person",
+    "unit": "kcal per person per day"
+  },
+  {
+    "description": "Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "☕",
+    "id": "faostat-fbs:coffee",
+    "short_title": "coffee consumption per person",
+    "title": "Highest estimated coffee consumption per person",
+    "unit": "kg per person per year"
+  },
+  {
+    "description": "Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "🥚",
+    "id": "faostat-fbs:eggs",
+    "short_title": "egg consumption per person",
+    "title": "Highest estimated egg consumption per person",
+    "unit": "kg per person per year"
+  },
+  {
+    "description": "Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "🐟",
+    "id": "faostat-fbs:fish",
+    "short_title": "fish consumption per person",
+    "title": "Highest estimated fish consumption per person",
+    "unit": "kg per person per year"
+  },
+  {
+    "description": "Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "🍎",
+    "id": "faostat-fbs:fruit",
+    "short_title": "fruit consumption per person",
+    "title": "Highest estimated fruit consumption per person",
+    "unit": "kg per person per year"
+  },
+  {
+    "description": "Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "🌽",
+    "id": "faostat-fbs:maize",
+    "short_title": "maize consumption per person",
+    "title": "Highest estimated maize consumption per person",
+    "unit": "kg per person per year"
+  },
+  {
+    "description": "Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "🍖",
+    "id": "faostat-fbs:meat",
+    "short_title": "meat consumption per person",
+    "title": "Highest estimated meat consumption per person",
+    "unit": "kg per person per year"
+  },
+  {
+    "description": "Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "🥛",
+    "id": "faostat-fbs:milk",
+    "short_title": "milk consumption per person",
+    "title": "Highest estimated milk consumption per person",
+    "unit": "kg per person per year"
+  },
+  {
+    "description": "Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "🧅",
+    "id": "faostat-fbs:onions",
+    "short_title": "onion consumption per person",
+    "title": "Highest estimated onion consumption per person",
+    "unit": "kg per person per year"
+  },
+  {
+    "description": "Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "🥓",
+    "id": "faostat-fbs:pork",
+    "short_title": "pork consumption per person",
+    "title": "Highest estimated pork consumption per person",
+    "unit": "kg per person per year"
+  },
+  {
+    "description": "Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "🥔",
+    "id": "faostat-fbs:potatoes",
+    "short_title": "potato consumption per person",
+    "title": "Highest estimated potato consumption per person",
+    "unit": "kg per person per year"
+  },
+  {
+    "description": "Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "🍗",
+    "id": "faostat-fbs:poultry",
+    "short_title": "poultry consumption per person",
+    "title": "Highest estimated poultry consumption per person",
+    "unit": "kg per person per year"
+  },
+  {
+    "description": "Estimated protein intake per person from national food-balance data; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "💪",
+    "id": "faostat-fbs:protein",
+    "short_title": "protein intake per person",
+    "title": "Highest estimated protein intake per person",
+    "unit": "grams per person per day"
+  },
+  {
+    "description": "Estimated dried bean, lentil, pea and chickpea consumption per person. This is based on national food supplies, not measured household diets.",
+    "family": "Food consumption",
+    "icon": "🫘",
+    "id": "faostat-fbs:pulses",
+    "short_title": "Highest estimated pulse consumption per person",
+    "title": "Highest estimated pulse consumption per person",
+    "unit": "kg per person per year"
+  },
+  {
+    "description": "Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "🍚",
+    "id": "faostat-fbs:rice",
+    "short_title": "rice consumption per person",
+    "title": "Highest estimated rice consumption per person",
+    "unit": "kg per person per year"
+  },
+  {
+    "description": "Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "🍬",
+    "id": "faostat-fbs:sugar",
+    "short_title": "sugar consumption per person",
+    "title": "Highest estimated sugar consumption per person",
+    "unit": "kg per person per year"
+  },
+  {
+    "description": "Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "🍵",
+    "id": "faostat-fbs:tea",
+    "short_title": "tea consumption per person",
+    "title": "Highest estimated tea consumption per person",
+    "unit": "kg per person per year"
+  },
+  {
+    "description": "Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "🍅",
+    "id": "faostat-fbs:tomatoes",
+    "short_title": "tomato consumption per person",
+    "title": "Highest estimated tomato consumption per person",
+    "unit": "kg per person per year"
+  },
+  {
+    "description": "Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "🫒",
+    "id": "faostat-fbs:vegetable-oil",
+    "short_title": "vegetable oil consumption per person",
+    "title": "Highest estimated vegetable oil consumption per person",
+    "unit": "kg per person per year"
+  },
+  {
+    "description": "Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "🥕",
+    "id": "faostat-fbs:vegetables",
+    "short_title": "vegetable consumption per person",
+    "title": "Highest estimated vegetable consumption per person",
+    "unit": "kg per person per year"
+  },
+  {
+    "description": "Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "🍞",
+    "id": "faostat-fbs:wheat-products",
+    "short_title": "wheat consumption per person",
+    "title": "Highest estimated wheat consumption per person",
+    "unit": "kg per person per year"
+  },
+  {
+    "description": "Estimated consumption per person from national food-balance data. It accounts for production, trade, stocks, losses and non-food uses; it is not measured household intake.",
+    "family": "Food consumption",
+    "icon": "🍷",
+    "id": "faostat-fbs:wine",
+    "short_title": "wine consumption per person",
+    "title": "Highest estimated wine consumption per person",
+    "unit": "kg per person per year"
+  },
+  {
+    "description": "Total almonds produced during the year.",
+    "family": "Agriculture",
+    "icon": "🥜",
+    "id": "faostat-qcl-almonds-in-shell-production-01371-5510-t",
+    "short_title": "Most almonds produced",
+    "title": "Most almonds produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total apples produced during the year.",
+    "family": "Fruit",
+    "icon": "🍎",
+    "id": "faostat-qcl-apples-production-01341-5510-t",
+    "short_title": "Most apples produced",
+    "title": "Most apples produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total apricots produced during the year.",
+    "family": "Agriculture",
+    "icon": "🍑",
+    "id": "faostat-qcl-apricots-production-01343-5510-t",
+    "short_title": "Most apricot produced",
+    "title": "Most apricots produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total national population of this livestock species.",
+    "family": "Agriculture",
+    "icon": "🫏",
+    "id": "faostat-qcl-asses-stocks-02132-5111-an",
+    "short_title": "Largest donkey population",
+    "title": "Largest donkey population",
+    "unit": "animals"
+  },
+  {
+    "description": "Total avocados produced during the year.",
+    "family": "Fruit",
+    "icon": "🥑",
+    "id": "faostat-qcl-avocados-production-01311-5510-t",
+    "short_title": "Most avocado produced",
+    "title": "Most avocados produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total bananas produced during the year.",
+    "family": "Fruit",
+    "icon": "🍌",
+    "id": "faostat-qcl-bananas-production-01312-5510-t",
+    "short_title": "Most bananas produced",
+    "title": "Most bananas produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total barley produced during the year.",
+    "family": "Crops",
+    "icon": "🌾",
+    "id": "faostat-qcl-barley-production-0115-5510-t",
+    "short_title": "Most barley produced",
+    "title": "Most barley produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total dry beans produced during the year.",
+    "family": "Crops",
+    "icon": "🫘",
+    "id": "faostat-qcl-beans-dry-production-01701-5510-t",
+    "short_title": "Most dry beans produced",
+    "title": "Most dry beans produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total beef and buffalo meat produced during the year.",
+    "family": "Livestock",
+    "icon": "🐄",
+    "id": "faostat-qcl-beef-and-buffalo-meat-primary-production-f1806-5510-t",
+    "short_title": "Most beef and buffalo meat produced",
+    "title": "Most beef and buffalo meat produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total beer produced during the year.",
+    "family": "Crops",
+    "icon": "🍺",
+    "id": "faostat-qcl-beer-of-barley-malted-production-24310-01-5510-t",
+    "short_title": "Most beer produced",
+    "title": "Most beer produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total national population of this livestock species.",
+    "family": "Livestock",
+    "icon": "🐄",
+    "id": "faostat-qcl-buffalo-stocks-02112-5111-an",
+    "short_title": "Largest buffalo population",
+    "title": "Largest buffalo population",
+    "unit": "animals"
+  },
+  {
+    "description": "Total butter and ghee produced during the year.",
+    "family": "Dairy",
+    "icon": "🧈",
+    "id": "faostat-qcl-butter-and-ghee-production-f1811-5510-t",
+    "short_title": "Most butter and ghee produced",
+    "title": "Most butter and ghee produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total cabbage produced during the year.",
+    "family": "Vegetables",
+    "icon": "🥬",
+    "id": "faostat-qcl-cabbages-production-01212-5510-t",
+    "short_title": "Most cabbage produced",
+    "title": "Most cabbage produced",
+    "unit": "t"
+  },
+  {
+    "description": "Number of camels kept as livestock; FAOSTAT 2024 estimates",
+    "family": "Livestock",
+    "icon": "🌾",
+    "id": "faostat-qcl-camels-stocks-02121-01-5111-an",
+    "short_title": "Largest camel population",
+    "title": "Largest camel population",
+    "unit": "animals"
+  },
+  {
+    "description": "Total melons produced during the year.",
+    "family": "Agriculture",
+    "icon": "🍉",
+    "id": "faostat-qcl-cantaloupes-and-other-melons-production-01229-5510-t",
+    "short_title": "Most melons produced",
+    "title": "Most melons produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total carrots and turnips produced during the year.",
+    "family": "Vegetables",
+    "icon": "🥕",
+    "id": "faostat-qcl-carrots-and-turnips-production-01251-5510-t",
+    "short_title": "Most carrots and turnips produced",
+    "title": "Most carrots and turnips produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total cassava produced during the year.",
+    "family": "Crops",
+    "icon": "🥔",
+    "id": "faostat-qcl-cassava-fresh-production-01520-01-5510-t",
+    "short_title": "Most cassava produced",
+    "title": "Most cassava produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total national population of this livestock species.",
+    "family": "Livestock",
+    "icon": "🐄",
+    "id": "faostat-qcl-cattle-and-buffaloes-stocks-f1746-5111-an",
+    "short_title": "Largest combined cattle and buffalo population",
+    "title": "Largest combined cattle and buffalo population",
+    "unit": "animals"
+  },
+  {
+    "description": "Total national population of this livestock species.",
+    "family": "Livestock",
+    "icon": "🐄",
+    "id": "faostat-qcl-cattle-stocks-02111-5111-an",
+    "short_title": "Largest cattle population",
+    "title": "Largest cattle population",
+    "unit": "animals"
+  },
+  {
+    "description": "Total cauliflower and broccoli produced during the year.",
+    "family": "Agriculture",
+    "icon": "🥦",
+    "id": "faostat-qcl-cauliflowers-and-broccoli-production-01213-5510-t",
+    "short_title": "Most cauliflower and broccoli produced",
+    "title": "Most cauliflower and broccoli produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total cereals produced during the year.",
+    "family": "Crops",
+    "icon": "🌾",
+    "id": "faostat-qcl-cereals-primary-production-f1717-5510-t",
+    "short_title": "Most cereals produced",
+    "title": "Most cereals produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total cheese produced during the year.",
+    "family": "Dairy",
+    "icon": "🧀",
+    "id": "faostat-qcl-cheese-all-kinds-production-f1745-5510-t",
+    "short_title": "Most cheese produced",
+    "title": "Most cheese produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total cherries produced during the year.",
+    "family": "Agriculture",
+    "icon": "🍒",
+    "id": "faostat-qcl-cherries-production-01344-02-5510-t",
+    "short_title": "Most cherries produced",
+    "title": "Most cherries produced",
+    "unit": "t"
+  },
+  {
+    "description": "Number of chickens kept as livestock; FAOSTAT 2024 estimates",
+    "family": "Livestock",
+    "icon": "🐔",
+    "id": "faostat-qcl-chickens-stocks-02151-5112-1000-an",
+    "short_title": "Largest chicken population",
+    "title": "Largest chicken population",
+    "unit": "animals"
+  },
+  {
+    "description": "Total green chilies and peppers produced during the year.",
+    "family": "Vegetables",
+    "icon": "🌶️",
+    "id": "faostat-qcl-chillies-and-peppers-green-capsicu-production-01231-5510-t",
+    "short_title": "Most green chilies and peppers produced",
+    "title": "Most green chilies and peppers produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total coconuts produced during the year.",
+    "family": "Agriculture",
+    "icon": "🥥",
+    "id": "faostat-qcl-coconuts-in-shell-production-01460-5510-t",
+    "short_title": "Most coconuts produced",
+    "title": "Most coconuts produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total coffee produced during the year.",
+    "family": "Crops",
+    "icon": "☕",
+    "id": "faostat-qcl-coffee-green-production-01610-5510-t",
+    "short_title": "Most coffee produced",
+    "title": "Most coffee produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total cotton produced during the year.",
+    "family": "Crops",
+    "icon": "🧵",
+    "id": "faostat-qcl-cotton-lint-ginned-production-01921-02-5510-t",
+    "short_title": "Most cotton produced",
+    "title": "Most cotton produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total cucumbers and gherkins produced during the year.",
+    "family": "Vegetables",
+    "icon": "🥒",
+    "id": "faostat-qcl-cucumbers-and-gherkins-production-01232-5510-t",
+    "short_title": "Most cucumbers and gherkins produced",
+    "title": "Most cucumbers and gherkins produced",
+    "unit": "t"
+  },
+  {
+    "description": "Number of ducks kept as livestock; FAOSTAT 2023 estimates",
+    "family": "Livestock",
+    "icon": "🌾",
+    "id": "faostat-qcl-ducks-stocks-02154-5112-1000-an",
+    "short_title": "Largest duck population",
+    "title": "Largest duck population",
+    "unit": "animals"
+  },
+  {
+    "description": "Total eggplants produced during the year.",
+    "family": "Agriculture",
+    "icon": "🥚",
+    "id": "faostat-qcl-eggplants-aubergines-production-01233-5510-t",
+    "short_title": "Most eggplants produced",
+    "title": "Most eggplants produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total figs produced during the year.",
+    "family": "Agriculture",
+    "icon": "🧺",
+    "id": "faostat-qcl-figs-production-01315-5510-t",
+    "short_title": "Most figs produced",
+    "title": "Most figs produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total fruit produced during the year.",
+    "family": "Fruit",
+    "icon": "🍎",
+    "id": "faostat-qcl-fruit-primary-production-f1738-5510-t",
+    "short_title": "Most fruit produced",
+    "title": "Most fruit produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total national population of this livestock species.",
+    "family": "Livestock",
+    "icon": "🐐",
+    "id": "faostat-qcl-goats-stocks-02123-5111-an",
+    "short_title": "Largest goat population",
+    "title": "Largest goat population",
+    "unit": "animals"
+  },
+  {
+    "description": "Total grapes produced during the year.",
+    "family": "Fruit",
+    "icon": "🍇",
+    "id": "faostat-qcl-grapes-production-01330-5510-t",
+    "short_title": "Most grapes produced",
+    "title": "Most grapes produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total peanuts produced during the year.",
+    "family": "Agriculture",
+    "icon": "🥜",
+    "id": "faostat-qcl-groundnuts-excluding-shelled-production-0142-5510-t",
+    "short_title": "Most peanuts produced",
+    "title": "Most peanuts produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total eggs produced during the year.",
+    "family": "Agriculture",
+    "icon": "🥚",
+    "id": "faostat-qcl-hen-eggs-in-shell-fresh-production-0231-5513-1000-no",
+    "short_title": "Most eggs produced",
+    "title": "Most eggs produced",
+    "unit": "1000 No"
+  },
+  {
+    "description": "Total national population of this livestock species.",
+    "family": "Livestock",
+    "icon": "🐎",
+    "id": "faostat-qcl-horses-stocks-02131-5111-an",
+    "short_title": "Largest horse population",
+    "title": "Largest horse population",
+    "unit": "animals"
+  },
+  {
+    "description": "Total lemons and limes produced during the year.",
+    "family": "Fruit",
+    "icon": "🍋",
+    "id": "faostat-qcl-lemons-and-limes-production-01322-5510-t",
+    "short_title": "Most lemons and limes produced",
+    "title": "Most lemons and limes produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total lettuce and chicory produced during the year.",
+    "family": "Agriculture",
+    "icon": "🥬",
+    "id": "faostat-qcl-lettuce-and-chicory-production-01214-5510-t",
+    "short_title": "Most lettuce and chicory produced",
+    "title": "Most lettuce and chicory produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total corn produced during the year.",
+    "family": "Crops",
+    "icon": "🌽",
+    "id": "faostat-qcl-maize-corn-production-0112-5510-t",
+    "short_title": "Most corn produced",
+    "title": "Most corn produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total mangoes, guavas, and mangosteens produced during the year.",
+    "family": "Fruit",
+    "icon": "🥭",
+    "id": "faostat-qcl-mangoes-guavas-and-mangosteens-production-01316-5510-t",
+    "short_title": "Most mangoes, guavas, and mangosteens produced",
+    "title": "Most mangoes, guavas, and mangosteens produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total chicken meat produced during the year.",
+    "family": "Livestock",
+    "icon": "🐔",
+    "id": "faostat-qcl-meat-of-chickens-fresh-or-chilled-production-21121-5510-t",
+    "short_title": "Most chicken meat produced",
+    "title": "Most chicken meat produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total pork produced during the year.",
+    "family": "Livestock",
+    "icon": "🥓",
+    "id": "faostat-qcl-meat-of-pig-with-the-bone-fresh-or-production-21113-01-5510-t",
+    "short_title": "Most pork produced",
+    "title": "Most pork produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total millet produced during the year.",
+    "family": "Agriculture",
+    "icon": "🌾",
+    "id": "faostat-qcl-millet-production-0118-5510-t",
+    "short_title": "Most millet produced",
+    "title": "Most millet produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total mules and hinnies. A hinny is the offspring of a stallion and a female donkey.",
+    "family": "Agriculture",
+    "icon": "🐎",
+    "id": "faostat-qcl-mules-and-hinnies-stocks-02133-5111-an",
+    "short_title": "Largest mule and hinny population",
+    "title": "Largest mule and hinny population",
+    "unit": "animals"
+  },
+  {
+    "description": "Total mushrooms and truffles produced during the year.",
+    "family": "Agriculture",
+    "icon": "🍄",
+    "id": "faostat-qcl-mushrooms-and-truffles-production-01270-5510-t",
+    "short_title": "Most mushrooms and truffles produced",
+    "title": "Most mushrooms and truffles produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total honey produced during the year.",
+    "family": "Agriculture",
+    "icon": "🍯",
+    "id": "faostat-qcl-natural-honey-production-02910-5510-t",
+    "short_title": "Most honey produced",
+    "title": "Most honey produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total oats produced during the year.",
+    "family": "Agriculture",
+    "icon": "🌾",
+    "id": "faostat-qcl-oats-production-0117-5510-t",
+    "short_title": "Most oats produced",
+    "title": "Most oats produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total onions and shallots produced during the year.",
+    "family": "Vegetables",
+    "icon": "🧅",
+    "id": "faostat-qcl-onions-and-shallots-dry-excluding-production-01253-02-5510-t",
+    "short_title": "Most onions and shallots produced",
+    "title": "Most onions and shallots produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total oranges produced during the year.",
+    "family": "Fruit",
+    "icon": "🍊",
+    "id": "faostat-qcl-oranges-production-01323-5510-t",
+    "short_title": "Most oranges produced",
+    "title": "Most oranges produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total papayas produced during the year.",
+    "family": "Agriculture",
+    "icon": "🍍",
+    "id": "faostat-qcl-papayas-production-01317-5510-t",
+    "short_title": "Most papaya produced",
+    "title": "Most papayas produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total peaches and nectarines produced during the year.",
+    "family": "Agriculture",
+    "icon": "🍑",
+    "id": "faostat-qcl-peaches-and-nectarines-production-01345-5510-t",
+    "short_title": "Most peaches and nectarines produced",
+    "title": "Most peaches and nectarines produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total pears produced during the year.",
+    "family": "Agriculture",
+    "icon": "🍐",
+    "id": "faostat-qcl-pears-production-01342-01-5510-t",
+    "short_title": "Most pears produced",
+    "title": "Most pears produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total dry peas produced during the year.",
+    "family": "Agriculture",
+    "icon": "🫘",
+    "id": "faostat-qcl-peas-dry-production-01705-5510-t",
+    "short_title": "Most dry peas produced",
+    "title": "Most dry peas produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total green peas produced during the year.",
+    "family": "Agriculture",
+    "icon": "🫘",
+    "id": "faostat-qcl-peas-green-production-01242-5510-t",
+    "short_title": "Most green peas produced",
+    "title": "Most green peas produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total pineapples produced during the year.",
+    "family": "Fruit",
+    "icon": "🍎",
+    "id": "faostat-qcl-pineapples-production-01318-5510-t",
+    "short_title": "Most pineapple produced",
+    "title": "Most pineapples produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total plums and sloes produced during the year.",
+    "family": "Agriculture",
+    "icon": "🍑",
+    "id": "faostat-qcl-plums-and-sloes-production-01346-5510-t",
+    "short_title": "Most plums and sloes produced",
+    "title": "Most plums and sloes produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total grapefruits and pomelos produced during the year.",
+    "family": "Fruit",
+    "icon": "🍇",
+    "id": "faostat-qcl-pomelos-and-grapefruits-production-01321-5510-t",
+    "short_title": "Most grapefruits and pomelos produced",
+    "title": "Most grapefruits and pomelos produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total potatoes produced during the year.",
+    "family": "Crops",
+    "icon": "🥔",
+    "id": "faostat-qcl-potatoes-production-01510-5510-t",
+    "short_title": "Most potatoes produced",
+    "title": "Most potatoes produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total dried beans, lentils, peas, and chickpeas produced during the year.",
+    "family": "Agriculture",
+    "icon": "🫘",
+    "id": "faostat-qcl-pulses-total-production-f1726-5510-t",
+    "short_title": "Most pulses, total produced",
+    "title": "Most pulses produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total pumpkins, squash, and gourds produced during the year.",
+    "family": "Agriculture",
+    "icon": "🎃",
+    "id": "faostat-qcl-pumpkins-squash-and-gourds-production-01235-5510-t",
+    "short_title": "Most pumpkins, squash, and gourds produced",
+    "title": "Most pumpkins, squash, and gourds produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total cane and beet sugar produced during the year.",
+    "family": "Crops",
+    "icon": "🍬",
+    "id": "faostat-qcl-raw-cane-or-beet-sugar-centrifugal-production-2351f-5510-t",
+    "short_title": "Most cane and beet sugar produced",
+    "title": "Most cane and beet sugar produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total cow's milk produced during the year.",
+    "family": "Livestock",
+    "icon": "🥛",
+    "id": "faostat-qcl-raw-milk-of-cattle-production-02211-5510-t",
+    "short_title": "Most cow's milk produced",
+    "title": "Most cow's milk produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total goat milk produced during the year.",
+    "family": "Livestock",
+    "icon": "🐐",
+    "id": "faostat-qcl-raw-milk-of-goats-production-02292-5510-t",
+    "short_title": "Most goat milk produced",
+    "title": "Most goat milk produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total rice produced during the year.",
+    "family": "Crops",
+    "icon": "🍚",
+    "id": "faostat-qcl-rice-production-0113-5510-t",
+    "short_title": "Most rice produced",
+    "title": "Most rice produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total roots and tubers produced during the year.",
+    "family": "Agriculture",
+    "icon": "🥔",
+    "id": "faostat-qcl-roots-and-tubers-total-production-f1720-5510-t",
+    "short_title": "Most roots and tubers produced",
+    "title": "Most roots and tubers produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total sesame seeds produced during the year.",
+    "family": "Agriculture",
+    "icon": "🌻",
+    "id": "faostat-qcl-sesame-seed-production-01444-5510-t",
+    "short_title": "Most sesame seeds produced",
+    "title": "Most sesame seeds produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total sheep and goat meat produced during the year.",
+    "family": "Livestock",
+    "icon": "🐐",
+    "id": "faostat-qcl-sheep-and-goat-meat-production-f1807-5510-t",
+    "short_title": "Most sheep and goat meat produced",
+    "title": "Most sheep and goat meat produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total national population of this livestock species.",
+    "family": "Livestock",
+    "icon": "🐐",
+    "id": "faostat-qcl-sheep-and-goats-stocks-f1749-5111-an",
+    "short_title": "Largest combined sheep and goat population",
+    "title": "Largest combined sheep and goat population",
+    "unit": "animals"
+  },
+  {
+    "description": "Total national population of this livestock species.",
+    "family": "Livestock",
+    "icon": "🐑",
+    "id": "faostat-qcl-sheep-stocks-02122-5111-an",
+    "short_title": "Largest sheep population",
+    "title": "Largest sheep population",
+    "unit": "animals"
+  },
+  {
+    "description": "Total sorghum produced during the year.",
+    "family": "Agriculture",
+    "icon": "🌾",
+    "id": "faostat-qcl-sorghum-production-0114-5510-t",
+    "short_title": "Most sorghum produced",
+    "title": "Most sorghum produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total soybeans produced during the year.",
+    "family": "Crops",
+    "icon": "🫘",
+    "id": "faostat-qcl-soya-beans-production-0141-5510-t",
+    "short_title": "Most soybeans produced",
+    "title": "Most soybeans produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total strawberries produced during the year.",
+    "family": "Agriculture",
+    "icon": "🍓",
+    "id": "faostat-qcl-strawberries-production-01354-5510-t",
+    "short_title": "Most strawberries produced",
+    "title": "Most strawberries produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total sugar beets produced during the year.",
+    "family": "Crops",
+    "icon": "🍬",
+    "id": "faostat-qcl-sugar-beet-production-01801-5510-t",
+    "short_title": "Most sugar beets produced",
+    "title": "Most sugar beets produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total sugarcane produced during the year.",
+    "family": "Crops",
+    "icon": "🍬",
+    "id": "faostat-qcl-sugar-cane-production-01802-5510-t",
+    "short_title": "Most sugarcane produced",
+    "title": "Most sugarcane produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total sunflower seeds produced during the year.",
+    "family": "Agriculture",
+    "icon": "🌻",
+    "id": "faostat-qcl-sunflower-seed-production-01445-5510-t",
+    "short_title": "Most sunflower seeds produced",
+    "title": "Most sunflower seeds produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total sweet potatoes produced during the year.",
+    "family": "Crops",
+    "icon": "🍠",
+    "id": "faostat-qcl-sweet-potatoes-production-01530-5510-t",
+    "short_title": "Most sweet potatoes produced",
+    "title": "Most sweet potatoes produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total national population of this livestock species.",
+    "family": "Livestock",
+    "icon": "🐖",
+    "id": "faostat-qcl-swine-pigs-stocks-02140-5111-an",
+    "short_title": "Largest pig population",
+    "title": "Largest pig population",
+    "unit": "animals"
+  },
+  {
+    "description": "Total mandarins and tangerines produced during the year.",
+    "family": "Agriculture",
+    "icon": "🍊",
+    "id": "faostat-qcl-tangerines-mandarins-clementines-production-01324-5510-t",
+    "short_title": "Most mandarins and tangerines produced",
+    "title": "Most mandarins and tangerines produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total tomatoes produced during the year.",
+    "family": "Vegetables",
+    "icon": "🍅",
+    "id": "faostat-qcl-tomatoes-production-01234-5510-t",
+    "short_title": "Most tomatoes produced",
+    "title": "Most tomatoes produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total tree nuts produced during the year.",
+    "family": "Agriculture",
+    "icon": "🥜",
+    "id": "faostat-qcl-treenuts-total-production-f1729-5510-t",
+    "short_title": "Most tree nuts produced",
+    "title": "Most tree nuts produced",
+    "unit": "t"
+  },
+  {
+    "description": "Number of turkeys kept as livestock; FAOSTAT 2023 estimates",
+    "family": "Livestock",
+    "icon": "🌾",
+    "id": "faostat-qcl-turkeys-stocks-02152-5112-1000-an",
+    "short_title": "Largest turkey population",
+    "title": "Largest turkey population",
+    "unit": "animals"
+  },
+  {
+    "description": "Total tobacco produced during the year.",
+    "family": "Agriculture",
+    "icon": "🚬",
+    "id": "faostat-qcl-unmanufactured-tobacco-production-01970-5510-t",
+    "short_title": "Most tobacco produced",
+    "title": "Most tobacco produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total vegetables produced during the year.",
+    "family": "Vegetables",
+    "icon": "🥬",
+    "id": "faostat-qcl-vegetables-primary-production-f1735-5510-t",
+    "short_title": "Most vegetables produced",
+    "title": "Most vegetables produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total walnuts produced during the year.",
+    "family": "Agriculture",
+    "icon": "🥜",
+    "id": "faostat-qcl-walnuts-in-shell-production-01376-5510-t",
+    "short_title": "Most walnuts produced",
+    "title": "Most walnuts produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total watermelons produced during the year.",
+    "family": "Agriculture",
+    "icon": "🍉",
+    "id": "faostat-qcl-watermelons-production-01221-5510-t",
+    "short_title": "Most watermelons produced",
+    "title": "Most watermelons produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total wheat produced during the year.",
+    "family": "Crops",
+    "icon": "🌾",
+    "id": "faostat-qcl-wheat-production-0111-5510-t",
+    "short_title": "Most wheat produced",
+    "title": "Most wheat produced",
+    "unit": "t"
+  },
+  {
+    "description": "Total wine produced during the year.",
+    "family": "Agriculture",
+    "icon": "🍷",
+    "id": "faostat-qcl-wine-production-24212-02-5510-t",
+    "short_title": "Most wine produced",
+    "title": "Most wine produced",
+    "unit": "t"
+  },
+  {
+    "description": "Average number of children a woman would have under current birth rates.",
+    "family": "Health",
+    "icon": "👶",
+    "id": "fertility",
+    "short_title": "Highest fertility rate",
+    "title": "Highest fertility rate",
+    "unit": "rate"
+  },
+  {
+    "description": "Fixed broadband subscriptions per 100 people.",
+    "family": "Technology",
+    "icon": "🛜",
+    "id": "fixedBroadband",
+    "short_title": "Fixed broadband subscriptions",
+    "title": "Highest fixed broadband subscriptions per 100 people",
+    "unit": "per 100 people"
+  },
+  {
+    "description": "Food products as a percentage of all physical goods exported.",
+    "family": "Trade",
+    "icon": "🍎",
+    "id": "foodExportsShare",
+    "short_title": "Highest food share of exports",
+    "title": "Highest % of goods exports that are food",
+    "unit": "%"
+  },
+  {
+    "description": "Food products as a percentage of all physical goods imported.",
+    "family": "Trade",
+    "icon": "🥫",
+    "id": "foodImportsShare",
+    "short_title": "Highest food share of imports",
+    "title": "Highest % of goods imports that are food",
+    "unit": "%"
+  },
+  {
+    "description": "Total land area covered by forest.",
+    "family": "Land",
+    "icon": "🌲",
+    "id": "forestArea",
+    "short_title": "Forest area",
+    "title": "Largest forest area",
+    "unit": "km²"
+  },
+  {
+    "description": "Share of the country’s land area covered by forest.",
+    "family": "Land",
+    "icon": "🌳",
+    "id": "forestPct",
+    "short_title": "Largest forest share of land",
+    "title": "Highest % of land covered by forest",
+    "unit": "%"
+  },
+  {
+    "description": "Fresh water naturally replenished by rainfall, rivers, and groundwater each year.",
+    "family": "Environment",
+    "icon": "💧",
+    "id": "freshwater",
+    "short_title": "Most renewable freshwater",
+    "title": "Most renewable freshwater",
+    "unit": "reported value"
+  },
+  {
+    "description": "Total value of goods and services produced in the country during the year.",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "gdp",
+    "short_title": "Largest economy",
+    "title": "Largest economy",
+    "unit": "USD"
+  },
+  {
+    "description": "Fastest economic growth according to World Bank.",
+    "family": "Economy",
+    "icon": "🚀",
+    "id": "gdpGrowth",
+    "short_title": "Fastest economic growth rate",
+    "title": "Fastest economic growth rate",
+    "unit": "%"
+  },
+  {
+    "description": "The country’s total economic output divided by its population.",
+    "family": "Economy",
+    "icon": "💵",
+    "id": "gdpPc",
+    "short_title": "Highest GDP per person",
+    "title": "Highest GDP per person",
+    "unit": "USD"
+  },
+  {
+    "description": "Highest account ownership in the World Bank Global Findex 2025 edition, using the 2024 nationally representative survey round.",
+    "family": "Financial & digital inclusion",
+    "icon": "💳",
+    "id": "global-findex:account-ownership",
+    "short_title": "Highest % of adults with a financial account",
+    "title": "Highest % of adults with a financial account",
+    "unit": "% of adults"
+  },
+  {
+    "description": "Average health spending per person in current US dollars.",
+    "family": "Health",
+    "icon": "🏥",
+    "id": "healthSpend",
+    "short_title": "Highest health spending per person",
+    "title": "Highest health spending per person",
+    "unit": "USD"
+  },
+  {
+    "description": "Health spending as a share of the country’s economy.",
+    "family": "Health",
+    "icon": "⚕️",
+    "id": "healthSpendShare",
+    "short_title": "Highest health-spending share of GDP",
+    "title": "Highest health spending as % of GDP",
+    "unit": "%"
+  },
+  {
+    "description": "Export value of products with high research-and-development intensity, including aerospace, computers, electronics, pharmaceuticals and scientific instruments.",
+    "family": "Trade",
+    "icon": "🛰️",
+    "id": "highTechExports",
+    "short_title": "Largest high-tech exports",
+    "title": "Largest advanced technology exports",
+    "unit": "USD"
+  },
+  {
+    "description": "Enactment year of the constitution currently listed as in force by the Constitute Project.",
+    "family": "History",
+    "icon": "📜",
+    "id": "history:oldest-current-constitution",
+    "short_title": "Oldest current constitution",
+    "title": "Oldest current constitution",
+    "unit": "adoption year"
+  },
+  {
+    "description": "Date each current UN Member State was admitted to the United Nations.",
+    "family": "History",
+    "icon": "🌐",
+    "id": "history:un-admission",
+    "short_title": "Most recently admitted to the UN",
+    "title": "Most recently admitted to the UN",
+    "unit": "admission date"
+  },
+  {
+    "description": "Year electricity access first reached at least half of the population.",
+    "family": "History",
+    "icon": "💡",
+    "id": "history:worldbank-electricity-half",
+    "short_title": "Most recently reached 50% electricity access",
+    "title": "Most recently reached 50% electricity access",
+    "unit": "milestone year"
+  },
+  {
+    "description": "Year infant mortality first fell below 25 deaths before age one for every 1,000 live births.",
+    "family": "History",
+    "icon": "🍼",
+    "id": "history:worldbank-infant-mortality-below-25",
+    "short_title": "Latest to reach under 25 infant deaths per 1,000 births",
+    "title": "Latest to reach under 25 infant deaths per 1,000 births",
+    "unit": "milestone year"
+  },
+  {
+    "description": "Year internet use first reached at least half of the population.",
+    "family": "History",
+    "icon": "🌐",
+    "id": "history:worldbank-internet-half",
+    "short_title": "Most recently reached 50% internet use",
+    "title": "Most recently reached 50% internet use",
+    "unit": "milestone year"
+  },
+  {
+    "description": "Year life expectancy first reached at least 70 years.",
+    "family": "History",
+    "icon": "🫀",
+    "id": "history:worldbank-life-expectancy-70",
+    "short_title": "Most recently reached 70-year life expectancy",
+    "title": "Most recently reached 70-year life expectancy",
+    "unit": "milestone year"
+  },
+  {
+    "description": "Year the country most recently crossed the point where at least half of its population lived in urban areas.",
+    "family": "History",
+    "icon": "🏙️",
+    "id": "history:worldbank-majority-urban",
+    "short_title": "Most recently became majority urban",
+    "title": "Most recently became majority urban",
+    "unit": "milestone year"
+  },
+  {
+    "description": "Year mobile subscriptions first reached 50 per 100 people.",
+    "family": "History",
+    "icon": "📱",
+    "id": "history:worldbank-mobile-subscriptions-50",
+    "short_title": "Most recently reached 50 mobile subscriptions per 100 people",
+    "title": "Most recently reached 50 mobile subscriptions per 100 people",
+    "unit": "milestone year"
+  },
+  {
+    "description": "Year under-five mortality first fell below 50 deaths per 1,000 live births.",
+    "family": "History",
+    "icon": "🧒",
+    "id": "history:worldbank-under-five-mortality-below-50",
+    "short_title": "Most recently cut under-five mortality below 50",
+    "title": "Most recently cut under-five mortality below 50",
+    "unit": "milestone year"
+  },
+  {
+    "description": "Deaths before age one per 1,000 live births.",
+    "family": "Health",
+    "icon": "🩺",
+    "id": "infantMortality",
+    "short_title": "Lowest infant mortality",
+    "title": "Lowest infant mortality",
+    "unit": "per 1,000"
+  },
+  {
+    "description": "Scientific and technical journal articles published during the year.",
+    "family": "Knowledge",
+    "icon": "🔬",
+    "id": "journalArticles",
+    "short_title": "Most scientific journal articles",
+    "title": "Most scientific journal articles",
+    "unit": "reported value"
+  },
+  {
+    "description": "Share of land where annual rainfall is below the Köppen–Geiger aridity limit: 20× mean annual °C, plus 280 mm for summer rain, 0 mm for winter rain, or 140 mm otherwise",
+    "family": "Climate",
+    "icon": "🌦️",
+    "id": "koppen-geiger:arid-share",
+    "short_title": "Highest percentage of land with an arid climate",
+    "title": "Highest percentage of land with an arid climate",
+    "unit": "% of land"
+  },
+  {
+    "description": "Share of non-arid land where the coldest month averages 0°C or below and the warmest month averages above 10°C",
+    "family": "Climate",
+    "icon": "🌦️",
+    "id": "koppen-geiger:continental-share",
+    "short_title": "Highest percentage of land with a continental climate",
+    "title": "Highest percentage of land with a continental climate",
+    "unit": "% of land"
+  },
+  {
+    "description": "Share of land where annual rainfall is below half the Köppen–Geiger aridity limit: 20× mean annual °C, plus 280 mm for summer rain, 0 mm for winter rain, or 140 mm otherwise",
+    "family": "Climate",
+    "icon": "🌦️",
+    "id": "koppen-geiger:desert-share",
+    "short_title": "Highest percentage of land with a desert climate",
+    "title": "Highest percentage of land with a desert climate",
+    "unit": "% of land"
+  },
+  {
+    "description": "Share of temperate land where the driest summer month receives under 40 mm and less than one-third the rain of the wettest winter month",
+    "family": "Climate",
+    "icon": "🌦️",
+    "id": "koppen-geiger:mediterranean-share",
+    "short_title": "Highest percentage of land with a Mediterranean climate",
+    "title": "Highest percentage of land with a Mediterranean climate",
+    "unit": "% of land"
+  },
+  {
+    "description": "Share of non-arid land where the warmest month averages 10°C or below",
+    "family": "Climate",
+    "icon": "🌦️",
+    "id": "koppen-geiger:polar-share",
+    "short_title": "Highest percentage of land with a polar climate",
+    "title": "Highest percentage of land with a polar climate",
+    "unit": "% of land"
+  },
+  {
+    "description": "Land receiving between half and all of the Köppen–Geiger temperature-adjusted rainfall limit",
+    "family": "Climate",
+    "icon": "🌦️",
+    "id": "koppen-geiger:steppe-share",
+    "short_title": "Highest percentage of land with a steppe climate",
+    "title": "Highest percentage of land with a steppe climate",
+    "unit": "% of land"
+  },
+  {
+    "description": "Share of non-arid land where the coldest month averages above 0°C but below 18°C and the warmest month averages above 10°C",
+    "family": "Climate",
+    "icon": "🌦️",
+    "id": "koppen-geiger:temperate-share",
+    "short_title": "Highest percentage of land with a temperate climate",
+    "title": "Highest percentage of land with a temperate climate",
+    "unit": "% of land"
+  },
+  {
+    "description": "Land that stays at least 18°C year-round and has a short dry season, with the driest month under 60 mm but enough annual rain to remain monsoon",
+    "family": "Climate",
+    "icon": "🌦️",
+    "id": "koppen-geiger:tropical-monsoon-share",
+    "short_title": "Highest percentage of land with a tropical monsoon climate",
+    "title": "Highest percentage of land with a tropical monsoon climate",
+    "unit": "% of land"
+  },
+  {
+    "description": "Share of land where every month averages at least 18°C and the driest month receives at least 60 mm of rain",
+    "family": "Climate",
+    "icon": "🌦️",
+    "id": "koppen-geiger:tropical-rainforest-share",
+    "short_title": "Highest percentage of land with a tropical rainforest climate",
+    "title": "Highest percentage of land with a tropical rainforest climate",
+    "unit": "% of land"
+  },
+  {
+    "description": "Share of non-arid land where the warmest month averages above 0°C but no more than 10°C",
+    "family": "Climate",
+    "icon": "🌦️",
+    "id": "koppen-geiger:tundra-share",
+    "short_title": "Highest percentage of land with a tundra climate",
+    "title": "Highest percentage of land with a tundra climate",
+    "unit": "% of land"
+  },
+  {
+    "description": "Total land area within the country's borders.",
+    "family": "Land",
+    "icon": "🗺️",
+    "id": "land",
+    "short_title": "Largest land area",
+    "title": "Largest land area",
+    "unit": "km²"
+  },
+  {
+    "description": "Expected years of life at birth if current age-specific mortality rates continue.",
+    "family": "Health",
+    "icon": "❤️",
+    "id": "life",
+    "short_title": "Highest life expectancy",
+    "title": "Highest life expectancy",
+    "unit": "years"
+  },
+  {
+    "description": "Value created by manufacturing in the country during the year.",
+    "family": "Economy",
+    "icon": "🏭",
+    "id": "manufacturing",
+    "short_title": "Largest manufacturing output",
+    "title": "Largest manufacturing output",
+    "unit": "USD"
+  },
+  {
+    "description": "Physical products exported across national borders as recorded by customs. This differs from balance-of-payments goods data, which follows changes in ownership.",
+    "family": "Trade",
+    "icon": "🚢",
+    "id": "merchExports",
+    "short_title": "Largest merchandise exports",
+    "title": "Largest goods exports recorded by customs",
+    "unit": "USD"
+  },
+  {
+    "description": "Physical products imported across national borders as recorded by customs. This differs from balance-of-payments goods data, which follows changes in ownership.",
+    "family": "Trade",
+    "icon": "📥",
+    "id": "merchImports",
+    "short_title": "Largest merchandise imports",
+    "title": "Largest goods imports recorded by customs",
+    "unit": "USD"
+  },
+  {
+    "description": "Military spending as a percentage of the country’s total economic output.",
+    "family": "Government",
+    "icon": "🪖",
+    "id": "militaryShare",
+    "short_title": "Highest military spending share",
+    "title": "Highest military spending as % of GDP",
+    "unit": "%"
+  },
+  {
+    "description": "Total military spending in current US dollars.",
+    "family": "Government",
+    "icon": "🛡️",
+    "id": "militarySpend",
+    "short_title": "Highest military spending",
+    "title": "Largest military spending",
+    "unit": "USD"
+  },
+  {
+    "description": "Mobile phone subscriptions for every 100 people.",
+    "family": "Technology",
+    "icon": "📱",
+    "id": "mobile",
+    "short_title": "Highest mobile subscriptions per 100 people",
+    "title": "Highest mobile subscriptions per 100 people",
+    "unit": "per 100 people"
+  },
+  {
+    "description": "Absolute latitude of the country’s single Natural Earth national-capital point.",
+    "family": "Geography",
+    "icon": "🏛️",
+    "id": "natural-earth-capital:capital-closest-equator",
+    "short_title": "Capital closest to the Equator",
+    "title": "Capital closest to the Equator",
+    "unit": "degrees from Equator"
+  },
+  {
+    "description": "Latitude of the country’s single Natural Earth national-capital point.",
+    "family": "Geography",
+    "icon": "🏛️",
+    "id": "natural-earth-capital:northernmost-capital",
+    "short_title": "Northernmost capital",
+    "title": "Northernmost capital",
+    "unit": "degrees north"
+  },
+  {
+    "description": "Latitude of the country’s single Natural Earth national-capital point.",
+    "family": "Geography",
+    "icon": "🏛️",
+    "id": "natural-earth-capital:southernmost-capital",
+    "short_title": "Southernmost capital",
+    "title": "Southernmost capital",
+    "unit": "degrees latitude"
+  },
+  {
+    "description": "Coastline length per 1,000 square kilometers of land.",
+    "family": "Geography",
+    "icon": "🏖️",
+    "id": "natural-earth:highest-coastline-density",
+    "short_title": "Most coastline per km² on Natural Earth's map",
+    "title": "Most coastline per km² on Natural Earth's map",
+    "unit": "km per 1,000 km²"
+  },
+  {
+    "description": "Land border length per 1,000 square kilometers of land.",
+    "family": "Geography",
+    "icon": "🧩",
+    "id": "natural-earth:highest-land-border-density",
+    "short_title": "Most land border for its size",
+    "title": "Most land border for its size",
+    "unit": "km per 1,000 km²"
+  },
+  {
+    "description": "Share of mapped land covered by Natural Earth glaciated areas.",
+    "family": "Geography",
+    "icon": "❄️",
+    "id": "natural-earth:highest-mapped-glaciated-share",
+    "short_title": "Largest glaciated share of land",
+    "title": "Highest % of land covered by glaciers",
+    "unit": "% of land"
+  },
+  {
+    "description": "Share of mapped land area covered by Natural Earth lakes and reservoirs.",
+    "family": "Geography",
+    "icon": "💧",
+    "id": "natural-earth:highest-mapped-lake-share",
+    "short_title": "Largest lake share of land",
+    "title": "Highest % of land covered by lakes and reservoirs",
+    "unit": "% of land"
+  },
+  {
+    "description": "Length of major rivers per 1,000 square kilometers of land.",
+    "family": "Geography",
+    "icon": "💧",
+    "id": "natural-earth:highest-mapped-river-density",
+    "short_title": "Highest river density",
+    "title": "Highest river density",
+    "unit": "km per 1,000 km²"
+  },
+  {
+    "description": "Number of land-border neighbors, restricted to countries with no Natural Earth ocean-boundary coastline.",
+    "family": "Geography",
+    "icon": "🧭",
+    "id": "natural-earth:landlocked-fewest-neighbors",
+    "short_title": "Fewest land-border neighbors among landlocked countries",
+    "title": "Fewest land-border neighbors among landlocked countries",
+    "unit": "neighboring countries"
+  },
+  {
+    "description": "Number of land-border neighbors, restricted to countries with no Natural Earth ocean-boundary coastline.",
+    "family": "Geography",
+    "icon": "🧭",
+    "id": "natural-earth:landlocked-most-neighbors",
+    "short_title": "Most neighbors among landlocked countries",
+    "title": "Most neighbors among landlocked countries",
+    "unit": "neighboring countries"
+  },
+  {
+    "description": "Land area north of the Arctic Circle.",
+    "family": "Geography",
+    "icon": "❄️",
+    "id": "natural-earth:largest-arctic-land-area",
+    "short_title": "Largest Arctic land area",
+    "title": "Largest Arctic land area",
+    "unit": "square kilometers"
+  },
+  {
+    "description": "Area of the country’s largest single connected land piece.",
+    "family": "Geography",
+    "icon": "🗺️",
+    "id": "natural-earth:largest-continuous-land-area",
+    "short_title": "Largest continuous land area",
+    "title": "Largest continuous land area",
+    "unit": "square kilometers"
+  },
+  {
+    "description": "Combined area of glaciers and ice caps inside the country.",
+    "family": "Geography",
+    "icon": "🧊",
+    "id": "natural-earth:largest-mapped-glaciated-area",
+    "short_title": "Largest area covered by glaciers",
+    "title": "Largest area covered by glaciers",
+    "unit": "square kilometers"
+  },
+  {
+    "description": "Combined area of lakes and reservoirs inside the country.",
+    "family": "Geography",
+    "icon": "🏞️",
+    "id": "natural-earth:largest-mapped-lake-area",
+    "short_title": "Largest total lake and reservoir area",
+    "title": "Largest total lake and reservoir area",
+    "unit": "square kilometers"
+  },
+  {
+    "description": "Area of the largest single lake or reservoir inside the country.",
+    "family": "Geography",
+    "icon": "🌅",
+    "id": "natural-earth:largest-single-mapped-lake",
+    "short_title": "Largest lake or reservoir",
+    "title": "Largest lake or reservoir",
+    "unit": "square kilometers"
+  },
+  {
+    "description": "Average land border length per neighboring country, among countries with a land border.",
+    "family": "Geography",
+    "icon": "🧭",
+    "id": "natural-earth:longest-average-land-border",
+    "short_title": "Longest average land border",
+    "title": "Longest average land border",
+    "unit": "kilometers per neighbor"
+  },
+  {
+    "description": "Coastline length measured consistently from Natural Earth’s 1:10m geometry.",
+    "family": "Geography",
+    "icon": "🌊",
+    "id": "natural-earth:longest-coastline",
+    "short_title": "Longest coastline on Natural Earth's map",
+    "title": "Longest coastline on Natural Earth's map",
+    "unit": "kilometers"
+  },
+  {
+    "description": "Combined length of all international land borders.",
+    "family": "Geography",
+    "icon": "🧱",
+    "id": "natural-earth:longest-land-border",
+    "short_title": "Longest combined land borders",
+    "title": "Longest combined land borders",
+    "unit": "kilometers"
+  },
+  {
+    "description": "Total length of the country’s longest shared land border with one neighboring country.",
+    "family": "Geography",
+    "icon": "🗺️",
+    "id": "natural-earth:longest-single-land-border",
+    "short_title": "Longest border with one neighboring country",
+    "title": "Longest border with one neighboring country",
+    "unit": "kilometers"
+  },
+  {
+    "description": "Number of countries sharing a land border.",
+    "family": "Geography",
+    "icon": "🤝",
+    "id": "natural-earth:most-land-neighbors",
+    "short_title": "Most land-border neighbors",
+    "title": "Most land-border neighbors",
+    "unit": "neighboring countries"
+  },
+  {
+    "description": "Number of Natural Earth lakes covering at least one square kilometer inside the country.",
+    "family": "Geography",
+    "icon": "💦",
+    "id": "natural-earth:most-mapped-lakes",
+    "short_title": "Most lakes and reservoirs in Natural Earth's atlas",
+    "title": "Most lakes and reservoirs in Natural Earth's atlas",
+    "unit": "lakes"
+  },
+  {
+    "description": "Combined length of Natural Earth river lines inside the country.",
+    "family": "Geography",
+    "icon": "🏞️",
+    "id": "natural-earth:most-mapped-river-length",
+    "short_title": "Longest river network",
+    "title": "Longest river network",
+    "unit": "kilometers"
+  },
+  {
+    "description": "Number of Natural Earth river features crossing the country for at least one kilometer.",
+    "family": "Geography",
+    "icon": "🌊",
+    "id": "natural-earth:most-mapped-rivers",
+    "short_title": "Most river features in Natural Earth's atlas",
+    "title": "Most river features in Natural Earth's atlas",
+    "unit": "river features"
+  },
+  {
+    "description": "Latitude of the country’s northernmost land point.",
+    "family": "Geography",
+    "icon": "🧭",
+    "id": "natural-earth:northernmost-country",
+    "short_title": "Northernmost country",
+    "title": "Northernmost country",
+    "unit": "degrees north"
+  },
+  {
+    "description": "Latitude of the country’s southernmost land point.",
+    "family": "Geography",
+    "icon": "🧭",
+    "id": "natural-earth:southernmost-country",
+    "short_title": "Southernmost country",
+    "title": "Southernmost country",
+    "unit": "degrees latitude"
+  },
+  {
+    "description": "People age 65 and older as a share of the population.",
+    "family": "Population",
+    "icon": "🧓",
+    "id": "older",
+    "short_title": "Oldest population",
+    "title": "Oldest population",
+    "unit": "%"
+  },
+  {
+    "description": "Estimated number of people identifying as Buddhist in 2020.",
+    "family": "Religion",
+    "icon": "☸️",
+    "id": "pew-religion:buddhist-population",
+    "short_title": "Largest Buddhist population",
+    "title": "Largest Buddhist population",
+    "unit": "people"
+  },
+  {
+    "description": "Estimated percentage of the population identifying as Buddhist in 2020.",
+    "family": "Religion",
+    "icon": "☸️",
+    "id": "pew-religion:buddhist-share",
+    "short_title": "Highest Buddhist share",
+    "title": "Highest % of population that is Buddhist",
+    "unit": "% of population"
+  },
+  {
+    "description": "Estimated number of people identifying as Christian in 2020.",
+    "family": "Religion",
+    "icon": "✝️",
+    "id": "pew-religion:christian-population",
+    "short_title": "Largest Christian population",
+    "title": "Largest Christian population",
+    "unit": "people"
+  },
+  {
+    "description": "Estimated percentage of the population identifying as Christian in 2020.",
+    "family": "Religion",
+    "icon": "✝️",
+    "id": "pew-religion:christian-share",
+    "short_title": "Highest Christian share",
+    "title": "Highest % of population that is Christian",
+    "unit": "% of population"
+  },
+  {
+    "description": "Estimated number of people identifying as Hindu in 2020.",
+    "family": "Religion",
+    "icon": "🕉️",
+    "id": "pew-religion:hindu-population",
+    "short_title": "Largest Hindu population",
+    "title": "Largest Hindu population",
+    "unit": "people"
+  },
+  {
+    "description": "Estimated percentage of the population identifying as Hindu in 2020.",
+    "family": "Religion",
+    "icon": "🕉️",
+    "id": "pew-religion:hindu-share",
+    "short_title": "Highest Hindu share",
+    "title": "Highest % of population that is Hindu",
+    "unit": "% of population"
+  },
+  {
+    "description": "Estimated number of people identifying as Jewish in 2020.",
+    "family": "Religion",
+    "icon": "✡️",
+    "id": "pew-religion:jewish-population",
+    "short_title": "Largest Jewish population",
+    "title": "Largest Jewish population",
+    "unit": "people"
+  },
+  {
+    "description": "Estimated number of people identifying as Muslim in 2020.",
+    "family": "Religion",
+    "icon": "☪️",
+    "id": "pew-religion:muslim-population",
+    "short_title": "Largest Muslim population",
+    "title": "Largest Muslim population",
+    "unit": "people"
+  },
+  {
+    "description": "Estimated percentage of the population identifying as Muslim in 2020.",
+    "family": "Religion",
+    "icon": "☪️",
+    "id": "pew-religion:muslim-share",
+    "short_title": "Highest Muslim share",
+    "title": "Highest % of population that is Muslim",
+    "unit": "% of population"
+  },
+  {
+    "description": "Estimated 2020 population following religions that Pew groups as “other religions”; religiously unaffiliated people are a separate category.",
+    "family": "Religion",
+    "icon": "🕯️",
+    "id": "pew-religion:other-religions-population",
+    "short_title": "Largest population following other religions",
+    "title": "Largest population following other religions",
+    "unit": "people"
+  },
+  {
+    "description": "Estimated 2020 population following religions that Pew groups as “other religions”; religiously unaffiliated people are a separate category.",
+    "family": "Religion",
+    "icon": "🕯️",
+    "id": "pew-religion:other-religions-share",
+    "short_title": "Religions outside five major groups",
+    "title": "Highest % following religions outside the five major groups",
+    "unit": "% of population"
+  },
+  {
+    "description": "Pew Research Center’s 2020 Religious Diversity Index score.",
+    "family": "Religion",
+    "icon": "🕊️",
+    "id": "pew-religion:religious-diversity",
+    "short_title": "Most religiously diverse",
+    "title": "Most religiously diverse",
+    "unit": "diversity index"
+  },
+  {
+    "description": "Estimated number of people identifying as religiously unaffiliated in 2020.",
+    "family": "Religion",
+    "icon": "◯",
+    "id": "pew-religion:unaffiliated-population",
+    "short_title": "Largest religiously unaffiliated population",
+    "title": "Largest religiously unaffiliated population",
+    "unit": "people"
+  },
+  {
+    "description": "Estimated percentage of the population identifying as religiously unaffiliated in 2020.",
+    "family": "Religion",
+    "icon": "◯",
+    "id": "pew-religion:unaffiliated-share",
+    "short_title": "Highest religiously unaffiliated share",
+    "title": "Highest % of population with no religious affiliation",
+    "unit": "% of population"
+  },
+  {
+    "description": "Total number of people living in the country.",
+    "family": "Population",
+    "icon": "👥",
+    "id": "population",
+    "short_title": "Largest population",
+    "title": "Largest population",
+    "unit": "people"
+  },
+  {
+    "description": "Fastest population growth according to World Bank.",
+    "family": "Population",
+    "icon": "📈",
+    "id": "populationGrowth",
+    "short_title": "Fastest population growth rate",
+    "title": "Fastest population growth rate",
+    "unit": "%"
+  },
+  {
+    "description": "Percentage of a country's land area that is protected.",
+    "family": "Environment",
+    "icon": "🦌",
+    "id": "protected",
+    "short_title": "Land protected",
+    "title": "Highest % of land protected",
+    "unit": "%"
+  },
+  {
+    "description": "Long-term average precipitation depth, including rain and snow, in millimeters per year.",
+    "family": "Climate",
+    "icon": "🌧️",
+    "id": "rain",
+    "short_title": "Highest average annual precipitation",
+    "title": "Highest average annual precipitation",
+    "unit": "mm per year"
+  },
+  {
+    "description": "Percentage of people living in areas classified as rural.",
+    "family": "Population",
+    "icon": "🏡",
+    "id": "rural",
+    "short_title": "Highest rural population share",
+    "title": "Highest % of population living in rural areas",
+    "unit": "%"
+  },
+  {
+    "description": "Share of people using sanitation services that safely contain and treat waste.",
+    "family": "Infrastructure",
+    "icon": "🚿",
+    "id": "sanitation",
+    "short_title": "Highest % using safely managed sanitation",
+    "title": "Highest % using safely managed sanitation",
+    "unit": "%"
+  },
+  {
+    "description": "Elevation of the country’s highest volcano active during the last roughly 12,000 years.",
+    "family": "Geology",
+    "icon": "🌋",
+    "id": "smithsonian-gvp:highest-volcano",
+    "short_title": "Highest volcano",
+    "title": "Highest volcano",
+    "unit": "meters"
+  },
+  {
+    "description": "Number of Smithsonian-listed volcanoes active during the last roughly 12,000 years.",
+    "family": "Geology",
+    "icon": "🌋",
+    "id": "smithsonian-gvp:most-holocene-volcanoes",
+    "short_title": "Most volcanoes",
+    "title": "Most volcanoes",
+    "unit": "volcanoes"
+  },
+  {
+    "description": "The first men's FIFA World Cup edition in which each participating current country appeared.",
+    "family": "Sports",
+    "icon": "🏅",
+    "id": "sports:fifa-world-cup-first-appearance",
+    "short_title": "First men's FIFA World Cup appearance",
+    "title": "First men's FIFA World Cup appearance",
+    "unit": "first appearance year"
+  },
+  {
+    "description": "Highest inequality in education using the official UNDP Human Development Reports country dataset.",
+    "family": "Human development",
+    "icon": "🌍",
+    "id": "undp-hdr:education-inequality",
+    "short_title": "Highest inequality in schooling (%)",
+    "title": "Highest inequality in schooling (%)",
+    "unit": "%"
+  },
+  {
+    "description": "Highest inequality in income using the official UNDP Human Development Reports country dataset.",
+    "family": "Human development",
+    "icon": "🌍",
+    "id": "undp-hdr:income-inequality",
+    "short_title": "Highest income inequality (Atkinson %)",
+    "title": "Highest income inequality (Atkinson %)",
+    "unit": "%"
+  },
+  {
+    "description": "Highest inequality in life expectancy using the official UNDP Human Development Reports country dataset.",
+    "family": "Human development",
+    "icon": "🌍",
+    "id": "undp-hdr:life-expectancy-inequality",
+    "short_title": "Highest inequality in length of life (%)",
+    "title": "Highest inequality in length of life (%)",
+    "unit": "%"
+  },
+  {
+    "description": "New asylum applications filed abroad by people from each country during the year.",
+    "family": "Displacement",
+    "icon": "📤",
+    "id": "unhcr:most-asylum-applications-by-origin",
+    "short_title": "Most asylum applications by origin",
+    "title": "Most asylum applications by origin",
+    "unit": "people"
+  },
+  {
+    "description": "New asylum applications filed in each destination country during the year.",
+    "family": "Displacement",
+    "icon": "📨",
+    "id": "unhcr:most-asylum-applications-received",
+    "short_title": "Most asylum applications received",
+    "title": "Most asylum applications received",
+    "unit": "people"
+  },
+  {
+    "description": "People recognized as refugees who are living in each host country.",
+    "family": "Displacement",
+    "icon": "🏠",
+    "id": "unhcr:most-refugees-hosted",
+    "short_title": "Most refugees hosted",
+    "title": "Most refugees hosted",
+    "unit": "people"
+  },
+  {
+    "description": "People from each country who are living abroad as recognized refugees.",
+    "family": "Displacement",
+    "icon": "🧳",
+    "id": "unhcr:most-refugees-originating",
+    "short_title": "Most refugees originating",
+    "title": "Most refugees originating",
+    "unit": "people"
+  },
+  {
+    "description": "People residing in the country who are not considered a national by any country under the operation of its law.",
+    "family": "Displacement",
+    "icon": "🪪",
+    "id": "unhcr:most-stateless-people",
+    "short_title": "Largest stateless population",
+    "title": "Largest stateless population",
+    "unit": "people"
+  },
+  {
+    "description": "Highest 5G network coverage using the official UN Global SDG Indicators Database series IT_MOB_5GNTWK.",
+    "family": "Infrastructure",
+    "icon": "📡",
+    "id": "unsdg:five-g-coverage",
+    "short_title": "Highest % of people covered by 5G",
+    "title": "Highest % of people covered by 5G",
+    "unit": "% of population"
+  },
+  {
+    "description": "Highest 4G network coverage using the official UN Global SDG Indicators Database series IT_MOB_4GNTWK.",
+    "family": "Infrastructure",
+    "icon": "📡",
+    "id": "unsdg:four-g-coverage",
+    "short_title": "Highest % of people covered by 4G",
+    "title": "Highest % of people covered by 4G",
+    "unit": "% of population"
+  },
+  {
+    "description": "Highest pre-primary learning participation using the official UN Global SDG Indicators Database series SE_PRE_PARTN.",
+    "family": "Education",
+    "icon": "🎓",
+    "id": "unsdg:organized-learning",
+    "short_title": "Highest pre-primary learning participation rate",
+    "title": "Highest pre-primary learning participation rate",
+    "unit": "% of eligible children"
+  },
+  {
+    "description": "Average exposure to fine airborne particles small enough to enter the lungs.",
+    "family": "Environment",
+    "icon": "🌫️",
+    "id": "unsdg:pm25-exposure",
+    "short_title": "Highest fine-particle air pollution",
+    "title": "Highest fine particle air pollution",
+    "unit": "micrograms per m³"
+  },
+  {
+    "description": "Highest 3G network coverage using the official UN Global SDG Indicators Database series IT_MOB_3GNTWK.",
+    "family": "Infrastructure",
+    "icon": "📡",
+    "id": "unsdg:three-g-coverage",
+    "short_title": "Highest % of people covered by 3G",
+    "title": "Highest % of people covered by 3G",
+    "unit": "% of population"
+  },
+  {
+    "description": "Prisoners awaiting trial or sentencing as a percentage of all prisoners.",
+    "family": "Government",
+    "icon": "⚖️",
+    "id": "unsdg:unsentenced-detainees",
+    "short_title": "Highest unsentenced-detainee share",
+    "title": "Highest % of prisoners awaiting trial",
+    "unit": "% of prison population"
+  },
+  {
+    "description": "Percentage of urban residents in households that lack one or more basic conditions such as safe water, sanitation, sufficient living space, durable housing or secure tenure.",
+    "family": "Infrastructure",
+    "icon": "🏙️",
+    "id": "unsdg:urban-slum-share",
+    "short_title": "Largest urban slum population share",
+    "title": "Highest % of urban residents living in slums",
+    "unit": "% of urban population"
+  },
+  {
+    "description": "Annual population growth rate; the most negative rate ranks first.",
+    "family": "Population",
+    "icon": "👥",
+    "id": "unwpp:fastest-pop-decline",
+    "short_title": "Lowest annual population growth rate",
+    "title": "Lowest annual population growth rate",
+    "unit": "% per year"
+  },
+  {
+    "description": "Crude birth rate per 1,000 people.",
+    "family": "Population",
+    "icon": "👥",
+    "id": "unwpp:highest-birth-rate",
+    "short_title": "Highest birth rate",
+    "title": "Highest birth rate",
+    "unit": "births per 1,000 people"
+  },
+  {
+    "description": "Years a newborn boy would live if current male death rates stayed the same throughout his life.",
+    "family": "Health",
+    "icon": "👥",
+    "id": "unwpp:highest-male-life-expectancy",
+    "short_title": "Highest male life expectancy",
+    "title": "Highest male life expectancy",
+    "unit": "years"
+  },
+  {
+    "description": "Share of the population that is male.",
+    "family": "Population",
+    "icon": "👥",
+    "id": "unwpp:highest-male-share",
+    "short_title": "Highest male share of population",
+    "title": "Highest % of population that is male",
+    "unit": "% of population"
+  },
+  {
+    "description": "Mean age of childbearing.",
+    "family": "Population",
+    "icon": "👥",
+    "id": "unwpp:highest-mean-age-childbearing",
+    "short_title": "Oldest average age of mothers at childbirth",
+    "title": "Oldest average age of mothers at childbirth",
+    "unit": "years"
+  },
+  {
+    "description": "Median age of the population.",
+    "family": "Population",
+    "icon": "👥",
+    "id": "unwpp:highest-median-age",
+    "short_title": "Highest median age",
+    "title": "Highest median age",
+    "unit": "years"
+  },
+  {
+    "description": "Crude rate of natural population increase: births minus deaths, per 1,000 people.",
+    "family": "Population",
+    "icon": "👥",
+    "id": "unwpp:highest-natural-change-rate",
+    "short_title": "Highest natural population increase rate",
+    "title": "Highest natural population increase rate",
+    "unit": "per 1,000 people"
+  },
+  {
+    "description": "Net migration rate per 1,000 people.",
+    "family": "Population",
+    "icon": "👥",
+    "id": "unwpp:highest-net-migration-rate",
+    "short_title": "Highest net migration rate",
+    "title": "Highest net migration rate",
+    "unit": "per 1,000 people"
+  },
+  {
+    "description": "Male births per 100 female births.",
+    "family": "Population",
+    "icon": "👥",
+    "id": "unwpp:highest-sex-ratio-at-birth",
+    "short_title": "Most boys born per 100 girls",
+    "title": "Most boys born per 100 girls",
+    "unit": "boys per 100 girls"
+  },
+  {
+    "description": "Deaths during the year for every 1,000 people in the population; this is an annual rate, not a daily count.",
+    "family": "Population",
+    "icon": "👥",
+    "id": "unwpp:lowest-death-rate",
+    "short_title": "Fewest annual deaths per 1,000 people",
+    "title": "Fewest annual deaths per 1,000 people",
+    "unit": "deaths per 1,000 people"
+  },
+  {
+    "description": "Average number of births per woman under current age-specific fertility rates.",
+    "family": "Population",
+    "icon": "👥",
+    "id": "unwpp:lowest-fertility",
+    "short_title": "Lowest fertility rate",
+    "title": "Lowest fertility rate",
+    "unit": "births per woman"
+  },
+  {
+    "description": "Median age of the population.",
+    "family": "Population",
+    "icon": "👥",
+    "id": "unwpp:lowest-median-age",
+    "short_title": "Lowest median age",
+    "title": "Lowest median age",
+    "unit": "years"
+  },
+  {
+    "description": "Population per square kilometer.",
+    "family": "Population",
+    "icon": "👥",
+    "id": "unwpp:lowest-pop-density",
+    "short_title": "Lowest population density",
+    "title": "Lowest population density",
+    "unit": "people/km²"
+  },
+  {
+    "description": "Number of magnitude 6+ earthquake epicenters inside the country since 1970.",
+    "family": "Natural hazards",
+    "icon": "🌎",
+    "id": "usgs:most-major-earthquakes-since-1970",
+    "short_title": "Most major earthquakes",
+    "title": "Most major earthquakes",
+    "unit": "earthquakes"
+  },
+  {
+    "description": "Share of the relevant population counted in hepatitis b vaccination (% of infants).",
+    "family": "Vaccination",
+    "icon": "💉",
+    "id": "who:WHS4_117",
+    "short_title": "Highest hepatitis B vaccination rate",
+    "title": "Highest hepatitis B vaccination rate",
+    "unit": "% of infants"
+  },
+  {
+    "description": "Share of the relevant population counted in measles vaccination (% of children).",
+    "family": "Vaccination",
+    "icon": "💉",
+    "id": "who:WHS8_110",
+    "short_title": "Highest measles vaccination rate",
+    "title": "Highest measles vaccination rate",
+    "unit": "% of children"
+  },
+  {
+    "description": "Kilograms of nitrogen, phosphate and potash nutrients used per hectare of arable land; excludes manure.",
+    "family": "Agriculture",
+    "icon": "🌾",
+    "id": "worldbank-catalog:ag-con-fert-zs",
+    "short_title": "Most fertilizer used per hectare of arable land",
+    "title": "Most fertilizer used per hectare of arable land",
+    "unit": "kg per hectare of arable land"
+  },
+  {
+    "description": "Farmable land available per person, measured in hectares.",
+    "family": "Agriculture",
+    "icon": "🚜",
+    "id": "worldbank-catalog:ag-lnd-arbl-ha-pc",
+    "short_title": "Arable land per person",
+    "title": "Most arable land per person",
+    "unit": "per person"
+  },
+  {
+    "description": "Land under cereal production refers to harvested area, although some countries report only sown or cultivated area.",
+    "family": "Agriculture",
+    "icon": "🌾",
+    "id": "worldbank-catalog:ag-lnd-crel-ha",
+    "short_title": "land under cereal production",
+    "title": "Largest land under cereal production",
+    "unit": "reported value"
+  },
+  {
+    "description": "Share of land area devoted to permanent crops such as cocoa, coffee, and rubber.",
+    "family": "Agriculture",
+    "icon": "🚜",
+    "id": "worldbank-catalog:ag-lnd-crop-zs",
+    "short_title": "Largest permanent-cropland share of land",
+    "title": "Highest % of land in permanent crops",
+    "unit": "%"
+  },
+  {
+    "description": "Total country area, including land and inland water.",
+    "family": "Geography",
+    "icon": "🗺️",
+    "id": "worldbank-catalog:ag-srf-totl-k2",
+    "short_title": "surface area",
+    "title": "Largest total country area",
+    "unit": "km²"
+  },
+  {
+    "description": "Value of physical products whose ownership moved from sellers abroad to residents, in current US dollars.",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:bm-gsr-mrch-cd",
+    "short_title": "goods imports",
+    "title": "Largest physical goods imports",
+    "unit": "USD"
+  },
+  {
+    "description": "Foreign direct investment refers to direct investment equity flows in an economy.",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:bm-klt-dinv-wd-gd-zs",
+    "short_title": "Highest outward foreign investment as % of GDP",
+    "title": "Highest outward foreign investment as % of GDP",
+    "unit": "%"
+  },
+  {
+    "description": "Balance of current transactions (transactions in goods and services, earned income and transfer income) between residents and non-residents.",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:bn-cab-xoka-gd-zs",
+    "short_title": "Largest current-account surplus as % of GDP",
+    "title": "Largest current-account surplus as % of GDP",
+    "unit": "%"
+  },
+  {
+    "description": "Value of physical goods exported minus physical goods imported, in current US dollars.",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:bn-gsr-mrch-cd",
+    "short_title": "net trade in goods",
+    "title": "Largest goods trade surplus",
+    "unit": "USD"
+  },
+  {
+    "description": "Net cross-border investment in which an investor owns at least 10% of a business and therefore has lasting influence over it.",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:bn-klt-dinv-cd",
+    "short_title": "foreign direct investment, net",
+    "title": "Largest net foreign direct investment",
+    "unit": "USD"
+  },
+  {
+    "description": "Value of physical products whose ownership moved from residents to buyers abroad, in current US dollars.",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:bx-gsr-mrch-cd",
+    "short_title": "goods exports",
+    "title": "Largest physical goods exports",
+    "unit": "USD"
+  },
+  {
+    "description": "Net foreign direct investment entering the country during the year, as a percentage of GDP.",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:bx-klt-dinv-wd-gd-zs",
+    "short_title": "Highest inward foreign investment as % of GDP",
+    "title": "Highest inward foreign investment as % of GDP",
+    "unit": "%"
+  },
+  {
+    "description": "Personal remittances received as a share of gross domestic product.",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:bx-trf-pwkr-dt-gd-zs",
+    "short_title": "Largest remittances received as a share of GDP",
+    "title": "Highest money sent home from abroad as % of GDP",
+    "unit": "%"
+  },
+  {
+    "description": "Total external debt stocks to gross national income.",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:dt-dod-dect-gn-zs",
+    "short_title": "Highest external debt as % of national income",
+    "title": "Highest external debt as % of national income",
+    "unit": "%"
+  },
+  {
+    "description": "Short-term debt includes all debt having an original maturity of one year or less and interest in arrears on long-term debt.",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:dt-dod-dstc-ir-zs",
+    "short_title": "Highest short-term foreign debt as % of reserves",
+    "title": "Highest short-term foreign debt as % of reserves",
+    "unit": "%"
+  },
+  {
+    "description": "Short-term external debt is defined as debt that has an original maturity of one year or less.",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:dt-dod-dstc-xp-zs",
+    "short_title": "Highest short-term foreign debt as % of export income",
+    "title": "Highest short-term foreign debt as % of export income",
+    "unit": "%"
+  },
+  {
+    "description": "Present value of external debt to exports of goods, services and income.",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:dt-dod-pvlx-ex-zs",
+    "short_title": "Highest discounted foreign debt as % of export income",
+    "title": "Highest discounted foreign debt as % of export income",
+    "unit": "%"
+  },
+  {
+    "description": "Present value of external debt to gross national income.",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:dt-dod-pvlx-gn-zs",
+    "short_title": "Highest discounted foreign debt as % of national income",
+    "title": "Highest discounted foreign debt as % of national income",
+    "unit": "%"
+  },
+  {
+    "description": "Net financial flows received by the borrower during the year are disbursements of loans and credits less repayments of principal.",
+    "family": "Economy",
+    "icon": "💳",
+    "id": "worldbank-catalog:dt-nfl-mida-cd",
+    "short_title": "Most net IDA development lending received",
+    "title": "Most net IDA development lending received",
+    "unit": "USD"
+  },
+  {
+    "description": "Official development aid received from abroad after subtracting repayments, in current US dollars.",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:dt-oda-alld-cd",
+    "short_title": "net official development assistance and official aid received",
+    "title": "Largest net development aid received",
+    "unit": "USD"
+  },
+  {
+    "description": "Official development assistance received from abroad after subtracting repayments, in current US dollars.",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:dt-oda-odat-cd",
+    "short_title": "net official development assistance received",
+    "title": "Largest net official development assistance received",
+    "unit": "USD"
+  },
+  {
+    "description": "Net official development assistance (ODA) consists of disbursements of loans made on concessional terms (net of repayments of principal) and grants by official agencies of the members of the Development…",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:dt-oda-odat-gi-zs",
+    "short_title": "Highest development aid as % of capital investment",
+    "title": "Highest development aid as % of capital investment",
+    "unit": "%"
+  },
+  {
+    "description": "Net official development assistance (ODA) consists of disbursements of loans made on concessional terms (net of repayments of principal) and grants by official agencies of the members of the Development…",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:dt-oda-odat-gn-zs",
+    "short_title": "Highest development aid as % of national income",
+    "title": "Highest development aid as % of national income",
+    "unit": "%"
+  },
+  {
+    "description": "Net official development assistance (ODA) consists of disbursements of loans made on concessional terms (net of repayments of principal) and grants by official agencies of the members of the Development…",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:dt-oda-odat-mp-zs",
+    "short_title": "Highest development aid as % of imports",
+    "title": "Highest development aid as % of imports",
+    "unit": "%"
+  },
+  {
+    "description": "Total debt service to exports of goods, services and primary income.",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:dt-tds-dect-ex-zs",
+    "short_title": "Highest foreign-debt payments as % of export income",
+    "title": "Highest foreign-debt payments as % of export income",
+    "unit": "%"
+  },
+  {
+    "description": "Total debt service is the sum of principal repayments and interest actually paid in currency, goods, or services on long-term debt, interest paid on short-term debt, and repayments (repurchases and charges)…",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:dt-tds-dect-gn-zs",
+    "short_title": "Highest foreign-debt payments as % of national income",
+    "title": "Highest foreign-debt payments as % of national income",
+    "unit": "%"
+  },
+  {
+    "description": "Debt service, the sum of principal repayments and interest actually paid in currency, goods, or services, is expressed as a percentage of exports of goods and services--all transactions between residents of…",
+    "family": "Economy",
+    "icon": "💳",
+    "id": "worldbank-catalog:dt-tds-dppf-xp-zs",
+    "short_title": "Highest public and IMF debt payments as % of exports",
+    "title": "Highest public and IMF debt payments as % of exports",
+    "unit": "%"
+  },
+  {
+    "description": "Public and publicly guaranteed debt service to gross national income.",
+    "family": "Economy",
+    "icon": "💳",
+    "id": "worldbank-catalog:dt-tds-dppg-gn-zs",
+    "short_title": "Highest public foreign-debt payments as % of national income",
+    "title": "Highest public foreign-debt payments as % of national income",
+    "unit": "%"
+  },
+  {
+    "description": "Public and publicly guaranteed debt service to exports of goods, services, and income.",
+    "family": "Economy",
+    "icon": "💳",
+    "id": "worldbank-catalog:dt-tds-dppg-xp-zs",
+    "short_title": "Highest public foreign-debt payments as % of export income",
+    "title": "Highest public foreign-debt payments as % of export income",
+    "unit": "%"
+  },
+  {
+    "description": "Multilateral debt service is the repayment of principal and interest to the World Bank, regional development banks, and other multilateral agencies.",
+    "family": "Economy",
+    "icon": "💳",
+    "id": "worldbank-catalog:dt-tds-mlat-pg-zs",
+    "short_title": "Highest share of public foreign-debt payments to multilateral lenders",
+    "title": "Highest share of public foreign-debt payments to multilateral lenders",
+    "unit": "%"
+  },
+  {
+    "description": "Share of the rural population primarily using clean fuels and technologies for cooking.",
+    "family": "Environment",
+    "icon": "🌍",
+    "id": "worldbank-catalog:eg-cft-accs-ru-zs",
+    "short_title": "Highest % of rural residents using clean cooking fuels",
+    "title": "Highest % of rural residents using clean cooking fuels",
+    "unit": "%"
+  },
+  {
+    "description": "Share of the urban population primarily using clean fuels and technologies for cooking.",
+    "family": "Environment",
+    "icon": "🌍",
+    "id": "worldbank-catalog:eg-cft-accs-ur-zs",
+    "short_title": "Highest % of urban residents using clean cooking fuels",
+    "title": "Highest % of urban residents using clean cooking fuels",
+    "unit": "%"
+  },
+  {
+    "description": "Share of the population primarily using clean fuels and technologies for cooking.",
+    "family": "Environment",
+    "icon": "🌍",
+    "id": "worldbank-catalog:eg-cft-accs-zs",
+    "short_title": "Highest % of people using clean cooking fuels",
+    "title": "Highest % of people using clean cooking fuels",
+    "unit": "%"
+  },
+  {
+    "description": "Share of the rural population with access to electricity.",
+    "family": "Agriculture",
+    "icon": "🌾",
+    "id": "worldbank-catalog:eg-elc-accs-ru-zs",
+    "short_title": "Highest % of rural residents with electricity access",
+    "title": "Highest % of rural residents with electricity access",
+    "unit": "%"
+  },
+  {
+    "description": "Share of the urban population with access to electricity.",
+    "family": "Energy",
+    "icon": "⚡",
+    "id": "worldbank-catalog:eg-elc-accs-ur-zs",
+    "short_title": "Highest % of urban residents with electricity access",
+    "title": "Highest % of urban residents with electricity access",
+    "unit": "%"
+  },
+  {
+    "description": "Share of electricity generated from oil, gas, and coal sources.",
+    "family": "Energy",
+    "icon": "⚡",
+    "id": "worldbank-catalog:eg-elc-fosl-zs",
+    "short_title": "Largest fossil-fuel share of electricity generation",
+    "title": "Highest % of electricity from fossil fuels",
+    "unit": "%"
+  },
+  {
+    "description": "Share of electricity generated from hydroelectric sources.",
+    "family": "Energy",
+    "icon": "⚡",
+    "id": "worldbank-catalog:eg-elc-hyro-zs",
+    "short_title": "Largest hydroelectric share of electricity generation",
+    "title": "Highest % of electricity from hydropower",
+    "unit": "%"
+  },
+  {
+    "description": "Share of electricity generated from natural gas.",
+    "family": "Energy",
+    "icon": "⚡",
+    "id": "worldbank-catalog:eg-elc-ngas-zs",
+    "short_title": "Largest natural gas share of electricity generation",
+    "title": "Highest % of electricity from natural gas",
+    "unit": "%"
+  },
+  {
+    "description": "Share of electricity generated from oil sources.",
+    "family": "Energy",
+    "icon": "⚡",
+    "id": "worldbank-catalog:eg-elc-petr-zs",
+    "short_title": "Largest oil share of electricity generation",
+    "title": "Highest % of electricity from oil",
+    "unit": "%"
+  },
+  {
+    "description": "GDP per kilogram of oil equivalent of energy use, adjusted for purchasing power parity.",
+    "family": "Energy",
+    "icon": "⚡",
+    "id": "worldbank-catalog:eg-gdp-puse-ko-pp",
+    "short_title": "GDP per unit of energy",
+    "title": "Highest GDP per unit of energy used",
+    "unit": "PPP $ per kg oil equivalent"
+  },
+  {
+    "description": "Net energy imports are estimated as gross imports less gross exports, both measured in tons of oil equivalents (toe).",
+    "family": "Energy",
+    "icon": "⚡",
+    "id": "worldbank-catalog:eg-imp-cons-zs",
+    "short_title": "Highest net energy imports as % of energy use",
+    "title": "Highest net energy imports as % of energy use",
+    "unit": "%"
+  },
+  {
+    "description": "Share of energy use supplied by alternative and nuclear energy.",
+    "family": "Energy",
+    "icon": "⚡",
+    "id": "worldbank-catalog:eg-use-comm-cl-zs",
+    "short_title": "Largest alternative-and-nuclear share of energy use",
+    "title": "Highest % of energy from alternative and nuclear sources",
+    "unit": "%"
+  },
+  {
+    "description": "Share of energy use supplied by combustible renewables and waste.",
+    "family": "Energy",
+    "icon": "⚡",
+    "id": "worldbank-catalog:eg-use-crnw-zs",
+    "short_title": "Largest share of energy from biomass and waste",
+    "title": "Highest % of energy from biomass and waste",
+    "unit": "%"
+  },
+  {
+    "description": "A threatened species is likely to become endangered within the foreseeable future, throughout all or a significant portion of its range.",
+    "family": "Environment",
+    "icon": "🐦",
+    "id": "worldbank-catalog:en-bir-thrd-no",
+    "short_title": "Most threatened bird species",
+    "title": "Most threatened bird species",
+    "unit": "reported value"
+  },
+  {
+    "description": "A threatened species is likely to become endangered within the foreseeable future, throughout all or a significant portion of its range.",
+    "family": "Environment",
+    "icon": "🐟",
+    "id": "worldbank-catalog:en-fsh-thrd-no",
+    "short_title": "Most threatened fish species",
+    "title": "Most threatened fish species",
+    "unit": "reported value"
+  },
+  {
+    "description": "Total emissions from energy, industry, agriculture and waste, excluding land use and forestry.",
+    "family": "Environment",
+    "icon": "🌫️",
+    "id": "worldbank-catalog:en-ghg-all-mt-ce-ar5",
+    "short_title": "Most greenhouse gas emissions",
+    "title": "Most greenhouse gas emissions",
+    "unit": "reported value"
+  },
+  {
+    "description": "Annual greenhouse gas emissions per person, excluding land use and forestry.",
+    "family": "Environment",
+    "icon": "🌫️",
+    "id": "worldbank-catalog:en-ghg-all-pc-ce-ar5",
+    "short_title": "Highest greenhouse-gas emissions per person",
+    "title": "Highest greenhouse-gas emissions per person",
+    "unit": "per person"
+  },
+  {
+    "description": "Annual carbon dioxide emissions from producing electricity and heat.",
+    "family": "Environment",
+    "icon": "🌫️",
+    "id": "worldbank-catalog:en-ghg-co2-pi-mt-ce-ar5",
+    "short_title": "Highest CO₂ emissions from power generation",
+    "title": "Most CO₂ emissions from power generation",
+    "unit": "reported value"
+  },
+  {
+    "description": "Number of native vascular plant species classified as threatened with extinction.",
+    "family": "Environment",
+    "icon": "🌿",
+    "id": "worldbank-catalog:en-hpt-thrd-no",
+    "short_title": "Most threatened vascular plant species",
+    "title": "Most threatened vascular plant species",
+    "unit": "species"
+  },
+  {
+    "description": "Number of mammal species classified as threatened with extinction.",
+    "family": "Environment",
+    "icon": "🐾",
+    "id": "worldbank-catalog:en-mam-thrd-no",
+    "short_title": "mammal species, threatened",
+    "title": "Most threatened mammal species",
+    "unit": "reported value"
+  },
+  {
+    "description": "Population living in each country's largest urban area.",
+    "family": "Infrastructure",
+    "icon": "🏙️",
+    "id": "worldbank-catalog:en-urb-lcty",
+    "short_title": "Largest-city population",
+    "title": "Largest population in the largest city",
+    "unit": "people"
+  },
+  {
+    "description": "Share of the urban population living in the country’s largest metropolitan area.",
+    "family": "Infrastructure",
+    "icon": "🏙️",
+    "id": "worldbank-catalog:en-urb-lcty-ur-zs",
+    "short_title": "Largest-city share of urban population",
+    "title": "Highest % of urban residents living in the largest city",
+    "unit": "%"
+  },
+  {
+    "description": "People living in metropolitan areas with over one million residents.",
+    "family": "Infrastructure",
+    "icon": "🏙️",
+    "id": "worldbank-catalog:en-urb-mcty",
+    "short_title": "Largest population in urban areas over 1 million",
+    "title": "Largest population in urban areas over 1 million",
+    "unit": "people"
+  },
+  {
+    "description": "Share of the population living in urban agglomerations with more than one million people.",
+    "family": "Population",
+    "icon": "🏙️",
+    "id": "worldbank-catalog:en-urb-mcty-tl-zs",
+    "short_title": "Largest share of population in million-plus urban areas",
+    "title": "Highest % of people in cities over one million",
+    "unit": "%"
+  },
+  {
+    "description": "Aquaculture is understood to mean the farming of aquatic organisms including fish, molluscs, crustaceans and aquatic plants.",
+    "family": "Environment",
+    "icon": "🐟",
+    "id": "worldbank-catalog:er-fsh-aqua-mt",
+    "short_title": "Largest aquaculture production",
+    "title": "Largest aquaculture production",
+    "unit": "tonnes"
+  },
+  {
+    "description": "Capture fisheries production measures the volume of fish catches landed by a country for all commercial, industrial, recreational and subsistence purposes.",
+    "family": "Environment",
+    "icon": "🐟",
+    "id": "worldbank-catalog:er-fsh-capt-mt",
+    "short_title": "capture fisheries production",
+    "title": "Largest capture fisheries production",
+    "unit": "tonnes"
+  },
+  {
+    "description": "Total fisheries production measures the volume of aquatic species caught by a country for all commercial, industrial, recreational and subsistence purposes.",
+    "family": "Environment",
+    "icon": "🐟",
+    "id": "worldbank-catalog:er-fsh-prod-mt",
+    "short_title": "total fisheries production",
+    "title": "Largest total fisheries production",
+    "unit": "tonnes"
+  },
+  {
+    "description": "Share of total freshwater withdrawals used by agriculture.",
+    "family": "Agriculture",
+    "icon": "💧",
+    "id": "worldbank-catalog:er-h2o-fwag-zs",
+    "short_title": "Largest share of freshwater withdrawals used by agriculture",
+    "title": "Highest % of freshwater withdrawals used by agriculture",
+    "unit": "%"
+  },
+  {
+    "description": "Household and municipal use as a percentage of all freshwater withdrawn.",
+    "family": "Infrastructure",
+    "icon": "🚰",
+    "id": "worldbank-catalog:er-h2o-fwdm-zs",
+    "short_title": "Largest domestic share of freshwater withdrawals",
+    "title": "Highest % of freshwater withdrawals used by households",
+    "unit": "%"
+  },
+  {
+    "description": "Share of total freshwater withdrawals used by industry.",
+    "family": "Infrastructure",
+    "icon": "🏭",
+    "id": "worldbank-catalog:er-h2o-fwin-zs",
+    "short_title": "Largest industrial share of freshwater withdrawals",
+    "title": "Highest % of freshwater withdrawals used by industry",
+    "unit": "%"
+  },
+  {
+    "description": "Total freshwater withdrawn during the year, excluding evaporation losses from storage basins.",
+    "family": "Climate",
+    "icon": "💧",
+    "id": "worldbank-catalog:er-h2o-fwtl-k3",
+    "short_title": "Largest total freshwater withdrawals",
+    "title": "Largest total freshwater withdrawals",
+    "unit": "reported value"
+  },
+  {
+    "description": "Annual freshwater withdrawals as a percentage of renewable internal freshwater resources.",
+    "family": "Climate",
+    "icon": "💧",
+    "id": "worldbank-catalog:er-h2o-fwtl-zs",
+    "short_title": "Highest freshwater withdrawals as % of internal resources",
+    "title": "Highest freshwater withdrawals as % of internal resources",
+    "unit": "%"
+  },
+  {
+    "description": "Fresh water naturally replenished each year, divided by the population.",
+    "family": "Infrastructure",
+    "icon": "💧",
+    "id": "worldbank-catalog:er-h2o-intr-pc",
+    "short_title": "Most renewable freshwater per person",
+    "title": "Most renewable freshwater per person",
+    "unit": "per person"
+  },
+  {
+    "description": "Share of territorial waters designated as marine protected areas.",
+    "family": "Climate",
+    "icon": "🌊",
+    "id": "worldbank-catalog:er-mrn-ptmr-zs",
+    "short_title": "Largest protected share of territorial waters",
+    "title": "Highest % of territorial waters protected",
+    "unit": "%"
+  },
+  {
+    "description": "The indicator measures the proportion of a deposit taker’s loan portfolio that is impaired or at risk of default.",
+    "family": "Economy",
+    "icon": "🏦",
+    "id": "worldbank-catalog:fb-ast-nper-zs",
+    "short_title": "Highest % of bank loans that are nonperforming",
+    "title": "Highest % of bank loans that are nonperforming",
+    "unit": "%"
+  },
+  {
+    "description": "Cash machines available for every 100,000 adults.",
+    "family": "Economy",
+    "icon": "🏦",
+    "id": "worldbank-catalog:fb-atm-totl-p5",
+    "short_title": "ATMs per 100,000 adults",
+    "title": "Most ATMs per 100,000 adults",
+    "unit": "per 100,000"
+  },
+  {
+    "description": "The indicator is a measure of capital adequacy that evaluates the financial strength of deposit takers by comparing Tier 1 capital to total assets.",
+    "family": "Economy",
+    "icon": "🏦",
+    "id": "worldbank-catalog:fb-bnk-capa-zs",
+    "short_title": "Highest bank capital as % of assets",
+    "title": "Highest bank capital as % of assets",
+    "unit": "%"
+  },
+  {
+    "description": "Commercial bank branches available for every 100,000 adults.",
+    "family": "Economy",
+    "icon": "🏦",
+    "id": "worldbank-catalog:fb-cbk-brch-p5",
+    "short_title": "Bank branches per 100,000 adults",
+    "title": "Most bank branches per 100,000 adults",
+    "unit": "per 100,000"
+  },
+  {
+    "description": "Domestic credit to private sector by banks refers to financial resources provided to the private sector by other depository corporations (deposit taking corporations except central banks), such as through…",
+    "family": "Economy",
+    "icon": "🏦",
+    "id": "worldbank-catalog:fd-ast-prvt-gd-zs",
+    "short_title": "Highest bank credit to the private sector as % of GDP",
+    "title": "Highest bank credit to the private sector as % of GDP",
+    "unit": "%"
+  },
+  {
+    "description": "Ratio of bank liquid reserves to bank assets is the ratio of domestic currency holdings and deposits with the monetary authorities to claims on other governments, nonfinancial public enterprises, the…",
+    "family": "Economy",
+    "icon": "🏦",
+    "id": "worldbank-catalog:fd-res-liqu-as-zs",
+    "short_title": "Highest bank liquid reserves as % of assets",
+    "title": "Highest bank liquid reserves as % of assets",
+    "unit": "%"
+  },
+  {
+    "description": "Foreign currency and gold held by the country’s central bank and monetary authorities.",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:fi-res-totl-cd",
+    "short_title": "Largest total reserves including gold",
+    "title": "Largest total reserves including gold",
+    "unit": "USD"
+  },
+  {
+    "description": "Reserve assets are external assets, including monetary gold, that are readily available to and controlled by monetary authorities for meeting balance of payments financing needs, for intervention in…",
+    "family": "Economy",
+    "icon": "🏦",
+    "id": "worldbank-catalog:fi-res-totl-dt-zs",
+    "short_title": "Highest reserves as % of foreign debt",
+    "title": "Highest reserves as % of foreign debt",
+    "unit": "%"
+  },
+  {
+    "description": "Claims on central government include loans to central government institutions net of deposits.",
+    "family": "Economy",
+    "icon": "🏦",
+    "id": "worldbank-catalog:fm-ast-cgov-zg-m3",
+    "short_title": "Fastest growth rate in government credit relative to broad money",
+    "title": "Fastest growth rate in government credit relative to broad money",
+    "unit": "%"
+  },
+  {
+    "description": "Claims on other sectors of the domestic economy include gross credit from the financial system to households, nonprofit institutions serving households, nonfinancial corporations, state and local…",
+    "family": "Economy",
+    "icon": "🏦",
+    "id": "worldbank-catalog:fm-ast-domo-zg-m3",
+    "short_title": "Fastest growth rate in domestic credit relative to broad money",
+    "title": "Fastest growth rate in domestic credit relative to broad money",
+    "unit": "%"
+  },
+  {
+    "description": "Domestic credit to private sector refers to financial resources provided to the private sector, such as through loans, purchases of nonequity securities, and trade credits and other accounts receivable,…",
+    "family": "Economy",
+    "icon": "🏦",
+    "id": "worldbank-catalog:fm-ast-prvt-gd-zs",
+    "short_title": "Highest monetary-sector private credit as % of GDP",
+    "title": "Highest monetary-sector private credit as % of GDP",
+    "unit": "%"
+  },
+  {
+    "description": "Claims on private sector include gross credit from the financial system to individuals, enterprises, nonfinancial public entities not included under net domestic credit, and financial institutions not…",
+    "family": "Economy",
+    "icon": "🏦",
+    "id": "worldbank-catalog:fm-ast-prvt-zg-m3",
+    "short_title": "Fastest growth rate in private credit relative to broad money",
+    "title": "Fastest growth rate in private credit relative to broad money",
+    "unit": "%"
+  },
+  {
+    "description": "Broad money is the sum of all liquid financial instruments held by money-holding sectors that are widely accepted in an economy as a medium of exchange, plus those that can be converted into a medium of…",
+    "family": "Economy",
+    "icon": "🏦",
+    "id": "worldbank-catalog:fm-lbl-bmny-gd-zs",
+    "short_title": "Highest broad money as % of GDP",
+    "title": "Highest broad money as % of GDP",
+    "unit": "%"
+  },
+  {
+    "description": "Broad money is the sum of all liquid financial instruments held by money-holding sectors that are widely accepted in an economy as a medium of exchange, plus those that can be converted into a medium of…",
+    "family": "Economy",
+    "icon": "🏦",
+    "id": "worldbank-catalog:fm-lbl-bmny-zg",
+    "short_title": "Fastest broad-money growth rate",
+    "title": "Fastest broad-money growth rate",
+    "unit": "%"
+  },
+  {
+    "description": "Inflation as measured by the consumer price index reflects the annual percentage change in the cost to the average consumer of acquiring a basket of goods and services that may be fixed or changed at…",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:fp-cpi-totl-zg",
+    "short_title": "Highest inflation rate",
+    "title": "Highest inflation rate",
+    "unit": "%"
+  },
+  {
+    "description": "Loans and other claims on central government, net of government deposits, as a percentage of GDP.",
+    "family": "Economy",
+    "icon": "🏦",
+    "id": "worldbank-catalog:fs-ast-cgov-gd-zs",
+    "short_title": "Highest net claims on government as % of GDP",
+    "title": "Highest net claims on government as % of GDP",
+    "unit": "%"
+  },
+  {
+    "description": "Domestic credit to private sector refers to financial resources provided to the private sector by financial corporations, such as through loans, purchases of nonequity securities, and trade credits and…",
+    "family": "Economy",
+    "icon": "🏦",
+    "id": "worldbank-catalog:fs-ast-prvt-gd-zs",
+    "short_title": "Highest financial-sector private credit as % of GDP",
+    "title": "Highest financial-sector private credit as % of GDP",
+    "unit": "%"
+  },
+  {
+    "description": "Share of adults with an account at a financial institution or a mobile-money service provider.",
+    "family": "Economy",
+    "icon": "🏦",
+    "id": "worldbank-catalog:fx-own-totl-zs",
+    "short_title": "Highest share of adults with a financial or mobile-money account",
+    "title": "Highest % of adults with a financial or mobile money account",
+    "unit": "%"
+  },
+  {
+    "description": "Net investment in government nonfinancial assets includes fixed assets, inventories, valuables, and nonproduced assets.",
+    "family": "Government",
+    "icon": "🏛️",
+    "id": "worldbank-catalog:gc-nfn-totl-gd-zs",
+    "short_title": "Highest government asset investment as % of GDP",
+    "title": "Highest government asset investment as % of GDP",
+    "unit": "%"
+  },
+  {
+    "description": "Net lending (+) / net borrowing (–) equals government revenue minus expense, minus net investment in nonfinancial assets.",
+    "family": "Government",
+    "icon": "🏛️",
+    "id": "worldbank-catalog:gc-nld-totl-gd-zs",
+    "short_title": "Highest government budget balance as % of GDP",
+    "title": "Highest government budget balance as % of GDP",
+    "unit": "%"
+  },
+  {
+    "description": "Grants are transfers receivable by government units, from other resident or nonresident government units or international organizations, that do not meet the definition of a tax, subsidy, or social…",
+    "family": "Government",
+    "icon": "🏛️",
+    "id": "worldbank-catalog:gc-rev-gotr-zs",
+    "short_title": "Highest grants and other receipts as % of government revenue",
+    "title": "Highest grants and other receipts as % of government revenue",
+    "unit": "%"
+  },
+  {
+    "description": "Revenue is an increase in net worth resulting from a transaction.",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:gc-rev-xgrt-gd-zs",
+    "short_title": "Highest government revenue excluding grants as % of GDP",
+    "title": "Highest government revenue excluding grants as % of GDP",
+    "unit": "%"
+  },
+  {
+    "description": "General taxes on goods and services are taxes levied on the production, leasing, delivery, sale, purchase or other change of ownership of a wide range of goods and the provision of a wide range of services.",
+    "family": "Government",
+    "icon": "🏛️",
+    "id": "worldbank-catalog:gc-tax-gsrv-rv-zs",
+    "short_title": "Highest goods-and-services taxes as % of government revenue",
+    "title": "Highest goods-and-services taxes as % of government revenue",
+    "unit": "%"
+  },
+  {
+    "description": "General taxes on goods and services are taxes levied on the production, leasing, delivery, sale, purchase or other change of ownership of a wide range of goods and the provision of a wide range of services.",
+    "family": "Government",
+    "icon": "🏛️",
+    "id": "worldbank-catalog:gc-tax-gsrv-va-zs",
+    "short_title": "Highest consumption taxes as % of industry and services output",
+    "title": "Highest consumption taxes as % of industry and services output",
+    "unit": "%"
+  },
+  {
+    "description": "Other taxes include employer payroll or labor taxes, taxes on property, and taxes not allocable to other categories, such as penalties for late payment or nonpayment of taxes.",
+    "family": "Government",
+    "icon": "🏛️",
+    "id": "worldbank-catalog:gc-tax-othr-rv-zs",
+    "short_title": "Highest miscellaneous taxes as % of government revenue",
+    "title": "Highest miscellaneous taxes as % of government revenue",
+    "unit": "%"
+  },
+  {
+    "description": "Tax revenue as a share of gross domestic product.",
+    "family": "Government",
+    "icon": "🧾",
+    "id": "worldbank-catalog:gc-tax-totl-gd-zs",
+    "short_title": "Largest tax-revenue share of GDP",
+    "title": "Highest tax revenue as % of GDP",
+    "unit": "%"
+  },
+  {
+    "description": "Taxes on income, profits, and capital gains are taxes payable on the actual or presumed incomes, profits and capital gains.",
+    "family": "Government",
+    "icon": "🏛️",
+    "id": "worldbank-catalog:gc-tax-ypkg-rv-zs",
+    "short_title": "Highest income and profit taxes as % of government revenue",
+    "title": "Highest income and profit taxes as % of government revenue",
+    "unit": "%"
+  },
+  {
+    "description": "Taxes on income, profits, and capital gains are taxes payable on the actual or presumed incomes, profits and capital gains.",
+    "family": "Government",
+    "icon": "🏛️",
+    "id": "worldbank-catalog:gc-tax-ypkg-zs",
+    "short_title": "Highest income and profit taxes as % of all taxes",
+    "title": "Highest income and profit taxes as % of all taxes",
+    "unit": "%"
+  },
+  {
+    "description": "Compensation of employees is defined as the total remuneration, in cash or in kind, payable by an enterprise to an employee in return for work done by the latter during the accounting period.",
+    "family": "Government",
+    "icon": "🏛️",
+    "id": "worldbank-catalog:gc-xpn-comp-zs",
+    "short_title": "Highest government payroll as % of expenses",
+    "title": "Highest government payroll as % of expenses",
+    "unit": "%"
+  },
+  {
+    "description": "Goods and services include all government payments in exchange for goods and services used for the production of market and nonmarket goods and services.",
+    "family": "Government",
+    "icon": "🏛️",
+    "id": "worldbank-catalog:gc-xpn-gsrv-zs",
+    "short_title": "Highest government purchases as % of expenses",
+    "title": "Highest government purchases as % of expenses",
+    "unit": "%"
+  },
+  {
+    "description": "Interest payments include interest payments on government debt (including long-term bonds, long-term loans, and other debt instruments) to domestic and foreign residents.",
+    "family": "Government",
+    "icon": "🏛️",
+    "id": "worldbank-catalog:gc-xpn-intp-rv-zs",
+    "short_title": "Highest debt interest as % of government revenue",
+    "title": "Highest debt interest as % of government revenue",
+    "unit": "%"
+  },
+  {
+    "description": "Interest payments include interest payments on government debt (including long-term bonds, long-term loans, and other debt instruments) to domestic and foreign residents.",
+    "family": "Government",
+    "icon": "🏛️",
+    "id": "worldbank-catalog:gc-xpn-intp-zs",
+    "short_title": "Highest debt interest as % of government expenses",
+    "title": "Highest debt interest as % of government expenses",
+    "unit": "%"
+  },
+  {
+    "description": "Other expense is spending on dividends, rent, and other miscellaneous expenses, including provision for consumption of fixed capital.",
+    "family": "Government",
+    "icon": "🏛️",
+    "id": "worldbank-catalog:gc-xpn-othr-zs",
+    "short_title": "Highest miscellaneous government spending as % of expenses",
+    "title": "Highest miscellaneous government spending as % of expenses",
+    "unit": "%"
+  },
+  {
+    "description": "Expense is a decrease in net worth resulting from a transaction.",
+    "family": "Economy",
+    "icon": "💰",
+    "id": "worldbank-catalog:gc-xpn-totl-gd-zs",
+    "short_title": "Highest government expenses as % of GDP",
+    "title": "Highest government expenses as % of GDP",
+    "unit": "%"
+  },
+  {
+    "description": "Subsidies are current unrequited payments that government units, including nonresident government units, make to enterprises on the basis of the levels of their production activities or the quantities or…",
+    "family": "Government",
+    "icon": "🏛️",
+    "id": "worldbank-catalog:gc-xpn-trft-zs",
+    "short_title": "Highest subsidies and transfers as % of government expenses",
+    "title": "Highest subsidies and transfers as % of government expenses",
+    "unit": "%"
+  },
+  {
+    "description": "New limited liability companies registered during the year per 1,000 people ages 15–64.",
+    "family": "Economy",
+    "icon": "🏭",
+    "id": "worldbank-catalog:ic-bus-ndns-zs",
+    "short_title": "Highest new-business density",
+    "title": "Highest new-business density",
+    "unit": "per 1,000"
+  },
+  {
+    "description": "New limited-liability companies registered during 2024.",
+    "family": "Economy",
+    "icon": "🏭",
+    "id": "worldbank-catalog:ic-bus-nreg",
+    "short_title": "Most newly registered businesses",
+    "title": "Most newly registered businesses",
+    "unit": "reported value"
+  },
+  {
+    "description": "Number of domestic and international takeoffs by airlines registered in each country during the year.",
+    "family": "Infrastructure",
+    "icon": "✈️",
+    "id": "worldbank-catalog:is-air-dprt",
+    "short_title": "Most airline departures",
+    "title": "Most airline departures",
+    "unit": "reported value"
+  },
+  {
+    "description": "Total active mobile phone subscriptions in the country.",
+    "family": "Infrastructure",
+    "icon": "📱",
+    "id": "worldbank-catalog:it-cel-sets",
+    "short_title": "Most mobile phone subscriptions",
+    "title": "Most mobile phone subscriptions",
+    "unit": "reported value"
+  },
+  {
+    "description": "Total active fixed telephone subscriptions in the country.",
+    "family": "Infrastructure",
+    "icon": "☎️",
+    "id": "worldbank-catalog:it-mlt-main",
+    "short_title": "Most fixed telephone subscriptions",
+    "title": "Most fixed telephone subscriptions",
+    "unit": "reported value"
+  },
+  {
+    "description": "Total fixed high-speed Internet subscriptions in the country.",
+    "family": "Infrastructure",
+    "icon": "🌐",
+    "id": "worldbank-catalog:it-net-bbnd",
+    "short_title": "Most fixed broadband subscriptions",
+    "title": "Most fixed broadband subscriptions",
+    "unit": "reported value"
+  },
+  {
+    "description": "Publicly trusted website security certificates, grouped by hosting country.",
+    "family": "Infrastructure",
+    "icon": "🔒",
+    "id": "worldbank-catalog:it-net-secr",
+    "short_title": "Most website security certificates",
+    "title": "Most trusted website security certificates",
+    "unit": "reported value"
+  },
+  {
+    "description": "Secure Internet servers per one million people.",
+    "family": "Infrastructure",
+    "icon": "🔒",
+    "id": "worldbank-catalog:it-net-secr-p6",
+    "short_title": "Most secure Internet servers per million people",
+    "title": "Most secure Internet servers per million people",
+    "unit": "per 1 million people"
+  },
+  {
+    "description": "Estimated volume of major weapons imported through purchases, gifts or licensed production.",
+    "family": "Government",
+    "icon": "🪖",
+    "id": "worldbank-catalog:ms-mil-mprt-kd",
+    "short_title": "Largest arms imports",
+    "title": "Largest arms imports",
+    "unit": "reported value"
+  },
+  {
+    "description": "Military expenditure as a share of general government expenditure.",
+    "family": "Government",
+    "icon": "🪖",
+    "id": "worldbank-catalog:ms-mil-xpnd-zs",
+    "short_title": "Largest military share of government spending",
+    "title": "Highest military spending as % of government spending",
+    "unit": "%"
+  },
+  {
+    "description": "People ages 0–14 as a share of the population.",
+    "family": "Population",
+    "icon": "🧒",
+    "id": "young",
+    "short_title": "Youngest population",
+    "title": "Youngest population",
+    "unit": "%"
+  }
+]

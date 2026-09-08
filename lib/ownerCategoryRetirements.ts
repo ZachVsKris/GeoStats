@@ -1,5 +1,6 @@
 // Owner-approved editorial retirements. Existing dated boards retain their scoring data.
 const retired = new Set([
+  "unwpp:lowest-death-rate",
   "natural-earth:highest-mapped-glaciated-share",
   "natural-earth:longest-average-land-border",
   "arablePct",

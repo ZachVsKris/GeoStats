@@ -23,3 +23,5 @@ The final witness run used exact IEEE-754 values exported from PostgreSQL, avoid
 Email sign-in's spam/junk reminder was committed separately as `dfdb61b`. Inbox placement itself is not resolved by that reminder.
 
 Hosted activation succeeded as migration `20260908163017_owner_category_review`. Verified afterward: 365 enabled categories, 49 retirements, 36 presentation updates and zero unsafe published categories. All three current Daily payload hashes are unchanged; all 39 saved scores remain, including today's four scores. The final cache-version update follows activation so new Random games receive the updated catalog.
+
+Follow-up owner instruction: also retire `unwpp:lowest-death-rate` (Fewest annual deaths per 1,000 people). Applied as `20260908163838_retire_lowest_death_rate`, bringing the catalog to 364. It does not occur on today's Daily boards. Catalog revision 16.3.4.7 invalidates browser, server and Random snapshot caches; existing dated boards retain their scoring data.

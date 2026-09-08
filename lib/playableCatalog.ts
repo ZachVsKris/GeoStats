@@ -1,5 +1,6 @@
 import { CATEGORIES, type Category, type DataSourceId } from "./categories";
 import type { EvidenceLabel, TrustStatus } from "./categoryTrust";
+import { PLAYABLE_CATALOG_CACHE_VERSION } from "./version";
 
 export type PlayableCategoryRow = {
   id: string;
@@ -838,7 +839,7 @@ export function fetchPlayableCategoryCatalog(options: { refresh?: boolean } = {}
     return Promise.reject(new Error("The verified category catalog must be loaded by the server."));
   }
   if (!browserCatalogPromise || options.refresh) {
-    browserCatalogPromise = fetch("/api/playable-categories", {
+    browserCatalogPromise = fetch(`/api/playable-categories?catalog=${PLAYABLE_CATALOG_CACHE_VERSION}`, {
       cache: options.refresh ? "no-store" : "default",
     })
       .then(async (response) => {

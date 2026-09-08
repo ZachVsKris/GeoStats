@@ -33,5 +33,29 @@ async function run(rows, cap, expectedError) {
   await run(fixtures, 1);
   await run(fixtures, 100);
   await run([fixtures[0], fixtures[0]], 1, /identity collision/);
+  // A presentation/retirement revision must also invalidate Random's full dataset
+  // snapshot, even when source-data and game-rule versions have not changed.
+  const sharedCache = new Map();
+  const snapshotCode = ts.transpileModule(fs.readFileSync('lib/puzzleWarehouseSnapshot.ts','utf8'), {
+    compilerOptions: {target: ts.ScriptTarget.ES2022,module: ts.ModuleKind.CommonJS},
+  }).outputText;
+  async function snapshot(revision, count) {
+    const mocks = {
+      'server-only': {},
+      './version': {DATASET_VERSION:'same-data',CATEGORY_SET_VERSION:'same-rules',PLAYABLE_CATALOG_CACHE_VERSION:revision},
+      './serverPlayableCatalog': {loadServerPlayableCategoryCatalog:async()=>Array.from({length:count},(_,id)=>({id}))},
+      './serverWarehouseCategoriesV16_2_7': {fetchServerWarehouseCategories:async categories=>({datasets:categories,errors:[]})},
+      'next/cache': {unstable_cache:(fn,key)=>async()=>{
+        const serialized=JSON.stringify(key);
+        if(!sharedCache.has(serialized))sharedCache.set(serialized,await fn());
+        return sharedCache.get(serialized);
+      }},
+    };
+    const mod={exports:{}};
+    new Function('require','module','exports',snapshotCode)(id=>{assert.ok(id in mocks,id);return mocks[id];},mod,mod.exports);
+    return mod.exports.loadCachedPuzzleWarehouseSnapshot();
+  }
+  assert.equal((await snapshot('before-owner-review',414)).catalogSize,414);
+  assert.equal((await snapshot('after-owner-review',365)).catalogSize,365,'Random must not reuse the retired catalog');
   console.log('Server catalog bounded-page cache behavior passed.');
 })().catch(error => { console.error(error); process.exitCode = 1; });

@@ -1,25 +1,20 @@
 name: v16.2.7 authoritative breadth recovery
 
+# Imports change the live warehouse and require an explicit manual run.
+# A workflow-file push only cancels a superseded run; it never imports data.
 on:
+  workflow_dispatch:
   push:
     branches: [main]
     paths:
       - '.github/workflows/v16-2-7-breadth-recovery.yml'
-      - 'scripts/import-natural-earth.py'
-      - 'scripts/import-historical-categories.py'
-      - 'scripts/import-natural-earth-capitals.py'
-      - 'scripts/import-unesco-ich.py'
-      - 'scripts/import-world-bank-infrastructure.py'
-      - 'scripts/import-world-bank-climate.py'
-      - 'scripts/import-un-wpp.py'
-      - 'scripts/audit-source-integrity.py'
 
 permissions:
   contents: read
 
 concurrency:
   group: geostats-v16-2-7-production-catalog
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 env:
   SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
@@ -28,6 +23,7 @@ env:
 
 jobs:
   import-source:
+    if: ${{ github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
     timeout-minutes: 55
     strategy:

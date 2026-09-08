@@ -4,7 +4,8 @@ import EmailConfirmation from "../../../components/EmailConfirmation";
 export const metadata: Metadata = {
   title: "Confirm sign-in | GeoStats",
   robots: { index: false, follow: false },
-  referrer: "no-referrer",
+  // Preserve Origin on native form POSTs; tokens are only in the fragment.
+  referrer: "same-origin",
 };
 
 // A GET never consumes the one-time token. Email scanners can open this page safely.

@@ -14,6 +14,7 @@ test("email link waits for a person and keeps its token out of requests", async 
   let posted = "";
   await page.route("**/auth/email/verify", async route => {
     expect(route.request().method()).toBe("POST");
+    expect(route.request().headers()["origin"]).toBe(new URL(route.request().url()).origin);
     posted = route.request().postData() || "";
     await route.fulfill({ status: 200, contentType: "text/html", body: "<h1>Confirmation received</h1>" });
   });

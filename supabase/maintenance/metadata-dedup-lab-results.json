@@ -1,0 +1,868 @@
+{
+  "runtime": "PostgreSQL 17.5 on aarch64-unknown-linux-gnu, compiled by emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 3.1.74 (1092ec30a3fb1d46b1782ff1b4db5094d3d06ae5), 32-bit",
+  "limitations": [
+    "Single-session WebAssembly PostgreSQL, not native Supabase hardware or a concurrent load test.",
+    "Fresh baseline isolates deduplication savings from pre-existing table/index bloat.",
+    "Compatibility view is a read prototype; existing ON CONFLICT import writes are not compatible.",
+    "Exports were taken in separate bounded read transactions, not one global snapshot."
+  ],
+  "rowCount": 600723,
+  "sizes": [
+    {
+      "relname": "baseline",
+      "table_bytes": 250716160,
+      "index_bytes": 128704512,
+      "total_bytes": 379420672
+    },
+    {
+      "relname": "compact_observations",
+      "table_bytes": 84172800,
+      "index_bytes": 128704512,
+      "total_bytes": 212877312
+    },
+    {
+      "relname": "metadata_dictionary",
+      "table_bytes": 35741696,
+      "index_bytes": 7069696,
+      "total_bytes": 42811392
+    },
+    {
+      "relname": "source_dictionary",
+      "table_bytes": 106496,
+      "index_bytes": 106496,
+      "total_bytes": 212992
+    }
+  ],
+  "dictionaryCounts": [
+    {
+      "metadata": 86249,
+      "urls": 646
+    }
+  ],
+  "differentRows": 0,
+  "queryCases": 47,
+  "benchmarks": [
+    {
+      "table": "baseline",
+      "samples": 1410,
+      "median_ms": 0.156,
+      "p95_ms": 0.895
+    },
+    {
+      "table": "compatibility_observations",
+      "samples": 1410,
+      "median_ms": 0.153,
+      "p95_ms": 0.863
+    }
+  ],
+  "unexpectedDictionaryScans": 0,
+  "pairedCases": [
+    {
+      "name": "single-category",
+      "category": "agLand",
+      "year": 2023,
+      "baseline": {
+        "median_ms": 0.325,
+        "p95_ms": 0.474
+      },
+      "compatibility_observations": {
+        "median_ms": 0.341,
+        "p95_ms": 0.504
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "comtrade:most-computers-exported",
+      "year": 2025,
+      "baseline": {
+        "median_ms": 0.158,
+        "p95_ms": 0.198
+      },
+      "compatibility_observations": {
+        "median_ms": 0.161,
+        "p95_ms": 0.203
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "comtrade:most-ships-exported",
+      "year": 2025,
+      "baseline": {
+        "median_ms": 0.155,
+        "p95_ms": 0.211
+      },
+      "compatibility_observations": {
+        "median_ms": 0.154,
+        "p95_ms": 0.185
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "faostat-fbs:fish",
+      "year": 2023,
+      "baseline": {
+        "median_ms": 0.31,
+        "p95_ms": 0.367
+      },
+      "compatibility_observations": {
+        "median_ms": 0.278,
+        "p95_ms": 0.308
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "faostat-qcl-barley-production-0115-5510-t",
+      "year": 2024,
+      "baseline": {
+        "median_ms": 0.112,
+        "p95_ms": 0.189
+      },
+      "compatibility_observations": {
+        "median_ms": 0.109,
+        "p95_ms": 0.249
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "faostat-qcl-cheese-from-milk-of-goats-fresh-or-production-22254-5510-t",
+      "year": 2023,
+      "baseline": {
+        "median_ms": 0.062,
+        "p95_ms": 0.124
+      },
+      "compatibility_observations": {
+        "median_ms": 0.062,
+        "p95_ms": 0.11
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "faostat-qcl-edible-offal-of-sheep-fresh-chille-production-21155-5510-t",
+      "year": 2024,
+      "baseline": {
+        "median_ms": 0.143,
+        "p95_ms": 0.236
+      },
+      "compatibility_observations": {
+        "median_ms": 0.142,
+        "p95_ms": 0.237
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "faostat-qcl-hop-cones-production-01659-5510-t",
+      "year": 2024,
+      "baseline": {
+        "median_ms": 0.051,
+        "p95_ms": 0.099
+      },
+      "compatibility_observations": {
+        "median_ms": 0.05,
+        "p95_ms": 0.109
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "faostat-qcl-mixed-grain-production-01199-02-5510-t",
+      "year": 2024,
+      "baseline": {
+        "median_ms": 0.052,
+        "p95_ms": 0.103
+      },
+      "compatibility_observations": {
+        "median_ms": 0.05,
+        "p95_ms": 0.078
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "faostat-qcl-other-stimulant-spice-and-aromatic-production-01699-5510-t",
+      "year": 2024,
+      "baseline": {
+        "median_ms": 0.079,
+        "p95_ms": 0.124
+      },
+      "compatibility_observations": {
+        "median_ms": 0.077,
+        "p95_ms": 0.151
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "faostat-qcl-raw-hides-and-skins-of-goats-or-ki-production-02954-5510-t",
+      "year": 2024,
+      "baseline": {
+        "median_ms": 0.14,
+        "p95_ms": 0.212
+      },
+      "compatibility_observations": {
+        "median_ms": 0.137,
+        "p95_ms": 0.283
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "faostat-qcl-sugar-crops-primary-production-f1723-5510-t",
+      "year": 2024,
+      "baseline": {
+        "median_ms": 0.16,
+        "p95_ms": 0.234
+      },
+      "compatibility_observations": {
+        "median_ms": 0.135,
+        "p95_ms": 0.207
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "fertility",
+      "year": 2024,
+      "baseline": {
+        "median_ms": 0.18,
+        "p95_ms": 0.21
+      },
+      "compatibility_observations": {
+        "median_ms": 0.175,
+        "p95_ms": 0.216
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "history:worldbank-infant-mortality-below-25",
+      "year": 2026,
+      "baseline": {
+        "median_ms": 0.119,
+        "p95_ms": 0.189
+      },
+      "compatibility_observations": {
+        "median_ms": 0.118,
+        "p95_ms": 0.251
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "koppen-geiger:continental-share",
+      "year": 2020,
+      "baseline": {
+        "median_ms": 0.179,
+        "p95_ms": 0.23
+      },
+      "compatibility_observations": {
+        "median_ms": 0.167,
+        "p95_ms": 0.238
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "natural-earth:highest-mapped-river-density",
+      "year": 2022,
+      "baseline": {
+        "median_ms": 0.181,
+        "p95_ms": 0.303
+      },
+      "compatibility_observations": {
+        "median_ms": 0.174,
+        "p95_ms": 0.308
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "pew-religion:christian-population",
+      "year": 2020,
+      "baseline": {
+        "median_ms": 0.167,
+        "p95_ms": 0.219
+      },
+      "compatibility_observations": {
+        "median_ms": 0.162,
+        "p95_ms": 0.262
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "undp-hdr:hdi",
+      "year": 2023,
+      "baseline": {
+        "median_ms": 0.229,
+        "p95_ms": 0.358
+      },
+      "compatibility_observations": {
+        "median_ms": 0.212,
+        "p95_ms": 0.376
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "unesco:ROFST.MOD.3",
+      "year": 2025,
+      "baseline": {
+        "median_ms": 0.215,
+        "p95_ms": 0.322
+      },
+      "compatibility_observations": {
+        "median_ms": 0.196,
+        "p95_ms": 0.367
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "unsdg:firm-bribery",
+      "year": 2025,
+      "baseline": {
+        "median_ms": 0.044,
+        "p95_ms": 0.075
+      },
+      "compatibility_observations": {
+        "median_ms": 0.043,
+        "p95_ms": 0.073
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "unwpp:highest-male-life-expectancy",
+      "year": 2023,
+      "baseline": {
+        "median_ms": 0.18,
+        "p95_ms": 0.233
+      },
+      "compatibility_observations": {
+        "median_ms": 0.168,
+        "p95_ms": 0.209
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "who:MALARIA_EST_INCIDENCE",
+      "year": 2024,
+      "baseline": {
+        "median_ms": 0.039,
+        "p95_ms": 0.067
+      },
+      "compatibility_observations": {
+        "median_ms": 0.037,
+        "p95_ms": 0.043
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "worldbank-catalog:ag-srf-totl-k2",
+      "year": 2023,
+      "baseline": {
+        "median_ms": 0.169,
+        "p95_ms": 0.222
+      },
+      "compatibility_observations": {
+        "median_ms": 0.167,
+        "p95_ms": 0.262
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "worldbank-catalog:bx-grt-exta-cd-wd",
+      "year": 2023,
+      "baseline": {
+        "median_ms": 0.124,
+        "p95_ms": 0.235
+      },
+      "compatibility_observations": {
+        "median_ms": 0.122,
+        "p95_ms": 0.196
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "worldbank-catalog:dc-dac-ausl-cd",
+      "year": 2023,
+      "baseline": {
+        "median_ms": 0.12,
+        "p95_ms": 0.208
+      },
+      "compatibility_observations": {
+        "median_ms": 0.117,
+        "p95_ms": 0.217
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "worldbank-catalog:dc-dac-svkl-cd",
+      "year": 2023,
+      "baseline": {
+        "median_ms": 0.051,
+        "p95_ms": 0.058
+      },
+      "compatibility_observations": {
+        "median_ms": 0.051,
+        "p95_ms": 0.053
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "worldbank-catalog:dt-nfl-dpng-cd",
+      "year": 2024,
+      "baseline": {
+        "median_ms": 0.092,
+        "p95_ms": 0.136
+      },
+      "compatibility_observations": {
+        "median_ms": 0.091,
+        "p95_ms": 0.124
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "worldbank-catalog:dt-nfl-uncv-cd",
+      "year": 2022,
+      "baseline": {
+        "median_ms": 0.05,
+        "p95_ms": 0.053
+      },
+      "compatibility_observations": {
+        "median_ms": 0.051,
+        "p95_ms": 0.121
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "worldbank-catalog:dt-tds-mlat-cd",
+      "year": 2024,
+      "baseline": {
+        "median_ms": 0.121,
+        "p95_ms": 0.2
+      },
+      "compatibility_observations": {
+        "median_ms": 0.117,
+        "p95_ms": 0.145
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "worldbank-catalog:en-ghg-ch4-ag-mt-ce-ar5",
+      "year": 2024,
+      "baseline": {
+        "median_ms": 0.166,
+        "p95_ms": 0.273
+      },
+      "compatibility_observations": {
+        "median_ms": 0.163,
+        "p95_ms": 0.309
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "worldbank-catalog:en-ghg-n2o-fe-mt-ce-ar5",
+      "year": 2024,
+      "baseline": {
+        "median_ms": 0.166,
+        "p95_ms": 0.272
+      },
+      "compatibility_observations": {
+        "median_ms": 0.165,
+        "p95_ms": 0.22
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "worldbank-catalog:er-ptd-totl-zs",
+      "year": 2025,
+      "baseline": {
+        "median_ms": 0.175,
+        "p95_ms": 0.237
+      },
+      "compatibility_observations": {
+        "median_ms": 0.166,
+        "p95_ms": 0.201
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "worldbank-catalog:fr-inr-risk",
+      "year": 2025,
+      "baseline": {
+        "median_ms": 0.047,
+        "p95_ms": 0.108
+      },
+      "compatibility_observations": {
+        "median_ms": 0.045,
+        "p95_ms": 0.1
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "worldbank-catalog:gc-rev-socl-zs",
+      "year": 2024,
+      "baseline": {
+        "median_ms": 0.075,
+        "p95_ms": 0.099
+      },
+      "compatibility_observations": {
+        "median_ms": 0.074,
+        "p95_ms": 0.102
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "worldbank-catalog:gc-xpn-totl-cn",
+      "year": 2024,
+      "baseline": {
+        "median_ms": 0.023,
+        "p95_ms": 0.067
+      },
+      "compatibility_observations": {
+        "median_ms": 0.023,
+        "p95_ms": 0.029
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "worldbank-catalog:ic-bre-mc-p3",
+      "year": 2024,
+      "baseline": {
+        "median_ms": 0.059,
+        "p95_ms": 0.086
+      },
+      "compatibility_observations": {
+        "median_ms": 0.06,
+        "p95_ms": 0.088
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "worldbank-catalog:ic-frm-exs-zs",
+      "year": 2025,
+      "baseline": {
+        "median_ms": 0.07,
+        "p95_ms": 0.095
+      },
+      "compatibility_observations": {
+        "median_ms": 0.07,
+        "p95_ms": 0.076
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "worldbank-catalog:iq-cpa-fisp-xq",
+      "year": 2025,
+      "baseline": {
+        "median_ms": 0.084,
+        "p95_ms": 0.131
+      },
+      "compatibility_observations": {
+        "median_ms": 0.083,
+        "p95_ms": 0.137
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "worldbank-catalog:ne-con-govt-kd",
+      "year": 2025,
+      "baseline": {
+        "median_ms": 0.124,
+        "p95_ms": 0.21
+      },
+      "compatibility_observations": {
+        "median_ms": 0.122,
+        "p95_ms": 0.237
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "worldbank-catalog:ne-exp-gnfs-cn",
+      "year": 2025,
+      "baseline": {
+        "median_ms": 0.132,
+        "p95_ms": 0.174
+      },
+      "compatibility_observations": {
+        "median_ms": 0.13,
+        "p95_ms": 0.22
+      }
+    },
+    {
+      "name": "single-category",
+      "category": "worldbankinfra:air-passengers",
+      "year": 2023,
+      "baseline": {
+        "median_ms": 0.164,
+        "p95_ms": 0.377
+      },
+      "compatibility_observations": {
+        "median_ms": 0.156,
+        "p95_ms": 0.582
+      }
+    },
+    {
+      "name": "bulk-category",
+      "category": [
+        "agLand",
+        "agLandArea",
+        "airFreight",
+        "airPassengers",
+        "arableHa",
+        "arablePct",
+        "density",
+        "faostat-fbs:bananas",
+        "faostat-fbs:beef",
+        "faostat-fbs:beer",
+        "faostat-fbs:calories",
+        "faostat-fbs:coffee",
+        "faostat-fbs:dairy-products",
+        "faostat-fbs:eggs",
+        "faostat-fbs:fish",
+        "faostat-fbs:fruit",
+        "faostat-fbs:maize",
+        "faostat-fbs:meat",
+        "faostat-fbs:milk",
+        "faostat-fbs:onions",
+        "faostat-fbs:pork",
+        "faostat-fbs:potatoes",
+        "faostat-fbs:poultry",
+        "faostat-fbs:protein",
+        "faostat-fbs:pulses",
+        "faostat-fbs:rice",
+        "faostat-fbs:sugar",
+        "faostat-fbs:tea",
+        "faostat-fbs:tomatoes",
+        "faostat-fbs:vegetable-oil",
+        "faostat-fbs:vegetables",
+        "faostat-fbs:wheat-products"
+      ],
+      "year": 2023,
+      "baseline": {
+        "median_ms": 0.871,
+        "p95_ms": 1.774
+      },
+      "compatibility_observations": {
+        "median_ms": 0.863,
+        "p95_ms": 1.559
+      }
+    },
+    {
+      "name": "bulk-category",
+      "category": [
+        "agValue",
+        "comtrade:most-aircraft-exported",
+        "comtrade:most-apples-pears-exported",
+        "comtrade:most-bananas-exported",
+        "comtrade:most-beef-exported",
+        "comtrade:most-beer-exported",
+        "comtrade:most-cars-exported",
+        "comtrade:most-ceramics-exported",
+        "comtrade:most-cheese-exported",
+        "comtrade:most-chocolate-exported",
+        "comtrade:most-citrus-exported",
+        "comtrade:most-coal-exported",
+        "comtrade:most-cocoa-beans-exported",
+        "comtrade:most-coffee-exported",
+        "comtrade:most-computers-exported",
+        "comtrade:most-copper-exported",
+        "comtrade:most-cotton-exported",
+        "comtrade:most-crude-oil-exported",
+        "comtrade:most-electricity-exported",
+        "comtrade:most-footwear-exported",
+        "comtrade:most-gold-exported",
+        "comtrade:most-integrated-circuits-exported",
+        "comtrade:most-maize-exported",
+        "comtrade:most-motorcycles-exported",
+        "comtrade:most-natural-gas-exported",
+        "comtrade:most-olive-oil-exported",
+        "comtrade:most-phones-exported",
+        "comtrade:most-potatoes-exported",
+        "comtrade:most-poultry-exported",
+        "comtrade:most-railway-equipment-exported",
+        "comtrade:most-rice-exported",
+        "comtrade:most-ships-exported"
+      ],
+      "year": 2025,
+      "baseline": {
+        "median_ms": 0.902,
+        "p95_ms": 1.921
+      },
+      "compatibility_observations": {
+        "median_ms": 0.85,
+        "p95_ms": 0.926
+      }
+    },
+    {
+      "name": "bulk-category",
+      "category": [
+        "basicWater",
+        "cerealProduction",
+        "cerealYield",
+        "co2PerCapita",
+        "co2Total",
+        "comtrade:most-aluminum-exported",
+        "comtrade:most-chemicals-exported",
+        "comtrade:most-clothing-exported",
+        "comtrade:most-electrical-equipment-exported",
+        "comtrade:most-fish-exported",
+        "comtrade:most-furniture-exported",
+        "comtrade:most-glass-exported",
+        "comtrade:most-iron-steel-exported",
+        "comtrade:most-machinery-exported",
+        "comtrade:most-medical-optical-exported",
+        "comtrade:most-paper-exported",
+        "comtrade:most-pharmaceuticals-exported",
+        "comtrade:most-plastics-exported",
+        "comtrade:most-rubber-products-exported",
+        "comtrade:most-spices-exported",
+        "comtrade:most-wood-exported",
+        "eia:most-natural-gas-produced",
+        "electricUse",
+        "electricityAccess",
+        "energyUse",
+        "faostat-qcl-almonds-in-shell-production-01371-5510-t",
+        "faostat-qcl-anise-badian-coriander-cumin-caraw-production-01654-5510-t",
+        "faostat-qcl-apples-production-01341-5510-t",
+        "faostat-qcl-apricots-production-01343-5510-t",
+        "faostat-qcl-artichokes-production-01216-5510-t",
+        "faostat-qcl-asparagus-production-01211-5510-t",
+        "faostat-qcl-asses-stocks-02132-5111-an"
+      ],
+      "year": 2024,
+      "baseline": {
+        "median_ms": 0.888,
+        "p95_ms": 1.165
+      },
+      "compatibility_observations": {
+        "median_ms": 0.869,
+        "p95_ms": 1.068
+      }
+    },
+    {
+      "name": "bulk-category",
+      "category": [
+        "history:ipu-recent-independence",
+        "history:ipu-universal-womens-suffrage",
+        "history:oldest-current-constitution",
+        "history:un-admission",
+        "history:worldbank-electricity-half",
+        "history:worldbank-fertility-below-3",
+        "history:worldbank-infant-mortality-below-25",
+        "history:worldbank-internet-half",
+        "history:worldbank-life-expectancy-70",
+        "history:worldbank-majority-urban",
+        "history:worldbank-mobile-subscriptions-50",
+        "history:worldbank-under-five-mortality-below-50",
+        "natural-earth-capital:capital-closest-equator",
+        "natural-earth-capital:northernmost-capital",
+        "natural-earth-capital:southernmost-capital",
+        "natural-earth:farthest-from-equator",
+        "natural-earth:largest-geographic-span",
+        "natural-earth:most-large-land-areas",
+        "natural-earth:most-separate-land-areas",
+        "smithsonian-gvp:highest-volcano",
+        "smithsonian-gvp:most-holocene-volcanoes",
+        "sports:fifa-world-cup-first-appearance",
+        "unescoheritage:all-sites",
+        "unescoich:most-elements",
+        "usgs:most-major-earthquakes-since-1970",
+        "usgs:strongest-earthquake-since-1970"
+      ],
+      "year": 2026,
+      "baseline": {
+        "median_ms": 0.856,
+        "p95_ms": 1.75
+      },
+      "compatibility_observations": {
+        "median_ms": 0.836,
+        "p95_ms": 1.182
+      }
+    },
+    {
+      "name": "bulk-category",
+      "category": [
+        "ilostat:ILR_CBCT_NOC_RT_A:highest-collective-bargaining",
+        "koppen-geiger:arid-share",
+        "koppen-geiger:continental-share",
+        "koppen-geiger:desert-share",
+        "koppen-geiger:mediterranean-share",
+        "koppen-geiger:polar-share",
+        "koppen-geiger:steppe-share",
+        "koppen-geiger:temperate-share",
+        "koppen-geiger:tropical-monsoon-share",
+        "koppen-geiger:tropical-rainforest-share",
+        "koppen-geiger:tropical-savanna-share",
+        "koppen-geiger:tundra-share",
+        "pew-religion:buddhist-population",
+        "pew-religion:buddhist-share",
+        "pew-religion:christian-population",
+        "pew-religion:christian-share",
+        "pew-religion:hindu-population",
+        "pew-religion:hindu-share",
+        "pew-religion:jewish-population",
+        "pew-religion:jewish-share",
+        "pew-religion:muslim-population",
+        "pew-religion:muslim-share",
+        "pew-religion:other-religions-population",
+        "pew-religion:other-religions-share",
+        "pew-religion:religious-diversity",
+        "pew-religion:unaffiliated-population",
+        "pew-religion:unaffiliated-share",
+        "worldbank-expansion:tourism-receipts",
+        "worldbank-expansion:tourism-receipts-share",
+        "worldbank-expansion:tourist-arrivals",
+        "worldbank-expansion:tourist-arrivals-per-resident",
+        "worldbankclimate:coldest"
+      ],
+      "year": 2020,
+      "baseline": {
+        "median_ms": 0.883,
+        "p95_ms": 1.351
+      },
+      "compatibility_observations": {
+        "median_ms": 0.821,
+        "p95_ms": 1.145
+      }
+    },
+    {
+      "name": "bulk-category",
+      "category": [
+        "dry",
+        "freshwater",
+        "natural-earth:highest-coastline-density",
+        "natural-earth:highest-land-border-density",
+        "natural-earth:highest-mapped-glaciated-share",
+        "natural-earth:highest-mapped-lake-share",
+        "natural-earth:highest-mapped-river-density",
+        "natural-earth:landlocked-fewest-neighbors",
+        "natural-earth:landlocked-most-neighbors",
+        "natural-earth:largest-arctic-land-area",
+        "natural-earth:largest-continuous-land-area",
+        "natural-earth:largest-east-west-span",
+        "natural-earth:largest-geodesic-land-area",
+        "natural-earth:largest-mapped-glaciated-area",
+        "natural-earth:largest-mapped-lake-area",
+        "natural-earth:largest-north-south-span",
+        "natural-earth:largest-single-mapped-lake",
+        "natural-earth:largest-tropical-land-area",
+        "natural-earth:longest-average-land-border",
+        "natural-earth:longest-coastline",
+        "natural-earth:longest-land-border",
+        "natural-earth:longest-single-land-border",
+        "natural-earth:most-land-neighbors",
+        "natural-earth:most-mapped-lakes",
+        "natural-earth:most-mapped-river-length",
+        "natural-earth:most-mapped-rivers",
+        "natural-earth:northernmost-country",
+        "natural-earth:southernmost-country",
+        "rain",
+        "renewableConsumption",
+        "unesco:READ.LOWERSEC",
+        "who:Yth_curr_cig_smoking"
+      ],
+      "year": 2022,
+      "baseline": {
+        "median_ms": 0.842,
+        "p95_ms": 0.994
+      },
+      "compatibility_observations": {
+        "median_ms": 0.81,
+        "p95_ms": 1.05
+      }
+    }
+  ],
+  "existingImporterUpsert": {
+    "code": "55000",
+    "message": "cannot insert into view \"compatibility_observations\""
+  }
+}

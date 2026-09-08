@@ -18,4 +18,8 @@ Definition evidence: source technical definitions and importer rules already in 
 
 Validation: rollback-only database trial retained exactly 365 categories with no unintended retirements; 1,093 successful source-backed category/mode witnesses and three valid future Daily trios, including top-20 and cross-board rules. See `audits/owner-review-verification-2026-09-08.json`. Focused regression checks cover updated wording, changing reference years and the dated-board retirement exception.
 
+The final witness run used exact IEEE-754 values exported from PostgreSQL, avoiding decimal rounding in the initial JSON export. Source hashes are checked again inside the activation transaction. Application change: PR #18, `68d65775b054c5d3dba0eadba35173bb586f5143`. GitHub's catalog/importer, typecheck, source-policy, Natural Earth and production build gates passed; cross-browser verification was still running when these release notes were prepared.
+
 Email sign-in's spam/junk reminder was committed separately as `dfdb61b`. Inbox placement itself is not resolved by that reminder.
+
+Hosted activation succeeded as migration `20260908163017_owner_category_review`. Verified afterward: 365 enabled categories, 49 retirements, 36 presentation updates and zero unsafe published categories. All three current Daily payload hashes are unchanged; all 39 saved scores remain, including today's four scores. The final cache-version update follows activation so new Random games receive the updated catalog.

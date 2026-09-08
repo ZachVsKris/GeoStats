@@ -669,12 +669,13 @@ Can you beat my score?`;
         <a href={challengePath("easy", seed)} className={`dailyModeButton ${difficulty === "easy" ? "active" : ""}`}>Scout</a>
         <a href={challengePath("normal", seed)} className={`dailyModeButton ${difficulty === "normal" ? "active" : ""}`}>Adventurer</a>
         <a href={challengePath("expert", seed)} className={`dailyModeButton ${difficulty === "expert" ? "active" : ""}`}>Expert</a>
-        {!isRandom && <AccountControls difficulty={difficulty} />}
+        {!isRandom && <a href={`/leaderboard?difficulty=${difficulty}`} className="headerLink">Leaderboard</a>}
       </div>
+      {!isRandom && <div className="gameAccount"><AccountControls difficulty={difficulty} hideLeaderboardLink compact /></div>}
       <details className="mobileMenu"><summary aria-label="Open game menu">Menu</summary><div>
         <a href="/audit">Data audit</a><button onClick={() => setShowRules(true)}>How it works</button>
         {isRandom && <a href="/daily">Daily modes</a>}
-        {!isRandom && <AccountControls difficulty={difficulty} />}
+        {!isRandom && <a href={`/leaderboard?difficulty=${difficulty}`}>Leaderboard</a>}
       </div></details>
     </header>}
 

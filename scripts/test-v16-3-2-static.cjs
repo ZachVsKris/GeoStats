@@ -29,7 +29,7 @@ for (const token of [
 check(/^begin;/m.test(migration) && /commit;\s*$/.test(migration), "v16.3.2 migration is not transaction wrapped");
 check(game.includes('className="removePiece"') && game.includes('<svg viewBox="0 0 16 16"'), "assigned-country removal is not a centered SVG control");
 check(game.includes('role="button"') && game.includes('onKeyDown={(event)=>{if(event.key==="Enter"||event.key===" ")'), "category slots lost keyboard accessibility after adding the remove button");
-for (const token of ["shouldCreateUser: true", "GeoStats sent your secure sign-in link", "opening the link creates your free account"]) {
+for (const token of ["shouldCreateUser: true", "GeoStats sent your secure sign-in link", "confirming your email activates your free account"]) {
   check(accounts.includes(token), `signup conversion hardening missing ${token}`);
 }
 check(!accounts.includes('prompt: "select_account"'), "Google sign-in still forces returning users through an unnecessary account picker");

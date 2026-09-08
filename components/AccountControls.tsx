@@ -16,6 +16,7 @@ type Props = {
   context?: AccountContext;
   ctaLabel?: string;
   hideLeaderboardLink?: boolean;
+  compact?: boolean;
 };
 
 const pendingKey = (difficulty: DailyDifficulty) => `geostats-pending-daily-score-${difficulty}`;
@@ -28,9 +29,11 @@ export default function AccountControls({
   context = "default",
   ctaLabel,
   hideLeaderboardLink = false,
+  compact = false,
 }: Props) {
   const supabase = useMemo(() => createSupabaseBrowserClient(), []);
   const [userLabel, setUserLabel] = useState<string | null>(null);
+  const [signedInEmail, setSignedInEmail] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [open, setOpen] = useState(false);
@@ -145,6 +148,8 @@ export default function AccountControls({
   }
 
   async function loadProfile(fallbackEmail?: string | null) {
+    setSignedInEmail(fallbackEmail ?? "");
+    setUserLabel(fallbackEmail?.split("@")[0] || "Account");
     try {
       const response = await fetch("/api/profile", { cache: "no-store" });
       if (!response.ok) return;
@@ -183,6 +188,7 @@ export default function AccountControls({
     const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
       if (!session?.user) {
         setUserLabel(null);
+        setSignedInEmail("");
         setUsername("");
         setUsernameDraft("");
         setUsernameCustomized(true);
@@ -292,7 +298,10 @@ export default function AccountControls({
   }
 
   async function signOut() {
-    await supabase?.auth.signOut();
+    const result = await supabase?.auth.signOut();
+    if (result?.error) { setMessage("Sign-out could not be completed. Please try again."); return; }
+    setUserLabel(null);
+    setSignedInEmail("");
     setOpen(false);
     setMessage("");
     setUsername("");
@@ -315,7 +324,7 @@ export default function AccountControls({
   return <>
     <div className={results ? "resultsAccountActions" : "accountHeaderActions"}>
       {!hideLeaderboardLink && <a className={results ? "secondaryAction" : "headerButtonLink"} href={`/leaderboard?difficulty=${difficulty}`}>{results ? "View leaderboard" : "Leaderboard"}</a>}
-      {userLabel ? <button type="button" onClick={openAccount}>{userLabel}</button> : <button type="button" onClick={openAccount}>{guestButtonLabel}</button>}
+      {userLabel ? <button type="button" onClick={openAccount} aria-label={`Account: signed in as ${userLabel}`} className={compact ? "compactAccountButton" : undefined}>{compact ? `✓ ${userLabel}` : userLabel}</button> : <button type="button" onClick={openAccount}>{guestButtonLabel}</button>}
     </div>
     {open && <div className="modal accountModal" onClick={(event) => event.currentTarget === event.target && usernameCustomized && setOpen(false)}>
       <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby={`account-dialog-title-${context}`} aria-describedby={`account-dialog-description-${context}`} aria-busy={saving || savingUsername || sendingLink || signingInWithGoogle}>
@@ -323,6 +332,7 @@ export default function AccountControls({
         <span className="kicker">GeoStats account</span>
         <h2 id={`account-dialog-title-${context}`}>{userLabel ? `Signed in as ${userLabel}` : guestHeading}</h2>
         {userLabel ? <>
+          <p className="signedInIdentity">Signed in as <strong>{signedInEmail || userLabel}</strong></p>
           {!usernameCustomized && <p className="usernameRequired">Before joining the leaderboard, choose a public GeoStats username.</p>}
           <label className="emailField"><span>GeoStats username</span><input type="text" inputMode="text" autoComplete="username" maxLength={20} placeholder="3–20 letters, numbers, or underscores" value={usernameDraft} onChange={(event) => setUsernameDraft(event.target.value.replace(/[^A-Za-z0-9_]/g, ""))} onKeyDown={(event) => event.key === "Enter" && saveUsername()} /></label>
           <div className="accountModalActions"><button type="button" onClick={saveUsername} disabled={savingUsername || usernameDraft.length < 3 || usernameDraft === username}>{savingUsername ? "Saving…" : usernameCustomized ? "Update username" : "Save username"}</button><button type="button" className="quietButton" onClick={signOut}>Sign out</button></div>
@@ -341,7 +351,7 @@ export default function AccountControls({
           <div className="accountAuthDivider"><span>or use email</span></div>
           <label className="emailField"><span>Email address</span><input type="email" inputMode="email" autoComplete="email" placeholder="you@example.com" value={email} onChange={(event) => setEmail(event.target.value)} onKeyDown={(event) => event.key === "Enter" && resendSeconds === 0 && !sendingLink && sendMagicLink()} /></label>
           <button type="button" onClick={sendMagicLink} disabled={!email.trim() || sendingLink || resendSeconds > 0}>{sendingLink ? "Sending…" : resendSeconds > 0 ? `Resend in ${resendSeconds}s` : "Email me a sign-in link"}</button>
-          <small>No password needed. If you’re new, opening the link creates your free account. Your public username appears on leaderboards. Your email never does.</small>
+          <small>No password needed. If you’re new, confirming your email activates your free account. Your public username appears on leaderboards. Your email never does.</small>
         </>}
         {message && <p className="accountMessage" role="status" aria-live="polite">{message}</p>}
       </div>

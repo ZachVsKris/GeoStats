@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const preferenceKey = "geostats:sound:v1";
-type Cue = "select" | "place" | "remove" | "result";
+type Cue = "place" | "remove" | "result";
 
 export default function useGameSound() {
   const [enabled, setEnabled] = useState(true);
@@ -14,12 +14,12 @@ export default function useGameSound() {
     return () => { void context.current?.close().catch(() => {}); context.current = null; };
   }, []);
 
-  function play(cue: Cue, force = false) {
-    if (!enabled && !force) return;
+  function play(cue: Cue) {
+    if (!enabled) return;
     try {
       const audio = context.current ?? (context.current = new AudioContext());
       if (audio.state === "suspended") void audio.resume().catch(() => {});
-      const notes = cue === "result" ? [523.25, 659.25, 783.99] : [cue === "place" ? 280 : cue === "remove" ? 340 : 420];
+      const notes = cue === "result" ? [523.25, 659.25, 783.99] : [cue === "place" ? 280 : 340];
       notes.forEach((frequency, index) => {
         const oscillator = audio.createOscillator();
         const gain = audio.createGain();
@@ -42,8 +42,7 @@ export default function useGameSound() {
     const next = !enabled;
     setEnabled(next);
     try { localStorage.setItem(preferenceKey, next ? "on" : "off"); } catch { /* Storage is optional. */ }
-    if (next) play("select", true);
-    else if (context.current) void context.current.suspend().catch(() => {});
+    if (!next && context.current) void context.current.suspend().catch(() => {});
   }
 
   return { enabled, toggle, play };

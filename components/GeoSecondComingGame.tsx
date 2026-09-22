@@ -525,18 +525,16 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
     }
   }
 
-  async function shareScore() {
+  async function shareScore(useDeviceShare = false) {
     if (!scores) return;
     const firsts = scores.filter((row) => row.rank === 1).length;
-    const seconds = scores.filter((row) => row.rank === 2).length;
-    const thirds = scores.filter((row) => row.rank === 3).length;
     const topFinish = scores.filter((row) => row.rank <= topFinishRank).length;
     const gameLabel = isRandom ? `${ROUND_CONFIGS[difficulty].label} Random · ${seed}` : `${ROUND_CONFIGS[difficulty].label} Daily`;
-    const text = `🌍 GeoStats ${gameLabel}
+    const text = `GeoStats · ${gameLabel}
 ${total} / ${roundMaxScore}
 
-🥇 ${firsts}   🥈 ${seconds}   🥉 ${thirds}
-⭐ Top ${topFinishRank}: ${topFinish}/${categoryTarget}
+First-place picks: ${firsts}/${categoryTarget}
+Top ${topFinishRank} finishes: ${topFinish}/${categoryTarget}
 
 Can you beat my score?`;
     const url = challengeUrl(difficulty, seed);
@@ -545,10 +543,15 @@ Can you beat my score?`;
     setManualScoreCopy("");
     setCopied(false);
     try {
+      if (useDeviceShare && navigator.share) {
+        await navigator.share({ title: "GeoStats", text, url });
+      } else {
       await navigator.clipboard.writeText(scoreText);
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2400);
-    } catch {
+      }
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
       // Keep the full score available when clipboard access is denied.
       // Do not use the game-level error state, which can obscure the results.
       setManualScoreCopy(scoreText);
@@ -558,7 +561,7 @@ Can you beat my score?`;
       difficulty,
       challengeDate: isRandom ? undefined : dailyDateFromSeed(seed),
       value: total,
-      metadata: { mode: isRandom ? "random" : "daily", method: "clipboard" },
+      metadata: { mode: isRandom ? "random" : "daily", method: useDeviceShare && navigator.share ? "device" : "clipboard" },
     });
   }
 
@@ -771,7 +774,7 @@ Can you beat my score?`;
         <a href={challengePath("easy", seed)} onClick={(event) => switchCachedDaily(event, "easy")} className={difficulty === "easy" ? "active" : ""}>Scout</a>
         <a href={challengePath("normal", seed)} onClick={(event) => switchCachedDaily(event, "normal")} className={difficulty === "normal" ? "active" : ""}>Adventurer</a>
         <a href={challengePath("expert", seed)} className={difficulty === "expert" ? "active" : ""}>Expert</a>
-      </nav><div className="score"><span>Final score</span>{completionSource === "account" && <p className="savedDailyNotice">Saved automatically to your account and included in the verified standings.</p>}{completionSource === "local" && <p className="savedDailyNotice">Saved on this browser. Sign in to transfer your complete eligible Daily history to the leaderboard.</p>}<div className="scoreValue"><strong>{total}</strong><b>/ {roundMaxScore}</b></div><div className="scoreInsights"><div><strong>{averagePlacement}</strong><span>Average placement</span></div><div><strong>{bestPossibleCount}</strong><span>First-place picks</span></div><div><strong>{topFinishCount}/{categoryTarget}</strong><span>Top {topFinishRank}</span></div></div><div className="scoreBreakdown">{[1,2,3].map((rank)=><span key={rank}>{rank===1?"🥇":rank===2?"🥈":"🥉"} {scores.filter((row)=>row.rank===rank).length}</span>)}</div><p>{total>=roundMaxScore*.8125?"Elite allocation.":total>=roundMaxScore*.65?"Strong draft with room to optimize.":"A few specialists were spent in the wrong places."}</p><div className="scoreActions"><button className="shareScore" onClick={shareScore}>{copied ? "Score copied ✓" : "Copy score"}</button><span className="sr-only" role="status">{copied ? "Score copied to clipboard" : ""}</span>{manualScoreCopy && <div className="manualScoreCopy"><p role="status">Your browser blocked automatic copying. Select and copy your score below.</p><textarea aria-label="Score to copy" readOnly value={manualScoreCopy} onFocus={(event) => event.currentTarget.select()} rows={9} /></div>}{isUnranked ? (isRandom ? <button className="secondaryScoreAction" onClick={generateNewRandomRound}>Generate another board</button> : <span className="unrankedNotice">Practice board · score not saved</span>) : <AccountControls results difficulty={difficulty} pendingScore={completionSource === "account" ? undefined : { challengeDate: dailyDateFromSeed(seed), difficulty, assignments }} onScoreSaved={(saved) => {
+      </nav><div className="score"><span>Final score</span>{completionSource === "account" && <p className="savedDailyNotice">Saved automatically to your account and included in the verified standings.</p>}{completionSource === "local" && <p className="savedDailyNotice">Saved on this browser. Sign in to transfer your complete eligible Daily history to the leaderboard.</p>}<div className="scoreValue"><strong>{total}</strong><b>/ {roundMaxScore}</b></div><div className="scoreInsights"><div><strong>{averagePlacement}</strong><span>Average placement</span></div><div><strong>{bestPossibleCount}</strong><span>First-place picks</span></div><div><strong>{topFinishCount}/{categoryTarget}</strong><span>Top {topFinishRank}</span></div></div><div className="scoreBreakdown">{[1,2,3].map((rank)=><span key={rank}>{rank===1?"🥇":rank===2?"🥈":"🥉"} {scores.filter((row)=>row.rank===rank).length}</span>)}</div><p>{total>=roundMaxScore*.8125?"Elite allocation.":total>=roundMaxScore*.65?"Strong draft with room to optimize.":"A few specialists were spent in the wrong places."}</p><div className="scoreActions"><details className="scoreShareOptions"><summary className="shareScore">Share score</summary><div className="scoreShareMenu"><button type="button" onClick={() => void shareScore()}>{copied ? "Score copied ✓" : "Copy score"}</button><button type="button" onClick={() => void shareScore(true)}>More sharing options</button></div></details><span className="sr-only" role="status">{copied ? "Score copied to clipboard" : ""}</span>{manualScoreCopy && <div className="manualScoreCopy"><p role="status">Your browser blocked automatic copying. Select and copy your score below.</p><textarea aria-label="Score to copy" readOnly value={manualScoreCopy} onFocus={(event) => event.currentTarget.select()} rows={9} /></div>}{isUnranked ? (isRandom ? <button className="secondaryScoreAction" onClick={generateNewRandomRound}>Generate another board</button> : <span className="unrankedNotice">Practice board · score not saved</span>) : <AccountControls results difficulty={difficulty} pendingScore={completionSource === "account" ? undefined : { challengeDate: dailyDateFromSeed(seed), difficulty, assignments }} onScoreSaved={(saved) => {
         if (saved.challengeDate === dailyDateFromSeed(seed) && saved.difficulty === difficulty) setCompletionSource("account");
       }} />}</div></div>
       <div className="resultsHeading"><div><span className="kicker">Your placements</span><h3>Placement and points earned</h3></div><small>Open a ranking to compare the {poolSize} countries on this board</small></div>

@@ -720,7 +720,7 @@ Can you beat my score?`;
       <a href={challengePath("normal", seed)} onClick={(event) => switchCachedDaily(event, "normal")} className={difficulty === "normal" ? "active" : ""}>Adventurer</a>
       <a href={challengePath("expert", seed)} className={difficulty === "expert" ? "active" : ""}>Expert</a>
     </nav><div className="mobileGameSummary"><strong>{ROUND_CONFIGS[difficulty].label}</strong><span>{poolSize} countries · {categoryTarget} measures · {unusedCount ? `leave ${unusedCount}` : "use all"}</span></div></>}
-    {boardNotice && <div className="boardNotice">{boardNotice}</div>}
+    {boardNotice && <details className="boardNotice"><summary>About today’s data</summary><p>{boardNotice}</p></details>}
     {!scores && <section className="hero desktopHero">
       <div><span className="kicker">A strategy atlas</span><h2>{poolSize} countries. {categoryTarget} measures. One perfect allocation.</h2><p>{unusedCount ? <>Place {categoryTarget} countries, leave {unusedCount === 1 ? "one" : unusedCount} behind, and make every specialist count.</> : <>Place all {categoryTarget} countries and make every specialist count.</>}</p></div>
       <aside><strong>{Object.keys(assignments).length}/{categoryTarget}</strong><span>categories assigned</span></aside>

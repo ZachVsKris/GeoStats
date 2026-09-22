@@ -17,7 +17,7 @@ import { CATEGORY_SET_VERSION, DATASET_VERSION, PLAYER_COPY_VERSION, RULES_VERSI
 import { categoryMeasurementBadgeLabel, categoryMeasurementLabel } from "../lib/categoryMeasurement";
 import type { DailyApiPayload, PackedApiBoard } from "../lib/dailyPublicPayload";
 import type { Category } from "../lib/categories";
-import { CATEGORY_COLOR_KEY, categoryThemeClass } from "../lib/categoryTheme";
+import { categoryThemeClass } from "../lib/categoryTheme";
 
 type Assignment = Record<string, string>;
 type ScoreRow = {
@@ -51,9 +51,6 @@ type GeoSecondComingGameProps = {
   initialDailyPayload?: DailyApiPayload;
 };
 
-function CategoryColorKey({ mobile = false }: { mobile?: boolean }) {
-  return <details className={`categoryColorKey ${mobile ? "mobileBoardColorKey" : ""}`}><summary>Color key</summary><div><strong>Card-edge colors group subjects</strong><p>They are guides only and do not change scoring</p>{CATEGORY_COLOR_KEY.map(([theme, label]) => <span key={theme} className={theme}><i />{label}</span>)}</div></details>;
-}
 
 const DAILY_FALLBACK_CACHE_TTL_MS = 5 * 60 * 1000;
 const dailyMemoryCache = new Map<string, DailyApiPayload>();
@@ -711,7 +708,6 @@ Can you beat my score?`;
           <button onClick={copyRandomLink}>{copied ? "Link copied ✓" : "Copy link"}</button>
         </div>}
         <span className="mobileProgress">{Object.keys(assignments).length}/{categoryTarget} assigned</span>
-        {!scores && <CategoryColorKey mobile />}
         {scores && <button className="resultsRulesLink" onClick={() => setShowRules(true)}>Rules</button>}
       </div>
     </section>
@@ -734,7 +730,7 @@ Can you beat my score?`;
         <div className="countries" aria-label="Country bank">{round.bank.map((country) => <button key={country.id} draggable={!used.has(country.id)} onDragStart={(event)=>event.dataTransfer.setData("text/plain", country.id)} onTouchStart={(event)=>beginTouch(event,country.id)} onTouchMove={moveTouch} onTouchEnd={endTouch} onTouchCancel={endTouch} className={`country ${selected===country.id?"selected":""} ${selectedCategory&&!used.has(country.id)?"categoryTarget":""} ${used.has(country.id)?"used":""}`} aria-pressed={selected===country.id} disabled={used.has(country.id)} onClick={() => selectCountry(country.id)}><span>{country.flag}</span><div><strong title={country.name}><span className="desktopCountryName">{country.name}</span><span className="mobileCountryName">{shortCountryName(country.name)}</span></strong></div>{used.has(country.id)&&<b>USED</b>}</button>)}</div>
       </section>
       <div className="boardSpine" aria-hidden="true"/>
-      <section className="panel boardPanel"><div className="panelTitle"><div><span className="kicker">The atlas</span><h3>Match countries to measures</h3></div><div className="panelTitleTools"><small>One use per country</small><CategoryColorKey /></div></div>
+      <section className="panel boardPanel"><div className="panelTitle"><div><span className="kicker">The atlas</span><h3>Match countries to measures</h3></div><div className="panelTitleTools"><small>One use per country</small></div></div>
         <div className="slots" aria-label="Measures to match">{round.categories.map((dataset, index) => {
           const c = round.bank.find((country)=>country.id===assignments[dataset.category.id]);
           return <div

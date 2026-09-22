@@ -1268,3 +1268,54 @@ header{display:flex;align-items:center;justify-content:space-between;padding:6px
 .launchMetrics div,.playerReport{padding:14px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:8px}
 .launchMetrics dd{margin:6px 0 0;font-size:24px;font-weight:bold}.launchMetrics dt{font-size:12px}
 .playerReport{margin:12px 0}.playerReport small{display:block;margin-top:8px;overflow-wrap:anywhere}.playerReport p{white-space:pre-wrap;overflow-wrap:anywhere}
+
+/* Results on narrow screens: preserve the desktop report, show a compact scorecard and scannable rows. */
+.mobileOptimalToggle{display:none}
+@media(max-width:620px){
+  .resultsView .resultsModeTabs a{min-height:40px;padding:8px 4px;font-size:12px}
+  .resultsView .score{padding:18px 16px 20px}
+  .resultsView .score>span{font-size:10px}
+  .resultsView .scoreValue{margin-top:7px}
+  .resultsView .scoreValue strong{font-size:62px}
+  .resultsView .scoreValue b{font-size:22px}
+  .resultsView .savedDailyNotice{max-width:32ch;margin:7px auto 0;font-size:11px;line-height:1.35}
+  .resultsView .scoreInsights,.resultsView .score>p:not(.savedDailyNotice){display:none}
+  .resultsView .scoreBreakdown{width:auto;justify-content:center;gap:18px;margin:12px auto 2px}
+  .resultsView .scoreBreakdown span{flex:none;padding:0;font-size:13px;letter-spacing:0}
+  .resultsView .scoreActions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:14px auto 0}
+  .resultsView .scoreActions>.scoreShareOptions,.resultsView .scoreActions>.secondaryScoreAction,.resultsView .scoreActions>.resultsAccountActions{min-width:0}
+  .resultsView .scoreActions>.scoreShareOptions{width:100%}
+  .resultsView .scoreActions .shareScore,.resultsView .scoreActions>.secondaryScoreAction{min-height:43px;padding:9px 5px;font-size:12px}
+  .resultsView .scoreActions>.resultsAccountActions{grid-column:1/-1;display:flex;justify-content:center}
+  .resultsView .resultsHeading{align-items:center;padding:14px 15px 9px}
+  .resultsView .resultsHeading .kicker{display:none}
+  .resultsView .resultsHeading h3{margin:0;font-size:18px;line-height:1.2}
+  .resultsView .result{grid-template-columns:minmax(0,1fr) auto;gap:4px 10px;align-items:center;padding:13px 13px 12px}
+  .resultsView .resultMain{grid-column:1;gap:9px;align-items:center}
+  .resultsView .resultMain>span{flex:0 0 25px;font-size:23px;text-align:center}
+  .resultsView .resultMain>div{gap:3px}
+  .resultsView .resultMain>div>strong{font-size:14px;line-height:1.2}
+  .resultsView .resultMain small{font-size:11px;line-height:1.25}
+  .resultsView .resultReference{display:none}
+  .resultsView .placementSummary{grid-column:2;grid-row:1;display:flex;align-items:baseline;flex-wrap:wrap;justify-content:flex-end;gap:3px 6px;width:auto;min-height:0;padding:0;border:0;text-align:right}
+  .resultsView .placementSummary b{font-size:16px}
+  .resultsView .placementSummary strong{font-size:11px;letter-spacing:0;text-transform:none}
+  .resultsView .placementSummary span{display:none}
+  .resultsView .leaderboardButton{grid-column:1/-1;justify-self:start;width:auto;margin:3px 0 0 34px;padding:2px 0;font-size:11px;letter-spacing:0;text-transform:none}
+  .resultsView .perfect{border-top-width:5px}
+  .resultsView .perfectGrid{display:none}
+  .resultsView .perfect.mobileExpanded .perfectGrid{display:grid}
+  .resultsView .mobileOptimalToggle{display:block;width:calc(100% - 28px);min-height:42px;margin:10px 14px 14px;padding:8px 12px;border:1px solid var(--line);border-radius:3px;background:var(--surface-3);color:var(--accent);font:700 12px var(--sans);text-align:left;cursor:pointer}
+  .resultsView .perfectRow{grid-template-columns:25px minmax(0,1fr);gap:8px;padding:11px 14px}
+  .resultsView .perfectRow>span{font-size:20px}
+  .resultsView .perfectRow strong{font-size:13px}
+  .resultsView .perfectRow small{font-size:11px}
+  .resultsView .perfectRow>b{display:none}
+  .resultsView .resultsFooter{display:none}
+  .resultsView .resultsGameTools{margin:10px 0;gap:6px}
+}
+@media(max-width:380px){
+  .resultsView .resultMain>div>strong{font-size:13px}
+  .resultsView .placementSummary b{font-size:14px}
+  .resultsView .placementSummary strong{font-size:10px}
+}

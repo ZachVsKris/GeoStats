@@ -618,7 +618,6 @@ Can you beat my score?`;
       return;
     }
     setSelected((current) => current === countryId ? null : countryId);
-    sound.play("select");
   }
 
   function selectCategory(categoryId: string) {
@@ -627,7 +626,6 @@ Can you beat my score?`;
       return;
     }
     setSelectedCategory((current) => current === categoryId ? null : categoryId);
-    sound.play("select");
   }
 
   function score() {
@@ -756,7 +754,7 @@ Can you beat my score?`;
           >
             <span className="cornerNotch" aria-hidden="true"/>
             <div className="category" title={categoryMeasurementLabel(dataset.category)}><span>{dataset.category.icon}</span><div className="categoryCopy"><strong>{dataset.category.name}</strong><small>{dataset.category.boardDescription ?? dataset.category.description}</small>{!/%|per capita|per person/i.test(dataset.category.name) && <span className="measurementBadge" title={categoryMeasurementLabel(dataset.category)}>{categoryMeasurementBadgeLabel(dataset.category)}</span>}</div><b className="slotNumber">{String(index + 1).padStart(2, "0")}</b></div>
-            <div key={c?.id ?? "empty"} className={`choice ${c?"filled":""}`}>{c?<><span className="pieceFlag">{c.flag}</span><strong className="pieceName">{c.name}</strong><button type="button" className="removePiece" aria-label={`Remove ${c.name} from ${dataset.category.name}`} title="Remove country" onClick={(event)=>{event.stopPropagation();sound.play("remove");setAssignments((current)=>{const next={...current};delete next[dataset.category.id];return next;});setSelectedCategory(null);}}><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 4l8 8M12 4l-8 8"/></svg></button></>:<em>{selected?"Place here":selectedCategory===dataset.category.id?"Choose a country":"Add country"}</em>}</div>
+            <div key={c?.id ?? "empty"} className={`choice ${c?"filled":""}`}>{c?<><span className="pieceFlag">{c.flag}</span><strong className="pieceName">{c.name}</strong><button type="button" className="removePiece" aria-label={`Remove ${c.name} from ${dataset.category.name}`} title="Remove country" onClick={(event)=>{event.stopPropagation();sound.play("remove");setAssignments((current)=>{const next={...current};delete next[dataset.category.id];return next;});setSelectedCategory(null);}}><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 4l8 8M12 4l-8 8"/></svg></button></>:<em>{selected?"Place here":selectedCategory===dataset.category.id?"Choose a country":"Assign country"}</em>}</div>
           </div>
         })}</div>
         <div className="lock" aria-live="polite"><span>{categoryTarget-Object.keys(assignments).length>0?`${categoryTarget-Object.keys(assignments).length} selections remaining`:"Draft complete"}</span><button type="button" disabled={Object.keys(assignments).length!==categoryTarget} onTouchEnd={(event)=>{event.preventDefault();score();}} onClick={score}>Lock in draft</button></div>

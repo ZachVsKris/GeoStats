@@ -84,10 +84,9 @@ export default function LeaderboardView() {
   const currentPlayerIsRanked = alltime.some((leader) => leader.isCurrentPlayer);
   return <section className="leaderboardPage panel">
     <div className="leaderboardPageIntro">
-      <span className="kicker">All-time standings</span>
       <h1>Leaderboard</h1>
-      <p>See how GeoStats players perform over time. Scout, Adventurer, and Expert each have separate verified standings.</p>
-      <p className="leaderboardMethodNote">Rating balances normalized score with opponent strength once a Daily has enough players. Completed games increase confidence, not points; five games are required to qualify.</p>
+      <p>All-time standings · Complete five Dailies to qualify.</p>
+      <details className="leaderboardMethodDetails"><summary>How rankings work</summary><p className="leaderboardMethodNote">Each difficulty has separate standings. Rating balances normalized score with opponent strength once a Daily has enough players. Completed games increase confidence, not points.</p></details>
     </div>
     <div className="leaderboardModeTabs" role="tablist" aria-label="Daily difficulty">
       <button type="button" role="tab" aria-selected={difficulty === "easy"} aria-controls="leaderboard-results" className={difficulty === "easy" ? "active" : ""} onClick={() => chooseDifficulty("easy")}>Scout</button>
@@ -107,7 +106,7 @@ export default function LeaderboardView() {
         {alltime.map((leader) => <div role="row" key={`${leader.rank}-${leader.username}`} className={leader.isCurrentPlayer ? "currentPlayerRow" : undefined} aria-label={leader.isCurrentPlayer ? `${leader.username}, your standing` : undefined}><b role="cell">{leader.rank}</b><span role="cell">{leader.username}{leader.isCurrentPlayer && <small className="currentPlayerBadge">You</small>}</span><span role="cell">{leader.averageScore.toFixed(1)} / {config.maxScore}</span><strong role="cell">{leader.rating.toFixed(1)}</strong><span role="cell">{leader.completedGames}</span></div>)}
       </div> : <div className="leaderboardEmpty">No one has qualified for the {config.label} leaderboard yet. Five completed Dailies are required.</div>}
     </div>
-    {!loading && !error && (!signedIn ? <div className="leaderboardJoinPrompt"><strong>Create a free account to join the standings</strong><p>Keep your complete Daily history across all three modes and compete under a public GeoStats username. Your email stays private.</p><AccountControls context="leaderboard" ctaLabel="Sign in to join leaderboard" hideLeaderboardLink /><small>Scout, Adventurer, and Expert are all playable without an account.</small></div> : !currentPlayerIsRanked ? <div className="leaderboardQualificationNote">You’re signed in. Complete five {config.label} Dailies to qualify for these standings.</div> : null)}
+    {!loading && !error && (!signedIn ? <div className="leaderboardJoinPrompt"><p>Join the standings and keep your Daily history.</p><AccountControls context="leaderboard" ctaLabel="Sign in / create account" hideLeaderboardLink /></div> : !currentPlayerIsRanked ? <div className="leaderboardQualificationNote">Complete five {config.label} Dailies to qualify.</div> : null)}
     <div className="leaderboardPageActions"><a href={config.path}>Play today’s {config.label} Daily</a></div>
   </section>;
 }

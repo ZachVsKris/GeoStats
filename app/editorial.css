@@ -589,3 +589,8 @@ body { isolation: isolate; }
 .shell.activePlay .country:hover:not(:disabled){background:#f6faf9}
 .shell .leaderboard,.shell .leaderboardJoinPrompt,.shell .scoreShareMenu,.shell .scoreImagePreview,
 .authCallbackCard,.systemStateCard,.sourcePanel{background:var(--surface)}
+
+/* Admin dashboard: light panels need dark inherited text. */
+.adminShell, .adminLoading { color: var(--ink); }
+.adminLoading p { color: var(--muted); }
+.adminShell a:not([class]), .adminGate a { color: var(--ocean); }

@@ -333,7 +333,7 @@ body { isolation: isolate; }
 .shell .leaderboardGameNav .headerButtonLink.active {
   background: #e2efe6 !important; color: #285d43 !important; border-bottom-color: var(--land) !important;
 }
-.shell.activePlay .country { background: #f2f9fceF; color: var(--ink); border-color: #b0cbd8; }
+.shell.activePlay .country { background: #edf5f8e8; color: var(--ink); border-color: #a9c2ce; }
 .shell.activePlay .country:hover:not(:disabled) { background: #fff; border-color: var(--ocean); }
 .shell.activePlay .country.selected,
 .shell.activePlay .playGrid.choosingCountry .country:not(.used),

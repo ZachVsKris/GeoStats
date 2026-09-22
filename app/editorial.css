@@ -18,6 +18,14 @@
 }
 body { background: var(--bg); }
 body * { font-family: Arial, Helvetica, sans-serif !important; }
+.shell.activePlay { height: auto !important; max-height: none !important; overflow: visible !important; }
+.shell.activePlay .playGrid { flex: none !important; }
+.shell.activePlay .playGrid > .panel { height: auto !important; }
+.shell.activePlay .playGrid .countries, .shell.activePlay .playGrid .slots { flex: none !important; overflow: visible !important; }
+.shell.activePlay .boardPanel .slot { height: auto !important; }
+.shell.activePlay .choice { box-shadow: none !important; }
+.shell.activePlay .lock button:disabled { background: #e2e5dc !important; color: #59665e !important; box-shadow: none !important; }
+.googleSignInButton { color: #fffefa !important; }
 body::before, body::after { display: none; }
 .shell { max-width: 1280px; }
 .panel, .challengeBar, .panelTitle, .country, .slot, .score, .perfect,

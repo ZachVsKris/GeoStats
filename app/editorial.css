@@ -69,8 +69,8 @@ body::before, body::after { display: none; }
   border-radius: 8px; background: var(--surface); box-shadow: none;
   display: flex; flex-direction: column; justify-content: space-between !important; gap: 20px;
 }
-.activePlay .boardPanel .category { grid-template-columns: minmax(0,1fr) auto; align-items: flex-start; min-height: 0 !important; }
-.activePlay .boardPanel .category > span:first-child { display: none; }
+.activePlay .boardPanel .category { grid-template-columns: 28px minmax(0,1fr) auto; align-items: flex-start; min-height: 0 !important; gap: 8px; }
+.activePlay .boardPanel .category > span:first-child { display: block; font-size: 24px !important; line-height: 1.2; }
 .activePlay .boardPanel .category strong { font: 600 19px/1.25 var(--display) !important; text-wrap: pretty; }
 .activePlay .boardPanel .category small { font: 13px/1.45 var(--sans) !important; margin-top: 8px !important; color: var(--muted); }
 .measurementBadge { border: 0; padding: 0; background: transparent; color: var(--muted); letter-spacing: .04em; margin-top: 9px; }
@@ -89,7 +89,7 @@ body::before, body::after { display: none; }
 .modal > div, .accountModal { background: var(--surface); color: var(--ink); }
 .modal input, .modal select, .modal textarea { background: var(--surface); color: var(--ink); }
 .score, .perfect, .resultsHeading, .result, .perfectRow, .leaderboard { background: var(--surface); }
-.resultMain > span, .perfectRow > span { display: none; }
+.resultMain > span, .perfectRow > span { display: block; font-size: 24px; }
 .tooltip { background: var(--surface); color: var(--ink); box-shadow: 0 8px 24px #203c3226; }
 .dataNote { color: var(--muted); }
 .shell.activePlay .challengeBar { background: transparent; box-shadow: none; border: 0; color: var(--ink); }
@@ -101,7 +101,7 @@ body::before, body::after { display: none; }
 .shell.activePlay .country.selected { background: #e4eddf; outline: 2px solid #316b50; }
 .shell.activePlay .slot.assigned { background: #f2f6ee; }
 .shell.activePlay .choice.filled { box-shadow: none; }
-.shell .perfectRow { grid-template-columns: minmax(0,1fr) auto; }
+.shell .perfectRow { grid-template-columns: 28px minmax(0,1fr) auto; }
 .shell .dailyModeButton, .shell .headerLink, .shell .desktopSupportMenu summary, .shell .accountHeaderActions button {
   background: transparent; box-shadow: none; border: 0; border-radius: 0; font-weight: 600; text-transform: none; letter-spacing: 0;
 }
@@ -172,6 +172,8 @@ body::before, body::after { display: none; }
 @media (max-width: 900px) {
   .shell.activePlay .boardPanel .slot { min-height: 165px; padding: 10px !important; }
   .shell.activePlay .boardPanel .category strong { font-size: 15px !important; }
+  .shell.activePlay .boardPanel .category { grid-template-columns: 20px minmax(0,1fr); gap: 5px; }
+  .shell.activePlay .boardPanel .category > span:first-child { font-size: 19px !important; }
   .shell.activePlay .country { min-height: 66px; gap: 4px; }
   .shell.activePlay .choice { min-height: 44px; }
 }

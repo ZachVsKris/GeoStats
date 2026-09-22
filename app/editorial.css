@@ -538,3 +538,11 @@ body { isolation: isolate; }
 .shell .scoreImagePreview img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 4px; }
 .shell .scoreImagePreview > div { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 10px; }
 .shell .scoreImagePreview button, .shell .scoreImagePreview a { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--ocean); font-size: 14px; text-decoration: none; cursor: pointer; }
+
+/* Shared branding also applies outside the game shell. */
+.logo { color: var(--ocean); border-color: #668d9e; background: #f1f8fb; box-shadow: none; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.logo > svg { display: block; flex: none; width: 65%; height: 65%; }
+.authCallbackCard, .systemStateCard { background: var(--surface); border-color: var(--line); border-radius: 4px; box-shadow: none; }
+.systemStateCard::before, .systemStateCard::after, .infoPageHero::before { display: none; }
+.authCallbackCard a, .systemStateActions a, .systemStateActions button { background: var(--ocean); color: #fff; min-height: 44px; font-size: 14px; letter-spacing: 0; text-transform: none; border-radius: 4px; }
+.systemStateActions a + *, .systemStateActions button + * { background: var(--surface); color: var(--ink); border-color: var(--line); }

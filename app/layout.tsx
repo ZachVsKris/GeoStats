@@ -12,13 +12,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "GeoStats",
-    title: "GeoStats — Geography, with strategy",
+    title: "GeoStats — A world of facts. One perfect fit.",
     description: "Draft countries against verified world statistics in a new Daily board",
     url: "/daily",
   },
   twitter: {
     card: "summary_large_image",
-    title: "GeoStats — Geography, with strategy",
+    title: "GeoStats — A world of facts. One perfect fit.",
     description: "Draft countries against verified world statistics in a new Daily board",
   },
   robots: { index: true, follow: true },

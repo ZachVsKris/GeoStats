@@ -446,3 +446,10 @@ body { isolation: isolate; }
   .shell.activePlay .boardPanel .slot { padding: 4px 2px !important; gap: 2px; }
   .shell.activePlay .choice { min-height: 32px !important; }
 }
+
+/* Six-country Adventurer boards form two balanced rows on phones. */
+@media (max-width: 700px) and (orientation: portrait) {
+  .shell.activePlay.normalRound:not(.legacyRound) .bankPanel .countries {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

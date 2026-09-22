@@ -678,15 +678,21 @@ Can you beat my score?`;
   return <div className={`shell ${!scores ? "activePlay" : ""} ${status ? "loadingPlay" : ""} ${error ? "errorPlay" : ""} ${scores ? "resultsView" : ""} ${difficulty}Round ${difficulty === "expert" ? "expertRound" : ""} ${difficulty === "easy" ? "compactRound" : ""} ${legacyDimensions ? "legacyRound" : ""} ${expertPreview ? "expertPreview" : ""}`}>
     {!scores && <header>
       <Brand />
-      <div className="headerButtons desktopHeaderButtons">
-        <a href="/audit" className="headerLink">Data audit</a>
-        {gameTools}
-        <button onClick={() => setShowRules(true)}>How it works</button>
-        {isRandom && <a href="/random" className="dailyModeButton active">Random QA</a>}
-        <a href={challengePath("easy", seed)} onClick={(event) => switchCachedDaily(event, "easy")} className={`dailyModeButton ${difficulty === "easy" ? "active" : ""}`}>Scout</a>
-        <a href={challengePath("normal", seed)} onClick={(event) => switchCachedDaily(event, "normal")} className={`dailyModeButton ${difficulty === "normal" ? "active" : ""}`}>Adventurer</a>
-        <a href={challengePath("expert", seed)} className={`dailyModeButton ${difficulty === "expert" ? "active" : ""}`}>Expert</a>
-        {!isRandom && <a href={`/leaderboard?difficulty=${difficulty}`} className="headerLink">Leaderboard</a>}
+      <div className="headerButtons desktopHeaderButtons" aria-label="GeoStats navigation">
+        <nav className="desktopNavGroup desktopGameNav" aria-label="Play GeoStats">
+          <span className="desktopNavLabel">Play</span>
+          {isRandom && <a href="/random" className="dailyModeButton active">Random QA</a>}
+          <a href={challengePath("easy", seed)} onClick={(event) => switchCachedDaily(event, "easy")} className={`dailyModeButton ${difficulty === "easy" ? "active" : ""}`}>Scout</a>
+          <a href={challengePath("normal", seed)} onClick={(event) => switchCachedDaily(event, "normal")} className={`dailyModeButton ${difficulty === "normal" ? "active" : ""}`}>Adventurer</a>
+          <a href={challengePath("expert", seed)} className={`dailyModeButton ${difficulty === "expert" ? "active" : ""}`}>Expert</a>
+          {!isRandom && <a href={`/leaderboard?difficulty=${difficulty}`} className="headerLink">Leaderboard</a>}
+        </nav>
+        <nav className="desktopNavGroup desktopSupportNav" aria-label="Help and tools">
+          <span className="desktopNavLabel">Help &amp; tools</span>
+          <button onClick={() => setShowRules(true)}>How it works</button>
+          {gameTools}
+          <a href="/audit" className="headerLink">Data audit</a>
+        </nav>
       </div>
       {!isRandom && <div className="gameAccount"><AccountControls difficulty={difficulty} hideLeaderboardLink compact /></div>}
       <details className="mobileMenu"><summary aria-label="Open game menu">Menu</summary><div>

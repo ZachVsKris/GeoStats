@@ -44,6 +44,7 @@
     "test-v15-9": "node scripts/test-v15-9-static.cjs && node scripts/test-v15-7-generator.cjs && npm run test-expansion-importers",
     "check-v15-9": "npm run test-v15-9 && npm run typecheck && npm run build && npm run test-e2e",
     "test-e2e": "playwright test",
+    "load-test-launch": "node scripts/load-test-launch.mjs",
     "test-natural-earth-real-data": "python scripts/test-natural-earth-real-data.py",
     "test-v16": "npm run test-v16-3-0",
     "check-v16": "npm run check-v16-3-0",

@@ -8,6 +8,11 @@ function load(file,mocks={}){const mod={exports:{}};const code=ts.transpileModul
  assert.notEqual(load('lib/analytics.ts').analyticsVisitorId(),id,'identifier rotates');
  global.localStorage={getItem(){throw Error('blocked');},setItem(){throw Error('blocked');}};
  assert.ok(load('lib/analytics.ts').analyticsVisitorId(),'blocked storage never blocks gameplay');
+ const scoreData=new Map();const scoreStorage={get length(){return scoreData.size;},key:i=>[...scoreData.keys()][i]??null,getItem:k=>scoreData.get(k)??null,setItem:(k,v)=>scoreData.set(k,v),removeItem:k=>scoreData.delete(k)};
+ scoreStorage.setItem('geostats:daily-result:2026-09-20:easy',JSON.stringify({challengeDate:'2026-09-20',difficulty:'easy',assignments:{a:'USA'}}));
+ scoreStorage.setItem('geostats:daily-result:2026-09-21:expert',JSON.stringify({challengeDate:'2026-09-21',difficulty:'expert',assignments:{b:'CAN'}}));
+ const history=load('lib/dailyScoreHistory.ts');assert.equal(history.pendingDailyScores(scoreStorage).length,2,'every eligible browser completion transfers');
+ history.markDailyScoreSynced(scoreStorage,{challengeDate:'2026-09-20',difficulty:'easy'});assert.deepEqual(history.pendingDailyScores(scoreStorage).map(score=>score.challengeDate),['2026-09-21'],'synced results are not selectively resubmitted');
  let calls=0, rpcError=null, params;
  const report=load('app/api/reports/route.ts',{'../../../lib/supabase/server':{createSupabaseAdminClient:()=>({rpc:async(_,p)=>{calls++;params=p;return {error:rpcError};}}),createSupabaseServerClient:async()=>null}});
  const post=(body,origin='https://geostats.xyz')=>report.POST(new Request('https://geostats.xyz/api/reports',{method:'POST',headers:{origin,'Content-Type':'application/json','x-vercel-forwarded-for':'192.0.2.1'},body:JSON.stringify(body)}));

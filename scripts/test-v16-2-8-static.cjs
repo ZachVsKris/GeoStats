@@ -57,6 +57,8 @@ const releaseNotes = read("RELEASE_NOTES_V16_2_8.md");
 const validation = read("VALIDATION_V16_2_8.md");
 const rollback = read("ROLLBACK_V16_2_8.sql");
 const launchDocket = read("LAUNCH_DOCKET_V16_2_8.md");
+const launchReadiness = read("supabase/migrations/20260922075031_launch_readiness_security_and_limits.sql");
+const dailyScoreHistory = read("lib/dailyScoreHistory.ts");
 
 check(/^begin;/m.test(migration) && /commit;\s*$/.test(migration), "v16.2.8 migration is not transaction wrapped");
 check(/^begin;/m.test(percentHotfix) && /commit;\s*$/.test(percentHotfix), "v16.2.8 percent-title hotfix is not transaction wrapped");
@@ -203,21 +205,22 @@ check(/PLAYABLE_CATALOG_CACHE_VERSION = "16\.(?:2\.(?:8\.316|9\.(?:32[7-9]|33[0-
 check(serverPlayableCatalog.includes('["geostats-catalog-page", PLAYABLE_CATALOG_CACHE_VERSION]') && serverPlayableCatalog.includes('from += page.rowsRead') && !serverPlayableCatalog.includes('loadCachedPlayableRows'), "server catalog must cache bounded versioned pages without truncating the catalog");
 check(playableCatalogRoute.includes("X-GeoStats-Catalog-Version") && playableCatalogRoute.includes("PLAYABLE_CATALOG_CACHE_VERSION"), "catalog endpoint does not disclose its cache version");
 check(game.includes("${PLAYER_COPY_VERSION}:${date}") && game.includes("copy: PLAYER_COPY_VERSION"), "browser/CDN Daily caches are not keyed by player-copy version");
-check(/(?:have your verified score saved automatically|save your verified score automatically)/.test(game), "Expert account copy incorrectly implies manual score submission");
 for (const token of [
-  "expertPreview = !isRandom && difficulty === \"expert\" && !canPlayExpert",
-  "disabled={expertPreview||used.has(country.id)}",
+  "Saved on this browser. Sign in to transfer your complete eligible Daily history",
   "Saved automatically to your account and included in the verified standings.",
   "onScoreSaved={(saved)",
-]) check(game.includes(token), `Expert/account score flow missing ${token}`);
+]) check(game.includes(token), `account score flow missing ${token}`);
+check(!game.includes("expertPreview") && !game.includes("canPlayExpert"), "Expert Daily is still account-gated");
 for (const token of ["categoryThemeClass", "Card-edge colors group subjects", "They are guides only and do not change scoring", "categoryColorKey"]) {
   check(game.includes(token), `board color-key clarity missing ${token}`);
 }
 for (const token of [
-  "onScoreSaved?.({ challengeDate: pending.challengeDate, difficulty })",
-  "Verified Daily scores are saved automatically",
+  "pendingDailyScores(localStorage)",
+  "markDailyScoreSynced(localStorage, pending)",
+  "complete Daily history",
   "Your email never does",
 ]) check(accountControls.includes(token), `account UI missing ${token}`);
+for (const token of ["geostats:daily-result:", "geostats:synced-daily-scores-v1", "1_100"]) check(dailyScoreHistory.includes(token), `complete score history missing ${token}`);
 check(leaderboardPage.includes("<LeaderboardView />") && !leaderboardPage.includes("Account-only standings"), "leaderboard page is not publicly visible");
 check(!leaderboardView.includes("Internal QA"), "leaderboard exposes internal QA terminology to players");
 check(!/Random QA|Internal Random|QA functionality/.test(`${privacyPage}\n${termsPage}`), "public legal pages expose internal QA terminology");
@@ -262,7 +265,9 @@ for (const token of ["Warehouse status", "Eligibility", "Review priority", "Util
 check(adminDashboardRoute.includes("warehouseHealth") && adminDashboardRoute.includes("initialQueryFailures"), "Admin dashboard does not degrade gracefully when an optional warehouse subsystem fails");
 check((rlsInitplanHardening.match(/\(select auth\.uid\(\)\)/g) ?? []).length === 3, "owner/admin RLS policies do not use initplan-safe auth checks");
 check((writeRlsInitplanHardening.match(/\(select auth\.uid\(\)\)/g) ?? []).length === 5, "authenticated write policies do not use initplan-safe auth checks");
-check(expertPage.includes("canPlayExpert={Boolean(userResult?.data.user)}"), "Expert play does not use server-authenticated access state");
+check(!expertPage.includes("createSupabaseServerClient") && expertPage.includes('initialDifficulty="expert"'), "Expert Daily still performs an account gate");
+for (const token of ["security_invoker = true", "consume_analytics_rate_limit_v1", "database_storage_status_v1", "analytics_rate_limits"]) check(launchReadiness.includes(token), `launch hardening migration missing ${token}`);
+for (const token of ["consume_analytics_rate_limit_v1", "x-vercel-forwarded-for", "raw.length > 5_000"]) check(analyticsRoute.includes(token), `analytics abuse protection missing ${token}`);
 check(profileRoute.includes("usernamePassesModeration") && profileRoute.includes("Your email") === false, "username moderation or profile privacy regressed");
 for (const token of [
   'create policy "users read own profile"',

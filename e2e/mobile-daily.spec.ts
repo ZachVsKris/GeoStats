@@ -322,19 +322,13 @@ for (const viewport of mobileCases) {
       expect(layout.lockAfterCards).toBeTruthy();
       expect(layout.lockVisible).toBeTruthy();
 
-      if (mode.difficulty === "expert") {
-        await expect(page.locator(".expertAccessGate")).toBeVisible();
-        await expect(page.getByRole("button", { name: /sign in to play expert/i })).toBeVisible();
-        await expect(page.locator(".countries .country:disabled")).toHaveCount(mode.countries);
-        await expect(page.locator('.slots .slot[aria-disabled="true"]')).toHaveCount(mode.categories);
-        await expect(page.getByRole("button", { name: /sign in above to play/i })).toBeDisabled();
-      } else {
-        for (let index = 0; index < mode.categories; index += 1) {
-          await page.locator(".countries .country:not(:disabled)").first().click();
-          await page.locator(".slots .slot").nth(index).click();
-        }
-        await expect(page.locator(".removePiece")).toHaveCount(mode.categories);
-        await expect.poll(async () => page.locator(".removePiece").evaluateAll((controls) => controls.flatMap((control) => {
+      await expect(page.locator(".expertAccessGate")).toHaveCount(0);
+      for (let index = 0; index < mode.categories; index += 1) {
+        await page.locator(".countries .country:not(:disabled)").first().click();
+        await page.locator(".slots .slot").nth(index).click();
+      }
+      await expect(page.locator(".removePiece")).toHaveCount(mode.categories);
+      await expect.poll(async () => page.locator(".removePiece").evaluateAll((controls) => controls.flatMap((control) => {
           const button = control.getBoundingClientRect();
           const icon = control.querySelector("svg")!.getBoundingClientRect();
           const choice = control.closest<HTMLElement>(".choice")!.getBoundingClientRect();
@@ -347,9 +341,8 @@ for (const viewport of mobileCases) {
             && choice.right - button.right >= 4
             && choice.right - button.right <= 12;
           return centered ? [] : [{label: control.getAttribute("aria-label"), topGap, bottomGap, rightGap: choice.right - button.right}];
-        }))).toEqual([]);
-        await expect(page.getByRole("button", { name: /lock in draft/i })).toBeEnabled();
-      }
+      }))).toEqual([]);
+      await expect(page.getByRole("button", { name: /lock in draft/i })).toBeEnabled();
       expect(browserErrors).toEqual([]);
       await page.screenshot({ path: testInfo.outputPath(`${mode.difficulty}-${viewport.width}x${viewport.height}.png`), fullPage: true });
     });
@@ -506,7 +499,7 @@ test("leaderboard is public and invites guests to join the all-time standings", 
   await expect(page.getByRole("columnheader", { name: "Average score" })).toBeVisible();
   await expect(page.getByText("327.4 / 400")).toBeVisible();
   await expect(page.getByRole("button", { name: /sign in to join leaderboard/i })).toBeVisible();
-  await expect(page.getByText("Scout and Adventurer remain playable without an account.")).toBeVisible();
+  await expect(page.getByText("Scout, Adventurer, and Expert are all playable without an account.")).toBeVisible();
   await expect(page.getByRole("tab", { name: "Scout" })).toBeVisible();
   await expect(page.getByRole("tab", { name: "Adventurer" })).toBeVisible();
   await expect(page.getByRole("tab", { name: "Expert" })).toBeVisible();
@@ -546,7 +539,7 @@ test("unsigned Daily result persists after refresh on the same browser", async (
     await page.locator(".slots .slot").nth(index).click();
   }
   await page.getByRole("button", { name: /lock in draft/i }).click();
-  await expect(page.getByText("Saved on this browser. Sign in to add it to the leaderboard.")).toBeVisible();
+  await expect(page.getByText("Saved on this browser. Sign in to transfer your complete eligible Daily history to the leaderboard.")).toBeVisible();
   await expect(page.locator(".resultsModeTabs")).toBeVisible();
   await expect(page.locator(".resultsModeTabs a.active")).toHaveText("Scout");
   await page.getByRole("button", { name: "View rankings" }).first().click();
@@ -582,7 +575,7 @@ test("unsigned Daily result persists after refresh on the same browser", async (
   expect(rankingGrid.rowInsideTable).toBeTruthy();
   await page.screenshot({ path: testInfo.outputPath("mobile-results.png"), fullPage: true });
   await page.reload();
-  await expect(page.getByText("Saved on this browser. Sign in to add it to the leaderboard.")).toBeVisible();
+  await expect(page.getByText("Saved on this browser. Sign in to transfer your complete eligible Daily history to the leaderboard.")).toBeVisible();
   await expect(page.getByText("Final score")).toBeVisible();
 });
 

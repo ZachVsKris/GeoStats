@@ -186,7 +186,7 @@ type CatalogMacroDomain = { macro_domain: string; categories: number; playable: 
 type GeneratorReachabilitySummary = { playable: number; categories_with_reachability_proof: number; failed_difficulty_checks: number; last_checked_at: string | null };
 
 type Dashboard = {
-  stats: { categories: number; observations: number; countries: number; accounts: number; accounts30d: number; usernames: number };
+  stats: { categories: number; observations: number; countries: number; accounts: number; accounts30d: number; usernames: number; storage: null | { databaseBytes: number; limitBytes: number; usedPercent: number; status: string } };
   reviewCounts: Record<ReviewStatus, number> & { pending_editorial: number };
   sources: SourceRow[];
   imports: ImportRow[];
@@ -589,6 +589,12 @@ export default function AdminDashboard() {
           {data.warehouseHealth.checks.map((check) => <span key={check.label} style={{ padding: "6px 9px", borderRadius: 99, border: `1px solid ${check.healthy ? "rgba(185,244,90,.35)" : "rgba(255,190,90,.5)"}`, background: check.healthy ? "rgba(185,244,90,.06)" : "rgba(255,190,90,.09)", fontSize: 11 }}>{check.healthy ? "✓" : "!"} {check.label}</span>)}
         </div>
       </section>
+
+      {data.stats.storage && <section role="status" style={{ ...card, marginBottom: 16, borderColor: data.stats.storage.status === "critical" ? "rgba(255,100,100,.7)" : data.stats.storage.status === "warning" ? "rgba(255,190,90,.65)" : "rgba(185,244,90,.45)" }}>
+        <span className="kicker">Database storage</span>
+        <h2 style={{ margin: "5px 0" }}>{data.stats.storage.usedPercent}% used · {(data.stats.storage.databaseBytes / 1048576).toFixed(1)} MiB of {(data.stats.storage.limitBytes / 1048576).toFixed(0)} MiB</h2>
+        <p style={{ margin: 0, opacity: .72 }}>{data.stats.storage.status === "critical" ? "Critical: pause large imports and reclaim or upgrade storage." : data.stats.storage.status === "warning" ? "Warning: review growth before running imports." : "Storage is below the launch warning threshold."}</p>
+      </section>}
 
       <section style={{ ...card, marginBottom: 16 }}>
         <h2 style={{ marginTop: 0 }}>How catalog statuses differ</h2>

@@ -1,0 +1,4 @@
+import { ImageResponse } from "next/og";
+export const size = { width: 180, height: 180 };
+export const contentType = "image/png";
+export default function AppleIcon() { return new ImageResponse(<img width={180} height={180} src={"data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2048%2048%22%3E%3Crect%20width%3D%2248%22%20height%3D%2248%22%20rx%3D%2210%22%20fill%3D%22%23e8f3f8%22%2F%3E%3Ccircle%20cx%3D%2224%22%20cy%3D%2224%22%20r%3D%2221%22%20fill%3D%22%23f1f8fb%22%20stroke%3D%22%23668d9e%22%20stroke-width%3D%221%22%2F%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23175e82%22%20stroke-width%3D%221.6%22%3E%3Ccircle%20cx%3D%2224%22%20cy%3D%2224%22%20r%3D%2213.5%22%2F%3E%3Cpath%20d%3D%22M10.5%2024h27M24%2010.5c5%204.2%207.5%208.7%207.5%2013.5S29%2033.3%2024%2037.5c-5-4.2-7.5-8.7-7.5-13.5S19%2014.7%2024%2010.5ZM13.7%2016.5h20.6M13.7%2031.5h20.6%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E%0A"} />, size); }

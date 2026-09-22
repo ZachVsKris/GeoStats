@@ -1,6 +1,8 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./styles.css";
 import AnalyticsPageView from "../components/AnalyticsPageView";
+
+export const viewport: Viewport = { themeColor: "#e8f3f8" };
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://geostats.xyz"),

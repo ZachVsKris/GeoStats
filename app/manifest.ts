@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "A strategy-first geography game powered by verified country data",
     start_url: "/daily",
     display: "standalone",
-    background_color: "#08130f",
-    theme_color: "#0f2019",
-    icons: [{ src: "/icon.svg", sizes: "any", type: "image/svg+xml" }],
+    background_color: "#e8f3f8",
+    theme_color: "#e8f3f8",
+    icons: [{ src: "/icon.svg?v=atlas-2", sizes: "any", type: "image/svg+xml" }],
   };
 }

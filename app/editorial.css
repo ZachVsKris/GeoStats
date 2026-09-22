@@ -11,7 +11,7 @@
   --muted: #42616b;
   --line: #b9c2b7;
   --line-soft: #dedfd5;
-  --accent: #785918;
+  --accent: #285f73;
   --accent-2: #316b50;
   --danger: #a6322b;
   --label: var(--sans);
@@ -32,7 +32,7 @@ body::before {
   content: ""; display: block; position: fixed; inset: auto; transform: none; mask-image: none; -webkit-mask-image: none; filter: none;
   width: 100%; height: 100%; top: 0; left: 0; right: auto; bottom: auto;
   background: url('/atlas-globe.svg') center 40% / max(1400px,130vw) auto no-repeat;
-  opacity: .27; pointer-events: none; z-index: -1;
+  opacity: .18; pointer-events: none; z-index: -1;
 }
 body { isolation: isolate; }
 .shell > header { border-bottom-color: #b8cbd0; }
@@ -178,6 +178,10 @@ body { isolation: isolate; }
 .shell .publicLeaderboard > div > strong { font-size: 16px; }
 .shell .leaderboardJoinPrompt { margin-top: 24px; padding: 18px 0; border: 0; border-top: 1px solid var(--line-soft); background: transparent; text-align: left; justify-items: start; gap: 8px; }
 .shell .leaderboardJoinPrompt > strong { font-size: 18px; }
+.shell .leaderboardMethodDetails { margin-top: 10px; font-size: 12px; color: var(--muted); }
+.shell .leaderboardMethodDetails summary { cursor: pointer; width: fit-content; padding: 5px 0; }
+.shell .leaderboardJoinPrompt { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 20px; }
+.shell .leaderboardMethodDetails p { max-width: 70ch; }
 .shell .leaderboardJoinPrompt > p { font-size: 13px; max-width: 75ch; }
 .shell .leaderboardJoinPrompt > small { font-size: 12px; }
 .shell .leaderboardJoinPrompt .accountHeaderActions button { min-width: 0; min-height: 44px; padding: 10px 16px; background: var(--ink); color: var(--surface); border-radius: 3px; font-size: 13px; }
@@ -232,7 +236,7 @@ body { isolation: isolate; }
   background: var(--ocean-light) !important; color: var(--ocean) !important; border-bottom: 3px solid var(--ocean) !important; box-shadow: none;
 }
 .shell.activePlay .country {
-  background: #faf9f2; color: #173c4b; border: 1px solid #b6c9c8; border-radius: 6px;
+  background: #e8f1eee8; color: #173c4b; border: 1px solid #aec4c3; border-radius: 6px;
 }
 .shell.activePlay .country strong { color: inherit !important; }
 .shell.activePlay .country:hover:not(:disabled) { background: #fffefa; border-color: #346b7e; }
@@ -240,12 +244,12 @@ body { isolation: isolate; }
 .shell.activePlay .country.used { background: #e3e8e5; border-color: #ccd5d0; color: #5c6e64; opacity: 1; }
 .shell.activePlay .country.used b { background: transparent; color: #5c6e64; font-size: 9px; }
 .shell.activePlay .boardPanel .slots { gap: 0 24px; }
-.shell.activePlay .boardPanel .slot { padding: 16px 4px 14px !important; border: 0; border-top: 1px solid #97b4bb; border-radius: 0; background: transparent; box-shadow: none; }
+.shell.activePlay .boardPanel .slot { min-height: 140px; padding: 12px 4px !important; justify-content: flex-start !important; gap: 12px; border: 0; border-top: 1px solid #97b4bb; border-radius: 0; background: transparent; box-shadow: none; }
 .shell.activePlay .choice { display: flex; align-items: center; justify-content: flex-start; background: transparent; border: 0; border-radius: 4px; padding: 4px 6px !important; min-height: 44px; }
 .shell.activePlay .choice:not(.filled)::before { content: "+"; position: static; inset: auto; width: 30px; max-width: 30px; transform: none; display: inline-grid; place-items: center; flex: 0 0 30px; height: 30px; margin: 0 9px 0 0; border: 0; border-radius: 50%; background: #faf9f2; opacity: 1; color: #285f73; font-size: 24px; font-weight: 400; }
 .shell.activePlay .choice em { color: var(--ink); }
 .shell.activePlay .slot.assigned { background: #dcebe6e8; }
-.shell.activePlay .bankPanel .country { min-height: 94px; }
+.shell.activePlay .bankPanel .country { min-height: 80px; }
 .shell.activePlay .country > span { font-size: 32px !important; }
 .shell.activePlay .boardPanel .category strong { font-size: 17px !important; }
 .shell.activePlay .lock { border-top: 1px solid #97b4bb; padding-top: 12px; }

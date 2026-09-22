@@ -32,7 +32,7 @@ body::before {
   content: ""; display: block; position: fixed; inset: auto; transform: none; mask-image: none; -webkit-mask-image: none; filter: none;
   width: 100%; height: 100%; top: 0; left: 0; right: auto; bottom: auto;
   background: url('/atlas-globe.svg') center 40% / max(1400px,130vw) auto no-repeat;
-  opacity: .18; pointer-events: none; z-index: -1;
+  opacity: .12; pointer-events: none; z-index: -1;
 }
 body { isolation: isolate; }
 .shell > header { border-bottom-color: #b8cbd0; }
@@ -41,7 +41,7 @@ body { isolation: isolate; }
 .shell .brandWords small { color: #587780; }
 .shell .dailyModeButton.active, .shell .leaderboardModeTabs button.active { background: #e4edef; color: #285a6b; border-bottom-color: #3c7283; }
 @media (max-width: 900px) {
-  body::before { width: 100%; height: 100%; left: 0; top: 0; right: auto; bottom: auto; background-size: auto 1250px; background-position: center top; opacity: .2; }
+  body::before { width: 100%; height: 100%; left: 0; top: 0; right: auto; bottom: auto; background-size: auto 1250px; background-position: center top; opacity: .12; }
 }
 .shell { max-width: 1280px; }
 .panel, .challengeBar, .panelTitle, .country, .slot, .score, .perfect,
@@ -243,6 +243,18 @@ body { isolation: isolate; }
 .shell.activePlay .country.selected { background: #e4edf0; color: #214d5b; border-color: var(--ocean); outline: 2px solid var(--ocean); outline-offset: 2px; }
 .shell.activePlay .country.used { background: #e3e8e5; border-color: #ccd5d0; color: #5c6e64; opacity: 1; }
 .shell.activePlay .country.used b { background: transparent; color: #5c6e64; font-size: 9px; }
+.shell.activePlay .playGrid.choosingCountry .country:not(.used),
+.shell.activePlay .playGrid .country.categoryTarget:not(:disabled) {
+  background: #eaf3ef; color: #173c4b; border-color: #527b78; box-shadow: none; opacity: 1; transform: none;
+}
+.shell.activePlay .playGrid .country.categoryTarget:hover:not(:disabled) { background: #dcece5; border-color: #285f73; }
+.shell.activePlay .playGrid.holdingCountry .country:not(.selected):not(.used) { opacity: 1; }
+.shell.activePlay .playGrid .slot.selectedCategory,
+.shell.activePlay .playGrid .slot.touchTarget {
+  background: #eaf3efeF; outline: 2px solid #527b78; outline-offset: -2px; box-shadow: none; transform: none; border-radius: 4px;
+}
+.shell.activePlay .playGrid .slot.target { background: #eaf3ef99; box-shadow: none; transform: none; border-color: #97b4bb; }
+.shell.activePlay .playGrid .slot:hover { box-shadow: none; transform: none; }
 .shell.activePlay .boardPanel .slots { gap: 0 24px; }
 .shell.activePlay .boardPanel .slot { min-height: 140px; padding: 12px 4px !important; justify-content: flex-start !important; gap: 12px; border: 0; border-top: 1px solid #97b4bb; border-radius: 0; background: transparent; box-shadow: none; }
 .shell.activePlay .choice { display: flex; align-items: center; justify-content: flex-start; background: transparent; border: 0; border-radius: 4px; padding: 4px 6px !important; min-height: 44px; }

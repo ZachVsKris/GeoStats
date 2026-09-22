@@ -453,3 +453,32 @@ body { isolation: isolate; }
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+/* Results: navy information, blue actions, green best-possible status. */
+.shell .placementSummary b { color: var(--ink); }
+
+/* Shared text roles across gameplay, results, standings, data and account UI. */
+.shell .scoreValue strong, .shell .perfectRow > b,
+.shell .leaderboard .worldRank, .shell .publicLeaderboard > div > strong,
+.shell .infoStat strong, .shell .placementSummary strong { color: var(--ink); }
+.shell .kicker, .shell .perfect .kicker, .shell .mobileProgress,
+.shell .currentPlayerBadge, .shell .sourceBadge { color: var(--muted); }
+.shell .resultMain small, .shell .perfectRow small,
+.shell .brandWords small, .shell .measurementBadge { color: var(--muted); }
+.shell .leaderboardButton, .shell .sourceDetailsButton, .shell .inlineSourceButton,
+.shell .infoActions a, .shell .infoSourceLink, .shell .infoFooter a,
+.shell .leaderboardHeader a, .shell .headerLink,
+.shell .desktopSupportMenu summary, .shell .mobileMenu summary,
+.shell .desktopSupportMenu button, .shell .desktopSupportMenu a,
+.shell .mobileMenu button, .shell .mobileMenu a { color: var(--ocean); }
+.shell .dailyModeButton.active, .shell .mobileModeTabs a.active,
+.shell .leaderboardModeTabs button.active, .shell .resultsModeTabs a.active,
+.shell .leaderboardGameNav .headerButtonLink.active { color: var(--ink) !important; }
+.shell .placementSummary span, .shell .infoStatusPill.approved,
+.shell .accountBenefits li::before { color: var(--land); }
+/* Filled action buttons need light text against their ocean background. */
+.shell .modal button:not(.modalClose):not(.inlineSourceButton):not(.sourceDetailsButton),
+.shell .sourceSpec .sourceSpecPrimary,
+.shell .systemStateActions a, .shell .systemStateActions button {
+  color: var(--surface); background: var(--ocean);
+}

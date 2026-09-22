@@ -245,6 +245,8 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
   const [scores, setScores] = useState<ScoreRow[] | null>(null);
   const [freshResult, setFreshResult] = useState(false);
   const sound = useGameSound();
+  const categoryDialog = useRef<HTMLDialogElement>(null);
+  const [categoryHelp, setCategoryHelp] = useState<Category | null>(null);
   const [status, setStatus] = useState(serverInitialRound ? "" : "Loading official country data…");
   const [error, setError] = useState("");
   const [showRules, setShowRules] = useState(false);
@@ -699,6 +701,8 @@ Can you beat my score?`;
       {!isRandom && <div className="gameAccount"><AccountControls difficulty={difficulty} hideLeaderboardLink compact /></div>}
       <details className="mobileMenu"><summary aria-label="Open game menu">Menu</summary><div>
         {gameTools}
+        <p className="mobileDailyDate">{dailyDateFromSeed(seed)}</p>
+        {boardNotice && <details><summary>About today’s data</summary><p>{boardNotice}</p></details>}
         <a href="/audit">Data audit</a><button onClick={() => setShowRules(true)}>How it works</button>
         {isRandom && <a href="/daily">Daily modes</a>}
         {!isRandom && <a href={`/leaderboard?difficulty=${difficulty}`}>Leaderboard</a>}
@@ -750,10 +754,10 @@ Can you beat my score?`;
             onDragOver={(event)=>event.preventDefault()}
             onDrop={(event)=>{event.preventDefault();const dropped=event.dataTransfer.getData("text/plain");if(dropped)assignCountry(dataset.category.id,dropped)}}
             onClick={()=>selectCategory(dataset.category.id)}
-            onKeyDown={(event)=>{if(event.key==="Enter"||event.key===" "){event.preventDefault();selectCategory(dataset.category.id)}}}
+            onKeyDown={(event)=>{if(event.target !== event.currentTarget) return;if(event.key==="Enter"||event.key===" "){event.preventDefault();selectCategory(dataset.category.id)}}}
           >
             <span className="cornerNotch" aria-hidden="true"/>
-            <div className="category" title={categoryMeasurementLabel(dataset.category)}><span>{dataset.category.icon}</span><div className="categoryCopy"><strong>{dataset.category.name}</strong><small>{dataset.category.boardDescription ?? dataset.category.description}</small>{!/%|per capita|per person/i.test(dataset.category.name) && <span className="measurementBadge" title={categoryMeasurementLabel(dataset.category)}>{categoryMeasurementBadgeLabel(dataset.category)}</span>}</div><b className="slotNumber">{String(index + 1).padStart(2, "0")}</b></div>
+            <div className="category" title={categoryMeasurementLabel(dataset.category)}><span className="desktopCategoryIcon">{dataset.category.icon}</span><button type="button" className="mobileCategoryInfo" aria-label={`About ${dataset.category.name}`} onClick={(event)=>{event.stopPropagation();setCategoryHelp(dataset.category);categoryDialog.current?.showModal();}}>{dataset.category.icon}<sup>i</sup></button><div className="categoryCopy"><strong>{dataset.category.name}</strong><small>{dataset.category.boardDescription ?? dataset.category.description}</small>{!/%|per capita|per person/i.test(dataset.category.name) && <span className="measurementBadge" title={categoryMeasurementLabel(dataset.category)}>{categoryMeasurementBadgeLabel(dataset.category)}</span>}</div><b className="slotNumber">{String(index + 1).padStart(2, "0")}</b></div>
             <div key={c?.id ?? "empty"} className={`choice ${c?"filled":""}`}>{c?<><span className="pieceFlag">{c.flag}</span><strong className="pieceName">{c.name}</strong><button type="button" className="removePiece" aria-label={`Remove ${c.name} from ${dataset.category.name}`} title="Remove country" onClick={(event)=>{event.stopPropagation();sound.play("remove");setAssignments((current)=>{const next={...current};delete next[dataset.category.id];return next;});setSelectedCategory(null);}}><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 4l8 8M12 4l-8 8"/></svg></button></>:<em>{selected?"Place here":selectedCategory===dataset.category.id?"Choose a country":"Assign country"}</em>}</div>
           </div>
         })}</div>
@@ -779,6 +783,12 @@ Can you beat my score?`;
     {!scores && <section className="dataNote"><strong>Atlas index · trusted category library</strong><p><a href="/data">Data & methodology</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p><p>Population, economy, land, agriculture, food, religion, energy, health, labor, trade, displacement, travel, technology, and environment. New official-source categories stay out of play until they pass integrity, clarity, coverage, and duplicate review.</p></section>}
 
     {scores && <div className="resultsGameTools">{gameTools}</div>}
+    <dialog ref={categoryDialog} className="mobileCategoryDialog" aria-labelledby="categoryHelpTitle" onClick={(event)=>{if(event.target===event.currentTarget)categoryDialog.current?.close();}}>
+      <h2 id="categoryHelpTitle">{categoryHelp?.icon} {categoryHelp?.name}</h2>
+      <p>{categoryHelp?.boardDescription ?? categoryHelp?.description}</p>
+      {categoryHelp && <p>{categoryMeasurementLabel(categoryHelp)}</p>}
+      <button type="button" autoFocus onClick={()=>categoryDialog.current?.close()}>Back to board</button>
+    </dialog>
     {sourceDataset && <CategorySourcePanel dataset={sourceDataset} boardCountryIds={round?.bank.map((country) => country.id) ?? []} onClose={()=>setSourceDataset(null)} />}
 
     {showRules&&<div className="modal rulesModal" onClick={(e)=>e.currentTarget===e.target&&setShowRules(false)}><div className="rulesModalCard"><h2>How GeoStats works</h2><p><strong>{isRandom ? "Choose a Random difficulty:" : "Progress through the Dailies:"}</strong> Scout has 4 countries and 4 categories, Adventurer has 6 countries and 4 categories, and Expert has 8 countries and 6 categories.</p><ol><li><strong>Each category has a different winner.</strong> Among today’s countries, every category’s #1 country is unique.</li><li><strong>No tied values on the board.</strong> Countries in the same round always show distinct values for every category.</li><li><strong>Match countries to categories.</strong> Assign one country to each category, and use each country only once.</li><li><strong>Score as many points as possible.</strong> Higher-ranked countries earn more points. A perfect game matches every category with its #1 country.</li></ol><p>{isRandom ? "Random games are unranked, repeatable, and reproducible from the seed in the URL." : "New Scout, Adventurer, and Expert challenges unlock every day."}</p><button onClick={()=>setShowRules(false)}>Start drafting</button></div></div>}

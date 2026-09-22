@@ -1,0 +1,6 @@
+-- Run after copying all categories. Original table remains available throughout.
+create index observations_compact_category_year_idx on geostats_maintenance.observations_compact(category_id,data_year desc);
+create index observations_compact_country_idx on geostats_maintenance.observations_compact(country_iso3);
+create index observations_compact_category_year_country_idx on geostats_maintenance.observations_compact(category_id,data_year,country_iso3);
+create index observations_compact_category_year_value_country_idx on geostats_maintenance.observations_compact(category_id,data_year,value,country_iso3);
+analyze geostats_maintenance.observations_compact;

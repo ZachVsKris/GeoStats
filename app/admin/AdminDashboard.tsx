@@ -264,29 +264,29 @@ const WORKFLOWS: Record<string, string> = {
 };
 
 const card: React.CSSProperties = {
-  border: "1px solid rgba(255,255,255,.12)",
+  border: "1px solid var(--line)",
   borderRadius: 16,
   padding: 18,
-  background: "rgba(8,30,24,.72)",
+  background: "var(--surface)",
 };
 const button: React.CSSProperties = {
   appearance: "none",
-  border: "1px solid rgba(185,244,90,.55)",
-  background: "#17382d",
-  color: "#efffda",
+  border: "1px solid var(--land)",
+  background: "var(--ocean)",
+  color: "#ffffff",
   borderRadius: 10,
   padding: "9px 12px",
   fontWeight: 700,
   cursor: "pointer",
 };
-const mutedButton: React.CSSProperties = { ...button, borderColor: "rgba(255,255,255,.18)", background: "rgba(255,255,255,.05)" };
+const mutedButton: React.CSSProperties = { ...button, color: "var(--ink)", borderColor: "var(--line)", background: "var(--surface-2)" };
 const dangerButton: React.CSSProperties = { ...button, borderColor: "rgba(255,120,120,.45)", background: "rgba(95,28,30,.65)" };
 const input: React.CSSProperties = {
   minHeight: 40,
   borderRadius: 10,
-  border: "1px solid rgba(255,255,255,.16)",
-  background: "#081b16",
-  color: "#f4f7ef",
+  border: "1px solid var(--line)",
+  background: "var(--surface)",
+  color: "var(--ink)",
   padding: "8px 10px",
 };
 
@@ -571,26 +571,26 @@ export default function AdminDashboard() {
   return (
     <>
       {error && <div className="adminError" style={{ ...card, borderColor: "rgba(255,100,100,.6)", marginBottom: 14 }}>{error}</div>}
-      {notice && <div style={{ ...card, borderColor: "rgba(185,244,90,.55)", marginBottom: 14 }}>{notice}</div>}
+      {notice && <div style={{ ...card, borderColor: "var(--land)", marginBottom: 14 }}>{notice}</div>}
 
-      <section style={{ ...card, marginBottom: 16, borderColor: "rgba(185,244,90,.45)", background: "linear-gradient(135deg,rgba(38,78,50,.72),rgba(8,30,24,.8))" }}>
+      <section style={{ ...card, marginBottom: 16, borderColor: "var(--land)", background: "var(--surface-2)" }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, flexWrap: "wrap" }}>
           <div><span className="kicker">v16.2.7 catalog + generator rebuild</span><h2 style={{ margin: "5px 0" }}>Review categories in the Workbench</h2><p style={{ margin: 0, opacity: .72 }}>One authoritative decision, permanent political/self-report and clarity flags, source values, overlaps, and keyboard review.</p></div>
           <a href="/admin/review" style={{ ...button, display: "inline-block", textDecoration: "none" }}>Open Category Review</a>
         </div>
       </section>
 
-      <section style={{ ...card, marginBottom: 16, borderColor: data.warehouseHealth.status === "healthy" ? "rgba(185,244,90,.45)" : "rgba(255,190,90,.55)" }}>
+      <section style={{ ...card, marginBottom: 16, borderColor: data.warehouseHealth.status === "healthy" ? "var(--land)" : "rgba(255,190,90,.55)" }}>
         <div style={{ display: "flex", justifyContent: "space-between", gap: 16, alignItems: "start", flexWrap: "wrap" }}>
           <div><span className="kicker">Warehouse status</span><h2 style={{ margin: "5px 0" }}>{data.warehouseHealth.status === "healthy" ? "All reporting systems available" : "Dashboard loaded with degraded reporting"}</h2><p style={{ margin: 0, opacity: .72 }}>{data.warehouseHealth.healthy}/{data.warehouseHealth.total} subsystems available · updated {lastRefreshedAt?.toLocaleTimeString() ?? new Date(data.warehouseHealth.checkedAt).toLocaleTimeString()} · auto-refreshes every minute</p></div>
           <button type="button" style={button} disabled={loading} onClick={() => void load()}>{loading ? "Refreshing…" : "Refresh status"}</button>
         </div>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 7, marginTop: 13 }}>
-          {data.warehouseHealth.checks.map((check) => <span key={check.label} style={{ padding: "6px 9px", borderRadius: 99, border: `1px solid ${check.healthy ? "rgba(185,244,90,.35)" : "rgba(255,190,90,.5)"}`, background: check.healthy ? "rgba(185,244,90,.06)" : "rgba(255,190,90,.09)", fontSize: 11 }}>{check.healthy ? "✓" : "!"} {check.label}</span>)}
+          {data.warehouseHealth.checks.map((check) => <span key={check.label} style={{ padding: "6px 9px", borderRadius: 99, border: `1px solid ${check.healthy ? "var(--land)" : "rgba(255,190,90,.5)"}`, background: check.healthy ? "var(--surface-3)" : "rgba(255,190,90,.09)", fontSize: 11 }}>{check.healthy ? "✓" : "!"} {check.label}</span>)}
         </div>
       </section>
 
-      {data.stats.storage && <section role="status" style={{ ...card, marginBottom: 16, borderColor: data.stats.storage.status === "critical" ? "rgba(255,100,100,.7)" : data.stats.storage.status === "warning" ? "rgba(255,190,90,.65)" : "rgba(185,244,90,.45)" }}>
+      {data.stats.storage && <section role="status" style={{ ...card, marginBottom: 16, borderColor: data.stats.storage.status === "critical" ? "rgba(255,100,100,.7)" : data.stats.storage.status === "warning" ? "rgba(255,190,90,.65)" : "var(--land)" }}>
         <span className="kicker">Database storage</span>
         <h2 style={{ margin: "5px 0" }}>{data.stats.storage.usedPercent}% used · {(data.stats.storage.databaseBytes / 1048576).toFixed(1)} MiB of {(data.stats.storage.limitBytes / 1048576).toFixed(0)} MiB</h2>
         <p style={{ margin: 0, opacity: .72 }}>{data.stats.storage.status === "critical" ? "Critical: pause large imports and reclaim or upgrade storage." : data.stats.storage.status === "warning" ? "Warning: review growth before running imports." : "Storage is below the launch warning threshold."}</p>
@@ -604,7 +604,7 @@ export default function AdminDashboard() {
             ["Review priority", "The order worth reviewing candidates in; high priority is not the same as playable"],
             ["Utilization", "How often eligible categories actually appeared in published Dailies during the reporting window"],
             ["Blocker", "The first recorded reason a category cannot become playable; additional blockers remain visible in its detail"],
-          ].map(([label, explanation]) => <div key={label} style={{ padding: 12, borderRadius: 10, background: "rgba(255,255,255,.04)" }}><strong>{label}</strong><p style={{ margin: "5px 0 0", opacity: .7, fontSize: 12, lineHeight: 1.45 }}>{explanation}</p></div>)}
+          ].map(([label, explanation]) => <div key={label} style={{ padding: 12, borderRadius: 10, background: "var(--surface-2)" }}><strong>{label}</strong><p style={{ margin: "5px 0 0", opacity: .7, fontSize: 12, lineHeight: 1.45 }}>{explanation}</p></div>)}
         </div>
       </section>
 
@@ -647,7 +647,7 @@ export default function AdminDashboard() {
             ["Completion rate", data.analytics.completion_rate == null ? "—" : `${data.analytics.completion_rate}%`],
             ["Shares", data.analytics.shares],
             ["Average %", data.analytics.average_percent == null ? "—" : `${data.analytics.average_percent}%`],
-          ].map(([label, value]) => <div key={String(label)} style={{ padding: 12, borderRadius: 12, background: "rgba(255,255,255,.04)" }}>
+          ].map(([label, value]) => <div key={String(label)} style={{ padding: 12, borderRadius: 12, background: "var(--surface-2)" }}>
             <div style={{ opacity: .7, fontSize: 12 }}>{label}</div><strong style={{ fontSize: 22 }}>{typeof value === "number" ? formatNumber(value) : value}</strong>
           </div>)}
         </div>
@@ -662,10 +662,10 @@ export default function AdminDashboard() {
         {!data.analyticsDetails.migrationApplied ? <p>Apply the internal-traffic analytics migration to enable this table</p> : <div style={{ overflowX: "auto", marginTop: 14 }}>
           <table style={{ width: "100%", minWidth: 930, borderCollapse: "collapse", fontSize: 12, fontVariantNumeric: "tabular-nums" }}>
             <thead><tr style={{ textAlign: "right", opacity: .66, textTransform: "uppercase", fontSize: 10 }}><th style={{ textAlign: "left", padding: "8px 9px" }}>Date</th><th style={{ padding: "8px 9px" }}>Visitors</th><th style={{ padding: "8px 9px" }}>Page views</th><th style={{ padding: "8px 9px" }}>Starts</th><th style={{ padding: "8px 9px" }}>Finishes</th><th style={{ padding: "8px 9px" }}>Sign-in requests</th><th style={{ padding: "8px 9px" }}>Signed-in sessions</th><th style={{ padding: "8px 9px" }}>New accounts</th><th style={{ padding: "8px 9px" }}>QA excluded</th></tr></thead>
-            <tbody>{data.analyticsDetails.dailySummary.map((row) => <tr key={row.activity_date} style={{ borderTop: "1px solid rgba(255,255,255,.09)", textAlign: "right" }}>
+            <tbody>{data.analyticsDetails.dailySummary.map((row) => <tr key={row.activity_date} style={{ borderTop: "1px solid var(--line)", textAlign: "right" }}>
               <th scope="row" style={{ textAlign: "left", padding: "10px 9px", whiteSpace: "nowrap" }}>{new Date(`${row.activity_date}T12:00:00Z`).toLocaleDateString(undefined, { month: "short", day: "numeric" })}</th>
               <td style={{ padding: "10px 9px" }}>{formatNumber(row.visitors)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.page_views)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.games_started)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.games_completed)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.signin_requests)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.authenticated_sessions)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.accounts_created)}</td>
-              <td style={{ padding: "10px 9px", color: "#d8be73" }} title={`${row.internal_qa_games_started} game starts and ${row.internal_qa_games_completed} finishes excluded`}>{formatNumber(row.internal_qa_sessions)} sessions · {formatNumber(row.internal_qa_page_views)} views</td>
+              <td style={{ padding: "10px 9px", color: "var(--muted)" }} title={`${row.internal_qa_games_started} game starts and ${row.internal_qa_games_completed} finishes excluded`}>{formatNumber(row.internal_qa_sessions)} sessions · {formatNumber(row.internal_qa_page_views)} views</td>
             </tr>)}</tbody>
           </table>
         </div>}
@@ -681,20 +681,20 @@ export default function AdminDashboard() {
               ["Authenticated sessions", data.analytics.authenticated_sessions],
               ["Usernames saved", data.analytics.usernames_saved],
               ["Accounts created", data.stats.accounts30d],
-            ].map(([label, value]) => <div key={String(label)} style={{ padding: 12, borderRadius: 12, background: "rgba(255,255,255,.04)" }}><div style={{ opacity: .7, fontSize: 12 }}>{label}</div><strong style={{ fontSize: 22 }}>{formatNumber(Number(value))}</strong></div>)}
+            ].map(([label, value]) => <div key={String(label)} style={{ padding: 12, borderRadius: 12, background: "var(--surface-2)" }}><div style={{ opacity: .7, fontSize: 12 }}>{label}</div><strong style={{ fontSize: 22 }}>{formatNumber(Number(value))}</strong></div>)}
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: 18 }}>
             <div>
               <strong>Daily traffic · latest 14 days</strong>
               {recentActivity.length ? recentActivity.map(([date, value]) => <div key={date} style={{ display: "grid", gridTemplateColumns: "58px 1fr auto", alignItems: "center", gap: 9, marginTop: 9, fontSize: 12 }}>
                 <span style={{ opacity: .7 }}>{date.slice(5)}</span>
-                <span style={{ height: 8, borderRadius: 8, background: "rgba(255,255,255,.07)", overflow: "hidden" }}><span style={{ display: "block", width: `${Math.max(2, 100 * value.pageViews / maxDailyPageViews)}%`, height: "100%", background: "rgba(185,244,90,.65)" }} /></span>
+                <span style={{ height: 8, borderRadius: 8, background: "var(--line)", overflow: "hidden" }}><span style={{ display: "block", width: `${Math.max(2, 100 * value.pageViews / maxDailyPageViews)}%`, height: "100%", background: "var(--land)" }} /></span>
                 <span>{formatNumber(value.pageViews)} views · {formatNumber(value.completions)} finishes</span>
               </div>) : <p style={{ opacity: .7 }}>No traffic recorded yet</p>}
             </div>
             <div>
               <strong>Top acquisition paths</strong>
-              {data.analyticsDetails.acquisition.length ? data.analyticsDetails.acquisition.slice(0, 8).map((row, index) => <div key={`${row.utm_source}-${row.referrer}-${index}`} style={{ padding: "8px 0", borderBottom: "1px solid rgba(255,255,255,.08)", fontSize: 12 }}>
+              {data.analyticsDetails.acquisition.length ? data.analyticsDetails.acquisition.slice(0, 8).map((row, index) => <div key={`${row.utm_source}-${row.referrer}-${index}`} style={{ padding: "8px 0", borderBottom: "1px solid var(--line)", fontSize: 12 }}>
                 <b>{row.utm_source}</b> · {row.referrer}<span style={{ float: "right" }}>{formatNumber(row.sessions)} sessions</span>
                 <div style={{ opacity: .62 }}>{row.visitor_state} · {formatNumber(row.games_completed)} finishes · {formatNumber(row.authenticated_sessions)} sign-ins</div>
               </div>) : <p style={{ opacity: .7 }}>No acquisition data recorded yet</p>}
@@ -708,11 +708,11 @@ export default function AdminDashboard() {
         <div style={{ overflowX: "auto" }}>
           <div style={{ minWidth: 560 }}>
             <div style={{ display: "grid", gridTemplateColumns: "1fr repeat(5,90px)", gap: 8, padding: "8px 0", opacity: .65, fontSize: 11, textTransform: "uppercase" }}><span>Mode</span><span>Starts</span><span>Finishes</span><span>Sessions</span><span>Finish %</span><span>Average %</span></div>
-            {data.analyticsDetails.byDifficulty.map((row) => <div key={row.difficulty} style={{ display: "grid", gridTemplateColumns: "1fr repeat(5,90px)", gap: 8, padding: "9px 0", borderTop: "1px solid rgba(255,255,255,.08)" }}><strong>{dailyModeLabels[row.difficulty]}</strong><span>{formatNumber(row.games_started)}</span><span>{formatNumber(row.games_completed)}</span><span>{formatNumber(row.sessions)}</span><span>{row.completion_rate == null ? "—" : `${row.completion_rate}%`}</span><span>{row.average_percent == null ? "—" : `${row.average_percent}%`}</span></div>)}
+            {data.analyticsDetails.byDifficulty.map((row) => <div key={row.difficulty} style={{ display: "grid", gridTemplateColumns: "1fr repeat(5,90px)", gap: 8, padding: "9px 0", borderTop: "1px solid var(--line)" }}><strong>{dailyModeLabels[row.difficulty]}</strong><span>{formatNumber(row.games_started)}</span><span>{formatNumber(row.games_completed)}</span><span>{formatNumber(row.sessions)}</span><span>{row.completion_rate == null ? "—" : `${row.completion_rate}%`}</span><span>{row.average_percent == null ? "—" : `${row.average_percent}%`}</span></div>)}
           </div>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: 18, marginTop: 18 }}>
-          {[["Most-played categories", data.analyticsDetails.topCategories], ["Most-played countries", data.analyticsDetails.topCountries]].map(([heading, rows]) => <div key={String(heading)}><strong>{String(heading)}</strong>{(rows as AnalyticsEngagementRow[]).length ? (rows as AnalyticsEngagementRow[]).map((row) => <div key={row.id} style={{ display: "flex", justifyContent: "space-between", gap: 12, padding: "8px 0", borderBottom: "1px solid rgba(255,255,255,.08)", fontSize: 12 }}><span>{row.label}</span><span>{formatNumber(row.games_started)} starts · {formatNumber(row.games_completed)} finishes</span></div>) : <p style={{ opacity: .7 }}>No gameplay recorded yet</p>}</div>)}
+          {[["Most-played categories", data.analyticsDetails.topCategories], ["Most-played countries", data.analyticsDetails.topCountries]].map(([heading, rows]) => <div key={String(heading)}><strong>{String(heading)}</strong>{(rows as AnalyticsEngagementRow[]).length ? (rows as AnalyticsEngagementRow[]).map((row) => <div key={row.id} style={{ display: "flex", justifyContent: "space-between", gap: 12, padding: "8px 0", borderBottom: "1px solid var(--line)", fontSize: 12 }}><span>{row.label}</span><span>{formatNumber(row.games_started)} starts · {formatNumber(row.games_completed)} finishes</span></div>) : <p style={{ opacity: .7 }}>No gameplay recorded yet</p>}</div>)}
         </div>
       </section>
 
@@ -734,11 +734,11 @@ export default function AdminDashboard() {
               ["General official links", data.contentLinks.overview.general_player_links],
               ["Links pending", data.contentLinks.overview.links_pending],
               ["Links blocked", data.contentLinks.overview.links_blocked],
-            ].map(([label, value]) => <div key={String(label)} style={{ padding: 11, borderRadius: 10, background: "rgba(255,255,255,.04)" }}><div style={{ opacity: .68, fontSize: 12 }}>{label}</div><strong style={{ fontSize: 21 }}>{formatNumber(Number(value))}</strong></div>)}
+            ].map(([label, value]) => <div key={String(label)} style={{ padding: 11, borderRadius: 10, background: "var(--surface-2)" }}><div style={{ opacity: .68, fontSize: 12 }}>{label}</div><strong style={{ fontSize: 21 }}>{formatNumber(Number(value))}</strong></div>)}
           </div>
           {data.contentLinks.issues.length > 0 && <div>
             <strong>Categories requiring attention or using warnings</strong>
-            {data.contentLinks.issues.slice(0, 16).map((issue) => <div key={issue.id} style={{ padding: "8px 0", borderTop: "1px solid rgba(255,255,255,.08)" }}>
+            {data.contentLinks.issues.slice(0, 16).map((issue) => <div key={issue.id} style={{ padding: "8px 0", borderTop: "1px solid var(--line)" }}>
               <strong>{issue.title}</strong> · {issue.source_organization} · content {issue.content_review_status} · link {issue.player_source_status}
               <div style={{ opacity: .7, fontSize: 12 }}>{issue.playability_blockers?.[0] ?? issue.playability_warnings?.[0] ?? issue.content_review_reason ?? issue.player_source_reason ?? "No reason recorded"}</div>
             </div>)}
@@ -763,34 +763,34 @@ export default function AdminDashboard() {
               ["Integrity-blocked", data.integrity.overview.blocked],
               ["Awaiting current / re-audit", data.integrity.overview.audit_pending],
               ["Unverified playable", data.integrity.overview.unverified_playable],
-            ].map(([label, value]) => <div key={String(label)} style={{ padding: 11, borderRadius: 10, background: "rgba(255,255,255,.04)" }}><div style={{ opacity: .68, fontSize: 12 }}>{label}</div><strong style={{ fontSize: 21 }}>{typeof value === "number" ? formatNumber(value) : value}</strong></div>)}
+            ].map(([label, value]) => <div key={String(label)} style={{ padding: 11, borderRadius: 10, background: "var(--surface-2)" }}><div style={{ opacity: .68, fontSize: 12 }}>{label}</div><strong style={{ fontSize: 21 }}>{typeof value === "number" ? formatNumber(value) : value}</strong></div>)}
           </div>
           <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 760 }}>
-            <thead><tr>{["Source", "Categories", "Playable", "Verified", "Warnings", "Integrity-blocked", "Re-audit due", "Last audit"].map((heading) => <th key={heading} style={{ textAlign: "left", padding: 8, borderBottom: "1px solid rgba(255,255,255,.12)" }}>{heading}</th>)}</tr></thead>
+            <thead><tr>{["Source", "Categories", "Playable", "Verified", "Warnings", "Integrity-blocked", "Re-audit due", "Last audit"].map((heading) => <th key={heading} style={{ textAlign: "left", padding: 8, borderBottom: "1px solid var(--line)" }}>{heading}</th>)}</tr></thead>
             <tbody>{data.integrity.bySource.map((row) => <tr key={row.source}>
               <td style={{ padding: 8 }}><strong>{row.source}</strong></td><td style={{ padding: 8 }}>{row.categories}</td><td style={{ padding: 8 }}>{row.playable}</td><td style={{ padding: 8 }}>{row.verified}</td><td style={{ padding: 8 }}>{row.verified_with_warnings}</td><td style={{ padding: 8 }}>{row.blocked}</td><td style={{ padding: 8 }}>{row.audit_pending}</td><td style={{ padding: 8 }}>{row.last_validated_at ? new Date(row.last_validated_at).toLocaleString() : "—"}</td>
             </tr>)}</tbody>
           </table>
           {data.integrity.issues.length > 0 && <div style={{ marginTop: 14 }}>
             <strong>Quarantined categories</strong>
-            {data.integrity.issues.slice(0, 12).map((issue) => <div key={issue.id} style={{ padding: "8px 0", borderTop: "1px solid rgba(255,255,255,.08)" }}><strong>{issue.title}</strong> · {issue.source_organization} · {issue.integrity_state}<div style={{ opacity: .7, fontSize: 12 }}>{issue.validation_reason ?? "No reason recorded"}</div></div>)}
+            {data.integrity.issues.slice(0, 12).map((issue) => <div key={issue.id} style={{ padding: "8px 0", borderTop: "1px solid var(--line)" }}><strong>{issue.title}</strong> · {issue.source_organization} · {issue.integrity_state}<div style={{ opacity: .7, fontSize: 12 }}>{issue.validation_reason ?? "No reason recorded"}</div></div>)}
           </div>}
-          <div style={{ marginTop: 16, paddingTop: 14, borderTop: "1px solid rgba(255,255,255,.12)" }}>
+          <div style={{ marginTop: 16, paddingTop: 14, borderTop: "1px solid var(--line)" }}>
             <strong>Board-quality gates</strong>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(170px,1fr))", gap: 9, marginTop: 10 }}>
-              <div style={{ padding: 11, borderRadius: 10, background: "rgba(255,255,255,.04)" }}><div style={{ opacity: .68, fontSize: 12 }}>Winner requirement</div><strong style={{ fontSize: 20 }}>Top {data.boardQuality.winnerGlobalRankLimit} · no exemptions</strong><div style={{ opacity: .58, fontSize: 11, marginTop: 3 }}>Every Daily and Random category must show at least one globally Top-{data.boardQuality.winnerGlobalRankLimit} country.</div></div>
-              <div style={{ padding: 11, borderRadius: 10, background: "rgba(255,255,255,.04)" }}><div style={{ opacity: .68, fontSize: 12 }}>Playable same-family pairs</div><strong style={{ fontSize: 20 }}>{data.boardQuality.migrationApplied ? data.boardQuality.semanticConflicts.length : "—"}</strong></div>
-              <div style={{ padding: 11, borderRadius: 10, background: "rgba(255,255,255,.04)" }}><div style={{ opacity: .68, fontSize: 12 }}>Cross-family similarity warnings</div><strong style={{ fontSize: 20 }}>{data.boardQuality.similarityConflicts.length}</strong></div>
-              <div style={{ padding: 11, borderRadius: 10, background: "rgba(255,255,255,.04)" }}><div style={{ opacity: .68, fontSize: 12 }}>Reachability proof</div><strong style={{ fontSize: 20 }}>{data.generatorReachability.migrationApplied ? `${data.generatorReachability.summary.categories_with_reachability_proof}/${data.generatorReachability.summary.playable}` : "—"}</strong><div style={{ opacity: .58, fontSize: 11, marginTop: 3 }}>{data.generatorReachability.summary.failed_difficulty_checks} failed difficulty checks</div></div>
+              <div style={{ padding: 11, borderRadius: 10, background: "var(--surface-2)" }}><div style={{ opacity: .68, fontSize: 12 }}>Winner requirement</div><strong style={{ fontSize: 20 }}>Top {data.boardQuality.winnerGlobalRankLimit} · no exemptions</strong><div style={{ opacity: .58, fontSize: 11, marginTop: 3 }}>Every Daily and Random category must show at least one globally Top-{data.boardQuality.winnerGlobalRankLimit} country.</div></div>
+              <div style={{ padding: 11, borderRadius: 10, background: "var(--surface-2)" }}><div style={{ opacity: .68, fontSize: 12 }}>Playable same-family pairs</div><strong style={{ fontSize: 20 }}>{data.boardQuality.migrationApplied ? data.boardQuality.semanticConflicts.length : "—"}</strong></div>
+              <div style={{ padding: 11, borderRadius: 10, background: "var(--surface-2)" }}><div style={{ opacity: .68, fontSize: 12 }}>Cross-family similarity warnings</div><strong style={{ fontSize: 20 }}>{data.boardQuality.similarityConflicts.length}</strong></div>
+              <div style={{ padding: 11, borderRadius: 10, background: "var(--surface-2)" }}><div style={{ opacity: .68, fontSize: 12 }}>Reachability proof</div><strong style={{ fontSize: 20 }}>{data.generatorReachability.migrationApplied ? `${data.generatorReachability.summary.categories_with_reachability_proof}/${data.generatorReachability.summary.playable}` : "—"}</strong><div style={{ opacity: .58, fontSize: 11, marginTop: 3 }}>{data.generatorReachability.summary.failed_difficulty_checks} failed difficulty checks</div></div>
             </div>
             <div style={{ marginTop: 10 }}><a href={WORKFLOWS.reachability} target="_blank" rel="noreferrer" style={{ ...button, display: "inline-block", textDecoration: "none" }}>Run production reachability audit ↗</a>{data.generatorReachability.summary.last_checked_at ? <span style={{ opacity: .65, fontSize: 12, marginLeft: 10 }}>Last checked {new Date(data.generatorReachability.summary.last_checked_at).toLocaleString()}</span> : null}</div>
             {data.boardQuality.semanticConflicts.length > 0 && <div style={{ marginTop: 10 }}>
               <div style={{ opacity: .72, fontSize: 12, marginBottom: 5 }}>These categories may remain playable individually, but the generator will never place a pair from the same board family together.</div>
-              {data.boardQuality.semanticConflicts.slice(0, 12).map((conflict) => <div key={`${conflict.first_category_id}:${conflict.second_category_id}`} style={{ padding: "7px 0", borderTop: "1px solid rgba(255,255,255,.07)" }}><strong>{conflict.first_title}</strong> ↔ <strong>{conflict.second_title}</strong><div style={{ opacity: .68, fontSize: 12 }}>{conflict.semantic_family}</div></div>)}
+              {data.boardQuality.semanticConflicts.slice(0, 12).map((conflict) => <div key={`${conflict.first_category_id}:${conflict.second_category_id}`} style={{ padding: "7px 0", borderTop: "1px solid var(--line)" }}><strong>{conflict.first_title}</strong> ↔ <strong>{conflict.second_title}</strong><div style={{ opacity: .68, fontSize: 12 }}>{conflict.semantic_family}</div></div>)}
             </div>}
             {data.boardQuality.similarityConflicts.length > 0 && <div style={{ marginTop: 12 }}>
               <div style={{ opacity: .72, fontSize: 12, marginBottom: 5 }}>Different families whose normalized title-token overlap is at or above the {Math.round(data.boardQuality.semanticSimilarityThreshold * 100)}% review threshold. This is a wording-screening signal, not a literal semantic-similarity percentage; warnings remain non-blocking unless structured semantic metadata identifies a real gameplay conflict.</div>
-              {data.boardQuality.similarityConflicts.slice(0, 12).map((conflict) => <div key={`similar:${conflict.first_category_id}:${conflict.second_category_id}`} style={{ padding: "7px 0", borderTop: "1px solid rgba(255,255,255,.07)" }}><strong>{conflict.first_title}</strong> ↔ <strong>{conflict.second_title}</strong><div style={{ opacity: .68, fontSize: 12 }}>{Math.round(conflict.score * 100)}% normalized title-token overlap</div></div>)}
+              {data.boardQuality.similarityConflicts.slice(0, 12).map((conflict) => <div key={`similar:${conflict.first_category_id}:${conflict.second_category_id}`} style={{ padding: "7px 0", borderTop: "1px solid var(--line)" }}><strong>{conflict.first_title}</strong> ↔ <strong>{conflict.second_title}</strong><div style={{ opacity: .68, fontSize: 12 }}>{Math.round(conflict.score * 100)}% normalized title-token overlap</div></div>)}
             </div>}
           </div>
         </>}
@@ -800,7 +800,7 @@ export default function AdminDashboard() {
         <h2 style={{ marginTop: 0 }}>Catalog balance by world-knowledge domain</h2>
         <p style={{ opacity: .72 }}>Macro-domains intentionally roll up source-heavy subfamilies so agriculture, economy and trade cannot masquerade as broad subject diversity.</p>
         {!data.catalogBalance.migrationApplied ? <div style={{ opacity: .72 }}>Run the v16.2.7 Supabase migration to enable macro-domain balance reporting.</div> : <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 650 }}>
-          <thead><tr>{["Macro-domain", "Catalog", "Playable", "Approved", "Pending", "Excluded"].map((heading) => <th key={heading} style={{ textAlign: "left", padding: 8, borderBottom: "1px solid rgba(255,255,255,.12)" }}>{heading}</th>)}</tr></thead>
+          <thead><tr>{["Macro-domain", "Catalog", "Playable", "Approved", "Pending", "Excluded"].map((heading) => <th key={heading} style={{ textAlign: "left", padding: 8, borderBottom: "1px solid var(--line)" }}>{heading}</th>)}</tr></thead>
           <tbody>{data.catalogBalance.rows.map((row) => <tr key={row.macro_domain}>
             <td style={{ padding: 8 }}><strong>{row.macro_domain}</strong></td><td style={{ padding: 8 }}>{formatNumber(row.categories)}</td><td style={{ padding: 8 }}>{formatNumber(row.playable)}</td><td style={{ padding: 8 }}>{formatNumber(row.approved)}</td><td style={{ padding: 8 }}>{formatNumber(row.pending)}</td><td style={{ padding: 8 }}>{formatNumber(row.excluded)}</td>
           </tr>)}</tbody>
@@ -810,7 +810,7 @@ export default function AdminDashboard() {
       <section style={{ ...card, marginTop: 16, overflowX: "auto" }}>
         <h2 style={{ marginTop: 0 }}>Warehouse health by source</h2>
         <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 620 }}>
-          <thead><tr>{["Source", "Categories", "Playable", "Awaiting review", "Latest retrieval"].map((heading) => <th key={heading} style={{ textAlign: "left", padding: 8, borderBottom: "1px solid rgba(255,255,255,.12)" }}>{heading}</th>)}</tr></thead>
+          <thead><tr>{["Source", "Categories", "Playable", "Awaiting review", "Latest retrieval"].map((heading) => <th key={heading} style={{ textAlign: "left", padding: 8, borderBottom: "1px solid var(--line)" }}>{heading}</th>)}</tr></thead>
           <tbody>{data.sourceHealth.map((row) => <tr key={row.source}>
             <td style={{ padding: 8 }}><strong>{row.source}</strong></td><td style={{ padding: 8 }}>{formatNumber(row.categories)}</td><td style={{ padding: 8 }}>{formatNumber(row.playable)}</td><td style={{ padding: 8 }}>{formatNumber(row.pending)}</td><td style={{ padding: 8 }}>{row.latestRetrieved ? new Date(row.latestRetrieved).toLocaleDateString() : "—"}</td>
           </tr>)}</tbody>
@@ -833,7 +833,7 @@ export default function AdminDashboard() {
         {generation && (
           <div style={{ marginTop: 14, display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(190px,1fr))", gap: 10 }}>
             {(["easy", "normal", "expert"] as const).map((mode) => (
-              <div key={mode} style={{ padding: 12, borderRadius: 12, background: "rgba(255,255,255,.04)" }}>
+              <div key={mode} style={{ padding: 12, borderRadius: 12, background: "var(--surface-2)" }}>
                 <strong>{dailyModeLabels[mode]}</strong>
                 <div>Score {generation.scores[mode]?.overall ?? "—"}</div>
                 <div style={{ opacity: .7, fontSize: 13 }}>{generation.boards[mode]?.countries.length ?? 0} countries · {generation.boards[mode]?.categories.length ?? 0} categories</div>
@@ -843,7 +843,7 @@ export default function AdminDashboard() {
         )}
         {data.generationRuns.length > 0 && <div style={{ marginTop: 14 }}>
           <strong>Recent generator runs</strong>
-          <div style={{ display: "grid", gap: 6, marginTop: 8 }}>{data.generationRuns.slice(0, 5).map((run) => <div key={run.id} style={{ display: "flex", justifyContent: "space-between", gap: 12, padding: 9, borderRadius: 9, background: "rgba(255,255,255,.035)" }}>
+          <div style={{ display: "grid", gap: 6, marginTop: 8 }}>{data.generationRuns.slice(0, 5).map((run) => <div key={run.id} style={{ display: "flex", justifyContent: "space-between", gap: 12, padding: 9, borderRadius: 9, background: "var(--surface-2)" }}>
             <span>{run.challenge_date} · {run.source}</span><span>{run.status}{run.error_message ? ` · ${run.error_message}` : ""}</span>
           </div>)}</div>
         </div>}
@@ -856,18 +856,18 @@ export default function AdminDashboard() {
         ) : (
           <>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(150px,1fr))", gap: 10 }}>
-              <div style={{ padding: 11, borderRadius: 10, background: "rgba(255,255,255,.04)" }}><div style={{ opacity: .68, fontSize: 12 }}>Daily dates</div><strong style={{ fontSize: 20 }}>{formatNumber(data.diversity.categories.daily_dates)}</strong></div>
-              <div style={{ padding: 11, borderRadius: 10, background: "rgba(255,255,255,.04)" }}><div style={{ opacity: .68, fontSize: 12 }}>Distinct categories</div><strong style={{ fontSize: 20 }}>{formatNumber(data.diversity.categories.distinct_categories)}</strong></div>
-              <div style={{ padding: 11, borderRadius: 10, background: "rgba(255,255,255,.04)" }}><div style={{ opacity: .68, fontSize: 12 }}>Catalog utilization</div><strong style={{ fontSize: 20 }}>{data.diversity.categories.catalog_utilization_percent == null ? "—" : `${data.diversity.categories.catalog_utilization_percent.toFixed(1)}%`}</strong></div>
-              <div style={{ padding: 11, borderRadius: 10, background: "rgba(255,255,255,.04)" }}><div style={{ opacity: .68, fontSize: 12 }}>Categories seen 3+ times</div><strong style={{ fontSize: 20 }}>{formatNumber(data.diversity.categories.categories_three_plus)}</strong></div>
-              <div style={{ padding: 11, borderRadius: 10, background: "rgba(255,255,255,.04)" }}><div style={{ opacity: .68, fontSize: 12 }}>Median category repeat</div><strong style={{ fontSize: 20 }}>{data.diversity.categories.median_repeat_interval_days == null ? "—" : `${data.diversity.categories.median_repeat_interval_days.toFixed(1)}d`}</strong></div>
-              <div style={{ padding: 11, borderRadius: 10, background: "rgba(255,255,255,.04)" }}><div style={{ opacity: .68, fontSize: 12 }}>Distinct countries</div><strong style={{ fontSize: 20 }}>{formatNumber(data.diversity.countries.distinct_countries)}</strong></div>
-              <div style={{ padding: 11, borderRadius: 10, background: "rgba(255,255,255,.04)" }}><div style={{ opacity: .68, fontSize: 12 }}>Max country appearances</div><strong style={{ fontSize: 20 }}>{data.diversity.countries.max_country_appearances ?? "—"}</strong></div>
-              <div style={{ padding: 11, borderRadius: 10, background: "rgba(255,255,255,.04)" }}><div style={{ opacity: .68, fontSize: 12 }}>Median country repeat</div><strong style={{ fontSize: 20 }}>{data.diversity.countries.median_repeat_interval_days == null ? "—" : `${data.diversity.countries.median_repeat_interval_days.toFixed(1)}d`}</strong></div>
+              <div style={{ padding: 11, borderRadius: 10, background: "var(--surface-2)" }}><div style={{ opacity: .68, fontSize: 12 }}>Daily dates</div><strong style={{ fontSize: 20 }}>{formatNumber(data.diversity.categories.daily_dates)}</strong></div>
+              <div style={{ padding: 11, borderRadius: 10, background: "var(--surface-2)" }}><div style={{ opacity: .68, fontSize: 12 }}>Distinct categories</div><strong style={{ fontSize: 20 }}>{formatNumber(data.diversity.categories.distinct_categories)}</strong></div>
+              <div style={{ padding: 11, borderRadius: 10, background: "var(--surface-2)" }}><div style={{ opacity: .68, fontSize: 12 }}>Catalog utilization</div><strong style={{ fontSize: 20 }}>{data.diversity.categories.catalog_utilization_percent == null ? "—" : `${data.diversity.categories.catalog_utilization_percent.toFixed(1)}%`}</strong></div>
+              <div style={{ padding: 11, borderRadius: 10, background: "var(--surface-2)" }}><div style={{ opacity: .68, fontSize: 12 }}>Categories seen 3+ times</div><strong style={{ fontSize: 20 }}>{formatNumber(data.diversity.categories.categories_three_plus)}</strong></div>
+              <div style={{ padding: 11, borderRadius: 10, background: "var(--surface-2)" }}><div style={{ opacity: .68, fontSize: 12 }}>Median category repeat</div><strong style={{ fontSize: 20 }}>{data.diversity.categories.median_repeat_interval_days == null ? "—" : `${data.diversity.categories.median_repeat_interval_days.toFixed(1)}d`}</strong></div>
+              <div style={{ padding: 11, borderRadius: 10, background: "var(--surface-2)" }}><div style={{ opacity: .68, fontSize: 12 }}>Distinct countries</div><strong style={{ fontSize: 20 }}>{formatNumber(data.diversity.countries.distinct_countries)}</strong></div>
+              <div style={{ padding: 11, borderRadius: 10, background: "var(--surface-2)" }}><div style={{ opacity: .68, fontSize: 12 }}>Max country appearances</div><strong style={{ fontSize: 20 }}>{data.diversity.countries.max_country_appearances ?? "—"}</strong></div>
+              <div style={{ padding: 11, borderRadius: 10, background: "var(--surface-2)" }}><div style={{ opacity: .68, fontSize: 12 }}>Median country repeat</div><strong style={{ fontSize: 20 }}>{data.diversity.countries.median_repeat_interval_days == null ? "—" : `${data.diversity.countries.median_repeat_interval_days.toFixed(1)}d`}</strong></div>
             </div>
             {data.diversity.topCategories.length > 0 && <div style={{ marginTop: 14 }}>
               <strong>Most repeated categories</strong>
-              <div style={{ display: "grid", gap: 6, marginTop: 8 }}>{data.diversity.topCategories.map((row) => <div key={row.category_id} style={{ display: "flex", justifyContent: "space-between", gap: 12, padding: 9, borderRadius: 9, background: "rgba(255,255,255,.035)" }}>
+              <div style={{ display: "grid", gap: 6, marginTop: 8 }}>{data.diversity.topCategories.map((row) => <div key={row.category_id} style={{ display: "flex", justifyContent: "space-between", gap: 12, padding: 9, borderRadius: 9, background: "var(--surface-2)" }}>
                 <span>{row.category_title}</span><span>{row.appearances}× · {row.first_date} → {row.last_date}</span>
               </div>)}</div>
             </div>}
@@ -935,7 +935,7 @@ export default function AdminDashboard() {
       <section style={{ ...card, marginTop: 16, overflowX: "auto" }}>
         <h2 style={{ marginTop: 0 }}>Import history</h2>
         <table style={{ width: "100%", borderCollapse: "collapse", minWidth: 700 }}>
-          <thead><tr>{["Source", "Status", "Started", "Categories", "Observations", "Error"].map((heading) => <th key={heading} style={{ textAlign: "left", padding: 8, borderBottom: "1px solid rgba(255,255,255,.12)" }}>{heading}</th>)}</tr></thead>
+          <thead><tr>{["Source", "Status", "Started", "Categories", "Observations", "Error"].map((heading) => <th key={heading} style={{ textAlign: "left", padding: 8, borderBottom: "1px solid var(--line)" }}>{heading}</th>)}</tr></thead>
           <tbody>
             {data.imports.map((run) => (
               <tr key={run.id}>
@@ -1018,12 +1018,12 @@ export default function AdminDashboard() {
                 <th style={{ padding: 8 }}><input type="checkbox" checked={allVisibleSelected} onChange={toggleAllVisible} aria-label="Select all visible categories" /></th>
                 {[
                   "Review", "v16.2 outcome", "Primary blocker", "Category", "Source", "Quality", "Trust", "Player quality", "Content", "Player link", "Integrity", "Verify", "Clear", "Fun", "Curation", "Provenance", "Duplicate", "Evidence", "Common year", "Official", "Modeled", "Cluster", "Stability", "Recognizable", "Specific", "Actions",
-                ].map((heading) => <th key={heading} style={{ textAlign: "left", padding: 8, borderBottom: "1px solid rgba(255,255,255,.12)" }}>{heading}</th>)}
+                ].map((heading) => <th key={heading} style={{ textAlign: "left", padding: 8, borderBottom: "1px solid var(--line)" }}>{heading}</th>)}
               </tr>
             </thead>
             <tbody>
               {filtered.map((category) => (
-                <tr key={category.id} style={{ borderBottom: "1px solid rgba(255,255,255,.07)" }}>
+                <tr key={category.id} style={{ borderBottom: "1px solid var(--line)" }}>
                   <td style={{ padding: 8 }}><input type="checkbox" checked={selected.has(category.id)} onChange={() => toggleSelected(category.id)} aria-label={`Select ${category.title}`} /></td>
                   <td style={{ padding: 8 }}><strong>{statusLabel(category.review_status)}</strong></td>
                   <td style={{ padding: 8, maxWidth: 180 }}><strong>{category.promotion_decision_v16_2?.replaceAll("_", " ") ?? "unassessed"}</strong><div style={{ fontSize: 11, opacity: .7 }}>{category.blocker_class_v16_2?.replaceAll("_", " ") ?? ""}</div></td>
@@ -1070,7 +1070,7 @@ export default function AdminDashboard() {
 
       {detail && (
         <div role="dialog" aria-modal="true" style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,.72)", display: "grid", placeItems: "center", padding: 20, zIndex: 1000 }} onMouseDown={() => setDetail(null)}>
-          <section style={{ ...card, width: "min(1050px,96vw)", maxHeight: "90vh", overflow: "auto", background: "#071a15" }} onMouseDown={(event: MouseEvent<HTMLElement>) => event.stopPropagation()}>
+          <section style={{ ...card, width: "min(1050px,96vw)", maxHeight: "90vh", overflow: "auto", background: "var(--surface)" }} onMouseDown={(event: MouseEvent<HTMLElement>) => event.stopPropagation()}>
             <div style={{ display: "flex", justifyContent: "space-between", gap: 20 }}>
               <div>
                 <h2 style={{ marginTop: 0 }}>{detail.category.title}</h2>
@@ -1118,7 +1118,7 @@ export default function AdminDashboard() {
             {!!detail.reviews.length && (
               <div>
                 <h3>Review history</h3>
-                {detail.reviews.map((item, index) => <div key={`${item.created_at}-${index}`} style={{ padding: "8px 0", borderTop: "1px solid rgba(255,255,255,.08)" }}><strong>{item.decision}</strong> · {new Date(item.created_at).toLocaleString()}{item.notes ? ` — ${item.notes}` : ""}</div>)}
+                {detail.reviews.map((item, index) => <div key={`${item.created_at}-${index}`} style={{ padding: "8px 0", borderTop: "1px solid var(--line)" }}><strong>{item.decision}</strong> · {new Date(item.created_at).toLocaleString()}{item.notes ? ` — ${item.notes}` : ""}</div>)}
               </div>
             )}
           </section>

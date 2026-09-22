@@ -543,7 +543,7 @@ Can you beat my score?`;
     setManualScoreCopy("");
     setCopied(false);
     try {
-      if (useDeviceShare && navigator.share) {
+      if (useDeviceShare && typeof navigator.share === "function") {
         await navigator.share({ title: "GeoStats", text, url });
       } else {
       await navigator.clipboard.writeText(scoreText);
@@ -561,7 +561,7 @@ Can you beat my score?`;
       difficulty,
       challengeDate: isRandom ? undefined : dailyDateFromSeed(seed),
       value: total,
-      metadata: { mode: isRandom ? "random" : "daily", method: useDeviceShare && navigator.share ? "device" : "clipboard" },
+      metadata: { mode: isRandom ? "random" : "daily", method: useDeviceShare && typeof navigator.share === "function" ? "device" : "clipboard" },
     });
   }
 

@@ -222,6 +222,32 @@ for (const width of [320, 375, 430]) {
   });
 }
 
+for (const width of [1024, 1440]) {
+  test(`desktop navigation separates games from help at ${width}px`, async ({ page }, testInfo) => {
+    await page.setViewportSize({ width, height: 900 });
+    await installRoutes(page);
+    await page.goto('/daily');
+    await expect(page.locator('.country')).toHaveCount(4);
+    const play = page.getByRole('navigation', { name: 'Play GeoStats' });
+    const support = page.getByRole('navigation', { name: 'Help and tools' });
+    await expect(play).toBeVisible();
+    await expect(support).toBeVisible();
+    await expect(play.getByRole('link', { name: 'Scout', exact: true })).toHaveClass(/active/);
+    await expect(play.getByRole('link', { name: 'Adventurer', exact: true })).toBeVisible();
+    await expect(play.getByRole('link', { name: 'Expert', exact: true })).toBeVisible();
+    await expect(play.getByRole('link', { name: 'Leaderboard', exact: true })).toBeVisible();
+    await expect(support.getByRole('button', { name: 'How it works', exact: true })).toBeVisible();
+    await expect(support.getByRole('button', { name: 'Challenge a friend', exact: true })).toBeVisible();
+    await expect(support.getByRole('button', { name: 'Report a problem', exact: true })).toBeVisible();
+    await expect(support.getByRole('link', { name: 'Data audit', exact: true })).toBeVisible();
+    const playBox = await play.boundingBox();
+    const supportBox = await support.boundingBox();
+    expect(playBox && supportBox).toBeTruthy();
+    expect(playBox!.y + playBox!.height).toBeLessThanOrEqual(supportBox!.y);
+    await page.screenshot({ path: testInfo.outputPath('desktop-navigation-groups.png') });
+  });
+}
+
 for (const viewport of mobileCases) {
   for (const mode of modes) {
     test(`${mode.difficulty} Daily is usable at ${viewport.width}×${viewport.height}`, async ({ page }, testInfo) => {

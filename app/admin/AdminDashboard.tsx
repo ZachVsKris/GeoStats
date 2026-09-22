@@ -358,12 +358,7 @@ export default function AdminDashboard() {
     load().catch((cause: unknown) => setError(cause instanceof Error ? cause.message : "Dashboard could not load."));
   }, [load]);
 
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      void load(true).catch((cause: unknown) => setError(cause instanceof Error ? cause.message : "Dashboard could not refresh."));
-    }, 60_000);
-    return () => window.clearInterval(timer);
-  }, [load]);
+
 
   useEffect(() => {
     if (!generating) { setGenerationElapsed(0); return; }
@@ -582,7 +577,7 @@ export default function AdminDashboard() {
 
       <section style={{ ...card, marginBottom: 16, borderColor: data.warehouseHealth.status === "healthy" ? "var(--land)" : "rgba(255,190,90,.55)" }}>
         <div style={{ display: "flex", justifyContent: "space-between", gap: 16, alignItems: "start", flexWrap: "wrap" }}>
-          <div><span className="kicker">Warehouse status</span><h2 style={{ margin: "5px 0" }}>{data.warehouseHealth.status === "healthy" ? "All reporting systems available" : "Dashboard loaded with degraded reporting"}</h2><p style={{ margin: 0, opacity: .72 }}>{data.warehouseHealth.healthy}/{data.warehouseHealth.total} subsystems available · updated {lastRefreshedAt?.toLocaleTimeString() ?? new Date(data.warehouseHealth.checkedAt).toLocaleTimeString()} · auto-refreshes every minute</p></div>
+          <div><span className="kicker">Warehouse status</span><h2 style={{ margin: "5px 0" }}>{data.warehouseHealth.status === "healthy" ? "All reporting systems available" : "Dashboard loaded with degraded reporting"}</h2><p style={{ margin: 0, opacity: .72 }}>{data.warehouseHealth.healthy}/{data.warehouseHealth.total} subsystems available · updated {lastRefreshedAt?.toLocaleTimeString() ?? new Date(data.warehouseHealth.checkedAt).toLocaleTimeString()} · refresh when needed</p></div>
           <button type="button" style={button} disabled={loading} onClick={() => void load()}>{loading ? "Refreshing…" : "Refresh status"}</button>
         </div>
         <div style={{ display: "flex", flexWrap: "wrap", gap: 7, marginTop: 13 }}>

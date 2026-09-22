@@ -32,7 +32,9 @@ body::before {
   content: ""; display: block; position: fixed; inset: auto; transform: none; mask-image: none; -webkit-mask-image: none; filter: none;
   width: 100%; height: 100%; top: 0; left: 0; right: auto; bottom: auto;
   background: url('/atlas-globe.svg') center 40% / max(1400px,130vw) auto no-repeat;
-  opacity: .12; pointer-events: none; z-index: -1;
+  opacity: .16; pointer-events: none; z-index: -1;
+  mask-image: linear-gradient(90deg,#000 0%,#0009 35%,#0006 68%,#000 100%);
+  -webkit-mask-image: linear-gradient(90deg,#000 0%,#0009 35%,#0006 68%,#000 100%);
 }
 body { isolation: isolate; }
 .shell > header { border-bottom-color: #b8cbd0; }
@@ -266,6 +268,20 @@ body { isolation: isolate; }
 .shell.activePlay .boardPanel .category strong { font-size: 17px !important; }
 .shell.activePlay .lock { border-top: 1px solid #97b4bb; padding-top: 12px; }
 .shell.activePlay .choice.filled { background: #dfebdd; color: #254c34; border-color: #8aab8c; }
+.shell.activePlay .boardPanel .slot { display: flex; flex-direction: column; }
+.shell.activePlay .boardPanel .slot > .choice { margin-top: auto; }
+.shell.activePlay .bankPanel .country { gap: 6px; box-shadow: none; }
+.shell.activePlay .country.selected { background: #eaf3ef; color: var(--ink); outline-color: #527b78; border-color: #527b78; }
+.shell.activePlay .choice.filled { background: #eaf3ef; color: var(--ink); }
+.shell .leaderboardGameNav { display: flex; align-items: center; gap: 6px; }
+.shell.standalonePage .leaderboardGameNav .headerButtonLink { font-size: 14px; font-weight: 600; padding: 12px; min-height: 44px; }
+.shell .leaderboardGameNav .headerButtonLink.active { background: var(--ocean-light); color: var(--ocean); border-bottom: 3px solid var(--ocean); }
+@media (max-width: 620px) {
+  .shell.standalonePage > header { flex-wrap: wrap; gap: 12px; }
+  .shell.standalonePage > header .headerButtons { width: 100%; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+  .shell.standalonePage .leaderboardGameNav { flex: 1; gap: 0; }
+  .shell.standalonePage .leaderboardGameNav .headerButtonLink { font-size: 12px; padding: 10px 7px; }
+}
 .shell.activePlay .measurementBadge { color: #526759; font-size: 10px !important; letter-spacing: .03em; }
 .shell.activePlay .panelTitle small { font-size: 11px; letter-spacing: 0; text-transform: none; }
 .shell.activePlay .lock button:not(:disabled), .shell .shareScore,

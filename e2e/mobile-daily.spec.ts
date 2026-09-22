@@ -21,6 +21,15 @@ test('editorial board stays readable across desktop and phone widths', async ({p
       expect(card.right).toBeLessThanOrEqual(width);
     }
     await page.screenshot({path:testInfo.outputPath(`editorial-${width}.png`),fullPage:true});
+    const answers = await page.locator('.slot > .choice').evaluateAll(elements => elements.map(el => el.getBoundingClientRect().bottom));
+    for (let index = 0; index < answers.length; index += 2) expect(Math.abs(answers[index] - answers[index + 1])).toBeLessThanOrEqual(2);
+    await page.locator('.slot').first().click();
+    await expect(page.locator('.country.categoryTarget').first()).toHaveCSS('background-image', 'none');
+    await expect(page.locator('.country.categoryTarget').first()).toHaveCSS('opacity', '1');
+    await page.screenshot({path:testInfo.outputPath(`selection-${width}.png`),fullPage:true});
+    await page.locator('.country:not(:disabled)').first().click();
+    await expect(page.locator('.choice.filled')).toHaveCount(1);
+    await page.locator('.removePiece').click();
     await page.locator('.country:not(:disabled)').first().click();
     await page.locator('.slot').first().click();
     await expect(page.locator('.choice.filled')).toHaveCount(1);

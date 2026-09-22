@@ -344,7 +344,9 @@ body { isolation: isolate; }
 .shell.activePlay .playGrid .slot.selectedCategory,
 .shell.activePlay .playGrid .slot.touchTarget { background: #e2efe6ef; outline-color: var(--land); }
 .shell.activePlay .slot.assigned, .shell.activePlay .choice.filled { background: #e2efe6; color: var(--ink); }
-.shell.activePlay .playGrid .slot.target { background: #e2efe699; }
+.shell.activePlay .playGrid .slot.target { background: #e2efe633; }
+.shell.activePlay .slot.assigned { background: transparent; }
+.shell.activePlay .removePiece { background: transparent !important; color: var(--muted) !important; border: 1px solid #9bb7a6 !important; box-shadow: none !important; }
 .shell.activePlay .choice:not(.filled)::before { background: #f8fcfe; color: var(--ocean); }
 .shell.activePlay .measurementBadge { color: var(--muted); }
 .shell.activePlay .lock button:disabled { background: #dce8ee !important; color: #506978 !important; }
@@ -354,3 +356,21 @@ body { isolation: isolate; }
 .shell .publicLeaderboard > div > strong { color: var(--ocean); }
 .shell .leaderboardJoinPrompt { border-color: var(--line); }
 .shell .score, .shell .resultsModeTabs { background: var(--surface-2); }
+
+/* Quiet, immediate feedback; never blocks a move. */
+.shell.activePlay .choice:not(.filled)::before {
+  background: transparent; border-radius: 0; width: 18px; max-width: 18px;
+  height: 24px; flex-basis: 18px; font-size: 22px; margin-right: 6px;
+}
+.shell.activePlay .choice { transition: background-color 120ms ease; }
+.shell.activePlay .country.selected { animation: country-select 140ms ease-out; }
+.shell.activePlay .choice.filled { animation: country-place 160ms ease-out; }
+.shell .freshResult .scoreValue { animation: score-reveal 260ms ease-out; }
+.shell.activePlay .lock button { transition: background-color 160ms ease, color 160ms ease; }
+@keyframes country-select { from { transform: translateY(0); } to { transform: translateY(-2px); } }
+@keyframes country-place { from { opacity: .65; transform: translateY(-3px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes score-reveal { from { opacity: .5; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .shell.activePlay .country.selected, .shell.activePlay .choice.filled, .shell .freshResult .scoreValue { animation: none; }
+  .shell.activePlay .choice, .shell.activePlay .lock button { transition: none; }
+}

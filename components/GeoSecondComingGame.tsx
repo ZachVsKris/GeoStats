@@ -687,13 +687,15 @@ Can you beat my score?`;
           <a href={challengePath("expert", seed)} className={`dailyModeButton ${difficulty === "expert" ? "active" : ""}`}>Expert</a>
           {!isRandom && <a href={`/leaderboard?difficulty=${difficulty}`} className="headerLink">Leaderboard</a>}
         </nav>
-        <nav className="desktopNavGroup desktopSupportNav" aria-label="Help and tools">
-          <span className="desktopNavLabel">Help &amp; tools</span>
+      </div>
+      <details className="desktopSupportMenu">
+        <summary>Help &amp; tools</summary>
+        <div>
           <button onClick={() => setShowRules(true)}>How it works</button>
           {gameTools}
-          <a href="/audit" className="headerLink">Data audit</a>
-        </nav>
-      </div>
+          <a href="/audit">Data audit</a>
+        </div>
+      </details>
       {!isRandom && <div className="gameAccount"><AccountControls difficulty={difficulty} hideLeaderboardLink compact /></div>}
       <details className="mobileMenu"><summary aria-label="Open game menu">Menu</summary><div>
         {gameTools}

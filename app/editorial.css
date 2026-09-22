@@ -147,6 +147,36 @@ body::before, body::after { display: none; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
 
+/* Standings use the same quiet navigation and compact hierarchy as the board. */
+.shell .leaderboardPage { border: 0; border-radius: 0; background: transparent; }
+.shell .leaderboardPageIntro { padding: 20px 0 18px; border: 0; }
+.shell .leaderboardPageIntro h1 { font-size: 32px; line-height: 1.15; margin: 8px 0 10px; }
+.shell .leaderboardPageIntro > p { font-size: 14px; line-height: 1.5; max-width: 75ch; }
+.shell .leaderboardMethodNote { margin-top: 12px; padding: 0; border: 0; font-size: 12px; }
+.shell .leaderboardModeTabs { display: flex; gap: 8px; border: 0; border-bottom: 1px solid var(--line); background: transparent; }
+.shell .leaderboardModeTabs button { flex: 0 1 auto; min-height: 44px; padding: 10px 20px; border: 0; border-bottom: 3px solid transparent; border-radius: 0; background: transparent; color: var(--ink); box-shadow: none; font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; }
+.shell .leaderboardModeTabs button.active { background: #eee7d5; border-bottom-color: var(--accent); color: var(--accent); box-shadow: none; }
+.shell .publicLeaderboard { background: var(--surface); }
+.shell .publicLeaderboard > div { padding: 16px; font-size: 14px; }
+.shell .publicLeaderboard .publicLeaderboardHeader { background: var(--surface-2); font-size: 11px; letter-spacing: .025em; text-transform: none; }
+.shell .publicLeaderboard > div > strong { font-size: 16px; }
+.shell .leaderboardJoinPrompt { margin-top: 24px; padding: 18px 0; border: 0; border-top: 1px solid var(--line-soft); background: transparent; text-align: left; justify-items: start; gap: 8px; }
+.shell .leaderboardJoinPrompt > strong { font-size: 18px; }
+.shell .leaderboardJoinPrompt > p { font-size: 13px; max-width: 75ch; }
+.shell .leaderboardJoinPrompt > small { font-size: 12px; }
+.shell .leaderboardJoinPrompt .accountHeaderActions button { min-width: 0; min-height: 44px; padding: 10px 16px; background: var(--ink); color: var(--surface); border-radius: 3px; font-size: 13px; }
+.shell .leaderboardPageActions { padding: 12px 0; text-align: left; }
+.shell .leaderboardPageActions a { padding: 8px 0; border: 0; font-size: 13px; letter-spacing: 0; text-transform: none; text-decoration: underline; text-underline-offset: 4px; }
+.standalonePage .headerButtonLink { border: 0; background: transparent; box-shadow: none; font-size: 13px; text-transform: none; letter-spacing: 0; }
+@media (max-width: 620px) {
+  .shell .leaderboardPageIntro h1 { font-size: 28px; }
+  .shell .leaderboardModeTabs button { flex: 1; padding: 10px 8px; }
+  .shell .publicLeaderboard > div { padding: 12px 8px; font-size: 12px; }
+  .shell .publicLeaderboard .publicLeaderboardHeader { font-size: 10px; }
+  .shell .leaderboardJoinPrompt .accountHeaderActions { width: auto; }
+  .standalonePage .headerButtonLink { font-size: 11px; }
+}
+
 /* Compact atlas layout: the information determines card height. */
 .shell.activePlay .challengeBar { margin: 8px 0; padding: 8px 0; min-height: 0; border-bottom: 1px solid var(--line-soft); }
 .shell.activePlay .boardNotice { margin: 0 0 12px; padding: 0; }

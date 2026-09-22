@@ -29,7 +29,7 @@ body * { font-family: Arial, Helvetica, sans-serif !important; }
 body::before, body::after { display: none; }
 /* A single cartographic plate, behind the opaque playing surfaces. */
 body::before {
-  content: ""; display: block; position: fixed;
+  content: ""; display: block; position: fixed; inset: auto; transform: none; mask-image: none; -webkit-mask-image: none; filter: none;
   width: min(76vw, 980px); height: min(76vw, 980px);
   right: min(-25vw, -180px); bottom: -260px;
   background: url('/atlas-globe.svg') center / contain no-repeat;

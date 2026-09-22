@@ -27,6 +27,23 @@ body * { font-family: Arial, Helvetica, sans-serif !important; }
 .shell.activePlay .lock button:disabled { background: #e2e5dc !important; color: #59665e !important; box-shadow: none !important; }
 .googleSignInButton { color: #fffefa !important; }
 body::before, body::after { display: none; }
+/* A single cartographic plate, behind the opaque playing surfaces. */
+body::before {
+  content: ""; display: block; position: fixed;
+  width: min(76vw, 980px); height: min(76vw, 980px);
+  right: min(-25vw, -180px); bottom: -260px;
+  background: url('/atlas-globe.svg') center / contain no-repeat;
+  opacity: .38; pointer-events: none; z-index: -1;
+}
+body { isolation: isolate; }
+.shell > header { border-bottom-color: #b8cbd0; }
+.shell .logo { border-color: #63828b; color: #376776; background: #e8eff0; box-shadow: none; }
+.shell .logo::before, .shell .logo::after { display: none; }
+.shell .brandWords small { color: #587780; }
+.shell .dailyModeButton.active, .shell .leaderboardModeTabs button.active { background: #e4edef; color: #285a6b; border-bottom-color: #3c7283; }
+@media (max-width: 900px) {
+  body::before { width: 330px; height: 330px; right: -210px; top: -140px; bottom: auto; opacity: .28; }
+}
 .shell { max-width: 1280px; }
 .panel, .challengeBar, .panelTitle, .country, .slot, .score, .perfect,
 .infoPageHero, .infoCard, .systemStatePage, .systemStateCard {

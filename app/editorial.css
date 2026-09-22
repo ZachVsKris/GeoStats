@@ -546,3 +546,6 @@ body { isolation: isolate; }
 .systemStateCard::before, .systemStateCard::after, .infoPageHero::before { display: none; }
 .authCallbackCard a, .systemStateActions a, .systemStateActions button { background: var(--ocean); color: #fff; min-height: 44px; font-size: 14px; letter-spacing: 0; text-transform: none; border-radius: 4px; }
 .systemStateActions a + *, .systemStateActions button + * { background: var(--surface); color: var(--ink); border-color: var(--line); }
+
+/* Retired accent rule no longer belongs under the country-bank heading. */
+.shell.activePlay .playGrid .panelTitle::after { display: none; content: none; }

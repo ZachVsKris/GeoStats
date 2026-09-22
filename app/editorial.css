@@ -3,10 +3,10 @@
   --sans: "Trebuchet MS", Arial, sans-serif;
   --display: var(--sans);
   color-scheme: light;
-  --bg: #e8f3f8;
-  --surface: #f8fcfe;
-  --surface-2: #e0edf3;
-  --surface-3: #edf5f9;
+  --bg: #e7f2f6;
+  --surface: #f9fcfd;
+  --surface-2: #e3eef0;
+  --surface-3: #eff7f9;
   --ink: #163449;
   --muted: #405d70;
   --line: #b6cdd8;
@@ -549,3 +549,38 @@ body { isolation: isolate; }
 
 /* Retired accent rule no longer belongs under the country-bank heading. */
 .shell.activePlay .playGrid .panelTitle::after { display: none; content: none; }
+
+/* A consistent earth-toned surface rhythm across the board, standings, and results. */
+:root { --feature-surface: #e3eef0; --content-surface: #f9fcfd; }
+.shell .results, .shell .publicLeaderboard, .shell .infoPagePanel {
+  background: var(--content-surface);
+}
+.shell .score, .shell .resultsModeTabs,
+.shell .leaderboardPageIntro, .shell .infoPageHero {
+  background: var(--feature-surface);
+}
+.shell .resultsHeading, .shell .perfect .resultsHeading,
+.shell .publicLeaderboard .publicLeaderboardHeader,
+.shell .leaderboardModeTabs {
+  background: #f0f7f8;
+}
+.shell .result, .shell .perfectRow, .shell .publicLeaderboard > div:not(.publicLeaderboardHeader) {
+  background: var(--content-surface);
+}
+.shell .score { border-bottom: 1px solid var(--line); }
+.shell .perfect { border-top: 5px solid var(--bg); }
+.shell .resultsFooter { background: var(--feature-surface); }
+.shell .leaderboardPageIntro { padding: 24px 28px 22px; border-bottom: 1px solid var(--line); }
+.shell .leaderboardModeTabs { padding: 0 14px; }
+.shell .infoPageHero { border-bottom: 1px solid var(--line); }
+@media (min-width: 621px) {
+  .shell.resultsView .score { padding: 23px 24px 21px; }
+  .shell.resultsView .scoreInsights { margin-top: 13px; }
+  .shell.resultsView .scoreBreakdown { margin: 5px auto 0; }
+  .shell.resultsView .score > p:not(.savedDailyNotice) { margin: 8px auto; }
+  .shell.resultsView .scoreActions { margin-top: 15px; }
+}
+@media (max-width: 620px) {
+  .shell .leaderboardPageIntro { padding: 18px 14px; }
+  .shell .leaderboardModeTabs { padding: 0 5px; }
+}

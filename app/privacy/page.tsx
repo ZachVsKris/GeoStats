@@ -11,9 +11,9 @@ export default function Privacy() {
     <section className="panel infoPagePanel">
       <div className="infoPageHero"><span className="kicker">Your data</span><h1>Privacy</h1><p>GeoStats collects only the information needed to operate the game, accounts, leaderboards, and limited first-party product analytics.</p></div>
       <div className="infoDocument">
-        <p>GeoStats is a geography game built around public country statistics. Scout and Adventurer can be played without creating an account; anyone may preview the Expert board.</p>
+        <p>GeoStats is a geography game built around public country statistics. Scout, Adventurer, and Expert can all be played without creating an account.</p>
         <h2>Accounts and leaderboards</h2>
-        <p>Anyone may view the leaderboards. An account is required to play Expert, save verified Daily scores, or appear in the standings. If you sign in, GeoStats stores the information needed to authenticate you, your GeoStats username, and your saved Daily scores. Public leaderboards show your GeoStats username, never your email address.</p>
+        <p>Anyone may play every mode and view the leaderboards. An account is required to save verified Daily scores across devices or appear in the standings. If you sign in, GeoStats stores the information needed to authenticate you, your GeoStats username, and your saved Daily scores. Public leaderboards show your GeoStats username, never your email address.</p>
         <h2>First-party analytics</h2>
         <p>GeoStats records limited first-party product analytics such as page views, game starts and completions, difficulty, coarse referrer hostname, campaign parameters you arrived with, and whether the same browser has visited before. Analytics uses a session identifier and a random first-party browser identifier, refreshed after 90 days, to measure repeat play and next-day returns. Clearing browser storage resets that identifier. It does not intentionally collect precise location, advertising identifiers, or cross-site browsing history.</p>
         <h2>Problem reports</h2>

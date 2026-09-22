@@ -35,6 +35,7 @@ async function main() {
       if(id.includes('supabase/browser'))return {createSupabaseBrowserClient:()=>({auth:{onAuthStateChange:fn=>{authCallbacks.push(fn);return {data:{listener:null,subscription:{unsubscribe(){}}}};}}})};
       if(id.includes('analytics'))return {trackAnalytics(){}};
       if(id.includes('googleProvider'))return {};
+      if(id.includes('dailyScoreHistory'))return {pendingDailyScores:()=>[],markDailyScoreSynced(){}};
       throw Error(id);
     },module.exports,module);
     const render=()=>{cursor=0;effects.length=0;return module.exports.default({hideLeaderboardLink:true});};

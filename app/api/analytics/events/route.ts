@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
 import { createSupabaseAdminClient, createSupabaseServerClient } from "../../../../lib/supabase/server";
 
@@ -27,7 +28,12 @@ type Payload = {
 };
 
 export async function POST(request: Request) {
-  const body = await request.json().catch(() => null) as Payload | null;
+  const origin = new URL(request.url).origin;
+  const requestOrigin = request.headers.get("origin");
+  if (requestOrigin && requestOrigin !== origin) return new NextResponse(null, { status: 204 });
+  const raw = await request.text();
+  if (raw.length > 5_000) return new NextResponse(null, { status: 204 });
+  const body = (() => { try { return JSON.parse(raw) as Payload; } catch { return null; } })();
   if (!body || !body.eventName || !EVENTS.has(body.eventName)) {
     return NextResponse.json({ error: "Invalid analytics event." }, { status: 400 });
   }
@@ -43,6 +49,17 @@ export async function POST(request: Request) {
 
   const admin = createSupabaseAdminClient();
   if (!admin) return new NextResponse(null, { status: 204 });
+  const salt = process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY || "geostats";
+  const network = request.headers.get("x-vercel-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+  const hash = (value: string) => createHash("sha256").update(`${salt}:${value}`).digest("hex");
+  const { data: allowed, error: rateError } = await admin.rpc("consume_analytics_rate_limit_v1", {
+    p_network_key: hash(network),
+    p_session_key: hash(sessionId),
+    p_network_limit: 600,
+    p_session_limit: 100,
+  });
+  // Analytics is deliberately fail-closed and never interrupts gameplay.
+  if (rateError || !allowed) return new NextResponse(null, { status: 204, headers: { "Cache-Control": "no-store" } });
   const auth = await createSupabaseServerClient();
   const userResult = auth ? await auth.auth.getUser() : null;
   const user = userResult?.data.user ?? null;
@@ -90,5 +107,5 @@ export async function POST(request: Request) {
     console.error("Analytics insert failed", { code: error.code, message: error.message, eventName: body.eventName });
     return NextResponse.json({ error: "Analytics event could not be recorded." }, { status: 500 });
   }
-  return new NextResponse(null, { status: 204 });
+  return new NextResponse(null, { status: 204, headers: { "Cache-Control": "no-store" } });
 }

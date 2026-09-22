@@ -5,9 +5,10 @@ import { createSupabaseBrowserClient } from "../lib/supabase/browser";
 import type { DailyDifficulty } from "../lib/gameRules";
 import { trackAnalytics } from "../lib/analytics";
 import { checkGoogleProvider, type GoogleProviderStatus } from "../lib/googleProvider";
+import { markDailyScoreSynced, pendingDailyScores, type PendingDailyScore } from "../lib/dailyScoreHistory";
 
-type PendingScore = { challengeDate: string; difficulty: DailyDifficulty; assignments: Record<string, string> };
-type AccountContext = "default" | "expert" | "leaderboard";
+type PendingScore = PendingDailyScore;
+type AccountContext = "default" | "leaderboard";
 type Props = {
   pendingScore?: PendingScore;
   onScoreSaved?: (score: Pick<PendingScore, "challengeDate" | "difficulty">) => void;
@@ -18,8 +19,6 @@ type Props = {
   hideLeaderboardLink?: boolean;
   compact?: boolean;
 };
-
-const pendingKey = (difficulty: DailyDifficulty) => `geostats-pending-daily-score-${difficulty}`;
 
 export default function AccountControls({
   pendingScore,
@@ -63,7 +62,11 @@ export default function AccountControls({
   }, [usernameCustomized]);
 
   useEffect(() => {
-    if (pendingScore) localStorage.setItem(pendingKey(pendingScore.difficulty), JSON.stringify(pendingScore));
+    if (!pendingScore) return;
+    // GeoSecondComingGame stores every completed Daily under a date-and-mode
+    // key. Keeping the former key during rollout lets older browsers migrate
+    // their final pending result into the complete-history transfer.
+    localStorage.setItem(`geostats-pending-daily-score-${pendingScore.difficulty}`, JSON.stringify(pendingScore));
   }, [pendingSignature]);
 
   useEffect(() => {
@@ -124,13 +127,9 @@ export default function AccountControls({
     scoreSaveInFlight.current = true;
     setSaving(true);
     try {
-      for (const difficulty of ["easy", "normal", "expert"] as const) {
-        const key = pendingKey(difficulty);
-        const raw = localStorage.getItem(key);
-        if (!raw) continue;
-        let pending: PendingScore;
-        try { pending = JSON.parse(raw) as PendingScore; } catch { continue; }
-        if (!pending.challengeDate || Object.keys(pending.assignments ?? {}).length === 0) continue;
+      const history = pendingDailyScores(localStorage);
+      let savedCount = 0;
+      for (const pending of history) {
         const response = await fetch("/api/scores", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -138,15 +137,17 @@ export default function AccountControls({
         });
         const data = await response.json().catch(() => ({}));
         if (response.ok) {
-          localStorage.removeItem(key);
-          onScoreSaved?.({ challengeDate: pending.challengeDate, difficulty });
-          const label = difficulty === "expert" ? "Expert" : difficulty === "easy" ? "Scout" : "Adventurer";
-          setMessage(data.alreadyCompleted
-            ? `${label} Daily was already completed. Your original score remains saved.`
-            : `${label} Daily score saved to your account.`);
+          markDailyScoreSynced(localStorage, pending);
+          savedCount += data.alreadyCompleted ? 0 : 1;
+          onScoreSaved?.({ challengeDate: pending.challengeDate, difficulty: pending.difficulty });
         } else if (response.status !== 401) {
           setMessage(data.error ?? "Score could not be saved.");
         }
+      }
+      if (history.length) {
+        setMessage(savedCount > 0
+          ? `${savedCount} completed Daily${savedCount === 1 ? "" : "s"} added to your complete account history.`
+          : "Your completed Daily history is already saved to this account.");
       }
     } catch {
       setMessage("Your result is kept on this browser. Score saving will retry when you return or sign in again.");
@@ -378,12 +379,10 @@ export default function AccountControls({
     setOpen(true);
   }
 
-  const guestHeading = context === "expert"
-    ? "Unlock Expert Daily"
-    : context === "leaderboard"
+  const guestHeading = context === "leaderboard"
       ? "Join the GeoStats leaderboard"
       : "Sign in or create an account";
-  const guestButtonLabel = ctaLabel ?? (results && pendingScore ? "Sign in to save" : "Sign in");
+  const guestButtonLabel = ctaLabel ?? (results && pendingScore ? "Sign in for history" : "Sign in");
 
   return <>
     <div className={results ? "resultsAccountActions" : "accountHeaderActions"}>
@@ -401,14 +400,14 @@ export default function AccountControls({
           {!usernameCustomized && <p className="usernameRequired">Before joining the leaderboard, choose a public GeoStats username.</p>}
           <label className="emailField"><span>GeoStats username</span><input type="text" inputMode="text" autoComplete="username" maxLength={20} placeholder="3–20 letters, numbers, or underscores" value={usernameDraft} onChange={(event) => setUsernameDraft(event.target.value.replace(/[^A-Za-z0-9_]/g, ""))} onKeyDown={(event) => event.key === "Enter" && saveUsername()} /></label>
           <div className="accountModalActions"><button type="button" onClick={saveUsername} disabled={savingUsername || usernameDraft.length < 3 || usernameDraft === username}>{savingUsername ? "Saving…" : usernameCustomized ? "Update username" : "Save username"}</button><button type="button" className="quietButton" onClick={signOut}>Sign out</button></div>
-          <p id={`account-dialog-description-${context}`}>Your account unlocks Expert play and lets you join the public leaderboards. Verified Daily scores are saved automatically; your email stays private.</p>
+          <p id={`account-dialog-description-${context}`}>Your account keeps your complete Daily history and lets you join the public leaderboards. Verified scores are saved automatically; your email stays private.</p>
           {saving && <p>Saving your completed Daily…</p>}
         </> : <>
-          <p id={`account-dialog-description-${context}`}>Sign in to save verified scores, join the standings, and unlock Expert Daily.</p>
+          <p id={`account-dialog-description-${context}`}>Sign in to keep your complete GeoStats history and join the standings. Every Daily mode is free to play without an account.</p>
           <ul className="accountBenefits">
-            <li>Play the Expert Daily</li>
+            <li>Keep your complete Daily history across devices</li>
             <li>Join Scout, Adventurer, and Expert leaderboards</li>
-            <li>Save one verified score per mode each day</li>
+            <li>Automatically save your first completed score per mode each day</li>
           </ul>
           <button type="button" className="googleSignInButton" onClick={signInWithGoogle} disabled={signingInWithGoogle || sendingLink || googleAvailable === "disabled"}>{signingInWithGoogle ? "Opening Google…" : googleAvailable === "disabled" ? "Google sign-in unavailable" : <><span aria-hidden="true" className="googleMark">G</span>Continue with Google</>}</button>
           {googleAvailable === "unknown" && <small role="status">We couldn’t check Google availability. You can still try Google or use email.</small>}

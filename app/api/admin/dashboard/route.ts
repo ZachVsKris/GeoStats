@@ -213,7 +213,7 @@ export async function GET() {
   const { admin } = auth;
   const today = newYorkDate();
   const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
-  const [obsCount, countryCount, imports, sources, boards, scoreCount, accountCount, accountCount30d, usernameCount] = await Promise.all([
+  const [obsCount, countryCount, imports, sources, boards, scoreCount, accountCount, accountCount30d, usernameCount, storageResult] = await Promise.all([
     // The observation warehouse is large enough that an exact count can time out at
     // PostgREST and must never prevent the rest of Admin from loading.
     admin.from("stat_observations").select("country_iso3", { count: "estimated", head: true }),
@@ -225,6 +225,7 @@ export async function GET() {
     admin.from("profiles").select("id", { count: "exact", head: true }),
     admin.from("profiles").select("id", { count: "exact", head: true }).gte("created_at", thirtyDaysAgo),
     admin.from("profiles").select("id", { count: "exact", head: true }).eq("username_customized", true),
+    admin.rpc("database_storage_status_v1"),
   ]);
 
   if (obsCount.error) {
@@ -511,6 +512,12 @@ export async function GET() {
       accounts: accountCount.error ? 0 : accountCount.count ?? 0,
       accounts30d: accountCount30d.error ? 0 : accountCount30d.count ?? 0,
       usernames: usernameCount.error ? 0 : usernameCount.count ?? 0,
+      storage: storageResult.error || !storageResult.data?.[0] ? null : {
+        databaseBytes: Number(storageResult.data[0].database_bytes),
+        limitBytes: Number(storageResult.data[0].limit_bytes),
+        usedPercent: Number(storageResult.data[0].used_percent),
+        status: String(storageResult.data[0].status),
+      },
     },
     analytics,
     analyticsDetails,

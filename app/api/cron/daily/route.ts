@@ -26,6 +26,17 @@ export async function GET(request: Request) {
   const advanceDate = newYorkDate(new Date(now.getTime() + 2 * 60 * 60 * 1000));
   const dates = [...new Set([advanceDate, currentDate])];
   const results: unknown[] = [];
+  const analyticsCutoff = new Date(now.getTime() - 90 * 24 * 60 * 60 * 1000).toISOString();
+  const rateLimitCutoff = new Date(now.getTime() - 48 * 60 * 60 * 1000).toISOString();
+  const [analyticsCleanup, rateLimitCleanup] = await Promise.all([
+    admin.from("analytics_events").delete().lt("created_at", analyticsCutoff),
+    admin.from("analytics_rate_limits").delete().lt("bucket_start", rateLimitCutoff),
+  ]);
+  const housekeeping = {
+    analyticsRetentionDays: 90,
+    analyticsOk: !analyticsCleanup.error,
+    rateLimitsOk: !rateLimitCleanup.error,
+  };
   let failed = false;
 
   for (const date of dates) {
@@ -47,7 +58,7 @@ export async function GET(request: Request) {
     }
   }
 
-  return Response.json({ ok: !failed, dates, results }, {
+  return Response.json({ ok: !failed, dates, results, housekeeping }, {
     status: failed ? 503 : 200,
     headers: { "Cache-Control": "no-store" },
   });

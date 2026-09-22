@@ -255,6 +255,8 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
   const [difficulty, setDifficulty] = useState<DailyDifficulty>(initialDifficulty);
   const [copied, setCopied] = useState(false);
   const [manualScoreCopy, setManualScoreCopy] = useState("");
+  const [scoreImage, setScoreImage] = useState<{ url: string; file: File } | null>(null);
+  const [scoreImageStatus, setScoreImageStatus] = useState("");
   const [completionSource, setCompletionSource] = useState<CompletionSource>(null);
   const [fallbackPractice, setFallbackPractice] = useState(Boolean(serverInitialRound && initialDailyPayload?.fallback));
   const [boardNotice, setBoardNotice] = useState(serverInitialRound ? (initialDailyPayload?.warning ?? "") : "");
@@ -565,6 +567,64 @@ Can you beat my score?`;
     });
   }
 
+
+  async function createScoreImage() {
+    if (!scores) return;
+    setScoreImageStatus("");
+    try {
+      const canvas = document.createElement("canvas");
+      canvas.width = 1000; canvas.height = 640;
+      const ctx = canvas.getContext("2d");
+      if (!ctx) throw new Error("Canvas unavailable");
+      ctx.fillStyle = "#e8f3f8"; ctx.fillRect(0, 0, 1000, 640);
+      // Use the same globe geometry as Brand.tsx.
+      ctx.save(); ctx.translate(54, 45); ctx.scale(1.7, 1.7);
+      ctx.fillStyle = "#f1f8fb"; ctx.strokeStyle = "#668d9e"; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.arc(24, 24, 23, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.strokeStyle = "#175e82"; ctx.lineWidth = 1.35;
+      ctx.beginPath(); ctx.arc(24, 24, 13.5, 0, Math.PI * 2); ctx.stroke();
+      ctx.stroke(new Path2D("M10.5 24h27M24 10.5c5 4.2 7.5 8.7 7.5 13.5S29 33.3 24 37.5c-5-4.2-7.5-8.7-7.5-13.5S19 14.7 24 10.5ZM13.7 16.5h20.6M13.7 31.5h20.6"));
+      ctx.restore();
+      const font = getComputedStyle(document.body).fontFamily;
+      const write = (text: string, x: number, y: number, size: number, color: string, bold = false) => {
+        ctx.font = `${bold ? "700" : "400"} ${size}px ${font}`;
+        ctx.fillStyle = color; ctx.fillText(text, x, y);
+      };
+      write("GeoStats", 152, 97, 49, "#163449", true);
+      write("A world of facts. One perfect fit.", 56, 163, 24, "#405d70");
+      ctx.strokeStyle = "#b6cdd8"; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(56, 195); ctx.lineTo(944, 195); ctx.stroke();
+      write(`${ROUND_CONFIGS[difficulty].label} ${isRandom ? "Random" : "Daily"}`, 56, 251, 28, "#326d50", true);
+      if (!isRandom) { ctx.textAlign = "right"; write(dailyDateFromSeed(seed), 944, 251, 24, "#405d70"); ctx.textAlign = "left"; }
+      write(String(total), 56, 391, 112, "#163449", true);
+      ctx.font = `700 112px ${font}`;
+      const scoreWidth = ctx.measureText(String(total)).width;
+      write(`/ ${roundMaxScore}`, 76 + scoreWidth, 391, 46, "#405d70");
+      write(`${scores.filter(row => row.rank === 1).length} first-place picks  ·  ${scores.filter(row => row.rank <= topFinishRank).length}/${categoryTarget} in the top ${topFinishRank}`, 56, 456, 28, "#405d70");
+      ctx.beginPath(); ctx.moveTo(56, 506); ctx.lineTo(944, 506); ctx.stroke();
+      write("Can you beat my score?", 56, 567, 30, "#163449", true);
+      ctx.textAlign = "right"; write("geostats.xyz", 944, 567, 26, "#175e82", true);
+      const blob = await new Promise<Blob>((resolve, reject) => canvas.toBlob(value => value ? resolve(value) : reject(new Error("Image unavailable")), "image/png"));
+      setScoreImage({ url: canvas.toDataURL("image/png"), file: new File([blob], "geostats-score.png", { type: "image/png" }) });
+    } catch {
+      setScoreImageStatus("The image could not be created. You can still copy your score.");
+    }
+  }
+
+  async function shareScoreImage() {
+    if (!scoreImage) return;
+    try {
+      if (typeof navigator.canShare === "function" && navigator.canShare({ files: [scoreImage.file] })) {
+        await navigator.share({ files: [scoreImage.file], title: "GeoStats score", text: challengeUrl(difficulty, seed) });
+      } else {
+        setScoreImageStatus("Use Download image, then attach it to your message.");
+      }
+    } catch (error) {
+      if (error instanceof DOMException && error.name === "AbortError") return;
+      setScoreImageStatus("Sharing is unavailable here. Download the image to attach it instead.");
+    }
+  }
+
   function clearTouchTimer() {
     if (touchTimer.current) clearTimeout(touchTimer.current);
     touchTimer.current = null;
@@ -774,7 +834,7 @@ Can you beat my score?`;
         <a href={challengePath("easy", seed)} onClick={(event) => switchCachedDaily(event, "easy")} className={difficulty === "easy" ? "active" : ""}>Scout</a>
         <a href={challengePath("normal", seed)} onClick={(event) => switchCachedDaily(event, "normal")} className={difficulty === "normal" ? "active" : ""}>Adventurer</a>
         <a href={challengePath("expert", seed)} className={difficulty === "expert" ? "active" : ""}>Expert</a>
-      </nav><div className="score"><span>Final score</span>{completionSource === "account" && <p className="savedDailyNotice">Saved automatically to your account and included in the verified standings.</p>}{completionSource === "local" && <p className="savedDailyNotice">Saved on this browser. Sign in to transfer your complete eligible Daily history to the leaderboard.</p>}<div className="scoreValue"><strong>{total}</strong><b>/ {roundMaxScore}</b></div><div className="scoreInsights"><div><strong>{averagePlacement}</strong><span>Average placement</span></div><div><strong>{bestPossibleCount}</strong><span>First-place picks</span></div><div><strong>{topFinishCount}/{categoryTarget}</strong><span>Top {topFinishRank}</span></div></div><div className="scoreBreakdown">{[1,2,3].map((rank)=><span key={rank}>{rank===1?"🥇":rank===2?"🥈":"🥉"} {scores.filter((row)=>row.rank===rank).length}</span>)}</div><p>{total>=roundMaxScore*.8125?"Elite allocation.":total>=roundMaxScore*.65?"Strong draft with room to optimize.":"A few specialists were spent in the wrong places."}</p><div className="scoreActions"><details className="scoreShareOptions"><summary className="shareScore">Share score</summary><div className="scoreShareMenu"><button type="button" onClick={() => void shareScore()}>{copied ? "Score copied ✓" : "Copy score"}</button><button type="button" onClick={() => void shareScore(true)}>More sharing options</button></div></details><span className="sr-only" role="status">{copied ? "Score copied to clipboard" : ""}</span>{manualScoreCopy && <div className="manualScoreCopy"><p role="status">Your browser blocked automatic copying. Select and copy your score below.</p><textarea aria-label="Score to copy" readOnly value={manualScoreCopy} onFocus={(event) => event.currentTarget.select()} rows={9} /></div>}{isUnranked ? (isRandom ? <button className="secondaryScoreAction" onClick={generateNewRandomRound}>Generate another board</button> : <span className="unrankedNotice">Practice board · score not saved</span>) : <AccountControls results difficulty={difficulty} pendingScore={completionSource === "account" ? undefined : { challengeDate: dailyDateFromSeed(seed), difficulty, assignments }} onScoreSaved={(saved) => {
+      </nav><div className="score"><span>Final score</span>{completionSource === "account" && <p className="savedDailyNotice">Saved automatically to your account and included in the verified standings.</p>}{completionSource === "local" && <p className="savedDailyNotice">Saved on this browser. Sign in to transfer your complete eligible Daily history to the leaderboard.</p>}<div className="scoreValue"><strong>{total}</strong><b>/ {roundMaxScore}</b></div><div className="scoreInsights"><div><strong>{averagePlacement}</strong><span>Average placement</span></div><div><strong>{bestPossibleCount}</strong><span>First-place picks</span></div><div><strong>{topFinishCount}/{categoryTarget}</strong><span>Top {topFinishRank}</span></div></div><div className="scoreBreakdown">{[1,2,3].map((rank)=><span key={rank}>{rank===1?"🥇":rank===2?"🥈":"🥉"} {scores.filter((row)=>row.rank===rank).length}</span>)}</div><p>{total>=roundMaxScore*.8125?"Elite allocation.":total>=roundMaxScore*.65?"Strong draft with room to optimize.":"A few specialists were spent in the wrong places."}</p><div className="scoreActions"><details className="scoreShareOptions"><summary className="shareScore">Share score</summary><div className="scoreShareMenu"><button type="button" onClick={() => void createScoreImage()}>Create score image</button><button type="button" onClick={() => void shareScore()}>{copied ? "Score copied ✓" : "Copy score"}</button><button type="button" onClick={() => void shareScore(true)}>More sharing options</button></div></details>{scoreImage && <div className="scoreImagePreview"><img src={scoreImage.url} alt={`GeoStats ${ROUND_CONFIGS[difficulty].label} score: ${total} out of ${roundMaxScore}`} /><div><button type="button" onClick={() => void shareScoreImage()}>Share image</button><a href={scoreImage.url} download="geostats-score.png">Download image</a><button type="button" onClick={() => { setScoreImage(null); setScoreImageStatus(""); }}>Close preview</button></div></div>}{scoreImageStatus && <p role="status">{scoreImageStatus}</p>}<span className="sr-only" role="status">{copied ? "Score copied to clipboard" : ""}</span>{manualScoreCopy && <div className="manualScoreCopy"><p role="status">Your browser blocked automatic copying. Select and copy your score below.</p><textarea aria-label="Score to copy" readOnly value={manualScoreCopy} onFocus={(event) => event.currentTarget.select()} rows={9} /></div>}{isUnranked ? (isRandom ? <button className="secondaryScoreAction" onClick={generateNewRandomRound}>Generate another board</button> : <span className="unrankedNotice">Practice board · score not saved</span>) : <AccountControls results difficulty={difficulty} pendingScore={completionSource === "account" ? undefined : { challengeDate: dailyDateFromSeed(seed), difficulty, assignments }} onScoreSaved={(saved) => {
         if (saved.challengeDate === dailyDateFromSeed(seed) && saved.difficulty === difficulty) setCompletionSource("account");
       }} />}</div></div>
       <div className="resultsHeading"><div><span className="kicker">Your placements</span><h3>Placement and points earned</h3></div><small>Open a ranking to compare the {poolSize} countries on this board</small></div>

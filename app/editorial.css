@@ -533,3 +533,8 @@ body { isolation: isolate; }
 .shell .scoreShareMenu { position: absolute; top: calc(100% + 6px); left: 0; z-index: 10; display: flex; flex-direction: column; min-width: 200px; padding: 6px; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; }
 .shell .scoreShareMenu button { min-height: 44px; padding: 10px 12px; border: 0; background: transparent; color: var(--ink); font-size: 14px; text-align: left; cursor: pointer; }
 .shell .scoreShareMenu button:hover { background: var(--surface-2); }
+
+.shell .scoreImagePreview { flex: 1 0 100%; max-width: 650px; margin: 12px auto; }
+.shell .scoreImagePreview img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 4px; }
+.shell .scoreImagePreview > div { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 10px; }
+.shell .scoreImagePreview button, .shell .scoreImagePreview a { display: inline-flex; align-items: center; min-height: 44px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 4px; background: var(--surface); color: var(--ocean); font-size: 14px; text-decoration: none; cursor: pointer; }

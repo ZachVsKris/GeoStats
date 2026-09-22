@@ -453,3 +453,6 @@ body { isolation: isolate; }
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+/* Results: navy information, blue actions, green best-possible status. */
+.shell .placementSummary b { color: var(--ink); }

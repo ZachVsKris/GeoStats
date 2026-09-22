@@ -240,9 +240,9 @@ body { isolation: isolate; }
 .shell.activePlay .country.used { background: #e3e8e5; border-color: #ccd5d0; color: #5c6e64; opacity: 1; }
 .shell.activePlay .country.used b { background: transparent; color: #5c6e64; font-size: 9px; }
 .shell.activePlay .boardPanel .slots { gap: 0 24px; }
-.shell.activePlay .boardPanel .slot { padding: 16px 4px 14px !important; border: 0; border-top: 1px solid #97b4bb; border-radius: 0; background: #dcebefde; box-shadow: none; }
-.shell.activePlay .choice { background: transparent; border: 0; border-radius: 4px; padding: 4px 6px !important; min-height: 44px; }
-.shell.activePlay .choice:not(.filled)::before { content: "+"; display: inline-grid; place-items: center; flex: 0 0 30px; height: 30px; margin-right: 9px; border-radius: 50%; background: #faf9f2; color: #285f73; font-size: 24px; font-weight: 400; }
+.shell.activePlay .boardPanel .slot { padding: 16px 4px 14px !important; border: 0; border-top: 1px solid #97b4bb; border-radius: 0; background: transparent; box-shadow: none; }
+.shell.activePlay .choice { display: flex; align-items: center; justify-content: flex-start; background: transparent; border: 0; border-radius: 4px; padding: 4px 6px !important; min-height: 44px; }
+.shell.activePlay .choice:not(.filled)::before { content: "+"; position: static; inset: auto; width: 30px; max-width: 30px; transform: none; display: inline-grid; place-items: center; flex: 0 0 30px; height: 30px; margin: 0 9px 0 0; border: 0; border-radius: 50%; background: #faf9f2; opacity: 1; color: #285f73; font-size: 24px; font-weight: 400; }
 .shell.activePlay .choice em { color: var(--ink); }
 .shell.activePlay .slot.assigned { background: #dcebe6e8; }
 .shell.activePlay .bankPanel .country { min-height: 94px; }

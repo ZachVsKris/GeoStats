@@ -388,7 +388,7 @@ body { isolation: isolate; }
 }
 
 /* Phone board: use the available viewport, with definitions one tap away. */
-.mobileCategoryInfo { display: none; }
+.mobileCategoryInfo { display: none !important; }
 .mobileCategoryDialog { color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 22px; width: min(90vw, 420px); max-height: 85dvh; overflow: auto; }
 .mobileCategoryDialog::backdrop { background: #16344966; }
 .mobileCategoryDialog h2 { font-size: 20px; line-height: 1.3; }
@@ -416,7 +416,7 @@ body { isolation: isolate; }
   .shell.activePlay .boardPanel .category { display: grid; grid-template-columns: 26px minmax(0,1fr); gap: 4px; }
   .shell.activePlay .boardPanel .category strong { font-size: 16px !important; line-height: 1.15 !important; text-wrap: wrap; }
   .shell.activePlay .boardPanel .category small, .shell.activePlay .measurementBadge, .shell.activePlay .desktopCategoryIcon { display: none !important; }
-  .shell.activePlay .mobileCategoryInfo { display: flex; align-items: center; justify-content: center; position: relative; width: 28px; height: 36px; padding: 0; border: 0; background: transparent; font-size: 20px; cursor: pointer; }
+  .shell.activePlay .mobileCategoryInfo { display: flex !important; align-items: center; justify-content: center; position: relative; width: 28px; height: 36px; padding: 0; border: 0; background: transparent; font-size: 20px; cursor: pointer; }
   .shell.activePlay .mobileCategoryInfo sup { position: absolute; right: -1px; bottom: 0; font: bold 9px/12px var(--sans); color: var(--ocean); }
   .shell.activePlay .choice { min-height: 36px !important; padding: 3px 2px !important; }
   .shell.activePlay .choice.filled { padding-right: 34px !important; }
@@ -430,4 +430,19 @@ body { isolation: isolate; }
   .shell.activePlay .boardPanel .category strong { font-size: 14px !important; }
   .shell.activePlay .bankPanel .countries { grid-auto-rows: 48px; }
   .shell.activePlay .bankPanel .country { height: 48px; }
+}
+
+@media (max-width: 700px) and (orientation: portrait) {
+  .shell.activePlay .boardPanel .slots { grid-template-rows: repeat(2, minmax(min-content, 1fr)); }
+  .shell.activePlay.expertRound .boardPanel .slots { grid-template-rows: repeat(3, minmax(min-content, 1fr)); }
+  .shell.activePlay .slot > .choice { flex-shrink: 0; }
+}
+@media (max-width: 700px) and (max-height: 620px) and (orientation: portrait) {
+  .shell.activePlay .bankPanel .countries { grid-auto-rows: 44px; }
+  .shell.activePlay .bankPanel .country { height: 44px; }
+  .shell.activePlay .boardPanel .category { grid-template-columns: 22px minmax(0,1fr); gap: 3px; }
+  .shell.activePlay .boardPanel .category strong { font-size: 13px !important; line-height: 1.12 !important; }
+  .shell.activePlay .mobileCategoryInfo { width: 22px; height: 30px; font-size: 18px; }
+  .shell.activePlay .boardPanel .slot { padding: 4px 2px !important; gap: 2px; }
+  .shell.activePlay .choice { min-height: 32px !important; }
 }

@@ -1,0 +1,28 @@
+name: Editorial responsive preview
+on:
+  push:
+    branches: [codex/editorial-refresh]
+permissions:
+  contents: read
+jobs:
+  responsive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium webkit
+      - run: npm run build
+      - run: npx playwright test e2e/mobile-daily.spec.ts --grep 'editorial board stays readable' --project=chrome-desktop --project=safari-iphone
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: editorial-responsive-screenshots
+          path: |
+            test-results/
+            playwright-report/
+          retention-days: 7

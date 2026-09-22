@@ -9,6 +9,7 @@ import { decodeRound, deserializeRound, type Round, type RoundCategory } from ".
 import GameTools from "./GameTools";
 import AccountControls from "./AccountControls";
 import Brand from "./Brand";
+import useGameSound from "./useGameSound";
 import CategorySourcePanel from "./CategorySourcePanel";
 import { newYorkDate } from "../lib/time";
 import { DAILY_DIFFICULTIES, DEFAULT_DIFFICULTY, ROUND_CONFIGS, configForDifficultyDimensions, type DailyDifficulty, difficultyFromPath } from "../lib/gameRules";
@@ -17,7 +18,7 @@ import { CATEGORY_SET_VERSION, DATASET_VERSION, PLAYER_COPY_VERSION, RULES_VERSI
 import { categoryMeasurementBadgeLabel, categoryMeasurementLabel } from "../lib/categoryMeasurement";
 import type { DailyApiPayload, PackedApiBoard } from "../lib/dailyPublicPayload";
 import type { Category } from "../lib/categories";
-import { CATEGORY_COLOR_KEY, categoryThemeClass } from "../lib/categoryTheme";
+import { categoryThemeClass } from "../lib/categoryTheme";
 
 type Assignment = Record<string, string>;
 type ScoreRow = {
@@ -51,9 +52,6 @@ type GeoSecondComingGameProps = {
   initialDailyPayload?: DailyApiPayload;
 };
 
-function CategoryColorKey({ mobile = false }: { mobile?: boolean }) {
-  return <details className={`categoryColorKey ${mobile ? "mobileBoardColorKey" : ""}`}><summary>Color key</summary><div><strong>Card-edge colors group subjects</strong><p>They are guides only and do not change scoring</p>{CATEGORY_COLOR_KEY.map(([theme, label]) => <span key={theme} className={theme}><i />{label}</span>)}</div></details>;
-}
 
 const DAILY_FALLBACK_CACHE_TTL_MS = 5 * 60 * 1000;
 const dailyMemoryCache = new Map<string, DailyApiPayload>();
@@ -245,6 +243,8 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
   const [selected, setSelected] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [scores, setScores] = useState<ScoreRow[] | null>(null);
+  const [freshResult, setFreshResult] = useState(false);
+  const sound = useGameSound();
   const [status, setStatus] = useState(serverInitialRound ? "" : "Loading official country data…");
   const [error, setError] = useState("");
   const [showRules, setShowRules] = useState(false);
@@ -322,6 +322,7 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
     setError("");
     setRound(null);
     setScores(null);
+    setFreshResult(false);
     setAssignments({});
     setSelected(null);
     setSelectedCategory(null);
@@ -600,6 +601,7 @@ Can you beat my score?`;
     if (!round || !round.categories.some((item) => item.category.id === categoryId)
       || !round.bank.some((country) => country.id === countryId)) return;
     trackFirstPlacement();
+    sound.play("place");
     setAssignments((current) => {
       const next = { ...current };
       for (const key of Object.keys(next)) if (next[key] === countryId) delete next[key];
@@ -631,6 +633,8 @@ Can you beat my score?`;
     try {
       const scoredRows = buildScoreRows(round, assignments);
       setScores(scoredRows);
+      setFreshResult(true);
+      sound.play("result");
       if (!isRandom && !fallbackPractice) {
         const challengeDate = dailyDateFromSeed(seed);
         writeLocalDailyResult({
@@ -669,7 +673,7 @@ Can you beat my score?`;
   const bestPossibleCount = scores?.filter((row) => row.rank === 1).length ?? 0;
   const topFinishCount = scores?.filter((row) => row.rank <= topFinishRank).length ?? 0;
 
-  const gameTools = <GameTools categories={round?.categories.map(item=>({id:item.category.id,name:item.category.name}))??[]} difficulty={difficulty} challengeDate={isRandom?undefined:dailyDateFromSeed(seed)} path={challengePath(difficulty,seed)} privateBoard={isRandom}/>;
+  const gameTools = <><button type="button" aria-pressed={sound.enabled} onClick={sound.toggle}>Sound: {sound.enabled ? "on" : "off"}</button><GameTools categories={round?.categories.map(item=>({id:item.category.id,name:item.category.name}))??[]} difficulty={difficulty} challengeDate={isRandom?undefined:dailyDateFromSeed(seed)} path={challengePath(difficulty,seed)} privateBoard={isRandom}/></>;
 
   return <div className={`shell ${!scores ? "activePlay" : ""} ${status ? "loadingPlay" : ""} ${error ? "errorPlay" : ""} ${scores ? "resultsView" : ""} ${difficulty}Round ${difficulty === "expert" ? "expertRound" : ""} ${difficulty === "easy" ? "compactRound" : ""} ${legacyDimensions ? "legacyRound" : ""}`}>
     {!scores && <header>
@@ -711,7 +715,6 @@ Can you beat my score?`;
           <button onClick={copyRandomLink}>{copied ? "Link copied ✓" : "Copy link"}</button>
         </div>}
         <span className="mobileProgress">{Object.keys(assignments).length}/{categoryTarget} assigned</span>
-        {!scores && <CategoryColorKey mobile />}
         {scores && <button className="resultsRulesLink" onClick={() => setShowRules(true)}>Rules</button>}
       </div>
     </section>
@@ -720,7 +723,7 @@ Can you beat my score?`;
       <a href={challengePath("normal", seed)} onClick={(event) => switchCachedDaily(event, "normal")} className={difficulty === "normal" ? "active" : ""}>Adventurer</a>
       <a href={challengePath("expert", seed)} className={difficulty === "expert" ? "active" : ""}>Expert</a>
     </nav><div className="mobileGameSummary"><strong>{ROUND_CONFIGS[difficulty].label}</strong><span>{poolSize} countries · {categoryTarget} measures · {unusedCount ? `leave ${unusedCount}` : "use all"}</span></div></>}
-    {boardNotice && <div className="boardNotice">{boardNotice}</div>}
+    {boardNotice && <details className="boardNotice"><summary>About today’s data</summary><p>{boardNotice}</p></details>}
     {!scores && <section className="hero desktopHero">
       <div><span className="kicker">A strategy atlas</span><h2>{poolSize} countries. {categoryTarget} measures. One perfect allocation.</h2><p>{unusedCount ? <>Place {categoryTarget} countries, leave {unusedCount === 1 ? "one" : unusedCount} behind, and make every specialist count.</> : <>Place all {categoryTarget} countries and make every specialist count.</>}</p></div>
       <aside><strong>{Object.keys(assignments).length}/{categoryTarget}</strong><span>categories assigned</span></aside>
@@ -730,11 +733,11 @@ Can you beat my score?`;
     {error && <div className="error"><strong>Couldn’t load this board.</strong><span>{error}</span><button onClick={retryCurrentRound}>Check again</button></div>}
 
     {round && !scores && <main className={`grid playGrid ${selected ? "holdingCountry" : ""} ${selectedCategory ? "choosingCountry" : ""}`}>
-      <section className="panel bankPanel"><div className="panelTitle"><div><span className="kicker">Country bank</span><h3>Choose your {categoryTarget}</h3></div><small>{unusedCount ? (unusedCount === 1 ? "One will remain unused" : `${unusedCount} will remain unused`) : "Use every country"}</small></div>
+      <section className="panel bankPanel"><div className="panelTitle"><div><h3>Choose your {categoryTarget}</h3></div><small>{unusedCount ? (unusedCount === 1 ? "One will remain unused" : `${unusedCount} will remain unused`) : null}</small></div>
         <div className="countries" aria-label="Country bank">{round.bank.map((country) => <button key={country.id} draggable={!used.has(country.id)} onDragStart={(event)=>event.dataTransfer.setData("text/plain", country.id)} onTouchStart={(event)=>beginTouch(event,country.id)} onTouchMove={moveTouch} onTouchEnd={endTouch} onTouchCancel={endTouch} className={`country ${selected===country.id?"selected":""} ${selectedCategory&&!used.has(country.id)?"categoryTarget":""} ${used.has(country.id)?"used":""}`} aria-pressed={selected===country.id} disabled={used.has(country.id)} onClick={() => selectCountry(country.id)}><span>{country.flag}</span><div><strong title={country.name}><span className="desktopCountryName">{country.name}</span><span className="mobileCountryName">{shortCountryName(country.name)}</span></strong></div>{used.has(country.id)&&<b>USED</b>}</button>)}</div>
       </section>
       <div className="boardSpine" aria-hidden="true"/>
-      <section className="panel boardPanel"><div className="panelTitle"><div><span className="kicker">The atlas</span><h3>Match countries to measures</h3></div><div className="panelTitleTools"><small>One use per country</small><CategoryColorKey /></div></div>
+      <section className="panel boardPanel"><div className="panelTitle"><div><h3>Make your matches</h3></div></div>
         <div className="slots" aria-label="Measures to match">{round.categories.map((dataset, index) => {
           const c = round.bank.find((country)=>country.id===assignments[dataset.category.id]);
           return <div
@@ -750,15 +753,15 @@ Can you beat my score?`;
             onKeyDown={(event)=>{if(event.key==="Enter"||event.key===" "){event.preventDefault();selectCategory(dataset.category.id)}}}
           >
             <span className="cornerNotch" aria-hidden="true"/>
-            <div className="category" title={categoryMeasurementLabel(dataset.category)}><span>{dataset.category.icon}</span><div className="categoryCopy"><strong>{dataset.category.name}</strong><small>{dataset.category.boardDescription ?? dataset.category.description}</small><span className="measurementBadge" title={categoryMeasurementLabel(dataset.category)}>{categoryMeasurementBadgeLabel(dataset.category)}</span></div><b className="slotNumber">{String(index + 1).padStart(2, "0")}</b></div>
-            <div className={`choice ${c?"filled":""}`}>{c?<><span className="pieceFlag">{c.flag}</span><strong className="pieceName">{c.name}</strong><button type="button" className="removePiece" aria-label={`Remove ${c.name} from ${dataset.category.name}`} title="Remove country" onClick={(event)=>{event.stopPropagation();setAssignments((current)=>{const next={...current};delete next[dataset.category.id];return next;});setSelectedCategory(null);}}><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 4l8 8M12 4l-8 8"/></svg></button></>:<em>{selected?"Place selected country":selectedCategory===dataset.category.id?"Now choose a country":"Select a country"}</em>}</div>
+            <div className="category" title={categoryMeasurementLabel(dataset.category)}><span>{dataset.category.icon}</span><div className="categoryCopy"><strong>{dataset.category.name}</strong><small>{dataset.category.boardDescription ?? dataset.category.description}</small>{!/%|per capita|per person/i.test(dataset.category.name) && <span className="measurementBadge" title={categoryMeasurementLabel(dataset.category)}>{categoryMeasurementBadgeLabel(dataset.category)}</span>}</div><b className="slotNumber">{String(index + 1).padStart(2, "0")}</b></div>
+            <div key={c?.id ?? "empty"} className={`choice ${c?"filled":""}`}>{c?<><span className="pieceFlag">{c.flag}</span><strong className="pieceName">{c.name}</strong><button type="button" className="removePiece" aria-label={`Remove ${c.name} from ${dataset.category.name}`} title="Remove country" onClick={(event)=>{event.stopPropagation();sound.play("remove");setAssignments((current)=>{const next={...current};delete next[dataset.category.id];return next;});setSelectedCategory(null);}}><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 4l8 8M12 4l-8 8"/></svg></button></>:<em>{selected?"Place here":selectedCategory===dataset.category.id?"Choose a country":"Assign country"}</em>}</div>
           </div>
         })}</div>
         <div className="lock" aria-live="polite"><span>{categoryTarget-Object.keys(assignments).length>0?`${categoryTarget-Object.keys(assignments).length} selections remaining`:"Draft complete"}</span><button type="button" disabled={Object.keys(assignments).length!==categoryTarget} onTouchEnd={(event)=>{event.preventDefault();score();}} onClick={score}>Lock in draft</button></div>
       </section>
     </main>}
 
-    {round && scores && <section className="panel results"><nav className="resultsModeTabs" aria-label="Results difficulty">
+    {round && scores && <section className={`panel results ${freshResult ? "freshResult" : ""}`}><nav className="resultsModeTabs" aria-label="Results difficulty">
         <a href={challengePath("easy", seed)} onClick={(event) => switchCachedDaily(event, "easy")} className={difficulty === "easy" ? "active" : ""}>Scout</a>
         <a href={challengePath("normal", seed)} onClick={(event) => switchCachedDaily(event, "normal")} className={difficulty === "normal" ? "active" : ""}>Adventurer</a>
         <a href={challengePath("expert", seed)} className={difficulty === "expert" ? "active" : ""}>Expert</a>

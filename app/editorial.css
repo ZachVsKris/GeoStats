@@ -1,0 +1,388 @@
+/* GeoStats Earth surface. Gameplay and persistence are unchanged. */
+:root {
+  --sans: "Trebuchet MS", Arial, sans-serif;
+  --display: var(--sans);
+  color-scheme: light;
+  --bg: #e8f3f8;
+  --surface: #f8fcfe;
+  --surface-2: #e0edf3;
+  --surface-3: #edf5f9;
+  --ink: #163449;
+  --muted: #405d70;
+  --line: #b6cdd8;
+  --line-soft: #cbdde5;
+  --accent: #175e82;
+  --accent-2: #326d50;
+  --danger: #a6322b;
+  --label: var(--sans);
+}
+body { background: var(--bg); }
+body * { font-family: var(--sans) !important; }
+.shell.activePlay { height: auto !important; max-height: none !important; overflow: visible !important; }
+.shell.activePlay .playGrid { flex: none !important; overflow: visible !important; }
+.shell.activePlay .playGrid > .panel { height: auto !important; }
+.shell.activePlay .playGrid .countries, .shell.activePlay .playGrid .slots { flex: none !important; overflow: visible !important; }
+.shell.activePlay .boardPanel .slot { height: auto !important; }
+.shell.activePlay .choice { box-shadow: none !important; }
+.shell.activePlay .lock button:disabled { background: #e2e5dc !important; color: #59665e !important; box-shadow: none !important; }
+.googleSignInButton { color: #fffefa !important; }
+body::before, body::after { display: none; }
+/* A single cartographic plate, behind the opaque playing surfaces. */
+body::before {
+  content: ""; display: block; position: fixed; inset: auto; transform: none; mask-image: none; -webkit-mask-image: none; filter: none;
+  width: 100%; height: 100%; top: 0; left: 0; right: auto; bottom: auto;
+  background: url('/atlas-globe.svg') center 40% / max(1400px,130vw) auto no-repeat;
+  opacity: .19; pointer-events: none; z-index: -1;
+  mask-image: linear-gradient(90deg,#000 0%,#0009 35%,#0006 68%,#000 100%);
+  -webkit-mask-image: linear-gradient(90deg,#000 0%,#0009 35%,#0006 68%,#000 100%);
+}
+body { isolation: isolate; }
+.shell > header { border-bottom-color: #b8cbd0; }
+.shell .logo { border-color: #63828b; color: #376776; background: #e8eff0; box-shadow: none; }
+.shell .logo::before, .shell .logo::after { display: none; }
+.shell .brandWords small { color: #587780; }
+.shell .dailyModeButton.active, .shell .leaderboardModeTabs button.active { background: #e4edef; color: #285a6b; border-bottom-color: #3c7283; }
+@media (max-width: 900px) {
+  body::before { width: 100%; height: 100%; left: 0; top: 0; right: auto; bottom: auto; background-size: auto 1250px; background-position: center top; opacity: .12; }
+}
+.shell { max-width: 1280px; }
+.panel, .challengeBar, .panelTitle, .country, .slot, .score, .perfect,
+.infoPageHero, .infoCard, .systemStatePage, .systemStateCard {
+  background: var(--surface); box-shadow: none;
+}
+.panel { border-radius: 8px; }
+.panelTitle { border: 0; padding: 16px; }
+.panelTitle h3 { font-size: 21px; }
+.panelTitle .kicker, .desktopNavLabel, .boardSpine, .cornerNotch { display: none; }
+.country::before, .country::after, .slot::before, .slot::after { display: none; }
+.challengeBar { border: 0; background: transparent; }
+.brand p, .brandTagline, .kicker, .panelTitle small { letter-spacing: .02em; }
+.headerButtons a, .headerButtons button, .desktopSupportMenu summary,
+.desktopSupportMenu button, .desktopSupportMenu a, .accountHeaderActions button,
+.mobileMenu summary, .mobileMenu button, .mobileMenu a, .mobileModeTabs a,
+.lock button, .choice em { text-transform: none; letter-spacing: 0; font-family: var(--sans); }
+.desktopGameNav .dailyModeButton, .desktopGameNav .headerLink,
+.desktopSupportMenu summary, .accountHeaderActions button { font-size: 13px !important; }
+.desktopSupportMenu>div, .mobileMenu[open]>div { box-shadow: 0 8px 24px #203c321a; }
+.dailyModeButton.active, .mobileModeTabs a.active, .resultsModeTabs a.active {
+  color: var(--ink); background: #e7ecdf; border-color: #71856c; box-shadow: none;
+}
+.activePlay .playGrid { min-height: 0; height: auto; align-items: start; gap: 20px; }
+.activePlay .bankPanel, .activePlay .boardPanel { height: auto; min-height: 0; }
+.activePlay .bankPanel { border: 0; background: transparent; }
+.activePlay .bankPanel .panelTitle { background: transparent; }
+.activePlay .bankPanel .countries { gap: 10px; padding: 0; height: auto; overflow: visible; grid-auto-rows: auto; }
+.activePlay .country {
+  min-height: 88px; height: auto; padding: 14px !important; border: 1px solid var(--line);
+  border-radius: 6px; background: var(--surface); box-shadow: none; justify-content: flex-start;
+}
+.activePlay .country strong { font: 600 15px/1.3 var(--sans) !important; }
+.country.selected, .activePlay .country.selected { background: #e4eddf; border-color: #316b50; box-shadow: 0 0 0 2px #316b50; }
+.country.used { opacity: .55; }
+.activePlay .boardPanel { border: 0; background: transparent; }
+.activePlay .boardPanel .panelTitle { background: transparent; }
+.activePlay .boardPanel .slots { padding: 0; gap: 12px; overflow: visible; grid-auto-rows: auto; }
+.activePlay .boardPanel .slot {
+  min-height: 210px; height: auto; padding: 20px !important; border: 1px solid var(--line);
+  border-radius: 8px; background: var(--surface); box-shadow: none;
+  display: flex; flex-direction: column; justify-content: space-between !important; gap: 20px;
+}
+.activePlay .boardPanel .category { grid-template-columns: 28px minmax(0,1fr) auto; align-items: flex-start; min-height: 0 !important; gap: 8px; }
+.activePlay .boardPanel .category > span:first-child { display: block; font-size: 24px !important; line-height: 1.2; }
+.activePlay .boardPanel .category strong { font: 600 19px/1.25 var(--display) !important; text-wrap: pretty; }
+.activePlay .boardPanel .category small { font: 13px/1.45 var(--sans) !important; margin-top: 8px !important; color: var(--muted); }
+.measurementBadge { border: 0; padding: 0; background: transparent; color: var(--muted); letter-spacing: .04em; margin-top: 9px; }
+.activePlay .choice { border: 1px solid var(--line); border-radius: 4px; background: var(--surface-3); min-height: 44px; padding: 10px !important; }
+.activePlay .choice em { font-size: 13px; font-style: normal; }
+.activePlay .choice.filled { background: #e7efdf; color: var(--ink); }
+.activePlay .slot.selectedCategory, .activePlay .slot.touchTarget { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+.activePlay .lock { margin-top: 16px; padding: 12px 0; border: 0; background: transparent; gap: 12px; }
+.lock button:not(:disabled), .shareScore { background: var(--ink) !important; color: #fffefa !important; border-color: var(--ink); }
+.lock button { min-height: 46px; border-radius: 5px; padding: 12px 22px; font-size: 14px; }
+.lock button:disabled { background: #e2e5dc; color: #59665e; opacity: 1; }
+.boardNotice { background: transparent; border: 0; color: var(--muted); }
+.boardNotice summary { cursor: pointer; font-size: 12px; }
+.boardNotice p { max-width: 70ch; line-height: 1.5; }
+.modal { background: #152b2466; }
+.modal > div, .accountModal { background: var(--surface); color: var(--ink); }
+.modal input, .modal select, .modal textarea { background: var(--surface); color: var(--ink); }
+.score, .perfect, .resultsHeading, .result, .perfectRow, .leaderboard { background: var(--surface); }
+.resultMain > span, .perfectRow > span { display: block; font-size: 24px; }
+.tooltip { background: var(--surface); color: var(--ink); box-shadow: 0 8px 24px #203c3226; }
+.dataNote { color: var(--muted); }
+.shell.activePlay .challengeBar { background: transparent; box-shadow: none; border: 0; color: var(--ink); }
+.shell.activePlay .playGrid > .boardSpine { display: none !important; }
+.shell.activePlay .playGrid > .panel { height: auto; min-height: 0; border: 0; box-shadow: none; background: transparent; overflow: visible; }
+.shell.activePlay .playGrid .countries, .shell.activePlay .playGrid .slots { flex: none; grid-template-rows: none; height: auto; overflow: visible; }
+.shell.activePlay .playGrid .panelTitle { display: flex !important; background: transparent; border: 0; box-shadow: none; }
+.shell.activePlay .country { height: auto; grid-column: auto; background: var(--surface); box-shadow: none; transform: none; }
+.shell.activePlay .country.selected { background: #e4eddf; outline: 2px solid #316b50; }
+.shell.activePlay .slot.assigned { background: #f2f6ee; }
+.shell.activePlay .choice.filled { box-shadow: none; }
+.shell .perfectRow { grid-template-columns: 28px minmax(0,1fr) auto; }
+.shell .dailyModeButton, .shell .headerLink, .shell .desktopSupportMenu summary, .shell .accountHeaderActions button {
+  background: transparent; box-shadow: none; border: 0; border-radius: 0; font-weight: 600; text-transform: none; letter-spacing: 0;
+}
+.shell .dailyModeButton.active { border-bottom: 2px solid var(--ink); color: var(--ink); }
+@media (min-width: 901px) {
+  .shell.activePlay { padding: 16px 28px 20px; }
+  .shell.activePlay .playGrid { display: grid; grid-template-columns: minmax(260px, 1fr) minmax(0, 2fr); grid-template-rows: auto; height: auto; min-height: 0; }
+  .shell.activePlay .bankPanel .countries { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .activePlay .bankPanel { position: sticky; top: 20px; }
+}
+@media (max-width: 900px) {
+  html:has(.shell.activePlay), body:has(.shell.activePlay) { overflow: auto; }
+  .shell.activePlay { height: auto; max-height: none; min-height: 100dvh; overflow: visible; padding: 10px 12px 28px; }
+  .activePlay .playGrid, .activePlay.easyRound .playGrid, .activePlay.normalRound .playGrid, .activePlay.expertRound .playGrid {
+    display: flex; flex-direction: column; height: auto; min-height: 0; overflow: visible; gap: 12px;
+  }
+  .activePlay .bankPanel, .activePlay .boardPanel { width: 100%; flex: none; overflow: visible; }
+  .activePlay .playGrid .panel { height: auto; overflow: visible; }
+  .activePlay .playGrid .panelTitle { display: flex; }
+  .activePlay .bankPanel .countries { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); }
+  .shell.activePlay .bankPanel .countries { grid-template-columns: repeat(4,minmax(0,1fr)); grid-template-rows: none; }
+  .shell.activePlay .country { grid-column: auto !important; width: 100% !important; }
+  .activePlay .country { min-height: 76px; padding: 8px 4px !important; gap: 5px; flex-direction: column; }
+  .activePlay .country strong, .activePlay.expertRound .country strong { font-size: 12px !important; overflow-wrap: anywhere; }
+  .activePlay .country > span { font-size: 24px !important; }
+  .activePlay .panelTitle { display: flex; padding: 10px 0; }
+  .activePlay .panelTitle h3 { font-size: 19px; }
+  .activePlay .panelTitle small { font-size: 11px; text-transform: none; }
+  .activePlay .boardPanel .slots { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); height: auto; overflow: visible; }
+  .activePlay .boardPanel .slot { min-height: 205px; padding: 12px !important; gap: 12px; }
+  .activePlay .boardPanel .category strong { font-size: 16px !important; }
+  .activePlay .boardPanel .category small { font-size: 12px !important; line-height: 1.35 !important; }
+  .activePlay .choice, .activePlay .choice.filled { min-height: 44px !important; }
+  .activePlay .choice em, .activePlay .pieceName { font-size: 12px !important; }
+  .activePlay .lock { position: sticky; bottom: 0; z-index: 10; background: var(--bg); padding: 10px 0 max(10px,env(safe-area-inset-bottom)); }
+  .mobileModeTabs a, .mobileMenu summary, .gameAccount .accountHeaderActions > button { min-height: 40px !important; font-size: 12px !important; }
+  .activePlay .removePiece { width: 32px !important; height: 32px !important; }
+  .activePlay .measurementBadge { font-size: 10px !important; }
+  .activePlay .challengeBar .kicker, .activePlay .mobileProgress { font-size: 11px; }
+  .activePlay .mobileGameSummary { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+/* Standings use the same quiet navigation and compact hierarchy as the board. */
+.shell .leaderboardPage { border: 0; border-radius: 0; background: transparent; }
+.shell .leaderboardPageIntro { padding: 20px 0 18px; border: 0; }
+.shell .leaderboardPageIntro h1 { font-size: 32px; line-height: 1.15; margin: 8px 0 10px; }
+.shell .leaderboardPageIntro > p { font-size: 14px; line-height: 1.5; max-width: 75ch; }
+.shell .leaderboardMethodNote { margin-top: 12px; padding: 0; border: 0; font-size: 12px; }
+.shell .leaderboardModeTabs { display: flex; gap: 8px; border: 0; border-bottom: 1px solid var(--line); background: transparent; }
+.shell .leaderboardModeTabs button { flex: 0 1 auto; min-height: 44px; padding: 10px 20px; border: 0; border-bottom: 3px solid transparent; border-radius: 0; background: transparent; color: var(--ink); box-shadow: none; font-size: 14px; font-weight: 600; letter-spacing: 0; text-transform: none; }
+.shell .leaderboardModeTabs button.active { background: #eee7d5; border-bottom-color: var(--accent); color: var(--accent); box-shadow: none; }
+.shell .publicLeaderboard { background: var(--surface); }
+.shell .publicLeaderboard > div { padding: 16px; font-size: 14px; }
+.shell .publicLeaderboard .publicLeaderboardHeader { background: var(--surface-2); font-size: 11px; letter-spacing: .025em; text-transform: none; }
+.shell .publicLeaderboard > div > strong { font-size: 16px; }
+.shell .leaderboardJoinPrompt { margin-top: 24px; padding: 18px 0; border: 0; border-top: 1px solid var(--line-soft); background: transparent; text-align: left; justify-items: start; gap: 8px; }
+.shell .leaderboardJoinPrompt > strong { font-size: 18px; }
+.shell .leaderboardMethodDetails { margin-top: 10px; font-size: 12px; color: var(--muted); }
+.shell .leaderboardMethodDetails summary { cursor: pointer; width: fit-content; padding: 5px 0; }
+.shell .leaderboardJoinPrompt { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 20px; }
+.shell .leaderboardMethodDetails p { max-width: 70ch; }
+.shell .leaderboardJoinPrompt > p { font-size: 13px; max-width: 75ch; }
+.shell .leaderboardJoinPrompt > small { font-size: 12px; }
+.shell .leaderboardJoinPrompt .accountHeaderActions button { min-width: 0; min-height: 44px; padding: 10px 16px; background: var(--ink); color: var(--surface); border-radius: 3px; font-size: 13px; }
+.shell .leaderboardPageActions { padding: 12px 0; text-align: left; }
+.shell .leaderboardPageActions a { padding: 8px 0; border: 0; font-size: 13px; letter-spacing: 0; text-transform: none; text-decoration: underline; text-underline-offset: 4px; }
+.standalonePage .headerButtonLink { border: 0; background: transparent; box-shadow: none; font-size: 13px; text-transform: none; letter-spacing: 0; }
+@media (max-width: 620px) {
+  .shell .leaderboardPageIntro h1 { font-size: 28px; }
+  .shell .leaderboardModeTabs button { flex: 1; padding: 10px 8px; }
+  .shell .publicLeaderboard > div { padding: 12px 8px; font-size: 12px; }
+  .shell .publicLeaderboard .publicLeaderboardHeader { font-size: 10px; }
+  .shell .leaderboardJoinPrompt .accountHeaderActions { width: auto; }
+  .standalonePage .headerButtonLink { font-size: 11px; }
+}
+
+/* Compact atlas layout: the information determines card height. */
+.shell.activePlay .challengeBar { margin: 8px 0; padding: 8px 0; min-height: 0; border-bottom: 1px solid var(--line-soft); }
+.shell.activePlay .boardNotice { margin: 0 0 12px; padding: 0; }
+.shell.activePlay .boardNotice p { margin: 8px 0; }
+.shell.activePlay .playGrid { margin-top: 0; }
+.shell.activePlay .playGrid .panelTitle { padding: 8px 0 10px; min-height: 0; }
+.shell.activePlay .panelTitle h3 { font-size: 18px; }
+.shell.activePlay .country { min-height: 70px; border-radius: 3px; gap: 9px; }
+.shell.activePlay .country > span { font-size: 26px; }
+.shell.activePlay .boardPanel .slot { min-height: 152px; padding: 14px !important; gap: 10px; border-radius: 3px; border-top: 2px solid #56745f; }
+.shell.activePlay .boardPanel .category strong { font-size: 17px !important; line-height: 1.2 !important; }
+.shell.activePlay .boardPanel .category small { margin-top: 5px !important; font-size: 12px !important; line-height: 1.3 !important; }
+.shell.activePlay .measurementBadge { margin-top: 5px; background: transparent; border: 0; }
+.shell.activePlay .choice { min-height: 40px; padding: 8px !important; }
+.shell.activePlay .lock { margin-top: 8px; padding-top: 8px; padding-bottom: 0; height: auto !important; min-height: 54px; flex-shrink: 0; }
+.shell .dailyModeButton.active { background: #eee7d5; border-bottom-color: #866420; color: #705014; }
+.shell.activePlay .country.selected { background: #e4eddf; border-color: #316b50; }
+@media (min-width: 901px) {
+  .shell.activePlay .boardPanel .slots { gap: 8px; }
+  .shell.activePlay .bankPanel .countries { gap: 8px; }
+  .shell.activePlay .country { flex-direction: column; justify-content: center; text-align: center; padding: 12px 8px !important; }
+}
+@media (max-width: 900px) {
+  .shell.activePlay .boardPanel .slot { min-height: 165px; padding: 10px !important; }
+  .shell.activePlay .boardPanel .category strong { font-size: 16px !important; }
+  .shell.activePlay .boardPanel .category { grid-template-columns: 20px minmax(0,1fr); gap: 5px; }
+  .shell.activePlay .boardPanel .category > span:first-child { font-size: 19px !important; }
+  .shell.activePlay .country { min-height: 66px; gap: 4px; }
+  .shell.activePlay .choice { min-height: 44px; }
+}
+
+/* Atlas system: shared Earth surface, light movable pieces, green answers. */
+:root { --ocean: #175e82; --ocean-light: #e1eef5; --land: #326d50; }
+.shell { --line: #b6cdd8; }
+.shell .dailyModeButton.active, .shell .mobileModeTabs a.active,
+.shell .leaderboardModeTabs button.active, .shell .resultsModeTabs a.active {
+  background: var(--ocean-light) !important; color: var(--ocean) !important; border-bottom: 3px solid var(--ocean) !important; box-shadow: none;
+}
+.shell.activePlay .country {
+  background: #e8f1eee8; color: #173c4b; border: 1px solid #aec4c3; border-radius: 6px;
+}
+.shell.activePlay .country strong { color: inherit !important; }
+.shell.activePlay .country:hover:not(:disabled) { background: #fffefa; border-color: #346b7e; }
+.shell.activePlay .country.selected { background: #e4edf0; color: #214d5b; border-color: var(--ocean); outline: 2px solid var(--ocean); outline-offset: 2px; }
+.shell.activePlay .country.used { background: #e3e8e5; border-color: #ccd5d0; color: #5c6e64; opacity: 1; }
+.shell.activePlay .country.used b { background: transparent; color: #5c6e64; font-size: 9px; }
+.shell.activePlay .playGrid.choosingCountry .country:not(.used),
+.shell.activePlay .playGrid .country.categoryTarget:not(:disabled) {
+  background: #eaf3ef; color: #173c4b; border-color: #527b78; box-shadow: none; opacity: 1; transform: none;
+}
+.shell.activePlay .playGrid .country.categoryTarget:hover:not(:disabled) { background: #dcece5; border-color: #285f73; }
+.shell.activePlay .playGrid.holdingCountry .country:not(.selected):not(.used) { opacity: 1; }
+.shell.activePlay .playGrid .slot.selectedCategory,
+.shell.activePlay .playGrid .slot.touchTarget {
+  background: #eaf3efeF; outline: 2px solid #527b78; outline-offset: -2px; box-shadow: none; transform: none; border-radius: 4px;
+}
+.shell.activePlay .playGrid .slot.target { background: #eaf3ef99; box-shadow: none; transform: none; border-color: #97b4bb; }
+.shell.activePlay .playGrid .slot:hover { box-shadow: none; transform: none; }
+.shell.activePlay .boardPanel .slots { gap: 0 24px; }
+.shell.activePlay .boardPanel .slot { min-height: 140px; padding: 12px 4px !important; justify-content: flex-start !important; gap: 12px; border: 0; border-top: 1px solid #97b4bb; border-radius: 0; background: transparent; box-shadow: none; }
+.shell.activePlay .choice { display: flex; align-items: center; justify-content: flex-start; background: transparent; border: 0; border-radius: 4px; padding: 4px 6px !important; min-height: 44px; }
+.shell.activePlay .choice:not(.filled)::before { content: "+"; position: static; inset: auto; width: 30px; max-width: 30px; transform: none; display: inline-grid; place-items: center; flex: 0 0 30px; height: 30px; margin: 0 9px 0 0; border: 0; border-radius: 50%; background: #faf9f2; opacity: 1; color: #285f73; font-size: 24px; font-weight: 400; }
+.shell.activePlay .choice em { color: var(--ink); }
+.shell.activePlay .slot.assigned { background: #dcebe6e8; }
+.shell.activePlay .bankPanel .country { min-height: 80px; }
+.shell.activePlay .country > span { font-size: 32px !important; }
+.shell.activePlay .boardPanel .category strong { font-size: 17px !important; }
+.shell.activePlay .lock { border-top: 1px solid #97b4bb; padding-top: 12px; }
+.shell.activePlay .choice.filled { background: #dfebdd; color: #254c34; border-color: #8aab8c; }
+.shell.activePlay .boardPanel .slot { display: flex; flex-direction: column; }
+.shell.activePlay .boardPanel .slot > .choice { margin-top: auto !important; }
+.shell.activePlay .choice em { letter-spacing: 0; text-transform: none; white-space: normal; overflow: visible; text-overflow: clip; min-width: 0; line-height: 1.35; }
+.shell.activePlay .bankPanel .country { gap: 6px; box-shadow: none; }
+.shell.activePlay .country.selected { background: #eaf3ef; color: var(--ink); outline-color: #527b78; border-color: #527b78; }
+.shell.activePlay .choice.filled { background: #eaf3ef; color: var(--ink); }
+.shell .leaderboardGameNav { display: flex; align-items: center; gap: 6px; }
+.shell.standalonePage .leaderboardGameNav .headerButtonLink { font-size: 14px; font-weight: 600; padding: 12px; min-height: 44px; }
+.shell .leaderboardGameNav .headerButtonLink.active { background: var(--ocean-light); color: var(--ocean); border-bottom: 3px solid var(--ocean); }
+@media (max-width: 620px) {
+  .shell.standalonePage > header { flex-wrap: wrap; gap: 12px; }
+  .shell.standalonePage > header .headerButtons { width: 100%; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+  .shell.standalonePage .leaderboardGameNav { flex: 1; gap: 0; }
+  .shell.standalonePage .leaderboardGameNav .headerButtonLink { font-size: 12px; padding: 10px 7px; }
+}
+.shell.activePlay .measurementBadge { color: #526759; font-size: 10px !important; letter-spacing: .03em; }
+.shell.activePlay .panelTitle small { font-size: 11px; letter-spacing: 0; text-transform: none; }
+.shell.activePlay .lock button:not(:disabled), .shell .shareScore,
+.shell .leaderboardJoinPrompt .accountHeaderActions button { background: var(--ocean) !important; color: #fffefa !important; border-color: var(--ocean); }
+.shell button:focus-visible, .shell a:focus-visible, .shell summary:focus-visible { outline: 3px solid #568a9c; outline-offset: 3px; }
+.shell .results { border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+.shell .score { background: #e8eff0; padding: 28px 20px; }
+.shell .scoreValue strong { color: var(--ocean); font-size: clamp(48px,7vw,76px); }
+.shell .scoreInsights span { font-size: 11px; letter-spacing: 0; text-transform: none; }
+.shell .result, .shell .perfectRow { box-shadow: none; border-color: var(--line-soft); }
+.shell .resultsHeading { padding: 20px; }
+.shell .resultsHeading h3 { font-size: 21px; }
+.shell .resultsModeTabs { background: #f0f3ed; }
+.shell .resultsModeTabs a { background: transparent; color: var(--ink); font-size: 14px; letter-spacing: 0; text-transform: none; }
+.shell .leaderboardButton, .shell .sourceDetailsButton, .shell .resultsAccountActions button,
+.shell .resultsAccountActions a { font-size: 13px; text-transform: none; letter-spacing: 0; border-radius: 4px; min-height: 44px; }
+.shell .modal { background: #17353c66; }
+.shell .modal > div { border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 12px 40px #17353c22; }
+.shell .modal h2 { font-size: 25px; }
+.shell .modal p, .shell .modal li { font-size: 14px; line-height: 1.55; }
+.shell .modal input { min-height: 44px; font-size: 16px; border-radius: 4px; }
+.shell .modal button:not(.modalClose) { min-height: 44px; font-size: 14px; letter-spacing: 0; text-transform: none; }
+@media (min-width: 901px) {
+  body:has(.activePlay)::before { display: block; }
+  .shell.activePlay .bankPanel::after { display: none; }
+  .shell.activePlay .playGrid { gap: 24px; }
+  .shell.activePlay .bankPanel .countries { gap: 10px; }
+}
+@media (max-width: 900px) {
+  .shell.activePlay .bankPanel .countries { gap: 6px; }
+  .shell.activePlay .boardPanel .slots { gap: 0 14px; }
+  .shell.activePlay .bankPanel .country { min-height: 70px; }
+  .shell.activePlay .country > span { font-size: 25px !important; }
+  .shell.activePlay .boardPanel .category strong { font-size: 16px !important; }
+  .shell.activePlay .choice:not(.filled)::before { flex-basis: 26px; height: 26px; margin-right: 6px; }
+  .shell.activePlay .playGrid .panelTitle { flex-wrap: wrap; gap: 4px; }
+  .shell.activePlay .panelTitle h3 { font-size: 16px; }
+  .shell.activePlay .panelTitle small { font-size: 10px; }
+  .shell .resultsHeading { padding: 14px; }
+}
+
+/* Ocean actions, forest selections, and cool paper surfaces. */
+.shell .logo { color: var(--ocean); border-color: #668d9e; background: #f1f8fb; }
+.shell .brandWords small { color: var(--muted); }
+.shell > header, .shell.activePlay .lock { border-color: var(--line); }
+.shell .dailyModeButton.active, .shell .mobileModeTabs a.active,
+.shell .leaderboardModeTabs button.active, .shell .resultsModeTabs a.active,
+.shell .leaderboardGameNav .headerButtonLink.active {
+  background: #e2efe6 !important; color: #285d43 !important; border-bottom-color: var(--land) !important;
+}
+.shell.activePlay .country { background: #f2f9fceF; color: var(--ink); border-color: #b0cbd8; }
+.shell.activePlay .country:hover:not(:disabled) { background: #fff; border-color: var(--ocean); }
+.shell.activePlay .country.selected,
+.shell.activePlay .playGrid.choosingCountry .country:not(.used),
+.shell.activePlay .playGrid .country.categoryTarget:not(:disabled) {
+  background: #e2efe6; color: var(--ink); border-color: #5b8b6e; outline-color: var(--land);
+}
+.shell.activePlay .country.used { background: #e5edf1; color: #536b77; border-color: #c4d5dd; }
+.shell.activePlay .playGrid .slot.selectedCategory,
+.shell.activePlay .playGrid .slot.touchTarget { background: #e2efe6ef; outline-color: var(--land); }
+.shell.activePlay .slot.assigned, .shell.activePlay .choice.filled { background: #e2efe6; color: var(--ink); }
+.shell.activePlay .playGrid .slot.target { background: #e2efe633; }
+.shell.activePlay .slot.assigned { background: transparent; }
+.shell.activePlay .removePiece { background: transparent !important; color: var(--muted) !important; border: 1px solid #9bb7a6 !important; box-shadow: none !important; }
+.shell.activePlay .choice:not(.filled)::before { background: #f8fcfe; color: var(--ocean); }
+.shell.activePlay .measurementBadge { color: var(--muted); }
+.shell.activePlay .lock button:disabled { background: #dce8ee !important; color: #506978 !important; }
+.shell .publicLeaderboard { background: var(--surface); }
+.shell .publicLeaderboard .publicLeaderboardHeader { background: var(--surface-2); color: var(--muted); }
+.shell .publicLeaderboard > div { border-color: var(--line-soft); }
+.shell .publicLeaderboard > div > strong { color: var(--ocean); }
+.shell .leaderboardJoinPrompt { border-color: var(--line); }
+.shell .score, .shell .resultsModeTabs { background: var(--surface-2); }
+
+/* Quiet, immediate feedback; never blocks a move. */
+@media (min-width: 901px) {
+  .shell.activePlay > header { column-gap: 12px; align-items: center; }
+  .shell .desktopHeaderButtons { margin-left: auto; flex: 0 1 auto; }
+  .shell .desktopGameNav { display: flex; align-items: center; gap: 4px; }
+  .shell .desktopGameNav .dailyModeButton { padding: 12px 14px; min-height: 44px; }
+  .shell .desktopGameNav .headerLink { margin-left: 20px; padding: 12px 14px 12px 26px; border-left: 1px solid var(--line); min-height: 44px; }
+  .shell .desktopSupportMenu { margin-left: 0; }
+  .shell .desktopSupportMenu summary { padding: 12px 10px; min-height: 44px; }
+  .shell .gameAccount { margin-left: 8px; }
+  .shell .gameAccount .accountHeaderActions button { padding: 12px 14px; min-height: 44px; }
+  .shell .leaderboardGameNav .headerButtonLink.active { margin-left: 20px; }
+}
+.shell.activePlay .choice:not(.filled)::before {
+  background: transparent; border-radius: 0; width: 18px; max-width: 18px;
+  height: 24px; flex-basis: 18px; font-size: 22px; margin-right: 6px;
+}
+.shell.activePlay .choice { transition: background-color 120ms ease; }
+.shell.activePlay .country.selected { animation: country-select 140ms ease-out; }
+.shell.activePlay .choice.filled { animation: country-place 160ms ease-out; }
+.shell .freshResult .scoreValue { animation: score-reveal 260ms ease-out; }
+.shell.activePlay .lock button { transition: background-color 160ms ease, color 160ms ease; }
+@keyframes country-select { from { transform: translateY(0); } to { transform: translateY(-2px); } }
+@keyframes country-place { from { opacity: .65; transform: translateY(-3px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes score-reveal { from { opacity: .5; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .shell.activePlay .country.selected, .shell.activePlay .choice.filled, .shell .freshResult .scoreValue { animation: none; }
+  .shell.activePlay .choice, .shell.activePlay .lock button { transition: none; }
+}

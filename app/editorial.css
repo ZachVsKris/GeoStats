@@ -269,7 +269,8 @@ body { isolation: isolate; }
 .shell.activePlay .lock { border-top: 1px solid #97b4bb; padding-top: 12px; }
 .shell.activePlay .choice.filled { background: #dfebdd; color: #254c34; border-color: #8aab8c; }
 .shell.activePlay .boardPanel .slot { display: flex; flex-direction: column; }
-.shell.activePlay .boardPanel .slot > .choice { margin-top: auto; }
+.shell.activePlay .boardPanel .slot > .choice { margin-top: auto !important; }
+.shell.activePlay .choice em { letter-spacing: 0; text-transform: none; }
 .shell.activePlay .bankPanel .country { gap: 6px; box-shadow: none; }
 .shell.activePlay .country.selected { background: #eaf3ef; color: var(--ink); outline-color: #527b78; border-color: #527b78; }
 .shell.activePlay .choice.filled { background: #eaf3ef; color: var(--ink); }

@@ -38,6 +38,38 @@ test('editorial board stays readable across desktop and phone widths', async ({p
   }
 });
 
+test('editorial board stays readable without phone scrolling', async ({page}, testInfo) => {
+  await installRoutes(page);
+  for (const [width, height] of [[375, 667], [390, 740], [430, 800], [320, 568]]) {
+    await page.setViewportSize({width, height});
+    for (const mode of ['easy', 'normal', 'expert']) {
+      await page.goto(`/daily/${mode}`);
+      await expect(page.locator('.slots .slot')).toHaveCount(mode === 'expert' ? 6 : 4);
+      const sizes = await page.evaluate(() => ({
+        height: innerHeight, width: innerWidth,
+        scrollHeight: document.documentElement.scrollHeight,
+        scrollWidth: document.documentElement.scrollWidth,
+        lockBottom: document.querySelector('.lock button')!.getBoundingClientRect().bottom,
+        overlaps: [...document.querySelectorAll('.slot')].some(slot => slot.querySelector('.category')!.getBoundingClientRect().bottom > slot.querySelector('.choice')!.getBoundingClientRect().top + 1),
+      }));
+      expect(sizes.scrollHeight, JSON.stringify(sizes)).toBeLessThanOrEqual(height + 1);
+      expect(sizes.scrollWidth).toBeLessThanOrEqual(width + 1);
+      expect(sizes.lockBottom).toBeLessThanOrEqual(height);
+      expect(sizes.overlaps).toBe(false);
+      await page.screenshot({path:testInfo.outputPath(`phone-${mode}-${width}-${height}.png`),fullPage:true});
+      await page.locator('.mobileCategoryInfo').first().click();
+      await expect(page.getByRole('dialog')).toBeVisible();
+      await expect(page.getByRole('dialog')).toContainText('Clear mobile description');
+      await expect(page.locator('.choice.filled')).toHaveCount(0);
+      await page.getByRole('button', {name:'Back to board'}).click();
+      await page.locator('.country:not(:disabled)').first().click();
+      await page.locator('.slot').first().click();
+      await expect(page.locator('.choice.filled')).toHaveCount(1);
+      await page.locator('.removePiece').click();
+    }
+  }
+});
+
 type Difficulty = "easy" | "normal" | "expert";
 
 const countries = [
@@ -56,10 +88,10 @@ const countries = [
 const categoryTemplates = [
   ["population", "Largest population", "Population", "worldbank", "demographics", "population-count", "👥"],
   ["coastline", "Longest coastline", "Geography", "naturalearth", "physical-geography", "coastline", "🌊"],
-  ["health", "Highest vaccination rate", "Health", "who", "health", "vaccination", "💉"],
+  ["health", "Highest goods and services taxes as % of government revenue", "Health", "who", "health", "vaccination", "💉"],
   ["exports", "Most vehicle exports", "Trade", "comtrade", "trade", "vehicle-trade", "🚗"],
   ["wheat", "Most wheat produced", "Crops", "faostat", "agriculture", "crop-production", "🌾"],
-  ["energy", "Most solar electricity", "Energy", "eia", "energy", "renewable-electricity", "☀️"],
+  ["energy", "Highest % of prisoners awaiting trial", "Energy", "eia", "energy", "renewable-electricity", "☀️"],
   ["refugees", "Most refugees hosted", "Displacement", "unhcr", "demographics", "forced-displacement", "🧳"],
   ["religion", "Highest Christian share", "Religion", "pewreligion", "culture", "religious-composition", "⛪"],
 ] as const;

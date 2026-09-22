@@ -464,6 +464,32 @@
 /* Keep account identity visible alongside the compact mobile menu. */
 .gameAccount{display:block}
 .signedInIdentity{overflow-wrap:anywhere}
+@media(min-width:701px){
+ .activePlay > header{align-items:center;gap:14px;padding-bottom:10px}
+ .activePlay > header > .brand{flex:0 0 auto}
+ .desktopHeaderButtons{flex:1 1 auto;min-width:0;display:grid;gap:5px}
+ .desktopNavGroup{display:flex;align-items:center;justify-content:flex-end;gap:6px;min-width:0}
+ .desktopNavLabel{flex:0 0 76px;color:var(--muted);font-family:var(--label);font-size:8px;font-weight:800;letter-spacing:.12em;text-align:right;text-transform:uppercase}
+ .desktopGameNav{padding-bottom:5px;border-bottom:1px solid var(--line-soft)}
+ .desktopGameNav .dailyModeButton,.desktopGameNav .headerLink{min-height:34px;padding:8px 12px;font-size:10px}
+ .desktopSupportNav button,.desktopSupportNav .headerLink{min-height:28px;padding:6px 9px;color:var(--muted);font-size:8px;border-color:var(--line-soft)}
+ .desktopSupportNav button:hover,.desktopSupportNav .headerLink:hover{color:var(--ink)}
+ .desktopSupportNav .gameToolsStatus{max-width:150px;font-size:8px}
+ .activePlay > header > .gameAccount{flex:0 1 auto;max-width:150px}
+}
+@media(min-width:701px) and (max-width:1050px){
+ .activePlay > header{gap:7px}
+ .activePlay > header > .brand{gap:7px}
+ .activePlay > header .logo{width:38px;height:38px;font-size:19px}
+ .activePlay > header .brand h1{font-size:20px}
+ .activePlay > header .brand p,.activePlay > header .brand small{display:none}
+ .desktopNavLabel{display:none}
+ .desktopNavGroup{gap:3px}
+ .desktopGameNav .dailyModeButton,.desktopGameNav .headerLink{min-height:30px;padding:6px 7px;font-size:8px}
+ .desktopSupportNav button,.desktopSupportNav .headerLink{min-height:25px;padding:4px 6px;font-size:6.5px}
+ .activePlay > header > .gameAccount{max-width:115px}
+ .activePlay > header > .gameAccount .accountHeaderActions>button{padding:6px 7px;font-size:7px}
+}
 @media(max-width:700px), (max-width:900px) and (orientation:landscape) and (max-height:500px){
  .activePlay > header{display:flex;flex:0 0 auto;min-height:38px;gap:6px;padding:0 1px 4px;align-items:center}
  .activePlay > header > .brand{flex:1 1 auto;min-width:0;gap:5px}

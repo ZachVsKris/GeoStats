@@ -3,16 +3,16 @@
   --sans: "Trebuchet MS", Arial, sans-serif;
   --display: var(--sans);
   color-scheme: light;
-  --bg: #dcebef;
-  --surface: #fffefa;
-  --surface-2: #edf1e9;
-  --surface-3: #f1f0e9;
-  --ink: #173c4b;
-  --muted: #42616b;
-  --line: #b9c2b7;
-  --line-soft: #dedfd5;
-  --accent: #285f73;
-  --accent-2: #316b50;
+  --bg: #e8f3f8;
+  --surface: #f8fcfe;
+  --surface-2: #e0edf3;
+  --surface-3: #edf5f9;
+  --ink: #163449;
+  --muted: #405d70;
+  --line: #b6cdd8;
+  --line-soft: #cbdde5;
+  --accent: #175e82;
+  --accent-2: #326d50;
   --danger: #a6322b;
   --label: var(--sans);
 }
@@ -32,7 +32,7 @@ body::before {
   content: ""; display: block; position: fixed; inset: auto; transform: none; mask-image: none; -webkit-mask-image: none; filter: none;
   width: 100%; height: 100%; top: 0; left: 0; right: auto; bottom: auto;
   background: url('/atlas-globe.svg') center 40% / max(1400px,130vw) auto no-repeat;
-  opacity: .16; pointer-events: none; z-index: -1;
+  opacity: .19; pointer-events: none; z-index: -1;
   mask-image: linear-gradient(90deg,#000 0%,#0009 35%,#0006 68%,#000 100%);
   -webkit-mask-image: linear-gradient(90deg,#000 0%,#0009 35%,#0006 68%,#000 100%);
 }
@@ -231,8 +231,8 @@ body { isolation: isolate; }
 }
 
 /* Atlas system: shared Earth surface, light movable pieces, green answers. */
-:root { --ocean: #27596c; --ocean-light: #e4edf0; --land: #507859; }
-.shell { --line: #c3ccc6; }
+:root { --ocean: #175e82; --ocean-light: #e1eef5; --land: #326d50; }
+.shell { --line: #b6cdd8; }
 .shell .dailyModeButton.active, .shell .mobileModeTabs a.active,
 .shell .leaderboardModeTabs button.active, .shell .resultsModeTabs a.active {
   background: var(--ocean-light) !important; color: var(--ocean) !important; border-bottom: 3px solid var(--ocean) !important; box-shadow: none;
@@ -323,3 +323,34 @@ body { isolation: isolate; }
   .shell.activePlay .panelTitle small { font-size: 10px; }
   .shell .resultsHeading { padding: 14px; }
 }
+
+/* Ocean actions, forest selections, and cool paper surfaces. */
+.shell .logo { color: var(--ocean); border-color: #668d9e; background: #f1f8fb; }
+.shell .brandWords small { color: var(--muted); }
+.shell > header, .shell.activePlay .lock { border-color: var(--line); }
+.shell .dailyModeButton.active, .shell .mobileModeTabs a.active,
+.shell .leaderboardModeTabs button.active, .shell .resultsModeTabs a.active,
+.shell .leaderboardGameNav .headerButtonLink.active {
+  background: #e2efe6 !important; color: #285d43 !important; border-bottom-color: var(--land) !important;
+}
+.shell.activePlay .country { background: #f2f9fceF; color: var(--ink); border-color: #b0cbd8; }
+.shell.activePlay .country:hover:not(:disabled) { background: #fff; border-color: var(--ocean); }
+.shell.activePlay .country.selected,
+.shell.activePlay .playGrid.choosingCountry .country:not(.used),
+.shell.activePlay .playGrid .country.categoryTarget:not(:disabled) {
+  background: #e2efe6; color: var(--ink); border-color: #5b8b6e; outline-color: var(--land);
+}
+.shell.activePlay .country.used { background: #e5edf1; color: #536b77; border-color: #c4d5dd; }
+.shell.activePlay .playGrid .slot.selectedCategory,
+.shell.activePlay .playGrid .slot.touchTarget { background: #e2efe6ef; outline-color: var(--land); }
+.shell.activePlay .slot.assigned, .shell.activePlay .choice.filled { background: #e2efe6; color: var(--ink); }
+.shell.activePlay .playGrid .slot.target { background: #e2efe699; }
+.shell.activePlay .choice:not(.filled)::before { background: #f8fcfe; color: var(--ocean); }
+.shell.activePlay .measurementBadge { color: var(--muted); }
+.shell.activePlay .lock button:disabled { background: #dce8ee !important; color: #506978 !important; }
+.shell .publicLeaderboard { background: var(--surface); }
+.shell .publicLeaderboard .publicLeaderboardHeader { background: var(--surface-2); color: var(--muted); }
+.shell .publicLeaderboard > div { border-color: var(--line-soft); }
+.shell .publicLeaderboard > div > strong { color: var(--ocean); }
+.shell .leaderboardJoinPrompt { border-color: var(--line); }
+.shell .score, .shell .resultsModeTabs { background: var(--surface-2); }

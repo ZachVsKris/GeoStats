@@ -230,7 +230,7 @@ body { isolation: isolate; }
 .shell { --line: #c3ccc6; }
 .shell .dailyModeButton.active, .shell .mobileModeTabs a.active,
 .shell .leaderboardModeTabs button.active, .shell .resultsModeTabs a.active {
-  background: var(--ocean-light); color: var(--ocean); border-bottom: 3px solid var(--ocean); box-shadow: none;
+  background: var(--ocean-light) !important; color: var(--ocean) !important; border-bottom: 3px solid var(--ocean) !important; box-shadow: none;
 }
 .shell.activePlay .country {
   background: var(--ocean); color: #fffefa; border: 1px solid var(--ocean); border-radius: 6px;
@@ -267,7 +267,7 @@ body { isolation: isolate; }
 .shell .modal button:not(.modalClose) { min-height: 44px; font-size: 14px; letter-spacing: 0; text-transform: none; }
 @media (min-width: 901px) {
   body:has(.activePlay)::before { display: none; }
-  .shell.activePlay .bankPanel::after { content: ""; display: block; height: 174px; margin-top: 20px; background: url('/atlas-globe.svg') center 10% / 230px auto no-repeat; border-top: 1px solid #c3d1cf; opacity: .8; }
+  .shell.activePlay .bankPanel::after { content: ""; display: block; height: 174px; margin-top: 20px; background: url('/atlas-globe.svg') center / 160px 160px no-repeat; border-top: 1px solid #c3d1cf; opacity: .8; }
   .shell.activePlay .playGrid { gap: 24px; }
   .shell.activePlay .bankPanel .countries { gap: 10px; }
 }

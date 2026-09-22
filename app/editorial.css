@@ -417,7 +417,6 @@ body { isolation: isolate; }
   .shell.activePlay .boardPanel .category strong { font-size: 16px !important; line-height: 1.15 !important; text-wrap: wrap; }
   .shell.activePlay .boardPanel .category small, .shell.activePlay .measurementBadge, .shell.activePlay .desktopCategoryIcon { display: none !important; }
   .shell.activePlay .mobileCategoryInfo { display: flex !important; align-items: center; justify-content: center; position: relative; width: 28px; height: 36px; padding: 0; border: 0; background: transparent; font-size: 20px; cursor: pointer; }
-  .shell.activePlay .mobileCategoryInfo sup { position: absolute; right: -1px; bottom: 0; font: bold 9px/12px var(--sans); color: var(--ocean); }
   .shell.activePlay .choice { min-height: 36px !important; padding: 3px 2px !important; }
   .shell.activePlay .choice.filled { padding-right: 34px !important; }
   .shell.activePlay .choice em, .shell.activePlay .pieceName { font-size: 12px !important; }
@@ -508,3 +507,5 @@ body { isolation: isolate; }
   .shell .scoreActions > .resultsAccountActions > a, .shell .scoreActions > .resultsAccountActions > button { padding: 10px 12px; font-size: 13px; }
   .shell .resultsGameTools > button { flex: 1 1 auto; }
 }
+
+.shell .scoreActions > .resultsAccountActions > button.resultsAccountLink { border-color: transparent; background: transparent; box-shadow: none; color: var(--muted); font-weight: 400; text-decoration: underline; text-underline-offset: 3px; }

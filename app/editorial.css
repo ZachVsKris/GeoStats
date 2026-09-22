@@ -4,9 +4,9 @@
   --display: var(--sans);
   color-scheme: light;
   --bg: #e7f2f6;
-  --surface: #f9fcfd;
-  --surface-2: #e3eef0;
-  --surface-3: #eff7f9;
+  --surface: #f2f8f8;
+  --surface-2: #deebed;
+  --surface-3: #eaf3f4;
   --ink: #163449;
   --muted: #405d70;
   --line: #b6cdd8;
@@ -551,7 +551,7 @@ body { isolation: isolate; }
 .shell.activePlay .playGrid .panelTitle::after { display: none; content: none; }
 
 /* A consistent earth-toned surface rhythm across the board, standings, and results. */
-:root { --feature-surface: #e3eef0; --content-surface: #f9fcfd; }
+:root { --feature-surface: #deebed; --content-surface: #f2f8f8; }
 .shell .results, .shell .publicLeaderboard, .shell .infoPagePanel {
   background: var(--content-surface);
 }
@@ -562,7 +562,7 @@ body { isolation: isolate; }
 .shell .resultsHeading, .shell .perfect .resultsHeading,
 .shell .publicLeaderboard .publicLeaderboardHeader,
 .shell .leaderboardModeTabs {
-  background: #f0f7f8;
+  background: #e8f2f3;
 }
 .shell .result, .shell .perfectRow, .shell .publicLeaderboard > div:not(.publicLeaderboardHeader) {
   background: var(--content-surface);
@@ -584,3 +584,8 @@ body { isolation: isolate; }
   .shell .leaderboardPageIntro { padding: 18px 14px; }
   .shell .leaderboardModeTabs { padding: 0 5px; }
 }
+
+/* Keep interactive and supporting surfaces in the same soft atlas palette. */
+.shell.activePlay .country:hover:not(:disabled){background:#f6faf9}
+.shell .leaderboard,.shell .leaderboardJoinPrompt,.shell .scoreShareMenu,.shell .scoreImagePreview,
+.authCallbackCard,.systemStateCard,.sourcePanel{background:var(--surface)}

@@ -6,11 +6,11 @@ const preferenceKey = "geostats:sound:v1";
 type Cue = "select" | "place" | "remove" | "result";
 
 export default function useGameSound() {
-  const [enabled, setEnabled] = useState(false);
+  const [enabled, setEnabled] = useState(true);
   const context = useRef<AudioContext | null>(null);
 
   useEffect(() => {
-    try { setEnabled(localStorage.getItem(preferenceKey) === "on"); } catch { /* Storage is optional. */ }
+    try { setEnabled(localStorage.getItem(preferenceKey) !== "off"); } catch { /* Storage is optional. */ }
     return () => { void context.current?.close().catch(() => {}); context.current = null; };
   }, []);
 

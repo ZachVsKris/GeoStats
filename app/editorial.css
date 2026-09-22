@@ -1,5 +1,7 @@
 /* Public-facing editorial theme. Gameplay and persistence are unchanged. */
 :root {
+  --sans: Arial, Helvetica, sans-serif;
+  --display: Arial, Helvetica, sans-serif;
   color-scheme: light;
   --bg: #f5f3ed;
   --surface: #fffefa;
@@ -15,6 +17,7 @@
   --label: var(--sans);
 }
 body { background: var(--bg); }
+body * { font-family: Arial, Helvetica, sans-serif !important; }
 body::before, body::after { display: none; }
 .shell { max-width: 1280px; }
 .panel, .challengeBar, .panelTitle, .country, .slot, .score, .perfect,
@@ -81,10 +84,24 @@ body::before, body::after { display: none; }
 .resultMain > span, .perfectRow > span { display: none; }
 .tooltip { background: var(--surface); color: var(--ink); box-shadow: 0 8px 24px #203c3226; }
 .dataNote { color: var(--muted); }
+.shell.activePlay .challengeBar { background: transparent; box-shadow: none; border: 0; color: var(--ink); }
+.shell.activePlay .playGrid > .boardSpine { display: none !important; }
+.shell.activePlay .playGrid > .panel { height: auto; min-height: 0; border: 0; box-shadow: none; background: transparent; overflow: visible; }
+.shell.activePlay .playGrid .countries, .shell.activePlay .playGrid .slots { flex: none; grid-template-rows: none; height: auto; overflow: visible; }
+.shell.activePlay .playGrid .panelTitle { display: flex !important; background: transparent; border: 0; box-shadow: none; }
+.shell.activePlay .country { height: auto; grid-column: auto; background: var(--surface); box-shadow: none; transform: none; }
+.shell.activePlay .country.selected { background: #e4eddf; outline: 2px solid #316b50; }
+.shell.activePlay .slot.assigned { background: #f2f6ee; }
+.shell.activePlay .choice.filled { box-shadow: none; }
+.shell .perfectRow { grid-template-columns: minmax(0,1fr) auto; }
+.shell .dailyModeButton, .shell .headerLink, .shell .desktopSupportMenu summary, .shell .accountHeaderActions button {
+  background: transparent; box-shadow: none; border: 0; border-radius: 0; font-weight: 600; text-transform: none; letter-spacing: 0;
+}
+.shell .dailyModeButton.active { border-bottom: 2px solid var(--ink); color: var(--ink); }
 @media (min-width: 901px) {
   .shell.activePlay { padding: 24px 28px 48px; }
-  .activePlay .playGrid { grid-template-columns: minmax(230px, .8fr) minmax(0, 2fr); }
-  .activePlay .countries { grid-template-columns: 1fr; }
+  .shell.activePlay .playGrid { display: grid; grid-template-columns: minmax(230px, .8fr) minmax(0, 2fr); grid-template-rows: auto; height: auto; min-height: 0; }
+  .shell.activePlay .bankPanel .countries { grid-template-columns: 1fr; }
   .activePlay .bankPanel { position: sticky; top: 20px; }
 }
 @media (max-width: 900px) {
@@ -97,6 +114,8 @@ body::before, body::after { display: none; }
   .activePlay .playGrid .panel { height: auto; overflow: visible; }
   .activePlay .playGrid .panelTitle { display: flex; }
   .activePlay .bankPanel .countries { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); }
+  .shell.activePlay .bankPanel .countries { grid-template-columns: repeat(4,minmax(0,1fr)); grid-template-rows: none; }
+  .shell.activePlay .country { grid-column: auto !important; width: 100% !important; }
   .activePlay .country { min-height: 76px; padding: 8px 4px !important; gap: 5px; flex-direction: column; }
   .activePlay .country strong, .activePlay.expertRound .country strong { font-size: 12px !important; overflow-wrap: anywhere; }
   .activePlay .country > span { font-size: 24px !important; }

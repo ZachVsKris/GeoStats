@@ -1,5 +1,34 @@
 import { expect, test, type Page, type Route } from "@playwright/test";
 
+test('editorial board stays readable across desktop and phone widths', async ({page}, testInfo) => {
+  await installRoutes(page);
+  for (const width of [1440, 1024, 390, 320]) {
+    await page.setViewportSize({width, height: 900});
+    await page.goto('/daily/expert');
+    await expect(page.locator('.slots .slot')).toHaveCount(6);
+    const geometry = await page.evaluate(() => {
+      const board = document.querySelector('.boardPanel')!.getBoundingClientRect();
+      const cards = [...document.querySelectorAll('.slots .slot')].map(el => el.getBoundingClientRect());
+      return {width: innerWidth, scroll: document.documentElement.scrollWidth, board: board.width,
+        cards: cards.map(r => ({width:r.width, right:r.right})),
+        font: getComputedStyle(document.querySelector('.category strong')!).fontSize};
+    });
+    expect(geometry.scroll).toBeLessThanOrEqual(width + 1);
+    expect(geometry.board).toBeGreaterThan(width > 900 ? 450 : 280);
+    expect(parseFloat(geometry.font)).toBeGreaterThanOrEqual(16);
+    for (const card of geometry.cards) {
+      expect(card.width).toBeGreaterThan(130);
+      expect(card.right).toBeLessThanOrEqual(width);
+    }
+    await page.screenshot({path:testInfo.outputPath(`editorial-${width}.png`),fullPage:true});
+    await page.locator('.country:not(:disabled)').first().click();
+    await page.locator('.slot').first().click();
+    await expect(page.locator('.choice.filled')).toHaveCount(1);
+    await page.locator('.removePiece').click();
+    await expect(page.locator('.choice.filled')).toHaveCount(0);
+  }
+});
+
 type Difficulty = "easy" | "normal" | "expert";
 
 const countries = [

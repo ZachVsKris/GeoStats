@@ -387,7 +387,7 @@ export default function AccountControls({
   return <>
     <div className={results ? "resultsAccountActions" : "accountHeaderActions"}>
       {!hideLeaderboardLink && <a className={results ? "secondaryAction" : "headerButtonLink"} href={`/leaderboard?difficulty=${difficulty}`}>{results ? "View leaderboard" : "Leaderboard"}</a>}
-      {userLabel ? <button type="button" onClick={openAccount} aria-label={`Account: signed in as ${userLabel}`} className={compact ? "compactAccountButton" : undefined}>{compact ? `✓ ${userLabel}` : userLabel}</button> : <button type="button" onClick={openAccount}>{guestButtonLabel}</button>}
+      {userLabel ? <button type="button" onClick={openAccount} aria-label={`Account: signed in as ${userLabel}`} className={results ? "resultsAccountLink" : compact ? "compactAccountButton" : undefined}>{results ? "Account" : compact ? `✓ ${userLabel}` : userLabel}</button> : <button type="button" onClick={openAccount}>{guestButtonLabel}</button>}
     </div>
     {open && <div className="modal accountModal" onClick={(event) => event.currentTarget === event.target && usernameCustomized && setOpen(false)}>
       <div ref={dialogRef} role="dialog" aria-modal="true" aria-labelledby={`account-dialog-title-${context}`} aria-describedby={`account-dialog-description-${context}`} aria-busy={saving || savingUsername || sendingLink || signingInWithGoogle}>

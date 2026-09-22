@@ -50,12 +50,15 @@ test('editorial board stays readable without phone scrolling', async ({page}, te
         scrollHeight: document.documentElement.scrollHeight,
         scrollWidth: document.documentElement.scrollWidth,
         lockBottom: document.querySelector('.lock button')!.getBoundingClientRect().bottom,
+        lockTop: document.querySelector('.lock')!.getBoundingClientRect().top,
+        answerBottom: Math.max(...[...document.querySelectorAll('.slot > .choice')].map(el => el.getBoundingClientRect().bottom)),
         overlaps: [...document.querySelectorAll('.slot')].some(slot => slot.querySelector('.category')!.getBoundingClientRect().bottom > slot.querySelector('.choice')!.getBoundingClientRect().top + 1),
       }));
       expect(sizes.scrollHeight, JSON.stringify(sizes)).toBeLessThanOrEqual(height + 1);
       expect(sizes.scrollWidth).toBeLessThanOrEqual(width + 1);
       expect(sizes.lockBottom).toBeLessThanOrEqual(height);
       expect(sizes.overlaps).toBe(false);
+      expect(sizes.answerBottom, JSON.stringify(sizes)).toBeLessThanOrEqual(sizes.lockTop);
       await page.screenshot({path:testInfo.outputPath(`phone-${mode}-${width}-${height}.png`),fullPage:true});
       await page.locator('.mobileCategoryInfo').first().click();
       await expect(page.getByRole('dialog')).toBeVisible();

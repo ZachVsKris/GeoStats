@@ -19,7 +19,7 @@
 body { background: var(--bg); }
 body * { font-family: Arial, Helvetica, sans-serif !important; }
 .shell.activePlay { height: auto !important; max-height: none !important; overflow: visible !important; }
-.shell.activePlay .playGrid { flex: none !important; }
+.shell.activePlay .playGrid { flex: none !important; overflow: visible !important; }
 .shell.activePlay .playGrid > .panel { height: auto !important; }
 .shell.activePlay .playGrid .countries, .shell.activePlay .playGrid .slots { flex: none !important; overflow: visible !important; }
 .shell.activePlay .boardPanel .slot { height: auto !important; }
@@ -161,7 +161,7 @@ body::before, body::after { display: none; }
 .shell.activePlay .boardPanel .category small { margin-top: 5px !important; font-size: 12px !important; line-height: 1.3 !important; }
 .shell.activePlay .measurementBadge { margin-top: 5px; background: transparent; border: 0; }
 .shell.activePlay .choice { min-height: 40px; padding: 8px !important; }
-.shell.activePlay .lock { margin-top: 8px; padding-top: 8px; padding-bottom: 0; }
+.shell.activePlay .lock { margin-top: 8px; padding-top: 8px; padding-bottom: 0; height: auto !important; min-height: 54px; flex-shrink: 0; }
 .shell .dailyModeButton.active { background: #eee7d5; border-bottom-color: #866420; color: #705014; }
 .shell.activePlay .country.selected { background: #e4eddf; border-color: #316b50; }
 @media (min-width: 901px) {

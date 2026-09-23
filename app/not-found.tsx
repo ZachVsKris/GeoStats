@@ -7,7 +7,7 @@ export default function NotFound() {
       <span className="kicker">Map edge</span>
       <h1>That page isn’t on this atlas</h1>
       <p>The address may have changed, or the page may no longer exist.</p>
-      <div className="systemStateActions"><a href="/daily">Play today’s Daily</a><a href="/leaderboard">View leaderboard</a></div>
+      <div className="systemStateActions"><a href="/daily">Play today’s Daily</a><a href="/data">Explore the data</a></div>
     </section>
   </main>;
 }

@@ -608,7 +608,7 @@ body { isolation: isolate; }
 .shell .welcomeModes span { display: grid; gap: 5px; padding: 10px; background: var(--surface); border: 1px solid var(--line); color: var(--muted); font-size: 12px; }
 .shell .welcomeModes strong { color: var(--ink); font-size: 14px; }
 .shell .welcomeActions { display: flex; gap: 10px; flex-wrap: wrap; }
-.shell .welcomeActions .secondaryAction { background: transparent; color: var(--ocean); border: 1px solid var(--ocean); }
+.shell .welcomeActions button.secondaryAction { background: transparent; color: var(--ocean); border: 1px solid var(--ocean); }
 
 /* The score explains its units before the optional category detail. */
 .shell .scoreExplanation { max-width: 52ch; margin: 12px auto 4px; color: var(--ink); font-size: 14px; line-height: 1.4; }

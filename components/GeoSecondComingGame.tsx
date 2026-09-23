@@ -268,6 +268,7 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
   const [boardNotice, setBoardNotice] = useState(serverInitialRound ? (initialDailyPayload?.warning ?? "") : "");
   const [openLeaderboard, setOpenLeaderboard] = useState<string | null>(null);
   const [showMobileOptimal, setShowMobileOptimal] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
   const [sourceDataset, setSourceDataset] = useState<RoundCategory | null>(null);
   const [touchDrag, setTouchDrag] = useState<{ countryId: string; x: number; y: number; targetCategoryId: string | null } | null>(null);
   const touchStart = useRef<{ countryId: string; x: number; y: number } | null>(null);
@@ -784,6 +785,16 @@ ${total} / ${roundMaxScore}
     }
   }
 
+  function attemptSubmit() {
+    const remaining = categoryTarget - Object.keys(assignments).length;
+    if (remaining > 0) {
+      setSubmitMessage("Place a country in every category before submitting.");
+      return;
+    }
+    setSubmitMessage("");
+    score();
+  }
+
   const total = scores?.reduce((sum, row) => sum + row.points, 0) ?? 0;
 
   const gameTools = <><button type="button" aria-pressed={sound.enabled} title="Sounds play when you assign or remove a country and submit answers" onClick={sound.toggle}>Game sounds: {sound.enabled ? "on" : "off"}</button><GameTools categories={round?.categories.map(item=>({id:item.category.id,name:item.category.name}))??[]} difficulty={difficulty} challengeDate={isRandom?undefined:dailyDateFromSeed(seed)}/></>;
@@ -874,7 +885,7 @@ ${total} / ${roundMaxScore}
             <div key={c?.id ?? "empty"} className={`choice ${c?"filled":""}`}>{c?<><span className="pieceFlag">{c.flag}</span><strong className="pieceName">{c.name}</strong><button type="button" className="removePiece" aria-label={`Remove ${c.name} from ${dataset.category.name}`} title="Remove country" onClick={(event)=>{event.stopPropagation();sound.play("remove");setAssignments((current)=>{const next={...current};delete next[dataset.category.id];return next;});setSelectedCategory(null);}}><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 4l8 8M12 4l-8 8"/></svg></button></>:<em>{selected?"Place here":selectedCategory===dataset.category.id?"Choose a country":"Assign country"}</em>}</div>
           </div>
         })}</div>
-        <div className="lock" aria-live="polite"><span>{categoryTarget-Object.keys(assignments).length>0?`${categoryTarget-Object.keys(assignments).length} matches remaining`:"Ready to submit"}</span><button type="button" disabled={Object.keys(assignments).length!==categoryTarget} onTouchEnd={(event)=>{event.preventDefault();score();}} onClick={score}>Submit answers</button></div>
+        <div className="lock"><div className="submitStatus" aria-live="polite"><span>{categoryTarget-Object.keys(assignments).length>0?`${categoryTarget-Object.keys(assignments).length} matches remaining`:"Ready to submit"}</span>{submitMessage && <p role="alert">{submitMessage}</p>}</div><button type="button" className="submitAnswersButton" aria-disabled={Object.keys(assignments).length!==categoryTarget} onTouchEnd={(event)=>{event.preventDefault();attemptSubmit();}} onClick={attemptSubmit}>Submit answers</button></div>
       </section>
     </main>}
 

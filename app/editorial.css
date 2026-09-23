@@ -636,3 +636,24 @@ body { isolation: isolate; }
   .shell .scoreBreakdown span { font-size: 11px; }
   .shell .mobileBestMatch { display: block; grid-column: 1 / -1; margin: 0 0 0 34px; color: var(--muted); font-size: 11px; }
 }
+
+
+/* Mobile results: keep the score and each choice in view; open rankings for the full data. */
+@media (max-width: 620px) {
+  .shell.resultsView .score { padding: 15px 15px 17px; }
+  .shell.resultsView .scoreValue strong { font-size: 54px; }
+  .shell.resultsView .scoreValue b { font-size: 19px; }
+  .shell.resultsView .savedDailyNotice { margin: 5px auto; font-size: 10px; }
+  .shell.resultsView .score > .scoreExplanation { max-width: 34ch; margin: 7px auto 3px; font-size: 11px; line-height: 1.35; }
+  .shell.resultsView .scoreBreakdown { gap: 12px; margin-top: 8px; }
+  .shell.resultsView .scoreBreakdown span { font-size: 11px; }
+  .shell.resultsView .compareSolutionLink { display: none; }
+  .shell.resultsView .resultsHeading { padding: 12px 14px 9px; }
+  .shell.resultsView .resultsHeading > small { display: none; }
+  .shell.resultsView .resultsHeading h3 { font-size: 16px; }
+  .shell.resultsView .result { padding: 11px 13px; }
+  .shell.resultsView .resultMain > div > strong { font-size: 14px; }
+  .shell.resultsView .mobileBestMatch { display: none; }
+  .shell.resultsView .leaderboardButton { margin-top: 1px; }
+  .shell.resultsView .perfect .resultsHeading { padding-bottom: 3px; }
+}

@@ -11,7 +11,7 @@ function Mark() {
 }
 
 export default function Brand({ linked = false }: BrandProps) {
-  const contents = <><Mark /><span className="brandWords"><strong>GeoStats</strong><small>A world of facts. One perfect fit.</small></span></>;
+  const contents = <><Mark /><span className="brandWords"><strong>GeoStats</strong></span></>;
   return linked
     ? <a href="/daily" className="brand brandLink" aria-label="GeoStats home">{contents}</a>
     : <div className="brand">{contents}</div>;

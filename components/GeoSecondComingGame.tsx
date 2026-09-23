@@ -531,7 +531,7 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
   async function shareScore(useDeviceShare = false) {
     if (!scores) return;
     const medalCounts = [1, 2, 3].map((rank) => scores.filter((row) => row.rank === rank).length);
-    const gameLabel = isRandom ? `${ROUND_CONFIGS[difficulty].label} Random · ${seed}` : `${ROUND_CONFIGS[difficulty].label} Daily`;
+    const gameLabel = isRandom ? `${ROUND_CONFIGS[difficulty].label} Random · ${seed}` : `${ROUND_CONFIGS[difficulty].label} Daily · ${dailyDateFromSeed(seed)}`;
     const text = `🌐 GeoStats · ${gameLabel}
 ${total} / ${roundMaxScore}
 

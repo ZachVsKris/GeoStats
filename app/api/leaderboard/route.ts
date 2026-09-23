@@ -81,6 +81,10 @@ function scoreMaximum(row: Pick<ScoreRow, "difficulty" | "rules_version">) {
 }
 
 export async function GET(request: Request) {
+  // Keep score collection and the ranking implementation while public standings are paused.
+  if (process.env.PUBLIC_LEADERBOARD_ENABLED !== "true") {
+    return NextResponse.json({ error: "Not found." }, { status: 404 });
+  }
   const auth = await createSupabaseServerClient();
   const userResult = auth ? await auth.auth.getUser() : null;
   const currentUserId = userResult?.data.user?.id ?? null;

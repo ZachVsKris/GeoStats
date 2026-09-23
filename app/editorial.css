@@ -594,6 +594,7 @@ body { isolation: isolate; }
 .adminShell, .adminLoading { color: var(--ink); }
 .adminLoading p { color: var(--muted); }
 .adminShell a:not([class]), .adminGate a { color: var(--ocean); }
+.shell .leaderboardJoinPrompt { padding: 18px 20px; }
 
 /* First play: clear guidance without adding height to the mobile board. */
 .shell .gamePrimer { display: flex; align-items: center; gap: 16px; margin: 4px 0 11px; color: var(--ink); font-size: 13px; line-height: 1.4; }
@@ -623,6 +624,7 @@ body { isolation: isolate; }
 .shell .copyFallback > div { width: min(540px,100%); background: var(--content-surface); }
 .shell .copyFallback textarea { box-sizing: border-box; width: 100%; min-height: 170px; padding: 12px; border: 1px solid var(--line); border-radius: 3px; background: var(--surface); color: var(--ink); font: 15px/1.5 var(--sans); resize: vertical; }
 @media (max-width: 700px) {
+  .shell .leaderboardJoinPrompt { padding: 16px 14px; }
   .shell .gamePrimer { display: none; }
   .shell .mobileHowToPlay { display: inline-block; margin-left: auto; font-size: 11px; }
   .shell .welcomeModes { grid-template-columns: 1fr; gap: 5px; }

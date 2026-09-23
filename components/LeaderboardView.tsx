@@ -106,7 +106,7 @@ export default function LeaderboardView() {
         {alltime.map((leader) => <div role="row" key={`${leader.rank}-${leader.username}`} className={leader.isCurrentPlayer ? "currentPlayerRow" : undefined} aria-label={leader.isCurrentPlayer ? `${leader.username}, your standing` : undefined}><b role="cell">{leader.rank}</b><span role="cell">{leader.username}{leader.isCurrentPlayer && <small className="currentPlayerBadge">You</small>}</span><span role="cell">{leader.averageScore.toFixed(1)} / {config.maxScore}</span><strong role="cell">{leader.rating.toFixed(1)}</strong><span role="cell">{leader.completedGames}</span></div>)}
       </div> : <div className="leaderboardEmpty">No one has qualified for the {config.label} leaderboard yet. Five completed Dailies are required.</div>}
     </div>
-    {!loading && !error && (!signedIn ? <div className="leaderboardJoinPrompt"><p>Join the standings and keep your Daily history.</p><AccountControls context="leaderboard" ctaLabel="Sign in / create account" hideLeaderboardLink /></div> : !currentPlayerIsRanked ? <div className="leaderboardQualificationNote">Complete five {config.label} Dailies to qualify.</div> : null)}
+    {!loading && !error && (!signedIn ? <div className="leaderboardJoinPrompt"><p>Join the standings and keep your Daily history.</p><AccountControls context="leaderboard" ctaLabel="Sign in / create account" /></div> : !currentPlayerIsRanked ? <div className="leaderboardQualificationNote">Complete five {config.label} Dailies to qualify.</div> : null)}
     <div className="leaderboardPageActions"><a href={config.path}>Play today’s {config.label} Daily</a></div>
   </section>;
 }

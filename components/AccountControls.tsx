@@ -386,7 +386,7 @@ export default function AccountControls({
 
   return <>
     <div className={results ? "resultsAccountActions" : "accountHeaderActions"}>
-      {!hideLeaderboardLink && <a className={results ? "secondaryAction" : "headerButtonLink"} href="/account">My results</a>}
+      {!hideLeaderboardLink && <a className={results ? "secondaryAction" : "headerButtonLink"} href="/account">My Stats</a>}
       {userLabel ? <button type="button" onClick={openAccount} aria-label={`Account: signed in as ${userLabel}`} className={results ? "resultsAccountLink" : compact ? "compactAccountButton" : undefined}>{results ? "Account" : compact ? `✓ ${userLabel}` : userLabel}</button> : <button type="button" onClick={openAccount}>{guestButtonLabel}</button>}
     </div>
     {open && <div className="modal accountModal" onClick={(event) => event.currentTarget === event.target && usernameCustomized && setOpen(false)}>

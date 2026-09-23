@@ -73,7 +73,11 @@ export default function PersonalResults() {
           <div><strong>{best ?? "—"}{best != null && <small> / {config.maxScore}</small>}</strong><span>Best result</span></div>
           <div><strong>{ratings[mode] == null ? "—" : ratings[mode].toFixed(1)}{ratings[mode] != null && <small> / 100</small>}</strong><span className="ratingLabel">Player rating <button type="button" className="ratingInfoButton" aria-label="How is player rating calculated?" aria-expanded={showRatingInfo} aria-controls="rating-explanation" onClick={() => setShowRatingInfo((open) => !open)}>i</button></span></div>
         </div>
-        {showRatingInfo && <p id="rating-explanation" className="ratingExplanation">Rating = (average score ÷ {config.maxScore} × 100 × games played + 50 × 10) ÷ (games played + 10). It starts at 50; as you play more {config.label} Dailies, your average score counts more. Rounded to one decimal.</p>}
+        {showRatingInfo && <div id="rating-explanation" className="ratingExplanation">
+          <p>Your rating reflects both <strong>how well you score</strong> and <strong>how consistently you’ve played</strong>.</p>
+          <p>Your average score matters most. Games played adds confidence to that average, so one unusually good or bad game won’t determine your rating.</p>
+          <p>As you play more games, your rating gets closer to your true average performance.</p>
+        </div>}
         <h2>{config.label} history</h2>
         {history.length ? <div className="personalHistory">{history.map((r) => <div key={`${r.challenge_date}-${r.difficulty}`} className="personalHistoryRow"><time dateTime={r.challenge_date}>{r.challenge_date}</time><strong>{r.score} / {config.maxScore}</strong></div>)}</div> : <p>No saved {config.label} results yet. Play a Daily while signed in to start your history.</p>}
       </div>

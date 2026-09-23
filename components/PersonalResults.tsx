@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useState, type KeyboardEvent } from "react";
-import { DAILY_DIFFICULTIES, ROUND_CONFIGS, LEGACY_V16_2_3_ROUND_CONFIGS, type DailyDifficulty } from "../lib/gameRules";
-import { usesCurrentScoreScale } from "../lib/leaderboardRating";
+import { DAILY_DIFFICULTIES, ROUND_CONFIGS, type DailyDifficulty } from "../lib/gameRules";
 import { createSupabaseBrowserClient } from "../lib/supabase/browser";
 
 type Result = { challenge_date: string; difficulty: DailyDifficulty; score: number; rules_version: string | null };
@@ -38,11 +37,8 @@ export default function PersonalResults() {
 
   const config = ROUND_CONFIGS[mode];
   const history = results.filter((r) => r.difficulty === mode && Number.isFinite(r.score));
-  const maximum = (r: Result) => (usesCurrentScoreScale(r.rules_version) ? ROUND_CONFIGS : LEGACY_V16_2_3_ROUND_CONFIGS)[r.difficulty].maxScore;
-  const currentScaleScore = (r: Result) => r.score / maximum(r) * config.maxScore;
-  const average = history.length ? (history.reduce((sum, r) => sum + currentScaleScore(r), 0) / history.length).toFixed(1) : "—";
-  const best = history.length ? Math.round(Math.max(...history.map(currentScaleScore))).toString() : "—";
-  const hasOlderScores = history.some((r) => !usesCurrentScoreScale(r.rules_version));
+  const average = history.length ? (history.reduce((sum, r) => sum + r.score, 0) / history.length).toFixed(1) : "—";
+  const best = history.length ? Math.max(...history.map((r) => r.score)) : null;
 
   function selectMode(next: DailyDifficulty) { setMode(next); setShowRatingInfo(false); }
   function moveTab(event: KeyboardEvent<HTMLButtonElement>, current: DailyDifficulty) {
@@ -54,7 +50,15 @@ export default function PersonalResults() {
     document.getElementById(`stats-tab-${DAILY_DIFFICULTIES[next]}`)?.focus();
   }
 
-  return <section className="panel personalResults"><h1>My Stats</h1>
+  function goBack() {
+    if (window.history.length > 1) {
+      window.history.back();
+    } else {
+      window.location.assign("/daily");
+    }
+  }
+
+  return <section className="panel personalResults"><button type="button" className="personalBackButton" onClick={goBack}>← Back</button><h1>My Stats</h1>
     {status === "loading" && <p>Loading your results…</p>}
     {status === "guest" && <p>Sign in or create an account to save Daily results and see your history here. Use the account button above to get started.</p>}
     {status === "error" && <p role="alert">Your results could not be loaded. Please refresh the page.</p>}
@@ -66,14 +70,12 @@ export default function PersonalResults() {
         <div className="personalStats">
           <div><strong>{history.length}</strong><span>Dailies completed</span></div>
           <div><strong>{average}{history.length > 0 && <small> / {config.maxScore}</small>}</strong><span>Average score</span></div>
-          <div><strong>{best}{history.length > 0 && <small> / {config.maxScore}</small>}</strong><span>Best result</span></div>
+          <div><strong>{best ?? "—"}{best != null && <small> / {config.maxScore}</small>}</strong><span>Best result</span></div>
           <div><strong>{ratings[mode] == null ? "—" : ratings[mode].toFixed(1)}{ratings[mode] != null && <small> / 100</small>}</strong><span className="ratingLabel">Player rating <button type="button" className="ratingInfoButton" aria-label="How is player rating calculated?" aria-expanded={showRatingInfo} aria-controls="rating-explanation" onClick={() => setShowRatingInfo((open) => !open)}>i</button></span></div>
         </div>
-        {showRatingInfo && <p id="rating-explanation" className="ratingExplanation">Your rating uses the same method as the earlier leaderboard. It combines your score as a share of the possible points with how you performed against players on the same Daily. Peer comparison starts when five players complete that board and reaches full weight at 20. The result is adjusted toward the overall average until you have more completed games; the adjustment has the weight of 10 games. Ratings are out of 100 and may change as more players finish a board. With fewer than five Dailies in this mode, treat your rating as provisional.</p>}
+        {showRatingInfo && <p id="rating-explanation" className="ratingExplanation">Rating = (average score ÷ {config.maxScore} × 100 × games played + 50 × 10) ÷ (games played + 10). It starts at 50; as you play more {config.label} Dailies, your average score counts more. Rounded to one decimal.</p>}
         <h2>{config.label} history</h2>
-        {history.length ? <><div className="personalHistory">{history.map((r) => <div key={`${r.challenge_date}-${r.difficulty}`} className="personalHistoryRow"><time dateTime={r.challenge_date}>{r.challenge_date}</time><strong>{r.score} / {maximum(r)}</strong></div>)}</div>
-          {hasOlderScores && <p className="personalHistoryNote">Older results retain their original scores above. Average and best scores are converted to today’s {config.maxScore}-point scale for comparison.</p>}
-        </> : <p>No saved {config.label} results yet. Play a Daily while signed in to start your history.</p>}
+        {history.length ? <div className="personalHistory">{history.map((r) => <div key={`${r.challenge_date}-${r.difficulty}`} className="personalHistoryRow"><time dateTime={r.challenge_date}>{r.challenge_date}</time><strong>{r.score} / {config.maxScore}</strong></div>)}</div> : <p>No saved {config.label} results yet. Play a Daily while signed in to start your history.</p>}
       </div>
     </>}
   </section>;

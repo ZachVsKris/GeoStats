@@ -812,7 +812,7 @@ ${total} / ${roundMaxScore}
           <button onClick={copyRandomLink}>{copied ? "Link copied ✓" : "Copy link"}</button>
         </div>}
         <span className="mobileProgress">{Object.keys(assignments).length}/{categoryTarget} assigned</span>
-        {scores && <button className="resultsRulesLink" onClick={openRules}>How scoring works</button>}
+        {scores && <button className="resultsRulesLink" onClick={openRules}>How to play</button>}
       </div>
     </section>
     {!scores && <><nav className="mobileModeTabs" aria-label="Game difficulty">

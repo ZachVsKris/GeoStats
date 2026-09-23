@@ -288,6 +288,10 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
   const isUnranked = isRandom || fallbackPractice;
 
   useEffect(() => {
+    setSubmitMessage("");
+  }, [difficulty, seed]);
+
+  useEffect(() => {
     if (!supabase) {
       setAccountStatus("guest");
       return;

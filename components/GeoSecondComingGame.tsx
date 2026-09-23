@@ -590,7 +590,6 @@ Can you beat my score?`;
         ctx.fillStyle = color; ctx.fillText(text, x, y);
       };
       write("GeoStats", 152, 97, 49, "#163449", true);
-      write("A world of facts. One perfect fit.", 56, 163, 24, "#405d70");
       ctx.strokeStyle = "#b6cdd8"; ctx.lineWidth = 2;
       ctx.beginPath(); ctx.moveTo(56, 195); ctx.lineTo(944, 195); ctx.stroke();
       write(`${ROUND_CONFIGS[difficulty].label} ${isRandom ? "Random" : "Daily"}`, 56, 251, 28, "#326d50", true);

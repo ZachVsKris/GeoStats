@@ -767,7 +767,7 @@ ${total} / ${roundMaxScore}
 
   const total = scores?.reduce((sum, row) => sum + row.points, 0) ?? 0;
 
-  const gameTools = <><button type="button" aria-pressed={sound.enabled} onClick={sound.toggle}>Sound: {sound.enabled ? "on" : "off"}</button><GameTools categories={round?.categories.map(item=>({id:item.category.id,name:item.category.name}))??[]} difficulty={difficulty} challengeDate={isRandom?undefined:dailyDateFromSeed(seed)}/></>;
+  const gameTools = <><button type="button" aria-pressed={sound.enabled} title="Sounds play when you assign or remove a country and submit answers" onClick={sound.toggle}>Game sounds: {sound.enabled ? "on" : "off"}</button><GameTools categories={round?.categories.map(item=>({id:item.category.id,name:item.category.name}))??[]} difficulty={difficulty} challengeDate={isRandom?undefined:dailyDateFromSeed(seed)}/></>;
 
   return <div className={`shell ${!scores ? "activePlay" : ""} ${status ? "loadingPlay" : ""} ${error ? "errorPlay" : ""} ${scores ? "resultsView" : ""} ${difficulty}Round ${difficulty === "expert" ? "expertRound" : ""} ${difficulty === "easy" ? "compactRound" : ""} ${legacyDimensions ? "legacyRound" : ""}`}>
     {!scores && <header>

@@ -363,11 +363,11 @@ body { isolation: isolate; }
   .shell .desktopHeaderButtons { margin-left: auto; flex: 0 1 auto; }
   .shell .desktopGameNav { display: flex; align-items: center; gap: 4px; }
   .shell .desktopGameNav .dailyModeButton { padding: 12px 14px; min-height: 44px; }
-  .shell .desktopGameNav .headerLink { margin-left: 20px; padding: 12px 14px 12px 26px; border-left: 1px solid var(--line); min-height: 44px; }
+  .shell .desktopGameNav .headerLink { display: inline-flex; align-items: center; box-sizing: border-box; height: 44px; margin-left: 12px; padding: 0 14px 0 20px; border-left: 1px solid var(--line); line-height: 1.2; white-space: nowrap; }
   .shell .desktopSupportMenu { margin-left: 0; }
-  .shell .desktopSupportMenu summary { padding: 12px 10px; min-height: 44px; }
-  .shell .gameAccount { margin-left: 8px; }
-  .shell .gameAccount .accountHeaderActions button { padding: 12px 14px; min-height: 44px; }
+  .shell .desktopSupportMenu summary { box-sizing: border-box; height: 44px; padding: 0 10px; line-height: 1.2; }
+  .shell .gameAccount { margin-left: 0; }
+  .shell .gameAccount .accountHeaderActions button { box-sizing: border-box; height: 44px; padding: 0 14px; line-height: 1.2; }
   .shell .leaderboardGameNav .headerButtonLink.active { margin-left: 20px; }
 }
 .shell.activePlay .choice:not(.filled)::before {

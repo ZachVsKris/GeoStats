@@ -28,7 +28,7 @@ export default async function DataPage(){
   return <main className="shell standalonePage infoPage">
     <header>
       <Brand linked />
-      <div className="headerButtons infoHeaderNav"><a className="headerButtonLink" href="/daily">Play Daily</a><a className="headerButtonLink" href="/account">My results</a><a className="headerButtonLink" href="/audit">Trust audit</a></div>
+      <div className="headerButtons infoHeaderNav"><a className="headerButtonLink" href="/daily">Play Daily</a><a className="headerButtonLink" href="/account">My Stats</a><a className="headerButtonLink" href="/audit">Trust audit</a></div>
     </header>
 
     <section className="panel infoPagePanel">

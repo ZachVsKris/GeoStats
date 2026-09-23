@@ -34,7 +34,7 @@ export default function PersonalResults() {
   const percentage = count ? Math.round(valid.reduce((sum, r) => sum + r.score / maximum(r), 0) / count * 100) : 0;
   const recent = valid.slice(0, 10);
   const rating = recent.length ? Math.round(recent.reduce((sum, r) => sum + r.score / maximum(r), 0) / recent.length * 100) : 0;
-  return <section className="panel personalResults"><h1>My results</h1>
+  return <section className="panel personalResults"><h1>My Stats</h1>
     {status === "loading" && <p>Loading your results…</p>}
     {status === "guest" && <p>Sign in or create an account to save Daily results and see your history here. Use the account button above to get started.</p>}
     {status === "error" && <p role="alert">Your results could not be loaded. Please refresh the page.</p>}

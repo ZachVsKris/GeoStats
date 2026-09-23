@@ -36,7 +36,7 @@ export function categoryMeasurementBadgeLabel(category: Category): string {
     case "historical_date": return "DATE";
     case "rate": return "RATE";
     case "value": return "VALUE";
-    case "total": return "TOTAL";
+    case "total": return "TOTAL AMOUNT";
     default: return "VALUE";
   }
 }

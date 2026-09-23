@@ -179,7 +179,7 @@ export default function AccountControls({
       // The chosen public username takes precedence over a Google display name.
       setUserLabel(nextUsername || fallbackEmail?.split("@")[0] || "Account");
       if (profile.usernameCustomized === false) {
-        setMessage("Choose the GeoStats username that will appear on leaderboards.");
+        setMessage("Choose your GeoStats username.");
         setOpen(true);
       }
       return profile.usernameCustomized !== false;
@@ -284,7 +284,7 @@ export default function AccountControls({
       window.dispatchEvent(new CustomEvent("geostats-profile-updated", { detail: { userId, username: data.username } }));
       profileChannel.current?.postMessage({ userId, username: data.username });
       trackAnalytics("account_username_saved", { metadata: { updated: usernameCustomized } });
-      setMessage("Username saved. This is how you will appear on GeoStats leaderboards.");
+      setMessage("Username saved.");
       // Score verification can be slow; it must not keep username saving busy.
       void savePendingScore();
     } catch {
@@ -380,13 +380,13 @@ export default function AccountControls({
   }
 
   const guestHeading = context === "leaderboard"
-      ? "Join the GeoStats leaderboard"
+      ? "Save your GeoStats results"
       : "Sign in or create an account";
   const guestButtonLabel = ctaLabel ?? (results && pendingScore ? "Sign in for history" : "Sign in");
 
   return <>
     <div className={results ? "resultsAccountActions" : "accountHeaderActions"}>
-      {!hideLeaderboardLink && <a className={results ? "secondaryAction" : "headerButtonLink"} href={`/leaderboard?difficulty=${difficulty}`}>{results ? "View leaderboard" : "Leaderboard"}</a>}
+      {!hideLeaderboardLink && <a className={results ? "secondaryAction" : "headerButtonLink"} href="/account">My results</a>}
       {userLabel ? <button type="button" onClick={openAccount} aria-label={`Account: signed in as ${userLabel}`} className={results ? "resultsAccountLink" : compact ? "compactAccountButton" : undefined}>{results ? "Account" : compact ? `✓ ${userLabel}` : userLabel}</button> : <button type="button" onClick={openAccount}>{guestButtonLabel}</button>}
     </div>
     {open && <div className="modal accountModal" onClick={(event) => event.currentTarget === event.target && usernameCustomized && setOpen(false)}>
@@ -397,16 +397,16 @@ export default function AccountControls({
         {userLabel ? <>
           <p className="signedInIdentity">Signed in as <strong>{signedInEmail || userLabel}</strong></p>
           {profileError && <p role="status">Your account is signed in, but your username could not be loaded. <button type="button" className="quietButton" onClick={() => void loadProfile(signedInEmail)}>Retry account details</button></p>}
-          {!usernameCustomized && <p className="usernameRequired">Before joining the leaderboard, choose a public GeoStats username.</p>}
+          {!usernameCustomized && <p className="usernameRequired">Choose a GeoStats username for your account.</p>}
           <label className="emailField"><span>GeoStats username</span><input type="text" inputMode="text" autoComplete="username" maxLength={20} placeholder="3–20 letters, numbers, or underscores" value={usernameDraft} onChange={(event) => setUsernameDraft(event.target.value.replace(/[^A-Za-z0-9_]/g, ""))} onKeyDown={(event) => event.key === "Enter" && saveUsername()} /></label>
           <div className="accountModalActions"><button type="button" onClick={saveUsername} disabled={savingUsername || usernameDraft.length < 3 || usernameDraft === username}>{savingUsername ? "Saving…" : usernameCustomized ? "Update username" : "Save username"}</button><button type="button" className="quietButton" onClick={signOut}>Sign out</button></div>
-          <p id={`account-dialog-description-${context}`}>Your account keeps your complete Daily history and lets you join the public leaderboards. Verified scores are saved automatically; your email stays private.</p>
+          <p id={`account-dialog-description-${context}`}>Your account saves your Daily history and personal stats across devices. Your email stays private.</p>
           {saving && <p>Saving your completed Daily…</p>}
         </> : <>
-          <p id={`account-dialog-description-${context}`}>Sign in to keep your complete GeoStats history and join the standings. Every Daily mode is free to play without an account.</p>
+          <p id={`account-dialog-description-${context}`}>Sign in to keep your Daily results and personal stats across devices. Every Daily mode is free to play without an account.</p>
           <ul className="accountBenefits">
             <li>Keep your complete Daily history across devices</li>
-            <li>Join Scout, Adventurer, and Expert leaderboards</li>
+            <li>See your result history and average scores</li>
             <li>Automatically save your first completed score per mode each day</li>
           </ul>
           <button type="button" className="googleSignInButton" onClick={signInWithGoogle} disabled={signingInWithGoogle || sendingLink || googleAvailable === "disabled"}>{signingInWithGoogle ? "Opening Google…" : googleAvailable === "disabled" ? "Google sign-in unavailable" : <><span aria-hidden="true" className="googleMark">G</span>Continue with Google</>}</button>
@@ -415,7 +415,7 @@ export default function AccountControls({
           <div className="accountAuthDivider"><span>or use email</span></div>
           <label className="emailField"><span>Email address</span><input type="email" inputMode="email" autoComplete="email" placeholder="you@example.com" value={email} onChange={(event) => setEmail(event.target.value)} onKeyDown={(event) => event.key === "Enter" && resendSeconds === 0 && !sendingLink && sendMagicLink()} /></label>
           <button type="button" onClick={sendMagicLink} disabled={!email.trim() || sendingLink || resendSeconds > 0}>{sendingLink ? "Sending…" : resendSeconds > 0 ? `Resend in ${resendSeconds}s` : "Email me a sign-in link"}</button>
-          <small>No password needed. If you’re new, confirming your email activates your free account. Your public username appears on leaderboards. Your email never does.</small>
+          <small>No password needed. If you’re new, confirming your email activates your free account. Your email stays private.</small>
           <small>Can’t find the email? Check your spam or junk folder for a message from accounts@geostats.xyz.</small>
         </>}
         {message && <p className="accountMessage" role="status" aria-live="polite">{message}</p>}

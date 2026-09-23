@@ -25,7 +25,7 @@ export default async function AuditPage(){
   return <main className="shell standalonePage infoPage">
     <header>
       <Brand linked />
-      <div className="headerButtons infoHeaderNav"><a className="headerButtonLink" href="/daily">Play Daily</a><a className="headerButtonLink" href="/leaderboard">Leaderboard</a><a className="headerButtonLink" href="/data">Data &amp; sources</a></div>
+      <div className="headerButtons infoHeaderNav"><a className="headerButtonLink" href="/daily">Play Daily</a><a className="headerButtonLink" href="/account">My results</a><a className="headerButtonLink" href="/data">Data &amp; sources</a></div>
     </header>
 
     <section className="panel infoPagePanel">

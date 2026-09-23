@@ -510,6 +510,39 @@ body { isolation: isolate; }
 
 .shell .scoreActions > .resultsAccountActions > button.resultsAccountLink { border-color: transparent; background: transparent; box-shadow: none; color: var(--muted); font-weight: 400; text-decoration: underline; text-underline-offset: 3px; }
 
+/* Private account history uses the same quiet surfaces as the game results. */
+.shell .accountHistoryLink { display: inline-flex; align-items: center; min-height: 44px; color: var(--ocean); font-weight: 700; text-underline-offset: 3px; }
+.shell.historyPage .historyEmpty { padding: 32px 28px; }
+.shell.historyPage .historyEmpty h2 { margin: 0 0 8px; font-size: 22px; }
+.shell.historyPage .historyEmpty p { max-width: 55ch; line-height: 1.5; }
+.shell.historyPage .historyStats { display: grid; grid-template-columns: repeat(auto-fit, minmax(185px, 1fr)); gap: 12px; padding: 22px 28px; }
+.shell.historyPage .historyStatTotal, .shell.historyPage .historyStatMode { padding: 17px 18px; border: 1px solid var(--line); border-radius: 6px; background: var(--feature-surface); }
+.shell.historyPage .historyStatTotal { display: grid; align-content: center; gap: 4px; }
+.shell.historyPage .historyStatTotal strong { color: var(--ink); font-size: 32px; line-height: 1; }
+.shell.historyPage .historyStatTotal span { color: var(--muted); font-size: 13px; }
+.shell.historyPage .historyStatMode h2 { margin: 0 0 12px; font-size: 17px; }
+.shell.historyPage .historyStatMode dl { display: flex; justify-content: space-between; gap: 10px; margin: 0; }
+.shell.historyPage .historyStatMode dl > div { display: grid; gap: 4px; }
+.shell.historyPage .historyStatMode dt { color: var(--muted); font-size: 12px; }
+.shell.historyPage .historyStatMode dd { margin: 0; color: var(--ink); font-size: 18px; font-weight: 700; }
+.shell.historyPage .historyStatsNote { margin: 0 28px 18px; color: var(--muted); font-size: 12px; }
+.shell.historyPage .historyListHeading { margin: 4px 28px 12px; font-size: 20px; }
+.shell.historyPage .historyRow { display: grid; grid-template-columns: minmax(130px, 1fr) minmax(130px, 1fr) auto; align-items: center; gap: 14px; padding: 14px 28px; border-top: 1px solid var(--line); }
+.shell.historyPage .historyRow time { color: var(--muted); }
+.shell.historyPage .historyRow span { font-weight: 700; font-variant-numeric: tabular-nums; }
+.shell.historyPage .historyRow small { color: var(--muted); font-weight: 400; }
+.shell.historyPage .historyPagination { display: flex; justify-content: space-between; gap: 20px; padding: 18px 28px; border-top: 1px solid var(--line); }
+.shell.historyPage .historyPagination a { color: var(--ocean); font-weight: 700; }
+@media (max-width: 620px) {
+  .shell.historyPage .historyStats { padding: 16px; }
+  .shell.historyPage .historyEmpty { padding: 24px 16px; }
+  .shell.historyPage .historyListHeading { margin: 8px 16px 12px; }
+  .shell.historyPage .historyRow { grid-template-columns: 1fr auto; gap: 5px 12px; padding: 14px 16px; }
+  .shell.historyPage .historyRow time { grid-column: 1 / -1; font-size: 13px; }
+  .shell.historyPage .historyRow span { text-align: right; }
+  .shell.historyPage .historyPagination { padding: 18px 16px; }
+}
+
 /* Keep the globe centered when the mobile masthead reduces its frame. */
 .shell .logo { flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
 .shell .logo > svg { display: block; flex: none; width: 65%; height: 65%; }
@@ -636,7 +669,6 @@ body { isolation: isolate; }
   .shell .scoreBreakdown span { font-size: 11px; }
   .shell .mobileBestMatch { display: block; grid-column: 1 / -1; margin: 0 0 0 34px; color: var(--muted); font-size: 11px; }
 }
-
 
 /* Mobile results: keep the score and each choice in view; open rankings for the full data. */
 @media (max-width: 620px) {

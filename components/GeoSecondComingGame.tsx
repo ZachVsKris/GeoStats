@@ -250,6 +250,9 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
   const [status, setStatus] = useState(serverInitialRound ? "" : "Loading official country data…");
   const [error, setError] = useState("");
   const [showRules, setShowRules] = useState(false);
+  const [showWelcome, setShowWelcome] = useState(false);
+  const supportMenu = useRef<HTMLDetailsElement>(null);
+  const mobileMenu = useRef<HTMLDetailsElement>(null);
   const [seed, setSeed] = useState(serverInitialRound ? `DAILY-${initialDifficulty.toUpperCase()}-${initialChallengeDate}` : "");
   const [seedInput, setSeedInput] = useState("");
   const [difficulty, setDifficulty] = useState<DailyDifficulty>(initialDifficulty);
@@ -276,10 +279,33 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
   const scoringConfig = round ? configForDifficultyDimensions(difficulty, round.categories.length, round.bank.length, true) ?? activeConfig : activeConfig;
   const legacyDimensions = Boolean(round && (round.categories.length !== activeConfig.categoryCount || round.bank.length !== activeConfig.countryCount));
   const roundMaxScore = scoringConfig.maxScore;
-  const topFinishRank = scoringConfig.topFinishRank;
   const unusedCount = Math.max(0, poolSize - categoryTarget);
   const isRandom = mode === "random";
   const isUnranked = isRandom || fallbackPractice;
+
+  useEffect(() => {
+    if (!round || scores) return;
+    try {
+      if (window.localStorage.getItem("geostats:first-play-intro:v1")) return;
+      const timer = window.setTimeout(() => setShowWelcome(true), 750);
+      return () => window.clearTimeout(timer);
+    } catch {
+      // Private browsing can disable storage; the visible How to play link still works.
+    }
+  }, [round, scores]);
+
+  function dismissWelcome(openRules = false) {
+    setShowWelcome(false);
+    try { window.localStorage.setItem("geostats:first-play-intro:v1", "seen"); } catch { /* Optional preference. */ }
+    if (openRules) setShowRules(true);
+  }
+
+  function openRules() {
+    supportMenu.current?.removeAttribute("open");
+    mobileMenu.current?.removeAttribute("open");
+    setShowWelcome(false);
+    setShowRules(true);
+  }
 
   function trackFirstPlacement() {
     if (!round || isUnranked) return;
@@ -535,9 +561,7 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
     const text = `🌐 GeoStats · ${gameLabel}
 ${total} / ${roundMaxScore}
 
-🥇 ${medalCounts[0]} · 🥈 ${medalCounts[1]} · 🥉 ${medalCounts[2]}
-
-Can you beat my score?`;
+1st: ${medalCounts[0]} · 2nd: ${medalCounts[1]} · 3rd: ${medalCounts[2]}`;
     const url = challengeUrl(difficulty, seed);
 
     const scoreText = `${text}\n\n${url}`;
@@ -610,7 +634,7 @@ Can you beat my score?`;
         write(String(count), x + 41, 465, 33, "#163449", true);
       });
       ctx.beginPath(); ctx.moveTo(56, 506); ctx.lineTo(944, 506); ctx.stroke();
-      write("Can you beat my score?", 56, 567, 30, "#163449", true);
+      write("geostats.xyz", 56, 567, 30, "#163449", true);
       ctx.textAlign = "right"; write("geostats.xyz", 944, 567, 26, "#175e82", true);
       const blob = await new Promise<Blob>((resolve, reject) => canvas.toBlob(value => value ? resolve(value) : reject(new Error("Image unavailable")), "image/png"));
       setScoreImage({ url: canvas.toDataURL("image/png"), file: new File([blob], "geostats-score.png", { type: "image/png" }) });
@@ -742,13 +766,8 @@ Can you beat my score?`;
   }
 
   const total = scores?.reduce((sum, row) => sum + row.points, 0) ?? 0;
-  const averagePlacement = scores?.length
-    ? (scores.reduce((sum, row) => sum + row.rank, 0) / scores.length).toFixed(1)
-    : "0.0";
-  const bestPossibleCount = scores?.filter((row) => row.rank === 1).length ?? 0;
-  const topFinishCount = scores?.filter((row) => row.rank <= topFinishRank).length ?? 0;
 
-  const gameTools = <><button type="button" aria-pressed={sound.enabled} onClick={sound.toggle}>Sound: {sound.enabled ? "on" : "off"}</button><GameTools categories={round?.categories.map(item=>({id:item.category.id,name:item.category.name}))??[]} difficulty={difficulty} challengeDate={isRandom?undefined:dailyDateFromSeed(seed)} path={challengePath(difficulty,seed)} privateBoard={isRandom}/></>;
+  const gameTools = <><button type="button" aria-pressed={sound.enabled} title="Sounds play when you assign or remove a country and submit answers" onClick={sound.toggle}>Game sounds: {sound.enabled ? "on" : "off"}</button><GameTools categories={round?.categories.map(item=>({id:item.category.id,name:item.category.name}))??[]} difficulty={difficulty} challengeDate={isRandom?undefined:dailyDateFromSeed(seed)}/></>;
 
   return <div className={`shell ${!scores ? "activePlay" : ""} ${status ? "loadingPlay" : ""} ${error ? "errorPlay" : ""} ${scores ? "resultsView" : ""} ${difficulty}Round ${difficulty === "expert" ? "expertRound" : ""} ${difficulty === "easy" ? "compactRound" : ""} ${legacyDimensions ? "legacyRound" : ""}`}>
     {!scores && <header>
@@ -759,24 +778,25 @@ Can you beat my score?`;
           {isRandom && <a href="/random" className="dailyModeButton active">Random QA</a>}
           <a href={challengePath("easy", seed)} onClick={(event) => switchCachedDaily(event, "easy")} className={`dailyModeButton ${difficulty === "easy" ? "active" : ""}`}>Scout</a>
           <a href={challengePath("normal", seed)} onClick={(event) => switchCachedDaily(event, "normal")} className={`dailyModeButton ${difficulty === "normal" ? "active" : ""}`}>Adventurer</a>
-          <a href={challengePath("expert", seed)} className={`dailyModeButton ${difficulty === "expert" ? "active" : ""}`}>Expert</a>
+          <a href={challengePath("expert", seed)} onClick={(event) => switchCachedDaily(event, "expert")} className={`dailyModeButton ${difficulty === "expert" ? "active" : ""}`}>Expert</a>
           {!isRandom && <a href={`/leaderboard?difficulty=${difficulty}`} className="headerLink">Leaderboard</a>}
         </nav>
       </div>
-      <details className="desktopSupportMenu">
+      <details className="desktopSupportMenu" ref={supportMenu}>
         <summary>Help &amp; tools</summary>
         <div>
-          <button onClick={() => setShowRules(true)}>How it works</button>
+          <button onClick={openRules}>How to play</button>
           {gameTools}
           <a href="/audit">Data audit</a>
         </div>
       </details>
+      <button type="button" className="mobileHowToPlay" onClick={openRules}>Rules</button>
       {!isRandom && <div className="gameAccount"><AccountControls difficulty={difficulty} hideLeaderboardLink compact /></div>}
-      <details className="mobileMenu"><summary aria-label="Open game menu">Menu</summary><div>
+      <details className="mobileMenu" ref={mobileMenu}><summary aria-label="Open game menu">Menu</summary><div>
         {gameTools}
         <p className="mobileDailyDate">{dailyDateFromSeed(seed)}</p>
-        {boardNotice && <details><summary>About today’s data</summary><p>{boardNotice}</p></details>}
-        <a href="/audit">Data audit</a><button onClick={() => setShowRules(true)}>How it works</button>
+        {boardNotice && fallbackPractice && <details><summary>Board data note</summary><p>{boardNotice}</p></details>}
+        <a href="/audit">Data audit</a><button onClick={openRules}>How to play</button>
         {isRandom && <a href="/daily">Daily modes</a>}
         {!isRandom && <a href={`/leaderboard?difficulty=${difficulty}`}>Leaderboard</a>}
       </div></details>
@@ -792,15 +812,16 @@ Can you beat my score?`;
           <button onClick={copyRandomLink}>{copied ? "Link copied ✓" : "Copy link"}</button>
         </div>}
         <span className="mobileProgress">{Object.keys(assignments).length}/{categoryTarget} assigned</span>
-        {scores && <button className="resultsRulesLink" onClick={() => setShowRules(true)}>Rules</button>}
+        {scores && <button className="resultsRulesLink" onClick={openRules}>How scoring works</button>}
       </div>
     </section>
     {!scores && <><nav className="mobileModeTabs" aria-label="Game difficulty">
       <a href={challengePath("easy", seed)} onClick={(event) => switchCachedDaily(event, "easy")} className={difficulty === "easy" ? "active" : ""}>Scout</a>
       <a href={challengePath("normal", seed)} onClick={(event) => switchCachedDaily(event, "normal")} className={difficulty === "normal" ? "active" : ""}>Adventurer</a>
-      <a href={challengePath("expert", seed)} className={difficulty === "expert" ? "active" : ""}>Expert</a>
-    </nav><div className="mobileGameSummary"><strong>{ROUND_CONFIGS[difficulty].label}</strong><span>{poolSize} countries · {categoryTarget} measures · {unusedCount ? `leave ${unusedCount}` : "use all"}</span></div></>}
-    {boardNotice && <details className="boardNotice"><summary>About today’s data</summary><p>{boardNotice}</p></details>}
+      <a href={challengePath("expert", seed)} onClick={(event) => switchCachedDaily(event, "expert")} className={difficulty === "expert" ? "active" : ""}>Expert</a>
+    </nav><div className="mobileGameSummary"><strong>{ROUND_CONFIGS[difficulty].label}</strong><span>{poolSize} countries · {categoryTarget} matches · {unusedCount ? `leave ${unusedCount}` : "use all"}</span></div></>}
+    {boardNotice && fallbackPractice && <details className="boardNotice"><summary>Board data note</summary><p>{boardNotice}</p></details>}
+    {!scores && <div className="gamePrimer"><span>Match countries to statistics. Use each country once to score the most points across the board.</span><button type="button" onClick={openRules}>How to play</button></div>}
     {!scores && <section className="hero desktopHero">
       <div><span className="kicker">A strategy atlas</span><h2>{poolSize} countries. {categoryTarget} measures. One perfect allocation.</h2><p>{unusedCount ? <>Place {categoryTarget} countries, leave {unusedCount === 1 ? "one" : unusedCount} behind, and make every specialist count.</> : <>Place all {categoryTarget} countries and make every specialist count.</>}</p></div>
       <aside><strong>{Object.keys(assignments).length}/{categoryTarget}</strong><span>categories assigned</span></aside>
@@ -810,7 +831,7 @@ Can you beat my score?`;
     {error && <div className="error"><strong>Couldn’t load this board.</strong><span>{error}</span><button onClick={retryCurrentRound}>Check again</button></div>}
 
     {round && !scores && <main className={`grid playGrid ${selected ? "holdingCountry" : ""} ${selectedCategory ? "choosingCountry" : ""}`}>
-      <section className="panel bankPanel"><div className="panelTitle"><div><h3>Choose your {categoryTarget}</h3></div><small>{unusedCount ? (unusedCount === 1 ? "One will remain unused" : `${unusedCount} will remain unused`) : null}</small></div>
+      <section className="panel bankPanel"><div className="panelTitle"><div><h3>Your countries</h3></div><small>{unusedCount ? `Use ${categoryTarget} of ${poolSize}` : `${poolSize} countries · use each once`}</small></div>
         <div className="countries" aria-label="Country bank">{round.bank.map((country) => <button key={country.id} draggable={!used.has(country.id)} onDragStart={(event)=>event.dataTransfer.setData("text/plain", country.id)} onTouchStart={(event)=>beginTouch(event,country.id)} onTouchMove={moveTouch} onTouchEnd={endTouch} onTouchCancel={endTouch} className={`country ${selected===country.id?"selected":""} ${selectedCategory&&!used.has(country.id)?"categoryTarget":""} ${used.has(country.id)?"used":""}`} aria-pressed={selected===country.id} disabled={used.has(country.id)} onClick={() => selectCountry(country.id)}><span>{country.flag}</span><div><strong title={country.name}><span className="desktopCountryName">{country.name}</span><span className="mobileCountryName">{shortCountryName(country.name)}</span></strong></div>{used.has(country.id)&&<b>USED</b>}</button>)}</div>
       </section>
       <div className="boardSpine" aria-hidden="true"/>
@@ -834,20 +855,20 @@ Can you beat my score?`;
             <div key={c?.id ?? "empty"} className={`choice ${c?"filled":""}`}>{c?<><span className="pieceFlag">{c.flag}</span><strong className="pieceName">{c.name}</strong><button type="button" className="removePiece" aria-label={`Remove ${c.name} from ${dataset.category.name}`} title="Remove country" onClick={(event)=>{event.stopPropagation();sound.play("remove");setAssignments((current)=>{const next={...current};delete next[dataset.category.id];return next;});setSelectedCategory(null);}}><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 4l8 8M12 4l-8 8"/></svg></button></>:<em>{selected?"Place here":selectedCategory===dataset.category.id?"Choose a country":"Assign country"}</em>}</div>
           </div>
         })}</div>
-        <div className="lock" aria-live="polite"><span>{categoryTarget-Object.keys(assignments).length>0?`${categoryTarget-Object.keys(assignments).length} selections remaining`:"Draft complete"}</span><button type="button" disabled={Object.keys(assignments).length!==categoryTarget} onTouchEnd={(event)=>{event.preventDefault();score();}} onClick={score}>Lock in draft</button></div>
+        <div className="lock" aria-live="polite"><span>{categoryTarget-Object.keys(assignments).length>0?`${categoryTarget-Object.keys(assignments).length} matches remaining`:"Ready to submit"}</span><button type="button" disabled={Object.keys(assignments).length!==categoryTarget} onTouchEnd={(event)=>{event.preventDefault();score();}} onClick={score}>Submit answers</button></div>
       </section>
     </main>}
 
     {round && scores && <section className={`panel results ${freshResult ? "freshResult" : ""}`}><nav className="resultsModeTabs" aria-label="Results difficulty">
         <a href={challengePath("easy", seed)} onClick={(event) => switchCachedDaily(event, "easy")} className={difficulty === "easy" ? "active" : ""}>Scout</a>
         <a href={challengePath("normal", seed)} onClick={(event) => switchCachedDaily(event, "normal")} className={difficulty === "normal" ? "active" : ""}>Adventurer</a>
-        <a href={challengePath("expert", seed)} className={difficulty === "expert" ? "active" : ""}>Expert</a>
-      </nav><div className="score"><span>Final score</span>{completionSource === "account" && <p className="savedDailyNotice">Saved automatically to your account and included in the verified standings.</p>}{completionSource === "local" && <p className="savedDailyNotice">Saved on this browser. Sign in to transfer your complete eligible Daily history to the leaderboard.</p>}<div className="scoreValue"><strong>{total}</strong><b>/ {roundMaxScore}</b></div><div className="scoreInsights"><div><strong>{averagePlacement}</strong><span>Average placement</span></div><div><strong>{bestPossibleCount}</strong><span>First-place picks</span></div><div><strong>{topFinishCount}/{categoryTarget}</strong><span>Top {topFinishRank}</span></div></div><div className="scoreBreakdown">{[1,2,3].map((rank)=><span key={rank}>{rank===1?"🥇":rank===2?"🥈":"🥉"} {scores.filter((row)=>row.rank===rank).length}</span>)}</div><p>{total>=roundMaxScore*.8125?"Elite allocation.":total>=roundMaxScore*.65?"Strong draft with room to optimize.":"A few specialists were spent in the wrong places."}</p><div className="scoreActions"><details className="scoreShareOptions"><summary className="shareScore">Share score</summary><div className="scoreShareMenu"><button type="button" onClick={() => void shareScore()}>{copied ? "Score copied ✓" : "Copy score"}</button><button type="button" onClick={() => void shareScore(true)}>More sharing options</button></div></details>{scoreImage && <div className="scoreImagePreview"><img src={scoreImage.url} alt={`GeoStats ${ROUND_CONFIGS[difficulty].label} score: ${total} out of ${roundMaxScore}`} /><div><button type="button" onClick={() => void shareScoreImage()}>Share image</button><a href={scoreImage.url} download="geostats-score.png">Download image</a><button type="button" onClick={() => { setScoreImage(null); setScoreImageStatus(""); }}>Close preview</button></div></div>}{scoreImageStatus && <p role="status">{scoreImageStatus}</p>}<span className="sr-only" role="status">{copied ? "Score copied to clipboard" : ""}</span>{manualScoreCopy && <div className="manualScoreCopy"><p role="status">Your browser blocked automatic copying. Select and copy your score below.</p><textarea aria-label="Score to copy" readOnly value={manualScoreCopy} onFocus={(event) => event.currentTarget.select()} rows={9} /></div>}{isUnranked ? (isRandom ? <button className="secondaryScoreAction" onClick={generateNewRandomRound}>Generate another board</button> : <span className="unrankedNotice">Practice board · score not saved</span>) : <AccountControls results difficulty={difficulty} pendingScore={completionSource === "account" ? undefined : { challengeDate: dailyDateFromSeed(seed), difficulty, assignments }} onScoreSaved={(saved) => {
+        <a href={challengePath("expert", seed)} onClick={(event) => switchCachedDaily(event, "expert")} className={difficulty === "expert" ? "active" : ""}>Expert</a>
+      </nav><div className="score"><span>Final score</span>{completionSource === "account" && <p className="savedDailyNotice">Saved automatically to your account and included in the verified standings.</p>}{completionSource === "local" && <p className="savedDailyNotice">Saved on this browser. Sign in to transfer your complete eligible Daily history to the leaderboard.</p>}<div className="scoreValue"><strong>{total}</strong><b>/ {roundMaxScore}</b></div><p className="scoreExplanation">Each match earns up to 100 points based on your country’s rank among today’s {poolSize} countries.</p><div className="scoreBreakdown" aria-label="Matches by placement">{[1,2,3].map((rank)=><span key={rank}>{ordinal(rank)} place: <strong>{scores.filter((row)=>row.rank===rank).length}</strong></span>)}</div><details className="scoringDetails"><summary>How are points calculated?</summary><p>A country ranked first in a category earns 100 points. Lower ranks earn fewer; the score adds up all {categoryTarget} matches.</p><p>On this board: {scoringConfig.pointsByRank.map((points, index)=>`${ordinal(index+1)} = ${points}`).join(" · ")} points.</p></details><div className="scoreActions"><details className="scoreShareOptions"><summary className="shareScore">Share score</summary><div className="scoreShareMenu"><button type="button" onClick={() => void shareScore()}>{copied ? "Score copied ✓" : "Copy score"}</button><button type="button" onClick={() => void shareScore(true)}>More sharing options</button></div></details>{scoreImage && <div className="scoreImagePreview"><img src={scoreImage.url} alt={`GeoStats ${ROUND_CONFIGS[difficulty].label} score: ${total} out of ${roundMaxScore}`} /><div><button type="button" onClick={() => void shareScoreImage()}>Share image</button><a href={scoreImage.url} download="geostats-score.png">Download image</a><button type="button" onClick={() => { setScoreImage(null); setScoreImageStatus(""); }}>Close preview</button></div></div>}{scoreImageStatus && <p role="status">{scoreImageStatus}</p>}<span className="sr-only" role="status">{copied ? "Score copied to clipboard" : ""}</span>{isUnranked ? (isRandom ? <button className="secondaryScoreAction" onClick={generateNewRandomRound}>Generate another board</button> : <span className="unrankedNotice">Practice board · score not saved</span>) : <AccountControls results difficulty={difficulty} pendingScore={completionSource === "account" ? undefined : { challengeDate: dailyDateFromSeed(seed), difficulty, assignments }} onScoreSaved={(saved) => {
         if (saved.challengeDate === dailyDateFromSeed(seed) && saved.difficulty === difficulty) setCompletionSource("account");
-      }} />}</div></div>
+      }} />}</div>{manualScoreCopy && <div className="modal copyFallback" role="dialog" aria-modal="true" aria-label="Copy your score" onClick={(event)=>{if(event.target===event.currentTarget)setManualScoreCopy("");}}><div><h2>Copy your score</h2><p>Your browser blocked automatic copying. Select the text below and copy it.</p><textarea aria-label="Score to copy" readOnly value={manualScoreCopy} onFocus={(event) => event.currentTarget.select()} rows={7} autoFocus /><button type="button" onClick={()=>setManualScoreCopy("")}>Close</button></div></div>}<a className="compareSolutionLink" href="#best-solution">Compare with the best solution ↓</a></div>
       <div className="resultsHeading"><div><span className="kicker">Your placements</span><h3>Placement and points earned</h3></div><small>Open a ranking to compare the {poolSize} countries on this board</small></div>
-      {scores.map((row)=>{ const leaderboard=poolLeaderboard(row.category,round.bank); return <div className="resultWrap" key={row.category.category.id}><div className="result"><div className="resultMain"><span>{row.category.category.icon}</span><div><strong>{row.category.category.name}</strong><small className="statTip" tabIndex={0}>{row.country.flag} {row.country.name} · {formatValue(row.value,row.category.category)}<span className="resultReference"> · {observationReference(row.category.category,row.category.byCountry.get(row.country.id)?.year)}</span><span className="tooltip"><strong>Why this rank?</strong><br/>Its official value ranks #{row.globalRank} globally.<br/>Actual value: {formatValue(row.value,row.category.category)}<br/>Reference: {observationReference(row.category.category,row.category.byCountry.get(row.country.id)?.year)}<br/>Source: {SOURCE_REGISTRY[row.category.category.source].name}<br/><button className="inlineSourceButton" onClick={(e)=>{e.stopPropagation();setSourceDataset(row.category)}}>Data & Source</button></span></small></div></div><div className="placementSummary"><b>{ordinal(row.rank)} of {poolSize}</b><strong>{row.points} pts</strong>{row.rank===1&&<span>Best possible</span>}</div><button className="leaderboardButton" onClick={()=>setOpenLeaderboard(openLeaderboard===row.category.category.id?null:row.category.category.id)} aria-expanded={openLeaderboard===row.category.category.id}>{openLeaderboard===row.category.category.id?"Hide rankings":"View rankings"}</button></div>{openLeaderboard===row.category.category.id&&<div className="leaderboard"><div className="leaderboardHeader"><div className="leaderboardTitle"><h4>{row.category.category.name}</h4><span>Among these {poolSize} countries</span></div><div className="leaderboardSource"><span className="sourceBadge">{row.category.category.source === "worldbank" ? "World Bank" : SOURCE_REGISTRY[row.category.category.source].name}</span><button className="sourceDetailsButton" onClick={(e)=>{e.stopPropagation();setSourceDataset(row.category)}}>Data & Source</button></div></div><div className="leaderboardColumns" aria-hidden="true"><b>Board</b><b>Country</b><b>World Rank</b><b>Value</b><b>Reference</b><b>Points</b></div>{leaderboard.map(item=><div key={item.country.id} className={item.country.id===row.country.id?"current":""}><b className="boardRank">#{item.poolRank}</b><span className="leaderboardCountry">{item.country.flag} {item.country.name}</span><span className="worldRank">#{item.observation.globalRank}</span><span className="leaderboardValue"><span className="mobileColumnLabel">Value</span>{formatValue(item.observation.value,row.category.category)}</span><small className="leaderboardReference"><span className="mobileColumnLabel">Reference</span>{observationReference(row.category.category,item.observation.year)}</small><strong className="leaderboardPoints">{item.points} pts</strong></div>)}</div>}</div>})}
-      <div className={`perfect ${showMobileOptimal ? "mobileExpanded" : ""}`}><div className="resultsHeading"><div><span className="kicker">🏆 Best Possible</span><h3>The optimal allocation</h3></div><small>Each category’s best country among these {poolSize}</small></div>
+      {scores.map((row)=>{ const leaderboard=poolLeaderboard(row.category,round.bank); return <div className="resultWrap" key={row.category.category.id}><div className="result"><div className="resultMain"><span>{row.category.category.icon}</span><div><strong>{row.category.category.name}</strong><small className="statTip" tabIndex={0}>{row.country.flag} {row.country.name} · {formatValue(row.value,row.category.category)}<span className="resultReference"> · {observationReference(row.category.category,row.category.byCountry.get(row.country.id)?.year)}</span><span className="tooltip"><strong>Why this rank?</strong><br/>Its official value ranks #{row.globalRank} globally.<br/>Actual value: {formatValue(row.value,row.category.category)}<br/>Reference: {observationReference(row.category.category,row.category.byCountry.get(row.country.id)?.year)}<br/>Source: {SOURCE_REGISTRY[row.category.category.source].name}<br/><button className="inlineSourceButton" onClick={(e)=>{e.stopPropagation();setSourceDataset(row.category)}}>Data & Source</button></span></small></div></div><div className="placementSummary"><b>{ordinal(row.rank)} of {poolSize}</b><strong>{row.points} pts</strong>{row.rank===1&&<span>Best possible</span>}</div>{row.rank!==1&&<div className="mobileBestMatch">Best match: {row.best.flag} {row.best.name} · 100 pts</div>}<button className="leaderboardButton" onClick={()=>setOpenLeaderboard(openLeaderboard===row.category.category.id?null:row.category.category.id)} aria-expanded={openLeaderboard===row.category.category.id}>{openLeaderboard===row.category.category.id?"Hide rankings":"View rankings"}</button></div>{openLeaderboard===row.category.category.id&&<div className="leaderboard"><div className="leaderboardHeader"><div className="leaderboardTitle"><h4>{row.category.category.name}</h4><span>Among these {poolSize} countries</span></div><div className="leaderboardSource"><span className="sourceBadge">{row.category.category.source === "worldbank" ? "World Bank" : SOURCE_REGISTRY[row.category.category.source].name}</span><button className="sourceDetailsButton" onClick={(e)=>{e.stopPropagation();setSourceDataset(row.category)}}>Data & Source</button></div></div><div className="leaderboardColumns" aria-hidden="true"><b>Board</b><b>Country</b><b>World Rank</b><b>Value</b><b>Reference</b><b>Points</b></div>{leaderboard.map(item=><div key={item.country.id} className={item.country.id===row.country.id?"current":""}><b className="boardRank">#{item.poolRank}</b><span className="leaderboardCountry">{item.country.flag} {item.country.name}</span><span className="worldRank">#{item.observation.globalRank}</span><span className="leaderboardValue"><span className="mobileColumnLabel">Value</span>{formatValue(item.observation.value,row.category.category)}</span><small className="leaderboardReference"><span className="mobileColumnLabel">Reference</span>{observationReference(row.category.category,item.observation.year)}</small><strong className="leaderboardPoints">{item.points} pts</strong></div>)}</div>}</div>})}
+      <div id="best-solution" className={`perfect ${showMobileOptimal ? "mobileExpanded" : ""}`}><div className="resultsHeading"><div><span className="kicker">🏆 Best Possible</span><h3>The optimal allocation</h3></div><small>Each category’s best country among these {poolSize}</small></div>
       <button type="button" className="mobileOptimalToggle" aria-expanded={showMobileOptimal} onClick={() => setShowMobileOptimal(!showMobileOptimal)}>{showMobileOptimal ? "Hide optimal matches" : "Show optimal matches"}</button><div className="perfectGrid">{scores.map((row)=><div className="perfectRow" title={categoryMeasurementLabel(row.category.category)} key={`perfect-${row.category.category.id}`}><span>{row.category.category.icon}</span><div><strong>{row.category.category.name}</strong><small className="statTip" tabIndex={0}>{row.best.flag} {row.best.name} · {formatValue(row.bestValue,row.category.category)}<span className="resultReference"> · {observationReference(row.category.category,row.category.byCountry.get(row.best.id)?.year)}</span><span className="tooltip"><strong>Why this rank?</strong><br/>Its official value ranks #{row.bestGlobalRank} globally.<br/>Actual value: {formatValue(row.bestValue,row.category.category)}<br/>Reference: {observationReference(row.category.category,row.category.byCountry.get(row.best.id)?.year)}<br/>Source: {SOURCE_REGISTRY[row.category.category.source].name}<br/><button className="inlineSourceButton" onClick={(e)=>{e.stopPropagation();setSourceDataset(row.category)}}>Data & Source</button></span></small></div><b>100 pts</b></div>)}</div></div>
       <div className="lock resultsFooter" aria-live="polite"><span>Maximum score: {roundMaxScore}{isUnranked ? " · Unranked" : ""}</span></div></section>}
 
@@ -864,6 +885,7 @@ Can you beat my score?`;
     </dialog>
     {sourceDataset && <CategorySourcePanel dataset={sourceDataset} boardCountryIds={round?.bank.map((country) => country.id) ?? []} onClose={()=>setSourceDataset(null)} />}
 
-    {showRules&&<div className="modal rulesModal" onClick={(e)=>e.currentTarget===e.target&&setShowRules(false)}><div className="rulesModalCard"><h2>How GeoStats works</h2><p><strong>{isRandom ? "Choose a Random difficulty:" : "Progress through the Dailies:"}</strong> Scout has 4 countries and 4 categories, Adventurer has 6 countries and 4 categories, and Expert has 8 countries and 6 categories.</p><ol><li><strong>Each category has a different winner.</strong> Among today’s countries, every category’s #1 country is unique.</li><li><strong>No tied values on the board.</strong> Countries in the same round always show distinct values for every category.</li><li><strong>Match countries to categories.</strong> Assign one country to each category, and use each country only once.</li><li><strong>Score as many points as possible.</strong> Higher-ranked countries earn more points. A perfect game matches every category with its #1 country.</li></ol><p>{isRandom ? "Random games are unranked, repeatable, and reproducible from the seed in the URL." : "New Scout, Adventurer, and Expert challenges unlock every day."}</p><button onClick={()=>setShowRules(false)}>Start drafting</button></div></div>}
+    {showWelcome && !scores && <div className="modal welcomeModal" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle"><div className="rulesModalCard"><h2 id="welcomeTitle">Match the whole board</h2><p>Match countries to statistics. You can use each country once, so a great choice for one category might cost you points elsewhere.</p><p>Find the combination that scores the most points across all categories.</p><div className="welcomeModes"><span><strong>Scout</strong>4 countries · 4 matches</span><span><strong>Adventurer</strong>6 countries · 4 matches</span><span><strong>Expert</strong>8 countries · 6 matches</span></div><div className="welcomeActions"><button type="button" onClick={()=>dismissWelcome()}>Play {ROUND_CONFIGS[difficulty].label}</button><button type="button" className="secondaryAction" onClick={()=>dismissWelcome(true)}>How to play</button></div></div></div>}
+    {showRules&&<div className="modal rulesModal" role="dialog" aria-modal="true" aria-labelledby="rulesTitle" onClick={(e)=>e.currentTarget===e.target&&setShowRules(false)}><div className="rulesModalCard"><h2 id="rulesTitle">How to play</h2><p>Match each country to a statistic. Use each country only once; choose the combination that scores the most points across the board.</p><ol><li><strong>Assign one country to each category.</strong> Scout uses all four. Adventurer and Expert include extra countries you can leave unused.</li><li><strong>Compare their ranks.</strong> For each category, your country ranks among the countries on this board. First place earns 100 points; lower ranks earn fewer.</li><li><strong>Submit your answers.</strong> Your final score adds the points from every match. A perfect score has the top country for each category.</li></ol><p><strong>Choose a level:</strong> Scout: 4 countries and 4 matches · Adventurer: 6 countries and 4 matches · Expert: 8 countries and 6 matches.</p><p>{isRandom ? "Random boards are unranked and repeatable." : "There is a new board for each level every day. No account is needed to play."}</p><button type="button" onClick={()=>setShowRules(false)}>Back to game</button></div></div>}
   </div>;
 }

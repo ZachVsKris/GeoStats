@@ -795,7 +795,7 @@ ${total} / ${roundMaxScore}
       <details className="mobileMenu" ref={mobileMenu}><summary aria-label="Open game menu">Menu</summary><div>
         {gameTools}
         <p className="mobileDailyDate">{dailyDateFromSeed(seed)}</p>
-        {boardNotice && <details><summary>Board data note</summary><p>{boardNotice}</p></details>}
+        {boardNotice && fallbackPractice && <details><summary>Board data note</summary><p>{boardNotice}</p></details>}
         <a href="/audit">Data audit</a><button onClick={openRules}>How to play</button>
         {isRandom && <a href="/daily">Daily modes</a>}
         {!isRandom && <a href={`/leaderboard?difficulty=${difficulty}`}>Leaderboard</a>}
@@ -820,7 +820,7 @@ ${total} / ${roundMaxScore}
       <a href={challengePath("normal", seed)} onClick={(event) => switchCachedDaily(event, "normal")} className={difficulty === "normal" ? "active" : ""}>Adventurer</a>
       <a href={challengePath("expert", seed)} onClick={(event) => switchCachedDaily(event, "expert")} className={difficulty === "expert" ? "active" : ""}>Expert</a>
     </nav><div className="mobileGameSummary"><strong>{ROUND_CONFIGS[difficulty].label}</strong><span>{poolSize} countries · {categoryTarget} matches · {unusedCount ? `leave ${unusedCount}` : "use all"}</span></div></>}
-    {boardNotice && <details className="boardNotice"><summary>Board data note</summary><p>{boardNotice}</p></details>}
+    {boardNotice && fallbackPractice && <details className="boardNotice"><summary>Board data note</summary><p>{boardNotice}</p></details>}
     {!scores && <div className="gamePrimer"><span>Match countries to statistics. Use each country once to score the most points across the board.</span><button type="button" onClick={openRules}>How to play</button></div>}
     {!scores && <section className="hero desktopHero">
       <div><span className="kicker">A strategy atlas</span><h2>{poolSize} countries. {categoryTarget} measures. One perfect allocation.</h2><p>{unusedCount ? <>Place {categoryTarget} countries, leave {unusedCount === 1 ? "one" : unusedCount} behind, and make every specialist count.</> : <>Place all {categoryTarget} countries and make every specialist count.</>}</p></div>

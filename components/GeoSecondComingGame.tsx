@@ -19,6 +19,7 @@ import { categoryMeasurementBadgeLabel, categoryMeasurementLabel } from "../lib/
 import type { DailyApiPayload, PackedApiBoard } from "../lib/dailyPublicPayload";
 import type { Category } from "../lib/categories";
 import { categoryThemeClass } from "../lib/categoryTheme";
+import { createSupabaseBrowserClient } from "../lib/supabase/browser";
 
 type Assignment = Record<string, string>;
 type ScoreRow = {
@@ -251,6 +252,8 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
   const [error, setError] = useState("");
   const [showRules, setShowRules] = useState(false);
   const [showWelcome, setShowWelcome] = useState(false);
+  const [accountStatus, setAccountStatus] = useState<"checking" | "guest" | "signed-in">("checking");
+  const supabase = useMemo(() => createSupabaseBrowserClient(), []);
   const supportMenu = useRef<HTMLDetailsElement>(null);
   const mobileMenu = useRef<HTMLDetailsElement>(null);
   const [seed, setSeed] = useState(serverInitialRound ? `DAILY-${initialDifficulty.toUpperCase()}-${initialChallengeDate}` : "");
@@ -284,7 +287,23 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
   const isUnranked = isRandom || fallbackPractice;
 
   useEffect(() => {
-    if (!round || scores) return;
+    if (!supabase) {
+      setAccountStatus("guest");
+      return;
+    }
+    let active = true;
+    void supabase.auth.getUser().then(({ data: { user } }) => {
+      if (active) setAccountStatus(user ? "signed-in" : "guest");
+    }).catch(() => { /* Keep the panel closed if account state cannot be verified. */ });
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event) => {
+      if (active && event === "SIGNED_IN") setAccountStatus("signed-in");
+      if (active && event === "SIGNED_OUT") setAccountStatus("guest");
+    });
+    return () => { active = false; subscription.unsubscribe(); };
+  }, [supabase]);
+
+  useEffect(() => {
+    if (accountStatus !== "guest" || !round || scores) return;
     try {
       if (window.localStorage.getItem("geostats:first-play-intro:v1")) return;
       const timer = window.setTimeout(() => setShowWelcome(true), 750);
@@ -292,7 +311,7 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
     } catch {
       // Private browsing can disable storage; the visible How to play link still works.
     }
-  }, [round, scores]);
+  }, [accountStatus, round, scores]);
 
   function dismissWelcome(openRules = false) {
     setShowWelcome(false);
@@ -885,7 +904,7 @@ ${total} / ${roundMaxScore}
     </dialog>
     {sourceDataset && <CategorySourcePanel dataset={sourceDataset} boardCountryIds={round?.bank.map((country) => country.id) ?? []} onClose={()=>setSourceDataset(null)} />}
 
-    {showWelcome && !scores && <div className="modal welcomeModal" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle"><div className="rulesModalCard"><h2 id="welcomeTitle">Match the whole board</h2><p>Match countries to statistics. You can use each country once, so a great choice for one category might cost you points elsewhere.</p><p>There is one best arrangement for the whole board. Find it by scoring the most points across all categories.</p><div className="welcomeModes"><span><strong>Scout</strong>4 countries · 4 matches</span><span><strong>Adventurer</strong>6 countries · 4 matches</span><span><strong>Expert</strong>8 countries · 6 matches</span></div><div className="welcomeActions"><button type="button" onClick={()=>dismissWelcome()}>Play {ROUND_CONFIGS[difficulty].label}</button><button type="button" className="secondaryAction" onClick={()=>dismissWelcome(true)}>How to play</button></div></div></div>}
+    {showWelcome && accountStatus === "guest" && !scores && <div className="modal welcomeModal" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle"><div className="rulesModalCard"><h2 id="welcomeTitle">Match the whole board</h2><p>Match countries to statistics. You can use each country once, so a great choice for one category might cost you points elsewhere.</p><p>There is one best arrangement for the whole board. Find it by scoring the most points across all categories.</p><div className="welcomeModes"><span><strong>Scout</strong>4 countries · 4 matches</span><span><strong>Adventurer</strong>6 countries · 4 matches</span><span><strong>Expert</strong>8 countries · 6 matches</span></div><div className="welcomeActions"><button type="button" onClick={()=>dismissWelcome()}>Play {ROUND_CONFIGS[difficulty].label}</button><button type="button" className="secondaryAction" onClick={()=>dismissWelcome(true)}>How to play</button></div></div></div>}
     {showRules&&<div className="modal rulesModal" role="dialog" aria-modal="true" aria-labelledby="rulesTitle" onClick={(e)=>e.currentTarget===e.target&&setShowRules(false)}><div className="rulesModalCard"><h2 id="rulesTitle">How to play</h2><p>Match each country to a statistic. Use each country only once; there is one best arrangement for the whole board.</p><ol><li><strong>Assign one country to each category.</strong> Scout uses all four. Adventurer and Expert include extra countries you can leave unused.</li><li><strong>Compare their ranks.</strong> For each category, your country ranks among the countries on this board. First place earns 100 points; lower ranks earn fewer.</li><li><strong>Submit your answers.</strong> Your final score adds the points from every match. The best arrangement earns the highest total across the board.</li></ol><p><strong>Choose a level:</strong> Scout: 4 countries and 4 matches · Adventurer: 6 countries and 4 matches · Expert: 8 countries and 6 matches.</p><p>{isRandom ? "Random boards are unranked and repeatable." : "There is a new board for each level every day. No account is needed to play."}</p><button type="button" onClick={()=>setShowRules(false)}>Back to game</button></div></div>}
   </div>;
 }

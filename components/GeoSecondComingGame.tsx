@@ -791,7 +791,7 @@ ${total} / ${roundMaxScore}
         </div>
       </details>
       <button type="button" className="mobileHowToPlay" onClick={openRules}>Rules</button>
-      {!isRandom && <div className="gameAccount"><AccountControls difficulty={difficulty} compact /></div>}
+      {!isRandom && <div className="gameAccount"><AccountControls difficulty={difficulty} hideLeaderboardLink compact /></div>}
       <details className="mobileMenu" ref={mobileMenu}><summary aria-label="Open game menu">Menu</summary><div>
         {gameTools}
         <p className="mobileDailyDate">{dailyDateFromSeed(seed)}</p>

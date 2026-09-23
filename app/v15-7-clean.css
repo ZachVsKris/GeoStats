@@ -490,8 +490,8 @@
  }
  .desktopSupportMenu button:hover,.desktopSupportMenu a:hover{border-color:var(--line-soft);background:rgba(212,191,114,.06);color:var(--accent)}
  .desktopSupportMenu .gameToolsStatus{padding:5px 10px;color:var(--muted);font-size:8px}
- .activePlay > header > .gameAccount{flex:0 1 auto;max-width:150px}
- .activePlay > header > .gameAccount .accountHeaderActions>button{min-height:34px;padding:8px 10px;border-color:var(--line-soft);font-size:8px}
+ .activePlay > header > .gameAccount{flex:0 0 auto;max-width:none}
+ .activePlay > header > .gameAccount .accountHeaderActions>button{min-height:34px;padding:8px 10px;border-color:var(--line-soft);font-size:10px;white-space:nowrap}
 }
 @media(min-width:701px) and (max-width:1050px){
  .activePlay > header{gap:7px}
@@ -503,8 +503,8 @@
  .desktopNavGroup{gap:3px}
  .desktopGameNav .dailyModeButton,.desktopGameNav .headerLink{min-height:30px;padding:6px 7px;font-size:8px}
  .desktopSupportMenu summary{min-height:30px;padding:6px 7px;font-size:7px}
- .activePlay > header > .gameAccount{max-width:115px}
- .activePlay > header > .gameAccount .accountHeaderActions>button{min-height:30px;padding:6px 7px;font-size:7px}
+ .activePlay > header > .gameAccount{max-width:none}
+ .activePlay > header > .gameAccount .accountHeaderActions>button{min-height:30px;padding:6px 7px;font-size:9px}
 }
 @media(max-width:700px), (max-width:900px) and (orientation:landscape) and (max-height:500px){
  .desktopSupportMenu{display:none}

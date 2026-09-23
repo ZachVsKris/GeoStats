@@ -228,7 +228,8 @@ async function installLegacyDailyRoutes(page: Page) {
   });
 }
 
-async function installRoutes(page: Page) {
+async function installRoutes(page: Page, options: { firstVisit?: boolean } = {}) {
+  if (!options.firstVisit) await page.addInitScript(() => localStorage.setItem("geostats:first-play-intro:v1", "seen"));
   await page.route("**/api/daily-trio/**", async (route: Route) => {
     await route.fulfill({ status: 200, contentType: "application/json", body: JSON.stringify(payload) });
   });
@@ -291,7 +292,7 @@ for (const width of [320, 375, 430]) {
       await page.screenshot({ path: testInfo.outputPath(label === 'Sign in' ? 'header-guest.png' : 'header-long-username.png') });
     }
     await page.getByLabel('Open game menu').click();
-    await expect(page.locator('.mobileMenu').getByRole('button', { name: 'How it works' })).toBeVisible();
+    await expect(page.locator('.mobileMenu').getByRole('button', { name: 'How to play' })).toBeVisible();
   });
 }
 
@@ -310,10 +311,9 @@ for (const width of [1024, 1440]) {
     await expect(play.getByRole('link', { name: 'Expert', exact: true })).toBeVisible();
     await expect(play.getByRole('link', { name: 'Leaderboard', exact: true })).toBeVisible();
     await expect(support.getByText('Help & tools', { exact: true })).toBeVisible();
-    await expect(support.getByRole('button', { name: 'How it works', exact: true })).toBeHidden();
+    await expect(support.getByRole('button', { name: 'How to play', exact: true })).toBeHidden();
     await support.getByText('Help & tools', { exact: true }).click();
-    await expect(support.getByRole('button', { name: 'How it works', exact: true })).toBeVisible();
-    await expect(support.getByRole('button', { name: 'Challenge a friend', exact: true })).toBeVisible();
+    await expect(support.getByRole('button', { name: 'How to play', exact: true })).toBeVisible();
     await expect(support.getByRole('button', { name: 'Report a problem', exact: true })).toBeVisible();
     await expect(support.getByRole('link', { name: 'Data audit', exact: true })).toBeVisible();
     await page.screenshot({ path: testInfo.outputPath('desktop-navigation-groups.png') });
@@ -415,7 +415,7 @@ for (const viewport of mobileCases) {
             && choice.right - button.right <= 12;
           return centered ? [] : [{label: control.getAttribute("aria-label"), topGap, bottomGap, rightGap: choice.right - button.right}];
       }))).toEqual([]);
-      await expect(page.getByRole("button", { name: /lock in draft/i })).toBeEnabled();
+      await expect(page.getByRole("button", { name: /submit answers/i })).toBeEnabled();
       expect(browserErrors).toEqual([]);
       await page.screenshot({ path: testInfo.outputPath(`${mode.difficulty}-${viewport.width}x${viewport.height}.png`), fullPage: true });
     });
@@ -611,7 +611,7 @@ test("unsigned Daily result persists after refresh on the same browser", async (
     await page.locator(".countries .country:not(:disabled)").first().click();
     await page.locator(".slots .slot").nth(index).click();
   }
-  await page.getByRole("button", { name: /lock in draft/i }).click();
+  await page.getByRole("button", { name: /submit answers/i }).click();
   await expect(page.getByText("Saved on this browser. Sign in to transfer your complete eligible Daily history to the leaderboard.")).toBeVisible();
   await expect(page.locator(".resultsModeTabs")).toBeVisible();
   await expect(page.locator(".resultsModeTabs a.active")).toHaveText("Scout");
@@ -664,7 +664,7 @@ test("private Random routes redirect unauthenticated users to Daily", async ({ p
 test.describe("phone touch interaction", () => {
   test.skip(({ isMobile }) => !isMobile, "Touch interaction is covered by the Android and iPhone browser profiles.");
 
-  test("Lock in draft submits with one touch on phone", async ({ page }) => {
+  test("Submit answers works with one touch on phone", async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
     await installRoutes(page);
     await page.goto("/daily");
@@ -673,7 +673,7 @@ test.describe("phone touch interaction", () => {
       await page.locator(".countries .country:not(:disabled)").first().click();
       await page.locator(".slots .slot").nth(index).click();
     }
-    const lock = page.getByRole("button", { name: /lock in draft/i });
+    const lock = page.getByRole("button", { name: /submit answers/i });
     await expect(lock).toBeEnabled();
     await lock.tap();
     await expect(page.getByText("Final score")).toBeVisible();
@@ -687,7 +687,7 @@ test("rules modal scrolls on phone", async ({ page }) => {
   await page.getByLabel("Open game menu").click();
   const mobileMenu = page.locator(".mobileMenu");
   await expect(mobileMenu).toHaveAttribute("open", "");
-  await mobileMenu.getByRole("button", { name: /how it works/i }).click();
+  await mobileMenu.getByRole("button", { name: /how to play/i }).click();
   const card = page.locator(".rulesModalCard");
   await expect(card).toBeVisible();
   const before = await card.evaluate((element) => ({
@@ -734,8 +734,12 @@ test('Daily mode switches reuse loaded boards without document navigation',async
  await page.locator('.mobileModeTabs').getByRole('link',{name:'Scout'}).click();await expect(page.locator('.country')).toHaveCount(4);expect(navigations).toBe(0);
 });
 
-test('friend challenge shares no country answers before completion',async({page})=>{
- await page.addInitScript(()=>Object.defineProperty(navigator,'share',{configurable:true,value:async(data:unknown)=>{(window as unknown as {shared:unknown}).shared=data;}}));
- await page.setViewportSize({width:390,height:844});await installRoutes(page);await page.goto('/daily');await page.getByLabel('Open game menu').click();await page.getByRole('button',{name:'Challenge a friend',exact:true}).click();
- const shared=await page.evaluate(()=>(window as unknown as {shared:{url:string;text:string}}).shared);expect(shared.url).toContain('/daily');expect(shared.text).toContain('GeoStats Scout Daily');for(const country of countries)expect(shared.text).not.toContain(country.name);
+test('a first-time player sees the goal and can open clear rules',async({page})=>{
+ await page.setViewportSize({width:390,height:844});await installRoutes(page,{firstVisit:true});await page.goto('/daily');
+ await expect(page.getByRole('dialog',{name:'Match the whole board'})).toBeVisible();
+ await expect(page.getByText('Find the combination that scores the most points across all categories.')).toBeVisible();
+ await page.getByRole('button',{name:'How to play'}).last().click();
+ await expect(page.getByRole('dialog',{name:'How to play'})).toBeVisible();
+ await page.getByRole('button',{name:'Back to game'}).click();
+ await expect(page.getByRole('button',{name:'Rules',exact:true})).toBeVisible();
 });

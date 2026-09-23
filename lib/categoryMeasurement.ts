@@ -31,7 +31,7 @@ export function categoryMeasurementLabel(category: Category): string {
 
 export function categoryMeasurementBadgeLabel(category: Category): string {
   switch (categoryMeasurementType(category)) {
-    case "share": return "SHARE";
+    case "share": return "PERCENTAGE";
     case "per_capita": return "PER CAPITA";
     case "historical_date": return "DATE";
     case "rate": return "RATE";

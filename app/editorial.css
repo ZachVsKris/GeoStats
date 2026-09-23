@@ -653,6 +653,7 @@ body { isolation: isolate; }
   .shell.resultsView .resultsHeading h3 { font-size: 16px; }
   .shell.resultsView .result { padding: 11px 13px; }
   .shell.resultsView .resultMain > div > strong { font-size: 14px; }
+  .shell.resultsView .placementSummary { column-gap: 14px; row-gap: 3px; }
   .shell.resultsView .mobileBestMatch { display: none; }
   .shell.resultsView .leaderboardButton { margin-top: 1px; }
   .shell.resultsView .perfect .resultsHeading { padding-bottom: 3px; }

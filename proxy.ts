@@ -28,6 +28,13 @@ function clearStaleAuthCookies(request: NextRequest, response: NextResponse) {
 }
 
 export async function proxy(request: NextRequest) {
+  if (request.nextUrl.pathname.replace(/\/+$/, "") === "/leaderboard") {
+    const destination = request.nextUrl.clone();
+    destination.pathname = "/account";
+    destination.search = "";
+    return NextResponse.redirect(destination, 308);
+  }
+
   const legacyPath = legacyRandomPath(request.nextUrl.pathname);
   if (legacyPath) {
     const redirectUrl = request.nextUrl.clone();

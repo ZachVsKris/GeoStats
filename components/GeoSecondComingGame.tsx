@@ -779,7 +779,7 @@ ${total} / ${roundMaxScore}
           <a href={challengePath("easy", seed)} onClick={(event) => switchCachedDaily(event, "easy")} className={`dailyModeButton ${difficulty === "easy" ? "active" : ""}`}>Scout</a>
           <a href={challengePath("normal", seed)} onClick={(event) => switchCachedDaily(event, "normal")} className={`dailyModeButton ${difficulty === "normal" ? "active" : ""}`}>Adventurer</a>
           <a href={challengePath("expert", seed)} onClick={(event) => switchCachedDaily(event, "expert")} className={`dailyModeButton ${difficulty === "expert" ? "active" : ""}`}>Expert</a>
-          {!isRandom && <a href={`/leaderboard?difficulty=${difficulty}`} className="headerLink">Leaderboard</a>}
+          {!isRandom && <a href="/account" className="headerLink">My results</a>}
         </nav>
       </div>
       <details className="desktopSupportMenu" ref={supportMenu}>
@@ -791,14 +791,14 @@ ${total} / ${roundMaxScore}
         </div>
       </details>
       <button type="button" className="mobileHowToPlay" onClick={openRules}>Rules</button>
-      {!isRandom && <div className="gameAccount"><AccountControls difficulty={difficulty} hideLeaderboardLink compact /></div>}
+      {!isRandom && <div className="gameAccount"><AccountControls difficulty={difficulty} compact /></div>}
       <details className="mobileMenu" ref={mobileMenu}><summary aria-label="Open game menu">Menu</summary><div>
         {gameTools}
         <p className="mobileDailyDate">{dailyDateFromSeed(seed)}</p>
         {boardNotice && fallbackPractice && <details><summary>Board data note</summary><p>{boardNotice}</p></details>}
         <a href="/audit">Data audit</a><button onClick={openRules}>How to play</button>
         {isRandom && <a href="/daily">Daily modes</a>}
-        {!isRandom && <a href={`/leaderboard?difficulty=${difficulty}`}>Leaderboard</a>}
+        {!isRandom && <a href="/account">My results</a>}
       </div></details>
     </header>}
 

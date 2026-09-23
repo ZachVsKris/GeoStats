@@ -15,13 +15,13 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "GeoStats",
     title: "GeoStats",
-    description: "Draft countries against verified world statistics in a new Daily board",
+    description: "Match countries to world statistics in a new Daily board",
     url: "/daily",
   },
   twitter: {
     card: "summary_large_image",
     title: "GeoStats",
-    description: "Draft countries against verified world statistics in a new Daily board",
+    description: "Match countries to world statistics in a new Daily board",
   },
   robots: { index: true, follow: true },
 };

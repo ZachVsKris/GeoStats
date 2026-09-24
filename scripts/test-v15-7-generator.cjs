@@ -43,7 +43,8 @@ fs.writeFileSync(path.join(output, 'lib', 'serverWarehouseCategories.js'), 'expo
 fs.writeFileSync(path.join(output, 'lib', 'serverPlayableCatalog.js'), 'exports.loadServerPlayableCategoryCatalog = async () => [];\n');
 fs.writeFileSync(path.join(output, 'lib', 'puzzleWarehouseSnapshot.js'), 'exports.loadCachedPuzzleWarehouseSnapshot = async () => ({ datasets: [], errors: [], catalogSize: 0 });\n');
 
-const { generateDailyTrioFromLoadedCatalog, generateSeededRoundFromLoadedCatalog, selectSeededAnchorCategoryId } = require(path.join(output, 'lib', 'puzzleEngine.js'));
+const { enrichCountriesWithPopulation, generateDailyTrioFromLoadedCatalog, generateSeededRoundFromLoadedCatalog, recentCountryPenalty, selectSeededAnchorCategoryId } = require(path.join(output, 'lib', 'puzzleEngine.js'));
+const { categoryAppealBonus, categoryAppealScore } = require(path.join(output, 'lib', 'categoryGeneration.js'));
 const { categoryConflictsWithExistingTrio, validateDailyTrio } = require(path.join(output, 'lib', 'dailyTrioRules.js'));
 const { validateRound } = require(path.join(output, 'lib', 'dataEngine.js'));
 
@@ -136,6 +137,34 @@ const loaded = {
   qualityRejections: 0,
   candidateSources: Object.fromEntries(sources.map((source) => [source, datasets.filter((dataset) => dataset.category.source === source).length])),
 };
+
+const highAppeal = { ...datasets[0].category, gameplayInterestScore: 96, immediateComprehensionScore: 94, uniquenessScore: 88 };
+const lowAppeal = { ...datasets[0].category, gameplayInterestScore: 62, immediateComprehensionScore: 68, uniquenessScore: 65 };
+if (!(categoryAppealScore(highAppeal) > categoryAppealScore(lowAppeal) && categoryAppealBonus(highAppeal) > categoryAppealBonus(lowAppeal))) {
+  throw new Error('Category appeal does not continuously prefer familiar, fun categories.');
+}
+const legacyZeroScores = { ...datasets[0].category, gameplayInterestScore: 0, immediateComprehensionScore: 0, uniquenessScore: 0 };
+if (categoryAppealScore(legacyZeroScores) < 75) {
+  throw new Error('Legacy zero appeal scores were not normalized to neutral defaults.');
+}
+
+const populationRows = countries.map((country, index) => ({ countryId: country.id, countryName: country.name, value: (index + 1) * 1_000_000, year: '2025', globalRank: countries.length - index }));
+const populationDataset = {
+  ...datasets[0],
+  category: { ...datasets[0].category, id: 'population', indicator: 'SP.POP.TOTL' },
+  observations: populationRows,
+  ranked: populationRows,
+  byCountry: new Map(populationRows.map((row) => [row.countryId, row])),
+};
+const enrichedCountries = enrichCountriesWithPopulation(countries.map(({ population, ...country }) => country), { ...loaded, datasets: [populationDataset, ...datasets] });
+if (enrichedCountries.some((country) => !country.population)) {
+  throw new Error('Population data was not attached to the country pool for familiarity scoring.');
+}
+const penaltyRound = { bank: countries.slice(0, 8), categories: datasets.slice(0, 6) };
+const saturatedExposure = Object.fromEntries(penaltyRound.bank.map((country) => [country.id, 100]));
+if (recentCountryPenalty(penaltyRound, saturatedExposure) !== 7.5) {
+  throw new Error('Recent-country penalty is not capped as a soft diversity preference.');
+}
 
 function assertTop20(round) {
   const countryIds = new Set(round.bank.map((country) => country.id));

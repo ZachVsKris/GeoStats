@@ -28,7 +28,7 @@ import {
 import { generationProfiles } from "./generationProfiles";
 import { candidateKeepsDisplayedValuesDistinct } from "./roundValueRules";
 import {
-  anchorExposureScore, bucketSpreadScore, categoryRecencyPenalty, categorySubsetExposureBoost, priorityScore, worldKnowledgeBucket,
+  anchorExposureScore, bucketSpreadScore, categoryAppealBonus, categoryRecencyPenalty, categorySubsetExposureBoost, priorityScore, worldKnowledgeBucket,
   type CategoryExposure,
 } from "./categoryGeneration";
 import { loadCachedPuzzleWarehouseSnapshot } from "./puzzleWarehouseSnapshot";
@@ -105,6 +105,30 @@ type CandidateResult = {
   winnerSearchFailures: number;
   validationFailures: number;
 };
+
+export function enrichCountriesWithPopulation(countries: CountryInfo[], loaded: LoadedPuzzleCatalog) {
+  const population = loaded.datasets.find((dataset) =>
+    dataset.category.indicator === "SP.POP.TOTL" || dataset.category.id === "population",
+  );
+  if (!population) return countries;
+  return countries.map((country) => {
+    const value = population.byCountry.get(country.id)?.value;
+    return typeof value === "number" && Number.isFinite(value) && value > 0
+      ? { ...country, population: value }
+      : country;
+  });
+}
+
+function enrichRoundWithPopulation(round: Round, countries: CountryInfo[]): Round {
+  const populationById = new Map(countries.map((country) => [country.id, country.population]));
+  return {
+    ...round,
+    bank: round.bank.map((country) => {
+      const population = populationById.get(country.id);
+      return typeof population === "number" && population > 0 ? { ...country, population } : country;
+    }),
+  };
+}
 
 function weightedAnchorSample(
   available: RoundCategory[],
@@ -328,6 +352,7 @@ function optionScore(
     + (selectedClusters.has(knowledgeCluster(category)) ? 0 : 5)
     + (selectedSources.has(category.source) ? 0 : 7)
     + priorityScore(category, config.difficulty)
+    + categoryAppealBonus(category)
     + bucketSpreadScore([...selected.map((item) => item.category), category]) * .55
     - categoryRecencyPenalty(category, recentCategoryExposure)
     + categorySubsetExposureBoost(category, recentCategoryExposure)
@@ -594,7 +619,7 @@ export function scoreBoard(round: Round, config: RoundConfig): ScoreBreakdown {
   const gapTarget = config.difficulty === "easy" ? 0.30 : config.difficulty === "normal" ? 0.22 : 0.15;
   const difficultyFit = Math.max(0, 100 - Math.abs(averageRank - rankTarget) * 1.8);
   const competitiveness = Math.max(0, 100 - Math.abs(averageGap - gapTarget) * 260);
-  const overall = 0.28 * quality + 0.19 * variety + 0.15 * geography + 0.19 * difficultyFit + 0.14 * competitiveness + 0.05 * familiarity;
+  const overall = 0.26 * quality + 0.18 * variety + 0.14 * geography + 0.18 * difficultyFit + 0.13 * competitiveness + 0.11 * familiarity;
 
   return {
     overall: Number(overall.toFixed(1)),
@@ -607,26 +632,26 @@ export function scoreBoard(round: Round, config: RoundConfig): ScoreBreakdown {
   };
 }
 
-function recentCountryPenalty(round: Round, recentCountryExposure?: Record<string, number>) {
+export function recentCountryPenalty(round: Round, recentCountryExposure?: Record<string, number>) {
   if (!recentCountryExposure) return 0;
   // Repetition is a preference, never a validity rule. A heavily used country
   // can still appear when it is needed for a strong, valid board.
-  return round.bank.reduce((sum, country) => sum + Math.min(8, Math.max(0, recentCountryExposure[country.id] ?? 0)), 0) * 1.35;
+  const raw = round.bank.reduce(
+    (sum, country) => sum + Math.min(8, Math.max(0, recentCountryExposure[country.id] ?? 0)),
+    0,
+  );
+  return Math.min(7.5, raw * .65);
 }
 
 function candidateFromRound(
   round: Round,
   score: number,
   recentCountryExposure?: Record<string, number>,
-  recentCategoryExposure?: CategoryExposure,
 ): RoundCandidate {
-  const categoryPenalty = round.categories.reduce(
-    (sum, dataset) => sum + categoryRecencyPenalty(dataset.category, recentCategoryExposure),
-    0,
-  );
   return {
     round,
-    score: score - recentCountryPenalty(round, recentCountryExposure) - categoryPenalty,
+    // Category recency is already included while choosing the category set.
+    score: score - recentCountryPenalty(round, recentCountryExposure),
     categorySignature: round.categories.map((dataset) => dataset.category.id).sort().join("|"),
     countrySignature: round.bank.map((country) => country.id).sort().join("|"),
   };
@@ -741,7 +766,7 @@ function composeRoundCandidates(
       validationFailures += 1;
       continue;
     }
-    candidates.push(candidateFromRound(round, scoreBoard(round, config).overall, recentCountryExposure, recentCategoryExposure));
+    candidates.push(candidateFromRound(round, scoreBoard(round, config).overall, recentCountryExposure));
     // Feasibility audits need one complete validated witness, not a ranked pool.
     // Production generation keeps its full search and selection by default.
     if (firstFeasibleOnly) break;
@@ -859,13 +884,11 @@ function fixedCandidate(
   round: Round,
   difficulty: DailyDifficulty,
   recentCountryExposure?: Record<string, number>,
-  recentCategoryExposure?: CategoryExposure,
 ) {
   return candidateFromRound(
     round,
     scoreBoard(round, ROUND_CONFIGS[difficulty]).overall,
     recentCountryExposure,
-    recentCategoryExposure,
   );
 }
 
@@ -904,7 +927,7 @@ function constructGuidedTrio(
       for (const difficulty of fixedDifficulties) {
         const round = fixed[difficulty]!;
         if (!roundCompatibleWithExisting(round, existingRounds)) return null;
-        selected[difficulty] = fixedCandidate(round, difficulty, recentCountryExposure, recentCategoryExposure);
+        selected[difficulty] = fixedCandidate(round, difficulty, recentCountryExposure);
         existingRounds.push(round);
       }
 
@@ -985,6 +1008,10 @@ export function generateDailyTrioFromLoadedCatalog(
   attemptSalt = "",
   options: DailyGenerationOptions = {},
 ): { trio: DailyTrio; diagnostics: GenerationDiagnostics; scores: Record<DailyDifficulty, ScoreBreakdown> } {
+  countries = enrichCountriesWithPopulation(countries, loaded);
+  fixed = Object.fromEntries(
+    Object.entries(fixed).map(([difficulty, round]) => [difficulty, enrichRoundWithPopulation(round, countries)]),
+  ) as Partial<DailyTrio>;
   const startedAt = Date.now();
   const seed = `DAILY-TRIO-${date}${attemptSalt ? `:${attemptSalt}` : ""}`;
   const requiredDatasets = DAILY_DIFFICULTIES.reduce(
@@ -1086,7 +1113,6 @@ export function generateDailyTrioFromLoadedCatalog(
             fixed[difficulty]!,
             scoreBoard(fixed[difficulty]!, profile.configs[difficulty]).overall,
             options.recentCountryExposure,
-            options.recentCategoryExposure,
           ),
         ];
       } else {
@@ -1259,6 +1285,7 @@ export function generateAnchoredRoundFromLoadedCatalog(
   seed = `REACHABILITY-${anchorCategoryId}`,
   firstFeasibleOnly = false,
 ): { round: Round; profile: string; score: ScoreBreakdown } {
+  countries = enrichCountriesWithPopulation(countries, loaded);
   const anchor = loaded.datasets.find((dataset) => dataset.category.id === anchorCategoryId);
   if (!anchor) throw new Error(`Anchor category ${anchorCategoryId} is not in the loaded playable catalog.`);
   const diagnostics: string[] = [];

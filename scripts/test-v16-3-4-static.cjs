@@ -12,6 +12,8 @@ const semantics = read("lib/categorySemantics.ts");
 const migration = read("supabase/migrations/20260907190839_v16_3_4_catalog_release_guard.sql");
 const linkRecovery = read("supabase/migrations/20260907191017_v16_3_4_restore_power_emissions_link.sql");
 const workflow = read(".github/workflows/verify-v16.yml");
+const puzzleEngine = read("lib/puzzleEngine.ts");
+const categoryGeneration = read("lib/categoryGeneration.ts");
 
 check(pkg.version === "16.3.4", "package version is not v16.3.4");
 check(pkg.scripts.test === "npm run test-v16-3-4" && pkg.scripts.check === "npm run check-v16-3-4", "default validation does not target v16.3.4");
@@ -43,6 +45,15 @@ for (const token of [
 ]) check(linkRecovery.includes(token), `power-emissions recovery missing ${token}`);
 check(/^begin;/m.test(linkRecovery) && /commit;\s*$/.test(linkRecovery), "power-emissions recovery is not transaction wrapped");
 check(workflow.includes("Verify GeoStats v16.3.4") && workflow.includes("npm run test-v16-3-4"), "CI does not verify v16.3.4");
+for (const token of [
+  "enrichCountriesWithPopulation",
+  "0.11 * familiarity",
+  "Math.min(7.5, raw * .65)",
+  "categoryAppealBonus(category)",
+]) check(puzzleEngine.includes(token), `generator balance change missing ${token}`);
+check(categoryGeneration.includes("categoryAppealScore") && categoryGeneration.includes("value > 0 ? value : fallback"), "category appeal normalization is missing");
+const candidateScoring = puzzleEngine.slice(puzzleEngine.indexOf("function candidateFromRound"), puzzleEngine.indexOf("function overlapCount"));
+check(!candidateScoring.includes("categoryRecencyPenalty"), "category recency is still counted twice");
 
 if (failures.length) {
   console.error(`GeoStats v16.3.4 checks FAILED:\n${failures.map((item) => ` - ${item}`).join("\n")}`);

@@ -150,6 +150,8 @@ type AnalyticsOverview = {
   authenticated_sessions: number;
   usernames_saved: number;
   completion_rate: number | null;
+  players_started: number;
+  players_completed: number;
 };
 type AnalyticsDailyRow = { activity_date: string; event_name: string; difficulty: DailyMode | null; events: number; sessions: number; signed_in_users: number; average_value: number | null };
 type AnalyticsDailySummaryRow = {
@@ -165,8 +167,16 @@ type AnalyticsDailySummaryRow = {
   internal_qa_page_views: number;
   internal_qa_games_started: number;
   internal_qa_games_completed: number;
+  players_started: number;
+  players_completed: number;
+  scout_players_started: number;
+  scout_players_completed: number;
+  adventurer_players_started: number;
+  adventurer_players_completed: number;
+  expert_players_started: number;
+  expert_players_completed: number;
 };
-type AnalyticsDifficultyRow = { difficulty: DailyMode; games_started: number; games_completed: number; sessions: number; completion_rate: number | null; average_percent: number | null };
+type AnalyticsDifficultyRow = { difficulty: DailyMode; games_started: number; games_completed: number; players_started: number; players_completed: number; sessions: number; completion_rate: number | null; average_percent: number | null };
 type AnalyticsAcquisitionRow = { visitor_state: string; utm_source: string; utm_medium: string; utm_campaign: string; referrer: string; page_views: number; sessions: number; games_completed: number; authenticated_sessions: number };
 type AnalyticsEngagementRow = { id: string; label: string; games_started: number; games_completed: number; sessions: number };
 type SourceHealthRow = { source: string; categories: number; playable: number; pending: number; latestRetrieved: string | null };
@@ -637,9 +647,11 @@ export default function AdminDashboard() {
             ["Repeat rate", data.analytics.returning_rate == null ? "—" : `${data.analytics.returning_rate}%`],
             ["New accounts", data.stats.accounts30d],
             ["Signed-in visitors", data.analytics.signed_in_users_seen],
+            ["Players started", data.analytics.players_started],
+            ["Players finished", data.analytics.players_completed],
+            ["Player finish rate", data.analytics.completion_rate == null ? "—" : `${data.analytics.completion_rate}%`],
             ["Games started", data.analytics.games_started],
-            ["Games completed", data.analytics.games_completed],
-            ["Completion rate", data.analytics.completion_rate == null ? "—" : `${data.analytics.completion_rate}%`],
+            ["Games finished", data.analytics.games_completed],
             ["Shares", data.analytics.shares],
             ["Average %", data.analytics.average_percent == null ? "—" : `${data.analytics.average_percent}%`],
           ].map(([label, value]) => <div key={String(label)} style={{ padding: 12, borderRadius: 12, background: "var(--surface-2)" }}>
@@ -651,15 +663,15 @@ export default function AdminDashboard() {
 
       <section style={{ ...card, marginTop: 16 }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "start", gap: 12, flexWrap: "wrap" }}>
-          <div><h2 style={{ margin: 0 }}>Traffic and accounts by day</h2><p style={{ margin: "5px 0 0", opacity: .7, fontSize: 12 }}>Real-player activity is separated from your excluded Admin and QA checks</p></div>
+          <div><h2 style={{ margin: 0 }}>Traffic and accounts by day</h2><p style={{ margin: "5px 0 0", opacity: .7, fontSize: 12 }}>Player counts are unique browsers; game totals count individual Scout, Adventurer, and Expert boards</p></div>
           <button type="button" style={mutedButton} disabled={loading} onClick={() => void load()}>{loading ? "Refreshing…" : "Refresh table"}</button>
         </div>
         {!data.analyticsDetails.migrationApplied ? <p>Apply the internal-traffic analytics migration to enable this table</p> : <div style={{ overflowX: "auto", marginTop: 14 }}>
-          <table style={{ width: "100%", minWidth: 930, borderCollapse: "collapse", fontSize: 12, fontVariantNumeric: "tabular-nums" }}>
-            <thead><tr style={{ textAlign: "right", opacity: .66, textTransform: "uppercase", fontSize: 10 }}><th style={{ textAlign: "left", padding: "8px 9px" }}>Date</th><th style={{ padding: "8px 9px" }}>Visitors</th><th style={{ padding: "8px 9px" }}>Page views</th><th style={{ padding: "8px 9px" }}>Starts</th><th style={{ padding: "8px 9px" }}>Finishes</th><th style={{ padding: "8px 9px" }}>Sign-in requests</th><th style={{ padding: "8px 9px" }}>Signed-in sessions</th><th style={{ padding: "8px 9px" }}>New accounts</th><th style={{ padding: "8px 9px" }}>QA excluded</th></tr></thead>
+          <table style={{ width: "100%", minWidth: 1340, borderCollapse: "collapse", fontSize: 12, fontVariantNumeric: "tabular-nums" }}>
+            <thead><tr style={{ textAlign: "right", opacity: .66, textTransform: "uppercase", fontSize: 10 }}><th style={{ textAlign: "left", padding: "8px 9px" }}>Date</th><th style={{ padding: "8px 9px" }}>Visitors</th><th style={{ padding: "8px 9px" }}>Players started</th><th style={{ padding: "8px 9px" }}>Players finished</th><th style={{ padding: "8px 9px" }}>Scout S / F</th><th style={{ padding: "8px 9px" }}>Adventurer S / F</th><th style={{ padding: "8px 9px" }}>Expert S / F</th><th style={{ padding: "8px 9px" }}>Games S / F</th><th style={{ padding: "8px 9px" }}>Page views</th><th style={{ padding: "8px 9px" }}>Sign-in requests</th><th style={{ padding: "8px 9px" }}>Signed-in sessions</th><th style={{ padding: "8px 9px" }}>New accounts</th><th style={{ padding: "8px 9px" }}>QA excluded</th></tr></thead>
             <tbody>{data.analyticsDetails.dailySummary.map((row) => <tr key={row.activity_date} style={{ borderTop: "1px solid var(--line)", textAlign: "right" }}>
               <th scope="row" style={{ textAlign: "left", padding: "10px 9px", whiteSpace: "nowrap" }}>{new Date(`${row.activity_date}T12:00:00Z`).toLocaleDateString(undefined, { month: "short", day: "numeric" })}</th>
-              <td style={{ padding: "10px 9px" }}>{formatNumber(row.visitors)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.page_views)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.games_started)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.games_completed)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.signin_requests)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.authenticated_sessions)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.accounts_created)}</td>
+              <td style={{ padding: "10px 9px" }}>{formatNumber(row.visitors)}</td><td style={{ padding: "10px 9px" }}><strong>{formatNumber(row.players_started)}</strong></td><td style={{ padding: "10px 9px" }}><strong>{formatNumber(row.players_completed)}</strong></td><td style={{ padding: "10px 9px" }}>{formatNumber(row.scout_players_started)} / {formatNumber(row.scout_players_completed)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.adventurer_players_started)} / {formatNumber(row.adventurer_players_completed)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.expert_players_started)} / {formatNumber(row.expert_players_completed)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.games_started)} / {formatNumber(row.games_completed)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.page_views)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.signin_requests)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.authenticated_sessions)}</td><td style={{ padding: "10px 9px" }}>{formatNumber(row.accounts_created)}</td>
               <td style={{ padding: "10px 9px", color: "var(--muted)" }} title={`${row.internal_qa_games_started} game starts and ${row.internal_qa_games_completed} finishes excluded`}>{formatNumber(row.internal_qa_sessions)} sessions · {formatNumber(row.internal_qa_page_views)} views</td>
             </tr>)}</tbody>
           </table>
@@ -702,8 +714,8 @@ export default function AdminDashboard() {
         <h2 style={{ marginTop: 0 }}>Gameplay engagement</h2>
         <div style={{ overflowX: "auto" }}>
           <div style={{ minWidth: 560 }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr repeat(5,90px)", gap: 8, padding: "8px 0", opacity: .65, fontSize: 11, textTransform: "uppercase" }}><span>Mode</span><span>Starts</span><span>Finishes</span><span>Sessions</span><span>Finish %</span><span>Average %</span></div>
-            {data.analyticsDetails.byDifficulty.map((row) => <div key={row.difficulty} style={{ display: "grid", gridTemplateColumns: "1fr repeat(5,90px)", gap: 8, padding: "9px 0", borderTop: "1px solid var(--line)" }}><strong>{dailyModeLabels[row.difficulty]}</strong><span>{formatNumber(row.games_started)}</span><span>{formatNumber(row.games_completed)}</span><span>{formatNumber(row.sessions)}</span><span>{row.completion_rate == null ? "—" : `${row.completion_rate}%`}</span><span>{row.average_percent == null ? "—" : `${row.average_percent}%`}</span></div>)}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr repeat(7,90px)", gap: 8, padding: "8px 0", opacity: .65, fontSize: 11, textTransform: "uppercase" }}><span>Mode</span><span>Players started</span><span>Players finished</span><span>Games started</span><span>Games finished</span><span>Sessions</span><span>Player finish %</span><span>Average %</span></div>
+            {data.analyticsDetails.byDifficulty.map((row) => <div key={row.difficulty} style={{ display: "grid", gridTemplateColumns: "1fr repeat(7,90px)", gap: 8, padding: "9px 0", borderTop: "1px solid var(--line)" }}><strong>{dailyModeLabels[row.difficulty]}</strong><span>{formatNumber(row.players_started)}</span><span>{formatNumber(row.players_completed)}</span><span>{formatNumber(row.games_started)}</span><span>{formatNumber(row.games_completed)}</span><span>{formatNumber(row.sessions)}</span><span>{row.completion_rate == null ? "—" : `${row.completion_rate}%`}</span><span>{row.average_percent == null ? "—" : `${row.average_percent}%`}</span></div>)}
           </div>
         </div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: 18, marginTop: 18 }}>

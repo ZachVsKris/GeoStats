@@ -115,6 +115,8 @@ type AnalyticsOverview = {
   authenticated_sessions: number;
   usernames_saved: number;
   completion_rate: number | null;
+  players_started: number;
+  players_completed: number;
 };
 
 type AnalyticsDailyRow = { activity_date: string; event_name: string; difficulty: DailyDifficulty | null; events: number; sessions: number; signed_in_users: number; average_value: number | null };
@@ -131,8 +133,16 @@ type AnalyticsDailySummaryRow = {
   internal_qa_page_views: number;
   internal_qa_games_started: number;
   internal_qa_games_completed: number;
+  players_started: number;
+  players_completed: number;
+  scout_players_started: number;
+  scout_players_completed: number;
+  adventurer_players_started: number;
+  adventurer_players_completed: number;
+  expert_players_started: number;
+  expert_players_completed: number;
 };
-type AnalyticsDifficultyRow = { difficulty: DailyDifficulty; games_started: number; games_completed: number; sessions: number; completion_rate: number | null; average_percent: number | null };
+type AnalyticsDifficultyRow = { difficulty: DailyDifficulty; games_started: number; games_completed: number; players_started: number; players_completed: number; sessions: number; completion_rate: number | null; average_percent: number | null };
 type AnalyticsAcquisitionRow = { visitor_state: string; utm_source: string; utm_medium: string; utm_campaign: string; referrer: string; page_views: number; sessions: number; games_completed: number; authenticated_sessions: number };
 type AnalyticsEngagementRow = { id: string; label: string; games_started: number; games_completed: number; sessions: number };
 
@@ -152,6 +162,8 @@ const emptyAnalytics: AnalyticsOverview = {
   authenticated_sessions: 0,
   usernames_saved: 0,
   completion_rate: null,
+  players_started: 0,
+  players_completed: 0,
 };
 
 const SOURCE_ID_BY_ORGANIZATION: Record<string, DataSourceId> = {
@@ -315,6 +327,8 @@ export async function GET() {
       authenticated_sessions: Number(row.authenticated_sessions ?? 0),
       usernames_saved: Number(row.usernames_saved ?? 0),
       completion_rate: row.completion_rate == null ? null : Number(row.completion_rate),
+      players_started: Number(row.players_started ?? 0),
+      players_completed: Number(row.players_completed ?? 0),
     };
   }
 

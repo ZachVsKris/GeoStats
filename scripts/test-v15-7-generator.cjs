@@ -47,6 +47,32 @@ const { enrichCountriesWithPopulation, generateDailyTrioFromLoadedCatalog, gener
 const { categoryAppealBonus, categoryAppealScore } = require(path.join(output, 'lib', 'categoryGeneration.js'));
 const { categoryConflictsWithExistingTrio, validateDailyTrio } = require(path.join(output, 'lib', 'dailyTrioRules.js'));
 const { validateRound } = require(path.join(output, 'lib', 'dataEngine.js'));
+const { candidateKeepsValuesSeparated } = require(path.join(output, 'lib', 'roundValueRules.js'));
+const { personalRatings } = require(path.join(output, 'lib', 'personalRating.js'));
+
+function separated(a, b, difficulty, overrides = {}) {
+  const dataset = {
+    category: { unit: '', decimals: 1, ...overrides },
+    byCountry: new Map([['A', { value: a }], ['B', { value: b }]]),
+  };
+  return candidateKeepsValuesSeparated([dataset], ['A'], 'B', difficulty);
+}
+if (separated(2.1, 2.2, 'easy') || separated(99.9, 99, 'expert', { unit: '%' })) {
+  throw new Error('One displayed tick and small relative gaps should be rejected.');
+}
+if (!separated(2.1, 2.3, 'easy') || !separated(100, 97, 'expert', { decimals: 0 })) {
+  throw new Error('Clearly separated values should remain available.');
+}
+if (separated(100, 97.1, 'easy', { decimals: 1 }) || separated(100, 97.1, 'normal', { decimals: 1 })) {
+  throw new Error('The minimum relative gap must depend on mode.');
+}
+if (!separated(1900, 1901, 'easy', { measurementType: 'historical_date' })) {
+  throw new Error('Historical dates must be exempt from the new separation rules.');
+}
+const ratingRows = Array.from({ length: 5 }, () => ({ difficulty: 'easy', score: 280, rules_version: '16.3.4' }));
+if (personalRatings(ratingRows.slice(0, 4)).easy !== null || personalRatings(ratingRows).easy !== 60) {
+  throw new Error('Personal rating must start at five games and use the five-game prior at 50.');
+}
 
 const continents = ['Africa', 'Asia', 'Europe', 'North America', 'South America', 'Oceania'];
 const isoCodes = [];
@@ -77,7 +103,7 @@ for (let categoryIndex = 0; categoryIndex < 48; categoryIndex += 1) {
     countryName: country.name,
     value: countryIndex === winnerIndex
       ? 1_000_000 + categoryIndex
-      : 500_000 - countryIndex * 500 - categoryIndex * 3,
+      : 500_000 * (1.16 ** (-countryIndex)) - categoryIndex * 0.0001,
     year: '2025',
   })).sort((left, right) => right.value - left.value);
   const ranked = observations.map((row, index) => ({ ...row, globalRank: index + 1 }));

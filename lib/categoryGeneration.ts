@@ -33,6 +33,23 @@ export type CategoryExposure = {
 
 export const EMPTY_CATEGORY_EXPOSURE: CategoryExposure = { category: {}, family: {}, bucket: {} };
 
+function positiveScore(value: number | undefined, fallback: number) {
+  return typeof value === "number" && Number.isFinite(value) && value > 0 ? value : fallback;
+}
+
+/** A continuous 0-100 estimate of how immediately understandable and fun a category is. */
+export function categoryAppealScore(category: Category) {
+  const understand = positiveScore(category.immediateComprehensionScore ?? category.understandabilityScore, 82);
+  const interest = positiveScore(category.gameplayInterestScore ?? category.funScore, 82);
+  const uniqueness = positiveScore(category.uniquenessScore, 80);
+  return Math.max(0, Math.min(100, interest * .55 + understand * .30 + uniqueness * .15));
+}
+
+/** Soft preference only: an obscure category remains eligible when it improves the board. */
+export function categoryAppealBonus(category: Category) {
+  return Math.max(-6, Math.min(10, (categoryAppealScore(category) - 75) * .4));
+}
+
 const UNDERREPRESENTED_BUCKET_BOOST: Partial<Record<WorldKnowledgeBucket, number>> = {
   history: 5.5,
   "government-civics": 3.5,
@@ -71,9 +88,9 @@ export function worldKnowledgeBucket(category: Category): WorldKnowledgeBucket {
 
 /** Player appeal is separate from data validity; this only affects exposure. */
 export function generationPriority(category: Category): GenerationPriority {
-  const understand = category.immediateComprehensionScore ?? category.understandabilityScore ?? 82;
-  const interest = category.gameplayInterestScore ?? category.funScore ?? 82;
-  const uniqueness = category.uniquenessScore ?? 80;
+  const understand = positiveScore(category.immediateComprehensionScore ?? category.understandabilityScore, 82);
+  const interest = positiveScore(category.gameplayInterestScore ?? category.funScore, 82);
+  const uniqueness = positiveScore(category.uniquenessScore, 80);
   const text = `${category.name} ${category.shortName} ${category.semanticTopic ?? ""}`.toLowerCase();
 
   if (

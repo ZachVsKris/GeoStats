@@ -66,8 +66,18 @@ if (!separated(2.1, 2.3, 'easy') || !separated(100, 97, 'expert', { decimals: 0 
 if (separated(100, 97.1, 'easy', { decimals: 1 }) || separated(100, 97.1, 'normal', { decimals: 1 })) {
   throw new Error('The minimum relative gap must depend on mode.');
 }
-if (!separated(1900, 1901, 'easy', { measurementType: 'historical_date' })) {
-  throw new Error('Historical dates must be exempt from the new separation rules.');
+const yearRank = { measurementType: 'historical_date', historicalValueFormat: 'year' };
+const dateRank = { measurementType: 'historical_date', historicalValueFormat: 'date' };
+if (separated(1900, 1903, 'easy', yearRank) || !separated(1900, 1904, 'easy', yearRank)
+  || separated(1900, 1902, 'normal', yearRank) || !separated(1900, 1903, 'normal', yearRank)
+  || separated(1900, 1901, 'expert', yearRank) || !separated(1900, 1902, 'expert', yearRank)) {
+  throw new Error('Year-ranked categories must use mode-specific minimum year gaps.');
+}
+if (separated(20200101, 20231231, 'easy', dateRank) || !separated(20200101, 20240101, 'easy', dateRank)
+  || separated(20200101, 20221231, 'normal', dateRank) || !separated(20200101, 20230101, 'normal', dateRank)
+  || separated(20200101, 20211231, 'expert', dateRank) || !separated(20200101, 20220101, 'expert', dateRank)
+  || separated(20200101, 20200101, 'expert', dateRank) || separated(20200230, 20260101, 'expert', dateRank)) {
+  throw new Error('Full-date categories must use actual calendar anniversaries and reject invalid dates.');
 }
 const ratingRows = Array.from({ length: 5 }, () => ({ difficulty: 'easy', score: 280, rules_version: '16.3.4' }));
 if (personalRatings(ratingRows.slice(0, 4)).easy !== null || personalRatings(ratingRows).easy !== 60) {

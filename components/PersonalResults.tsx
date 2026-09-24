@@ -76,8 +76,8 @@ export default function PersonalResults() {
           <div><strong>{isGuestPreview ? "—" : history.length}</strong><span>Dailies completed</span></div>
           <div><strong>{isGuestPreview ? "—" : average}<small> / {config.maxScore}</small></strong><span>Average score</span></div>
           <div><strong>{isGuestPreview ? "—" : best ?? "—"}<small> / {config.maxScore}</small></strong><span>Best result</span></div>
-          <div><strong>{isGuestPreview || ratings[mode] == null ? "—" : ratings[mode].toFixed(1)}<small> / 100</small></strong><span className="ratingLabel">Player rating <button type="button" className="ratingInfoButton" aria-label="How is player rating calculated?" aria-expanded={showRatingInfo} aria-controls="rating-explanation" onClick={() => setShowRatingInfo((open) => !open)}>i</button></span></div>
           <div><strong>{isGuestPreview ? "—" : averagePlacement}<small> / {config.countryCount}</small></strong><span>Average placement</span></div>
+          <div><strong>{isGuestPreview || ratings[mode] == null ? "—" : ratings[mode].toFixed(1)}<small> / 100</small></strong><span className="ratingLabel">Player rating <button type="button" className="ratingInfoButton" aria-label="How is player rating calculated?" aria-expanded={showRatingInfo} aria-controls="rating-explanation" onClick={() => setShowRatingInfo((open) => !open)}>i</button></span></div>
         </div>
         {showRatingInfo && <div id="rating-explanation" className="ratingExplanation">
           <p>Your rating reflects both <strong>how well you score</strong> and <strong>how consistently you’ve played</strong>.</p>

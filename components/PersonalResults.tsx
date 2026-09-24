@@ -4,7 +4,7 @@ import { useEffect, useState, type KeyboardEvent } from "react";
 import { DAILY_DIFFICULTIES, ROUND_CONFIGS, type DailyDifficulty } from "../lib/gameRules";
 import { createSupabaseBrowserClient } from "../lib/supabase/browser";
 
-type Result = { challenge_date: string; difficulty: DailyDifficulty; score: number; rules_version: string | null };
+type Result = { challenge_date: string; difficulty: DailyDifficulty; score: number; average_placement: number | null; rules_version: string | null };
 type Ratings = Record<DailyDifficulty, number | null>;
 const emptyRatings: Ratings = { easy: null, normal: null, expert: null };
 
@@ -38,6 +38,10 @@ export default function PersonalResults() {
   const config = ROUND_CONFIGS[mode];
   const history = results.filter((r) => r.difficulty === mode && Number.isFinite(r.score));
   const average = history.length ? (history.reduce((sum, r) => sum + r.score, 0) / history.length).toFixed(1) : "—";
+  const placementResults = history.filter((r) => Number.isFinite(r.average_placement));
+  const averagePlacement = placementResults.length
+    ? (placementResults.reduce((sum, r) => sum + Number(r.average_placement), 0) / placementResults.length).toFixed(1)
+    : "—";
   const best = history.length ? Math.max(...history.map((r) => r.score)) : null;
   const isGuestPreview = status === "guest";
 
@@ -79,8 +83,9 @@ export default function PersonalResults() {
           <p>Your average score matters most. Games played adds confidence to that average, so one unusually good or bad game won’t determine your rating.</p>
           <p>As you play more games, your rating gets closer to your true average performance.</p>
         </div>}
+        <p className="personalPlacementStat"><strong>{isGuestPreview ? "—" : averagePlacement} <small>/ {config.countryCount}</small></strong><span>Average placement</span></p>
         {!isGuestPreview && <><h2>{config.label} history</h2>
-          {history.length ? <div className="personalHistory">{history.map((r) => <div key={`${r.challenge_date}-${r.difficulty}`} className="personalHistoryRow"><time dateTime={r.challenge_date}>{r.challenge_date}</time><strong>{r.score} / {config.maxScore}</strong></div>)}</div> : <p>No saved {config.label} results yet. Play a Daily while signed in to start your history.</p>}</>}
+          {history.length ? <div className="personalHistory">{history.map((r) => <div key={`${r.challenge_date}-${r.difficulty}`} className="personalHistoryRow"><time dateTime={r.challenge_date}>{r.challenge_date}</time><strong>{r.score} / {config.maxScore}</strong><span>{r.average_placement == null ? "—" : `${Number(r.average_placement).toFixed(1)} / ${config.countryCount}`} placement</span></div>)}</div> : <p>No saved {config.label} results yet. Play a Daily while signed in to start your history.</p>}</>}
       </div>
     </>}
   </section>;

@@ -26,7 +26,7 @@ import {
   validateDailyTrio,
 } from "./dailyTrioRules";
 import { generationProfiles } from "./generationProfiles";
-import { candidateKeepsDisplayedValuesDistinct } from "./roundValueRules";
+import { candidateKeepsValuesSeparated } from "./roundValueRules";
 import {
   anchorExposureScore, bucketSpreadScore, categoryAppealBonus, categoryRecencyPenalty, categorySubsetExposureBoost, priorityScore, worldKnowledgeBucket,
   type CategoryExposure,
@@ -479,7 +479,7 @@ function findDistinctWinners(
       const country = countryById.get(id);
       if (!country || (continentCounts.get(country.continent) ?? 0) >= config.maxCountriesPerContinent) continue;
       const ownValue = observationValue(category, id);
-      if (ownValue === undefined || !candidateKeepsDisplayedValuesDistinct(categories, used, id)) continue;
+      if (ownValue === undefined || !candidateKeepsValuesSeparated(categories, used, id, config.difficulty)) continue;
 
       let valid = true;
       for (let priorDepth = 0; priorDepth < depth; priorDepth += 1) {
@@ -534,7 +534,7 @@ function findDistinctWinners(
   for (const country of decoyCandidates) {
     if ((continentCounts.get(country.continent) ?? 0) >= config.maxCountriesPerContinent) continue;
     if (existingCountrySets.some((set, index) => set.has(country.id) && existingOverlapCounts[index] >= 1)) continue;
-    if (!candidateKeepsDisplayedValuesDistinct(categories, selectedBankIds, country.id)) continue;
+    if (!candidateKeepsValuesSeparated(categories, selectedBankIds, country.id, config.difficulty)) continue;
     decoys.push(country.id);
     selectedBankIds.add(country.id);
     existingCountrySets.forEach((set, index) => { if (set.has(country.id)) existingOverlapCounts[index] += 1; });

@@ -403,10 +403,10 @@ export default function AccountControls({
           <p id={`account-dialog-description-${context}`}>Your account saves your Daily history and personal stats across devices. Your email stays private.</p>
           {saving && <p>Saving your completed Daily…</p>}
         </> : <>
-          <p id={`account-dialog-description-${context}`}>Sign in to keep your Daily results and personal stats across devices. Every Daily mode is free to play without an account.</p>
+          <p id={`account-dialog-description-${context}`}>Sign in to get a player rating and see your stats over time. Every Daily mode is free to play without an account.</p>
           <ul className="accountBenefits">
             <li>Keep your complete Daily history across devices</li>
-            <li>See your result history and average scores</li>
+            <li>Track your player rating, average score, and best result</li>
             <li>Automatically save your first completed score per mode each day</li>
           </ul>
           <button type="button" className="googleSignInButton" onClick={signInWithGoogle} disabled={signingInWithGoogle || sendingLink || googleAvailable === "disabled"}>{signingInWithGoogle ? "Opening Google…" : googleAvailable === "disabled" ? "Google sign-in unavailable" : <><span aria-hidden="true" className="googleMark">G</span>Continue with Google</>}</button>

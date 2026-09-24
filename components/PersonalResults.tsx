@@ -39,6 +39,7 @@ export default function PersonalResults() {
   const history = results.filter((r) => r.difficulty === mode && Number.isFinite(r.score));
   const average = history.length ? (history.reduce((sum, r) => sum + r.score, 0) / history.length).toFixed(1) : "—";
   const best = history.length ? Math.max(...history.map((r) => r.score)) : null;
+  const isGuestPreview = status === "guest";
 
   function selectMode(next: DailyDifficulty) { setMode(next); setShowRatingInfo(false); }
   function moveTab(event: KeyboardEvent<HTMLButtonElement>, current: DailyDifficulty) {
@@ -60,26 +61,26 @@ export default function PersonalResults() {
 
   return <section className="panel personalResults"><button type="button" className="personalBackButton" onClick={goBack}>← Back</button><h1>My Stats</h1>
     {status === "loading" && <p>Loading your results…</p>}
-    {status === "guest" && <p>Sign in or create an account to save Daily results and see your history here. Use the account button above to get started.</p>}
+    {status === "guest" && <p className="personalStatsIntro">Sign in or create an account to get a player rating and track your Daily history, average score, and best result over time.</p>}
     {status === "error" && <p role="alert">Your results could not be loaded. Please refresh the page.</p>}
-    {status === "ready" && <>
+    {(status === "guest" || status === "ready") && <>
       <div className="personalModeTabs" role="tablist" aria-label="Daily difficulty">
         {DAILY_DIFFICULTIES.map((difficulty) => <button key={difficulty} id={`stats-tab-${difficulty}`} type="button" role="tab" aria-selected={mode === difficulty} aria-controls="personal-stats-panel" tabIndex={mode === difficulty ? 0 : -1} onClick={() => selectMode(difficulty)} onKeyDown={(event) => moveTab(event, difficulty)}>{ROUND_CONFIGS[difficulty].label}</button>)}
       </div>
       <div id="personal-stats-panel" role="tabpanel" aria-labelledby={`stats-tab-${mode}`}>
-        <div className="personalStats">
-          <div><strong>{history.length}</strong><span>Dailies completed</span></div>
-          <div><strong>{average}{history.length > 0 && <small> / {config.maxScore}</small>}</strong><span>Average score</span></div>
-          <div><strong>{best ?? "—"}{best != null && <small> / {config.maxScore}</small>}</strong><span>Best result</span></div>
-          <div><strong>{ratings[mode] == null ? "—" : ratings[mode].toFixed(1)}{ratings[mode] != null && <small> / 100</small>}</strong><span className="ratingLabel">Player rating <button type="button" className="ratingInfoButton" aria-label="How is player rating calculated?" aria-expanded={showRatingInfo} aria-controls="rating-explanation" onClick={() => setShowRatingInfo((open) => !open)}>i</button></span></div>
+        <div className={`personalStats${isGuestPreview ? " personalStatsPreview" : ""}`} aria-label={isGuestPreview ? `${config.label} stats preview` : undefined}>
+          <div><strong>{isGuestPreview ? "—" : history.length}</strong><span>Dailies completed</span></div>
+          <div><strong>{isGuestPreview ? "—" : average}<small> / {config.maxScore}</small></strong><span>Average score</span></div>
+          <div><strong>{isGuestPreview ? "—" : best ?? "—"}<small> / {config.maxScore}</small></strong><span>Best result</span></div>
+          <div><strong>{isGuestPreview || ratings[mode] == null ? "—" : ratings[mode].toFixed(1)}<small> / 100</small></strong><span className="ratingLabel">Player rating <button type="button" className="ratingInfoButton" aria-label="How is player rating calculated?" aria-expanded={showRatingInfo} aria-controls="rating-explanation" onClick={() => setShowRatingInfo((open) => !open)}>i</button></span></div>
         </div>
         {showRatingInfo && <div id="rating-explanation" className="ratingExplanation">
           <p>Your rating reflects both <strong>how well you score</strong> and <strong>how consistently you’ve played</strong>.</p>
           <p>Your average score matters most. Games played adds confidence to that average, so one unusually good or bad game won’t determine your rating.</p>
           <p>As you play more games, your rating gets closer to your true average performance.</p>
         </div>}
-        <h2>{config.label} history</h2>
-        {history.length ? <div className="personalHistory">{history.map((r) => <div key={`${r.challenge_date}-${r.difficulty}`} className="personalHistoryRow"><time dateTime={r.challenge_date}>{r.challenge_date}</time><strong>{r.score} / {config.maxScore}</strong></div>)}</div> : <p>No saved {config.label} results yet. Play a Daily while signed in to start your history.</p>}
+        {!isGuestPreview && <><h2>{config.label} history</h2>
+          {history.length ? <div className="personalHistory">{history.map((r) => <div key={`${r.challenge_date}-${r.difficulty}`} className="personalHistoryRow"><time dateTime={r.challenge_date}>{r.challenge_date}</time><strong>{r.score} / {config.maxScore}</strong></div>)}</div> : <p>No saved {config.label} results yet. Play a Daily while signed in to start your history.</p>}</>}
       </div>
     </>}
   </section>;

@@ -1325,12 +1325,14 @@ header{display:flex;align-items:center;justify-content:space-between;padding:6px
 .personalBackButton:hover, .personalBackButton:focus-visible { border-color: var(--accent); color: var(--accent); }
 .personalResults h1 { margin: 0 0 1.5rem; }
 .personalResults h2 { margin: 2rem 0 1rem; }
+.personalStatsIntro { max-width: 68ch; margin: -.5rem 0 1.5rem; color: var(--muted); line-height: 1.55; }
 .personalModeTabs { display: flex; gap: .4rem; border-bottom: 1px solid var(--line-soft); margin-bottom: 1.5rem; overflow-x: auto; }
 .personalModeTabs button { flex: 0 0 auto; padding: .8rem 1rem; border: 0; border-bottom: 3px solid transparent; background: transparent; color: var(--muted); font: 700 1rem var(--sans); cursor: pointer; }
 .personalModeTabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
 .personalModeTabs button:hover, .personalModeTabs button:focus-visible { color: var(--ink); }
 .personalStats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .8rem; }
 .personalStats > div { display: flex; flex-direction: column; gap: .5rem; min-width: 0; padding: 1rem; border: 1px solid var(--line-soft); border-radius: 10px; }
+.personalStatsPreview > div { background: color-mix(in srgb, var(--surface) 75%, transparent); }
 .personalStats strong { font-size: 1.7rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .personalStats strong small { font-size: .85rem; font-weight: 500; }
 .personalStats span { font-size: .95rem; }

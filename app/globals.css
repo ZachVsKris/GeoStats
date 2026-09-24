@@ -1,3 +1,6 @@
+Warning: truncated output (original token count: 30635)
+Total output lines: 1348
+
 :root{
   color-scheme:dark;
   --bg:#08130f;
@@ -815,44 +818,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:6px
 }
 
 @media(prefers-reduced-motion:reduce){
-  *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-  .playGrid .country,.playGrid .slot,.playGrid .choice,.playGrid .lock button,.touchGhost{transition:none!important;animation:none!important}
-}
-
-
-/* v11.0.15: clearer measurement subtitles and a restrained atlas-fold divider. */
-.playGrid>.bankPanel,.playGrid>.boardPanel{min-width:0}
-@media(max-width:900px){.boardSpine{display:none}}
-
-/* v11.1.0: the six-category atlas uses a consistent 2 × 3 board on larger screens. */
-@media (min-width:621px){
-  .activePlay .boardPanel .slots{grid-template-columns:repeat(2,minmax(0,1fr));}
-}
-
-/* v11.2: coordinated Normal + Expert Daily modes */
-.leaderboardModeTabs{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
-.leaderboardModeTabs button{padding:16px;border:0;border-right:1px solid var(--line);border-radius:0;background:#091711;color:var(--muted);font-family:var(--label);font-size:11px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;cursor:pointer}
-.leaderboardModeTabs button:last-child{border-right:0}
-.leaderboardModeTabs button.active{background:rgba(120,185,154,.10);color:var(--ink);box-shadow:inset 0 -3px 0 var(--accent-2)}
-
-@media(min-width:901px){
-  .activePlay .bankPanel .countries,.activePlay .boardPanel .slots{flex:1;min-height:0;overflow:hidden}
-  .activePlay.normalRound .bankPanel .countries{grid-template-rows:repeat(4,minmax(0,1fr))}
-  .activePlay.normalRound .boardPanel .slots{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr))}
-  .activePlay.expertRound .bankPanel .countries{grid-template-rows:repeat(5,minmax(0,1fr))}
-  .activePlay.expertRound .boardPanel .slots{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(4,minmax(0,1fr))}
-  .activePlay.expertRound .country{min-height:0}
-  .activePlay.expertRound .slot{min-height:0;display:flex;flex-direction:column;justify-content:space-between}
-}
-
-@media(max-width:620px){
-  .activePlay.expertRound .playGrid{grid-template-rows:118px minmax(0,1fr)}
-  .activePlay.expertRound .bankPanel .countries{grid-template-columns:repeat(5,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr))}
-  .activePlay.expertRound .country strong{font-size:7.4px}
-  .activePlay.expertRound .country>span{font-size:19px}
-  .activePlay.expertRound .boardPanel .slots{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(4,minmax(0,1fr))}
-  .activePlay.expertRound .slot{padding:4px}
-  .activePlay.expertRound .category strong{font-size:9.2px}
+  *,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important…635 tokens truncated…size:9.2px}
   .activePlay.expertRound .category small{font-size:6.7px;-webkit-line-clamp:1}
   .activePlay.expertRound .choice{min-height:18px;margin-top:2px;padding:3px 5px}
   .activePlay.expertRound .choice strong,.activePlay.expertRound .choice em{font-size:6.8px}
@@ -1325,12 +1291,14 @@ header{display:flex;align-items:center;justify-content:space-between;padding:6px
 .personalBackButton:hover, .personalBackButton:focus-visible { border-color: var(--accent); color: var(--accent); }
 .personalResults h1 { margin: 0 0 1.5rem; }
 .personalResults h2 { margin: 2rem 0 1rem; }
+.personalStatsIntro { max-width: 68ch; margin: -.5rem 0 1.5rem; color: var(--muted); line-height: 1.55; }
 .personalModeTabs { display: flex; gap: .4rem; border-bottom: 1px solid var(--line-soft); margin-bottom: 1.5rem; overflow-x: auto; }
 .personalModeTabs button { flex: 0 0 auto; padding: .8rem 1rem; border: 0; border-bottom: 3px solid transparent; background: transparent; color: var(--muted); font: 700 1rem var(--sans); cursor: pointer; }
 .personalModeTabs button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
 .personalModeTabs button:hover, .personalModeTabs button:focus-visible { color: var(--ink); }
 .personalStats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .8rem; }
 .personalStats > div { display: flex; flex-direction: column; gap: .5rem; min-width: 0; padding: 1rem; border: 1px solid var(--line-soft); border-radius: 10px; }
+.personalStatsPreview > div { background: color-mix(in srgb, var(--surface) 75%, transparent); }
 .personalStats strong { font-size: 1.7rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .personalStats strong small { font-size: .85rem; font-weight: 500; }
 .personalStats span { font-size: .95rem; }

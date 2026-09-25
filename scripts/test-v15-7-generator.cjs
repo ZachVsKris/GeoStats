@@ -43,7 +43,7 @@ fs.writeFileSync(path.join(output, 'lib', 'serverWarehouseCategories.js'), 'expo
 fs.writeFileSync(path.join(output, 'lib', 'serverPlayableCatalog.js'), 'exports.loadServerPlayableCategoryCatalog = async () => [];\n');
 fs.writeFileSync(path.join(output, 'lib', 'puzzleWarehouseSnapshot.js'), 'exports.loadCachedPuzzleWarehouseSnapshot = async () => ({ datasets: [], errors: [], catalogSize: 0 });\n');
 
-const { enrichCountriesWithPopulation, generateDailyTrioFromLoadedCatalog, generateSeededRoundFromLoadedCatalog, recentCountryPenalty, selectSeededAnchorCategoryId } = require(path.join(output, 'lib', 'puzzleEngine.js'));
+const { enrichCountriesWithPopulation, generateDailyTrioFromLoadedCatalog, generateSeededRoundFromLoadedCatalog, recentCountryPenalty, recentCategoryPenalty, selectSeededAnchorCategoryId } = require(path.join(output, 'lib', 'puzzleEngine.js'));
 const { categoryAppealBonus, categoryAppealScore } = require(path.join(output, 'lib', 'categoryGeneration.js'));
 const { categoryConflictsWithExistingTrio, validateDailyTrio } = require(path.join(output, 'lib', 'dailyTrioRules.js'));
 const { validateRound } = require(path.join(output, 'lib', 'dataEngine.js'));
@@ -197,6 +197,11 @@ if (enrichedCountries.some((country) => !country.population)) {
   throw new Error('Population data was not attached to the country pool for familiarity scoring.');
 }
 const penaltyRound = { bank: countries.slice(0, 8), categories: datasets.slice(0, 6) };
+const repeated = datasets[0].category;
+const exposure = { category: { [repeated.id]: 18 }, family: {}, bucket: {} };
+if (recentCategoryPenalty(penaltyRound, exposure) !== 25.2) {
+  throw new Error('Recently used categories must lower completed-board scores, including forced anchors.');
+}
 const saturatedExposure = Object.fromEntries(penaltyRound.bank.map((country) => [country.id, 100]));
 if (recentCountryPenalty(penaltyRound, saturatedExposure) !== 7.5) {
   throw new Error('Recent-country penalty is not capped as a soft diversity preference.');

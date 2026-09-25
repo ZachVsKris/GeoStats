@@ -643,15 +643,26 @@ export function recentCountryPenalty(round: Round, recentCountryExposure?: Recor
   return Math.min(7.5, raw * .65);
 }
 
+export function recentCategoryPenalty(round: Round, recentCategoryExposure?: CategoryExposure) {
+  if (!recentCategoryExposure) return 0;
+  // Anchors bypass optionScore's category-recency preference. Apply that
+  // preference to completed boards so a recently used anchor cannot win on
+  // board quality alone. This also compares the rest of the set consistently.
+  return round.categories.reduce(
+    (sum, dataset) => sum + categoryRecencyPenalty(dataset.category, recentCategoryExposure),
+    0,
+  );
+}
+
 function candidateFromRound(
   round: Round,
   score: number,
   recentCountryExposure?: Record<string, number>,
+  recentCategoryExposure?: CategoryExposure,
 ): RoundCandidate {
   return {
     round,
-    // Category recency is already included while choosing the category set.
-    score: score - recentCountryPenalty(round, recentCountryExposure),
+    score: score - recentCountryPenalty(round, recentCountryExposure) - recentCategoryPenalty(round, recentCategoryExposure),
     categorySignature: round.categories.map((dataset) => dataset.category.id).sort().join("|"),
     countrySignature: round.bank.map((country) => country.id).sort().join("|"),
   };
@@ -766,7 +777,7 @@ function composeRoundCandidates(
       validationFailures += 1;
       continue;
     }
-    candidates.push(candidateFromRound(round, scoreBoard(round, config).overall, recentCountryExposure));
+    candidates.push(candidateFromRound(round, scoreBoard(round, config).overall, recentCountryExposure, recentCategoryExposure));
     // Feasibility audits need one complete validated witness, not a ranked pool.
     // Production generation keeps its full search and selection by default.
     if (firstFeasibleOnly) break;
@@ -884,11 +895,13 @@ function fixedCandidate(
   round: Round,
   difficulty: DailyDifficulty,
   recentCountryExposure?: Record<string, number>,
+  recentCategoryExposure?: CategoryExposure,
 ) {
   return candidateFromRound(
     round,
     scoreBoard(round, ROUND_CONFIGS[difficulty]).overall,
     recentCountryExposure,
+    recentCategoryExposure,
   );
 }
 
@@ -927,7 +940,7 @@ function constructGuidedTrio(
       for (const difficulty of fixedDifficulties) {
         const round = fixed[difficulty]!;
         if (!roundCompatibleWithExisting(round, existingRounds)) return null;
-        selected[difficulty] = fixedCandidate(round, difficulty, recentCountryExposure);
+        selected[difficulty] = fixedCandidate(round, difficulty, recentCountryExposure, recentCategoryExposure);
         existingRounds.push(round);
       }
 
@@ -1113,6 +1126,7 @@ export function generateDailyTrioFromLoadedCatalog(
             fixed[difficulty]!,
             scoreBoard(fixed[difficulty]!, profile.configs[difficulty]).overall,
             options.recentCountryExposure,
+            options.recentCategoryExposure,
           ),
         ];
       } else {

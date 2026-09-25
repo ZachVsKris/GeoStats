@@ -187,9 +187,10 @@ const populationHook = { ...datasets[0].category, id: 'population', name: 'Large
 const economyHook = { ...datasets[1].category, id: 'gdp', name: 'Largest economy' };
 const nicheLargest = { ...datasets[2].category, id: 'faostat-qcl-asses-stocks-02132-5111-an', name: 'Largest donkey population' };
 if (!isFamiliarCategory(populationHook) || isFamiliarCategory(nicheLargest)
-  || familiarBoardBonus([populationHook]) !== 12
-  || familiarBoardBonus([populationHook, economyHook]) !== 18
-  || familiarBoardBonus([populationHook, economyHook, nicheLargest]) !== 18
+  || familiarBoardBonus([populationHook], 'easy') !== 6
+  || familiarBoardBonus([populationHook, economyHook], 'easy') !== 6
+  || familiarBoardBonus([populationHook, economyHook], 'normal') !== 17
+  || familiarBoardBonus([populationHook, economyHook, nicheLargest], 'expert') !== 24
   || priorityScore(populationHook, 'easy') <= priorityScore({ ...populationHook, id: 'other-population' }, 'easy')) {
   throw new Error('Familiarity must prefer recognizable questions without promoting every largest-count category.');
 }

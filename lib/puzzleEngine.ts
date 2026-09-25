@@ -179,8 +179,9 @@ function weightedAnchorSample(
       // The bucket count deliberately does not appear here. A 500-row bucket
       // therefore gets one macro-domain opportunity, not 500 opportunities.
       const familiarAvailable = entry.datasets.some((dataset) => isFamiliarCategory(dataset.category));
+      const familiarWeight = config.difficulty === "easy" ? 1.15 : config.difficulty === "normal" ? 1.45 : 1.7;
       const weight = Math.max(.12, Math.exp(Math.max(-2.5, Math.min(2.5, representativeScore / 12 - observed * .025))))
-        * (familiarAvailable ? 1.45 : 1);
+        * (familiarAvailable ? familiarWeight : 1);
       return { ...entry, weight };
     });
     const bucketTotal = bucketWeights.reduce((sum, item) => sum + item.weight, 0);
@@ -199,7 +200,7 @@ function weightedAnchorSample(
       const quality = scoreCategoryQuality(dataset).score;
       const weight = Math.exp(Math.max(-3, Math.min(3, exposureScore / 18)))
         * Math.max(.70, Math.min(1.18, quality / 84))
-        * (isFamiliarCategory(dataset.category) ? 2.5 : 1);
+        * (isFamiliarCategory(dataset.category) ? (config.difficulty === "easy" ? 1.5 : config.difficulty === "normal" ? 2.5 : 3) : 1);
       return { dataset, weight };
     });
     const categoryTotal = categoryWeights.reduce((sum, item) => sum + item.weight, 0);
@@ -623,7 +624,7 @@ export function scoreBoard(round: Round, config: RoundConfig): ScoreBreakdown {
   const difficultyFit = Math.max(0, 100 - Math.abs(averageRank - rankTarget) * 1.8);
   const competitiveness = Math.max(0, 100 - Math.abs(averageGap - gapTarget) * 260);
   const overall = 0.26 * quality + 0.18 * variety + 0.14 * geography + 0.18 * difficultyFit + 0.13 * competitiveness + 0.11 * familiarity
-    + familiarBoardBonus(round.categories.map((dataset) => dataset.category));
+    + familiarBoardBonus(round.categories.map((dataset) => dataset.category), config.difficulty);
 
   return {
     overall: Number(overall.toFixed(1)),

@@ -36,17 +36,16 @@ export const EMPTY_CATEGORY_EXPOSURE: CategoryExposure = { category: {}, family:
 // Familiar entry points to the puzzle. Match exact catalog identities so
 // "largest" alone never promotes niche measures such as mule populations.
 const FAMILIAR_CATEGORY_IDS = new Set([
-  "population", "gdp", "land", "life", "density", "gdpPc", "fertility",
-  "forestArea", "forestPct", "arableHa", "protected",
+  "land", "population", "density", "unwpp:lowest-pop-density",
+  "gdp", "gdpPc", "militarySpend", "life",
+  "natural-earth:northernmost-country", "natural-earth:southernmost-country",
   "natural-earth-capital:northernmost-capital",
   "natural-earth-capital:southernmost-capital",
   "natural-earth-capital:capital-closest-equator",
   "natural-earth:most-land-neighbors",
-  "natural-earth:largest-single-mapped-lake",
-  "smithsonian-gvp:highest-volcano",
-  "smithsonian-gvp:most-holocene-volcanoes",
-  "usgs:most-major-earthquakes-since-1970",
-  "eia:most-crude-oil-produced",
+  "natural-earth:longest-land-border",
+  "koppen-geiger:desert-share", "koppen-geiger:tropical-rainforest-share",
+  "koppen-geiger:polar-share",
 ]);
 
 export function isFamiliarCategory(category: Category) {
@@ -54,9 +53,11 @@ export function isFamiliarCategory(category: Category) {
 }
 
 /** Prefer one familiar hook per board, with room for another and for surprises. */
-export function familiarBoardBonus(categories: Category[]) {
+export function familiarBoardBonus(categories: Category[], difficulty: DailyDifficulty = "easy") {
   const count = categories.filter(isFamiliarCategory).length;
-  return (count > 0 ? 12 : 0) + (count > 1 ? 6 : 0);
+  const first = difficulty === "easy" ? 6 : difficulty === "normal" ? 12 : 16;
+  const second = difficulty === "easy" ? 0 : difficulty === "normal" ? 5 : 8;
+  return (count > 0 ? first : 0) + (count > 1 ? second : 0);
 }
 
 function positiveScore(value: number | undefined, fallback: number) {

@@ -33,6 +33,32 @@ export type CategoryExposure = {
 
 export const EMPTY_CATEGORY_EXPOSURE: CategoryExposure = { category: {}, family: {}, bucket: {} };
 
+// Familiar entry points to the puzzle. Match exact catalog identities so
+// "largest" alone never promotes niche measures such as mule populations.
+const FAMILIAR_CATEGORY_IDS = new Set([
+  "population", "gdp", "land", "life", "density", "gdpPc", "fertility",
+  "forestArea", "forestPct", "arableHa", "protected",
+  "natural-earth-capital:northernmost-capital",
+  "natural-earth-capital:southernmost-capital",
+  "natural-earth-capital:capital-closest-equator",
+  "natural-earth:most-land-neighbors",
+  "natural-earth:largest-single-mapped-lake",
+  "smithsonian-gvp:highest-volcano",
+  "smithsonian-gvp:most-holocene-volcanoes",
+  "usgs:most-major-earthquakes-since-1970",
+  "eia:most-crude-oil-produced",
+]);
+
+export function isFamiliarCategory(category: Category) {
+  return FAMILIAR_CATEGORY_IDS.has(category.id);
+}
+
+/** Prefer one familiar hook per board, with room for another and for surprises. */
+export function familiarBoardBonus(categories: Category[]) {
+  const count = categories.filter(isFamiliarCategory).length;
+  return (count > 0 ? 12 : 0) + (count > 1 ? 6 : 0);
+}
+
 function positiveScore(value: number | undefined, fallback: number) {
   return typeof value === "number" && Number.isFinite(value) && value > 0 ? value : fallback;
 }
@@ -110,7 +136,7 @@ export function priorityScore(category: Category, difficulty: DailyDifficulty) {
     : difficulty === "normal"
       ? (priority === "anchor" ? 5 : priority === "standard" ? 2 : -2)
       : (priority === "anchor" ? 2.5 : priority === "standard" ? 1.5 : .5);
-  return base + bucketBoost * difficultyWeight;
+  return base + bucketBoost * difficultyWeight + (isFamiliarCategory(category) ? 7 : 0);
 }
 
 export function categorySubsetExposureBoost(category: Category, exposure?: CategoryExposure) {

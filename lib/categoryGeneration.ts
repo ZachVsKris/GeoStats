@@ -33,6 +33,33 @@ export type CategoryExposure = {
 
 export const EMPTY_CATEGORY_EXPOSURE: CategoryExposure = { category: {}, family: {}, bucket: {} };
 
+// Familiar entry points to the puzzle. Match exact catalog identities so
+// "largest" alone never promotes niche measures such as mule populations.
+const FAMILIAR_CATEGORY_IDS = new Set([
+  "land", "population", "density", "unwpp:lowest-pop-density",
+  "gdp", "gdpPc", "militarySpend", "life",
+  "natural-earth:northernmost-country", "natural-earth:southernmost-country",
+  "natural-earth-capital:northernmost-capital",
+  "natural-earth-capital:southernmost-capital",
+  "natural-earth-capital:capital-closest-equator",
+  "natural-earth:most-land-neighbors",
+  "natural-earth:longest-land-border",
+  "koppen-geiger:desert-share", "koppen-geiger:tropical-rainforest-share",
+  "koppen-geiger:polar-share",
+]);
+
+export function isFamiliarCategory(category: Category) {
+  return FAMILIAR_CATEGORY_IDS.has(category.id);
+}
+
+/** Prefer one familiar hook per board, with room for another and for surprises. */
+export function familiarBoardBonus(categories: Category[], difficulty: DailyDifficulty = "easy") {
+  const count = categories.filter(isFamiliarCategory).length;
+  const first = difficulty === "easy" ? 6 : difficulty === "normal" ? 12 : 16;
+  const second = difficulty === "easy" ? 0 : difficulty === "normal" ? 5 : 8;
+  return (count > 0 ? first : 0) + (count > 1 ? second : 0);
+}
+
 function positiveScore(value: number | undefined, fallback: number) {
   return typeof value === "number" && Number.isFinite(value) && value > 0 ? value : fallback;
 }
@@ -110,7 +137,7 @@ export function priorityScore(category: Category, difficulty: DailyDifficulty) {
     : difficulty === "normal"
       ? (priority === "anchor" ? 5 : priority === "standard" ? 2 : -2)
       : (priority === "anchor" ? 2.5 : priority === "standard" ? 1.5 : .5);
-  return base + bucketBoost * difficultyWeight;
+  return base + bucketBoost * difficultyWeight + (isFamiliarCategory(category) ? 7 : 0);
 }
 
 export function categorySubsetExposureBoost(category: Category, exposure?: CategoryExposure) {

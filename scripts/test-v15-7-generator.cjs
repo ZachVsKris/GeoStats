@@ -44,7 +44,7 @@ fs.writeFileSync(path.join(output, 'lib', 'serverPlayableCatalog.js'), 'exports.
 fs.writeFileSync(path.join(output, 'lib', 'puzzleWarehouseSnapshot.js'), 'exports.loadCachedPuzzleWarehouseSnapshot = async () => ({ datasets: [], errors: [], catalogSize: 0 });\n');
 
 const { enrichCountriesWithPopulation, generateDailyTrioFromLoadedCatalog, generateSeededRoundFromLoadedCatalog, recentCountryPenalty, recentCategoryPenalty, selectSeededAnchorCategoryId } = require(path.join(output, 'lib', 'puzzleEngine.js'));
-const { categoryAppealBonus, categoryAppealScore } = require(path.join(output, 'lib', 'categoryGeneration.js'));
+const { categoryAppealBonus, categoryAppealScore, familiarBoardBonus, isFamiliarCategory, priorityScore } = require(path.join(output, 'lib', 'categoryGeneration.js'));
 const { categoryConflictsWithExistingTrio, validateDailyTrio } = require(path.join(output, 'lib', 'dailyTrioRules.js'));
 const { validateRound } = require(path.join(output, 'lib', 'dataEngine.js'));
 const { candidateKeepsValuesSeparated } = require(path.join(output, 'lib', 'roundValueRules.js'));
@@ -182,6 +182,17 @@ if (!(categoryAppealScore(highAppeal) > categoryAppealScore(lowAppeal) && catego
 const legacyZeroScores = { ...datasets[0].category, gameplayInterestScore: 0, immediateComprehensionScore: 0, uniquenessScore: 0 };
 if (categoryAppealScore(legacyZeroScores) < 75) {
   throw new Error('Legacy zero appeal scores were not normalized to neutral defaults.');
+}
+const populationHook = { ...datasets[0].category, id: 'population', name: 'Largest population' };
+const economyHook = { ...datasets[1].category, id: 'gdp', name: 'Largest economy' };
+const nicheLargest = { ...datasets[2].category, id: 'faostat-qcl-asses-stocks-02132-5111-an', name: 'Largest donkey population' };
+if (!isFamiliarCategory(populationHook) || isFamiliarCategory(nicheLargest)
+  || familiarBoardBonus([populationHook], 'easy') !== 6
+  || familiarBoardBonus([populationHook, economyHook], 'easy') !== 6
+  || familiarBoardBonus([populationHook, economyHook], 'normal') !== 17
+  || familiarBoardBonus([populationHook, economyHook, nicheLargest], 'expert') !== 24
+  || priorityScore(populationHook, 'easy') <= priorityScore({ ...populationHook, id: 'other-population' }, 'easy')) {
+  throw new Error('Familiarity must prefer recognizable questions without promoting every largest-count category.');
 }
 
 const populationRows = countries.map((country, index) => ({ countryId: country.id, countryName: country.name, value: (index + 1) * 1_000_000, year: '2025', globalRank: countries.length - index }));

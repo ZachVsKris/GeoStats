@@ -16,6 +16,13 @@ export default function PersonalResults() {
   const [status, setStatus] = useState<"loading" | "guest" | "ready" | "error">("loading");
 
   useEffect(() => {
+    const requestedMode = new URLSearchParams(window.location.search).get("mode");
+    if (requestedMode === "easy" || requestedMode === "normal" || requestedMode === "expert") {
+      setMode(requestedMode);
+    }
+  }, []);
+
+  useEffect(() => {
     let active = true;
     const supabase = createSupabaseBrowserClient();
     async function load() {

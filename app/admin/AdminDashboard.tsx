@@ -663,7 +663,7 @@ export default function AdminDashboard() {
 
       <section style={{ ...card, marginTop: 16 }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "start", gap: 12, flexWrap: "wrap" }}>
-          <div><h2 style={{ margin: 0 }}>Traffic and accounts by day</h2><p style={{ margin: "5px 0 0", opacity: .7, fontSize: 12 }}>Player counts are unique browsers; game totals count individual Scout, Adventurer, and Expert boards</p></div>
+          <div><h2 style={{ margin: 0 }}>Traffic and accounts by day</h2><p style={{ margin: "5px 0 0", opacity: .7, fontSize: 12 }}>Players are unique browsers; each game counts once per browser, date, and mode. A finish also counts as a start.</p></div>
           <button type="button" style={mutedButton} disabled={loading} onClick={() => void load()}>{loading ? "Refreshing…" : "Refresh table"}</button>
         </div>
         {!data.analyticsDetails.migrationApplied ? <p>Apply the internal-traffic analytics migration to enable this table</p> : <div style={{ overflowX: "auto", marginTop: 14 }}>

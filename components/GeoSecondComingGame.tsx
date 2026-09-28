@@ -813,7 +813,7 @@ ${total} / ${roundMaxScore}
           <a href={challengePath("easy", seed)} onClick={(event) => switchCachedDaily(event, "easy")} className={`dailyModeButton ${difficulty === "easy" ? "active" : ""}`}>Scout</a>
           <a href={challengePath("normal", seed)} onClick={(event) => switchCachedDaily(event, "normal")} className={`dailyModeButton ${difficulty === "normal" ? "active" : ""}`}>Adventurer</a>
           <a href={challengePath("expert", seed)} onClick={(event) => switchCachedDaily(event, "expert")} className={`dailyModeButton ${difficulty === "expert" ? "active" : ""}`}>Expert</a>
-          {!isRandom && <a href="/account" className="headerLink">My Stats</a>}
+          {!isRandom && <a href={`/account?mode=${difficulty}`} className="headerLink">My Stats</a>}
         </nav>
       </div>
       <details className="desktopSupportMenu" ref={supportMenu}>
@@ -832,7 +832,7 @@ ${total} / ${roundMaxScore}
         {boardNotice && fallbackPractice && <details><summary>Board data note</summary><p>{boardNotice}</p></details>}
         <a href="/audit">Data audit</a><button onClick={openRules}>How to play</button>
         {isRandom && <a href="/daily">Daily modes</a>}
-        {!isRandom && <a href="/account">My Stats</a>}
+        {!isRandom && <a href={`/account?mode=${difficulty}`}>My Stats</a>}
       </div></details>
     </header>}
 

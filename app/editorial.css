@@ -612,7 +612,8 @@ body { isolation: isolate; }
 .shell .rulesModalCard button { min-height: 44px; padding: 10px 16px; border-radius: 3px; background: var(--ocean); color: #fff; font-size: 14px; }
 .shell .welcomeModal { z-index: 120; }
 .shell .welcomeModes { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; margin: 17px 0; }
-.shell .welcomeModes span { display: grid; gap: 5px; padding: 10px; background: var(--surface); border: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+.shell .welcomeModes a { display: grid; gap: 5px; padding: 10px; background: var(--surface); border: 1px solid var(--line); color: var(--muted); font-size: 12px; text-decoration: none; cursor: pointer; }
+.shell .welcomeModes a:hover, .shell .welcomeModes a:focus-visible { border-color: var(--ocean); background: var(--feature-surface); }
 .shell .welcomeModes strong { color: var(--ink); font-size: 14px; }
 .shell .welcomeActions { display: flex; gap: 10px; flex-wrap: wrap; }
 .shell .welcomeActions button.secondaryAction { background: transparent; color: var(--ocean); border: 1px solid var(--ocean); }
@@ -634,7 +635,7 @@ body { isolation: isolate; }
   .shell .gamePrimer { display: none; }
   .shell .mobileHowToPlay { display: inline-block; margin-left: auto; font-size: 11px; }
   .shell .welcomeModes { grid-template-columns: 1fr; gap: 5px; }
-  .shell .welcomeModes span { display: flex; align-items: baseline; gap: 9px; padding: 7px 10px; }
+  .shell .welcomeModes a { display: flex; align-items: baseline; gap: 9px; padding: 7px 10px; }
   .shell .rulesModalCard p, .shell .rulesModalCard li { font-size: 14px; }
   .shell .rulesModalCard { max-height: calc(100dvh - 24px); overflow-y: auto; padding: 18px 16px; }
   .shell.resultsView .score > .scoreExplanation { display: block; max-width: 38ch; font-size: 12px; }
@@ -660,7 +661,9 @@ body { isolation: isolate; }
   .shell.resultsView .result { padding: 11px 13px; }
   .shell.resultsView .resultMain > div > strong { font-size: 14px; }
   .shell.resultsView .placementSummary { column-gap: 14px; row-gap: 3px; }
-  .shell.resultsView .mobileBestMatch { display: none; }
+  .shell.resultsView .mobileBestMatch { display: flex; gap: 5px; flex-wrap: wrap; align-items: baseline; grid-column: 1 / -1; margin: 4px 0 0 34px; padding: 7px 0 0; border-top: 1px solid var(--line-soft); font-size: 11px; }
+  .shell.resultsView .mobileBestMatch strong { color: var(--ink); }
+  .shell.resultsView .perfect { display: none; }
   .shell.resultsView .leaderboardButton { margin-top: 1px; }
   .shell.resultsView .perfect .resultsHeading { padding-bottom: 3px; }
 }

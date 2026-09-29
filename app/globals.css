@@ -200,6 +200,10 @@ header{display:flex;align-items:center;justify-content:space-between;padding:6px
 
 /* Colophon + rules */
 .dataNote{margin-top:18px;padding:18px 2px 0;border-top:3px double var(--line);color:var(--muted);font-family:var(--display);font-size:13px;line-height:1.55}.dataNote strong{color:var(--ink);font-family:var(--label);font-size:10px;letter-spacing:.14em;text-transform:uppercase}.dataNote p{margin:7px 0}.dataNote a{color:inherit}
+.gameSiteFooter{display:flex;justify-content:center;margin-top:24px;padding-top:18px;border-top:1px solid var(--line)}
+.gameSiteFooter a{display:block;line-height:0}
+.gameSiteFooter img{display:block;width:240px;max-width:100%;height:auto}
+.activePlay .gameSiteFooter{display:none}
 .modal{position:fixed;inset:0;z-index:30;display:grid;place-items:center;padding:20px;background:rgba(2,8,6,.82)}.modal>div{max-width:660px;padding:30px;border:1px solid var(--line);border-radius:2px;background:var(--surface);box-shadow:0 30px 90px rgba(0,0,0,.48)}.modal h2{margin-top:0;font-family:var(--display);font-size:33px;font-weight:600}.modal li,.modal p{color:var(--muted);line-height:1.6;margin-bottom:9px}.modal button{border-color:var(--accent);background:var(--accent);color:#182017}
 .touchGhost{position:fixed;z-index:100;display:flex;align-items:center;gap:8px;max-width:180px;padding:8px 11px;transform:translate(-50%,-115%);pointer-events:none;border:1px solid var(--accent);border-radius:2px;background:var(--surface);font-family:var(--display);font-size:13px}.touchGhost span{font-size:23px}
 

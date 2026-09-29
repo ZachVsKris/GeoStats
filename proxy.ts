@@ -29,7 +29,9 @@ function clearStaleAuthCookies(request: NextRequest, response: NextResponse) {
 
 export async function proxy(request: NextRequest) {
   if (request.nextUrl.pathname.replace(/\/+$/, "") === "/animals" &&
-      Reflect.get(process.env, "ANIMALSTATS_PREVIEW_ENABLED") !== "true") {
+      (Reflect.get(process.env, "ANIMALSTATS_PREVIEW_ENABLED") !== "true" &&
+      !(Reflect.get(process.env, "VERCEL_ENV") === "preview" &&
+        Reflect.get(process.env, "VERCEL_GIT_COMMIT_REF") === "feature/animalstats-prototype"))) {
     return new NextResponse("Not found", { status: 404 });
   }
   if (request.nextUrl.pathname.replace(/\/+$/, "") === "/leaderboard") {

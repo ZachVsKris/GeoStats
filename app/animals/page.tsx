@@ -11,7 +11,9 @@ export const dynamic = "force-dynamic";
 
 export default function AnimalStatsPage() {
   // Read at request time so promoting a preview build cannot expose the pilot.
-  if (Reflect.get(process.env, "ANIMALSTATS_PREVIEW_ENABLED") !== "true") notFound();
+  if ((Reflect.get(process.env, "ANIMALSTATS_PREVIEW_ENABLED") !== "true" &&
+      !(Reflect.get(process.env, "VERCEL_ENV") === "preview" &&
+        Reflect.get(process.env, "VERCEL_GIT_COMMIT_REF") === "feature/animalstats-prototype"))) notFound();
   const data = dataset as AnimalDataset;
   const boards = (candidates.boards as BoardCandidate[]).filter((board) => validateAnimalBoard(data, board).valid);
   if (!boards.length) notFound();

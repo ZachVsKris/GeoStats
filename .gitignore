@@ -14,3 +14,10 @@ playwright-report
 test-results
 
 data/animalstats/source/avonet-v7.xlsx
+
+# Reproducible upstream AmphiBIO archive; selected source rows and digest are tracked.
+data/animalstats/source/amphibio/
+data/animalstats/source/amphibio-v1.zip
+data/animalstats/source/amphibio-metadata.json
+
+data/animalstats/source/amniote-2015.zip

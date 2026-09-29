@@ -1,0 +1,14 @@
+import { notFound } from "next/navigation";
+import { animalPreviewEnabled } from "../../../lib/animalstatsPreview";
+import audit from "../../../data/animalstats/audit.json";
+import data from "../../../data/animalstats/pilot.json";
+import "../animalstats.css";
+export const dynamic = "force-dynamic";
+export const metadata = { title: "AnimalStats comparison review", robots: { index: false, follow: false }, alternates: { canonical: "/animals/review" } };
+export default function AnimalReviewPage() {
+ if (!animalPreviewEnabled()) notFound();
+ return <main className="animalPage"><div className="animalShell"><a className="animalBack" href="/animals">← AnimalStats</a><header className="animalHeader"><span className="animalEyebrow">BEHIND THE FIELD NOTES</span><h1>Comparison review</h1><p>Source provenance, measurement compatibility, and what the numbers can actually tell us.</p></header>
+ <section className="animalHistory"><h2>Daily admission</h2><p>{audit.summary.candidateBoards} numerical candidates. {audit.summary.dailyApprovedBoards} approved daily boards.</p><p>{audit.summary.policy}</p><p>Reported source ranges describe disagreement among the collected publications. They are not statistical confidence intervals. A single published value does not imply zero uncertainty.</p><p>Wild and captive longevity are separate traits. Unknown-origin longevity records are excluded. Mammal births, egg clutches, shark pups, and amphibian maxima retain separate definitions.</p><p>The amniote importer uses exact-species raw records and excludes subspecies transfers. AmphiBIO egg dimensions are excluded because the original release mixes measurement conventions. Frog snout-to-vent length is not compared with total salamander length.</p><h3>Sources</h3><ul>{data.sources.map((source) => <li key={source.id}><a href={source.url} target="_blank" rel="noreferrer">{source.name}</a> · {source.versionYear} · {source.license}</li>)}</ul></section>
+ <section className="animalReviewList"><h2>Candidate audit</h2>{audit.boards.map((board) => <details key={board.boardId}><summary>{board.title} · {board.mode === "easy" ? "Scout" : board.mode === "normal" ? "Adventurer" : "Expert"} · {board.boardType} · HOLD</summary><p>Board {board.boardId}. Source, uncertainty, and playability approval is still required.</p><ul>{board.reasons.map((reason) => <li key={reason}>{reason}</li>)}</ul><div className="animalHistoryTable"><table><thead><tr><th>Trait</th><th>Smallest rank gap</th><th>Reported bounds</th></tr></thead><tbody>{board.comparisons.map((comparison) => <tr key={comparison.traitId}><td>{data.traits.find((trait) => trait.id === comparison.traitId)?.displayName}</td><td>{comparison.minimumGapPercent.toFixed(1)}%</td><td>{comparison.observationsWithReportedBounds} / {comparison.observations}</td></tr>)}</tbody></table></div></details>)}</section>
+ </div></main>;
+}

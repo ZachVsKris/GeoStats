@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./styles.css";
+import { animalPreviewEnabled } from "../lib/animalstatsPreview";
 import AnalyticsPageView from "../components/AnalyticsPageView";
 
 export const viewport: Viewport = { themeColor: "#e8f3f8" };
@@ -27,5 +28,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body><AnalyticsPageView />{children}</body></html>;
+  return <html lang="en"><body><AnalyticsPageView />{animalPreviewEnabled() && <nav aria-label="CAT preview worlds" className="catPreviewStrip" style={{ display:"flex", flexWrap:"wrap", gap:16, padding:"10px 16px", background:"#eee9d8", color:"#294032", fontSize:12, borderBottom:"1px solid #bec6ad" }}><a href="/cat" style={{ color:"inherit", fontWeight:700 }}>C A T</a><a href="/daily" style={{ color:"inherit" }}>Countries</a><a href="/animals" style={{ color:"inherit" }}>Animals</a><a href="/cat#things" style={{ color:"inherit" }}>Things · still digging</a></nav>}{children}</body></html>;
 }

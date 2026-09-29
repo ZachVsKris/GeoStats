@@ -59,6 +59,11 @@ export type AnimalTraitValue = {
   observationType: "observed" | "compiled" | "imputed";
   confidence: "approved" | "review" | "rejected";
   notes: string;
+  recordOrigin?: string;
+  uncertaintyKind?: "source-range" | "not-reported";
+  uncertaintyStatus?: "reported" | "not-reported";
+  sourceQuality?: string;
+  sampleSizeCategory?: string;
 };
 
 export type AnimalDataset = {
@@ -70,6 +75,8 @@ export type AnimalDataset = {
 };
 
 export type BoardCandidate = {
+  id?: string;
+  title?: string;
   mode: DailyDifficulty;
   boardType: BoardType;
   animalIds: string[];
@@ -135,6 +142,8 @@ export function validateAnimalBoard(data: AnimalDataset, board: BoardCandidate):
   const reasons = validateAnimalDataset(data);
   const config = ROUND_CONFIGS[board.mode];
   const winners: Record<string, string> = {};
+  const relatedTraits: string[][] = [["amphibian_min_maturity", "earliest_female_maturity", "female_maturity", "male_maturity", "raw_early_female_maturity", "raw_female_maturity"], ["amphibian_max_events", "clutches_per_year", "interbirth_interval", "litters_per_year", "raw_clutch_frequency", "raw_litter_frequency"], ["bird_hand_wing_index", "bird_kipps_distance", "bird_secondary_length", "bird_wing_length"], ["adult_body_mass", "amphibian_max_mass", "bird_mass", "raw_adult_mass", "smallest_adult_mass"], ["amphibian_max_clutch", "clutch_size", "egg_clutch_size", "litter_size", "raw_clutch_size", "raw_litter_size", "shark_litter_size", "fewest_shark_pups"], ["maximum_documented_lifespan", "wild_recorded_lifespan", "shortest_wild_lifespan"], ["gestation", "raw_gestation", "raw_short_gestation", "shortest_gestation"], ["earliest_weaning", "raw_weaning_age", "weaning_age"], ["birth_weight", "hatching_mass", "lightest_newborn", "raw_birth_mass", "raw_hatching_mass"], ["raw_weaning_mass", "weaning_mass"], ["incubation", "raw_incubation"], ["raw_egg_length", "raw_egg_mass", "raw_egg_width"]];
+  if (relatedTraits.some((concept) => board.traitIds.filter((id) => concept.includes(id)).length > 1)) reasons.push("closely related traits on the same board");
   if (board.animalIds.length !== config.countryCount || !unique(board.animalIds)) reasons.push("wrong or duplicate animal count");
   if (board.traitIds.length !== config.categoryCount || !unique(board.traitIds)) reasons.push("wrong or duplicate trait count");
   const animalMap = new Map(data.animals.map((item) => [item.id, item]));
@@ -166,6 +175,9 @@ export function validateAnimalBoard(data: AnimalDataset, board: BoardCandidate):
       ranked.push({ animalId, value });
     }
     if (ranked.length !== board.animalIds.length) continue;
+    if (new Set(ranked.map((row) => row.value.sex)).size > 1 || new Set(ranked.map((row) => row.value.lifeStage)).size > 1) reasons.push(`trait ${id}: incompatible sex or life stage`);
+    if (id === "maximum_documented_lifespan" && ranked.some((row) => row.value.recordOrigin !== "captivity")) reasons.push(`trait ${id}: captive record origin required`);
+    if (["wild_recorded_lifespan", "shortest_wild_lifespan"].includes(id) && ranked.some((row) => row.value.recordOrigin !== "wild")) reasons.push(`trait ${id}: wild record origin required`);
     ranked.sort((a, b) => trait.direction === "higher_wins"
       ? b.value.valueNumeric - a.value.valueNumeric : a.value.valueNumeric - b.value.valueNumeric);
     for (let i = 0; i < ranked.length - 1; i++) {

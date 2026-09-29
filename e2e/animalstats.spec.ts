@@ -7,11 +7,9 @@ test("pilot boards render and can be completed in all modes", async ({ page }) =
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto("/animals");
   await expect(page.getByRole("heading", { name: "AnimalStats" })).toBeVisible();
-  const dailyTypes: string[] = [];
   for (const [label, animals, traits] of [["Scout", 4, 4], ["Adventurer", 6, 4], ["Expert", 8, 6]] as const) {
     await page.getByRole("button", { name: new RegExp(`^${label}\\b`) }).click();
-    await expect(page.locator(".animalBoardTop .animalEyebrow")).toContainText("OF 10");
-    dailyTypes.push((await page.locator(".animalBoardTop .animalEyebrow").innerText()).split(" · ").pop()!);
+    await expect(page.locator(".animalBoardTop .animalEyebrow")).toContainText("OF");
     await expect(page.locator(".animalCard")).toHaveCount(animals);
     await expect(page.locator(".animalTrait")).toHaveCount(traits);
     for (let index = 0; index < traits; index++) {
@@ -22,7 +20,6 @@ test("pilot boards render and can be completed in all modes", async ({ page }) =
     await expect(page.locator(".animalResult")).toHaveCount(traits);
     await expect(page.getByText("OPTIMAL CHOICES")).toBeVisible();
   }
-  expect(new Set(dailyTypes).size).toBeGreaterThanOrEqual(2);
   await page.getByLabel("Review label").selectOption("PASS");
   await page.getByLabel("What worked or felt wrong?").fill("The allocation choices were interesting.");
   await page.getByRole("button", { name: "Save playtest note" }).click();
@@ -52,7 +49,7 @@ test("either-order placement, swapping, dragging and photo reveal", async ({ pag
   await page.goto("/animals");
   const cards = page.locator(".animalCard");
   const traits = page.locator(".animalTrait");
-  await expect(cards.locator("img")).toHaveCount(0);
+  await expect(cards.locator("img")).toHaveCount(4);
   const first = await cards.nth(0).locator("span").innerText();
   const second = await cards.nth(1).locator("span").innerText();
   await cards.nth(0).click(); await traits.nth(0).click();
@@ -60,6 +57,8 @@ test("either-order placement, swapping, dragging and photo reveal", async ({ pag
   await cards.nth(0).click(); await traits.nth(1).click();
   await expect(traits.nth(0).locator(".animalTraitChoice")).toHaveText(second);
   await expect(traits.nth(1).locator(".animalTraitChoice")).toHaveText(first);
+  await cards.nth(2).scrollIntoViewIfNeeded();
+  await traits.nth(2).scrollIntoViewIfNeeded();
   const from = (await cards.nth(2).boundingBox())!;
   const to = (await traits.nth(2).boundingBox())!;
   await page.mouse.move(from.x + from.width / 2, from.y + from.height / 2);
@@ -67,8 +66,65 @@ test("either-order placement, swapping, dragging and photo reveal", async ({ pag
   await page.mouse.move(to.x + to.width / 2, to.y + to.height / 2, { steps: 12 });
   await page.mouse.up();
   await expect(traits.nth(2).locator(".animalTraitChoice")).toHaveText(await cards.nth(2).locator("span").innerText());
-  await page.getByLabel("Show photos during play").check();
   await expect(cards.locator("img")).toHaveCount(4);
   await page.getByRole("button", { name: "Reset choices" }).click();
   await expect(page.locator(".animalProgress")).toHaveText("0 / 4 placed");
+});
+
+
+test("daily review gate, persistent personal history and CAT navigation", async ({ page }) => {
+  await page.goto("/animals");
+  await page.getByRole("button", { name: "Daily", exact: true }).click();
+  await expect(page.getByRole("heading", { name: "Daily boards are awaiting review" })).toBeVisible();
+  await page.getByRole("button", { name: "Play a random candidate" }).click();
+  for (let i = 0; i < 4; i++) { await page.locator(".animalCard").nth(i).click(); await page.locator(".animalTrait").nth(i).click(); }
+  await page.getByRole("button", { name: "Reveal results" }).click();
+  await page.getByRole("button", { name: "My Stats", exact: true }).click();
+  await expect(page.getByText("Player Rating begins after 5 completed games in this mode.")).toBeVisible();
+  await expect(page.locator(".animalHistory tbody tr")).toHaveCount(1);
+  await page.reload();
+  await page.getByRole("button", { name: "My Stats", exact: true }).click();
+  await expect(page.locator(".animalHistory tbody tr")).toHaveCount(1);
+  await page.getByRole("button", { name: "Field Guide", exact: true }).click();
+  await page.getByLabel("Find an animal").fill("Axolotl");
+  await expect(page.getByRole("heading", { name: "Axolotl", exact: true })).toBeVisible();
+  await page.goto("/cat");
+  await expect(page.getByRole("heading", { name: "Countries, Animals & Things" })).toBeVisible();
+  await expect(page.locator("#things")).toContainText("Still digging");
+});
+
+import { readFileSync } from "node:fs";
+const animalDataset = JSON.parse(readFileSync(new URL("../data/animalstats/pilot.json", import.meta.url), "utf8"));
+const candidateData = JSON.parse(readFileSync(new URL("../data/animalstats/candidates.json", import.meta.url), "utf8"));
+import { validateAnimalBoard, type AnimalDataset, type BoardCandidate } from "../lib/animalstats";
+import { approvedAnimalBoards, animalBoardFingerprint, animalBoardDataFingerprint, type AnimalBoardReview } from "../lib/animalstatsReview";
+
+test("daily approvals bind to exact reviewed data and reject unknown uncertainty by default", () => {
+ const data = animalDataset as AnimalDataset;
+ const boards = candidateData.boards as BoardCandidate[];
+ expect(boards.every((board) => validateAnimalBoard(data, board).valid)).toBe(true);
+ expect(approvedAnimalBoards(data, boards, [])).toEqual([]);
+ const board = boards[0];
+ const review: AnimalBoardReview = { boardId: board.id!, status: "approved", reviewer: "test fixture", reviewedAt: "2026-09-29", sourceChecks: "fixture", uncertaintyChecks: "fixture", playabilityChecks: "fixture", fingerprint: animalBoardFingerprint(board), dataFingerprint: animalBoardDataFingerprint(data, board) };
+ expect(approvedAnimalBoards(data, [board], [review])).toHaveLength(1);
+ const changed = structuredClone(data);
+ changed.values.find((value) => value.animalId === board.animalIds[0] && value.traitId === board.traitIds[0])!.valueNumeric *= 1.01;
+ expect(approvedAnimalBoards(changed, [board], [review])).toEqual([]);
+ expect(approvedAnimalBoards(data, [board], [{ ...review, uncertaintyChecks: "" }])).toEqual([]);
+ const overlapping = structuredClone(data);
+ for (const value of overlapping.values.filter((row) => board.animalIds.includes(row.animalId) && row.traitId === board.traitIds[0])) { value.valueMin = 0; value.valueMax = 1e12; }
+ expect(validateAnimalBoard(overlapping, board).valid).toBe(false);
+});
+
+import { scoreAnimalAssignments } from "../lib/animalstatsScoring";
+test("server scoring rejects repeated and foreign assignments", () => {
+ const data = animalDataset as AnimalDataset;
+ const board = candidateData.boards[0] as BoardCandidate;
+ const assignments = Object.fromEntries(board.traitIds.map((id, index) => [id, board.animalIds[index]]));
+ const result = scoreAnimalAssignments(data, board, assignments);
+ expect(result).not.toBeNull();
+ expect(result!.ranks).toHaveLength(board.traitIds.length);
+ expect(scoreAnimalAssignments(data, board, { ...assignments, score: 600 })).toBeNull();
+ expect(scoreAnimalAssignments(data, board, Object.fromEntries(board.traitIds.map((id) => [id, board.animalIds[0]])))).toBeNull();
+ expect(scoreAnimalAssignments(data, board, { ...assignments, [board.traitIds[0]]: "invented-animal" })).toBeNull();
 });

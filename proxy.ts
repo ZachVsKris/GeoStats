@@ -1,3 +1,4 @@
+import { animalPreviewEnabled } from "./lib/animalstatsPreview";
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 
@@ -28,10 +29,7 @@ function clearStaleAuthCookies(request: NextRequest, response: NextResponse) {
 }
 
 export async function proxy(request: NextRequest) {
-  if (request.nextUrl.pathname.replace(/\/+$/, "") === "/animals" &&
-      (Reflect.get(process.env, "ANIMALSTATS_PREVIEW_ENABLED") !== "true" &&
-      !(Reflect.get(process.env, "VERCEL_ENV") === "preview" &&
-        Reflect.get(process.env, "VERCEL_GIT_COMMIT_REF") === "feature/animalstats-prototype"))) {
+  if ((request.nextUrl.pathname.startsWith("/animals") || request.nextUrl.pathname.startsWith("/api/animals/") || request.nextUrl.pathname.replace(/\/+$/, "") === "/cat") && !animalPreviewEnabled()) {
     return new NextResponse("Not found", { status: 404 });
   }
   if (request.nextUrl.pathname.replace(/\/+$/, "") === "/leaderboard") {

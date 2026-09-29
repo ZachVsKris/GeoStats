@@ -579,12 +579,11 @@ export default function GeoSecondComingGame({ initialDifficulty = DEFAULT_DIFFIC
 
   async function shareScore(useDeviceShare = false) {
     if (!scores) return;
-    const medalCounts = [1, 2, 3].map((rank) => scores.filter((row) => row.rank === rank).length);
+    const optimalChoices = scores.filter((row) => row.rank === 1).length;
     const gameLabel = isRandom ? `${ROUND_CONFIGS[difficulty].label} Random · ${seed}` : `${ROUND_CONFIGS[difficulty].label} Daily · ${dailyDateFromSeed(seed)}`;
     const text = `🌐 GeoStats · ${gameLabel}
 ${total} / ${roundMaxScore}
-
-1st: ${medalCounts[0]} · 2nd: ${medalCounts[1]} · 3rd: ${medalCounts[2]}`;
+Optimal Choices: ${optimalChoices} of ${categoryTarget}`;
     const url = challengeUrl(difficulty, seed);
 
     const scoreText = `${text}\n\n${url}`;
@@ -645,17 +644,8 @@ ${total} / ${roundMaxScore}
       ctx.font = `700 112px ${font}`;
       const scoreWidth = ctx.measureText(String(total)).width;
       write(`/ ${roundMaxScore}`, 76 + scoreWidth, 391, 46, "#405d70");
-      // Compact medal counts keep the score legible at message-preview size.
-      [1, 2, 3].forEach((rank, index) => {
-        const x = 78 + index * 238;
-        const count = scores.filter((row) => row.rank === rank).length;
-        ctx.fillStyle = ["#b58a42", "#829aa4", "#a9795b"][index];
-        ctx.beginPath(); ctx.arc(x, 453, 26, 0, Math.PI * 2); ctx.fill();
-        ctx.textAlign = "center";
-        write(String(rank), x, 463, 27, "#ffffff", true);
-        ctx.textAlign = "left";
-        write(String(count), x + 41, 465, 33, "#163449", true);
-      });
+      const optimalChoices = scores.filter((row) => row.rank === 1).length;
+      write(`Optimal Choices: ${optimalChoices} of ${categoryTarget}`, 56, 465, 33, "#163449", true);
       ctx.beginPath(); ctx.moveTo(56, 506); ctx.lineTo(944, 506); ctx.stroke();
       write("geostats.xyz", 56, 567, 30, "#163449", true);
       ctx.textAlign = "right"; write("geostats.xyz", 944, 567, 26, "#175e82", true);

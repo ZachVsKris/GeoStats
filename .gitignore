@@ -12,3 +12,5 @@ artifacts
 
 playwright-report
 test-results
+
+data/animalstats/source/avonet-v7.xlsx

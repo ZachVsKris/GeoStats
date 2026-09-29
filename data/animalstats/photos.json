@@ -1,0 +1,506 @@
+[
+  {
+    "animalId": "panthera_leo",
+    "assetUrl": "/animalstats/panthera_leo.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Lion_in_masai_mara.jpg",
+    "creator": "Sumit.pamnani at English Wikipedia",
+    "license": "Public domain",
+    "attribution": "Sumit.pamnani at English Wikipedia / Wikimedia Commons / Public domain",
+    "approved": true
+  },
+  {
+    "animalId": "panthera_tigris",
+    "assetUrl": "/animalstats/panthera_tigris.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Panthera_tigris_altaica_13_-_Buffalo_Zoo.jpg",
+    "creator": "Dave Pape",
+    "license": "Public domain",
+    "attribution": "Dave Pape / Wikimedia Commons / Public domain",
+    "approved": true
+  },
+  {
+    "animalId": "acinonyx_jubatus",
+    "assetUrl": "/animalstats/acinonyx_jubatus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:TheCheethcat.jpg",
+    "creator": "James Temple",
+    "license": "CC BY 2.0",
+    "attribution": "James Temple / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "canis_lupus",
+    "assetUrl": "/animalstats/canis_lupus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:European_grey_wolf_in_Prague_zoo.jpg",
+    "creator": "[1]",
+    "license": "CC BY 2.0",
+    "attribution": "[1] / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "vulpes_vulpes",
+    "assetUrl": "/animalstats/vulpes_vulpes.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Red_Fox_drinking_from_a_lake_in_Gennevilliers,_France.jpg",
+    "creator": "Alexis Lours",
+    "license": "CC BY 4.0",
+    "attribution": "Alexis Lours / Wikimedia Commons / CC BY 4.0",
+    "approved": true
+  },
+  {
+    "animalId": "ursus_arctos",
+    "assetUrl": "/animalstats/ursus_arctos.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Brown_bear.jpg",
+    "creator": "Marshmallow",
+    "license": "CC BY 2.0",
+    "attribution": "Marshmallow / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "ursus_americanus",
+    "assetUrl": "/animalstats/ursus_americanus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Black_bear_large.jpg",
+    "creator": "Mike Bender/U.S. Fish and Wildlife Service",
+    "license": "Public domain",
+    "attribution": "Mike Bender/U.S. Fish and Wildlife Service / Wikimedia Commons / Public domain",
+    "approved": true
+  },
+  {
+    "animalId": "ailuropoda_melanoleuca",
+    "assetUrl": "/animalstats/ailuropoda_melanoleuca.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Giant_Panda_2004-03-2.jpg",
+    "creator": "Jeff Kubina",
+    "license": "Public domain",
+    "attribution": "Jeff Kubina / Wikimedia Commons / Public domain",
+    "approved": true
+  },
+  {
+    "animalId": "hippopotamus_amphibius",
+    "assetUrl": "/animalstats/hippopotamus_amphibius.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Hippopotamus_@_Barcelona_zoo.jpg",
+    "creator": "Pedroserafin",
+    "license": "Public domain",
+    "attribution": "Pedroserafin / Wikimedia Commons / Public domain",
+    "approved": true
+  },
+  {
+    "animalId": "equus_quagga",
+    "assetUrl": "/animalstats/equus_quagga.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:GrantsZebra2.jpg",
+    "creator": "Ltshears",
+    "license": "Public domain",
+    "attribution": "Ltshears / Wikimedia Commons / Public domain",
+    "approved": true
+  },
+  {
+    "animalId": "bison_bison",
+    "assetUrl": "/animalstats/bison_bison.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:American_bison_k5680-1.jpg",
+    "creator": "Jack Dykinga",
+    "license": "Public domain",
+    "attribution": "Jack Dykinga / Wikimedia Commons / Public domain",
+    "approved": true
+  },
+  {
+    "animalId": "equus_asinus",
+    "assetUrl": "/animalstats/equus_asinus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Donkey_in_Clovelly,_North_Devon,_England.jpg",
+    "creator": "Adrian Pingstone",
+    "license": "Public domain",
+    "attribution": "Adrian Pingstone / Wikimedia Commons / Public domain",
+    "approved": true
+  },
+  {
+    "animalId": "gorilla_gorilla",
+    "assetUrl": "/animalstats/gorilla_gorilla.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Gorille.jpg",
+    "creator": "Macinate",
+    "license": "CC BY 2.0",
+    "attribution": "Macinate / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "pongo_pygmaeus",
+    "assetUrl": "/animalstats/pongo_pygmaeus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:OrangutanP1.jpg",
+    "creator": "Ltshears",
+    "license": "Public domain",
+    "attribution": "Ltshears / Wikimedia Commons / Public domain",
+    "approved": true
+  },
+  {
+    "animalId": "macaca_mulatta",
+    "assetUrl": "/animalstats/macaca_mulatta.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Rhesus_Macaque_347789599.jpg",
+    "creator": "no rights reserved",
+    "license": "CC0",
+    "attribution": "no rights reserved / Wikimedia Commons / CC0",
+    "approved": true
+  },
+  {
+    "animalId": "phascolarctos_cinereus",
+    "assetUrl": "/animalstats/phascolarctos_cinereus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Koala_in_Zoo_Duisburg.jpg",
+    "creator": "Till Niermann",
+    "license": "CC BY 3.0",
+    "attribution": "Till Niermann / Wikimedia Commons / CC BY 3.0",
+    "approved": true
+  },
+  {
+    "animalId": "macropus_rufus",
+    "assetUrl": "/animalstats/macropus_rufus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Kangur.rudy.drs.jpg",
+    "creator": "Drs",
+    "license": "Public domain",
+    "attribution": "Drs / Wikimedia Commons / Public domain",
+    "approved": true
+  },
+  {
+    "animalId": "enhydra_lutris",
+    "assetUrl": "/animalstats/enhydra_lutris.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Sea_otter_cropped.jpg",
+    "creator": "Mike Baird from Morro Bay, USA",
+    "license": "CC BY 2.0",
+    "attribution": "Mike Baird from Morro Bay, USA / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "castor_canadensis",
+    "assetUrl": "/animalstats/castor_canadensis.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:North_American_Beaver,_Humber_River_near_Kleinburg,_Ontario_(39637607974).jpg",
+    "creator": "Vlad Podvorny",
+    "license": "CC BY 2.0",
+    "attribution": "Vlad Podvorny / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "orcinus_orca",
+    "assetUrl": "/animalstats/orcinus_orca.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Type_C_Orcas_2.jpg",
+    "creator": "Photo by Robert Pitman.",
+    "license": "Public domain",
+    "attribution": "Photo by Robert Pitman. / Wikimedia Commons / Public domain",
+    "approved": true
+  },
+  {
+    "animalId": "tursiops_truncatus",
+    "assetUrl": "/animalstats/tursiops_truncatus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Tursiops_truncatus_01.jpg",
+    "creator": "NASA",
+    "license": "Public domain",
+    "attribution": "NASA / Wikimedia Commons / Public domain",
+    "approved": true
+  },
+  {
+    "animalId": "megaptera_novaeangliae",
+    "assetUrl": "/animalstats/megaptera_novaeangliae.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Humpback_whales_in_singing_position.jpg",
+    "creator": "Dr. Louis M. Herman.",
+    "license": "Public domain",
+    "attribution": "Dr. Louis M. Herman. / Wikimedia Commons / Public domain",
+    "approved": true
+  },
+  {
+    "animalId": "balaenoptera_musculus",
+    "assetUrl": "/animalstats/balaenoptera_musculus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Anim1755_-_Flickr_-_NOAA_Photo_Library.jpg",
+    "creator": "NOAA Photo Library",
+    "license": "Public domain",
+    "attribution": "NOAA Photo Library / Wikimedia Commons / Public domain",
+    "approved": true
+  },
+  {
+    "animalId": "aquila_chrysaetos",
+    "assetUrl": "/animalstats/aquila_chrysaetos.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Chrysaetos_La_Ca%C3%B1ada_20120114_1.jpg",
+    "creator": "Juan lacruz",
+    "license": "CC BY 3.0",
+    "attribution": "Juan lacruz / Wikimedia Commons / CC BY 3.0",
+    "approved": true
+  },
+  {
+    "animalId": "haliaeetus_leucocephalus",
+    "assetUrl": "/animalstats/haliaeetus_leucocephalus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Bald_Eagle_(Haliaeetus_leucocephalus)_Kachemak_Bay,_Alaska.jpg",
+    "creator": "Andy  Morffew from Itchen Abbas, Hampshire, UK",
+    "license": "CC BY 2.0",
+    "attribution": "Andy  Morffew from Itchen Abbas, Hampshire, UK / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "anas_platyrhynchos",
+    "assetUrl": "/animalstats/anas_platyrhynchos.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Anas_platyrhynchos_near_City_Lake,_Ivano-Frankivsk.jpg",
+    "creator": "Tetiana.iefimenko",
+    "license": "CC BY 4.0",
+    "attribution": "Tetiana.iefimenko / Wikimedia Commons / CC BY 4.0",
+    "approved": true
+  },
+  {
+    "animalId": "falco_peregrinus",
+    "assetUrl": "/animalstats/falco_peregrinus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Falco_peregrinus_minor,_Cape_Town,_South_Africa_118534019.jpg",
+    "creator": "Timothy Whitehead",
+    "license": "CC BY 4.0",
+    "attribution": "Timothy Whitehead / Wikimedia Commons / CC BY 4.0",
+    "approved": true
+  },
+  {
+    "animalId": "columba_livia",
+    "assetUrl": "/animalstats/columba_livia.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Trinkende_Taube_am_Neptunbrunnen_in_T%C3%BCbingen_2019_cropped.jpg",
+    "creator": "Dktue",
+    "license": "CC0",
+    "attribution": "Dktue / Wikimedia Commons / CC0",
+    "approved": false
+  },
+  {
+    "animalId": "gallus_gallus",
+    "assetUrl": "/animalstats/gallus_gallus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Red_Junglefowl.jpg",
+    "creator": "Jason Thompson",
+    "license": "CC BY 2.0",
+    "attribution": "Jason Thompson / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "pavo_cristatus",
+    "assetUrl": "/animalstats/pavo_cristatus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Pavo_Real_Venezolano.jpg",
+    "creator": "Wilfredor",
+    "license": "CC0",
+    "attribution": "Wilfredor / Wikimedia Commons / CC0",
+    "approved": true
+  },
+  {
+    "animalId": "corvus_corax",
+    "assetUrl": "/animalstats/corvus_corax.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Anchorage_White_Raven.jpg",
+    "creator": "Lisa Hupp/USFWS",
+    "license": "Public domain",
+    "attribution": "Lisa Hupp/USFWS / Wikimedia Commons / Public domain",
+    "approved": false
+  },
+  {
+    "animalId": "cardinalis_cardinalis",
+    "assetUrl": "/animalstats/cardinalis_cardinalis.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Cardinal_couple_-_Feb._2018_(watermark_removed).jpg",
+    "creator": "patricia pierce",
+    "license": "CC BY 2.0",
+    "attribution": "patricia pierce / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "pelecanus_occidentalis",
+    "assetUrl": "/animalstats/pelecanus_occidentalis.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Brown_Pelican,_Pelagic_Boat_Trip.jpg",
+    "creator": "Mike Baird from Morro Bay, USA",
+    "license": "CC BY 2.0",
+    "attribution": "Mike Baird from Morro Bay, USA / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "ramphastos_toco",
+    "assetUrl": "/animalstats/ramphastos_toco.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Ramphastos_toco_247873928.jpg",
+    "creator": "Josi Guimarães",
+    "license": "CC BY 4.0",
+    "attribution": "Josi Guimarães / Wikimedia Commons / CC BY 4.0",
+    "approved": false
+  },
+  {
+    "animalId": "phoenicopterus_roseus",
+    "assetUrl": "/animalstats/phoenicopterus_roseus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Bristol.zoo.greater.flamingo.arp.jpg",
+    "creator": "Arpingstone",
+    "license": "Public domain",
+    "attribution": "Arpingstone / Wikimedia Commons / Public domain",
+    "approved": true
+  },
+  {
+    "animalId": "diomedea_exulans",
+    "assetUrl": "/animalstats/diomedea_exulans.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:070226_wandering_albatross_off_Kaikoura_3.jpg",
+    "creator": "Mark Jobling",
+    "license": "Public domain",
+    "attribution": "Mark Jobling / Wikimedia Commons / Public domain",
+    "approved": true
+  },
+  {
+    "animalId": "phoebastria_immutabilis",
+    "assetUrl": "/animalstats/phoebastria_immutabilis.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Laysan_dances.JPG",
+    "creator": "Duncan Wright, USFWS",
+    "license": "Public domain",
+    "attribution": "Duncan Wright, USFWS / Wikimedia Commons / Public domain",
+    "approved": true
+  },
+  {
+    "animalId": "cacatua_galerita",
+    "assetUrl": "/animalstats/cacatua_galerita.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Cacatua_galerita_-on_the_ground_in_Australia-8.jpg",
+    "creator": "Tanya Dropbear from Adelaide, Australia",
+    "license": "CC BY 2.0",
+    "attribution": "Tanya Dropbear from Adelaide, Australia / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "ara_macao",
+    "assetUrl": "/animalstats/ara_macao.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Ara_macao_451888362.jpg",
+    "creator": "Daniel S. Katz",
+    "license": "CC BY 4.0",
+    "attribution": "Daniel S. Katz / Wikimedia Commons / CC BY 4.0",
+    "approved": true
+  },
+  {
+    "animalId": "aptenodytes_forsteri",
+    "assetUrl": "/animalstats/aptenodytes_forsteri.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Penguin_in_Antarctica_jumping_out_of_the_water.jpg",
+    "creator": "Christopher Michel",
+    "license": "CC BY 2.0",
+    "attribution": "Christopher Michel / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "aptenodytes_patagonicus",
+    "assetUrl": "/animalstats/aptenodytes_patagonicus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Falkland_Islands_Penguins_49.jpg",
+    "creator": "Ben Tubby",
+    "license": "CC BY 2.0",
+    "attribution": "Ben Tubby / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "eudyptula_minor",
+    "assetUrl": "/animalstats/eudyptula_minor.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Penguin_crossing_MRD.jpg",
+    "creator": "Mike Dickison",
+    "license": "CC BY 4.0",
+    "attribution": "Mike Dickison / Wikimedia Commons / CC BY 4.0",
+    "approved": false
+  },
+  {
+    "animalId": "pygoscelis_adeliae",
+    "assetUrl": "/animalstats/pygoscelis_adeliae.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Ad%C3%A9lie_Penguin_Corpse_On_Franklin_Island.jpg",
+    "creator": "owamux",
+    "license": "CC BY 2.0",
+    "attribution": "owamux / Wikimedia Commons / CC BY 2.0",
+    "approved": false
+  },
+  {
+    "animalId": "pygoscelis_papua",
+    "assetUrl": "/animalstats/pygoscelis_papua.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Gentoo_penguin_yankee_harbor_greenwich_island_1.17.25_DSC_0102-topaz-rawdenoise.jpg",
+    "creator": "lwolfartist",
+    "license": "CC BY 2.0",
+    "attribution": "lwolfartist / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "spheniscus_demersus",
+    "assetUrl": "/animalstats/spheniscus_demersus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Sander-pinguins.jpg",
+    "creator": "Sander Spek",
+    "license": "Public domain",
+    "attribution": "Sander Spek / Wikimedia Commons / Public domain",
+    "approved": true
+  },
+  {
+    "animalId": "tyto_alba",
+    "assetUrl": "/animalstats/tyto_alba.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Tyto_alba_(Scopoli,_1769).jpg",
+    "creator": "Michael Gäbler",
+    "license": "CC BY 3.0",
+    "attribution": "Michael Gäbler / Wikimedia Commons / CC BY 3.0",
+    "approved": true
+  },
+  {
+    "animalId": "bubo_virginianus",
+    "assetUrl": "/animalstats/bubo_virginianus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Bubo_virginianus_-Canada-6.jpg",
+    "creator": "brendan.lally",
+    "license": "CC BY 2.0",
+    "attribution": "brendan.lally / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "dromaius_novaehollandiae",
+    "assetUrl": "/animalstats/dromaius_novaehollandiae.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Dromaius_novaehollandiae_(head)_Battersea_Park_Children%27s_Zoo.jpg",
+    "creator": "William Warby",
+    "license": "CC BY 2.0",
+    "attribution": "William Warby / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "struthio_camelus",
+    "assetUrl": "/animalstats/struthio_camelus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Struthio_camelus_portrait_Whipsnade_Zoo.jpg",
+    "creator": "William Warby",
+    "license": "CC BY 2.0",
+    "attribution": "William Warby / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "giraffa_camelopardalis",
+    "assetUrl": "/animalstats/giraffa_camelopardalis.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Giraffe_(Giraffa_camelopardalis)_(39352921831).jpg",
+    "creator": "Regina Hart from Industry, United States",
+    "license": "CC BY 2.0",
+    "attribution": "Regina Hart from Industry, United States / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "loxodonta_africana",
+    "assetUrl": "/animalstats/loxodonta_africana.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:African_elephant,_portrait_from_the_side_(14005496953).jpg",
+    "creator": "Derek Keats from Johannesburg, South Africa",
+    "license": "CC BY 2.0",
+    "attribution": "Derek Keats from Johannesburg, South Africa / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "ursus_maritimus",
+    "assetUrl": "/animalstats/ursus_maritimus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Polar_Bear_Play.jpg",
+    "creator": "Mark Dumont",
+    "license": "CC BY 2.0",
+    "attribution": "Mark Dumont / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "hydrochoerus_hydrochaeris",
+    "assetUrl": "/animalstats/hydrochoerus_hydrochaeris.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Capybara_portrait_2.jpg",
+    "creator": "Smabs Sputzer",
+    "license": "CC BY 2.0",
+    "attribution": "Smabs Sputzer / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "panthera_pardus",
+    "assetUrl": "/animalstats/panthera_pardus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Leopard_(Panthera_pardus)_Silent_shadow_of_the_wild_04_(cropped).jpg",
+    "creator": "Shiv's fotografia",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Shiv's fotografia / Wikimedia Commons / CC BY-SA 4.0",
+    "approved": true
+  },
+  {
+    "animalId": "pan_troglodytes",
+    "assetUrl": "/animalstats/pan_troglodytes.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Chimpanzee,_Kibale,_Uganda_(17893429069).jpg",
+    "creator": "Rod Waddington",
+    "license": "CC BY-SA 2.0",
+    "attribution": "Rod Waddington / Wikimedia Commons / CC BY-SA 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "ceratotherium_simum",
+    "assetUrl": "/animalstats/ceratotherium_simum.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:081_White_rhinoceros_(male)_in_the_Kalahari_Desert_of_Namibia_Photo_by_Giles_Laurent.jpg",
+    "creator": "Giles Laurent",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Giles Laurent / Wikimedia Commons / CC BY-SA 4.0",
+    "approved": true
+  }
+]

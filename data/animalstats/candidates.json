@@ -1,0 +1,587 @@
+{
+  "boards": [
+    {
+      "mode": "easy",
+      "boardType": "themed",
+      "animalIds": [
+        "pavo_cristatus",
+        "bubo_virginianus",
+        "ara_macao",
+        "phoenicopterus_roseus"
+      ],
+      "traitIds": [
+        "bird_tail_length",
+        "bird_hand_wing_index",
+        "bird_mass",
+        "bird_range_area"
+      ]
+    },
+    {
+      "mode": "easy",
+      "boardType": "cross-animal",
+      "animalIds": [
+        "pan_troglodytes",
+        "giraffa_camelopardalis",
+        "castor_canadensis",
+        "ceratotherium_simum"
+      ],
+      "traitIds": [
+        "gestation",
+        "female_maturity",
+        "birth_weight",
+        "litters_per_year"
+      ]
+    },
+    {
+      "mode": "easy",
+      "boardType": "clustered",
+      "animalIds": [
+        "panthera_tigris",
+        "ailuropoda_melanoleuca",
+        "ursus_arctos",
+        "canis_lupus"
+      ],
+      "traitIds": [
+        "interbirth_interval",
+        "litter_size",
+        "birth_weight",
+        "male_maturity"
+      ]
+    },
+    {
+      "mode": "easy",
+      "boardType": "cross-animal",
+      "animalIds": [
+        "ailuropoda_melanoleuca",
+        "megaptera_novaeangliae",
+        "canis_lupus",
+        "ursus_americanus"
+      ],
+      "traitIds": [
+        "female_maturity",
+        "birth_weight",
+        "interbirth_interval",
+        "litter_size"
+      ]
+    },
+    {
+      "mode": "easy",
+      "boardType": "clustered",
+      "animalIds": [
+        "ailuropoda_melanoleuca",
+        "ursus_americanus",
+        "panthera_leo",
+        "canis_lupus"
+      ],
+      "traitIds": [
+        "litter_size",
+        "birth_weight",
+        "male_maturity",
+        "interbirth_interval"
+      ]
+    },
+    {
+      "mode": "easy",
+      "boardType": "clustered",
+      "animalIds": [
+        "ailuropoda_melanoleuca",
+        "vulpes_vulpes",
+        "ursus_maritimus",
+        "panthera_leo"
+      ],
+      "traitIds": [
+        "litter_size",
+        "male_maturity",
+        "birth_weight",
+        "maximum_documented_lifespan"
+      ]
+    },
+    {
+      "mode": "easy",
+      "boardType": "cross-animal",
+      "animalIds": [
+        "hydrochoerus_hydrochaeris",
+        "ursus_americanus",
+        "macaca_mulatta",
+        "panthera_leo"
+      ],
+      "traitIds": [
+        "maximum_documented_lifespan",
+        "litter_size",
+        "adult_body_mass",
+        "interbirth_interval"
+      ]
+    },
+    {
+      "mode": "easy",
+      "boardType": "themed",
+      "animalIds": [
+        "anas_platyrhynchos",
+        "aptenodytes_forsteri",
+        "dromaius_novaehollandiae",
+        "cacatua_galerita"
+      ],
+      "traitIds": [
+        "bird_range_area",
+        "bird_beak_length",
+        "bird_beak_width",
+        "bird_wing_length"
+      ]
+    },
+    {
+      "mode": "easy",
+      "boardType": "clustered",
+      "animalIds": [
+        "ursus_arctos",
+        "canis_lupus",
+        "ailuropoda_melanoleuca",
+        "panthera_leo"
+      ],
+      "traitIds": [
+        "female_maturity",
+        "birth_weight",
+        "adult_body_mass",
+        "litter_size"
+      ]
+    },
+    {
+      "mode": "easy",
+      "boardType": "themed",
+      "animalIds": [
+        "anas_platyrhynchos",
+        "cacatua_galerita",
+        "gallus_gallus",
+        "tyto_alba"
+      ],
+      "traitIds": [
+        "bird_range_area",
+        "bird_wing_length",
+        "bird_hand_wing_index",
+        "bird_tarsus_length"
+      ]
+    },
+    {
+      "mode": "normal",
+      "boardType": "themed",
+      "animalIds": [
+        "pygoscelis_papua",
+        "pavo_cristatus",
+        "tyto_alba",
+        "bubo_virginianus",
+        "falco_peregrinus",
+        "aquila_chrysaetos"
+      ],
+      "traitIds": [
+        "bird_secondary_length",
+        "bird_tarsus_length",
+        "adult_body_mass",
+        "bird_hand_wing_index"
+      ]
+    },
+    {
+      "mode": "normal",
+      "boardType": "clustered",
+      "animalIds": [
+        "panthera_pardus",
+        "ailuropoda_melanoleuca",
+        "panthera_leo",
+        "ursus_maritimus",
+        "canis_lupus",
+        "ursus_arctos"
+      ],
+      "traitIds": [
+        "interbirth_interval",
+        "adult_body_mass",
+        "female_maturity",
+        "birth_weight"
+      ]
+    },
+    {
+      "mode": "normal",
+      "boardType": "themed",
+      "animalIds": [
+        "pygoscelis_papua",
+        "gallus_gallus",
+        "spheniscus_demersus",
+        "anas_platyrhynchos",
+        "haliaeetus_leucocephalus",
+        "pelecanus_occidentalis"
+      ],
+      "traitIds": [
+        "bird_hand_wing_index",
+        "bird_wing_length",
+        "bird_beak_width",
+        "bird_mass"
+      ]
+    },
+    {
+      "mode": "normal",
+      "boardType": "themed",
+      "animalIds": [
+        "haliaeetus_leucocephalus",
+        "anas_platyrhynchos",
+        "diomedea_exulans",
+        "phoenicopterus_roseus",
+        "ara_macao",
+        "falco_peregrinus"
+      ],
+      "traitIds": [
+        "bird_beak_width",
+        "bird_beak_depth",
+        "bird_tarsus_length",
+        "bird_secondary_length"
+      ]
+    },
+    {
+      "mode": "normal",
+      "boardType": "themed",
+      "animalIds": [
+        "haliaeetus_leucocephalus",
+        "phoebastria_immutabilis",
+        "aptenodytes_patagonicus",
+        "gallus_gallus",
+        "aptenodytes_forsteri",
+        "ara_macao"
+      ],
+      "traitIds": [
+        "bird_tail_length",
+        "bird_wing_length",
+        "bird_range_area",
+        "bird_mass"
+      ]
+    },
+    {
+      "mode": "normal",
+      "boardType": "clustered",
+      "animalIds": [
+        "panthera_pardus",
+        "vulpes_vulpes",
+        "panthera_leo",
+        "ursus_arctos",
+        "ailuropoda_melanoleuca",
+        "ursus_maritimus"
+      ],
+      "traitIds": [
+        "gestation",
+        "female_maturity",
+        "interbirth_interval",
+        "adult_body_mass"
+      ]
+    },
+    {
+      "mode": "normal",
+      "boardType": "cross-animal",
+      "animalIds": [
+        "gorilla_gorilla",
+        "hippopotamus_amphibius",
+        "ailuropoda_melanoleuca",
+        "tursiops_truncatus",
+        "enhydra_lutris",
+        "macaca_mulatta"
+      ],
+      "traitIds": [
+        "litters_per_year",
+        "gestation",
+        "adult_body_mass",
+        "male_maturity"
+      ]
+    },
+    {
+      "mode": "normal",
+      "boardType": "cross-animal",
+      "animalIds": [
+        "pongo_pygmaeus",
+        "pan_troglodytes",
+        "bison_bison",
+        "enhydra_lutris",
+        "balaenoptera_musculus",
+        "ceratotherium_simum"
+      ],
+      "traitIds": [
+        "gestation",
+        "interbirth_interval",
+        "adult_body_mass",
+        "female_maturity"
+      ]
+    },
+    {
+      "mode": "normal",
+      "boardType": "cross-animal",
+      "animalIds": [
+        "pan_troglodytes",
+        "hippopotamus_amphibius",
+        "ceratotherium_simum",
+        "giraffa_camelopardalis",
+        "ailuropoda_melanoleuca",
+        "castor_canadensis"
+      ],
+      "traitIds": [
+        "maximum_documented_lifespan",
+        "litters_per_year",
+        "birth_weight",
+        "adult_body_mass"
+      ]
+    },
+    {
+      "mode": "normal",
+      "boardType": "cross-animal",
+      "animalIds": [
+        "panthera_tigris",
+        "ursus_maritimus",
+        "equus_quagga",
+        "pongo_pygmaeus",
+        "tursiops_truncatus",
+        "castor_canadensis"
+      ],
+      "traitIds": [
+        "male_maturity",
+        "maximum_documented_lifespan",
+        "birth_weight",
+        "adult_body_mass"
+      ]
+    },
+    {
+      "mode": "expert",
+      "boardType": "themed",
+      "animalIds": [
+        "aptenodytes_patagonicus",
+        "ara_macao",
+        "cardinalis_cardinalis",
+        "pavo_cristatus",
+        "haliaeetus_leucocephalus",
+        "pelecanus_occidentalis",
+        "falco_peregrinus",
+        "bubo_virginianus"
+      ],
+      "traitIds": [
+        "bird_hand_wing_index",
+        "bird_wing_length",
+        "bird_tarsus_length",
+        "bird_tail_length",
+        "bird_beak_width",
+        "bird_mass"
+      ]
+    },
+    {
+      "mode": "expert",
+      "boardType": "themed",
+      "animalIds": [
+        "pelecanus_occidentalis",
+        "pavo_cristatus",
+        "aquila_chrysaetos",
+        "aptenodytes_patagonicus",
+        "tyto_alba",
+        "cacatua_galerita",
+        "cardinalis_cardinalis",
+        "phoenicopterus_roseus"
+      ],
+      "traitIds": [
+        "bird_tarsus_length",
+        "bird_range_area",
+        "bird_beak_width",
+        "bird_tail_length",
+        "adult_body_mass",
+        "bird_wing_length"
+      ]
+    },
+    {
+      "mode": "expert",
+      "boardType": "themed",
+      "animalIds": [
+        "aptenodytes_forsteri",
+        "tyto_alba",
+        "pavo_cristatus",
+        "ara_macao",
+        "aptenodytes_patagonicus",
+        "haliaeetus_leucocephalus",
+        "anas_platyrhynchos",
+        "bubo_virginianus"
+      ],
+      "traitIds": [
+        "bird_range_area",
+        "bird_beak_length",
+        "bird_wing_length",
+        "bird_mass",
+        "bird_beak_width",
+        "bird_tarsus_length"
+      ]
+    },
+    {
+      "mode": "expert",
+      "boardType": "themed",
+      "animalIds": [
+        "bubo_virginianus",
+        "pavo_cristatus",
+        "aptenodytes_patagonicus",
+        "falco_peregrinus",
+        "tyto_alba",
+        "haliaeetus_leucocephalus",
+        "pelecanus_occidentalis",
+        "ara_macao"
+      ],
+      "traitIds": [
+        "bird_tarsus_length",
+        "bird_beak_depth",
+        "bird_beak_width",
+        "bird_mass",
+        "bird_wing_length",
+        "bird_range_area"
+      ]
+    },
+    {
+      "mode": "expert",
+      "boardType": "themed",
+      "animalIds": [
+        "bubo_virginianus",
+        "aptenodytes_forsteri",
+        "phoenicopterus_roseus",
+        "pavo_cristatus",
+        "haliaeetus_leucocephalus",
+        "pelecanus_occidentalis",
+        "anas_platyrhynchos",
+        "aptenodytes_patagonicus"
+      ],
+      "traitIds": [
+        "bird_beak_length",
+        "bird_tail_length",
+        "bird_range_area",
+        "bird_tarsus_length",
+        "bird_wing_length",
+        "bird_mass"
+      ]
+    },
+    {
+      "mode": "expert",
+      "boardType": "themed",
+      "animalIds": [
+        "anas_platyrhynchos",
+        "cardinalis_cardinalis",
+        "aptenodytes_patagonicus",
+        "phoenicopterus_roseus",
+        "pelecanus_occidentalis",
+        "diomedea_exulans",
+        "pavo_cristatus",
+        "haliaeetus_leucocephalus"
+      ],
+      "traitIds": [
+        "bird_beak_width",
+        "bird_tail_length",
+        "bird_mass",
+        "bird_tarsus_length",
+        "bird_range_area",
+        "bird_secondary_length"
+      ]
+    },
+    {
+      "mode": "expert",
+      "boardType": "themed",
+      "animalIds": [
+        "haliaeetus_leucocephalus",
+        "pavo_cristatus",
+        "gallus_gallus",
+        "aptenodytes_forsteri",
+        "pelecanus_occidentalis",
+        "cardinalis_cardinalis",
+        "anas_platyrhynchos",
+        "ara_macao"
+      ],
+      "traitIds": [
+        "bird_tarsus_length",
+        "bird_beak_length",
+        "bird_wing_length",
+        "bird_mass",
+        "bird_range_area",
+        "bird_tail_length"
+      ]
+    },
+    {
+      "mode": "expert",
+      "boardType": "themed",
+      "animalIds": [
+        "phoebastria_immutabilis",
+        "phoenicopterus_roseus",
+        "cardinalis_cardinalis",
+        "struthio_camelus",
+        "tyto_alba",
+        "cacatua_galerita",
+        "haliaeetus_leucocephalus",
+        "dromaius_novaehollandiae"
+      ],
+      "traitIds": [
+        "bird_range_area",
+        "bird_beak_depth",
+        "bird_kipps_distance",
+        "bird_beak_length",
+        "bird_beak_width",
+        "bird_tail_length"
+      ]
+    },
+    {
+      "mode": "expert",
+      "boardType": "themed",
+      "animalIds": [
+        "aptenodytes_forsteri",
+        "anas_platyrhynchos",
+        "cardinalis_cardinalis",
+        "pavo_cristatus",
+        "haliaeetus_leucocephalus",
+        "bubo_virginianus",
+        "pelecanus_occidentalis",
+        "ara_macao"
+      ],
+      "traitIds": [
+        "bird_tarsus_length",
+        "bird_beak_width",
+        "bird_wing_length",
+        "bird_hand_wing_index",
+        "bird_tail_length",
+        "bird_mass"
+      ]
+    },
+    {
+      "mode": "expert",
+      "boardType": "themed",
+      "animalIds": [
+        "ara_macao",
+        "pavo_cristatus",
+        "pelecanus_occidentalis",
+        "aptenodytes_patagonicus",
+        "gallus_gallus",
+        "cardinalis_cardinalis",
+        "tyto_alba",
+        "falco_peregrinus"
+      ],
+      "traitIds": [
+        "bird_hand_wing_index",
+        "adult_body_mass",
+        "bird_tail_length",
+        "bird_tarsus_length",
+        "bird_range_area",
+        "bird_wing_length"
+      ]
+    }
+  ],
+  "rejectionReasons": {
+    "easy": {
+      "repeated category winner": 3535,
+      "missing observation": 274,
+      "rank gap below 5%": 156,
+      "similar traits": 9,
+      "too few comparable traits": 2
+    },
+    "normal": {
+      "repeated category winner": 7331,
+      "rank gap below 5%": 3107,
+      "missing observation": 2996,
+      "too few comparable traits": 231,
+      "similar traits": 47
+    },
+    "expert": {
+      "rank gap below 5%": 433153,
+      "missing observation": 324017,
+      "repeated category winner": 50830,
+      "too few comparable traits": 45699,
+      "similar traits": 10
+    }
+  }
+}

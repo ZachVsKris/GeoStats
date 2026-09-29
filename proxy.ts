@@ -28,6 +28,10 @@ function clearStaleAuthCookies(request: NextRequest, response: NextResponse) {
 }
 
 export async function proxy(request: NextRequest) {
+  if (request.nextUrl.pathname.replace(/\/+$/, "") === "/animals" &&
+      Reflect.get(process.env, "ANIMALSTATS_PREVIEW_ENABLED") !== "true") {
+    return new NextResponse("Not found", { status: 404 });
+  }
   if (request.nextUrl.pathname.replace(/\/+$/, "") === "/leaderboard") {
     const destination = request.nextUrl.clone();
     destination.pathname = "/account";

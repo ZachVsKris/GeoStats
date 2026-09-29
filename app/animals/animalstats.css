@@ -1,50 +1,50 @@
-.animalPage { min-height: 100vh; background: #e9ecdf; color: #25382f; font-family: Georgia, 'Times New Roman', serif; padding: 24px 16px 70px; }
+.animalPage { min-height: 100vh; background: var(--bg); color: var(--ink); font-family: var(--sans); padding: 24px 16px 70px; }
 .animalShell { max-width: 1120px; margin: 0 auto; }
-.animalHeader { display: block; position: relative; padding: 26px 34px 24px; border: 1px solid #aebba8; border-radius: 18px; background: linear-gradient(130deg, #d8e1cc, #f8f4e8); }
+.animalHeader { display: block; position: relative; padding: 26px 34px 24px; border: 1px solid #aebba8; border-radius: 18px; background: var(--surface); }
 .animalHeader h1 { display: block; clear: both; margin: 8px 0 5px; font-size: clamp(38px, 6vw, 64px); line-height: 1; letter-spacing: -.035em; }
 .animalHeader p { display: block; max-width: 650px; margin: 10px 0 0; font-size: 17px; line-height: 1.45; }
-.animalBack { float: right; color: #365946; font: 600 14px Arial, sans-serif; text-decoration: none; }
-.animalEyebrow { display: block; color: #5a714f; font: 700 11px Arial, sans-serif; letter-spacing: .14em; }
+.animalBack { float: right; color: var(--accent); font: 600 14px var(--sans); text-decoration: none; }
+.animalEyebrow { display: block; color: var(--accent); font: 700 11px var(--sans); letter-spacing: .14em; }
 .animalModes { display: flex; gap: 10px; margin: 17px 0 24px; }
-.animalModes button { flex: 1; text-align: left; border: 1px solid #afbdab; background: #faf9f2; color: #34483a; border-radius: 12px; padding: 13px 18px; font: 700 19px Georgia, serif; cursor: pointer; }
-.animalModes button small { display: block; margin-top: 4px; font: 12px Arial, sans-serif; }
-.animalModes button[aria-current="page"] { background: #315744; color: white; border-color: #315744; }
+.animalModes button { flex: 1; text-align: left; border: 1px solid #afbdab; background: var(--surface); color: var(--ink); border-radius: 12px; padding: 13px 18px; font: 700 19px var(--display); cursor: pointer; }
+.animalModes button small { display: block; margin-top: 4px; font: 12px var(--sans); }
+.animalModes button[aria-current="page"] { background: var(--accent); color: white; border-color: var(--accent); }
 .animalBoardTop { display: flex; justify-content: space-between; align-items: end; gap: 15px; margin: 0 2px 10px; }
 .animalBoardTop h2 { margin: 4px 0 0; font-size: 29px; }
-.animalNext { background: transparent; border: 1px solid #7e9a82; color: #315744; border-radius: 10px; padding: 10px 13px; font: 700 14px Arial, sans-serif; cursor: pointer; }
-.animalPilotNote { border-left: 3px solid #ab7756; padding-left: 12px; margin: 12px 2px; color: #5b594b; font: 13px/1.5 Arial, sans-serif; }
-.animalInstruction { margin: 20px 2px 10px; font: 15px Arial, sans-serif; }
+.animalNext { background: transparent; border: 1px solid #7e9a82; color: var(--accent); border-radius: 10px; padding: 10px 13px; font: 700 14px var(--sans); cursor: pointer; }
+.animalPilotNote { border-left: 3px solid #ab7756; padding-left: 12px; margin: 12px 2px; color: var(--muted); font: 13px/1.5 var(--sans); }
+.animalInstruction { margin: 20px 2px 10px; font: 15px var(--sans); }
 .animalTraits { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
-.animalTrait { min-height: 115px; display: flex; flex-direction: column; text-align: left; border: 1px solid #b9c5b5; border-radius: 13px; background: #faf9f2; color: #25382f; padding: 15px 18px; cursor: pointer; box-shadow: 0 2px 7px #1e342510; }
-.animalTrait.selected { border: 2px solid #3e7254; background: #e3ecda; padding: 14px 17px; box-shadow: 0 0 0 3px #7fab7933; }
-.animalTraitName { font: 700 20px Georgia, serif; }
-.animalTraitDefinition { margin-top: 5px; font: 12px/1.35 Arial, sans-serif; color: #5c6c5f; }
-.animalTraitChoice { margin-top: auto; padding-top: 9px; font: 700 14px Arial, sans-serif; color: #3d7454; }
+.animalTrait { min-height: 115px; display: flex; flex-direction: column; text-align: left; border: 1px solid #b9c5b5; border-radius: 13px; background: var(--surface); color: var(--ink); padding: 15px 18px; cursor: pointer; box-shadow: 0 2px 7px #1e342510; }
+.animalTrait.selected { border: 2px solid #3e7254; background: var(--surface-2); padding: 14px 17px; box-shadow: 0 0 0 3px #7fab7933; }
+.animalTraitName { font: 700 20px var(--display); }
+.animalTraitDefinition { margin-top: 5px; font: 12px/1.35 var(--sans); color: var(--muted); }
+.animalTraitChoice { margin-top: auto; padding-top: 9px; font: 700 14px var(--sans); color: var(--accent); }
 .animalBank { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 10px; margin-top: 18px; }
-.animalCard { overflow: hidden; display: flex; flex-direction: column; text-align: left; border: 1px solid #b7c3b2; border-radius: 13px; background: #faf9f2; color: #25382f; padding: 0 0 12px; cursor: pointer; }
+.animalCard { overflow: hidden; display: flex; flex-direction: column; text-align: left; border: 1px solid #b7c3b2; border-radius: 13px; background: var(--surface); color: var(--ink); padding: 0 0 12px; cursor: pointer; }
 .animalCard img { width: 100%; height: 138px; object-fit: cover; background: #d7ddcf; }
-.animalCard span { padding: 10px 12px 0; font: 700 17px Georgia, serif; }
-.animalCard small { padding: 4px 12px 0; font: italic 12px Georgia, serif; color: #667465; }
-.animalCard em { margin: 8px 12px 0; font: 700 11px Arial, sans-serif; color: #42694d; }
-.animalCard.used { background: #dce7d6; border-color: #679674; }
+.animalCard span { padding: 10px 12px 0; font: 700 17px var(--display); }
+.animalCard small { padding: 4px 12px 0; font: italic 12px var(--display); color: var(--muted); }
+.animalCard em { margin: 8px 12px 0; font: 700 11px var(--sans); color: var(--accent-2); }
+.animalCard.used { background: var(--surface-2); border-color: #679674; }
 .animalSubmit, .animalActions { display: flex; align-items: center; gap: 16px; margin: 24px 0; }
-.animalSubmit button, .animalActions button:first-child { background: #315744; color: white; border: 0; border-radius: 11px; padding: 14px 24px; font: 700 16px Arial, sans-serif; cursor: pointer; }
-.animalSubmit p { font: 14px Arial, sans-serif; color: #a64030; }
+.animalSubmit button, .animalActions button:first-child { background: var(--accent); color: white; border: 0; border-radius: 11px; padding: 14px 24px; font: 700 16px var(--sans); cursor: pointer; }
+.animalSubmit p { font: 14px var(--sans); color: var(--danger); }
 .animalScore { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin: 20px 0; }
-.animalScore>div { display: flex; flex-direction: column; gap: 7px; background: #f8f7ed; border: 1px solid #c2cbb8; border-radius: 14px; padding: 20px; }
-.animalScore strong { font: 700 36px Georgia, serif; }.animalScore strong small { font-size: 19px; color: #738173; }
+.animalScore>div { display: flex; flex-direction: column; gap: 7px; background: var(--surface); border: 1px solid #c2cbb8; border-radius: 14px; padding: 20px; }
+.animalScore strong { font: 700 36px var(--display); }.animalScore strong small { font-size: 19px; color: var(--muted); }
 .animalResults { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
-.animalResult { display: flex; overflow: hidden; border: 1px solid #c2cbb8; border-radius: 13px; background: #faf9f2; }
+.animalResult { display: flex; overflow: hidden; border: 1px solid #c2cbb8; border-radius: 13px; background: var(--surface); }
 .animalResult>img { width: 130px; object-fit: cover; }
 .animalResultBody { padding: 15px; min-width: 0; }.animalResultBody h3 { margin: 0 0 10px; font-size: 19px; }
-.animalResultBody p { margin: 5px 0; font: 13px/1.4 Arial, sans-serif; }.animalResultBody details { margin-top: 10px; font: 12px/1.4 Arial, sans-serif; }
-.animalReview { background: #f7f5e8; border: 1px solid #bdc9b4; border-radius: 13px; padding: 20px; margin: 20px 0; font: 14px/1.5 Arial, sans-serif; }
-.animalReview h3 { margin: 0; font: 700 22px Georgia, serif; }.animalReview p { margin: 7px 0 14px; }
+.animalResultBody p { margin: 5px 0; font: 13px/1.4 var(--sans); }.animalResultBody details { margin-top: 10px; font: 12px/1.4 var(--sans); }
+.animalReview { background: var(--surface); border: 1px solid #bdc9b4; border-radius: 13px; padding: 20px; margin: 20px 0; font: 14px/1.5 var(--sans); }
+.animalReview h3 { margin: 0; font: 700 22px var(--display); }.animalReview p { margin: 7px 0 14px; }
 .animalReview label { display: block; margin: 10px 0; font-weight: 700; }
-.animalReview select, .animalReview textarea { display: block; width: min(100%, 650px); margin-top: 6px; border: 1px solid #9caf9a; border-radius: 7px; padding: 9px; background: white; color: #25382f; font: 14px Arial, sans-serif; }
-.animalReview button { background: #315744; color: white; border: 0; border-radius: 8px; padding: 10px 15px; font: 700 13px Arial, sans-serif; cursor: pointer; }.animalReview button:disabled { opacity: .5; cursor: default; }.animalReview button.animalExport { margin: 10px 0 0 10px; color: #315744; background: transparent; border: 1px solid #78967c; }.animalReview span { margin-left: 10px; color: #315744; }
-.animalFooter { margin-top: 32px; border-top: 1px solid #b8c7b1; padding: 14px 2px; font: 12px/1.5 Arial, sans-serif; color: #526252; }
-.animalFooter a, .animalResult a { color: #2b6850; }.animalFooter li { margin: 4px 0; }
+.animalReview select, .animalReview textarea { display: block; width: min(100%, 650px); margin-top: 6px; border: 1px solid #9caf9a; border-radius: 7px; padding: 9px; background: white; color: var(--ink); font: 14px var(--sans); }
+.animalReview button { background: var(--accent); color: white; border: 0; border-radius: 8px; padding: 10px 15px; font: 700 13px var(--sans); cursor: pointer; }.animalReview button:disabled { opacity: .5; cursor: default; }.animalReview button.animalExport { margin: 10px 0 0 10px; color: var(--accent); background: transparent; border: 1px solid #78967c; }.animalReview span { margin-left: 10px; color: var(--accent); }
+.animalFooter { margin-top: 32px; border-top: 1px solid #b8c7b1; padding: 14px 2px; font: 12px/1.5 var(--sans); color: var(--muted); }
+.animalFooter a, .animalResult a { color: var(--accent-2); }.animalFooter li { margin: 4px 0; }
 @media (max-width: 700px) {
   .animalPage { padding: 10px 10px 50px; }.animalHeader { padding: 20px; }.animalHeader p { font-size: 14px; }
   .animalModes { gap: 5px; }.animalModes button { padding: 9px 7px; font-size: 14px; }.animalModes button small { font-size: 10px; }
@@ -55,3 +55,40 @@
   .animalResults { grid-template-columns: 1fr; }.animalResult>img { width: 105px; }
 }
 @media (prefers-reduced-motion: no-preference) { .animalTrait, .animalCard, .animalModes button { transition: background .15s ease, border-color .15s ease; } }
+
+/* Shared GeoStats palette, typography and compact board proportions. */
+.animalHeader, .animalModes button, .animalTrait, .animalCard, .animalScore>div, .animalResult, .animalReview { border-color: var(--line); border-radius: 3px; }
+.animalHeader h1 { font-family: var(--display); font-size: clamp(34px,5vw,48px); font-weight: 600; }
+.animalHeader p { color: var(--muted); }
+.animalModes button[aria-current="page"], .animalSubmit button, .animalActions button:first-child, .animalReview button { color: var(--bg); }
+.animalNext { border-color: var(--line); }
+.animalPlayBoard { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.35fr); gap: 20px; align-items: start; }
+.animalTraits { grid-column: 2; grid-row: 1; }
+.animalBank { grid-column: 1; grid-row: 1; grid-template-columns: repeat(2,minmax(0,1fr)); margin: 0; }
+.animalCard { min-height: 76px; touch-action: none; user-select: none; cursor: grab; }
+.animalCard img { height: 100px; }
+.animalCard:active { cursor: grabbing; }
+.animalCard.selected, .animalTrait.selected { border: 1px solid var(--accent); background: var(--surface-2); padding: 15px 18px; box-shadow: 0 0 0 2px #d4bf7233; }
+.animalCard.selected { padding: 0 0 12px; }
+.animalCard.used { border-color: var(--accent-2); }
+.animalToolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 18px; }
+.animalInstruction { flex: 1 1 100%; margin: 0; color: var(--muted); line-height: 1.5; }
+.animalPhotoToggle { display: flex; align-items: center; gap: 7px; font-size: 13px; cursor: pointer; }
+.animalPhotoToggle input { accent-color: var(--accent); }
+.animalPhotoNote { color: var(--muted); font-size: 12px; margin: 9px 0 18px; }
+.animalDragGhost { position: fixed; z-index: 100; pointer-events: none; background: var(--accent); color: var(--bg); border-radius: 3px; padding: 12px; font-weight: 700; box-shadow: 0 4px 20px #0008; }
+.animalProgress { font-size: 13px; color: var(--muted); }
+.animalPage button:focus-visible, .animalPage input:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.animalReview textarea, .animalReview select { background: var(--surface-3); border-color: var(--line); }
+@media(max-width:700px) {
+ .animalPlayBoard { grid-template-columns: minmax(0,.85fr) minmax(0,1.2fr); gap: 8px; }
+ .animalBank { grid-template-columns: 1fr; position: sticky; top: 8px; }
+ .animalTrait, .animalTrait.selected { min-height: 95px; padding: 10px; }
+ .animalTraitName { font-size: 16px; }
+ .animalTraitDefinition { font-size: 10px; }
+ .animalCard span { font-size: 13px; padding: 9px 8px 0; }
+ .animalCard small { font-size: 10px; padding: 4px 8px 0; }
+ .animalCard em { font-size: 9px; margin: 6px 8px 0; }
+ .animalCard img { height: 75px; }
+ .animalSubmit { flex-wrap: wrap; gap: 10px; }
+}

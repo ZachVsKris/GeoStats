@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { ROUND_CONFIGS, type DailyDifficulty } from "../lib/gameRules";
 import type { AnimalDataset, BoardCandidate, ReviewLabel } from "../lib/animalstats";
 import "../app/animals/animalstats.css";
@@ -18,6 +18,12 @@ export default function AnimalStatsGame({ data, boards }: Props) {
   const [boardIndex, setBoardIndex] = useState(0);
   const [assignments, setAssignments] = useState<Assignment>({});
   const [selectedTrait, setSelectedTrait] = useState<string | null>(null);
+  const [selectedAnimal, setSelectedAnimal] = useState<string | null>(null);
+  const [showPhotos, setShowPhotos] = useState(false);
+  const [dragging, setDragging] = useState<{ id: string; x: number; y: number } | null>(null);
+  const [dropTarget, setDropTarget] = useState<string | null>(null);
+  const pointer = useRef<{ id: string; x: number; y: number; moved: boolean } | null>(null);
+  const suppressClick = useRef(false);
   const [submitted, setSubmitted] = useState(false);
   const [message, setMessage] = useState("");
   const [copied, setCopied] = useState(false);
@@ -38,6 +44,7 @@ export default function AnimalStatsGame({ data, boards }: Props) {
     setBoardIndex(index);
     setAssignments({});
     setSelectedTrait(null);
+    setSelectedAnimal(null);
     setSubmitted(false);
     setMessage("");
     setCopied(false);
@@ -51,12 +58,19 @@ export default function AnimalStatsGame({ data, boards }: Props) {
     setAssignments((previous) => {
       const next = { ...previous };
       const previousTrait = Object.keys(next).find((id) => next[id] === animalId);
-      if (previousTrait) delete next[previousTrait];
-      if (next[traitId] === animalId) delete next[traitId];
-      else next[traitId] = animalId;
+      const displaced = next[traitId];
+      if (previousTrait === traitId) delete next[traitId];
+      else {
+        if (previousTrait) {
+          if (displaced) next[previousTrait] = displaced;
+          else delete next[previousTrait];
+        }
+        next[traitId] = animalId;
+      }
       return next;
     });
     setSelectedTrait(null);
+    setSelectedAnimal(null);
     setMessage("");
   }
 
@@ -79,7 +93,7 @@ export default function AnimalStatsGame({ data, boards }: Props) {
     <div className="animalShell">
       <header className="animalHeader">
         <a href="/daily" className="animalBack">← GeoStats</a>
-        <div className="animalEyebrow">FIELD NOTES · PRIVATE PLAYTEST</div>
+        <div className="animalEyebrow">GEOSTATS · ANIMALS · PRIVATE PLAYTEST</div>
         <h1>AnimalStats</h1>
         <p>Match each animal to the trait where it ranks strongest. Use every animal at most once.</p>
       </header>
@@ -91,18 +105,23 @@ export default function AnimalStatsGame({ data, boards }: Props) {
       </nav>
       <div className="animalBoardTop">
         <div><span className="animalEyebrow">BOARD {boardIndex + 1} OF {pool.length} · {board.boardType.toUpperCase()}</span>
-          <h2>{submitted ? "Your field report" : "Make your matches"}</h2></div>
+          <h2>{submitted ? "Your results" : "Make your matches"}</h2></div>
         <button type="button" className="animalNext" onClick={() => switchBoard(mode, (boardIndex + 1) % pool.length)}>Another board →</button>
       </div>
       <p className="animalPilotNote">Pilot board awaiting human review. Values are sourced; rankings may still need an uncertainty and playability check.</p>
       {!submitted && <>
-        <p className="animalInstruction">Select a trait, then choose an animal. Tap an assigned animal to move it.</p>
+        <div className="animalToolbar"><p className="animalInstruction">Choose an animal and a trait in either order, or drag an animal onto a trait. Moving onto an occupied trait swaps your choices.</p>
+          <label className="animalPhotoToggle"><input type="checkbox" checked={showPhotos} onChange={(event) => setShowPhotos(event.target.checked)} /> Show photos during play</label>
+          <button type="button" className="animalNext" onClick={() => { setAssignments({}); setSelectedAnimal(null); setSelectedTrait(null); setMessage(""); }}>Reset choices</button>
+        </div>
+        <p className="animalPhotoNote">Photos appear with your results. Showing them now may offer clues.</p>
+        <div className="animalPlayBoard">
         <section className="animalTraits" aria-label="Traits">
           {board.traitIds.map((id) => {
             const trait = traitMap.get(id)!;
             const animal = animalMap.get(assignments[id]);
-            return <button type="button" key={id} className={`animalTrait ${selectedTrait === id ? "selected" : ""}`}
-              aria-pressed={selectedTrait === id} onClick={() => setSelectedTrait(id)}>
+            return <button type="button" key={id} data-trait-id={id} className={`animalTrait ${selectedTrait === id || dropTarget === id ? "selected" : ""}`}
+              aria-pressed={selectedTrait === id} onClick={() => selectedAnimal ? assign(id, selectedAnimal) : setSelectedTrait(selectedTrait === id ? null : id)}>
               <span className="animalTraitName">{trait.displayName}</span>
               <span className="animalTraitDefinition">{trait.definition}</span>
               <span className="animalTraitChoice">{animal ? animal.commonName : "Choose an animal +"}</span>
@@ -114,21 +133,51 @@ export default function AnimalStatsGame({ data, boards }: Props) {
             const animal = animalMap.get(id)!;
             const photo = photoMap.get(id)!;
             const usedOn = Object.keys(assignments).find((key) => assignments[key] === id);
-            return <button type="button" key={id} className={`animalCard ${usedOn ? "used" : ""}`}
-              onClick={() => selectedTrait ? assign(selectedTrait, id) : setMessage("Select a trait above, then choose an animal.")}>
-              <img src={photo.assetUrl} alt="" />
+            return <button type="button" key={id} aria-pressed={selectedAnimal === id} className={`animalCard ${usedOn ? "used" : ""} ${selectedAnimal === id ? "selected" : ""}`}
+              onPointerDown={(event) => {
+                if (event.button !== 0) return;
+                pointer.current = { id, x: event.clientX, y: event.clientY, moved: false };
+                suppressClick.current = false;
+                event.currentTarget.setPointerCapture(event.pointerId);
+              }}
+              onPointerMove={(event) => {
+                const start = pointer.current;
+                if (!start || start.id !== id) return;
+                if (Math.hypot(event.clientX - start.x, event.clientY - start.y) < 8 && !start.moved) return;
+                start.moved = true;
+                setDragging({ id, x: event.clientX, y: event.clientY });
+                setDropTarget(document.elementFromPoint(event.clientX, event.clientY)?.closest<HTMLElement>("[data-trait-id]")?.dataset.traitId ?? null);
+              }}
+              onPointerUp={(event) => {
+                const start = pointer.current;
+                if (start?.moved) {
+                  suppressClick.current = true;
+                  const target = document.elementFromPoint(event.clientX, event.clientY)?.closest<HTMLElement>("[data-trait-id]")?.dataset.traitId;
+                  if (target) assign(target, id);
+                }
+                pointer.current = null; setDragging(null); setDropTarget(null);
+              }}
+              onPointerCancel={() => { pointer.current = null; setDragging(null); setDropTarget(null); }}
+              onClick={() => {
+                if (suppressClick.current) { suppressClick.current = false; return; }
+                if (selectedTrait) assign(selectedTrait, id);
+                else { setSelectedAnimal(selectedAnimal === id ? null : id); setMessage(""); }
+              }}>
+              {showPhotos && <img src={photo.assetUrl} alt="" draggable={false} />}
               <span>{animal.commonName}</span><small>{animal.scientificName}</small>
               {usedOn && <em>Assigned to {traitMap.get(usedOn)?.displayName}</em>}
             </button>;
           })}
         </section>
+        </div>
+        {dragging && <div className="animalDragGhost" style={{ left: dragging.x + 12, top: dragging.y + 12 }}>{animalMap.get(dragging.id)?.commonName}</div>}
         <div className="animalSubmit"><button type="button" onClick={() => {
           if (Object.keys(assignments).length < board.traitIds.length) {
             setMessage(`Choose an animal for all ${board.traitIds.length} traits first.`); return;
           }
           setSubmitted(true);
           setMessage("");
-        }}>Reveal results</button>{message && <p role="status">{message}</p>}</div>
+        }}>Reveal results</button>{message && <p role="status">{message}</p>}<span className="animalProgress" aria-live="polite">{Object.keys(assignments).length} / {board.traitIds.length} placed</span></div>
       </>}
       {submitted && <>
         <section className="animalScore" aria-label="Results"><div><span className="animalEyebrow">FINAL SCORE</span>

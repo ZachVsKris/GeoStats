@@ -47,3 +47,28 @@ test("phone layout fits and exposes sources after scoring", async ({ page }) => 
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
   expect(overflow).toBeLessThanOrEqual(1);
 });
+
+test("either-order placement, swapping, dragging and photo reveal", async ({ page }) => {
+  await page.goto("/animals");
+  const cards = page.locator(".animalCard");
+  const traits = page.locator(".animalTrait");
+  await expect(cards.locator("img")).toHaveCount(0);
+  const first = await cards.nth(0).locator("span").innerText();
+  const second = await cards.nth(1).locator("span").innerText();
+  await cards.nth(0).click(); await traits.nth(0).click();
+  await traits.nth(1).click(); await cards.nth(1).click();
+  await cards.nth(0).click(); await traits.nth(1).click();
+  await expect(traits.nth(0).locator(".animalTraitChoice")).toHaveText(second);
+  await expect(traits.nth(1).locator(".animalTraitChoice")).toHaveText(first);
+  const from = (await cards.nth(2).boundingBox())!;
+  const to = (await traits.nth(2).boundingBox())!;
+  await page.mouse.move(from.x + from.width / 2, from.y + from.height / 2);
+  await page.mouse.down();
+  await page.mouse.move(to.x + to.width / 2, to.y + to.height / 2, { steps: 12 });
+  await page.mouse.up();
+  await expect(traits.nth(2).locator(".animalTraitChoice")).toHaveText(await cards.nth(2).locator("span").innerText());
+  await page.getByLabel("Show photos during play").check();
+  await expect(cards.locator("img")).toHaveCount(4);
+  await page.getByRole("button", { name: "Reset choices" }).click();
+  await expect(page.locator(".animalProgress")).toHaveText("0 / 4 placed");
+});

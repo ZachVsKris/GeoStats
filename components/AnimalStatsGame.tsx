@@ -311,7 +311,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
         </section>
       </>}
       </>}
-      <footer className="animalFooter"><p>Data: <a href="https://genomics.senescence.info/species/" target="_blank" rel="noreferrer">AnAge / HAGR</a> and <a href="https://doi.org/10.6084/m9.figshare.16586228.v7" target="_blank" rel="noreferrer">AVONET</a>. Photos: Wikimedia Commons; individual credits below.</p>
+      <footer className="animalFooter"><p>Data: <a href="https://genomics.senescence.info/species/" target="_blank" rel="noreferrer">AnAge / HAGR</a> and <a href="https://doi.org/10.6084/m9.figshare.16586228.v7" target="_blank" rel="noreferrer">AVONET</a>, <a href="https://doi.org/10.6084/m9.figshare.4644424.v5" target="_blank" rel="noreferrer">AmphiBIO</a> and <a href="https://doi.org/10.6084/m9.figshare.3563457.v1" target="_blank" rel="noreferrer">Amniote life histories</a>. Photos: Wikimedia Commons; individual credits below.</p>
         <details><summary>Photo credits</summary><ul>{board?.animalIds.map((id) => { const photo = photoMap.get(id)!; return <li key={id}><a href={photo.originalUrl} target="_blank" rel="noreferrer">{animalMap.get(id)?.commonName}</a>: {photo.attribution}</li>; })}</ul></details>
         <p>Private experimental prototype. AnimalStats history is kept separate from Countries. Sign in to save future results to your account.</p></footer>
     </div>

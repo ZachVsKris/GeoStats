@@ -911,6 +911,11 @@ ${total} / ${roundMaxScore}
     {!scores && <section className="dataNote"><strong>Atlas index · trusted category library</strong><p><a href="/data">Data & methodology</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></p><p>Population, economy, land, agriculture, food, religion, energy, health, labor, trade, displacement, travel, technology, and environment. New official-source categories stay out of play until they pass integrity, clarity, coverage, and duplicate review.</p></section>}
 
     {scores && <div className="resultsGameTools">{gameTools}</div>}
+    <footer className="gameSiteFooter">
+      <a href="https://dailygameindex.com/games/geostats/" target="_blank" rel="noopener noreferrer" aria-label="GeoStats on Daily Game Index">
+        <img src="https://dailygameindex.com/badges/featured-on-dgi.png" alt="Featured on Daily Game Index" width="240" height="120" />
+      </a>
+    </footer>
     <dialog ref={categoryDialog} className="mobileCategoryDialog" aria-labelledby="categoryHelpTitle" onClick={(event)=>{if(event.target===event.currentTarget)categoryDialog.current?.close();}}>
       <h2 id="categoryHelpTitle">{categoryHelp?.icon} {categoryHelp?.name}</h2>
       <p>{categoryHelp?.boardDescription ?? categoryHelp?.description}</p>

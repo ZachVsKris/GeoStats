@@ -5,14 +5,10 @@ import { DAILY_DIFFICULTIES, ROUND_CONFIGS, type DailyDifficulty } from "../lib/
 import { createSupabaseBrowserClient } from "../lib/supabase/browser";
 
 type Result = { challenge_date: string; difficulty: DailyDifficulty; score: number; average_placement: number | null; rules_version: string | null };
-type Ratings = Record<DailyDifficulty, number | null>;
-const emptyRatings: Ratings = { easy: null, normal: null, expert: null };
 
 export default function PersonalResults() {
   const [results, setResults] = useState<Result[]>([]);
-  const [ratings, setRatings] = useState<Ratings>(emptyRatings);
   const [mode, setMode] = useState<DailyDifficulty>("easy");
-  const [showRatingInfo, setShowRatingInfo] = useState(false);
   const [status, setStatus] = useState<"loading" | "guest" | "ready" | "error">("loading");
 
   useEffect(() => {
@@ -31,9 +27,8 @@ export default function PersonalResults() {
         if (!active) return;
         if (response.status === 401) { setStatus("guest"); return; }
         if (!response.ok) throw new Error("Failed to load results");
-        const payload = await response.json() as { results: Result[]; ratings: Ratings };
+        const payload = await response.json() as { results: Result[] };
         setResults(payload.results);
-        setRatings(payload.ratings);
         setStatus("ready");
       } catch { if (active) setStatus("error"); }
     }
@@ -52,7 +47,7 @@ export default function PersonalResults() {
   const best = history.length ? Math.max(...history.map((r) => r.score)) : null;
   const isGuestPreview = status === "guest";
 
-  function selectMode(next: DailyDifficulty) { setMode(next); setShowRatingInfo(false); }
+  function selectMode(next: DailyDifficulty) { setMode(next); }
   function moveTab(event: KeyboardEvent<HTMLButtonElement>, current: DailyDifficulty) {
     if (event.key !== "ArrowLeft" && event.key !== "ArrowRight" && event.key !== "Home" && event.key !== "End") return;
     event.preventDefault();
@@ -72,7 +67,7 @@ export default function PersonalResults() {
 
   return <section className="panel personalResults"><button type="button" className="personalBackButton" onClick={goBack}>← Back</button><h1>My Stats</h1>
     {status === "loading" && <p>Loading your results…</p>}
-    {status === "guest" && <p className="personalStatsIntro">Sign in or create an account to get a player rating and track your Daily history, average score, and best result over time.</p>}
+    {status === "guest" && <p className="personalStatsIntro">Sign in or create an account to track your Daily history, average score, and best result over time.</p>}
     {status === "error" && <p role="alert">Your results could not be loaded. Please refresh the page.</p>}
     {(status === "guest" || status === "ready") && <>
       <div className="personalModeTabs" role="tablist" aria-label="Daily difficulty">
@@ -84,13 +79,7 @@ export default function PersonalResults() {
           <div><strong>{isGuestPreview ? "—" : average}<small> / {config.maxScore}</small></strong><span>Average score</span></div>
           <div><strong>{isGuestPreview ? "—" : best ?? "—"}<small> / {config.maxScore}</small></strong><span>Best result</span></div>
           <div><strong>{isGuestPreview ? "—" : averagePlacement}<small> / {config.countryCount}</small></strong><span>Average placement</span></div>
-          <div><strong>{isGuestPreview || ratings[mode] == null ? "—" : ratings[mode].toFixed(1)}<small> / 100</small></strong><span className="ratingLabel">Player rating <button type="button" className="ratingInfoButton" aria-label="How is player rating calculated?" aria-expanded={showRatingInfo} aria-controls="rating-explanation" onClick={() => setShowRatingInfo((open) => !open)}>i</button></span></div>
         </div>
-        {showRatingInfo && <div id="rating-explanation" className="ratingExplanation">
-          <p>Your rating reflects both <strong>how well you score</strong> and <strong>how consistently you’ve played</strong>.</p>
-          <p>Your average score matters most. Games played adds confidence to that average, so one unusually good or bad game won’t determine your rating.</p>
-          <p>As you play more games, your rating gets closer to your true average performance.</p>
-        </div>}
         {!isGuestPreview && <><h2>{config.label} history</h2>
           {history.length ? <div className="personalHistory">{history.map((r) => <div key={`${r.challenge_date}-${r.difficulty}`} className="personalHistoryRow"><time dateTime={r.challenge_date}>{r.challenge_date}</time><strong>{r.score} / {config.maxScore}</strong><span>{r.average_placement == null ? "—" : `${Number(r.average_placement).toFixed(1)} / ${config.countryCount}`} placement</span></div>)}</div> : <p>No saved {config.label} results yet. Play a Daily while signed in to start your history.</p>}</>}
       </div>

@@ -668,15 +668,17 @@ body { isolation: isolate; }
   .shell.resultsView .perfect .resultsHeading { padding-bottom: 3px; }
 }
 
-/* Keep the optimal country beside its result on every screen. */
+/* Use the compact result layout at every size, with rankings on the right. */
 @media (min-width: 701px) {
-  .shell.resultsView .result { grid-template-columns: minmax(0, 1.4fr) 150px minmax(0, 1fr) 120px; gap: 28px; padding-top: 22px; padding-bottom: 22px; }
-  .shell.resultsView .mobileBestMatch { display: flex; flex-direction: column; gap: 7px; min-width: 0; padding-left: 24px; border-left: 1px solid var(--line-soft); color: var(--muted); font-size: 12px; line-height: 1.4; }
+  .shell.resultsView .result { grid-template-columns: minmax(0, 1fr) 180px 130px; gap: 14px 28px; padding: 20px 24px; }
+  .shell.resultsView .resultMain { grid-column: 1; grid-row: 1; }
+  .shell.resultsView .placementSummary { grid-column: 2; grid-row: 1; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: flex-end; align-items: baseline; gap: 8px 14px; width: auto; min-height: 0; padding: 0; border: 0; }
+  .shell.resultsView .placementSummary span { display: none; }
+  .shell.resultsView .mobileBestMatch { display: flex; flex-direction: row; flex-wrap: wrap; align-items: baseline; grid-column: 1 / -1; grid-row: 2; gap: 8px; min-width: 0; margin-left: 35px; padding-top: 12px; border-top: 1px solid var(--line-soft); color: var(--muted); font-size: 12px; line-height: 1.4; }
   .shell.resultsView .mobileBestMatch strong { color: var(--ink); }
-  .shell.resultsView .placementSummary { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; min-height: 0; padding-left: 18px; }
+  .shell.resultsView .leaderboardButton { grid-column: 3; grid-row: 1; justify-self: end; width: auto; margin: 0; text-align: right; }
 }
-@media (min-width: 701px) and (max-width: 1000px) {
-  .shell.resultsView .result { grid-template-columns: minmax(0, 1fr) 150px 120px; }
-  .shell.resultsView .mobileBestMatch { grid-column: 1 / -1; grid-row: 2; flex-direction: row; flex-wrap: wrap; margin-left: 34px; padding: 12px 0 0; border-left: 0; border-top: 1px solid var(--line-soft); }
-  .shell.resultsView .leaderboardButton { grid-column: 3; grid-row: 1; }
+@media (max-width: 700px) {
+  .shell.resultsView .leaderboardButton { grid-column: 1 / -1; grid-row: 2; justify-self: end; width: auto; margin: 4px 0; text-align: right; }
+  .shell.resultsView .mobileBestMatch { grid-column: 1 / -1; grid-row: 3; }
 }

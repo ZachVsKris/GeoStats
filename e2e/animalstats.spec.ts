@@ -7,7 +7,7 @@ test("available pilot boards render and can be completed", async ({ page }) => {
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto("/animals");
   await expect(page.getByRole("heading", { name: "AnimalStats" })).toBeVisible();
-  for (const [label, animals, traits] of [["Scout", 4, 4], ["Adventurer", 6, 4]] as const) {
+  for (const [label, animals, traits] of [["Scout", 4, 4], ["Adventurer", 6, 4], ["Expert", 8, 6]] as const) {
     await page.getByRole("button", { name: new RegExp(`^${label}\\b`) }).click();
     await expect(page.locator(".animalBoardTop .animalEyebrow")).toContainText("OF");
     await expect(page.locator(".animalCard")).toHaveCount(animals);
@@ -129,14 +129,59 @@ test("server scoring rejects repeated and foreign assignments", () => {
  expect(scoreAnimalAssignments(data, board, { ...assignments, [board.traitIds[0]]: "invented-animal" })).toBeNull();
 });
 
- test("unfinished Expert pool offers a working Scout route; mascot motion is optional", async ({ page }) => {
+ test("Expert is playable and mascot motion is optional", async ({ page }) => {
  await page.goto("/animals");
  await page.getByRole("button", { name: "Pause cat mascot animation" }).click();
  await expect(page.locator(".catCurator")).toHaveClass(/paused/);
  await page.getByRole("button", { name: /^Expert\b/ }).click();
- await expect(page.getByRole("heading", { name: "More field challenges are in preparation" })).toBeVisible();
- await page.getByRole("button", { name: "Play Scout", exact: true }).click();
- await expect(page.locator(".animalCard")).toHaveCount(4);
+ await expect(page.locator(".animalCard")).toHaveCount(8);
+ await expect(page.locator(".animalTrait")).toHaveCount(6);
  await page.emulateMedia({ reducedMotion: "reduce" });
  expect(await page.locator(".catEyes").evaluate(el => getComputedStyle(el).animationName)).toBe("none");
  });
+
+
+import { ROUND_CONFIGS } from "../lib/gameRules";
+import { animalBoardGroup, randomAnimalBoardIndex } from "../lib/animalstatsVariety";
+import { orderAnimalPilotBoards } from "../lib/animalstatsDaily";
+
+test("all boards have different first-place animals and attain a perfect score", () => {
+ const data = animalDataset as AnimalDataset;
+ for (const board of candidateData.boards as BoardCandidate[]) {
+  const validation = validateAnimalBoard(data, board);
+  expect(validation.rejectionReasons, board.id).toEqual([]);
+  expect(new Set(Object.values(validation.winners)).size).toBe(board.traitIds.length);
+  const perfect = scoreAnimalAssignments(data, board, validation.winners)!;
+  expect(perfect.score).toBe(ROUND_CONFIGS[board.mode].maxScore);
+  expect(perfect.optimalChoices).toBe(board.traitIds.length);
+ }
+ const board = candidateData.boards[0] as BoardCandidate;
+ const collision = structuredClone(data);
+ const winner = board.animalIds[0];
+ for (const traitId of board.traitIds) {
+  const trait = collision.traits.find((row) => row.id === traitId)!;
+  const row = collision.values.find((row) => row.animalId === winner && row.traitId === traitId)!;
+  row.valueNumeric = trait.direction === "higher_wins" ? 1e15 : 1e-9;
+  delete row.valueMin; delete row.valueMax;
+ }
+ expect(validateAnimalBoard(collision, board).rejectionReasons).toContain("category winners are not distinct; perfect score unattainable");
+});
+
+test("variety picker rotates groups and opening boards avoid paired bird themes", () => {
+ const data = animalDataset as AnimalDataset;
+ const boards = candidateData.boards as BoardCandidate[];
+ expect(boards.filter((b) => animalBoardGroup(data,b) === "birds").length / boards.length).toBeLessThan(1/3);
+ for (const mode of ["easy", "normal"] as const) {
+  const pool = boards.filter((board) => board.mode === mode);
+  for (let i=0;i<100;i++) {
+   const current = pool[i % pool.length];
+   const next = pool[randomAnimalBoardIndex(data,pool,current,()=>i/100)];
+   expect(animalBoardGroup(data,next)).not.toBe(animalBoardGroup(data,current));
+  }
+ }
+ for (let day=1;day<=30;day++) {
+  const ordered = orderAnimalPilotBoards(boards,`2026-09-${String(day).padStart(2,"0")}`,data);
+  const first = ["easy","normal"].map((mode)=>animalBoardGroup(data,ordered.find((board)=>board.mode===mode)!));
+  expect(first.filter((group)=>group === "birds").length).toBeLessThanOrEqual(1);
+ }
+});

@@ -32,3 +32,13 @@ data/animalstats/source/sleep-bu-*
 data/animalstats/source/sleep-pnas-2007.xls
 data/animalstats/source/euring-longevity-2023.pdf
 data/animalstats/source/euring-longevity-2023.txt
+
+# Pinned bulk research inputs; checksums and normalized catalogs are tracked.
+data/animalstats/source/slb-v26.06-*.parquet
+data/animalstats/source/animaltraits-v1.0.7-*.csv
+data/animalstats/source/biotic-2026-09-30.csv
+data/animalstats/source/globtherm-*.csv
+data/animalstats/source/globtherm-*.xlsx
+data/animalstats/source/insect-bite-v1-table.csv
+# Full third-party research catalogs stay local; retain scripts and coverage reports.
+data/animalstats/research/*.jsonl.gz

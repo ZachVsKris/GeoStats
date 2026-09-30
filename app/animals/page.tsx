@@ -18,5 +18,5 @@ export default function AnimalStatsPage() {
   const data = dataset as AnimalDataset;
   const boards = (candidates.boards as BoardCandidate[]).filter((board) => validateAnimalBoard(data, board).valid);
   if (!boards.length) notFound();
-  return <AnimalStatsGame data={data} boards={orderAnimalPilotBoards(boards, newYorkDate())} approvedBoardIds={approvedAnimalBoards(data, boards, reviews as AnimalBoardReview[]).map((board) => board.id!)} date={newYorkDate()} />;
+  return <AnimalStatsGame data={data} boards={orderAnimalPilotBoards(boards, newYorkDate(), data)} approvedBoardIds={approvedAnimalBoards(data, boards, reviews as AnimalBoardReview[]).map((board) => board.id!)} date={newYorkDate()} />;
 }

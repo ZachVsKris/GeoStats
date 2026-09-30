@@ -22,8 +22,8 @@ SIMILAR=[
  {'raw_egg_mass','raw_egg_length','raw_egg_width'},
 ]
 # Editorial admission: understandable, distinct questions; source coverage alone is insufficient.
-PLAYABLE={'adult_body_mass','smallest_adult_mass','bird_mass','lightest_bird','amphibian_max_mass','frog_max_svl','maximum_documented_lifespan','wild_recorded_lifespan','gestation','litter_size','clutch_size','incubation','amphibian_max_clutch','shark_litter_size','bird_beak_length','bird_tail_length','measured_wingspan','bird_range_area','cruising_flight_speed','daily_sleep','annual_home_range','field_max_dive','ringing_longevity','raw_incubation','raw_clutch_size','raw_gestation','raw_litter_size'}
-BEHAVIOR={'movement','sleep','space'}
+PLAYABLE={'earliest_female_maturity','earliest_weaning','shortest_gestation','female_maturity','raw_female_maturity','amphibian_min_maturity','egg_clutch_size','raw_egg_mass','raw_birth_mass','birth_weight','weaning_age','raw_weaning_age','adult_body_mass','smallest_adult_mass','bird_mass','lightest_bird','amphibian_max_mass','frog_max_svl','maximum_documented_lifespan','wild_recorded_lifespan','gestation','litter_size','clutch_size','incubation','amphibian_max_clutch','shark_litter_size','bird_beak_length','bird_tail_length','measured_wingspan','bird_range_area','cruising_flight_speed','daily_sleep','annual_home_range','field_max_dive','ringing_longevity','raw_incubation','raw_clutch_size','raw_gestation','raw_litter_size'}
+BEHAVIOR={'movement','sleep','space','development','offspring','maturity','care','breeding'}
 def editorial(tids,ids):
  families=[TRAITS[t]['gameplayFamily'] for t in tids]
  counts=collections.Counter(families)
@@ -39,7 +39,7 @@ def editorial(tids,ids):
   if TRAITS[tids[ranks.index(a)]]['gameplayFamily']=='anatomy' and TRAITS[tids[ranks.index(b)]]['gameplayFamily']=='anatomy' and abs(rho)>.7:return None
  contenders=sum(sum(r<=2 for r in [rank[i] for rank in ranks])>=2 for i in range(len(ids)))
  if contenders<2:return None
- return dict(families=families,multiTraitContenders=contenders,policy='distinct-families-v1')
+ return dict(families=families,multiTraitContenders=contenders,policy='distinct-families-distinct-winners-v2')
 MODES={'easy':(4,4),'normal':(6,4),'expert':(8,6)}
 def kind(ids):
  groups={ANIMALS[i]['taxonomicGroup'] for i in ids}
@@ -48,12 +48,12 @@ def kind(ids):
  return 'cross-animal'
 def title(ids):
  groups={ANIMALS[i]['taxonomicGroup'] for i in ids}
- names={'bear':'Bears of the world','bird':'Feathers and flight','shark':'Sharks below the surface','frog':'Frogs and toads','turtle':'Turtles and tortoises','snake':'Snakes','salamander':'Salamanders and newts','primate':'Our primate cousins','crocodilian':'Crocodiles and their cousins'}
+ names={'bear':'Bears of the world','bird':'Feathers & flight','shark':'Sharks below the surface','frog':'Frogs and toads','turtle':'Turtles and tortoises','snake':'Snakes','salamander':'Salamanders and newts','primate':'Our primate cousins','crocodilian':'Crocodiles and their cousins'}
  if len(groups)==1:return names.get(next(iter(groups)),next(iter(groups)).replace('-',' ').title())
- if groups<=REPTILES:return 'Scales, shells and cold blood'
- if groups<=AMPHIBIANS:return 'At the water’s edge'
+ if groups<=REPTILES:return 'Scales & shells'
+ if groups<=AMPHIBIANS:return 'Pond neighbours'
  if groups<=FISH:return 'Life beneath the waves'
- if groups<=MAMMALS:return 'Fur, paws and unexpected company'
+ if groups<=MAMMALS:return 'Wild company'
  return 'An unlikely gathering'
 def valid_traits(ids,rejected):
  valid=[]
@@ -78,9 +78,10 @@ def generate(mode):
  candidates=[];seen=set();diagnostics=collections.Counter();pool_counts=collections.Counter();type_counts=collections.Counter()
  # Search each taxonomic pool independently, so plentiful bird traits cannot crowd out new groups.
  for name,pool in valid_pools.items():
+  if name in {'fliers','egg_layers','all'}:continue
   limit=25000 if mode=='expert' else 12000
   for attempt in range(limit):
-   if pool_counts[name]>=3:break
+   if pool_counts[name]>=4:break
    ids=rng.sample(pool,n);valid=valid_traits(ids,diagnostics)
    if len(valid)<k or len({winner for _,winner in valid})<k or len({TRAITS[t]['gameplayFamily'] for t,_ in valid})<(k-1 if mode=='expert' else k):continue
    rng.shuffle(valid)
@@ -89,6 +90,7 @@ def generate(mode):
     if len({x[1] for x in combo})!=k or any(len(set(tids)&c)>1 for c in SIMILAR):continue
     quality=editorial(tids,ids)
     if not quality:continue
+
     signature=(tuple(sorted(ids)),tuple(sorted(tids)))
     if signature in seen:continue
     seen.add(signature);board_type=kind(ids)
@@ -101,6 +103,12 @@ def main():
  boards=[];diagnostics={}
  for mode in MODES:
   candidates,rejections=generate(mode);boards.extend(candidates);diagnostics[mode]=rejections
+ baseline=json.loads((OUT/'behavior-boards.json').read_text())
+ known={b['id'] for b in boards}
+ for b in baseline:
+  if b['id'] not in known:
+   b['editorial']['families']=[TRAITS[t]['gameplayFamily'] for t in b['traitIds']]
+   boards.append(b)
  (OUT/'candidates.json').write_text(json.dumps(dict(boards=boards,rejectionReasons=diagnostics),indent=2,ensure_ascii=False)+'\n')
  if any(not any(b['mode']==mode for b in boards) for mode in MODES):print('Some modes have no editorially eligible boards; do not fall back to repetitive candidates.')
 if __name__=='__main__':main()

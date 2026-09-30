@@ -1,0 +1,344 @@
+[
+  {
+    "id": "d92467c541c769a8",
+    "mode": "easy",
+    "boardType": "themed",
+    "title": "Feathers & flight",
+    "animalIds": [
+      "falco_peregrinus",
+      "phalacrocorax_carbo",
+      "somateria_mollissima",
+      "haematopus_ostralegus"
+    ],
+    "traitIds": [
+      "ringing_longevity",
+      "cruising_flight_speed",
+      "bird_range_area",
+      "bird_beak_length"
+    ],
+    "editorial": {
+      "families": [
+        "longevity",
+        "movement",
+        "range",
+        "anatomy"
+      ],
+      "multiTraitContenders": 3,
+      "policy": "distinct-families-distinct-winners-v2"
+    }
+  },
+  {
+    "id": "f09785fb180f9945",
+    "mode": "easy",
+    "boardType": "themed",
+    "title": "Feathers & flight",
+    "animalIds": [
+      "larus_argentatus",
+      "phalacrocorax_carbo",
+      "hirundo_rustica",
+      "columba_palumbus"
+    ],
+    "traitIds": [
+      "ringing_longevity",
+      "bird_mass",
+      "raw_clutch_size",
+      "cruising_flight_speed"
+    ],
+    "editorial": {
+      "families": [
+        "longevity",
+        "size",
+        "offspring",
+        "movement"
+      ],
+      "multiTraitContenders": 2,
+      "policy": "distinct-families-distinct-winners-v2"
+    }
+  },
+  {
+    "id": "f94b178130d9d3fa",
+    "mode": "easy",
+    "boardType": "themed",
+    "title": "Feathers & flight",
+    "animalIds": [
+      "hirundo_rustica",
+      "falco_peregrinus",
+      "vanellus_vanellus",
+      "anser_anser"
+    ],
+    "traitIds": [
+      "ringing_longevity",
+      "bird_tail_length",
+      "smallest_adult_mass",
+      "cruising_flight_speed"
+    ],
+    "editorial": {
+      "families": [
+        "longevity",
+        "anatomy",
+        "size",
+        "movement"
+      ],
+      "multiTraitContenders": 2,
+      "policy": "distinct-families-distinct-winners-v2"
+    }
+  },
+  {
+    "id": "5fe1514f81451842",
+    "mode": "easy",
+    "boardType": "themed",
+    "title": "Feathers & flight",
+    "animalIds": [
+      "alauda_arvensis",
+      "larus_argentatus",
+      "falco_peregrinus",
+      "hirundo_rustica"
+    ],
+    "traitIds": [
+      "cruising_flight_speed",
+      "lightest_bird",
+      "raw_incubation",
+      "ringing_longevity"
+    ],
+    "editorial": {
+      "families": [
+        "movement",
+        "size",
+        "development",
+        "longevity"
+      ],
+      "multiTraitContenders": 3,
+      "policy": "distinct-families-distinct-winners-v2"
+    }
+  },
+  {
+    "id": "cae4b21a5d07eb21",
+    "mode": "easy",
+    "boardType": "themed",
+    "title": "Feathers & flight",
+    "animalIds": [
+      "hirundo_rustica",
+      "haematopus_ostralegus",
+      "falco_peregrinus",
+      "anas_platyrhynchos"
+    ],
+    "traitIds": [
+      "bird_tail_length",
+      "cruising_flight_speed",
+      "ringing_longevity",
+      "lightest_bird"
+    ],
+    "editorial": {
+      "families": [
+        "anatomy",
+        "movement",
+        "longevity",
+        "size"
+      ],
+      "multiTraitContenders": 2,
+      "policy": "distinct-families-distinct-winners-v2"
+    }
+  },
+  {
+    "id": "e57b4bb3e0995736",
+    "mode": "easy",
+    "boardType": "themed",
+    "title": "Feathers & flight",
+    "animalIds": [
+      "haematopus_ostralegus",
+      "anser_anser",
+      "phalacrocorax_carbo",
+      "hirundo_rustica"
+    ],
+    "traitIds": [
+      "raw_incubation",
+      "cruising_flight_speed",
+      "bird_range_area",
+      "ringing_longevity"
+    ],
+    "editorial": {
+      "families": [
+        "development",
+        "movement",
+        "range",
+        "longevity"
+      ],
+      "multiTraitContenders": 2,
+      "policy": "distinct-families-distinct-winners-v2"
+    }
+  },
+  {
+    "id": "842d28377d6bfd66",
+    "mode": "easy",
+    "boardType": "cross-animal",
+    "title": "Wild company",
+    "animalIds": [
+      "vulpes_vulpes",
+      "didelphis_marsupialis",
+      "erinaceus_europaeus",
+      "ornithorhynchus_anatinus"
+    ],
+    "traitIds": [
+      "smallest_adult_mass",
+      "daily_sleep",
+      "maximum_documented_lifespan",
+      "gestation"
+    ],
+    "editorial": {
+      "families": [
+        "size",
+        "sleep",
+        "longevity",
+        "development"
+      ],
+      "multiTraitContenders": 3,
+      "policy": "distinct-families-distinct-winners-v2"
+    }
+  },
+  {
+    "id": "eff29931095ebe92",
+    "mode": "easy",
+    "boardType": "cross-animal",
+    "title": "Wild company",
+    "animalIds": [
+      "vulpes_vulpes",
+      "tupaia_glis",
+      "ornithorhynchus_anatinus",
+      "erinaceus_europaeus"
+    ],
+    "traitIds": [
+      "smallest_adult_mass",
+      "gestation",
+      "daily_sleep",
+      "maximum_documented_lifespan"
+    ],
+    "editorial": {
+      "families": [
+        "size",
+        "development",
+        "sleep",
+        "longevity"
+      ],
+      "multiTraitContenders": 3,
+      "policy": "distinct-families-distinct-winners-v2"
+    }
+  },
+  {
+    "id": "5644c66871a9a026",
+    "mode": "easy",
+    "boardType": "cross-animal",
+    "title": "Wild company",
+    "animalIds": [
+      "ornithorhynchus_anatinus",
+      "didelphis_marsupialis",
+      "tupaia_glis",
+      "vulpes_vulpes"
+    ],
+    "traitIds": [
+      "daily_sleep",
+      "maximum_documented_lifespan",
+      "smallest_adult_mass",
+      "gestation"
+    ],
+    "editorial": {
+      "families": [
+        "sleep",
+        "longevity",
+        "size",
+        "development"
+      ],
+      "multiTraitContenders": 3,
+      "policy": "distinct-families-distinct-winners-v2"
+    }
+  },
+  {
+    "id": "d1e818233d0c9598",
+    "mode": "normal",
+    "boardType": "themed",
+    "title": "Feathers & flight",
+    "animalIds": [
+      "phalacrocorax_carbo",
+      "hirundo_rustica",
+      "larus_ridibundus",
+      "somateria_mollissima",
+      "ardea_cinerea",
+      "columba_palumbus"
+    ],
+    "traitIds": [
+      "bird_range_area",
+      "bird_beak_length",
+      "bird_mass",
+      "cruising_flight_speed"
+    ],
+    "editorial": {
+      "families": [
+        "range",
+        "anatomy",
+        "size",
+        "movement"
+      ],
+      "multiTraitContenders": 3,
+      "policy": "distinct-families-distinct-winners-v2"
+    }
+  },
+  {
+    "id": "562b71d629482275",
+    "mode": "normal",
+    "boardType": "themed",
+    "title": "Feathers & flight",
+    "animalIds": [
+      "columba_palumbus",
+      "phalacrocorax_carbo",
+      "somateria_mollissima",
+      "falco_peregrinus",
+      "larus_argentatus",
+      "corvus_frugilegus"
+    ],
+    "traitIds": [
+      "bird_mass",
+      "bird_range_area",
+      "cruising_flight_speed",
+      "ringing_longevity"
+    ],
+    "editorial": {
+      "families": [
+        "size",
+        "range",
+        "movement",
+        "longevity"
+      ],
+      "multiTraitContenders": 2,
+      "policy": "distinct-families-distinct-winners-v2"
+    }
+  },
+  {
+    "id": "dd01cfd4af17d035",
+    "mode": "normal",
+    "boardType": "themed",
+    "title": "Feathers & flight",
+    "animalIds": [
+      "larus_argentatus",
+      "columba_palumbus",
+      "corvus_frugilegus",
+      "somateria_mollissima",
+      "phalacrocorax_carbo",
+      "falco_peregrinus"
+    ],
+    "traitIds": [
+      "lightest_bird",
+      "cruising_flight_speed",
+      "bird_range_area",
+      "ringing_longevity"
+    ],
+    "editorial": {
+      "families": [
+        "size",
+        "movement",
+        "range",
+        "longevity"
+      ],
+      "multiTraitContenders": 2,
+      "policy": "distinct-families-distinct-winners-v2"
+    }
+  }
+]

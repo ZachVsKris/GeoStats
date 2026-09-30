@@ -41,7 +41,7 @@ export async function POST(request: Request) {
  if (!board || (body.kind!=="daily" && body.kind!=="random")) return NextResponse.json({error:"Invalid board."},{status:400,headers});
  const date=newYorkDate();
  if (body.kind==="daily") {
-  const daily=orderAnimalPilotBoards(approvedAnimalBoards(data,boards,reviewManifest as AnimalBoardReview[]),date).filter((row)=>row.mode===board.mode).slice(0,3);
+  const daily=orderAnimalPilotBoards(approvedAnimalBoards(data,boards,reviewManifest as AnimalBoardReview[]),date,data).filter((row)=>row.mode===board.mode).slice(0,3);
   if(!daily.some((row)=>row.id===board.id))return NextResponse.json({error:"This board is not an approved daily."},{status:400,headers});
  }
  const scored=scoreAnimalAssignments(data,board,body.assignments);

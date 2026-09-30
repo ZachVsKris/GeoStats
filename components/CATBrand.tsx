@@ -17,6 +17,7 @@ export function CATMascot({ pleased = false }: { pleased?: boolean }) {
    <path className="catTail" d="M86 84q33 0 23-35" fill="none" stroke="#db962d" strokeWidth="11" strokeLinecap="round"/>
    <path d="M23 93 37 18q1-4 4-1l16 16h15l14-16q3-3 4 1l15 75q1 6-5 6H81l-7-18H55l-7 18H28q-6 0-5-6Z" fill="#edb23f" stroke="#70491e" strokeWidth="2"/>
    <path d="m59 78 6-16 6 16Z" fill="#fff8e7"/>
+   <g fill="none" stroke="#536346" strokeWidth="1.5" opacity=".8"><circle cx="50" cy="49" r="9"/><circle cx="80" cy="49" r="9"/><path d="M59 49h12M41 47l-5-2m53 2 5-2"/></g>
    <g className="catEyes" fill="#163b36"><ellipse cx="50" cy="49" rx="3.5" ry="4"/><ellipse cx="80" cy="49" rx="3.5" ry="4"/></g>
    <g fill="none" stroke="#163b36" strokeWidth="2.8" strokeLinecap="round"><path d="m39 59 13 3m-13 7 13-3m27-4 13-3m-13 7 13 3"/>{pleased && <path d="M59 67q6 5 12 0"/>}</g><path d="m60 58 5 5 5-5Z" fill="#163b36"/>
   </svg><button type="button" className="catMotionToggle" onClick={() => setPaused(!paused)} aria-label={paused ? "Animate cat mascot" : "Pause cat mascot animation"} title={paused ? "Animate cat mascot" : "Pause cat mascot animation"}>{paused ? "▶" : "Ⅱ"}</button>

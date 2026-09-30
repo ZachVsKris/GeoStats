@@ -1229,7 +1229,7 @@
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Typical adult body weight compiled by AnAge",
       "gameplayFamily": "size",
-      "playerHint": "Typical adult weight."
+      "playerHint": "Typical adult weight. Big portraits do not mean big animals."
     },
     {
       "id": "maximum_documented_lifespan",
@@ -1242,7 +1242,7 @@
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Maximum recorded lifespan for captive specimens in AnAge",
       "gameplayFamily": "longevity",
-      "playerHint": "Documented records in captivity."
+      "playerHint": "The oldest documented captive record—not the average life."
     },
     {
       "id": "gestation",
@@ -1254,8 +1254,8 @@
       "canonicalSourceId": "anage-15",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
-      "gameplayFamily": "reproduction",
-      "playerHint": "Days from conception to birth."
+      "gameplayFamily": "development",
+      "playerHint": "Time spent pregnant, from conception to birth."
     },
     {
       "id": "litter_size",
@@ -1267,12 +1267,12 @@
       "canonicalSourceId": "anage-15",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Typical litter size for this mammal, compiled by AnAge",
-      "gameplayFamily": "reproduction",
-      "playerHint": "Young born in a single birth."
+      "gameplayFamily": "offspring",
+      "playerHint": "How many young arrive in one birth—not in a year."
     },
     {
       "id": "female_maturity",
-      "displayName": "Age at female maturity",
+      "displayName": "Latest start to parenthood",
       "definition": "Age at female sexual maturity, compiled by AnAge",
       "direction": "higher_wins",
       "unit": "days",
@@ -1280,7 +1280,8 @@
       "canonicalSourceId": "anage-15",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "maturity",
+      "playerHint": "Reported age when females can first reproduce."
     },
     {
       "id": "male_maturity",
@@ -1292,11 +1293,11 @@
       "canonicalSourceId": "anage-15",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Age at male sexual maturity, compiled by AnAge",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "maturity"
     },
     {
       "id": "weaning_age",
-      "displayName": "Time until weaning",
+      "displayName": "Longest time on milk",
       "definition": "Age at weaning, compiled by AnAge",
       "direction": "higher_wins",
       "unit": "days",
@@ -1304,11 +1305,12 @@
       "canonicalSourceId": "anage-15",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Age at weaning, compiled by AnAge",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "care",
+      "playerHint": "How long the young depend on milk."
     },
     {
       "id": "birth_weight",
-      "displayName": "Newborn body mass",
+      "displayName": "Heaviest newborn",
       "definition": "Typical birth weight, compiled by AnAge",
       "direction": "higher_wins",
       "unit": "g",
@@ -1316,7 +1318,8 @@
       "canonicalSourceId": "anage-15",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Typical birth weight, compiled by AnAge",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "offspring-size",
+      "playerHint": "Weight of a newborn—not the grown-up animal."
     },
     {
       "id": "litters_per_year",
@@ -1328,7 +1331,7 @@
       "canonicalSourceId": "anage-15",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Typical annual litter frequency, compiled by AnAge",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "breeding"
     },
     {
       "id": "interbirth_interval",
@@ -1340,7 +1343,7 @@
       "canonicalSourceId": "anage-15",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Typical interbirth interval in days, compiled by AnAge",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "breeding"
     },
     {
       "id": "bird_mass",
@@ -1512,7 +1515,7 @@
       "canonicalSourceId": "anage-15",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Typical time from laying to hatching, compiled by AnAge",
-      "gameplayFamily": "reproduction",
+      "gameplayFamily": "development",
       "playerHint": "Days from laying to hatching."
     },
     {
@@ -1527,7 +1530,7 @@
       "canonicalSourceId": "anage-15",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Typical eggs per clutch, compiled by AnAge",
-      "gameplayFamily": "reproduction",
+      "gameplayFamily": "offspring",
       "playerHint": "Eggs laid in one clutch."
     },
     {
@@ -1542,7 +1545,7 @@
       "canonicalSourceId": "anage-15",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Typical annual clutch frequency, compiled by AnAge",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "breeding"
     },
     {
       "id": "hatching_mass",
@@ -1556,7 +1559,7 @@
       "canonicalSourceId": "anage-15",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Typical weight at hatching, compiled by AnAge",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "offspring-size"
     },
     {
       "id": "wild_recorded_lifespan",
@@ -1573,7 +1576,7 @@
     },
     {
       "id": "egg_clutch_size",
-      "displayName": "Eggs per clutch",
+      "displayName": "Most eggs in one clutch",
       "definition": "Typical number of eggs in one clutch compiled by AnAge",
       "direction": "higher_wins",
       "unit": "eggs",
@@ -1587,7 +1590,7 @@
       "canonicalSourceId": "anage-15",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Typical number of eggs in one clutch compiled by AnAge",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "offspring"
     },
     {
       "id": "frog_max_svl",
@@ -1602,7 +1605,7 @@
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Maximum adult snout-to-vent length compiled in AmphiBIO",
       "gameplayFamily": "size",
-      "playerHint": "Snout to vent. Legs are excluded."
+      "playerHint": "Longest recorded body, from snout to vent. Legs excluded."
     },
     {
       "id": "amphibian_max_mass",
@@ -1618,11 +1621,11 @@
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Maximum adult mass compiled in AmphiBIO",
       "gameplayFamily": "size",
-      "playerHint": "Largest adult mass reported in the source."
+      "playerHint": "Largest reported adult weight in the source."
     },
     {
       "id": "amphibian_max_clutch",
-      "displayName": "Maximum eggs per clutch",
+      "displayName": "Most eggs in one clutch",
       "definition": "Maximum number of eggs per clutch compiled in AmphiBIO for egg-laying amphibians",
       "direction": "higher_wins",
       "unit": "eggs",
@@ -1633,11 +1636,12 @@
       "canonicalSourceId": "amphibio-5",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Maximum number of eggs per clutch compiled in AmphiBIO for egg-laying amphibians",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "offspring",
+      "playerHint": "Largest reported number of eggs in a single clutch."
     },
     {
       "id": "amphibian_min_maturity",
-      "displayName": "Earliest reported maturity",
+      "displayName": "First to grow up",
       "definition": "Minimum reported age at sexual maturity compiled in AmphiBIO",
       "direction": "lower_wins",
       "unit": "years",
@@ -1648,7 +1652,8 @@
       "canonicalSourceId": "amphibio-5",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Minimum reported age at sexual maturity compiled in AmphiBIO",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "maturity",
+      "playerHint": "Earliest reported age of reproductive maturity."
     },
     {
       "id": "amphibian_max_events",
@@ -1663,7 +1668,7 @@
       "canonicalSourceId": "amphibio-5",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Maximum number of reproduction events per year compiled in AmphiBIO",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "breeding"
     },
     {
       "id": "weaning_mass",
@@ -1683,7 +1688,7 @@
       "canonicalSourceId": "anage-15",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Typical body weight at weaning compiled by AnAge",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "offspring-size"
     },
     {
       "id": "shark_litter_size",
@@ -1698,11 +1703,11 @@
       "canonicalSourceId": "anage-15",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Typical number of live-born pups per litter compiled by AnAge",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "offspring"
     },
     {
       "id": "shortest_gestation",
-      "displayName": "Shortest gestation",
+      "displayName": "Shortest pregnancy",
       "definition": "Gestation length for this mammal, compiled by AnAge",
       "direction": "lower_wins",
       "unit": "days",
@@ -1710,11 +1715,12 @@
       "canonicalSourceId": "anage-15",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "development",
+      "playerHint": "Fewest days spent pregnant. Lower wins."
     },
     {
       "id": "earliest_female_maturity",
-      "displayName": "Earliest female maturity",
+      "displayName": "First to grow up",
       "definition": "Age at female sexual maturity, compiled by AnAge",
       "direction": "lower_wins",
       "unit": "days",
@@ -1722,11 +1728,12 @@
       "canonicalSourceId": "anage-15",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "maturity",
+      "playerHint": "Youngest age at female reproductive maturity. Lower wins."
     },
     {
       "id": "earliest_weaning",
-      "displayName": "Earliest weaning",
+      "displayName": "Fastest off milk",
       "definition": "Age at weaning, compiled by AnAge",
       "direction": "lower_wins",
       "unit": "days",
@@ -1734,7 +1741,8 @@
       "canonicalSourceId": "anage-15",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Age at weaning, compiled by AnAge",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "care",
+      "playerHint": "Fewest days until the young stop depending on milk."
     },
     {
       "id": "lightest_newborn",
@@ -1746,7 +1754,7 @@
       "canonicalSourceId": "anage-15",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Typical birth weight, compiled by AnAge",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "offspring-size"
     },
     {
       "id": "smallest_adult_mass",
@@ -1786,7 +1794,7 @@
       "canonicalSourceId": "anage-15",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Typical number of live-born pups per litter compiled by AnAge",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "offspring"
     },
     {
       "id": "raw_adult_mass",
@@ -1816,7 +1824,7 @@
     },
     {
       "id": "raw_female_maturity",
-      "displayName": "Age at female maturity (source median)",
+      "displayName": "Latest start to parenthood",
       "definition": "Median of distinct reported female sexual-maturity ages in exact-species amniote raw records",
       "direction": "higher_wins",
       "unit": "days",
@@ -1838,7 +1846,8 @@
       "canonicalSourceId": "amniote-raw-2015",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Median of distinct reported female sexual-maturity ages in exact-species amniote raw records",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "maturity",
+      "playerHint": "Reported age when females can first reproduce."
     },
     {
       "id": "raw_early_female_maturity",
@@ -1864,11 +1873,11 @@
       "canonicalSourceId": "amniote-raw-2015",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Median of distinct reported female sexual-maturity ages in exact-species amniote raw records",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "maturity"
     },
     {
       "id": "raw_egg_mass",
-      "displayName": "Egg mass",
+      "displayName": "Heaviest egg",
       "definition": "Median of distinct reported egg masses in exact-species amniote raw records",
       "direction": "higher_wins",
       "unit": "g",
@@ -1883,7 +1892,8 @@
       "canonicalSourceId": "amniote-raw-2015",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Median of distinct reported egg masses in exact-species amniote raw records",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "offspring-size",
+      "playerHint": "Weight of one egg, including its contents."
     },
     {
       "id": "raw_egg_length",
@@ -1902,7 +1912,7 @@
       "canonicalSourceId": "amniote-raw-2015",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Median of distinct reported egg lengths in exact-species amniote raw records",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "offspring-size"
     },
     {
       "id": "raw_egg_width",
@@ -1921,7 +1931,7 @@
       "canonicalSourceId": "amniote-raw-2015",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Median of distinct reported egg widths in exact-species amniote raw records",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "offspring-size"
     },
     {
       "id": "raw_incubation",
@@ -1940,8 +1950,8 @@
       "canonicalSourceId": "amniote-raw-2015",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Median of distinct reported incubation durations in exact-species amniote raw records",
-      "gameplayFamily": "reproduction",
-      "playerHint": "Days from laying to hatching."
+      "gameplayFamily": "development",
+      "playerHint": "Days from laying an egg to hatching."
     },
     {
       "id": "raw_clutch_size",
@@ -1960,8 +1970,8 @@
       "canonicalSourceId": "amniote-raw-2015",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Median of distinct reported egg counts per clutch in exact-species amniote raw records",
-      "gameplayFamily": "reproduction",
-      "playerHint": "Eggs laid in one clutch."
+      "gameplayFamily": "offspring",
+      "playerHint": "Eggs laid in one clutch. Bigger is not always more."
     },
     {
       "id": "raw_clutch_frequency",
@@ -1980,7 +1990,7 @@
       "canonicalSourceId": "amniote-raw-2015",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Median of distinct reported annual clutch frequencies in exact-species amniote raw records",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "breeding"
     },
     {
       "id": "raw_hatching_mass",
@@ -1999,7 +2009,7 @@
       "canonicalSourceId": "amniote-raw-2015",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Median of distinct reported hatchling body masses in exact-species amniote raw records",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "offspring-size"
     },
     {
       "id": "raw_fledging_age",
@@ -2013,7 +2023,7 @@
       "canonicalSourceId": "amniote-raw-2015",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Median of distinct reported fledging ages in exact-species amniote raw records",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "care"
     },
     {
       "id": "raw_fledging_mass",
@@ -2027,7 +2037,7 @@
       "canonicalSourceId": "amniote-raw-2015",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Median of distinct reported fledgling body masses in exact-species amniote raw records",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "offspring-size"
     },
     {
       "id": "raw_gestation",
@@ -2047,8 +2057,8 @@
       "canonicalSourceId": "amniote-raw-2015",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Median of distinct reported gestation durations in exact-species amniote raw records",
-      "gameplayFamily": "reproduction",
-      "playerHint": "Days from conception to birth."
+      "gameplayFamily": "development",
+      "playerHint": "Time spent pregnant, from conception to birth."
     },
     {
       "id": "raw_short_gestation",
@@ -2068,11 +2078,11 @@
       "canonicalSourceId": "amniote-raw-2015",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Median of distinct reported gestation durations in exact-species amniote raw records",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "development"
     },
     {
       "id": "raw_weaning_age",
-      "displayName": "Time until weaning (source median)",
+      "displayName": "Longest time on milk",
       "definition": "Median of distinct reported weaning ages in exact-species amniote raw records",
       "direction": "higher_wins",
       "unit": "days",
@@ -2088,7 +2098,8 @@
       "canonicalSourceId": "amniote-raw-2015",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Median of distinct reported weaning ages in exact-species amniote raw records",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "care",
+      "playerHint": "How long the young depend on milk."
     },
     {
       "id": "raw_weaning_mass",
@@ -2108,7 +2119,7 @@
       "canonicalSourceId": "amniote-raw-2015",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Median of distinct reported weaning masses in exact-species amniote raw records",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "offspring-size"
     },
     {
       "id": "raw_litter_size",
@@ -2128,8 +2139,8 @@
       "canonicalSourceId": "amniote-raw-2015",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Median of distinct reported live offspring counts per litter in exact-species amniote raw records",
-      "gameplayFamily": "reproduction",
-      "playerHint": "Young born in a single birth."
+      "gameplayFamily": "offspring",
+      "playerHint": "How many young arrive in one birth—not in a year."
     },
     {
       "id": "raw_litter_frequency",
@@ -2149,11 +2160,11 @@
       "canonicalSourceId": "amniote-raw-2015",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Median of distinct reported annual litter frequencies in exact-species amniote raw records",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "breeding"
     },
     {
       "id": "raw_birth_mass",
-      "displayName": "Newborn body mass (source median)",
+      "displayName": "Heaviest newborn",
       "definition": "Median of distinct reported newborn body masses in exact-species amniote raw records",
       "direction": "higher_wins",
       "unit": "g",
@@ -2169,7 +2180,8 @@
       "canonicalSourceId": "amniote-raw-2015",
       "separationMethod": "positive_ratio_5_percent",
       "measurementBasis": "Median of distinct reported newborn body masses in exact-species amniote raw records",
-      "gameplayFamily": "reproduction"
+      "gameplayFamily": "offspring-size",
+      "playerHint": "Weight of a newborn—not the grown-up animal."
     },
     {
       "id": "cruising_flight_speed",

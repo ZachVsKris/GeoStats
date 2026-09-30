@@ -4,33 +4,3194 @@
     "traits": 67,
     "observations": 2733,
     "approvedPhotos": 138,
-    "candidateBoards": 12,
+    "candidateBoards": 62,
     "boardTypesByMode": {
       "easy": {
-        "themed": 6,
-        "cross-animal": 3
+        "themed": 21,
+        "cross-animal": 11,
+        "clustered": 10
       },
       "normal": {
-        "themed": 3
+        "themed": 7,
+        "cross-animal": 4,
+        "clustered": 5
       },
-      "expert": {}
+      "expert": {
+        "cross-animal": 4
+      }
     },
     "groupsInBoards": {
-      "bird": 42,
-      "carnivore": 3,
-      "marsupial": 2,
-      "insectivore": 2,
-      "monotreme": 3,
-      "treeshrew": 2
+      "bear": 65,
+      "bird": 82,
+      "carnivore": 38,
+      "frog": 14,
+      "large-mammal": 25,
+      "marine-mammal": 10,
+      "primate": 8,
+      "rodent": 5,
+      "crocodilian": 11,
+      "turtle": 7,
+      "snake": 3,
+      "salamander": 2,
+      "marsupial": 11,
+      "monotreme": 7,
+      "insectivore": 4,
+      "treeshrew": 3,
+      "lizard": 1
     },
     "dailyApprovedBoards": 0,
     "policy": "Daily requires an explicit, content-bound approval with source, uncertainty and playability evidence. AnAge quality and sample-size flags apply to longevity, not every life-history measurement. Missing bounds never become zero uncertainty."
   },
   "boards": [
     {
+      "boardId": "3d24200c329be973",
+      "mode": "easy",
+      "title": "Bears of the world",
+      "boardType": "themed",
+      "status": "hold",
+      "reasons": [
+        "maximum_documented_lifespan: source does not report uncertainty bounds for 4 observations",
+        "maximum_documented_lifespan: at least one adjacent gap below 15%; needs particular scrutiny",
+        "maximum_documented_lifespan: small longevity record sample",
+        "smallest_adult_mass: source does not report uncertainty bounds for 4 observations",
+        "smallest_adult_mass: at least one adjacent gap below 15%; needs particular scrutiny",
+        "female_maturity: source does not report uncertainty bounds for 4 observations",
+        "gestation: source does not report uncertainty bounds for 4 observations"
+      ],
+      "comparisons": [
+        {
+          "traitId": "maximum_documented_lifespan",
+          "minimumGapPercent": 5.98,
+          "sourceId": "anage-15",
+          "measurementBasis": "Maximum recorded lifespan for captive specimens in AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "captivity"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 7.55,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "female_maturity",
+          "minimumGapPercent": 18.69,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "gestation",
+          "minimumGapPercent": 15.15,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "89ab07dcff1bf9d9",
+      "mode": "easy",
+      "title": "Bears of the world",
+      "boardType": "themed",
+      "status": "hold",
+      "reasons": [
+        "smallest_adult_mass: source does not report uncertainty bounds for 4 observations",
+        "smallest_adult_mass: at least one adjacent gap below 15%; needs particular scrutiny",
+        "shortest_gestation: source does not report uncertainty bounds for 4 observations",
+        "shortest_gestation: at least one adjacent gap below 15%; needs particular scrutiny",
+        "birth_weight: source does not report uncertainty bounds for 4 observations",
+        "birth_weight: at least one adjacent gap below 15%; needs particular scrutiny",
+        "earliest_female_maturity: source does not report uncertainty bounds for 4 observations",
+        "earliest_female_maturity: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 13.25,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "shortest_gestation",
+          "minimumGapPercent": 8.42,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "birth_weight",
+          "minimumGapPercent": 10.15,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical birth weight, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "earliest_female_maturity",
+          "minimumGapPercent": 8.21,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "65edf94a0dc4897a",
+      "mode": "easy",
+      "title": "Bears of the world",
+      "boardType": "themed",
+      "status": "hold",
+      "reasons": [
+        "shortest_gestation: source does not report uncertainty bounds for 4 observations",
+        "shortest_gestation: at least one adjacent gap below 15%; needs particular scrutiny",
+        "birth_weight: source does not report uncertainty bounds for 4 observations",
+        "earliest_female_maturity: source does not report uncertainty bounds for 4 observations",
+        "earliest_female_maturity: at least one adjacent gap below 15%; needs particular scrutiny",
+        "smallest_adult_mass: source does not report uncertainty bounds for 4 observations"
+      ],
+      "comparisons": [
+        {
+          "traitId": "shortest_gestation",
+          "minimumGapPercent": 7.69,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "birth_weight",
+          "minimumGapPercent": 17.12,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical birth weight, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "earliest_female_maturity",
+          "minimumGapPercent": 8.21,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 31.28,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "23d3b1ec2d7c851d",
+      "mode": "easy",
+      "title": "Bears of the world",
+      "boardType": "themed",
+      "status": "hold",
+      "reasons": [
+        "birth_weight: source does not report uncertainty bounds for 4 observations",
+        "smallest_adult_mass: source does not report uncertainty bounds for 4 observations",
+        "smallest_adult_mass: at least one adjacent gap below 15%; needs particular scrutiny",
+        "gestation: source does not report uncertainty bounds for 4 observations",
+        "female_maturity: source does not report uncertainty bounds for 4 observations",
+        "female_maturity: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "birth_weight",
+          "minimumGapPercent": 25.0,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical birth weight, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 7.55,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "gestation",
+          "minimumGapPercent": 15.15,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "female_maturity",
+          "minimumGapPercent": 11.27,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "3f9c778bc23dbc3f",
+      "mode": "easy",
+      "title": "Feathers & flight",
+      "boardType": "themed",
+      "status": "hold",
+      "reasons": [
+        "raw_egg_mass: source does not report uncertainty bounds for 1 observations",
+        "smallest_adult_mass: source does not report uncertainty bounds for 4 observations",
+        "smallest_adult_mass: at least one adjacent gap below 15%; needs particular scrutiny",
+        "raw_incubation: source does not report uncertainty bounds for 3 observations",
+        "raw_incubation: at least one adjacent gap below 15%; needs particular scrutiny",
+        "bird_range_area: source does not report uncertainty bounds for 4 observations",
+        "bird_range_area: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "raw_egg_mass",
+          "minimumGapPercent": 25.52,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported egg masses in exact-species amniote raw records",
+          "observationsWithReportedBounds": 3,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 5.78,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "raw_incubation",
+          "minimumGapPercent": 7.14,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported incubation durations in exact-species amniote raw records",
+          "observationsWithReportedBounds": 1,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "bird_range_area",
+          "minimumGapPercent": 11.37,
+          "sourceId": "avonet-7",
+          "measurementBasis": "Area of mapped native/reintroduced breeding and resident range, BirdLife polygons in AVONET",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "1a4e88cf32e89d26",
+      "mode": "easy",
+      "title": "Feathers & flight",
+      "boardType": "themed",
+      "status": "hold",
+      "reasons": [
+        "lightest_bird: source does not report uncertainty bounds for 4 observations",
+        "lightest_bird: at least one adjacent gap below 15%; needs particular scrutiny",
+        "bird_tail_length: source does not report uncertainty bounds for 4 observations",
+        "bird_tail_length: at least one adjacent gap below 15%; needs particular scrutiny",
+        "bird_range_area: source does not report uncertainty bounds for 4 observations",
+        "earliest_female_maturity: source does not report uncertainty bounds for 4 observations"
+      ],
+      "comparisons": [
+        {
+          "traitId": "lightest_bird",
+          "minimumGapPercent": 13.07,
+          "sourceId": "avonet-7",
+          "measurementBasis": "Mean adult mass across sexes",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "bird_tail_length",
+          "minimumGapPercent": 7.96,
+          "sourceId": "avonet-7",
+          "measurementBasis": "Tail feather length from skin to longest tip, species mean",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "bird_range_area",
+          "minimumGapPercent": 83.62,
+          "sourceId": "avonet-7",
+          "measurementBasis": "Area of mapped native/reintroduced breeding and resident range, BirdLife polygons in AVONET",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "earliest_female_maturity",
+          "minimumGapPercent": 25.0,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "a9cd736db1c55c81",
+      "mode": "easy",
+      "title": "Feathers & flight",
+      "boardType": "themed",
+      "status": "hold",
+      "reasons": [
+        "earliest_female_maturity: source does not report uncertainty bounds for 4 observations",
+        "bird_range_area: source does not report uncertainty bounds for 4 observations",
+        "adult_body_mass: source does not report uncertainty bounds for 4 observations",
+        "bird_tail_length: source does not report uncertainty bounds for 4 observations",
+        "bird_tail_length: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "earliest_female_maturity",
+          "minimumGapPercent": 100.0,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "bird_range_area",
+          "minimumGapPercent": 89.11,
+          "sourceId": "avonet-7",
+          "measurementBasis": "Area of mapped native/reintroduced breeding and resident range, BirdLife polygons in AVONET",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "adult_body_mass",
+          "minimumGapPercent": 67.78,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "bird_tail_length",
+          "minimumGapPercent": 11.91,
+          "sourceId": "avonet-7",
+          "measurementBasis": "Tail feather length from skin to longest tip, species mean",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "ce4cf2d440a636ab",
+      "mode": "easy",
+      "title": "Feathers & flight",
+      "boardType": "themed",
+      "status": "hold",
+      "reasons": [
+        "bird_beak_length: source does not report uncertainty bounds for 4 observations",
+        "bird_beak_length: at least one adjacent gap below 15%; needs particular scrutiny",
+        "bird_range_area: source does not report uncertainty bounds for 4 observations",
+        "lightest_bird: source does not report uncertainty bounds for 4 observations"
+      ],
+      "comparisons": [
+        {
+          "traitId": "raw_clutch_size",
+          "minimumGapPercent": 44.14,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported egg counts per clutch in exact-species amniote raw records",
+          "observationsWithReportedBounds": 4,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "bird_beak_length",
+          "minimumGapPercent": 9.43,
+          "sourceId": "avonet-7",
+          "measurementBasis": "Beak tip to skull base, species mean",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "bird_range_area",
+          "minimumGapPercent": 39.0,
+          "sourceId": "avonet-7",
+          "measurementBasis": "Area of mapped native/reintroduced breeding and resident range, BirdLife polygons in AVONET",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "lightest_bird",
+          "minimumGapPercent": 35.54,
+          "sourceId": "avonet-7",
+          "measurementBasis": "Mean adult mass across sexes",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "4b3466c19e4e4247",
+      "mode": "easy",
+      "title": "Carnivore",
+      "boardType": "themed",
+      "status": "hold",
+      "reasons": [
+        "litter_size: source does not report uncertainty bounds for 4 observations",
+        "female_maturity: source does not report uncertainty bounds for 4 observations",
+        "smallest_adult_mass: source does not report uncertainty bounds for 4 observations",
+        "raw_weaning_age: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "litter_size",
+          "minimumGapPercent": 20.0,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical litter size for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "female_maturity",
+          "minimumGapPercent": 15.8,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 46.2,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "raw_weaning_age",
+          "minimumGapPercent": 9.37,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported weaning ages in exact-species amniote raw records",
+          "observationsWithReportedBounds": 4,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "d78dba5b92030e55",
+      "mode": "easy",
+      "title": "Frogs and toads",
+      "boardType": "themed",
+      "status": "hold",
+      "reasons": [
+        "female_maturity: source does not report uncertainty bounds for 4 observations",
+        "maximum_documented_lifespan: source does not report uncertainty bounds for 4 observations",
+        "adult_body_mass: source does not report uncertainty bounds for 4 observations",
+        "amphibian_max_clutch: source does not report uncertainty bounds for 4 observations"
+      ],
+      "comparisons": [
+        {
+          "traitId": "female_maturity",
+          "minimumGapPercent": 40.33,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "maximum_documented_lifespan",
+          "minimumGapPercent": 18.81,
+          "sourceId": "anage-15",
+          "measurementBasis": "Maximum recorded lifespan for captive specimens in AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "captivity"
+          ]
+        },
+        {
+          "traitId": "adult_body_mass",
+          "minimumGapPercent": 22.35,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "amphibian_max_clutch",
+          "minimumGapPercent": 17.65,
+          "sourceId": "amphibio-5",
+          "measurementBasis": "Maximum number of eggs per clutch compiled in AmphiBIO for egg-laying amphibians",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "cf2cab72211d75ce",
+      "mode": "easy",
+      "title": "Frogs and toads",
+      "boardType": "themed",
+      "status": "hold",
+      "reasons": [
+        "amphibian_max_clutch: source does not report uncertainty bounds for 4 observations",
+        "earliest_female_maturity: source does not report uncertainty bounds for 4 observations",
+        "maximum_documented_lifespan: source does not report uncertainty bounds for 4 observations",
+        "amphibian_max_mass: source does not report uncertainty bounds for 4 observations",
+        "amphibian_max_mass: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "amphibian_max_clutch",
+          "minimumGapPercent": 17.65,
+          "sourceId": "amphibio-5",
+          "measurementBasis": "Maximum number of eggs per clutch compiled in AmphiBIO for egg-laying amphibians",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "earliest_female_maturity",
+          "minimumGapPercent": 40.33,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "maximum_documented_lifespan",
+          "minimumGapPercent": 18.81,
+          "sourceId": "anage-15",
+          "measurementBasis": "Maximum recorded lifespan for captive specimens in AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "captivity"
+          ]
+        },
+        {
+          "traitId": "amphibian_max_mass",
+          "minimumGapPercent": 9.52,
+          "sourceId": "amphibio-5",
+          "measurementBasis": "Maximum adult mass compiled in AmphiBIO",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "80a72c85def32be1",
+      "mode": "easy",
+      "title": "Large Mammal",
+      "boardType": "themed",
+      "status": "hold",
+      "reasons": [
+        "adult_body_mass: source does not report uncertainty bounds for 4 observations",
+        "raw_birth_mass: source does not report uncertainty bounds for 1 observations",
+        "raw_birth_mass: at least one adjacent gap below 15%; needs particular scrutiny",
+        "gestation: source does not report uncertainty bounds for 4 observations",
+        "gestation: at least one adjacent gap below 15%; needs particular scrutiny",
+        "raw_weaning_age: source does not report uncertainty bounds for 1 observations",
+        "raw_weaning_age: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "adult_body_mass",
+          "minimumGapPercent": 72.41,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "raw_birth_mass",
+          "minimumGapPercent": 14.33,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported newborn body masses in exact-species amniote raw records",
+          "observationsWithReportedBounds": 3,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "gestation",
+          "minimumGapPercent": 12.69,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "raw_weaning_age",
+          "minimumGapPercent": 8.18,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported weaning ages in exact-species amniote raw records",
+          "observationsWithReportedBounds": 3,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "f1706e682448c05e",
+      "mode": "easy",
+      "title": "Large Mammal",
+      "boardType": "themed",
+      "status": "hold",
+      "reasons": [
+        "smallest_adult_mass: source does not report uncertainty bounds for 4 observations",
+        "shortest_gestation: source does not report uncertainty bounds for 4 observations",
+        "earliest_weaning: source does not report uncertainty bounds for 4 observations",
+        "maximum_documented_lifespan: source does not report uncertainty bounds for 4 observations",
+        "maximum_documented_lifespan: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 28.0,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "shortest_gestation",
+          "minimumGapPercent": 17.09,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "earliest_weaning",
+          "minimumGapPercent": 15.84,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at weaning, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "maximum_documented_lifespan",
+          "minimumGapPercent": 6.21,
+          "sourceId": "anage-15",
+          "measurementBasis": "Maximum recorded lifespan for captive specimens in AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "captivity"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "4fcc04a78fd0e97e",
+      "mode": "easy",
+      "title": "Large Mammal",
+      "boardType": "themed",
+      "status": "hold",
+      "reasons": [
+        "adult_body_mass: source does not report uncertainty bounds for 4 observations",
+        "raw_gestation: at least one adjacent gap below 15%; needs particular scrutiny",
+        "birth_weight: source does not report uncertainty bounds for 4 observations",
+        "birth_weight: at least one adjacent gap below 15%; needs particular scrutiny",
+        "raw_weaning_age: source does not report uncertainty bounds for 1 observations",
+        "raw_weaning_age: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "adult_body_mass",
+          "minimumGapPercent": 72.41,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "raw_gestation",
+          "minimumGapPercent": 13.12,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported gestation durations in exact-species amniote raw records",
+          "observationsWithReportedBounds": 4,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "birth_weight",
+          "minimumGapPercent": 11.43,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical birth weight, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "raw_weaning_age",
+          "minimumGapPercent": 8.18,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported weaning ages in exact-species amniote raw records",
+          "observationsWithReportedBounds": 3,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "7a60ac785efbfce5",
+      "mode": "easy",
+      "title": "Large Mammal",
+      "boardType": "themed",
+      "status": "hold",
+      "reasons": [
+        "raw_birth_mass: source does not report uncertainty bounds for 1 observations",
+        "shortest_gestation: source does not report uncertainty bounds for 4 observations",
+        "earliest_weaning: source does not report uncertainty bounds for 4 observations",
+        "smallest_adult_mass: source does not report uncertainty bounds for 4 observations"
+      ],
+      "comparisons": [
+        {
+          "traitId": "raw_birth_mass",
+          "minimumGapPercent": 25.0,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported newborn body masses in exact-species amniote raw records",
+          "observationsWithReportedBounds": 3,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "shortest_gestation",
+          "minimumGapPercent": 17.09,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "earliest_weaning",
+          "minimumGapPercent": 15.84,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at weaning, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 28.0,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "bb848817f30070e4",
+      "mode": "easy",
+      "title": "Wild company",
+      "boardType": "cross-animal",
+      "status": "hold",
+      "reasons": [
+        "female_maturity: source does not report uncertainty bounds for 4 observations",
+        "smallest_adult_mass: source does not report uncertainty bounds for 4 observations",
+        "raw_birth_mass: at least one adjacent gap below 15%; needs particular scrutiny",
+        "shortest_gestation: source does not report uncertainty bounds for 4 observations"
+      ],
+      "comparisons": [
+        {
+          "traitId": "female_maturity",
+          "minimumGapPercent": 19.25,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 74.02,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "raw_birth_mass",
+          "minimumGapPercent": 11.81,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported newborn body masses in exact-species amniote raw records",
+          "observationsWithReportedBounds": 4,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "shortest_gestation",
+          "minimumGapPercent": 59.39,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "531c52c2bc5daa85",
+      "mode": "easy",
+      "title": "Wild company",
+      "boardType": "cross-animal",
+      "status": "hold",
+      "reasons": [
+        "shortest_gestation: source does not report uncertainty bounds for 4 observations",
+        "smallest_adult_mass: source does not report uncertainty bounds for 4 observations",
+        "earliest_female_maturity: source does not report uncertainty bounds for 4 observations",
+        "maximum_documented_lifespan: source does not report uncertainty bounds for 4 observations",
+        "maximum_documented_lifespan: small longevity record sample"
+      ],
+      "comparisons": [
+        {
+          "traitId": "shortest_gestation",
+          "minimumGapPercent": 44.18,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 19.95,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "earliest_female_maturity",
+          "minimumGapPercent": 16.56,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "maximum_documented_lifespan",
+          "minimumGapPercent": 25.53,
+          "sourceId": "anage-15",
+          "measurementBasis": "Maximum recorded lifespan for captive specimens in AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "captivity"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "61bad96906bb198d",
+      "mode": "easy",
+      "title": "Wild company",
+      "boardType": "cross-animal",
+      "status": "hold",
+      "reasons": [
+        "smallest_adult_mass: source does not report uncertainty bounds for 4 observations",
+        "female_maturity: source does not report uncertainty bounds for 4 observations",
+        "female_maturity: at least one adjacent gap below 15%; needs particular scrutiny",
+        "birth_weight: source does not report uncertainty bounds for 4 observations",
+        "birth_weight: at least one adjacent gap below 15%; needs particular scrutiny",
+        "weaning_age: source does not report uncertainty bounds for 4 observations",
+        "weaning_age: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 98.64,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "female_maturity",
+          "minimumGapPercent": 11.27,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "birth_weight",
+          "minimumGapPercent": 13.33,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical birth weight, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "weaning_age",
+          "minimumGapPercent": 14.44,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at weaning, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "d305289f24c214e5",
+      "mode": "easy",
+      "title": "Wild company",
+      "boardType": "cross-animal",
+      "status": "hold",
+      "reasons": [
+        "raw_birth_mass: source does not report uncertainty bounds for 1 observations",
+        "smallest_adult_mass: source does not report uncertainty bounds for 4 observations",
+        "shortest_gestation: source does not report uncertainty bounds for 4 observations"
+      ],
+      "comparisons": [
+        {
+          "traitId": "raw_birth_mass",
+          "minimumGapPercent": 54.98,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported newborn body masses in exact-species amniote raw records",
+          "observationsWithReportedBounds": 3,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "raw_weaning_age",
+          "minimumGapPercent": 34.69,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported weaning ages in exact-species amniote raw records",
+          "observationsWithReportedBounds": 4,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 25.14,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "shortest_gestation",
+          "minimumGapPercent": 29.29,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "1594712ae3da6b0f",
+      "mode": "easy",
+      "title": "Scales & shells",
+      "boardType": "clustered",
+      "status": "hold",
+      "reasons": [
+        "earliest_female_maturity: source does not report uncertainty bounds for 4 observations",
+        "raw_egg_mass: source does not report uncertainty bounds for 1 observations",
+        "smallest_adult_mass: source does not report uncertainty bounds for 4 observations",
+        "maximum_documented_lifespan: source does not report uncertainty bounds for 4 observations",
+        "maximum_documented_lifespan: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "earliest_female_maturity",
+          "minimumGapPercent": 19.93,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "raw_egg_mass",
+          "minimumGapPercent": 29.64,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported egg masses in exact-species amniote raw records",
+          "observationsWithReportedBounds": 3,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 91.75,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "maximum_documented_lifespan",
+          "minimumGapPercent": 10.0,
+          "sourceId": "anage-15",
+          "measurementBasis": "Maximum recorded lifespan for captive specimens in AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "captivity"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "f10c65e05de7d6bb",
+      "mode": "easy",
+      "title": "Scales & shells",
+      "boardType": "clustered",
+      "status": "hold",
+      "reasons": [
+        "female_maturity: source does not report uncertainty bounds for 4 observations",
+        "maximum_documented_lifespan: source does not report uncertainty bounds for 4 observations",
+        "maximum_documented_lifespan: small longevity record sample",
+        "raw_egg_mass: source does not report uncertainty bounds for 1 observations",
+        "smallest_adult_mass: source does not report uncertainty bounds for 4 observations"
+      ],
+      "comparisons": [
+        {
+          "traitId": "female_maturity",
+          "minimumGapPercent": 25.07,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "maximum_documented_lifespan",
+          "minimumGapPercent": 18.64,
+          "sourceId": "anage-15",
+          "measurementBasis": "Maximum recorded lifespan for captive specimens in AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "captivity"
+          ]
+        },
+        {
+          "traitId": "raw_egg_mass",
+          "minimumGapPercent": 31.87,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported egg masses in exact-species amniote raw records",
+          "observationsWithReportedBounds": 3,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 223.36,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "b1860ae8a86ddde9",
+      "mode": "easy",
+      "title": "Scales & shells",
+      "boardType": "clustered",
+      "status": "hold",
+      "reasons": [
+        "maximum_documented_lifespan: source does not report uncertainty bounds for 4 observations",
+        "maximum_documented_lifespan: small longevity record sample",
+        "smallest_adult_mass: source does not report uncertainty bounds for 4 observations",
+        "female_maturity: source does not report uncertainty bounds for 4 observations"
+      ],
+      "comparisons": [
+        {
+          "traitId": "raw_egg_mass",
+          "minimumGapPercent": 97.8,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported egg masses in exact-species amniote raw records",
+          "observationsWithReportedBounds": 4,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "maximum_documented_lifespan",
+          "minimumGapPercent": 20.76,
+          "sourceId": "anage-15",
+          "measurementBasis": "Maximum recorded lifespan for captive specimens in AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "captivity"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 61.03,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "female_maturity",
+          "minimumGapPercent": 37.5,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "6bcf6f6745c2cbd3",
+      "mode": "easy",
+      "title": "Scales & shells",
+      "boardType": "clustered",
+      "status": "hold",
+      "reasons": [
+        "earliest_female_maturity: source does not report uncertainty bounds for 4 observations",
+        "raw_egg_mass: source does not report uncertainty bounds for 1 observations",
+        "smallest_adult_mass: source does not report uncertainty bounds for 4 observations",
+        "maximum_documented_lifespan: source does not report uncertainty bounds for 4 observations",
+        "maximum_documented_lifespan: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "earliest_female_maturity",
+          "minimumGapPercent": 50.0,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "raw_egg_mass",
+          "minimumGapPercent": 29.64,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported egg masses in exact-species amniote raw records",
+          "observationsWithReportedBounds": 3,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 59.24,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "maximum_documented_lifespan",
+          "minimumGapPercent": 10.0,
+          "sourceId": "anage-15",
+          "measurementBasis": "Maximum recorded lifespan for captive specimens in AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "captivity"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "9d2caa83bc485cf4",
+      "mode": "easy",
+      "title": "Pond neighbours",
+      "boardType": "clustered",
+      "status": "hold",
+      "reasons": [
+        "adult_body_mass: source does not report uncertainty bounds for 4 observations",
+        "maximum_documented_lifespan: source does not report uncertainty bounds for 4 observations",
+        "amphibian_max_clutch: source does not report uncertainty bounds for 4 observations",
+        "female_maturity: source does not report uncertainty bounds for 4 observations",
+        "female_maturity: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "adult_body_mass",
+          "minimumGapPercent": 131.51,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "maximum_documented_lifespan",
+          "minimumGapPercent": 18.81,
+          "sourceId": "anage-15",
+          "measurementBasis": "Maximum recorded lifespan for captive specimens in AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "captivity"
+          ]
+        },
+        {
+          "traitId": "amphibian_max_clutch",
+          "minimumGapPercent": 17.65,
+          "sourceId": "amphibio-5",
+          "measurementBasis": "Maximum number of eggs per clutch compiled in AmphiBIO for egg-laying amphibians",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "female_maturity",
+          "minimumGapPercent": 14.33,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "bcfbd0b56e0130fa",
+      "mode": "easy",
+      "title": "Pond neighbours",
+      "boardType": "clustered",
+      "status": "hold",
+      "reasons": [
+        "maximum_documented_lifespan: source does not report uncertainty bounds for 4 observations",
+        "smallest_adult_mass: source does not report uncertainty bounds for 4 observations",
+        "amphibian_max_clutch: source does not report uncertainty bounds for 4 observations",
+        "earliest_female_maturity: source does not report uncertainty bounds for 4 observations",
+        "earliest_female_maturity: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "maximum_documented_lifespan",
+          "minimumGapPercent": 18.81,
+          "sourceId": "anage-15",
+          "measurementBasis": "Maximum recorded lifespan for captive specimens in AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "captivity"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 131.51,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "amphibian_max_clutch",
+          "minimumGapPercent": 17.65,
+          "sourceId": "amphibio-5",
+          "measurementBasis": "Maximum number of eggs per clutch compiled in AmphiBIO for egg-laying amphibians",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "earliest_female_maturity",
+          "minimumGapPercent": 14.33,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "c15333a97854fb47",
+      "mode": "easy",
+      "title": "Wild company",
+      "boardType": "clustered",
+      "status": "hold",
+      "reasons": [
+        "smallest_adult_mass: source does not report uncertainty bounds for 4 observations",
+        "smallest_adult_mass: at least one adjacent gap below 15%; needs particular scrutiny",
+        "birth_weight: source does not report uncertainty bounds for 4 observations",
+        "gestation: source does not report uncertainty bounds for 4 observations",
+        "earliest_weaning: source does not report uncertainty bounds for 4 observations",
+        "earliest_weaning: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 9.25,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "birth_weight",
+          "minimumGapPercent": 22.25,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical birth weight, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "gestation",
+          "minimumGapPercent": 15.15,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "earliest_weaning",
+          "minimumGapPercent": 13.08,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at weaning, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "74f029490489c6cb",
+      "mode": "easy",
+      "title": "Wild company",
+      "boardType": "clustered",
+      "status": "hold",
+      "reasons": [
+        "shortest_gestation: source does not report uncertainty bounds for 4 observations",
+        "female_maturity: source does not report uncertainty bounds for 4 observations",
+        "female_maturity: at least one adjacent gap below 15%; needs particular scrutiny",
+        "smallest_adult_mass: source does not report uncertainty bounds for 4 observations",
+        "smallest_adult_mass: at least one adjacent gap below 15%; needs particular scrutiny",
+        "earliest_weaning: source does not report uncertainty bounds for 4 observations"
+      ],
+      "comparisons": [
+        {
+          "traitId": "shortest_gestation",
+          "minimumGapPercent": 15.15,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "female_maturity",
+          "minimumGapPercent": 14.32,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 9.25,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "earliest_weaning",
+          "minimumGapPercent": 18.42,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at weaning, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "59ac683e28b0a02c",
+      "mode": "easy",
+      "title": "Wild company",
+      "boardType": "clustered",
+      "status": "hold",
+      "reasons": [
+        "weaning_age: source does not report uncertainty bounds for 4 observations",
+        "raw_birth_mass: source does not report uncertainty bounds for 1 observations",
+        "earliest_female_maturity: source does not report uncertainty bounds for 4 observations",
+        "gestation: source does not report uncertainty bounds for 4 observations"
+      ],
+      "comparisons": [
+        {
+          "traitId": "weaning_age",
+          "minimumGapPercent": 18.42,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at weaning, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "raw_birth_mass",
+          "minimumGapPercent": 29.03,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported newborn body masses in exact-species amniote raw records",
+          "observationsWithReportedBounds": 3,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "earliest_female_maturity",
+          "minimumGapPercent": 15.22,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "gestation",
+          "minimumGapPercent": 15.15,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "ef991435fb73d16c",
+      "mode": "easy",
+      "title": "Wild company",
+      "boardType": "clustered",
+      "status": "hold",
+      "reasons": [
+        "birth_weight: source does not report uncertainty bounds for 4 observations",
+        "birth_weight: at least one adjacent gap below 15%; needs particular scrutiny",
+        "shortest_gestation: source does not report uncertainty bounds for 4 observations",
+        "maximum_documented_lifespan: source does not report uncertainty bounds for 4 observations",
+        "maximum_documented_lifespan: at least one adjacent gap below 15%; needs particular scrutiny",
+        "maximum_documented_lifespan: small longevity record sample",
+        "litter_size: source does not report uncertainty bounds for 4 observations"
+      ],
+      "comparisons": [
+        {
+          "traitId": "birth_weight",
+          "minimumGapPercent": 5.62,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical birth weight, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "shortest_gestation",
+          "minimumGapPercent": 19.32,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "maximum_documented_lifespan",
+          "minimumGapPercent": 6.52,
+          "sourceId": "anage-15",
+          "measurementBasis": "Maximum recorded lifespan for captive specimens in AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "captivity"
+          ]
+        },
+        {
+          "traitId": "litter_size",
+          "minimumGapPercent": 20.0,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical litter size for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "4440ddba78697507",
+      "mode": "easy",
+      "title": "Wild company",
+      "boardType": "cross-animal",
+      "status": "hold",
+      "reasons": [
+        "maximum_documented_lifespan: source does not report uncertainty bounds for 4 observations",
+        "maximum_documented_lifespan: at least one adjacent gap below 15%; needs particular scrutiny",
+        "litter_size: source does not report uncertainty bounds for 4 observations",
+        "adult_body_mass: source does not report uncertainty bounds for 4 observations",
+        "gestation: source does not report uncertainty bounds for 4 observations"
+      ],
+      "comparisons": [
+        {
+          "traitId": "maximum_documented_lifespan",
+          "minimumGapPercent": 6.1,
+          "sourceId": "anage-15",
+          "measurementBasis": "Maximum recorded lifespan for captive specimens in AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "captivity"
+          ]
+        },
+        {
+          "traitId": "litter_size",
+          "minimumGapPercent": 20.0,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical litter size for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "adult_body_mass",
+          "minimumGapPercent": 22.4,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "gestation",
+          "minimumGapPercent": 30.77,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "defa2651e743985e",
+      "mode": "easy",
+      "title": "Wild company",
+      "boardType": "cross-animal",
+      "status": "hold",
+      "reasons": [
+        "gestation: source does not report uncertainty bounds for 4 observations",
+        "smallest_adult_mass: source does not report uncertainty bounds for 4 observations",
+        "litter_size: source does not report uncertainty bounds for 4 observations",
+        "maximum_documented_lifespan: source does not report uncertainty bounds for 4 observations",
+        "maximum_documented_lifespan: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "gestation",
+          "minimumGapPercent": 41.67,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 22.4,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "litter_size",
+          "minimumGapPercent": 20.0,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical litter size for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "maximum_documented_lifespan",
+          "minimumGapPercent": 6.1,
+          "sourceId": "anage-15",
+          "measurementBasis": "Maximum recorded lifespan for captive specimens in AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "captivity"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "f7cd2aee8bb58501",
+      "mode": "easy",
+      "title": "Wild company",
+      "boardType": "cross-animal",
+      "status": "hold",
+      "reasons": [
+        "daily_sleep: source does not report uncertainty bounds for 4 observations",
+        "daily_sleep: at least one adjacent gap below 15%; needs particular scrutiny",
+        "maximum_documented_lifespan: source does not report uncertainty bounds for 4 observations",
+        "maximum_documented_lifespan: at least one adjacent gap below 15%; needs particular scrutiny",
+        "smallest_adult_mass: source does not report uncertainty bounds for 4 observations",
+        "gestation: source does not report uncertainty bounds for 4 observations"
+      ],
+      "comparisons": [
+        {
+          "traitId": "daily_sleep",
+          "minimumGapPercent": 9.91,
+          "sourceId": "sleep-bu-2007",
+          "measurementBasis": "Median of eligible adult mixed-sex EEG studies recorded over 24 hours, at least three animals and laboratory-condition score at least 9. Captive observations, not wild daily sleep.",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "captivity"
+          ]
+        },
+        {
+          "traitId": "maximum_documented_lifespan",
+          "minimumGapPercent": 6.1,
+          "sourceId": "anage-15",
+          "measurementBasis": "Maximum recorded lifespan for captive specimens in AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "captivity"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 22.4,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "gestation",
+          "minimumGapPercent": 41.67,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "b339ba8468c541c3",
+      "mode": "easy",
+      "title": "Wild company",
+      "boardType": "cross-animal",
+      "status": "hold",
+      "reasons": [
+        "daily_sleep: source does not report uncertainty bounds for 4 observations",
+        "daily_sleep: at least one adjacent gap below 15%; needs particular scrutiny",
+        "maximum_documented_lifespan: source does not report uncertainty bounds for 4 observations",
+        "maximum_documented_lifespan: at least one adjacent gap below 15%; needs particular scrutiny",
+        "smallest_adult_mass: source does not report uncertainty bounds for 4 observations",
+        "gestation: source does not report uncertainty bounds for 4 observations",
+        "gestation: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "daily_sleep",
+          "minimumGapPercent": 11.55,
+          "sourceId": "sleep-bu-2007",
+          "measurementBasis": "Median of eligible adult mixed-sex EEG studies recorded over 24 hours, at least three animals and laboratory-condition score at least 9. Captive observations, not wild daily sleep.",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "captivity"
+          ]
+        },
+        {
+          "traitId": "maximum_documented_lifespan",
+          "minimumGapPercent": 6.1,
+          "sourceId": "anage-15",
+          "measurementBasis": "Maximum recorded lifespan for captive specimens in AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "captivity"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 22.4,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "gestation",
+          "minimumGapPercent": 13.04,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 4,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "42532a92162cd191",
+      "mode": "normal",
+      "title": "Feathers & flight",
+      "boardType": "themed",
+      "status": "hold",
+      "reasons": [
+        "smallest_adult_mass: source does not report uncertainty bounds for 6 observations",
+        "smallest_adult_mass: at least one adjacent gap below 15%; needs particular scrutiny",
+        "bird_tail_length: source does not report uncertainty bounds for 6 observations",
+        "bird_tail_length: at least one adjacent gap below 15%; needs particular scrutiny",
+        "raw_incubation: source does not report uncertainty bounds for 1 observations",
+        "raw_incubation: at least one adjacent gap below 15%; needs particular scrutiny",
+        "bird_range_area: source does not report uncertainty bounds for 6 observations"
+      ],
+      "comparisons": [
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 13.6,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "bird_tail_length",
+          "minimumGapPercent": 5.96,
+          "sourceId": "avonet-7",
+          "measurementBasis": "Tail feather length from skin to longest tip, species mean",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "raw_incubation",
+          "minimumGapPercent": 6.52,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported incubation durations in exact-species amniote raw records",
+          "observationsWithReportedBounds": 5,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "bird_range_area",
+          "minimumGapPercent": 47.32,
+          "sourceId": "avonet-7",
+          "measurementBasis": "Area of mapped native/reintroduced breeding and resident range, BirdLife polygons in AVONET",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "5c547238f0e050bd",
+      "mode": "normal",
+      "title": "Feathers & flight",
+      "boardType": "themed",
+      "status": "hold",
+      "reasons": [
+        "bird_range_area: source does not report uncertainty bounds for 6 observations",
+        "bird_beak_length: source does not report uncertainty bounds for 6 observations",
+        "raw_incubation: source does not report uncertainty bounds for 1 observations",
+        "raw_incubation: at least one adjacent gap below 15%; needs particular scrutiny",
+        "lightest_bird: source does not report uncertainty bounds for 6 observations",
+        "lightest_bird: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "bird_range_area",
+          "minimumGapPercent": 27.75,
+          "sourceId": "avonet-7",
+          "measurementBasis": "Area of mapped native/reintroduced breeding and resident range, BirdLife polygons in AVONET",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "bird_beak_length",
+          "minimumGapPercent": 15.11,
+          "sourceId": "avonet-7",
+          "measurementBasis": "Beak tip to skull base, species mean",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "raw_incubation",
+          "minimumGapPercent": 12.82,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported incubation durations in exact-species amniote raw records",
+          "observationsWithReportedBounds": 5,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "lightest_bird",
+          "minimumGapPercent": 10.65,
+          "sourceId": "avonet-7",
+          "measurementBasis": "Mean adult mass across sexes",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "05d4c46ca4996e9f",
+      "mode": "normal",
+      "title": "Feathers & flight",
+      "boardType": "themed",
+      "status": "hold",
+      "reasons": [
+        "raw_incubation: source does not report uncertainty bounds for 3 observations",
+        "raw_incubation: at least one adjacent gap below 15%; needs particular scrutiny",
+        "bird_beak_length: source does not report uncertainty bounds for 6 observations",
+        "bird_beak_length: at least one adjacent gap below 15%; needs particular scrutiny",
+        "bird_range_area: source does not report uncertainty bounds for 6 observations",
+        "bird_mass: source does not report uncertainty bounds for 6 observations",
+        "bird_mass: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "raw_incubation",
+          "minimumGapPercent": 6.76,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported incubation durations in exact-species amniote raw records",
+          "observationsWithReportedBounds": 3,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "bird_beak_length",
+          "minimumGapPercent": 5.13,
+          "sourceId": "avonet-7",
+          "measurementBasis": "Beak tip to skull base, species mean",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "bird_range_area",
+          "minimumGapPercent": 30.21,
+          "sourceId": "avonet-7",
+          "measurementBasis": "Area of mapped native/reintroduced breeding and resident range, BirdLife polygons in AVONET",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "bird_mass",
+          "minimumGapPercent": 9.51,
+          "sourceId": "avonet-7",
+          "measurementBasis": "Mean adult mass across sexes",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "777d566f23b42cc0",
+      "mode": "normal",
+      "title": "Feathers & flight",
+      "boardType": "themed",
+      "status": "hold",
+      "reasons": [
+        "lightest_bird: source does not report uncertainty bounds for 6 observations",
+        "lightest_bird: at least one adjacent gap below 15%; needs particular scrutiny",
+        "bird_beak_length: source does not report uncertainty bounds for 6 observations",
+        "bird_range_area: source does not report uncertainty bounds for 6 observations",
+        "raw_incubation: source does not report uncertainty bounds for 3 observations",
+        "raw_incubation: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "lightest_bird",
+          "minimumGapPercent": 8.96,
+          "sourceId": "avonet-7",
+          "measurementBasis": "Mean adult mass across sexes",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "bird_beak_length",
+          "minimumGapPercent": 15.11,
+          "sourceId": "avonet-7",
+          "measurementBasis": "Beak tip to skull base, species mean",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "bird_range_area",
+          "minimumGapPercent": 39.23,
+          "sourceId": "avonet-7",
+          "measurementBasis": "Area of mapped native/reintroduced breeding and resident range, BirdLife polygons in AVONET",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "raw_incubation",
+          "minimumGapPercent": 6.21,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported incubation durations in exact-species amniote raw records",
+          "observationsWithReportedBounds": 3,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "922b91eaa9065dac",
+      "mode": "normal",
+      "title": "Wild company",
+      "boardType": "cross-animal",
+      "status": "hold",
+      "reasons": [
+        "maximum_documented_lifespan: source does not report uncertainty bounds for 6 observations",
+        "maximum_documented_lifespan: at least one adjacent gap below 15%; needs particular scrutiny",
+        "adult_body_mass: source does not report uncertainty bounds for 6 observations",
+        "shortest_gestation: source does not report uncertainty bounds for 6 observations",
+        "female_maturity: source does not report uncertainty bounds for 6 observations",
+        "female_maturity: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "maximum_documented_lifespan",
+          "minimumGapPercent": 7.31,
+          "sourceId": "anage-15",
+          "measurementBasis": "Maximum recorded lifespan for captive specimens in AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "captivity"
+          ]
+        },
+        {
+          "traitId": "adult_body_mass",
+          "minimumGapPercent": 19.57,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "shortest_gestation",
+          "minimumGapPercent": 41.43,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "female_maturity",
+          "minimumGapPercent": 12.42,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "71296cae7bd2b060",
+      "mode": "normal",
+      "title": "Wild company",
+      "boardType": "cross-animal",
+      "status": "hold",
+      "reasons": [
+        "earliest_female_maturity: source does not report uncertainty bounds for 6 observations",
+        "earliest_female_maturity: at least one adjacent gap below 15%; needs particular scrutiny",
+        "shortest_gestation: source does not report uncertainty bounds for 6 observations",
+        "shortest_gestation: at least one adjacent gap below 15%; needs particular scrutiny",
+        "birth_weight: source does not report uncertainty bounds for 6 observations",
+        "birth_weight: at least one adjacent gap below 15%; needs particular scrutiny",
+        "smallest_adult_mass: source does not report uncertainty bounds for 6 observations"
+      ],
+      "comparisons": [
+        {
+          "traitId": "earliest_female_maturity",
+          "minimumGapPercent": 6.8,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "shortest_gestation",
+          "minimumGapPercent": 9.38,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "birth_weight",
+          "minimumGapPercent": 13.72,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical birth weight, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 27.65,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "2570ff8b8b72c1f3",
+      "mode": "normal",
+      "title": "Wild company",
+      "boardType": "cross-animal",
+      "status": "hold",
+      "reasons": [
+        "female_maturity: source does not report uncertainty bounds for 6 observations",
+        "female_maturity: at least one adjacent gap below 15%; needs particular scrutiny",
+        "birth_weight: source does not report uncertainty bounds for 6 observations",
+        "smallest_adult_mass: source does not report uncertainty bounds for 6 observations",
+        "shortest_gestation: source does not report uncertainty bounds for 6 observations",
+        "shortest_gestation: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "female_maturity",
+          "minimumGapPercent": 5.54,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "birth_weight",
+          "minimumGapPercent": 20.91,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical birth weight, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 86.05,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "shortest_gestation",
+          "minimumGapPercent": 6.73,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "329a05ac9ef04c3e",
+      "mode": "normal",
+      "title": "Wild company",
+      "boardType": "cross-animal",
+      "status": "hold",
+      "reasons": [
+        "female_maturity: source does not report uncertainty bounds for 6 observations",
+        "raw_gestation: at least one adjacent gap below 15%; needs particular scrutiny",
+        "raw_birth_mass: source does not report uncertainty bounds for 1 observations",
+        "raw_birth_mass: at least one adjacent gap below 15%; needs particular scrutiny",
+        "smallest_adult_mass: source does not report uncertainty bounds for 6 observations"
+      ],
+      "comparisons": [
+        {
+          "traitId": "female_maturity",
+          "minimumGapPercent": 16.8,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "raw_gestation",
+          "minimumGapPercent": 11.17,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported gestation durations in exact-species amniote raw records",
+          "observationsWithReportedBounds": 6,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "raw_birth_mass",
+          "minimumGapPercent": 10.41,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported newborn body masses in exact-species amniote raw records",
+          "observationsWithReportedBounds": 5,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 20.51,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "01df6a6002f8bea7",
+      "mode": "normal",
+      "title": "Scales & shells",
+      "boardType": "clustered",
+      "status": "hold",
+      "reasons": [
+        "female_maturity: source does not report uncertainty bounds for 6 observations",
+        "female_maturity: at least one adjacent gap below 15%; needs particular scrutiny",
+        "maximum_documented_lifespan: source does not report uncertainty bounds for 6 observations",
+        "maximum_documented_lifespan: at least one adjacent gap below 15%; needs particular scrutiny",
+        "maximum_documented_lifespan: small longevity record sample",
+        "smallest_adult_mass: source does not report uncertainty bounds for 6 observations"
+      ],
+      "comparisons": [
+        {
+          "traitId": "female_maturity",
+          "minimumGapPercent": 9.09,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "maximum_documented_lifespan",
+          "minimumGapPercent": 9.53,
+          "sourceId": "anage-15",
+          "measurementBasis": "Maximum recorded lifespan for captive specimens in AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "captivity"
+          ]
+        },
+        {
+          "traitId": "raw_egg_mass",
+          "minimumGapPercent": 50.07,
+          "sourceId": "amniote-raw-2015",
+          "measurementBasis": "Median of distinct reported egg masses in exact-species amniote raw records",
+          "observationsWithReportedBounds": 6,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 59.24,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "fed9135b3a63ef8f",
+      "mode": "normal",
+      "title": "Wild company",
+      "boardType": "clustered",
+      "status": "hold",
+      "reasons": [
+        "birth_weight: source does not report uncertainty bounds for 6 observations",
+        "birth_weight: at least one adjacent gap below 15%; needs particular scrutiny",
+        "smallest_adult_mass: source does not report uncertainty bounds for 6 observations",
+        "smallest_adult_mass: at least one adjacent gap below 15%; needs particular scrutiny",
+        "gestation: source does not report uncertainty bounds for 6 observations",
+        "gestation: at least one adjacent gap below 15%; needs particular scrutiny",
+        "female_maturity: source does not report uncertainty bounds for 6 observations"
+      ],
+      "comparisons": [
+        {
+          "traitId": "birth_weight",
+          "minimumGapPercent": 7.84,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical birth weight, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 13.25,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "gestation",
+          "minimumGapPercent": 6.19,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "female_maturity",
+          "minimumGapPercent": 16.86,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "7824c0ed4d3d5f3d",
+      "mode": "normal",
+      "title": "Wild company",
+      "boardType": "clustered",
+      "status": "hold",
+      "reasons": [
+        "female_maturity: source does not report uncertainty bounds for 6 observations",
+        "female_maturity: at least one adjacent gap below 15%; needs particular scrutiny",
+        "smallest_adult_mass: source does not report uncertainty bounds for 6 observations",
+        "smallest_adult_mass: at least one adjacent gap below 15%; needs particular scrutiny",
+        "gestation: source does not report uncertainty bounds for 6 observations",
+        "gestation: at least one adjacent gap below 15%; needs particular scrutiny",
+        "birth_weight: source does not report uncertainty bounds for 6 observations",
+        "birth_weight: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "female_maturity",
+          "minimumGapPercent": 11.27,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "smallest_adult_mass",
+          "minimumGapPercent": 7.55,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "gestation",
+          "minimumGapPercent": 5.83,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "birth_weight",
+          "minimumGapPercent": 7.84,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical birth weight, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "178fc1448d155f02",
+      "mode": "normal",
+      "title": "Wild company",
+      "boardType": "clustered",
+      "status": "hold",
+      "reasons": [
+        "birth_weight: source does not report uncertainty bounds for 6 observations",
+        "birth_weight: at least one adjacent gap below 15%; needs particular scrutiny",
+        "shortest_gestation: source does not report uncertainty bounds for 6 observations",
+        "shortest_gestation: at least one adjacent gap below 15%; needs particular scrutiny",
+        "adult_body_mass: source does not report uncertainty bounds for 6 observations",
+        "adult_body_mass: at least one adjacent gap below 15%; needs particular scrutiny",
+        "earliest_female_maturity: source does not report uncertainty bounds for 6 observations",
+        "earliest_female_maturity: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "birth_weight",
+          "minimumGapPercent": 10.0,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical birth weight, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "shortest_gestation",
+          "minimumGapPercent": 5.83,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "adult_body_mass",
+          "minimumGapPercent": 7.55,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "earliest_female_maturity",
+          "minimumGapPercent": 11.27,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "6af59aee8c75efa5",
+      "mode": "normal",
+      "title": "Wild company",
+      "boardType": "clustered",
+      "status": "hold",
+      "reasons": [
+        "adult_body_mass: source does not report uncertainty bounds for 6 observations",
+        "adult_body_mass: at least one adjacent gap below 15%; needs particular scrutiny",
+        "birth_weight: source does not report uncertainty bounds for 6 observations",
+        "birth_weight: at least one adjacent gap below 15%; needs particular scrutiny",
+        "earliest_female_maturity: source does not report uncertainty bounds for 6 observations",
+        "shortest_gestation: source does not report uncertainty bounds for 6 observations",
+        "shortest_gestation: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "adult_body_mass",
+          "minimumGapPercent": 13.45,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "birth_weight",
+          "minimumGapPercent": 10.0,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical birth weight, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "earliest_female_maturity",
+          "minimumGapPercent": 16.71,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "shortest_gestation",
+          "minimumGapPercent": 7.69,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 6,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "0ea6d2d4f01d472a",
+      "mode": "expert",
+      "title": "Wild company",
+      "boardType": "cross-animal",
+      "status": "hold",
+      "reasons": [
+        "adult_body_mass: source does not report uncertainty bounds for 8 observations",
+        "birth_weight: source does not report uncertainty bounds for 8 observations",
+        "birth_weight: at least one adjacent gap below 15%; needs particular scrutiny",
+        "earliest_female_maturity: source does not report uncertainty bounds for 8 observations",
+        "earliest_female_maturity: at least one adjacent gap below 15%; needs particular scrutiny",
+        "earliest_weaning: source does not report uncertainty bounds for 8 observations",
+        "earliest_weaning: at least one adjacent gap below 15%; needs particular scrutiny",
+        "maximum_documented_lifespan: source does not report uncertainty bounds for 8 observations",
+        "maximum_documented_lifespan: at least one adjacent gap below 15%; needs particular scrutiny",
+        "shortest_gestation: source does not report uncertainty bounds for 8 observations",
+        "shortest_gestation: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "adult_body_mass",
+          "minimumGapPercent": 16.3,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "birth_weight",
+          "minimumGapPercent": 7.57,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical birth weight, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "earliest_female_maturity",
+          "minimumGapPercent": 7.72,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "earliest_weaning",
+          "minimumGapPercent": 12.87,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at weaning, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "maximum_documented_lifespan",
+          "minimumGapPercent": 5.85,
+          "sourceId": "anage-15",
+          "measurementBasis": "Maximum recorded lifespan for captive specimens in AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "captivity"
+          ]
+        },
+        {
+          "traitId": "shortest_gestation",
+          "minimumGapPercent": 7.95,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "cb5028bd0ff9d407",
+      "mode": "expert",
+      "title": "Wild company",
+      "boardType": "cross-animal",
+      "status": "hold",
+      "reasons": [
+        "adult_body_mass: source does not report uncertainty bounds for 8 observations",
+        "birth_weight: source does not report uncertainty bounds for 8 observations",
+        "birth_weight: at least one adjacent gap below 15%; needs particular scrutiny",
+        "earliest_female_maturity: source does not report uncertainty bounds for 8 observations",
+        "earliest_female_maturity: at least one adjacent gap below 15%; needs particular scrutiny",
+        "earliest_weaning: source does not report uncertainty bounds for 8 observations",
+        "earliest_weaning: at least one adjacent gap below 15%; needs particular scrutiny",
+        "maximum_documented_lifespan: source does not report uncertainty bounds for 8 observations",
+        "maximum_documented_lifespan: at least one adjacent gap below 15%; needs particular scrutiny",
+        "shortest_gestation: source does not report uncertainty bounds for 8 observations",
+        "shortest_gestation: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "adult_body_mass",
+          "minimumGapPercent": 16.3,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "birth_weight",
+          "minimumGapPercent": 5.62,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical birth weight, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "earliest_female_maturity",
+          "minimumGapPercent": 7.72,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "earliest_weaning",
+          "minimumGapPercent": 8.08,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at weaning, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "maximum_documented_lifespan",
+          "minimumGapPercent": 5.59,
+          "sourceId": "anage-15",
+          "measurementBasis": "Maximum recorded lifespan for captive specimens in AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "captivity"
+          ]
+        },
+        {
+          "traitId": "shortest_gestation",
+          "minimumGapPercent": 7.69,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "11f45336b7229583",
+      "mode": "expert",
+      "title": "Wild company",
+      "boardType": "cross-animal",
+      "status": "hold",
+      "reasons": [
+        "adult_body_mass: source does not report uncertainty bounds for 8 observations",
+        "birth_weight: source does not report uncertainty bounds for 8 observations",
+        "birth_weight: at least one adjacent gap below 15%; needs particular scrutiny",
+        "earliest_female_maturity: source does not report uncertainty bounds for 8 observations",
+        "earliest_female_maturity: at least one adjacent gap below 15%; needs particular scrutiny",
+        "earliest_weaning: source does not report uncertainty bounds for 8 observations",
+        "earliest_weaning: at least one adjacent gap below 15%; needs particular scrutiny",
+        "maximum_documented_lifespan: source does not report uncertainty bounds for 8 observations",
+        "maximum_documented_lifespan: at least one adjacent gap below 15%; needs particular scrutiny",
+        "shortest_gestation: source does not report uncertainty bounds for 8 observations",
+        "shortest_gestation: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "adult_body_mass",
+          "minimumGapPercent": 17.23,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "birth_weight",
+          "minimumGapPercent": 7.57,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical birth weight, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "earliest_female_maturity",
+          "minimumGapPercent": 7.72,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "earliest_weaning",
+          "minimumGapPercent": 12.87,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at weaning, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "maximum_documented_lifespan",
+          "minimumGapPercent": 5.59,
+          "sourceId": "anage-15",
+          "measurementBasis": "Maximum recorded lifespan for captive specimens in AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "captivity"
+          ]
+        },
+        {
+          "traitId": "shortest_gestation",
+          "minimumGapPercent": 7.14,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
+      "boardId": "cb0861d4607e7fcb",
+      "mode": "expert",
+      "title": "Wild company",
+      "boardType": "cross-animal",
+      "status": "hold",
+      "reasons": [
+        "adult_body_mass: source does not report uncertainty bounds for 8 observations",
+        "birth_weight: source does not report uncertainty bounds for 8 observations",
+        "earliest_female_maturity: source does not report uncertainty bounds for 8 observations",
+        "earliest_female_maturity: at least one adjacent gap below 15%; needs particular scrutiny",
+        "earliest_weaning: source does not report uncertainty bounds for 8 observations",
+        "earliest_weaning: at least one adjacent gap below 15%; needs particular scrutiny",
+        "maximum_documented_lifespan: source does not report uncertainty bounds for 8 observations",
+        "maximum_documented_lifespan: at least one adjacent gap below 15%; needs particular scrutiny",
+        "shortest_gestation: source does not report uncertainty bounds for 8 observations",
+        "shortest_gestation: at least one adjacent gap below 15%; needs particular scrutiny"
+      ],
+      "comparisons": [
+        {
+          "traitId": "adult_body_mass",
+          "minimumGapPercent": 17.23,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical adult body weight compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "birth_weight",
+          "minimumGapPercent": 15.77,
+          "sourceId": "anage-15",
+          "measurementBasis": "Typical birth weight, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "earliest_female_maturity",
+          "minimumGapPercent": 7.72,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at female sexual maturity, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "earliest_weaning",
+          "minimumGapPercent": 12.87,
+          "sourceId": "anage-15",
+          "measurementBasis": "Age at weaning, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "not-specified"
+          ]
+        },
+        {
+          "traitId": "maximum_documented_lifespan",
+          "minimumGapPercent": 5.85,
+          "sourceId": "anage-15",
+          "measurementBasis": "Maximum recorded lifespan for captive specimens in AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "captivity"
+          ]
+        },
+        {
+          "traitId": "shortest_gestation",
+          "minimumGapPercent": 10.53,
+          "sourceId": "anage-15",
+          "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+          "observationsWithReportedBounds": 0,
+          "observations": 8,
+          "origins": [
+            "not-specified"
+          ]
+        }
+      ]
+    },
+    {
       "boardId": "d92467c541c769a8",
       "mode": "easy",
-      "title": "Feathers and flight",
+      "title": "Feathers & flight",
       "boardType": "themed",
       "status": "hold",
       "reasons": [
@@ -92,7 +3253,7 @@
     {
       "boardId": "f09785fb180f9945",
       "mode": "easy",
-      "title": "Feathers and flight",
+      "title": "Feathers & flight",
       "boardType": "themed",
       "status": "hold",
       "reasons": [
@@ -153,7 +3314,7 @@
     {
       "boardId": "f94b178130d9d3fa",
       "mode": "easy",
-      "title": "Feathers and flight",
+      "title": "Feathers & flight",
       "boardType": "themed",
       "status": "hold",
       "reasons": [
@@ -215,7 +3376,7 @@
     {
       "boardId": "5fe1514f81451842",
       "mode": "easy",
-      "title": "Feathers and flight",
+      "title": "Feathers & flight",
       "boardType": "themed",
       "status": "hold",
       "reasons": [
@@ -277,7 +3438,7 @@
     {
       "boardId": "cae4b21a5d07eb21",
       "mode": "easy",
-      "title": "Feathers and flight",
+      "title": "Feathers & flight",
       "boardType": "themed",
       "status": "hold",
       "reasons": [
@@ -339,7 +3500,7 @@
     {
       "boardId": "e57b4bb3e0995736",
       "mode": "easy",
-      "title": "Feathers and flight",
+      "title": "Feathers & flight",
       "boardType": "themed",
       "status": "hold",
       "reasons": [
@@ -400,7 +3561,7 @@
     {
       "boardId": "842d28377d6bfd66",
       "mode": "easy",
-      "title": "Fur, paws and unexpected company",
+      "title": "Wild company",
       "boardType": "cross-animal",
       "status": "hold",
       "reasons": [
@@ -461,7 +3622,7 @@
     {
       "boardId": "eff29931095ebe92",
       "mode": "easy",
-      "title": "Fur, paws and unexpected company",
+      "title": "Wild company",
       "boardType": "cross-animal",
       "status": "hold",
       "reasons": [
@@ -523,7 +3684,7 @@
     {
       "boardId": "5644c66871a9a026",
       "mode": "easy",
-      "title": "Fur, paws and unexpected company",
+      "title": "Wild company",
       "boardType": "cross-animal",
       "status": "hold",
       "reasons": [
@@ -585,7 +3746,7 @@
     {
       "boardId": "d1e818233d0c9598",
       "mode": "normal",
-      "title": "Feathers and flight",
+      "title": "Feathers & flight",
       "boardType": "themed",
       "status": "hold",
       "reasons": [
@@ -646,7 +3807,7 @@
     {
       "boardId": "562b71d629482275",
       "mode": "normal",
-      "title": "Feathers and flight",
+      "title": "Feathers & flight",
       "boardType": "themed",
       "status": "hold",
       "reasons": [
@@ -708,7 +3869,7 @@
     {
       "boardId": "dd01cfd4af17d035",
       "mode": "normal",
-      "title": "Feathers and flight",
+      "title": "Feathers & flight",
       "boardType": "themed",
       "status": "hold",
       "reasons": [

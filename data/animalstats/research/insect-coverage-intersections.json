@@ -1,0 +1,1342 @@
+{
+  "namedInsectsWithAtLeast3Specimens": 130,
+  "withThermalRecords": 1,
+  "withAnimalTraitsRecords": 9,
+  "species": [
+    {
+      "species": "Abax parallelepipedus",
+      "order": "Coleoptera",
+      "specimens": 7,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Abracris flavolineata",
+      "order": "Orthoptera",
+      "specimens": 13,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Acanthops falcata",
+      "order": "Mantodea",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Acheta domesticus",
+      "order": "Orthoptera",
+      "specimens": 9,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 1,
+      "animalTraitsFields": [
+        "body mass",
+        "metabolic rate"
+      ],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Acromantis japonica",
+      "order": "Mantodea",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Amorphoscelis annulicornis",
+      "order": "Mantodea",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Ampulex compressa",
+      "order": "Hymenoptera",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Anax imperator",
+      "order": "Odonata",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Ancylecha fenestrata",
+      "order": "Orthoptera",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Anoplotrupes stercorosus",
+      "order": "Coleoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Anthia sexmaculata",
+      "order": "Coleoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Antipaluria urichi",
+      "order": "Embioptera",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Apis mellifera",
+      "order": "Hymenoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 27,
+      "animalTraitsFields": [
+        "body mass",
+        "brain size"
+      ],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Athous haemorrhoidalis",
+      "order": "Coleoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Atractomorpha similis",
+      "order": "Orthoptera",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Atta cephalotes",
+      "order": "Hymenoptera",
+      "specimens": 7,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Aulacocyclus fracticornis",
+      "order": "Coleoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Austrosalomona destructor",
+      "order": "Orthoptera",
+      "specimens": 6,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Barbaragraecia richardsoni",
+      "order": "Orthoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Blaberus craniifer",
+      "order": "Blattodea",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 1,
+      "animalTraitsFields": [
+        "body mass",
+        "brain size"
+      ],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Cacostomus squamosus",
+      "order": "Coleoptera",
+      "specimens": 7,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Calopteryx splendens",
+      "order": "Odonata",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Calopteryx virgo",
+      "order": "Odonata",
+      "specimens": 6,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Camponotus atriceps",
+      "order": "Hymenoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Camponotus crozieri",
+      "order": "Hymenoptera",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Cantharis fusca",
+      "order": "Coleoptera",
+      "specimens": 9,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Carausius morosus",
+      "order": "Phasmatodea",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Cephalotes atratus",
+      "order": "Hymenoptera",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 1,
+      "animalTraitsFields": [
+        "body mass",
+        "brain size"
+      ],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Chorthippus biguttulus",
+      "order": "Orthoptera",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Chorthippus brunneus",
+      "order": "Orthoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Chorthippus dorsatus",
+      "order": "Orthoptera",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Chorthippus mollis",
+      "order": "Orthoptera",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Chrysochraon dispar",
+      "order": "Orthoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Chrysolina americana",
+      "order": "Coleoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Cicindela campestris",
+      "order": "Coleoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Clytus arietis",
+      "order": "Coleoptera",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Conocephalus laetus",
+      "order": "Coleoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Coptotermes formosanus",
+      "order": "Blattodea",
+      "specimens": 4,
+      "hasThermalRecord": true,
+      "thermalProtocols": [
+        {
+          "endpoint": "ctmax",
+          "acclimation": "",
+          "ramp": "1",
+          "upperTemperature": 45.6,
+          "source": "Hu_&_Appel_2004"
+        }
+      ],
+      "animalTraitsRecords": 1,
+      "animalTraitsFields": [
+        "body mass",
+        "metabolic rate"
+      ],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Coptotermes gestroi",
+      "order": "Blattodea",
+      "specimens": 5,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Coptotermes niger",
+      "order": "Blattodea",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Creobroter gemmatus",
+      "order": "Mantodea",
+      "specimens": 5,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Cuniculina extradentata",
+      "order": "Phasmatodea",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Cypholoba alveolata",
+      "order": "Coleoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Deropeltis paulinoi",
+      "order": "Blattodea",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Desmoptera truncatipennis",
+      "order": "Orthoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Diphlebia euphoeoides",
+      "order": "Odonata",
+      "specimens": 8,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Docidocercus gigliotosi",
+      "order": "Orthoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Dorcus parallelipipedus",
+      "order": "Coleoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Ectatomma ruidum",
+      "order": "Hymenoptera",
+      "specimens": 6,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 1,
+      "animalTraitsFields": [
+        "body mass",
+        "brain size"
+      ],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Ectatomma tuberculatum",
+      "order": "Hymenoptera",
+      "specimens": 5,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 1,
+      "animalTraitsFields": [
+        "body mass",
+        "brain size"
+      ],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Enallagma cyathigerum",
+      "order": "Odonata",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Euthystira brachyptera",
+      "order": "Orthoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Extatosoma tiaratum",
+      "order": "Phasmatodea",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Formica rufa",
+      "order": "Hymenoptera",
+      "specimens": 10,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Gomphocerippus rufus",
+      "order": "Orthoptera",
+      "specimens": 6,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Gryllus bimaculatus",
+      "order": "Orthoptera",
+      "specimens": 5,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Gryllus campestris",
+      "order": "Orthoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Gyna centurio",
+      "order": "Blattodea",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Haania orlovi",
+      "order": "Mantodea",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Haaniella dehaanii",
+      "order": "Phasmatodea",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Hierodula sp.Phong.Dien",
+      "order": "Mantodea",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Hylotrupes bajulus",
+      "order": "Coleoptera",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Hymenopus coronatus",
+      "order": "Mantodea",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Incisitermes marginipennis",
+      "order": "Blattodea",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Ischnura elegans",
+      "order": "Odonata",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Kalotermes flavicollis",
+      "order": "Blattodea",
+      "specimens": 6,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Labidura riparia",
+      "order": "Dermaptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Limodromus assimilis",
+      "order": "Coleoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Malachius bipustulatus",
+      "order": "Coleoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Mantis religiosa",
+      "order": "Mantodea",
+      "specimens": 6,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Mastachilus australasicus",
+      "order": "Coleoptera",
+      "specimens": 7,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Mastotermes darwiniensis",
+      "order": "Blattodea",
+      "specimens": 6,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Megacrania phelaus",
+      "order": "Phasmatodea",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Melolontha melolontha",
+      "order": "Coleoptera",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Messor barbarus",
+      "order": "Hymenoptera",
+      "specimens": 6,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Nemobius sylvestris",
+      "order": "Coleoptera",
+      "specimens": 6,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Neoponera foetida sl",
+      "order": "Hymenoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Neotermes castaneus",
+      "order": "Blattodea",
+      "specimens": 8,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Neurothemis stigmatizans",
+      "order": "Odonata",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Nuichua rabaeyae",
+      "order": "Phasmatodea",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Ocypus olens",
+      "order": "Coleoptera",
+      "specimens": 5,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Oedipoda caerulescens",
+      "order": "Orthoptera",
+      "specimens": 6,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Onychogomphus forcipatus",
+      "order": "Odonata",
+      "specimens": 5,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Oreophoetes peruana",
+      "order": "Phasmatodea",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Orphulella punctata",
+      "order": "Orthoptera",
+      "specimens": 8,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Orthetrum cancellatum",
+      "order": "Odonata",
+      "specimens": 8,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Orthodera ministralis",
+      "order": "Mantodea",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Parablepharis kuhlii",
+      "order": "Mantodea",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Paramenexenus laetus",
+      "order": "Phasmatodea",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Paranauphoeta formosana",
+      "order": "Blattodea",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Parastagmatoptera sottilei",
+      "order": "Mantodea",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Penalva flavocalceata",
+      "order": "Orthoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Periplaneta americana",
+      "order": "Blattodea",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 3,
+      "animalTraitsFields": [
+        "body mass",
+        "brain size",
+        "metabolic rate"
+      ],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Phaeophilacris bredoides",
+      "order": "Orthoptera",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Phaeostigma notata",
+      "order": "Raphidioptera",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Phricta spinosa",
+      "order": "Orthoptera",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Phyllium philippinicum",
+      "order": "Phasmatodea",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Plistospilota guineensis",
+      "order": "Mantodea",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Polybia occidentalis",
+      "order": "Hymenoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Polydrusus mollis",
+      "order": "Coleoptera",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Pseudochorthippus parallelus",
+      "order": "Orthoptera",
+      "specimens": 37,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Pseudomyrmex boopis",
+      "order": "Hymenoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Pterostichus niger",
+      "order": "Coleoptera",
+      "specimens": 5,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Pycnoscelus surinamensis",
+      "order": "Blattodea",
+      "specimens": 5,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Pycnostictus seriatus",
+      "order": "Orthoptera",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Pyrochroa coccinea",
+      "order": "Coleoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Reticulitermes santonensis",
+      "order": "Blattodea",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Rhytidoponera metallica",
+      "order": "Hymenoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Schistocerca gregaria",
+      "order": "Orthoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 1,
+      "animalTraitsFields": [
+        "brain size"
+      ],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Sclerophasma paresisense",
+      "order": "Mantophasmatodea",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Scolia fuciformis",
+      "order": "Hymenoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Scolia hirta",
+      "order": "Hymenoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Sialis fuliginosa",
+      "order": "Megaloptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Stagmatoptera septentrionalis",
+      "order": "Mantodea",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Stagmomantis parvidentata",
+      "order": "Mantodea",
+      "specimens": 5,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Stictoleptura rubra",
+      "order": "Coleoptera",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Sungaya inexpectata",
+      "order": "Phasmatodea",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Tagalomantis manillensis",
+      "order": "Mantodea",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Tenodera australasiae",
+      "order": "Mantodea",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Tetrataenia surinama",
+      "order": "Orthoptera",
+      "specimens": 9,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Tetrix undulata",
+      "order": "Orthoptera",
+      "specimens": 8,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Tropidacris cristata",
+      "order": "Orthoptera",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Uracis imbuta",
+      "order": "Odonata",
+      "specimens": 3,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Vespa crabro",
+      "order": "Hymenoptera",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Vespa orientalis",
+      "order": "Hymenoptera",
+      "specimens": 5,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Vespula germanica",
+      "order": "Hymenoptera",
+      "specimens": 6,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Vespula vulgaris",
+      "order": "Hymenoptera",
+      "specimens": 8,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Xanthogryllacris punctipennis",
+      "order": "Orthoptera",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Xylocopa violacea",
+      "order": "Hymenoptera",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    },
+    {
+      "species": "Zophobas atratus",
+      "order": "Coleoptera",
+      "specimens": 4,
+      "hasThermalRecord": false,
+      "thermalProtocols": [],
+      "animalTraitsRecords": 0,
+      "animalTraitsFields": [],
+      "reviewStatus": "research-only"
+    }
+  ]
+}

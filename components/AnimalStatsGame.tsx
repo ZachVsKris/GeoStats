@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { randomAnimalBoardIndex } from "../lib/animalstatsVariety";
 import { CATLogo, CATMascot } from "./CATBrand";
 import { ROUND_CONFIGS, type DailyDifficulty } from "../lib/gameRules";
 import type { AnimalDataset, BoardCandidate, ReviewLabel } from "../lib/animalstats";
@@ -34,7 +35,6 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
   }, []);
   const [mode, setMode] = useState<DailyDifficulty>("easy");
   const [boardIndex, setBoardIndex] = useState(0);
-  useEffect(() => { setBoardIndex(Math.floor(Math.random() * Math.max(1, boards.filter((board) => board.mode === "easy").length))); }, [boards]);
   const [assignments, setAssignments] = useState<Assignment>({});
   const [selectedTrait, setSelectedTrait] = useState<string | null>(null);
   const [selectedAnimal, setSelectedAnimal] = useState<string | null>(null);
@@ -75,7 +75,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
   }
 
   function nextBoard() {
-    const next = playKind === "daily" ? (boardIndex + 1) % pool.length : (boardIndex + 1 + Math.floor(Math.random() * Math.max(1, pool.length - 1))) % pool.length;
+    const next = playKind === "daily" ? (boardIndex + 1) % pool.length : randomAnimalBoardIndex(data, pool, board);
     switchBoard(mode, next);
   }
 
@@ -142,7 +142,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
   const optimalChoices = results.filter((row) => row.rank === 1).length;
 
 
-  return <main className="animalPage">
+  return <main className="animalPage" data-board-habitat={board && board.animalIds.every((id) => ["frog", "salamander"].includes(animalMap.get(id)?.taxonomicGroup ?? "")) ? "pond" : board && board.animalIds.every((id) => ["turtle", "snake", "crocodilian", "lizard", "reptile"].includes(animalMap.get(id)?.taxonomicGroup ?? "")) ? "reptiles" : "forest"}>
     <div className="animalShell">
       <header className="animalHeader">
         <div className="animalBrandRow"><a href="/cat" className="animalBrandLink" aria-label="Countries, Animals & Things"><CATLogo compact /><span><b className="catCountryColor">C</b>ountries, <b className="catAnimalColor">A</b>nimals &amp; <b className="catThingColor">T</b>hings</span></a><CATMascot pleased={submitted} /></div>
@@ -153,7 +153,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
       <nav className="catWorldNav" aria-label="Worlds"><a href="/daily">Countries</a><a href="/animals" aria-current="page">Animals</a><a href="/cat#things">Things</a></nav>
       <nav className="animalPlayNav" aria-label="AnimalStats play">
         <button type="button" aria-pressed={view === "play" && playKind === "daily"} onClick={() => { setPlayKind("daily"); setView("play"); switchBoard(mode); }}>Daily</button>
-        <button type="button" aria-pressed={view === "play" && playKind === "random"} onClick={() => { setPlayKind("random"); setView("play"); switchBoard(mode); }}>Random</button>
+        <button type="button" aria-pressed={view === "play" && playKind === "random"} onClick={() => { setPlayKind("random"); setView("play"); switchBoard(mode, randomAnimalBoardIndex(data, modeBoards, board)); }}>Random</button>
         <button type="button" aria-pressed={view === "guide"} onClick={() => setView("guide")}>Field Guide</button>
         <button type="button" aria-pressed={view === "stats"} onClick={() => setView("stats")}>My Stats</button>
       </nav>
@@ -187,7 +187,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
       </div>
       <p className="animalPilotNote">{playKind === "daily" ? `Reviewed daily board · ${date}` : "Playtest board · source review pending."} <a href="/animals/review">Comparison review</a></p>
       {!submitted && <>
-        <div className="animalToolbar"><p className="animalInstruction">Choose an animal and a trait in either order, or drag to place. Occupied slots swap your choices.</p>
+        <div className="animalToolbar"><p className="animalInstruction">Each trait has a different winner. An animal can fill only one slot. Click or drag to place.</p>
           <button type="button" className="animalNext" onClick={() => { setAssignments({}); setSelectedAnimal(null); setSelectedTrait(null); setMessage(""); }}>Reset choices</button>
         </div>
 
@@ -198,9 +198,9 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
             const animal = animalMap.get(assignments[id]);
             return <button type="button" key={id} data-trait-id={id} className={`animalTrait ${selectedTrait === id || dropTarget === id ? "selected" : ""}`}
               aria-pressed={selectedTrait === id} onClick={() => selectedAnimal ? assign(id, selectedAnimal) : setSelectedTrait(selectedTrait === id ? null : id)}>
-              <span className="animalTraitName">{trait.displayName}</span>
+              <span className="animalTraitFamily">{({size:"Size",longevity:"Lifetime",development:"Development",offspring:"Family size",maturity:"Growing up",care:"Parental care",breeding:"Breeding",movement:"Movement",sleep:"Sleep",space:"Home range",anatomy:"Anatomy",range:"Habitat","offspring-size":"Small beginnings"} as Record<string,string>)[trait.gameplayFamily ?? ""] ?? "Field note"}</span><span className="animalTraitName">{trait.displayName}</span>
               <span className="animalTraitDefinition">{trait.playerHint ?? trait.definition}</span>
-              <span className="animalTraitChoice">{animal ? animal.commonName : "Choose an animal +"}</span>
+              <span className="animalTraitChoice">{animal ? animal.commonName : "Place an animal here"}</span>
             </button>;
           })}
         </section>

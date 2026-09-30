@@ -1,10 +1,1468 @@
 {
   "boards": [
     {
+      "id": "3d24200c329be973",
+      "mode": "easy",
+      "boardType": "themed",
+      "title": "Bears of the world",
+      "animalIds": [
+        "tremarctos_ornatus",
+        "ursus_maritimus",
+        "ailuropoda_melanoleuca",
+        "melursus_ursinus"
+      ],
+      "traitIds": [
+        "maximum_documented_lifespan",
+        "smallest_adult_mass",
+        "female_maturity",
+        "gestation"
+      ],
+      "editorial": {
+        "families": [
+          "longevity",
+          "size",
+          "maturity",
+          "development"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "89ab07dcff1bf9d9",
+      "mode": "easy",
+      "boardType": "themed",
+      "title": "Bears of the world",
+      "animalIds": [
+        "ursus_thibetanus",
+        "helarctos_malayanus",
+        "ursus_arctos",
+        "ailuropoda_melanoleuca"
+      ],
+      "traitIds": [
+        "smallest_adult_mass",
+        "shortest_gestation",
+        "birth_weight",
+        "earliest_female_maturity"
+      ],
+      "editorial": {
+        "families": [
+          "size",
+          "development",
+          "offspring-size",
+          "maturity"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "65edf94a0dc4897a",
+      "mode": "easy",
+      "boardType": "themed",
+      "title": "Bears of the world",
+      "animalIds": [
+        "ursus_americanus",
+        "ailuropoda_melanoleuca",
+        "ursus_maritimus",
+        "helarctos_malayanus"
+      ],
+      "traitIds": [
+        "shortest_gestation",
+        "birth_weight",
+        "earliest_female_maturity",
+        "smallest_adult_mass"
+      ],
+      "editorial": {
+        "families": [
+          "development",
+          "offspring-size",
+          "maturity",
+          "size"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "23d3b1ec2d7c851d",
+      "mode": "easy",
+      "boardType": "themed",
+      "title": "Bears of the world",
+      "animalIds": [
+        "tremarctos_ornatus",
+        "ursus_arctos",
+        "melursus_ursinus",
+        "ailuropoda_melanoleuca"
+      ],
+      "traitIds": [
+        "birth_weight",
+        "smallest_adult_mass",
+        "gestation",
+        "female_maturity"
+      ],
+      "editorial": {
+        "families": [
+          "offspring-size",
+          "size",
+          "development",
+          "maturity"
+        ],
+        "multiTraitContenders": 2,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "3f9c778bc23dbc3f",
+      "mode": "easy",
+      "boardType": "themed",
+      "title": "Feathers & flight",
+      "animalIds": [
+        "erithacus_rubecula",
+        "falco_peregrinus",
+        "ardea_cinerea",
+        "hirundo_rustica"
+      ],
+      "traitIds": [
+        "raw_egg_mass",
+        "smallest_adult_mass",
+        "raw_incubation",
+        "bird_range_area"
+      ],
+      "editorial": {
+        "families": [
+          "offspring-size",
+          "size",
+          "development",
+          "range"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "1a4e88cf32e89d26",
+      "mode": "easy",
+      "boardType": "themed",
+      "title": "Feathers & flight",
+      "animalIds": [
+        "haliaeetus_leucocephalus",
+        "pelecanus_occidentalis",
+        "diomedea_exulans",
+        "phoenicopterus_roseus"
+      ],
+      "traitIds": [
+        "lightest_bird",
+        "bird_tail_length",
+        "bird_range_area",
+        "earliest_female_maturity"
+      ],
+      "editorial": {
+        "families": [
+          "size",
+          "anatomy",
+          "range",
+          "maturity"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "a9cd736db1c55c81",
+      "mode": "easy",
+      "boardType": "themed",
+      "title": "Feathers & flight",
+      "animalIds": [
+        "aptenodytes_patagonicus",
+        "pavo_cristatus",
+        "diomedea_exulans",
+        "hirundo_rustica"
+      ],
+      "traitIds": [
+        "earliest_female_maturity",
+        "bird_range_area",
+        "adult_body_mass",
+        "bird_tail_length"
+      ],
+      "editorial": {
+        "families": [
+          "maturity",
+          "range",
+          "size",
+          "anatomy"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "ce4cf2d440a636ab",
+      "mode": "easy",
+      "boardType": "themed",
+      "title": "Feathers & flight",
+      "animalIds": [
+        "columba_palumbus",
+        "pelecanus_occidentalis",
+        "struthio_camelus",
+        "phalacrocorax_carbo"
+      ],
+      "traitIds": [
+        "raw_clutch_size",
+        "bird_beak_length",
+        "bird_range_area",
+        "lightest_bird"
+      ],
+      "editorial": {
+        "families": [
+          "offspring",
+          "anatomy",
+          "range",
+          "size"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "4b3466c19e4e4247",
+      "mode": "easy",
+      "boardType": "themed",
+      "title": "Carnivore",
+      "animalIds": [
+        "vulpes_vulpes",
+        "canis_lupus",
+        "panthera_tigris",
+        "panthera_leo"
+      ],
+      "traitIds": [
+        "litter_size",
+        "female_maturity",
+        "smallest_adult_mass",
+        "raw_weaning_age"
+      ],
+      "editorial": {
+        "families": [
+          "offspring",
+          "maturity",
+          "size",
+          "care"
+        ],
+        "multiTraitContenders": 4,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "d78dba5b92030e55",
+      "mode": "easy",
+      "boardType": "themed",
+      "title": "Frogs and toads",
+      "animalIds": [
+        "lithobates_catesbeianus",
+        "xenopus_laevis",
+        "anaxyrus_americanus",
+        "rhinella_marina"
+      ],
+      "traitIds": [
+        "female_maturity",
+        "maximum_documented_lifespan",
+        "adult_body_mass",
+        "amphibian_max_clutch"
+      ],
+      "editorial": {
+        "families": [
+          "maturity",
+          "longevity",
+          "size",
+          "offspring"
+        ],
+        "multiTraitContenders": 4,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "cf2cab72211d75ce",
+      "mode": "easy",
+      "boardType": "themed",
+      "title": "Frogs and toads",
+      "animalIds": [
+        "xenopus_laevis",
+        "lithobates_catesbeianus",
+        "anaxyrus_americanus",
+        "rhinella_marina"
+      ],
+      "traitIds": [
+        "amphibian_max_clutch",
+        "earliest_female_maturity",
+        "maximum_documented_lifespan",
+        "amphibian_max_mass"
+      ],
+      "editorial": {
+        "families": [
+          "offspring",
+          "maturity",
+          "longevity",
+          "size"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "80a72c85def32be1",
+      "mode": "easy",
+      "boardType": "themed",
+      "title": "Large Mammal",
+      "animalIds": [
+        "equus_quagga",
+        "giraffa_camelopardalis",
+        "ceratotherium_simum",
+        "hippopotamus_amphibius"
+      ],
+      "traitIds": [
+        "adult_body_mass",
+        "raw_birth_mass",
+        "gestation",
+        "raw_weaning_age"
+      ],
+      "editorial": {
+        "families": [
+          "size",
+          "offspring-size",
+          "development",
+          "care"
+        ],
+        "multiTraitContenders": 2,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "f1706e682448c05e",
+      "mode": "easy",
+      "boardType": "themed",
+      "title": "Large Mammal",
+      "animalIds": [
+        "loxodonta_africana",
+        "hippopotamus_amphibius",
+        "equus_quagga",
+        "bison_bison"
+      ],
+      "traitIds": [
+        "smallest_adult_mass",
+        "shortest_gestation",
+        "earliest_weaning",
+        "maximum_documented_lifespan"
+      ],
+      "editorial": {
+        "families": [
+          "size",
+          "development",
+          "care",
+          "longevity"
+        ],
+        "multiTraitContenders": 2,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "4fcc04a78fd0e97e",
+      "mode": "easy",
+      "boardType": "themed",
+      "title": "Large Mammal",
+      "animalIds": [
+        "hippopotamus_amphibius",
+        "equus_quagga",
+        "giraffa_camelopardalis",
+        "ceratotherium_simum"
+      ],
+      "traitIds": [
+        "adult_body_mass",
+        "raw_gestation",
+        "birth_weight",
+        "raw_weaning_age"
+      ],
+      "editorial": {
+        "families": [
+          "size",
+          "development",
+          "offspring-size",
+          "care"
+        ],
+        "multiTraitContenders": 2,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "7a60ac785efbfce5",
+      "mode": "easy",
+      "boardType": "themed",
+      "title": "Large Mammal",
+      "animalIds": [
+        "hippopotamus_amphibius",
+        "equus_quagga",
+        "bison_bison",
+        "loxodonta_africana"
+      ],
+      "traitIds": [
+        "raw_birth_mass",
+        "shortest_gestation",
+        "earliest_weaning",
+        "smallest_adult_mass"
+      ],
+      "editorial": {
+        "families": [
+          "offspring-size",
+          "development",
+          "care",
+          "size"
+        ],
+        "multiTraitContenders": 2,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "bb848817f30070e4",
+      "mode": "easy",
+      "boardType": "cross-animal",
+      "title": "Wild company",
+      "animalIds": [
+        "enhydra_lutris",
+        "pan_troglodytes",
+        "tursiops_truncatus",
+        "ursus_maritimus"
+      ],
+      "traitIds": [
+        "female_maturity",
+        "smallest_adult_mass",
+        "raw_birth_mass",
+        "shortest_gestation"
+      ],
+      "editorial": {
+        "families": [
+          "maturity",
+          "size",
+          "offspring-size",
+          "development"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "531c52c2bc5daa85",
+      "mode": "easy",
+      "boardType": "cross-animal",
+      "title": "Wild company",
+      "animalIds": [
+        "panthera_pardus",
+        "pongo_pygmaeus",
+        "ailuropoda_melanoleuca",
+        "equus_asinus"
+      ],
+      "traitIds": [
+        "shortest_gestation",
+        "smallest_adult_mass",
+        "earliest_female_maturity",
+        "maximum_documented_lifespan"
+      ],
+      "editorial": {
+        "families": [
+          "development",
+          "size",
+          "maturity",
+          "longevity"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "61bad96906bb198d",
+      "mode": "easy",
+      "boardType": "cross-animal",
+      "title": "Wild company",
+      "animalIds": [
+        "ursus_arctos",
+        "hydrochoerus_hydrochaeris",
+        "tremarctos_ornatus",
+        "canis_lupus"
+      ],
+      "traitIds": [
+        "smallest_adult_mass",
+        "female_maturity",
+        "birth_weight",
+        "weaning_age"
+      ],
+      "editorial": {
+        "families": [
+          "size",
+          "maturity",
+          "offspring-size",
+          "care"
+        ],
+        "multiTraitContenders": 2,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "d305289f24c214e5",
+      "mode": "easy",
+      "boardType": "cross-animal",
+      "title": "Wild company",
+      "animalIds": [
+        "melursus_ursinus",
+        "megaptera_novaeangliae",
+        "gorilla_gorilla",
+        "panthera_leo"
+      ],
+      "traitIds": [
+        "raw_birth_mass",
+        "raw_weaning_age",
+        "smallest_adult_mass",
+        "shortest_gestation"
+      ],
+      "editorial": {
+        "families": [
+          "offspring-size",
+          "care",
+          "size",
+          "development"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "1594712ae3da6b0f",
+      "mode": "easy",
+      "boardType": "clustered",
+      "title": "Scales & shells",
+      "animalIds": [
+        "crocodylus_acutus",
+        "trachemys_scripta",
+        "alligator_mississippiensis",
+        "osteolaemus_tetraspis"
+      ],
+      "traitIds": [
+        "earliest_female_maturity",
+        "raw_egg_mass",
+        "smallest_adult_mass",
+        "maximum_documented_lifespan"
+      ],
+      "editorial": {
+        "families": [
+          "maturity",
+          "offspring-size",
+          "size",
+          "longevity"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "f10c65e05de7d6bb",
+      "mode": "easy",
+      "boardType": "clustered",
+      "title": "Scales & shells",
+      "animalIds": [
+        "osteolaemus_tetraspis",
+        "trachemys_scripta",
+        "gavialis_gangeticus",
+        "python_molurus"
+      ],
+      "traitIds": [
+        "female_maturity",
+        "maximum_documented_lifespan",
+        "raw_egg_mass",
+        "smallest_adult_mass"
+      ],
+      "editorial": {
+        "families": [
+          "maturity",
+          "longevity",
+          "offspring-size",
+          "size"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "b1860ae8a86ddde9",
+      "mode": "easy",
+      "boardType": "clustered",
+      "title": "Scales & shells",
+      "animalIds": [
+        "trachemys_scripta",
+        "macrochelys_temminckii",
+        "python_molurus",
+        "crocodylus_niloticus"
+      ],
+      "traitIds": [
+        "raw_egg_mass",
+        "maximum_documented_lifespan",
+        "smallest_adult_mass",
+        "female_maturity"
+      ],
+      "editorial": {
+        "families": [
+          "offspring-size",
+          "longevity",
+          "size",
+          "maturity"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "6bcf6f6745c2cbd3",
+      "mode": "easy",
+      "boardType": "clustered",
+      "title": "Scales & shells",
+      "animalIds": [
+        "trachemys_scripta",
+        "alligator_mississippiensis",
+        "osteolaemus_tetraspis",
+        "crocodylus_niloticus"
+      ],
+      "traitIds": [
+        "earliest_female_maturity",
+        "raw_egg_mass",
+        "smallest_adult_mass",
+        "maximum_documented_lifespan"
+      ],
+      "editorial": {
+        "families": [
+          "maturity",
+          "offspring-size",
+          "size",
+          "longevity"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "9d2caa83bc485cf4",
+      "mode": "easy",
+      "boardType": "clustered",
+      "title": "Pond neighbours",
+      "animalIds": [
+        "xenopus_laevis",
+        "ambystoma_tigrinum",
+        "anaxyrus_americanus",
+        "lithobates_catesbeianus"
+      ],
+      "traitIds": [
+        "adult_body_mass",
+        "maximum_documented_lifespan",
+        "amphibian_max_clutch",
+        "female_maturity"
+      ],
+      "editorial": {
+        "families": [
+          "size",
+          "longevity",
+          "offspring",
+          "maturity"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "bcfbd0b56e0130fa",
+      "mode": "easy",
+      "boardType": "clustered",
+      "title": "Pond neighbours",
+      "animalIds": [
+        "anaxyrus_americanus",
+        "lithobates_catesbeianus",
+        "ambystoma_tigrinum",
+        "xenopus_laevis"
+      ],
+      "traitIds": [
+        "maximum_documented_lifespan",
+        "smallest_adult_mass",
+        "amphibian_max_clutch",
+        "earliest_female_maturity"
+      ],
+      "editorial": {
+        "families": [
+          "longevity",
+          "size",
+          "offspring",
+          "maturity"
+        ],
+        "multiTraitContenders": 2,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "c15333a97854fb47",
+      "mode": "easy",
+      "boardType": "clustered",
+      "title": "Wild company",
+      "animalIds": [
+        "melursus_ursinus",
+        "acinonyx_jubatus",
+        "tremarctos_ornatus",
+        "panthera_tigris"
+      ],
+      "traitIds": [
+        "smallest_adult_mass",
+        "birth_weight",
+        "gestation",
+        "earliest_weaning"
+      ],
+      "editorial": {
+        "families": [
+          "size",
+          "offspring-size",
+          "development",
+          "care"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "74f029490489c6cb",
+      "mode": "easy",
+      "boardType": "clustered",
+      "title": "Wild company",
+      "animalIds": [
+        "acinonyx_jubatus",
+        "ursus_americanus",
+        "melursus_ursinus",
+        "tremarctos_ornatus"
+      ],
+      "traitIds": [
+        "shortest_gestation",
+        "female_maturity",
+        "smallest_adult_mass",
+        "earliest_weaning"
+      ],
+      "editorial": {
+        "families": [
+          "development",
+          "maturity",
+          "size",
+          "care"
+        ],
+        "multiTraitContenders": 4,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "59ac683e28b0a02c",
+      "mode": "easy",
+      "boardType": "clustered",
+      "title": "Wild company",
+      "animalIds": [
+        "melursus_ursinus",
+        "ursus_maritimus",
+        "panthera_tigris",
+        "tremarctos_ornatus"
+      ],
+      "traitIds": [
+        "weaning_age",
+        "raw_birth_mass",
+        "earliest_female_maturity",
+        "gestation"
+      ],
+      "editorial": {
+        "families": [
+          "care",
+          "offspring-size",
+          "maturity",
+          "development"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "ef991435fb73d16c",
+      "mode": "easy",
+      "boardType": "clustered",
+      "title": "Wild company",
+      "animalIds": [
+        "acinonyx_jubatus",
+        "panthera_tigris",
+        "ailuropoda_melanoleuca",
+        "ursus_thibetanus"
+      ],
+      "traitIds": [
+        "birth_weight",
+        "shortest_gestation",
+        "maximum_documented_lifespan",
+        "litter_size"
+      ],
+      "editorial": {
+        "families": [
+          "offspring-size",
+          "development",
+          "longevity",
+          "offspring"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "4440ddba78697507",
+      "mode": "easy",
+      "boardType": "cross-animal",
+      "title": "Wild company",
+      "animalIds": [
+        "didelphis_marsupialis",
+        "ornithorhynchus_anatinus",
+        "cavia_porcellus",
+        "vulpes_vulpes"
+      ],
+      "traitIds": [
+        "maximum_documented_lifespan",
+        "litter_size",
+        "adult_body_mass",
+        "gestation"
+      ],
+      "editorial": {
+        "families": [
+          "longevity",
+          "offspring",
+          "size",
+          "development"
+        ],
+        "multiTraitContenders": 2,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "defa2651e743985e",
+      "mode": "easy",
+      "boardType": "cross-animal",
+      "title": "Wild company",
+      "animalIds": [
+        "erinaceus_europaeus",
+        "ornithorhynchus_anatinus",
+        "didelphis_marsupialis",
+        "vulpes_vulpes"
+      ],
+      "traitIds": [
+        "gestation",
+        "smallest_adult_mass",
+        "litter_size",
+        "maximum_documented_lifespan"
+      ],
+      "editorial": {
+        "families": [
+          "development",
+          "size",
+          "offspring",
+          "longevity"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "f7cd2aee8bb58501",
+      "mode": "easy",
+      "boardType": "cross-animal",
+      "title": "Wild company",
+      "animalIds": [
+        "didelphis_marsupialis",
+        "ornithorhynchus_anatinus",
+        "erinaceus_europaeus",
+        "vulpes_vulpes"
+      ],
+      "traitIds": [
+        "daily_sleep",
+        "maximum_documented_lifespan",
+        "smallest_adult_mass",
+        "gestation"
+      ],
+      "editorial": {
+        "families": [
+          "sleep",
+          "longevity",
+          "size",
+          "development"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "b339ba8468c541c3",
+      "mode": "easy",
+      "boardType": "cross-animal",
+      "title": "Wild company",
+      "animalIds": [
+        "ornithorhynchus_anatinus",
+        "tupaia_glis",
+        "vulpes_vulpes",
+        "didelphis_marsupialis"
+      ],
+      "traitIds": [
+        "daily_sleep",
+        "maximum_documented_lifespan",
+        "smallest_adult_mass",
+        "gestation"
+      ],
+      "editorial": {
+        "families": [
+          "sleep",
+          "longevity",
+          "size",
+          "development"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "42532a92162cd191",
+      "mode": "normal",
+      "boardType": "themed",
+      "title": "Feathers & flight",
+      "animalIds": [
+        "struthio_camelus",
+        "aptenodytes_patagonicus",
+        "anser_anser",
+        "alauda_arvensis",
+        "tyto_alba",
+        "cardinalis_cardinalis"
+      ],
+      "traitIds": [
+        "smallest_adult_mass",
+        "bird_tail_length",
+        "raw_incubation",
+        "bird_range_area"
+      ],
+      "editorial": {
+        "families": [
+          "size",
+          "anatomy",
+          "development",
+          "range"
+        ],
+        "multiTraitContenders": 2,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "5c547238f0e050bd",
+      "mode": "normal",
+      "boardType": "themed",
+      "title": "Feathers & flight",
+      "animalIds": [
+        "tyto_alba",
+        "columba_palumbus",
+        "aquila_chrysaetos",
+        "cardinalis_cardinalis",
+        "sterna_hirundo",
+        "haliaeetus_leucocephalus"
+      ],
+      "traitIds": [
+        "bird_range_area",
+        "bird_beak_length",
+        "raw_incubation",
+        "lightest_bird"
+      ],
+      "editorial": {
+        "families": [
+          "range",
+          "anatomy",
+          "development",
+          "size"
+        ],
+        "multiTraitContenders": 2,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "05d4c46ca4996e9f",
+      "mode": "normal",
+      "boardType": "themed",
+      "title": "Feathers & flight",
+      "animalIds": [
+        "anas_platyrhynchos",
+        "pygoscelis_papua",
+        "pelecanus_occidentalis",
+        "apus_apus",
+        "hirundo_rustica",
+        "spheniscus_demersus"
+      ],
+      "traitIds": [
+        "raw_incubation",
+        "bird_beak_length",
+        "bird_range_area",
+        "bird_mass"
+      ],
+      "editorial": {
+        "families": [
+          "development",
+          "anatomy",
+          "range",
+          "size"
+        ],
+        "multiTraitContenders": 2,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "777d566f23b42cc0",
+      "mode": "normal",
+      "boardType": "themed",
+      "title": "Feathers & flight",
+      "animalIds": [
+        "pygoscelis_papua",
+        "tyto_alba",
+        "pelecanus_occidentalis",
+        "columba_palumbus",
+        "phoebastria_immutabilis",
+        "apus_apus"
+      ],
+      "traitIds": [
+        "lightest_bird",
+        "bird_beak_length",
+        "bird_range_area",
+        "raw_incubation"
+      ],
+      "editorial": {
+        "families": [
+          "size",
+          "anatomy",
+          "range",
+          "development"
+        ],
+        "multiTraitContenders": 2,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "922b91eaa9065dac",
+      "mode": "normal",
+      "boardType": "cross-animal",
+      "title": "Wild company",
+      "animalIds": [
+        "macropus_rufus",
+        "equus_asinus",
+        "ursus_maritimus",
+        "helarctos_malayanus",
+        "enhydra_lutris",
+        "melursus_ursinus"
+      ],
+      "traitIds": [
+        "maximum_documented_lifespan",
+        "adult_body_mass",
+        "shortest_gestation",
+        "female_maturity"
+      ],
+      "editorial": {
+        "families": [
+          "longevity",
+          "size",
+          "development",
+          "maturity"
+        ],
+        "multiTraitContenders": 2,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "71296cae7bd2b060",
+      "mode": "normal",
+      "boardType": "cross-animal",
+      "title": "Wild company",
+      "animalIds": [
+        "ursus_maritimus",
+        "tremarctos_ornatus",
+        "bison_bison",
+        "enhydra_lutris",
+        "acinonyx_jubatus",
+        "castor_canadensis"
+      ],
+      "traitIds": [
+        "earliest_female_maturity",
+        "shortest_gestation",
+        "birth_weight",
+        "smallest_adult_mass"
+      ],
+      "editorial": {
+        "families": [
+          "maturity",
+          "development",
+          "offspring-size",
+          "size"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "2570ff8b8b72c1f3",
+      "mode": "normal",
+      "boardType": "cross-animal",
+      "title": "Wild company",
+      "animalIds": [
+        "panthera_pardus",
+        "melursus_ursinus",
+        "tursiops_truncatus",
+        "loxodonta_africana",
+        "megaptera_novaeangliae",
+        "ursus_maritimus"
+      ],
+      "traitIds": [
+        "female_maturity",
+        "birth_weight",
+        "smallest_adult_mass",
+        "shortest_gestation"
+      ],
+      "editorial": {
+        "families": [
+          "maturity",
+          "offspring-size",
+          "size",
+          "development"
+        ],
+        "multiTraitContenders": 2,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "329a05ac9ef04c3e",
+      "mode": "normal",
+      "boardType": "cross-animal",
+      "title": "Wild company",
+      "animalIds": [
+        "hippopotamus_amphibius",
+        "melursus_ursinus",
+        "pongo_pygmaeus",
+        "equus_asinus",
+        "vulpes_vulpes",
+        "acinonyx_jubatus"
+      ],
+      "traitIds": [
+        "female_maturity",
+        "raw_gestation",
+        "raw_birth_mass",
+        "smallest_adult_mass"
+      ],
+      "editorial": {
+        "families": [
+          "maturity",
+          "development",
+          "offspring-size",
+          "size"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "01df6a6002f8bea7",
+      "mode": "normal",
+      "boardType": "clustered",
+      "title": "Scales & shells",
+      "animalIds": [
+        "alligator_mississippiensis",
+        "eublepharis_macularius",
+        "crocodylus_niloticus",
+        "trachemys_scripta",
+        "python_molurus",
+        "macrochelys_temminckii"
+      ],
+      "traitIds": [
+        "female_maturity",
+        "maximum_documented_lifespan",
+        "raw_egg_mass",
+        "smallest_adult_mass"
+      ],
+      "editorial": {
+        "families": [
+          "maturity",
+          "longevity",
+          "offspring-size",
+          "size"
+        ],
+        "multiTraitContenders": 2,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "fed9135b3a63ef8f",
+      "mode": "normal",
+      "boardType": "clustered",
+      "title": "Wild company",
+      "animalIds": [
+        "ursus_arctos",
+        "ursus_maritimus",
+        "ursus_thibetanus",
+        "ailuropoda_melanoleuca",
+        "panthera_pardus",
+        "vulpes_vulpes"
+      ],
+      "traitIds": [
+        "birth_weight",
+        "smallest_adult_mass",
+        "gestation",
+        "female_maturity"
+      ],
+      "editorial": {
+        "families": [
+          "offspring-size",
+          "size",
+          "development",
+          "maturity"
+        ],
+        "multiTraitContenders": 2,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "7824c0ed4d3d5f3d",
+      "mode": "normal",
+      "boardType": "clustered",
+      "title": "Wild company",
+      "animalIds": [
+        "ailuropoda_melanoleuca",
+        "tremarctos_ornatus",
+        "panthera_leo",
+        "vulpes_vulpes",
+        "ursus_arctos",
+        "panthera_pardus"
+      ],
+      "traitIds": [
+        "female_maturity",
+        "smallest_adult_mass",
+        "gestation",
+        "birth_weight"
+      ],
+      "editorial": {
+        "families": [
+          "maturity",
+          "size",
+          "development",
+          "offspring-size"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "178fc1448d155f02",
+      "mode": "normal",
+      "boardType": "clustered",
+      "title": "Wild company",
+      "animalIds": [
+        "ursus_arctos",
+        "ailuropoda_melanoleuca",
+        "panthera_leo",
+        "canis_lupus",
+        "vulpes_vulpes",
+        "tremarctos_ornatus"
+      ],
+      "traitIds": [
+        "birth_weight",
+        "shortest_gestation",
+        "adult_body_mass",
+        "earliest_female_maturity"
+      ],
+      "editorial": {
+        "families": [
+          "offspring-size",
+          "development",
+          "size",
+          "maturity"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "6af59aee8c75efa5",
+      "mode": "normal",
+      "boardType": "clustered",
+      "title": "Wild company",
+      "animalIds": [
+        "ursus_americanus",
+        "ailuropoda_melanoleuca",
+        "panthera_leo",
+        "acinonyx_jubatus",
+        "ursus_maritimus",
+        "vulpes_vulpes"
+      ],
+      "traitIds": [
+        "adult_body_mass",
+        "birth_weight",
+        "earliest_female_maturity",
+        "shortest_gestation"
+      ],
+      "editorial": {
+        "families": [
+          "size",
+          "offspring-size",
+          "maturity",
+          "development"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "0ea6d2d4f01d472a",
+      "mode": "expert",
+      "boardType": "cross-animal",
+      "title": "Wild company",
+      "animalIds": [
+        "acinonyx_jubatus",
+        "enhydra_lutris",
+        "equus_quagga",
+        "helarctos_malayanus",
+        "melursus_ursinus",
+        "phascolarctos_cinereus",
+        "pongo_pygmaeus",
+        "ursus_maritimus"
+      ],
+      "traitIds": [
+        "adult_body_mass",
+        "birth_weight",
+        "earliest_female_maturity",
+        "earliest_weaning",
+        "maximum_documented_lifespan",
+        "shortest_gestation"
+      ],
+      "editorial": {
+        "families": [
+          "size",
+          "offspring-size",
+          "maturity",
+          "care",
+          "longevity",
+          "development"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "cb5028bd0ff9d407",
+      "mode": "expert",
+      "boardType": "cross-animal",
+      "title": "Wild company",
+      "animalIds": [
+        "acinonyx_jubatus",
+        "enhydra_lutris",
+        "helarctos_malayanus",
+        "phascolarctos_cinereus",
+        "pongo_pygmaeus",
+        "ursus_americanus",
+        "ursus_maritimus",
+        "ursus_thibetanus"
+      ],
+      "traitIds": [
+        "adult_body_mass",
+        "birth_weight",
+        "earliest_female_maturity",
+        "earliest_weaning",
+        "maximum_documented_lifespan",
+        "shortest_gestation"
+      ],
+      "editorial": {
+        "families": [
+          "size",
+          "offspring-size",
+          "maturity",
+          "care",
+          "longevity",
+          "development"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "11f45336b7229583",
+      "mode": "expert",
+      "boardType": "cross-animal",
+      "title": "Wild company",
+      "animalIds": [
+        "enhydra_lutris",
+        "equus_quagga",
+        "helarctos_malayanus",
+        "hydrochoerus_hydrochaeris",
+        "phascolarctos_cinereus",
+        "pongo_pygmaeus",
+        "ursus_americanus",
+        "ursus_maritimus"
+      ],
+      "traitIds": [
+        "adult_body_mass",
+        "birth_weight",
+        "earliest_female_maturity",
+        "earliest_weaning",
+        "maximum_documented_lifespan",
+        "shortest_gestation"
+      ],
+      "editorial": {
+        "families": [
+          "size",
+          "offspring-size",
+          "maturity",
+          "care",
+          "longevity",
+          "development"
+        ],
+        "multiTraitContenders": 4,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
+      "id": "cb0861d4607e7fcb",
+      "mode": "expert",
+      "boardType": "cross-animal",
+      "title": "Wild company",
+      "animalIds": [
+        "equus_quagga",
+        "helarctos_malayanus",
+        "hydrochoerus_hydrochaeris",
+        "melursus_ursinus",
+        "panthera_tigris",
+        "phascolarctos_cinereus",
+        "pongo_pygmaeus",
+        "ursus_maritimus"
+      ],
+      "traitIds": [
+        "adult_body_mass",
+        "birth_weight",
+        "earliest_female_maturity",
+        "earliest_weaning",
+        "maximum_documented_lifespan",
+        "shortest_gestation"
+      ],
+      "editorial": {
+        "families": [
+          "size",
+          "offspring-size",
+          "maturity",
+          "care",
+          "longevity",
+          "development"
+        ],
+        "multiTraitContenders": 4,
+        "policy": "distinct-families-distinct-winners-v2"
+      }
+    },
+    {
       "id": "d92467c541c769a8",
       "mode": "easy",
       "boardType": "themed",
-      "title": "Feathers and flight",
+      "title": "Feathers & flight",
       "animalIds": [
         "falco_peregrinus",
         "phalacrocorax_carbo",
@@ -25,14 +1483,14 @@
           "anatomy"
         ],
         "multiTraitContenders": 3,
-        "policy": "distinct-families-v1"
+        "policy": "distinct-families-distinct-winners-v2"
       }
     },
     {
       "id": "f09785fb180f9945",
       "mode": "easy",
       "boardType": "themed",
-      "title": "Feathers and flight",
+      "title": "Feathers & flight",
       "animalIds": [
         "larus_argentatus",
         "phalacrocorax_carbo",
@@ -49,18 +1507,18 @@
         "families": [
           "longevity",
           "size",
-          "reproduction",
+          "offspring",
           "movement"
         ],
         "multiTraitContenders": 2,
-        "policy": "distinct-families-v1"
+        "policy": "distinct-families-distinct-winners-v2"
       }
     },
     {
       "id": "f94b178130d9d3fa",
       "mode": "easy",
       "boardType": "themed",
-      "title": "Feathers and flight",
+      "title": "Feathers & flight",
       "animalIds": [
         "hirundo_rustica",
         "falco_peregrinus",
@@ -81,14 +1539,14 @@
           "movement"
         ],
         "multiTraitContenders": 2,
-        "policy": "distinct-families-v1"
+        "policy": "distinct-families-distinct-winners-v2"
       }
     },
     {
       "id": "5fe1514f81451842",
       "mode": "easy",
       "boardType": "themed",
-      "title": "Feathers and flight",
+      "title": "Feathers & flight",
       "animalIds": [
         "alauda_arvensis",
         "larus_argentatus",
@@ -105,18 +1563,18 @@
         "families": [
           "movement",
           "size",
-          "reproduction",
+          "development",
           "longevity"
         ],
         "multiTraitContenders": 3,
-        "policy": "distinct-families-v1"
+        "policy": "distinct-families-distinct-winners-v2"
       }
     },
     {
       "id": "cae4b21a5d07eb21",
       "mode": "easy",
       "boardType": "themed",
-      "title": "Feathers and flight",
+      "title": "Feathers & flight",
       "animalIds": [
         "hirundo_rustica",
         "haematopus_ostralegus",
@@ -137,14 +1595,14 @@
           "size"
         ],
         "multiTraitContenders": 2,
-        "policy": "distinct-families-v1"
+        "policy": "distinct-families-distinct-winners-v2"
       }
     },
     {
       "id": "e57b4bb3e0995736",
       "mode": "easy",
       "boardType": "themed",
-      "title": "Feathers and flight",
+      "title": "Feathers & flight",
       "animalIds": [
         "haematopus_ostralegus",
         "anser_anser",
@@ -159,20 +1617,20 @@
       ],
       "editorial": {
         "families": [
-          "reproduction",
+          "development",
           "movement",
           "range",
           "longevity"
         ],
         "multiTraitContenders": 2,
-        "policy": "distinct-families-v1"
+        "policy": "distinct-families-distinct-winners-v2"
       }
     },
     {
       "id": "842d28377d6bfd66",
       "mode": "easy",
       "boardType": "cross-animal",
-      "title": "Fur, paws and unexpected company",
+      "title": "Wild company",
       "animalIds": [
         "vulpes_vulpes",
         "didelphis_marsupialis",
@@ -190,17 +1648,17 @@
           "size",
           "sleep",
           "longevity",
-          "reproduction"
+          "development"
         ],
         "multiTraitContenders": 3,
-        "policy": "distinct-families-v1"
+        "policy": "distinct-families-distinct-winners-v2"
       }
     },
     {
       "id": "eff29931095ebe92",
       "mode": "easy",
       "boardType": "cross-animal",
-      "title": "Fur, paws and unexpected company",
+      "title": "Wild company",
       "animalIds": [
         "vulpes_vulpes",
         "tupaia_glis",
@@ -216,19 +1674,19 @@
       "editorial": {
         "families": [
           "size",
-          "reproduction",
+          "development",
           "sleep",
           "longevity"
         ],
         "multiTraitContenders": 3,
-        "policy": "distinct-families-v1"
+        "policy": "distinct-families-distinct-winners-v2"
       }
     },
     {
       "id": "5644c66871a9a026",
       "mode": "easy",
       "boardType": "cross-animal",
-      "title": "Fur, paws and unexpected company",
+      "title": "Wild company",
       "animalIds": [
         "ornithorhynchus_anatinus",
         "didelphis_marsupialis",
@@ -246,17 +1704,17 @@
           "sleep",
           "longevity",
           "size",
-          "reproduction"
+          "development"
         ],
         "multiTraitContenders": 3,
-        "policy": "distinct-families-v1"
+        "policy": "distinct-families-distinct-winners-v2"
       }
     },
     {
       "id": "d1e818233d0c9598",
       "mode": "normal",
       "boardType": "themed",
-      "title": "Feathers and flight",
+      "title": "Feathers & flight",
       "animalIds": [
         "phalacrocorax_carbo",
         "hirundo_rustica",
@@ -279,14 +1737,14 @@
           "movement"
         ],
         "multiTraitContenders": 3,
-        "policy": "distinct-families-v1"
+        "policy": "distinct-families-distinct-winners-v2"
       }
     },
     {
       "id": "562b71d629482275",
       "mode": "normal",
       "boardType": "themed",
-      "title": "Feathers and flight",
+      "title": "Feathers & flight",
       "animalIds": [
         "columba_palumbus",
         "phalacrocorax_carbo",
@@ -309,14 +1767,14 @@
           "longevity"
         ],
         "multiTraitContenders": 2,
-        "policy": "distinct-families-v1"
+        "policy": "distinct-families-distinct-winners-v2"
       }
     },
     {
       "id": "dd01cfd4af17d035",
       "mode": "normal",
       "boardType": "themed",
-      "title": "Feathers and flight",
+      "title": "Feathers & flight",
       "animalIds": [
         "larus_argentatus",
         "columba_palumbus",
@@ -339,22 +1797,22 @@
           "longevity"
         ],
         "multiTraitContenders": 2,
-        "policy": "distinct-families-v1"
+        "policy": "distinct-families-distinct-winners-v2"
       }
     }
   ],
   "rejectionReasons": {
     "easy": {
-      "tie or gap under 5%": 372020,
-      "overlapping supplied bounds": 79438
+      "tie or gap under 5%": 390476,
+      "overlapping supplied bounds": 125615
     },
     "normal": {
-      "tie or gap under 5%": 434718,
-      "overlapping supplied bounds": 38071
+      "tie or gap under 5%": 495687,
+      "overlapping supplied bounds": 83638
     },
     "expert": {
-      "tie or gap under 5%": 800894,
-      "overlapping supplied bounds": 21876
+      "tie or gap under 5%": 1063934,
+      "overlapping supplied bounds": 77480
     }
   }
 }

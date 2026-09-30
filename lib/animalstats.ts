@@ -151,7 +151,7 @@ export function validateAnimalBoard(data: AnimalDataset, board: BoardCandidate):
   if (board.traitIds.length !== config.categoryCount || !unique(board.traitIds)) reasons.push("wrong or duplicate trait count");
   const families = board.traitIds.map((id) => data.traits.find((trait) => trait.id === id)?.gameplayFamily);
   if (families.some((family) => !family) || families.some((family) => families.filter((item) => item === family).length > (board.mode === "expert" && family === "anatomy" ? 2 : 1)) || new Set(families).size < families.length - (board.mode === "expert" ? 1 : 0)) reasons.push("repeated or unclassified gameplay family");
-  if (!families.some((family) => ["movement", "sleep", "space"].includes(family ?? ""))) reasons.push("board lacks a distinctive behavior or performance trait");
+  if (!families.some((family) => ["movement", "sleep", "space", "development", "offspring", "maturity", "care", "breeding"].includes(family ?? ""))) reasons.push("board lacks a distinctive behavior or performance trait");
   const animalMap = new Map(data.animals.map((item) => [item.id, item]));
   const traitMap = new Map(data.traits.map((item) => [item.id, item]));
   const sourceMap = new Map(data.sources.map((item) => [item.id, item]));

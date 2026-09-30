@@ -682,3 +682,7 @@ body { isolation: isolate; }
   .shell.resultsView .leaderboardButton { grid-column: 1 / -1; grid-row: 2; justify-self: end; width: auto; margin: 4px 0; text-align: right; }
   .shell.resultsView .mobileBestMatch { grid-column: 1 / -1; grid-row: 3; }
 }
+
+/* Separate results, without extra rules inside each comparison. */
+.shell.resultsView .resultMain .statTip { border-bottom: 0; text-decoration: none; }
+.shell.resultsView .mobileBestMatch { border-top: 0; padding-top: 3px; }

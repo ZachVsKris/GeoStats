@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Curate paired metrics and generate exactly balanced, distinct-winner boards."""
-import csv,statistics,collections,copy,hashlib,itertools,json,random,re,concurrent.futures,urllib.request
+"""Curate paired metrics and generate intuitive-majority, distinct-winner boards."""
+import zipfile,io,csv,statistics,collections,copy,hashlib,itertools,json,random,re,concurrent.futures,urllib.request
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'data/animalstats'
 d=json.loads((OUT/'pilot.json').read_text())
@@ -20,6 +20,18 @@ if (OUT/'source/animaltraits-v1.0.7-observations.csv').exists():
   nums=[n for r,n in rows];v=dict(animalId=aid,traitId='weighed_brain_mass',valueNumeric=statistics.median(nums),unit='g',sex='reported cohorts',lifeStage='source stages not standardized',measurementBasis=brain_basis,sourceId='animaltraits-2022',observationType='compiled',confidence='approved',uncertaintyStatus='reported' if min(nums)!=max(nums) else 'not-reported',uncertaintyKind='source-range' if min(nums)!=max(nums) else 'not-reported',notes='Directly weighed records only; no brain-volume conversion. Cohorts: '+'; '.join(f"{r['fullReference']} / sex {r['sex'] or 'unreported'}, N={r['sampleSizeValue'] or 'unreported'}, brain={n} g" for r,n in rows))
   if min(nums)!=max(nums):v.update(valueMin=min(nums),valueMax=max(nums))
   d['values'].append(v)
+# Range is measured from published maps, not a model-adjusted mammal trait.
+range_basis='Area of published 2003 species range maps in equal-area Mollweide projection, from PanTHERIA WR05 August 2008. Historical mapped extent, not current occupied habitat or an individual home range.'
+if 'pantheria-range-maps' not in {x['id'] for x in d['sources']}:
+ d['sources'].append(dict(id='pantheria-range-maps',name='PanTHERIA published mammal range maps',sourceClass='curated-trait-database',url='https://esapubs.org/archive/ecol/E090/184/metadata.htm',versionYear='WR05 August 2008; maps 2003',retrievedAt='2026-09-30',license='Archive metadata: no copyright restrictions'))
+d['traits']=[t for t in d['traits'] if t['id']!='mammal_range_area']+[dict(id='mammal_range_area',displayName='Largest mapped range',unit='km²',definition=range_basis,measurementBasis=range_basis,canonicalSourceId='pantheria-range-maps',eligibilityGroups=[],direction='higher_wins',separationMethod='positive_ratio_5_percent',gameplayFamily='range',playerHint='Historical species range maps—not an individual territory or a current population count.')]
+if (OUT/'source/pantheria-2009.zip').exists():
+ archive=zipfile.ZipFile(OUT/'source/pantheria-2009.zip'); rows=csv.DictReader(io.StringIO(archive.read('PanTHERIA_1-0_WR05_Aug2008.txt').decode()),delimiter='\t'); animals={a['scientificName'].lower():a for a in d['animals']}
+ d['values']=[v for v in d['values'] if v['traitId']!='mammal_range_area']
+ for row in rows:
+  animal=animals.get(row['MSW05_Binomial'].lower()); number=float(row['26-1_GR_Area_km2'])
+  if animal and number>0:
+   d['values'].append(dict(animalId=animal['id'],traitId='mammal_range_area',valueNumeric=number,unit='km²',sex='species-level',lifeStage='species-level',measurementBasis=range_basis,sourceId='pantheria-range-maps',observationType='compiled',confidence='approved',uncertaintyStatus='not-reported',notes='Exact species match; published GIS map area. No modeled body-length, mass, or home-range values imported.'))
 # Every admitted category gets its reverse from identical records, never from a second source.
 METRICS={
 'weighed_brain_mass':('Largest measured brain','Smallest measured brain','specialist','brain'),
@@ -33,28 +45,25 @@ METRICS={
 'cruising_flight_speed':('Fastest cruising flight','Slowest cruising flight','intuitive','flight'),
 'measured_wingspan':('Largest wingspan','Smallest wingspan','intuitive','wingspan'),
 'bird_range_area':('Largest breeding range','Smallest breeding range','intuitive','range'),
+'mammal_range_area':('Largest mapped range','Smallest mapped range','intuitive','range'),
 'daily_sleep':('Most time asleep','Least time asleep','intuitive','sleep'),
 'annual_home_range':('Largest home range','Smallest home range','intuitive','home-range'),
 'field_max_dive':('Longest recorded dive','Shortest recorded dive','intuitive','dive-duration'),
 'bird_beak_length':('Longest beak','Shortest beak','specialist','beak-length'),
-'bird_beak_width':('Widest beak','Narrowest beak','specialist','beak-width'),
-'bird_beak_depth':('Deepest beak','Shallowest beak','specialist','beak-depth'),
-'bird_tarsus_length':('Longest lower leg','Shortest lower leg','specialist','tarsus'),
-'bird_tail_length':('Longest tail feathers','Shortest tail feathers','intuitive','tail'),
-'bird_hand_wing_index':('Most pointed wings','Least pointed wings','specialist','wing-shape'),
+'bird_tail_length':('Longest tail feathers','Shortest tail feathers','specialist','tail'),
 'raw_egg_mass':('Heaviest egg','Lightest egg','specialist','reproduction'),
 'birth_weight':('Heaviest newborn','Lightest newborn','specialist','reproduction'),
-'gestation':('Longest pregnancy','Shortest pregnancy','specialist','reproduction'),
-'raw_gestation':('Longest pregnancy','Shortest pregnancy','specialist','reproduction'),
-'clutch_size':('Most eggs per clutch','Fewest eggs per clutch','specialist','reproduction'),
-'raw_clutch_size':('Most eggs per clutch','Fewest eggs per clutch','specialist','reproduction'),
-'incubation':('Longest wait to hatch','Shortest wait to hatch','specialist','reproduction'),
-'raw_incubation':('Longest wait to hatch','Shortest wait to hatch','specialist','reproduction'),
-'weaning_age':('Longest time on milk','Shortest time on milk','specialist','reproduction'),
-'raw_weaning_age':('Longest time on milk','Shortest time on milk','specialist','reproduction'),
-'female_maturity':('Latest female maturity','Earliest female maturity','specialist','reproduction'),
+'gestation':('Longest pregnancy','Shortest pregnancy','intuitive','pregnancy'),
+'raw_gestation':('Longest pregnancy','Shortest pregnancy','intuitive','pregnancy'),
+'clutch_size':('Most eggs per clutch','Fewest eggs per clutch','intuitive','offspring'),
+'raw_clutch_size':('Most eggs per clutch','Fewest eggs per clutch','intuitive','offspring'),
+'incubation':('Longest wait to hatch','Shortest wait to hatch','intuitive','incubation'),
+'raw_incubation':('Longest wait to hatch','Shortest wait to hatch','intuitive','incubation'),
+'weaning_age':('Longest time on milk','Shortest time on milk','specialist','weaning'),
+'raw_weaning_age':('Longest time on milk','Shortest time on milk','specialist','weaning'),
+'female_maturity':('Latest female maturity','Earliest female maturity','specialist','maturity'),
 'raw_birth_mass':('Heaviest newborn','Lightest newborn','specialist','reproduction'),
-'litter_size':('Most young per birth','Fewest young per birth','specialist','reproduction'),
+'litter_size':('Most young per birth','Fewest young per birth','intuitive','offspring'),
 }
 # Preserve the research archive in pilot.json; only curated pairs enter this prototype.
 for t in d['traits']:t['prototypeCategory']=False
@@ -90,6 +99,7 @@ pools['flight']=[i for i in active if (i,'cruising_flight_speed') in V]
 pools['brains']=[i for i in active if (i,'weighed_brain_mass') in V]
 pools['reptile-brains']=[i for i in pools['brains'] if A[i]['taxonomicGroup'] in {'crocodilian','turtle','snake'}]
 pools['sleep']=[i for i in active if (i,'daily_sleep') in V]
+pools['broad-mammals']=[i for i in pools['mammals'] if (i,'mammal_range_area') in V and (i,'female_maturity') in V and (i,'maximum_documented_lifespan') in V]
 def valid(ids):
  out=[]
  for tid,t in T.items():
@@ -107,28 +117,29 @@ for mode,n,k in [('easy',4,4),('normal',6,4),('expert',8,6)]:
  for name,pool in pools.items():
   if len(pool)<n:continue
   count=0
-  for attempt in range(20000 if name in {'brains','reptile-brains'} else 6000):
+  for attempt in range(150000 if mode=='expert' and name=='broad-mammals' else 20000 if name in {'brains','reptile-brains'} else 6000):
    if count>=10:break
    ids=rng.sample(pool,n);
    if name=="world" and len({A[i]["taxonomicGroup"] for i in ids})<2:continue
    options=valid(ids);basic=[x for x in options if T[x[0]]['categoryKind']=='intuitive'];niche=[x for x in options if T[x[0]]['categoryKind']=='specialist']
-   if len(basic)<k//2 or len(niche)<k//2:continue
-   combos=list(itertools.combinations(basic,k//2));rng.shuffle(combos)
-   specials=list(itertools.combinations(niche,k//2));rng.shuffle(specials)
+   if len(basic)<k//2:continue
    found=False
-   for b in combos:
-    for s in specials:
-     combo=b+s;tids=[x[0] for x in combo]
-     if len({x[1] for x in combo})!=k or len({T[t]['metricKey'] for t in tids})!=k:continue
-     if any(abs(1-6*sum((x-y)**2 for x,y in zip(a[2],b[2]))/(n*(n*n-1)))>.9 for a,b in itertools.combinations(combo,2)):continue
-     if sum(sum(x[2][j]<=2 for x in combo)>=2 for j in range(n))<2:continue
-     signature=(tuple(sorted(ids)),tuple(sorted(tids)))
-     if signature in seen:continue
-     seen.add(signature);rng.shuffle(tids);regions=sorted({r for i in ids for r in A[i].get('biogeographicRegions',[])})
-     bid=hashlib.sha256((mode+'|'+','.join(ids)+'|'+','.join(tids)).encode()).hexdigest()[:16]
-     families=[T[t].get('gameplayFamily','anatomy') for t in tids]
-     boards.append(dict(id=bid,mode=mode,boardType='themed' if name in {'birds','flight'} else 'cross-animal',title='Wings of the world' if name in {'birds','flight'} else 'The worldwide menagerie',animalIds=ids,traitIds=tids,editorial=dict(families=families,multiTraitContenders=sum(sum(x[2][j]<=2 for x in combo)>=2 for j in range(n)),policy='balanced-paired-distinct-winners-v4'),biogeographicRegions=regions));count+=1;found=True;break
-    if found:break
+   combinations=[]
+   for basic_count in range(k,k//2-1,-1):
+    choices=list(itertools.combinations(basic,basic_count));rng.shuffle(choices)
+    details=list(itertools.combinations(niche,k-basic_count));rng.shuffle(details)
+    combinations.extend((b,s) for b in choices for s in details)
+   for b,s in combinations:
+    combo=b+s;tids=[x[0] for x in combo]
+    if len({x[1] for x in combo})!=k or len({T[t]['metricKey'] for t in tids})!=k:continue
+    if any(abs(1-6*sum((x-y)**2 for x,y in zip(a[2],b[2]))/(n*(n*n-1)))>=1 for a,b in itertools.combinations(combo,2)):continue
+    if sum(sum(x[2][j]<=2 for x in combo)>=2 for j in range(n))<2:continue
+    signature=(tuple(sorted(ids)),tuple(sorted(tids)))
+    if signature in seen:continue
+    seen.add(signature);rng.shuffle(tids);regions=sorted({r for i in ids for r in A[i].get('biogeographicRegions',[])})
+    bid=hashlib.sha256((mode+'|'+','.join(ids)+'|'+','.join(tids)).encode()).hexdigest()[:16]
+    families=[T[t].get('gameplayFamily','anatomy') for t in tids]
+    boards.append(dict(id=bid,mode=mode,boardType='themed' if name in {'birds','flight'} else 'cross-animal',title='Wings of the world' if name in {'birds','flight'} else 'The worldwide menagerie',animalIds=ids,traitIds=tids,editorial=dict(families=families,multiTraitContenders=sum(sum(x[2][j]<=2 for x in combo)>=2 for j in range(n)),policy='intuitive-majority-distinct-winners-v5'),biogeographicRegions=regions));count+=1;found=True;break
   print(mode,name,count,flush=True)
 # Include every feasible opposite direction. Solve orientations jointly so winners stay distinct.
 for original in list(boards):
@@ -160,5 +171,5 @@ while True:
  missing={t for t in used if T[t]['counterTraitId'] not in used}
  if not missing:break
  boards=[b for b in boards if not set(b['traitIds']) & missing]
-(OUT/'candidates.json').write_text(json.dumps(dict(boards=boards,rejectionReasons={'policy':'Exact 50/50; unique metric and winner; at most one reproductive metric; no imputed values; 5% separation and supplied bounds.'}),indent=2)+'\n')
+(OUT/'candidates.json').write_text(json.dumps(dict(boards=boards,rejectionReasons={'policy':'At least half intuitive, prefer more; unique metric and winner; no imputed values; 5% separation and supplied bounds.'}),indent=2)+'\n')
 print('Total boards',len(boards))

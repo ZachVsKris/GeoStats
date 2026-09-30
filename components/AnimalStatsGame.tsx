@@ -190,7 +190,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
           <h2>{submitted ? "Your results" : board.title ?? "Make your matches"}</h2></div>
         <button type="button" className="animalNext" onClick={nextBoard}>Another board →</button>
       </div>
-      <div className="animalBoardRecipe"><span>{board.traitIds.length / 2} big questions</span><span>{board.traitIds.length / 2} curious details</span><span>Different winner in every slot</span></div>
+      <div className="animalBoardRecipe"><span>{board.traitIds.filter(id => traitMap.get(id)?.categoryKind === "intuitive").length} big questions</span><span>{board.traitIds.filter(id => traitMap.get(id)?.categoryKind === "specialist").length} curious details</span><span>Different winner in every slot</span></div>
       <p className="animalPilotNote">{playKind === "daily" ? `Reviewed daily board · ${date}` : "Playtest board · source review pending."} <a href="/animals/review">Comparison review</a></p>
       {!submitted && <>
         <div className="animalToolbar"><p className="animalInstruction">Each trait has a different winner. An animal can fill only one slot. Click or drag to place.</p>

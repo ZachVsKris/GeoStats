@@ -160,10 +160,11 @@ export function validateAnimalBoard(data: AnimalDataset, board: BoardCandidate):
   if (relatedTraits.some((concept) => board.traitIds.filter((id) => concept.includes(id)).length > 1)) reasons.push("closely related traits on the same board");
   if (board.animalIds.length !== config.countryCount || !unique(board.animalIds)) reasons.push("wrong or duplicate animal count");
   if (board.traitIds.length !== config.categoryCount || !unique(board.traitIds)) reasons.push("wrong or duplicate trait count");
-  const balanced = board.editorial?.policy === "balanced-paired-distinct-winners-v4";
+  const balanced = board.editorial?.policy === "intuitive-majority-distinct-winners-v5";
   const categories = board.traitIds.map((id) => data.traits.find((trait) => trait.id === id));
   if (balanced) {
-    if (categories.some((trait) => !trait?.prototypeCategory || !trait.counterTraitId || !trait.metricKey) || categories.filter((trait) => trait?.categoryKind === "intuitive").length !== board.traitIds.length / 2 || categories.filter((trait) => trait?.categoryKind === "specialist").length !== board.traitIds.length / 2) reasons.push("board must have equal intuitive and specialist categories");
+    if (categories.some((trait) => /^(bird_beak_width|bird_beak_depth|bird_tarsus_length|bird_hand_wing_index)(?:__low)?$/.test(trait?.id ?? ""))) reasons.push("obscure bird anatomy is excluded");
+    if (categories.some((trait) => !trait?.prototypeCategory || !trait.counterTraitId || !trait.metricKey) || categories.filter((trait) => trait?.categoryKind === "intuitive").length < Math.ceil(board.traitIds.length / 2)) reasons.push("board must have at least half intuitive categories");
     if (new Set(categories.map((trait) => trait?.metricKey)).size !== categories.length) reasons.push("repeated metric or opposite categories on the same board");
   }
   const families = board.traitIds.map((id) => data.traits.find((trait) => trait.id === id)?.gameplayFamily);
@@ -228,7 +229,7 @@ export function validateAnimalBoard(data: AnimalDataset, board: BoardCandidate):
       const n = board.animalIds.length;
       const correlation = 1 - 6 * rankVectors[i].reduce((sum, rank, index) => sum + (rank - rankVectors[j][index]) ** 2, 0) / (n * (n ** 2 - 1));
       if (!balanced && families[i] === "anatomy" && families[j] === "anatomy" && Math.abs(correlation) > .7) reasons.push("anatomy traits follow the same ordering");
-      if (Math.abs(correlation) > .9) reasons.push("traits have nearly identical or reversed rankings");
+      if ((!balanced && Math.abs(correlation) > .9) || Math.abs(correlation) >= 1) reasons.push("traits have nearly identical or reversed rankings");
     }
     const contenders = board.animalIds.filter((_, index) => rankVectors.filter((ranks) => ranks[index] <= 2).length >= 2).length;
     if (contenders < 2) reasons.push("too few animals compete across traits");

@@ -202,8 +202,8 @@ test("new prototype balances categories and mirrors measured values exactly", ()
  for (const id of used) expect(used.has(traits.get(id)!.counterTraitId!)).toBe(true);
  for (const board of candidateData.boards as BoardCandidate[]) {
   const categories = board.traitIds.map(id => traits.get(id)!);
-  expect(categories.filter(t => t.categoryKind === "intuitive")).toHaveLength(categories.length / 2);
-  expect(categories.filter(t => t.categoryKind === "specialist")).toHaveLength(categories.length / 2);
+  expect(categories.filter(t => t.categoryKind === "intuitive").length).toBeGreaterThanOrEqual(Math.ceil(categories.length / 2));
+  expect(categories.some(t => /^(bird_beak_width|bird_beak_depth|bird_tarsus_length|bird_hand_wing_index)(?:__low)?$/.test(t.id))).toBe(false);
   expect(new Set(categories.map(t => t.metricKey)).size).toBe(categories.length);
   expect(categories.filter(t => t.metricKey === "reproduction").length).toBeLessThanOrEqual(1);
   expect(validateAnimalBoard(data, board).valid).toBe(true);

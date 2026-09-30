@@ -21,3 +21,14 @@ data/animalstats/source/amphibio-v1.zip
 data/animalstats/source/amphibio-metadata.json
 
 data/animalstats/source/amniote-2015.zip
+# Research downloads; selected measurements and provenance are tracked.
+data/animalstats/source/flight-speed-2007.pdf
+data/animalstats/source/flight-speed-2007.txt
+data/animalstats/source/diving-2020.csv
+data/animalstats/source/bird-diving-2026-*.txt
+data/animalstats/source/homerange-2025.zip
+data/animalstats/source/pantheria-2009.zip
+data/animalstats/source/sleep-bu-*
+data/animalstats/source/sleep-pnas-2007.xls
+data/animalstats/source/euring-longevity-2023.pdf
+data/animalstats/source/euring-longevity-2023.txt

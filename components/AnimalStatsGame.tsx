@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { CATLogo, CATMascot } from "./CATBrand";
 import { ROUND_CONFIGS, type DailyDifficulty } from "../lib/gameRules";
 import type { AnimalDataset, BoardCandidate, ReviewLabel } from "../lib/animalstats";
 import { ANIMAL_HISTORY_KEY, animalStats, readAnimalHistory, type AnimalGameResult } from "../lib/animalstatsHistory";
@@ -144,8 +145,8 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
   return <main className="animalPage">
     <div className="animalShell">
       <header className="animalHeader">
-        <a href="/cat" className="animalBack">← Countries, Animals & Things</a>
-        <div className="animalEyebrow">THE LIVING WORLD · PRIVATE PLAYTEST</div>
+        <div className="animalBrandRow"><a href="/cat" className="animalBrandLink" aria-label="Countries, Animals & Things"><CATLogo compact /><span><b className="catCountryColor">C</b>ountries, <b className="catAnimalColor">A</b>nimals &amp; <b className="catThingColor">T</b>hings</span></a><CATMascot pleased={submitted} /></div>
+        <div className="animalEyebrow">THE LIVING WORLD / FIELD NOTES</div>
         <h1>AnimalStats</h1>
         <p>Match each animal to the trait where it ranks strongest. Use every animal at most once.</p>
       </header>
@@ -178,13 +179,13 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
         <h3>Game history</h3>{history.filter((row) => row.mode === mode).length ? <div className="animalHistoryTable"><table><thead><tr><th>Date</th><th>Play</th><th>Score</th><th>Optimal Choices</th></tr></thead><tbody>{history.filter((row) => row.mode === mode).map((row) => <tr key={row.id}><td>{row.date}</td><td>{row.kind}</td><td>{row.score} / {config.maxScore}</td><td>{row.optimalChoices} / {config.categoryCount}</td></tr>)}</tbody></table></div> : <p>Complete a board to start your history.</p>}
         <button className="animalNext" type="button" onClick={() => { const url = URL.createObjectURL(new Blob([JSON.stringify(history, null, 2)], { type: "application/json" })); const link = document.createElement("a"); link.href = url; link.download = "animalstats-history.json"; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000); }}>Download history</button>
         <button className="animalNext" type="button" onClick={() => setView("play")}>Back to game</button>
-      </section> : !board ? <section className="animalEmpty"><h2>Daily boards are awaiting review</h2><p>A daily board must pass source, uncertainty, and playability review. Numerical validation alone does not approve it.</p><button className="animalNext" type="button" onClick={() => { setPlayKind("random"); switchBoard(mode); }}>Play a random candidate</button></section> : <>
+      </section> : !board ? <section className="animalEmpty"><h2>{playKind === "daily" ? "Daily boards are awaiting review" : "More field challenges are in preparation"}</h2><p>{playKind === "daily" ? "A daily board must pass source, uncertainty, and playability review. Numerical validation alone does not approve it." : "We are replacing repetitive boards with more distinctive comparisons. Try another difficulty or explore the Field Guide."}</p><button className="animalNext" type="button" onClick={() => { setPlayKind("random"); switchBoard(playKind === "daily" ? mode : "easy"); }}>{playKind === "daily" ? "Play a random candidate" : "Play Scout"}</button></section> : <>
       <div className="animalBoardTop">
         <div><span className="animalEyebrow">{playKind.toUpperCase()} · BOARD {boardIndex + 1} OF {pool.length} · {board.boardType.toUpperCase()}</span>
           <h2>{submitted ? "Your results" : board.title ?? "Make your matches"}</h2></div>
         <button type="button" className="animalNext" onClick={nextBoard}>Another board →</button>
       </div>
-      <p className="animalPilotNote">{playKind === "daily" ? `Reviewed daily board · ${date}` : "Random playtest candidate. Values are sourced; this board has not yet been approved for daily play."} <a href="/animals/review">Comparison review</a></p>
+      <p className="animalPilotNote">{playKind === "daily" ? `Reviewed daily board · ${date}` : "Playtest board · source review pending."} <a href="/animals/review">Comparison review</a></p>
       {!submitted && <>
         <div className="animalToolbar"><p className="animalInstruction">Choose an animal and a trait in either order, or drag to place. Occupied slots swap your choices.</p>
           <button type="button" className="animalNext" onClick={() => { setAssignments({}); setSelectedAnimal(null); setSelectedTrait(null); setMessage(""); }}>Reset choices</button>
@@ -198,7 +199,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
             return <button type="button" key={id} data-trait-id={id} className={`animalTrait ${selectedTrait === id || dropTarget === id ? "selected" : ""}`}
               aria-pressed={selectedTrait === id} onClick={() => selectedAnimal ? assign(id, selectedAnimal) : setSelectedTrait(selectedTrait === id ? null : id)}>
               <span className="animalTraitName">{trait.displayName}</span>
-              <span className="animalTraitDefinition">{trait.definition}</span>
+              <span className="animalTraitDefinition">{trait.playerHint ?? trait.definition}</span>
               <span className="animalTraitChoice">{animal ? animal.commonName : "Choose an animal +"}</span>
             </button>;
           })}
@@ -272,7 +273,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
                 <p>Your choice: <strong>{animalMap.get(selected.animalId)?.commonName}</strong> · {formatValue(selected.value.valueNumeric, trait.unit)}</p>
                 <p>Rank {rank} of {board.animalIds.length} · <strong>{points} points</strong></p>
                 <p>Optimal choice: <strong>{animalMap.get(best.animalId)?.commonName}</strong> · {formatValue(best.value.valueNumeric, trait.unit)}</p>
-                <details><summary>Definition and source</summary><p>{trait.definition}. {source.name}, {source.versionYear}. <a href={source.url} target="_blank" rel="noreferrer">View dataset</a>.</p><p>{selected.value.notes}</p><p>Uncertainty: {selected.value.uncertaintyStatus === "reported" ? "reported source ranges checked; these are not confidence intervals" : "the source does not supply an uncertainty interval for this value"}.</p></details>
+                <p className="animalDiscovery">{animalMap.get(best.animalId)?.commonName} ranks first here. {animalMap.get(ranked[1].animalId)?.commonName} comes next at {formatValue(ranked[1].value.valueNumeric, trait.unit)}.</p><details><summary>Definition and source</summary><p>{trait.definition}. {source.name}, {source.versionYear}. <a href={source.url} target="_blank" rel="noreferrer">View dataset</a>.</p><p>{selected.value.notes}</p><p>Uncertainty: {selected.value.uncertaintyStatus === "reported" ? "reported source ranges checked; these are not confidence intervals" : "the source does not supply an uncertainty interval for this value"}.</p></details>
               </div>
             </article>;
           })}

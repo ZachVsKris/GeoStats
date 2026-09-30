@@ -36,6 +36,8 @@ export type AnimalPhoto = {
 export type Trait = {
   id: string;
   displayName: string;
+  gameplayFamily?: string;
+  playerHint?: string;
   definition: string;
   direction: "higher_wins" | "lower_wins";
   unit: string;
@@ -82,6 +84,7 @@ export type BoardCandidate = {
   animalIds: string[];
   traitIds: string[];
   reviewLabel?: ReviewLabel;
+  editorial?: { families: string[]; multiTraitContenders: number; policy: string };
 };
 
 export type BoardValidation = {
@@ -146,6 +149,9 @@ export function validateAnimalBoard(data: AnimalDataset, board: BoardCandidate):
   if (relatedTraits.some((concept) => board.traitIds.filter((id) => concept.includes(id)).length > 1)) reasons.push("closely related traits on the same board");
   if (board.animalIds.length !== config.countryCount || !unique(board.animalIds)) reasons.push("wrong or duplicate animal count");
   if (board.traitIds.length !== config.categoryCount || !unique(board.traitIds)) reasons.push("wrong or duplicate trait count");
+  const families = board.traitIds.map((id) => data.traits.find((trait) => trait.id === id)?.gameplayFamily);
+  if (families.some((family) => !family) || families.some((family) => families.filter((item) => item === family).length > (board.mode === "expert" && family === "anatomy" ? 2 : 1)) || new Set(families).size < families.length - (board.mode === "expert" ? 1 : 0)) reasons.push("repeated or unclassified gameplay family");
+  if (!families.some((family) => ["movement", "sleep", "space"].includes(family ?? ""))) reasons.push("board lacks a distinctive behavior or performance trait");
   const animalMap = new Map(data.animals.map((item) => [item.id, item]));
   const traitMap = new Map(data.traits.map((item) => [item.id, item]));
   const sourceMap = new Map(data.sources.map((item) => [item.id, item]));
@@ -194,6 +200,21 @@ export function validateAnimalBoard(data: AnimalDataset, board: BoardCandidate):
         reasons.push(`trait ${id}: ranks ${i + 1}-${i + 2} have overlapping bounds`);
     }
     winners[id] = ranked[0].animalId;
+  }
+  if (Object.keys(winners).length === board.traitIds.length) {
+    const rankVectors = board.traitIds.map((id) => {
+      const trait = traitMap.get(id)!;
+      const ordered = [...board.animalIds].sort((a, b) => trait.direction === "higher_wins" ? valueMap.get(`${b}:${id}`)!.valueNumeric - valueMap.get(`${a}:${id}`)!.valueNumeric : valueMap.get(`${a}:${id}`)!.valueNumeric - valueMap.get(`${b}:${id}`)!.valueNumeric);
+      return board.animalIds.map((animalId) => ordered.indexOf(animalId) + 1);
+    });
+    for (let i = 0; i < rankVectors.length; i++) for (let j = i + 1; j < rankVectors.length; j++) {
+      const n = board.animalIds.length;
+      const correlation = 1 - 6 * rankVectors[i].reduce((sum, rank, index) => sum + (rank - rankVectors[j][index]) ** 2, 0) / (n * (n ** 2 - 1));
+      if (families[i] === "anatomy" && families[j] === "anatomy" && Math.abs(correlation) > .7) reasons.push("anatomy traits follow the same ordering");
+      if (Math.abs(correlation) > .9) reasons.push("traits have nearly identical or reversed rankings");
+    }
+    const contenders = board.animalIds.filter((_, index) => rankVectors.filter((ranks) => ranks[index] <= 2).length >= 2).length;
+    if (contenders < 2) reasons.push("too few animals compete across traits");
   }
   if (Object.keys(winners).length === board.traitIds.length && !unique(Object.values(winners)))
     reasons.push("category winners are not distinct; perfect score unattainable");

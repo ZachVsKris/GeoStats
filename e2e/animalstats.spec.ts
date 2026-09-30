@@ -2,12 +2,12 @@ import { expect, test } from "@playwright/test";
 
 test.skip(process.env.ANIMALSTATS_PREVIEW_ENABLED !== "true", "Private pilot is disabled without its preview flag");
 
-test("pilot boards render and can be completed in all modes", async ({ page }) => {
+test("available pilot boards render and can be completed", async ({ page }) => {
   const errors: string[] = [];
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto("/animals");
   await expect(page.getByRole("heading", { name: "AnimalStats" })).toBeVisible();
-  for (const [label, animals, traits] of [["Scout", 4, 4], ["Adventurer", 6, 4], ["Expert", 8, 6]] as const) {
+  for (const [label, animals, traits] of [["Scout", 4, 4], ["Adventurer", 6, 4]] as const) {
     await page.getByRole("button", { name: new RegExp(`^${label}\\b`) }).click();
     await expect(page.locator(".animalBoardTop .animalEyebrow")).toContainText("OF");
     await expect(page.locator(".animalCard")).toHaveCount(animals);
@@ -128,3 +128,15 @@ test("server scoring rejects repeated and foreign assignments", () => {
  expect(scoreAnimalAssignments(data, board, Object.fromEntries(board.traitIds.map((id) => [id, board.animalIds[0]])))).toBeNull();
  expect(scoreAnimalAssignments(data, board, { ...assignments, [board.traitIds[0]]: "invented-animal" })).toBeNull();
 });
+
+ test("unfinished Expert pool offers a working Scout route; mascot motion is optional", async ({ page }) => {
+ await page.goto("/animals");
+ await page.getByRole("button", { name: "Pause cat mascot animation" }).click();
+ await expect(page.locator(".catCurator")).toHaveClass(/paused/);
+ await page.getByRole("button", { name: /^Expert\b/ }).click();
+ await expect(page.getByRole("heading", { name: "More field challenges are in preparation" })).toBeVisible();
+ await page.getByRole("button", { name: "Play Scout", exact: true }).click();
+ await expect(page.locator(".animalCard")).toHaveCount(4);
+ await page.emulateMedia({ reducedMotion: "reduce" });
+ expect(await page.locator(".catEyes").evaluate(el => getComputedStyle(el).animationName)).toBe("none");
+ });

@@ -1,1260 +1,360 @@
 {
   "boards": [
     {
-      "id": "b1cc69b4d34be4a8",
+      "id": "d92467c541c769a8",
       "mode": "easy",
-      "boardType": "themed",
-      "title": "Bears of the world",
-      "animalIds": [
-        "ursus_americanus",
-        "tremarctos_ornatus",
-        "ailuropoda_melanoleuca",
-        "ursus_maritimus"
-      ],
-      "traitIds": [
-        "shortest_gestation",
-        "maximum_documented_lifespan",
-        "smallest_adult_mass",
-        "earliest_female_maturity"
-      ]
-    },
-    {
-      "id": "400f17b454ad2f8a",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Bears of the world",
-      "animalIds": [
-        "helarctos_malayanus",
-        "ursus_maritimus",
-        "ursus_thibetanus",
-        "melursus_ursinus"
-      ],
-      "traitIds": [
-        "gestation",
-        "earliest_weaning",
-        "lightest_newborn",
-        "maximum_documented_lifespan"
-      ]
-    },
-    {
-      "id": "099b9c3d5de04ddb",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Bears of the world",
-      "animalIds": [
-        "helarctos_malayanus",
-        "ursus_arctos",
-        "ursus_americanus",
-        "melursus_ursinus"
-      ],
-      "traitIds": [
-        "gestation",
-        "smallest_adult_mass",
-        "weaning_age",
-        "lightest_newborn"
-      ]
-    },
-    {
-      "id": "0aa902546097c008",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Feathers and flight",
-      "animalIds": [
-        "cacatua_galerita",
-        "aptenodytes_patagonicus",
-        "bubo_virginianus",
-        "pelecanus_occidentalis"
-      ],
-      "traitIds": [
-        "bird_hand_wing_index",
-        "bird_range_area",
-        "female_maturity",
-        "smallest_adult_mass"
-      ]
-    },
-    {
-      "id": "e989c22959a373e3",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Feathers and flight",
-      "animalIds": [
-        "struthio_camelus",
-        "ara_macao",
-        "gallus_gallus",
-        "haliaeetus_leucocephalus"
-      ],
-      "traitIds": [
-        "raw_egg_mass",
-        "bird_beak_depth",
-        "bird_range_area",
-        "smallest_adult_mass"
-      ]
-    },
-    {
-      "id": "c9d177e0d2049c93",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Feathers and flight",
-      "animalIds": [
-        "diomedea_exulans",
-        "phoenicopterus_roseus",
-        "pavo_cristatus",
-        "aquila_chrysaetos"
-      ],
-      "traitIds": [
-        "bird_secondary_length",
-        "bird_range_area",
-        "earliest_female_maturity",
-        "bird_tarsus_length"
-      ]
-    },
-    {
-      "id": "dccbc45625e4f690",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Carnivore",
-      "animalIds": [
-        "canis_lupus",
-        "panthera_pardus",
-        "panthera_tigris",
-        "panthera_leo"
-      ],
-      "traitIds": [
-        "smallest_adult_mass",
-        "male_maturity",
-        "litters_per_year",
-        "birth_weight"
-      ]
-    },
-    {
-      "id": "f244fcf781855fe7",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Carnivore",
-      "animalIds": [
-        "panthera_pardus",
-        "canis_lupus",
-        "acinonyx_jubatus",
-        "panthera_leo"
-      ],
-      "traitIds": [
-        "birth_weight",
-        "shortest_gestation",
-        "earliest_female_maturity",
-        "litters_per_year"
-      ]
-    },
-    {
-      "id": "1f37dd4d4e08e878",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Carnivore",
-      "animalIds": [
-        "panthera_pardus",
-        "canis_lupus",
-        "panthera_leo",
-        "acinonyx_jubatus"
-      ],
-      "traitIds": [
-        "litters_per_year",
-        "earliest_female_maturity",
-        "gestation",
-        "lightest_newborn"
-      ]
-    },
-    {
-      "id": "9cd9f561040f9640",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Frogs and toads",
-      "animalIds": [
-        "rhinella_marina",
-        "xenopus_laevis",
-        "lithobates_catesbeianus",
-        "anaxyrus_americanus"
-      ],
-      "traitIds": [
-        "earliest_female_maturity",
-        "amphibian_max_clutch",
-        "maximum_documented_lifespan",
-        "amphibian_max_mass"
-      ]
-    },
-    {
-      "id": "86eb31d90046dc76",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Frogs and toads",
-      "animalIds": [
-        "lithobates_catesbeianus",
-        "anaxyrus_americanus",
-        "xenopus_laevis",
-        "rhinella_marina"
-      ],
-      "traitIds": [
-        "maximum_documented_lifespan",
-        "earliest_female_maturity",
-        "amphibian_max_mass",
-        "frog_max_svl"
-      ]
-    },
-    {
-      "id": "1e3880bf7b3c1cf0",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Frogs and toads",
-      "animalIds": [
-        "lithobates_catesbeianus",
-        "xenopus_laevis",
-        "anaxyrus_americanus",
-        "rhinella_marina"
-      ],
-      "traitIds": [
-        "amphibian_max_clutch",
-        "female_maturity",
-        "adult_body_mass",
-        "maximum_documented_lifespan"
-      ]
-    },
-    {
-      "id": "f349cec319ebfa6b",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Large Mammal",
-      "animalIds": [
-        "hippopotamus_amphibius",
-        "giraffa_camelopardalis",
-        "equus_asinus",
-        "bison_bison"
-      ],
-      "traitIds": [
-        "raw_short_gestation",
-        "lightest_newborn",
-        "smallest_adult_mass",
-        "male_maturity"
-      ]
-    },
-    {
-      "id": "e7e3b4cd8d80c62e",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Large Mammal",
-      "animalIds": [
-        "equus_quagga",
-        "ceratotherium_simum",
-        "bison_bison",
-        "giraffa_camelopardalis"
-      ],
-      "traitIds": [
-        "litters_per_year",
-        "smallest_adult_mass",
-        "gestation",
-        "birth_weight"
-      ]
-    },
-    {
-      "id": "9c4183425077c603",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Large Mammal",
-      "animalIds": [
-        "hippopotamus_amphibius",
-        "equus_asinus",
-        "ceratotherium_simum",
-        "equus_quagga"
-      ],
-      "traitIds": [
-        "female_maturity",
-        "raw_weaning_age",
-        "adult_body_mass",
-        "lightest_newborn"
-      ]
-    },
-    {
-      "id": "0a2bb4c28b3f045b",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Marine Mammal",
-      "animalIds": [
-        "balaenoptera_musculus",
-        "enhydra_lutris",
-        "tursiops_truncatus",
-        "orcinus_orca"
-      ],
-      "traitIds": [
-        "adult_body_mass",
-        "earliest_female_maturity",
-        "interbirth_interval",
-        "raw_weaning_age"
-      ]
-    },
-    {
-      "id": "b253aff5f2f3665e",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Marine Mammal",
-      "animalIds": [
-        "tursiops_truncatus",
-        "balaenoptera_musculus",
-        "orcinus_orca",
-        "megaptera_novaeangliae"
-      ],
-      "traitIds": [
-        "earliest_female_maturity",
-        "interbirth_interval",
-        "raw_weaning_age",
-        "raw_birth_mass"
-      ]
-    },
-    {
-      "id": "91fb74498ad2ca76",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Marine Mammal",
-      "animalIds": [
-        "balaenoptera_musculus",
-        "tursiops_truncatus",
-        "enhydra_lutris",
-        "orcinus_orca"
-      ],
-      "traitIds": [
-        "female_maturity",
-        "adult_body_mass",
-        "raw_weaning_age",
-        "lightest_newborn"
-      ]
-    },
-    {
-      "id": "e24d25dde207e2cd",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Sharks below the surface",
-      "animalIds": [
-        "sphyrna_lewini",
-        "rhincodon_typus",
-        "triakis_semifasciata",
-        "isurus_oxyrinchus"
-      ],
-      "traitIds": [
-        "wild_recorded_lifespan",
-        "fewest_shark_pups",
-        "earliest_female_maturity",
-        "smallest_adult_mass"
-      ]
-    },
-    {
-      "id": "5cc8377365d67214",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Sharks below the surface",
-      "animalIds": [
-        "sphyrna_lewini",
-        "triakis_semifasciata",
-        "rhincodon_typus",
-        "isurus_oxyrinchus"
-      ],
-      "traitIds": [
-        "shortest_wild_lifespan",
-        "smallest_adult_mass",
-        "earliest_female_maturity",
-        "shark_litter_size"
-      ]
-    },
-    {
-      "id": "e6838192915676df",
-      "mode": "easy",
-      "boardType": "cross-animal",
-      "title": "Fur, paws and unexpected company",
-      "animalIds": [
-        "tursiops_truncatus",
-        "helarctos_malayanus",
-        "giraffa_camelopardalis",
-        "ursus_maritimus"
-      ],
-      "traitIds": [
-        "earliest_female_maturity",
-        "shortest_gestation",
-        "smallest_adult_mass",
-        "maximum_documented_lifespan"
-      ]
-    },
-    {
-      "id": "68c0fef30e4f2820",
-      "mode": "easy",
-      "boardType": "cross-animal",
-      "title": "Fur, paws and unexpected company",
-      "animalIds": [
-        "panthera_tigris",
-        "balaenoptera_musculus",
-        "loxodonta_africana",
-        "bison_bison"
-      ],
-      "traitIds": [
-        "birth_weight",
-        "raw_gestation",
-        "earliest_female_maturity",
-        "earliest_weaning"
-      ]
-    },
-    {
-      "id": "551f9c9373ef648c",
-      "mode": "easy",
-      "boardType": "cross-animal",
-      "title": "Fur, paws and unexpected company",
-      "animalIds": [
-        "macropus_rufus",
-        "gorilla_gorilla",
-        "hydrochoerus_hydrochaeris",
-        "equus_asinus"
-      ],
-      "traitIds": [
-        "earliest_female_maturity",
-        "maximum_documented_lifespan",
-        "shortest_gestation",
-        "birth_weight"
-      ]
-    },
-    {
-      "id": "f175908a3fe3a7be",
-      "mode": "easy",
-      "boardType": "clustered",
-      "title": "Scales, shells and cold blood",
-      "animalIds": [
-        "python_regius",
-        "eublepharis_macularius",
-        "trachemys_scripta",
-        "python_molurus"
-      ],
-      "traitIds": [
-        "maximum_documented_lifespan",
-        "female_maturity",
-        "smallest_adult_mass",
-        "raw_egg_mass"
-      ]
-    },
-    {
-      "id": "a44d2fd73b31df7c",
-      "mode": "easy",
-      "boardType": "clustered",
-      "title": "Scales, shells and cold blood",
-      "animalIds": [
-        "gavialis_gangeticus",
-        "python_molurus",
-        "python_regius",
-        "macrochelys_temminckii"
-      ],
-      "traitIds": [
-        "male_maturity",
-        "smallest_adult_mass",
-        "maximum_documented_lifespan",
-        "raw_egg_mass"
-      ]
-    },
-    {
-      "id": "a36c0a50fb4871d0",
-      "mode": "easy",
-      "boardType": "clustered",
-      "title": "Scales, shells and cold blood",
-      "animalIds": [
-        "alligator_mississippiensis",
-        "python_molurus",
-        "python_regius",
-        "crocodylus_niloticus"
-      ],
-      "traitIds": [
-        "smallest_adult_mass",
-        "raw_hatching_mass",
-        "female_maturity",
-        "maximum_documented_lifespan"
-      ]
-    },
-    {
-      "id": "f5558950d2d46f5f",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Frogs and toads",
-      "animalIds": [
-        "anaxyrus_americanus",
-        "lithobates_catesbeianus",
-        "rhinella_marina",
-        "xenopus_laevis"
-      ],
-      "traitIds": [
-        "female_maturity",
-        "maximum_documented_lifespan",
-        "adult_body_mass",
-        "frog_max_svl"
-      ]
-    },
-    {
-      "id": "090d620438fab87e",
-      "mode": "easy",
-      "boardType": "clustered",
-      "title": "At the water’s edge",
-      "animalIds": [
-        "lithobates_catesbeianus",
-        "anaxyrus_americanus",
-        "xenopus_laevis",
-        "ambystoma_tigrinum"
-      ],
-      "traitIds": [
-        "smallest_adult_mass",
-        "maximum_documented_lifespan",
-        "amphibian_max_clutch",
-        "earliest_female_maturity"
-      ]
-    },
-    {
-      "id": "f9203893f53f5c91",
-      "mode": "easy",
-      "boardType": "clustered",
-      "title": "At the water’s edge",
-      "animalIds": [
-        "lithobates_catesbeianus",
-        "anaxyrus_americanus",
-        "ambystoma_tigrinum",
-        "xenopus_laevis"
-      ],
-      "traitIds": [
-        "adult_body_mass",
-        "amphibian_max_clutch",
-        "maximum_documented_lifespan",
-        "female_maturity"
-      ]
-    },
-    {
-      "id": "e6361e11297bb2c7",
-      "mode": "easy",
-      "boardType": "clustered",
-      "title": "Life beneath the waves",
-      "animalIds": [
-        "dasyatis_americana",
-        "triakis_semifasciata",
-        "sphyrna_lewini",
-        "myliobatis_californica"
-      ],
-      "traitIds": [
-        "fewest_shark_pups",
-        "shortest_wild_lifespan",
-        "earliest_female_maturity",
-        "smallest_adult_mass"
-      ]
-    },
-    {
-      "id": "67c6dd9bc6b87b2c",
-      "mode": "easy",
-      "boardType": "clustered",
-      "title": "Life beneath the waves",
-      "animalIds": [
-        "rhincodon_typus",
-        "sphyrna_lewini",
-        "triakis_semifasciata",
-        "dasyatis_americana"
-      ],
-      "traitIds": [
-        "shark_litter_size",
-        "earliest_female_maturity",
-        "smallest_adult_mass",
-        "shortest_wild_lifespan"
-      ]
-    },
-    {
-      "id": "3b2f4f52e043c115",
-      "mode": "easy",
-      "boardType": "clustered",
-      "title": "Life beneath the waves",
-      "animalIds": [
-        "rhincodon_typus",
-        "sphyrna_lewini",
-        "triakis_semifasciata",
-        "myliobatis_californica"
-      ],
-      "traitIds": [
-        "earliest_female_maturity",
-        "fewest_shark_pups",
-        "wild_recorded_lifespan",
-        "smallest_adult_mass"
-      ]
-    },
-    {
-      "id": "b93d68953c6c86c7",
-      "mode": "easy",
-      "boardType": "clustered",
-      "title": "Fur, paws and unexpected company",
-      "animalIds": [
-        "helarctos_malayanus",
-        "canis_lupus",
-        "ursus_americanus",
-        "panthera_tigris"
-      ],
-      "traitIds": [
-        "weaning_age",
-        "birth_weight",
-        "maximum_documented_lifespan",
-        "shortest_gestation"
-      ]
-    },
-    {
-      "id": "769b14c70a913ea3",
-      "mode": "easy",
-      "boardType": "clustered",
-      "title": "Fur, paws and unexpected company",
-      "animalIds": [
-        "tremarctos_ornatus",
-        "ursus_arctos",
-        "acinonyx_jubatus",
-        "melursus_ursinus"
-      ],
-      "traitIds": [
-        "gestation",
-        "adult_body_mass",
-        "earliest_weaning",
-        "earliest_female_maturity"
-      ]
-    },
-    {
-      "id": "9ef224f1fe319bea",
-      "mode": "easy",
-      "boardType": "clustered",
-      "title": "Fur, paws and unexpected company",
-      "animalIds": [
-        "acinonyx_jubatus",
-        "ursus_maritimus",
-        "ursus_thibetanus",
-        "ursus_americanus"
-      ],
-      "traitIds": [
-        "raw_adult_mass",
-        "earliest_female_maturity",
-        "earliest_weaning",
-        "lightest_newborn"
-      ]
-    },
-    {
-      "id": "5d0dc39f6cdb620a",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Feathers and flight",
-      "animalIds": [
-        "bubo_virginianus",
-        "spheniscus_demersus",
-        "cacatua_galerita",
-        "tyto_alba"
-      ],
-      "traitIds": [
-        "bird_beak_length",
-        "smallest_adult_mass",
-        "bird_wing_length",
-        "bird_beak_width"
-      ]
-    },
-    {
-      "id": "1c6d3733d1f01f02",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Feathers and flight",
-      "animalIds": [
-        "hirundo_rustica",
-        "tyto_alba",
-        "phoebastria_immutabilis",
-        "dromaius_novaehollandiae"
-      ],
-      "traitIds": [
-        "bird_beak_width",
-        "bird_kipps_distance",
-        "smallest_adult_mass",
-        "bird_range_area"
-      ]
-    },
-    {
-      "id": "56890c471ad24352",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Feathers and flight",
-      "animalIds": [
-        "bubo_virginianus",
-        "dromaius_novaehollandiae",
-        "tyto_alba",
-        "pavo_cristatus"
-      ],
-      "traitIds": [
-        "bird_beak_width",
-        "bird_wing_length",
-        "bird_range_area",
-        "bird_beak_depth"
-      ]
-    },
-    {
-      "id": "0c25706b5c6b37c7",
-      "mode": "easy",
-      "boardType": "cross-animal",
-      "title": "Fur, paws and unexpected company",
-      "animalIds": [
-        "ursus_thibetanus",
-        "ailuropoda_melanoleuca",
-        "tursiops_truncatus",
-        "ursus_arctos"
-      ],
-      "traitIds": [
-        "adult_body_mass",
-        "earliest_female_maturity",
-        "birth_weight",
-        "shortest_gestation"
-      ]
-    },
-    {
-      "id": "079d56d85d84f969",
-      "mode": "easy",
-      "boardType": "themed",
-      "title": "Feathers and flight",
-      "animalIds": [
-        "dromaius_novaehollandiae",
-        "bubo_virginianus",
-        "anas_platyrhynchos",
-        "aptenodytes_forsteri"
-      ],
-      "traitIds": [
-        "bird_beak_width",
-        "bird_beak_length",
-        "bird_range_area",
-        "bird_wing_length"
-      ]
-    },
-    {
-      "id": "aca8ddf1be792df4",
-      "mode": "easy",
-      "boardType": "cross-animal",
-      "title": "Fur, paws and unexpected company",
-      "animalIds": [
-        "equus_quagga",
-        "ceratotherium_simum",
-        "ursus_maritimus",
-        "pongo_pygmaeus"
-      ],
-      "traitIds": [
-        "earliest_female_maturity",
-        "raw_short_gestation",
-        "raw_birth_mass",
-        "smallest_adult_mass"
-      ]
-    },
-    {
-      "id": "9e8f277f1a2ee52a",
-      "mode": "normal",
-      "boardType": "themed",
-      "title": "Feathers and flight",
-      "animalIds": [
-        "dromaius_novaehollandiae",
-        "haliaeetus_leucocephalus",
-        "aquila_chrysaetos",
-        "pavo_cristatus",
-        "bubo_virginianus",
-        "pygoscelis_papua"
-      ],
-      "traitIds": [
-        "bird_kipps_distance",
-        "bird_range_area",
-        "bird_beak_length",
-        "smallest_adult_mass"
-      ]
-    },
-    {
-      "id": "033386fc199e491a",
-      "mode": "normal",
       "boardType": "themed",
       "title": "Feathers and flight",
       "animalIds": [
         "falco_peregrinus",
-        "aptenodytes_patagonicus",
-        "aquila_chrysaetos",
-        "dromaius_novaehollandiae",
-        "pelecanus_occidentalis",
-        "bubo_virginianus"
+        "phalacrocorax_carbo",
+        "somateria_mollissima",
+        "haematopus_ostralegus"
+      ],
+      "traitIds": [
+        "ringing_longevity",
+        "cruising_flight_speed",
+        "bird_range_area",
+        "bird_beak_length"
+      ],
+      "editorial": {
+        "families": [
+          "longevity",
+          "movement",
+          "range",
+          "anatomy"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-v1"
+      }
+    },
+    {
+      "id": "f09785fb180f9945",
+      "mode": "easy",
+      "boardType": "themed",
+      "title": "Feathers and flight",
+      "animalIds": [
+        "larus_argentatus",
+        "phalacrocorax_carbo",
+        "hirundo_rustica",
+        "columba_palumbus"
+      ],
+      "traitIds": [
+        "ringing_longevity",
+        "bird_mass",
+        "raw_clutch_size",
+        "cruising_flight_speed"
+      ],
+      "editorial": {
+        "families": [
+          "longevity",
+          "size",
+          "reproduction",
+          "movement"
+        ],
+        "multiTraitContenders": 2,
+        "policy": "distinct-families-v1"
+      }
+    },
+    {
+      "id": "f94b178130d9d3fa",
+      "mode": "easy",
+      "boardType": "themed",
+      "title": "Feathers and flight",
+      "animalIds": [
+        "hirundo_rustica",
+        "falco_peregrinus",
+        "vanellus_vanellus",
+        "anser_anser"
+      ],
+      "traitIds": [
+        "ringing_longevity",
+        "bird_tail_length",
+        "smallest_adult_mass",
+        "cruising_flight_speed"
+      ],
+      "editorial": {
+        "families": [
+          "longevity",
+          "anatomy",
+          "size",
+          "movement"
+        ],
+        "multiTraitContenders": 2,
+        "policy": "distinct-families-v1"
+      }
+    },
+    {
+      "id": "5fe1514f81451842",
+      "mode": "easy",
+      "boardType": "themed",
+      "title": "Feathers and flight",
+      "animalIds": [
+        "alauda_arvensis",
+        "larus_argentatus",
+        "falco_peregrinus",
+        "hirundo_rustica"
+      ],
+      "traitIds": [
+        "cruising_flight_speed",
+        "lightest_bird",
+        "raw_incubation",
+        "ringing_longevity"
+      ],
+      "editorial": {
+        "families": [
+          "movement",
+          "size",
+          "reproduction",
+          "longevity"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-v1"
+      }
+    },
+    {
+      "id": "cae4b21a5d07eb21",
+      "mode": "easy",
+      "boardType": "themed",
+      "title": "Feathers and flight",
+      "animalIds": [
+        "hirundo_rustica",
+        "haematopus_ostralegus",
+        "falco_peregrinus",
+        "anas_platyrhynchos"
+      ],
+      "traitIds": [
+        "bird_tail_length",
+        "cruising_flight_speed",
+        "ringing_longevity",
+        "lightest_bird"
+      ],
+      "editorial": {
+        "families": [
+          "anatomy",
+          "movement",
+          "longevity",
+          "size"
+        ],
+        "multiTraitContenders": 2,
+        "policy": "distinct-families-v1"
+      }
+    },
+    {
+      "id": "e57b4bb3e0995736",
+      "mode": "easy",
+      "boardType": "themed",
+      "title": "Feathers and flight",
+      "animalIds": [
+        "haematopus_ostralegus",
+        "anser_anser",
+        "phalacrocorax_carbo",
+        "hirundo_rustica"
+      ],
+      "traitIds": [
+        "raw_incubation",
+        "cruising_flight_speed",
+        "bird_range_area",
+        "ringing_longevity"
+      ],
+      "editorial": {
+        "families": [
+          "reproduction",
+          "movement",
+          "range",
+          "longevity"
+        ],
+        "multiTraitContenders": 2,
+        "policy": "distinct-families-v1"
+      }
+    },
+    {
+      "id": "842d28377d6bfd66",
+      "mode": "easy",
+      "boardType": "cross-animal",
+      "title": "Fur, paws and unexpected company",
+      "animalIds": [
+        "vulpes_vulpes",
+        "didelphis_marsupialis",
+        "erinaceus_europaeus",
+        "ornithorhynchus_anatinus"
       ],
       "traitIds": [
         "smallest_adult_mass",
-        "raw_egg_mass",
-        "bird_wing_length",
-        "bird_beak_length"
-      ]
+        "daily_sleep",
+        "maximum_documented_lifespan",
+        "gestation"
+      ],
+      "editorial": {
+        "families": [
+          "size",
+          "sleep",
+          "longevity",
+          "reproduction"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-v1"
+      }
     },
     {
-      "id": "cad74c02cfa8e963",
+      "id": "eff29931095ebe92",
+      "mode": "easy",
+      "boardType": "cross-animal",
+      "title": "Fur, paws and unexpected company",
+      "animalIds": [
+        "vulpes_vulpes",
+        "tupaia_glis",
+        "ornithorhynchus_anatinus",
+        "erinaceus_europaeus"
+      ],
+      "traitIds": [
+        "smallest_adult_mass",
+        "gestation",
+        "daily_sleep",
+        "maximum_documented_lifespan"
+      ],
+      "editorial": {
+        "families": [
+          "size",
+          "reproduction",
+          "sleep",
+          "longevity"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-v1"
+      }
+    },
+    {
+      "id": "5644c66871a9a026",
+      "mode": "easy",
+      "boardType": "cross-animal",
+      "title": "Fur, paws and unexpected company",
+      "animalIds": [
+        "ornithorhynchus_anatinus",
+        "didelphis_marsupialis",
+        "tupaia_glis",
+        "vulpes_vulpes"
+      ],
+      "traitIds": [
+        "daily_sleep",
+        "maximum_documented_lifespan",
+        "smallest_adult_mass",
+        "gestation"
+      ],
+      "editorial": {
+        "families": [
+          "sleep",
+          "longevity",
+          "size",
+          "reproduction"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-v1"
+      }
+    },
+    {
+      "id": "d1e818233d0c9598",
       "mode": "normal",
       "boardType": "themed",
       "title": "Feathers and flight",
       "animalIds": [
-        "aptenodytes_forsteri",
-        "pavo_cristatus",
-        "ara_macao",
-        "cacatua_galerita",
-        "pelecanus_occidentalis",
-        "aptenodytes_patagonicus"
+        "phalacrocorax_carbo",
+        "hirundo_rustica",
+        "larus_ridibundus",
+        "somateria_mollissima",
+        "ardea_cinerea",
+        "columba_palumbus"
+      ],
+      "traitIds": [
+        "bird_range_area",
+        "bird_beak_length",
+        "bird_mass",
+        "cruising_flight_speed"
+      ],
+      "editorial": {
+        "families": [
+          "range",
+          "anatomy",
+          "size",
+          "movement"
+        ],
+        "multiTraitContenders": 3,
+        "policy": "distinct-families-v1"
+      }
+    },
+    {
+      "id": "562b71d629482275",
+      "mode": "normal",
+      "boardType": "themed",
+      "title": "Feathers and flight",
+      "animalIds": [
+        "columba_palumbus",
+        "phalacrocorax_carbo",
+        "somateria_mollissima",
+        "falco_peregrinus",
+        "larus_argentatus",
+        "corvus_frugilegus"
       ],
       "traitIds": [
         "bird_mass",
         "bird_range_area",
-        "bird_beak_width",
-        "bird_tarsus_length"
-      ]
-    },
-    {
-      "id": "02497c72d153464c",
-      "mode": "normal",
-      "boardType": "cross-animal",
-      "title": "Fur, paws and unexpected company",
-      "animalIds": [
-        "orcinus_orca",
-        "enhydra_lutris",
-        "bison_bison",
-        "ursus_thibetanus",
-        "ailuropoda_melanoleuca",
-        "loxodonta_africana"
+        "cruising_flight_speed",
+        "ringing_longevity"
       ],
-      "traitIds": [
-        "gestation",
-        "smallest_adult_mass",
-        "birth_weight",
-        "earliest_female_maturity"
-      ]
+      "editorial": {
+        "families": [
+          "size",
+          "range",
+          "movement",
+          "longevity"
+        ],
+        "multiTraitContenders": 2,
+        "policy": "distinct-families-v1"
+      }
     },
     {
-      "id": "3f06855972d8f05c",
-      "mode": "normal",
-      "boardType": "cross-animal",
-      "title": "Fur, paws and unexpected company",
-      "animalIds": [
-        "panthera_tigris",
-        "orcinus_orca",
-        "melursus_ursinus",
-        "tremarctos_ornatus",
-        "enhydra_lutris",
-        "castor_canadensis"
-      ],
-      "traitIds": [
-        "lightest_newborn",
-        "smallest_adult_mass",
-        "female_maturity",
-        "shortest_gestation"
-      ]
-    },
-    {
-      "id": "b5dfe2ded524bd3d",
-      "mode": "normal",
-      "boardType": "cross-animal",
-      "title": "Fur, paws and unexpected company",
-      "animalIds": [
-        "tremarctos_ornatus",
-        "ursus_maritimus",
-        "pongo_pygmaeus",
-        "tursiops_truncatus",
-        "hydrochoerus_hydrochaeris",
-        "macaca_mulatta"
-      ],
-      "traitIds": [
-        "smallest_adult_mass",
-        "lightest_newborn",
-        "female_maturity",
-        "shortest_gestation"
-      ]
-    },
-    {
-      "id": "e782b5ab31c1cc4e",
-      "mode": "normal",
-      "boardType": "clustered",
-      "title": "Scales, shells and cold blood",
-      "animalIds": [
-        "gavialis_gangeticus",
-        "eublepharis_macularius",
-        "trachemys_scripta",
-        "macrochelys_temminckii",
-        "python_molurus",
-        "python_regius"
-      ],
-      "traitIds": [
-        "raw_egg_mass",
-        "earliest_female_maturity",
-        "maximum_documented_lifespan",
-        "adult_body_mass"
-      ]
-    },
-    {
-      "id": "b03ae732d3c8dd02",
-      "mode": "normal",
-      "boardType": "clustered",
-      "title": "Scales, shells and cold blood",
-      "animalIds": [
-        "alligator_mississippiensis",
-        "trachemys_scripta",
-        "python_molurus",
-        "crocodylus_niloticus",
-        "macrochelys_temminckii",
-        "eublepharis_macularius"
-      ],
-      "traitIds": [
-        "female_maturity",
-        "smallest_adult_mass",
-        "maximum_documented_lifespan",
-        "raw_egg_mass"
-      ]
-    },
-    {
-      "id": "0f8d2f74ee12b089",
-      "mode": "normal",
-      "boardType": "clustered",
-      "title": "Scales, shells and cold blood",
-      "animalIds": [
-        "python_regius",
-        "trachemys_scripta",
-        "eublepharis_macularius",
-        "python_molurus",
-        "gavialis_gangeticus",
-        "macrochelys_temminckii"
-      ],
-      "traitIds": [
-        "male_maturity",
-        "smallest_adult_mass",
-        "maximum_documented_lifespan",
-        "raw_egg_mass"
-      ]
-    },
-    {
-      "id": "0036033cbfe4f932",
-      "mode": "normal",
-      "boardType": "clustered",
-      "title": "Fur, paws and unexpected company",
-      "animalIds": [
-        "canis_lupus",
-        "melursus_ursinus",
-        "ursus_americanus",
-        "vulpes_vulpes",
-        "ailuropoda_melanoleuca",
-        "acinonyx_jubatus"
-      ],
-      "traitIds": [
-        "earliest_female_maturity",
-        "gestation",
-        "adult_body_mass",
-        "birth_weight"
-      ]
-    },
-    {
-      "id": "d2d8f0793a7a11cd",
-      "mode": "normal",
-      "boardType": "clustered",
-      "title": "Fur, paws and unexpected company",
-      "animalIds": [
-        "helarctos_malayanus",
-        "ursus_maritimus",
-        "melursus_ursinus",
-        "ursus_thibetanus",
-        "vulpes_vulpes",
-        "panthera_tigris"
-      ],
-      "traitIds": [
-        "earliest_weaning",
-        "birth_weight",
-        "maximum_documented_lifespan",
-        "gestation"
-      ]
-    },
-    {
-      "id": "c99be5283cea47b9",
-      "mode": "normal",
-      "boardType": "clustered",
-      "title": "Fur, paws and unexpected company",
-      "animalIds": [
-        "melursus_ursinus",
-        "ailuropoda_melanoleuca",
-        "panthera_pardus",
-        "canis_lupus",
-        "ursus_arctos",
-        "panthera_tigris"
-      ],
-      "traitIds": [
-        "male_maturity",
-        "birth_weight",
-        "interbirth_interval",
-        "raw_adult_mass"
-      ]
-    },
-    {
-      "id": "0af1beba060567be",
+      "id": "dd01cfd4af17d035",
       "mode": "normal",
       "boardType": "themed",
       "title": "Feathers and flight",
       "animalIds": [
-        "cardinalis_cardinalis",
-        "pavo_cristatus",
-        "haliaeetus_leucocephalus",
-        "struthio_camelus",
-        "cacatua_galerita",
-        "aptenodytes_patagonicus"
+        "larus_argentatus",
+        "columba_palumbus",
+        "corvus_frugilegus",
+        "somateria_mollissima",
+        "phalacrocorax_carbo",
+        "falco_peregrinus"
       ],
       "traitIds": [
-        "bird_secondary_length",
-        "bird_tail_length",
-        "smallest_adult_mass",
-        "bird_range_area"
-      ]
-    },
-    {
-      "id": "9e54f89c7c1165be",
-      "mode": "normal",
-      "boardType": "themed",
-      "title": "Feathers and flight",
-      "animalIds": [
-        "aptenodytes_forsteri",
-        "aquila_chrysaetos",
-        "hirundo_rustica",
-        "phoenicopterus_roseus",
-        "cardinalis_cardinalis",
-        "aptenodytes_patagonicus"
-      ],
-      "traitIds": [
+        "lightest_bird",
+        "cruising_flight_speed",
         "bird_range_area",
-        "raw_incubation",
-        "bird_kipps_distance",
-        "bird_beak_width"
-      ]
-    },
-    {
-      "id": "2b957f30b5e0cabb",
-      "mode": "normal",
-      "boardType": "themed",
-      "title": "Feathers and flight",
-      "animalIds": [
-        "struthio_camelus",
-        "gallus_gallus",
-        "phoebastria_immutabilis",
-        "pavo_cristatus",
-        "dromaius_novaehollandiae",
-        "phoenicopterus_roseus"
+        "ringing_longevity"
       ],
-      "traitIds": [
-        "bird_beak_depth",
-        "smallest_adult_mass",
-        "raw_egg_mass",
-        "bird_kipps_distance"
-      ]
-    },
-    {
-      "id": "7a018b0238962e5a",
-      "mode": "normal",
-      "boardType": "cross-animal",
-      "title": "Fur, paws and unexpected company",
-      "animalIds": [
-        "enhydra_lutris",
-        "phascolarctos_cinereus",
-        "macropus_rufus",
-        "ailuropoda_melanoleuca",
-        "bison_bison",
-        "ursus_thibetanus"
-      ],
-      "traitIds": [
-        "shortest_gestation",
-        "maximum_documented_lifespan",
-        "female_maturity",
-        "birth_weight"
-      ]
-    },
-    {
-      "id": "0716c477718e992d",
-      "mode": "normal",
-      "boardType": "cross-animal",
-      "title": "Fur, paws and unexpected company",
-      "animalIds": [
-        "melursus_ursinus",
-        "bison_bison",
-        "loxodonta_africana",
-        "ursus_arctos",
-        "hydrochoerus_hydrochaeris",
-        "macaca_mulatta"
-      ],
-      "traitIds": [
-        "female_maturity",
-        "lightest_newborn",
-        "shortest_gestation",
-        "smallest_adult_mass"
-      ]
-    },
-    {
-      "id": "ebeae751d53834d2",
-      "mode": "normal",
-      "boardType": "cross-animal",
-      "title": "Fur, paws and unexpected company",
-      "animalIds": [
-        "giraffa_camelopardalis",
-        "tremarctos_ornatus",
-        "panthera_leo",
-        "ceratotherium_simum",
-        "macropus_rufus",
-        "ailuropoda_melanoleuca"
-      ],
-      "traitIds": [
-        "raw_birth_mass",
-        "female_maturity",
-        "smallest_adult_mass",
-        "gestation"
-      ]
-    },
-    {
-      "id": "dd9d0eb44980ae2a",
-      "mode": "expert",
-      "boardType": "themed",
-      "title": "Feathers and flight",
-      "animalIds": [
-        "phoenicopterus_roseus",
-        "aptenodytes_patagonicus",
-        "ara_macao",
-        "pelecanus_occidentalis",
-        "aptenodytes_forsteri",
-        "bubo_virginianus",
-        "hirundo_rustica",
-        "phoebastria_immutabilis"
-      ],
-      "traitIds": [
-        "raw_egg_mass",
-        "bird_range_area",
-        "bird_tarsus_length",
-        "bird_beak_width",
-        "bird_kipps_distance",
-        "bird_tail_length"
-      ]
-    },
-    {
-      "id": "cea36506a34555da",
-      "mode": "expert",
-      "boardType": "themed",
-      "title": "Feathers and flight",
-      "animalIds": [
-        "anas_platyrhynchos",
-        "bubo_virginianus",
-        "phoenicopterus_roseus",
-        "struthio_camelus",
-        "pygoscelis_papua",
-        "cardinalis_cardinalis",
-        "haliaeetus_leucocephalus",
-        "pavo_cristatus"
-      ],
-      "traitIds": [
-        "bird_beak_length",
-        "bird_kipps_distance",
-        "bird_tarsus_length",
-        "bird_range_area",
-        "smallest_adult_mass",
-        "bird_tail_length"
-      ]
-    },
-    {
-      "id": "2001c2344abaf6ee",
-      "mode": "expert",
-      "boardType": "themed",
-      "title": "Feathers and flight",
-      "animalIds": [
-        "aptenodytes_patagonicus",
-        "aptenodytes_forsteri",
-        "gallus_gallus",
-        "haliaeetus_leucocephalus",
-        "ara_macao",
-        "anas_platyrhynchos",
-        "pavo_cristatus",
-        "pelecanus_occidentalis"
-      ],
-      "traitIds": [
-        "bird_tarsus_length",
-        "bird_beak_width",
-        "bird_range_area",
-        "bird_tail_length",
-        "bird_wing_length",
-        "bird_mass"
-      ]
-    },
-    {
-      "id": "249cdf3ecc3b83b6",
-      "mode": "expert",
-      "boardType": "cross-animal",
-      "title": "Fur, paws and unexpected company",
-      "animalIds": [
-        "canis_lupus",
-        "melursus_ursinus",
-        "giraffa_camelopardalis",
-        "hydrochoerus_hydrochaeris",
-        "ailuropoda_melanoleuca",
-        "gorilla_gorilla",
-        "pan_troglodytes",
-        "ceratotherium_simum"
-      ],
-      "traitIds": [
-        "interbirth_interval",
-        "gestation",
-        "smallest_adult_mass",
-        "maximum_documented_lifespan",
-        "birth_weight",
-        "earliest_female_maturity"
-      ]
-    },
-    {
-      "id": "5e1a0354f45aa82d",
-      "mode": "expert",
-      "boardType": "cross-animal",
-      "title": "Fur, paws and unexpected company",
-      "animalIds": [
-        "ursus_maritimus",
-        "vulpes_vulpes",
-        "hydrochoerus_hydrochaeris",
-        "pan_troglodytes",
-        "orcinus_orca",
-        "balaenoptera_musculus",
-        "ceratotherium_simum",
-        "phascolarctos_cinereus"
-      ],
-      "traitIds": [
-        "earliest_female_maturity",
-        "weaning_age",
-        "gestation",
-        "lightest_newborn",
-        "interbirth_interval",
-        "adult_body_mass"
-      ]
-    },
-    {
-      "id": "bd450965db1606da",
-      "mode": "expert",
-      "boardType": "cross-animal",
-      "title": "Fur, paws and unexpected company",
-      "animalIds": [
-        "ceratotherium_simum",
-        "panthera_leo",
-        "macaca_mulatta",
-        "melursus_ursinus",
-        "tursiops_truncatus",
-        "hippopotamus_amphibius",
-        "phascolarctos_cinereus",
-        "castor_canadensis"
-      ],
-      "traitIds": [
-        "lightest_newborn",
-        "maximum_documented_lifespan",
-        "gestation",
-        "interbirth_interval",
-        "raw_weaning_age",
-        "smallest_adult_mass"
-      ]
+      "editorial": {
+        "families": [
+          "size",
+          "movement",
+          "range",
+          "longevity"
+        ],
+        "multiTraitContenders": 2,
+        "policy": "distinct-families-v1"
+      }
     }
   ],
   "rejectionReasons": {
     "easy": {
-      "tie or gap under 5%": 623050,
-      "overlapping supplied bounds": 222350
+      "tie or gap under 5%": 372020,
+      "overlapping supplied bounds": 79438
     },
     "normal": {
-      "tie or gap under 5%": 1028746,
-      "overlapping supplied bounds": 227630
+      "tie or gap under 5%": 434718,
+      "overlapping supplied bounds": 38071
     },
     "expert": {
-      "tie or gap under 5%": 8633140,
-      "overlapping supplied bounds": 690733
+      "tie or gap under 5%": 800894,
+      "overlapping supplied bounds": 21876
     }
   }
 }

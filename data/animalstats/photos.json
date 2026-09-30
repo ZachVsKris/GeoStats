@@ -1168,5 +1168,194 @@
     "license": "CC BY 4.0",
     "attribution": "Camilo 24CH / Wikimedia Commons / CC BY 4.0",
     "approved": true
+  },
+  {
+    "animalId": "apus_apus",
+    "assetUrl": "/animalstats/apus_apus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Common_Swift_2025_07_18_02.jpg",
+    "creator": "Alexis Lours",
+    "license": "CC BY 4.0",
+    "attribution": "Alexis Lours / Wikimedia Commons / CC BY 4.0",
+    "approved": true
+  },
+  {
+    "animalId": "anser_anser",
+    "assetUrl": "/animalstats/anser_anser.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Graugans_Anser_Anser.jpg",
+    "creator": "H005, denoised by Pro2",
+    "license": "Public domain",
+    "attribution": "H005, denoised by Pro2 / Wikimedia Commons / Public domain",
+    "approved": true
+  },
+  {
+    "animalId": "ardea_cinerea",
+    "assetUrl": "/animalstats/ardea_cinerea.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Ardea_cinerea_in_flight.jpg",
+    "creator": "Dinkum",
+    "license": "CC0",
+    "attribution": "Dinkum / Wikimedia Commons / CC0",
+    "approved": true
+  },
+  {
+    "animalId": "phalacrocorax_carbo",
+    "assetUrl": "/animalstats/phalacrocorax_carbo.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Phalacrocorax_carbo_(39763297602).jpg",
+    "creator": "Rory from Glasgow, United Kingdom",
+    "license": "CC BY 2.0",
+    "attribution": "Rory from Glasgow, United Kingdom / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "larus_argentatus",
+    "assetUrl": "/animalstats/larus_argentatus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Larus_argentatus,_Vaxholm,_Stockholm,_Sweden_(14923468303).jpg",
+    "creator": "Bengt Nyman from Vaxholm, Sweden",
+    "license": "CC BY 2.0",
+    "attribution": "Bengt Nyman from Vaxholm, Sweden / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "corvus_corone",
+    "assetUrl": "/animalstats/corvus_corone.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Corvus_corone_-near_Canford_Cliffs,_Poole,_England-8.jpg",
+    "creator": "Ian Kirk from Broadstone, Dorset, UK",
+    "license": "CC BY 2.0",
+    "attribution": "Ian Kirk from Broadstone, Dorset, UK / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "erithacus_rubecula",
+    "assetUrl": "/animalstats/erithacus_rubecula.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:European_robin_Cr%C3%A9teil_2.jpg",
+    "creator": "Alexis Lours",
+    "license": "CC BY 4.0",
+    "attribution": "Alexis Lours / Wikimedia Commons / CC BY 4.0",
+    "approved": true
+  },
+  {
+    "animalId": "sturnus_vulgaris",
+    "assetUrl": "/animalstats/sturnus_vulgaris.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Sturnus_vulgaris_-California-8.jpg",
+    "creator": "Ingrid Taylar",
+    "license": "CC BY 2.0",
+    "attribution": "Ingrid Taylar / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "ornithorhynchus_anatinus",
+    "assetUrl": "/animalstats/ornithorhynchus_anatinus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Ornithorhynchus_anatinus_159364023.jpg",
+    "creator": "Tim",
+    "license": "CC BY 4.0",
+    "attribution": "Tim / Wikimedia Commons / CC BY 4.0",
+    "approved": true
+  },
+  {
+    "animalId": "erinaceus_europaeus",
+    "assetUrl": "/animalstats/erinaceus_europaeus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Erinaceus_roumanicus_2020_G2.jpg",
+    "creator": "George Chernilevsky",
+    "license": "Public domain",
+    "attribution": "George Chernilevsky / Wikimedia Commons / Public domain",
+    "approved": true
+  },
+  {
+    "animalId": "didelphis_marsupialis",
+    "assetUrl": "/animalstats/didelphis_marsupialis.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Rabipelao2.jpg",
+    "creator": "Rabipelao.jpg: Juan Tello\nderivative work: WolfmanSF (talk)",
+    "license": "CC BY 2.0",
+    "attribution": "Rabipelao.jpg: Juan Tello\nderivative work: WolfmanSF (talk) / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "tupaia_glis",
+    "assetUrl": "/animalstats/tupaia_glis.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Tupaia_glis_306726877.jpg",
+    "creator": "Wich'yanan L",
+    "license": "CC BY 4.0",
+    "attribution": "Wich'yanan L / Wikimedia Commons / CC BY 4.0",
+    "approved": true
+  },
+  {
+    "animalId": "cavia_porcellus",
+    "assetUrl": "/animalstats/cavia_porcellus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Guinea_pig_front_view.jpg",
+    "creator": "Answermeplease11",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Answermeplease11 / Wikimedia Commons / CC BY-SA 4.0",
+    "approved": true
+  },
+  {
+    "animalId": "columba_palumbus",
+    "assetUrl": "/animalstats/columba_palumbus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Columba_palumbus_-garden_post-8.jpg",
+    "creator": "Tristan Ferne from UK",
+    "license": "CC BY 2.0",
+    "attribution": "Tristan Ferne from UK / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "alauda_arvensis",
+    "assetUrl": "/animalstats/alauda_arvensis.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Skylark_(43703065805).jpg",
+    "creator": "Mike Prince from Bangalore, India",
+    "license": "CC BY 2.0",
+    "attribution": "Mike Prince from Bangalore, India / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "corvus_frugilegus",
+    "assetUrl": "/animalstats/corvus_frugilegus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Corvus_frugilegus_pastinator,_Gunsan,_South_Korea_1.jpg",
+    "creator": "Kim Hyun-tae",
+    "license": "CC BY 4.0",
+    "attribution": "Kim Hyun-tae / Wikimedia Commons / CC BY 4.0",
+    "approved": true
+  },
+  {
+    "animalId": "somateria_mollissima",
+    "assetUrl": "/animalstats/somateria_mollissima.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Common_eider_barnegat_sp_11.27.24_DSC_6914-topaz-rawdenoise.jpg",
+    "creator": "lwolfartist",
+    "license": "CC BY 2.0",
+    "attribution": "lwolfartist / Wikimedia Commons / CC BY 2.0",
+    "approved": true
+  },
+  {
+    "animalId": "vanellus_vanellus",
+    "assetUrl": "/animalstats/vanellus_vanellus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Northern_lapwing_2025_09_27_02.jpg",
+    "creator": "Alexis Lours",
+    "license": "CC BY 4.0",
+    "attribution": "Alexis Lours / Wikimedia Commons / CC BY 4.0",
+    "approved": true
+  },
+  {
+    "animalId": "haematopus_ostralegus",
+    "assetUrl": "/animalstats/haematopus_ostralegus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Austernfischer_an_einem_Strand_von_Walcheren,_Niederlande_08.jpg",
+    "creator": "Stephan Sprinz",
+    "license": "CC BY 4.0",
+    "attribution": "Stephan Sprinz / Wikimedia Commons / CC BY 4.0",
+    "approved": true
+  },
+  {
+    "animalId": "sterna_hirundo",
+    "assetUrl": "/animalstats/sterna_hirundo.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Common_tern_2025_07_08_08.jpg",
+    "creator": "Alexis Lours",
+    "license": "CC BY 4.0",
+    "attribution": "Alexis Lours / Wikimedia Commons / CC BY 4.0",
+    "approved": true
+  },
+  {
+    "animalId": "larus_ridibundus",
+    "assetUrl": "/animalstats/larus_ridibundus.jpg",
+    "originalUrl": "https://commons.wikimedia.org/wiki/File:Black-headed_gull_breeding_plumage.jpg",
+    "creator": "Alexis Lours",
+    "license": "CC BY 4.0",
+    "attribution": "Alexis Lours / Wikimedia Commons / CC BY 4.0",
+    "approved": true
   }
 ]

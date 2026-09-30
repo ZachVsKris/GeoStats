@@ -39,7 +39,7 @@ def main():
  selected=[r for r in raw if r['genus']+' '+r['species'] in animals and r['subspecies'] in ['-999','','NA']]
  # Keep the raw supporting rows available for direct source review.
  with (OUT/'source/amniote-selected-raw.csv').open('w') as f:
-  writer=csv.DictWriter(f,fieldnames=list(raw[0]));writer.writeheader();writer.writerows(selected)
+  writer=csv.DictWriter(f,fieldnames=list(raw[0]),lineterminator="\n");writer.writeheader();writer.writerows(selected)
  if not any(s['id']=='amniote-raw-2015' for s in d['sources']):d['sources'].append(dict(id='amniote-raw-2015',name='Amniote life-history database, exact-species raw records',sourceClass='curated-trait-database',url='https://doi.org/10.6084/m9.figshare.3563457.v1',versionYear='August 2015 raw release',retrievedAt='2026-09-29',license='CC0; cite Myhrvold et al. 2015'))
  d['values']=[v for v in d['values'] if v['sourceId']!='amniote-raw-2015'];d['traits']=[t for t in d['traits'] if t['canonicalSourceId']!='amniote-raw-2015']
  rows_by_species=collections.defaultdict(list)

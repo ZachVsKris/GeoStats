@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { animalRegionLabel } from "../lib/animalstatsRegions";
 import { randomAnimalBoardIndex } from "../lib/animalstatsVariety";
 import { CATLogo, CATMascot } from "./CATBrand";
 import { ROUND_CONFIGS, type DailyDifficulty } from "../lib/gameRules";
@@ -20,6 +21,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
   const [view, setView] = useState<"play" | "stats" | "guide">("play");
   const [guideSearch, setGuideSearch] = useState("");
   const [guideGroup, setGuideGroup] = useState("all");
+  const [guideRegion, setGuideRegion] = useState("all");
   const [playKind, setPlayKind] = useState<"daily" | "random">("random");
   const [signedIn, setSignedIn] = useState(false);
   const [accountMessage, setAccountMessage] = useState("");
@@ -58,6 +60,9 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
   const sourceMap = useMemo(() => new Map(data.sources.map((source) => [source.id, source])), [data.sources]);
   const config = ROUND_CONFIGS[mode];
   const stats = animalStats(history, mode);
+  const playableTraitIds = useMemo(() => new Set(boards.flatMap((candidate) => candidate.traitIds)), [boards]);
+  const pairedMetrics = useMemo(() => data.traits.filter((trait) => playableTraitIds.has(trait.id) && trait.direction === "higher_wins"), [data.traits, playableTraitIds]);
+
 
   function switchBoard(nextMode: DailyDifficulty, index = 0) {
     setMode(nextMode);
@@ -148,7 +153,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
         <div className="animalBrandRow"><a href="/cat" className="animalBrandLink" aria-label="Countries, Animals & Things"><CATLogo compact /><span><b className="catCountryColor">C</b>ountries, <b className="catAnimalColor">A</b>nimals &amp; <b className="catThingColor">T</b>hings</span></a><CATMascot pleased={submitted} /></div>
         <div className="animalEyebrow">THE LIVING WORLD / FIELD NOTES</div>
         <h1>AnimalStats</h1>
-        <p>Match each animal to the trait where it ranks strongest. Use every animal at most once.</p>
+        <p>Big questions. Curious details. Match each animal to the category where it comes first.</p>
       </header>
       <nav className="catWorldNav" aria-label="Worlds"><a href="/daily">Countries</a><a href="/animals" aria-current="page">Animals</a><a href="/cat#things">Things</a></nav>
       <nav className="animalPlayNav" aria-label="AnimalStats play">
@@ -164,12 +169,12 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
         </button>)}
       </nav>
       {view === "guide" ? <section className="animalGuide" aria-label="Animal field guide">
-        <h2>The collection</h2><p>{data.animals.length} animals · {data.traits.length} traits · {data.values.length} sourced measurements. Data coverage varies; an animal enters a board only when every required comparison and photo passes validation.</p>
-        <div className="animalGuideFilters"><label>Find an animal<input type="search" value={guideSearch} onChange={(event) => setGuideSearch(event.target.value)} placeholder="Frog, shark, bear…" /></label><label>Animal group<select value={guideGroup} onChange={(event) => setGuideGroup(event.target.value)}><option value="all">All groups</option>{[...new Set(data.animals.map((animal) => animal.taxonomicGroup))].sort().map((group) => <option key={group} value={group}>{group.replaceAll("-", " ")}</option>)}</select></label></div>
-        <div className="animalGuideGrid">{data.animals.filter((animal) => (guideGroup === "all" || animal.taxonomicGroup === guideGroup) && `${animal.commonName} ${animal.scientificName}`.toLowerCase().includes(guideSearch.toLowerCase())).map((animal) => {
-          const photo = photoMap.get(animal.id); const observations = data.values.filter((value) => value.animalId === animal.id);
+        <h2>The collection</h2><details className="animalCategoryCatalog"><summary>The questions: {pairedMetrics.length} measured category pairs</summary><p>Every question has an opposite. Opposites use the same data and appear on separate boards. These comparisons apply to the animals on your board.</p><div>{pairedMetrics.map((trait) => <p key={trait.id}><b>{trait.displayName} ↔ {traitMap.get(trait.counterTraitId ?? "")?.displayName}</b><small>{trait.categoryKind === "intuitive" ? "Big question" : "Curious detail"} · {trait.playerHint ?? trait.definition}</small></p>)}</div></details><p>{data.animals.length} animals · {data.traits.filter((trait) => trait.prototypeCategory).length / 2} paired metrics · {data.values.length} sourced measurements. Data coverage varies; an animal enters a board only when every required comparison and photo passes validation.</p>
+        <div className="animalGuideFilters"><label>Find an animal<input type="search" value={guideSearch} onChange={(event) => setGuideSearch(event.target.value)} placeholder="Frog, shark, bear…" /></label><label>Animal group<select value={guideGroup} onChange={(event) => setGuideGroup(event.target.value)}><option value="all">All groups</option>{[...new Set(data.animals.map((animal) => animal.taxonomicGroup))].sort().map((group) => <option key={group} value={group}>{group.replaceAll("-", " ")}</option>)}</select></label><label>World region<select value={guideRegion} onChange={(event) => setGuideRegion(event.target.value)}><option value="all">All regions</option>{[...new Set(data.animals.flatMap((animal) => animal.biogeographicRegions ?? []))].sort().map((region) => <option key={region} value={region}>{animalRegionLabel(region)}</option>)}</select></label></div>
+        <div className="animalGuideGrid">{data.animals.filter((animal) => (guideGroup === "all" || animal.taxonomicGroup === guideGroup) && (guideRegion === "all" || animal.biogeographicRegions?.includes(guideRegion)) && `${animal.commonName} ${animal.scientificName}`.toLowerCase().includes(guideSearch.toLowerCase())).map((animal) => {
+          const photo = photoMap.get(animal.id); const observations = data.values.filter((value) => value.animalId === animal.id && traitMap.get(value.traitId)?.prototypeCategory && traitMap.get(value.traitId)?.direction === "higher_wins");
           return <article key={animal.id} className="animalGuideCard"><div className="animalGuideName">{photo?.approved ? <img src={photo.assetUrl} alt="" /> : <span className="animalGuidePlaceholder" aria-hidden="true">?</span>}<div><h3>{animal.commonName}</h3><em>{animal.scientificName}</em><small>{animal.taxonomicGroup.replaceAll("-", " ")} · {observations.length} measurements</small></div></div>
-            <details><summary>Measurements and sources</summary>{observations.length ? observations.map((value) => { const trait = traitMap.get(value.traitId)!; const source = sourceMap.get(value.sourceId)!; return <div key={value.traitId} className="animalGuideMeasurement"><strong>{trait.displayName}: {formatValue(value.valueNumeric, value.unit)}</strong><p>{trait.definition}</p><p><a href={source.url} target="_blank" rel="noreferrer">{source.name}</a> · {source.versionYear}</p><p>{value.notes}</p></div>; }) : <p>No eligible measurements in the pinned sources yet.</p>}</details></article>;
+            <p className="animalRegionNote">{animal.biogeographicRegions?.length ? <a href={animal.regionSourceUrl} target="_blank" rel="noreferrer">ADW regions: {animal.biogeographicRegions.map(animalRegionLabel).join(" · ")}</a> : "Region account pending"}</p><details><summary>Measurements and sources</summary>{observations.length ? observations.map((value) => { const trait = traitMap.get(value.traitId)!; const source = sourceMap.get(value.sourceId)!; return <div key={value.traitId} className="animalGuideMeasurement"><strong>{trait.displayName}: {formatValue(value.valueNumeric, value.unit)}</strong><p>{trait.definition}</p><p><a href={source.url} target="_blank" rel="noreferrer">{source.name}</a> · {source.versionYear}</p><p>{value.notes}</p></div>; }) : <p>No eligible measurements in the pinned sources yet.</p>}</details></article>;
         })}</div>
       </section> : view === "stats" ? <section className="animalHistory" aria-label="AnimalStats personal stats">
         <h2>Your {config.label} field notes</h2><p>{signedIn ? "AnimalStats account results. Countries scores are tracked separately." : "AnimalStats results saved on this device. Countries scores are tracked separately."} Your first completion of each board per day counts.</p>
@@ -185,6 +190,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
           <h2>{submitted ? "Your results" : board.title ?? "Make your matches"}</h2></div>
         <button type="button" className="animalNext" onClick={nextBoard}>Another board →</button>
       </div>
+      <div className="animalBoardRecipe"><span>{board.traitIds.length / 2} big questions</span><span>{board.traitIds.length / 2} curious details</span><span>Different winner in every slot</span></div>
       <p className="animalPilotNote">{playKind === "daily" ? `Reviewed daily board · ${date}` : "Playtest board · source review pending."} <a href="/animals/review">Comparison review</a></p>
       {!submitted && <>
         <div className="animalToolbar"><p className="animalInstruction">Each trait has a different winner. An animal can fill only one slot. Click or drag to place.</p>
@@ -198,7 +204,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
             const animal = animalMap.get(assignments[id]);
             return <button type="button" key={id} data-trait-id={id} className={`animalTrait ${selectedTrait === id || dropTarget === id ? "selected" : ""}`}
               aria-pressed={selectedTrait === id} onClick={() => selectedAnimal ? assign(id, selectedAnimal) : setSelectedTrait(selectedTrait === id ? null : id)}>
-              <span className="animalTraitFamily">{({size:"Size",longevity:"Lifetime",development:"Development",offspring:"Family size",maturity:"Growing up",care:"Parental care",breeding:"Breeding",movement:"Movement",sleep:"Sleep",space:"Home range",anatomy:"Anatomy",range:"Habitat","offspring-size":"Small beginnings"} as Record<string,string>)[trait.gameplayFamily ?? ""] ?? "Field note"}</span><span className="animalTraitName">{trait.displayName}</span>
+              <span className="animalTraitFamily"><b className={`animalCategoryKind ${trait.categoryKind}`}>{trait.categoryKind === "intuitive" ? "Big question" : "Curious detail"}</b> · {({size:"Size",longevity:"Lifetime",development:"Development",offspring:"Family size",maturity:"Growing up",care:"Parental care",breeding:"Breeding",movement:"Movement",sleep:"Sleep",space:"Home range",anatomy:"Anatomy",range:"Habitat","offspring-size":"Small beginnings"} as Record<string,string>)[trait.gameplayFamily ?? ""] ?? "Field note"}</span><span className="animalTraitName">{trait.displayName}</span>
               <span className="animalTraitDefinition">{trait.playerHint ?? trait.definition}</span>
               <span className="animalTraitChoice">{animal ? animal.commonName : "Place an animal here"}</span>
             </button>;

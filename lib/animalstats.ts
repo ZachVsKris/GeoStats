@@ -11,6 +11,8 @@ export type Animal = {
   parentTaxon?: string;
   familiarityTier: "core" | "familiar" | "edge";
   active: boolean;
+  biogeographicRegions?: string[];
+  regionSourceUrl?: string;
 };
 
 export type Source = {
@@ -38,6 +40,10 @@ export type Trait = {
   displayName: string;
   gameplayFamily?: string;
   playerHint?: string;
+  prototypeCategory?: boolean;
+  categoryKind?: "intuitive" | "specialist";
+  metricKey?: string;
+  counterTraitId?: string;
   definition: string;
   direction: "higher_wins" | "lower_wins";
   unit: string;
@@ -84,6 +90,7 @@ export type BoardCandidate = {
   animalIds: string[];
   traitIds: string[];
   reviewLabel?: ReviewLabel;
+  biogeographicRegions?: string[];
   editorial?: { families: string[]; multiTraitContenders: number; policy: string };
 };
 
@@ -119,6 +126,10 @@ export function validateAnimalDataset(data: AnimalDataset): string[] {
     if (!sources.has(trait.canonicalSourceId) || ![trait.displayName, trait.definition, trait.unit, trait.measurementBasis].every(present))
       reasons.push(`trait ${trait.id}: incomplete definition or canonical source`);
   }
+  for (const trait of data.traits.filter((item) => item.prototypeCategory)) {
+    const counter = traits.get(trait.counterTraitId ?? "");
+    if (!counter?.prototypeCategory || counter.counterTraitId !== trait.id || counter.direction === trait.direction || counter.metricKey !== trait.metricKey || counter.measurementBasis !== trait.measurementBasis || counter.canonicalSourceId !== trait.canonicalSourceId) reasons.push(`trait ${trait.id}: invalid counter category`);
+  }
   for (const photo of data.photos) {
     if (!animals.has(photo.animalId) || ![photo.assetUrl, photo.originalUrl, photo.creator, photo.license, photo.attribution].every(present))
       reasons.push(`photo ${photo.animalId}: incomplete attribution or animal`);
@@ -149,9 +160,15 @@ export function validateAnimalBoard(data: AnimalDataset, board: BoardCandidate):
   if (relatedTraits.some((concept) => board.traitIds.filter((id) => concept.includes(id)).length > 1)) reasons.push("closely related traits on the same board");
   if (board.animalIds.length !== config.countryCount || !unique(board.animalIds)) reasons.push("wrong or duplicate animal count");
   if (board.traitIds.length !== config.categoryCount || !unique(board.traitIds)) reasons.push("wrong or duplicate trait count");
+  const balanced = board.editorial?.policy === "balanced-paired-distinct-winners-v4";
+  const categories = board.traitIds.map((id) => data.traits.find((trait) => trait.id === id));
+  if (balanced) {
+    if (categories.some((trait) => !trait?.prototypeCategory || !trait.counterTraitId || !trait.metricKey) || categories.filter((trait) => trait?.categoryKind === "intuitive").length !== board.traitIds.length / 2 || categories.filter((trait) => trait?.categoryKind === "specialist").length !== board.traitIds.length / 2) reasons.push("board must have equal intuitive and specialist categories");
+    if (new Set(categories.map((trait) => trait?.metricKey)).size !== categories.length) reasons.push("repeated metric or opposite categories on the same board");
+  }
   const families = board.traitIds.map((id) => data.traits.find((trait) => trait.id === id)?.gameplayFamily);
-  if (families.some((family) => !family) || families.some((family) => families.filter((item) => item === family).length > (board.mode === "expert" && family === "anatomy" ? 2 : 1)) || new Set(families).size < families.length - (board.mode === "expert" ? 1 : 0)) reasons.push("repeated or unclassified gameplay family");
-  if (!families.some((family) => ["movement", "sleep", "space", "development", "offspring", "maturity", "care", "breeding"].includes(family ?? ""))) reasons.push("board lacks a distinctive behavior or performance trait");
+  if (!balanced && (families.some((family) => !family) || families.some((family) => families.filter((item) => item === family).length > (board.mode === "expert" && family === "anatomy" ? 2 : 1)) || new Set(families).size < families.length - (board.mode === "expert" ? 1 : 0))) reasons.push("repeated or unclassified gameplay family");
+  if (!balanced && !families.some((family) => ["movement", "sleep", "space", "development", "offspring", "maturity", "care", "breeding"].includes(family ?? ""))) reasons.push("board lacks a distinctive behavior or performance trait");
   const animalMap = new Map(data.animals.map((item) => [item.id, item]));
   const traitMap = new Map(data.traits.map((item) => [item.id, item]));
   const sourceMap = new Map(data.sources.map((item) => [item.id, item]));
@@ -210,7 +227,7 @@ export function validateAnimalBoard(data: AnimalDataset, board: BoardCandidate):
     for (let i = 0; i < rankVectors.length; i++) for (let j = i + 1; j < rankVectors.length; j++) {
       const n = board.animalIds.length;
       const correlation = 1 - 6 * rankVectors[i].reduce((sum, rank, index) => sum + (rank - rankVectors[j][index]) ** 2, 0) / (n * (n ** 2 - 1));
-      if (families[i] === "anatomy" && families[j] === "anatomy" && Math.abs(correlation) > .7) reasons.push("anatomy traits follow the same ordering");
+      if (!balanced && families[i] === "anatomy" && families[j] === "anatomy" && Math.abs(correlation) > .7) reasons.push("anatomy traits follow the same ordering");
       if (Math.abs(correlation) > .9) reasons.push("traits have nearly identical or reversed rankings");
     }
     const contenders = board.animalIds.filter((_, index) => rankVectors.filter((ranks) => ranks[index] <= 2).length >= 2).length;

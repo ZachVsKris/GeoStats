@@ -18,5 +18,8 @@ export default function AnimalStatsPage() {
   const data = dataset as AnimalDataset;
   const boards = (candidates.boards as BoardCandidate[]).filter((board) => validateAnimalBoard(data, board).valid);
   if (!boards.length) notFound();
-  return <AnimalStatsGame data={data} boards={orderAnimalPilotBoards(boards, newYorkDate(), data)} approvedBoardIds={approvedAnimalBoards(data, boards, reviews as AnimalBoardReview[]).map((board) => board.id!)} date={newYorkDate()} />;
+  const pairedTraits = data.traits.filter((trait) => trait.prototypeCategory);
+  const pairedIds = new Set(pairedTraits.map((trait) => trait.id));
+  const clientData = { ...data, traits: pairedTraits, values: data.values.filter((row) => pairedIds.has(row.traitId)) };
+  return <AnimalStatsGame data={clientData} boards={orderAnimalPilotBoards(boards, newYorkDate(), data)} approvedBoardIds={approvedAnimalBoards(data, boards, reviews as AnimalBoardReview[]).map((board) => board.id!)} date={newYorkDate()} />;
 }

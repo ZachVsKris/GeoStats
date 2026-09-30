@@ -185,3 +185,27 @@ test("variety picker rotates groups and opening boards avoid paired bird themes"
   expect(first.filter((group)=>group === "birds").length).toBeLessThanOrEqual(1);
  }
 });
+
+test("new prototype balances categories and mirrors measured values exactly", () => {
+ const data = animalDataset as AnimalDataset;
+ const traits = new Map(data.traits.map(t => [t.id, t]));
+ for (const trait of data.traits.filter(t => t.prototypeCategory)) {
+  const counter = traits.get(trait.counterTraitId!);
+  expect(counter?.counterTraitId).toBe(trait.id);
+  expect(counter?.direction).not.toBe(trait.direction);
+  expect(counter?.measurementBasis).toBe(trait.measurementBasis);
+  const original = data.values.filter(v => v.traitId === trait.id).map(({ traitId, ...v }) => v);
+  const mirrored = data.values.filter(v => v.traitId === counter!.id).map(({ traitId, ...v }) => v);
+  expect(mirrored).toEqual(original);
+ }
+ const used = new Set((candidateData.boards as BoardCandidate[]).flatMap(board => board.traitIds));
+ for (const id of used) expect(used.has(traits.get(id)!.counterTraitId!)).toBe(true);
+ for (const board of candidateData.boards as BoardCandidate[]) {
+  const categories = board.traitIds.map(id => traits.get(id)!);
+  expect(categories.filter(t => t.categoryKind === "intuitive")).toHaveLength(categories.length / 2);
+  expect(categories.filter(t => t.categoryKind === "specialist")).toHaveLength(categories.length / 2);
+  expect(new Set(categories.map(t => t.metricKey)).size).toBe(categories.length);
+  expect(categories.filter(t => t.metricKey === "reproduction").length).toBeLessThanOrEqual(1);
+  expect(validateAnimalBoard(data, board).valid).toBe(true);
+ }
+});

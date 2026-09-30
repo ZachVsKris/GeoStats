@@ -23,7 +23,8 @@ export function orderAnimalPilotBoards(boards: BoardCandidate[], date: string, d
     const subject = SUBJECTS[mode][day % SUBJECTS[mode].length];
     const targeted = data ? pool.filter((board) => animalBoardGroup(data, board) === subject) : [];
     const diverse = data ? pool.filter((board) => !usedGroups.has(animalBoardGroup(data, board))) : pool;
-    const preferred = targeted.length ? targeted : diverse.length ? diverse : pool;
+    const nonBirds = data ? pool.filter((board) => animalBoardGroup(data, board) !== "birds") : [];
+    const preferred = mode === "easy" && nonBirds.length ? nonBirds : targeted.length ? targeted : diverse.length ? diverse : pool;
     const options = preferred.filter((board) => board.boardType === desiredType);
     const behaviorBoards = mode === "easy" && data ? preferred.filter((board) => board.traitIds.some((id) => ["movement","sleep","space"].includes(data.traits.find((trait) => trait.id === id)?.gameplayFamily ?? ""))) : [];
     const selectionPool = behaviorBoards.length ? behaviorBoards : options.length ? options : preferred;

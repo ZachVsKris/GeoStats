@@ -25,7 +25,18 @@ export function randomAnimalBoardIndex(data: AnimalDataset, pool: BoardCandidate
   const alternatives = [...grouped.keys()].filter((group) => group !== currentGroup);
   const groups = alternatives.length ? alternatives : [...grouped.keys()];
   const group = groups[Math.floor(random() * groups.length)];
-  const choices = grouped.get(group)!.filter((index) => pool[index] !== current);
+  const currentLineup = current?.animalIds.slice().sort().join(",");
+  const choices = grouped.get(group)!.filter((index) => pool[index].animalIds.slice().sort().join(",") !== currentLineup);
   const available = choices.length ? choices : grouped.get(group)!;
+  const currentRegions = new Set(current?.biogeographicRegions ?? []);
+  const regionCounts = new Map<string, number>();
+  available.forEach(index => pool[index].biogeographicRegions?.forEach(region => regionCounts.set(region, (regionCounts.get(region) ?? 0) + 1)));
+  const freshRegions = [...regionCounts.keys()].filter(region => !currentRegions.has(region));
+  if (freshRegions.length) {
+    // Give regions equal chances rather than rewarding plentiful European study records.
+    const region = freshRegions[Math.floor(random() * freshRegions.length)];
+    const regional = available.filter(index => pool[index].biogeographicRegions?.includes(region));
+    return regional[Math.floor(random() * regional.length)];
+  }
   return available[Math.floor(random() * available.length)];
 }

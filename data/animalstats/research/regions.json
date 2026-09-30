@@ -1,0 +1,1243 @@
+{
+  "panthera_leo": {
+    "labels": [
+      "palearctic",
+      "oriental",
+      "ethiopian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Panthera_leo/",
+    "retrievedAt": "2026-09-30"
+  },
+  "panthera_tigris": {
+    "labels": [
+      "palearctic",
+      "oriental"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Panthera_tigris/",
+    "retrievedAt": "2026-09-30"
+  },
+  "panthera_pardus": {
+    "labels": [
+      "palearctic",
+      "oriental",
+      "ethiopian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Panthera_pardus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "acinonyx_jubatus": {
+    "labels": [
+      "palearctic",
+      "oriental",
+      "ethiopian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Acinonyx_jubatus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "canis_lupus": {
+    "labels": [
+      "nearctic",
+      "palearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Canis_lupus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "vulpes_vulpes": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "neotropical",
+      "australian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Vulpes_vulpes/",
+    "retrievedAt": "2026-09-30"
+  },
+  "ursus_maritimus": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "arctic ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Ursus_maritimus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "ursus_arctos": {
+    "labels": [
+      "nearctic",
+      "palearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Ursus_arctos/",
+    "retrievedAt": "2026-09-30"
+  },
+  "ursus_americanus": {
+    "labels": [
+      "nearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Ursus_americanus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "ailuropoda_melanoleuca": {
+    "labels": [
+      "oriental"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Ailuropoda_melanoleuca/",
+    "retrievedAt": "2026-09-30"
+  },
+  "loxodonta_africana": {
+    "labels": [
+      "ethiopian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Loxodonta_africana/",
+    "retrievedAt": "2026-09-30"
+  },
+  "giraffa_camelopardalis": {
+    "labels": [
+      "ethiopian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Giraffa_camelopardalis/",
+    "retrievedAt": "2026-09-30"
+  },
+  "hippopotamus_amphibius": {
+    "labels": [
+      "ethiopian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Hippopotamus_amphibius/",
+    "retrievedAt": "2026-09-30"
+  },
+  "ceratotherium_simum": {
+    "labels": [
+      "ethiopian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Ceratotherium_simum/",
+    "retrievedAt": "2026-09-30"
+  },
+  "bison_bison": {
+    "labels": [
+      "nearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Bison_bison/",
+    "retrievedAt": "2026-09-30"
+  },
+  "equus_quagga": {
+    "labels": [
+      "neotropical"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Equus_quagga/",
+    "retrievedAt": "2026-09-30"
+  },
+  "equus_asinus": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "oriental",
+      "ethiopian",
+      "neotropical",
+      "australian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Equus_asinus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "gorilla_gorilla": {
+    "labels": [
+      "ethiopian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Gorilla_gorilla/",
+    "retrievedAt": "2026-09-30"
+  },
+  "pan_troglodytes": {
+    "labels": [
+      "ethiopian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Pan_troglodytes/",
+    "retrievedAt": "2026-09-30"
+  },
+  "pongo_pygmaeus": {
+    "labels": [
+      "oriental"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Pongo_pygmaeus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "macaca_mulatta": {
+    "labels": [
+      "palearctic",
+      "oriental"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Macaca_mulatta/",
+    "retrievedAt": "2026-09-30"
+  },
+  "phascolarctos_cinereus": {
+    "labels": [
+      "australian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Phascolarctos_cinereus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "macropus_rufus": {
+    "labels": [
+      "australian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Macropus_rufus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "hydrochoerus_hydrochaeris": {
+    "labels": [
+      "neotropical"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Hydrochoerus_hydrochaeris/",
+    "retrievedAt": "2026-09-30"
+  },
+  "castor_canadensis": {
+    "labels": [
+      "nearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Castor_canadensis/",
+    "retrievedAt": "2026-09-30"
+  },
+  "enhydra_lutris": {
+    "labels": [
+      "nearctic",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Enhydra_lutris/",
+    "retrievedAt": "2026-09-30"
+  },
+  "tursiops_truncatus": {
+    "labels": [
+      "atlantic ocean",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Tursiops_truncatus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "orcinus_orca": {
+    "labels": [
+      "arctic ocean",
+      "atlantic ocean",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Orcinus_orca/",
+    "retrievedAt": "2026-09-30"
+  },
+  "balaenoptera_musculus": {
+    "labels": [
+      "arctic ocean",
+      "atlantic ocean",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Balaenoptera_musculus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "megaptera_novaeangliae": {
+    "labels": [
+      "arctic ocean",
+      "atlantic ocean",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Megaptera_novaeangliae/",
+    "retrievedAt": "2026-09-30"
+  },
+  "aquila_chrysaetos": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "ethiopian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Aquila_chrysaetos/",
+    "retrievedAt": "2026-09-30"
+  },
+  "haliaeetus_leucocephalus": {
+    "labels": [
+      "nearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Haliaeetus_leucocephalus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "anas_platyrhynchos": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "oriental",
+      "ethiopian",
+      "neotropical",
+      "australian",
+      "oceanic islands"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Anas_platyrhynchos/",
+    "retrievedAt": "2026-09-30"
+  },
+  "cygnus_olor": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "ethiopian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Cygnus_olor/",
+    "retrievedAt": "2026-09-30"
+  },
+  "columba_livia": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "oriental",
+      "ethiopian",
+      "neotropical",
+      "australian",
+      "oceanic islands"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Columba_livia/",
+    "retrievedAt": "2026-09-30"
+  },
+  "falco_peregrinus": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "oriental",
+      "ethiopian",
+      "neotropical",
+      "australian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Falco_peregrinus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "gallus_gallus": {
+    "labels": [
+      "oriental"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Gallus_gallus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "pavo_cristatus": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "oriental",
+      "ethiopian",
+      "neotropical",
+      "australian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Pavo_cristatus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "cardinalis_cardinalis": {
+    "labels": [
+      "nearctic",
+      "neotropical"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Cardinalis_cardinalis/",
+    "retrievedAt": "2026-09-30"
+  },
+  "corvus_corax": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "oriental",
+      "neotropical"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Corvus_corax/",
+    "retrievedAt": "2026-09-30"
+  },
+  "hirundo_rustica": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "oriental",
+      "neotropical"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Hirundo_rustica/",
+    "retrievedAt": "2026-09-30"
+  },
+  "pelecanus_occidentalis": {
+    "labels": [
+      "nearctic",
+      "neotropical"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Pelecanus_occidentalis/",
+    "retrievedAt": "2026-09-30"
+  },
+  "phoenicopterus_roseus": {
+    "labels": [
+      "palearctic",
+      "oriental",
+      "ethiopian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Phoenicopterus_roseus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "ramphastos_toco": {
+    "labels": [
+      "neotropical"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Ramphastos_toco/",
+    "retrievedAt": "2026-09-30"
+  },
+  "diomedea_exulans": {
+    "labels": [
+      "oceanic islands",
+      "atlantic ocean",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Diomedea_exulans/",
+    "retrievedAt": "2026-09-30"
+  },
+  "phoebastria_immutabilis": {
+    "labels": [
+      "oceanic islands",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Phoebastria_immutabilis/",
+    "retrievedAt": "2026-09-30"
+  },
+  "cacatua_galerita": {
+    "labels": [
+      "australian",
+      "oceanic islands"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Cacatua_galerita/",
+    "retrievedAt": "2026-09-30"
+  },
+  "ara_macao": {
+    "labels": [
+      "nearctic",
+      "neotropical"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Ara_macao/",
+    "retrievedAt": "2026-09-30"
+  },
+  "aptenodytes_forsteri": {
+    "labels": [
+      "antarctica"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Aptenodytes_forsteri/",
+    "retrievedAt": "2026-09-30"
+  },
+  "aptenodytes_patagonicus": {
+    "labels": [
+      "antarctica",
+      "oceanic islands"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Aptenodytes_patagonicus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "eudyptula_minor": {
+    "labels": [
+      "australian",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Eudyptula_minor/",
+    "retrievedAt": "2026-09-30"
+  },
+  "pygoscelis_adeliae": {
+    "labels": [
+      "antarctica"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Pygoscelis_adeliae/",
+    "retrievedAt": "2026-09-30"
+  },
+  "pygoscelis_papua": {
+    "labels": [
+      "antarctica"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Pygoscelis_papua/",
+    "retrievedAt": "2026-09-30"
+  },
+  "spheniscus_demersus": {
+    "labels": [
+      "ethiopian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Spheniscus_demersus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "bubo_virginianus": {
+    "labels": [
+      "nearctic",
+      "neotropical"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Bubo_virginianus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "tyto_alba": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "oriental",
+      "ethiopian",
+      "neotropical",
+      "australian",
+      "oceanic islands"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Tyto_alba/",
+    "retrievedAt": "2026-09-30"
+  },
+  "dromaius_novaehollandiae": {
+    "labels": [
+      "australian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Dromaius_novaehollandiae/",
+    "retrievedAt": "2026-09-30"
+  },
+  "struthio_camelus": {
+    "labels": [
+      "ethiopian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Struthio_camelus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "alligator_mississippiensis": {
+    "labels": [
+      "nearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Alligator_mississippiensis/",
+    "retrievedAt": "2026-09-30"
+  },
+  "crocodylus_niloticus": {
+    "labels": [],
+    "sourceUrl": "https://animaldiversity.org/accounts/Crocodylus_niloticus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "crocodylus_acutus": {
+    "labels": [
+      "nearctic",
+      "neotropical"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Crocodylus_acutus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "gavialis_gangeticus": {
+    "labels": [
+      "oriental"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Gavialis_gangeticus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "osteolaemus_tetraspis": {
+    "labels": [],
+    "sourceUrl": "https://animaldiversity.org/accounts/Osteolaemus_tetraspis/",
+    "retrievedAt": "2026-09-30"
+  },
+  "boa_constrictor": {
+    "labels": [
+      "nearctic",
+      "neotropical"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Boa_constrictor/",
+    "retrievedAt": "2026-09-30"
+  },
+  "eunectes_murinus": {
+    "labels": [
+      "nearctic",
+      "neotropical"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Eunectes_murinus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "python_regius": {
+    "labels": [
+      "ethiopian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Python_regius/",
+    "retrievedAt": "2026-09-30"
+  },
+  "python_molurus": {
+    "labels": [
+      "nearctic",
+      "oriental"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Python_molurus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "elaphe_guttata": {
+    "labels": [],
+    "sourceUrl": "https://animaldiversity.org/accounts/Elaphe_guttata/",
+    "retrievedAt": "2026-09-30"
+  },
+  "crotalus_atrox": {
+    "labels": [
+      "nearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Crotalus_atrox/",
+    "retrievedAt": "2026-09-30"
+  },
+  "agkistrodon_contortrix": {
+    "labels": [
+      "nearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Agkistrodon_contortrix/",
+    "retrievedAt": "2026-09-30"
+  },
+  "eublepharis_macularius": {
+    "labels": [
+      "palearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Eublepharis_macularius/",
+    "retrievedAt": "2026-09-30"
+  },
+  "sphenodon_punctatus": {
+    "labels": [
+      "australian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Sphenodon_punctatus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "chlamydosaurus_kingii": {
+    "labels": [
+      "australian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Chlamydosaurus_kingii/",
+    "retrievedAt": "2026-09-30"
+  },
+  "chelonia_mydas": {
+    "labels": [
+      "atlantic ocean",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Chelonia_mydas/",
+    "retrievedAt": "2026-09-30"
+  },
+  "caretta_caretta": {
+    "labels": [
+      "atlantic ocean",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Caretta_caretta/",
+    "retrievedAt": "2026-09-30"
+  },
+  "dermochelys_coriacea": {
+    "labels": [
+      "oceanic islands",
+      "atlantic ocean",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Dermochelys_coriacea/",
+    "retrievedAt": "2026-09-30"
+  },
+  "macrochelys_temminckii": {
+    "labels": [
+      "nearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Macrochelys_temminckii/",
+    "retrievedAt": "2026-09-30"
+  },
+  "trachemys_scripta": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "oriental",
+      "ethiopian",
+      "australian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Trachemys_scripta/",
+    "retrievedAt": "2026-09-30"
+  },
+  "gopherus_agassizii": {
+    "labels": [
+      "nearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Gopherus_agassizii/",
+    "retrievedAt": "2026-09-30"
+  },
+  "chelonoidis_nigra": {
+    "labels": [
+      "oceanic islands"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Chelonoidis_nigra/",
+    "retrievedAt": "2026-09-30"
+  },
+  "anaxyrus_americanus": {
+    "labels": [
+      "nearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Anaxyrus_americanus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "rhinella_marina": {
+    "labels": [
+      "nearctic",
+      "neotropical",
+      "australian",
+      "oceanic islands"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Rhinella_marina/",
+    "retrievedAt": "2026-09-30"
+  },
+  "lithobates_catesbeianus": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "oriental",
+      "neotropical"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Lithobates_catesbeianus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "xenopus_laevis": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "ethiopian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Xenopus_laevis/",
+    "retrievedAt": "2026-09-30"
+  },
+  "hyla_versicolor": {
+    "labels": [
+      "nearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Hyla_versicolor/",
+    "retrievedAt": "2026-09-30"
+  },
+  "litoria_caerulea": {
+    "labels": [
+      "australian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Litoria_caerulea/",
+    "retrievedAt": "2026-09-30"
+  },
+  "dendrobates_auratus": {
+    "labels": [
+      "neotropical",
+      "oceanic islands"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Dendrobates_auratus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "dendrobates_leucomelas": {
+    "labels": [
+      "neotropical"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Dendrobates_leucomelas/",
+    "retrievedAt": "2026-09-30"
+  },
+  "pyxicephalus_adspersus": {
+    "labels": [
+      "ethiopian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Pyxicephalus_adspersus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "conraua_goliath": {
+    "labels": [
+      "ethiopian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Conraua_goliath/",
+    "retrievedAt": "2026-09-30"
+  },
+  "ambystoma_mexicanum": {
+    "labels": [
+      "neotropical"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Ambystoma_mexicanum/",
+    "retrievedAt": "2026-09-30"
+  },
+  "ambystoma_tigrinum": {
+    "labels": [
+      "nearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Ambystoma_tigrinum/",
+    "retrievedAt": "2026-09-30"
+  },
+  "ambystoma_maculatum": {
+    "labels": [
+      "nearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Ambystoma_maculatum/",
+    "retrievedAt": "2026-09-30"
+  },
+  "salamandra_salamandra": {
+    "labels": [
+      "palearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Salamandra_salamandra/",
+    "retrievedAt": "2026-09-30"
+  },
+  "proteus_anguinus": {
+    "labels": [
+      "palearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Proteus_anguinus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "cryptobranchus_alleganiensis": {
+    "labels": [
+      "nearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Cryptobranchus_alleganiensis/",
+    "retrievedAt": "2026-09-30"
+  },
+  "andrias_japonicus": {
+    "labels": [
+      "palearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Andrias_japonicus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "carcharodon_carcharias": {
+    "labels": [
+      "atlantic ocean",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Carcharodon_carcharias/",
+    "retrievedAt": "2026-09-30"
+  },
+  "rhincodon_typus": {
+    "labels": [
+      "oriental",
+      "ethiopian",
+      "australian",
+      "oceanic islands",
+      "atlantic ocean",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Rhincodon_typus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "galeocerdo_cuvier": {
+    "labels": [
+      "nearctic",
+      "oriental",
+      "ethiopian",
+      "neotropical",
+      "australian",
+      "atlantic ocean",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Galeocerdo_cuvier/",
+    "retrievedAt": "2026-09-30"
+  },
+  "carcharhinus_leucas": {
+    "labels": [
+      "oriental",
+      "ethiopian",
+      "neotropical",
+      "australian",
+      "atlantic ocean",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Carcharhinus_leucas/",
+    "retrievedAt": "2026-09-30"
+  },
+  "prionace_glauca": {
+    "labels": [
+      "atlantic ocean",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Prionace_glauca/",
+    "retrievedAt": "2026-09-30"
+  },
+  "sphyrna_lewini": {
+    "labels": [
+      "atlantic ocean",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Sphyrna_lewini/",
+    "retrievedAt": "2026-09-30"
+  },
+  "isurus_oxyrinchus": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "oriental",
+      "ethiopian",
+      "neotropical",
+      "australian",
+      "atlantic ocean",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Isurus_oxyrinchus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "triakis_semifasciata": {
+    "labels": [
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Triakis_semifasciata/",
+    "retrievedAt": "2026-09-30"
+  },
+  "carcharias_taurus": {
+    "labels": [
+      "atlantic ocean",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Carcharias_taurus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "negaprion_brevirostris": {
+    "labels": [
+      "nearctic",
+      "neotropical",
+      "atlantic ocean",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Negaprion_brevirostris/",
+    "retrievedAt": "2026-09-30"
+  },
+  "cetorhinus_maximus": {
+    "labels": [
+      "ethiopian",
+      "neotropical",
+      "oceanic islands",
+      "atlantic ocean",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Cetorhinus_maximus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "manta_birostris": {
+    "labels": [
+      "atlantic ocean",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Manta_birostris/",
+    "retrievedAt": "2026-09-30"
+  },
+  "myliobatis_californica": {
+    "labels": [
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Myliobatis_californica/",
+    "retrievedAt": "2026-09-30"
+  },
+  "dasyatis_americana": {
+    "labels": [
+      "nearctic",
+      "neotropical",
+      "atlantic ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Dasyatis_americana/",
+    "retrievedAt": "2026-09-30"
+  },
+  "cyprinus_carpio": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "oriental",
+      "ethiopian",
+      "neotropical",
+      "australian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Cyprinus_carpio/",
+    "retrievedAt": "2026-09-30"
+  },
+  "carassius_auratus": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "oriental",
+      "ethiopian",
+      "neotropical",
+      "australian",
+      "oceanic islands"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Carassius_auratus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "salmo_salar": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "atlantic ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Salmo_salar/",
+    "retrievedAt": "2026-09-30"
+  },
+  "gadus_morhua": {
+    "labels": [
+      "atlantic ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Gadus_morhua/",
+    "retrievedAt": "2026-09-30"
+  },
+  "thunnus_alalunga": {
+    "labels": [
+      "atlantic ocean",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Thunnus_alalunga/",
+    "retrievedAt": "2026-09-30"
+  },
+  "pylodictis_olivaris": {
+    "labels": [
+      "nearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Pylodictis_olivaris/",
+    "retrievedAt": "2026-09-30"
+  },
+  "homarus_americanus": {
+    "labels": [
+      "atlantic ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Homarus_americanus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "arctica_islandica": {
+    "labels": [],
+    "sourceUrl": "https://animaldiversity.org/accounts/Arctica_islandica/",
+    "retrievedAt": "2026-09-30"
+  },
+  "panopea_generosa": {
+    "labels": [
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Panopea_generosa/",
+    "retrievedAt": "2026-09-30"
+  },
+  "mercenaria_mercenaria": {
+    "labels": [
+      "atlantic ocean",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Mercenaria_mercenaria/",
+    "retrievedAt": "2026-09-30"
+  },
+  "mytilus_edulis": {
+    "labels": [
+      "nearctic",
+      "atlantic ocean",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Mytilus_edulis/",
+    "retrievedAt": "2026-09-30"
+  },
+  "crassostrea_gigas": {
+    "labels": [],
+    "sourceUrl": "https://animaldiversity.org/accounts/Crassostrea_gigas/",
+    "retrievedAt": "2026-09-30"
+  },
+  "crassostrea_virginica": {
+    "labels": [
+      "nearctic",
+      "neotropical",
+      "atlantic ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Crassostrea_virginica/",
+    "retrievedAt": "2026-09-30"
+  },
+  "strongylocentrotus_franciscanus": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Strongylocentrotus_franciscanus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "apis_mellifera": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "oriental",
+      "ethiopian",
+      "neotropical",
+      "australian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Apis_mellifera/",
+    "retrievedAt": "2026-09-30"
+  },
+  "drosophila_melanogaster": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "oriental",
+      "ethiopian",
+      "neotropical",
+      "australian",
+      "oceanic islands"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Drosophila_melanogaster/",
+    "retrievedAt": "2026-09-30"
+  },
+  "helarctos_malayanus": {
+    "labels": [
+      "oriental"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Helarctos_malayanus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "melursus_ursinus": {
+    "labels": [
+      "oriental"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Melursus_ursinus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "tremarctos_ornatus": {
+    "labels": [
+      "neotropical"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Tremarctos_ornatus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "ursus_thibetanus": {
+    "labels": [
+      "palearctic",
+      "oriental"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Ursus_thibetanus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "apus_apus": {
+    "labels": [
+      "palearctic",
+      "ethiopian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Apus_apus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "anser_anser": {
+    "labels": [
+      "palearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Anser_anser/",
+    "retrievedAt": "2026-09-30"
+  },
+  "ardea_cinerea": {
+    "labels": [
+      "palearctic",
+      "oriental",
+      "ethiopian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Ardea_cinerea/",
+    "retrievedAt": "2026-09-30"
+  },
+  "phalacrocorax_carbo": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "oriental",
+      "ethiopian",
+      "australian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Phalacrocorax_carbo/",
+    "retrievedAt": "2026-09-30"
+  },
+  "larus_argentatus": {
+    "labels": [
+      "nearctic",
+      "palearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Larus_argentatus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "corvus_corone": {
+    "labels": [
+      "palearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Corvus_corone/",
+    "retrievedAt": "2026-09-30"
+  },
+  "erithacus_rubecula": {
+    "labels": [],
+    "sourceUrl": "https://animaldiversity.org/accounts/Erithacus_rubecula/",
+    "retrievedAt": "2026-09-30"
+  },
+  "sturnus_vulgaris": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "oriental",
+      "ethiopian",
+      "australian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Sturnus_vulgaris/",
+    "retrievedAt": "2026-09-30"
+  },
+  "ornithorhynchus_anatinus": {
+    "labels": [
+      "australian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Ornithorhynchus_anatinus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "erinaceus_europaeus": {
+    "labels": [
+      "palearctic",
+      "australian"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Erinaceus_europaeus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "didelphis_marsupialis": {
+    "labels": [
+      "neotropical"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Didelphis_marsupialis/",
+    "retrievedAt": "2026-09-30"
+  },
+  "tupaia_glis": {
+    "labels": [
+      "oriental"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Tupaia_glis/",
+    "retrievedAt": "2026-09-30"
+  },
+  "cavia_porcellus": {
+    "labels": [
+      "neotropical"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Cavia_porcellus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "columba_palumbus": {
+    "labels": [],
+    "sourceUrl": "https://animaldiversity.org/accounts/Columba_palumbus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "corvus_frugilegus": {
+    "labels": [
+      "palearctic",
+      "oceanic islands"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Corvus_frugilegus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "alauda_arvensis": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "australian",
+      "oceanic islands",
+      "pacific ocean"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Alauda_arvensis/",
+    "retrievedAt": "2026-09-30"
+  },
+  "somateria_mollissima": {
+    "labels": [
+      "nearctic",
+      "palearctic"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Somateria_mollissima/",
+    "retrievedAt": "2026-09-30"
+  },
+  "vanellus_vanellus": {
+    "labels": [
+      "palearctic",
+      "oriental"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Vanellus_vanellus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "haematopus_ostralegus": {
+    "labels": [],
+    "sourceUrl": "https://animaldiversity.org/accounts/Haematopus_ostralegus/",
+    "retrievedAt": "2026-09-30"
+  },
+  "sterna_hirundo": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "neotropical"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Sterna_hirundo/",
+    "retrievedAt": "2026-09-30"
+  },
+  "larus_ridibundus": {
+    "labels": [
+      "nearctic",
+      "palearctic",
+      "oriental"
+    ],
+    "sourceUrl": "https://animaldiversity.org/accounts/Larus_ridibundus/",
+    "retrievedAt": "2026-09-30"
+  }
+}

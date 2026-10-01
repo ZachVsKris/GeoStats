@@ -39,3 +39,7 @@ All 74 playable species use outlined, softly colored SVG cartoons built from spe
 A bunting-trimmed judging ring contains the contestants and ribbon prize stands. The active board fits one viewport, including the submit button, at desktop 1440×900 and 1366×768, and phone 390×844 and 375×667 sizes, including Expert’s eight animals and six prizes. The results and field guide can scroll. Drag, touch, tap, keyboard placement, swaps, and the × removal controls remain. Pause freezes the illustrated parts; reduced motion disables them.
 
 The first-place animal receives the category ribbon after judging. Sourced numeric values, scoring, board selection, global variety, category pairs, and the at-least-half-intuitive board rule are unchanged. Archived artwork remains unused. Three.js and all breeding/hybrid code are removed.
+
+### Species artwork refinement
+
+The county fair cartoons now use species-specific silhouettes and field markings: long bare necks and legs for ostriches, shaggy emu feathers, a broad platypus bill and webbed feet, pointed opossum/tree-shrew faces, distinct ape builds, bear chest/face markings, and bird crests, bills and plumage. All 74 playable species share a fixed presentation frame. Limb animation pivots stay inside the body. The renderer is SVG with independent head, eye, tail and limb animation, respecting pause and reduced-motion settings.

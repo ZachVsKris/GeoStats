@@ -277,7 +277,7 @@ for(const viewport of [{width:1440,height:900},{width:1366,height:768},{width:39
   const bounds=await page.locator('.penAnimal,.traitPodium,.animalSubmit>button').evaluateAll(nodes=>nodes.map(el=>{const r=el.getBoundingClientRect();return {top:r.top,bottom:r.bottom,left:r.left,right:r.right,width:r.width,height:r.height}}));
   expect(bounds.every(r=>r.top>=0&&r.bottom<=viewport.height&&r.left>=0&&r.right<=viewport.width&&r.width>20&&r.height>20)).toBe(true);
   expect(await page.evaluate(()=>document.documentElement.scrollHeight<=innerHeight+1)).toBe(true);
-  await expect(page.locator('.penAnimal>.animalSprite').first()).toHaveAttribute('data-art-version','fair-cartoon-v1');
+  await expect(page.locator('.penAnimal>.animalSprite').first()).toHaveAttribute('data-art-version','fair-cartoon-v2');
   await expect(page.locator('.animalNameTag').first()).toHaveCSS('opacity','1');
  }
  await page.getByRole('button',{name:'Pause animal animation'}).click();

@@ -157,3 +157,33 @@
 /* Articulated 3D characters animate inside their canvas, with feet grounded. */
 .penAnimal > .animalSprite.livingCharacter { animation: none; transform: none; }
 .animalSprite.livingCharacter { aspect-ratio: 180 / 160; object-fit: contain; }
+/* A shared 3D scene: approach, courtship, mating, time skip and species birth. */
+.hybridArena{height:270px;max-width:420px}
+.pairingCanvas{position:absolute;left:0;top:8px;width:100%;height:236px;object-fit:contain;pointer-events:none;animation:breedingTimeline 9s linear both;animation-delay:var(--reveal-delay);z-index:2}
+.hybridParent{top:8px;width:75px;animation:none;z-index:4}
+.hybridParentChosen{left:0}.hybridParentCorrect{right:0}
+.hybridParent .animalSprite{animation:parentPortrait 9s both;animation-delay:var(--reveal-delay)}
+.hybridParent>span{animation:breedingLabels 9s both;animation-delay:var(--reveal-delay)}
+.hybridNest{top:180px;animation:breedingNest 9s both;animation-delay:var(--reveal-delay);z-index:1}
+.hybridEgg{left:calc(50% - 30px);top:130px;width:60px;height:70px;animation:breedingEgg 9s both;animation-delay:var(--reveal-delay);z-index:3}
+.hybridEggHalf{animation-duration:9s}.eggShellLeft{animation-name:breedingShellLeft}.eggShellRight{animation-name:breedingShellRight}.hybridEggCrack{animation:breedingCrack 9s both;animation-delay:var(--reveal-delay)}
+.hybridBaby{top:65px;width:160px;left:calc(50% - 80px);animation:breedingBaby 9s both;animation-delay:var(--reveal-delay);z-index:4}
+.hybridBirthCaption{bottom:8px;z-index:5}.hybridBirthCaption>span{animation-duration:9s}.birthMeet{animation-name:breedingMeet}.birthMate{animation-name:breedingMate}.birthMix{animation-name:breedingLater}.birthArrival{animation-name:breedingArrival}.birthHello{animation-name:breedingHello}
+.breedingWater{position:absolute;inset:135px 15px 49px;background:#b4dce0;border-radius:50%;opacity:.55;animation:breedingWater 9s both;animation-delay:var(--reveal-delay);z-index:0}.breedingWater i{position:absolute;inset:10px;border:2px solid #ecf7e6;border-radius:50%;}.breedingWater i:nth-child(2){inset:20px 30px}.breedingWater i:nth-child(3){inset:30px 50px}
+@keyframes breedingTimeline{0%,91%{opacity:1}100%{opacity:0}}
+@keyframes parentPortrait{0%,94%{visibility:hidden}100%{visibility:visible}}
+@keyframes breedingLabels{0%,20%,95%,100%{opacity:1}28%,87%{opacity:0}}
+@keyframes breedingNest{0%,51%{opacity:0;transform:scale(.8)}60%,100%{opacity:1;transform:none}}
+@keyframes breedingEgg{0%,57%{opacity:0;transform:translate(20px,-15px) scale(.25)}63%{opacity:1;transform:none}69%{opacity:1;transform:rotate(-6deg)}74%{transform:rotate(7deg)}80%,100%{opacity:1;transform:none}}
+@keyframes breedingShellLeft{0%,71%{opacity:1;transform:none}79%{opacity:1;transform:translate(-28px,12px) rotate(-32deg)}89%,100%{opacity:0;transform:translate(-40px,20px) rotate(-45deg)}}
+@keyframes breedingShellRight{0%,71%{opacity:1;transform:none}79%{opacity:1;transform:translate(28px,12px) rotate(32deg)}89%,100%{opacity:0;transform:translate(40px,20px) rotate(45deg)}}
+@keyframes breedingCrack{0%,67%{opacity:0}73%,100%{opacity:1}}
+@keyframes breedingBaby{0%,92%{opacity:0;transform:scale(.85)}100%{opacity:1;transform:none}}
+@keyframes breedingMeet{0%,23%{opacity:1}27%,100%{opacity:0}}
+@keyframes breedingMate{0%,24%{opacity:0}28%,44%{opacity:1}48%,100%{opacity:0}}
+@keyframes breedingLater{0%,46%{opacity:0}49%,57%{opacity:1}60%,100%{opacity:0}}
+@keyframes breedingArrival{0%,57%{opacity:0}60%,71%{opacity:1}74%,100%{opacity:0}}
+@keyframes breedingHello{0%,73%{opacity:0}79%,100%{opacity:1}}
+@keyframes breedingWater{0%,44%{opacity:.55}53%,100%{opacity:0}}
+.animalSanctuary[data-motion=paused] .pairingCanvas,.animalSanctuary[data-motion=paused] .breedingWater{display:none}.animalSanctuary[data-motion=paused] .hybridParent .animalSprite{animation:none;visibility:visible}
+@media(prefers-reduced-motion:reduce){.pairingCanvas,.breedingWater{display:none}.hybridParent .animalSprite{animation:none;visibility:visible}}

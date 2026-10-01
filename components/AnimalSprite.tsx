@@ -33,7 +33,7 @@ export const AnimalSprite = memo(function AnimalSprite({
       aria-label={label}
       data-animal-id={animal.id}
       data-head-animal-id={headId}
-      data-art-version="living-3d-v3"
+      data-art-version="living-3d-v4"
       data-normalized-size="142"
     />
   );

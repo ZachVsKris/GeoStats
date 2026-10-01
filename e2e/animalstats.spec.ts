@@ -243,9 +243,10 @@ test("animal pen names, podium residents and hybrid offspring", async ({ page })
   await expect(hybrids.nth(i)).toHaveAttribute("data-head-animal-id", ranked[0].animalId);
   await expect(page.locator(".animalResult").nth(i)).toContainText(animals.get(ranked[0].animalId) as string);
  }
- await expect(page.locator(".hybridBaby").first()).toHaveCSS("opacity", "1");
+ await page.locator(".hybridArena").first().scrollIntoViewIfNeeded();
+ await expect(page.locator(".hybridBaby").first()).toHaveCSS("opacity", "1", { timeout: 15_000 });
  await page.getByRole("button", { name: /^Replay .*hybrid animation$/ }).first().click();
- await expect(page.locator(".hybridBaby").first()).toHaveCSS("opacity", "1");
+ await expect(page.locator(".hybridBaby").first()).toHaveCSS("opacity", "1", { timeout: 15_000 });
  await page.getByRole("button", { name: "Pause animal animation", exact: true }).click();
  await expect(page.locator(".hybridBaby").first()).toHaveCSS("animation-name", "none");
  await expect(page.locator(".hybridBaby").first()).toHaveCSS("opacity", "1");
@@ -337,7 +338,7 @@ test("pen artwork stays equally sized across all round modes and loads without e
     expect(new Set(sizes.map((s) => `${s.width}:${s.height}`)).size).toBe(1);
     expect(
       sizes.every(
-        (s) => s.normalized === "142" && s.version === "living-3d-v3",
+        (s) => s.normalized === "142" && s.version === "living-3d-v4",
       ),
     ).toBe(true);
   }
@@ -357,26 +358,40 @@ test("pen artwork stays equally sized across all round modes and loads without e
   expect(await pixels()).toBe(frozen);
 });
 
-test("results animate pairing, a hatching birth and a replay", async ({ page }) => {
+import {animalLifeCycle} from "../lib/animalstatsLifeCycle";
+
+test("reproduction uses egg, live birth and pouch exceptions",()=>{
+ const life=(id:string)=>animalLifeCycle(animalDataset.animals.find((animal:{id:string})=>animal.id===id));
+ expect(life("ornithorhynchus_anatinus")).toMatchObject({birth:"egg",pairing:"water"});
+ expect(life("boa_constrictor")).toMatchObject({birth:"live",pairing:"coil"});
+ expect(life("python_molurus").birth).toBe("egg");
+ expect(life("didelphis_marsupialis").birth).toBe("pouch");
+ expect(life("vulpes_vulpes").birth).toBe("live");
+ expect(life("aptenodytes_patagonicus").birth).toBe("egg");
+});
+
+test("results show physical mating, live births, egg laying and hatching",async({page})=>{
  await page.goto("/animals");
- for (let i = 0; i < 4; i++) { await page.locator(".penAnimal").nth(i).click(); await page.locator(".traitPodium").nth(i).click(); }
- await page.getByRole("button", { name: "Reveal results" }).click();
- const card = page.locator(".hybridPodium").first();
- await card.scrollIntoViewIfNeeded();
- await expect(card.locator(".hybridArena")).toHaveAttribute("data-started", "true");
- const advance = async (time: number) => card.evaluate((element, t) => element.getAnimations({ subtree: true }).forEach(animation => { animation.pause(); animation.currentTime = t; }), time);
- await advance(1800);
- await expect(card.locator(".hybridHearts")).toHaveCSS("opacity", "1");
- await expect(card.locator(".hybridBaby")).toHaveCSS("opacity", "0");
- await advance(3300);
- await expect(card.locator(".hybridEgg")).toHaveCSS("opacity", "1");
- await expect(card.locator(".hybridNest")).toHaveCSS("opacity", "1");
- await expect(card.locator(".hybridBaby")).toHaveCSS("opacity", "0");
- await advance(6000);
- await expect(card.locator(".hybridBaby")).toHaveCSS("opacity", "1");
- await expect(card.locator(".eggShellLeft")).toHaveCSS("opacity", "0");
- await expect(card.locator(".eggShellRight")).toHaveCSS("opacity", "0");
- await card.getByRole("button", { name: /^Replay / }).click();
- await expect(card.locator(".hybridBaby")).toHaveCSS("opacity", "0");
- await expect(card.locator(".hybridBaby")).toHaveCSS("opacity", "1");
+ for(let i=0;i<4;i++){await page.locator(".penAnimal").nth(i).click();await page.locator(".traitPodium").nth(i).click();}
+ await page.getByRole("button",{name:"Reveal results"}).click();
+ const first=page.locator(".hybridPodium").first();await first.scrollIntoViewIfNeeded();
+ await expect(first.locator(".pairingCanvas")).toHaveAttribute("data-render-ready","true");
+ const advance=async(card:typeof first,time:number)=>card.evaluate((element,t)=>element.getAnimations({subtree:true}).forEach(animation=>{animation.pause();animation.currentTime=t;}),time);
+ for(const mode of ["pouch","live","egg"]){
+  const arena=page.locator(`.hybridArena[data-birth-mode=${mode}]`).first();const card=arena.locator('..');await card.scrollIntoViewIfNeeded();
+  await expect(arena).toHaveAttribute("data-started","true");
+  await advance(card,3300);
+  await expect(card.locator(".pairingCanvas")).toHaveAttribute("data-stage","mating");
+  await expect(card.locator(".birthMate")).toHaveCSS("opacity","1");
+  await expect(card.locator(".hybridBaby")).toHaveCSS("opacity","0");
+  if(mode!=="egg")await expect(card.locator(".hybridEgg")).toHaveCount(0);
+  await advance(card,6000);
+  await expect(card.locator(".pairingCanvas")).toHaveAttribute("data-stage","birth");
+  if(mode==="egg")await expect(card.locator(".hybridEgg")).toHaveCSS("opacity","1");
+  await advance(card,6900);await expect(card.locator(".pairingCanvas")).toHaveAttribute("data-baby-visible","true");
+  await advance(card,9600);await expect(card.locator(".hybridBaby")).toHaveCSS("opacity","1");
+ }
+ await first.scrollIntoViewIfNeeded();await first.getByRole("button",{name:/^Replay /}).click();
+ await expect(first.locator(".hybridBaby")).toHaveCSS("opacity","0");
+ await expect(first.locator(".hybridBaby")).toHaveCSS("opacity","1",{timeout:15_000});
 });

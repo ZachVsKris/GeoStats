@@ -310,7 +310,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
         <section className="hybridNursery" aria-label="Hybrid nursery">
           <div className="hybridNurseryIntro"><div><span className="animalEyebrow">THE BIG REVEAL</span><h2>A match made in the wild.</h2><p>Your animal meets the correct answer. Then, a little surprise.</p></div><button type="button" className="animalMotionToggle" aria-label={motionPaused ? "Animate animals" : "Pause animal animation"} aria-pressed={motionPaused} onClick={() => setMotionPaused(!motionPaused)}>{motionPaused ? "▶ Animate animals" : "Ⅱ Pause animation"}</button></div>
           <div className="hybridPodiumGrid">{results.map((row, index) => <AnimalHybridReveal key={row.trait.id} chosen={animalMap.get(row.selected.animalId)!} correct={animalMap.get(row.ranked[0].animalId)!} traitName={row.trait.displayName} rank={row.rank} index={index}/>)}</div>
-          <p className="hybridFantasyNote">Imaginary offspring, real animal facts. These hybrids are just for fun.</p>
+          <p className="hybridFantasyNote">Imaginary offspring, real animal facts. Breeding and birth follow the body parent’s animal family, with time condensed; these hybrids are just for fun.</p>
         </section>
         {accountMessage && <p role="status" className="animalSaveStatus">{accountMessage}</p>}
         <section className="animalScore" aria-label="Results"><div><span className="animalEyebrow">FINAL SCORE</span>

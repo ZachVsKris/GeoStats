@@ -1,5 +1,8 @@
 import * as T from "three";
-import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
+import {
+  mergeGeometries,
+  mergeVertices,
+} from "three/addons/utils/BufferGeometryUtils.js";
 // Anatomical proportions are visual character design, never game statistics.
 type Kind =
   | "quadruped"
@@ -40,13 +43,16 @@ const profiles: Record<string, Partial<Profile>> = {
   didelphis_marsupialis: {
     color: "#888a89",
     belly: "#ededdf",
+    height: 0.46,
+    leg: 0.48,
     snout: 0.57,
-    ear: 0.25,
+    ear: 0.2,
     tail: 1.65,
     feature: "opossum",
   },
   tupaia_glis: {
     color: "#946a44",
+    belly: "#d1a074",
     length: 1.75,
     height: 0.37,
     leg: 0.36,
@@ -436,13 +442,18 @@ for (const id of Object.keys(profiles))
 for (const p of Object.values(profiles))
   if (p.feature?.includes("bear") && !["polarbear"].includes(p.feature))
     p.belly = p.color;
+for (const p of Object.values(profiles))
+  if (p.kind === "penguin") {
+    p.leg = 0.2;
+    p.height = 0.73;
+  }
 export const modelSpecies = Object.keys(profiles);
-const sphere = new T.SphereGeometry(1, 16, 10);
+const sphere = new T.SphereGeometry(1, 20, 12);
 const materials = new Map<string, T.MeshStandardMaterial>();
 function mat(color: string) {
   let m = materials.get(color);
   if (!m) {
-    m = new T.MeshStandardMaterial({ color, roughness: 0.83 });
+    m = new T.MeshStandardMaterial({ color, roughness: 0.72 });
     materials.set(color, m);
   }
   return m;
@@ -507,7 +518,7 @@ function tube(
   const curve = new T.CatmullRomCurve3(
     points.map((p) => new T.Vector3(...(p as [number, number, number]))),
   );
-  const m = new T.Mesh(new T.TubeGeometry(curve, 28, r, 10, false), mat(color));
+  const m = new T.Mesh(new T.TubeGeometry(curve, 12, r, 6, false), mat(color));
   parent.add(m);
   return m;
 }
@@ -607,10 +618,12 @@ export type Rig = {
   root: T.Group;
   head: T.Group;
   eyes: T.Group[];
+  pupils: T.Group[];
+  ears: T.Group[];
   legs: Joint[];
-  tails: T.Group[];
+  tails: T.Object3D[];
   wings: T.Group[];
-  trunk: T.Group[];
+  trunk: T.Object3D[];
   body: T.Group;
   kind: Kind;
   phase: number;
@@ -618,26 +631,124 @@ export type Rig = {
   owned: T.BufferGeometry[];
   ownedMaterials: T.Material[];
 };
-function makeHead(p: Profile) {
+// Rounded leaf geometry gives ears, feathers and webbing authored silhouettes,
+// rather than cones or identical disks on every species.
+function leaf(
+  parent: T.Object3D,
+  color: string,
+  width: number,
+  height: number,
+  depth = 0.045,
+) {
+  const shape = new T.Shape();
+  shape.moveTo(-width * 0.5, 0);
+  shape.bezierCurveTo(
+    -width * 0.64,
+    height * 0.36,
+    -width * 0.2,
+    height * 0.91,
+    0,
+    height,
+  );
+  shape.bezierCurveTo(
+    width * 0.2,
+    height * 0.91,
+    width * 0.64,
+    height * 0.36,
+    width * 0.5,
+    0,
+  );
+  shape.quadraticCurveTo(0, -height * 0.12, -width * 0.5, 0);
+  const mesh = new T.Mesh(
+    new T.ExtrudeGeometry(shape, {
+      depth,
+      bevelEnabled: true,
+      bevelSegments: 2,
+      steps: 1,
+      bevelSize: 0.025,
+      bevelThickness: 0.022,
+      curveSegments: 6,
+    }),
+    mat(color),
+  );
+  parent.add(mesh);
+  return mesh;
+}
+function smile(head: T.Object3D, p: Profile, x: number, width = 0.18) {
+  for (const side of [-1, 1])
+    tube(
+      head,
+      "#4d3930",
+      [
+        [x, -0.14, side * 0.11],
+        [x - 0.05, -0.19, side * 0.16],
+        [x - width, -0.17, side * 0.19],
+      ],
+      0.012,
+    );
+}
+// Selected body parents are represented as females in the breeding scene.
+// Keep recognizable species marks while respecting obvious sexual dimorphism.
+function sexProfile(p: Profile, female: boolean): Profile {
+  if (!female) return p;
+  if (["mallard", "eider", "rooster"].includes(p.feature || ""))
+    return { ...p, color: "#9e7a50", belly: "#d4bea0" };
+  if (p.feature === "cardinal")
+    return { ...p, color: "#b19373", belly: "#d9c3a0" };
+  return p;
+}
+function makeHead(p: Profile, juvenile = false, female = false) {
   const head = new T.Group(),
     eyes: T.Group[] = [],
-    trunk: T.Group[] = [];
-  const bird = p.kind === "bird" || p.kind === "penguin",
-    marine = p.kind === "marine",
-    reptile = p.kind === "reptile" || p.kind === "snake";
-  const f = p.feature;
+    pupils: T.Group[] = [],
+    ears: T.Group[] = [],
+    trunk: T.Object3D[] = [];
+  const f = p.feature || "",
+    bird = ["bird", "penguin"].includes(p.kind),
+    duck = ["mallard", "goose", "eider"].includes(f),
+    cat = ["lion", "tiger", "leopard", "cheetah"].includes(f),
+    bear = f.includes("bear") || f === "panda",
+    canid = ["fox", "wolf"].includes(f),
+    rodent = [
+      "treeshrew",
+      "beaver",
+      "guineapig",
+      "capybara",
+      "opossum",
+      "hedgehog",
+    ].includes(f),
+    reptile = ["reptile", "snake", "turtle"].includes(p.kind);
   const color =
     f === "baldeagle" || f === "opossum"
-      ? "#f2efdf"
+      ? "#fff4e1"
       : f === "mallard"
-        ? "#2b785a"
+        ? female
+          ? p.color
+          : "#287d60"
         : f === "blackheadedgull"
-          ? "#574c3d"
+          ? "#65503e"
           : p.color;
-  ell(head, color, 0, 0, 0, 0.43, bird ? 0.4 : 0.36, 0.32);
+  const skull = ell(
+    head,
+    color,
+    0,
+    0,
+    0,
+    bear ? 0.5 : f === "hippo" ? 0.57 : 0.45,
+    f === "platypus" ? 0.29 : reptile ? 0.26 : bird ? 0.4 : 0.4,
+    f === "hippo" ? 0.42 : 0.36,
+  );
+  skull.name = "species-skull";
+  if (p.pattern) pattern(head, p, 0.45, 0.4, 0.36);
   if (p.kind === "primate") {
-    ell(head, p.belly, 0.25, -0.02, 0.02, 0.29, 0.3, 0.3);
-    ell(head, p.belly, 0.39, -0.16, 0, 0.2, 0.14, 0.24);
+    ell(head, p.belly, 0.3, -0.02, 0, 0.24, 0.29, 0.3);
+    ell(head, p.belly, 0.43, -0.12, 0, 0.14, 0.11, 0.21);
+    ell(head, "#493a32", 0.46, -0.05, 0, 0.035, 0.045, 0.08);
+    smile(head, p, 0.47, 0.13);
+    if (f === "gorilla") ell(head, p.color, 0.18, 0.24, 0, 0.28, 0.11, 0.34);
+    if (f === "orangutan" && !juvenile && !female)
+      for (const side of [-1, 1])
+        ell(head, "#80563d", 0.12, -0.04, side * 0.28, 0.21, 0.31, 0.08);
   } else if (bird) {
     const billColor = [
       "oystercatcher",
@@ -645,291 +756,545 @@ function makeHead(p: Profile) {
       "gentoo",
       "kingpenguin",
       "cardinal",
-    ].includes(f || "")
-      ? "#e38039"
-      : ["crow", "rook", "swift", "swallow", "emu", "ostrich"].includes(f || "")
-        ? "#44403a"
-        : "#dcb25b";
-    const beak = cone(
-      head,
-      billColor,
-      0.35 + p.snout * 0.4,
-      -0.05,
-      0,
-      0.13,
-      p.snout,
-      -Math.PI / 2,
-    );
-    beak.scale.z = 0.72;
-    if (["eagle", "baldeagle", "falcon", "macaw", "owl"].includes(f || "")) {
-      ell(head, billColor, 0.59, -0.13, 0, 0.09, 0.16, 0.09);
+    ].includes(f)
+      ? "#ed973e"
+      : ["crow", "rook", "swift", "swallow", "emu", "ostrich"].includes(f)
+        ? "#47403b"
+        : "#e8bb55";
+    if (duck) {
+      ell(head, billColor, 0.53, -0.09, 0, p.snout * 0.68, 0.085, 0.22);
+      ell(head, "#775c32", 0.52, -0.13, 0, p.snout * 0.64, 0.025, 0.21);
+      for (const side of [-1, 1])
+        ell(head, "#795b35", 0.59, -0.024, side * 0.1, 0.025, 0.016, 0.02);
+    } else if (["eagle", "baldeagle", "falcon", "macaw", "owl"].includes(f)) {
+      tube(
+        head,
+        billColor,
+        [
+          [0.33, -0.015, 0],
+          [0.52, -0.05, 0],
+          [0.57, -0.16, 0],
+        ],
+        f === "macaw" ? 0.12 : 0.085,
+      );
+      ell(head, billColor, 0.44, -0.17, 0, 0.11, 0.065, 0.065);
+    } else {
+      const beak = cone(
+        head,
+        billColor,
+        0.36 + p.snout * 0.4,
+        -0.06,
+        0,
+        0.105,
+        p.snout,
+        -Math.PI / 2,
+      );
+      beak.scale.z = 0.75;
     }
-    if (f === "pelican") ell(head, "#c7aa6f", 0.62, -0.19, 0, 0.45, 0.18, 0.12);
-  } else if (marine) {
-    ell(head, p.color, 0.22, -0.04, 0, p.snout, 0.2, 0.27);
+    if (f === "pelican")
+      ell(head, "#d7b470", 0.69, -0.18, 0, 0.48, 0.17, 0.115);
+  } else if (p.kind === "marine") {
+    ell(
+      head,
+      p.color,
+      0.17,
+      -0.025,
+      0,
+      f === "dolphin" ? 0.42 : 0.37,
+      0.19,
+      0.28,
+    );
+    if (f === "dolphin") ell(head, p.color, 0.5, -0.06, 0, 0.23, 0.095, 0.14);
+    smile(head, p, f === "dolphin" ? 0.6 : 0.4, 0.15);
+  } else if (f === "platypus") {
+    const bill = ell(head, "#698b96", 0.47, -0.1, 0, 0.45, 0.085, 0.3);
+    bill.name = "broad-flat-bill";
+    ell(head, "#426a78", 0.47, -0.16, 0, 0.43, 0.025, 0.29);
+    for (const side of [-1, 1])
+      ell(head, "#344f59", 0.68, -0.03, side * 0.14, 0.024, 0.018, 0.019);
+    tube(
+      head,
+      "#335d6b",
+      [
+        [0.69, -0.13, -0.22],
+        [0.8, -0.12, 0],
+        [0.69, -0.13, 0.22],
+      ],
+      0.012,
+    );
+  } else if (f === "elephant") {
+    ell(head, p.color, 0.3, -0.06, 0, 0.24, 0.29, 0.27);
+    for (const side of [-1, 1])
+      tube(
+        head,
+        "#fff0cf",
+        [
+          [0.3, -0.22, side * 0.23],
+          [0.47, -0.32, side * 0.28],
+          [0.62, -0.19, side * 0.29],
+        ],
+        0.045,
+      );
+    // Short overlapping articulated sections keep the hanging trunk visible
+    // at every head scale and preserve a smooth, tapered silhouette.
+    let trunkParent: T.Object3D = head;
+    for (let index = 0; index < 8; index++) {
+      const joint = new T.Group();
+      joint.position.set(index ? 0 : 0.4, index ? -0.12 : -0.13, 0);
+      trunkParent.add(joint);
+      const radius = 0.135 * (1 - index * 0.085);
+      tube(joint, p.color, [[0, 0.025, 0], [0, -0.15, 0]], radius);
+      ell(joint, p.color, 0, -0.12, 0, radius, radius, radius);
+      trunk.push(joint);
+      trunkParent = joint;
+    }
+  } else if (reptile) {
+    const width =
+      f === "alligator"
+        ? 0.3
+        : f === "crocodile"
+          ? 0.19
+          : f === "slider"
+            ? 0.17
+            : 0.22;
+    ell(
+      head,
+      p.color,
+      0.25 + p.snout * 0.28,
+      -0.1,
+      0,
+      p.kind === "reptile" ? p.snout * 0.7 : 0.24,
+      0.1,
+      width,
+    );
+    ell(
+      head,
+      p.belly,
+      0.35,
+      -0.18,
+      0,
+      p.kind === "reptile" ? p.snout * 0.6 : 0.2,
+      0.043,
+      width * 0.9,
+    );
+    smile(head, p, p.kind === "reptile" ? p.snout * 0.75 : 0.42, 0.18);
+    if (f === "slider")
+      for (const side of [-1, 1])
+        ell(head, "#d06543", -0.04, 0.02, side * 0.33, 0.1, 0.06, 0.02);
   } else {
-    const bill = f === "platypus",
-      wide = f === "hippo" || f === "rhino";
-    const muzzle = [
-      "fox",
-      "wolf",
-      "lion",
-      "tiger",
-      "leopard",
-      "cheetah",
-    ].includes(f || "")
-      ? p.belly
-      : f === "opossum"
-        ? "#f1edde"
-        : p.color;
-    ell(
-      head,
-      bill ? "#687a7e" : muzzle,
-      0.25 + p.snout * 0.32,
-      -0.11,
-      0,
-      p.snout * 0.72,
-      bill ? 0.085 : wide ? 0.24 : 0.14,
-      bill ? 0.34 : wide ? 0.36 : 0.19,
-    );
-    ell(
-      head,
-      bill ? "#637578" : muzzle,
-      0.35 + p.snout * 0.59,
-      -0.12,
-      0,
-      p.snout * 0.3,
-      bill ? 0.075 : wide ? 0.2 : 0.1,
-      bill ? 0.29 : wide ? 0.3 : 0.115,
-    );
-    ell(
-      head,
-      f === "opossum" ? "#d9a29f" : bill ? "#637578" : "#343b37",
-      0.4 + p.snout * 0.72,
-      -0.09,
-      0,
-      bill ? 0.12 : 0.065,
-      0.047,
-      bill ? 0.25 : wide ? 0.12 : 0.067,
-    );
+    const pale =
+      canid || cat || f === "panda"
+        ? "#fff2d8"
+        : f === "opossum"
+          ? "#fff4e6"
+          : bear
+            ? new T.Color(p.color).lerp(new T.Color("#bf9670"), 0.35).getStyle()
+            : p.color;
+    if (cat || bear) {
+      for (const side of [-1, 1])
+        ell(head, pale, 0.39, -0.12, side * 0.1, 0.18, 0.15, 0.16);
+    } else if (f === "hippo") {
+      ell(head, p.color, 0.44, -0.09, 0, 0.42, 0.23, 0.38);
+      for (const side of [-1, 1])
+        ell(head, "#625c61", 0.67, 0.05, side * 0.21, 0.045, 0.028, 0.03);
+    } else {
+      ell(
+        head,
+        pale,
+        0.29 + p.snout * 0.19,
+        -0.1,
+        0,
+        p.snout * 0.65,
+        0.145,
+        rodent ? 0.15 : 0.19,
+      );
+      ell(
+        head,
+        pale,
+        0.37 + p.snout * 0.47,
+        -0.11,
+        0,
+        p.snout * 0.32,
+        0.095,
+        0.09,
+      );
+    }
+    const noseX =
+      cat || bear ? 0.56 : f === "hippo" ? 0.76 : 0.39 + p.snout * 0.68;
+    if (f !== "hippo")
+      ell(
+        head,
+        f === "opossum" ? "#f0a5a7" : cat ? "#b37b6b" : "#34383a",
+        noseX,
+        -0.075,
+        0,
+        0.072,
+        0.052,
+        0.083,
+      );
+    smile(head, p, noseX - 0.015, cat || bear ? 0.18 : 0.22);
+    if (canid)
+      for (const side of [-1, 1]) {
+        ell(head, "#fff2da", 0.13, -0.15, side * 0.28, 0.26, 0.17, 0.09);
+        for (let i = 0; i < 3; i++) {
+          const tuft = leaf(head, "#fff2da", 0.09, 0.19, 0.025);
+          tuft.position.set(-0.04 - i * 0.055, -0.12 - i * 0.032, side * 0.28);
+          tuft.rotation.z = 0.7;
+        }
+      }
+    if (cat || (rodent && f !== "treeshrew") || canid)
+      for (const side of [-1, 1])
+        for (let i = 0; i < 3; i++)
+          tube(
+            head,
+            "#66564b",
+            [
+              [0.38, -0.12 - i * 0.03, side * 0.17],
+              [0.34 - i * 0.045, -0.1 - i * 0.065, side * 0.29],
+              [0.25 - i * 0.065, -0.065 - i * 0.08, side * 0.42],
+            ],
+            0.006,
+          );
+    if (f === "beaver") {
+      for (const side of [-1, 1])
+        ell(head, "#fff1c9", 0.56, -0.21, side * 0.04, 0.04, 0.08, 0.045);
+    }
+    if (f === "koala") ell(head, "#293d44", 0.37, -0.06, 0, 0.15, 0.22, 0.17);
   }
+  // Eyes are embedded in the face, with a large colored iris and soft eyelids.
   for (const side of [-1, 1]) {
     const eye = new T.Group();
-    eye.position.set(0.22, 0.1, side * 0.315);
+    eye.name = `eye-${side}`;
+    eye.position.set(
+      p.kind === "primate" || f === "owl" ? 0.37 : reptile ? 0.29 : 0.25,
+      reptile ? 0.105 : 0.105,
+      side *
+        (f === "panda"
+          ? 0.355
+          : p.kind === "primate" || f === "owl"
+            ? 0.22
+            : 0.29),
+    );
+    eye.rotation.y = side * 0.35;
     head.add(eye);
-    ell(eye, "#f7f6e9", 0, 0, 0, 0.102, 0.109, 0.06);
-    ell(eye, "#4b3424", 0.035, 0, side * 0.065, 0.063, 0.075, 0.028);
-    ell(eye, "#1d282a", 0.044, 0, side * 0.084, 0.038, 0.053, 0.017);
-    ell(eye, "#ffffff", 0.057, 0.039, side * 0.099, 0.019, 0.026, 0.012);
+    ell(eye, color, 0, 0, -side * 0.025, 0.154, 0.166, 0.055);
+    ell(eye, "#fff9e9", 0, 0, 0, 0.125, 0.136, 0.047);
+    const pupil = new T.Group();
+    pupil.position.set(0.025, -0.004, side * 0.037);
+    eye.add(pupil);
+    ell(
+      pupil,
+      cat ? "#91a557" : bird ? "#856332" : "#694a2f",
+      0,
+      0,
+      0,
+      0.096,
+      0.11,
+      0.031,
+    );
+    ell(pupil, "#202e32", 0.007, 0, side * 0.022, 0.064, 0.083, 0.017);
+    ell(pupil, "#fffdf1", 0.026, 0.046, side * 0.036, 0.028, 0.033, 0.012);
+    ell(pupil, "#fffdf1", -0.035, -0.04, side * 0.036, 0.012, 0.016, 0.009);
     eyes.push(eye);
-    if (p.ear) {
-      if (["fox", "wolf", "donkey", "zebra", "kangaroo"].includes(f || "")) {
-        cone(
-          head,
-          p.color,
-          -0.13,
-          0.47,
-          side * 0.25,
-          p.ear * 0.43,
-          p.ear * 1.7,
-          side * 0.1,
+    pupils.push(pupil);
+    tube(
+      head,
+      bear ? "#514239" : color,
+      [
+        [0.12, 0.27, side * 0.29],
+        [0.26, 0.3, side * 0.28],
+        [0.36, 0.255, side * 0.24],
+      ],
+      0.027,
+    );
+    if (p.ear && f !== "elephant" && p.kind !== "marine") {
+      const ear = new T.Group();
+      ear.name = `ear-${side}`;
+      ear.position.set(-0.13, 0.29, side * 0.24);
+      head.add(ear);
+      ears.push(ear);
+      if (
+        ["fox", "wolf", "donkey", "zebra", "kangaroo", "giraffe"].includes(f)
+      ) {
+        const shape = leaf(
+          ear,
+          f === "fox" ? "#a64725" : p.color,
+          p.ear * 0.72,
+          p.ear * 1.45,
+          0.06,
         );
-        cone(
-          head,
-          "#d7ad9c",
-          -0.08,
-          0.48,
-          side * 0.26,
-          p.ear * 0.25,
-          p.ear * 1.25,
-          side * 0.1,
-        );
+        shape.rotation.z = f === "donkey" ? -0.12 : side * 0.15;
+        const inner = leaf(ear, "#dfa697", p.ear * 0.4, p.ear * 1.01, 0.025);
+        inner.position.set(0.005, 0.055, side * 0.065);
+        inner.rotation.z = shape.rotation.z;
       } else {
+        const fuzzy = f === "koala";
         ell(
-          head,
-          ["panda", "opossum"].includes(f || "") ? "#303536" : p.color,
-          -0.1,
-          0.35,
-          side * 0.35,
-          p.ear,
-          p.ear,
-          p.ear * 0.44,
+          ear,
+          f === "panda" || f === "opossum" ? "#343a39" : p.color,
+          0,
+          p.ear * 0.27,
+          0,
+          p.ear * 0.75,
+          p.ear * 0.85,
+          p.ear * 0.4,
         );
         ell(
-          head,
-          "#b89886",
-          -0.08,
-          0.36,
-          side * (0.35 + p.ear * 0.28),
-          p.ear * 0.6,
-          p.ear * 0.64,
-          p.ear * 0.17,
+          ear,
+          fuzzy
+            ? "#d9ded2"
+            : f === "opossum"
+              ? "#bba3a2"
+              : bear
+                ? "#826e5b"
+                : "#d4ac93",
+          0.015,
+          p.ear * 0.28,
+          side * p.ear * 0.24,
+          p.ear * 0.45,
+          p.ear * 0.54,
+          p.ear * 0.19,
         );
+        if (fuzzy)
+          for (let i = 0; i < 5; i++) {
+            const a = (i / 5) * Math.PI;
+            ell(
+              ear,
+              "#c9d2c8",
+              Math.cos(a) * p.ear * 0.59,
+              Math.sin(a) * p.ear * 0.64,
+              0,
+              0.075,
+              0.085,
+              0.065,
+            );
+          }
       }
     }
     if (f === "elephant") {
-      ell(head, p.color, -0.15, -0.02, side * 0.54, 0.25, 0.63, 0.12);
-      tube(
-        head,
-        "#f1e4c6",
-        [
-          [0.25, -0.23, side * 0.25],
-          [0.5, -0.4, side * 0.27],
-          [0.75, -0.25, side * 0.28],
-        ],
-        0.055,
-      );
+      const ear = new T.Group();
+      ear.position.set(-0.23, 0.1, side * 0.29);
+      ear.rotation.y = side * 0.35;
+      head.add(ear);
+      const outer = leaf(ear, p.color, 0.78, 1.1, 0.075);
+      outer.position.set(0, -0.64, 0);
+      outer.rotation.z = -0.25;
+      const inner = leaf(ear, "#b6aaa0", 0.54, 0.77, 0.028);
+      inner.position.set(0.02, -0.48, side * 0.06);
+      inner.rotation.z = -0.25;
+      ears.push(ear);
     }
     if (f === "panda")
-      ell(head, "#303536", 0.16, 0.04, side * 0.34, 0.18, 0.22, 0.025);
+      ell(head, "#343c3c", 0.17, 0.04, side * 0.32, 0.23, 0.26, 0.048);
     if (f === "spectacledbear")
       tube(
         head,
-        "#d8c8a3",
+        "#e3d6b3",
         [
-          [0.3, 0.25, side * 0.32],
-          [0.12, 0.3, side * 0.34],
-          [0.02, 0.1, side * 0.37],
-          [0.2, -0.1, side * 0.35],
+          [0.33, 0.24, side * 0.28],
+          [0.12, 0.28, side * 0.32],
+          [0.04, 0.04, side * 0.35],
+          [0.21, -0.12, side * 0.29],
         ],
-        0.045,
+        0.032,
       );
     if (f === "cheetah")
       tube(
         head,
-        "#423c31",
+        "#43382e",
         [
-          [0.29, 0.02, side * 0.31],
-          [0.32, -0.13, side * 0.28],
+          [0.32, 0.035, side * 0.28],
+          [0.38, -0.14, side * 0.23],
         ],
-        0.018,
+        0.022,
       );
+    if (f === "falcon")
+      ell(head, "#344447", 0.19, -0.1, side * 0.32, 0.09, 0.19, 0.023);
     if (f === "owl") {
-      ell(head, "#d6c29a", 0.15, 0.02, side * 0.2, 0.19, 0.28, 0.11);
-      cone(head, p.color, -0.1, 0.47, side * 0.28, 0.1, 0.35, side * 0.3);
+      ell(head, "#dbca9f", 0.17, 0.01, side * 0.24, 0.24, 0.29, 0.07);
+      const tuft = leaf(head, p.color, 0.15, 0.32, 0.06);
+      tuft.position.set(-0.13, 0.28, side * 0.26);
+      tuft.rotation.z = side * 0.3;
     }
-  }
-  // Place eye patches beneath the eyes rather than covering their expression.
-  for (const eye of eyes) {
-    head.remove(eye);
-    head.add(eye);
-  }
-  if (f === "lion") {
-    for (let i = 0; i < 22; i++) {
-      const a = (i / 22) * Math.PI * 2;
-      ell(
+    if (f === "kingpenguin")
+      ell(head, "#f0b745", -0.07, -0.15, side * 0.31, 0.15, 0.17, 0.025);
+    if (f === "africanpenguin")
+      tube(
         head,
-        "#86542c",
-        -0.23,
-        Math.cos(a) * 0.36,
-        Math.sin(a) * 0.4,
-        0.27,
-        0.22,
-        0.21,
+        "#fff4e2",
+        [
+          [0.25, 0.24, side * 0.27],
+          [-0.15, 0.26, side * 0.31],
+          [-0.22, -0.03, side * 0.31],
+          [0.15, -0.26, side * 0.26],
+        ],
+        0.036,
       );
+  }
+  if (f === "lion" && !juvenile && !female) {
+    ell(head, "#9a592c", -0.18, -0.01, 0, 0.42, 0.58, 0.53);
+    for (let i = 0; i < 9; i++) {
+      const a = (i / 9) * Math.PI * 2,
+        tuft = leaf(head, i % 2 ? "#a66533" : "#8e4d29", 0.22, 0.33, 0.07);
+      tuft.position.set(-0.2, Math.cos(a) * 0.36, Math.sin(a) * 0.41);
+      tuft.rotation.x = a;
+      tuft.rotation.z = -0.4;
     }
   }
-  if (f === "giraffe") {
+  if (f === "giraffe")
     for (const side of [-1, 1]) {
       segment(
         head,
-        "#b59860",
-        new T.Vector3(-0.13, 0.3, side * 0.16),
-        new T.Vector3(-0.17, 0.68, side * 0.17),
-        0.06,
+        "#c6a361",
+        new T.Vector3(-0.13, 0.3, side * 0.14),
+        new T.Vector3(-0.16, 0.6, side * 0.15),
+        0.045,
       );
-      ell(head, "#69513a", -0.17, 0.69, side * 0.17, 0.085, 0.08, 0.08);
+      ell(head, "#77563a", -0.16, 0.61, side * 0.15, 0.066, 0.075, 0.065);
     }
-  }
   if (f === "rhino") {
-    cone(head, "#d9d2b7", 0.58, 0.27, 0, 0.13, 0.55, -0.25);
-    cone(head, "#c4bba1", 0.2, 0.34, 0, 0.085, 0.26, -0.18);
+    cone(head, "#e3d8b9", 0.5, 0.2, 0, 0.115, 0.44, -0.35);
+    cone(head, "#c8b99a", 0.16, 0.3, 0, 0.075, 0.23, -0.23);
   }
-  if (f === "bison") {
+  if (f === "bison")
     for (const side of [-1, 1])
       tube(
         head,
-        "#ddd2b1",
+        "#e8dabc",
         [
-          [0, 0.16, side * 0.31],
-          [-0.1, 0.33, side * 0.55],
-          [0, 0.52, side * 0.58],
+          [0, 0.11, side * 0.28],
+          [-0.1, 0.28, side * 0.47],
+          [0.02, 0.42, side * 0.49],
         ],
-        0.065,
+        0.055,
       );
-  }
-  if (f === "elephant") {
-    let parent = head;
-    for (let i = 0; i < 7; i++) {
-      const g = new T.Group();
-      g.position.set(i ? 0 : 0.38, i ? -0.15 : -0.17, 0);
-      parent.add(g);
-      ell(g, p.color, 0, -0.07, 0, 0.13 - i * 0.009, 0.13, 0.13 - i * 0.009);
-      trunk.push(g);
-      parent = g;
-    }
-  }
-  if (["rooster", "cardinal", "lapwing"].includes(f || "")) {
-    for (let i = 0; i < 4; i++)
-      cone(
-        head,
-        f === "rooster" ? "#d54439" : p.color,
-        -0.18 + i * 0.09,
-        0.45 + i * 0.025,
-        0,
-        0.065,
-        0.23,
-        -0.3,
-      );
-  }
-  if (p.pattern) pattern(head, p, 0.43, 0.4, 0.36);
-  if (f === "orca") {
-    for (const side of [-1, 1])
-      ell(head, "#f4f4e9", -0.02, 0.14, side * 0.34, 0.21, 0.12, 0.028);
-  }
-  if (f === "mallard")
-    tube(
+  if (["rooster", "cardinal", "lapwing"].includes(f)) {
+    const crest = leaf(
       head,
-      "#f2edde",
-      [
-        [-0.2, -0.26, -0.25],
-        [0, -0.34, 0],
-        [-0.2, -0.26, 0.25],
-      ],
-      0.055,
+      f === "rooster" ? "#dd5146" : p.color,
+      0.23,
+      f === "lapwing" ? 0.42 : 0.28,
+      0.05,
     );
-  if (f === "kingpenguin") {
-    for (const side of [-1, 1])
-      ell(head, "#efb143", -0.05, -0.18, side * 0.32, 0.17, 0.16, 0.03);
+    crest.position.set(-0.09, 0.28, 0);
+    crest.rotation.z = -0.45;
   }
   if (f === "gentoo")
     tube(
       head,
-      "#f7f1df",
+      "#fff5e3",
       [
-        [-0.08, 0.26, -0.28],
-        [-0.17, 0.36, 0],
-        [-0.08, 0.26, 0.28],
+        [-0.06, 0.26, -0.29],
+        [-0.17, 0.37, 0],
+        [-0.06, 0.26, 0.29],
       ],
-      0.085,
+      0.055,
     );
-  if (f === "africanpenguin") {
+  if (f === "mallard")
+    tube(
+      head,
+      "#f3f0da",
+      [
+        [-0.16, -0.27, -0.24],
+        [0, -0.35, 0],
+        [-0.16, -0.27, 0.24],
+      ],
+      0.037,
+    );
+  if (f === "orca")
     for (const side of [-1, 1])
-      tube(
-        head,
-        "#f5efdf",
-        [
-          [0.21, 0.22, side * 0.27],
-          [-0.13, 0.23, side * 0.33],
-          [-0.18, -0.1, side * 0.31],
-          [0.13, -0.25, side * 0.27],
-        ],
-        0.045,
-      );
-  }
-  if (f === "koala") ell(head, "#29363b", 0.35, -0.04, 0, 0.16, 0.24, 0.17);
-  return { head, eyes, trunk };
+      ell(head, "#fff6e8", -0.06, 0.15, side * 0.33, 0.19, 0.11, 0.024);
+  return { head, eyes, pupils, ears, trunk };
 }
+
+// A skinned tapered surface keeps tails and trunks continuous during motion.
+function flexibleTail(
+  parent: T.Object3D,
+  color: string,
+  length: number,
+  count: number,
+  shape: (u: number) => { y: number; z: number; ry: number; rz: number },
+  whiteTip = false,
+  vertical = false,
+) {
+  const bones: T.Bone[] = [],
+    positions: number[] = [],
+    indices: number[] = [],
+    skinIndices: number[] = [],
+    skinWeights: number[] = [],
+    colors: number[] = [];
+  const rings = 28,
+    sides = 10;
+  let previous: T.Bone | undefined;
+  for (let i = 0; i <= count; i++) {
+    const bone = new T.Bone(),
+      u = i / count,
+      point = shape(u),
+      last = shape(Math.max(0, u - 1 / count));
+    bone.position.set(
+      i ? -length / count : 0,
+      i ? point.y - last.y : point.y,
+      i ? point.z - last.z : point.z,
+    );
+    if (previous) previous.add(bone);
+    bones.push(bone);
+    previous = bone;
+  }
+  for (let ring = 0; ring <= rings; ring++) {
+    const u = ring / rings,
+      point = shape(u);
+    for (let side = 0; side <= sides; side++) {
+      const a = (side / sides) * Math.PI * 2;
+      positions.push(
+        -u * length,
+        point.y + Math.cos(a) * point.ry,
+        point.z + Math.sin(a) * point.rz,
+      );
+      const joint = u * count,
+        index = Math.min(count - 1, Math.floor(joint)),
+        weight = joint - index;
+      skinIndices.push(index, index + 1, 0, 0);
+      skinWeights.push(1 - weight, weight, 0, 0);
+      const c = new T.Color(whiteTip && u > 0.68 ? "#fff4dc" : color);
+      colors.push(c.r, c.g, c.b);
+      if (ring < rings && side < sides) {
+        const current = ring * (sides + 1) + side;
+        indices.push(
+          current,
+          current + sides + 1,
+          current + 1,
+          current + 1,
+          current + sides + 1,
+          current + sides + 2,
+        );
+      }
+    }
+  }
+  const geometry = new T.BufferGeometry();
+  geometry.setAttribute("position", new T.Float32BufferAttribute(positions, 3));
+  geometry.setAttribute("color", new T.Float32BufferAttribute(colors, 3));
+  geometry.setAttribute(
+    "skinIndex",
+    new T.Uint16BufferAttribute(skinIndices, 4),
+  );
+  geometry.setAttribute(
+    "skinWeight",
+    new T.Float32BufferAttribute(skinWeights, 4),
+  );
+  geometry.setIndex(indices);
+  geometry.computeVertexNormals();
+  const mesh = new T.SkinnedMesh(
+    geometry,
+    new T.MeshStandardMaterial({ vertexColors: true, roughness: 0.76 }),
+  );
+  mesh.frustumCulled = false;
+  mesh.add(bones[0]);
+  mesh.bind(new T.Skeleton(bones));
+  if (vertical) mesh.rotation.z = Math.PI / 2;
+  parent.add(mesh);
+  return { mesh, bones };
+}
+
 // Merge static surfaces per material while retaining every articulated joint.
 // This avoids hundreds of draw calls for fur markings and facial details.
 function mergeStaticParts(parent: T.Object3D) {
@@ -937,7 +1302,11 @@ function mergeStaticParts(parent: T.Object3D) {
     if (!(child instanceof T.Mesh)) mergeStaticParts(child);
   const buckets = new Map<T.Material, T.Mesh[]>();
   for (const child of parent.children)
-    if (child instanceof T.Mesh && !Array.isArray(child.material)) {
+    if (
+      child instanceof T.Mesh &&
+      !(child instanceof T.SkinnedMesh) &&
+      !Array.isArray(child.material)
+    ) {
       const list = buckets.get(child.material) || [];
       list.push(child);
       buckets.set(child.material, list);
@@ -946,9 +1315,15 @@ function mergeStaticParts(parent: T.Object3D) {
     if (meshes.length < 2) continue;
     const copies = meshes.map((mesh) => {
       mesh.updateMatrix();
-      return mesh.geometry.clone().applyMatrix4(mesh.matrix);
+      return (
+        mesh.geometry.index
+          ? mesh.geometry.toNonIndexed()
+          : mesh.geometry.clone()
+      ).applyMatrix4(mesh.matrix);
     });
-    const geometry = mergeGeometries(copies, false);
+    const combined = mergeGeometries(copies, false);
+    const geometry = combined ? mergeVertices(combined) : null;
+    combined?.dispose();
     copies.forEach((g) => g.dispose());
     if (!geometry) continue;
     for (const mesh of meshes) {
@@ -958,18 +1333,23 @@ function mergeStaticParts(parent: T.Object3D) {
     parent.add(new T.Mesh(geometry, material));
   }
 }
-export function createAnimalRig(id: string, headId = id, baby = false): Rig {
-  const p = profile(id),
-    hp = profile(headId),
+export function createAnimalRig(
+  id: string,
+  headId = id,
+  baby = false,
+  female = false,
+): Rig {
+  const p = sexProfile(profile(id), female),
+    hp = sexProfile(profile(headId), female),
     root = new T.Group(),
     body = new T.Group();
   root.add(body);
   const legs: Joint[] = [],
-    tails: T.Group[] = [],
+    tails: T.Object3D[] = [],
     wings: T.Group[] = [];
   let headPosition = new T.Vector3(
     p.length * 0.47,
-    p.leg + p.height * 0.75 + p.neck,
+    p.leg + p.height * 1.13 + p.neck,
     0,
   );
   const torso = new T.Group();
@@ -978,7 +1358,16 @@ export function createAnimalRig(id: string, headId = id, baby = false): Rig {
   if (p.kind === "marine") {
     torso.position.y = 0.8;
     ell(torso, p.color, 0, 0, 0, p.length * 0.55, 0.48, 0.43);
-    ell(torso, p.belly, 0.1, -0.22, 0.04, p.length * 0.43, 0.28, 0.39);
+    ell(
+      torso,
+      p.belly,
+      0.1,
+      -0.22,
+      p.feature === "orca" ? 0.13 : 0.04,
+      p.length * 0.43,
+      0.28,
+      0.39,
+    );
     headPosition.set(p.length * 0.43, 0.8, 0);
     for (const s of [-1, 1]) {
       const g = new T.Group();
@@ -1004,7 +1393,7 @@ export function createAnimalRig(id: string, headId = id, baby = false): Rig {
       0.48,
       0,
       0.24,
-      p.feature === "orca" ? 0.7 : 0.4,
+      p.feature === "orca" ? 0.7 : p.feature === "bluewhale" ? 0.18 : 0.35,
       0.35,
     );
   } else if (p.kind === "snake") {
@@ -1052,28 +1441,50 @@ export function createAnimalRig(id: string, headId = id, baby = false): Rig {
       const g = new T.Group();
       g.position.set(0, p.leg + p.height + 0.2, s * 0.3);
       body.add(g);
-      ell(
-        g,
-        p.feature === "macaw" ? "#2b89b3" : p.color,
-        -0.14,
-        -0.15,
-        s * 0.1,
-        0.46,
-        0.36,
-        0.085,
-      );
-      for (let i = 0; i < 5; i++) {
-        const feather = ell(
+      if (p.kind === "penguin") {
+        const flipper = ell(
           g,
-          p.feature === "macaw" ? (i < 2 ? "#e3b840" : "#337bb3") : p.color,
-          -0.33 - i * 0.045,
-          -0.3 - i * 0.06,
-          s * 0.11,
-          0.25,
-          0.22,
-          0.025,
+          p.color,
+          -0.04,
+          -0.33,
+          s * 0.1,
+          0.13,
+          0.48,
+          0.065,
         );
-        feather.rotation.z = -0.45;
+        flipper.rotation.z = -0.22;
+        flipper.name = "penguin-flipper";
+      } else {
+        const wing = ell(
+          g,
+          p.feature === "macaw" ? "#267fba" : p.color,
+          -0.18,
+          -0.1,
+          s * 0.08,
+          0.42,
+          0.23,
+          0.082,
+        );
+        wing.rotation.z = -0.2;
+        for (let i = 0; i < 6; i++) {
+          const feather = ell(
+            g,
+            p.feature === "macaw"
+              ? i < 2
+                ? "#e8b548"
+                : "#2e76b5"
+              : p.feature === "albatross"
+                ? "#535d62"
+                : p.color,
+            -0.39 - i * 0.037,
+            -0.16 - i * 0.031,
+            s * 0.09,
+            0.29,
+            0.065,
+            0.03,
+          );
+          feather.rotation.z = -0.3 + i * 0.04;
+        }
       }
       wings.push(g);
     }
@@ -1082,7 +1493,31 @@ export function createAnimalRig(id: string, headId = id, baby = false): Rig {
     ell(torso, p.belly, 0.27, 0.14, 0, 0.27, 0.51, 0.35);
     headPosition.set(0.1, p.leg + p.height + 1, 0);
   } else {
-    ell(torso, p.color, 0, 0, 0, p.length * 0.55, p.height, 0.42);
+    const torsoMesh = ell(
+      torso,
+      p.color,
+      0,
+      0,
+      0,
+      p.length * 0.53,
+      p.height * 0.91,
+      0.43,
+    );
+    torsoMesh.name = "anatomical-torso";
+    if (
+      p.kind === "quadruped" &&
+      !["platypus", "guineapig", "hedgehog", "koala"].includes(p.feature || "")
+    )
+      ell(
+        torso,
+        p.color,
+        p.length * 0.33,
+        -0.03,
+        0,
+        0.35,
+        p.height * 0.84,
+        0.38,
+      );
     ell(
       torso,
       p.belly,
@@ -1093,6 +1528,49 @@ export function createAnimalRig(id: string, headId = id, baby = false): Rig {
       p.height * 0.28,
       0.33,
     );
+    if (p.feature === "treeshrew")
+      for (const side of [-1, 1])
+        tube(
+          torso,
+          "#ead4af",
+          [
+            [0.47, 0.22, side * 0.33],
+            [0.43, 0.03, side * 0.42],
+            [0.4, -0.16, side * 0.37],
+          ],
+          0.033,
+        );
+    if (p.feature === "fox") {
+      ell(torso, "#fff1d4", p.length * 0.39, -0.02, 0, 0.13, 0.32, 0.3);
+      for (const side of [-1, 1]) {
+        const tuft = leaf(torso, "#fff1d4", 0.16, 0.3, 0.04);
+        tuft.position.set(p.length * 0.39, -0.3, side * 0.18);
+        tuft.rotation.z = 2.55;
+      }
+    }
+    if (["opossum", "koala", "kangaroo"].includes(p.feature || "")) {
+      const pouch = ell(
+        torso,
+        "#b6a389",
+        0.2,
+        -p.height * 0.54,
+        0.26,
+        0.23,
+        0.13,
+        0.055,
+      );
+      pouch.name = "pouch";
+      tube(
+        torso,
+        "#72644f",
+        [
+          [0.02, -p.height * 0.47, 0.27],
+          [0.2, -p.height * 0.36, 0.31],
+          [0.37, -p.height * 0.47, 0.27],
+        ],
+        0.02,
+      );
+    }
     if (p.feature === "sunbear")
       ell(torso, "#d8ac63", p.length * 0.43, 0.0, 0.1, 0.055, 0.25, 0.28);
     if (["moonbear", "slothbear"].includes(p.feature || ""))
@@ -1157,141 +1635,302 @@ export function createAnimalRig(id: string, headId = id, baby = false): Rig {
     }
   }
   if (!["marine", "snake"].includes(p.kind)) {
-    const count = p.kind === "bird" || p.kind === "penguin" ? 2 : 4;
+    const bird = p.kind === "bird" || p.kind === "penguin",
+      count = bird ? 2 : 4,
+      waterbird =
+        [
+          "mallard",
+          "goose",
+          "eider",
+          "pelican",
+          "cormorant",
+          "gull",
+          "blackheadedgull",
+          "albatross",
+        ].includes(p.feature || "") || p.kind === "penguin",
+      hoof = ["zebra", "donkey", "giraffe", "bison"].includes(p.feature || "");
     for (let i = 0; i < count; i++) {
-      const s = i % 2 ? 1 : -1,
-        front = i < 2;
-      const g = new T.Group();
+      const side = i % 2 ? 1 : -1,
+        front = i < 2,
+        g = new T.Group();
+      g.name = `limb-${i}`;
       g.position.set(
         p.kind === "primate"
           ? front
             ? 0.18
             : -0.05
-          : count === 2
+          : bird
             ? 0
             : front
-              ? p.length * 0.32
-              : -p.length * 0.32,
+              ? p.length * 0.34
+              : -p.length * 0.34,
         p.kind === "primate" && front
           ? p.leg + p.height + 0.58
-          : p.leg + p.height * 0.35,
-        s * (p.kind === "primate" ? 0.42 : count === 2 ? 0.2 : 0.29),
+          : p.leg + p.height * 0.2,
+        side * (p.kind === "primate" ? 0.41 : bird ? 0.19 : 0.31),
       );
+      if (p.kind === "reptile" || p.kind === "turtle") {
+        g.rotation.x = side * 0.52;
+        g.rotation.z = front ? -0.28 : 0.28;
+      }
       body.add(g);
-      const legLength =
-        p.feature === "kangaroo" && front
-          ? 0.48
-          : p.kind === "primate" && front
-            ? p.leg + p.height + 0.43
-            : p.leg;
-      const color =
-        p.feature === "panda" || p.feature === "fox"
-          ? "#343731"
-          : p.kind === "bird"
-            ? "#be9a64"
-            : p.color;
-      const upper = legLength * 0.5;
+      const length =
+          p.feature === "kangaroo" && front
+            ? 0.43
+            : p.kind === "primate" && front
+              ? p.leg + p.height + 0.43
+              : p.leg,
+        upper = length * 0.52;
+      const upperColor =
+          p.feature === "panda" ? "#343a39" : bird ? p.color : p.color,
+        lowerColor =
+          p.feature === "fox"
+            ? "#343635"
+            : p.feature === "opossum"
+              ? "#d9a09d"
+              : p.feature === "panda"
+                ? "#343a39"
+                : bird
+                  ? p.kind === "penguin"
+                    ? "#e4a149"
+                    : "#b99461"
+                  : p.color;
+      const radius = bird
+        ? 0.068
+        : hoof
+          ? 0.1
+          : p.feature === "kangaroo" && !front
+            ? 0.23
+            : p.kind === "primate"
+              ? 0.15
+              : 0.17;
       ell(
         g,
-        color,
+        upperColor,
         0,
-        -upper * 0.5,
+        -upper * 0.44,
         0,
-        p.kind === "primate" ? 0.15 : 0.16,
-        upper * 0.62,
-        0.16,
+        radius,
+        upper * 0.63,
+        radius * 0.95,
       );
+      if (p.feature === "zebra") pattern(g, p, radius, upper * 0.63, radius);
       const knee = new T.Group();
       knee.position.y = -upper;
       g.add(knee);
-      ell(knee, color, 0, -legLength * 0.25, 0, 0.12, legLength * 0.32, 0.12);
       ell(
         knee,
-        p.feature === "zebra" || p.feature === "donkey" ? "#4d4841" : color,
-        0.09,
-        -legLength * 0.5,
+        lowerColor,
+        0.015,
+        -(length - upper) * 0.45,
         0,
-        p.feature === "kangaroo" && !front ? 0.36 : 0.2,
-        0.085,
-        0.15,
+        bird ? 0.042 : hoof ? 0.065 : radius * 0.66,
+        (length - upper) * 0.6,
+        bird ? 0.04 : hoof ? 0.07 : radius * 0.65,
       );
-      if (count === 2) {
-        for (let j = -1; j <= 1; j++)
+      const footY = -(length - upper),
+        foot = new T.Group();
+      foot.position.set(0.065, footY, 0);
+      knee.add(foot);
+      if (p.feature === "platypus" || waterbird) {
+        const color =
+          p.feature === "platypus"
+            ? "#686153"
+            : p.kind === "penguin"
+              ? "#df9a40"
+              : "#dcab53";
+        const web = leaf(
+          foot,
+          color,
+          bird ? 0.29 : 0.32,
+          bird ? 0.26 : 0.29,
+          0.025,
+        );
+        web.name = "webbed-foot";
+        web.rotation.x = -Math.PI / 2;
+        web.rotation.z = -Math.PI / 2;
+        web.position.set(-0.045, 0.018, 0.035);
+        for (let toe = -1; toe <= 1; toe++)
           tube(
-            knee,
-            "#b99a66",
+            foot,
+            color,
             [
-              [0.05, -legLength * 0.5, 0],
-              [0.26, -legLength * 0.5, j * 0.11],
+              [0, 0.025, 0],
+              [0.23, 0.02, toe * 0.11],
             ],
-            0.025,
+            0.018,
           );
+      } else if (bird) {
+        for (let toe = -1; toe <= 1; toe++) {
+          tube(
+            foot,
+            "#bd965c",
+            [
+              [0, 0.025, 0],
+              [0.13, 0.01, toe * 0.07],
+              [0.23, 0.005, toe * 0.1],
+            ],
+            0.02,
+          );
+          tube(
+            foot,
+            "#514b40",
+            [
+              [0.2, 0.012, toe * 0.09],
+              [0.245, 0.025, toe * 0.1],
+              [0.26, -0.01, toe * 0.11],
+            ],
+            0.012,
+          );
+        }
+      } else if (hoof) {
+        ell(foot, "#414640", 0.015, -0.012, 0, 0.12, 0.075, 0.12);
+        tube(
+          foot,
+          "#26312b",
+          [
+            [0.1, 0.025, -0.07],
+            [0.12, -0.02, 0],
+            [0.1, 0.025, 0.07],
+          ],
+          0.009,
+        );
+      } else {
+        const digits = p.kind === "primate" ? 4 : 3,
+          footColor = lowerColor;
+        ell(
+          foot,
+          footColor,
+          0.04,
+          0,
+          0,
+          p.feature === "kangaroo" && !front ? 0.32 : 0.16,
+          0.075,
+          0.14,
+        );
+        for (let toe = 0; toe < digits; toe++) {
+          const z = (toe - (digits - 1) / 2) * 0.062;
+          ell(
+            foot,
+            footColor,
+            p.feature === "kangaroo" && !front ? 0.25 : 0.14,
+            0.003,
+            z,
+            0.069,
+            0.052,
+            0.039,
+          );
+          if (p.kind === "primate")
+            ell(foot, footColor, 0.16, 0.0, z, 0.1, 0.036, 0.031);
+          else if (p.feature !== "guineapig")
+            ell(foot, "#d3c5a5", 0.2, 0.012, z, 0.032, 0.018, 0.018);
+        }
       }
       legs.push({
         group: g,
-        rest: 0,
-        phase: front ? (s === 1 ? 0 : Math.PI) : s === 1 ? Math.PI : 0,
+        rest: g.rotation.z,
+        phase: front ? (side === 1 ? 0 : Math.PI) : side === 1 ? Math.PI : 0,
         knee,
       });
     }
   }
   if (p.tail && !["snake", "turtle"].includes(p.kind)) {
-    let parent: T.Object3D = body;
-    for (let i = 0; i < 5; i++) {
-      const g = new T.Group();
-      g.position.set(
-        i ? -p.tail / 5 : -p.length * 0.48,
-        i ? 0 : p.kind === "marine" ? 0.8 : p.leg + p.height * 0.8,
+    if (p.kind === "bird" || p.kind === "penguin") {
+      const tail = new T.Group();
+      tail.position.set(-0.33, p.leg + p.height - 0.08, 0);
+      body.add(tail);
+      for (let i = -2; i <= 2; i++) {
+        const feather = ell(
+          tail,
+          p.color,
+          -p.tail * 0.38,
+          -0.03,
+          i * 0.05,
+          p.tail * 0.48,
+          0.055,
+          0.08,
+        );
+        feather.rotation.y = i * 0.1;
+        feather.rotation.z = -0.12;
+      }
+      tails.push(tail);
+    } else {
+      const paddle = ["platypus", "beaver"].includes(p.feature || "");
+      const fluffy = p.feature === "fox" || p.feature === "treeshrew";
+      const radius = fluffy
+        ? p.feature === "fox"
+          ? 0.28
+          : 0.18
+        : p.kind === "marine"
+          ? 0.18
+          : p.feature === "kangaroo"
+            ? 0.18
+            : 0.07;
+      const skin = flexibleTail(
+        body,
+        p.feature === "opossum"
+          ? "#e3a4a0"
+          : p.feature === "beaver"
+            ? "#70513a"
+            : p.color,
+        p.tail,
+        6,
+        (u) => ({
+          y:
+            p.kind === "marine"
+              ? 0
+              : paddle
+                ? -0.03
+                : fluffy
+                  ? 0.4 * Math.sin(u * Math.PI * 0.85)
+                  : 0.2 * u * u,
+          z: p.feature === "opossum" ? 0.18 * Math.sin(u * Math.PI) : 0,
+          ry: paddle
+            ? 0.045
+            : Math.max(
+                0.012,
+                radius * Math.sin(Math.PI * (u * 0.86 + 0.08)) * (1 - u * 0.35),
+              ),
+          rz: paddle
+            ? 0.3 * Math.sin(Math.PI * (u * 0.85 + 0.1))
+            : Math.max(
+                0.012,
+                radius * Math.sin(Math.PI * (u * 0.86 + 0.08)) * (1 - u * 0.35),
+              ),
+        }),
+        p.feature === "fox",
+      );
+      skin.mesh.position.set(
+        -p.length * 0.46,
+        p.kind === "marine" ? 0.8 : p.leg + p.height * 0.8,
         0,
       );
-      parent.add(g);
-      if (p.kind === "marine" && i === 4) {
-        for (const s of [-1, 1]) {
-          const fluke = ell(g, p.color, -0.1, 0, s * 0.3, 0.32, 0.08, 0.4);
-          fluke.rotation.y = s * 0.35;
+      skin.mesh.name = paddle
+        ? "paddle-tail"
+        : p.feature === "opossum"
+          ? "hairless-tail"
+          : "flexible-tail";
+      tails.push(...skin.bones);
+      if (p.kind === "marine")
+        for (const side of [-1, 1]) {
+          const fluke = ell(
+            skin.bones.at(-1)!,
+            p.color,
+            -0.06,
+            0,
+            side * 0.25,
+            0.29,
+            0.065,
+            0.33,
+          );
+          fluke.rotation.y = side * 0.4;
         }
-      } else if (["platypus", "beaver"].includes(p.feature || ""))
-        ell(
-          g,
-          p.feature === "beaver" ? "#655344" : p.color,
-          -p.tail / 10,
-          0,
-          0,
-          p.tail / 6,
-          0.055,
-          0.22,
-        );
-      else {
-        const color =
-          p.feature === "opossum"
-            ? "#cfa2a2"
-            : p.feature === "fox" && i === 4
-              ? "#f3eed8"
-              : p.color;
-        const radius =
-          (p.feature === "fox"
-            ? 0.18
-            : p.feature === "treeshrew"
-              ? 0.105
-              : 0.075) *
-          (1 - i * 0.14);
-        segment(
-          g,
-          color,
-          new T.Vector3(0, 0, 0),
-          new T.Vector3(-p.tail / 5, 0, 0),
-          radius,
-        );
-        ell(g, color, -p.tail / 5, 0, 0, radius, radius, radius);
-      }
-      tails.push(g);
-      parent = g;
     }
   }
-  const face = makeHead(hp);
+  const face = makeHead(hp, baby, female);
   face.head.position.copy(headPosition);
   const hybrid = headId !== id;
-  face.head.scale.setScalar(hybrid ? 0.85 : 1);
+  face.head.scale.setScalar(hybrid ? 1.04 : 1.16);
   if (baby) face.head.scale.multiplyScalar(1.15);
   body.add(face.head);
   const box = new T.Box3().setFromObject(root),
@@ -1302,6 +1941,13 @@ export function createAnimalRig(id: string, headId = id, baby = false): Rig {
   body.position.sub(center);
   body.position.y += size.y / 2;
   root.position.y = -1.4;
+  root.updateMatrixWorld(true);
+  root.traverse((object) => {
+    if (object instanceof T.SkinnedMesh) {
+      object.skeleton.calculateInverses();
+      object.bind(object.skeleton, object.matrixWorld);
+    }
+  });
   mergeStaticParts(root);
   const owned: T.BufferGeometry[] = [];
   root.traverse((o) => {
@@ -1321,6 +1967,8 @@ export function createAnimalRig(id: string, headId = id, baby = false): Rig {
     root,
     head: face.head,
     eyes: face.eyes,
+    pupils: face.pupils,
+    ears: face.ears,
     legs,
     tails,
     wings,
@@ -1341,17 +1989,24 @@ export function animateRig(rig: Rig, time: number, paused: boolean) {
   rig.head.rotation.z = rig.hover ? 0.09 : Math.sin(t * 0.7) * 0.045;
   const blink = paused ? 1 : t % 4.7 < 0.13 ? 0.09 : 1;
   for (const eye of rig.eyes) eye.scale.y = blink;
+  for (const pupil of rig.pupils)
+    pupil.position.x = 0.025 + (paused ? 0 : Math.sin(t * 0.73) * 0.018);
+  rig.ears.forEach((ear, index) => {
+    ear.rotation.z =
+      (paused ? 0 : Math.sin(t * 1.7 + index) * 0.045) +
+      (rig.hover ? (index ? -0.1 : 0.1) : 0);
+  });
   for (const leg of rig.legs) {
-    leg.group.rotation.z = gait * Math.sin(t * 4 + leg.phase) * 0.29;
+    leg.group.rotation.z = leg.rest + gait * Math.sin(t * 4 + leg.phase) * 0.24;
     leg.knee!.rotation.z =
       gait * Math.max(0, Math.cos(t * 4 + leg.phase)) * 0.4;
   }
   rig.tails.forEach((tail, i) => {
-    tail.rotation.y = Math.sin(t * 2 - i * 0.5) * 0.17;
+    tail.rotation.y = Math.sin(t * 2 - i * 0.5) * (rig.hover ? 0.12 : 0.045);
     tail.rotation.z =
       rig.kind === "marine"
         ? Math.sin(t * 2 - i * 0.4) * 0.18
-        : Math.sin(t * 1.3 - i * 0.4) * 0.055;
+        : Math.sin(t * 1.3 - i * 0.4) * 0.025;
   });
   rig.wings.forEach((wing, i) => {
     wing.rotation.x =
@@ -1367,18 +2022,23 @@ type Entry = {
   scene: T.Scene;
   camera: T.OrthographicCamera;
   last: number;
+  pairing?: Pairing;
 };
 const entries = new Set<Entry>();
 let renderer: T.WebGLRenderer | undefined,
   frame = 0,
-  lastFrame = 0;
+  lastFrame = 0,
+  renderCursor = 0;
 function tick(now: number) {
   frame = requestAnimationFrame(tick);
   if (now - lastFrame < 50) return;
   lastFrame = now;
   if (!renderer) return;
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  for (const entry of entries) {
+  const active = [...entries], frameStart = performance.now();
+  for (let index = 0; index < active.length; index++) {
+    renderCursor %= active.length;
+    const entry = active[renderCursor++];
     const rect = entry.canvas.getBoundingClientRect();
     if (!rect.width) continue;
     if (
@@ -1391,14 +2051,58 @@ function tick(now: number) {
     const paused = reduced || !!entry.canvas.closest('[data-motion="paused"]');
     rigHover(entry);
     const frozen = paused ? (entry.rig.hover ? 2 : 1) : 0;
-    if (frozen && entry.last === frozen) continue;
+    if (paused && entry.canvas.dataset.renderReady === "true") {
+      // Freeze the current pose immediately instead of queueing a later reset.
+      entry.last = frozen;
+      continue;
+    }
+    if (
+      entry.canvas.dataset.renderReady === "true" &&
+      getComputedStyle(entry.canvas).opacity === "0"
+    )
+      continue;
     entry.last = frozen;
-    animateRig(entry.rig, paused ? 0 : now / 1000, paused);
+    if (entry.pairing) {
+      const clock = pairingClock(entry.canvas);
+      animatePairing(entry.pairing, clock);
+      entry.canvas.dataset.babyVisible = String(
+        entry.pairing.baby.root.visible,
+      );
+      entry.canvas.dataset.stage =
+        clock < 1.45
+          ? "approach"
+          : clock < 2.25
+            ? "courtship"
+            : clock < 4.2
+              ? "mating"
+              : clock < 5.4
+                ? "later"
+                : clock < 7.1
+                  ? "birth"
+                  : "family";
+    } else animateRig(entry.rig, paused ? 0 : now / 1000, paused);
+    const width = entry.canvas.width,
+      height = entry.canvas.height;
+    renderer.setViewport(0, 0, width, height);
+    renderer.setScissor(0, 0, width, height);
     renderer.render(entry.scene, entry.camera);
     const ctx = entry.canvas.getContext("2d");
-    ctx?.clearRect(0, 0, 360, 320);
-    ctx?.drawImage(renderer.domElement, 0, 0, 360, 320);
+    ctx?.clearRect(0, 0, width, height);
+    ctx?.drawImage(
+      renderer.domElement,
+      0,
+      400 - height,
+      width,
+      height,
+      0,
+      0,
+      width,
+      height,
+    );
     entry.canvas.dataset.renderReady = "true";
+    // Fairly rotate canvases and yield on slower software/mobile renderers.
+    // Fast GPUs still update all visible animals in the same animation frame.
+    if (performance.now() - frameStart > 14) break;
   }
 }
 function rigHover(entry: Entry) {
@@ -1411,18 +2115,7 @@ export function mountAnimal(
   baby: boolean,
 ) {
   canvas.dataset.renderReady = "false";
-  if (!renderer) {
-    renderer = new T.WebGLRenderer({
-      alpha: true,
-      antialias: true,
-      preserveDrawingBuffer: true,
-    });
-    renderer.setSize(360, 320, false);
-    renderer.setClearColor(0x000000, 0);
-    renderer.outputColorSpace = T.SRGBColorSpace;
-    renderer.toneMapping = T.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.05;
-  }
+  ensureRenderer();
   const rig = createAnimalRig(id, headId, baby),
     scene = new T.Scene();
   scene.add(rig.root);
@@ -1480,9 +2173,205 @@ export function mountAnimal(
   if (!frame) frame = requestAnimationFrame(tick);
   return () => {
     entries.delete(entry);
-    rig.owned.forEach((g) => g.dispose());
-    rig.ownedMaterials.forEach((m) => m.dispose());
+    disposeRig(rig);
     (shadow.material as T.Material).dispose();
+    if (!entries.size) {
+      cancelAnimationFrame(frame);
+      frame = 0;
+      renderer?.dispose();
+      renderer = undefined;
+    }
+  };
+}
+
+type Pairing = {
+  mother: Rig;
+  father: Rig;
+  baby: Rig;
+  behavior: "mount" | "water" | "coil";
+  birth: "live" | "egg" | "pouch";
+  scales: number[];
+};
+const ease = (a: number, b: number, t: number) =>
+  a + (b - a) * T.MathUtils.smoothstep(t, 0, 1);
+function animatePairing(pair: Pairing, time: number) {
+  const { mother, father, baby, behavior, birth } = pair;
+  const contact = T.MathUtils.smoothstep(time, 0, 1.45),
+    mating = time >= 2.25 && time < 4.2,
+    later = T.MathUtils.smoothstep(time, 4.2, 5.15),
+    born = T.MathUtils.smoothstep(time, birth === "egg" ? 6.25 : 5.45, 6.9),
+    finish = T.MathUtils.smoothstep(time, 7.1, 8.65);
+  [mother, father, baby].forEach((rig, i) =>
+    rig.root.scale.setScalar(pair.scales[i]),
+  );
+  for (const rig of [mother, father, baby]) animateRig(rig, time * 0.75, false);
+  mother.root.position.set(ease(-1.7, -0.68, contact), -1.4, 0);
+  father.root.position.set(ease(1.7, 0.68, contact), -1.4, 0);
+  father.root.rotation.y = Math.PI;
+  mother.root.rotation.y = 0;
+  mother.head.rotation.z =
+    time > 1.45 && time < 2.25 ? -0.08 * Math.sin(time * 6) : 0.015;
+  mother.root.rotation.z = 0;
+  father.root.rotation.z = 0;
+  if (mating) {
+    const settle = T.MathUtils.smoothstep(time, 2.25, 2.85);
+    mother.root.position.x = ease(-0.68, 0.25, settle);
+    if (behavior === "mount") {
+      father.root.position.x =
+        ease(0.68, -0.7, settle) + Math.sin(time * 7) * 0.018;
+      father.root.position.z = -0.1;
+      father.root.position.y = -1.4 + settle * 0.16;
+      father.root.rotation.y = ease(Math.PI, 0, settle);
+      father.root.rotation.z = settle * 0.28;
+      mother.root.position.y -= settle * 0.06;
+      father.legs.forEach((joint, i) => {
+        joint.group.rotation.z = joint.rest + (i < 2 ? 0.65 : -0.28) * settle;
+        joint.knee!.rotation.z = i < 2 ? 0.35 : 0.04;
+      });
+      mother.legs.forEach((joint) => {
+        joint.group.rotation.z = joint.rest + 0.1;
+        joint.knee!.rotation.z = 0.18;
+      });
+      father.wings.forEach((wing, i) => (wing.rotation.x = (i ? -1 : 1) * 0.5));
+      mother.head.rotation.z = -0.08;
+      father.head.rotation.z = 0.09;
+    } else if (behavior === "water") {
+      father.root.position.set(ease(0.68, -0.65, settle), -1.35, -0.24);
+      father.root.rotation.y = ease(Math.PI, 0.25, settle);
+      mother.root.rotation.y = -0.15;
+      father.root.rotation.z = 0.08;
+      mother.root.position.y += Math.sin(time * 3) * 0.025;
+    } else {
+      father.root.position.set(ease(0.68, 0.1, settle), -1.37, -0.17);
+      father.root.rotation.y = ease(Math.PI, 0.5, settle);
+      mother.root.rotation.y = -0.3;
+      father.head.rotation.y = -0.3;
+    }
+  }
+  if (time >= 4.2) {
+    mother.root.position.x = ease(0.25, birth === "egg" ? 0.7 : 0.65, later);
+    father.root.position.set(ease(-0.7, 2.1, later), -1.4, -0.2);
+    father.root.rotation.y = 0;
+    father.root.rotation.z = 0;
+    father.root.scale.setScalar(pair.scales[1] * ease(1, 0.55, later));
+    mother.root.rotation.y =
+      birth === "egg"
+        ? 0
+        : ease(0, Math.PI, T.MathUtils.smoothstep(time, 5.1, 6.0));
+    mother.head.rotation.z = -0.1;
+    mother.legs.forEach((joint) => {
+      joint.group.rotation.z = joint.rest + (1 - finish) * 0.09;
+      joint.knee!.rotation.z = (1 - finish) * 0.17;
+    });
+  }
+  if (time >= 5.4) {
+    baby.root.visible = born > 0.001;
+    const size =
+      birth === "pouch" ? ease(0.045, 0.13, born) : ease(0.1, 0.35, born);
+    baby.root.scale.setScalar(pair.scales[2] * ease(size, 0.72, finish));
+    baby.root.position.set(
+      birth === "egg" ? 0 : ease(-0.1, -0.72, born),
+      -1.4,
+      birth === "pouch" ? -0.02 : 0.1,
+    );
+    baby.root.rotation.y = 0;
+    baby.head.rotation.z = 0.08;
+    if (time < 7.1) for (const eye of baby.eyes) eye.scale.y = 0.14;
+    if (birth === "pouch" && time < 7.1) {
+      baby.root.position.x = ease(-0.1, 0.43, born);
+      baby.root.position.y = ease(-1.35, -0.55, born);
+    }
+    mother.root.position.x = ease(0.65, -1.8, finish);
+    mother.root.scale.setScalar(pair.scales[0] * ease(1, 0.55, finish));
+    mother.root.rotation.y = ease(birth === "egg" ? 0 : Math.PI, 0, finish);
+    baby.root.position.x = ease(baby.root.position.x, 0, finish);
+  } else baby.root.visible = false;
+}
+function pairingClock(canvas: HTMLCanvasElement) {
+  const animation = canvas
+    .getAnimations()
+    .find(
+      (animation) =>
+        (animation as CSSAnimation).animationName === "breedingTimeline",
+    );
+  if (!animation) return 0;
+  const time =
+    Number(animation.currentTime || 0) -
+    Number(animation.effect?.getTiming().delay || 0);
+  return Math.max(0, time / 1000);
+}
+function ensureRenderer() {
+  if (renderer) return;
+  renderer = new T.WebGLRenderer({
+    alpha: true,
+    antialias: true,
+    preserveDrawingBuffer: true,
+  });
+  renderer.setSize(640, 400, false);
+  renderer.setClearColor(0x000000, 0);
+  renderer.setScissorTest(true);
+  renderer.outputColorSpace = T.SRGBColorSpace;
+  renderer.toneMapping = T.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.05;
+}
+function disposeRig(rig: Rig) {
+  rig.owned.forEach((geometry) => geometry.dispose());
+  rig.ownedMaterials.forEach((material) => material.dispose());
+  rig.root.traverse((object) => {
+    if (object instanceof T.SkinnedMesh) object.skeleton.dispose();
+  });
+}
+export function mountAnimalPairing(
+  canvas: HTMLCanvasElement,
+  chosenId: string,
+  correctId: string,
+  behavior: Pairing["behavior"],
+  birth: Pairing["birth"],
+) {
+  ensureRenderer();
+  canvas.dataset.renderReady = "false";
+  const mother = createAnimalRig(chosenId, chosenId, false, true),
+    father = createAnimalRig(correctId),
+    baby = createAnimalRig(chosenId, correctId, true),
+    scene = new T.Scene();
+  scene.add(mother.root, father.root, baby.root);
+  scene.add(new T.HemisphereLight("#fff7e9", "#7c9688", 1.9));
+  const light = new T.DirectionalLight("#fff9ed", 2.1);
+  light.position.set(3, 5, 7);
+  scene.add(light);
+  for (const x of [-0.7, 0.7]) {
+    const shadow = ell(scene, "#687c56", x, -1.42, 0, 0.78, 0.008, 0.32);
+    shadow.material = new T.MeshStandardMaterial({
+      color: "#687c56",
+      transparent: true,
+      opacity: 0.12,
+    });
+  }
+  const camera = new T.OrthographicCamera(-3.9, 3.9, 2.19, -2.19, 0.1, 50);
+  camera.position.set(2.8, 2.5, 8);
+  camera.lookAt(0, -0.08, 0);
+  const pairing = {
+    mother,
+    father,
+    baby,
+    behavior,
+    birth,
+    scales: [mother.root.scale.x, father.root.scale.x, baby.root.scale.x],
+  };
+  const entry: Entry = { canvas, rig: mother, scene, camera, last: 0, pairing };
+  entries.add(entry);
+  if (!frame) frame = requestAnimationFrame(tick);
+  return () => {
+    entries.delete(entry);
+    [mother, father, baby].forEach(disposeRig);
+    scene.traverse((object) => {
+      if (
+        object instanceof T.Mesh &&
+        object.geometry === sphere &&
+        (object.material as T.MeshStandardMaterial).transparent
+      )
+        (object.material as T.Material).dispose();
+    });
     if (!entries.size) {
       cancelAnimationFrame(frame);
       frame = 0;

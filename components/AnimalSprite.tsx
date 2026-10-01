@@ -14,7 +14,12 @@ export const AnimalSprite = memo(function AnimalSprite({animal, className = ""}:
   <defs><clipPath id={`coat${uid}`}><ellipse cx="87" cy={bodyY} rx={bodyRx} ry={bird?34:ape?39:marine?23:26}/></clipPath></defs>
   <ellipse className="cartoonGround" cx="100" cy="146" rx="62" ry="6" fill="#60482c" opacity=".12"/>
   <g stroke={ink} strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round">
-  {!snake&&!marine&&<g fill={body} className="cartoonFeet">{(bird?[75,106]:ape?[83,110]:[58,76,108,128]).map((x,i)=><path key={x} className={i%2?'cartoonStepBack':'cartoonStep'} d={`M${x} ${bodyY+16} q-5 13 -3 ${legLength} q-5 5 -1 7 h12 q6-4 0-7 l-1 -${legLength}`} fill={bird?'#dcb25f':fox?'#5d453b':hoof?'#574d44':body}/>)}</g>}
+  {!snake&&!marine&&<g fill={body} className="cartoonFeet">{(bird?[78,101]:ape?[76,99]:[57,72,105,118]).map((x,i)=>{
+   // Start every limb inside the torso. Rotate around its own shoulder/hip,
+   // so animation cannot pull a leg away from the body silhouette.
+   const rootY=bodyY+4,footY=bodyY+16+legLength;
+   return <path key={x} className={i%2?'cartoonStepBack':'cartoonStep'} style={{transformOrigin:`${x}px ${rootY}px`}} d={`M${x-6} ${rootY} Q${x-9} ${rootY+16} ${x-5} ${footY} q-6 6 -2 7 h13 q5-3 0-7 L${x+6} ${rootY} Z`} fill={bird?'#dcb25f':fox?'#5d453b':hoof?'#574d44':body}/>;
+  })}</g>}
   {!bird&&!ape&&!marine&&!snake&&p.tail>0.3&&<g className="cartoonWag" style={{transformOrigin:'48px 101px'}}>{fox?<path fill={body} d="M50 100 C24 112 12 79 18 62 Q27 80 47 84 L60 95 Z"/>:bill?<path fill={body} d="M54 98 Q24 74 15 93 Q11 110 52 118 Z"/>:<path fill="none" stroke={f==='opossum'?'#d99898':body} strokeWidth={f==='treeshrew'?15:6} d="M48 99 Q20 107 16 73"/>}{fox&&<path fill="#fff2db" d="M18 62 Q18 80 28 89 L37 81 Q25 75 18 62"/>}</g>}
   {snake?<path fill={body} d="M144 113 C148 132 48 143 35 117 C18 86 111 87 113 106 C115 125 57 127 55 113 C53 100 93 97 113 88 L145 96"/>:<ellipse fill={body} cx="87" cy={bodyY} rx={bodyRx} ry={bird?34:ape?39:marine?23:26}/>}
   {(p.kind==='penguin'||marine)&&<ellipse fill={pale} stroke="none" cx={marine?97:98} cy={bodyY+9} rx={marine?42:19} ry={marine?13:27}/>}

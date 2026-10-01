@@ -25,3 +25,14 @@
 @media(max-width:750px){.countyFair .animalHeader h1{margin-left:auto}.countyFair .animalHeader p{display:none}.countyFair .podiumTop{height:10px;bottom:47px;box-shadow:0 2px 0 #c6a478}.countyFair .podiumAnimal{padding-bottom:10px}.countyFair .podiumEmpty{width:36px;height:42px}.countyFair .podiumAnimal .animalSprite{max-height:90px;width:110px}}
 .podiumNameTag{position:absolute;top:16px;left:5px;right:5px;font:600 11px/1.1 var(--sans);color:#624935;pointer-events:none;z-index:2}@media(max-width:750px){.podiumNameTag{font-size:9px;top:16px}}
 .countyFair .podiumAnimal{padding-bottom:0}.countyFair .podiumAnimal .animalSprite{margin-bottom:-10px}.podiumAnimal .cartoonGround{display:none}
+
+/* Each contestant has a visible stall and an attached nameplate. */
+.countyFair .penAnimal{border:1px solid #c5ceaa;background:#f9f9e9b8;overflow:hidden;padding:4px;gap:2px;justify-content:center}
+.countyFair .penAnimal.selected{border:2px solid #a96848;padding:3px;background:#fff9e7}
+.countyFair .penAnimal>.animalNameTag{position:relative;top:auto;left:auto;right:auto;flex:none;align-self:stretch;min-height:24px;display:flex;align-items:center;justify-content:center;padding:3px 4px;border-radius:6px;background:#fff8e9;border:1px solid #d8c7a6;font-weight:700;line-height:1.15;z-index:1}
+.countyFair .penAnimal>.animalSprite{flex:0 1 auto;height:calc(100% - 30px);width:100%;min-height:0}
+.countyFair .podiumNameTag{left:28px;right:28px;top:5px;padding:3px 4px;background:#fff8e9;border:1px solid #dbc7a6;border-radius:5px}
+.countyFair .podiumAnimal{padding-top:28px}
+@media(max-width:750px){.countyFair .penAnimal{padding:3px;gap:1px;border-radius:7px}.countyFair .penAnimal.selected{padding:2px}.countyFair .penAnimal>.animalNameTag{font-size:9px;min-height:26px;padding:2px;line-height:1.1}.countyFair .penAnimal>.animalSprite{height:calc(100% - 28px)}.countyFair .podiumNameTag{left:24px;right:24px;font-size:8px;top:3px}.countyFair .podiumAnimal{padding-top:26px}}
+
+.countyFair .penAnimal>.animalNameTag{order:0}.countyFair .penAnimal>.animalSprite{order:1}

@@ -3,12 +3,11 @@
 import { useEffect, useMemo, useRef, useState, type PointerEvent, type CSSProperties } from "react";
 import { animalRegionLabel } from "../lib/animalstatsRegions";
 import { randomAnimalBoardIndex } from "../lib/animalstatsVariety";
-import { CATLogo, CATMascot } from "./CATBrand";
+import { CATLogo } from "./CATBrand";
 import { ROUND_CONFIGS, type DailyDifficulty } from "../lib/gameRules";
 import type { AnimalDataset, BoardCandidate, ReviewLabel } from "../lib/animalstats";
 import { ANIMAL_HISTORY_KEY, animalStats, readAnimalHistory, type AnimalGameResult } from "../lib/animalstatsHistory";
 import { AnimalSprite } from "./AnimalSprite";
-import { AnimalHybridReveal } from "./AnimalHybridReveal";
 import "../app/animals/animalstats.css";
 import "../app/animals/animal-sanctuary.css";
 
@@ -122,7 +121,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
   }
 
   useEffect(() => {
-    if (submitted) document.querySelector(".hybridNursery")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (submitted) document.querySelector(".fairAwards")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [submitted]);
 
   function assign(traitId: string, animalId: string) {
@@ -190,13 +189,13 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
   const optimalChoices = results.filter((row) => row.rank === 1).length;
 
 
-  return <main className="animalPage animalSanctuary" data-motion={motionPaused ? "paused" : "playing"} data-board-habitat={board && board.animalIds.every((id) => ["frog", "salamander"].includes(animalMap.get(id)?.taxonomicGroup ?? "")) ? "pond" : board && board.animalIds.every((id) => ["turtle", "snake", "crocodilian", "lizard", "reptile"].includes(animalMap.get(id)?.taxonomicGroup ?? "")) ? "reptiles" : "forest"}>
+  return <main className="animalPage animalSanctuary countyFair" data-view={view} data-submitted={submitted} data-motion={motionPaused ? "paused" : "playing"} data-board-habitat={board && board.animalIds.every((id) => ["frog", "salamander"].includes(animalMap.get(id)?.taxonomicGroup ?? "")) ? "pond" : board && board.animalIds.every((id) => ["turtle", "snake", "crocodilian", "lizard", "reptile"].includes(animalMap.get(id)?.taxonomicGroup ?? "")) ? "reptiles" : "forest"}>
     <div className="animalShell">
       <header className="animalHeader">
-        <div className="animalBrandRow"><a href="/cat" className="animalBrandLink" aria-label="Countries, Animals & Things"><CATLogo compact /><span><b className="catCountryColor">C</b>ountries, <b className="catAnimalColor">A</b>nimals &amp; <b className="catThingColor">T</b>hings</span></a><CATMascot pleased={submitted} /></div>
-        <div className="animalEyebrow">THE LIVING WORLD / LITTLE WILD THINGS</div>
+        <div className="animalBrandRow"><a href="/cat" className="animalBrandLink" aria-label="Countries, Animals & Things"><CATLogo compact /><span><b className="catCountryColor">C</b>ountries, <b className="catAnimalColor">A</b>nimals &amp; <b className="catThingColor">T</b>hings</span></a></div>
+        <div className="animalEyebrow">STEP RIGHT UP · THE ANIMAL COUNTY FAIR</div>
         <h1>AnimalStats</h1>
-        <p>A pen full of personalities. A podium for every superlative. Who belongs where?</p>
+        <p>Meet the contestants. Pick a winner for every prize.</p>
       </header>
       <nav className="catWorldNav" aria-label="Worlds"><a href="/daily">Countries</a><a href="/animals" aria-current="page">Animals</a><a href="/cat#things">Things</a></nav>
       <nav className="animalPlayNav" aria-label="AnimalStats play">
@@ -236,14 +235,14 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
       <div className="animalBoardRecipe"><span>{board.traitIds.filter(id => traitMap.get(id)?.categoryKind === "intuitive").length} big questions</span><span>{board.traitIds.filter(id => traitMap.get(id)?.categoryKind === "specialist").length} curious details</span><span>Different winner in every slot</span></div>
       <p className="animalPilotNote">{playKind === "daily" ? `Reviewed daily board · ${date}` : "Playtest board · source review pending."} <a href="/animals/review">Comparison review</a></p>
       {!submitted && <>
-        <div className="animalToolbar"><button className="animalMotionToggle" type="button" aria-label={motionPaused ? "Animate animals" : "Pause animal animation"} aria-pressed={motionPaused} onClick={() => setMotionPaused(!motionPaused)}>{motionPaused ? "▶ Animate animals" : "Ⅱ Pause animation"}</button><p className="animalInstruction">Drag an animal from the pen onto a trait podium. Hover or hold to meet them. You can also tap an animal, then a podium.</p>
+        <div className="animalToolbar"><button className="animalMotionToggle" type="button" aria-label={motionPaused ? "Animate animals" : "Pause animal animation"} aria-pressed={motionPaused} onClick={() => setMotionPaused(!motionPaused)}>{motionPaused ? "▶ Animate animals" : "Ⅱ Pause animation"}</button><p className="animalInstruction">Drag a contestant to a prize stand, or tap an animal then a prize.</p>
           <button type="button" className="animalNext" onClick={() => { setAssignments({}); setSelectedAnimal(null); setSelectedTrait(null); setMessage(""); }}>Reset choices</button>
         </div>
 
         <div className="animalPlayBoard sanctuaryBoard">
           <section className="animalPen" aria-label="Animal pen">
             <div className="penSky" aria-hidden="true"><i className="penSun"/><i className="penCloud penCloudOne"/><i className="penCloud penCloudTwo"/><i className="penButterfly">✦</i></div>
-            <div className="penSign"><span>THE ANIMAL PEN</span><small>{board.animalIds.length - Object.keys(assignments).length} roaming · {Object.keys(assignments).length} on podiums</small></div>
+            <div className="penSign"><span>MEET THE CONTESTANTS</span><small>{board.animalIds.length - Object.keys(assignments).length} waiting · {Object.keys(assignments).length} entered</small></div>
             <div className="penFence penFenceBack" aria-hidden="true"/>
             <section className="animalBank" aria-label="Available animals">
               {board.animalIds.map((id, index) => {
@@ -261,14 +260,14 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
                   }}>
                   <AnimalSprite animal={animal}/>
                   <span className="animalNameTag">{animal.commonName}</span>
-                  {usedOn && <small className="penAssigned" aria-label={`Assigned to ${traitMap.get(usedOn)?.displayName}`}>On a podium</small>}
+                  {usedOn && <small className="penAssigned" aria-label={`Assigned to ${traitMap.get(usedOn)?.displayName}`}>Entered</small>}
                 </button>;
               })}
             </section>
             <div className="penFence penFenceFront" aria-hidden="true"/>
             <div className="penFlowers" aria-hidden="true"><i>✿</i><i>✿</i><i>✿</i></div>
           </section>
-          <div className="podiumSectionTitle"><span>THE PODIUMS</span><p>One animal. One podium. Make every match count.</p></div>
+          <div className="podiumSectionTitle"><span>THE PRIZE RING</span><p>One contestant per prize. Who deserves the ribbon?</p></div>
           <section className="animalTraits podiumGrid" aria-label="Trait podiums">
             {board.traitIds.map((id, index) => {
               const trait = traitMap.get(id)!;
@@ -281,15 +280,15 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
                   selectedAnimal ? assign(id, selectedAnimal) : setSelectedTrait(selectedTrait === id ? null : id);
                 }}>
                 {animal && <button type="button" className="podiumRemove" aria-label={`Remove ${animal.commonName} from ${trait.displayName}`} onPointerDown={(event) => event.stopPropagation()} onClick={(event) => { event.stopPropagation(); setAssignments(previous => { const next = { ...previous }; delete next[id]; return next; }); setSelectedAnimal(null); setSelectedTrait(null); setMessage(""); }}>×</button>}
-                <span className="podiumBadge">{String(index + 1).padStart(2, "0")}</span>
+                <span className="podiumBadge" aria-hidden="true">★</span>
                 <span className="podiumAnimal" {...(animal ? animalPointerHandlers(animal.id) : {})}>
-                  {animal ? <AnimalSprite animal={animal}/> : <svg className="podiumEmpty" viewBox="0 0 180 160" aria-hidden="true"><ellipse cx="90" cy="132" rx="37" ry="7"/><path d="M90 61v35m-17-17h34"/></svg>}
+                  {animal ? <><AnimalSprite animal={animal}/><span className="podiumNameTag">{animal.commonName}</span></> : <svg className="podiumEmpty" viewBox="0 0 180 160" aria-hidden="true"><ellipse cx="90" cy="132" rx="37" ry="7"/><path d="M90 61v35m-17-17h34"/></svg>}
                 </span>
                 <span className="podiumTop" aria-hidden="true"/>
                 <span className="podiumPlaque">
                   <span className="animalTraitName">{trait.displayName}</span>
                   <span className="animalTraitDefinition">{trait.playerHint ?? trait.definition}</span>
-                  <span className="animalTraitChoice">{animal ? animal.commonName : "Drop an animal here"}</span>
+                  <span className="animalTraitChoice">{animal ? animal.commonName : "Enter a contestant"}</span>
                   <span className={`animalCategoryKind ${trait.categoryKind}`}>{trait.categoryKind === "intuitive" ? "Big question" : "Curious detail"}</span>
                 </span>
               </div>;
@@ -307,11 +306,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
         }}>Reveal results</button>{message && <p role="status">{message}</p>}<span className="animalProgress" aria-live="polite">{Object.keys(assignments).length} / {board.traitIds.length} placed</span></div>
       </>}
       {submitted && <>
-        <section className="hybridNursery" aria-label="Hybrid nursery">
-          <div className="hybridNurseryIntro"><div><span className="animalEyebrow">THE BIG REVEAL</span><h2>A match made in the wild.</h2><p>Your animal meets the correct answer. Then, a little surprise.</p></div><button type="button" className="animalMotionToggle" aria-label={motionPaused ? "Animate animals" : "Pause animal animation"} aria-pressed={motionPaused} onClick={() => setMotionPaused(!motionPaused)}>{motionPaused ? "▶ Animate animals" : "Ⅱ Pause animation"}</button></div>
-          <div className="hybridPodiumGrid">{results.map((row, index) => <AnimalHybridReveal key={row.trait.id} chosen={animalMap.get(row.selected.animalId)!} correct={animalMap.get(row.ranked[0].animalId)!} traitName={row.trait.displayName} rank={row.rank} index={index}/>)}</div>
-          <p className="hybridFantasyNote">Imaginary offspring, real animal facts. Breeding and birth follow the body parent’s animal family, with time condensed; these hybrids are just for fun.</p>
-        </section>
+        <section className="fairAwards" aria-label="County fair awards"><span className="animalEyebrow">THE JUDGES HAVE DECIDED</span><h2>And the ribbons go to…</h2><div>{results.map(row => <article key={row.trait.id}><span className="fairRosette" aria-hidden="true">★</span><AnimalSprite animal={animalMap.get(row.ranked[0].animalId)!}/><h3>{row.trait.displayName}</h3><p>{animalMap.get(row.ranked[0].animalId)!.commonName}</p><small>{row.rank === 1 ? "You picked the winner!" : `Your entry placed ${row.rank} of ${board.animalIds.length}`}</small></article>)}</div></section>
         {accountMessage && <p role="status" className="animalSaveStatus">{accountMessage}</p>}
         <section className="animalScore" aria-label="Results"><div><span className="animalEyebrow">FINAL SCORE</span>
           <strong>{total}<small> / {config.maxScore}</small></strong></div>

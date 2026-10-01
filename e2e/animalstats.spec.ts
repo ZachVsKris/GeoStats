@@ -129,15 +129,15 @@ test("server scoring rejects repeated and foreign assignments", () => {
  expect(scoreAnimalAssignments(data, board, { ...assignments, [board.traitIds[0]]: "invented-animal" })).toBeNull();
 });
 
- test("Expert is playable and mascot motion is optional", async ({ page }) => {
+ test("Expert is playable and cartoon motion is optional", async ({ page }) => {
  await page.goto("/animals");
- await page.getByRole("button", { name: "Pause cat mascot animation" }).click();
- await expect(page.locator(".catCurator")).toHaveClass(/paused/);
+ await page.getByRole("button", { name: "Pause animal animation" }).click();
+ await expect(page.locator(".cartoonHead").first()).toHaveCSS("animation-play-state","paused");
  await page.getByRole("button", { name: /^Expert\b/ }).click();
  await expect(page.locator(".animalCard")).toHaveCount(8);
  await expect(page.locator(".animalTrait")).toHaveCount(6);
  await page.emulateMedia({ reducedMotion: "reduce" });
- expect(await page.locator(".catEyes").evaluate(el => getComputedStyle(el).animationName)).toBe("none");
+ expect(await page.locator(".cartoonBlink").first().evaluate(el => getComputedStyle(el).animationName)).toBe("none");
  });
 
 
@@ -211,45 +211,14 @@ test("new prototype balances categories and mirrors measured values exactly", ()
 });
 
 
-test("animal pen names, podium residents and hybrid offspring", async ({ page }) => {
- await page.goto("/animals");
- const cards = page.locator(".penAnimal");
- await expect(cards).toHaveCount(4);
- const name = await cards.first().getAttribute("aria-label");
- await cards.first().hover();
- await expect(cards.first().locator(".animalNameTag")).toHaveText(name!);
- await expect(cards.first().locator(".animalNameTag")).toHaveCSS("opacity", "1");
- const box = (await cards.first().boundingBox())!;
- await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
- await page.mouse.down();
- await expect(cards.first()).toHaveAttribute("data-name-open", "true");
- await page.mouse.up();
- await page.locator(".traitPodium").first().click();
- await expect(page.locator(".traitPodium").first().locator(".animalSprite")).toHaveAttribute("data-animal-id", await cards.first().locator(".animalSprite").getAttribute("data-animal-id") as string);
- await expect(cards.first()).toHaveAttribute("data-on-podium", "true");
- for (let i = 1; i < 4; i++) { await cards.nth(i).click(); await page.locator(".traitPodium").nth(i).click(); }
- const traitIds = await page.locator(".traitPodium").evaluateAll(nodes => nodes.map(node => node.getAttribute("data-trait-id")));
- const chosenIds = await page.locator(".traitPodium .animalSprite").evaluateAll(nodes => nodes.map(node => node.getAttribute("data-animal-id")));
- await page.getByRole("button", { name: "Reveal results" }).click();
- await expect(page.getByRole("region", { name: "Hybrid nursery" })).toBeVisible();
- const hybrids = page.locator(".hybridBaby .animalSprite");
- await expect(hybrids).toHaveCount(4);
- const traits = new Map(animalDataset.traits.map((t: { id: string; displayName: string; direction: string }) => [t.id, t]));
- const animals = new Map(animalDataset.animals.map((a: { id: string; commonName: string }) => [a.id, a.commonName]));
- for (let i = 0; i < 4; i++) {
-  await expect(hybrids.nth(i)).toHaveAttribute("data-animal-id", chosenIds[i]!);
-  const trait = traits.get(traitIds[i]!) as { id: string; direction: string };
-  const ranked = chosenIds.map(id => animalDataset.values.find((v: { animalId: string; traitId: string }) => v.animalId === id && v.traitId === trait.id)).sort((a, b) => trait.direction === "higher_wins" ? b.valueNumeric - a.valueNumeric : a.valueNumeric - b.valueNumeric);
-  await expect(hybrids.nth(i)).toHaveAttribute("data-head-animal-id", ranked[0].animalId);
-  await expect(page.locator(".animalResult").nth(i)).toContainText(animals.get(ranked[0].animalId) as string);
- }
- await page.locator(".hybridArena").first().scrollIntoViewIfNeeded();
- await expect(page.locator(".hybridBaby").first()).toHaveCSS("opacity", "1", { timeout: 15_000 });
- await page.getByRole("button", { name: /^Replay .*hybrid animation$/ }).first().click();
- await expect(page.locator(".hybridBaby").first()).toHaveCSS("opacity", "1", { timeout: 15_000 });
- await page.getByRole("button", { name: "Pause animal animation", exact: true }).click();
- await expect(page.locator(".hybridBaby").first()).toHaveCSS("animation-name", "none");
- await expect(page.locator(".hybridBaby").first()).toHaveCSS("opacity", "1");
+test("county fair awards replace all breeding and hybrids", async ({page}) => {
+ await page.goto('/animals');
+ for(let i=0;i<4;i++){await page.locator('.penAnimal').nth(i).click();await page.locator('.traitPodium').nth(i).click();}
+ await page.getByRole('button',{name:'Reveal results'}).click();
+ await expect(page.getByRole('region',{name:'County fair awards'})).toBeVisible();
+ await expect(page.locator('.fairAwards article')).toHaveCount(4);
+ await expect(page.locator('.hybridNursery,.hybridBaby,.pairingCanvas')).toHaveCount(0);
+ for(let i=0;i<4;i++){const row=page.locator('.animalResult').nth(i);const winner=await page.locator('.fairAwards article p').nth(i).textContent();await expect(row).toContainText(`Optimal choice: ${winner}`);}
 });
 
 test("phone pen supports touch drag and reduced-motion results", async ({ page }) => {
@@ -271,8 +240,8 @@ test("phone pen supports touch drag and reduced-motion results", async ({ page }
  for (let i = 1; i < 4; i++) { await cards.nth(i).click(); await podiums.nth(i).click(); }
  await page.emulateMedia({ reducedMotion: "reduce" });
  await page.getByRole("button", { name: "Reveal results" }).click();
- await expect(page.locator(".hybridBaby").first()).toHaveCSS("opacity", "1");
- await expect(page.locator(".hybridBaby").first()).toHaveCSS("animation-name", "none");
+ await expect(page.locator(".fairAwards .animalSprite").first()).toBeVisible();
+ await expect(page.locator(".fairAwards .cartoonHead").first()).toHaveCSS("animation-name", "none");
  expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
  await cdp.detach();
 });
@@ -295,103 +264,23 @@ test("podium remove returns an animal to the pen and supports replacement", asyn
  await expect(podium).not.toHaveClass(/occupied/);
 });
 
-import {
-  createAnimalRig,
-  animateRig,
-  modelSpecies,
-} from "../lib/animalstats3d";
-test("every playable animal has a 3D anatomical profile and articulated joints", () => {
-  const ids = new Set(
-    candidateData.boards.flatMap(
-      (board: { animalIds: string[] }) => board.animalIds,
-    ),
-  );
-  expect(modelSpecies).toHaveLength(74);
-  for (const id of ids) {
-    expect(modelSpecies).toContain(id);
-    const rig = createAnimalRig(String(id));
-    expect(rig.eyes).toHaveLength(2);
-    expect(rig.root.children.length).toBeGreaterThan(0);
-    animateRig(rig, 1, false);
-    const before = rig.head.rotation.y;
-    animateRig(rig, 2, false);
-    expect(rig.head.rotation.y).not.toBe(before);
-    for (const geometry of rig.owned) geometry.dispose();
-  }
+import {cartoonSpecies} from '../lib/animalstatsCartoons';
+test('every playable species has an illustrated profile',()=>{
+ expect(cartoonSpecies).toHaveLength(74);
+ for(const board of candidateData.boards)for(const id of board.animalIds)expect(cartoonSpecies).toContain(id);
 });
-
-test("pen artwork stays equally sized across all round modes and loads without errors", async ({
-  page,
-}) => {
-  await page.goto("/animals");
-  for (const mode of ["Scout", "Adventurer", "Expert"]) {
-    await page.getByRole("button", { name: new RegExp(`^${mode}\\b`) }).click();
-    const sprites = page.locator(".penAnimal > .animalSprite");
-    const sizes = await sprites.evaluateAll((nodes) =>
-      nodes.map((node) => ({
-        width: parseFloat(getComputedStyle(node).width),
-        height: parseFloat(getComputedStyle(node).height),
-        normalized: node.getAttribute("data-normalized-size"),
-        version: node.getAttribute("data-art-version"),
-      })),
-    );
-    expect(new Set(sizes.map((s) => `${s.width}:${s.height}`)).size).toBe(1);
-    expect(
-      sizes.every(
-        (s) => s.normalized === "142" && s.version === "living-3d-v4",
-      ),
-    ).toBe(true);
-  }
-  await expect(
-    page.locator(".penAnimal canvas[data-render-ready=true]"),
-  ).toHaveCount(8);
-  const sprite = page.locator(".penAnimal canvas").first();
-  await sprite.scrollIntoViewIfNeeded();
-  const pixels = () =>
-    sprite.evaluate((canvas) => (canvas as HTMLCanvasElement).toDataURL());
-  const first = await pixels();
-  await expect.poll(pixels).not.toBe(first);
-  await page.getByRole("button", { name: "Pause animal animation" }).click();
-  await page.waitForTimeout(150);
-  const frozen = await pixels();
-  await page.waitForTimeout(250);
-  expect(await pixels()).toBe(frozen);
-});
-
-import {animalLifeCycle} from "../lib/animalstatsLifeCycle";
-
-test("reproduction uses egg, live birth and pouch exceptions",()=>{
- const life=(id:string)=>animalLifeCycle(animalDataset.animals.find((animal:{id:string})=>animal.id===id));
- expect(life("ornithorhynchus_anatinus")).toMatchObject({birth:"egg",pairing:"water"});
- expect(life("boa_constrictor")).toMatchObject({birth:"live",pairing:"coil"});
- expect(life("python_molurus").birth).toBe("egg");
- expect(life("didelphis_marsupialis").birth).toBe("pouch");
- expect(life("vulpes_vulpes").birth).toBe("live");
- expect(life("aptenodytes_patagonicus").birth).toBe("egg");
-});
-
-test("results show physical mating, live births, egg laying and hatching",async({page})=>{
- await page.goto("/animals");
- for(let i=0;i<4;i++){await page.locator(".penAnimal").nth(i).click();await page.locator(".traitPodium").nth(i).click();}
- await page.getByRole("button",{name:"Reveal results"}).click();
- const first=page.locator(".hybridPodium").first();await first.scrollIntoViewIfNeeded();
- await expect(first.locator(".pairingCanvas")).toHaveAttribute("data-render-ready","true");
- const advance=async(card:typeof first,time:number)=>card.evaluate((element,t)=>element.getAnimations({subtree:true}).forEach(animation=>{animation.pause();animation.currentTime=t;}),time);
- for(const mode of ["pouch","live","egg"]){
-  const arena=page.locator(`.hybridArena[data-birth-mode=${mode}]`).first();const card=arena.locator('..');await card.scrollIntoViewIfNeeded();
-  await expect(arena).toHaveAttribute("data-started","true");
-  await advance(card,3300);
-  await expect(card.locator(".pairingCanvas")).toHaveAttribute("data-stage","mating");
-  await expect(card.locator(".birthMate")).toHaveCSS("opacity","1");
-  await expect(card.locator(".hybridBaby")).toHaveCSS("opacity","0");
-  if(mode!=="egg")await expect(card.locator(".hybridEgg")).toHaveCount(0);
-  await advance(card,6000);
-  await expect(card.locator(".pairingCanvas")).toHaveAttribute("data-stage","birth");
-  if(mode==="egg")await expect(card.locator(".hybridEgg")).toHaveCSS("opacity","1");
-  await advance(card,6900);await expect(card.locator(".pairingCanvas")).toHaveAttribute("data-baby-visible","true");
-  await advance(card,9600);await expect(card.locator(".hybridBaby")).toHaveCSS("opacity","1");
+for(const viewport of [{width:1440,height:900},{width:1366,height:768},{width:390,height:844},{width:375,height:667}]){
+ test(`all contestants, prizes and submit fit without scrolling ${viewport.width}x${viewport.height}`,async({page})=>{
+ await page.setViewportSize(viewport);await page.goto('/animals');
+ for(const mode of ['Scout','Adventurer','Expert']){
+  await page.getByRole('button',{name:new RegExp(`^${mode}\\b`)}).click();
+  const bounds=await page.locator('.penAnimal,.traitPodium,.animalSubmit>button').evaluateAll(nodes=>nodes.map(el=>{const r=el.getBoundingClientRect();return {top:r.top,bottom:r.bottom,left:r.left,right:r.right,width:r.width,height:r.height}}));
+  expect(bounds.every(r=>r.top>=0&&r.bottom<=viewport.height&&r.left>=0&&r.right<=viewport.width&&r.width>20&&r.height>20)).toBe(true);
+  expect(await page.evaluate(()=>document.documentElement.scrollHeight<=innerHeight+1)).toBe(true);
+  await expect(page.locator('.penAnimal>.animalSprite').first()).toHaveAttribute('data-art-version','fair-cartoon-v1');
+  await expect(page.locator('.animalNameTag').first()).toHaveCSS('opacity','1');
  }
- await first.scrollIntoViewIfNeeded();await first.getByRole("button",{name:/^Replay /}).click();
- await expect(first.locator(".hybridBaby")).toHaveCSS("opacity","0");
- await expect(first.locator(".hybridBaby")).toHaveCSS("opacity","1",{timeout:15_000});
-});
+ await page.getByRole('button',{name:'Pause animal animation'}).click();
+ await expect(page.locator('.penAnimal .cartoonHead').first()).toHaveCSS('animation-play-state','paused');
+ });
+}

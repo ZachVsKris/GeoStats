@@ -1,0 +1,446 @@
+// Anatomical proportions are visual character design, never game statistics.
+type Kind =
+  | "quadruped"
+  | "bird"
+  | "penguin"
+  | "primate"
+  | "marine"
+  | "reptile"
+  | "snake"
+  | "turtle";
+type Profile = {
+  kind: Kind;
+  color: string;
+  belly: string;
+  length: number;
+  height: number;
+  leg: number;
+  neck: number;
+  snout: number;
+  ear: number;
+  tail: number;
+  pattern?: "spots" | "rosettes" | "stripes" | "patches";
+  feature?: string;
+};
+const base: Profile = {
+  kind: "quadruped",
+  color: "#ad784a",
+  belly: "#e8d7b4",
+  length: 1.7,
+  height: 0.62,
+  leg: 0.65,
+  neck: 0,
+  snout: 0.4,
+  ear: 0.24,
+  tail: 1,
+};
+const profiles: Record<string, Partial<Profile>> = {
+  didelphis_marsupialis: {
+    color: "#888a89",
+    belly: "#ededdf",
+    height: 0.46,
+    leg: 0.48,
+    snout: 0.57,
+    ear: 0.2,
+    tail: 1.65,
+    feature: "opossum",
+  },
+  tupaia_glis: {
+    color: "#946a44",
+    belly: "#d1a074",
+    length: 1.75,
+    height: 0.37,
+    leg: 0.36,
+    snout: 0.48,
+    ear: 0.13,
+    tail: 1.55,
+    feature: "treeshrew",
+  },
+  ornithorhynchus_anatinus: {
+    color: "#76543b",
+    height: 0.35,
+    leg: 0.24,
+    snout: 0.55,
+    ear: 0,
+    tail: 0.95,
+    feature: "platypus",
+  },
+  vulpes_vulpes: {
+    color: "#cf642a",
+    belly: "#fff4db",
+    height: 0.53,
+    leg: 0.8,
+    snout: 0.52,
+    ear: 0.42,
+    tail: 1.45,
+    feature: "fox",
+  },
+  acinonyx_jubatus: {
+    color: "#d3aa5e",
+    height: 0.51,
+    leg: 1,
+    snout: 0.25,
+    ear: 0.19,
+    pattern: "spots",
+    feature: "cheetah",
+  },
+  melursus_ursinus: {
+    color: "#242625",
+    length: 2.1,
+    height: 0.72,
+    leg: 0.65,
+    ear: 0.28,
+    snout: 0.49,
+    tail: 0.12,
+    feature: "slothbear",
+  },
+  pan_troglodytes: {
+    kind: "primate",
+    color: "#34332d",
+    belly: "#9c8170",
+    tail: 0,
+    feature: "chimp",
+  },
+  ailuropoda_melanoleuca: {
+    color: "#f3eedc",
+    belly: "#f3eedc",
+    length: 1.85,
+    height: 0.7,
+    leg: 0.55,
+    ear: 0.27,
+    tail: 0.12,
+    snout: 0.26,
+    feature: "panda",
+  },
+  gorilla_gorilla: {
+    kind: "primate",
+    color: "#3f4543",
+    belly: "#737977",
+    height: 1.1,
+    tail: 0,
+    feature: "gorilla",
+  },
+  giraffa_camelopardalis: {
+    color: "#d8b576",
+    length: 1.55,
+    height: 0.59,
+    leg: 1.5,
+    neck: 1.6,
+    snout: 0.48,
+    ear: 0.25,
+    tail: 0.9,
+    pattern: "patches",
+    feature: "giraffe",
+  },
+  ceratotherium_simum: {
+    color: "#92958d",
+    height: 0.9,
+    leg: 0.6,
+    snout: 0.6,
+    ear: 0.22,
+    tail: 0.55,
+    feature: "rhino",
+  },
+  phascolarctos_cinereus: {
+    color: "#969f9d",
+    length: 1.25,
+    height: 0.64,
+    leg: 0.4,
+    snout: 0.12,
+    ear: 0.4,
+    tail: 0,
+    feature: "koala",
+  },
+  panthera_leo: {
+    color: "#c79b50",
+    height: 0.64,
+    leg: 0.8,
+    snout: 0.31,
+    ear: 0.2,
+    tail: 1.5,
+    feature: "lion",
+  },
+  panthera_tigris: {
+    color: "#dc8d36",
+    height: 0.69,
+    leg: 0.75,
+    snout: 0.3,
+    ear: 0.21,
+    tail: 1.35,
+    pattern: "stripes",
+    feature: "tiger",
+  },
+  loxodonta_africana: {
+    color: "#8c9691",
+    height: 1,
+    leg: 0.95,
+    snout: 0.24,
+    ear: 0.9,
+    tail: 0.7,
+    feature: "elephant",
+  },
+  equus_quagga: {
+    color: "#f1ead8",
+    height: 0.7,
+    leg: 1.15,
+    snout: 0.6,
+    ear: 0.3,
+    tail: 0.85,
+    pattern: "stripes",
+    feature: "zebra",
+  },
+  helarctos_malayanus: { color: "#302c24", feature: "sunbear" },
+  tremarctos_ornatus: { color: "#34322d", feature: "spectacledbear" },
+  ursus_americanus: { color: "#282b28", feature: "blackbear" },
+  ursus_arctos: { color: "#785334", feature: "brownbear" },
+  ursus_maritimus: { color: "#f4f1dd", belly: "#e9e5d6", feature: "polarbear" },
+  ursus_thibetanus: { color: "#292d2c", feature: "moonbear" },
+  canis_lupus: {
+    color: "#888b82",
+    belly: "#d5d4c7",
+    snout: 0.53,
+    ear: 0.32,
+    tail: 1.15,
+    feature: "wolf",
+  },
+  panthera_pardus: {
+    color: "#d6ac62",
+    pattern: "rosettes",
+    feature: "leopard",
+  },
+  alligator_mississippiensis: {
+    kind: "reptile",
+    color: "#57614b",
+    length: 2.3,
+    height: 0.28,
+    leg: 0.25,
+    snout: 0.85,
+    ear: 0,
+    tail: 1.65,
+    feature: "alligator",
+  },
+  crocodylus_acutus: {
+    kind: "reptile",
+    color: "#8b8f64",
+    length: 2.3,
+    height: 0.28,
+    leg: 0.25,
+    snout: 1.05,
+    ear: 0,
+    tail: 1.65,
+    feature: "crocodile",
+  },
+  erinaceus_europaeus: {
+    color: "#987951",
+    height: 0.45,
+    leg: 0.22,
+    snout: 0.37,
+    ear: 0.13,
+    tail: 0.1,
+    feature: "hedgehog",
+  },
+  bison_bison: {
+    color: "#735039",
+    height: 1,
+    leg: 0.65,
+    ear: 0.18,
+    tail: 0.65,
+    feature: "bison",
+  },
+  equus_asinus: {
+    color: "#98958b",
+    height: 0.63,
+    leg: 1,
+    snout: 0.58,
+    ear: 0.65,
+    tail: 0.8,
+    feature: "donkey",
+  },
+  hippopotamus_amphibius: {
+    color: "#9a9095",
+    height: 0.8,
+    leg: 0.37,
+    snout: 0.72,
+    ear: 0.13,
+    tail: 0.25,
+    feature: "hippo",
+  },
+  balaenoptera_musculus: {
+    kind: "marine",
+    color: "#779ca8",
+    belly: "#b8d5d7",
+    length: 2.7,
+    feature: "bluewhale",
+  },
+  megaptera_novaeangliae: {
+    kind: "marine",
+    color: "#4b6572",
+    belly: "#dde6dd",
+    length: 2.5,
+    feature: "humpback",
+  },
+  orcinus_orca: {
+    kind: "marine",
+    color: "#253337",
+    belly: "#f4f4e9",
+    length: 2.2,
+    feature: "orca",
+  },
+  tursiops_truncatus: {
+    kind: "marine",
+    color: "#799da7",
+    belly: "#c6dddc",
+    length: 2.2,
+    snout: 0.55,
+    feature: "dolphin",
+  },
+  macropus_rufus: {
+    color: "#bc8859",
+    height: 0.65,
+    leg: 1.1,
+    length: 1.3,
+    neck: 0.55,
+    ear: 0.5,
+    tail: 1.8,
+    feature: "kangaroo",
+  },
+  macaca_mulatta: {
+    kind: "primate",
+    color: "#a99272",
+    belly: "#d6b3a4",
+    tail: 1.4,
+    feature: "macaque",
+  },
+  pongo_pygmaeus: {
+    kind: "primate",
+    color: "#bb682d",
+    belly: "#6b5044",
+    tail: 0,
+    feature: "orangutan",
+  },
+  castor_canadensis: {
+    color: "#8f613e",
+    height: 0.59,
+    leg: 0.32,
+    snout: 0.25,
+    ear: 0.14,
+    tail: 1.05,
+    feature: "beaver",
+  },
+  cavia_porcellus: {
+    color: "#b48b61",
+    height: 0.5,
+    leg: 0.19,
+    snout: 0.2,
+    ear: 0.18,
+    tail: 0,
+    feature: "guineapig",
+  },
+  hydrochoerus_hydrochaeris: {
+    color: "#a78b62",
+    height: 0.62,
+    leg: 0.43,
+    snout: 0.48,
+    ear: 0.17,
+    tail: 0,
+    feature: "capybara",
+  },
+  boa_constrictor: {
+    kind: "snake",
+    ear: 0,
+    color: "#a6906a",
+    pattern: "patches",
+    feature: "boa",
+  },
+  python_molurus: {
+    kind: "snake",
+    ear: 0,
+    color: "#b5a080",
+    pattern: "patches",
+    feature: "python",
+  },
+  trachemys_scripta: {
+    kind: "turtle",
+    ear: 0,
+    leg: 0.22,
+    height: 0.32,
+    color: "#527856",
+    feature: "slider",
+  },
+};
+const birds: Record<string, [string, string, string, number, number?]> = {
+  alauda_arvensis: ["#a58b65", "#e2ceb0", "lark", 0.25],
+  anas_platyrhynchos: ["#837364", "#e2dfcb", "mallard", 0.45],
+  anser_anser: ["#aaa79a", "#e8e7da", "goose", 0.48, 0.55],
+  aptenodytes_patagonicus: ["#344653", "#f7f2d9", "kingpenguin", 0.4],
+  apus_apus: ["#514f46", "#777267", "swift", 0.15],
+  aquila_chrysaetos: ["#6a4e32", "#b69a64", "eagle", 0.34],
+  ara_macao: ["#d73c30", "#ed6241", "macaw", 0.42],
+  ardea_cinerea: ["#a9b9bb", "#e9ece1", "heron", 0.85, 1.05],
+  bubo_virginianus: ["#9a8058", "#d8c9a0", "owl", 0.2],
+  cardinalis_cardinalis: ["#d44239", "#e26052", "cardinal", 0.24],
+  columba_palumbus: ["#9da9b5", "#bdb1b1", "pigeon", 0.25],
+  corvus_corone: ["#303b40", "#465053", "crow", 0.4],
+  corvus_frugilegus: ["#303943", "#4b5157", "rook", 0.44],
+  diomedea_exulans: ["#ecebdf", "#f9f7e9", "albatross", 0.56],
+  dromaius_novaehollandiae: ["#786b56", "#9c9179", "emu", 0.37, 1.2],
+  falco_peregrinus: ["#718b99", "#e5dfc9", "falcon", 0.25],
+  gallus_gallus: ["#9b522e", "#806243", "rooster", 0.26],
+  haematopus_ostralegus: ["#293b3f", "#f4f0df", "oystercatcher", 0.65],
+  haliaeetus_leucocephalus: ["#564b35", "#958669", "baldeagle", 0.36],
+  hirundo_rustica: ["#324c65", "#e2c8a5", "swallow", 0.17],
+  larus_argentatus: ["#a5b7be", "#f5f3e8", "gull", 0.42],
+  larus_ridibundus: ["#b4c1c5", "#f4f0e5", "blackheadedgull", 0.35],
+  pelecanus_occidentalis: ["#9a9a88", "#e1d9bf", "pelican", 1],
+  phalacrocorax_carbo: ["#354647", "#60746b", "cormorant", 0.5, 0.48],
+  pygoscelis_papua: ["#2d4149", "#f3f1df", "gentoo", 0.33],
+  somateria_mollissima: ["#333d3f", "#f0edde", "eider", 0.38],
+  spheniscus_demersus: ["#34454a", "#f5f2df", "africanpenguin", 0.32],
+  sterna_hirundo: ["#bac9d0", "#f6f4e7", "tern", 0.4],
+  struthio_camelus: ["#3b3c37", "#ebe7d7", "ostrich", 0.4, 1.3],
+  sturnus_vulgaris: ["#374b4a", "#657273", "starling", 0.3],
+  vanellus_vanellus: ["#3a6262", "#efede2", "lapwing", 0.24],
+};
+for (const [id, [color, belly, feature, snout, neck = 0]] of Object.entries(
+  birds,
+))
+  profiles[id] = {
+    kind:
+      feature.includes("penguin") || ["gentoo"].includes(feature)
+        ? "penguin"
+        : "bird",
+    color,
+    belly,
+    feature,
+    snout,
+    neck,
+    length: 1.1,
+    height: 0.7,
+    leg: ["heron", "emu", "ostrich"].includes(feature) ? 1.2 : 0.42,
+    ear: 0,
+    tail: 0.5,
+  };
+for (const id of Object.keys(profiles))
+  if (
+    id.startsWith("ursus_") ||
+    ["helarctos_malayanus", "tremarctos_ornatus"].includes(id)
+  )
+    profiles[id] = {
+      length: 2.05,
+      height: 0.73,
+      leg: 0.65,
+      snout: 0.43,
+      ear: 0.24,
+      tail: 0.12,
+      ...profiles[id],
+    };
+for (const p of Object.values(profiles))
+  if (p.feature?.includes("bear") && !["polarbear"].includes(p.feature))
+    p.belly = p.color;
+for (const p of Object.values(profiles))
+  if (p.kind === "penguin") {
+    p.leg = 0.2;
+    p.height = 0.73;
+  }
+export const cartoonSpecies = Object.keys(profiles);
+export function cartoonProfile(id: string): Profile { return { ...base, ...profiles[id] }; }

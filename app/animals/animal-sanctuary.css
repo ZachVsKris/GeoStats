@@ -154,3 +154,6 @@
 .hybridParent>span{animation:birthParentLabels 6s both;animation-delay:var(--reveal-delay)}
 @keyframes birthParentLabels{0%,10%,65%,100%{opacity:1}25%,50%{opacity:0}}
 .animalSanctuary[data-motion=paused] .hybridParent>span{animation:none;opacity:1}
+/* Articulated 3D characters animate inside their canvas, with feet grounded. */
+.penAnimal > .animalSprite.livingCharacter { animation: none; transform: none; }
+.animalSprite.livingCharacter { aspect-ratio: 180 / 160; object-fit: contain; }

@@ -294,33 +294,67 @@ test("podium remove returns an animal to the pen and supports replacement", asyn
  await expect(podium).not.toHaveClass(/occupied/);
 });
 
-const animalArtwork = JSON.parse(readFileSync(new URL("../lib/animalstatsArtwork.json", import.meta.url), "utf8"));
-test("every playable species has an individual, complete cartoon frame", () => {
- const ids = new Set(candidateData.boards.flatMap((board: { animalIds: string[] }) => board.animalIds));
- expect(Object.keys(animalArtwork.animals).length).toBe(74);
- for (const id of ids) {
-  const art = animalArtwork.animals[id as string];
-  expect(art, String(id)).toBeDefined();
-  const [x,y,w,h] = art.frame;
-  const [atlasWidth,atlasHeight] = animalArtwork.atlases[art.atlas-1];
-  expect(x).toBeGreaterThanOrEqual(0); expect(y).toBeGreaterThanOrEqual(0);
-  expect(w).toBeGreaterThan(0); expect(h).toBeGreaterThan(0);
-  expect(x+w).toBeLessThanOrEqual(atlasWidth); expect(y+h).toBeLessThanOrEqual(atlasHeight);
-  expect(readFileSync(new URL(`../public/animalstats/art-v2/atlas-${art.atlas}.webp`, import.meta.url)).length).toBeGreaterThan(1000);
- }
+import {
+  createAnimalRig,
+  animateRig,
+  modelSpecies,
+} from "../lib/animalstats3d";
+test("every playable animal has a 3D anatomical profile and articulated joints", () => {
+  const ids = new Set(
+    candidateData.boards.flatMap(
+      (board: { animalIds: string[] }) => board.animalIds,
+    ),
+  );
+  expect(modelSpecies).toHaveLength(74);
+  for (const id of ids) {
+    expect(modelSpecies).toContain(id);
+    const rig = createAnimalRig(String(id));
+    expect(rig.eyes).toHaveLength(2);
+    expect(rig.root.children.length).toBeGreaterThan(0);
+    animateRig(rig, 1, false);
+    const before = rig.head.rotation.y;
+    animateRig(rig, 2, false);
+    expect(rig.head.rotation.y).not.toBe(before);
+    for (const geometry of rig.owned) geometry.dispose();
+  }
 });
 
-test("pen artwork stays equally sized across all round modes and loads without errors", async ({ page }) => {
- await page.goto("/animals");
- for (const mode of ["Scout", "Adventurer", "Expert"]) {
-  await page.getByRole("button", { name: new RegExp(`^${mode}\\b`) }).click();
-  const sprites = page.locator(".penAnimal > .animalSprite");
-  const sizes = await sprites.evaluateAll(nodes => nodes.map(node => ({ width: parseFloat(getComputedStyle(node).width), height: parseFloat(getComputedStyle(node).height), normalized: node.getAttribute("data-normalized-size"), version: node.getAttribute("data-art-version") })));
-  expect(new Set(sizes.map(s => `${s.width}:${s.height}`)).size).toBe(1);
-  expect(sizes.every(s => s.normalized === "142" && s.version === "reference-cartoon-v2")).toBe(true);
- }
- const hrefs = await page.locator(".penAnimal .animalSprite image").evaluateAll(nodes => [...new Set(nodes.map(node => node.getAttribute("href")!))]);
- for (const href of hrefs) { const response = await page.request.get(href, { headers: { Accept: "image/webp" } }); expect(response.ok()).toBe(true); expect(response.headers()["content-type"]).toContain("image/webp"); }
+test("pen artwork stays equally sized across all round modes and loads without errors", async ({
+  page,
+}) => {
+  await page.goto("/animals");
+  for (const mode of ["Scout", "Adventurer", "Expert"]) {
+    await page.getByRole("button", { name: new RegExp(`^${mode}\\b`) }).click();
+    const sprites = page.locator(".penAnimal > .animalSprite");
+    const sizes = await sprites.evaluateAll((nodes) =>
+      nodes.map((node) => ({
+        width: parseFloat(getComputedStyle(node).width),
+        height: parseFloat(getComputedStyle(node).height),
+        normalized: node.getAttribute("data-normalized-size"),
+        version: node.getAttribute("data-art-version"),
+      })),
+    );
+    expect(new Set(sizes.map((s) => `${s.width}:${s.height}`)).size).toBe(1);
+    expect(
+      sizes.every(
+        (s) => s.normalized === "142" && s.version === "living-3d-v3",
+      ),
+    ).toBe(true);
+  }
+  await expect(
+    page.locator(".penAnimal canvas[data-render-ready=true]"),
+  ).toHaveCount(8);
+  const sprite = page.locator(".penAnimal canvas").first();
+  await sprite.scrollIntoViewIfNeeded();
+  const pixels = () =>
+    sprite.evaluate((canvas) => (canvas as HTMLCanvasElement).toDataURL());
+  const first = await pixels();
+  await expect.poll(pixels).not.toBe(first);
+  await page.getByRole("button", { name: "Pause animal animation" }).click();
+  await page.waitForTimeout(150);
+  const frozen = await pixels();
+  await page.waitForTimeout(250);
+  expect(await pixels()).toBe(frozen);
 });
 
 test("results animate pairing, a hatching birth and a replay", async ({ page }) => {

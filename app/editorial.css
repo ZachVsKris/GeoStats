@@ -686,3 +686,6 @@ body { isolation: isolate; }
 /* Separate results, without extra rules inside each comparison. */
 .shell.resultsView .resultMain .statTip { border-bottom: 0; text-decoration: none; }
 .shell.resultsView .mobileBestMatch { border-top: 0; padding-top: 3px; }
+
+/* Let the page scroll when a board exceeds the available screen height. */
+html:has(.shell.activePlay), body:has(.shell.activePlay) { overflow-y: auto; }

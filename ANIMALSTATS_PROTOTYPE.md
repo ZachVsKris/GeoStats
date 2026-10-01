@@ -20,7 +20,7 @@ Mammal mapped range imports only positive, exact-species GIS area values from Pa
 
 The play surface is now an animated animal pen above four or six trait podiums. All 74 playable animals have curated vector profiles, with modular bodies, head features, markings and palettes. CSS animates roaming, breathing, blinking, tails, wings, feet, clouds and butterflies. Hover, keyboard focus, selection or a pointer hold reveals an animal's name. Pointer capture supports mouse and real touch dragging, including moving a podium resident; tap/keyboard selection remains available and placements swap when needed.
 
-After scoring, each selected animal meets the actual first-place animal for that trait. A staggered heart-and-spark reveal produces a deterministic fantasy offspring with the selected parent's body and the correct parent's head, plus mixed markings. Matching parents produce a baby of the same species. Each reveal is replayable. The offspring is explicitly fictional; sourced values and scoring are unchanged. Pause controls and reduced-motion styles reveal the offspring immediately without the transition.
+After scoring, each selected animal meets the actual first-place animal for that trait. A replayable six-second meeting, pairing, egg wobble, cracking and birth animation produces a deterministic fantasy offspring with the selected parent's body and the correct parent's head, using the source illustrations rather than generic shapes or invented markings. Matching parents produce a baby of the same species. Each reveal is replayable. The offspring is explicitly fictional; sourced values and scoring are unchanged. Pause controls and reduced-motion styles reveal the offspring immediately without the transition.
 
 Verification includes mouse swapping/dragging, real CDP touch dragging, name reveal, every offspring's parent IDs against the scored winner, replay/pause, reduced motion, phone overflow, and the existing three-mode, source, scoring and history checks. Illustrations live in `components/AnimalSprite.tsx`, reveal logic in `components/AnimalHybridReveal.tsx`, and the scoped visual layer in `app/animals/animal-sanctuary.css`.
 
@@ -31,3 +31,13 @@ Run `python scripts/generate-animalstats-boards.py`, then `python scripts/audit-
 Run `ANIMALSTATS_PREVIEW_ENABLED=true npm run build`, then `ANIMALSTATS_PREVIEW_ENABLED=true npx playwright test e2e/animalstats.spec.ts --project=chrome-desktop`. Tests cover every board's numeric validation, exact high/low observations, minimum-half-intuitive balance, exclusion of obscure bird anatomy, distinct winners, mobile layout, interactions, sources, daily gate and saved history.
 
 Preview is enabled only by the existing private feature branch or explicit preview flag. Production navigation is unchanged.
+
+### Reference cartoon artwork, v2
+
+All 74 playable species now have individually illustrated cartoon artwork grounded in the existing real species photo references. Five transparent, lossless WebP species atlases are shared across the pen, podiums, drag ghost and nursery. `lib/animalstatsArtwork.json` holds traced silhouette frames, body sockets and head anchors for each species. No generic animal drawing is used. Every animal has the same 142-unit maximum silhouette extent within its 180 × 160 presentation frame, preserving species proportions while excluding real-world size as a hint.
+
+Body breathing/roaming and hover hops retain the cartoon animation. Five matching modular body atlases and five head atlases assemble fictional hybrids without cutting through limbs or faces; the chosen species supplies the body and the correct answer supplies the head. Species-specific ears, bills, muzzles, horns and trunks are preserved. SVG silhouette clips exclude neighboring atlas art, and Next image optimization serves suitably sized artwork. These are modular fantasy composites, not illustrations of biologically possible offspring. Same-species matches display a smaller version of the species illustration.
+
+Occupied podiums now have an accessible × button that immediately returns their animal to the pen. Click, touch and keyboard removal clear the assignment without selecting the podium; animals can then be placed again.
+
+Birth animations begin when each nursery card enters view so later cards remain watchable while scrolling. Parents face each other and nuzzle, hearts rise, a nest and fantasy egg appear, shells split, and the offspring bounces into view. Pause and reduced motion immediately show the offspring.

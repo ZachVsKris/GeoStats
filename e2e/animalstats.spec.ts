@@ -275,3 +275,74 @@ test("phone pen supports touch drag and reduced-motion results", async ({ page }
  expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
  await cdp.detach();
 });
+
+test("podium remove returns an animal to the pen and supports replacement", async ({ page }) => {
+ await page.goto("/animals");
+ const first = page.locator(".penAnimal").first();
+ const podium = page.locator(".traitPodium").first();
+ const animalId = await first.locator(".animalSprite").getAttribute("data-animal-id");
+ await first.click(); await podium.click();
+ await expect(first).toHaveAttribute("data-on-podium", "true");
+ await podium.getByRole("button", { name: /^Remove / }).click();
+ await expect(podium).not.toHaveClass(/occupied/);
+ await expect(first).toHaveAttribute("data-on-podium", "false");
+ await expect(page.locator(".animalProgress")).toHaveText("0 / 4 placed");
+ await first.click(); await podium.click();
+ await expect(podium.locator(".animalSprite")).toHaveAttribute("data-animal-id", animalId!);
+ await podium.getByRole("button", { name: /^Remove / }).focus();
+ await page.keyboard.press("Enter");
+ await expect(podium).not.toHaveClass(/occupied/);
+});
+
+const animalArtwork = JSON.parse(readFileSync(new URL("../lib/animalstatsArtwork.json", import.meta.url), "utf8"));
+test("every playable species has an individual, complete cartoon frame", () => {
+ const ids = new Set(candidateData.boards.flatMap((board: { animalIds: string[] }) => board.animalIds));
+ expect(Object.keys(animalArtwork.animals).length).toBe(74);
+ for (const id of ids) {
+  const art = animalArtwork.animals[id as string];
+  expect(art, String(id)).toBeDefined();
+  const [x,y,w,h] = art.frame;
+  const [atlasWidth,atlasHeight] = animalArtwork.atlases[art.atlas-1];
+  expect(x).toBeGreaterThanOrEqual(0); expect(y).toBeGreaterThanOrEqual(0);
+  expect(w).toBeGreaterThan(0); expect(h).toBeGreaterThan(0);
+  expect(x+w).toBeLessThanOrEqual(atlasWidth); expect(y+h).toBeLessThanOrEqual(atlasHeight);
+  expect(readFileSync(new URL(`../public/animalstats/art-v2/atlas-${art.atlas}.webp`, import.meta.url)).length).toBeGreaterThan(1000);
+ }
+});
+
+test("pen artwork stays equally sized across all round modes and loads without errors", async ({ page }) => {
+ await page.goto("/animals");
+ for (const mode of ["Scout", "Adventurer", "Expert"]) {
+  await page.getByRole("button", { name: new RegExp(`^${mode}\\b`) }).click();
+  const sprites = page.locator(".penAnimal > .animalSprite");
+  const sizes = await sprites.evaluateAll(nodes => nodes.map(node => ({ width: parseFloat(getComputedStyle(node).width), height: parseFloat(getComputedStyle(node).height), normalized: node.getAttribute("data-normalized-size"), version: node.getAttribute("data-art-version") })));
+  expect(new Set(sizes.map(s => `${s.width}:${s.height}`)).size).toBe(1);
+  expect(sizes.every(s => s.normalized === "142" && s.version === "reference-cartoon-v2")).toBe(true);
+ }
+ const hrefs = await page.locator(".penAnimal .animalSprite image").evaluateAll(nodes => [...new Set(nodes.map(node => node.getAttribute("href")!))]);
+ for (const href of hrefs) { const response = await page.request.get(href, { headers: { Accept: "image/webp" } }); expect(response.ok()).toBe(true); expect(response.headers()["content-type"]).toContain("image/webp"); }
+});
+
+test("results animate pairing, a hatching birth and a replay", async ({ page }) => {
+ await page.goto("/animals");
+ for (let i = 0; i < 4; i++) { await page.locator(".penAnimal").nth(i).click(); await page.locator(".traitPodium").nth(i).click(); }
+ await page.getByRole("button", { name: "Reveal results" }).click();
+ const card = page.locator(".hybridPodium").first();
+ await card.scrollIntoViewIfNeeded();
+ await expect(card.locator(".hybridArena")).toHaveAttribute("data-started", "true");
+ const advance = async (time: number) => card.evaluate((element, t) => element.getAnimations({ subtree: true }).forEach(animation => { animation.pause(); animation.currentTime = t; }), time);
+ await advance(1800);
+ await expect(card.locator(".hybridHearts")).toHaveCSS("opacity", "1");
+ await expect(card.locator(".hybridBaby")).toHaveCSS("opacity", "0");
+ await advance(3300);
+ await expect(card.locator(".hybridEgg")).toHaveCSS("opacity", "1");
+ await expect(card.locator(".hybridNest")).toHaveCSS("opacity", "1");
+ await expect(card.locator(".hybridBaby")).toHaveCSS("opacity", "0");
+ await advance(6000);
+ await expect(card.locator(".hybridBaby")).toHaveCSS("opacity", "1");
+ await expect(card.locator(".eggShellLeft")).toHaveCSS("opacity", "0");
+ await expect(card.locator(".eggShellRight")).toHaveCSS("opacity", "0");
+ await card.getByRole("button", { name: /^Replay / }).click();
+ await expect(card.locator(".hybridBaby")).toHaveCSS("opacity", "0");
+ await expect(card.locator(".hybridBaby")).toHaveCSS("opacity", "1");
+});

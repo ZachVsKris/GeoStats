@@ -115,3 +115,38 @@
  .animalSanctuary *, .animalSanctuary *::before, .animalSanctuary *::after { animation:none!important; transition:none!important; }
  .hybridBaby { opacity:1; transform:none; }.hybridParent { width:65px; top:0; opacity:1; transform:none; }.hybridHearts,.hybridPoof { display:none; }
 }
+
+.podiumRemove{position:absolute;z-index:8;right:10px;top:8px;width:34px;height:34px;border:1px solid #c9d7c0;border-radius:50%;background:#fffdf5;color:#3d5137;font-size:25px;line-height:1;cursor:pointer;box-shadow:0 2px 5px #263b2515}.podiumRemove:hover{background:#f7e5da;color:#8d4128}.podiumRemove:focus-visible{outline:3px solid #326e50;outline-offset:3px}
+
+.preciseHead{animation:preciseHeadNod 6s ease-in-out infinite;animation-delay:var(--animal-delay,0s)}
+@keyframes preciseHeadNod{0%,65%,100%{transform:rotate(0deg)}75%{transform:rotate(-1.8deg)}85%{transform:rotate(1deg)}}
+@media(prefers-reduced-motion:reduce){.preciseHead{animation:none}}
+
+/* A readable six-second meet, pairing and birth story, replayed as one unit. */
+.hybridArena{container-type:inline-size;height:245px}
+.hybridParent{z-index:1;animation-duration:6s}.hybridParentChosen{--join:calc((100cqw - 170px)/2)}.hybridParentCorrect{--join:calc((170px - 100cqw)/2)}.hybridParentCorrect .animalSprite{transform:scaleX(-1)}
+.hybridHearts,.hybridPoof,.hybridBaby{animation-duration:6s}.hybridHearts{z-index:3}.hybridPoof{z-index:5;top:73px}.hybridBaby{z-index:4;top:36px}
+.hybridNest{position:absolute;left:calc(50% - 80px);top:157px;width:160px;z-index:2;animation:birthNest 6s both;animation-delay:var(--reveal-delay)}
+.hybridEgg{position:absolute;left:calc(50% - 45px);top:61px;width:90px;height:105px;z-index:3;animation:birthEgg 6s both;animation-delay:var(--reveal-delay)}
+.hybridEggHalf{position:absolute;inset:0;width:100%;height:100%;animation-duration:6s;animation-fill-mode:both;animation-delay:var(--reveal-delay)}
+.eggShellLeft{clip-path:polygon(0 0,50% 0,44% 30%,57% 41%,47% 53%,59% 70%,49% 100%,0 100%);animation-name:birthShellLeft}
+.eggShellRight{clip-path:polygon(50% 0,100% 0,100% 100%,49% 100%,59% 70%,47% 53%,57% 41%,44% 30%);animation-name:birthShellRight}
+.hybridEggCrack{animation:birthCrack 6s both;animation-delay:var(--reveal-delay)}
+.hybridBirthCaption{position:absolute;left:0;right:0;bottom:9px;height:20px;font:600 11px var(--sans);color:#678056}.hybridBirthCaption>span{position:absolute;inset:0;animation-duration:6s;animation-fill-mode:both;animation-delay:var(--reveal-delay)}.birthMeet{animation-name:birthMeet}.birthMix{animation-name:birthMix}.birthHello{animation-name:birthHello}
+@keyframes hybridParentJoin{0%,8%{transform:translateX(0) scale(1);opacity:1}30%,43%{transform:translateX(var(--join)) scale(1);opacity:1}60%,100%{transform:translateX(0) scale(.68);opacity:.9}}
+@keyframes hybridHearts{0%,17%{opacity:0;transform:translate(-50%,20px) scale(.4)}28%,38%{opacity:1;transform:translate(-50%,-10px) scale(1.25)}49%,100%{opacity:0;transform:translate(-50%,-55px) scale(.8)}}
+@keyframes birthNest{0%,38%{opacity:0;transform:scale(.6)}47%,100%{opacity:1;transform:scale(1)}}
+@keyframes birthEgg{0%,40%{opacity:0;transform:translateY(-15px) scale(.5)}48%{opacity:1;transform:translateY(0) scale(1)}53%{transform:rotate(-8deg)}57%{transform:rotate(9deg)}61%{transform:rotate(-11deg)}65%{transform:rotate(8deg)}69%,100%{opacity:1;transform:rotate(0)}}
+@keyframes birthShellLeft{0%,67%{opacity:1;transform:none}77%{opacity:1;transform:translate(-45px,28px) rotate(-38deg)}89%,100%{opacity:0;transform:translate(-58px,45px) rotate(-55deg) scale(.6)}}
+@keyframes birthShellRight{0%,67%{opacity:1;transform:none}77%{opacity:1;transform:translate(45px,28px) rotate(38deg)}89%,100%{opacity:0;transform:translate(58px,45px) rotate(55deg) scale(.6)}}
+@keyframes birthCrack{0%,57%{opacity:0}65%,100%{opacity:1}}
+@keyframes hybridPoof{0%,65%,100%{opacity:0;transform:scale(0)}73%{opacity:1;transform:scale(1.4) rotate(45deg)}85%{opacity:0;transform:scale(2.3) rotate(100deg)}}
+@keyframes hybridBaby{0%,68%{opacity:0;transform:translateY(38px) scale(.12)}78%{opacity:1;transform:translateY(-13px) scale(1.08)}88%{opacity:1;transform:translateY(5px) scale(.96)}95%{transform:translateY(-4px) scale(1.02)}100%{opacity:1;transform:none}}
+@keyframes birthMeet{0%,35%{opacity:1}40%,100%{opacity:0}}@keyframes birthMix{0%,39%{opacity:0}45%,66%{opacity:1}72%,100%{opacity:0}}@keyframes birthHello{0%,72%{opacity:0}82%,100%{opacity:1}}
+.penAnimal:hover .spriteBounce{animation:cartoonHello .85s ease-in-out both}
+@keyframes cartoonHello{0%,100%{transform:none}25%{transform:translateY(2px) scaleY(.96)}55%{transform:translateY(-7px) rotate(2deg)}80%{transform:translateY(1px) scaleY(.98)}}
+.animalSanctuary[data-motion=paused] .hybridNest,.animalSanctuary[data-motion=paused] .hybridEgg,.animalSanctuary[data-motion=paused] .hybridBirthCaption{display:none}
+@media(prefers-reduced-motion:reduce){.hybridNest,.hybridEgg,.hybridBirthCaption{display:none}}
+
+.hybridArena[data-started=false] *{animation-play-state:paused}
+.hybridNursery{scroll-margin-top:20px}

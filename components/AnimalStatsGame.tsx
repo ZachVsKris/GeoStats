@@ -121,6 +121,10 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
     }
   }
 
+  useEffect(() => {
+    if (submitted) document.querySelector(".hybridNursery")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [submitted]);
+
   function assign(traitId: string, animalId: string) {
     if (submitted) return;
     setAssignments((previous) => {
@@ -269,12 +273,14 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
             {board.traitIds.map((id, index) => {
               const trait = traitMap.get(id)!;
               const animal = animalMap.get(assignments[id]);
-              return <button type="button" key={id} data-trait-id={id} className={`animalTrait traitPodium ${animal ? "occupied" : ""} ${selectedTrait === id || dropTarget === id ? "selected" : ""}`}
+              return <div role="button" tabIndex={0} key={id} data-trait-id={id} className={`animalTrait traitPodium ${animal ? "occupied" : ""} ${selectedTrait === id || dropTarget === id ? "selected" : ""}`}
                 aria-label={`${trait.displayName}: ${animal ? animal.commonName : "empty podium"}`} aria-pressed={selectedTrait === id}
+                onKeyDown={(event) => { if (event.target === event.currentTarget && (event.key === "Enter" || event.key === " ")) { event.preventDefault(); selectedAnimal ? assign(id, selectedAnimal) : setSelectedTrait(selectedTrait === id ? null : id); } }}
                 onClick={() => {
                   if (suppressClick.current) { suppressClick.current = false; return; }
                   selectedAnimal ? assign(id, selectedAnimal) : setSelectedTrait(selectedTrait === id ? null : id);
                 }}>
+                {animal && <button type="button" className="podiumRemove" aria-label={`Remove ${animal.commonName} from ${trait.displayName}`} onPointerDown={(event) => event.stopPropagation()} onClick={(event) => { event.stopPropagation(); setAssignments(previous => { const next = { ...previous }; delete next[id]; return next; }); setSelectedAnimal(null); setSelectedTrait(null); setMessage(""); }}>×</button>}
                 <span className="podiumBadge">{String(index + 1).padStart(2, "0")}</span>
                 <span className="podiumAnimal" {...(animal ? animalPointerHandlers(animal.id) : {})}>
                   {animal ? <AnimalSprite animal={animal}/> : <svg className="podiumEmpty" viewBox="0 0 180 160" aria-hidden="true"><ellipse cx="90" cy="132" rx="37" ry="7"/><path d="M90 61v35m-17-17h34"/></svg>}
@@ -286,7 +292,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
                   <span className="animalTraitChoice">{animal ? animal.commonName : "Drop an animal here"}</span>
                   <span className={`animalCategoryKind ${trait.categoryKind}`}>{trait.categoryKind === "intuitive" ? "Big question" : "Curious detail"}</span>
                 </span>
-              </button>;
+              </div>;
             })}
           </section>
         </div>

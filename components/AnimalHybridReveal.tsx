@@ -10,7 +10,7 @@ export function AnimalHybridReveal({ chosen, correct, traitName, rank, index }: 
  const arena = useRef<HTMLDivElement>(null);
  useEffect(() => {
   if (!arena.current || started) return;
-  const observer = new IntersectionObserver(entries => { if (entries.some(entry => entry.isIntersecting)) { setStarted(true); observer.disconnect(); } }, { threshold: .3 });
+  const observer = new IntersectionObserver(entries => { if (entries.some(entry => entry.isIntersecting && entry.intersectionRatio >= .7)) { setStarted(true); observer.disconnect(); } }, { threshold: .7 });
   observer.observe(arena.current);
   return () => observer.disconnect();
  }, [started]);

@@ -150,3 +150,7 @@
 
 .hybridArena[data-started=false] *{animation-play-state:paused}
 .hybridNursery{scroll-margin-top:20px}
+
+.hybridParent>span{animation:birthParentLabels 6s both;animation-delay:var(--reveal-delay)}
+@keyframes birthParentLabels{0%,10%,65%,100%{opacity:1}25%,50%{opacity:0}}
+.animalSanctuary[data-motion=paused] .hybridParent>span{animation:none;opacity:1}

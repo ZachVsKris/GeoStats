@@ -1,0 +1,117 @@
+/* The animal sanctuary is scoped so Countries and the collection keep their own layouts. */
+.animalSanctuary { --ink:#294b44; --accent:#376c57; --muted:#6f8071; --surface:#fffaf0; background:radial-gradient(ellipse at 10% 0%,#dae9c4,transparent 48%),linear-gradient(150deg,#edf2e1,#f5edda); padding:28px 20px 60px; }
+.animalSanctuary .animalShell { max-width:1180px; padding:28px 40px; background:#fffaf1e8; border:1px solid #e2e4cf; border-radius:26px; box-shadow:0 18px 80px #60776013; }
+.animalSanctuary .animalHeader { border:0; background:none; padding:0 0 18px; }
+.animalSanctuary .animalHeader h1 { font-size:clamp(40px,6vw,62px); letter-spacing:-.045em; }
+.animalSanctuary .animalHeader p { font-size:15px; max-width:560px; }
+.animalSanctuary .animalHeader>.animalEyebrow { color:#9a7b48; }
+.animalSanctuary .catWorldNav a,.animalSanctuary .animalNext { border-radius:20px; }
+.animalSanctuary .animalModes { margin:14px 0 22px; }
+.animalSanctuary .animalModes button { border-radius:14px; background:#f2f1e5; }
+.animalSanctuary .animalModes button[aria-current=page] { background:#e5edce; border-color:#a2bc86; color:#335b42; box-shadow:inset 0 -3px #b1c991; }
+.animalSanctuary .animalBoardTop h2 { font:600 29px/1.15 var(--display); }
+.animalSanctuary .animalPilotNote { font-size:10px; margin:7px 0; border:0; padding:0; opacity:.8; }
+.animalSanctuary .animalBoardRecipe { font-size:10px; gap:6px; margin-bottom:8px; }
+.animalSanctuary .animalBoardRecipe span { background:transparent; border:0; padding:0; }
+.animalSanctuary .animalBoardRecipe span+span::before { content:"·"; margin-right:6px; }
+.animalSanctuary .animalToolbar { display:flex; flex-wrap:wrap; gap:10px; align-items:center; margin:14px 0; }
+.animalSanctuary .animalToolbar .animalInstruction { flex:1 1 500px; order:-1; font-size:12px; line-height:1.6; }
+.animalMotionToggle { border:0; background:#e9efdc; color:#45634d; font:600 11px var(--sans); padding:8px 13px; border-radius:18px; cursor:pointer; }
+.animalSanctuary .animalToolbar .animalNext { padding:6px 12px; font-size:11px; }
+.animalSanctuary .sanctuaryBoard { display:flex; flex-direction:column; gap:0; }
+.animalPen { position:relative; width:100%; isolation:isolate; background:linear-gradient(#dcebe6 0%,#e4eddc 38%,#c6d89b 39%,#dce8b6 75%,#cadc9c); border:1px solid #bbcc9b; border-radius:24px; padding:78px 28px 26px; box-shadow:inset 0 -9px #b0c37e44,0 5px 0 #dce3cb; }
+.penSky { position:absolute; inset:0; border-radius:24px; overflow:hidden; pointer-events:none; z-index:-1; }
+.penSky::after { content:""; position:absolute; left:-10%; right:-10%; height:100px; top:29%; border-radius:50%; background:#d8e3c1; }
+.penSun { width:45px; height:45px; background:#ffe5a1; border-radius:50%; box-shadow:0 0 0 12px #ffe5a12b; position:absolute; right:11%; top:21px; }
+.penCloud { position:absolute; top:15px; left:44%; width:78px; height:22px; background:#fffaf4ba; border-radius:30px; animation:penCloudDrift 18s ease-in-out infinite alternate; }
+.penCloud::before { content:""; position:absolute; width:39px; height:29px; background:inherit; left:10px; bottom:8px; border-radius:50%; }.penCloud::after { content:""; position:absolute; width:30px; height:25px; background:inherit; right:8px; bottom:4px; border-radius:50%; }
+.penCloudTwo { left:74%; top:52px; transform:scale(.65); opacity:.7; animation-delay:-8s; }
+.penButterfly { position:absolute; top:72px; left:69%; color:#d2a067; font-style:normal; animation:penButterfly 7s ease-in-out infinite; }
+.penSign { position:absolute; top:19px; left:24px; z-index:3; padding:10px 15px; background:#fbf2d9; border:1px solid #bdab7b; border-radius:9px; transform:rotate(-2deg); box-shadow:0 3px 0 #a3926440; }
+.penSign>span { display:block; font:700 10px var(--sans); letter-spacing:.14em; color:#796246; }.penSign small { display:block; margin-top:4px; font:11px var(--sans); color:#948365; }
+.penFence { position:absolute; left:15px; right:15px; height:50px; border-radius:6px; background:linear-gradient(transparent 12px,#c7ad7a 12px,#c7ad7a 18px,transparent 18px,transparent 35px,#c7ad7a 35px,#c7ad7a 41px,transparent 41px),repeating-linear-gradient(90deg,transparent 0,transparent 26px,#dfc791 26px,#dfc791 35px,transparent 35px,transparent 80px); pointer-events:none; }
+.penFenceBack { top:80px; opacity:.55; z-index:0; }.penFenceFront { bottom:4px; z-index:3; height:31px; opacity:.8; transform:scaleY(.65); transform-origin:bottom; }
+.penFlowers { position:absolute; left:10px; bottom:13px; right:10px; display:flex; justify-content:space-between; color:#fff2d0; pointer-events:none; z-index:4; }.penFlowers i { font-style:normal; font-size:23px; }.penFlowers i:nth-child(2) { color:#e9c486; font-size:15px; }
+.animalSanctuary .animalBank { position:relative; top:auto; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); grid-column:auto; grid-row:auto; margin:0 auto; gap:5px 20px; z-index:2; max-width:840px; }
+.animalSanctuary .penAnimal,.animalSanctuary .penAnimal.selected { position:relative; display:flex; justify-content:center; align-items:center; flex-direction:column; min-height:155px; padding:0; border:0; box-shadow:none; background:transparent; border-radius:50%; overflow:visible; }
+.animalSanctuary .penAnimal::before { content:""; position:absolute; left:13%; right:13%; bottom:9px; height:30%; border-radius:50%; background:#faffde00; transition:background .2s,box-shadow .2s; }
+.animalSanctuary .penAnimal.selected::before { background:#fbfbd96b; box-shadow:0 0 0 2px #618c5966; }.animalSanctuary .penAnimal:hover::before { background:#f7ffe254; }
+.animalSprite { display:block; width:100%; height:auto; overflow:visible; pointer-events:none; user-select:none; }
+.penAnimal>.animalSprite { width:min(100%,178px); position:relative; z-index:1; animation:animalRoam 7s ease-in-out infinite; animation-delay:var(--animal-delay,0s); }
+.penAnimal.used>.animalSprite { opacity:.22; filter:grayscale(.6); animation:none; }.penAnimal.beingDragged>.animalSprite { opacity:.15; }
+.animalSanctuary .penAnimal .animalNameTag { position:absolute; bottom:95%; left:50%; width:max-content; max-width:170px; transform:translate(-50%,8px); z-index:8; background:#fff9e9; color:#3a5746; padding:7px 11px; border:1px solid #d2d5b5; border-radius:9px; font:700 12px var(--sans); text-align:center; box-shadow:0 3px 12px #55734115; opacity:0; pointer-events:none; transition:opacity .12s,transform .12s; }
+.animalNameTag::after { content:""; position:absolute; top:100%; left:calc(50% - 4px); border:5px solid transparent; border-top-color:#fff9e9; }
+.animalSanctuary .penAnimal:hover .animalNameTag,.animalSanctuary .penAnimal:focus-visible .animalNameTag,.animalSanctuary .penAnimal[data-name-open=true] .animalNameTag { opacity:1; transform:translate(-50%,0); }
+.animalSanctuary .penAnimal .penAssigned { position:absolute; bottom:2px; font:600 9px var(--sans); color:#63764f; z-index:2; padding:3px 7px; border-radius:9px; background:#eaf0cf; margin:0; }
+.spriteBounce { transform-origin:90px 140px; animation:spriteBreathe 2.8s ease-in-out infinite; animation-delay:var(--animal-delay,0s); }
+.spriteHead { transform-origin:0 18px; animation:spriteNod 5.5s ease-in-out infinite; animation-delay:var(--animal-delay,0s); }
+.spriteEyes { transform-origin:0 0; animation:spriteBlink 5.1s linear infinite; animation-delay:var(--animal-delay,0s); }
+.spriteTail { transform-box:fill-box; transform-origin:right bottom; animation:spriteTail 2.4s ease-in-out infinite alternate; animation-delay:var(--animal-delay,0s); }
+.spriteLegFront { transform-box:fill-box; transform-origin:50% 0%; animation:spriteFoot 3.2s ease-in-out infinite; animation-delay:var(--animal-delay,0s); }
+.spriteLegBack { transform-box:fill-box; transform-origin:50% 0%; animation:spriteFoot 3.2s ease-in-out infinite reverse; animation-delay:var(--animal-delay,0s); }
+.spriteWing { transform-box:fill-box; transform-origin:80% 20%; animation:spriteTail 2.8s ease-in-out infinite alternate; }
+.spriteTrunk { transform-box:fill-box; transform-origin:10% 0%; animation:spriteTail 3.5s ease-in-out infinite alternate; }
+.podiumSectionTitle { display:flex; align-items:center; gap:15px; margin:28px 3px 6px; }.podiumSectionTitle>span { font:700 10px var(--sans); letter-spacing:.14em; color:#8f774f; }.podiumSectionTitle p { font:12px var(--sans); color:var(--muted); margin:0; }
+.animalSanctuary .podiumGrid { display:grid; width:100%; grid-column:auto; grid-row:auto; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; }
+.animalSanctuary .podiumGrid:has(>:nth-child(6)) { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.animalSanctuary .traitPodium,.animalSanctuary .traitPodium.selected { position:relative; display:flex; align-items:stretch; text-align:center; padding:0; min-height:0; border:0; background:none; box-shadow:none; border-radius:16px; transition:transform .2s; overflow:visible; }
+.animalSanctuary .traitPodium:focus-visible { outline-offset:7px; }
+.podiumAnimal { height:132px; display:flex; align-items:flex-end; justify-content:center; position:relative; z-index:2; border-radius:18px 18px 0 0; touch-action:none; }
+.podiumAnimal .animalSprite { width:145px; height:132px; margin-bottom:-4px; animation:podiumLand .45s cubic-bezier(.2,.8,.3,1.2); }.podiumAnimal .animalSprite .spriteShadow { opacity:.3; }
+.podiumEmpty { height:112px; width:126px; fill:#b6cdb433; }.podiumEmpty path { stroke:#a9b99f; stroke-width:3; stroke-linecap:round; }
+.podiumTop { position:relative; z-index:1; display:block; height:27px; border-radius:50%; background:#f0d297; border:2px solid #c9aa71; box-shadow:0 3px 0 #a88855; margin:0 -3px -12px; }
+.podiumPlaque { display:flex; flex-direction:column; flex:1; min-height:147px; padding:28px 17px 13px; background:linear-gradient(90deg,#e2c58e,#f4e1b4 18%,#f4e1b4 82%,#e1c491); border:1px solid #cfb486; border-top:0; border-radius:0 0 14px 14px; box-shadow:0 5px 0 #bdba9040; }
+.animalSanctuary .traitPodium .animalTraitName { font:700 16px/1.18 var(--sans); color:#514f34; display:block; }
+.animalSanctuary .traitPodium .animalTraitDefinition { font:11px/1.45 var(--sans); color:#837954; margin:7px 0 9px; display:block; }
+.animalSanctuary .traitPodium .animalTraitChoice { font:700 11px var(--sans); margin-top:auto; padding:7px 0 0; border:0; color:#6c7850; }
+.traitPodium .animalCategoryKind { display:block; margin-top:7px; font:600 8px var(--sans); text-transform:uppercase; letter-spacing:.08em; color:#a29266; }.traitPodium .animalCategoryKind.specialist { color:#ad7356; }
+.podiumBadge { position:absolute; top:9px; left:10px; font:600 10px var(--sans); color:#99ab87; border:1px solid #dbe2c5; border-radius:50%; width:24px; height:24px; display:grid; place-items:center; }
+.traitPodium.selected .podiumAnimal { background:#e6f0d455; }.traitPodium.selected .podiumTop { background:#ffdea0; border-color:#9aa667; box-shadow:0 0 0 4px #bfcb8e44; }.traitPodium.selected .podiumPlaque { border-color:#9aa667; background:#f4e6af; }
+.traitPodium.occupied .podiumBadge { color:#507949; background:#edf2dc; border-color:#a6be82; }.traitPodium.occupied .podiumTop { background:#d8e1aa; border-color:#a3b87d; }.traitPodium.occupied .podiumPlaque { background:linear-gradient(90deg,#c5d5a3,#e5ebc5 18%,#e5ebc5 82%,#c5d5a3); border-color:#b1c38e; }
+.animalSanctuary .sanctuaryDragGhost { display:flex; align-items:center; flex-direction:column; background:none; padding:0; box-shadow:none; width:140px; transform:translate(-50%,-62%); border-radius:0; }
+.sanctuaryDragGhost .animalSprite { filter:drop-shadow(0 8px 6px #294b4433); }.sanctuaryDragGhost span { font:700 11px var(--sans); padding:5px 9px; border-radius:10px; background:#fff9e9; color:#365745; }
+.animalSanctuary .animalSubmit { justify-content:center; flex-wrap:wrap; margin:28px 0; }.animalSanctuary .animalSubmit button { background:#376c57; color:#fff9e6; padding:15px 32px; font-size:15px; border-radius:25px; box-shadow:0 4px 0 #214c3c; }.animalSanctuary .animalSubmit button:hover { background:#447e61; }.animalSanctuary .animalProgress { font-size:11px; }
+.hybridNursery { margin-top:20px; }.hybridNurseryIntro { display:flex; align-items:center; justify-content:space-between; gap:15px; margin:20px 0; }.hybridNurseryIntro h2 { font:600 32px var(--display); margin:7px 0; }.hybridNurseryIntro p { font:13px var(--sans); color:var(--muted); margin:0; }
+.hybridPodiumGrid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+.hybridPodium { position:relative; background:linear-gradient(#e9efd9,#f4f2df); border:1px solid #d4dfb8; border-radius:20px; overflow:hidden; padding:18px; text-align:center; }
+.hybridHeading>span { font:700 9px var(--sans); letter-spacing:.1em; color:#a17b52; }.hybridHeading h3 { font:700 16px var(--sans); margin:7px 0; }.hybridMatch .hybridHeading>span { color:#638347; }
+.hybridArena { position:relative; height:215px; max-width:350px; margin:auto; }
+.hybridParent { position:absolute; top:16px; width:105px; animation:hybridParentJoin 2.8s both; animation-delay:var(--reveal-delay); }.hybridParentChosen { left:0; --join:65px; }.hybridParentCorrect { right:0; --join:-65px; }
+.hybridParent .animalSprite { width:100%; }.hybridParent>span { font:600 9px var(--sans); color:#7b8a65; }
+.hybridHearts { position:absolute; left:50%; top:50px; width:80px; height:80px; transform:translateX(-50%); animation:hybridHearts 2.8s both; animation-delay:var(--reveal-delay); pointer-events:none; }
+.hybridHearts i { position:absolute; font-style:normal; color:#d9928a; font-size:23px; left:20px; top:25px; }.hybridHearts i:nth-child(2) { font-size:15px; left:50px; top:0; }.hybridHearts i:nth-child(3) { font-size:12px; left:2px; top:7px; }
+.hybridPoof { position:absolute; top:42px; left:calc(50% - 40px); width:80px; font-size:90px; color:#e7c075; line-height:1; animation:hybridPoof 2.8s both; animation-delay:var(--reveal-delay); }
+.hybridBaby { position:absolute; width:210px; top:24px; left:calc(50% - 105px); animation:hybridBaby 2.8s both; animation-delay:var(--reveal-delay); }
+.hybridBaby>.animalSprite { width:100%; }.hybridBaby .spriteBounce { animation:spriteBreathe 1.8s ease-in-out infinite; }.hybridSpark { position:absolute; color:#c3a65b; font-size:33px; font-weight:400; }.hybridSparkOne { left:3px; top:58px; }.hybridSparkTwo { right:2px; top:23px; font-size:23px; }
+.hybridPlinth { position:relative; border-radius:12px; border:1px solid #ddc691; background:linear-gradient(90deg,#eeddb2,#f9ebc7,#eeddb2); padding:14px 12px; margin-top:-13px; z-index:2; }.hybridPlinth strong { display:block; font:600 25px var(--display); margin-top:5px; }.hybridNewLabel { font:700 8px var(--sans); letter-spacing:.12em; color:#a28955; }.hybridPlinth p { font:11px/1.5 var(--sans); color:#877e59; margin:6px 0 0; }.hybridReplay { border:0; background:transparent; color:#7d8e6b; font:600 10px var(--sans); padding:10px 12px 0; cursor:pointer; }
+.hybridFantasyNote { font:11px var(--sans); color:#8b9278; text-align:center; margin:17px 0; }
+.animalSanctuary .animalScore>div { background:#edf1e0; border-radius:15px; }.animalSanctuary .animalResult { border-radius:14px; }.animalSanctuary .animalResult>img { width:88px; }.animalSanctuary .animalResultBody h3 { font-size:18px; }.animalSanctuary .animalReview { border-radius:15px; }
+@keyframes spriteBreathe { 0%,100% { transform:translateY(0) rotate(-.5deg); } 50% { transform:translateY(-3px) rotate(.5deg); } }
+@keyframes spriteBlink { 0%,42%,46%,100% { transform:scaleY(1); } 44% { transform:scaleY(.1); } }
+@keyframes spriteTail { from { transform:rotate(-5deg); } to { transform:rotate(8deg); } }
+@keyframes spriteNod { 0%,80%,100% { transform:rotate(0); } 88% { transform:rotate(-5deg); } 94% { transform:rotate(3deg); } }
+@keyframes spriteFoot { 0%,15%,85%,100% { transform:rotate(0); } 35% { transform:rotate(8deg); } 65% { transform:rotate(-6deg); } }
+@keyframes animalRoam { 0%,100% { transform:translateX(-4px); } 50% { transform:translateX(5px); } }
+@keyframes penCloudDrift { from { margin-left:-15px; } to { margin-left:15px; } }
+@keyframes penButterfly { 0%,100% { transform:translate(0,0) rotate(15deg); } 40% { transform:translate(22px,-15px) rotate(-30deg); } 65% { transform:translate(-10px,6px) rotate(20deg); } }
+@keyframes podiumLand { from { transform:translateY(-18px) scale(.85); opacity:.3; } to { transform:translateY(0) scale(1); opacity:1; } }
+@keyframes hybridParentJoin { 0%,15% { transform:translateX(0) scale(1); opacity:1; } 43%,60% { transform:translateX(var(--join)) scale(.95); opacity:1; } 75%,100% { transform:translateX(var(--join)) scale(.7); opacity:0; } }
+@keyframes hybridHearts { 0%,24% { opacity:0; transform:translate(-50%,15px) scale(.6); } 45%,59% { opacity:1; transform:translate(-50%,-6px) scale(1.2); } 78%,100% { opacity:0; transform:translate(-50%,-40px) scale(.8); } }
+@keyframes hybridPoof { 0%,57%,100% { opacity:0; transform:scale(0); } 67% { opacity:1; transform:scale(1.7) rotate(60deg); } 85% { opacity:0; transform:scale(2.5) rotate(120deg); } }
+@keyframes hybridBaby { 0%,62% { opacity:0; transform:translateY(20px) scale(.1); } 80% { opacity:1; transform:translateY(-5px) scale(1.1); } 100% { opacity:1; transform:translateY(0) scale(1); } }
+.animalSanctuary[data-motion=paused] .animalSprite *,.animalSanctuary[data-motion=paused] .penAnimal>.animalSprite,.animalSanctuary[data-motion=paused] .penSky * { animation-play-state:paused; }
+.animalSanctuary[data-motion=paused] .hybridBaby { animation:none; opacity:1; transform:none; }
+.animalSanctuary[data-motion=paused] .hybridParent { animation:none; opacity:1; width:65px; top:0; }
+.animalSanctuary[data-motion=paused] .hybridHearts,.animalSanctuary[data-motion=paused] .hybridPoof { display:none; }
+@media(max-width:850px) { .animalSanctuary .animalShell { padding:24px; }.animalSanctuary .podiumGrid,.animalSanctuary .podiumGrid:has(>:nth-child(6)) { grid-template-columns:repeat(2,minmax(0,1fr)); }.podiumAnimal { height:135px; }.animalSanctuary .animalBank { gap:4px; }.animalSanctuary .penAnimal { min-height:120px; }.penAnimal>.animalSprite { max-width:145px; } }
+@media(max-width:600px) {
+ .animalSanctuary { padding:8px 7px 35px; }.animalSanctuary .animalShell { padding:17px 12px 25px; border-radius:18px; }.animalSanctuary .animalHeader h1 { font-size:40px; }.animalSanctuary .animalHeader p { font-size:12px; max-width:300px; }.animalSanctuary .animalHeader { padding-bottom:12px; }.animalSanctuary .animalModes { margin:10px 0 19px; }.animalSanctuary .animalBoardTop h2 { font-size:24px; }.animalSanctuary .animalToolbar { gap:5px 10px; }.animalSanctuary .animalToolbar .animalInstruction { font-size:11px; }.animalMotionToggle { font-size:10px; padding:7px 10px; }
+ .animalPen { padding:69px 10px 23px; border-radius:18px; }.penSign { top:15px; left:16px; padding:8px 10px; }.penSign>span { font-size:8px; }.penSign small { font-size:9px; }.penSun { width:32px; height:32px; right:9%; }.penCloudOne { left:53%; width:45px; transform:scale(.65); }.penCloudTwo { display:none; }.penFenceBack { top:67px; }.penFenceFront { left:10px; right:10px; }.penButterfly { top:62px; font-size:13px; }
+ .animalSanctuary .animalBank { grid-template-columns:repeat(4,minmax(0,1fr)); gap:5px 2px; }.animalSanctuary .penAnimal,.animalSanctuary .penAnimal.selected { min-height:82px; padding:0; }.penAnimal>.animalSprite { width:100%; }.animalSanctuary .penAnimal .animalNameTag { font-size:10px; max-width:115px; padding:5px 7px; }.animalSanctuary .penAnimal .penAssigned { font-size:7px; padding:2px 3px; bottom:-4px; }
+ .podiumSectionTitle { gap:8px; flex-wrap:wrap; margin-top:22px; }.podiumSectionTitle>span { font-size:9px; }.podiumSectionTitle p { font-size:10px; }.animalSanctuary .podiumGrid { gap:9px 14px; }.podiumAnimal { height:103px; }.podiumAnimal .animalSprite { height:103px; width:120px; }.podiumEmpty { height:95px; width:100px; }.podiumPlaque { padding:23px 10px 11px; min-height:133px; }.podiumTop { height:24px; }.animalSanctuary .traitPodium .animalTraitName { font-size:13px; }.animalSanctuary .traitPodium .animalTraitDefinition { font-size:9px; margin:6px 0; }.animalSanctuary .traitPodium .animalTraitChoice { font-size:10px; }.podiumBadge { top:7px; left:2px; font-size:8px; width:20px; height:20px; }.traitPodium .animalCategoryKind { font-size:7px; }
+ .hybridNurseryIntro { flex-wrap:wrap; }.hybridNurseryIntro h2 { font-size:27px; }.hybridNurseryIntro p { font-size:11px; }.hybridPodiumGrid { gap:10px; }.hybridPodium { padding:12px 7px; border-radius:15px; }.hybridHeading h3 { font-size:12px; min-height:30px; }.hybridHeading>span { font-size:7px; }.hybridArena { height:155px; }.hybridParent { width:64px; top:20px; }.hybridParentChosen { --join:20px; }.hybridParentCorrect { --join:-20px; }.hybridParent>span { font-size:7px; }.hybridBaby { width:145px; left:calc(50% - 72.5px); top:13px; }.hybridSparkOne { top:41px; left:5px; font-size:20px; }.hybridSparkTwo { right:2px; top:25px; font-size:17px; }.hybridHearts { transform:scale(.7); top:36px; }.hybridPoof { font-size:70px; top:32px; }.hybridPlinth { padding:12px 6px; margin-top:-8px; }.hybridPlinth strong { font-size:21px; overflow-wrap:anywhere; }.hybridPlinth p { font-size:9px; }.hybridNewLabel { font-size:6px; }.hybridFantasyNote { font-size:9px; line-height:1.5; }.animalSanctuary .animalResult>img { width:60px; }.animalSanctuary .animalScore strong { font-size:25px; }.animalSanctuary .animalScore>div { padding:12px 8px; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .animalSanctuary *, .animalSanctuary *::before, .animalSanctuary *::after { animation:none!important; transition:none!important; }
+ .hybridBaby { opacity:1; transform:none; }.hybridParent { width:65px; top:0; opacity:1; transform:none; }.hybridHearts,.hybridPoof { display:none; }
+}

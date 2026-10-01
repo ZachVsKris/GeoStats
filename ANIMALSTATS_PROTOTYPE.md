@@ -16,6 +16,14 @@ Some requested concepts still lack comparable source coverage: universal strengt
 
 Mammal mapped range imports only positive, exact-species GIS area values from PanTHERIA WR05 August 2008, whose range maps date to 2003. It is historical mapped extent, not current occupied habitat. Model-adjusted body-length and other estimated PanTHERIA traits are excluded.
 
+## Animated sanctuary design (October 1, 2026)
+
+The play surface is now an animated animal pen above four or six trait podiums. All 74 playable animals have curated vector profiles, with modular bodies, head features, markings and palettes. CSS animates roaming, breathing, blinking, tails, wings, feet, clouds and butterflies. Hover, keyboard focus, selection or a pointer hold reveals an animal's name. Pointer capture supports mouse and real touch dragging, including moving a podium resident; tap/keyboard selection remains available and placements swap when needed.
+
+After scoring, each selected animal meets the actual first-place animal for that trait. A staggered heart-and-spark reveal produces a deterministic fantasy offspring with the selected parent's body and the correct parent's head, plus mixed markings. Matching parents produce a baby of the same species. Each reveal is replayable. The offspring is explicitly fictional; sourced values and scoring are unchanged. Pause controls and reduced-motion styles reveal the offspring immediately without the transition.
+
+Verification includes mouse swapping/dragging, real CDP touch dragging, name reveal, every offspring's parent IDs against the scored winner, replay/pause, reduced motion, phone overflow, and the existing three-mode, source, scoring and history checks. Illustrations live in `components/AnimalSprite.tsx`, reveal logic in `components/AnimalHybridReveal.tsx`, and the scoped visual layer in `app/animals/animal-sanctuary.css`.
+
 ## Reproduce
 
 Run `python scripts/generate-animalstats-boards.py`, then `python scripts/audit-animalstats.py`. Regional account snapshots are cached in `data/animalstats/research/regions.json`; numeric bulk inputs remain in the existing source archive. Daily reviews are not created by either script.

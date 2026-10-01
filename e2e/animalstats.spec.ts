@@ -45,11 +45,11 @@ test("phone layout fits and exposes sources after scoring", async ({ page }) => 
   expect(overflow).toBeLessThanOrEqual(1);
 });
 
-test("either-order placement, swapping, dragging and photo reveal", async ({ page }) => {
+test("either-order placement, swapping, dragging and animated illustrations", async ({ page }) => {
   await page.goto("/animals");
   const cards = page.locator(".animalCard");
   const traits = page.locator(".animalTrait");
-  await expect(cards.locator("img")).toHaveCount(4);
+  await expect(cards.locator(".animalSprite")).toHaveCount(4);
   const first = await cards.nth(0).locator("span").innerText();
   const second = await cards.nth(1).locator("span").innerText();
   await cards.nth(0).click(); await traits.nth(0).click();
@@ -66,7 +66,7 @@ test("either-order placement, swapping, dragging and photo reveal", async ({ pag
   await page.mouse.move(to.x + to.width / 2, to.y + to.height / 2, { steps: 12 });
   await page.mouse.up();
   await expect(traits.nth(2).locator(".animalTraitChoice")).toHaveText(await cards.nth(2).locator("span").innerText());
-  await expect(cards.locator("img")).toHaveCount(4);
+  await expect(cards.locator(".animalSprite")).toHaveCount(4);
   await page.getByRole("button", { name: "Reset choices" }).click();
   await expect(page.locator(".animalProgress")).toHaveText("0 / 4 placed");
 });
@@ -208,4 +208,70 @@ test("new prototype balances categories and mirrors measured values exactly", ()
   expect(categories.filter(t => t.metricKey === "reproduction").length).toBeLessThanOrEqual(1);
   expect(validateAnimalBoard(data, board).valid).toBe(true);
  }
+});
+
+
+test("animal pen names, podium residents and hybrid offspring", async ({ page }) => {
+ await page.goto("/animals");
+ const cards = page.locator(".penAnimal");
+ await expect(cards).toHaveCount(4);
+ const name = await cards.first().getAttribute("aria-label");
+ await cards.first().hover();
+ await expect(cards.first().locator(".animalNameTag")).toHaveText(name!);
+ await expect(cards.first().locator(".animalNameTag")).toHaveCSS("opacity", "1");
+ const box = (await cards.first().boundingBox())!;
+ await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+ await page.mouse.down();
+ await expect(cards.first()).toHaveAttribute("data-name-open", "true");
+ await page.mouse.up();
+ await page.locator(".traitPodium").first().click();
+ await expect(page.locator(".traitPodium").first().locator(".animalSprite")).toHaveAttribute("data-animal-id", await cards.first().locator(".animalSprite").getAttribute("data-animal-id") as string);
+ await expect(cards.first()).toHaveAttribute("data-on-podium", "true");
+ for (let i = 1; i < 4; i++) { await cards.nth(i).click(); await page.locator(".traitPodium").nth(i).click(); }
+ const traitIds = await page.locator(".traitPodium").evaluateAll(nodes => nodes.map(node => node.getAttribute("data-trait-id")));
+ const chosenIds = await page.locator(".traitPodium .animalSprite").evaluateAll(nodes => nodes.map(node => node.getAttribute("data-animal-id")));
+ await page.getByRole("button", { name: "Reveal results" }).click();
+ await expect(page.getByRole("region", { name: "Hybrid nursery" })).toBeVisible();
+ const hybrids = page.locator(".hybridBaby .animalSprite");
+ await expect(hybrids).toHaveCount(4);
+ const traits = new Map(animalDataset.traits.map((t: { id: string; displayName: string; direction: string }) => [t.id, t]));
+ const animals = new Map(animalDataset.animals.map((a: { id: string; commonName: string }) => [a.id, a.commonName]));
+ for (let i = 0; i < 4; i++) {
+  await expect(hybrids.nth(i)).toHaveAttribute("data-animal-id", chosenIds[i]!);
+  const trait = traits.get(traitIds[i]!) as { id: string; direction: string };
+  const ranked = chosenIds.map(id => animalDataset.values.find((v: { animalId: string; traitId: string }) => v.animalId === id && v.traitId === trait.id)).sort((a, b) => trait.direction === "higher_wins" ? b.valueNumeric - a.valueNumeric : a.valueNumeric - b.valueNumeric);
+  await expect(hybrids.nth(i)).toHaveAttribute("data-head-animal-id", ranked[0].animalId);
+  await expect(page.locator(".animalResult").nth(i)).toContainText(animals.get(ranked[0].animalId) as string);
+ }
+ await expect(page.locator(".hybridBaby").first()).toHaveCSS("opacity", "1");
+ await page.getByRole("button", { name: /^Replay .*hybrid animation$/ }).first().click();
+ await expect(page.locator(".hybridBaby").first()).toHaveCSS("opacity", "1");
+ await page.getByRole("button", { name: "Pause animal animation", exact: true }).click();
+ await expect(page.locator(".hybridBaby").first()).toHaveCSS("animation-name", "none");
+ await expect(page.locator(".hybridBaby").first()).toHaveCSS("opacity", "1");
+});
+
+test("phone pen supports touch drag and reduced-motion results", async ({ page }) => {
+ await page.setViewportSize({ width: 390, height: 844 });
+ await page.goto("/animals");
+ const cards = page.locator(".penAnimal");
+ const podiums = page.locator(".traitPodium");
+ await podiums.first().scrollIntoViewIfNeeded();
+ await cards.first().scrollIntoViewIfNeeded();
+ const start = (await cards.first().boundingBox())!;
+ const end = (await podiums.first().boundingBox())!;
+ const cdp = await page.context().newCDPSession(page);
+ const x = start.x + start.width / 2, y = start.y + start.height / 2;
+ await cdp.send("Input.dispatchTouchEvent", { type: "touchStart", touchPoints: [{ x, y }] });
+ await expect(cards.first()).toHaveAttribute("data-name-open", "true");
+ for (let step = 1; step <= 8; step++) await cdp.send("Input.dispatchTouchEvent", { type: "touchMove", touchPoints: [{ x: x + (end.x + end.width / 2 - x) * step / 8, y: y + (end.y + end.height / 2 - y) * step / 8 }] });
+ await cdp.send("Input.dispatchTouchEvent", { type: "touchEnd", touchPoints: [] });
+ await expect(podiums.first()).toHaveClass(/occupied/);
+ for (let i = 1; i < 4; i++) { await cards.nth(i).click(); await podiums.nth(i).click(); }
+ await page.emulateMedia({ reducedMotion: "reduce" });
+ await page.getByRole("button", { name: "Reveal results" }).click();
+ await expect(page.locator(".hybridBaby").first()).toHaveCSS("opacity", "1");
+ await expect(page.locator(".hybridBaby").first()).toHaveCSS("animation-name", "none");
+ expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
+ await cdp.detach();
 });

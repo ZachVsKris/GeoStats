@@ -1,13 +1,16 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState, type PointerEvent, type CSSProperties } from "react";
 import { animalRegionLabel } from "../lib/animalstatsRegions";
 import { randomAnimalBoardIndex } from "../lib/animalstatsVariety";
 import { CATLogo, CATMascot } from "./CATBrand";
 import { ROUND_CONFIGS, type DailyDifficulty } from "../lib/gameRules";
 import type { AnimalDataset, BoardCandidate, ReviewLabel } from "../lib/animalstats";
 import { ANIMAL_HISTORY_KEY, animalStats, readAnimalHistory, type AnimalGameResult } from "../lib/animalstatsHistory";
+import { AnimalSprite } from "./AnimalSprite";
+import { AnimalHybridReveal } from "./AnimalHybridReveal";
 import "../app/animals/animalstats.css";
+import "../app/animals/animal-sanctuary.css";
 
 type Props = { data: AnimalDataset; boards: BoardCandidate[]; approvedBoardIds: string[]; date: string };
 type Assignment = Record<string, string>;
@@ -44,6 +47,8 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
   const [dropTarget, setDropTarget] = useState<string | null>(null);
   const pointer = useRef<{ id: string; x: number; y: number; moved: boolean } | null>(null);
   const suppressClick = useRef(false);
+  const [heldAnimal, setHeldAnimal] = useState<string | null>(null);
+  const [motionPaused, setMotionPaused] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [message, setMessage] = useState("");
   const [copied, setCopied] = useState(false);
@@ -65,6 +70,10 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
 
 
   function switchBoard(nextMode: DailyDifficulty, index = 0) {
+    pointer.current = null;
+    setDragging(null);
+    setDropTarget(null);
+    setHeldAnimal(null);
     setMode(nextMode);
     setBoardIndex(index);
     setAssignments({});
@@ -133,6 +142,36 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
     setMessage("");
   }
 
+  function animalPointerHandlers(id: string) {
+    return {
+      onPointerDown(event: PointerEvent<HTMLElement>) {
+        if (submitted || event.button !== 0) return;
+        pointer.current = { id, x: event.clientX, y: event.clientY, moved: false };
+        suppressClick.current = false;
+        setHeldAnimal(id);
+        event.currentTarget.setPointerCapture(event.pointerId);
+      },
+      onPointerMove(event: PointerEvent<HTMLElement>) {
+        const start = pointer.current;
+        if (!start || start.id !== id) return;
+        if (Math.hypot(event.clientX - start.x, event.clientY - start.y) < 8 && !start.moved) return;
+        start.moved = true;
+        setDragging({ id, x: event.clientX, y: event.clientY });
+        setDropTarget(document.elementFromPoint(event.clientX, event.clientY)?.closest<HTMLElement>("[data-trait-id]")?.dataset.traitId ?? null);
+      },
+      onPointerUp(event: PointerEvent<HTMLElement>) {
+        const start = pointer.current;
+        if (start?.moved) {
+          suppressClick.current = true;
+          const target = document.elementFromPoint(event.clientX, event.clientY)?.closest<HTMLElement>("[data-trait-id]")?.dataset.traitId;
+          if (target) assign(target, id);
+        }
+        pointer.current = null; setDragging(null); setDropTarget(null); setHeldAnimal(null);
+      },
+      onPointerCancel() { pointer.current = null; setDragging(null); setDropTarget(null); setHeldAnimal(null); },
+    };
+  }
+
   const results = board?.traitIds.map((id) => {
     const trait = traitMap.get(id)!;
     const ranked = board.animalIds.map((animalId) => ({ animalId, value: valueMap.get(`${animalId}:${id}`)! }))
@@ -147,13 +186,13 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
   const optimalChoices = results.filter((row) => row.rank === 1).length;
 
 
-  return <main className="animalPage" data-board-habitat={board && board.animalIds.every((id) => ["frog", "salamander"].includes(animalMap.get(id)?.taxonomicGroup ?? "")) ? "pond" : board && board.animalIds.every((id) => ["turtle", "snake", "crocodilian", "lizard", "reptile"].includes(animalMap.get(id)?.taxonomicGroup ?? "")) ? "reptiles" : "forest"}>
+  return <main className="animalPage animalSanctuary" data-motion={motionPaused ? "paused" : "playing"} data-board-habitat={board && board.animalIds.every((id) => ["frog", "salamander"].includes(animalMap.get(id)?.taxonomicGroup ?? "")) ? "pond" : board && board.animalIds.every((id) => ["turtle", "snake", "crocodilian", "lizard", "reptile"].includes(animalMap.get(id)?.taxonomicGroup ?? "")) ? "reptiles" : "forest"}>
     <div className="animalShell">
       <header className="animalHeader">
         <div className="animalBrandRow"><a href="/cat" className="animalBrandLink" aria-label="Countries, Animals & Things"><CATLogo compact /><span><b className="catCountryColor">C</b>ountries, <b className="catAnimalColor">A</b>nimals &amp; <b className="catThingColor">T</b>hings</span></a><CATMascot pleased={submitted} /></div>
-        <div className="animalEyebrow">THE LIVING WORLD / FIELD NOTES</div>
+        <div className="animalEyebrow">THE LIVING WORLD / LITTLE WILD THINGS</div>
         <h1>AnimalStats</h1>
-        <p>Big questions. Curious details. Match each animal to the category where it comes first.</p>
+        <p>A pen full of personalities. A podium for every superlative. Who belongs where?</p>
       </header>
       <nav className="catWorldNav" aria-label="Worlds"><a href="/daily">Countries</a><a href="/animals" aria-current="page">Animals</a><a href="/cat#things">Things</a></nav>
       <nav className="animalPlayNav" aria-label="AnimalStats play">
@@ -193,66 +232,65 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
       <div className="animalBoardRecipe"><span>{board.traitIds.filter(id => traitMap.get(id)?.categoryKind === "intuitive").length} big questions</span><span>{board.traitIds.filter(id => traitMap.get(id)?.categoryKind === "specialist").length} curious details</span><span>Different winner in every slot</span></div>
       <p className="animalPilotNote">{playKind === "daily" ? `Reviewed daily board · ${date}` : "Playtest board · source review pending."} <a href="/animals/review">Comparison review</a></p>
       {!submitted && <>
-        <div className="animalToolbar"><p className="animalInstruction">Each trait has a different winner. An animal can fill only one slot. Click or drag to place.</p>
+        <div className="animalToolbar"><button className="animalMotionToggle" type="button" aria-label={motionPaused ? "Animate animals" : "Pause animal animation"} aria-pressed={motionPaused} onClick={() => setMotionPaused(!motionPaused)}>{motionPaused ? "▶ Animate animals" : "Ⅱ Pause animation"}</button><p className="animalInstruction">Drag an animal from the pen onto a trait podium. Hover or hold to meet them. You can also tap an animal, then a podium.</p>
           <button type="button" className="animalNext" onClick={() => { setAssignments({}); setSelectedAnimal(null); setSelectedTrait(null); setMessage(""); }}>Reset choices</button>
         </div>
 
-        <div className="animalPlayBoard">
-        <section className="animalTraits" aria-label="Traits">
-          {board.traitIds.map((id) => {
-            const trait = traitMap.get(id)!;
-            const animal = animalMap.get(assignments[id]);
-            return <button type="button" key={id} data-trait-id={id} className={`animalTrait ${selectedTrait === id || dropTarget === id ? "selected" : ""}`}
-              aria-pressed={selectedTrait === id} onClick={() => selectedAnimal ? assign(id, selectedAnimal) : setSelectedTrait(selectedTrait === id ? null : id)}>
-              <span className="animalTraitFamily"><b className={`animalCategoryKind ${trait.categoryKind}`}>{trait.categoryKind === "intuitive" ? "Big question" : "Curious detail"}</b> · {({size:"Size",longevity:"Lifetime",development:"Development",offspring:"Family size",maturity:"Growing up",care:"Parental care",breeding:"Breeding",movement:"Movement",sleep:"Sleep",space:"Home range",anatomy:"Anatomy",range:"Habitat","offspring-size":"Small beginnings"} as Record<string,string>)[trait.gameplayFamily ?? ""] ?? "Field note"}</span><span className="animalTraitName">{trait.displayName}</span>
-              <span className="animalTraitDefinition">{trait.playerHint ?? trait.definition}</span>
-              <span className="animalTraitChoice">{animal ? animal.commonName : "Place an animal here"}</span>
-            </button>;
-          })}
-        </section>
-        <section className="animalBank" aria-label="Available animals">
-          {board.animalIds.map((id) => {
-            const animal = animalMap.get(id)!;
-            const photo = photoMap.get(id)!;
-            const usedOn = Object.keys(assignments).find((key) => assignments[key] === id);
-            return <button type="button" key={id} aria-pressed={selectedAnimal === id} className={`animalCard ${usedOn ? "used" : ""} ${selectedAnimal === id ? "selected" : ""}`}
-              onPointerDown={(event) => {
-                if (event.button !== 0) return;
-                pointer.current = { id, x: event.clientX, y: event.clientY, moved: false };
-                suppressClick.current = false;
-                event.currentTarget.setPointerCapture(event.pointerId);
-              }}
-              onPointerMove={(event) => {
-                const start = pointer.current;
-                if (!start || start.id !== id) return;
-                if (Math.hypot(event.clientX - start.x, event.clientY - start.y) < 8 && !start.moved) return;
-                start.moved = true;
-                setDragging({ id, x: event.clientX, y: event.clientY });
-                setDropTarget(document.elementFromPoint(event.clientX, event.clientY)?.closest<HTMLElement>("[data-trait-id]")?.dataset.traitId ?? null);
-              }}
-              onPointerUp={(event) => {
-                const start = pointer.current;
-                if (start?.moved) {
-                  suppressClick.current = true;
-                  const target = document.elementFromPoint(event.clientX, event.clientY)?.closest<HTMLElement>("[data-trait-id]")?.dataset.traitId;
-                  if (target) assign(target, id);
-                }
-                pointer.current = null; setDragging(null); setDropTarget(null);
-              }}
-              onPointerCancel={() => { pointer.current = null; setDragging(null); setDropTarget(null); }}
-              onClick={() => {
-                if (suppressClick.current) { suppressClick.current = false; return; }
-                if (selectedTrait) assign(selectedTrait, id);
-                else { setSelectedAnimal(selectedAnimal === id ? null : id); setMessage(""); }
-              }}>
-              <img src={photo.assetUrl} alt="" draggable={false} />
-              <span>{animal.commonName}</span><small>{animal.scientificName}</small>
-              {usedOn && <em>Assigned to {traitMap.get(usedOn)?.displayName}</em>}
-            </button>;
-          })}
-        </section>
+        <div className="animalPlayBoard sanctuaryBoard">
+          <section className="animalPen" aria-label="Animal pen">
+            <div className="penSky" aria-hidden="true"><i className="penSun"/><i className="penCloud penCloudOne"/><i className="penCloud penCloudTwo"/><i className="penButterfly">✦</i></div>
+            <div className="penSign"><span>THE ANIMAL PEN</span><small>{board.animalIds.length - Object.keys(assignments).length} roaming · {Object.keys(assignments).length} on podiums</small></div>
+            <div className="penFence penFenceBack" aria-hidden="true"/>
+            <section className="animalBank" aria-label="Available animals">
+              {board.animalIds.map((id, index) => {
+                const animal = animalMap.get(id)!;
+                const usedOn = Object.keys(assignments).find((key) => assignments[key] === id);
+                return <button type="button" key={id} aria-label={animal.commonName} aria-pressed={selectedAnimal === id}
+                  data-name-open={heldAnimal === id || selectedAnimal === id} data-on-podium={!!usedOn}
+                  className={`animalCard penAnimal ${usedOn ? "used" : ""} ${selectedAnimal === id ? "selected" : ""} ${dragging?.id === id ? "beingDragged" : ""}`}
+                  style={{ "--animal-delay": `${index * -.71}s`, "--roam-direction": index % 2 ? "-1" : "1" } as CSSProperties}
+                  {...animalPointerHandlers(id)}
+                  onClick={() => {
+                    if (suppressClick.current) { suppressClick.current = false; return; }
+                    if (selectedTrait) assign(selectedTrait, id);
+                    else { setSelectedAnimal(selectedAnimal === id ? null : id); setMessage(""); }
+                  }}>
+                  <AnimalSprite animal={animal}/>
+                  <span className="animalNameTag">{animal.commonName}</span>
+                  {usedOn && <small className="penAssigned" aria-label={`Assigned to ${traitMap.get(usedOn)?.displayName}`}>On a podium</small>}
+                </button>;
+              })}
+            </section>
+            <div className="penFence penFenceFront" aria-hidden="true"/>
+            <div className="penFlowers" aria-hidden="true"><i>✿</i><i>✿</i><i>✿</i></div>
+          </section>
+          <div className="podiumSectionTitle"><span>THE PODIUMS</span><p>One animal. One podium. Make every match count.</p></div>
+          <section className="animalTraits podiumGrid" aria-label="Trait podiums">
+            {board.traitIds.map((id, index) => {
+              const trait = traitMap.get(id)!;
+              const animal = animalMap.get(assignments[id]);
+              return <button type="button" key={id} data-trait-id={id} className={`animalTrait traitPodium ${animal ? "occupied" : ""} ${selectedTrait === id || dropTarget === id ? "selected" : ""}`}
+                aria-label={`${trait.displayName}: ${animal ? animal.commonName : "empty podium"}`} aria-pressed={selectedTrait === id}
+                onClick={() => {
+                  if (suppressClick.current) { suppressClick.current = false; return; }
+                  selectedAnimal ? assign(id, selectedAnimal) : setSelectedTrait(selectedTrait === id ? null : id);
+                }}>
+                <span className="podiumBadge">{String(index + 1).padStart(2, "0")}</span>
+                <span className="podiumAnimal" {...(animal ? animalPointerHandlers(animal.id) : {})}>
+                  {animal ? <AnimalSprite animal={animal}/> : <svg className="podiumEmpty" viewBox="0 0 180 160" aria-hidden="true"><ellipse cx="90" cy="132" rx="37" ry="7"/><path d="M90 61v35m-17-17h34"/></svg>}
+                </span>
+                <span className="podiumTop" aria-hidden="true"/>
+                <span className="podiumPlaque">
+                  <span className="animalTraitName">{trait.displayName}</span>
+                  <span className="animalTraitDefinition">{trait.playerHint ?? trait.definition}</span>
+                  <span className="animalTraitChoice">{animal ? animal.commonName : "Drop an animal here"}</span>
+                  <span className={`animalCategoryKind ${trait.categoryKind}`}>{trait.categoryKind === "intuitive" ? "Big question" : "Curious detail"}</span>
+                </span>
+              </button>;
+            })}
+          </section>
         </div>
-        {dragging && <div className="animalDragGhost" style={{ left: dragging.x + 12, top: dragging.y + 12 }}>{animalMap.get(dragging.id)?.commonName}</div>}
+        {dragging && <div className="animalDragGhost sanctuaryDragGhost" style={{ left: dragging.x, top: dragging.y }}><AnimalSprite animal={animalMap.get(dragging.id)!}/><span>{animalMap.get(dragging.id)?.commonName}</span></div>}
         <div className="animalSubmit"><button type="button" onClick={() => {
           if (Object.keys(assignments).length < board.traitIds.length) {
             setMessage(`Choose an animal for all ${board.traitIds.length} traits first.`); return;
@@ -263,6 +301,11 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date }
         }}>Reveal results</button>{message && <p role="status">{message}</p>}<span className="animalProgress" aria-live="polite">{Object.keys(assignments).length} / {board.traitIds.length} placed</span></div>
       </>}
       {submitted && <>
+        <section className="hybridNursery" aria-label="Hybrid nursery">
+          <div className="hybridNurseryIntro"><div><span className="animalEyebrow">THE BIG REVEAL</span><h2>A match made in the wild.</h2><p>Your animal meets the correct answer. Then, a little surprise.</p></div><button type="button" className="animalMotionToggle" aria-label={motionPaused ? "Animate animals" : "Pause animal animation"} aria-pressed={motionPaused} onClick={() => setMotionPaused(!motionPaused)}>{motionPaused ? "▶ Animate animals" : "Ⅱ Pause animation"}</button></div>
+          <div className="hybridPodiumGrid">{results.map((row, index) => <AnimalHybridReveal key={row.trait.id} chosen={animalMap.get(row.selected.animalId)!} correct={animalMap.get(row.ranked[0].animalId)!} traitName={row.trait.displayName} rank={row.rank} index={index}/>)}</div>
+          <p className="hybridFantasyNote">Imaginary offspring, real animal facts. These hybrids are just for fun.</p>
+        </section>
         {accountMessage && <p role="status" className="animalSaveStatus">{accountMessage}</p>}
         <section className="animalScore" aria-label="Results"><div><span className="animalEyebrow">FINAL SCORE</span>
           <strong>{total}<small> / {config.maxScore}</small></strong></div>

@@ -82,3 +82,14 @@ data/animalstats/source/growth-*
 data/animalstats/source/bird-diving-*
 data/animalstats/source/tail-regrowth-*
 data/animalstats/source/mammal-migration-*
+
+# Additional private third-party research snapshots
+data/animalstats/source/nest-*
+data/animalstats/source/pollinators-*
+data/animalstats/source/spider-*
+data/animalstats/source/eye-*
+data/animalstats/source/eyes-*
+data/animalstats/source/frugint*
+data/animalstats/source/mammalbase-*
+data/animalstats/source/bee-github-list.json
+data/animalstats/research/additional-source-records.jsonl.gz

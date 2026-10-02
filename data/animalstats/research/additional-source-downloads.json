@@ -1,0 +1,82 @@
+[
+  {
+    "file": "nest-Dataset-S1.csv",
+    "url": "https://raw.githubusercontent.com/catherinesheard/global-nest-data/main/Dataset-S1.csv",
+    "bytes": 10919519,
+    "sha256": "2cfd46cd21886519a4a2b4c1a309501812516be2ffd4674b33d9a96a544260db",
+    "status": "acquired",
+    "version_warning": "Mutable source URL; compare hash on reacquisition."
+  },
+  {
+    "file": "nest-Dataset-S2.csv",
+    "url": "https://raw.githubusercontent.com/catherinesheard/global-nest-data/main/Dataset-S2.csv",
+    "bytes": 2325386,
+    "sha256": "0963389bc9088171846ec6538c3ae2f7b6a70e5cca1b4e8490da698cab7515a8",
+    "status": "acquired",
+    "version_warning": "Mutable source URL; compare hash on reacquisition."
+  },
+  {
+    "file": "nest-Dataset-S1-metadata.csv",
+    "url": "https://raw.githubusercontent.com/catherinesheard/global-nest-data/main/Dataset-S1-metadata.csv",
+    "bytes": 2564,
+    "sha256": "7db182767042c89d78e4b37ae63a4b8036359f8de03b45952092c6232d2c8c92",
+    "status": "acquired",
+    "version_warning": "Mutable source URL; compare hash on reacquisition."
+  },
+  {
+    "file": "nest-Dataset-S2-metadata.csv",
+    "url": "https://raw.githubusercontent.com/catherinesheard/global-nest-data/main/Dataset-S2-metadata.csv",
+    "bytes": 4833,
+    "sha256": "79af6d90b6def7873e59ef7736ebe7f060981772fde9f5772c6cf84e2abe9887",
+    "status": "acquired",
+    "version_warning": "Mutable source URL; compare hash on reacquisition."
+  },
+  {
+    "file": "pollinators-bee_trait_20240922.csv",
+    "url": "https://zenodo.org/records/8300431/files/bee_trait_20240922.csv?download=1",
+    "bytes": 1201007,
+    "sha256": "4f63d96ca1ca351124846fe546badbb9af2bcea013bef5d1d1721c53f69470c4",
+    "status": "acquired",
+    "version_warning": null
+  },
+  {
+    "file": "pollinators-ListOfTraits.csv",
+    "url": "https://zenodo.org/records/8300431/files/ListOfTraits.csv?download=1",
+    "bytes": 3558,
+    "sha256": "344ffdc82359ff532c4506eebf0b278d4adff65f9e395c11450775d20c0fe52c",
+    "status": "acquired",
+    "version_warning": null
+  },
+  {
+    "file": "pollinators-syrphid_traits_20240326.txt",
+    "url": "https://zenodo.org/records/8300431/files/syrphid_traits_20240326.txt?download=1",
+    "bytes": 275539,
+    "sha256": "4b08a1a2b55257a9c3b3c342bff28a9b1e3ab90224c1cb10145baf9aae705eb2",
+    "status": "acquired",
+    "version_warning": null
+  },
+  {
+    "file": "mammalbase-diets.tsv",
+    "url": "https://raw.githubusercontent.com/mammalbase/database/main/MammalBaseDietDatabase.tsv",
+    "bytes": 14310420,
+    "sha256": "54007fc2c8ec4c0fc304fa526a92b76cb75aa3ca78eb0155b7a7b166e35fe16d",
+    "status": "acquired",
+    "version_warning": "Mutable source URL; compare hash on reacquisition."
+  },
+  {
+    "file": "frugint.zip",
+    "url": "https://zenodo.org/records/18016801/files/FRUGINT.zip?download=1",
+    "bytes": 244534,
+    "sha256": "345b2090961db0a6edc2b6ccabd41f2d67c72496266099dfa03f623a62e962ae",
+    "status": "acquired",
+    "version_warning": null
+  },
+  {
+    "file": "eyes-vertebrates.csv",
+    "url": "https://raw.githubusercontent.com/knthomas/anuran-eye-size/166d780d2cee43ae4a7495b1878ba9e5378bdf0d/Data/other%20verts/vertebrate_eyesize.csv",
+    "bytes": 186118,
+    "sha256": "1885e331885bd664a86cbacc031a0ba6cf363fdd8c42d4c7f39b50c78ac193f7",
+    "status": "acquired",
+    "version_warning": null
+  }
+]

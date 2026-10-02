@@ -1,0 +1,9 @@
+catalog,field,high_label,low_label,interest,populated_cells,decision,audit_gate
+eyes-vertebrates.csv,Axial_diameter_mm,Biggest eyes,Smallest eyes,intuitive,918,hold_for_manual_source_audit,Measured axial diameter in mm; source provenance/replicate audit pending.
+nest-Dataset-S1.csv,Building time average (days),Slowest nest builders,Fastest nest builders,intuitive,422,hold_for_manual_source_audit,Average days only; cannot substitute minima/maxima or nesting height.
+nest-Dataset-S1.csv,Nest size,Biggest nests,Smallest nests,intuitive,3122,hold_for_manual_source_audit,"Prose measurements; audit dimensions, units and approximations before extracting."
+pollinators-bee_trait_20240922.csv,THS_F_min,Longest resistance to heat stress,Shortest resistance to heat stress,specialist,147,hold_for_manual_source_audit,Shared heat-stupor experimental protocol and female caste required; not maximum habitat temperature.
+pollinators-bee_trait_20240922.csv,HairLength_F,Longest hairs,Shortest hairs,intuitive,288,hold_for_manual_source_audit,"Units, body region and measured/modeled status unresolved."
+pollinators-bee_trait_20240922.csv,AOO,Largest occupied area,Smallest occupied area,intuitive,2073,hold_for_manual_source_audit,Europe-only extent and calculation method must be explicit; not world range.
+New Archive/TRAITS/FRUGINT_mammalTraits.csv,Ear_length,Longest ears,Shortest ears,intuitive,6,hold_for_manual_source_audit,Only six nonmissing rows; mixed units and aggregation need original-source verification.
+New Archive/TRAITS/FRUGINT_birdTraits.csv,Gut_passage_time,Slowest seed passage,Fastest seed passage,specialist,26,hold_for_manual_source_audit,Food/seed/protocol-specific; not whole digestion time.

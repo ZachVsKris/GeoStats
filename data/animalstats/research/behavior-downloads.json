@@ -1,0 +1,356 @@
+{
+  "retrieved": "2026-10-02",
+  "purpose": "research_only",
+  "downloads": [
+    {
+      "path": "data/animalstats/source/cognition-MacLean_et_al_PNAS_2014_Self_Control_AnotB.csv",
+      "url": "https://ndownloader.figshare.com/files/9700537",
+      "doi": "10.6084/m9.figshare.5579335",
+      "bytes": 14280,
+      "sha256": "27a413626a994a2281223bc9276019dab0fafc3fdb37a4c8db2b61dfad265c2e",
+      "status": "downloaded_research_only"
+    },
+    {
+      "path": "data/animalstats/source/cognition-MacLean_et_al_PNAS_2014_Self_Control_Cylinder.csv",
+      "url": "https://ndownloader.figshare.com/files/9700540",
+      "doi": "10.6084/m9.figshare.5579335",
+      "bytes": 21292,
+      "sha256": "c1695d92d31d99d74f9d88369b3249b53e115b2c73378c87654b412f514a62bf",
+      "status": "downloaded_research_only"
+    },
+    {
+      "path": "data/animalstats/source/torpor-Hibernation_phenotypes_supportingdata.xlsx",
+      "url": "https://ndownloader.figshare.com/files/41099102",
+      "doi": "figshare:23310731",
+      "bytes": 34548,
+      "sha256": "0eecb773a65763d20ba705cffdf9382fbe179c6b403809cebbb457af25f3dcc7",
+      "status": "downloaded_research_only"
+    },
+    {
+      "path": "data/animalstats/source/diving-comparative.csv",
+      "url": "https://zenodo.org/records/4995679/files/Diving_dataset.csv?download=1",
+      "doi": "10.5061/dryad.tqjq2bvv9",
+      "bytes": 589398,
+      "sha256": "e4041466c0cebb8ce0ab8aebabd7bc9218a408db16b3636e44137005363d8b2e",
+      "status": "downloaded_research_only"
+    },
+    {
+      "path": "data/animalstats/source/olfaction-comparative.xlsx",
+      "url": "https://zenodo.org/records/10458272/files/Table_S1-to-S12.xlsx?download=1",
+      "doi": "10.5061/dryad.73n5tb33v",
+      "bytes": 829431,
+      "sha256": "1e6cbba3c4d288b5c8ddc9765f3726b9de623a5f7418d43315b05163769c2e1f",
+      "status": "downloaded_research_only"
+    },
+    {
+      "path": "data/animalstats/source/mammal-food-types-Supplemental_data_1_diet_dataset.csv",
+      "url": "https://zenodo.org/records/7577690/files/Supplemental_data_1_diet_dataset.csv?download=1",
+      "doi": "10.5061/dryad.83bk3j9vk",
+      "bytes": 182514,
+      "sha256": "59e4c08607113f7210408b8b058287f66b639c7ea1441d265b0930df84167951",
+      "status": "downloaded_research_only"
+    },
+    {
+      "path": "data/animalstats/source/torpor-review.html",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4351926/",
+      "doi": "10.1111/brv.12137",
+      "bytes": 789483,
+      "sha256": "a0245c3d30c302303c8e089b6c05383401e34b1e5d26331bd6b902c9ad5b61df",
+      "status": "downloaded_research_only"
+    },
+    {
+      "source": "sound",
+      "url": "https://datadryad.org/downloads/file_stream/4117785",
+      "doi": "10.5061/dryad.cnp5hqchb",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "sound",
+      "url": "https://datadryad.org/downloads/file_stream/4117779",
+      "doi": "10.5061/dryad.cnp5hqchb",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "horns",
+      "url": "https://datadryad.org/downloads/file_stream/4487755",
+      "doi": "10.5061/dryad.fxpnvx16w",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "horns",
+      "url": "https://datadryad.org/downloads/file_stream/4487758",
+      "doi": "10.5061/dryad.fxpnvx16w",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "healing",
+      "url": "https://datadryad.org/downloads/file_stream/3967752",
+      "doi": "10.5061/dryad.6hdr7srbs",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "healing",
+      "url": "https://datadryad.org/downloads/file_stream/3967750",
+      "doi": "10.5061/dryad.6hdr7srbs",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "healing",
+      "url": "https://datadryad.org/downloads/file_stream/3967753",
+      "doi": "10.5061/dryad.6hdr7srbs",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "mammal-food-types",
+      "url": "https://datadryad.org/downloads/file_stream/2063301",
+      "doi": "10.5061/dryad.83bk3j9vk",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "mammal-food-types",
+      "url": "https://datadryad.org/downloads/file_stream/2063302",
+      "doi": "10.5061/dryad.83bk3j9vk",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "mammal-food-types",
+      "url": "https://datadryad.org/downloads/file_stream/2063303",
+      "doi": "10.5061/dryad.83bk3j9vk",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "mammal-food-types",
+      "url": "https://datadryad.org/downloads/file_stream/2063328",
+      "doi": "10.5061/dryad.83bk3j9vk",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "mammal-food-types",
+      "url": "https://datadryad.org/downloads/file_stream/2063308",
+      "doi": "10.5061/dryad.83bk3j9vk",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "mammal-food-types",
+      "url": "https://datadryad.org/downloads/file_stream/2063304",
+      "doi": "10.5061/dryad.83bk3j9vk",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "mammal-food-types",
+      "url": "https://datadryad.org/downloads/file_stream/2063329",
+      "doi": "10.5061/dryad.83bk3j9vk",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "mammal-food-types",
+      "url": "https://datadryad.org/downloads/file_stream/2063330",
+      "doi": "10.5061/dryad.83bk3j9vk",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "mammal-food-types",
+      "url": "https://datadryad.org/downloads/file_stream/2063332",
+      "doi": "10.5061/dryad.83bk3j9vk",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "mammal-food-types",
+      "url": "https://datadryad.org/downloads/file_stream/2063331",
+      "doi": "10.5061/dryad.83bk3j9vk",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "mammal-food-types",
+      "url": "https://datadryad.org/downloads/file_stream/2063333",
+      "doi": "10.5061/dryad.83bk3j9vk",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "mammal-food-types",
+      "url": "https://datadryad.org/downloads/file_stream/2063311",
+      "doi": "10.5061/dryad.83bk3j9vk",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "mammal-food-types",
+      "url": "https://datadryad.org/downloads/file_stream/2063313",
+      "doi": "10.5061/dryad.83bk3j9vk",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "mammal-food-types",
+      "url": "https://datadryad.org/downloads/file_stream/2063314",
+      "doi": "10.5061/dryad.83bk3j9vk",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "mammal-food-types",
+      "url": "https://datadryad.org/downloads/file_stream/2063310",
+      "doi": "10.5061/dryad.83bk3j9vk",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "mammal-food-types",
+      "url": "https://datadryad.org/downloads/file_stream/2063316",
+      "doi": "10.5061/dryad.83bk3j9vk",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "mammal-food-types",
+      "url": "https://datadryad.org/downloads/file_stream/2063315",
+      "doi": "10.5061/dryad.83bk3j9vk",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "mammal-food-types",
+      "url": "https://datadryad.org/downloads/file_stream/2063318",
+      "doi": "10.5061/dryad.83bk3j9vk",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "mammal-food-types",
+      "url": "https://datadryad.org/downloads/file_stream/2063317",
+      "doi": "10.5061/dryad.83bk3j9vk",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "development",
+      "url": "https://datadryad.org/downloads/file_stream/1480115",
+      "doi": "10.5061/dryad.vx0k6djrp",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "development",
+      "url": "https://datadryad.org/downloads/file_stream/1480117",
+      "doi": "10.5061/dryad.vx0k6djrp",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "development",
+      "url": "https://datadryad.org/downloads/file_stream/1480116",
+      "doi": "10.5061/dryad.vx0k6djrp",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "development",
+      "url": "https://datadryad.org/downloads/file_stream/1480118",
+      "doi": "10.5061/dryad.vx0k6djrp",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "development",
+      "url": "https://datadryad.org/downloads/file_stream/1480121",
+      "doi": "10.5061/dryad.vx0k6djrp",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "growth",
+      "url": "https://datadryad.org/downloads/file_stream/36878",
+      "doi": "10.5061/dryad.7187d",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "bird-diving",
+      "url": "https://datadryad.org/downloads/file_stream/4632109",
+      "doi": "10.5061/dryad.z612jm6rq",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "bird-diving",
+      "url": "https://datadryad.org/downloads/file_stream/4632110",
+      "doi": "10.5061/dryad.z612jm6rq",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "bird-diving",
+      "url": "https://datadryad.org/downloads/file_stream/4632111",
+      "doi": "10.5061/dryad.z612jm6rq",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "tail-regrowth",
+      "url": "https://datadryad.org/downloads/file_stream/1147865",
+      "doi": "10.5061/dryad.f7m0cfxv9",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "tail-regrowth",
+      "url": "https://datadryad.org/downloads/file_stream/1147863",
+      "doi": "10.5061/dryad.f7m0cfxv9",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "tail-regrowth",
+      "url": "https://datadryad.org/downloads/file_stream/1147864",
+      "doi": "10.5061/dryad.f7m0cfxv9",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "tail-regrowth",
+      "url": "https://datadryad.org/downloads/file_stream/1147866",
+      "doi": "10.5061/dryad.f7m0cfxv9",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "mammal-migration",
+      "url": "https://datadryad.org/downloads/file_stream/73900",
+      "doi": "10.5061/dryad.78v5j",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "mammal-migration",
+      "url": "https://datadryad.org/downloads/file_stream/73899",
+      "doi": "10.5061/dryad.78v5j",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "source": "mammal-migration",
+      "url": "https://datadryad.org/downloads/file_stream/73901",
+      "doi": "10.5061/dryad.78v5j",
+      "status": "download_failed",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ]
+}

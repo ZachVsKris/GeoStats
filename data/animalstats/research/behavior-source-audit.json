@@ -1,0 +1,211 @@
+{
+  "date": "2026-10-02",
+  "inputs": [
+    {
+      "file": "cognition-MacLean_et_al_PNAS_2014_Self_Control_AnotB.csv",
+      "bytes": 14280,
+      "sha256": "27a413626a994a2281223bc9276019dab0fafc3fdb37a4c8db2b61dfad265c2e",
+      "rows": 345,
+      "encoding": "utf-8-sig",
+      "fields": [
+        "Species",
+        "Population",
+        "Sex",
+        "Sub #",
+        "Trials to criterion",
+        "Test Accuracy"
+      ]
+    },
+    {
+      "file": "cognition-MacLean_et_al_PNAS_2014_Self_Control_Cylinder.csv",
+      "bytes": 21292,
+      "sha256": "c1695d92d31d99d74f9d88369b3249b53e115b2c73378c87654b412f514a62bf",
+      "rows": 439,
+      "encoding": "utf-8-sig",
+      "fields": [
+        "Species",
+        "Population",
+        "Sex",
+        "Subject #",
+        "Warmups",
+        "Test % Correct",
+        "1st Half % Correct",
+        "2nd Half % Correct"
+      ]
+    },
+    {
+      "file": "diving-comparative.csv",
+      "bytes": 589398,
+      "sha256": "e4041466c0cebb8ce0ab8aebabd7bc9218a408db16b3636e44137005363d8b2e",
+      "rows": 1792,
+      "encoding": "latin1",
+      "fields": [
+        "Species",
+        "Endo.vs..Ecto",
+        "Mass..kg.",
+        "Dive.duration..min.",
+        "Maximum.dive.duration..min.",
+        "Temperature",
+        "Remarks",
+        "Literature.source",
+        "selected",
+        "Treenames"
+      ]
+    },
+    {
+      "file": "mammal-food-types-Supplemental_data_1_diet_dataset.csv",
+      "bytes": 182514,
+      "sha256": "59e4c08607113f7210408b8b058287f66b639c7ea1441d265b0930df84167951",
+      "rows": 1437,
+      "encoding": "utf-8-sig",
+      "fields": [
+        "Order",
+        "Family",
+        "Genus",
+        "Species",
+        "Binomial",
+        "Species.Name",
+        "vertebrate",
+        "invertebrate",
+        "fibrousplant",
+        "nonfibrousplant",
+        "Adult_bodymass_g",
+        "Diet_category",
+        "Adult_bodymass_kg",
+        "Diet category based on prey type"
+      ]
+    },
+    {
+      "file": "olfaction-comparative.xlsx",
+      "bytes": 829431,
+      "sha256": "1e6cbba3c4d288b5c8ddc9765f3726b9de623a5f7418d43315b05163769c2e1f",
+      "sheets": [
+        {
+          "name": "S1",
+          "nonempty_rows": 138,
+          "columns": 26
+        },
+        {
+          "name": "S2",
+          "nonempty_rows": 32,
+          "columns": 47
+        },
+        {
+          "name": "S3",
+          "nonempty_rows": 21,
+          "columns": 26
+        },
+        {
+          "name": "S4",
+          "nonempty_rows": 33,
+          "columns": 26
+        },
+        {
+          "name": "S5",
+          "nonempty_rows": 82,
+          "columns": 26
+        },
+        {
+          "name": "S6",
+          "nonempty_rows": 73,
+          "columns": 26
+        },
+        {
+          "name": "S7",
+          "nonempty_rows": 21,
+          "columns": 26
+        },
+        {
+          "name": "S8",
+          "nonempty_rows": 20,
+          "columns": 36
+        },
+        {
+          "name": "S9",
+          "nonempty_rows": 14,
+          "columns": 4
+        },
+        {
+          "name": "S10",
+          "nonempty_rows": 20,
+          "columns": 36
+        },
+        {
+          "name": "S11",
+          "nonempty_rows": 12,
+          "columns": 36
+        },
+        {
+          "name": "S12",
+          "nonempty_rows": 1,
+          "columns": 1
+        }
+      ]
+    },
+    {
+      "file": "torpor-Hibernation_phenotypes_supportingdata.xlsx",
+      "bytes": 34548,
+      "sha256": "0eecb773a65763d20ba705cffdf9382fbe179c6b403809cebbb457af25f3dcc7",
+      "sheets": [
+        {
+          "name": "Hibernation_phenotypes_supporti",
+          "nonempty_rows": 276,
+          "columns": 15
+        },
+        {
+          "name": "Notes",
+          "nonempty_rows": 16,
+          "columns": 2
+        }
+      ]
+    },
+    {
+      "file": "torpor-direct-table.csv",
+      "bytes": 19012,
+      "sha256": "12c3d87aa2766f79ee2f857c03f0b89b19370fbb2c0f4255d0e0e9bd2ca3c2ec",
+      "rows": 237,
+      "encoding": "utf-8-sig",
+      "fields": [
+        "Taxon",
+        "T",
+        "BM",
+        "Tb min",
+        "TMR min",
+        "TMR rel",
+        "TBD max",
+        "TBD \u00f8",
+        "IBE",
+        "LAT",
+        "Source"
+      ]
+    }
+  ],
+  "endpoint_checks": {
+    "torpor-direct-table.csv": {
+      "raw_table_rows": 238,
+      "gate": "Numerical maximum torpor bout duration in hours exists in the paper table. Taxonomic headings, footnotes and row alignment must be audited; not whole-season hibernation."
+    },
+    "cognition-MacLean_et_al_PNAS_2014_Self_Control_AnotB.csv": {
+      "records": 345,
+      "species_labels": 27,
+      "gate": "Shared test only. Subject-level repeats, population and sex retained. Accuracy is not general intelligence."
+    },
+    "cognition-MacLean_et_al_PNAS_2014_Self_Control_Cylinder.csv": {
+      "records": 439,
+      "species_labels": 32,
+      "gate": "Shared test only. Subject-level repeats, population and sex retained. Accuracy is not general intelligence."
+    },
+    "diving-comparative.csv": {
+      "records": 1792,
+      "nonblank_species_records": 1792,
+      "unique_species_labels": 286,
+      "max_duration_records": 1248,
+      "gate": "Study-reported observations, not universal physiological limits. Primary references and conditions retained. Blank rows excluded from species counts."
+    },
+    "torpor-Hibernation_phenotypes_supportingdata.xlsx": {
+      "gate": "MaxTorporLength contains phenotype classes rather than numerical durations. Context only; reject duration ranking from this field."
+    }
+  },
+  "game_approved": 0,
+  "caution": "Rows, subjects, sheets and species labels are not newly playable categories. Raw source structure preserved; no automatic species aggregation."
+}

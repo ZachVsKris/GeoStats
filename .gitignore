@@ -47,3 +47,38 @@ data/animalstats/source/max-speed-2017.pdf
 
 # Reproducible source archive; checksum recorded in fair-expansion-observations.json
 data/animalstats/source/travel-speed-2023.zip
+
+# Private research source snapshots; manifests retain hashes.
+data/animalstats/source/Supplementary_Table_S*_-_*.xlsx
+data/animalstats/source/adw-measurement-accounts.json
+
+# Additional private whole-table research downloads.
+data/animalstats/source/combine-*.csv
+data/animalstats/source/leptraits-*.csv
+data/animalstats/source/carnidiet-*
+data/animalstats/source/disperse-2020.xlsx
+data/animalstats/source/odonate-*
+data/animalstats/source/fb-v26.06-*.parquet
+
+data/animalstats/source/adw-insect-accounts.json
+
+# Behavioral/history research snapshots; publish checksums and source register only.
+data/animalstats/source/cognition-*
+data/animalstats/source/torpor-*
+data/animalstats/source/audiogram-*
+data/animalstats/source/animal-olympians.html
+data/animalstats/source/diving-comparative.csv
+data/animalstats/source/olfaction-*
+data/animalstats/source/sleep-review.html
+data/animalstats/source/locomotion-*
+data/animalstats/source/nest-data.csv
+data/animalstats/source/travel-*
+data/animalstats/source/sound-*
+data/animalstats/source/horns-*
+data/animalstats/source/healing-*
+data/animalstats/source/mammal-food-types-*
+data/animalstats/source/development-*
+data/animalstats/source/growth-*
+data/animalstats/source/bird-diving-*
+data/animalstats/source/tail-regrowth-*
+data/animalstats/source/mammal-migration-*

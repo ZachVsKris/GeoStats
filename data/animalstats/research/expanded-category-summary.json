@@ -1,0 +1,312 @@
+{
+  "date": "2026-10-02",
+  "concepts": 112,
+  "opposite_labels": 224,
+  "buckets": {
+    "Size": 8,
+    "Movement": 13,
+    "Diving": 3,
+    "Strength": 6,
+    "Senses": 6,
+    "Sound": 2,
+    "Feeding": 7,
+    "Survival": 3,
+    "Social life": 3,
+    "Construction": 8,
+    "Population": 3,
+    "Conservation": 2,
+    "Anatomy": 10,
+    "Routines": 5,
+    "Development": 6,
+    "Parenting": 6,
+    "Healing": 3,
+    "Seasons": 2,
+    "Geography": 6,
+    "Cognition": 4,
+    "History": 6
+  },
+  "evidence_status": {
+    "downloaded_source_requires_endpoint_audit": 39,
+    "evidence_lead": 42,
+    "no_comparable_source_yet": 18,
+    "limited_or_context_only_source": 13
+  },
+  "interest": {
+    "intuitive": 87,
+    "specialist": 25
+  },
+  "newly_approved_game_labels": 0,
+  "count_caution": "Combined editorial register, including existing concepts and unsourced proposals. Not an additive count of new playable categories. No clade copies or max/min variants counted as new concepts.",
+  "sources": {
+    "catalogs": {
+      "title": "Existing comparative trait catalogs",
+      "url": "data/animalstats/research/trait-screen-summary.json",
+      "coverage": "Mixed worldwide animal groups; per-field coverage required",
+      "acquisition": "downloaded"
+    },
+    "locomotion": {
+      "title": "Cloyed & Dell locomotion database",
+      "url": "https://doi.org/10.1002/ecy.3114",
+      "coverage": "884 organisms; exclude non-animals; locomotion modes kept separate",
+      "acquisition": "source_located_download_blocked"
+    },
+    "travel": {
+      "title": "Dyer et al. travel speeds",
+      "url": "https://doi.org/10.5281/zenodo.7554842",
+      "coverage": "Eight animal groups; different sampling protocols and some unidentified taxa",
+      "acquisition": "downloaded"
+    },
+    "jump": {
+      "title": "Comparative jumping performance",
+      "url": "https://academic.oup.com/icb/article/59/6/1609/5545545",
+      "coverage": "Comparative jump paper mixes calculated heights and reported measurements; primary endpoints need verification",
+      "acquisition": "source_located"
+    },
+    "jump-direct": {
+      "title": "Direct gerbil jumping experiment",
+      "url": "https://doi.org/10.5061/dryad.hdr7sqvqd",
+      "coverage": "Gerbils only; not enough for broad mixed-animal boards",
+      "acquisition": "source_located"
+    },
+    "diving": {
+      "title": "Universal constraints on diving",
+      "url": "https://doi.org/10.5061/dryad.tqjq2bvv9",
+      "coverage": "Insects, amphibians, reptiles, birds and mammals; literature with study context",
+      "acquisition": "downloaded"
+    },
+    "bird-diving": {
+      "title": "Diving parameters of 53 bird species",
+      "url": "https://doi.org/10.5061/dryad.z612jm6rq",
+      "coverage": "Birds only; global literature, measured logger and stopwatch protocols",
+      "acquisition": "source_located"
+    },
+    "movement": {
+      "title": "Movebank public data repository",
+      "url": "https://www.movebank.mpg.de/cms/movebank-content/data-repository",
+      "coverage": "Multiple groups and continents; public studies only; unequal deployment durations",
+      "acquisition": "source_located"
+    },
+    "bite": {
+      "title": "Insect bite force database",
+      "url": "https://doi.org/10.1038/s41597-023-02731-w",
+      "coverage": "654 insect species, 13 orders, four continents; independent specimen gates",
+      "acquisition": "downloaded"
+    },
+    "bite-vertebrate": {
+      "title": "Empirical voluntary bite performance methods",
+      "url": "https://doi.org/10.1242/jeb.106385",
+      "coverage": "Vertebrate literature; gape, biting point and substrate matter",
+      "acquisition": "source_located"
+    },
+    "pull": {
+      "title": "Instrumented passalus beetle pulling experiment",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4011365/",
+      "coverage": "One beetle species; method lead, not a cross-species table",
+      "acquisition": "limited_study"
+    },
+    "hearing": {
+      "title": "Animal Audiograms",
+      "url": "https://www.animalaudiograms.org/apidoc",
+      "coverage": "Multiple animal groups; air/water, age, method, threshold and frequency required",
+      "acquisition": "source_located_api_unavailable"
+    },
+    "vision": {
+      "title": "Comparative visual acuity review",
+      "url": "https://doi.org/10.1016/j.tree.2018.03.001",
+      "coverage": "Hundreds of animals; anatomical estimates and behavioral tests mixed",
+      "acquisition": "source_located"
+    },
+    "smell": {
+      "title": "Mammalian odor detection and discrimination",
+      "url": "https://doi.org/10.5061/dryad.73n5tb33v",
+      "coverage": "20 mammal species; individual odors and identical discrimination tasks",
+      "acquisition": "downloaded"
+    },
+    "sound": {
+      "title": "Calibrated song amplitude measurements",
+      "url": "https://doi.org/10.5061/dryad.cnp5hqchb",
+      "coverage": "17 European songbird species; context and corrected distance recorded",
+      "acquisition": "source_located"
+    },
+    "sound-review": {
+      "title": "Cross-taxon sound pressure review",
+      "url": "https://doi.org/10.3389/fevo.2021.657254",
+      "coverage": "Air and underwater measurements; different reference pressures",
+      "acquisition": "source_located"
+    },
+    "diet": {
+      "title": "CarniDIET",
+      "url": "https://doi.org/10.5061/dryad.2v6wwpzmr",
+      "coverage": "103 terrestrial carnivorous mammals; study/site/time and diet methods retained",
+      "acquisition": "downloaded"
+    },
+    "food-types": {
+      "title": "Observed mammalian food types",
+      "url": "https://doi.org/10.5061/dryad.83bk3j9vk",
+      "coverage": "1437 terrestrial mammals; four explicit food classes, not prey-species counts",
+      "acquisition": "downloaded"
+    },
+    "hostplants": {
+      "title": "LepTraits",
+      "url": "https://github.com/RiesLabGU/LepTraits/tree/f73317d28b38f80923ad8e02cc06d35f5c16ed1f",
+      "coverage": "Butterflies and moths; hostplant discovery and study effort bias",
+      "acquisition": "downloaded"
+    },
+    "food-intake": {
+      "title": "Measured captive moose intake",
+      "url": "https://doi.org/10.5061/dryad.857dd",
+      "coverage": "One mammal species; daily food measurements; no cross-species database yet",
+      "acquisition": "limited_study"
+    },
+    "fasting": {
+      "title": "Food/water restriction physiology",
+      "url": "https://doi.org/10.1086/504614",
+      "coverage": "Sand gazelles only; imposed restriction is not maximum endurance",
+      "acquisition": "limited_study"
+    },
+    "thermal": {
+      "title": "GlobTherm",
+      "url": "https://doi.org/10.1038/sdata.2018.22",
+      "coverage": "Multiple groups; remove non-animals; critical vs lethal endpoints separate",
+      "acquisition": "downloaded"
+    },
+    "social": {
+      "title": "PanTHERIA and COMBINE reported traits",
+      "url": "data/animalstats/research/gap-source-manifest.json",
+      "coverage": "Mammals worldwide; reported fields may still contain underlying estimates",
+      "acquisition": "downloaded"
+    },
+    "nests": {
+      "title": "Nest traits for the world\u2019s birds",
+      "url": "https://doi.org/10.1111/geb.13783",
+      "coverage": "Birds globally; numerical building time and dimensions alongside nominal types",
+      "acquisition": "source_located_download_blocked"
+    },
+    "burrows": {
+      "title": "Direct vole burrow measurements",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10744952/",
+      "coverage": "One vole species; local surveyed burrows, not mammal-wide records",
+      "acquisition": "limited_study"
+    },
+    "population": {
+      "title": "Living Planet Database",
+      "url": "https://www.livingplanetindex.org/data_portal",
+      "coverage": "Monitored vertebrate populations; local counts, densities and abundance proxies mixed",
+      "acquisition": "source_located"
+    },
+    "iucn": {
+      "title": "IUCN Red List assessments",
+      "url": "https://www.iucnredlist.org/",
+      "coverage": "Global assessed animals; date, population intervals and DD/NE must be retained",
+      "acquisition": "source_located"
+    },
+    "horns": {
+      "title": "Comparative bovid horn measurements",
+      "url": "https://doi.org/10.5061/dryad.fxpnvx16w",
+      "coverage": "115 bovids, 80 female horned; sex-specific published maxima",
+      "acquisition": "source_located"
+    },
+    "antlers": {
+      "title": "Comparative cervid antler size",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3982432/",
+      "coverage": "31 male cervid species lengths; 20 antler weights; seasonal development",
+      "acquisition": "source_located"
+    },
+    "anatomy": {
+      "title": "Mammalian Species accounts",
+      "url": "https://academic.oup.com/mspecies/article/50/959/34/5075367",
+      "coverage": "Species accounts; illustrative gaur account includes ears and horns; broader audit needed",
+      "acquisition": "limited_study"
+    },
+    "sleep": {
+      "title": "Phylogeny of Sleep database",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2576738/",
+      "coverage": "Mammals; recording duration, EEG vs behavior, captivity and feeding documented",
+      "acquisition": "source_located"
+    },
+    "torpor": {
+      "title": "Daily torpor and hibernation",
+      "url": "https://doi.org/10.1111/brv.12137",
+      "coverage": "214 bird/mammal species; numerical table downloaded; duration, temperature and metabolism endpoints",
+      "acquisition": "downloaded"
+    },
+    "torpor-phenotypes": {
+      "title": "Hibernation phenotype matrix",
+      "url": "https://figshare.com/articles/dataset/Hibernation_phenotypes_supportingdata/23310731",
+      "coverage": "Birds/mammals; MaxTorporLength is a category, not hours",
+      "acquisition": "downloaded_context_only"
+    },
+    "development": {
+      "title": "Comparative complex life cycles",
+      "url": "https://doi.org/10.5061/dryad.vx0k6djrp",
+      "coverage": "Multiple larval-stage animals including crustaceans and insects",
+      "acquisition": "source_located"
+    },
+    "growth": {
+      "title": "Comparative animal growth",
+      "url": "https://doi.org/10.5061/dryad.7187d",
+      "coverage": "Comparative growth data; fitted growth coefficients are not raw growth rates",
+      "acquisition": "source_located"
+    },
+    "care": {
+      "title": "Mammalian paternal care",
+      "url": "https://doi.org/10.5061/dryad.5d4fh",
+      "coverage": "Care type/presence is categorical; does not support longest-care duration",
+      "acquisition": "source_located_context_only"
+    },
+    "healing": {
+      "title": "Comparative wound healing",
+      "url": "https://doi.org/10.5061/dryad.6hdr7srbs",
+      "coverage": "Primates and rodents; different injuries, uncertain ordering among nonhuman species",
+      "acquisition": "source_located"
+    },
+    "regrowth": {
+      "title": "Lizard tail regrowth",
+      "url": "https://doi.org/10.5061/dryad.f7m0cfxv9",
+      "coverage": "Five wall lizard species; narrow specialist comparison only",
+      "acquisition": "source_located"
+    },
+    "regeneration": {
+      "title": "Comparative regeneration literature",
+      "url": "https://doi.org/10.1146/annurev.cellbio.24.110707.175336",
+      "coverage": "Qualitative capabilities; no common whole-animal regeneration score",
+      "acquisition": "source_located_context_only"
+    },
+    "seasonal": {
+      "title": "Direct seasonal mammal body composition",
+      "url": "https://doi.org/10.1007/s00360-022-01466-1",
+      "coverage": "Alpine marmots; one species; body mass variation is not fat percentage",
+      "acquisition": "limited_study"
+    },
+    "cognition": {
+      "title": "MacLean shared self-control tasks",
+      "url": "https://figshare.com/articles/dataset/MacLean_et_al_PNAS_2014_Self_Control_Data/5579335",
+      "coverage": "Birds/mammals; shared A-not-B and cylinder tests; no general IQ ranking",
+      "acquisition": "downloaded"
+    },
+    "fossils": {
+      "title": "Paleobiology Database API",
+      "url": "https://doi.org/10.1017/PAB.2015.39",
+      "coverage": "Global fossil taxa; species/genus/clade ranks and geological intervals separate",
+      "acquisition": "source_located"
+    },
+    "description": {
+      "title": "Catalogue of Life",
+      "url": "https://www.catalogueoflife.org/howto/access",
+      "coverage": "Global taxa; authorship year can refer to a later combination; verify original description",
+      "acquisition": "source_located"
+    },
+    "domestication": {
+      "title": "Ancient DNA and domestication evidence",
+      "url": "https://doi.org/10.1146/annurev-animal-022516-022747",
+      "coverage": "Domestic lineages; archaeological bounds and competing origins retained",
+      "acquisition": "source_located"
+    },
+    "translocation": {
+      "title": "IUCN conservation translocation case studies",
+      "url": "https://www.iucn-ctsg.org/resources/ctsg-books/",
+      "coverage": "Selected global case studies; national reintroduction is not global species rediscovery",
+      "acquisition": "source_located"
+    }
+  }
+}

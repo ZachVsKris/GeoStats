@@ -1,0 +1,278 @@
+{
+  "scope": "Named-species readiness review; no assumptions for absent records",
+  "species": [
+    {
+      "scientificName": "Apis mellifera",
+      "commonName": "Western honey bee",
+      "independentBiteSpecimens": 3,
+      "biteSeries": 3,
+      "sourceSpecimenRanges": {
+        "body.l": {
+          "min": 11.59,
+          "max": 12.35
+        },
+        "max.bf.specimen": {
+          "min": 0.06023796153846153,
+          "max": 0.09244303923076921
+        }
+      },
+      "otherCatalogs": [
+        "animaltraits"
+      ],
+      "adwAccountAvailable": true,
+      "decision": "hold",
+      "gameApproved": false,
+      "observedBiteForceN": 0.0782783316686064,
+      "observedBodyLengthMM": 12.019057092267175,
+      "reason": "Promising measurements; life stage/sex and uncertainty comparison require review. Anatomy plus bite does not establish a varied board."
+    },
+    {
+      "scientificName": "Gryllus bimaculatus",
+      "commonName": "Two-spotted cricket",
+      "independentBiteSpecimens": 5,
+      "biteSeries": 5,
+      "sourceSpecimenRanges": {
+        "body.l": {
+          "min": 22.73,
+          "max": 27.69
+        },
+        "max.bf.specimen": {
+          "min": 0.18043652307692307,
+          "max": 4.261353384615385
+        }
+      },
+      "otherCatalogs": [],
+      "adwAccountAvailable": false,
+      "decision": "hold",
+      "gameApproved": false,
+      "observedBiteForceN": 0.8151996274074063,
+      "observedBodyLengthMM": 24.850093786441384,
+      "reason": "Promising measurements; life stage/sex and uncertainty comparison require review. Anatomy plus bite does not establish a varied board."
+    },
+    {
+      "scientificName": "Locusta migratoria",
+      "commonName": "Migratory locust",
+      "independentBiteSpecimens": 1,
+      "biteSeries": 1,
+      "sourceSpecimenRanges": {
+        "body.l": {
+          "min": 46.2,
+          "max": 46.2
+        },
+        "max.bf.specimen": {
+          "min": 3.016964946153846,
+          "max": 3.016964946153846
+        }
+      },
+      "otherCatalogs": [],
+      "adwAccountAvailable": false,
+      "decision": "hold",
+      "gameApproved": false,
+      "observedBiteForceN": 3.016964946153846,
+      "observedBodyLengthMM": 46.199999999999996,
+      "reason": "Fewer than three independent bite specimens; do not admit this assay to gameplay."
+    },
+    {
+      "scientificName": "Anax imperator",
+      "commonName": "Emperor dragonfly",
+      "independentBiteSpecimens": 4,
+      "biteSeries": 4,
+      "sourceSpecimenRanges": {
+        "body.l": {
+          "min": 66.76,
+          "max": 72.86
+        },
+        "max.bf.specimen": {
+          "min": 0.4712989615384615,
+          "max": 1.023574623076923
+        }
+      },
+      "otherCatalogs": [
+        "odonate"
+      ],
+      "adwAccountAvailable": false,
+      "decision": "hold",
+      "gameApproved": false,
+      "observedBiteForceN": 0.6519876728441591,
+      "observedBodyLengthMM": 69.19780324625044,
+      "reason": "Promising measurements; life stage/sex and uncertainty comparison require review. Anatomy plus bite does not establish a varied board."
+    },
+    {
+      "scientificName": "Calopteryx splendens",
+      "commonName": "Banded demoiselle",
+      "independentBiteSpecimens": 4,
+      "biteSeries": 5,
+      "sourceSpecimenRanges": {
+        "body.l": {
+          "min": 44.62,
+          "max": 47.6
+        },
+        "max.bf.specimen": {
+          "min": 0.026864384615384613,
+          "max": 0.058764730769230764
+        }
+      },
+      "otherCatalogs": [
+        "odonate"
+      ],
+      "adwAccountAvailable": false,
+      "decision": "hold",
+      "gameApproved": false,
+      "observedBiteForceN": 0.04583022438775797,
+      "observedBodyLengthMM": 46.35946808504745,
+      "reason": "Promising measurements; life stage/sex and uncertainty comparison require review. Anatomy plus bite does not establish a varied board."
+    },
+    {
+      "scientificName": "Orthetrum cancellatum",
+      "commonName": "Black-tailed skimmer",
+      "independentBiteSpecimens": 8,
+      "biteSeries": 9,
+      "sourceSpecimenRanges": {
+        "body.l": {
+          "min": 43.27,
+          "max": 50.49
+        },
+        "max.bf.specimen": {
+          "min": 0.29004957692307687,
+          "max": 0.5959737538461538
+        }
+      },
+      "otherCatalogs": [
+        "odonate"
+      ],
+      "adwAccountAvailable": false,
+      "decision": "hold",
+      "gameApproved": false,
+      "observedBiteForceN": 0.37278853311781424,
+      "observedBodyLengthMM": 46.71634924257512,
+      "reason": "Promising measurements; life stage/sex and uncertainty comparison require review. Anatomy plus bite does not establish a varied board."
+    },
+    {
+      "scientificName": "Danaus plexippus",
+      "commonName": "Monarch butterfly",
+      "independentBiteSpecimens": 0,
+      "biteSeries": 0,
+      "sourceSpecimenRanges": {},
+      "otherCatalogs": [
+        "leptraits"
+      ],
+      "adwAccountAvailable": true,
+      "decision": "hold",
+      "gameApproved": false,
+      "reason": "Promising measurements; life stage/sex and uncertainty comparison require review. Anatomy plus bite does not establish a varied board."
+    },
+    {
+      "scientificName": "Vanessa cardui",
+      "commonName": "Painted lady",
+      "independentBiteSpecimens": 0,
+      "biteSeries": 0,
+      "sourceSpecimenRanges": {},
+      "otherCatalogs": [
+        "leptraits"
+      ],
+      "adwAccountAvailable": true,
+      "decision": "hold",
+      "gameApproved": false,
+      "reason": "Promising measurements; life stage/sex and uncertainty comparison require review. Anatomy plus bite does not establish a varied board."
+    },
+    {
+      "scientificName": "Papilio machaon",
+      "commonName": "Old World swallowtail",
+      "independentBiteSpecimens": 0,
+      "biteSeries": 0,
+      "sourceSpecimenRanges": {},
+      "otherCatalogs": [
+        "leptraits"
+      ],
+      "adwAccountAvailable": true,
+      "decision": "hold",
+      "gameApproved": false,
+      "reason": "Promising measurements; life stage/sex and uncertainty comparison require review. Anatomy plus bite does not establish a varied board."
+    },
+    {
+      "scientificName": "Morpho menelaus",
+      "commonName": "Menelaus blue morpho",
+      "independentBiteSpecimens": 0,
+      "biteSeries": 0,
+      "sourceSpecimenRanges": {},
+      "otherCatalogs": [
+        "leptraits"
+      ],
+      "adwAccountAvailable": false,
+      "decision": "hold",
+      "gameApproved": false,
+      "reason": "Promising measurements; life stage/sex and uncertainty comparison require review. Anatomy plus bite does not establish a varied board."
+    },
+    {
+      "scientificName": "Coccinella septempunctata",
+      "commonName": "Seven-spotted ladybug",
+      "independentBiteSpecimens": 0,
+      "biteSeries": 0,
+      "sourceSpecimenRanges": {},
+      "otherCatalogs": [],
+      "adwAccountAvailable": true,
+      "decision": "hold",
+      "gameApproved": false,
+      "reason": "Promising measurements; life stage/sex and uncertainty comparison require review. Anatomy plus bite does not establish a varied board."
+    },
+    {
+      "scientificName": "Dynastes hercules",
+      "commonName": "Hercules beetle",
+      "independentBiteSpecimens": 0,
+      "biteSeries": 0,
+      "sourceSpecimenRanges": {},
+      "otherCatalogs": [],
+      "adwAccountAvailable": true,
+      "decision": "hold",
+      "gameApproved": false,
+      "reason": "Promising measurements; life stage/sex and uncertainty comparison require review. Anatomy plus bite does not establish a varied board."
+    },
+    {
+      "scientificName": "Gromphadorhina portentosa",
+      "commonName": "Madagascar hissing cockroach",
+      "independentBiteSpecimens": 1,
+      "biteSeries": 3,
+      "sourceSpecimenRanges": {
+        "body.l": {
+          "min": 61.95,
+          "max": 61.95
+        },
+        "max.bf.specimen": {
+          "min": 1.7477043589743588,
+          "max": 1.7477043589743588
+        }
+      },
+      "otherCatalogs": [
+        "animaltraits"
+      ],
+      "adwAccountAvailable": true,
+      "decision": "hold",
+      "gameApproved": false,
+      "observedBiteForceN": 1.7477043589743588,
+      "observedBodyLengthMM": 61.95,
+      "reason": "Fewer than three independent bite specimens; do not admit this assay to gameplay."
+    },
+    {
+      "scientificName": "Solenopsis invicta",
+      "commonName": "Red imported fire ant",
+      "independentBiteSpecimens": 0,
+      "biteSeries": 0,
+      "sourceSpecimenRanges": {},
+      "otherCatalogs": [
+        "animaltraits",
+        "globtherm"
+      ],
+      "adwAccountAvailable": true,
+      "decision": "hold",
+      "gameApproved": false,
+      "reason": "Promising measurements; life stage/sex and uncertainty comparison require review. Anatomy plus bite does not establish a varied board."
+    }
+  ],
+  "adwWarnings": [
+    "Honey-bee lifespan varies between workers, drones and queens; queen values cannot stand for all bees.",
+    "Hercules beetle total lifespan includes a long larval stage; distinguish adult lifespan.",
+    "Insect gestation fields may describe egg incubation or development; never import as mammalian pregnancy.",
+    "Do not mistake seasonal eggs for eggs per birth or brood.",
+    "Butterfly consensus endpoint averages are not maximum measured specimen records."
+  ]
+}

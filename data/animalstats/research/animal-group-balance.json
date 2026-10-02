@@ -1,0 +1,28 @@
+{
+  "generatedAt": "2026-10-02",
+  "basis": "Current local candidate boards; not player sessions or equal-weight runtime probabilities",
+  "playableUniqueAnimals": {
+    "mammals": 35,
+    "birds": 31,
+    "reptiles": 6,
+    "fish": 5
+  },
+  "candidateBoardAppearances": {
+    "mammals": 5451,
+    "fish": 523,
+    "birds": 535,
+    "reptiles": 375
+  },
+  "appearanceShare": {
+    "mammals": 0.7918,
+    "fish": 0.076,
+    "birds": 0.0777,
+    "reptiles": 0.0545
+  },
+  "gaps": [
+    "No insects or spiders in current playable boards",
+    "Fish representation is sharks only",
+    "Mammal appearance volume is high; distinct intuitive fact breadth remains a separate audit",
+    "No guarantee of mixed-group board coverage from bulk source imports"
+  ]
+}

@@ -1,0 +1,251 @@
+catalog,field,nonMissing,interest,decision,reason,unitReview,comparableAcrossGroups
+amphibio,id,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Order,6776,"context: retain, not a prize",pending,,required,unreviewed
+amphibio,Family,6776,"context: retain, not a prize",pending,,required,unreviewed
+amphibio,Genus,6776,"context: retain, not a prize",pending,,required,unreviewed
+amphibio,Species,6776,"context: retain, not a prize",pending,,required,unreviewed
+amphibio,Fos,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Ter,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Aqu,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Arb,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Leaves,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Flowers,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Seeds,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Fruits,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Arthro,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Vert,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Diu,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Noc,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Crepu,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Wet_warm,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Wet_cold,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Dry_warm,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Dry_cold,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Body_mass_g,6776,high: familiar candidate; manual audit required,pending,,required,unreviewed
+amphibio,Age_at_maturity_min_y,6776,specialist: exclude from intuitive quota,pending,,required,unreviewed
+amphibio,Age_at_maturity_max_y,6776,specialist: exclude from intuitive quota,pending,,required,unreviewed
+amphibio,Body_size_mm,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Size_at_maturity_min_mm,6776,specialist: exclude from intuitive quota,pending,,required,unreviewed
+amphibio,Size_at_maturity_max_mm,6776,specialist: exclude from intuitive quota,pending,,required,unreviewed
+amphibio,Longevity_max_y,6776,high: familiar candidate; manual audit required,pending,,required,unreviewed
+amphibio,Litter_size_min_n,6776,high: familiar candidate; manual audit required,pending,,required,unreviewed
+amphibio,Litter_size_max_n,6776,high: familiar candidate; manual audit required,pending,,required,unreviewed
+amphibio,Reproductive_output_y,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Offspring_size_min_mm,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Offspring_size_max_mm,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Dir,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Lar,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,Viv,6776,unrated: manual audit required,pending,,required,unreviewed
+amphibio,OBS,6774,unrated: manual audit required,pending,,required,unreviewed
+amniote,class,21322,unrated: manual audit required,pending,,required,unreviewed
+amniote,order,21322,"context: retain, not a prize",pending,,required,unreviewed
+amniote,family,21322,"context: retain, not a prize",pending,,required,unreviewed
+amniote,genus,21322,"context: retain, not a prize",pending,,required,unreviewed
+amniote,species,21322,"context: retain, not a prize",pending,,required,unreviewed
+amniote,subspecies,21322,"context: retain, not a prize",pending,,required,unreviewed
+amniote,common_name,21322,unrated: manual audit required,pending,,required,unreviewed
+amniote,female_maturity_d,21322,specialist: exclude from intuitive quota,pending,,required,unreviewed
+amniote,litter_or_clutch_size_n,21322,high: familiar candidate; manual audit required,pending,,required,unreviewed
+amniote,litters_or_clutches_per_y,21322,unrated: manual audit required,pending,,required,unreviewed
+amniote,adult_body_mass_g,21322,high: familiar candidate; manual audit required,pending,,required,unreviewed
+amniote,maximum_longevity_y,21322,high: familiar candidate; manual audit required,pending,,required,unreviewed
+amniote,gestation_d,21322,high: familiar candidate; manual audit required,pending,,required,unreviewed
+amniote,weaning_d,21322,unrated: manual audit required,pending,,required,unreviewed
+amniote,birth_or_hatching_weight_g,21322,unrated: manual audit required,pending,,required,unreviewed
+amniote,weaning_weight_g,21322,unrated: manual audit required,pending,,required,unreviewed
+amniote,egg_mass_g,21322,unrated: manual audit required,pending,,required,unreviewed
+amniote,incubation_d,21322,unrated: manual audit required,pending,,required,unreviewed
+amniote,fledging_age_d,21322,unrated: manual audit required,pending,,required,unreviewed
+amniote,longevity_y,21322,high: familiar candidate; manual audit required,pending,,required,unreviewed
+amniote,male_maturity_d,21322,specialist: exclude from intuitive quota,pending,,required,unreviewed
+amniote,inter_litter_or_interbirth_interval_y,21322,unrated: manual audit required,pending,,required,unreviewed
+amniote,female_body_mass_g,21322,high: familiar candidate; manual audit required,pending,,required,unreviewed
+amniote,male_body_mass_g,21322,high: familiar candidate; manual audit required,pending,,required,unreviewed
+amniote,no_sex_body_mass_g,21322,high: familiar candidate; manual audit required,pending,,required,unreviewed
+amniote,egg_width_mm,21322,unrated: manual audit required,pending,,required,unreviewed
+amniote,egg_length_mm,21322,unrated: manual audit required,pending,,required,unreviewed
+amniote,fledging_mass_g,21322,unrated: manual audit required,pending,,required,unreviewed
+amniote,adult_svl_cm,21322,specialist: exclude from intuitive quota,pending,,required,unreviewed
+amniote,male_svl_cm,21322,specialist: exclude from intuitive quota,pending,,required,unreviewed
+amniote,female_svl_cm,21322,specialist: exclude from intuitive quota,pending,,required,unreviewed
+amniote,birth_or_hatching_svl_cm,21322,specialist: exclude from intuitive quota,pending,,required,unreviewed
+amniote,female_svl_at_maturity_cm,21322,specialist: exclude from intuitive quota,pending,,required,unreviewed
+amniote,female_body_mass_at_maturity_g,21322,high: familiar candidate; manual audit required,pending,,required,unreviewed
+amniote,no_sex_svl_cm,21322,specialist: exclude from intuitive quota,pending,,required,unreviewed
+amniote,no_sex_maturity_d,21322,specialist: exclude from intuitive quota,pending,,required,unreviewed
+pantheria,MSW05_Order,5416,"context: retain, not a prize",pending,,required,unreviewed
+pantheria,MSW05_Family,5416,"context: retain, not a prize",pending,,required,unreviewed
+pantheria,MSW05_Genus,5416,"context: retain, not a prize",pending,,required,unreviewed
+pantheria,MSW05_Species,5416,"context: retain, not a prize",pending,,required,unreviewed
+pantheria,MSW05_Binomial,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,1-1_ActivityCycle,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,5-1_AdultBodyMass_g,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,8-1_AdultForearmLen_mm,5416,specialist: exclude from intuitive quota,pending,,required,unreviewed
+pantheria,13-1_AdultHeadBodyLen_mm,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,2-1_AgeatEyeOpening_d,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,3-1_AgeatFirstBirth_d,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,18-1_BasalMetRate_mLO2hr,5416,specialist: exclude from intuitive quota,pending,,required,unreviewed
+pantheria,5-2_BasalMetRateMass_g,5416,specialist: exclude from intuitive quota,pending,,required,unreviewed
+pantheria,6-1_DietBreadth,5416,high: familiar candidate; manual audit required,pending,,required,unreviewed
+pantheria,7-1_DispersalAge_d,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,9-1_GestationLen_d,5416,high: familiar candidate; manual audit required,pending,,required,unreviewed
+pantheria,12-1_HabitatBreadth,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,22-1_HomeRange_km2,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,22-2_HomeRange_Indiv_km2,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,14-1_InterbirthInterval_d,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,15-1_LitterSize,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,16-1_LittersPerYear,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,17-1_MaxLongevity_m,5416,high: familiar candidate; manual audit required,pending,,required,unreviewed
+pantheria,5-3_NeonateBodyMass_g,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,13-2_NeonateHeadBodyLen_mm,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,21-1_PopulationDensity_n/km2,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,10-1_PopulationGrpSize,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,23-1_SexualMaturityAge_d,5416,specialist: exclude from intuitive quota,pending,,required,unreviewed
+pantheria,10-2_SocialGrpSize,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,24-1_TeatNumber,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,12-2_Terrestriality,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,6-2_TrophicLevel,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,25-1_WeaningAge_d,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,5-4_WeaningBodyMass_g,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,13-3_WeaningHeadBodyLen_mm,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,References,5416,"context: retain, not a prize",pending,,required,unreviewed
+pantheria,5-5_AdultBodyMass_g_EXT,5416,exclude: modeled value; retain for provenance only,pending,,required,unreviewed
+pantheria,16-2_LittersPerYear_EXT,5416,exclude: modeled value; retain for provenance only,pending,,required,unreviewed
+pantheria,5-6_NeonateBodyMass_g_EXT,5416,exclude: modeled value; retain for provenance only,pending,,required,unreviewed
+pantheria,5-7_WeaningBodyMass_g_EXT,5416,exclude: modeled value; retain for provenance only,pending,,required,unreviewed
+pantheria,26-1_GR_Area_km2,5416,high: familiar candidate; manual audit required,pending,,required,unreviewed
+pantheria,26-2_GR_MaxLat_dd,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,26-3_GR_MinLat_dd,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,26-4_GR_MidRangeLat_dd,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,26-5_GR_MaxLong_dd,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,26-6_GR_MinLong_dd,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,26-7_GR_MidRangeLong_dd,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,27-1_HuPopDen_Min_n/km2,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,27-2_HuPopDen_Mean_n/km2,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,27-3_HuPopDen_5p_n/km2,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,27-4_HuPopDen_Change,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,28-1_Precip_Mean_mm,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,28-2_Temp_Mean_01degC,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,30-1_AET_Mean_mm,5416,unrated: manual audit required,pending,,required,unreviewed
+pantheria,30-2_PET_Mean_mm,5416,unrated: manual audit required,pending,,required,unreviewed
+avonet,Sequence,11009,"context: retain, not a prize",pending,,required,unreviewed
+avonet,Species1,11009,"context: retain, not a prize",pending,,required,unreviewed
+avonet,Family1,11009,"context: retain, not a prize",pending,,required,unreviewed
+avonet,Order1,11009,"context: retain, not a prize",pending,,required,unreviewed
+avonet,Avibase.ID1,11009,"context: retain, not a prize",pending,,required,unreviewed
+avonet,Total.individuals,11009,unrated: manual audit required,pending,,required,unreviewed
+avonet,Female,11009,unrated: manual audit required,pending,,required,unreviewed
+avonet,Male,11009,unrated: manual audit required,pending,,required,unreviewed
+avonet,Unknown,11009,unrated: manual audit required,pending,,required,unreviewed
+avonet,Complete.measures,11009,unrated: manual audit required,pending,,required,unreviewed
+avonet,Beak.Length_Culmen,11009,specialist: exclude from intuitive quota,pending,,required,unreviewed
+avonet,Beak.Length_Nares,11009,specialist: exclude from intuitive quota,pending,,required,unreviewed
+avonet,Beak.Width,11009,unrated: manual audit required,pending,,required,unreviewed
+avonet,Beak.Depth,11009,unrated: manual audit required,pending,,required,unreviewed
+avonet,Tarsus.Length,11009,specialist: exclude from intuitive quota,pending,,required,unreviewed
+avonet,Wing.Length,11009,unrated: manual audit required,pending,,required,unreviewed
+avonet,Kipps.Distance,11009,specialist: exclude from intuitive quota,pending,,required,unreviewed
+avonet,Secondary1,11009,unrated: manual audit required,pending,,required,unreviewed
+avonet,Hand-Wing.Index,11009,unrated: manual audit required,pending,,required,unreviewed
+avonet,Tail.Length,11009,high: familiar candidate; manual audit required,pending,,required,unreviewed
+avonet,Mass,11009,unrated: manual audit required,pending,,required,unreviewed
+avonet,Mass.Source,11009,"context: retain, not a prize",pending,,required,unreviewed
+avonet,Mass.Refs.Other,11009,unrated: manual audit required,pending,,required,unreviewed
+avonet,Inference,11009,"context: retain, not a prize",pending,,required,unreviewed
+avonet,Traits.inferred,11009,"context: retain, not a prize",pending,,required,unreviewed
+avonet,Reference.species,11009,"context: retain, not a prize",pending,,required,unreviewed
+avonet,Habitat,11009,unrated: manual audit required,pending,,required,unreviewed
+avonet,Habitat.Density,11009,unrated: manual audit required,pending,,required,unreviewed
+avonet,Migration,11009,unrated: manual audit required,pending,,required,unreviewed
+avonet,Trophic.Level,11009,unrated: manual audit required,pending,,required,unreviewed
+avonet,Trophic.Niche,11009,unrated: manual audit required,pending,,required,unreviewed
+avonet,Primary.Lifestyle,11009,unrated: manual audit required,pending,,required,unreviewed
+avonet,Min.Latitude,11009,"context: retain, not a prize",pending,,required,unreviewed
+avonet,Max.Latitude,11009,"context: retain, not a prize",pending,,required,unreviewed
+avonet,Centroid.Latitude,11009,"context: retain, not a prize",pending,,required,unreviewed
+avonet,Centroid.Longitude,11008,"context: retain, not a prize",pending,,required,unreviewed
+avonet,Range.Size,11009,unrated: manual audit required,pending,,required,unreviewed
+squambase,Species name (Binomial),11744,"context: retain, not a prize",pending,,required,unreviewed
+squambase,sub-order,11744,"context: retain, not a prize",pending,,required,unreviewed
+squambase,infraorder,11744,"context: retain, not a prize",pending,,required,unreviewed
+squambase,Family,11744,"context: retain, not a prize",pending,,required,unreviewed
+squambase,description year,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Synonyms,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Sources (general),11744,"context: retain, not a prize",pending,,required,unreviewed
+squambase,maximum total length (mm),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,mean female total length (mm),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,hatchling/neonate total length (mm),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,maximum SVL (mm),11744,specialist: exclude from intuitive quota,pending,,required,unreviewed
+squambase,mean female SVL (mm),11744,specialist: exclude from intuitive quota,pending,,required,unreviewed
+squambase,hatchling/neonate SVL (mm),11744,specialist: exclude from intuitive quota,pending,,required,unreviewed
+squambase,mean female mass (g),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,hatchling/neonate mass (g),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,"maximum mass (derived from allometric equations; in log10, g)",11744,exclude: modeled value; retain for provenance only,pending,,required,unreviewed
+squambase,"mean female mass (derived from allometric equations; in log10, g)",11744,exclude: modeled value; retain for provenance only,pending,,required,unreviewed
+squambase,"mean hatchling/neonate mass (derived from allometric equations; in log10, g)",11744,exclude: modeled value; retain for provenance only,pending,,required,unreviewed
+squambase,mass_equation (from Feldman et al. 2016 unless stated),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,size metadata,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Limbs,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Insularity,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,described from (country 2024 borders),11744,"context: retain, not a prize",pending,,required,unreviewed
+squambase,Minimum elevation (m),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Maximum elevation (m),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,elevation metadata,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Activity time,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Activity time metadata,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,substrate,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,substrate metadata,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Diet,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Diet metadata,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Foraging mode,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Foraging mode metadata,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Minimum population density (ha^-1),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Mean population density (minimum ; ha^-1),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Mean population density (maximum ; ha^-1),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Maximum population density (ha^-1),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Population density metadata,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Minimum home range size (m2),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Average home range size (minimum; m^2),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Average home range size (maximum; m^2),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Maximum home range size (m^2),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Home range size metadata,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Length of Activity Season (minimum; months),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Length of Activity Season (maximum; months),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Length of Activity Season metadata,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,"Averge body temperature (minimum, during activity, in nature) in °C",11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,"Averge body temperature (maximum, during activity, in nature) in °C",11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,"Body temperature in activity, metadata",11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Average preferred temperature (minimum) in °C,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Average preferred temperature (maximum) in °C,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Preferred temperature metadata,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,"youngest age at first breeding (female, months)",11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,"oldest age at first breeding (female, months)",11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,breeding age (metadata),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Maximum Longevity (years),11744,high: familiar candidate; manual audit required,pending,,required,unreviewed
+squambase,longevity in,11744,high: familiar candidate; manual audit required,pending,,required,unreviewed
+squambase,Longevity metadata,11744,high: familiar candidate; manual audit required,pending,,required,unreviewed
+squambase,Mode of reproduction,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Mode of reproduction metadata,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,smallest brood,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,largest brood,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,minimum mean brood size,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,maximum mean brood size,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,brood size metadata,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Yearly broods (minimum),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Yearly broods (maximum),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Yearly broods metadata,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Major Biome (GARD 1.7),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Major Realm (Falaschi et al. 2023 designation),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,"Geographic range size (GARD 1.7, Caetano et al. 2023; km^2)",11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,"Geographic range size range size (IUCN, August 2022; km^2)",11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Extinct?,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,"Threat status (IUCN, October 2023)",11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,"Population trend (IUCN, October 2023)",11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,IUCN threat criteria (October 2023),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,year assessed by the IUCN,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,name in Tonini et al. (2016),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,name in Zheng and Wiens (2016),11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,name in the IUCN redlist,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,GARD id,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,Reptile database id,11744,unrated: manual audit required,pending,,required,unreviewed
+squambase,in the reptile database (October 2023 release),11744,unrated: manual audit required,pending,,required,unreviewed

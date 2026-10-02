@@ -1,0 +1,98 @@
+[
+  {
+    "file": "combine-reported.csv",
+    "url": "https://ndownloader.figshare.com/files/27703263",
+    "sha256": "14ace2dff03b71c20dc923a9eb293aaadc29934e21c6f11fa30d1b70e5abab92",
+    "bytes": 1612538
+  },
+  {
+    "file": "combine-sources.csv",
+    "url": "https://ndownloader.figshare.com/files/27703260",
+    "sha256": "f0d8ba1e42fabed49ffd0d4e61a577c3bfee0a787b9886c5891f8707112a1200",
+    "bytes": 3552819
+  },
+  {
+    "file": "combine-databases.csv",
+    "url": "https://ndownloader.figshare.com/files/24886955",
+    "sha256": "7fcc7c1cc0c91fac90509005ddc397bcd9be330425c7737249a07431e4b05ecf",
+    "bytes": 10674
+  },
+  {
+    "file": "carnidiet-v1.csv",
+    "url": "https://raw.githubusercontent.com/osmiddleton/GEB-2021-CarniDIET_database/master/Version%201.0/CarniDIET%201.0.csv",
+    "sha256": "4b3fca67eab47d121f0b19ed8f8a1b677863f8c07bd426205626cc972525dec7",
+    "bytes": 24848622
+  },
+  {
+    "file": "carnidiet-metadata.xlsx",
+    "url": "https://raw.githubusercontent.com/osmiddleton/GEB-2021-CarniDIET_database/master/Version%201.0/CarniDIET%201.0_Metadata.xlsx",
+    "sha256": "6642e290eaaa8e61ef6fbfd7c87bf4a29a10481fc1c0f73851bacb5c07bb085d",
+    "bytes": 22551
+  },
+  {
+    "file": "disperse-2020.xlsx",
+    "url": "https://ndownloader.figshare.com/files/24964343",
+    "sha256": "846eb60466e524f08538f04e5da92bdb283a0da65241ef417a35b94ac5e23f53",
+    "bytes": 184221
+  },
+  {
+    "file": "odonate-2020.csv",
+    "url": "https://zenodo.org/records/4291088/files/OPD_updated_November2020.csv?download=1",
+    "sha256": "ca2896ebde1f694aec2df183fe0bcc87156178d5c89e501fc94e24998cdab079",
+    "bytes": 1024777
+  },
+  {
+    "file": "odonate-metadata.pdf",
+    "url": "https://zenodo.org/records/4291088/files/VariableDescription.pdf?download=1",
+    "sha256": "08e37be94af7a1e8a6e469f75ab2d6696bd5ba1ba0295a6ff3594ada15ef86bb",
+    "bytes": 926534
+  },
+  {
+    "file": "fb-v26.06-species.parquet",
+    "url": "https://s3.us-west-2.amazonaws.com/us-west-2.opendata.source.coop/cboettig/fishbase/fb/v26.06/parquet/species.parquet",
+    "sha256": "87c99bc57f368c6102ea4042e7e6c8019c7405d5a352ead840f06244609ab101",
+    "bytes": 3469911
+  },
+  {
+    "file": "Supplementary_Table_S1_-_squamBase1.xlsx",
+    "url": "https://zenodo.org/records/10602503/files/Supplementary_Table_S1_-_squamBase1.xlsx?download=1",
+    "sha256": "e850eb807240e1012d0af3e5f2c33a84dab406d50e86a8e3dc591f51a64912af",
+    "bytes": 7290045
+  },
+  {
+    "file": "Supplementary_Table_S3_-_trait_metadata.xlsx",
+    "url": "https://zenodo.org/records/10602503/files/Supplementary_Table_S3_-_trait_metadata.xlsx?download=1",
+    "sha256": "71fbfc27e2e46fe9609a41c65c54bd9c9f73f8e02e1f6897345c497c0231765c",
+    "bytes": 16101
+  },
+  {
+    "file": "leptraits-consensus.csv",
+    "url": "https://raw.githubusercontent.com/RiesLabGU/LepTraits/f73317d28b38f80923ad8e02cc06d35f5c16ed1f/consensus/consensus.csv",
+    "sha256": "6ec35b8a31e96c971aeaa228a48aae9f107c40c33695f0d470aa4382ca6d635b",
+    "bytes": 2687158
+  },
+  {
+    "file": "leptraits-records.csv",
+    "url": "https://raw.githubusercontent.com/RiesLabGU/LepTraits/f73317d28b38f80923ad8e02cc06d35f5c16ed1f/records/records.csv",
+    "sha256": "bf2fabbaf3fbfbd53895a1f12d80f44e625710e77c34a683d2d9e4108e7ab850",
+    "bytes": 16924899
+  },
+  {
+    "file": "leptraits-habitat_recordDictionary.csv",
+    "url": "https://raw.githubusercontent.com/RiesLabGU/LepTraits/f73317d28b38f80923ad8e02cc06d35f5c16ed1f/records/habitat_recordDictionary.csv",
+    "sha256": "f777cbfcef251fb329574d3a124dc194fb30d0fe8dc92cb12894cc283d67b04a",
+    "bytes": 9106
+  },
+  {
+    "file": "leptraits-habitat_recordKey.csv",
+    "url": "https://raw.githubusercontent.com/RiesLabGU/LepTraits/f73317d28b38f80923ad8e02cc06d35f5c16ed1f/records/habitat_recordKey.csv",
+    "sha256": "5b60b77c29052ed6ba756d42f11d7040a1831eaa9a5f0cfc5303e7c97a0ced3e",
+    "bytes": 5888
+  },
+  {
+    "file": "leptraits-book_data.csv",
+    "url": "https://raw.githubusercontent.com/RiesLabGU/LepTraits/f73317d28b38f80923ad8e02cc06d35f5c16ed1f/misc/miscData/book_data.csv",
+    "sha256": "fc2b2edfe4aeb72f95b054dee23022e157d78d1a8e40e23c6343a4f8cb794e7e",
+    "bytes": 21286
+  }
+]

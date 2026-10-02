@@ -1,0 +1,346 @@
+[
+  {
+    "scientificName": "Apis mellifera",
+    "commonName": "Western honey bee",
+    "url": "https://animaldiversity.org/accounts/Apis_mellifera/",
+    "retrievedAt": "2026-10-02",
+    "error": null,
+    "htmlSHA256": "d9d28bee8bb7d1a0f51b27788d743f16c6e7520a139bc6d6e2d9472b343e7163",
+    "fields": {
+      "physical_description": [
+        "Range length"
+      ],
+      "reproduction": [
+        "Breeding interval",
+        "Breeding season",
+        "Range eggs per season",
+        "Average gestation period",
+        "Range age at sexual or reproductive maturity (female)",
+        "Average age at sexual or reproductive maturity (male)"
+      ],
+      "lifespan_longevity": [
+        "Typical lifespan Status: wild"
+      ],
+      "behavior": [],
+      "food_habits": [],
+      "geographic_range": []
+    },
+    "approval": "pending"
+  },
+  {
+    "scientificName": "Bombus terrestris",
+    "commonName": "Buff-tailed bumblebee",
+    "url": "https://animaldiversity.org/accounts/Bombus_terrestris/",
+    "retrievedAt": "2026-10-02",
+    "error": null,
+    "htmlSHA256": "33d5809cab7c44814f15e443ce67a5c2fd1ab0e38f0d2f2410cfdf53b51d0eb4",
+    "fields": {},
+    "approval": "pending"
+  },
+  {
+    "scientificName": "Danaus plexippus",
+    "commonName": "Monarch butterfly",
+    "url": "https://animaldiversity.org/accounts/Danaus_plexippus/",
+    "retrievedAt": "2026-10-02",
+    "error": null,
+    "htmlSHA256": "a8c7bf1b50fee46402eded50fe91933edca3bcfc544846a20ccd0cc0b7454428",
+    "fields": {
+      "physical_description": [
+        "Range wingspan"
+      ],
+      "reproduction": [
+        "Breeding interval"
+      ],
+      "behavior": [],
+      "food_habits": [],
+      "geographic_range": []
+    },
+    "approval": "pending"
+  },
+  {
+    "scientificName": "Vanessa cardui",
+    "commonName": "Painted lady",
+    "url": "https://animaldiversity.org/accounts/Vanessa_cardui/",
+    "retrievedAt": "2026-10-02",
+    "error": null,
+    "htmlSHA256": "57195ba72304f16a5ef8219a0c2980521cf57262527e2dac6033f7c98a824afb",
+    "fields": {
+      "physical_description": [
+        "Range length",
+        "Average length",
+        "Range wingspan",
+        "Average wingspan"
+      ],
+      "reproduction": [
+        "Breeding interval",
+        "Breeding season",
+        "Average eggs per season",
+        "Range gestation period",
+        "Range age at sexual or reproductive maturity (female)",
+        "Range age at sexual or reproductive maturity (male)"
+      ],
+      "lifespan_longevity": [
+        "Average lifespan Status: wild"
+      ],
+      "behavior": [],
+      "food_habits": [],
+      "geographic_range": []
+    },
+    "approval": "pending"
+  },
+  {
+    "scientificName": "Papilio machaon",
+    "commonName": "Old World swallowtail",
+    "url": "https://animaldiversity.org/accounts/Papilio_machaon/",
+    "retrievedAt": "2026-10-02",
+    "error": null,
+    "htmlSHA256": "75b0d9f845fc29b0a614e68c3626d9901c7cb39dfada00612cb80047468972a6",
+    "fields": {
+      "physical_description": [
+        "Range wingspan"
+      ],
+      "reproduction": [
+        "Breeding season"
+      ],
+      "behavior": [],
+      "food_habits": [],
+      "geographic_range": []
+    },
+    "approval": "pending"
+  },
+  {
+    "scientificName": "Mantis religiosa",
+    "commonName": "European mantis",
+    "url": "https://animaldiversity.org/accounts/Mantis_religiosa/",
+    "retrievedAt": "2026-10-02",
+    "error": null,
+    "htmlSHA256": "399d3b8e2ca6dabfa120c2280660b326b5f9eb844b3b8d9c14de1499098b0e56",
+    "fields": {},
+    "approval": "pending"
+  },
+  {
+    "scientificName": "Gryllus bimaculatus",
+    "commonName": "Two-spotted cricket",
+    "url": "https://animaldiversity.org/accounts/Gryllus_bimaculatus/",
+    "retrievedAt": "2026-10-02",
+    "error": null,
+    "htmlSHA256": "084c9d15296be174a2032e79ace14e84b800fa6540efa0483dc82233a3d92647",
+    "fields": {},
+    "approval": "pending"
+  },
+  {
+    "scientificName": "Acheta domesticus",
+    "commonName": "House cricket",
+    "url": "https://animaldiversity.org/accounts/Acheta_domesticus/",
+    "retrievedAt": "2026-10-02",
+    "error": null,
+    "htmlSHA256": "2069c7a4f28e4ae3c6136ebdf9c9e04451f4f6f6753cae099ed3c1c3c18c6618",
+    "fields": {},
+    "approval": "pending"
+  },
+  {
+    "scientificName": "Locusta migratoria",
+    "commonName": "Migratory locust",
+    "url": "https://animaldiversity.org/accounts/Locusta_migratoria/",
+    "retrievedAt": "2026-10-02",
+    "error": null,
+    "htmlSHA256": "277f51d209b699f7b150d9527f77a65141ad37867ccf7c0e78bf571ffc601ef6",
+    "fields": {},
+    "approval": "pending"
+  },
+  {
+    "scientificName": "Schistocerca gregaria",
+    "commonName": "Desert locust",
+    "url": "https://animaldiversity.org/accounts/Schistocerca_gregaria/",
+    "retrievedAt": "2026-10-02",
+    "error": null,
+    "htmlSHA256": "18aacee1c77994cbf850e026b1b9e16e9501206de2d9160f59463c8155ad7750",
+    "fields": {},
+    "approval": "pending"
+  },
+  {
+    "scientificName": "Coccinella septempunctata",
+    "commonName": "Seven-spotted ladybug",
+    "url": "https://animaldiversity.org/accounts/Coccinella_septempunctata/",
+    "retrievedAt": "2026-10-02",
+    "error": null,
+    "htmlSHA256": "52788ff37f88f5d7bd37681a987b1d881736a6d9d0ebbda4b95e4497e9136b26",
+    "fields": {
+      "physical_description": [
+        "Range length"
+      ],
+      "reproduction": [
+        "Breeding interval",
+        "Breeding season",
+        "Range eggs per season",
+        "Average eggs per season",
+        "Range age at sexual or reproductive maturity (female)",
+        "Average age at sexual or reproductive maturity (female)",
+        "Range age at sexual or reproductive maturity (male)",
+        "Average age at sexual or reproductive maturity (male)"
+      ],
+      "lifespan_longevity": [
+        "Typical lifespan Status: wild"
+      ],
+      "behavior": [],
+      "food_habits": [],
+      "geographic_range": []
+    },
+    "approval": "pending"
+  },
+  {
+    "scientificName": "Dynastes hercules",
+    "commonName": "Hercules beetle",
+    "url": "https://animaldiversity.org/accounts/Dynastes_hercules/",
+    "retrievedAt": "2026-10-02",
+    "error": null,
+    "htmlSHA256": "5abeafad0d514ca5b0c947fd23a7d5ac543e7330fcec093783f65c6bb71f2e58",
+    "fields": {
+      "physical_description": [
+        "Range mass",
+        "Average mass",
+        "Range length",
+        "Average length"
+      ],
+      "reproduction": [
+        "Average gestation period",
+        "Range age at sexual or reproductive maturity (female)",
+        "Range age at sexual or reproductive maturity (male)"
+      ],
+      "lifespan_longevity": [
+        "Average lifespan Status: wild",
+        "Average lifespan Status: captivity"
+      ],
+      "behavior": [],
+      "food_habits": [],
+      "geographic_range": []
+    },
+    "approval": "pending"
+  },
+  {
+    "scientificName": "Tenebrio molitor",
+    "commonName": "Mealworm beetle",
+    "url": "https://animaldiversity.org/accounts/Tenebrio_molitor/",
+    "retrievedAt": "2026-10-02",
+    "error": null,
+    "htmlSHA256": "a8771113b6dd0e3485847043702266b2ba880fe56dbea3a322c9c5b4b8051580",
+    "fields": {},
+    "approval": "pending"
+  },
+  {
+    "scientificName": "Gromphadorhina portentosa",
+    "commonName": "Madagascar hissing cockroach",
+    "url": "https://animaldiversity.org/accounts/Gromphadorhina_portentosa/",
+    "retrievedAt": "2026-10-02",
+    "error": null,
+    "htmlSHA256": "9bfc3ef2b6d6f8bdcdd69e363fd75b4f3e6e8ddbfe3583b5dbfa0eb14c626c7d",
+    "fields": {
+      "physical_description": [
+        "Range length"
+      ],
+      "reproduction": [
+        "Breeding interval",
+        "Breeding season",
+        "Range eggs per season",
+        "Average gestation period",
+        "Range time to independence",
+        "Average age at sexual or reproductive maturity (female)",
+        "Average age at sexual or reproductive maturity (male)"
+      ],
+      "lifespan_longevity": [
+        "Range lifespan Status: wild",
+        "Range lifespan Status: captivity",
+        "Typical lifespan Status: wild",
+        "Typical lifespan Status: captivity"
+      ],
+      "behavior": [
+        "Average territory size"
+      ],
+      "food_habits": [],
+      "geographic_range": []
+    },
+    "approval": "pending"
+  },
+  {
+    "scientificName": "Atta cephalotes",
+    "commonName": "Leafcutter ant",
+    "url": "https://animaldiversity.org/accounts/Atta_cephalotes/",
+    "retrievedAt": "2026-10-02",
+    "error": null,
+    "htmlSHA256": "c847efae24291638e6fb944a2ec6ca7b295711fb971725c7bd3a1b21b41828fe",
+    "fields": {},
+    "approval": "pending"
+  },
+  {
+    "scientificName": "Solenopsis invicta",
+    "commonName": "Red imported fire ant",
+    "url": "https://animaldiversity.org/accounts/Solenopsis_invicta/",
+    "retrievedAt": "2026-10-02",
+    "error": null,
+    "htmlSHA256": "6c53927bd66478b537fb1eace1d42795e35fbe8fa3ccfb8d35c488f3a028c1da",
+    "fields": {
+      "physical_description": [
+        "Range length"
+      ],
+      "reproduction": [
+        "Breeding interval",
+        "Breeding season",
+        "Range gestation period",
+        "Average gestation period",
+        "Range time to independence",
+        "Average time to independence",
+        "Range age at sexual or reproductive maturity (female)",
+        "Average age at sexual or reproductive maturity (female)",
+        "Range age at sexual or reproductive maturity (male)",
+        "Average age at sexual or reproductive maturity (male)"
+      ],
+      "lifespan_longevity": [
+        "Range lifespan Status: wild"
+      ],
+      "behavior": [],
+      "food_habits": [],
+      "geographic_range": []
+    },
+    "approval": "pending"
+  },
+  {
+    "scientificName": "Lasius niger",
+    "commonName": "Black garden ant",
+    "url": "https://animaldiversity.org/accounts/Lasius_niger/",
+    "retrievedAt": "2026-10-02",
+    "error": null,
+    "htmlSHA256": "52e6bdaebc9d13b7f9bf91b8d1c60f2d677c26615b6cffc751f8327f1a3e5110",
+    "fields": {},
+    "approval": "pending"
+  },
+  {
+    "scientificName": "Anax imperator",
+    "commonName": "Emperor dragonfly",
+    "url": "https://animaldiversity.org/accounts/Anax_imperator/",
+    "retrievedAt": "2026-10-02",
+    "error": null,
+    "htmlSHA256": "0cc58ce869be5cd11fb8e0b8c5af9266ed978ef9b6ac17372167e2f4b886641a",
+    "fields": {},
+    "approval": "pending"
+  },
+  {
+    "scientificName": "Calopteryx splendens",
+    "commonName": "Banded demoiselle",
+    "url": "https://animaldiversity.org/accounts/Calopteryx_splendens/",
+    "retrievedAt": "2026-10-02",
+    "error": null,
+    "htmlSHA256": "3a1c3a5f680417aaf2494081d29d9359a354a417a1e04eaaf76ae0b9f1b6919a",
+    "fields": {},
+    "approval": "pending"
+  },
+  {
+    "scientificName": "Orthetrum cancellatum",
+    "commonName": "Black-tailed skimmer",
+    "url": "https://animaldiversity.org/accounts/Orthetrum_cancellatum/",
+    "retrievedAt": "2026-10-02",
+    "error": null,
+    "htmlSHA256": "7e95178a8d603229f5ffd9421bbe7394e50046345cf50a59e91e655fe4b48b0a",
+    "fields": {},
+    "approval": "pending"
+  }
+]

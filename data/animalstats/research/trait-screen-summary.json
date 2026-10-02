@@ -1,0 +1,138 @@
+{
+  "scope": "Field-level editorial screening, not observation-level validation",
+  "fields": 651,
+  "decisions": {
+    "context_only": 429,
+    "keep_candidate": 97,
+    "defer_specialist": 49,
+    "reject_numeric_prize": 71,
+    "hold": 5
+  },
+  "distinctCandidateConcepts": 24,
+  "numericCandidateCoverage": {
+    "amniote": {
+      "adult_body_mass_g": 16677,
+      "litters_or_clutches_per_y": 4948,
+      "incubation_d": 3640,
+      "litter_or_clutch_size_n": 13078,
+      "egg_mass_g": 5415,
+      "maximum_longevity_y": 5500,
+      "birth_or_hatching_weight_g": 3543,
+      "egg_length_mm": 620,
+      "weaning_d": 2043,
+      "gestation_d": 2396
+    },
+    "amphibio": {
+      "Body_mass_g": 591,
+      "Litter_size_min_n": 1623,
+      "Body_size_mm": 5227,
+      "Litter_size_max_n": 1623,
+      "Longevity_max_y": 359
+    },
+    "animaltraits": {
+      "body mass": 2856,
+      "brain size": 2361,
+      "metabolic rate": 1185
+    },
+    "avonet": {
+      "Tail.Length": 11009,
+      "Beak.Length_Culmen": 11009,
+      "Range.Size": 10952,
+      "Mass": 11009
+    },
+    "combine-reported": {
+      "adult_mass_g": 6033,
+      "det_diet_breadth_n": 4658,
+      "adult_body_length_mm": 4175,
+      "litter_size_n": 3769,
+      "density_n_km2": 1262,
+      "litters_per_year_n": 2306,
+      "max_longevity_d": 2754,
+      "gestation_length_d": 2376,
+      "neonate_mass_g": 2030,
+      "weaning_age_d": 2192,
+      "home_range_km2": 760,
+      "social_group_n": 821
+    },
+    "fishbase": {
+      "Length": 33626,
+      "Weight": 3136,
+      "DepthRangeDeep": 15633,
+      "LengthFemale": 3277,
+      "LongevityWild": 1502,
+      "LongevityCaptive": 216,
+      "WeightFemale": 166
+    },
+    "insect-bite": {
+      "mean.bf.ID.geom": 654,
+      "mean.ID.body.l.geom": 654
+    },
+    "leptraits": {
+      "NumberOfHostplantFamilies": 5016,
+      "WS_U": 6813,
+      "WS_L_Mal": 1133,
+      "WS_U_Mal": 2497,
+      "WS_L": 3594,
+      "WS_U_Fem": 2198,
+      "WS_L_Fem": 1041
+    },
+    "leptraits-records": {
+      "WingSpanUpper_Unspecified": 12125,
+      "WingSpanLower_Unspecified": 6402,
+      "WingSpanUpper_Male": 3567,
+      "WingSpanUpper_Female": 2882,
+      "WingSpanLower_Female": 1035,
+      "WingSpanLower_Male": 1146
+    },
+    "odonate": {
+      "body_lengths": 1075,
+      "female_body_lengths": 207
+    },
+    "pantheria": {
+      "15-1_LitterSize": 2501,
+      "10-2_SocialGrpSize": 707,
+      "16-1_LittersPerYear": 894,
+      "17-1_MaxLongevity_m": 1013,
+      "5-1_AdultBodyMass_g": 3542,
+      "6-1_DietBreadth": 2161,
+      "22-1_HomeRange_km2": 707,
+      "9-1_GestationLen_d": 1362,
+      "5-3_NeonateBodyMass_g": 1085,
+      "21-1_PopulationDensity_n/km2": 956,
+      "25-1_WeaningAge_d": 1164,
+      "13-1_AdultHeadBodyLen_mm": 1941,
+      "22-2_HomeRange_Indiv_km2": 626,
+      "26-1_GR_Area_km2": 4668
+    },
+    "sealifebase": {
+      "Length": 6262,
+      "Weight": 497,
+      "LongevityWild": 190,
+      "LengthFemale": 507,
+      "WeightFemale": 51,
+      "LongevityCaptive": 1
+    },
+    "squambase": {
+      "Geographic range size (GARD 1.7, Caetano et al. 2023; km^2)": 10266,
+      "Geographic range size range size (IUCN, August 2022; km^2)": 9551,
+      "Yearly broods (minimum)": 1537,
+      "smallest brood": 5590,
+      "Yearly broods (maximum)": 1537,
+      "Maximum Longevity (years)": 1208,
+      "maximum mean brood size": 3410,
+      "largest brood": 5611,
+      "minimum mean brood size": 3410,
+      "hatchling/neonate mass (g)": 1244,
+      "mean female mass (g)": 1164,
+      "Maximum population density (ha^-1)": 607,
+      "Minimum population density (ha^-1)": 563,
+      "Minimum home range size (m2)": 203,
+      "Maximum home range size (m^2)": 211,
+      "Average home range size (maximum; m^2)": 89,
+      "Average home range size (minimum; m^2)": 89,
+      "maximum total length (mm)": 3735,
+      "mean female total length (mm)": 341
+    }
+  },
+  "gameApproved": 0
+}

@@ -12,14 +12,24 @@ import { newYorkDate } from "../../lib/time";
 export const metadata = { title: "AnimalStats private prototype", robots: { index: false, follow: false }, alternates: { canonical: "/animals" } };
 export const dynamic = "force-dynamic";
 
-export default function AnimalStatsPage() {
-  // Read at request time so promoting a preview build cannot expose the pilot.
-  if (!animalPreviewEnabled()) notFound();
+// These imports are immutable source snapshots. Validate once per worker, not once per visitor.
+let catalog: { data: AnimalDataset; boards: BoardCandidate[]; clientData: AnimalDataset } | undefined;
+function getCatalog() {
+  if (catalog) return catalog;
   const data = dataset as AnimalDataset;
   const boards = (candidates.boards as BoardCandidate[]).filter((board) => validateAnimalBoard(data, board).valid);
-  if (!boards.length) notFound();
   const pairedTraits = data.traits.filter((trait) => trait.prototypeCategory);
   const pairedIds = new Set(pairedTraits.map((trait) => trait.id));
   const clientData = { ...data, traits: pairedTraits, values: data.values.filter((row) => pairedIds.has(row.traitId)) };
-  return <AnimalStatsGame data={clientData} boards={orderAnimalPilotBoards(boards, newYorkDate(), data)} approvedBoardIds={approvedAnimalBoards(data, boards, reviews as AnimalBoardReview[]).map((board) => board.id!)} date={newYorkDate()} />;
+  catalog = { data, boards, clientData };
+  return catalog;
+}
+
+export default async function AnimalStatsPage({ searchParams }: { searchParams: Promise<{ board?: string }> }) {
+  const requested = await searchParams;
+  // Read at request time so promoting a preview build cannot expose the pilot.
+  if (!animalPreviewEnabled()) notFound();
+  const { data, boards, clientData } = getCatalog();
+  if (!boards.length) notFound();
+  return <AnimalStatsGame initialBoardId={requested.board} data={clientData} boards={orderAnimalPilotBoards(boards, newYorkDate(), data)} approvedBoardIds={approvedAnimalBoards(data, boards, reviews as AnimalBoardReview[]).map((board) => board.id!)} date={newYorkDate()} />;
 }

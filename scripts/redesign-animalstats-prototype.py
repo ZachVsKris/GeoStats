@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Curate paired metrics and generate intuitive-majority, distinct-winner boards."""
-import zipfile,io,csv,statistics,collections,copy,hashlib,itertools,json,random,re,concurrent.futures,urllib.request
+import functools,zipfile,io,csv,statistics,collections,copy,hashlib,itertools,json,random,re,concurrent.futures,urllib.request
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'data/animalstats'
 d=json.loads((OUT/'pilot.json').read_text())
@@ -34,6 +34,12 @@ if (OUT/'source/pantheria-2009.zip').exists():
    d['values'].append(dict(animalId=animal['id'],traitId='mammal_range_area',valueNumeric=number,unit='km²',sex='species-level',lifeStage='species-level',measurementBasis=range_basis,sourceId='pantheria-range-maps',observationType='compiled',confidence='approved',uncertaintyStatus='not-reported',notes='Exact species match; published GIS map area. No modeled body-length, mass, or home-range values imported.'))
 # Every admitted category gets its reverse from identical records, never from a second source.
 METRICS={
+'adult_tooth_count':('Most adult teeth','Fewest adult teeth','intuitive','teeth'),
+'field_travel_speed':('Fastest measured land travel','Slowest measured land travel','intuitive','movement'),
+'field_swim_speed':('Fastest measured swimming','Slowest measured swimming','intuitive','movement'),
+'basal_energy':('Most resting energy use','Least resting energy use','specialist','metabolism'),
+'mass_specific_basal_energy':('Most resting energy per gram','Least resting energy per gram','specialist','metabolism'),
+'daily_rem_sleep':('Most REM sleep','Least REM sleep','specialist','sleep'),
 'weighed_brain_mass':('Largest measured brain','Smallest measured brain','specialist','brain'),
 'adult_body_mass':('Heaviest adult','Lightest adult','intuitive','mass'),
 'bird_mass':('Heaviest adult','Lightest adult','intuitive','mass'),
@@ -93,14 +99,20 @@ for a in d['animals']:
 (OUT/'pilot.json').write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n')
 print('Paired metrics:',len(METRICS),'region accounts:',sum(bool(r['labels']) for r in regions.values()),flush=True)
 A={a['id']:a for a in d['animals']};T={t['id']:t for t in d['traits'] if t.get('prototypeCategory')};V={(v['animalId'],v['traitId']):v for v in d['values'] if v['confidence']=='approved' and v['observationType']!='imputed'}
-active=sorted(p['animalId'] for p in d['photos'] if p['approved'] and A[p['animalId']]['active'])
+illustrated=set(re.findall(r'^\s{2}([a-z]+_[a-z]+):', (ROOT/'lib/animalstatsCartoons.ts').read_text(),re.M))
+# Shared compact bird profiles are assigned in the table below the main object.
+illustrated.update(re.findall(r'\b([a-z]+_[a-z]+)\s*:', (ROOT/'lib/animalstatsCartoons.ts').read_text()))
+active=sorted(p['animalId'] for p in d['photos'] if p['approved'] and A[p['animalId']]['active'] and p['animalId'] in illustrated)
 pools={'birds':[i for i in active if A[i]['taxonomicGroup']=='bird'],'mammals':[i for i in active if A[i]['taxonomicGroup'] in {'carnivore','bear','large-mammal','primate','marsupial','rodent','marine-mammal','monotreme','insectivore','treeshrew'}],'world':active}
 pools['flight']=[i for i in active if (i,'cruising_flight_speed') in V]
 pools['brains']=[i for i in active if (i,'weighed_brain_mass') in V]
 pools['reptile-brains']=[i for i in pools['brains'] if A[i]['taxonomicGroup'] in {'crocodilian','turtle','snake'}]
 pools['sleep']=[i for i in active if (i,'daily_sleep') in V]
 pools['broad-mammals']=[i for i in pools['mammals'] if (i,'mammal_range_area') in V and (i,'female_maturity') in V and (i,'maximum_documented_lifespan') in V]
-def valid(ids):
+for metric in ['adult_tooth_count','field_travel_speed','field_swim_speed','daily_rem_sleep','basal_energy','mass_specific_basal_energy','field_max_dive']:
+ pools[metric]=[i for i in active if (i,metric) in V]
+@functools.lru_cache(maxsize=20000)
+def valid_cached(ids):
  out=[]
  for tid,t in T.items():
   rows=[V.get((i,tid)) for i in ids]
@@ -112,13 +124,15 @@ def valid(ids):
   if any(a[1].get('valueMin',a[1]['valueNumeric'])<=b[1].get('valueMax',b[1]['valueNumeric']) and b[1].get('valueMin',b[1]['valueNumeric'])<=a[1].get('valueMax',a[1]['valueNumeric']) for a,b in zip(ranked,ranked[1:])):continue
   out.append((tid,ranked[0][0],[next(j+1 for j,(aid,_) in enumerate(ranked) if aid==i) for i in ids]))
  return out
+def valid(ids):return valid_cached(tuple(sorted(ids)))
+LIFECYCLE={'pregnancy','offspring','incubation','weaning','maturity','reproduction'}
 boards=[];seen=set();rng=random.Random('balanced-world-prototype-v1')
 for mode,n,k in [('easy',4,4),('normal',6,4),('expert',8,6)]:
  for name,pool in pools.items():
   if len(pool)<n:continue
   count=0
   for attempt in range(150000 if mode=='expert' and name=='broad-mammals' else 20000 if name in {'brains','reptile-brains'} else 6000):
-   if count>=10:break
+   if count>=14:break
    ids=rng.sample(pool,n);
    if name=="world" and len({A[i]["taxonomicGroup"] for i in ids})<2:continue
    options=valid(ids);basic=[x for x in options if T[x[0]]['categoryKind']=='intuitive'];niche=[x for x in options if T[x[0]]['categoryKind']=='specialist']
@@ -131,6 +145,7 @@ for mode,n,k in [('easy',4,4),('normal',6,4),('expert',8,6)]:
     combinations.extend((b,s) for b in choices for s in details)
    for b,s in combinations:
     combo=b+s;tids=[x[0] for x in combo]
+    if sum(T[t]['metricKey'] in LIFECYCLE for t in tids)>(3 if k==6 else 1):continue
     if len({x[1] for x in combo})!=k or len({T[t]['metricKey'] for t in tids})!=k:continue
     if any(abs(1-6*sum((x-y)**2 for x,y in zip(a[2],b[2]))/(n*(n*n-1)))>=1 for a,b in itertools.combinations(combo,2)):continue
     if sum(sum(x[2][j]<=2 for x in combo)>=2 for j in range(n))<2:continue
@@ -139,7 +154,7 @@ for mode,n,k in [('easy',4,4),('normal',6,4),('expert',8,6)]:
     seen.add(signature);rng.shuffle(tids);regions=sorted({r for i in ids for r in A[i].get('biogeographicRegions',[])})
     bid=hashlib.sha256((mode+'|'+','.join(ids)+'|'+','.join(tids)).encode()).hexdigest()[:16]
     families=[T[t].get('gameplayFamily','anatomy') for t in tids]
-    boards.append(dict(id=bid,mode=mode,boardType='themed' if name in {'birds','flight'} else 'cross-animal',title='Wings of the world' if name in {'birds','flight'} else 'The worldwide menagerie',animalIds=ids,traitIds=tids,editorial=dict(families=families,multiTraitContenders=sum(sum(x[2][j]<=2 for x in combo)>=2 for j in range(n)),policy='intuitive-majority-distinct-winners-v5'),biogeographicRegions=regions));count+=1;found=True;break
+    boards.append(dict(id=bid,mode=mode,boardType='themed' if name in {'birds','flight'} else 'cross-animal',title='Wings of the world' if name in {'birds','flight'} else 'The water sports fair' if name in {'field_swim_speed','field_max_dive'} else 'The sleepyhead showdown' if name in {'sleep','daily_rem_sleep'} else 'The tooth fairy trials' if name=='adult_tooth_count' else 'The worldwide menagerie',animalIds=ids,traitIds=tids,editorial=dict(families=families,multiTraitContenders=sum(sum(x[2][j]<=2 for x in combo)>=2 for j in range(n)),policy='intuitive-majority-distinct-winners-v5'),biogeographicRegions=regions));count+=1;found=True;break
   print(mode,name,count,flush=True)
 # Include every feasible opposite direction. Solve orientations jointly so winners stay distinct.
 for original in list(boards):
@@ -159,10 +174,10 @@ for original in list(boards):
 # Keep plentiful bird anatomy records from dominating the catalog.
 nonbirds=[b for b in boards if not all(A[i]['taxonomicGroup']=='bird' for i in b['animalIds'])]
 selected=list(nonbirds);covered={t for b in selected for t in b['traitIds']};lineups={tuple(sorted(b['animalIds'])) for b in selected}
-for mode,limit in [('easy',6),('normal',10),('expert',10)]:
+for mode,limit in [('easy',16),('normal',16),('expert',12)]:
  remaining=[b for b in boards if b['mode']==mode and all(A[i]['taxonomicGroup']=='bird' for i in b['animalIds'])]
  for _ in range(min(limit,len(remaining))):
-  chosen=max(remaining,key=lambda b:sum(T[t]['counterTraitId'] in covered and t not in covered for t in b['traitIds'])*100+sum(t not in covered for t in b['traitIds'])*10+sum(T[t]['metricKey'] in {'flight','wingspan'} for t in b['traitIds'])*30+(tuple(sorted(b['animalIds'])) not in lineups)*4+sum(A[i]['familiarityTier']=='core' for i in b['animalIds']))
+  chosen=max(remaining,key=lambda b:sum(T[t]['counterTraitId'] in covered and t not in covered for t in b['traitIds'])*100+sum(t not in covered for t in b['traitIds'])*10+sum(T[t]['metricKey'] in {'flight','wingspan','movement'} for t in b['traitIds'])*30+(tuple(sorted(b['animalIds'])) not in lineups)*4+sum(A[i]['familiarityTier']=='core' for i in b['animalIds']))
   selected.append(chosen);remaining.remove(chosen);covered.update(chosen['traitIds']);lineups.add(tuple(sorted(chosen['animalIds'])))
 boards=selected
 # Never advertise a playable category whose opposite has no valid round.

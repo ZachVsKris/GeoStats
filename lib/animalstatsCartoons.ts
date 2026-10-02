@@ -5,6 +5,7 @@ type Kind =
   | "penguin"
   | "primate"
   | "marine"
+  | "shark"
   | "reptile"
   | "snake"
   | "turtle";
@@ -35,6 +36,12 @@ const base: Profile = {
   tail: 1,
 };
 const profiles: Record<string, Partial<Profile>> = {
+  cetorhinus_maximus: { kind: "shark", color: "#9d9b8b", belly: "#e3dfc6", feature: "baskingshark" },
+  sphyrna_lewini: { kind: "shark", color: "#889d9e", belly: "#e5e5d4", feature: "hammerhead" },
+  isurus_oxyrinchus: { kind: "shark", color: "#638ea2", belly: "#f3efd9", feature: "mako" },
+  triakis_semifasciata: { kind: "shark", color: "#b6aa88", belly: "#ece2c6", feature: "leopardshark" },
+  rhincodon_typus: { kind: "shark", color: "#779997", belly: "#dae3ce", feature: "whaleshark" },
+  caretta_caretta: { kind: "turtle", color: "#bd945f", belly: "#e5cf9e", feature: "loggerhead" },
   didelphis_marsupialis: {
     color: "#888a89",
     belly: "#ededdf",

@@ -20,6 +20,7 @@ test("available pilot boards render and can be completed", async ({ page }) => {
     await expect(page.locator(".animalResult")).toHaveCount(traits);
     await expect(page.getByText("OPTIMAL CHOICES")).toBeVisible();
   }
+  await page.getByText("Leave a playtest note", {exact:true}).click();
   await page.getByLabel("Review label").selectOption("PASS");
   await page.getByLabel("What worked or felt wrong?").fill("The allocation choices were interesting.");
   await page.getByRole("button", { name: "Save playtest note" }).click();
@@ -266,7 +267,7 @@ test("podium remove returns an animal to the pen and supports replacement", asyn
 
 import {cartoonSpecies} from '../lib/animalstatsCartoons';
 test('every playable species has an illustrated profile',()=>{
- expect(cartoonSpecies).toHaveLength(74);
+ expect(cartoonSpecies).toHaveLength(80);
  for(const board of candidateData.boards)for(const id of board.animalIds)expect(cartoonSpecies).toContain(id);
 });
 for(const viewport of [{width:1440,height:900},{width:1366,height:768},{width:390,height:844},{width:375,height:667}]){
@@ -284,3 +285,44 @@ for(const viewport of [{width:1440,height:900},{width:1366,height:768},{width:39
  await expect(page.locator('.penAnimal .cartoonHead').first()).toHaveCSS('animation-play-state','paused');
  });
 }
+
+test("expanded catalog has playable opposite teeth, swim, REM and metabolism prizes without lifecycle overload", () => {
+ const data = animalDataset as AnimalDataset;
+ const used = new Set((candidateData.boards as BoardCandidate[]).flatMap(b => b.traitIds));
+ for (const id of ["adult_tooth_count", "field_swim_speed", "daily_rem_sleep", "basal_energy", "mass_specific_basal_energy"]) {
+  expect(used.has(id)).toBe(true); expect(used.has(`${id}__low`)).toBe(true);
+ }
+ expect(used.size).toBeGreaterThanOrEqual(56);
+ const lifecycle = new Set(["pregnancy", "offspring", "incubation", "weaning", "maturity", "reproduction"]);
+ for (const board of candidateData.boards as BoardCandidate[]) {
+  expect(board.traitIds.filter(id => lifecycle.has(data.traits.find(t => t.id === id)!.metricKey!)).length).toBeLessThanOrEqual(board.mode === "expert" ? 3 : 1);
+ }
+ const fox = data.values.find(v => v.animalId === "vulpes_vulpes" && v.traitId === "adult_tooth_count")!;
+ expect(fox.valueNumeric).toBe(42); expect(fox.notes).toContain("Vulpes_vulpes.php");
+ const rates = data.values.filter(v => v.traitId === "mass_specific_basal_energy");
+ expect(rates.every(v => v.notes.includes("Exact arithmetic ratio"))).toBe(true);
+});
+
+test("prize tent supports search, opposite trails, and same-board challenges", async ({page,context}) => {
+ await context.grantPermissions(["clipboard-read", "clipboard-write"]);
+ await page.goto("/animals");
+ await page.getByRole("button", {name:"Prizes", exact:true}).click();
+ await page.getByLabel("Find a prize").fill("teeth");
+ await expect(page.locator(".fairPrizeCards article")).toHaveCount(1);
+ await page.getByRole("button", {name:"Play the opposite →",exact:true}).click();
+ await expect(page.locator(".fairFocusNotice")).toContainText("Fewest adult teeth");
+ await expect(page.locator(".traitPodium[data-trait-id=adult_tooth_count__low]")).toHaveCount(1);
+ const animals = await page.locator(".penAnimal .animalSprite").evaluateAll(nodes => nodes.map(node => node.getAttribute("data-animal-id")));
+ const prizes = await page.locator(".traitPodium").evaluateAll(nodes => nodes.map(node => node.getAttribute("data-trait-id")));
+ await page.getByRole("button", {name:"Challenge a friend",exact:true}).click();
+ await expect(page.getByRole("button", {name:"Link copied ✓",exact:true})).toBeVisible();
+ const url = await page.evaluate(() => navigator.clipboard.readText());
+ expect(new URL(url).searchParams.get("board")).toBeTruthy();
+ await page.goto(url);
+ expect(await page.locator(".penAnimal .animalSprite").evaluateAll(nodes => nodes.map(node => node.getAttribute("data-animal-id")))).toEqual(animals);
+ expect(await page.locator(".traitPodium").evaluateAll(nodes => nodes.map(node => node.getAttribute("data-trait-id")))).toEqual(prizes);
+ await page.getByRole("button", {name:"How to play",exact:true}).click();
+ await expect(page.getByRole("dialog")).toBeVisible();
+ await page.keyboard.press("Escape");
+ await expect(page.getByRole("dialog")).toHaveCount(0);
+});

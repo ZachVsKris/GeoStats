@@ -44,3 +44,6 @@ data/animalstats/source/insect-bite-v1-table.csv
 data/animalstats/research/*.jsonl.gz
 
 data/animalstats/source/max-speed-2017.pdf
+
+# Reproducible source archive; checksum recorded in fair-expansion-observations.json
+data/animalstats/source/travel-speed-2023.zip

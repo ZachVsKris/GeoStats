@@ -40,6 +40,8 @@ for r in concepts:
 metadata={}
 for name in ('manifest.json','broad-catalog-manifest.json','gap-source-manifest.json'):
     m=json.loads((R/name).read_text());metadata.update(m.get('catalogs',m))
+metadata['mobs-v1']={'url':'https://github.com/crmcclain/MOBS_OPEN','version':'MOBS 1.0; 2024-11-22 taxonomy snapshot','citation':'McClain et al. 2025 doi:10.1111/geb.70062','rights':'Verify dataset license before redistribution; citation requirement retained'}
+metadata['behavior-evidence-records']={'url':'Source URLs and row references in each observation','version':'2026-10-03','status':'All pending; not unique animals or playable labels'}
 sources=[]; total=0
 for path in sorted(R.glob('*.jsonl.gz')):
     catalog=path.name.removesuffix('.jsonl.gz'); meta=metadata.get(catalog,{})
@@ -48,7 +50,7 @@ for path in sorted(R.glob('*.jsonl.gz')):
     source=dict(id=catalog,url=meta.get('url',''),record_count=len(rows),sha256=sha,payload={**meta,'file':path.name,'acquisition_status':'acquired','game_approved':False})
     sources.append(source)
     db.execute('INSERT OR REPLACE INTO sources VALUES(?,?,?,?,?)',(catalog,source['url'],len(rows),sha,json.dumps(source['payload'])))
-    db.executemany('INSERT OR IGNORE INTO research_records VALUES(?,?,?,?)',((catalog,str(i),'pending',json.dumps(row)) for i,row in enumerate(rows)))
+    db.executemany("INSERT INTO research_records VALUES(?,?,?,?) ON CONFLICT(catalog,record_key) DO UPDATE SET payload=excluded.payload WHERE research_records.review_status='pending'",((catalog,str(i),'pending',json.dumps(row)) for i,row in enumerate(rows)))
     total+=len(rows)
     # Expand mammal evidence in the live warehouse. Other catalogs are fully
     # queryable in the snapshot; their live import remains explicit, not implied.

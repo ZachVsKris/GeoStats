@@ -1,0 +1,23 @@
+[
+  {
+    "file": "expansion-mobs-v1.csv",
+    "url": "https://raw.githubusercontent.com/crmcclain/MOBS_OPEN/main/data_all_112224.csv",
+    "bytes": 31647413,
+    "sha256": "5f798243c16b840df9cfc032abeed55a6015998ee76de8754b59704913a0d94c",
+    "status": "acquired"
+  },
+  {
+    "file": "expansion-mobs-references.txt",
+    "url": "https://raw.githubusercontent.com/crmcclain/MOBS_OPEN/main/Size_Data_Reference_Plain.txt",
+    "bytes": 469646,
+    "sha256": "904da11d9e5ce314d5863d6a61d8221b234496e13eb69f3744b01d373eefec6b",
+    "status": "acquired"
+  },
+  {
+    "file": "expansion-chewing-paper.html",
+    "url": "https://oup.silverchair-cdn.com/article-minimal/867392",
+    "bytes": 354169,
+    "sha256": "9ead99336da4e71f642158c95dcc66be2c1a98e9f263ff560b6bd2ffe2f97a3c",
+    "status": "acquired"
+  }
+]

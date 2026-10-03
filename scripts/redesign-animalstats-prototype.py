@@ -35,6 +35,10 @@ if (OUT/'source/pantheria-2009.zip').exists():
    d['values'].append(dict(animalId=animal['id'],traitId='mammal_range_area',valueNumeric=number,unit='km²',sex='species-level',lifeStage='species-level',measurementBasis=range_basis,sourceId='pantheria-range-maps',observationType='compiled',confidence='approved',uncertaintyStatus='not-reported',notes='Exact species match; published GIS map area. No modeled body-length, mass, or home-range values imported.'))
 # Every admitted category gets its reverse from identical records, never from a second source.
 METRICS={
+'mapped_north_pole_distance':('Farthest from North Pole','Closest to North Pole','intuitive','north-pole'),
+'mapped_south_pole_distance':('Farthest from South Pole','Closest to South Pole','intuitive','south-pole'),
+'mapped_latitude_span':('Widest north–south range','Narrowest north–south range','intuitive','latitude-span'),
+'diet_food_group_count':('Most food groups','Fewest food groups','intuitive','diet-breadth'),
 'resting_breathing_frequency':('Fastest breathing at rest','Slowest breathing at rest','intuitive','breathing'),
 'milk_fat_concentration':('Fattiest milk','Least fat in milk','intuitive','milk-fat'),
 'milk_sugar_concentration':('Most sugar in milk','Least sugar in milk','intuitive','milk-sugar'),
@@ -125,6 +129,8 @@ pools['reptile-brains']=[i for i in pools['brains'] if A[i]['taxonomicGroup'] in
 pools['sleep']=[i for i in active if (i,'daily_sleep') in V]
 pools['breathing']=[i for i in active if (i,'resting_breathing_frequency') in V]
 pools['milk']=[i for i in active if any((i,t) in V for t in ['milk_fat_concentration','milk_sugar_concentration','milk_protein_concentration'])]
+pools['diet']=[i for i in active if (i,'diet_food_group_count') in V]
+pools['range-geography']=[i for i in active if (i,'mapped_latitude_span') in V]
 pools['broad-mammals']=[i for i in pools['mammals'] if (i,'mammal_range_area') in V and (i,'female_maturity') in V and (i,'maximum_documented_lifespan') in V]
 for metric in ['adult_tooth_count','field_travel_speed','field_swim_speed','daily_rem_sleep','basal_energy','mass_specific_basal_energy','field_max_dive','habitat_elevation_ceiling','habitat_depth_ceiling','adult_shoulder_height','mammal_tail_length_upper','aquatic_length_upper','raw_clutch_frequency','litters_per_year','raw_egg_length','raw_egg_width']:
  pools[metric]=[i for i in active if (i,metric) in V]
@@ -164,6 +170,7 @@ for mode,n,k in [('easy',4,4),('normal',6,4),('expert',8,6)]:
    for b,s in combinations:
     combo=b+s;tids=[x[0] for x in combo]
     if sum(T[t].get('gameplayFamily')=='milk-composition' for t in tids)>1:continue
+    if sum(T[t].get('gameplayFamily') in {'range-geography','range'} for t in tids)>1:continue
     if sum(T[t]['metricKey'] in LIFECYCLE for t in tids)>(3 if k==6 else 1):continue
     if len({x[1] for x in combo})!=k or len({T[t]['metricKey'] for t in tids})!=k:continue
     if any(abs(1-6*sum((x-y)**2 for x,y in zip(a[2],b[2]))/(n*(n*n-1)))>=1 for a,b in itertools.combinations(combo,2)):continue
@@ -200,17 +207,22 @@ for mode,limit in [('easy',16),('normal',16),('expert',12)]:
   selected.append(chosen);remaining.remove(chosen);covered.update(chosen['traitIds']);lineups.add(tuple(sorted(chosen['animalIds'])))
 boards=selected
 # Keep previously shared challenges when their exact measurements still pass.
-retained=OUT/'retained-boards.json'
-if retained.exists():
+retained_files=[OUT/'retained-boards.json',OUT/'retained-live-boards.json']
+if any(p.exists() for p in retained_files):
  signatures={(b['mode'],tuple(sorted(b['animalIds'])),tuple(sorted(b['traitIds']))) for b in boards}
- for b in json.loads(retained.read_text())['boards']:
+ positions={(b['mode'],tuple(sorted(b['animalIds'])),tuple(sorted(b['traitIds']))):i for i,b in enumerate(boards)}
+ for b in [b for p in retained_files if p.exists() for b in json.loads(p.read_text())['boards']]:
   signature=(b['mode'],tuple(sorted(b['animalIds'])),tuple(sorted(b['traitIds'])))
-  if signature in signatures:continue
   available={t:w for t,w,r in valid(b['animalIds'])}
   if any(t not in available for t in b['traitIds']):continue
   if len({T[t]['metricKey'] for t in b['traitIds']})!=len(b['traitIds']):continue
+  if sum(T[t].get('gameplayFamily') in {'range-geography','range'} for t in b['traitIds'])>1:continue
   if sum(T[t]['metricKey'] in LIFECYCLE for t in b['traitIds'])>(3 if b['mode']=='expert' else 1):continue
   if len({available[t] for t in b['traitIds']})!=len(b['traitIds']):continue
+  if signature in signatures:
+   boards[positions[signature]]=b
+   continue
+  positions[signature]=len(boards)
   boards.append(b);signatures.add(signature)
 # Opposites stay adjacent in the review catalog; each playable direction qualifies independently.
 (OUT/'candidates.json').write_text(json.dumps(dict(boards=boards,rejectionReasons={'policy':'At least half intuitive, prefer more; unique metric and winner; no imputed values; 5% separation and supplied bounds.'}),indent=2)+'\n')

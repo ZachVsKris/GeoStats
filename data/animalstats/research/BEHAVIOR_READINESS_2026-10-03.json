@@ -1,0 +1,38 @@
+{
+  "reviewedAt": "2026-10-03",
+  "countsAreNotPlayableCategories": true,
+  "decisions": [
+    {
+      "concept": "Food groups",
+      "decision": "approved",
+      "baseObservations": 29,
+      "prizeLabels": 2,
+      "basis": "Explicit four-group classifications from observed diet evidence; only recorded substantial food groups. No diet inference or species-richness claim."
+    },
+    {
+      "concept": "Range geography",
+      "decision": "approved",
+      "baseObservations": 90,
+      "prizeLabels": 6,
+      "basis": "Exact decimal coordinate arithmetic from the published Sechrest 2003 range bounds in PanTHERIA; one mapped-range prize per board."
+    },
+    {
+      "concept": "General intelligence",
+      "decision": "held",
+      "prizeLabels": 0,
+      "basis": "The MacLean 2014 study measures two particular food tasks, not universal intelligence. Primary paper verified from Virginia Tech author manuscript; clear-tube task uses four-of-five training criterion and ten transparent-cylinder test trials. Further exact species matching and uncertainty audit required; generic Orangutan and Capuchin labels are not silently assigned to species."
+    },
+    {
+      "concept": "Eye size",
+      "decision": "held",
+      "prizeLabels": 0,
+      "basis": "Published compilation traced to primary papers, including an author-hosted Veilleux & Kirk 2014 manuscript. Original numerical supplement and cohort/method provenance remain incomplete. Canis lupus entries may be domestic dogs; no wolf substitution. Behavioral and anatomically calculated visual acuity cannot be combined as measured vision."
+    },
+    {
+      "concept": "Loudest song",
+      "decision": "held",
+      "prizeLabels": 0,
+      "basis": "Brumm et al. 2025 supplies calibrated field data and 17 songbird species with bird-level IDs and distance correction. Author metadata and README verified; raw CSV download returned 403 in this environment. Decibels need logarithmic-aware separation, not a raw 5% ratio."
+    }
+  ]
+}

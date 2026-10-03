@@ -171,6 +171,7 @@ export function validateAnimalBoard(data: AnimalDataset, board: BoardCandidate):
   }
   const families = board.traitIds.map((id) => data.traits.find((trait) => trait.id === id)?.gameplayFamily);
   if (families.filter((family) => family === "milk-composition").length > 1) reasons.push("only one milk-composition prize per board");
+  if (families.filter((family) => family === "range-geography" || family === "range").length > 1) reasons.push("only one mapped-range prize per board");
   if (!balanced && (families.some((family) => !family) || families.some((family) => families.filter((item) => item === family).length > (board.mode === "expert" && family === "anatomy" ? 2 : 1)) || new Set(families).size < families.length - (board.mode === "expert" ? 1 : 0))) reasons.push("repeated or unclassified gameplay family");
   if (!balanced && !families.some((family) => ["movement", "sleep", "space", "development", "offspring", "maturity", "care", "breeding"].includes(family ?? ""))) reasons.push("board lacks a distinctive behavior or performance trait");
   const animalMap = new Map(data.animals.map((item) => [item.id, item]));

@@ -142,6 +142,17 @@ test("server scoring rejects repeated and foreign assignments", () => {
 import { ROUND_CONFIGS } from "../lib/gameRules";
 import { animalBoardGroup, randomAnimalBoardIndex } from "../lib/animalstatsVariety";
 import { orderAnimalPilotBoards } from "../lib/animalstatsDaily";
+const retainedLiveBoards = JSON.parse(readFileSync(new URL("../data/animalstats/retained-live-boards.json", import.meta.url), "utf8"));
+
+test('previously shared boards preserve their IDs, animal order and prize order',()=>{
+ const current=new Map((candidateData.boards as BoardCandidate[]).map(b=>[b.id,b]));
+ for(const board of retainedLiveBoards.boards){
+  const retained=current.get(board.id);
+  expect(retained,board.id).toBeDefined();
+  expect(retained!.animalIds).toEqual(board.animalIds);
+  expect(retained!.traitIds).toEqual(board.traitIds);
+ }
+});
 
 test("all boards have different first-place animals and attain a perfect score", () => {
  const data = animalDataset as AnimalDataset;
@@ -234,9 +245,31 @@ test("new mammal comparisons preserve measured facts and stay separate", () => {
  expect(validateAnimalBoard(data,board).rejectionReasons).toContain("only one milk-composition prize per board");
 });
 
+test("diet and range geography use exact evidence and keep related prizes apart",()=>{
+ const data=animalDataset as AnimalDataset;
+ const foods=data.values.filter(v=>v.traitId==='diet_food_group_count');
+ expect(foods).toHaveLength(29);
+ expect(Object.fromEntries(foods.filter(v=>['giraffa_camelopardalis','gorilla_gorilla','macaca_mulatta','pan_troglodytes'].includes(v.animalId)).map(v=>[v.animalId,v.valueNumeric]))).toEqual({giraffa_camelopardalis:1,gorilla_gorilla:2,macaca_mulatta:3,pan_troglodytes:4});
+ expect(foods.some(v=>v.animalId==='enhydra_lutris')).toBe(false);
+ const value=(animalId:string,traitId:string)=>data.values.find(v=>v.animalId===animalId&&v.traitId===traitId)?.valueNumeric;
+ expect(value('canis_lupus','mapped_north_pole_distance')).toBe(6.73);
+ expect(value('canis_lupus','mapped_south_pole_distance')).toBe(101.48);
+ expect(value('canis_lupus','mapped_latitude_span')).toBe(71.79);
+ expect(value('macropus_rufus','mapped_north_pole_distance')).toBe(106.89);
+ expect(value('macropus_rufus','mapped_south_pole_distance')).toBe(53.73);
+ expect(value('macropus_rufus','mapped_latitude_span')).toBe(19.38);
+ expect(value('ursus_maritimus','mapped_north_pole_distance')).toBeUndefined();
+ expect(data.traits.find(t=>t.id==='mapped_north_pole_distance__low')?.displayName).toBe('Closest to North Pole');
+ expect(data.traits.find(t=>t.id==='mapped_north_pole_distance__low')?.direction).toBe('lower_wins');
+ const traits=new Map(data.traits.map(t=>[t.id,t]));
+ for(const board of candidateData.boards as BoardCandidate[])expect(board.traitIds.filter(t=>['range','range-geography'].includes(traits.get(t)!.gameplayFamily??'')).length).toBeLessThanOrEqual(1);
+ const board={...(candidateData.boards as BoardCandidate[]).find(b=>b.mode==='easy')!,traitIds:['mapped_north_pole_distance','mapped_south_pole_distance','adult_body_mass','gestation']};
+ expect(validateAnimalBoard(data,board).rejectionReasons).toContain('only one mapped-range prize per board');
+});
+
 test("new category data endpoint returns the complete approved release values",async({request})=>{
  const data=animalDataset as AnimalDataset;
- for(const traitId of ["resting_breathing_frequency","resting_breathing_frequency__low","milk_fat_concentration","milk_fat_concentration__low","milk_sugar_concentration","milk_sugar_concentration__low","milk_protein_concentration","milk_protein_concentration__low"]) {
+ for(const traitId of ["resting_breathing_frequency","resting_breathing_frequency__low","milk_fat_concentration","milk_fat_concentration__low","milk_sugar_concentration","milk_sugar_concentration__low","milk_protein_concentration","milk_protein_concentration__low",'diet_food_group_count','diet_food_group_count__low','mapped_north_pole_distance','mapped_north_pole_distance__low','mapped_south_pole_distance','mapped_south_pole_distance__low','mapped_latitude_span','mapped_latitude_span__low']) {
   const response=await request.get(`/api/animals/data?trait=${traitId}`);
   expect(response.status()).toBe(200);
   const result=await response.json();
@@ -248,7 +281,7 @@ test("new category data endpoint returns the complete approved release values",a
  expect((await request.get('/api/animals/data?trait=not_a_category')).status()).toBe(404);
 });
 
-for(const prefix of ["resting_breathing_frequency","milk_fat_concentration"]) {
+for(const prefix of ["resting_breathing_frequency","milk_fat_concentration",'diet_food_group_count','mapped_north_pole_distance__low']) {
  test(`new ${prefix} board plays through to sourced rankings`,async({page})=>{
   const board=(candidateData.boards as BoardCandidate[]).find(b=>b.mode==="easy"&&b.traitIds.includes(prefix))!;
   await page.goto(`/animals?board=${board.id}`);

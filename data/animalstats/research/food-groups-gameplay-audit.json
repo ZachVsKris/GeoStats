@@ -1,0 +1,376 @@
+{
+  "reviewedAt": "2026-10-03",
+  "sourceSha256": "59e4c08607113f7210408b8b058287f66b639c7ea1441d265b0930df84167951",
+  "source": {
+    "id": "reuter-2023-observed-food-groups",
+    "name": "Reuter, Hopkins & Price: observed mammal food groups",
+    "sourceClass": "curated-trait-database",
+    "url": "https://doi.org/10.5061/dryad.83bk3j9vk",
+    "versionYear": "2023",
+    "retrievedAt": "2026-10-03",
+    "license": "CC0 1.0 (Dryad dataset)",
+    "primaryPublicationUrl": "https://doi.org/10.1098/rspb.2022.1062"
+  },
+  "traitId": "diet_food_group_count",
+  "records": [
+    {
+      "scientificName": "Bison bison",
+      "foodGroups": 1,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 0,
+        "fibrousplant": 1,
+        "nonfibrousplant": 0
+      },
+      "sourceRow": 11,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Giraffa camelopardalis",
+      "foodGroups": 1,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 0,
+        "fibrousplant": 1,
+        "nonfibrousplant": 0
+      },
+      "sourceRow": 131,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Hippopotamus amphibius",
+      "foodGroups": 1,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 0,
+        "fibrousplant": 1,
+        "nonfibrousplant": 0
+      },
+      "sourceRow": 133,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Macropus rufus",
+      "foodGroups": 1,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 0,
+        "fibrousplant": 1,
+        "nonfibrousplant": 0
+      },
+      "sourceRow": 234,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Phascolarctos cinereus",
+      "foodGroups": 1,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 0,
+        "fibrousplant": 1,
+        "nonfibrousplant": 0
+      },
+      "sourceRow": 257,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Ceratotherium simum",
+      "foodGroups": 1,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 0,
+        "fibrousplant": 1,
+        "nonfibrousplant": 0
+      },
+      "sourceRow": 311,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Gorilla gorilla",
+      "foodGroups": 2,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 0,
+        "fibrousplant": 1,
+        "nonfibrousplant": 1
+      },
+      "sourceRow": 362,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Loxodonta africana",
+      "foodGroups": 2,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 0,
+        "fibrousplant": 1,
+        "nonfibrousplant": 1
+      },
+      "sourceRow": 394,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Castor canadensis",
+      "foodGroups": 2,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 0,
+        "fibrousplant": 1,
+        "nonfibrousplant": 1
+      },
+      "sourceRow": 408,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Hydrochoerus hydrochaeris",
+      "foodGroups": 1,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 0,
+        "fibrousplant": 1,
+        "nonfibrousplant": 0
+      },
+      "sourceRow": 411,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Melursus ursinus",
+      "foodGroups": 2,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 1,
+        "fibrousplant": 0,
+        "nonfibrousplant": 1
+      },
+      "sourceRow": 902,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Didelphis marsupialis",
+      "foodGroups": 2,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 1,
+        "fibrousplant": 0,
+        "nonfibrousplant": 1
+      },
+      "sourceRow": 933,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Erinaceus europaeus",
+      "foodGroups": 3,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 1,
+        "fibrousplant": 1,
+        "nonfibrousplant": 1
+      },
+      "sourceRow": 950,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Macaca mulatta",
+      "foodGroups": 3,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 1,
+        "fibrousplant": 1,
+        "nonfibrousplant": 1
+      },
+      "sourceRow": 990,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Canis lupus",
+      "foodGroups": 1,
+      "classifications": {
+        "vertebrate": 1,
+        "invertebrate": 0,
+        "fibrousplant": 0,
+        "nonfibrousplant": 0
+      },
+      "sourceRow": 1187,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Panthera leo",
+      "foodGroups": 1,
+      "classifications": {
+        "vertebrate": 1,
+        "invertebrate": 0,
+        "fibrousplant": 0,
+        "nonfibrousplant": 0
+      },
+      "sourceRow": 1202,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Panthera pardus",
+      "foodGroups": 1,
+      "classifications": {
+        "vertebrate": 1,
+        "invertebrate": 0,
+        "fibrousplant": 0,
+        "nonfibrousplant": 0
+      },
+      "sourceRow": 1204,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Panthera tigris",
+      "foodGroups": 1,
+      "classifications": {
+        "vertebrate": 1,
+        "invertebrate": 0,
+        "fibrousplant": 0,
+        "nonfibrousplant": 0
+      },
+      "sourceRow": 1205,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Ursus maritimus",
+      "foodGroups": 1,
+      "classifications": {
+        "vertebrate": 1,
+        "invertebrate": 0,
+        "fibrousplant": 0,
+        "nonfibrousplant": 0
+      },
+      "sourceRow": 1216,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Ailuropoda melanoleuca",
+      "foodGroups": 2,
+      "classifications": {
+        "vertebrate": 1,
+        "invertebrate": 0,
+        "fibrousplant": 1,
+        "nonfibrousplant": 0
+      },
+      "sourceRow": 1229,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Helarctos malayanus",
+      "foodGroups": 2,
+      "classifications": {
+        "vertebrate": 1,
+        "invertebrate": 0,
+        "fibrousplant": 0,
+        "nonfibrousplant": 1
+      },
+      "sourceRow": 1230,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Vulpes vulpes",
+      "foodGroups": 3,
+      "classifications": {
+        "vertebrate": 1,
+        "invertebrate": 1,
+        "fibrousplant": 0,
+        "nonfibrousplant": 1
+      },
+      "sourceRow": 1333,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Tremarctos ornatus",
+      "foodGroups": 4,
+      "classifications": {
+        "vertebrate": 1,
+        "invertebrate": 1,
+        "fibrousplant": 1,
+        "nonfibrousplant": 1
+      },
+      "sourceRow": 1362,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Ursus americanus",
+      "foodGroups": 3,
+      "classifications": {
+        "vertebrate": 1,
+        "invertebrate": 1,
+        "fibrousplant": 0,
+        "nonfibrousplant": 1
+      },
+      "sourceRow": 1363,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Ursus arctos",
+      "foodGroups": 4,
+      "classifications": {
+        "vertebrate": 1,
+        "invertebrate": 1,
+        "fibrousplant": 1,
+        "nonfibrousplant": 1
+      },
+      "sourceRow": 1364,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Ursus thibetanus",
+      "foodGroups": 4,
+      "classifications": {
+        "vertebrate": 1,
+        "invertebrate": 1,
+        "fibrousplant": 1,
+        "nonfibrousplant": 1
+      },
+      "sourceRow": 1365,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Pan troglodytes",
+      "foodGroups": 4,
+      "classifications": {
+        "vertebrate": 1,
+        "invertebrate": 1,
+        "fibrousplant": 1,
+        "nonfibrousplant": 1
+      },
+      "sourceRow": 1412,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Pongo pygmaeus",
+      "foodGroups": 4,
+      "classifications": {
+        "vertebrate": 1,
+        "invertebrate": 1,
+        "fibrousplant": 1,
+        "nonfibrousplant": 1
+      },
+      "sourceRow": 1413,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Tupaia glis",
+      "foodGroups": 3,
+      "classifications": {
+        "vertebrate": 1,
+        "invertebrate": 1,
+        "fibrousplant": 0,
+        "nonfibrousplant": 1
+      },
+      "sourceRow": 1434,
+      "decision": "approved-published-food-group-count"
+    }
+  ],
+  "exclusions": [
+    {
+      "scientificName": "Enhydra lutris",
+      "reason": "Aquatic feeding context excluded; no cross-food-web comparison"
+    },
+    {
+      "scientificName": "Ornithorhynchus anatinus",
+      "reason": "Aquatic feeding context excluded; no cross-food-web comparison"
+    }
+  ],
+  "approvalScope": "Published four-group classifications only; not species richness or inferred diet"
+}

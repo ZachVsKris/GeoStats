@@ -1,0 +1,374 @@
+{
+  "reviewedAt": "2026-10-03",
+  "sourceSha256": "36e64314cae0394a966a63b949504d1975ac5c5629e05e36c1b139b3348f044a",
+  "records": [
+    {
+      "scientificName": "Canis lupus",
+      "sourceRow": 6,
+      "maximumLatitude": "83.27",
+      "minimumLatitude": "11.48",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "6.73",
+        "mapped_south_pole_distance": "101.48",
+        "mapped_latitude_span": "71.79"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Ceratotherium simum",
+      "sourceRow": 158,
+      "maximumLatitude": "9.74",
+      "minimumLatitude": "-29.91",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "80.26",
+        "mapped_south_pole_distance": "60.09",
+        "mapped_latitude_span": "39.65"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Erinaceus europaeus",
+      "sourceRow": 344,
+      "maximumLatitude": "69.90",
+      "minimumLatitude": "37.67",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "20.10",
+        "mapped_south_pole_distance": "127.67",
+        "mapped_latitude_span": "32.23"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Bison bison",
+      "sourceRow": 381,
+      "maximumLatitude": "44.97",
+      "minimumLatitude": "43.65",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "45.03",
+        "mapped_south_pole_distance": "133.65",
+        "mapped_latitude_span": "1.32"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Didelphis marsupialis",
+      "sourceRow": 478,
+      "maximumLatitude": "23.89",
+      "minimumLatitude": "-18.30",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "66.11",
+        "mapped_south_pole_distance": "71.70",
+        "mapped_latitude_span": "42.19"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Castor canadensis",
+      "sourceRow": 772,
+      "maximumLatitude": "69.71",
+      "minimumLatitude": "25.44",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "20.29",
+        "mapped_south_pole_distance": "115.44",
+        "mapped_latitude_span": "44.27"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Helarctos malayanus",
+      "sourceRow": 1434,
+      "maximumLatitude": "25.29",
+      "minimumLatitude": "-5.94",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "64.71",
+        "mapped_south_pole_distance": "84.06",
+        "mapped_latitude_span": "31.23"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Giraffa camelopardalis",
+      "sourceRow": 1497,
+      "maximumLatitude": "16.35",
+      "minimumLatitude": "-25.59",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "73.65",
+        "mapped_south_pole_distance": "64.41",
+        "mapped_latitude_span": "41.94"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Gorilla gorilla",
+      "sourceRow": 1530,
+      "maximumLatitude": "7.82",
+      "minimumLatitude": "-6.05",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "82.18",
+        "mapped_south_pole_distance": "83.95",
+        "mapped_latitude_span": "13.87"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Hippopotamus amphibius",
+      "sourceRow": 1608,
+      "maximumLatitude": "13.59",
+      "minimumLatitude": "-27.33",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "76.41",
+        "mapped_south_pole_distance": "62.67",
+        "mapped_latitude_span": "40.92"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Hydrochoerus hydrochaeris",
+      "sourceRow": 1702,
+      "maximumLatitude": "10.40",
+      "minimumLatitude": "-38.73",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "79.60",
+        "mapped_south_pole_distance": "51.27",
+        "mapped_latitude_span": "49.13"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Loxodonta africana",
+      "sourceRow": 2215,
+      "maximumLatitude": "16.36",
+      "minimumLatitude": "-33.56",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "73.64",
+        "mapped_south_pole_distance": "56.44",
+        "mapped_latitude_span": "49.92"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Macaca mulatta",
+      "sourceRow": 2245,
+      "maximumLatitude": "36.45",
+      "minimumLatitude": "13.69",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "53.55",
+        "mapped_south_pole_distance": "103.69",
+        "mapped_latitude_span": "22.76"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Macropus rufus",
+      "sourceRow": 2302,
+      "maximumLatitude": "-16.89",
+      "minimumLatitude": "-36.27",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "106.89",
+        "mapped_south_pole_distance": "53.73",
+        "mapped_latitude_span": "19.38"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Melursus ursinus",
+      "sourceRow": 2420,
+      "maximumLatitude": "30.38",
+      "minimumLatitude": "6.13",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "59.62",
+        "mapped_south_pole_distance": "96.13",
+        "mapped_latitude_span": "24.25"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Ornithorhynchus anatinus",
+      "sourceRow": 3213,
+      "maximumLatitude": "-16.29",
+      "minimumLatitude": "-43.64",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "106.29",
+        "mapped_south_pole_distance": "46.36",
+        "mapped_latitude_span": "27.35"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Pan troglodytes",
+      "sourceRow": 3313,
+      "maximumLatitude": "13.13",
+      "minimumLatitude": "-8.72",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "76.87",
+        "mapped_south_pole_distance": "81.28",
+        "mapped_latitude_span": "21.85"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Panthera leo",
+      "sourceRow": 3314,
+      "maximumLatitude": "21.67",
+      "minimumLatitude": "-28.50",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "68.33",
+        "mapped_south_pole_distance": "61.50",
+        "mapped_latitude_span": "50.17"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Panthera pardus",
+      "sourceRow": 3316,
+      "maximumLatitude": "48.36",
+      "minimumLatitude": "-34.83",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "41.64",
+        "mapped_south_pole_distance": "55.17",
+        "mapped_latitude_span": "83.19"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Panthera tigris",
+      "sourceRow": 3317,
+      "maximumLatitude": "47.99",
+      "minimumLatitude": "-5.94",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "42.01",
+        "mapped_south_pole_distance": "84.06",
+        "mapped_latitude_span": "53.93"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Phascolarctos cinereus",
+      "sourceRow": 3563,
+      "maximumLatitude": "-17.27",
+      "minimumLatitude": "-39.13",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "107.27",
+        "mapped_south_pole_distance": "50.87",
+        "mapped_latitude_span": "21.86"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Pongo pygmaeus",
+      "sourceRow": 3813,
+      "maximumLatitude": "5.34",
+      "minimumLatitude": "-2.67",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "84.66",
+        "mapped_south_pole_distance": "87.33",
+        "mapped_latitude_span": "8.01"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Ailuropoda melanoleuca",
+      "sourceRow": 4576,
+      "maximumLatitude": "34.01",
+      "minimumLatitude": "27.51",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "55.99",
+        "mapped_south_pole_distance": "117.51",
+        "mapped_latitude_span": "6.50"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Tremarctos ornatus",
+      "sourceRow": 4661,
+      "maximumLatitude": "11.25",
+      "minimumLatitude": "-22.30",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "78.75",
+        "mapped_south_pole_distance": "67.70",
+        "mapped_latitude_span": "33.55"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Acinonyx jubatus",
+      "sourceRow": 4894,
+      "maximumLatitude": "37.72",
+      "minimumLatitude": "-29.22",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "52.28",
+        "mapped_south_pole_distance": "60.78",
+        "mapped_latitude_span": "66.94"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Tupaia glis",
+      "sourceRow": 5286,
+      "maximumLatitude": "9.27",
+      "minimumLatitude": "-8.78",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "80.73",
+        "mapped_south_pole_distance": "81.22",
+        "mapped_latitude_span": "18.05"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Ursus americanus",
+      "sourceRow": 5333,
+      "maximumLatitude": "71.58",
+      "minimumLatitude": "23.55",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "18.42",
+        "mapped_south_pole_distance": "113.55",
+        "mapped_latitude_span": "48.03"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Ursus arctos",
+      "sourceRow": 5334,
+      "maximumLatitude": "72.38",
+      "minimumLatitude": "29.14",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "17.62",
+        "mapped_south_pole_distance": "119.14",
+        "mapped_latitude_span": "43.24"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Ursus thibetanus",
+      "sourceRow": 5336,
+      "maximumLatitude": "50.50",
+      "minimumLatitude": "6.05",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "39.50",
+        "mapped_south_pole_distance": "96.05",
+        "mapped_latitude_span": "44.45"
+      },
+      "decision": "approved-published-map-geometry"
+    },
+    {
+      "scientificName": "Vulpes vulpes",
+      "sourceRow": 5383,
+      "maximumLatitude": "74.04",
+      "minimumLatitude": "12.16",
+      "exactDerivedValues": {
+        "mapped_north_pole_distance": "15.96",
+        "mapped_south_pole_distance": "102.16",
+        "mapped_latitude_span": "61.88"
+      },
+      "decision": "approved-published-map-geometry"
+    }
+  ],
+  "approvalScope": "Exact coordinate arithmetic from historical published maps",
+  "excluded": [
+    "Missing sentinel -999",
+    "Geographic midpoints as population centers",
+    "Dateline-sensitive longitude spans",
+    "Climate and human-population raster estimates",
+    "Body-size and other model-extrapolated traits"
+  ]
+}

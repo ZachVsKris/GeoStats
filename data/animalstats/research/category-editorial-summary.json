@@ -1,0 +1,81 @@
+{
+  "concepts": 112,
+  "recommendations": {
+    "keep": 68,
+    "hold": 39,
+    "reject": 5
+  },
+  "interest": {
+    "intuitive": 86,
+    "specialist": 26
+  },
+  "new_game_approvals": 0,
+  "verified_endpoint_counts": {
+    "eyes-vertebrates.csv:Axial_diameter_mm": {
+      "numeric_rows": 918,
+      "source_taxon_labels": 826,
+      "group_counts": {
+        "Birds (Aves)": 157,
+        "Fishes (Actinopterygii)": 321,
+        "Fishes (Cephalaspidormophi)": 1,
+        "Mammals (Mammalia)": 261,
+        "Reptiles (Squamata)": 125,
+        "Sharks/rays (Elasmobranchii)": 53
+      }
+    },
+    "nest-Dataset-S1.csv:Building time average (days)": {
+      "numeric_rows": 310,
+      "source_taxon_labels": 300,
+      "group_counts": {
+        "birds": 310
+      }
+    },
+    "nest-Dataset-S1.csv:Nest size": {
+      "numeric_rows": 0,
+      "source_taxon_labels": 0,
+      "group_counts": {}
+    },
+    "pollinators-bee_trait_20240922.csv:HairLength_F": {
+      "numeric_rows": 288,
+      "source_taxon_labels": 288,
+      "group_counts": {
+        "bees": 288
+      }
+    }
+  },
+  "balance": {
+    "generatedAt": "2026-10-02",
+    "basis": "Current local candidate boards; not player sessions or equal-weight runtime probabilities",
+    "playableUniqueAnimals": {
+      "mammals": 35,
+      "birds": 31,
+      "reptiles": 6,
+      "fish": 5
+    },
+    "candidateBoardAppearances": {
+      "mammals": 5451,
+      "fish": 523,
+      "birds": 535,
+      "reptiles": 375
+    },
+    "appearanceShare": {
+      "mammals": 0.7918,
+      "fish": 0.076,
+      "birds": 0.0777,
+      "reptiles": 0.0545
+    },
+    "gaps": [
+      "No insects or spiders in current playable boards",
+      "Fish representation is sharks only",
+      "Mammal appearance volume is high; distinct intuitive fact breadth remains a separate audit",
+      "No guarantee of mixed-group board coverage from bulk source imports"
+    ]
+  },
+  "limits": [
+    "Keep is an editorial recommendation, not data or game approval.",
+    "No concept duplicates or reversed endpoints counted as new concepts.",
+    "Numeric rows are not independent animals; no source values averaged or imputed.",
+    "Global group/geographic balance remains unverified for most endpoints.",
+    "Existing local concept mapping is conservative and does not certify existing values."
+  ]
+}

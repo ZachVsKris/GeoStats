@@ -43,6 +43,7 @@ for name in ('manifest.json','broad-catalog-manifest.json','gap-source-manifest.
 metadata['mobs-v1']={'url':'https://github.com/crmcclain/MOBS_OPEN','version':'MOBS 1.0; 2024-11-22 taxonomy snapshot','citation':'McClain et al. 2025 doi:10.1111/geb.70062','rights':'Verify dataset license before redistribution; citation requirement retained'}
 metadata['behavior-evidence-records']={'url':'Source URLs and row references in each observation','version':'2026-10-03','status':'All pending; not unique animals or playable labels'}
 metadata['milk-reported']={**json.loads((R/'milk-evidence-summary.json').read_text()),'url':'https://doi.org/10.7717/peerj.8085/supp-1','version':'Blomquist 2019 measured supplement; missing sugar excluded','status':'All pending; lactation-stage and original-assay review required'}
+metadata['prey-reported']={**json.loads((R/'prey-evidence-summary.json').read_text()),'version':'Tucker & Rogers 2014 original author spreadsheet','status':'All pending; prey species mass is not necessarily a measured kill'}
 sources=[]; total=0
 for path in sorted(R.glob('*.jsonl.gz')):
     catalog=path.name.removesuffix('.jsonl.gz'); meta=metadata.get(catalog,{})

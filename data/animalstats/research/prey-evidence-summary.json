@@ -1,0 +1,17 @@
+{
+  "source": "https://api.figshare.com/v2/articles/999069",
+  "citation": "Tucker & Rogers 2014, PLOS ONE 9:e106402",
+  "url": "https://doi.org/10.6084/m9.figshare.999069",
+  "license": "CC BY 4.0",
+  "numeric_rows": 108,
+  "source_taxon_labels": 108,
+  "environment_counts": {
+    "Marine": 57,
+    "Terrestrial": 51
+  },
+  "original_reference_entries": 188,
+  "missing_minimum_cells_excluded": 3,
+  "sha256": "1182a77511a6faa82f9796677c24f86598357511e255bea3038ff2532e0c4b2e",
+  "new_playable_approvals": 0,
+  "original_workbook_unchanged": true
+}

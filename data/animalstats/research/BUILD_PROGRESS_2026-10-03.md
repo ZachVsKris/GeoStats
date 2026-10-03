@@ -8,13 +8,15 @@ Validation: TypeScript and production builds passed; all 23 AnimalStats browser 
 
 ## Expansion
 
-The private research snapshot now has 699,955 records across 23 catalogs, 162 concepts, 322 proposed prize labels and 1,296 pending quality checks. Raw and extracted records overlap; this is not a unique species count or a playable category count. The live private research warehouse previously held 81,227 rows; this new snapshot has not all been uploaded to Supabase.
+The private research snapshot now has 700,063 records across 24 catalogs, 162 concepts, 322 proposed prize labels and 1,296 pending quality checks. Raw and extracted records overlap; this is not a unique species count or a playable category count. The live private research warehouse previously held 81,227 rows; this new snapshot has not all been uploaded to Supabase.
 
 Acquired MOBS 1.0 with 170,214 raw rows and 80,844 AphiaIDs. Preserved its original reference catalog and citation requirement. Extracted 177,433 additional candidate observations for marine dimensions, eye size, torpor, diving, cognition tasks and chewing. Marine protists, algae and unidentified phyla are excluded from candidate observations. Colonies/zooids/polyps, anatomical endpoints, sex/stage, preservation, study effort and uncertainty still require source review. MOBS 1.0 lacks biological-unit and sex fields documented for v2, so these cannot be inferred.
 
 Recovered the 132-row primary chewing table. Exact-binomial numeric extraction retains 127 rows. Ambiguous numeric typography and genus-only entries are held, not guessed. The paper often measures a single animal per species and does not establish universally comparable food/stage/sex conditions.
 
 Validated the official Europe PMC archive of the Blomquist 2019 milk supplement. Extracted 357 reported concentrations: 124 fat, 124 protein and 109 sugar observations. Excluded all 15 missing sugar cells, model-imputed output, transformed life-history variables and inferred energy. Lactation stage, original assay, sample size and taxonomy remain pending. Corrected the earlier invalid milk archive acquisition record.
+
+Recovered the original author workbook for Tucker & Rogers 2014, with 108 carnivorous mammals (57 marine, 51 terrestrial) and 188 references. Retained original log values and reversible kilogram conversions rather than rounded PDF values. Three missing minimum-prey cells stay missing. Diet entries may refer to prey-species mass rather than a weighed kill, so the review label and eligibility gate now make this distinction explicit.
 
 No new observations were automatically approved for gameplay. Current playing coverage remains 72 category IDs / 62 distinct displayed labels, not 200. Some IDs repeat prize names across separate source/group pools; these are not counted as additional distinct labels. Reaching 200–500 genuinely useful playable labels requires further source acquisition, original-reference auditing and animal illustration coverage; the requirement remains open.
 

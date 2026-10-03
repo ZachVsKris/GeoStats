@@ -1,0 +1,202 @@
+{
+  "extracted_numeric_rows": 12648,
+  "concepts_with_extracted_values": 18,
+  "certified_board_ready": 0,
+  "new_playable_approvals": 0,
+  "source_files": {
+    "discovery-fish-reproduction.tsv": "9aa177bfb8d32f7eeef5b2ef2eab2f2cb79d0806b748186a5f26627da63fa7ac",
+    "discovery-whiskers-SupplementaryData.xlsx": "c195493e2c156370cf5d53f43218d85dd88a9b289e668bc9336c8be52a47590d",
+    "discovery-field-energy-FieldMR_SciDataPub.xls": "f64c9a80c7a73ca941fb5f73c22925907361d6580af5eed09df8f9f0d769ab81",
+    "discovery-mammal-parenting-Data file Stockley&Hobson.xlsx": "96da254bd56c15739966486cbc549c6979251d494953c98b4d7e04bb4be4b620",
+    "discovery-heart-svdata-filter.csv": "b27263cf19996e058910db07081177655e77677826561e0a7e954cc1b5a0fd1e",
+    "discovery-primate-vocabulary-ZenodoData_April2026.xlsx": "119dc9cb968f48c72d56d0e7e10585c83b032cee9638baf5f33d0d63fe68ce66",
+    "discovery-heart-fhdata-filter.csv": "f27d92986ac9d04f77c4ff87766108969551701b90e95c3bea695e541c651774",
+    "discovery-arthropods.zip": "ffc505f8f642925a3323ce28228178d36a1e9d4aab24b55298d674a1d9f8873d",
+    "discovery-heart-vtdata-filter.csv": "c10805e1b74c502ba70ed5924365870253d2aaa99bed0e1064a83652fbb0a1c1",
+    "discovery-heart-frdata-filter.csv": "a8ff20154a9917575ef3727ded588d2ec9c009885c7adb06a4931f12d76ad580",
+    "adw-measurement-accounts.json": "227a5cec2b336475ead51f4ce65975b0967af0b44c9f56b1790faeb8475a2b86",
+    "expansion-adw-accounts.json": "d17dfa2c3fee7bd147b8eb6d1be129cec9c290ac9be8f0b96d8524815d6a29e0"
+  },
+  "endpoints": [
+    {
+      "concept": "breath-volume",
+      "numeric_rows": 24,
+      "source_taxon_labels": 24,
+      "units": "mL/breath",
+      "files": "discovery-heart-vtdata-filter.csv",
+      "primary_reference_rows": 0,
+      "certified_board_ready": false,
+      "remaining_gates": "Primary measurement, uncertainty and comparability audit required."
+    },
+    {
+      "concept": "breathing-rate",
+      "numeric_rows": 76,
+      "source_taxon_labels": 76,
+      "units": "breaths/min",
+      "files": "discovery-heart-frdata-filter.csv",
+      "primary_reference_rows": 76,
+      "certified_board_ready": false,
+      "remaining_gates": "Primary measurement, uncertainty and comparability audit required."
+    },
+    {
+      "concept": "egg-length",
+      "numeric_rows": 261,
+      "source_taxon_labels": 261,
+      "units": "mm",
+      "files": "discovery-fish-reproduction.tsv",
+      "primary_reference_rows": 261,
+      "certified_board_ready": false,
+      "remaining_gates": "BLOCKED: offspring size mixes eggs and live young; identify anatomy before ranking."
+    },
+    {
+      "concept": "field-energy",
+      "numeric_rows": 3991,
+      "source_taxon_labels": 586,
+      "units": "kJ/day",
+      "files": "discovery-field-energy-FieldMR_SciDataPub.xls",
+      "primary_reference_rows": 3991,
+      "certified_board_ready": false,
+      "remaining_gates": "BLOCKED: source methods include range midpoints and estimated mass conversions; original-reference audit required. Routine laboratory oxygen measurements and field measurements must be separated."
+    },
+    {
+      "concept": "heart-rate",
+      "numeric_rows": 32,
+      "source_taxon_labels": 31,
+      "units": "beats/min",
+      "files": "discovery-heart-fhdata-filter.csv",
+      "primary_reference_rows": 32,
+      "certified_board_ready": false,
+      "remaining_gates": "Primary measurement, uncertainty and comparability audit required."
+    },
+    {
+      "concept": "heart-stroke-volume",
+      "numeric_rows": 11,
+      "source_taxon_labels": 11,
+      "units": "mL/beat",
+      "files": "discovery-heart-svdata-filter.csv",
+      "primary_reference_rows": 11,
+      "certified_board_ready": false,
+      "remaining_gates": "Primary measurement, uncertainty and comparability audit required."
+    },
+    {
+      "concept": "length",
+      "numeric_rows": 4932,
+      "source_taxon_labels": 4922,
+      "units": "(high)  cm; (high)  m; (high)  mm; cm; m; mm",
+      "files": "adw-measurement-accounts.json; discovery-arthropods.zip; expansion-adw-accounts.json",
+      "primary_reference_rows": 4932,
+      "certified_board_ready": false,
+      "remaining_gates": "BLOCKED: account-level summary; trace primary citation and preserve average versus record, wild versus captive, sex and taxonomy. No prose copied into ranking data.; BLOCKED: literature and expert knowledge mixed without per-cell method/source in archive; CC-BY-NC license. Body-size anatomical definition, fecundity time basis and development versus maturity need verification. Thermal niche and dispersal score excluded."
+    },
+    {
+      "concept": "lifespan",
+      "numeric_rows": 538,
+      "source_taxon_labels": 332,
+      "units": "(high)  days; (high)  hours; (high)  months; (high)  years; (high)  years AnAge; (low)  years AnAge; + (high)  months; + (high)  years; days; months; months Bird Banding Laboratory; years; years AnAge; years Max Planck Institute for Demographic Research",
+      "files": "adw-measurement-accounts.json; discovery-arthropods.zip; expansion-adw-accounts.json",
+      "primary_reference_rows": 538,
+      "certified_board_ready": false,
+      "remaining_gates": "BLOCKED: account-level summary; trace primary citation and preserve average versus record, wild versus captive, sex and taxonomy. No prose copied into ranking data.; BLOCKED: literature and expert knowledge mixed without per-cell method/source in archive; CC-BY-NC license. Body-size anatomical definition, fecundity time basis and development versus maturity need verification. Thermal niche and dispersal score excluded."
+    },
+    {
+      "concept": "mass",
+      "numeric_rows": 62,
+      "source_taxon_labels": 55,
+      "units": "(high)  kg; g; g AnAge; kg",
+      "files": "adw-measurement-accounts.json; expansion-adw-accounts.json",
+      "primary_reference_rows": 62,
+      "certified_board_ready": false,
+      "remaining_gates": "BLOCKED: account-level summary; trace primary citation and preserve average versus record, wild versus captive, sex and taxonomy. No prose copied into ranking data."
+    },
+    {
+      "concept": "maturity-age",
+      "numeric_rows": 786,
+      "source_taxon_labels": 662,
+      "units": "(low)  months; (low)  years; days; days AnAge; months; weeks; years",
+      "files": "adw-measurement-accounts.json; discovery-arthropods.zip; expansion-adw-accounts.json",
+      "primary_reference_rows": 786,
+      "certified_board_ready": false,
+      "remaining_gates": "BLOCKED: account-level summary; trace primary citation and preserve average versus record, wild versus captive, sex and taxonomy. No prose copied into ranking data.; BLOCKED: literature and expert knowledge mixed without per-cell method/source in archive; CC-BY-NC license. Body-size anatomical definition, fecundity time basis and development versus maturity need verification. Thermal niche and dispersal score excluded."
+    },
+    {
+      "concept": "milk-duration",
+      "numeric_rows": 24,
+      "source_taxon_labels": 20,
+      "units": "days; months; weeks",
+      "files": "adw-measurement-accounts.json; expansion-adw-accounts.json",
+      "primary_reference_rows": 24,
+      "certified_board_ready": false,
+      "remaining_gates": "BLOCKED: account-level summary; trace primary citation and preserve average versus record, wild versus captive, sex and taxonomy. No prose copied into ranking data."
+    },
+    {
+      "concept": "newborn-mass",
+      "numeric_rows": 294,
+      "source_taxon_labels": 294,
+      "units": "UNVERIFIED",
+      "files": "discovery-mammal-parenting-Data file Stockley&Hobson.xlsx",
+      "primary_reference_rows": 294,
+      "certified_board_ready": false,
+      "remaining_gates": "Compiled averages; verify original source values, sex/stage and units. AnnualFecundity and TeatRatio excluded as derived endpoints."
+    },
+    {
+      "concept": "offspring-count",
+      "numeric_rows": 1197,
+      "source_taxon_labels": 1153,
+      "units": "(high); (in <<B.c. occidentalis>>); (low); AnAge; UNVERIFIED; eggs; million; million (high); offspring/litter; reported fecundity",
+      "files": "adw-measurement-accounts.json; discovery-arthropods.zip; discovery-fish-reproduction.tsv; discovery-mammal-parenting-Data file Stockley&Hobson.xlsx; expansion-adw-accounts.json",
+      "primary_reference_rows": 1197,
+      "certified_board_ready": false,
+      "remaining_gates": "BLOCKED: account-level summary; trace primary citation and preserve average versus record, wild versus captive, sex and taxonomy. No prose copied into ranking data.; BLOCKED: literature and expert knowledge mixed without per-cell method/source in archive; CC-BY-NC license. Body-size anatomical definition, fecundity time basis and development versus maturity need verification. Thermal niche and dispersal score excluded.; BLOCKED: metadata mixes eggs per year and one ovarian batch; cannot treat as babies at once. Original references required.; Compiled averages; verify original source values, sex/stage and units. AnnualFecundity and TeatRatio excluded as derived endpoints."
+    },
+    {
+      "concept": "pregnancy-duration",
+      "numeric_rows": 49,
+      "source_taxon_labels": 40,
+      "units": "(high)  days; days; days AnAge; months",
+      "files": "adw-measurement-accounts.json; expansion-adw-accounts.json",
+      "primary_reference_rows": 49,
+      "certified_board_ready": false,
+      "remaining_gates": "BLOCKED: account-level summary; trace primary citation and preserve average versus record, wild versus captive, sex and taxonomy. No prose copied into ranking data."
+    },
+    {
+      "concept": "reproduction-frequency",
+      "numeric_rows": 228,
+      "source_taxon_labels": 228,
+      "units": "litters/year",
+      "files": "discovery-mammal-parenting-Data file Stockley&Hobson.xlsx",
+      "primary_reference_rows": 228,
+      "certified_board_ready": false,
+      "remaining_gates": "Compiled averages; verify original source values, sex/stage and units. AnnualFecundity and TeatRatio excluded as derived endpoints."
+    },
+    {
+      "concept": "resting-energy",
+      "numeric_rows": 46,
+      "source_taxon_labels": 44,
+      "units": "W AnAge",
+      "files": "adw-measurement-accounts.json; expansion-adw-accounts.json",
+      "primary_reference_rows": 46,
+      "certified_board_ready": false,
+      "remaining_gates": "BLOCKED: account-level summary; trace primary citation and preserve average versus record, wild versus captive, sex and taxonomy. No prose copied into ranking data."
+    },
+    {
+      "concept": "vocal-repertoire",
+      "numeric_rows": 42,
+      "source_taxon_labels": 42,
+      "units": "adult call types",
+      "files": "discovery-primate-vocabulary-ZenodoData_April2026.xlsx",
+      "primary_reference_rows": 42,
+      "certified_board_ready": false,
+      "remaining_gates": "Adult repertoire definitions and observation effort require audit; no ancestor/model values extracted."
+    },
+    {
+      "concept": "whisker-length",
+      "numeric_rows": 55,
+      "source_taxon_labels": 7,
+      "units": "UNVERIFIED",
+      "files": "discovery-whiskers-SupplementaryData.xlsx",
+      "primary_reference_rows": 55,
+      "certified_board_ready": false,
+      "remaining_gates": "BLOCKED: unit and whether repeated clips reuse specimen measurements require verification; do not aggregate clips as independent animals."
+    }
+  ]
+}

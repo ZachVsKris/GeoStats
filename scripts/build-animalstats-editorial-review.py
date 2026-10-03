@@ -55,6 +55,19 @@ for row in rows:
  # All reverse labels must be nonidentical; eligibility stays shared.
  assert row['high_label'] and row['high_label']!=row['low_label']
 assert len({r['id'] for r in rows})==len(rows)
+# Additional extraction counts remain pending, never certify game eligibility.
+audit_path=R/'expansion-endpoint-audit.csv'
+if audit_path.exists():
+ audits={a['concept']:a for a in csv.DictReader(audit_path.open())}
+ for row in rows:
+  a=audits.get(row['id'])
+  if not a:continue
+  row['verified_new_numeric_rows']=a['numeric_rows']
+  row['verified_new_taxon_labels']=a['source_taxon_labels']
+  row['coverage']='Extracted source labels, not unique specimens or globally balanced coverage. Units: '+a['units']
+  row['evidence_readiness']='Numeric candidates extracted; no certified fair-board pool yet.'
+  row['source_assessment']=a['remaining_gates']
+  row['evidence_gate']+=' '+a['remaining_gates']
 with (R/'category-editorial-review.csv').open('w',newline='') as f:
  w=csv.DictWriter(f,fieldnames=list(dict.fromkeys(k for r in rows for k in r)));w.writeheader();w.writerows(rows)
 summary={'concepts':len(rows),'proposed_prize_categories':sum(1+bool(r['low_label']) for r in rows),'recommendations':dict(collections.Counter(r['recommendation'] for r in rows)),'interest':dict(collections.Counter(r['interest'] for r in rows)),'new_game_approvals':0,'verified_endpoint_counts':{f'{k[0]}:{k[1]}':v for k,v in evidence.items()},'balance':json.loads((R/'animal-group-balance.json').read_text()),'limits':['Keep is an editorial recommendation, not data or game approval.','No concept duplicates or reversed endpoints counted as new concepts.','Numeric rows are not independent animals; no source values averaged or imputed.','Global group/geographic balance remains unverified for most endpoints.','Existing local concept mapping is conservative and does not certify existing values.']}

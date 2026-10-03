@@ -1,0 +1,194 @@
+[
+  {
+    "animalId": "Orycteropus_afer",
+    "url": "https://animaldiversity.org/accounts/Orycteropus_afer/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "ecb67dd8f5aa390d4f1123c8820cba61d7e4fc088163f787d4c851c1894feb6a",
+    "reference_count": 0,
+    "structured_fact_count": 20
+  },
+  {
+    "animalId": "Tachyglossus_aculeatus",
+    "url": "https://animaldiversity.org/accounts/Tachyglossus_aculeatus/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "7e24449a217bec5a8d94836558b881ec63325fbdc7e0134ecd37ee98f6a07968",
+    "reference_count": 0,
+    "structured_fact_count": 15
+  },
+  {
+    "animalId": "Ornithorhynchus_anatinus",
+    "url": "https://animaldiversity.org/accounts/Ornithorhynchus_anatinus/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "d446f5e9e4ff097be82ba23041790f575ff1392c3c6d7f20bf26dcb61ec9ec24",
+    "reference_count": 0,
+    "structured_fact_count": 18
+  },
+  {
+    "animalId": "Vombatus_ursinus",
+    "url": "https://animaldiversity.org/accounts/Vombatus_ursinus/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "08ce54a8df944a8b9d27271de7747ac2040abaf502e55ce482bd1ba3047e0d5e",
+    "reference_count": 0,
+    "structured_fact_count": 17
+  },
+  {
+    "animalId": "Sarcophilus_harrisii",
+    "url": "https://animaldiversity.org/accounts/Sarcophilus_harrisii/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "31147a5f9bdfa473618e8e1c0819cc54f32a7f1eaef774d0d47873b3cdeab4c5",
+    "reference_count": 0,
+    "structured_fact_count": 13
+  },
+  {
+    "animalId": "Phascolarctos_cinereus",
+    "url": "https://animaldiversity.org/accounts/Phascolarctos_cinereus/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "097bcd32855cdbed512acc30ed1fe5b4d95866a038abd77962865509393bf536",
+    "reference_count": 0,
+    "structured_fact_count": 8
+  },
+  {
+    "animalId": "Pongo_pygmaeus",
+    "url": "https://animaldiversity.org/accounts/Pongo_pygmaeus/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "7bd3897499076bbc971894a134b1e298107c6e716d44ff52e13b3495a6a1ba75",
+    "reference_count": 0,
+    "structured_fact_count": 23
+  },
+  {
+    "animalId": "Gorilla_gorilla",
+    "url": "https://animaldiversity.org/accounts/Gorilla_gorilla/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "f09a82032277019a2bcfaccf861888518b9c83a2d4df305a46108831e8986b85",
+    "reference_count": 0,
+    "structured_fact_count": 18
+  },
+  {
+    "animalId": "Pan_troglodytes",
+    "url": "https://animaldiversity.org/accounts/Pan_troglodytes/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "abfbbafab8ba0cea94cc5a393d7639e6730f134d46caaff5fa090c6a4711a044",
+    "reference_count": 0,
+    "structured_fact_count": 19
+  },
+  {
+    "animalId": "Mandrillus_sphinx",
+    "url": "https://animaldiversity.org/accounts/Mandrillus_sphinx/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "313b0f9690d7ae0c1a653322aec3881643f8968d7628e21702de45b6f10d2e45",
+    "reference_count": 0,
+    "structured_fact_count": 10
+  },
+  {
+    "animalId": "Lemur_catta",
+    "url": "https://animaldiversity.org/accounts/Lemur_catta/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "ce7fadaf9eca311fa272a593c2ba4fd4b15306d5be4235c58648dfdff5531ba2",
+    "reference_count": 0,
+    "structured_fact_count": 21
+  },
+  {
+    "animalId": "Ailuropoda_melanoleuca",
+    "url": "https://animaldiversity.org/accounts/Ailuropoda_melanoleuca/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "fa33edbad260ac92ed0d204349ff73bc1ef6effeb68c567fc6ecdffeb2bb5c3d",
+    "reference_count": 0,
+    "structured_fact_count": 14
+  },
+  {
+    "animalId": "Ursus_americanus",
+    "url": "https://animaldiversity.org/accounts/Ursus_americanus/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "69c4d864a47f1c02512f4ea56b439b1cb1a8d87c8ab1d73a1cafd4831d952444",
+    "reference_count": 0,
+    "structured_fact_count": 13
+  },
+  {
+    "animalId": "Ursus_maritimus",
+    "url": "https://animaldiversity.org/accounts/Ursus_maritimus/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "e743b19dccb75d90d3238fc40fd8310d81d7f25f8c017dd848b10001666ed14e",
+    "reference_count": 0,
+    "structured_fact_count": 17
+  },
+  {
+    "animalId": "Bison_bison",
+    "url": "https://animaldiversity.org/accounts/Bison_bison/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "98ec0cad4afe2953dce66633c6055fbedccd11bb5b70618a9e41a60de2e4e7d1",
+    "reference_count": 0,
+    "structured_fact_count": 13
+  },
+  {
+    "animalId": "Ovibos_moschatus",
+    "url": "https://animaldiversity.org/accounts/Ovibos_moschatus/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "be2150a6c73b9bf283caaf031798a3b480c080af9e4419bdfa403da49d42b967",
+    "reference_count": 0,
+    "structured_fact_count": 25
+  },
+  {
+    "animalId": "Rangifer_tarandus",
+    "url": "https://animaldiversity.org/accounts/Rangifer_tarandus/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "6badf66821d3dd0b837d288361d5b3a8225f6b32b715f40cb1ee398bcac3ce4d",
+    "reference_count": 0,
+    "structured_fact_count": 16
+  },
+  {
+    "animalId": "Saiga_tatarica",
+    "url": "https://animaldiversity.org/accounts/Saiga_tatarica/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "a1972aec3e77bda0f24e1a66b1eca0a1968e1e179964cb3956eecd2b3f870d2a",
+    "reference_count": 0,
+    "structured_fact_count": 8
+  },
+  {
+    "animalId": "Okapia_johnstoni",
+    "url": "https://animaldiversity.org/accounts/Okapia_johnstoni/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "c79f462398d1d29cae19cba27210e85ac2b7063b4ddcef1afb52bff11b271f8e",
+    "reference_count": 0,
+    "structured_fact_count": 19
+  },
+  {
+    "animalId": "Tapirus_terrestris",
+    "url": "https://animaldiversity.org/accounts/Tapirus_terrestris/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "db725a361ff3c86e7ad671d934b5de9236342d4b5dda36fe83e7693583ede786",
+    "reference_count": 0,
+    "structured_fact_count": 15
+  },
+  {
+    "animalId": "Hydrochoerus_hydrochaeris",
+    "url": "https://animaldiversity.org/accounts/Hydrochoerus_hydrochaeris/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "2d487836708fe1815711013e058542ba14909a92a0980a5ec342a796550ba0f5",
+    "reference_count": 0,
+    "structured_fact_count": 14
+  },
+  {
+    "animalId": "Castor_canadensis",
+    "url": "https://animaldiversity.org/accounts/Castor_canadensis/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "aee8e06a363b7e0b1aacb228c9a608da28fe934e4acff8e7bac8a1f03b8c39bc",
+    "reference_count": 0,
+    "structured_fact_count": 14
+  },
+  {
+    "animalId": "Mellivora_capensis",
+    "url": "https://animaldiversity.org/accounts/Mellivora_capensis/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "2f71a0d62cd5acc0c816effc4674f9a371fd8cc5bb6c86b133723d2ae531e9c5",
+    "reference_count": 0,
+    "structured_fact_count": 14
+  },
+  {
+    "animalId": "Manis_javanica",
+    "url": "https://animaldiversity.org/accounts/Manis_javanica/",
+    "retrievedAt": "2026-10-03",
+    "sha256": "d61b6bc1c346abfb1adebd95c6089abf5d35d66c9e8fa10517d6c544eeb75849",
+    "reference_count": 0,
+    "structured_fact_count": 9
+  }
+]

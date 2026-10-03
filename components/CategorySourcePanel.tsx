@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import useGameDialog from "./useGameDialog";
 import type { CanonicalDataset } from "../lib/dataEngine";
 import { canonicalizeDataset, formatValue } from "../lib/dataEngine";
 import { fetchCategory } from "../lib/dataSources";
@@ -16,6 +17,8 @@ type Props = {
 };
 
 export default function CategorySourcePanel({ dataset, boardCountryIds = [], onClose }: Props) {
+  const panelRef = useRef<HTMLDivElement>(null);
+  useGameDialog(true, panelRef, onClose);
   const [query, setQuery] = useState("");
   const [fullDataset, setFullDataset] = useState<CanonicalDataset>(dataset);
   const [loading, setLoading] = useState(true);
@@ -91,7 +94,7 @@ export default function CategorySourcePanel({ dataset, boardCountryIds = [], onC
   };
 
   return <div className="sourceModal" role="dialog" aria-modal="true" aria-label={`${category.name} data and source`} onMouseDown={(event) => event.currentTarget === event.target && onClose()}>
-    <div className="sourcePanel sourcePanelSimple" data-measurement={categoryMeasurementLabel(category)}>
+    <div ref={panelRef} className="sourcePanel sourcePanelSimple" data-measurement={categoryMeasurementLabel(category)}>
       <button className="sourceClose" onClick={onClose} aria-label="Close data and source">×</button>
 
       <header className="sourceHero" title={categoryMeasurementLabel(category)}>

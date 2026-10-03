@@ -1,3 +1,4 @@
+import math
 #!/usr/bin/env python3
 """Curate paired metrics and generate intuitive-majority, distinct-winner boards."""
 import functools,zipfile,io,csv,statistics,collections,copy,hashlib,itertools,json,random,re,concurrent.futures,urllib.request
@@ -34,6 +35,16 @@ if (OUT/'source/pantheria-2009.zip').exists():
    d['values'].append(dict(animalId=animal['id'],traitId='mammal_range_area',valueNumeric=number,unit='km²',sex='species-level',lifeStage='species-level',measurementBasis=range_basis,sourceId='pantheria-range-maps',observationType='compiled',confidence='approved',uncertaintyStatus='not-reported',notes='Exact species match; published GIS map area. No modeled body-length, mass, or home-range values imported.'))
 # Every admitted category gets its reverse from identical records, never from a second source.
 METRICS={
+'habitat_elevation_ceiling':('Highest mountain habitat','Lowest mountain ceiling','specialist','elevation'),
+'habitat_depth_ceiling':('Deepest water habitat','Shallowest water limit','specialist','depth'),
+'mammal_tail_length_upper':('Longest mammal tail','Shortest mammal tail','intuitive','tail'),
+'aquatic_length_upper':('Longest aquatic body','Shortest aquatic body','intuitive','length'),
+'raw_egg_length':('Longest egg','Shortest egg','specialist','egg-size'),
+'raw_egg_width':('Widest egg','Narrowest egg','specialist','egg-size'),
+'raw_clutch_frequency':('Most egg clutches per year','Fewest egg clutches per year','intuitive','breeding'),
+'litters_per_year':('Most litters per year','Fewest litters per year','intuitive','breeding'),
+'interbirth_interval':('Longest gap between births','Shortest gap between births','specialist','breeding'),
+
 'adult_tooth_count':('Most adult teeth','Fewest adult teeth','intuitive','teeth'),
 'field_travel_speed':('Fastest measured land travel','Slowest measured land travel','intuitive','movement'),
 'field_swim_speed':('Fastest measured swimming','Slowest measured swimming','intuitive','movement'),
@@ -109,7 +120,7 @@ pools['brains']=[i for i in active if (i,'weighed_brain_mass') in V]
 pools['reptile-brains']=[i for i in pools['brains'] if A[i]['taxonomicGroup'] in {'crocodilian','turtle','snake'}]
 pools['sleep']=[i for i in active if (i,'daily_sleep') in V]
 pools['broad-mammals']=[i for i in pools['mammals'] if (i,'mammal_range_area') in V and (i,'female_maturity') in V and (i,'maximum_documented_lifespan') in V]
-for metric in ['adult_tooth_count','field_travel_speed','field_swim_speed','daily_rem_sleep','basal_energy','mass_specific_basal_energy','field_max_dive']:
+for metric in ['adult_tooth_count','field_travel_speed','field_swim_speed','daily_rem_sleep','basal_energy','mass_specific_basal_energy','field_max_dive','habitat_elevation_ceiling','habitat_depth_ceiling','adult_shoulder_height','mammal_tail_length_upper','aquatic_length_upper','raw_clutch_frequency','litters_per_year','raw_egg_length','raw_egg_width']:
  pools[metric]=[i for i in active if (i,metric) in V]
 @functools.lru_cache(maxsize=20000)
 def valid_cached(ids):
@@ -117,6 +128,7 @@ def valid_cached(ids):
  for tid,t in T.items():
   rows=[V.get((i,tid)) for i in ids]
   if any(x is None for x in rows):continue
+  if any(v.get("confidence") != "approved" or v.get("observationType") not in {"observed", "compiled"} or not math.isfinite(v["valueNumeric"]) or v["valueNumeric"] <= 0 or v.get("unit") != t["unit"] or v.get("measurementBasis") != t["measurementBasis"] or v.get("sourceId") != t["canonicalSourceId"] for v in rows):continue
   if len({v['sex'] for v in rows})!=1 or len({v['lifeStage'] for v in rows})!=1:continue
   if t['eligibilityGroups'] and any(A[i]['taxonomicGroup'] not in t['eligibilityGroups'] for i in ids):continue
   ranked=sorted(zip(ids,rows),key=lambda x:x[1]['valueNumeric'],reverse=t['direction']=='higher_wins')
@@ -125,7 +137,7 @@ def valid_cached(ids):
   out.append((tid,ranked[0][0],[next(j+1 for j,(aid,_) in enumerate(ranked) if aid==i) for i in ids]))
  return out
 def valid(ids):return valid_cached(tuple(sorted(ids)))
-LIFECYCLE={'pregnancy','offspring','incubation','weaning','maturity','reproduction'}
+LIFECYCLE={'pregnancy','offspring','incubation','weaning','maturity','reproduction','breeding','egg-size'}
 boards=[];seen=set();rng=random.Random('balanced-world-prototype-v1')
 for mode,n,k in [('easy',4,4),('normal',6,4),('expert',8,6)]:
  for name,pool in pools.items():
@@ -180,11 +192,19 @@ for mode,limit in [('easy',16),('normal',16),('expert',12)]:
   chosen=max(remaining,key=lambda b:sum(T[t]['counterTraitId'] in covered and t not in covered for t in b['traitIds'])*100+sum(t not in covered for t in b['traitIds'])*10+sum(T[t]['metricKey'] in {'flight','wingspan','movement'} for t in b['traitIds'])*30+(tuple(sorted(b['animalIds'])) not in lineups)*4+sum(A[i]['familiarityTier']=='core' for i in b['animalIds']))
   selected.append(chosen);remaining.remove(chosen);covered.update(chosen['traitIds']);lineups.add(tuple(sorted(chosen['animalIds'])))
 boards=selected
-# Never advertise a playable category whose opposite has no valid round.
-while True:
- used={t for b in boards for t in b['traitIds']}
- missing={t for t in used if T[t]['counterTraitId'] not in used}
- if not missing:break
- boards=[b for b in boards if not set(b['traitIds']) & missing]
+# Keep previously shared challenges when their exact measurements still pass.
+retained=OUT/'retained-boards.json'
+if retained.exists():
+ signatures={(b['mode'],tuple(sorted(b['animalIds'])),tuple(sorted(b['traitIds']))) for b in boards}
+ for b in json.loads(retained.read_text())['boards']:
+  signature=(b['mode'],tuple(sorted(b['animalIds'])),tuple(sorted(b['traitIds'])))
+  if signature in signatures:continue
+  available={t:w for t,w,r in valid(b['animalIds'])}
+  if any(t not in available for t in b['traitIds']):continue
+  if len({T[t]['metricKey'] for t in b['traitIds']})!=len(b['traitIds']):continue
+  if sum(T[t]['metricKey'] in LIFECYCLE for t in b['traitIds'])>(3 if b['mode']=='expert' else 1):continue
+  if len({available[t] for t in b['traitIds']})!=len(b['traitIds']):continue
+  boards.append(b);signatures.add(signature)
+# Opposites stay adjacent in the review catalog; each playable direction qualifies independently.
 (OUT/'candidates.json').write_text(json.dumps(dict(boards=boards,rejectionReasons={'policy':'At least half intuitive, prefer more; unique metric and winner; no imputed values; 5% separation and supplied bounds.'}),indent=2)+'\n')
 print('Total boards',len(boards))

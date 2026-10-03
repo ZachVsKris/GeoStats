@@ -163,7 +163,7 @@ export function validateAnimalBoard(data: AnimalDataset, board: BoardCandidate):
   const balanced = board.editorial?.policy === "intuitive-majority-distinct-winners-v5";
   const categories = board.traitIds.map((id) => data.traits.find((trait) => trait.id === id));
   if (balanced) {
-    const lifeHistoryKeys = new Set(["pregnancy", "offspring", "incubation", "weaning", "maturity", "reproduction"]);
+    const lifeHistoryKeys = new Set(["pregnancy", "offspring", "incubation", "weaning", "maturity", "reproduction", "breeding", "egg-size"]);
     if (categories.filter(trait => lifeHistoryKeys.has(trait?.metricKey ?? "")).length > (board.mode === "expert" ? 3 : 1)) reasons.push("too many life-history prizes on one board");
     if (categories.some((trait) => /^(bird_beak_width|bird_beak_depth|bird_tarsus_length|bird_hand_wing_index)(?:__low)?$/.test(trait?.id ?? ""))) reasons.push("obscure bird anatomy is excluded");
     if (categories.some((trait) => !trait?.prototypeCategory || !trait.counterTraitId || !trait.metricKey) || categories.filter((trait) => trait?.categoryKind === "intuitive").length < Math.ceil(board.traitIds.length / 2)) reasons.push("board must have at least half intuitive categories");

@@ -17,8 +17,9 @@ let catalog: { data: AnimalDataset; boards: BoardCandidate[]; clientData: Animal
 function getCatalog() {
   if (catalog) return catalog;
   const data = dataset as AnimalDataset;
-  const boards = (candidates.boards as BoardCandidate[]).filter((board) => validateAnimalBoard(data, board).valid);
-  const pairedTraits = data.traits.filter((trait) => trait.prototypeCategory);
+  const excluded = new Set(["adult_shoulder_height", "adult_shoulder_height__low"]);
+  const boards = (candidates.boards as BoardCandidate[]).filter((board) => !board.traitIds.some(id => excluded.has(id)) && validateAnimalBoard(data, board).valid);
+  const pairedTraits = data.traits.filter((trait) => trait.prototypeCategory && !excluded.has(trait.id));
   const pairedIds = new Set(pairedTraits.map((trait) => trait.id));
   const clientData = { ...data, traits: pairedTraits, values: data.values.filter((row) => pairedIds.has(row.traitId)) };
   catalog = { data, boards, clientData };

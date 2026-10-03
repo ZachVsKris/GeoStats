@@ -1,12 +1,19 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState, type PointerEvent, type CSSProperties } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type PointerEvent, type CSSProperties } from "react";
 import { animalRegionLabel } from "../lib/animalstatsRegions";
 import { randomAnimalBoardIndex } from "../lib/animalstatsVariety";
 import { CATLogo } from "./CATBrand";
 import { ROUND_CONFIGS, type DailyDifficulty } from "../lib/gameRules";
 import type { AnimalDataset, BoardCandidate, ReviewLabel } from "../lib/animalstats";
 import { ANIMAL_HISTORY_KEY, animalStats, readAnimalHistory, type AnimalGameResult } from "../lib/animalstatsHistory";
+import { formatAnimalValue } from "../lib/animalstatsFormatting";
+import useGameDialog from "./useGameDialog";
+import AccountControls from "./AccountControls";
+import GameTools from "./GameTools";
+import useGameSound from "./useGameSound";
+import AnimalDataBrowser from "./AnimalDataBrowser";
+import AnimalResults from "./AnimalResults";
 import { AnimalSprite } from "./AnimalSprite";
 import "../app/animals/animalstats.css";
 import "../app/animals/animal-sanctuary.css";
@@ -26,17 +33,18 @@ function observationLinks(notes: string) {
   return [...new Set(notes.match(/https?:\/\/[^\s;]+/g) ?? [])].map(url => url.replace(/[.,]$/, ""));
 }
 
-function formatValue(value: number, unit: string) {
-  const shown = new Intl.NumberFormat("en-US", value < 0.01 ? { maximumSignificantDigits: 3 } : { maximumFractionDigits: value < 10 ? 2 : 1 }).format(value);
-  return `${shown} ${unit}`;
-}
+const formatValue = formatAnimalValue;
 
 export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, initialBoardId }: Props) {
+  const sound = useGameSound();
   const [view, setView] = useState<"play" | "stats" | "guide" | "prizes">("play");
   const [prizeSearch, setPrizeSearch] = useState("");
   const [prizeKind, setPrizeKind] = useState("all");
   const [focusTrait, setFocusTrait] = useState<string | null>(null);
   const [helpOpen, setHelpOpen] = useState(false);
+  const helpRef = useRef<HTMLElement>(null);
+  const closeHelp = useCallback(() => setHelpOpen(false), []);
+  useGameDialog(helpOpen, helpRef, closeHelp);
   const [boardCopied, setBoardCopied] = useState(false);
   const initialBoard = boards.find(candidate => candidate.id === initialBoardId);
   const [guideSearch, setGuideSearch] = useState("");
@@ -61,8 +69,9 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
   const [selectedTrait, setSelectedTrait] = useState<string | null>(null);
   const [selectedAnimal, setSelectedAnimal] = useState<string | null>(null);
   const [dragging, setDragging] = useState<{ id: string; x: number; y: number } | null>(null);
+  const [draggingTrait, setDraggingTrait] = useState<{ id: string; x: number; y: number } | null>(null);
   const [dropTarget, setDropTarget] = useState<string | null>(null);
-  const pointer = useRef<{ id: string; x: number; y: number; moved: boolean } | null>(null);
+  const pointer = useRef<{ id: string; kind?: "trait"; x: number; y: number; moved: boolean } | null>(null);
   const suppressClick = useRef(false);
   const [heldAnimal, setHeldAnimal] = useState<string | null>(null);
   const [motionPaused, setMotionPaused] = useState(false);
@@ -91,6 +100,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
     setBoardCopied(false);
     pointer.current = null;
     setDragging(null);
+    setDraggingTrait(null);
     setDropTarget(null);
     setHeldAnimal(null);
     setMode(nextMode);
@@ -155,11 +165,12 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
   }
 
   useEffect(() => {
-    if (submitted) document.querySelector(".fairAwards")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (submitted) document.querySelector(".animalGeoResults")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [submitted]);
 
   function assign(traitId: string, animalId: string) {
-    if (submitted) return;
+    if (submitted || !board?.traitIds.includes(traitId) || !board.animalIds.includes(animalId)) return;
+    sound.play("place");
     setAssignments((previous) => {
       const next = { ...previous };
       const previousTrait = Object.keys(next).find((id) => next[id] === animalId);
@@ -190,7 +201,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
       },
       onPointerMove(event: PointerEvent<HTMLElement>) {
         const start = pointer.current;
-        if (!start || start.id !== id) return;
+        if (!start || start.kind || start.id !== id) return;
         if (Math.hypot(event.clientX - start.x, event.clientY - start.y) < 8 && !start.moved) return;
         start.moved = true;
         setDragging({ id, x: event.clientX, y: event.clientY });
@@ -202,10 +213,42 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
           suppressClick.current = true;
           const target = document.elementFromPoint(event.clientX, event.clientY)?.closest<HTMLElement>("[data-trait-id]")?.dataset.traitId;
           if (target) assign(target, id);
+          else if (document.elementFromPoint(event.clientX, event.clientY)?.closest(".animalPen")) {
+            setAssignments(previous => Object.fromEntries(Object.entries(previous).filter(([, animalId]) => animalId !== id)));
+            setSelectedAnimal(null); setSelectedTrait(null);
+          }
         }
         pointer.current = null; setDragging(null); setDropTarget(null); setHeldAnimal(null);
       },
       onPointerCancel() { pointer.current = null; setDragging(null); setDropTarget(null); setHeldAnimal(null); },
+    };
+  }
+
+  function traitPointerHandlers(id: string) {
+    return {
+      onPointerDown(event: PointerEvent<HTMLElement>) {
+        if (submitted || event.button !== 0 || (event.target as HTMLElement).closest(".podiumRemove, .podiumAnimal[data-animal-drag]")) return;
+        pointer.current = { id, kind: "trait", x: event.clientX, y: event.clientY, moved: false };
+        suppressClick.current = false;
+        event.currentTarget.setPointerCapture(event.pointerId);
+      },
+      onPointerMove(event: PointerEvent<HTMLElement>) {
+        const start = pointer.current;
+        if (!start || start.kind !== "trait" || start.id !== id) return;
+        if (Math.hypot(event.clientX - start.x, event.clientY - start.y) < 8 && !start.moved) return;
+        start.moved = true;
+        setDraggingTrait({ id, x: event.clientX, y: event.clientY });
+      },
+      onPointerUp(event: PointerEvent<HTMLElement>) {
+        if (pointer.current?.kind !== "trait") return;
+        if (pointer.current.moved) {
+          suppressClick.current = true;
+          const animalId = document.elementFromPoint(event.clientX, event.clientY)?.closest<HTMLElement>("[data-animal-id]")?.dataset.animalId;
+          if (animalId) assign(id, animalId);
+        }
+        pointer.current = null; setDraggingTrait(null);
+      },
+      onPointerCancel() { pointer.current = null; setDraggingTrait(null); },
     };
   }
 
@@ -224,74 +267,39 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
 
 
   return <main className="animalPage animalSanctuary countyFair" data-view={view} data-submitted={submitted} data-motion={motionPaused ? "paused" : "playing"} data-board-habitat={board && board.animalIds.every((id) => ["frog", "salamander"].includes(animalMap.get(id)?.taxonomicGroup ?? "")) ? "pond" : board && board.animalIds.every((id) => ["turtle", "snake", "crocodilian", "lizard", "reptile"].includes(animalMap.get(id)?.taxonomicGroup ?? "")) ? "reptiles" : "forest"}>
-    <div className="animalShell">
-      <header className="animalHeader">
-        <div className="animalBrandRow"><a href="/cat" className="animalBrandLink" aria-label="Countries, Animals & Things"><CATLogo compact /><span><b className="catCountryColor">C</b>ountries, <b className="catAnimalColor">A</b>nimals &amp; <b className="catThingColor">T</b>hings</span></a></div>
-        <div className="animalEyebrow">STEP RIGHT UP · THE ANIMAL COUNTY FAIR</div>
-        <h1>AnimalStats</h1>
-        <p>Meet the contestants. Pick a winner for every prize.</p>
+    <div className={`animalShell ${submitted && view === "play" ? "shell resultsView" : ""}`}>
+      <header className="animalGeoHeader">
+        <a href="/animals" className="animalGeoBrand"><span className="animalGeoLogo" aria-hidden="true">🐾</span><h1>AnimalStats</h1></a>
+        <nav className="animalGeoModes desktopNavGroup desktopGameNav" aria-label="Difficulty">{(["easy", "normal", "expert"] as const).map(difficulty => <button type="button" key={difficulty} className={`dailyModeButton ${mode === difficulty ? "active" : ""}`} aria-current={mode === difficulty ? "page" : undefined} onClick={() => { setFocusTrait(null); switchBoard(difficulty); }}>{ROUND_CONFIGS[difficulty].label}</button>)}</nav>
+        <button className="animalGeoStatsButton headerLink" onClick={() => setView("stats")}>My Stats</button>
+        <details className="animalGeoMenu desktopSupportMenu"><summary>Help &amp; tools</summary><div><button onClick={() => setHelpOpen(true)}>How to play</button><button onClick={() => setView("prizes")}>Categories</button><button onClick={() => setView("guide")}>Full data</button><button aria-pressed={sound.enabled} onClick={sound.toggle}>Game sounds: {sound.enabled ? "on" : "off"}</button><button aria-pressed={motionPaused} onClick={() => setMotionPaused(!motionPaused)}>{motionPaused ? "Animate animals" : "Pause animation"}</button><GameTools categories={board?.traitIds.map(id => ({ id, name: traitMap.get(id)!.displayName })) ?? []} difficulty={mode} /><a href="/daily">GeoStats</a></div></details>
+        <div className="gameAccount"><AccountControls difficulty={mode} hideLeaderboardLink compact /></div>
       </header>
-      <nav className="catWorldNav" aria-label="Worlds"><a href="/daily">Countries</a><a href="/animals" aria-current="page">Animals</a><a href="/cat#things">Things</a></nav>
-      <nav className="animalPlayNav" aria-label="AnimalStats play">
-        <button type="button" aria-pressed={view === "play" && playKind === "daily"} onClick={() => { setFocusTrait(null); setPlayKind("daily"); setView("play"); switchBoard(mode); }}>Daily</button>
-        <button type="button" aria-pressed={view === "play" && playKind === "random"} onClick={() => { setFocusTrait(null); setPlayKind("random"); setView("play"); switchBoard(mode, randomAnimalBoardIndex(data, modeBoards, board)); }}>Random</button>
-        <button type="button" aria-pressed={view === "prizes"} onClick={() => setView("prizes")}>Prizes</button>
-        <button type="button" aria-pressed={view === "guide"} onClick={() => setView("guide")}>Field Guide</button>
-        <button type="button" aria-pressed={view === "stats"} onClick={() => setView("stats")}>My Stats</button>
-      </nav>
-      <nav className="animalModes" aria-label="Difficulty">
-        {(["easy", "normal", "expert"] as const).map((difficulty) => <button key={difficulty} type="button"
-          aria-current={mode === difficulty ? "page" : undefined} onClick={() => { setFocusTrait(null); switchBoard(difficulty); }}>
-          {ROUND_CONFIGS[difficulty].label}<small>{ROUND_CONFIGS[difficulty].countryCount} animals · {ROUND_CONFIGS[difficulty].categoryCount} traits</small>
-        </button>)}
-      </nav>
-      {view === "prizes" ? <section className="fairPrizeBrowser" aria-label="Prize collection">
-        <div className="fairCatalogHeading"><span className="animalEyebrow">THE PRIZE TENT</span><h2>A ribbon for every kind of remarkable.</h2><p>{pairedMetrics.length} sourced pairs · {playableTraitIds.size} prizes · {new Set(boards.flatMap(candidate => candidate.animalIds)).size} contestants. Every board has at least half big, intuitive questions; life-history prizes are limited to one in Scout and Adventurer, at most half in Expert.</p></div>
-        <div className="fairPrizeFilters"><label>Find a prize<input type="search" value={prizeSearch} onChange={event => setPrizeSearch(event.target.value)} placeholder="Teeth, sleep, weight, speed…"/></label><label>Question style<select value={prizeKind} onChange={event => setPrizeKind(event.target.value)}><option value="all">All questions</option><option value="intuitive">Big questions</option><option value="specialist">Curious details</option></select></label></div>
-        <div className="fairPrizeCards">{pairedMetrics.filter(trait => (prizeKind === "all" || trait.categoryKind === prizeKind) && `${trait.displayName} ${traitMap.get(trait.counterTraitId!)?.displayName} ${trait.playerHint} ${trait.metricKey}`.toLowerCase().includes(prizeSearch.toLowerCase())).map(trait => <article key={trait.id} data-kind={trait.categoryKind}>
-          <span className="fairCatalogRibbon" aria-hidden="true">★</span><small>{trait.categoryKind === "intuitive" ? "BIG QUESTION" : "CURIOUS DETAIL"}</small><h3>{trait.displayName}<span>↕</span>{traitMap.get(trait.counterTraitId!)?.displayName}</h3><p>{trait.playerHint ?? trait.definition}</p><details><summary>How we compare</summary><p>{trait.definition}</p><a href={sourceMap.get(trait.canonicalSourceId)?.url} target="_blank" rel="noreferrer">View source</a></details><div><button type="button" onClick={() => playPrize(trait.id)}>Play this prize →</button><button type="button" onClick={() => playPrize(trait.counterTraitId!)}>Play the opposite →</button></div>
-        </article>)}</div>{!pairedMetrics.some(trait => (prizeKind === "all" || trait.categoryKind === prizeKind) && `${trait.displayName} ${traitMap.get(trait.counterTraitId!)?.displayName} ${trait.playerHint} ${trait.metricKey}`.toLowerCase().includes(prizeSearch.toLowerCase())) && <p>No prize matches that search. Try weight, sleep, or teeth.</p>}
-      </section> : view === "guide" ? <section className="animalGuide" aria-label="Animal field guide">
-        <h2>The collection</h2><details className="animalCategoryCatalog"><summary>The questions: {pairedMetrics.length} measured category pairs</summary><p>Every question has an opposite. Opposites use the same data and appear on separate boards. These comparisons apply to the animals on your board.</p><div>{pairedMetrics.map((trait) => <p key={trait.id}><b>{trait.displayName} ↔ {traitMap.get(trait.counterTraitId ?? "")?.displayName}</b><small>{trait.categoryKind === "intuitive" ? "Big question" : "Curious detail"} · {trait.playerHint ?? trait.definition}</small></p>)}</div></details><p>{data.animals.length} animals · {data.traits.filter((trait) => trait.prototypeCategory).length / 2} paired metrics · {data.values.length} sourced measurements. Data coverage varies; an animal enters a board only when every required comparison and photo passes validation.</p>
-        <div className="animalGuideFilters"><label>Find an animal<input type="search" value={guideSearch} onChange={(event) => setGuideSearch(event.target.value)} placeholder="Frog, shark, bear…" /></label><label>Animal group<select value={guideGroup} onChange={(event) => setGuideGroup(event.target.value)}><option value="all">All groups</option>{[...new Set(data.animals.map((animal) => animal.taxonomicGroup))].sort().map((group) => <option key={group} value={group}>{group.replaceAll("-", " ")}</option>)}</select></label><label>World region<select value={guideRegion} onChange={(event) => setGuideRegion(event.target.value)}><option value="all">All regions</option>{[...new Set(data.animals.flatMap((animal) => animal.biogeographicRegions ?? []))].sort().map((region) => <option key={region} value={region}>{animalRegionLabel(region)}</option>)}</select></label></div>
-        <div className="animalGuideGrid">{data.animals.filter((animal) => (guideGroup === "all" || animal.taxonomicGroup === guideGroup) && (guideRegion === "all" || animal.biogeographicRegions?.includes(guideRegion)) && `${animal.commonName} ${animal.scientificName}`.toLowerCase().includes(guideSearch.toLowerCase())).map((animal) => {
-          const photo = photoMap.get(animal.id); const observations = data.values.filter((value) => value.animalId === animal.id && traitMap.get(value.traitId)?.prototypeCategory && traitMap.get(value.traitId)?.direction === "higher_wins");
-          return <article key={animal.id} className="animalGuideCard"><div className="animalGuideName">{photo?.approved ? <img src={photo.assetUrl} alt="" /> : <span className="animalGuidePlaceholder" aria-hidden="true">?</span>}<div><h3>{animal.commonName}</h3><em>{animal.scientificName}</em><small>{animal.taxonomicGroup.replaceAll("-", " ")} · {observations.length} measurements</small></div></div>
-            <p className="animalRegionNote">{animal.biogeographicRegions?.length ? <a href={animal.regionSourceUrl} target="_blank" rel="noreferrer">ADW regions: {animal.biogeographicRegions.map(animalRegionLabel).join(" · ")}</a> : "Region account pending"}</p><details><summary>Measurements and sources</summary>{observations.length ? observations.map((value) => { const trait = traitMap.get(value.traitId)!; const source = sourceMap.get(value.sourceId)!; return <div key={value.traitId} className="animalGuideMeasurement"><strong>{trait.displayName}: {formatValue(value.valueNumeric, value.unit)}</strong><p>{trait.definition}</p><p><a href={source.url} target="_blank" rel="noreferrer">{source.name}</a> · {source.versionYear}</p><p>{value.notes}</p></div>; }) : <p>No eligible measurements in the pinned sources yet.</p>}</details></article>;
-        })}</div>
-      </section> : view === "stats" ? <section className="animalHistory" aria-label="AnimalStats personal stats">
+      <section className="challengeBar animalGeoChallenge"><div className="challengeIdentity"><span className="kicker">{config.label} {playKind === "random" ? "Random" : "Daily"}</span></div><div className="challengeActions"><button type="button" aria-pressed={view === "play" && playKind === "daily"} onClick={() => { setFocusTrait(null); setPlayKind("daily"); setView("play"); switchBoard(mode); }}>Daily</button><button type="button" aria-pressed={view === "play" && playKind === "random"} onClick={() => { setFocusTrait(null); setPlayKind("random"); setView("play"); switchBoard(mode, randomAnimalBoardIndex(data, modeBoards, board)); }}>Random</button>{view !== "play" && <button onClick={() => setView("play")}>Back to game</button>}{view === "play" && <><button onClick={nextBoard}>New board</button><button onClick={copyBoard}>{boardCopied ? "Link copied ✓" : "Copy link"}</button></>}</div></section>
+      {view === "prizes" || view === "guide" ? <AnimalDataBrowser key={view} data={data} boards={boards} initialTab={view === "prizes" ? "categories" : "animals"} onPlay={playPrize} /> : view === "stats" ? <section className="animalHistory" aria-label="AnimalStats personal stats">
         <h2>Your {config.label} field notes</h2><p>{signedIn ? "AnimalStats account results. Countries scores are tracked separately." : "AnimalStats results saved on this device. Countries scores are tracked separately."} Your first completion of each board per day counts.</p>
-        <div className="animalStatGrid">{[["Average Score", stats.games ? stats.averageScore.toFixed(1) : "—"], ["Best Result", stats.games ? stats.best : "—"], ["Games Played", stats.games], ["Average Placement", stats.games ? stats.averagePlacement.toFixed(2) : "—"], ["Player Rating", stats.rating === null ? "—" : stats.rating.toFixed(1)]].map(([label, value]) => <div key={label}><span>{label}</span><strong>{value}</strong></div>)}</div>
-        {stats.rating === null && <p>Player Rating begins after 5 completed games in this mode.</p>}
+        <div className="animalStatGrid">{[["Average Score", stats.games ? stats.averageScore.toFixed(1) : "—"], ["Best Result", stats.games ? stats.best : "—"], ["Games Played", stats.games], ["Average Placement", stats.games ? stats.averagePlacement.toFixed(2) : "—"]].map(([label, value]) => <div key={label}><span>{label}</span><strong>{value}</strong></div>)}</div>
+
         {!signedIn && <p><a href="/account">Sign in</a> to save future AnimalStats results to your account.</p>}
         <h3>Game history</h3>{history.filter((row) => row.mode === mode).length ? <div className="animalHistoryTable"><table><thead><tr><th>Date</th><th>Play</th><th>Score</th><th>Optimal Choices</th></tr></thead><tbody>{history.filter((row) => row.mode === mode).map((row) => <tr key={row.id}><td>{row.date}</td><td>{row.kind}</td><td>{row.score} / {config.maxScore}</td><td>{row.optimalChoices} / {config.categoryCount}</td></tr>)}</tbody></table></div> : <p>Complete a board to start your history.</p>}
         <button className="animalNext" type="button" onClick={() => { const url = URL.createObjectURL(new Blob([JSON.stringify(history, null, 2)], { type: "application/json" })); const link = document.createElement("a"); link.href = url; link.download = "animalstats-history.json"; link.click(); setTimeout(() => URL.revokeObjectURL(url), 1000); }}>Download history</button>
         <button className="animalNext" type="button" onClick={() => setView("play")}>Back to game</button>
       </section> : !board ? <section className="animalEmpty"><h2>{playKind === "daily" ? "Daily boards are awaiting review" : "More field challenges are in preparation"}</h2><p>{playKind === "daily" ? "A daily board must pass source, uncertainty, and playability review. Numerical validation alone does not approve it." : "We are replacing repetitive boards with more distinctive comparisons. Try another difficulty or explore the Field Guide."}</p><button className="animalNext" type="button" onClick={() => { setPlayKind("random"); switchBoard(playKind === "daily" ? mode : "easy"); }}>{playKind === "daily" ? "Play a random candidate" : "Play Scout"}</button></section> : <>
-      <div className="animalBoardTop">
-        <div><span className="animalEyebrow">{playKind.toUpperCase()} · BOARD {boardIndex + 1} OF {pool.length} · {board.boardType.toUpperCase()}</span>
-          <h2>{submitted ? "Your results" : board.title ?? "Make your matches"}</h2></div>
-        <div className="fairBoardActions"><button type="button" className="animalNext" onClick={copyBoard}>{boardCopied ? "Link copied ✓" : "Challenge a friend"}</button><button type="button" className="animalNext" onClick={nextBoard}>Another board →</button></div>
-      </div>
-      {focusTrait && <div className="fairFocusNotice"><span>Prize trail: {traitMap.get(focusTrait)?.displayName}</span><button type="button" onClick={() => { setFocusTrait(null); switchBoard(mode); }}>All prizes ×</button></div>}
-      <div className="animalBoardRecipe"><span>{board.traitIds.filter(id => traitMap.get(id)?.categoryKind === "intuitive").length} big questions</span><span>{board.traitIds.filter(id => traitMap.get(id)?.categoryKind === "specialist").length} curious details</span><span>Different winner in every slot</span></div>
-      <p className="animalPilotNote">{playKind === "daily" ? `Reviewed daily board · ${date}` : "Playtest board · source review pending."} <a href="/animals/review">Comparison review</a></p>
+      {focusTrait && <div className="fairFocusNotice"><span>{traitMap.get(focusTrait)?.displayName}</span><button type="button" onClick={() => { setFocusTrait(null); switchBoard(mode); }}>All categories ×</button></div>}
       {!submitted && <>
-        <div className="animalToolbar"><button type="button" className="animalMotionToggle" onClick={() => setHelpOpen(true)}>How to play</button><button className="animalMotionToggle" type="button" aria-label={motionPaused ? "Animate animals" : "Pause animal animation"} aria-pressed={motionPaused} onClick={() => setMotionPaused(!motionPaused)}>{motionPaused ? "▶ Animate animals" : "Ⅱ Pause animation"}</button><p className="animalInstruction">Drag a contestant to a prize stand, or tap an animal then a prize.</p>
-          <button type="button" className="animalNext" onClick={() => { setAssignments({}); setSelectedAnimal(null); setSelectedTrait(null); setMessage(""); }}>Reset choices</button>
-        </div>
+        <div className="animalToolbar"><p className="animalInstruction">Match animals to statistics. Use each animal once to score the most points across the board.</p><button type="button" className="animalNext" onClick={() => { setAssignments({}); setSelectedAnimal(null); setSelectedTrait(null); setMessage(""); }}>Reset choices</button></div>
 
         <div className="animalPlayBoard sanctuaryBoard">
           <section className="animalPen" aria-label="Animal pen">
             <div className="penSky" aria-hidden="true"><i className="penSun"/><i className="penCloud penCloudOne"/><i className="penCloud penCloudTwo"/><i className="penButterfly">✦</i></div>
-            <div className="penSign"><span>MEET THE CONTESTANTS</span><small>{board.animalIds.length - Object.keys(assignments).length} waiting · {Object.keys(assignments).length} entered</small></div>
+            <div className="penSign"><span>Your animals</span><small>{board.animalIds.length - Object.keys(assignments).length} waiting · {Object.keys(assignments).length} entered</small></div>
             <div className="penFence penFenceBack" aria-hidden="true"/>
             <section className="animalBank" aria-label="Available animals">
               {board.animalIds.map((id, index) => {
                 const animal = animalMap.get(id)!;
                 const usedOn = Object.keys(assignments).find((key) => assignments[key] === id);
                 return <button type="button" key={id} aria-label={animal.commonName} aria-pressed={selectedAnimal === id}
-                  data-name-open={heldAnimal === id || selectedAnimal === id} data-on-podium={!!usedOn}
+                  data-animal-id={id} data-name-open={heldAnimal === id || selectedAnimal === id} data-on-podium={!!usedOn}
                   className={`animalCard penAnimal ${usedOn ? "used" : ""} ${selectedAnimal === id ? "selected" : ""} ${dragging?.id === id ? "beingDragged" : ""}`}
                   style={{ "--animal-delay": `${index * -.71}s`, "--roam-direction": index % 2 ? "-1" : "1" } as CSSProperties}
                   {...animalPointerHandlers(id)}
@@ -309,21 +317,22 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
             <div className="penFence penFenceFront" aria-hidden="true"/>
             <div className="penFlowers" aria-hidden="true"><i>✿</i><i>✿</i><i>✿</i></div>
           </section>
-          <div className="podiumSectionTitle"><span>THE PRIZE RING</span><p>One contestant per prize. Who deserves the ribbon?</p></div>
+          <div className="podiumSectionTitle"><span>Make your matches</span></div>
           <section className="animalTraits podiumGrid" aria-label="Trait podiums">
             {board.traitIds.map((id, index) => {
               const trait = traitMap.get(id)!;
               const animal = animalMap.get(assignments[id]);
               return <div role="button" tabIndex={0} key={id} data-trait-id={id} data-prize-family={trait.metricKey} className={`animalTrait traitPodium ${animal ? "occupied" : ""} ${selectedTrait === id || dropTarget === id ? "selected" : ""}`}
+                {...traitPointerHandlers(id)}
                 aria-label={`${trait.displayName}: ${animal ? animal.commonName : "empty podium"}`} aria-pressed={selectedTrait === id}
                 onKeyDown={(event) => { if (event.target === event.currentTarget && (event.key === "Enter" || event.key === " ")) { event.preventDefault(); selectedAnimal ? assign(id, selectedAnimal) : setSelectedTrait(selectedTrait === id ? null : id); } }}
                 onClick={() => {
                   if (suppressClick.current) { suppressClick.current = false; return; }
                   selectedAnimal ? assign(id, selectedAnimal) : setSelectedTrait(selectedTrait === id ? null : id);
                 }}>
-                {animal && <button type="button" className="podiumRemove" aria-label={`Remove ${animal.commonName} from ${trait.displayName}`} onPointerDown={(event) => event.stopPropagation()} onClick={(event) => { event.stopPropagation(); setAssignments(previous => { const next = { ...previous }; delete next[id]; return next; }); setSelectedAnimal(null); setSelectedTrait(null); setMessage(""); }}>×</button>}
-                <span className="podiumBadge" aria-hidden="true">{index + 1}</span>
-                <span className="podiumAnimal" {...(animal ? animalPointerHandlers(animal.id) : {})}>
+                {animal && <button type="button" className="podiumRemove" aria-label={`Remove ${animal.commonName} from ${trait.displayName}`} onPointerDown={(event) => event.stopPropagation()} onClick={(event) => { event.stopPropagation(); sound.play("remove"); setAssignments(previous => { const next = { ...previous }; delete next[id]; return next; }); setSelectedAnimal(null); setSelectedTrait(null); setMessage(""); }}>×</button>}
+                <span className="podiumBadge" aria-hidden="true">★</span>
+                <span className="podiumAnimal" data-animal-drag={animal ? "true" : undefined} {...(animal ? animalPointerHandlers(animal.id) : {})}>
                   {animal ? <><AnimalSprite animal={animal}/><span className="podiumNameTag">{animal.commonName}</span></> : <svg className="podiumEmpty" viewBox="0 0 180 160" aria-hidden="true"><ellipse cx="90" cy="136" rx="36" ry="6"/><path d="M64 43h52v31c0 33-52 33-52 0Z M64 49H49v18c0 14 12 19 22 19 M116 49h15v18c0 14-12 19-22 19 M90 99v24 M70 128h40"/><path d="m90 53 4 9 10 1-8 7 2 10-8-5-8 5 2-10-8-7 10-1Z"/></svg>}
                 </span>
                 <span className="podiumTop" aria-hidden="true"/>
@@ -337,77 +346,30 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
             })}
           </section>
         </div>
+        {draggingTrait && <div className="animalDragGhost animalTraitGhost" style={{ left: draggingTrait.x, top: draggingTrait.y }}>{traitMap.get(draggingTrait.id)?.displayName}</div>}
         {dragging && <div className="animalDragGhost sanctuaryDragGhost" style={{ left: dragging.x, top: dragging.y }}><AnimalSprite animal={animalMap.get(dragging.id)!}/><span>{animalMap.get(dragging.id)?.commonName}</span></div>}
         <div className="animalSubmit"><button type="button" onClick={() => {
           if (Object.keys(assignments).length < board.traitIds.length) {
             setMessage(`Choose an animal for all ${board.traitIds.length} traits first.`); return;
           }
+          sound.play("result");
           setSubmitted(true);
           setMessage("");
           saveResult();
-        }}>Reveal results</button>{message && <p role="status">{message}</p>}<span className="animalProgress" aria-live="polite">{Object.keys(assignments).length} / {board.traitIds.length} placed</span></div>
+        }}>Submit answers</button>{message && <p role="status">{message}</p>}<span className="animalProgress" aria-live="polite">{Object.keys(assignments).length} / {board.traitIds.length} placed</span></div>
       </>}
       {submitted && <>
-        <section className="fairAwards" aria-label="County fair awards"><span className="animalEyebrow">THE JUDGES HAVE DECIDED</span><h2>And the ribbons go to…</h2><div>{results.map((row, index) => <article key={row.trait.id} data-won={row.rank === 1} style={{ "--award-delay": `${index * .16}s` } as CSSProperties}><span className="fairRosette" aria-hidden="true">★</span><AnimalSprite animal={animalMap.get(row.ranked[0].animalId)!}/><h3>{row.trait.displayName}</h3><p>{animalMap.get(row.ranked[0].animalId)!.commonName}</p><strong className="fairWinningValue">{formatValue(row.ranked[0].value.valueNumeric, row.trait.unit)}</strong><small>{row.rank === 1 ? "You picked the winner!" : `Your entry placed ${row.rank} of ${board.animalIds.length}`}</small></article>)}</div></section>
         {accountMessage && <p role="status" className="animalSaveStatus">{accountMessage}</p>}
-        <section className="animalScore" aria-label="Results"><div><span className="animalEyebrow">FINAL SCORE</span>
-          <strong>{total}<small> / {config.maxScore}</small></strong></div>
-          <div><span className="animalEyebrow">OPTIMAL CHOICES</span><strong>{optimalChoices}<small> / {board.traitIds.length}</small></strong></div>
-          <div><span className="animalEyebrow">OPTIMAL SCORE</span><strong>{config.maxScore}</strong></div></section>
-        <section className="animalResults" aria-label="Trait results">
-          {results.map(({ trait, ranked, selected, rank, points }) => {
-            const best = ranked[0];
-            const photo = photoMap.get(selected.animalId)!;
-            const source = sourceMap.get(selected.value.sourceId)!;
-            return <article key={trait.id} className="animalResult">
-              <img src={photo.assetUrl} alt="" />
-              <div className="animalResultBody"><h3>{trait.displayName}</h3>
-                <p>Your choice: <strong>{animalMap.get(selected.animalId)?.commonName}</strong> · {formatValue(selected.value.valueNumeric, trait.unit)}</p>
-                <p>Rank {rank} of {board.animalIds.length} · <strong>{points} points</strong></p>
-                <p>Optimal choice: <strong>{animalMap.get(best.animalId)?.commonName}</strong> · {formatValue(best.value.valueNumeric, trait.unit)}</p>
-                <ol className="fairRankings" aria-label={`${trait.displayName} rankings`}>{ranked.map((entry, index) => <li key={entry.animalId} data-picked={entry.animalId === selected.animalId}><span>{index + 1}. {animalMap.get(entry.animalId)?.commonName}{entry.animalId === selected.animalId ? " · your entry" : ""}</span><strong>{formatValue(entry.value.valueNumeric, trait.unit)}</strong></li>)}</ol><p className="animalDiscovery">{animalMap.get(best.animalId)?.commonName} ranks first here. {animalMap.get(ranked[1].animalId)?.commonName} comes next at {formatValue(ranked[1].value.valueNumeric, trait.unit)}.</p><details><summary>Definition and source</summary><p>{trait.definition}. {source.name}, {source.versionYear}. <a href={source.url} target="_blank" rel="noreferrer">View dataset</a>.</p><p>{selected.value.notes}</p>{observationLinks(selected.value.notes).map(url => <p key={url}><a href={url} target="_blank" rel="noreferrer">Observation reference ↗</a></p>)}<p>Uncertainty: {selected.value.uncertaintyStatus === "reported" ? "reported source ranges checked; these are not confidence intervals" : "the source does not supply an uncertainty interval for this value"}.</p></details>
-              </div>
-            </article>;
-          })}
-        </section>
-        <div className="animalActions"><button type="button" onClick={nextBoard}>Try another board</button>
+        <AnimalResults data={data} board={board} results={results} mode={mode} total={total} optimalChoices={optimalChoices} onNext={nextBoard} onHelp={() => setHelpOpen(true)} />
+        <div className="animalActions">
           <button type="button" className="animalNext" onClick={async () => {
             const message = `Countries, Animals & Things\nAnimalStats ${config.label} · ${playKind} · ${date}\n${total}/${config.maxScore} · ${optimalChoices} Optimal Choices\n${results.map((row) => row.rank === 1 ? "🎯" : row.points >= 50 ? "🟩" : "🟨").join("")}\n${challengeUrl(board.id!)}`;
             try { await navigator.clipboard.writeText(message); setCopied(true); } catch { setCopied(false); }
           }}>{copied ? "Copied ✓" : "Copy result"}</button></div>
-        <details className="fairFeedback"><summary>Leave a playtest note</summary><section className="animalReview" aria-label="Playtest feedback">
-          <h3>Playtest note</h3><p>Did the board feel fair, surprising, and worth replaying?</p>
-          <label>Review label <select value={reviewLabel} onChange={(event) => { setReviewLabel(event.target.value as ReviewLabel | ""); setReviewSaved(false); }}>
-            <option value="">Choose a label</option>
-            {(["PASS", "TOO_OBVIOUS", "UNKNOWABLE", "BAD_METRIC", "DATA_CONCERN", "FAMILIARITY_FAIL"] as const)
-              .map((label) => <option key={label} value={label}>{label.replaceAll("_", " ")}</option>)}
-          </select></label>
-          <label>What worked or felt wrong? <textarea value={reviewNotes} onChange={(event) => { setReviewNotes(event.target.value); setReviewSaved(false); }} rows={3} /></label>
-          <button type="button" disabled={!reviewLabel} onClick={() => {
-            const key = "animalstats:pilot-reviews";
-            try {
-              const prior = JSON.parse(window.localStorage.getItem(key) ?? "{}") as Record<string, unknown>;
-              const boardKey = `${mode}:${board.animalIds.join(",")}:${board.traitIds.join(",")}`;
-              prior[boardKey] = { mode, boardType: board.boardType, animalIds: board.animalIds,
-                traitIds: board.traitIds, label: reviewLabel, notes: reviewNotes.trim(), savedAt: new Date().toISOString() };
-              window.localStorage.setItem(key, JSON.stringify(prior));
-              setReviewSaved(true);
-            } catch { setMessage("This browser could not save your playtest note."); }
-          }}>Save playtest note</button>{reviewSaved && <span role="status">Saved on this browser</span>}
-          <button type="button" className="animalExport" onClick={() => {
-            const reviews = window.localStorage.getItem("animalstats:pilot-reviews") ?? "{}";
-            const url = URL.createObjectURL(new Blob([reviews], { type: "application/json" }));
-            const link = document.createElement("a");
-            link.href = url; link.download = "animalstats-playtest-reviews.json"; link.click();
-            window.setTimeout(() => URL.revokeObjectURL(url), 1000);
-          }}>Download all notes</button>{message && <p role="status">{message}</p>}
-        </section></details>
       </>}
       </>}
-      <footer className="animalFooter"><p>Data: <a href="https://genomics.senescence.info/species/" target="_blank" rel="noreferrer">AnAge / HAGR</a> and <a href="https://doi.org/10.6084/m9.figshare.16586228.v7" target="_blank" rel="noreferrer">AVONET</a>, <a href="https://doi.org/10.6084/m9.figshare.4644424.v5" target="_blank" rel="noreferrer">AmphiBIO</a> and <a href="https://doi.org/10.6084/m9.figshare.3563457.v1" target="_blank" rel="noreferrer">Amniote life histories</a>. Photos: Wikimedia Commons; individual credits below.</p>
-        <details><summary>Photo credits</summary><ul>{board?.animalIds.map((id) => { const photo = photoMap.get(id)!; return <li key={id}><a href={photo.originalUrl} target="_blank" rel="noreferrer">{animalMap.get(id)?.commonName}</a>: {photo.attribution}</li>; })}</ul></details>
-        <p>Private experimental prototype. AnimalStats history is kept separate from Countries. Sign in to save future results to your account.</p></footer>
     </div>
-    {helpOpen && <div className="fairHelpBackdrop" onClick={() => setHelpOpen(false)}><section className="fairHelp" role="dialog" aria-modal="true" aria-labelledby="fair-help-title" onClick={event => event.stopPropagation()} onKeyDown={event => { if (event.key === "Escape") setHelpOpen(false); if (event.key === "Tab") { const controls = event.currentTarget.querySelectorAll<HTMLButtonElement>("button"); const first = controls[0], last = controls[controls.length - 1]; if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); } else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); } } }}><button type="button" autoFocus className="fairHelpClose" aria-label="Close instructions" onClick={() => setHelpOpen(false)}>×</button><span className="fairCatalogRibbon" aria-hidden="true">★</span><h2 id="fair-help-title">Welcome to the prize ring!</h2><ol><li><b>Meet your contestants.</b> Their pictures have equal frames so real size stays a mystery.</li><li><b>Pick one for each prize.</b> Drag them onto a stand, or tap an animal and then a prize.</li><li><b>Make every entry count.</b> An animal can enter only one prize. Moving onto an occupied stand swaps the entries. Use × to send an animal back.</li><li><b>Let the judges decide.</b> First place earns the most points. Results reveal every ranking and its source.</li></ol><p>“Most” and “least” compare the animals in this round. Records are labeled as records; laboratory studies are labeled as studies.</p><button type="button" className="animalNext" onClick={() => setHelpOpen(false)}>Let’s play →</button></section></div>}
+    {helpOpen && <div className="modal rulesModal" onClick={event => event.target === event.currentTarget && setHelpOpen(false)}><section ref={helpRef} className="rulesModalCard" role="dialog" aria-modal="true" aria-labelledby="rulesTitle" onKeyDown={event => { if (event.key === "Escape") setHelpOpen(false); }}><h2 id="rulesTitle">How to play</h2><p>Match each animal to a statistic. Use each animal only once.</p><ol><li><strong>Assign one animal to each category.</strong> Select either one first, or drag in either direction. Scout uses all four; Adventurer and Expert include extra animals.</li><li><strong>Compare their ranks.</strong> First place among the animals on your board earns 100 points; lower ranks earn fewer.</li><li><strong>Submit your answers.</strong> Your final score adds the points from every match.</li></ol><p>Move an animal to change its prize. Occupied prizes swap entries; × removes a choice. Animal portraits use equal frames.</p><button type="button" onClick={() => setHelpOpen(false)}>Back to game</button></section></div>}
+
   </main>;
 }

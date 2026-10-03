@@ -9,24 +9,17 @@ test("available pilot boards render and can be completed", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "AnimalStats" })).toBeVisible();
   for (const [label, animals, traits] of [["Scout", 4, 4], ["Adventurer", 6, 4], ["Expert", 8, 6]] as const) {
     await page.getByRole("button", { name: new RegExp(`^${label}\\b`) }).click();
-    await expect(page.locator(".animalBoardTop .animalEyebrow")).toContainText("OF");
+    await expect(page.locator(".challengeIdentity")).toContainText(label);
     await expect(page.locator(".animalCard")).toHaveCount(animals);
     await expect(page.locator(".animalTrait")).toHaveCount(traits);
     for (let index = 0; index < traits; index++) {
       await page.locator(".animalTrait").nth(index).click();
       await page.locator(".animalCard").nth(index).click();
     }
-    await page.getByRole("button", { name: "Reveal results" }).click();
-    await expect(page.locator(".animalResult")).toHaveCount(traits);
-    await expect(page.getByText("OPTIMAL CHOICES")).toBeVisible();
+    await page.getByRole("button", { name: "Submit answers" }).click();
+    await expect(page.locator(".resultWrap")).toHaveCount(traits);
+    await expect(page.getByText("Optimal Choices:")).toBeVisible();
   }
-  await page.getByText("Leave a playtest note", {exact:true}).click();
-  await page.getByLabel("Review label").selectOption("PASS");
-  await page.getByLabel("What worked or felt wrong?").fill("The allocation choices were interesting.");
-  await page.getByRole("button", { name: "Save playtest note" }).click();
-  await expect(page.getByText("Saved on this browser")).toBeVisible();
-  const reviews = await page.evaluate(() => localStorage.getItem("animalstats:pilot-reviews"));
-  expect(reviews).toContain("The allocation choices were interesting.");
   expect(errors).toEqual([]);
 });
 
@@ -38,10 +31,11 @@ test("phone layout fits and exposes sources after scoring", async ({ page }) => 
     await page.locator(".animalTrait").nth(index).click();
     await page.locator(".animalCard").nth(index).click();
   }
-  await page.getByRole("button", { name: "Reveal results" }).click();
-  await expect(page.getByText("OPTIMAL SCORE")).toBeVisible();
-  await page.getByText("Definition and source").first().click();
-  await expect(page.getByRole("link", { name: "View dataset" }).first()).toBeVisible();
+  await page.getByRole("button", { name: "Submit answers" }).click();
+  await expect(page.getByText("Optimal score: 400")).toBeVisible();
+  await page.getByRole("button", { name: "View rankings" }).first().click();
+  await page.getByRole("button", { name: "Data & Source" }).first().click();
+  await expect(page.getByRole("heading", { name: "Full catalog rankings" })).toBeVisible();
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
   expect(overflow).toBeLessThanOrEqual(1);
 });
@@ -79,16 +73,17 @@ test("daily review gate, persistent personal history and CAT navigation", async 
   await expect(page.getByRole("heading", { name: "Daily boards are awaiting review" })).toBeVisible();
   await page.getByRole("button", { name: "Play a random candidate" }).click();
   for (let i = 0; i < 4; i++) { await page.locator(".animalCard").nth(i).click(); await page.locator(".animalTrait").nth(i).click(); }
-  await page.getByRole("button", { name: "Reveal results" }).click();
+  await page.getByRole("button", { name: "Submit answers" }).click();
   await page.getByRole("button", { name: "My Stats", exact: true }).click();
-  await expect(page.getByText("Player Rating begins after 5 completed games in this mode.")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Game history" })).toBeVisible();
   await expect(page.locator(".animalHistory tbody tr")).toHaveCount(1);
   await page.reload();
   await page.getByRole("button", { name: "My Stats", exact: true }).click();
   await expect(page.locator(".animalHistory tbody tr")).toHaveCount(1);
-  await page.getByRole("button", { name: "Field Guide", exact: true }).click();
+  await page.locator(".animalGeoMenu summary").click();
+  await page.getByRole("button", { name: "Full data", exact: true }).click();
   await page.getByLabel("Find an animal").fill("Axolotl");
-  await expect(page.getByRole("heading", { name: "Axolotl", exact: true })).toBeVisible();
+  await expect(page.locator(".animalDataTable tbody tr").filter({ hasText: "Axolotl" })).toBeVisible();
   await page.goto("/cat");
   await expect(page.getByRole("heading", { name: "Countries, Animals & Things" })).toBeVisible();
   await expect(page.locator("#things")).toContainText("Still digging");
@@ -132,7 +127,9 @@ test("server scoring rejects repeated and foreign assignments", () => {
 
  test("Expert is playable and cartoon motion is optional", async ({ page }) => {
  await page.goto("/animals");
- await page.getByRole("button", { name: "Pause animal animation" }).click();
+ await page.locator(".animalGeoMenu summary").click();
+ await page.getByRole("button", { name: "Pause animation", exact:true }).click();
+ await page.locator(".animalGeoMenu summary").click();
  await expect(page.locator(".cartoonHead").first()).toHaveCSS("animation-play-state","paused");
  await page.getByRole("button", { name: /^Expert\b/ }).click();
  await expect(page.locator(".animalCard")).toHaveCount(8);
@@ -212,14 +209,14 @@ test("new prototype balances categories and mirrors measured values exactly", ()
 });
 
 
-test("county fair awards replace all breeding and hybrids", async ({page}) => {
+test("GeoStats result layout replaces the separate award ceremony", async ({page}) => {
  await page.goto('/animals');
  for(let i=0;i<4;i++){await page.locator('.penAnimal').nth(i).click();await page.locator('.traitPodium').nth(i).click();}
- await page.getByRole('button',{name:'Reveal results'}).click();
- await expect(page.getByRole('region',{name:'County fair awards'})).toBeVisible();
- await expect(page.locator('.fairAwards article')).toHaveCount(4);
- await expect(page.locator('.hybridNursery,.hybridBaby,.pairingCanvas')).toHaveCount(0);
- for(let i=0;i<4;i++){const row=page.locator('.animalResult').nth(i);const winner=await page.locator('.fairAwards article p').nth(i).textContent();await expect(row).toContainText(`Optimal choice: ${winner}`);}
+ await page.getByRole('button',{name:'Submit answers'}).click();
+ await expect(page.locator('.resultWrap')).toHaveCount(4);
+ await expect(page.locator('.hybridNursery,.hybridBaby,.pairingCanvas,.fairAwards')).toHaveCount(0);
+ await expect(page.getByText('Optimal Choice',{exact:true})).toHaveCount(4);
+ await expect(page.getByRole('button',{name:'View rankings'})).toHaveCount(4);
 });
 
 test("phone pen supports touch drag and reduced-motion results", async ({ page }) => {
@@ -240,9 +237,8 @@ test("phone pen supports touch drag and reduced-motion results", async ({ page }
  await expect(podiums.first()).toHaveClass(/occupied/);
  for (let i = 1; i < 4; i++) { await cards.nth(i).click(); await podiums.nth(i).click(); }
  await page.emulateMedia({ reducedMotion: "reduce" });
- await page.getByRole("button", { name: "Reveal results" }).click();
- await expect(page.locator(".fairAwards .animalSprite").first()).toBeVisible();
- await expect(page.locator(".fairAwards .cartoonHead").first()).toHaveCSS("animation-name", "none");
+ await page.getByRole("button", { name: "Submit answers" }).click();
+ await expect(page.locator(".resultWrap")).toHaveCount(4);
  expect(await page.evaluate(() => document.documentElement.scrollWidth - innerWidth)).toBeLessThanOrEqual(1);
  await cdp.detach();
 });
@@ -281,7 +277,9 @@ for(const viewport of [{width:1440,height:900},{width:1366,height:768},{width:39
   await expect(page.locator('.penAnimal>.animalSprite').first()).toHaveAttribute('data-art-version','fair-cartoon-v2');
   await expect(page.locator('.animalNameTag').first()).toHaveCSS('opacity','1');
  }
- await page.getByRole('button',{name:'Pause animal animation'}).click();
+ await page.locator('.animalGeoMenu summary').click();
+ await page.getByRole('button',{name:'Pause animation',exact:true}).click();
+ await page.locator('.animalGeoMenu summary').click();
  await expect(page.locator('.penAnimal .cartoonHead').first()).toHaveCSS('animation-play-state','paused');
  });
 }
@@ -293,7 +291,7 @@ test("expanded catalog has playable opposite teeth, swim, REM and metabolism pri
   expect(used.has(id)).toBe(true); expect(used.has(`${id}__low`)).toBe(true);
  }
  expect(used.size).toBeGreaterThanOrEqual(56);
- const lifecycle = new Set(["pregnancy", "offspring", "incubation", "weaning", "maturity", "reproduction"]);
+ const lifecycle = new Set(["pregnancy", "offspring", "incubation", "weaning", "maturity", "reproduction", "breeding", "egg-size"]);
  for (const board of candidateData.boards as BoardCandidate[]) {
   expect(board.traitIds.filter(id => lifecycle.has(data.traits.find(t => t.id === id)!.metricKey!)).length).toBeLessThanOrEqual(board.mode === "expert" ? 3 : 1);
  }
@@ -306,23 +304,73 @@ test("expanded catalog has playable opposite teeth, swim, REM and metabolism pri
 test("prize tent supports search, opposite trails, and same-board challenges", async ({page,context}) => {
  await context.grantPermissions(["clipboard-read", "clipboard-write"]);
  await page.goto("/animals");
- await page.getByRole("button", {name:"Prizes", exact:true}).click();
- await page.getByLabel("Find a prize").fill("teeth");
- await expect(page.locator(".fairPrizeCards article")).toHaveCount(1);
- await page.getByRole("button", {name:"Play the opposite →",exact:true}).click();
+ await page.locator(".animalGeoMenu summary").click();
+ await page.getByRole("button", {name:"Categories", exact:true}).click();
+ await page.locator(".animalGeoMenu summary").click();
+ await page.getByLabel("Find a category",{exact:true}).fill("teeth");
+ await expect(page.locator(".animalDataTable tbody tr")).toHaveCount(1);
+ await page.getByRole("button", {name:"Play opposite",exact:true}).click();
  await expect(page.locator(".fairFocusNotice")).toContainText("Fewest adult teeth");
  await expect(page.locator(".traitPodium[data-trait-id=adult_tooth_count__low]")).toHaveCount(1);
  const animals = await page.locator(".penAnimal .animalSprite").evaluateAll(nodes => nodes.map(node => node.getAttribute("data-animal-id")));
  const prizes = await page.locator(".traitPodium").evaluateAll(nodes => nodes.map(node => node.getAttribute("data-trait-id")));
- await page.getByRole("button", {name:"Challenge a friend",exact:true}).click();
+ await page.getByRole("button", {name:"Copy link",exact:true}).click();
  await expect(page.getByRole("button", {name:"Link copied ✓",exact:true})).toBeVisible();
  const url = await page.evaluate(() => navigator.clipboard.readText());
  expect(new URL(url).searchParams.get("board")).toBeTruthy();
  await page.goto(url);
  expect(await page.locator(".penAnimal .animalSprite").evaluateAll(nodes => nodes.map(node => node.getAttribute("data-animal-id")))).toEqual(animals);
  expect(await page.locator(".traitPodium").evaluateAll(nodes => nodes.map(node => node.getAttribute("data-trait-id")))).toEqual(prizes);
+ await page.locator(".animalGeoMenu summary").click();
  await page.getByRole("button", {name:"How to play",exact:true}).click();
  await expect(page.getByRole("dialog")).toBeVisible();
  await page.keyboard.press("Escape");
  await expect(page.getByRole("dialog")).toHaveCount(0);
+});
+
+test("prize-to-animal dragging, pen returns and podium moves work in both directions", async ({page}) => {
+ await page.goto('/animals');
+ const cards=page.locator('.penAnimal'), podiums=page.locator('.traitPodium');
+ const firstName=await cards.nth(0).locator('.animalNameTag').innerText();
+ async function drag(from: import('@playwright/test').Locator,to: import('@playwright/test').Locator){
+  const a=(await from.boundingBox())!, b=(await to.boundingBox())!;
+  await page.mouse.move(a.x+a.width/2,a.y+a.height/2);await page.mouse.down();await page.mouse.move(b.x+b.width/2,b.y+b.height/2,{steps:12});await page.mouse.up();
+ }
+ await drag(podiums.first(),cards.first());
+ await expect(podiums.first().locator('.podiumNameTag')).toHaveText(firstName);
+ await drag(podiums.first().locator('.podiumAnimal'),podiums.nth(1));
+ await expect(podiums.nth(1).locator('.podiumNameTag')).toHaveText(firstName);
+ await expect(podiums.first()).not.toHaveClass(/occupied/);
+ await drag(podiums.nth(1).locator('.podiumAnimal'),page.locator('.animalPen'));
+ await expect(page.locator('.animalProgress')).toHaveText('0 / 4 placed');
+ await expect(cards.first()).toHaveAttribute('data-on-podium','false');
+});
+
+test("full catalog panel searches, exports exact observations and restores keyboard focus", async ({page}) => {
+ await page.goto('/animals');
+ await page.locator('.animalGeoMenu summary').click();
+ await page.getByRole('button',{name:'Categories',exact:true}).click();
+ await page.locator('.animalGeoMenu summary').click();
+ await page.getByLabel('Find a category',{exact:true}).fill('mammal tail');
+ await expect(page.locator('.animalDataTable tbody tr')).toHaveCount(1);
+ const opener=page.getByRole('button',{name:'Data & Source',exact:true});
+ await opener.click();
+ await expect(page.getByRole('dialog')).toBeVisible();
+ await page.getByLabel('Look up an animal').fill('Red fox');
+ await expect(page.locator('.sourceDataRow')).toHaveCount(1);
+ const download=page.waitForEvent('download');
+ await page.getByRole('button',{name:'Download full data (CSV)'}).click();
+ expect((await download).suggestedFilename()).toContain('mammal_tail_length_upper');
+ await page.keyboard.press('Escape');
+ await expect(page.getByRole('dialog')).toHaveCount(0);
+ await expect(opener).toBeFocused();
+});
+
+test("short-height windows can scroll to submit and ribbons do not imply numbered prizes",async({page})=>{
+ await page.setViewportSize({width:1366,height:500});await page.goto('/animals');
+ await page.getByRole('button',{name:'Expert',exact:true}).click();
+ await expect(page.locator('.podiumBadge')).toHaveText(['★','★','★','★','★','★']);
+ await page.getByRole('button',{name:'Submit answers'}).scrollIntoViewIfNeeded();
+ const box=(await page.getByRole('button',{name:'Submit answers'}).boundingBox())!;
+ expect(box.y+box.height).toBeLessThanOrEqual(500);
 });

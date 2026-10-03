@@ -1,0 +1,9 @@
+{
+  "invalid_archives": [
+    {
+      "file": "discovery-milk-supplement.zip",
+      "problem": "Not a valid ZIP archive; acquisition must not be marked complete"
+    }
+  ],
+  "new_playable_approvals": 0
+}

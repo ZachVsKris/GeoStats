@@ -3,7 +3,11 @@
     "file": "discovery-milk-supplement.zip",
     "url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/6858816/bin/peerj-07-8085-s001.zip",
     "bytes": 1817,
-    "sha256": "12610a833f93d34ac08319756d5f4689ebccbb1fac5ea369c8c0742ec532cdcf"
+    "sha256": "12610a833f93d34ac08319756d5f4689ebccbb1fac5ea369c8c0742ec532cdcf",
+    "status": "failed_payload_validation",
+    "valid_zip": false,
+    "superseded_by": "expansion-milk-supplements.zip",
+    "game_approved": false
   },
   {
     "file": "discovery-prey-metadata.json",

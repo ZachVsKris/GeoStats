@@ -1,0 +1,116 @@
+{
+  "extracted_numeric_rows": 177433,
+  "endpoints": [
+    {
+      "concept": "chewing-rate",
+      "numeric_rows": 127,
+      "source_taxon_labels": 127,
+      "files": [
+        "expansion-chewing-records.json"
+      ],
+      "new_playable_approvals": 0
+    },
+    {
+      "concept": "dive-duration",
+      "numeric_rows": 1248,
+      "source_taxon_labels": 255,
+      "files": [
+        "diving-comparative.csv"
+      ],
+      "new_playable_approvals": 0
+    },
+    {
+      "concept": "eye-axial-size",
+      "numeric_rows": 918,
+      "source_taxon_labels": 826,
+      "files": [
+        "eyes-vertebrates.csv"
+      ],
+      "new_playable_approvals": 0
+    },
+    {
+      "concept": "eye-transverse-size",
+      "numeric_rows": 630,
+      "source_taxon_labels": 630,
+      "files": [
+        "eyes-vertebrates.csv"
+      ],
+      "new_playable_approvals": 0
+    },
+    {
+      "concept": "marine-body-height",
+      "numeric_rows": 58811,
+      "source_taxon_labels": 30992,
+      "files": [
+        "expansion-mobs-v1.csv"
+      ],
+      "new_playable_approvals": 0
+    },
+    {
+      "concept": "marine-body-length",
+      "numeric_rows": 96623,
+      "source_taxon_labels": 56592,
+      "files": [
+        "expansion-mobs-v1.csv"
+      ],
+      "new_playable_approvals": 0
+    },
+    {
+      "concept": "marine-body-width",
+      "numeric_rows": 17947,
+      "source_taxon_labels": 14151,
+      "files": [
+        "expansion-mobs-v1.csv"
+      ],
+      "new_playable_approvals": 0
+    },
+    {
+      "concept": "self-control-a-not-b",
+      "numeric_rows": 345,
+      "source_taxon_labels": 27,
+      "files": [
+        "cognition-MacLean_et_al_PNAS_2014_Self_Control_AnotB.csv"
+      ],
+      "new_playable_approvals": 0
+    },
+    {
+      "concept": "self-control-cylinder",
+      "numeric_rows": 439,
+      "source_taxon_labels": 32,
+      "files": [
+        "cognition-MacLean_et_al_PNAS_2014_Self_Control_Cylinder.csv"
+      ],
+      "new_playable_approvals": 0
+    },
+    {
+      "concept": "torpor-body-temperature",
+      "numeric_rows": 186,
+      "source_taxon_labels": 186,
+      "files": [
+        "torpor-direct-table.csv"
+      ],
+      "new_playable_approvals": 0
+    },
+    {
+      "concept": "torpor-bout-duration",
+      "numeric_rows": 159,
+      "source_taxon_labels": 159,
+      "files": [
+        "torpor-direct-table.csv"
+      ],
+      "new_playable_approvals": 0
+    }
+  ],
+  "marine_raw_rows": 170214,
+  "marine_aphia_ids": 80844,
+  "new_playable_approvals": 0,
+  "source_hashes": {
+    "cognition-MacLean_et_al_PNAS_2014_Self_Control_AnotB.csv": "27a413626a994a2281223bc9276019dab0fafc3fdb37a4c8db2b61dfad265c2e",
+    "torpor-direct-table.csv": "12c3d87aa2766f79ee2f857c03f0b89b19370fbb2c0f4255d0e0e9bd2ca3c2ec",
+    "expansion-mobs-v1.csv": "5f798243c16b840df9cfc032abeed55a6015998ee76de8754b59704913a0d94c",
+    "eyes-vertebrates.csv": "1885e331885bd664a86cbacc031a0ba6cf363fdd8c42d4c7f39b50c78ac193f7",
+    "cognition-MacLean_et_al_PNAS_2014_Self_Control_Cylinder.csv": "c1695d92d31d99d74f9d88369b3249b53e115b2c73378c87654b412f514a62bf",
+    "diving-comparative.csv": "e4041466c0cebb8ce0ab8aebabd7bc9218a408db16b3636e44137005363d8b2e",
+    "expansion-chewing-records.json": "9e60d9bcc39890f7ebbb533a320bd310f56155b68c6dde62ea9c9f970d682bf1"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "source": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6858816/supplementaryFiles",
+  "citation": "Blomquist 2019, PeerJ 7:e8085, doi:10.7717/peerj.8085",
+  "license": "CC BY 4.0; attribute author, title, publication and DOI",
+  "source_rows": 124,
+  "measured_observations": 357,
+  "endpoints": {
+    "milk-fat": 124,
+    "milk-protein": 124,
+    "milk-sugar": 109
+  },
+  "missing_sugar_cells_excluded": 15,
+  "new_playable_approvals": 0,
+  "archive_valid": true,
+  "sha256": "bea4d9014a122e231f8a20d48e48ee554e68d56c88d645e8b1b083d177a734d4",
+  "raw_csv_sha256": "16358f4f0263393d1c6725e7455425a0d9018b4a6349b2f1d73ac116b6c7601e"
+}

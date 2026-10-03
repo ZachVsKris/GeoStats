@@ -1,0 +1,142 @@
+[
+  {
+    "source": "spider-venom",
+    "record": 12028509,
+    "url": "https://zenodo.org/records/12028509",
+    "files": [
+      {
+        "name": "discovery-spider-venom-S4_phylo_code_and_files.zip",
+        "url": "https://zenodo.org/api/records/12028509/files/S4_phylo_code_and_files.zip/content",
+        "bytes": 28814,
+        "sha256": "d8e589f2685109c19c0ef70841a154260f2d7a863bcca177ab8040b944585cf5",
+        "repository_checksum": "md5:ec5f2f28517d6f8e4980f5c8babc98bb"
+      }
+    ],
+    "title": "Data from: Spider venom potency exhibits phylogenetic prey-specificity but does not trade-off with body size or silk use in prey capture",
+    "access": "open",
+    "status": "acquired"
+  },
+  {
+    "source": "gecko-grip",
+    "record": 4951666,
+    "url": "https://zenodo.org/records/4951666",
+    "files": [
+      {
+        "name": "discovery-gecko-grip-Gilman_et_al_Data.xlsx",
+        "url": "https://zenodo.org/api/records/4951666/files/Gilman_et_al_Data.xlsx/content",
+        "bytes": 10645,
+        "sha256": "25588ce7ef366511ebd98aeeba01b85691628ba5182f0ecf8970432452d56a90",
+        "repository_checksum": "md5:c5003e06fa700a28d364c1378d149b8e"
+      }
+    ],
+    "title": "Data from: Geckos as springs: mechanics explain across-species scaling of adhesion",
+    "access": "open",
+    "status": "acquired"
+  },
+  {
+    "source": "whiskers",
+    "record": 4942927,
+    "url": "https://zenodo.org/records/4942927",
+    "files": [
+      {
+        "name": "discovery-whiskers-SupplementaryData.xlsx",
+        "url": "https://zenodo.org/api/records/4942927/files/SupplementaryData.xlsx/content",
+        "bytes": 37657,
+        "sha256": "c195493e2c156370cf5d53f43218d85dd88a9b289e668bc9336c8be52a47590d",
+        "repository_checksum": "md5:70661b8b3e4298ef88076fb910f1e335"
+      }
+    ],
+    "title": "Data from: Whisker touch sensing guides locomotion in small, quadrupedal mammals",
+    "access": "open",
+    "status": "acquired"
+  },
+  {
+    "source": "bird-vocabulary",
+    "record": 5016383,
+    "url": "https://zenodo.org/records/5016383",
+    "files": [
+      {
+        "name": "discovery-bird-vocabulary-MatchedRepertoireSizes.csv",
+        "url": "https://zenodo.org/api/records/5016383/files/MatchedRepertoireSizes.csv/content",
+        "bytes": 410,
+        "sha256": "18892a78d9514bd9c3eaefdd8a5d4de47fc6e46a65b931b6d7b828540df8d389",
+        "repository_checksum": "md5:f0e73f41aa0721bc51d2814cac808b36"
+      },
+      {
+        "name": "discovery-bird-vocabulary-ListedRepertoires.xlsx",
+        "url": "https://zenodo.org/api/records/5016383/files/ListedRepertoires.xlsx/content",
+        "bytes": 64716,
+        "sha256": "9f4f50571f15ca61eece5df9dbef5805a7a1312258d0d49dfa343eb97b8c2884",
+        "repository_checksum": "md5:7cd7ccca9408920f7ab58e2738d2b8ee"
+      },
+      {
+        "name": "discovery-bird-vocabulary-SocVocFull04_14_17.csv",
+        "url": "https://zenodo.org/api/records/5016383/files/SocVocFull04_14_17.csv/content",
+        "bytes": 88473,
+        "sha256": "452f5db74cfa59cfcdaff1e7d1c7aabf9a124234befe68807f5e1805ba2042eb",
+        "repository_checksum": "md5:efe151d8e9b3c536222f7f6b6f2e224d"
+      }
+    ],
+    "title": "Data from: Cooperative breeding influences the number and type of vocalizations in avian lineages",
+    "access": "open",
+    "status": "acquired"
+  },
+  {
+    "source": "primate-vocabulary",
+    "record": 20616324,
+    "url": "https://zenodo.org/records/20616324",
+    "files": [
+      {
+        "name": "discovery-primate-vocabulary-ZenodoData_April2026.xlsx",
+        "url": "https://zenodo.org/api/records/20616324/files/ZenodoData_April2026.xlsx/content",
+        "bytes": 26764,
+        "sha256": "119dc9cb968f48c72d56d0e7e10585c83b032cee9638baf5f33d0d63fe68ce66",
+        "repository_checksum": "md5:c4bee4bf76a0c754b3c790ec3f13dd12"
+      }
+    ],
+    "title": "Data Associated with Manuscript Titled \"Evolution of Primate Vocal Repertoires: Vocal Systems as Embodied Capital for Mediating Within-group Conflict\"",
+    "access": "open",
+    "status": "acquired"
+  },
+  {
+    "source": "mammal-parenting",
+    "record": 4935027,
+    "url": "https://zenodo.org/records/4935027",
+    "files": [
+      {
+        "name": "discovery-mammal-parenting-README_for_Data file Stockley&Hobson.txt",
+        "url": "https://zenodo.org/api/records/4935027/files/README_for_Data%20file%20Stockley&Hobson.txt/content",
+        "bytes": 924,
+        "sha256": "24f3556b8e87d745e5cb1a0da9f4aa773ab54af47c607dc708b3f64d3e53f073",
+        "repository_checksum": "md5:009e1d845b943c764b8436ded42cb553"
+      },
+      {
+        "name": "discovery-mammal-parenting-Data file Stockley&Hobson.xlsx",
+        "url": "https://zenodo.org/api/records/4935027/files/Data%20file%20Stockley&Hobson.xlsx/content",
+        "bytes": 41644,
+        "sha256": "96da254bd56c15739966486cbc549c6979251d494953c98b4d7e04bb4be4b620",
+        "repository_checksum": "md5:7e543c4d8c74db32421ef7da6de87e95"
+      }
+    ],
+    "title": "Data from: Paternal care and litter size coevolution in mammals",
+    "access": "open",
+    "status": "acquired"
+  },
+  {
+    "source": "field-energy",
+    "record": 16894769,
+    "url": "https://zenodo.org/records/16894769",
+    "files": [
+      {
+        "name": "discovery-field-energy-FieldMR_SciDataPub.xls",
+        "url": "https://zenodo.org/api/records/16894769/files/FieldMR_SciDataPub.xls/content",
+        "bytes": 1139712,
+        "sha256": "f64c9a80c7a73ca941fb5f73c22925907361d6580af5eed09df8f9f0d769ab81",
+        "repository_checksum": "md5:9da005d54983b0e11e137cefa4cfac37"
+      }
+    ],
+    "title": "A dataset of field metabolic rates, body mass and ambient temperature.",
+    "access": "open",
+    "status": "acquired"
+  }
+]

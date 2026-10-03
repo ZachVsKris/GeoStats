@@ -1,0 +1,942 @@
+{
+  "tables": [
+    {
+      "file": "discovery-arthropods.zip",
+      "sha256": "ffc505f8f642925a3323ce28228178d36a1e9d4aab24b55298d674a1d9f8873d",
+      "bytes": 534324,
+      "game_approved": false,
+      "taxon_rows": 4874,
+      "measurement_rows": 30603,
+      "order_counts": {
+        "Coleoptera": 1370,
+        "Lepidoptera": 1106,
+        "Hemiptera": 708,
+        "Araneae": 438,
+        "Diptera": 502,
+        "Odonata": 69,
+        "Hymenoptera": 567,
+        "Isopoda": 34,
+        "Opiliones": 29,
+        "Orthoptera": 51
+      },
+      "field_counts": {
+        "Body_size": 4874,
+        "Dispersal_ability": 2823,
+        "Thermal_minimum": 4703,
+        "Thermal_maximum": 4703,
+        "Thermal_mean": 4703,
+        "Thermal_range": 4703,
+        "Fecundity": 425,
+        "Development_time": 581,
+        "Voltinism_mean": 2896,
+        "Lifespan": 192
+      },
+      "license": "CC-BY-NC-4.0",
+      "gate": "Expert knowledge and literature compilation: original method/provenance audit required. Thermal niche is not physiological tolerance. Relative dispersal score is not travel distance. License needs checking before commercial use. No new gameplay import."
+    },
+    {
+      "file": "discovery-bird-vocabulary-ListedRepertoires.xlsx",
+      "sha256": "9f4f50571f15ca61eece5df9dbef5805a7a1312258d0d49dfa343eb97b8c2884",
+      "bytes": 64716,
+      "game_approved": false,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "nonempty_rows": 255,
+          "first_row": [
+            "Species",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "file": "discovery-bird-vocabulary-MatchedRepertoireSizes.csv",
+      "sha256": "18892a78d9514bd9c3eaefdd8a5d4de47fc6e46a65b931b6d7b828540df8d389",
+      "bytes": 410,
+      "game_approved": false,
+      "rows": 15,
+      "fields": [
+        "Species",
+        "GML",
+        "Other",
+        "OtherName"
+      ]
+    },
+    {
+      "file": "discovery-bird-vocabulary-SocVocFull04_14_17.csv",
+      "sha256": "452f5db74cfa59cfcdaff1e7d1c7aabf9a124234befe68807f5e1805ba2042eb",
+      "bytes": 88473,
+      "game_approved": false,
+      "rows": 253,
+      "fields": [
+        "Common Name",
+        "RepertoireSizeContext",
+        "RepSizeBigSmall",
+        "RepSezPubSource",
+        "PasserineNonPasserine",
+        "GroupSizeBreeding",
+        "GroupSizeNonBreeding",
+        "MaxGroupSizeExp",
+        "ColonialBreeder?",
+        "GroupSizeComments",
+        "LengthOfRecording",
+        "NumIndsStudied",
+        "StudyMonths",
+        "SkullArea",
+        "BreedingSystem",
+        "Migratory",
+        "MonoOrDi",
+        "TypeOfDimorphism",
+        "SyllsPerCall",
+        "Habitat",
+        "species",
+        "SpeciesNoDash",
+        "HBWMass",
+        "Cooperator",
+        "CoopBinary",
+        "CoopBreedingVar",
+        "GBD_SpeciesID",
+        "Communal (From Tobias et al.)",
+        "Social.bond (From Tobias et al.)",
+        "Territory (From Tobias et al.)",
+        "Cohesiveness",
+        "SocialBond",
+        "CommunalFactor",
+        "TerritoryFactor",
+        "SearchBinary",
+        "SearchCats"
+      ]
+    },
+    {
+      "file": "discovery-culture-behaviors.csv",
+      "sha256": "fe6f70fcce2a67c357c0c6b58bac8b3012577620a9caa182dea0482e2e27dfed",
+      "bytes": 268498,
+      "game_approved": false,
+      "rows": 154,
+      "fields": [
+        "behavior_id",
+        "behavior",
+        "group_id",
+        "behavior_description",
+        "behavior_source",
+        "start_date",
+        "end_date",
+        "vertical",
+        "vertical_evidence",
+        "vertical_source",
+        "horizontal",
+        "horizontal_evidence",
+        "horizontal_source",
+        "oblique",
+        "oblique_evidence",
+        "oblique_source",
+        "domains",
+        "domains_evidence",
+        "domains_source",
+        "anth_effects",
+        "anth_source"
+      ]
+    },
+    {
+      "file": "discovery-culture-groups.csv",
+      "sha256": "7bc2f2c47b39f248707e1015b48c0319a139269bbe22cf73e769366ae560280b",
+      "bytes": 33589,
+      "game_approved": false,
+      "rows": 138,
+      "fields": [
+        "group_id",
+        "species_id",
+        "group_name",
+        "group_level",
+        "group_above",
+        "size",
+        "size_evidence",
+        "size_date",
+        "size_source",
+        "location_evidence",
+        "location_source",
+        "lat",
+        "long"
+      ]
+    },
+    {
+      "file": "discovery-culture-sources.csv",
+      "sha256": "5b409919917f766bd3f33ed43d914122bd47f7b783d8f3316ae79942d6092bfe",
+      "bytes": 42164,
+      "game_approved": false,
+      "rows": 163,
+      "fields": [
+        "source_id",
+        "title",
+        "year",
+        "authors",
+        "doi",
+        "methods"
+      ]
+    },
+    {
+      "file": "discovery-culture-species.csv",
+      "sha256": "5e1688227bd86fa600ebefb0592ea6623f5486bff86b824adc0e9c5a476b9a7e",
+      "bytes": 17154,
+      "game_approved": false,
+      "rows": 67,
+      "fields": [
+        "species_id",
+        "common_name",
+        "GBIF",
+        "canonicalName",
+        "Genus",
+        "Family",
+        "Ordr",
+        "Class",
+        "Phylum",
+        "primary_social_unit",
+        "unit_evidence",
+        "unit_source",
+        "IUCN"
+      ]
+    },
+    {
+      "file": "discovery-field-energy-FieldMR_SciDataPub.xls",
+      "sha256": "f64c9a80c7a73ca941fb5f73c22925907361d6580af5eed09df8f9f0d769ab81",
+      "bytes": 1139712,
+      "game_approved": false,
+      "status": "acquired_binary_not_yet_parsed",
+      "gate": "Field energy spreadsheet downloaded; no field observations approved without parsing and unit/source audit."
+    },
+    {
+      "file": "discovery-fish-reproduction.tsv",
+      "sha256": "9aa177bfb8d32f7eeef5b2ef2eab2f2cb79d0806b748186a5f26627da63fa7ac",
+      "bytes": 64777,
+      "game_approved": false,
+      "sheets": [
+        {
+          "name": "Traits value",
+          "nonempty_rows": 290,
+          "first_row": [
+            "Species",
+            "Taxonomic rank",
+            "Family",
+            "Order",
+            "Habitat",
+            "Parental care",
+            "Fecundity min",
+            "Fecundity max",
+            "Fecundity mean",
+            "Reference key",
+            "Offspring size",
+            "Reference key",
+            "Remark"
+          ]
+        },
+        {
+          "name": "References",
+          "nonempty_rows": 181,
+          "first_row": [
+            "Keys",
+            "References"
+          ]
+        },
+        {
+          "name": "Explications",
+          "nonempty_rows": 13,
+          "first_row": [
+            "Traits",
+            "Units and modes",
+            "Explication"
+          ]
+        }
+      ],
+      "species_rank_rows": 261,
+      "non_species_rank_rows": 28,
+      "gate": "Genus rows and remarks indicating inferred values excluded; fecundity extrema and means separate. Offspring-size provenance required. Actual payload is XLSX despite .tsv filename."
+    },
+    {
+      "file": "discovery-gecko-grip-Gilman_et_al_Data.xlsx",
+      "sha256": "25588ce7ef366511ebd98aeeba01b85691628ba5182f0ecf8970432452d56a90",
+      "bytes": 10645,
+      "game_approved": false,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "nonempty_rows": 34,
+          "first_row": [
+            "ID",
+            "SVL (mm)",
+            "Mass",
+            "Toepad Area (mm2)",
+            "MAX Fc (N)",
+            "AVG Compliance (mm/N)"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "discovery-heart-bmr_cardio_condensed-Aug15-2022-use for paper.xlsx",
+      "sha256": "20014e810c35680f91c2aa9279742fd3aa1da5f27b10a5adac7802fe142a88de",
+      "bytes": 185660,
+      "game_approved": false,
+      "sheets": [
+        {
+          "name": "BMR",
+          "nonempty_rows": 64,
+          "first_row": [
+            "Order",
+            "Family",
+            "Genus",
+            "Species",
+            "Common Name",
+            "Mass (kg)",
+            "Log of Mass",
+            "BMR (kcal/day)",
+            "Log of BMR",
+            "Habitat",
+            "Notes",
+            "Adult (y/n/m)",
+            "Fasted, Postabsorptive (y/n/m)",
+            "Resting (y/n/m)",
+            "Thermoneutral (y/n/m)",
+            "Nonreproductive (y/n/m)",
+            "Primary Source",
+            "Secondary Source (if used)",
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "name": "Heart Rate",
+          "nonempty_rows": 63,
+          "first_row": [
+            "Order",
+            "Family",
+            "Genus",
+            "Species",
+            "Common Name",
+            "Mass (kg)",
+            "Log of Mass",
+            "Heart Rate (bpm)",
+            "Log of HR",
+            "Habitat",
+            "Notes",
+            "Adult (y/n/m)",
+            "Fasted, Postabsorptive (y/n/m)",
+            "Resting (y/n/m)",
+            "Thermoneutral (y/n/m)",
+            "Nonreproductive (y/n/m)",
+            "Sedated or anesthesized (y/n)",
+            "Primary Source",
+            "Secondary Source (if used)",
+            "Number of Animals",
+            "Breathing Frequency from Same Set"
+          ]
+        },
+        {
+          "name": "Stroke Volume",
+          "nonempty_rows": 22,
+          "first_row": [
+            "Order",
+            "Family",
+            "Genus",
+            "Species",
+            "Common Name",
+            "Mass (kg)",
+            "Log of Mass",
+            "Stroke Volume (ml)",
+            "Log of SV",
+            "Habitat",
+            "Notes",
+            "Adult (y/n/m)",
+            "Fasted, Postabsorptive (y/n/m)",
+            "Resting (y/n/m)",
+            "Thermoneutral (y/n/m)",
+            "Nonreproductive (y/n/m)",
+            "Sedated or anesthesized (y/n)",
+            "Primary Source",
+            "Secondary Source (if used)",
+            "Number of Animals",
+            "Cardiac Output from same study (ml/min)"
+          ]
+        },
+        {
+          "name": "Breathing Frequency",
+          "nonempty_rows": 85,
+          "first_row": [
+            "Order",
+            "Family",
+            "Genus",
+            "Species",
+            "Common Name",
+            "Mass (kg)",
+            "Log of Mass",
+            "Breathing Frequency (br/min)",
+            "Log of BF",
+            "Habitat",
+            "Notes",
+            "Adult (y/n/m)",
+            "Fasted, Postabsorptive (y/n/m)",
+            "Resting (y/n/m)",
+            "Thermoneutral (y/n/m)",
+            "Nonreproductive (y/n/m)",
+            "Sedated or anesthesized (y/n)",
+            "Primary Source",
+            "Secondary Source (if used)",
+            "Number of Animals",
+            "Temperature (C)",
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "name": "Tidal Volume",
+          "nonempty_rows": 34,
+          "first_row": [
+            "Order",
+            "Family",
+            "Genus",
+            "Species",
+            "Common Name",
+            "Mass (kg)",
+            "Log of Mass",
+            "Tidal Volume (ml)",
+            "Log of TV",
+            "Habitat",
+            "Notes",
+            "Adult (y/n/m)",
+            "Fasted, Postabsorptive (y/n/m)",
+            "Resting (y/n/m)",
+            "Thermoneutral (y/n/m)",
+            "Nonreproductive (y/n/m)",
+            "Sedated or anesthesized (y/n)",
+            "Primary Source",
+            "Secondary Source (if used)",
+            "Number of Animals",
+            "Temperature (C)"
+          ]
+        },
+        {
+          "name": "Minute Ventilation",
+          "nonempty_rows": 98,
+          "first_row": [
+            "Order",
+            "Genus",
+            "Species",
+            "Common Name",
+            "Mass (kg)",
+            "Log of Mass",
+            "Tidal Volume (ml)",
+            "Log of TV",
+            "Breathing Frequency (br/min)",
+            "Log BF",
+            "Minute Ventilation",
+            "Log of MV",
+            "Habitat",
+            "Notes",
+            "Source",
+            "Number of Animals",
+            "Temperature (C)",
+            "Juvenile?",
+            "Aquatic on land?"
+          ]
+        },
+        {
+          "name": "Cardiac Output",
+          "nonempty_rows": 72,
+          "first_row": [
+            "Order",
+            "Genus",
+            "Species",
+            "Common Name",
+            "Mass (kg)",
+            "Log of Mass",
+            "Heart Rate (bpm)",
+            "Log of HR",
+            "Stroke Volume (ml)",
+            "Log of SV",
+            "Cardiac Output",
+            "Log Cardiac Output",
+            "Habitat",
+            "Notes",
+            "Source",
+            "Number of Animals",
+            "Temperature (C)",
+            "Juvenile?",
+            "Aquatic on land?"
+          ]
+        },
+        {
+          "name": "HR to BF Ratio",
+          "nonempty_rows": 114,
+          "first_row": [
+            "Order",
+            "Genus",
+            "Species",
+            "Common Name",
+            "Mass (kg)",
+            "Log of Mass",
+            "Heart Rate (bpm)",
+            "Log of HR",
+            "Breathing Frequency (br/min)",
+            "Log of BF",
+            "Ratio HR/BF",
+            "Log Ratio",
+            "Habitat",
+            "Notes",
+            "Source",
+            "Number of Animals",
+            "Temperature (C)",
+            "Juvenile?",
+            "Sedated?",
+            "Aquatic on land?"
+          ]
+        },
+        {
+          "name": "Sources",
+          "nonempty_rows": 531,
+          "first_row": [
+            "Sources",
+            null,
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "file": "discovery-heart-cleaned_collective_data.xlsx",
+      "sha256": "c0bb8d4d46fa22ad07603215ad7ab7e57aa20d947eaaa8652247b29e50c1d3b5",
+      "bytes": 60265,
+      "game_approved": false,
+      "sheets": [
+        {
+          "name": "BMR",
+          "nonempty_rows": 263,
+          "first_row": [
+            "Order",
+            "Family",
+            "Genus",
+            "Species",
+            "Common Name",
+            "Mass (kg)",
+            "Measurement",
+            "Unit",
+            "Data Type",
+            "Habitat",
+            "Adult (y/n/m)",
+            "Fasted, Postabsorptive (y/n/m)",
+            "Resting (y/n/m)",
+            "Thermoneutral (y/n/m)",
+            "Nonreproductive (y/n/m)",
+            "Sedated or anesthesized (y/n)",
+            "Primary Source",
+            "Secondary Source (if used)",
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "file": "discovery-heart-fhdata-filter.csv",
+      "sha256": "f27d92986ac9d04f77c4ff87766108969551701b90e95c3bea695e541c651774",
+      "bytes": 8898,
+      "game_approved": false,
+      "rows": 67,
+      "fields": [
+        "name",
+        "order",
+        "family",
+        "genus",
+        "species",
+        "mass",
+        "logmb",
+        "fh",
+        "logfh",
+        "habitat",
+        "adult",
+        "fasted",
+        "resting",
+        "tnz",
+        "nonrep",
+        "sedated",
+        "Primary Source",
+        "Secondary Source (if used)",
+        "Number of Animals",
+        "Breathing Frequency from Same Set",
+        ""
+      ]
+    },
+    {
+      "file": "discovery-heart-frdata-filter.csv",
+      "sha256": "a8ff20154a9917575ef3727ded588d2ec9c009885c7adb06a4931f12d76ad580",
+      "bytes": 12757,
+      "game_approved": false,
+      "rows": 154,
+      "fields": [
+        "name",
+        "order",
+        "family",
+        "genus",
+        "species",
+        "mass",
+        "logmb",
+        "fr",
+        "logfr",
+        "habitat",
+        "adult",
+        "fasted",
+        "resting",
+        "tnz",
+        "nonrep",
+        "sedated",
+        "Primary Source",
+        "Secondary Source (if used)",
+        "Number of Animals",
+        "Notes"
+      ]
+    },
+    {
+      "file": "discovery-heart-species-and-sources.xlsx",
+      "sha256": "f1abb5e3a1cd9a060ea2d8a754da7e1459e19ff2f6a808f61c28e9148abe2364",
+      "bytes": 82969,
+      "game_approved": false,
+      "sheets": [
+        {
+          "name": "Species and Sources",
+          "nonempty_rows": 264,
+          "first_row": [
+            "Order",
+            "Family",
+            "Genus",
+            "Species",
+            "Common Name",
+            "Data type",
+            "Habitat",
+            "Primary Source",
+            "Secondary Source (if used)",
+            null,
+            null
+          ]
+        },
+        {
+          "name": "Sources",
+          "nonempty_rows": 531,
+          "first_row": [
+            "Sources",
+            null,
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "file": "discovery-heart-svdata-filter.csv",
+      "sha256": "b27263cf19996e058910db07081177655e77677826561e0a7e954cc1b5a0fd1e",
+      "bytes": 2076,
+      "game_approved": false,
+      "rows": 15,
+      "fields": [
+        "name",
+        "order",
+        "family",
+        "genus",
+        "species",
+        "mass",
+        "logmb",
+        "sv",
+        "logsv",
+        "habitat",
+        "adult",
+        "fasted",
+        "resting",
+        "tnz",
+        "nonrep",
+        "sedated",
+        ""
+      ]
+    },
+    {
+      "file": "discovery-heart-vtdata-filter.csv",
+      "sha256": "c10805e1b74c502ba70ed5924365870253d2aaa99bed0e1064a83652fbb0a1c1",
+      "bytes": 2916,
+      "game_approved": false,
+      "rows": 26,
+      "fields": [
+        "name",
+        "order",
+        "family",
+        "genus",
+        "species",
+        "mass",
+        "logmb",
+        "vt",
+        "logvt",
+        "habitat",
+        "adult",
+        "fasted",
+        "resting",
+        "tnz",
+        "nonrep",
+        "sedated"
+      ]
+    },
+    {
+      "file": "discovery-mammal-parenting-Data file Stockley&Hobson.xlsx",
+      "sha256": "96da254bd56c15739966486cbc549c6979251d494953c98b4d7e04bb4be4b620",
+      "bytes": 41644,
+      "game_approved": false,
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "nonempty_rows": 428,
+          "first_row": [
+            "Species",
+            "MaleCare",
+            "MaleProv",
+            "Monotocous",
+            "BodyMass",
+            "LitterSize",
+            "TeatRatio",
+            "NeonateMass",
+            "WeanMass",
+            "InterBirthInterval",
+            "LittersYear",
+            "AnnualFecundity"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "discovery-milk-supplement.zip",
+      "sha256": "12610a833f93d34ac08319756d5f4689ebccbb1fac5ea369c8c0742ec532cdcf",
+      "bytes": 1817,
+      "game_approved": false,
+      "valid_zip": false,
+      "status": "failed_payload_validation"
+    },
+    {
+      "file": "discovery-prey-Appendix_S1.pdf",
+      "sha256": "b7be3a6e52f26b3c959edda5b57700703658e352b85a90a62db1e66bb8ebdb81",
+      "bytes": 453403,
+      "game_approved": false,
+      "status": "acquired_pdf_requires_table_extraction"
+    },
+    {
+      "file": "discovery-primate-vocabulary-ZenodoData_April2026.xlsx",
+      "sha256": "119dc9cb968f48c72d56d0e7e10585c83b032cee9638baf5f33d0d63fe68ce66",
+      "bytes": 26764,
+      "game_approved": false,
+      "sheets": [
+        {
+          "name": "data",
+          "nonempty_rows": 43,
+          "first_row": [
+            "BinomialNomenclature",
+            "BinomialNomenclatureAlternative",
+            "MSBinomialNomenclature",
+            "Clade",
+            "Family",
+            "Zoological.Record.Article.Count",
+            "log.AdultBodyMass g.",
+            "IMaxLongevity m",
+            "AVGECV",
+            "AWPSocialGrpSize",
+            "CONFLICT",
+            "MSrepertoire size",
+            "RepertoireUpdateReference",
+            "Updatedrepertoire size",
+            "ID",
+            "Caecum Length",
+            "Colon Length",
+            "Large.Intestine Length",
+            "Small.Intestine Length",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "name": "ACR values for extinct nodes",
+          "nonempty_rows": 42,
+          "first_row": [
+            "Ancestor ID",
+            "Updatedrepertoire size",
+            "Updatedrepertoire size lower CI",
+            "Updatedrepertoire size upper CI",
+            "CONFLICT",
+            "CONFLICT lower CI",
+            "CONFLICT upper CI"
+          ]
+        },
+        {
+          "name": "data dictionary",
+          "nonempty_rows": 27,
+          "first_row": [
+            "Variable Name",
+            "Description"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "discovery-whiskers-SupplementaryData.xlsx",
+      "sha256": "c195493e2c156370cf5d53f43218d85dd88a9b289e668bc9336c8be52a47590d",
+      "bytes": 37657,
+      "game_approved": false,
+      "sheets": [
+        {
+          "name": "Flat Floor",
+          "nonempty_rows": 129,
+          "first_row": [
+            "This is the data from all tracked footage",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "name": "Inclined Floor",
+          "nonempty_rows": 58,
+          "first_row": [
+            "This is the data from all tracked footage",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "name": "Distance and Timings",
+          "nonempty_rows": 12,
+          "first_row": [
+            "This is the time and distance from the nost to the fore and rear paw placement",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "name": "Measurements",
+          "nonempty_rows": 26,
+          "first_row": [
+            "These are all the measurements taken from the manually tracked footage",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        }
+      ]
+    }
+  ],
+  "physiology_filters": {
+    "fh": {
+      "all_nonblank_rows": 42,
+      "strict_adult_resting_unsedated_rows": 32,
+      "distinct_source_binomials": 31,
+      "caution": "Original study references, awake status, environment and uncertainty still require audit; do not aggregate duplicates automatically."
+    },
+    "fr": {
+      "all_nonblank_rows": 77,
+      "strict_adult_resting_unsedated_rows": 76,
+      "distinct_source_binomials": 76,
+      "caution": "Original study references, awake status, environment and uncertainty still require audit; do not aggregate duplicates automatically."
+    }
+  },
+  "warnings": [
+    "Milk supplement request returned HTML, not ZIP; milk numeric dataset is not acquired.",
+    "Downloaded oxygen-paper accession actually resolves to a lizard movement paper; excluded from fish oxygen evidence.",
+    "Spider Zenodo current files contain analysis/phylogeny, not main S1 table; do not claim venom observations acquired."
+  ],
+  "new_playable_approvals": 0
+}

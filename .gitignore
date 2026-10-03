@@ -93,3 +93,6 @@ data/animalstats/source/frugint*
 data/animalstats/source/mammalbase-*
 data/animalstats/source/bee-github-list.json
 data/animalstats/research/additional-source-records.jsonl.gz
+
+# Public research acquisition snapshots retained privately
+data/animalstats/source/discovery-*

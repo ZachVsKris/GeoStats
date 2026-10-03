@@ -1,13 +1,14 @@
 {
-  "concepts": 112,
+  "concepts": 153,
+  "proposed_prize_categories": 304,
   "recommendations": {
-    "keep": 68,
-    "hold": 39,
+    "keep": 103,
+    "hold": 45,
     "reject": 5
   },
   "interest": {
-    "intuitive": 86,
-    "specialist": 26
+    "intuitive": 122,
+    "specialist": 31
   },
   "new_game_approvals": 0,
   "verified_endpoint_counts": {

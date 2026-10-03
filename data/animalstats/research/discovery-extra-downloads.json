@@ -1,0 +1,105 @@
+[
+  {
+    "file": "discovery-heart-bmr_cardio_condensed-Aug15-2022-use for paper.xlsx",
+    "url": "https://raw.githubusercontent.com/stacyderuiter/mammal-allometry/91c6e5df80459a9c69c445a32e30653e5c351f10/data/bmr_cardio_condensed-Aug15-2022-use%20for%20paper.xlsx",
+    "bytes": 185660,
+    "git_blob_sha": "047215c5519dd7f659d5a2eb92c48589418caabb",
+    "status": "acquired"
+  },
+  {
+    "file": "discovery-heart-cleaned_collective_data.xlsx",
+    "url": "https://raw.githubusercontent.com/stacyderuiter/mammal-allometry/91c6e5df80459a9c69c445a32e30653e5c351f10/data/cleaned_collective_data.xlsx",
+    "bytes": 60265,
+    "git_blob_sha": "d04a7ff384632bc3f4b5c40172760545ebdc657c",
+    "status": "acquired"
+  },
+  {
+    "file": "discovery-heart-fhdata-filter.csv",
+    "url": "https://raw.githubusercontent.com/stacyderuiter/mammal-allometry/91c6e5df80459a9c69c445a32e30653e5c351f10/data/fhdata-filter.csv",
+    "bytes": 8898,
+    "git_blob_sha": "c203fab024f61839d409f2f3e5a4a90bf0d1bd6a",
+    "status": "acquired"
+  },
+  {
+    "file": "discovery-heart-frdata-filter.csv",
+    "url": "https://raw.githubusercontent.com/stacyderuiter/mammal-allometry/91c6e5df80459a9c69c445a32e30653e5c351f10/data/frdata-filter.csv",
+    "bytes": 12757,
+    "git_blob_sha": "5dba3c5a2664b7dea11b481d2a5b6f00a61482de",
+    "status": "acquired"
+  },
+  {
+    "file": "discovery-heart-species-and-sources.xlsx",
+    "url": "https://raw.githubusercontent.com/stacyderuiter/mammal-allometry/91c6e5df80459a9c69c445a32e30653e5c351f10/data/species-and-sources.xlsx",
+    "bytes": 82969,
+    "git_blob_sha": "260783a267d900178910f4bdfe1d9d10fde1910b",
+    "status": "acquired"
+  },
+  {
+    "file": "discovery-heart-svdata-filter.csv",
+    "url": "https://raw.githubusercontent.com/stacyderuiter/mammal-allometry/91c6e5df80459a9c69c445a32e30653e5c351f10/data/svdata-filter.csv",
+    "bytes": 2076,
+    "git_blob_sha": "25679eec58c798b37a97696d2da5831d59086578",
+    "status": "acquired"
+  },
+  {
+    "file": "discovery-heart-vtdata-filter.csv",
+    "url": "https://raw.githubusercontent.com/stacyderuiter/mammal-allometry/91c6e5df80459a9c69c445a32e30653e5c351f10/data/vtdata-filter.csv",
+    "bytes": 2916,
+    "git_blob_sha": "ddb0aa73c1a6ba29e41fd3750de9617dc5bcb3c6",
+    "status": "acquired"
+  },
+  {
+    "file": "discovery-culture-behaviors.csv",
+    "url": "https://raw.githubusercontent.com/datadiversitylab/ACDB/518e8421448d817e0e140914e20f76839342505c/db/table_csvs/behaviors.csv",
+    "bytes": 268498,
+    "git_blob_sha": "4df00781c5bd298f2e6117a7bd56c5e4623fe864",
+    "status": "acquired"
+  },
+  {
+    "file": "discovery-culture-groups.csv",
+    "url": "https://raw.githubusercontent.com/datadiversitylab/ACDB/518e8421448d817e0e140914e20f76839342505c/db/table_csvs/groups.csv",
+    "bytes": 33589,
+    "git_blob_sha": "8d13c6af0a1658fa2e98195070350fb506641ac1",
+    "status": "acquired"
+  },
+  {
+    "file": "discovery-culture-sources.csv",
+    "url": "https://raw.githubusercontent.com/datadiversitylab/ACDB/518e8421448d817e0e140914e20f76839342505c/db/table_csvs/sources.csv",
+    "bytes": 42164,
+    "git_blob_sha": "f6f34fd4cfa96a45c85761288201f8a38e511b63",
+    "status": "acquired"
+  },
+  {
+    "file": "discovery-culture-species.csv",
+    "url": "https://raw.githubusercontent.com/datadiversitylab/ACDB/518e8421448d817e0e140914e20f76839342505c/db/table_csvs/species.csv",
+    "bytes": 17154,
+    "git_blob_sha": "0473945c6e449cf024acd901e8177999c091b09f",
+    "status": "acquired"
+  },
+  {
+    "file": "discovery-milk-supplement.zip",
+    "url": "https://peerj.com/articles/8085/Supplemental_Information_1.zip",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "file": "discovery-fish-reproduction.tsv",
+    "url": "https://doi.pangaea.de/10.1594/PANGAEA.868610?format=textfile",
+    "bytes": 64777,
+    "git_blob_sha": null,
+    "status": "acquired"
+  },
+  {
+    "file": "discovery-arthropods-paper.html",
+    "url": "https://bdj.pensoft.net/article/146785/",
+    "status": "failed",
+    "error": "HTTP Error 403: Forbidden"
+  },
+  {
+    "file": "discovery-oxygen-paper.html",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4806635/",
+    "bytes": 237940,
+    "git_blob_sha": null,
+    "status": "acquired"
+  }
+]

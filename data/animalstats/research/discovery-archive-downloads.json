@@ -1,0 +1,19 @@
+[
+  {
+    "file": "discovery-prey-Appendix_S1.pdf",
+    "url": "https://ndownloader.figshare.com/files/1652427",
+    "bytes": 453403,
+    "sha256": "b7be3a6e52f26b3c959edda5b57700703658e352b85a90a62db1e66bb8ebdb81"
+  },
+  {
+    "file": "discovery-arthropods.zip",
+    "url": "https://ipt.biodiversity.be/archive.do?r=arthropod-trait-dataset",
+    "bytes": 534324,
+    "sha256": "ffc505f8f642925a3323ce28228178d36a1e9d4aab24b55298d674a1d9f8873d"
+  },
+  {
+    "file": "discovery-chewing.html",
+    "url": "https://academic.oup.com/view-large/15006928",
+    "error": "HTTP Error 403: Forbidden"
+  }
+]

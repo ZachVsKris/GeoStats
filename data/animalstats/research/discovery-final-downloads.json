@@ -1,0 +1,25 @@
+[
+  {
+    "file": "discovery-milk-supplement.zip",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/6858816/bin/peerj-07-8085-s001.zip",
+    "bytes": 1817,
+    "sha256": "12610a833f93d34ac08319756d5f4689ebccbb1fac5ea369c8c0742ec532cdcf"
+  },
+  {
+    "file": "discovery-prey-metadata.json",
+    "url": "https://api.figshare.com/v2/articles/1153473",
+    "bytes": 6177,
+    "sha256": "ae83327dfdaf0c9ae3730f62eed77f9f554796bf39b3ca10e4997f2de8413b00"
+  },
+  {
+    "file": "discovery-arthropods-gbif.json",
+    "url": "https://api.gbif.org/v1/dataset/a684ca81-66f3-4d38-863e-463f79220f03",
+    "bytes": 16103,
+    "sha256": "bb95669213994620b9a4658ccbf39525a7bc4d5e4b4f20e600c224a29310c825"
+  },
+  {
+    "file": "discovery-arthropods-article.xml",
+    "url": "https://bdj.pensoft.net/article/146785/download/xml/",
+    "error": "HTTP Error 403: Forbidden"
+  }
+]

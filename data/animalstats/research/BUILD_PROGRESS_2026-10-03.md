@@ -18,10 +18,16 @@ Validated the official Europe PMC archive of the Blomquist 2019 milk supplement.
 
 Recovered the original author workbook for Tucker & Rogers 2014, with 108 carnivorous mammals (57 marine, 51 terrestrial) and 188 references. Retained original log values and reversible kilogram conversions rather than rounded PDF values. Three missing minimum-prey cells stay missing. Diet entries may refer to prey-species mass rather than a weighed kill, so the review label and eligibility gate now make this distinction explicit.
 
-No new observations were automatically approved for gameplay. Current playing coverage remains 72 category IDs / 62 distinct displayed labels, not 200. Some IDs repeat prize names across separate source/group pools; these are not counted as additional distinct labels. Reaching 200–500 genuinely useful playable labels requires further source acquisition, original-reference auditing and animal illustration coverage; the requirement remains open.
+Thirty-nine measured observations were manually screened and promoted in this pass, producing 78 direction-specific rows and eight new prize labels: fastest/slowest breathing at rest, and most/least milk fat, sugar and protein. Resting breathing is restricted to five exact wild-species matches from a single study with at least three sampled animals and explicit adult/resting/unsedated flags. Milk comparisons use 34 reviewed concentrations from 12 placental mammals with reported lactation stage and N ≥ 3; marsupials, monotremes and missing values are excluded. Each board allows at most one milk-composition prize. Full rankings use the validated release snapshot if warehouse data fails its checks. The playing warehouse now contains 4,751 approved direction-specific rows.
+
+Current playing coverage is 80 category IDs / 70 distinct displayed labels and 1,471 validated boards, not 200. Some IDs repeat prize names across separate source/group pools; these are not counted as additional distinct labels. Reaching 200–500 genuinely useful playable labels requires further source acquisition, original-reference auditing and animal illustration coverage; the requirement remains open.
 
 ## Safeguards
 
 Generator candidates now require finite positive values, approved observed/compiled origins, exact units, measurement basis and canonical source matches. Each reverse direction qualifies independently; valid boards are no longer discarded merely because an opposite has no board. Opposites remain adjacent on the editorial list.
 
 Raw source material and the research database remain private and outside the public code repository. Review recommendations remain distinct from scientific approval and gameplay eligibility.
+
+## Latest release verification
+
+Commit b283458a84ad3430860cf6b47c801157fe2b1590 is deployed on the AnimalStats preview branch. Production build passed. The prior 26 checks passed across targeted runs; four checks for the changed data endpoint, new breathing and milk rounds, and searchable/exportable full catalog passed again in desktop Chromium. The live breathing board completed and its full five-animal source ranking displayed correctly. The 200-category requirement remains unfinished.

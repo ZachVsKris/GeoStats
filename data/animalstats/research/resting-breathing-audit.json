@@ -1,0 +1,66 @@
+{
+  "reviewedAt": "2026-10-03",
+  "traitId": "resting_breathing_frequency",
+  "measurementBasis": "Reported breathing frequency in awake, resting adult mammals from Mortola & Lanthier 2005, as transcribed in the author mammal-allometry archive pinned to 91c6e5df80459a9c69c445a32e30653e5c351f10. Only exact named wild-species matches with at least three sampled animals and explicit adult/resting/unsedated flags. Study cohort rates, not universal species constants; temperature, feeding and sex are not standardized. No allometric predictions, domestic-dog-to-wolf substitution or missing-value imputation.",
+  "records": [
+    {
+      "scientificName": "Ceratotherium simum",
+      "value": 11.0,
+      "sampleSizeRaw": "3",
+      "sourceRow": 9,
+      "primaryStudy": "https://doi.org/10.1016/j.resp.2004.10.006",
+      "numericArchive": "https://github.com/stacyderuiter/mammal-allometry/blob/91c6e5df80459a9c69c445a32e30653e5c351f10/data/frdata-filter.csv",
+      "decision": "approved-study-cohort-comparison",
+      "missingUncertainty": true
+    },
+    {
+      "scientificName": "Hippopotamus amphibius",
+      "value": 6.0,
+      "sampleSizeRaw": "5",
+      "sourceRow": 17,
+      "primaryStudy": "https://doi.org/10.1016/j.resp.2004.10.006",
+      "numericArchive": "https://github.com/stacyderuiter/mammal-allometry/blob/91c6e5df80459a9c69c445a32e30653e5c351f10/data/frdata-filter.csv",
+      "decision": "approved-study-cohort-comparison",
+      "missingUncertainty": true
+    },
+    {
+      "scientificName": "Giraffa camelopardalis",
+      "value": 7.0,
+      "sampleSizeRaw": "3+",
+      "sourceRow": 21,
+      "primaryStudy": "https://doi.org/10.1016/j.resp.2004.10.006",
+      "numericArchive": "https://github.com/stacyderuiter/mammal-allometry/blob/91c6e5df80459a9c69c445a32e30653e5c351f10/data/frdata-filter.csv",
+      "decision": "approved-study-cohort-comparison",
+      "missingUncertainty": true
+    },
+    {
+      "scientificName": "Ursus maritimus",
+      "value": 13.0,
+      "sampleSizeRaw": "4",
+      "sourceRow": 45,
+      "primaryStudy": "https://doi.org/10.1016/j.resp.2004.10.006",
+      "numericArchive": "https://github.com/stacyderuiter/mammal-allometry/blob/91c6e5df80459a9c69c445a32e30653e5c351f10/data/frdata-filter.csv",
+      "decision": "approved-study-cohort-comparison",
+      "missingUncertainty": true
+    },
+    {
+      "scientificName": "Castor canadensis",
+      "value": 33.0,
+      "sampleSizeRaw": "6",
+      "sourceRow": 143,
+      "primaryStudy": "https://doi.org/10.1016/j.resp.2004.10.006",
+      "numericArchive": "https://github.com/stacyderuiter/mammal-allometry/blob/91c6e5df80459a9c69c445a32e30653e5c351f10/data/frdata-filter.csv",
+      "decision": "approved-study-cohort-comparison",
+      "missingUncertainty": true
+    }
+  ],
+  "exclusions": [
+    "Domestic dog never mapped to gray wolf",
+    "Mixed source studies excluded",
+    "Fewer than three animals excluded",
+    "Unspecified adult/resting/sedation state excluded",
+    "Unknown flags not promoted to positive protocol flags"
+  ],
+  "sourceSha256": "a8ff20154a9917575ef3727ded588d2ec9c009885c7adb06a4931f12d76ad580",
+  "approvalScope": "Selected study-cohort facts only; board eligibility and rank separation independently tested"
+}

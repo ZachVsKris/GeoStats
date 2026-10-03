@@ -35,6 +35,10 @@ if (OUT/'source/pantheria-2009.zip').exists():
    d['values'].append(dict(animalId=animal['id'],traitId='mammal_range_area',valueNumeric=number,unit='km²',sex='species-level',lifeStage='species-level',measurementBasis=range_basis,sourceId='pantheria-range-maps',observationType='compiled',confidence='approved',uncertaintyStatus='not-reported',notes='Exact species match; published GIS map area. No modeled body-length, mass, or home-range values imported.'))
 # Every admitted category gets its reverse from identical records, never from a second source.
 METRICS={
+'resting_breathing_frequency':('Fastest breathing at rest','Slowest breathing at rest','intuitive','breathing'),
+'milk_fat_concentration':('Fattiest milk','Least fat in milk','intuitive','milk-fat'),
+'milk_sugar_concentration':('Most sugar in milk','Least sugar in milk','intuitive','milk-sugar'),
+'milk_protein_concentration':('Most protein in milk','Least protein in milk','specialist','milk-protein'),
 'habitat_elevation_ceiling':('Highest mountain habitat','Lowest mountain ceiling','specialist','elevation'),
 'habitat_depth_ceiling':('Deepest water habitat','Shallowest water limit','specialist','depth'),
 'mammal_tail_length_upper':('Longest mammal tail','Shortest mammal tail','intuitive','tail'),
@@ -69,7 +73,7 @@ METRICS={
 'bird_beak_length':('Longest beak','Shortest beak','specialist','beak-length'),
 'bird_tail_length':('Longest tail feathers','Shortest tail feathers','specialist','tail'),
 'raw_egg_mass':('Heaviest egg','Lightest egg','specialist','reproduction'),
-'birth_weight':('Heaviest newborn','Lightest newborn','specialist','reproduction'),
+'birth_weight':('Heaviest newborn','Lightest newborn','intuitive','newborn-mass'),
 'gestation':('Longest pregnancy','Shortest pregnancy','intuitive','pregnancy'),
 'raw_gestation':('Longest pregnancy','Shortest pregnancy','intuitive','pregnancy'),
 'clutch_size':('Most eggs per clutch','Fewest eggs per clutch','intuitive','offspring'),
@@ -79,7 +83,7 @@ METRICS={
 'weaning_age':('Longest time on milk','Shortest time on milk','specialist','weaning'),
 'raw_weaning_age':('Longest time on milk','Shortest time on milk','specialist','weaning'),
 'female_maturity':('Latest female maturity','Earliest female maturity','specialist','maturity'),
-'raw_birth_mass':('Heaviest newborn','Lightest newborn','specialist','reproduction'),
+'raw_birth_mass':('Heaviest newborn','Lightest newborn','intuitive','newborn-mass'),
 'litter_size':('Most young per birth','Fewest young per birth','intuitive','offspring'),
 }
 # Preserve the research archive in pilot.json; only curated pairs enter this prototype.
@@ -119,6 +123,8 @@ pools['flight']=[i for i in active if (i,'cruising_flight_speed') in V]
 pools['brains']=[i for i in active if (i,'weighed_brain_mass') in V]
 pools['reptile-brains']=[i for i in pools['brains'] if A[i]['taxonomicGroup'] in {'crocodilian','turtle','snake'}]
 pools['sleep']=[i for i in active if (i,'daily_sleep') in V]
+pools['breathing']=[i for i in active if (i,'resting_breathing_frequency') in V]
+pools['milk']=[i for i in active if any((i,t) in V for t in ['milk_fat_concentration','milk_sugar_concentration','milk_protein_concentration'])]
 pools['broad-mammals']=[i for i in pools['mammals'] if (i,'mammal_range_area') in V and (i,'female_maturity') in V and (i,'maximum_documented_lifespan') in V]
 for metric in ['adult_tooth_count','field_travel_speed','field_swim_speed','daily_rem_sleep','basal_energy','mass_specific_basal_energy','field_max_dive','habitat_elevation_ceiling','habitat_depth_ceiling','adult_shoulder_height','mammal_tail_length_upper','aquatic_length_upper','raw_clutch_frequency','litters_per_year','raw_egg_length','raw_egg_width']:
  pools[metric]=[i for i in active if (i,metric) in V]
@@ -157,6 +163,7 @@ for mode,n,k in [('easy',4,4),('normal',6,4),('expert',8,6)]:
     combinations.extend((b,s) for b in choices for s in details)
    for b,s in combinations:
     combo=b+s;tids=[x[0] for x in combo]
+    if sum(T[t].get('gameplayFamily')=='milk-composition' for t in tids)>1:continue
     if sum(T[t]['metricKey'] in LIFECYCLE for t in tids)>(3 if k==6 else 1):continue
     if len({x[1] for x in combo})!=k or len({T[t]['metricKey'] for t in tids})!=k:continue
     if any(abs(1-6*sum((x-y)**2 for x,y in zip(a[2],b[2]))/(n*(n*n-1)))>=1 for a,b in itertools.combinations(combo,2)):continue

@@ -1,0 +1,14 @@
+{
+  "categoryIds": 80,
+  "distinctPrizeLabels": 70,
+  "metricFamilies": 28,
+  "candidateBoards": 1471,
+  "newPlayablePrizeLabels": 8,
+  "newReviewedObservations": 39,
+  "newMilkPrizesOnAnyBoard": 1,
+  "notes": [
+    "Source-pool duplicates are not additional distinct labels.",
+    "New facts compare reported study averages, with uncertainty missing rather than zero.",
+    "200+ distinct playable prize labels remains unfinished."
+  ]
+}

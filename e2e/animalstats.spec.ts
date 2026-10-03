@@ -209,6 +209,46 @@ test("new prototype balances categories and mirrors measured values exactly", ()
 });
 
 
+test("new mammal comparisons preserve measured facts and stay separate", () => {
+ const data=animalDataset as AnimalDataset;
+ const breathing=data.values.filter(v=>v.traitId==="resting_breathing_frequency");
+ expect(Object.fromEntries(breathing.map(v=>[v.animalId,v.valueNumeric]))).toEqual({
+  ceratotherium_simum:11,hippopotamus_amphibius:6,giraffa_camelopardalis:7,ursus_maritimus:13,castor_canadensis:33,
+ });
+ expect(breathing.some(v=>v.animalId==="canis_lupus")).toBe(false);
+ const milk=data.values.filter(v=>v.traitId.startsWith("milk_")&&!v.traitId.endsWith("__low"));
+ expect(milk).toHaveLength(34);
+ expect(milk.some(v=>["macropus_rufus","phascolarctos_cinereus","ornithorhynchus_anatinus"].includes(v.animalId))).toBe(false);
+ expect(milk.some(v=>v.animalId==="giraffa_camelopardalis"&&v.traitId==="milk_sugar_concentration")).toBe(false);
+ for(const v of [...breathing,...milk]) {
+  expect(v.observationType).toBe("compiled");
+  expect(v.uncertaintyStatus).toBe("not-reported");
+  expect(v.valueMin).toBeUndefined();
+  expect(v.valueMax).toBeUndefined();
+ }
+ const boards=candidateData.boards as BoardCandidate[];
+ for(const id of ["resting_breathing_frequency","milk_fat_concentration","milk_sugar_concentration","milk_protein_concentration"])
+  expect(boards.some(b=>b.traitIds.includes(id))).toBe(true);
+ for(const board of boards)expect(board.traitIds.filter(id=>id.startsWith("milk_")).length).toBeLessThanOrEqual(1);
+ const board={...boards.find(b=>b.mode==="easy")!,traitIds:["milk_fat_concentration","milk_sugar_concentration","adult_body_mass","gestation"]};
+ expect(validateAnimalBoard(data,board).rejectionReasons).toContain("only one milk-composition prize per board");
+});
+
+for(const prefix of ["resting_breathing_frequency","milk_fat_concentration"]) {
+ test(`new ${prefix} board plays through to sourced rankings`,async({page})=>{
+  const board=(candidateData.boards as BoardCandidate[]).find(b=>b.mode==="easy"&&b.traitIds.includes(prefix))!;
+  await page.goto(`/animals?board=${board.id}`);
+  for(let i=0;i<4;i++){await page.locator('.penAnimal').nth(i).click();await page.locator('.traitPodium').nth(i).click();}
+  await page.getByRole('button',{name:'Submit answers'}).click();
+  await expect(page.locator('.resultWrap')).toHaveCount(4);
+  const trait=(animalDataset as AnimalDataset).traits.find(t=>t.id===prefix)!;
+  const result=page.locator('.resultWrap').filter({hasText:trait.displayName});
+  await result.getByRole('button',{name:'View rankings'}).click();
+  await expect(result.locator('.boardRank')).toHaveCount(4);
+  await expect(result).toContainText(trait.unit);
+ });
+}
+
 test("GeoStats result layout replaces the separate award ceremony", async ({page}) => {
  await page.goto('/animals');
  for(let i=0;i<4;i++){await page.locator('.penAnimal').nth(i).click();await page.locator('.traitPodium').nth(i).click();}

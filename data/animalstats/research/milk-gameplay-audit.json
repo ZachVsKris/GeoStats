@@ -1,0 +1,355 @@
+{
+  "sourceSha256": "16358f4f0263393d1c6725e7455425a0d9018b4a6349b2f1d73ac116b6c7601e",
+  "reviewedAt": "2026-10-03",
+  "records": [
+    {
+      "species": "Giraffa camelopardalis",
+      "traitId": "milk_fat_concentration",
+      "value": 4.8,
+      "column": "Fat",
+      "row": 23,
+      "sampleSizeRaw": "3",
+      "lactationStageRaw": "Mid",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Giraffa camelopardalis",
+      "traitId": "milk_protein_concentration",
+      "value": 4.0,
+      "column": "Protein",
+      "row": 23,
+      "sampleSizeRaw": "3",
+      "lactationStageRaw": "Mid",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Vulpes vulpes",
+      "traitId": "milk_fat_concentration",
+      "value": 5.8,
+      "column": "Fat",
+      "row": 27,
+      "sampleSizeRaw": "3",
+      "lactationStageRaw": "28-35",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Vulpes vulpes",
+      "traitId": "milk_sugar_concentration",
+      "value": 4.6,
+      "column": "Sugar",
+      "row": 27,
+      "sampleSizeRaw": "3",
+      "lactationStageRaw": "28-35",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Vulpes vulpes",
+      "traitId": "milk_protein_concentration",
+      "value": 6.7,
+      "column": "Protein",
+      "row": 27,
+      "sampleSizeRaw": "3",
+      "lactationStageRaw": "28-35",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Panthera leo",
+      "traitId": "milk_fat_concentration",
+      "value": 8.7,
+      "column": "Fat",
+      "row": 28,
+      "sampleSizeRaw": "6",
+      "lactationStageRaw": "45-90",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Panthera leo",
+      "traitId": "milk_sugar_concentration",
+      "value": 3.2,
+      "column": "Sugar",
+      "row": 28,
+      "sampleSizeRaw": "6",
+      "lactationStageRaw": "45-90",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Panthera leo",
+      "traitId": "milk_protein_concentration",
+      "value": 11.8,
+      "column": "Protein",
+      "row": 28,
+      "sampleSizeRaw": "6",
+      "lactationStageRaw": "45-90",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Ursus arctos",
+      "traitId": "milk_fat_concentration",
+      "value": 17.1,
+      "column": "Fat",
+      "row": 46,
+      "sampleSizeRaw": "9",
+      "lactationStageRaw": "60-98",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Ursus arctos",
+      "traitId": "milk_sugar_concentration",
+      "value": 2.2,
+      "column": "Sugar",
+      "row": 46,
+      "sampleSizeRaw": "9",
+      "lactationStageRaw": "60-98",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Ursus arctos",
+      "traitId": "milk_protein_concentration",
+      "value": 9.2,
+      "column": "Protein",
+      "row": 46,
+      "sampleSizeRaw": "9",
+      "lactationStageRaw": "60-98",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Ursus americanus",
+      "traitId": "milk_fat_concentration",
+      "value": 25.1,
+      "column": "Fat",
+      "row": 47,
+      "sampleSizeRaw": "6",
+      "lactationStageRaw": "60-90",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Ursus americanus",
+      "traitId": "milk_sugar_concentration",
+      "value": 3.0,
+      "column": "Sugar",
+      "row": 47,
+      "sampleSizeRaw": "6",
+      "lactationStageRaw": "60-90",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Ursus americanus",
+      "traitId": "milk_protein_concentration",
+      "value": 7.0,
+      "column": "Protein",
+      "row": 47,
+      "sampleSizeRaw": "6",
+      "lactationStageRaw": "60-90",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Balaenoptera musculus",
+      "traitId": "milk_fat_concentration",
+      "value": 40.9,
+      "column": "Fat",
+      "row": 49,
+      "sampleSizeRaw": "4",
+      "lactationStageRaw": "~210",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Balaenoptera musculus",
+      "traitId": "milk_sugar_concentration",
+      "value": 1.3,
+      "column": "Sugar",
+      "row": 49,
+      "sampleSizeRaw": "4",
+      "lactationStageRaw": "~210",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Balaenoptera musculus",
+      "traitId": "milk_protein_concentration",
+      "value": 11.9,
+      "column": "Protein",
+      "row": 49,
+      "sampleSizeRaw": "4",
+      "lactationStageRaw": "~210",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Megaptera novaeangliae",
+      "traitId": "milk_fat_concentration",
+      "value": 33.0,
+      "column": "Fat",
+      "row": 51,
+      "sampleSizeRaw": "8",
+      "lactationStageRaw": "~300",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Megaptera novaeangliae",
+      "traitId": "milk_protein_concentration",
+      "value": 12.5,
+      "column": "Protein",
+      "row": 51,
+      "sampleSizeRaw": "8",
+      "lactationStageRaw": "~300",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Tursiops truncatus",
+      "traitId": "milk_fat_concentration",
+      "value": 29.4,
+      "column": "Fat",
+      "row": 53,
+      "sampleSizeRaw": "4",
+      "lactationStageRaw": "198-210",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Tursiops truncatus",
+      "traitId": "milk_sugar_concentration",
+      "value": 2.5,
+      "column": "Sugar",
+      "row": 53,
+      "sampleSizeRaw": "4",
+      "lactationStageRaw": "198-210",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Tursiops truncatus",
+      "traitId": "milk_protein_concentration",
+      "value": 12.2,
+      "column": "Protein",
+      "row": 53,
+      "sampleSizeRaw": "4",
+      "lactationStageRaw": "198-210",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Equus asinus",
+      "traitId": "milk_fat_concentration",
+      "value": 1.8,
+      "column": "Fat",
+      "row": 81,
+      "sampleSizeRaw": "9",
+      "lactationStageRaw": "30-180",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Equus asinus",
+      "traitId": "milk_sugar_concentration",
+      "value": 5.9,
+      "column": "Sugar",
+      "row": 81,
+      "sampleSizeRaw": "9",
+      "lactationStageRaw": "30-180",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Equus asinus",
+      "traitId": "milk_protein_concentration",
+      "value": 1.7,
+      "column": "Protein",
+      "row": 81,
+      "sampleSizeRaw": "9",
+      "lactationStageRaw": "30-180",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Macaca mulatta",
+      "traitId": "milk_fat_concentration",
+      "value": 6.2,
+      "column": "Fat",
+      "row": 96,
+      "sampleSizeRaw": "58",
+      "lactationStageRaw": "104",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Macaca mulatta",
+      "traitId": "milk_sugar_concentration",
+      "value": 7.5,
+      "column": "Sugar",
+      "row": 96,
+      "sampleSizeRaw": "58",
+      "lactationStageRaw": "104",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Macaca mulatta",
+      "traitId": "milk_protein_concentration",
+      "value": 2.1,
+      "column": "Protein",
+      "row": 96,
+      "sampleSizeRaw": "58",
+      "lactationStageRaw": "104",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Loxodonta africana",
+      "traitId": "milk_fat_concentration",
+      "value": 5.0,
+      "column": "Fat",
+      "row": 109,
+      "sampleSizeRaw": "6",
+      "lactationStageRaw": "60-80",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Loxodonta africana",
+      "traitId": "milk_sugar_concentration",
+      "value": 5.3,
+      "column": "Sugar",
+      "row": 109,
+      "sampleSizeRaw": "6",
+      "lactationStageRaw": "60-80",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Loxodonta africana",
+      "traitId": "milk_protein_concentration",
+      "value": 4.0,
+      "column": "Protein",
+      "row": 109,
+      "sampleSizeRaw": "6",
+      "lactationStageRaw": "60-80",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Cavia porcellus",
+      "traitId": "milk_fat_concentration",
+      "value": 5.7,
+      "column": "Fat",
+      "row": 112,
+      "sampleSizeRaw": "10",
+      "lactationStageRaw": "4-9",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Cavia porcellus",
+      "traitId": "milk_sugar_concentration",
+      "value": 4.8,
+      "column": "Sugar",
+      "row": 112,
+      "sampleSizeRaw": "10",
+      "lactationStageRaw": "4-9",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Cavia porcellus",
+      "traitId": "milk_protein_concentration",
+      "value": 6.3,
+      "column": "Protein",
+      "row": 112,
+      "sampleSizeRaw": "10",
+      "lactationStageRaw": "4-9",
+      "decision": "approved-placental-mid-lactation-compilation"
+    }
+  ],
+  "protocolEvidence": [
+    "https://doi.org/10.1111/1365-2656.12095",
+    "https://doi.org/10.7717/peerj.8085"
+  ],
+  "rejectedGroups": [
+    "Marsupials: pouch-emergence stage not equivalent",
+    "Monotremes: mature-stage comparability not established"
+  ],
+  "approvalScope": "Published measured compilation, exact names only; at most one milk-composition category on a board; separation checked independently"
+}

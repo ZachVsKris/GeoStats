@@ -234,6 +234,20 @@ test("new mammal comparisons preserve measured facts and stay separate", () => {
  expect(validateAnimalBoard(data,board).rejectionReasons).toContain("only one milk-composition prize per board");
 });
 
+test("new category data endpoint returns the complete approved release values",async({request})=>{
+ const data=animalDataset as AnimalDataset;
+ for(const traitId of ["resting_breathing_frequency","resting_breathing_frequency__low","milk_fat_concentration","milk_fat_concentration__low","milk_sugar_concentration","milk_sugar_concentration__low","milk_protein_concentration","milk_protein_concentration__low"]) {
+  const response=await request.get(`/api/animals/data?trait=${traitId}`);
+  expect(response.status()).toBe(200);
+  const result=await response.json();
+  const expected=data.values.filter(v=>v.traitId===traitId);
+  expect(result.coverage).toBe(expected.length);
+  expect(result.values.map((v:{animalId:string,valueNumeric:number})=>[v.animalId,v.valueNumeric]).sort()).toEqual(expected.map(v=>[v.animalId,v.valueNumeric]).sort());
+  expect(["warehouse","release-snapshot"]).toContain(result.origin);
+ }
+ expect((await request.get('/api/animals/data?trait=not_a_category')).status()).toBe(404);
+});
+
 for(const prefix of ["resting_breathing_frequency","milk_fat_concentration"]) {
  test(`new ${prefix} board plays through to sourced rankings`,async({page})=>{
   const board=(candidateData.boards as BoardCandidate[]).find(b=>b.mode==="easy"&&b.traitIds.includes(prefix))!;

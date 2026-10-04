@@ -35,6 +35,9 @@ if (OUT/'source/pantheria-2009.zip').exists():
    d['values'].append(dict(animalId=animal['id'],traitId='mammal_range_area',valueNumeric=number,unit='km²',sex='species-level',lifeStage='species-level',measurementBasis=range_basis,sourceId='pantheria-range-maps',observationType='compiled',confidence='approved',uncertaintyStatus='not-reported',notes='Exact species match; published GIS map area. No modeled body-length, mass, or home-range values imported.'))
 # Every admitted category gets its reverse from identical records, never from a second source.
 METRICS={
+'adult_intestine_length':('Longest intestine','Shortest intestine','specialist','intestine'),
+'male_maturity':('Latest male maturity','Earliest male maturity','specialist','maturity'),
+'weaning_mass':('Heaviest at weaning','Lightest at weaning','intuitive','weaning'),
 'mapped_north_pole_distance':('Farthest from North Pole','Closest to North Pole','intuitive','north-pole'),
 'mapped_south_pole_distance':('Farthest from South Pole','Closest to South Pole','intuitive','south-pole'),
 'mapped_latitude_span':('Widest north–south range','Narrowest north–south range','intuitive','latitude-span'),
@@ -127,6 +130,9 @@ pools['flight']=[i for i in active if (i,'cruising_flight_speed') in V]
 pools['brains']=[i for i in active if (i,'weighed_brain_mass') in V]
 pools['reptile-brains']=[i for i in pools['brains'] if A[i]['taxonomicGroup'] in {'crocodilian','turtle','snake'}]
 pools['sleep']=[i for i in active if (i,'daily_sleep') in V]
+pools['intestines']=[i for i in active if (i,'adult_intestine_length') in V]
+pools['weaning-size']=[i for i in active if (i,'weaning_mass') in V]
+pools['male-maturity']=[i for i in active if (i,'male_maturity') in V]
 pools['breathing']=[i for i in active if (i,'resting_breathing_frequency') in V]
 pools['milk']=[i for i in active if any((i,t) in V for t in ['milk_fat_concentration','milk_sugar_concentration','milk_protein_concentration'])]
 pools['diet']=[i for i in active if (i,'diet_food_group_count') in V]
@@ -169,6 +175,8 @@ for mode,n,k in [('easy',4,4),('normal',6,4),('expert',8,6)]:
     combinations.extend((b,s) for b in choices for s in details)
    for b,s in combinations:
     combo=b+s;tids=[x[0] for x in combo]
+    focus={'intestines':'intestine','weaning-size':'weaning','male-maturity':'maturity'}.get(name)
+    if focus and not any(T[t]['metricKey']==focus and (name!='male-maturity' or t.startswith('male_maturity')) for t in tids):continue
     if sum(T[t].get('gameplayFamily')=='milk-composition' for t in tids)>1:continue
     if sum(T[t].get('gameplayFamily') in {'range-geography','range'} for t in tids)>1:continue
     if sum(T[t]['metricKey'] in LIFECYCLE for t in tids)>(3 if k==6 else 1):continue

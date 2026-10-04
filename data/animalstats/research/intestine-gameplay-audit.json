@@ -1,0 +1,122 @@
+{
+  "reviewedAt": "2026-10-04",
+  "primaryPaper": "https://doi.org/10.1098/rspb.2020.2888",
+  "sourceMd5": "4a3b03dbe7de9a08782dca72a0f14a64",
+  "records": [
+    {
+      "scientificName": "Castor canadensis",
+      "sourceRow": 73,
+      "totalIntestineCm": 780.9955555555556,
+      "sampleSize": 9,
+      "cohortStatus": "wild",
+      "references": "This stuy, Vispo and Hume (1994), Staaland et al. (1995)"
+    },
+    {
+      "scientificName": "Didelphis marsupialis",
+      "sourceRow": 137,
+      "totalIntestineCm": 118.39,
+      "sampleSize": 12,
+      "cohortStatus": "wild",
+      "references": "Tardieu et al. (2019)"
+    },
+    {
+      "scientificName": "Enhydra lutris",
+      "sourceRow": 156,
+      "totalIntestineCm": 1223.25,
+      "sampleSize": 4,
+      "cohortStatus": "wild",
+      "references": "Kenyon (1969)"
+    },
+    {
+      "scientificName": "Erinaceus europaeus",
+      "sourceRow": 168,
+      "totalIntestineCm": 274.56000000000006,
+      "sampleSize": 4,
+      "cohortStatus": "various",
+      "references": "This study"
+    },
+    {
+      "scientificName": "Giraffa camelopardalis",
+      "sourceRow": 195,
+      "totalIntestineCm": 5648.0,
+      "sampleSize": 20,
+      "cohortStatus": "various",
+      "references": "Sauer et al. (2016b), Perez et al. (2009)"
+    },
+    {
+      "scientificName": "Macropus rufus",
+      "sourceRow": 265,
+      "totalIntestineCm": 968.5515789473684,
+      "sampleSize": 19,
+      "cohortStatus": "various",
+      "references": "Osawa and Woodall (1992), This study, Tribe and Peel (1963)"
+    },
+    {
+      "scientificName": "Panthera leo",
+      "sourceRow": 375,
+      "totalIntestineCm": 874.4266666666667,
+      "sampleSize": 3,
+      "cohortStatus": "captive",
+      "references": "McGrosky et al. (2016), Davis (1962)"
+    },
+    {
+      "scientificName": "Phascolarctos cinereus",
+      "sourceRow": 393,
+      "totalIntestineCm": 567.41,
+      "sampleSize": 6,
+      "cohortStatus": "various",
+      "references": "Harrop and Degabriele (1976), Snipes et al. (1993), This study"
+    }
+  ],
+  "excluded": [
+    {
+      "scientificName": "Acinonyx jubatus",
+      "reason": "fewer than three measured animals or unknown N"
+    },
+    {
+      "scientificName": "Ailuropoda melanoleuca",
+      "reason": "fewer than three measured animals or unknown N"
+    },
+    {
+      "scientificName": "Equus quagga",
+      "reason": "fewer than three measured animals or unknown N"
+    },
+    {
+      "scientificName": "Gorilla gorilla",
+      "reason": "fewer than three measured animals or unknown N"
+    },
+    {
+      "scientificName": "Hydrochoerus hydrochaeris",
+      "reason": "fewer than three measured animals or unknown N"
+    },
+    {
+      "scientificName": "Loxodonta africana",
+      "reason": "fewer than three measured animals or unknown N"
+    },
+    {
+      "scientificName": "Ornithorhynchus anatinus",
+      "reason": "fewer than three measured animals or unknown N"
+    },
+    {
+      "scientificName": "Panthera pardus",
+      "reason": "fewer than three measured animals or unknown N"
+    },
+    {
+      "scientificName": "Tremarctos ornatus",
+      "reason": "fewer than three measured animals or unknown N"
+    },
+    {
+      "scientificName": "Tupaia glis",
+      "reason": "fewer than three measured animals or unknown N"
+    },
+    {
+      "scientificName": "Ursus arctos",
+      "reason": "fewer than three measured animals or unknown N"
+    },
+    {
+      "scientificName": "Vulpes vulpes",
+      "reason": "fewer than three measured animals or unknown N"
+    }
+  ],
+  "scope": "Published sample-size-weighted mean total intestinal length of adult mammals in Duque-Correa et al. 2021. Measured post-mortem anatomy, including reported sums of small and large intestine lengths. Only exact named species with at least three measured animals; no fitted allometric values, estimated body masses, diet substitutions from relatives or unknown sample sizes. Captive, wild and mixed cohorts are identified per record; these observed cohort averages are not species maxima or universal constants."
+}

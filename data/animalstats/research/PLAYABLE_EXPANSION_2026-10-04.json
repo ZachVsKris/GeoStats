@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-04",
+  "distinctPlayableLabels": 84,
+  "traitIdsInBoards": 94,
+  "boards": 2740,
+  "addedLabels": [
+    "Longest intestine",
+    "Shortest intestine",
+    "Heaviest at weaning",
+    "Lightest at weaning",
+    "Latest male maturity",
+    "Earliest male maturity"
+  ],
+  "observationsAddedOrActivated": {
+    "adult_intestine_length": 8,
+    "weaning_mass": 19,
+    "male_maturity": 94
+  },
+  "newDirectionsBoardCounts": {
+    "adult_intestine_length": 26,
+    "adult_intestine_length__low": 16,
+    "weaning_mass": 20,
+    "weaning_mass__low": 22,
+    "male_maturity": 138,
+    "male_maturity__low": 108
+  },
+  "note": "Male maturity and weaning mass activate existing sourced measurements; intestine length imports a new observed dataset. Opposite pairs never share a board."
+}

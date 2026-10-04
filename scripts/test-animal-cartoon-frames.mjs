@@ -29,7 +29,7 @@ try {
  const { cartoonSpecies } = await import(pathToFileURL(profilePath));
  const data = JSON.parse(await readFile(join(root,'data/animalstats/pilot.json'),'utf8'));
  const animals = data.animals.filter(a=>cartoonSpecies.includes(a.id));
- assert.equal(animals.length,80);
+ assert.equal(animals.length,cartoonSpecies.length);
  const html = renderToStaticMarkup(React.createElement('div',null,animals.map(animal=>React.createElement(AnimalSprite,{key:animal.id,animal}))));
  browser = await chromium.launch();
  const page = await browser.newPage();
@@ -38,7 +38,7 @@ try {
   const b=node.getBBox(), neck=node.querySelector('[data-anatomy="long-neck"]'), feet=node.querySelector('.cartoonFeet');
   return {id:node.getAttribute('data-animal-id'),x:b.x,y:b.y,right:b.x+b.width,bottom:b.y+b.height,neck:neck?.getBBox().height,feet:feet?.getBBox().height};
  }));
- assert.equal(checks.length,80);
+ assert.equal(checks.length,cartoonSpecies.length);
  assert.deepEqual(checks.filter(b=>b.x<0||b.y<0||b.right>200||b.bottom>160),[],'Artwork extends outside its fixed frame');
  const clipIds = await page.locator('clipPath').evaluateAll(nodes=>nodes.map(node=>node.id));
  assert.equal(new Set(clipIds).size,clipIds.length,'Coat masks must not collide between animals');
@@ -47,7 +47,7 @@ try {
   assert(bird.neck>50,`${id} lost its long neck`);
   assert(bird.feet>40,`${id} lost its long legs`);
  }
- console.log('All 80 cartoons fit their frames; unique coat masks and long-necked bird anatomy passed.');
+ console.log(`All ${animals.length} cartoons fit their frames; unique coat masks and long-necked bird anatomy passed.`);
 } finally {
  await browser?.close();
  await rm(temp,{recursive:true,force:true});

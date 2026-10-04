@@ -1,6 +1,6 @@
 {
   "reviewedAt": "2026-10-04",
-  "sourceSha256": "6d431111e6e0dd4b0bb7d40377b29150decce9a9c1f4edaaf1c95108eb4d6ec8",
+  "sourceSha256": "bd2045967eda6b5be8530fea3bd042b8a886aff11762dca3406f9c8bb4fe3b1a",
   "publisherMetadata": {
     "key": "19491596-35ae-4a91-9a98-85cf505f1bd3",
     "installationKey": "fb5e4c2a-579c-434b-a446-3a665dd732ad",
@@ -1255,6 +1255,139 @@
       "authorship": "Linnaeus, 1758",
       "descriptionYear": 1758,
       "iucnCode": "EN"
+    },
+    {
+      "animalId": "capra_hircus",
+      "gbifKey": "2441056",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": null
+    },
+    {
+      "animalId": "sus_scrofa",
+      "gbifKey": "7705930",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "procyon_lotor",
+      "gbifKey": "5218786",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "meles_meles",
+      "gbifKey": "2433875",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "panthera_onca",
+      "gbifKey": "5219426",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "NT"
+    },
+    {
+      "animalId": "puma_concolor",
+      "gbifKey": "2435099",
+      "authorship": "(Linnaeus, 1771)",
+      "descriptionYear": 1771,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "phoca_vitulina",
+      "gbifKey": "2434793",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "zalophus_californianus",
+      "gbifKey": "2433458",
+      "authorship": "(Lesson, 1828)",
+      "descriptionYear": 1828,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "vombatus_ursinus",
+      "gbifKey": "2440301",
+      "authorship": "(Shaw, 1800)",
+      "descriptionYear": 1800,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "tachyglossus_aculeatus",
+      "gbifKey": "2433378",
+      "authorship": "(Shaw, 1792)",
+      "descriptionYear": 1792,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "rangifer_tarandus",
+      "gbifKey": "5220114",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "cervus_elaphus",
+      "gbifKey": "2440958",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "suricata_suricatta",
+      "gbifKey": "2434126",
+      "authorship": "(Schreber, 1776)",
+      "descriptionYear": 1776,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "rattus_norvegicus",
+      "gbifKey": "2439261",
+      "authorship": "(Berkenhout, 1769)",
+      "descriptionYear": 1769,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "mesocricetus_auratus",
+      "gbifKey": "2438482",
+      "authorship": "(Waterhouse, 1839)",
+      "descriptionYear": 1839,
+      "iucnCode": "EN"
+    },
+    {
+      "animalId": "myotis_lucifugus",
+      "gbifKey": "2432406",
+      "authorship": "(Le Conte, 1831)",
+      "descriptionYear": 1831,
+      "iucnCode": "EN"
+    },
+    {
+      "animalId": "pteropus_vampyrus",
+      "gbifKey": "5218644",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "EN"
+    },
+    {
+      "animalId": "myrmecophaga_tridactyla",
+      "gbifKey": "2436346",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "dasypus_novemcinctus",
+      "gbifKey": "2440779",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
     }
   ],
   "excluded": [

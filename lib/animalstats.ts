@@ -92,7 +92,7 @@ export type BoardCandidate = {
   traitIds: string[];
   reviewLabel?: ReviewLabel;
   biogeographicRegions?: string[];
-  editorial?: { families: string[]; multiTraitContenders: number; policy: string };
+  editorial?: { families: string[]; multiTraitContenders: number; policy: string; intuitiveMinimum?: number };
 };
 
 export type BoardValidation = {
@@ -158,8 +158,32 @@ export function validateAnimalDataset(data: AnimalDataset): string[] {
   return reasons;
 }
 
+function animalValidationIndex(data: AnimalDataset) {
+  return {
+    datasetReasons: validateAnimalDataset(data),
+    animalMap: new Map(data.animals.map(item => [item.id, item])),
+    traitMap: new Map(data.traits.map(item => [item.id, item])),
+    sourceMap: new Map(data.sources.map(item => [item.id, item])),
+    photoMap: new Map(data.photos.map(item => [item.animalId, item])),
+    valueMap: new Map(data.values.map(item => [`${item.animalId}:${item.traitId}`, item])),
+  };
+}
+
+/** Validate fresh data, including changes made since any earlier call. */
 export function validateAnimalBoard(data: AnimalDataset, board: BoardCandidate): BoardValidation {
-  const reasons = validateAnimalDataset(data);
+  return validateIndexedAnimalBoard(board, animalValidationIndex(data));
+}
+
+/** Validate many boards against one isolated dataset snapshot. Source changes
+ * require a new validator; callers cannot mutate this private snapshot. */
+export function createAnimalBoardValidator(data: AnimalDataset) {
+  const index = animalValidationIndex(structuredClone(data));
+  return (board: BoardCandidate): BoardValidation => validateIndexedAnimalBoard(board, index);
+}
+
+function validateIndexedAnimalBoard(board: BoardCandidate, index: ReturnType<typeof animalValidationIndex>): BoardValidation {
+  const reasons = [...index.datasetReasons];
+  const { animalMap, traitMap, sourceMap, photoMap, valueMap } = index;
   const config = ROUND_CONFIGS[board.mode];
   const winners: Record<string, string> = {};
   const relatedTraits: string[][] = [["amphibian_min_maturity", "earliest_female_maturity", "female_maturity", "male_maturity", "raw_early_female_maturity", "raw_female_maturity"], ["amphibian_max_events", "clutches_per_year", "interbirth_interval", "litters_per_year", "raw_clutch_frequency", "raw_litter_frequency"], ["bird_hand_wing_index", "bird_kipps_distance", "bird_secondary_length", "bird_wing_length"], ["adult_body_mass", "amphibian_max_mass", "bird_mass", "raw_adult_mass", "smallest_adult_mass"], ["amphibian_max_clutch", "clutch_size", "egg_clutch_size", "litter_size", "raw_clutch_size", "raw_litter_size", "shark_litter_size", "fewest_shark_pups"], ["maximum_documented_lifespan", "wild_recorded_lifespan", "shortest_wild_lifespan"], ["gestation", "raw_gestation", "raw_short_gestation", "shortest_gestation"], ["earliest_weaning", "raw_weaning_age", "weaning_age"], ["birth_weight", "hatching_mass", "lightest_newborn", "raw_birth_mass", "raw_hatching_mass"], ["raw_weaning_mass", "weaning_mass"], ["incubation", "raw_incubation"], ["raw_egg_length", "raw_egg_mass", "raw_egg_width"]];
@@ -167,25 +191,21 @@ export function validateAnimalBoard(data: AnimalDataset, board: BoardCandidate):
   if (board.animalIds.length !== config.countryCount || !unique(board.animalIds)) reasons.push("wrong or duplicate animal count");
   if (board.traitIds.length !== config.categoryCount || !unique(board.traitIds)) reasons.push("wrong or duplicate trait count");
   const balanced = board.editorial?.policy === "intuitive-majority-distinct-winners-v5";
-  const categories = board.traitIds.map((id) => data.traits.find((trait) => trait.id === id));
+  const categories = board.traitIds.map((id) => traitMap.get(id));
   if (balanced) {
     const lifeHistoryKeys = new Set(["pregnancy", "offspring", "incubation", "weaning", "maturity", "reproduction", "breeding", "egg-size"]);
     if (categories.filter(trait => lifeHistoryKeys.has(trait?.metricKey ?? "")).length > (board.mode === "expert" ? 3 : 1)) reasons.push("too many life-history prizes on one board");
     if (categories.some((trait) => /^(bird_beak_width|bird_beak_depth|bird_tarsus_length|bird_hand_wing_index)(?:__low)?$/.test(trait?.id ?? ""))) reasons.push("obscure bird anatomy is excluded");
     if (categories.some((trait) => !trait?.prototypeCategory || (!trait.counterTraitId && !trait.oneSided) || !trait.metricKey) || categories.filter((trait) => trait?.categoryKind === "intuitive").length < Math.ceil(board.traitIds.length / 2)) reasons.push("board must have at least half intuitive categories");
+    if (board.editorial?.intuitiveMinimum !== undefined && (!Number.isInteger(board.editorial.intuitiveMinimum) || board.editorial.intuitiveMinimum < Math.ceil(board.traitIds.length / 2) || board.editorial.intuitiveMinimum > board.traitIds.length || categories.filter(trait => trait?.categoryKind === "intuitive").length < board.editorial.intuitiveMinimum)) reasons.push("board does not meet its stricter intuitive-category minimum");
     if (new Set(categories.map((trait) => trait?.metricKey)).size !== categories.length) reasons.push("repeated metric or opposite categories on the same board");
   }
-  const families = board.traitIds.map((id) => data.traits.find((trait) => trait.id === id)?.gameplayFamily);
+  const families = board.traitIds.map((id) => traitMap.get(id)?.gameplayFamily);
   if (families.filter((family) => family === "prey-size").length > 1) reasons.push("only one prey-size prize per board");
   if (families.filter((family) => family === "milk-composition").length > 1) reasons.push("only one milk-composition prize per board");
   if (families.filter((family) => family === "range-geography" || family === "range").length > 1) reasons.push("only one mapped-range prize per board");
   if (!balanced && (families.some((family) => !family) || families.some((family) => families.filter((item) => item === family).length > (board.mode === "expert" && family === "anatomy" ? 2 : 1)) || new Set(families).size < families.length - (board.mode === "expert" ? 1 : 0))) reasons.push("repeated or unclassified gameplay family");
   if (!balanced && !families.some((family) => ["movement", "sleep", "space", "development", "offspring", "maturity", "care", "breeding"].includes(family ?? ""))) reasons.push("board lacks a distinctive behavior or performance trait");
-  const animalMap = new Map(data.animals.map((item) => [item.id, item]));
-  const traitMap = new Map(data.traits.map((item) => [item.id, item]));
-  const sourceMap = new Map(data.sources.map((item) => [item.id, item]));
-  const photoMap = new Map(data.photos.map((item) => [item.animalId, item]));
-  const valueMap = new Map(data.values.map((item) => [`${item.animalId}:${item.traitId}`, item]));
   for (const id of board.animalIds) {
     const animal = animalMap.get(id);
     if (!animal || !animal.active || animal.familiarityTier === "edge") reasons.push(`animal ${id}: unavailable or unfamiliar`);

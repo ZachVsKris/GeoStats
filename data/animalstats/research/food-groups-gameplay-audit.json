@@ -26,6 +26,42 @@
       "decision": "approved-published-food-group-count"
     },
     {
+      "scientificName": "Camelus dromedarius",
+      "foodGroups": 1,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 0,
+        "fibrousplant": 1,
+        "nonfibrousplant": 0
+      },
+      "sourceRow": 93,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Cervus elaphus",
+      "foodGroups": 1,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 0,
+        "fibrousplant": 1,
+        "nonfibrousplant": 0
+      },
+      "sourceRow": 102,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Rangifer tarandus",
+      "foodGroups": 1,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 0,
+        "fibrousplant": 1,
+        "nonfibrousplant": 0
+      },
+      "sourceRow": 126,
+      "decision": "approved-published-food-group-count"
+    },
+    {
       "scientificName": "Giraffa camelopardalis",
       "foodGroups": 1,
       "classifications": {
@@ -47,6 +83,18 @@
         "nonfibrousplant": 0
       },
       "sourceRow": 133,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Pteropus vampyrus",
+      "foodGroups": 2,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 0,
+        "fibrousplant": 1,
+        "nonfibrousplant": 1
+      },
+      "sourceRow": 212,
       "decision": "approved-published-food-group-count"
     },
     {
@@ -74,6 +122,30 @@
       "decision": "approved-published-food-group-count"
     },
     {
+      "scientificName": "Vombatus ursinus",
+      "foodGroups": 1,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 0,
+        "fibrousplant": 1,
+        "nonfibrousplant": 0
+      },
+      "sourceRow": 270,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Oryctolagus cuniculus",
+      "foodGroups": 1,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 0,
+        "fibrousplant": 1,
+        "nonfibrousplant": 0
+      },
+      "sourceRow": 289,
+      "decision": "approved-published-food-group-count"
+    },
+    {
       "scientificName": "Ceratotherium simum",
       "foodGroups": 1,
       "classifications": {
@@ -95,6 +167,18 @@
         "nonfibrousplant": 1
       },
       "sourceRow": 362,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Lemur catta",
+      "foodGroups": 2,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 0,
+        "fibrousplant": 1,
+        "nonfibrousplant": 1
+      },
+      "sourceRow": 380,
       "decision": "approved-published-food-group-count"
     },
     {
@@ -131,6 +215,30 @@
         "nonfibrousplant": 0
       },
       "sourceRow": 411,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Myotis lucifugus",
+      "foodGroups": 1,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 1,
+        "fibrousplant": 0,
+        "nonfibrousplant": 0
+      },
+      "sourceRow": 781,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Myrmecophaga tridactyla",
+      "foodGroups": 1,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 1,
+        "fibrousplant": 0,
+        "nonfibrousplant": 0
+      },
+      "sourceRow": 845,
       "decision": "approved-published-food-group-count"
     },
     {
@@ -182,6 +290,18 @@
       "decision": "approved-published-food-group-count"
     },
     {
+      "scientificName": "Mus musculus",
+      "foodGroups": 2,
+      "classifications": {
+        "vertebrate": 0,
+        "invertebrate": 1,
+        "fibrousplant": 0,
+        "nonfibrousplant": 1
+      },
+      "sourceRow": 1102,
+      "decision": "approved-published-food-group-count"
+    },
+    {
       "scientificName": "Canis lupus",
       "foodGroups": 1,
       "classifications": {
@@ -203,6 +323,18 @@
         "nonfibrousplant": 0
       },
       "sourceRow": 1202,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Panthera onca",
+      "foodGroups": 1,
+      "classifications": {
+        "vertebrate": 1,
+        "invertebrate": 0,
+        "fibrousplant": 0,
+        "nonfibrousplant": 0
+      },
+      "sourceRow": 1203,
       "decision": "approved-published-food-group-count"
     },
     {
@@ -266,6 +398,30 @@
       "decision": "approved-published-food-group-count"
     },
     {
+      "scientificName": "Suricata suricatta",
+      "foodGroups": 2,
+      "classifications": {
+        "vertebrate": 1,
+        "invertebrate": 1,
+        "fibrousplant": 0,
+        "nonfibrousplant": 0
+      },
+      "sourceRow": 1256,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Sus scrofa",
+      "foodGroups": 4,
+      "classifications": {
+        "vertebrate": 1,
+        "invertebrate": 1,
+        "fibrousplant": 1,
+        "nonfibrousplant": 1
+      },
+      "sourceRow": 1322,
+      "decision": "approved-published-food-group-count"
+    },
+    {
       "scientificName": "Vulpes vulpes",
       "foodGroups": 3,
       "classifications": {
@@ -275,6 +431,30 @@
         "nonfibrousplant": 1
       },
       "sourceRow": 1333,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Meles meles",
+      "foodGroups": 4,
+      "classifications": {
+        "vertebrate": 1,
+        "invertebrate": 1,
+        "fibrousplant": 1,
+        "nonfibrousplant": 1
+      },
+      "sourceRow": 1351,
+      "decision": "approved-published-food-group-count"
+    },
+    {
+      "scientificName": "Procyon lotor",
+      "foodGroups": 3,
+      "classifications": {
+        "vertebrate": 1,
+        "invertebrate": 1,
+        "fibrousplant": 0,
+        "nonfibrousplant": 1
+      },
+      "sourceRow": 1361,
       "decision": "approved-published-food-group-count"
     },
     {
@@ -326,6 +506,18 @@
       "decision": "approved-published-food-group-count"
     },
     {
+      "scientificName": "Dasypus novemcinctus",
+      "foodGroups": 3,
+      "classifications": {
+        "vertebrate": 1,
+        "invertebrate": 1,
+        "fibrousplant": 0,
+        "nonfibrousplant": 1
+      },
+      "sourceRow": 1382,
+      "decision": "approved-published-food-group-count"
+    },
+    {
       "scientificName": "Pan troglodytes",
       "foodGroups": 4,
       "classifications": {
@@ -369,6 +561,10 @@
     },
     {
       "scientificName": "Ornithorhynchus anatinus",
+      "reason": "Aquatic feeding context excluded; no cross-food-web comparison"
+    },
+    {
+      "scientificName": "Tachyglossus aculeatus",
       "reason": "Aquatic feeding context excluded; no cross-food-web comparison"
     }
   ],

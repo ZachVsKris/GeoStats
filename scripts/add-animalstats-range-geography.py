@@ -61,7 +61,7 @@ for number, row in enumerate(csv.DictReader(io.StringIO(raw.decode()), delimiter
     records.append(dict(scientificName=animal['scientificName'], sourceRow=number,
                         maximumLatitude=str(high), minimumLatitude=str(low),
                         exactDerivedValues={k: str(v) for k, v in values.items()}, decision='approved-published-map-geometry'))
-assert len(records) == 30
+assert len(records) >= 30
 (OUT / 'pilot.json').write_text(json.dumps(data, indent=2, ensure_ascii=False)+'\n')
 (OUT / 'research/range-geography-gameplay-audit.json').write_text(json.dumps(dict(
     reviewedAt='2026-10-03', sourceSha256=hashlib.sha256(raw).hexdigest(), records=records,

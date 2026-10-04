@@ -14,8 +14,10 @@ def fetch(a):
         with urllib.request.urlopen(url,timeout=40) as response:r=json.load(response)
         return a['id'],dict(url=url,retrievedAt='2026-10-04',response=r)
     except Exception as e:return a['id'],dict(url=url,error=str(e))
-if not cache.exists():
-    with concurrent.futures.ThreadPoolExecutor(max_workers=16) as ex:records=dict(ex.map(fetch,d['animals']))
+records=json.loads(cache.read_text()) if cache.exists() else {}
+missing=[a for a in d['animals'] if a['id'] not in records]
+if missing:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=16) as ex:records.update(dict(ex.map(fetch,missing)))
     cache.write_text(json.dumps(records,indent=2,ensure_ascii=False)+'\n')
 records=json.loads(cache.read_text());metadata=json.loads((S/'new-20261004-iucn-checklist-metadata.json').read_text())
 assert metadata['title']=='The IUCN Red List of Threatened Species'

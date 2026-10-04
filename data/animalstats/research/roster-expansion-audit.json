@@ -1,0 +1,1356 @@
+{
+  "reviewedAt": "2026-10-04",
+  "sourceSha256": "e3ddb66e32e973a79932859ba53013e8f60d957c6ec01c6eb573e3ea3018d630",
+  "newAnimals": {
+    "Capra hircus": [
+      "Domestic goat",
+      "large-mammal"
+    ],
+    "Sus scrofa": [
+      "Wild boar",
+      "large-mammal"
+    ],
+    "Procyon lotor": [
+      "Raccoon",
+      "carnivore"
+    ],
+    "Meles meles": [
+      "European badger",
+      "carnivore"
+    ],
+    "Panthera onca": [
+      "Jaguar",
+      "carnivore"
+    ],
+    "Puma concolor": [
+      "Cougar",
+      "carnivore"
+    ],
+    "Phoca vitulina": [
+      "Harbor seal",
+      "marine-mammal"
+    ],
+    "Zalophus californianus": [
+      "California sea lion",
+      "marine-mammal"
+    ],
+    "Vombatus ursinus": [
+      "Common wombat",
+      "marsupial"
+    ],
+    "Tachyglossus aculeatus": [
+      "Short-beaked echidna",
+      "monotreme"
+    ],
+    "Rangifer tarandus": [
+      "Reindeer",
+      "large-mammal"
+    ],
+    "Cervus elaphus": [
+      "Red deer",
+      "large-mammal"
+    ],
+    "Suricata suricatta": [
+      "Meerkat",
+      "carnivore"
+    ],
+    "Rattus norvegicus": [
+      "Brown rat",
+      "rodent"
+    ],
+    "Mesocricetus auratus": [
+      "Golden hamster",
+      "rodent"
+    ],
+    "Myotis lucifugus": [
+      "Little brown bat",
+      "bat"
+    ],
+    "Pteropus vampyrus": [
+      "Large flying fox",
+      "bat"
+    ],
+    "Myrmecophaga tridactyla": [
+      "Giant anteater",
+      "large-mammal"
+    ],
+    "Dasypus novemcinctus": [
+      "Nine-banded armadillo",
+      "large-mammal"
+    ]
+  },
+  "observations": [
+    {
+      "species": "Capra hircus",
+      "traitId": "adult_body_mass",
+      "value": 61000.0,
+      "hagrid": "01920",
+      "sourceColumn": "Adult weight (g)"
+    },
+    {
+      "species": "Capra hircus",
+      "traitId": "maximum_documented_lifespan",
+      "value": 20.8,
+      "hagrid": "01920",
+      "sourceColumn": "Maximum longevity (yrs)"
+    },
+    {
+      "species": "Capra hircus",
+      "traitId": "gestation",
+      "value": 155.0,
+      "hagrid": "01920",
+      "sourceColumn": "Gestation/Incubation (days)"
+    },
+    {
+      "species": "Capra hircus",
+      "traitId": "litter_size",
+      "value": 1.5,
+      "hagrid": "01920",
+      "sourceColumn": "Litter/Clutch size"
+    },
+    {
+      "species": "Capra hircus",
+      "traitId": "female_maturity",
+      "value": 406.0,
+      "hagrid": "01920",
+      "sourceColumn": "Female maturity (days)"
+    },
+    {
+      "species": "Capra hircus",
+      "traitId": "male_maturity",
+      "value": 685.0,
+      "hagrid": "01920",
+      "sourceColumn": "Male maturity (days)"
+    },
+    {
+      "species": "Capra hircus",
+      "traitId": "birth_weight",
+      "value": 2250.0,
+      "hagrid": "01920",
+      "sourceColumn": "Birth weight (g)"
+    },
+    {
+      "species": "Capra hircus",
+      "traitId": "litters_per_year",
+      "value": 1.0,
+      "hagrid": "01920",
+      "sourceColumn": "Litters/Clutches per year"
+    },
+    {
+      "species": "Capra hircus",
+      "traitId": "interbirth_interval",
+      "value": 451.0,
+      "hagrid": "01920",
+      "sourceColumn": "Inter-litter/Interbirth interval"
+    },
+    {
+      "species": "Sus scrofa",
+      "traitId": "adult_body_mass",
+      "value": 130000.0,
+      "hagrid": "02060",
+      "sourceColumn": "Adult weight (g)"
+    },
+    {
+      "species": "Sus scrofa",
+      "traitId": "maximum_documented_lifespan",
+      "value": 27.0,
+      "hagrid": "02060",
+      "sourceColumn": "Maximum longevity (yrs)"
+    },
+    {
+      "species": "Sus scrofa",
+      "traitId": "gestation",
+      "value": 115.0,
+      "hagrid": "02060",
+      "sourceColumn": "Gestation/Incubation (days)"
+    },
+    {
+      "species": "Sus scrofa",
+      "traitId": "litter_size",
+      "value": 7.0,
+      "hagrid": "02060",
+      "sourceColumn": "Litter/Clutch size"
+    },
+    {
+      "species": "Sus scrofa",
+      "traitId": "female_maturity",
+      "value": 334.0,
+      "hagrid": "02060",
+      "sourceColumn": "Female maturity (days)"
+    },
+    {
+      "species": "Sus scrofa",
+      "traitId": "male_maturity",
+      "value": 768.0,
+      "hagrid": "02060",
+      "sourceColumn": "Male maturity (days)"
+    },
+    {
+      "species": "Sus scrofa",
+      "traitId": "birth_weight",
+      "value": 960.0,
+      "hagrid": "02060",
+      "sourceColumn": "Birth weight (g)"
+    },
+    {
+      "species": "Sus scrofa",
+      "traitId": "litters_per_year",
+      "value": 1.5,
+      "hagrid": "02060",
+      "sourceColumn": "Litters/Clutches per year"
+    },
+    {
+      "species": "Sus scrofa",
+      "traitId": "interbirth_interval",
+      "value": 230.0,
+      "hagrid": "02060",
+      "sourceColumn": "Inter-litter/Interbirth interval"
+    },
+    {
+      "species": "Procyon lotor",
+      "traitId": "adult_body_mass",
+      "value": 6000.0,
+      "hagrid": "02246",
+      "sourceColumn": "Adult weight (g)"
+    },
+    {
+      "species": "Procyon lotor",
+      "traitId": "maximum_documented_lifespan",
+      "value": 21.0,
+      "hagrid": "02246",
+      "sourceColumn": "Maximum longevity (yrs)"
+    },
+    {
+      "species": "Procyon lotor",
+      "traitId": "gestation",
+      "value": 63.0,
+      "hagrid": "02246",
+      "sourceColumn": "Gestation/Incubation (days)"
+    },
+    {
+      "species": "Procyon lotor",
+      "traitId": "litter_size",
+      "value": 4.0,
+      "hagrid": "02246",
+      "sourceColumn": "Litter/Clutch size"
+    },
+    {
+      "species": "Procyon lotor",
+      "traitId": "female_maturity",
+      "value": 365.0,
+      "hagrid": "02246",
+      "sourceColumn": "Female maturity (days)"
+    },
+    {
+      "species": "Procyon lotor",
+      "traitId": "male_maturity",
+      "value": 365.0,
+      "hagrid": "02246",
+      "sourceColumn": "Male maturity (days)"
+    },
+    {
+      "species": "Procyon lotor",
+      "traitId": "weaning_age",
+      "value": 91.0,
+      "hagrid": "02246",
+      "sourceColumn": "Weaning (days)"
+    },
+    {
+      "species": "Procyon lotor",
+      "traitId": "birth_weight",
+      "value": 80.0,
+      "hagrid": "02246",
+      "sourceColumn": "Birth weight (g)"
+    },
+    {
+      "species": "Procyon lotor",
+      "traitId": "weaning_mass",
+      "value": 1175.0,
+      "hagrid": "02246",
+      "sourceColumn": "Weaning weight (g)"
+    },
+    {
+      "species": "Procyon lotor",
+      "traitId": "litters_per_year",
+      "value": 1.0,
+      "hagrid": "02246",
+      "sourceColumn": "Litters/Clutches per year"
+    },
+    {
+      "species": "Procyon lotor",
+      "traitId": "interbirth_interval",
+      "value": 365.0,
+      "hagrid": "02246",
+      "sourceColumn": "Inter-litter/Interbirth interval"
+    },
+    {
+      "species": "Meles meles",
+      "traitId": "adult_body_mass",
+      "value": 13000.0,
+      "hagrid": "02189",
+      "sourceColumn": "Adult weight (g)"
+    },
+    {
+      "species": "Meles meles",
+      "traitId": "maximum_documented_lifespan",
+      "value": 18.6,
+      "hagrid": "02189",
+      "sourceColumn": "Maximum longevity (yrs)"
+    },
+    {
+      "species": "Meles meles",
+      "traitId": "gestation",
+      "value": 49.0,
+      "hagrid": "02189",
+      "sourceColumn": "Gestation/Incubation (days)"
+    },
+    {
+      "species": "Meles meles",
+      "traitId": "litter_size",
+      "value": 3.0,
+      "hagrid": "02189",
+      "sourceColumn": "Litter/Clutch size"
+    },
+    {
+      "species": "Meles meles",
+      "traitId": "female_maturity",
+      "value": 365.0,
+      "hagrid": "02189",
+      "sourceColumn": "Female maturity (days)"
+    },
+    {
+      "species": "Meles meles",
+      "traitId": "male_maturity",
+      "value": 365.0,
+      "hagrid": "02189",
+      "sourceColumn": "Male maturity (days)"
+    },
+    {
+      "species": "Meles meles",
+      "traitId": "weaning_age",
+      "value": 90.0,
+      "hagrid": "02189",
+      "sourceColumn": "Weaning (days)"
+    },
+    {
+      "species": "Meles meles",
+      "traitId": "birth_weight",
+      "value": 80.0,
+      "hagrid": "02189",
+      "sourceColumn": "Birth weight (g)"
+    },
+    {
+      "species": "Meles meles",
+      "traitId": "litters_per_year",
+      "value": 1.0,
+      "hagrid": "02189",
+      "sourceColumn": "Litters/Clutches per year"
+    },
+    {
+      "species": "Meles meles",
+      "traitId": "interbirth_interval",
+      "value": 365.0,
+      "hagrid": "02189",
+      "sourceColumn": "Inter-litter/Interbirth interval"
+    },
+    {
+      "species": "Panthera onca",
+      "traitId": "adult_body_mass",
+      "value": 81150.0,
+      "hagrid": "02128",
+      "sourceColumn": "Adult weight (g)"
+    },
+    {
+      "species": "Panthera onca",
+      "traitId": "maximum_documented_lifespan",
+      "value": 28.0,
+      "hagrid": "02128",
+      "sourceColumn": "Maximum longevity (yrs)"
+    },
+    {
+      "species": "Panthera onca",
+      "traitId": "gestation",
+      "value": 99.0,
+      "hagrid": "02128",
+      "sourceColumn": "Gestation/Incubation (days)"
+    },
+    {
+      "species": "Panthera onca",
+      "traitId": "litter_size",
+      "value": 2.0,
+      "hagrid": "02128",
+      "sourceColumn": "Litter/Clutch size"
+    },
+    {
+      "species": "Panthera onca",
+      "traitId": "female_maturity",
+      "value": 730.0,
+      "hagrid": "02128",
+      "sourceColumn": "Female maturity (days)"
+    },
+    {
+      "species": "Panthera onca",
+      "traitId": "male_maturity",
+      "value": 730.0,
+      "hagrid": "02128",
+      "sourceColumn": "Male maturity (days)"
+    },
+    {
+      "species": "Panthera onca",
+      "traitId": "weaning_age",
+      "value": 126.0,
+      "hagrid": "02128",
+      "sourceColumn": "Weaning (days)"
+    },
+    {
+      "species": "Panthera onca",
+      "traitId": "birth_weight",
+      "value": 820.0,
+      "hagrid": "02128",
+      "sourceColumn": "Birth weight (g)"
+    },
+    {
+      "species": "Panthera onca",
+      "traitId": "weaning_mass",
+      "value": 5033.5,
+      "hagrid": "02128",
+      "sourceColumn": "Weaning weight (g)"
+    },
+    {
+      "species": "Panthera onca",
+      "traitId": "litters_per_year",
+      "value": 0.5,
+      "hagrid": "02128",
+      "sourceColumn": "Litters/Clutches per year"
+    },
+    {
+      "species": "Panthera onca",
+      "traitId": "interbirth_interval",
+      "value": 365.0,
+      "hagrid": "02128",
+      "sourceColumn": "Inter-litter/Interbirth interval"
+    },
+    {
+      "species": "Puma concolor",
+      "traitId": "adult_body_mass",
+      "value": 63000.0,
+      "hagrid": "02137",
+      "sourceColumn": "Adult weight (g)"
+    },
+    {
+      "species": "Puma concolor",
+      "traitId": "maximum_documented_lifespan",
+      "value": 27.0,
+      "hagrid": "02137",
+      "sourceColumn": "Maximum longevity (yrs)"
+    },
+    {
+      "species": "Puma concolor",
+      "traitId": "gestation",
+      "value": 92.0,
+      "hagrid": "02137",
+      "sourceColumn": "Gestation/Incubation (days)"
+    },
+    {
+      "species": "Puma concolor",
+      "traitId": "litter_size",
+      "value": 2.5,
+      "hagrid": "02137",
+      "sourceColumn": "Litter/Clutch size"
+    },
+    {
+      "species": "Puma concolor",
+      "traitId": "female_maturity",
+      "value": 912.0,
+      "hagrid": "02137",
+      "sourceColumn": "Female maturity (days)"
+    },
+    {
+      "species": "Puma concolor",
+      "traitId": "male_maturity",
+      "value": 912.0,
+      "hagrid": "02137",
+      "sourceColumn": "Male maturity (days)"
+    },
+    {
+      "species": "Puma concolor",
+      "traitId": "weaning_age",
+      "value": 90.0,
+      "hagrid": "02137",
+      "sourceColumn": "Weaning (days)"
+    },
+    {
+      "species": "Puma concolor",
+      "traitId": "birth_weight",
+      "value": 400.0,
+      "hagrid": "02137",
+      "sourceColumn": "Birth weight (g)"
+    },
+    {
+      "species": "Puma concolor",
+      "traitId": "weaning_mass",
+      "value": 3500.0,
+      "hagrid": "02137",
+      "sourceColumn": "Weaning weight (g)"
+    },
+    {
+      "species": "Puma concolor",
+      "traitId": "litters_per_year",
+      "value": 0.45,
+      "hagrid": "02137",
+      "sourceColumn": "Litters/Clutches per year"
+    },
+    {
+      "species": "Puma concolor",
+      "traitId": "interbirth_interval",
+      "value": 786.0,
+      "hagrid": "02137",
+      "sourceColumn": "Inter-litter/Interbirth interval"
+    },
+    {
+      "species": "Phoca vitulina",
+      "traitId": "adult_body_mass",
+      "value": 115000.0,
+      "hagrid": "02234",
+      "sourceColumn": "Adult weight (g)"
+    },
+    {
+      "species": "Phoca vitulina",
+      "traitId": "maximum_documented_lifespan",
+      "value": 47.6,
+      "hagrid": "02234",
+      "sourceColumn": "Maximum longevity (yrs)"
+    },
+    {
+      "species": "Phoca vitulina",
+      "traitId": "gestation",
+      "value": 253.0,
+      "hagrid": "02234",
+      "sourceColumn": "Gestation/Incubation (days)"
+    },
+    {
+      "species": "Phoca vitulina",
+      "traitId": "litter_size",
+      "value": 1.0,
+      "hagrid": "02234",
+      "sourceColumn": "Litter/Clutch size"
+    },
+    {
+      "species": "Phoca vitulina",
+      "traitId": "female_maturity",
+      "value": 1095.0,
+      "hagrid": "02234",
+      "sourceColumn": "Female maturity (days)"
+    },
+    {
+      "species": "Phoca vitulina",
+      "traitId": "male_maturity",
+      "value": 1460.0,
+      "hagrid": "02234",
+      "sourceColumn": "Male maturity (days)"
+    },
+    {
+      "species": "Phoca vitulina",
+      "traitId": "weaning_age",
+      "value": 30.0,
+      "hagrid": "02234",
+      "sourceColumn": "Weaning (days)"
+    },
+    {
+      "species": "Phoca vitulina",
+      "traitId": "birth_weight",
+      "value": 11000.0,
+      "hagrid": "02234",
+      "sourceColumn": "Birth weight (g)"
+    },
+    {
+      "species": "Phoca vitulina",
+      "traitId": "weaning_mass",
+      "value": 23945.0,
+      "hagrid": "02234",
+      "sourceColumn": "Weaning weight (g)"
+    },
+    {
+      "species": "Phoca vitulina",
+      "traitId": "litters_per_year",
+      "value": 1.0,
+      "hagrid": "02234",
+      "sourceColumn": "Litters/Clutches per year"
+    },
+    {
+      "species": "Phoca vitulina",
+      "traitId": "interbirth_interval",
+      "value": 365.0,
+      "hagrid": "02234",
+      "sourceColumn": "Inter-litter/Interbirth interval"
+    },
+    {
+      "species": "Zalophus californianus",
+      "traitId": "adult_body_mass",
+      "value": 180000.0,
+      "hagrid": "02219",
+      "sourceColumn": "Adult weight (g)"
+    },
+    {
+      "species": "Zalophus californianus",
+      "traitId": "maximum_documented_lifespan",
+      "value": 35.7,
+      "hagrid": "02219",
+      "sourceColumn": "Maximum longevity (yrs)"
+    },
+    {
+      "species": "Zalophus californianus",
+      "traitId": "gestation",
+      "value": 259.0,
+      "hagrid": "02219",
+      "sourceColumn": "Gestation/Incubation (days)"
+    },
+    {
+      "species": "Zalophus californianus",
+      "traitId": "litter_size",
+      "value": 1.2,
+      "hagrid": "02219",
+      "sourceColumn": "Litter/Clutch size"
+    },
+    {
+      "species": "Zalophus californianus",
+      "traitId": "female_maturity",
+      "value": 1095.0,
+      "hagrid": "02219",
+      "sourceColumn": "Female maturity (days)"
+    },
+    {
+      "species": "Zalophus californianus",
+      "traitId": "male_maturity",
+      "value": 1826.0,
+      "hagrid": "02219",
+      "sourceColumn": "Male maturity (days)"
+    },
+    {
+      "species": "Zalophus californianus",
+      "traitId": "weaning_age",
+      "value": 315.0,
+      "hagrid": "02219",
+      "sourceColumn": "Weaning (days)"
+    },
+    {
+      "species": "Zalophus californianus",
+      "traitId": "birth_weight",
+      "value": 7000.0,
+      "hagrid": "02219",
+      "sourceColumn": "Birth weight (g)"
+    },
+    {
+      "species": "Zalophus californianus",
+      "traitId": "weaning_mass",
+      "value": 25000.0,
+      "hagrid": "02219",
+      "sourceColumn": "Weaning weight (g)"
+    },
+    {
+      "species": "Zalophus californianus",
+      "traitId": "litters_per_year",
+      "value": 0.5,
+      "hagrid": "02219",
+      "sourceColumn": "Litters/Clutches per year"
+    },
+    {
+      "species": "Zalophus californianus",
+      "traitId": "interbirth_interval",
+      "value": 730.0,
+      "hagrid": "02219",
+      "sourceColumn": "Inter-litter/Interbirth interval"
+    },
+    {
+      "species": "Vombatus ursinus",
+      "traitId": "adult_body_mass",
+      "value": 25500.0,
+      "hagrid": "02578",
+      "sourceColumn": "Adult weight (g)"
+    },
+    {
+      "species": "Vombatus ursinus",
+      "traitId": "maximum_documented_lifespan",
+      "value": 30.0,
+      "hagrid": "02578",
+      "sourceColumn": "Maximum longevity (yrs)"
+    },
+    {
+      "species": "Vombatus ursinus",
+      "traitId": "gestation",
+      "value": 27.0,
+      "hagrid": "02578",
+      "sourceColumn": "Gestation/Incubation (days)"
+    },
+    {
+      "species": "Vombatus ursinus",
+      "traitId": "litter_size",
+      "value": 1.0,
+      "hagrid": "02578",
+      "sourceColumn": "Litter/Clutch size"
+    },
+    {
+      "species": "Vombatus ursinus",
+      "traitId": "female_maturity",
+      "value": 730.0,
+      "hagrid": "02578",
+      "sourceColumn": "Female maturity (days)"
+    },
+    {
+      "species": "Vombatus ursinus",
+      "traitId": "male_maturity",
+      "value": 730.0,
+      "hagrid": "02578",
+      "sourceColumn": "Male maturity (days)"
+    },
+    {
+      "species": "Vombatus ursinus",
+      "traitId": "weaning_age",
+      "value": 350.0,
+      "hagrid": "02578",
+      "sourceColumn": "Weaning (days)"
+    },
+    {
+      "species": "Vombatus ursinus",
+      "traitId": "birth_weight",
+      "value": 0.5,
+      "hagrid": "02578",
+      "sourceColumn": "Birth weight (g)"
+    },
+    {
+      "species": "Vombatus ursinus",
+      "traitId": "weaning_mass",
+      "value": 5700.0,
+      "hagrid": "02578",
+      "sourceColumn": "Weaning weight (g)"
+    },
+    {
+      "species": "Vombatus ursinus",
+      "traitId": "interbirth_interval",
+      "value": 730.0,
+      "hagrid": "02578",
+      "sourceColumn": "Inter-litter/Interbirth interval"
+    },
+    {
+      "species": "Tachyglossus aculeatus",
+      "traitId": "adult_body_mass",
+      "value": 3500.0,
+      "hagrid": "02623",
+      "sourceColumn": "Adult weight (g)"
+    },
+    {
+      "species": "Tachyglossus aculeatus",
+      "traitId": "maximum_documented_lifespan",
+      "value": 49.5,
+      "hagrid": "02623",
+      "sourceColumn": "Maximum longevity (yrs)"
+    },
+    {
+      "species": "Tachyglossus aculeatus",
+      "traitId": "gestation",
+      "value": 22.0,
+      "hagrid": "02623",
+      "sourceColumn": "Gestation/Incubation (days)"
+    },
+    {
+      "species": "Tachyglossus aculeatus",
+      "traitId": "litter_size",
+      "value": 1.0,
+      "hagrid": "02623",
+      "sourceColumn": "Litter/Clutch size"
+    },
+    {
+      "species": "Tachyglossus aculeatus",
+      "traitId": "female_maturity",
+      "value": 548.0,
+      "hagrid": "02623",
+      "sourceColumn": "Female maturity (days)"
+    },
+    {
+      "species": "Tachyglossus aculeatus",
+      "traitId": "male_maturity",
+      "value": 548.0,
+      "hagrid": "02623",
+      "sourceColumn": "Male maturity (days)"
+    },
+    {
+      "species": "Tachyglossus aculeatus",
+      "traitId": "weaning_age",
+      "value": 200.0,
+      "hagrid": "02623",
+      "sourceColumn": "Weaning (days)"
+    },
+    {
+      "species": "Tachyglossus aculeatus",
+      "traitId": "birth_weight",
+      "value": 0.379,
+      "hagrid": "02623",
+      "sourceColumn": "Birth weight (g)"
+    },
+    {
+      "species": "Tachyglossus aculeatus",
+      "traitId": "weaning_mass",
+      "value": 400.0,
+      "hagrid": "02623",
+      "sourceColumn": "Weaning weight (g)"
+    },
+    {
+      "species": "Tachyglossus aculeatus",
+      "traitId": "interbirth_interval",
+      "value": 730.0,
+      "hagrid": "02623",
+      "sourceColumn": "Inter-litter/Interbirth interval"
+    },
+    {
+      "species": "Rangifer tarandus",
+      "traitId": "adult_body_mass",
+      "value": 101250.0,
+      "hagrid": "02039",
+      "sourceColumn": "Adult weight (g)"
+    },
+    {
+      "species": "Rangifer tarandus",
+      "traitId": "maximum_documented_lifespan",
+      "value": 21.8,
+      "hagrid": "02039",
+      "sourceColumn": "Maximum longevity (yrs)"
+    },
+    {
+      "species": "Rangifer tarandus",
+      "traitId": "gestation",
+      "value": 228.0,
+      "hagrid": "02039",
+      "sourceColumn": "Gestation/Incubation (days)"
+    },
+    {
+      "species": "Rangifer tarandus",
+      "traitId": "litter_size",
+      "value": 1.0,
+      "hagrid": "02039",
+      "sourceColumn": "Litter/Clutch size"
+    },
+    {
+      "species": "Rangifer tarandus",
+      "traitId": "female_maturity",
+      "value": 662.0,
+      "hagrid": "02039",
+      "sourceColumn": "Female maturity (days)"
+    },
+    {
+      "species": "Rangifer tarandus",
+      "traitId": "male_maturity",
+      "value": 680.0,
+      "hagrid": "02039",
+      "sourceColumn": "Male maturity (days)"
+    },
+    {
+      "species": "Rangifer tarandus",
+      "traitId": "birth_weight",
+      "value": 6500.0,
+      "hagrid": "02039",
+      "sourceColumn": "Birth weight (g)"
+    },
+    {
+      "species": "Rangifer tarandus",
+      "traitId": "litters_per_year",
+      "value": 1.0,
+      "hagrid": "02039",
+      "sourceColumn": "Litters/Clutches per year"
+    },
+    {
+      "species": "Rangifer tarandus",
+      "traitId": "interbirth_interval",
+      "value": 365.0,
+      "hagrid": "02039",
+      "sourceColumn": "Inter-litter/Interbirth interval"
+    },
+    {
+      "species": "Cervus elaphus",
+      "traitId": "adult_body_mass",
+      "value": 200000.0,
+      "hagrid": "02020",
+      "sourceColumn": "Adult weight (g)"
+    },
+    {
+      "species": "Cervus elaphus",
+      "traitId": "maximum_documented_lifespan",
+      "value": 31.5,
+      "hagrid": "02020",
+      "sourceColumn": "Maximum longevity (yrs)"
+    },
+    {
+      "species": "Cervus elaphus",
+      "traitId": "gestation",
+      "value": 245.0,
+      "hagrid": "02020",
+      "sourceColumn": "Gestation/Incubation (days)"
+    },
+    {
+      "species": "Cervus elaphus",
+      "traitId": "litter_size",
+      "value": 1.0,
+      "hagrid": "02020",
+      "sourceColumn": "Litter/Clutch size"
+    },
+    {
+      "species": "Cervus elaphus",
+      "traitId": "female_maturity",
+      "value": 852.0,
+      "hagrid": "02020",
+      "sourceColumn": "Female maturity (days)"
+    },
+    {
+      "species": "Cervus elaphus",
+      "traitId": "male_maturity",
+      "value": 730.0,
+      "hagrid": "02020",
+      "sourceColumn": "Male maturity (days)"
+    },
+    {
+      "species": "Cervus elaphus",
+      "traitId": "birth_weight",
+      "value": 10100.0,
+      "hagrid": "02020",
+      "sourceColumn": "Birth weight (g)"
+    },
+    {
+      "species": "Cervus elaphus",
+      "traitId": "litters_per_year",
+      "value": 0.9,
+      "hagrid": "02020",
+      "sourceColumn": "Litters/Clutches per year"
+    },
+    {
+      "species": "Suricata suricatta",
+      "traitId": "adult_body_mass",
+      "value": 776.0,
+      "hagrid": "02157",
+      "sourceColumn": "Adult weight (g)"
+    },
+    {
+      "species": "Suricata suricatta",
+      "traitId": "maximum_documented_lifespan",
+      "value": 20.6,
+      "hagrid": "02157",
+      "sourceColumn": "Maximum longevity (yrs)"
+    },
+    {
+      "species": "Suricata suricatta",
+      "traitId": "gestation",
+      "value": 77.0,
+      "hagrid": "02157",
+      "sourceColumn": "Gestation/Incubation (days)"
+    },
+    {
+      "species": "Suricata suricatta",
+      "traitId": "litter_size",
+      "value": 4.0,
+      "hagrid": "02157",
+      "sourceColumn": "Litter/Clutch size"
+    },
+    {
+      "species": "Suricata suricatta",
+      "traitId": "female_maturity",
+      "value": 365.0,
+      "hagrid": "02157",
+      "sourceColumn": "Female maturity (days)"
+    },
+    {
+      "species": "Suricata suricatta",
+      "traitId": "male_maturity",
+      "value": 365.0,
+      "hagrid": "02157",
+      "sourceColumn": "Male maturity (days)"
+    },
+    {
+      "species": "Suricata suricatta",
+      "traitId": "birth_weight",
+      "value": 29.0,
+      "hagrid": "02157",
+      "sourceColumn": "Birth weight (g)"
+    },
+    {
+      "species": "Suricata suricatta",
+      "traitId": "litters_per_year",
+      "value": 1.0,
+      "hagrid": "02157",
+      "sourceColumn": "Litters/Clutches per year"
+    },
+    {
+      "species": "Suricata suricatta",
+      "traitId": "interbirth_interval",
+      "value": 365.0,
+      "hagrid": "02157",
+      "sourceColumn": "Inter-litter/Interbirth interval"
+    },
+    {
+      "species": "Rattus norvegicus",
+      "traitId": "adult_body_mass",
+      "value": 300.0,
+      "hagrid": "03083",
+      "sourceColumn": "Adult weight (g)"
+    },
+    {
+      "species": "Rattus norvegicus",
+      "traitId": "maximum_documented_lifespan",
+      "value": 3.8,
+      "hagrid": "03083",
+      "sourceColumn": "Maximum longevity (yrs)"
+    },
+    {
+      "species": "Rattus norvegicus",
+      "traitId": "gestation",
+      "value": 21.0,
+      "hagrid": "03083",
+      "sourceColumn": "Gestation/Incubation (days)"
+    },
+    {
+      "species": "Rattus norvegicus",
+      "traitId": "litter_size",
+      "value": 9.9,
+      "hagrid": "03083",
+      "sourceColumn": "Litter/Clutch size"
+    },
+    {
+      "species": "Rattus norvegicus",
+      "traitId": "female_maturity",
+      "value": 90.0,
+      "hagrid": "03083",
+      "sourceColumn": "Female maturity (days)"
+    },
+    {
+      "species": "Rattus norvegicus",
+      "traitId": "male_maturity",
+      "value": 70.0,
+      "hagrid": "03083",
+      "sourceColumn": "Male maturity (days)"
+    },
+    {
+      "species": "Rattus norvegicus",
+      "traitId": "birth_weight",
+      "value": 5.81,
+      "hagrid": "03083",
+      "sourceColumn": "Birth weight (g)"
+    },
+    {
+      "species": "Rattus norvegicus",
+      "traitId": "litters_per_year",
+      "value": 3.7,
+      "hagrid": "03083",
+      "sourceColumn": "Litters/Clutches per year"
+    },
+    {
+      "species": "Mesocricetus auratus",
+      "traitId": "adult_body_mass",
+      "value": 105.0,
+      "hagrid": "02885",
+      "sourceColumn": "Adult weight (g)"
+    },
+    {
+      "species": "Mesocricetus auratus",
+      "traitId": "maximum_documented_lifespan",
+      "value": 3.9,
+      "hagrid": "02885",
+      "sourceColumn": "Maximum longevity (yrs)"
+    },
+    {
+      "species": "Mesocricetus auratus",
+      "traitId": "gestation",
+      "value": 16.0,
+      "hagrid": "02885",
+      "sourceColumn": "Gestation/Incubation (days)"
+    },
+    {
+      "species": "Mesocricetus auratus",
+      "traitId": "litter_size",
+      "value": 9.0,
+      "hagrid": "02885",
+      "sourceColumn": "Litter/Clutch size"
+    },
+    {
+      "species": "Mesocricetus auratus",
+      "traitId": "female_maturity",
+      "value": 48.0,
+      "hagrid": "02885",
+      "sourceColumn": "Female maturity (days)"
+    },
+    {
+      "species": "Mesocricetus auratus",
+      "traitId": "male_maturity",
+      "value": 48.0,
+      "hagrid": "02885",
+      "sourceColumn": "Male maturity (days)"
+    },
+    {
+      "species": "Mesocricetus auratus",
+      "traitId": "weaning_age",
+      "value": 20.0,
+      "hagrid": "02885",
+      "sourceColumn": "Weaning (days)"
+    },
+    {
+      "species": "Mesocricetus auratus",
+      "traitId": "birth_weight",
+      "value": 2.45,
+      "hagrid": "02885",
+      "sourceColumn": "Birth weight (g)"
+    },
+    {
+      "species": "Mesocricetus auratus",
+      "traitId": "weaning_mass",
+      "value": 22.93,
+      "hagrid": "02885",
+      "sourceColumn": "Weaning weight (g)"
+    },
+    {
+      "species": "Mesocricetus auratus",
+      "traitId": "litters_per_year",
+      "value": 3.0,
+      "hagrid": "02885",
+      "sourceColumn": "Litters/Clutches per year"
+    },
+    {
+      "species": "Myotis lucifugus",
+      "traitId": "adult_body_mass",
+      "value": 10.0,
+      "hagrid": "02404",
+      "sourceColumn": "Adult weight (g)"
+    },
+    {
+      "species": "Myotis lucifugus",
+      "traitId": "gestation",
+      "value": 55.0,
+      "hagrid": "02404",
+      "sourceColumn": "Gestation/Incubation (days)"
+    },
+    {
+      "species": "Myotis lucifugus",
+      "traitId": "litter_size",
+      "value": 1.0,
+      "hagrid": "02404",
+      "sourceColumn": "Litter/Clutch size"
+    },
+    {
+      "species": "Myotis lucifugus",
+      "traitId": "female_maturity",
+      "value": 210.0,
+      "hagrid": "02404",
+      "sourceColumn": "Female maturity (days)"
+    },
+    {
+      "species": "Myotis lucifugus",
+      "traitId": "male_maturity",
+      "value": 210.0,
+      "hagrid": "02404",
+      "sourceColumn": "Male maturity (days)"
+    },
+    {
+      "species": "Myotis lucifugus",
+      "traitId": "weaning_age",
+      "value": 25.0,
+      "hagrid": "02404",
+      "sourceColumn": "Weaning (days)"
+    },
+    {
+      "species": "Myotis lucifugus",
+      "traitId": "birth_weight",
+      "value": 1.96,
+      "hagrid": "02404",
+      "sourceColumn": "Birth weight (g)"
+    },
+    {
+      "species": "Myotis lucifugus",
+      "traitId": "litters_per_year",
+      "value": 1.0,
+      "hagrid": "02404",
+      "sourceColumn": "Litters/Clutches per year"
+    },
+    {
+      "species": "Myotis lucifugus",
+      "traitId": "interbirth_interval",
+      "value": 365.0,
+      "hagrid": "02404",
+      "sourceColumn": "Inter-litter/Interbirth interval"
+    },
+    {
+      "species": "Pteropus vampyrus",
+      "traitId": "adult_body_mass",
+      "value": 872.0,
+      "hagrid": "02372",
+      "sourceColumn": "Adult weight (g)"
+    },
+    {
+      "species": "Pteropus vampyrus",
+      "traitId": "maximum_documented_lifespan",
+      "value": 20.9,
+      "hagrid": "02372",
+      "sourceColumn": "Maximum longevity (yrs)"
+    },
+    {
+      "species": "Pteropus vampyrus",
+      "traitId": "litter_size",
+      "value": 1.0,
+      "hagrid": "02372",
+      "sourceColumn": "Litter/Clutch size"
+    },
+    {
+      "species": "Pteropus vampyrus",
+      "traitId": "litters_per_year",
+      "value": 1.0,
+      "hagrid": "02372",
+      "sourceColumn": "Litters/Clutches per year"
+    },
+    {
+      "species": "Myrmecophaga tridactyla",
+      "traitId": "adult_body_mass",
+      "value": 28500.0,
+      "hagrid": "02659",
+      "sourceColumn": "Adult weight (g)"
+    },
+    {
+      "species": "Myrmecophaga tridactyla",
+      "traitId": "maximum_documented_lifespan",
+      "value": 31.0,
+      "hagrid": "02659",
+      "sourceColumn": "Maximum longevity (yrs)"
+    },
+    {
+      "species": "Myrmecophaga tridactyla",
+      "traitId": "gestation",
+      "value": 184.0,
+      "hagrid": "02659",
+      "sourceColumn": "Gestation/Incubation (days)"
+    },
+    {
+      "species": "Myrmecophaga tridactyla",
+      "traitId": "litter_size",
+      "value": 1.0,
+      "hagrid": "02659",
+      "sourceColumn": "Litter/Clutch size"
+    },
+    {
+      "species": "Myrmecophaga tridactyla",
+      "traitId": "female_maturity",
+      "value": 1186.0,
+      "hagrid": "02659",
+      "sourceColumn": "Female maturity (days)"
+    },
+    {
+      "species": "Myrmecophaga tridactyla",
+      "traitId": "male_maturity",
+      "value": 1186.0,
+      "hagrid": "02659",
+      "sourceColumn": "Male maturity (days)"
+    },
+    {
+      "species": "Myrmecophaga tridactyla",
+      "traitId": "weaning_age",
+      "value": 56.0,
+      "hagrid": "02659",
+      "sourceColumn": "Weaning (days)"
+    },
+    {
+      "species": "Myrmecophaga tridactyla",
+      "traitId": "birth_weight",
+      "value": 1600.0,
+      "hagrid": "02659",
+      "sourceColumn": "Birth weight (g)"
+    },
+    {
+      "species": "Myrmecophaga tridactyla",
+      "traitId": "litters_per_year",
+      "value": 1.2,
+      "hagrid": "02659",
+      "sourceColumn": "Litters/Clutches per year"
+    },
+    {
+      "species": "Dasypus novemcinctus",
+      "traitId": "adult_body_mass",
+      "value": 5500.0,
+      "hagrid": "02441",
+      "sourceColumn": "Adult weight (g)"
+    },
+    {
+      "species": "Dasypus novemcinctus",
+      "traitId": "maximum_documented_lifespan",
+      "value": 22.3,
+      "hagrid": "02441",
+      "sourceColumn": "Maximum longevity (yrs)"
+    },
+    {
+      "species": "Dasypus novemcinctus",
+      "traitId": "gestation",
+      "value": 133.0,
+      "hagrid": "02441",
+      "sourceColumn": "Gestation/Incubation (days)"
+    },
+    {
+      "species": "Dasypus novemcinctus",
+      "traitId": "litter_size",
+      "value": 4.0,
+      "hagrid": "02441",
+      "sourceColumn": "Litter/Clutch size"
+    },
+    {
+      "species": "Dasypus novemcinctus",
+      "traitId": "female_maturity",
+      "value": 365.0,
+      "hagrid": "02441",
+      "sourceColumn": "Female maturity (days)"
+    },
+    {
+      "species": "Dasypus novemcinctus",
+      "traitId": "male_maturity",
+      "value": 365.0,
+      "hagrid": "02441",
+      "sourceColumn": "Male maturity (days)"
+    },
+    {
+      "species": "Dasypus novemcinctus",
+      "traitId": "weaning_age",
+      "value": 137.0,
+      "hagrid": "02441",
+      "sourceColumn": "Weaning (days)"
+    },
+    {
+      "species": "Dasypus novemcinctus",
+      "traitId": "birth_weight",
+      "value": 66.0,
+      "hagrid": "02441",
+      "sourceColumn": "Birth weight (g)"
+    },
+    {
+      "species": "Dasypus novemcinctus",
+      "traitId": "litters_per_year",
+      "value": 1.0,
+      "hagrid": "02441",
+      "sourceColumn": "Litters/Clutches per year"
+    }
+  ],
+  "held": [
+    {
+      "species": "Bos taurus",
+      "reason": "Pinned AnAge data quality is questionable."
+    },
+    {
+      "species": "Felis catus",
+      "reason": "Pinned AnAge data quality is questionable."
+    },
+    {
+      "species": "Odobenus rosmarus",
+      "reason": "Pinned AnAge data quality is low."
+    },
+    {
+      "species": "Alces alces",
+      "reason": "Pinned AnAge data quality is low."
+    },
+    {
+      "species": "Ovis aries",
+      "reason": "Source taxon combines domestic sheep and mouflon; cohort identity requires further review."
+    },
+    {
+      "species": "Canis familiaris",
+      "reason": "Generic domestic-dog body mass is not a breed-specific comparison; hold until cohort/breed provenance is resolved."
+    }
+  ]
+}

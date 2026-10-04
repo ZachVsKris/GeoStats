@@ -1,4 +1,4 @@
-import { animalBoardGroup } from "./animalstatsVariety";
+import { animalBoardGroup, animalBoardIsHighlyIntuitive } from "./animalstatsVariety";
 import type { AnimalDataset, BoardCandidate, BoardType } from "./animalstats";
 import type { DailyDifficulty } from "./gameRules";
 
@@ -24,7 +24,9 @@ export function orderAnimalPilotBoards(boards: BoardCandidate[], date: string, d
     const targeted = data ? pool.filter((board) => animalBoardGroup(data, board) === subject) : [];
     const diverse = data ? pool.filter((board) => !usedGroups.has(animalBoardGroup(data, board))) : pool;
     const nonBirds = data ? pool.filter((board) => animalBoardGroup(data, board) !== "birds") : [];
-    const preferred = mode === "easy" && nonBirds.length ? nonBirds : targeted.length ? targeted : diverse.length ? diverse : pool;
+    const highInterest = data ? pool.filter(board => animalBoardIsHighlyIntuitive(data, board)) : [];
+    const highDiverse = data ? highInterest.filter(board => !usedGroups.has(animalBoardGroup(data, board)) && (mode !== 'easy' || animalBoardGroup(data, board) !== 'birds')) : highInterest;
+    const preferred = highDiverse.length ? highDiverse : highInterest.length ? highInterest : mode === "easy" && nonBirds.length ? nonBirds : targeted.length ? targeted : diverse.length ? diverse : pool;
     const options = preferred.filter((board) => board.boardType === desiredType);
     const behaviorBoards = mode === "easy" && data ? preferred.filter((board) => board.traitIds.some((id) => ["movement","sleep","space"].includes(data.traits.find((trait) => trait.id === id)?.gameplayFamily ?? ""))) : [];
     const selectionPool = behaviorBoards.length ? behaviorBoards : options.length ? options : preferred;

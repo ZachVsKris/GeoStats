@@ -5,7 +5,7 @@ import dataset from "../../data/animalstats/pilot.json";
 import reviews from "../../data/animalstats/reviews.json";
 import { approvedAnimalBoards, type AnimalBoardReview } from "../../lib/animalstatsReview";
 import candidates from "../../data/animalstats/candidates.json";
-import { validateAnimalBoard, type AnimalDataset, type BoardCandidate } from "../../lib/animalstats";
+import { createAnimalBoardValidator, type AnimalDataset, type BoardCandidate } from "../../lib/animalstats";
 import { orderAnimalPilotBoards } from "../../lib/animalstatsDaily";
 import { newYorkDate } from "../../lib/time";
 
@@ -17,8 +17,9 @@ let catalog: { data: AnimalDataset; boards: BoardCandidate[]; clientData: Animal
 function getCatalog() {
   if (catalog) return catalog;
   const data = dataset as AnimalDataset;
+  const validate = createAnimalBoardValidator(data);
   const excluded = new Set(["adult_shoulder_height", "adult_shoulder_height__low"]);
-  const boards = (candidates.boards as BoardCandidate[]).filter((board) => !board.traitIds.some(id => excluded.has(id)) && validateAnimalBoard(data, board).valid);
+  const boards = (candidates.boards as BoardCandidate[]).filter((board) => !board.traitIds.some(id => excluded.has(id)) && validate(board).valid);
   const pairedTraits = data.traits.filter((trait) => trait.prototypeCategory && !excluded.has(trait.id));
   const pairedIds = new Set(pairedTraits.map((trait) => trait.id));
   const clientData = { ...data, traits: pairedTraits, values: data.values.filter((row) => pairedIds.has(row.traitId)) };

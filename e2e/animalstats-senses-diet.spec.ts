@@ -1,8 +1,9 @@
 import { expect, test } from '@playwright/test';
 import { readFileSync } from 'node:fs';
-import { validateAnimalDataset, validateAnimalBoard, type AnimalDataset, type BoardCandidate } from '../lib/animalstats';
+import { createAnimalBoardValidator, validateAnimalDataset, validateAnimalBoard, type AnimalDataset, type BoardCandidate } from '../lib/animalstats';
 import { formatAnimalValue } from '../lib/animalstatsFormatting';
 const data=JSON.parse(readFileSync(new URL('../data/animalstats/pilot.json',import.meta.url),'utf8')) as AnimalDataset;
+const validateReleaseBoard=createAnimalBoardValidator(data);
 const boards=JSON.parse(readFileSync(new URL('../data/animalstats/candidates.json',import.meta.url),'utf8')).boards as BoardCandidate[];
 const paired=['measured_eye_length','behavioral_visual_acuity','recorded_chewing_rate','diet_prey_mass_span','raw_hatching_mass','scientific_description_age','iucn_extinction_risk'];
 const singles=['diet_largest_prey','diet_smallest_prey'];
@@ -13,21 +14,21 @@ test('sixteen added labels have playable boards and preserve all earlier links',
  expect(new Set(data.traits.filter(t=>used.has(t.id)).map(t=>t.displayName)).size).toBeGreaterThanOrEqual(100);
  for(const id of [...paired.flatMap(t=>[t,t+'__low']),...singles]){
   const matches=boards.filter(b=>b.traitIds.includes(id));expect(matches.length,id).toBeGreaterThan(0);
-  expect(matches.every(b=>validateAnimalBoard(data,b).valid),id).toBe(true);
+  expect(matches.every(b=>validateReleaseBoard(b).valid),id).toBe(true);
  }
  const old=JSON.parse(readFileSync(new URL('../data/animalstats/retained-live-boards.json',import.meta.url),'utf8')).boards as BoardCandidate[];
  for(const prior of old){const current=boards.find(b=>b.id===prior.id);expect(current?.animalIds).toEqual(prior.animalIds);expect(current?.traitIds).toEqual(prior.traitIds);}
 });
 
 test('source admission excludes inferred eyesight, dog-as-wolf and ambiguous maturity',()=>{
- const vision=data.values.filter(v=>v.traitId==='behavioral_visual_acuity');expect(vision).toHaveLength(7);
+ const vision=data.values.filter(v=>v.traitId==='behavioral_visual_acuity');expect(vision).toHaveLength(10);
  expect(vision.find(v=>v.animalId==='macaca_mulatta')?.valueNumeric).toBe(53.6);
  expect(vision.some(v=>v.animalId==='giraffa_camelopardalis')).toBe(false);
  expect(data.values.some(v=>v.traitId==='measured_eye_length'&&v.animalId==='canis_lupus')).toBe(false);
  expect(data.values.some(v=>v.traitId==='recorded_chewing_rate'&&['canis_lupus','ursus_arctos','ursus_thibetanus'].includes(v.animalId))).toBe(false);
  expect(data.values.some(v=>v.animalId==='oryctolagus_cuniculus'&&v.traitId.startsWith('female_maturity'))).toBe(false);
  expect(data.values.find(v=>v.animalId==='oryctolagus_cuniculus'&&v.traitId==='recorded_chewing_rate')?.valueNumeric).toBeCloseTo(60000/180,10);
- const risk=data.values.filter(v=>v.traitId==='iucn_extinction_risk');expect(risk).toHaveLength(135);
+ const risk=data.values.filter(v=>v.traitId==='iucn_extinction_risk');expect(risk).toHaveLength(153);
  expect(risk.find(v=>v.animalId==='erinaceus_europaeus')?.valueNumeric).toBe(2);
  expect(formatAnimalValue(2,'IUCN category')).toBe('Near Threatened');
  expect(formatAnimalValue(5,'IUCN category')).toBe('Critically Endangered');
@@ -58,7 +59,7 @@ test('new source families play, score and return complete rankings',async({page,
   if(id==='iucn_extinction_risk'){
    await page.locator('.resultWrap').filter({hasText:'Most threatened'}).getByRole('button',{name:'View rankings'}).click();
    await page.getByRole('button',{name:'Data & Source',exact:true}).click();
-   await expect(page.locator('.sourceDataRow')).toHaveCount(135);await expect(page.locator('.sourceLoading')).toHaveCount(0);await expect(page.locator('.sourceLoadError')).toHaveCount(0);
+   await expect(page.locator('.sourceDataRow')).toHaveCount(data.values.filter(v=>v.traitId==='iucn_extinction_risk'&&v.confidence==='approved').length);await expect(page.locator('.sourceLoading')).toHaveCount(0);await expect(page.locator('.sourceLoadError')).toHaveCount(0);
    await expect(page.locator('.sourceDataRow').first()).toContainText('Critically Endangered');
    await page.getByRole('button',{name:'Close data and source'}).click();
   }

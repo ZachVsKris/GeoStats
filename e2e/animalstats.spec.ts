@@ -91,14 +91,15 @@ test("daily review gate, persistent personal history and CAT navigation", async 
 
 import { readFileSync } from "node:fs";
 const animalDataset = JSON.parse(readFileSync(new URL("../data/animalstats/pilot.json", import.meta.url), "utf8"));
+const validateReleaseBoard = createAnimalBoardValidator(animalDataset);
 const candidateData = JSON.parse(readFileSync(new URL("../data/animalstats/candidates.json", import.meta.url), "utf8"));
-import { validateAnimalBoard, type AnimalDataset, type BoardCandidate } from "../lib/animalstats";
+import { createAnimalBoardValidator, validateAnimalBoard, type AnimalDataset, type BoardCandidate } from "../lib/animalstats";
 import { approvedAnimalBoards, animalBoardFingerprint, animalBoardDataFingerprint, type AnimalBoardReview } from "../lib/animalstatsReview";
 
 test("daily approvals bind to exact reviewed data and reject unknown uncertainty by default", () => {
  const data = animalDataset as AnimalDataset;
  const boards = candidateData.boards as BoardCandidate[];
- expect(boards.every((board) => validateAnimalBoard(data, board).valid)).toBe(true);
+ expect(boards.every((board) => validateReleaseBoard(board).valid)).toBe(true);
  expect(approvedAnimalBoards(data, boards, [])).toEqual([]);
  const board = boards[0];
  const review: AnimalBoardReview = { boardId: board.id!, status: "approved", reviewer: "test fixture", reviewedAt: "2026-09-29", sourceChecks: "fixture", uncertaintyChecks: "fixture", playabilityChecks: "fixture", fingerprint: animalBoardFingerprint(board), dataFingerprint: animalBoardDataFingerprint(data, board) };
@@ -157,7 +158,7 @@ test('previously shared boards preserve their IDs, animal order and prize order'
 test("all boards have different first-place animals and attain a perfect score", () => {
  const data = animalDataset as AnimalDataset;
  for (const board of candidateData.boards as BoardCandidate[]) {
-  const validation = validateAnimalBoard(data, board);
+  const validation = validateReleaseBoard(board);
   expect(validation.rejectionReasons, board.id).toEqual([]);
   expect(new Set(Object.values(validation.winners)).size).toBe(board.traitIds.length);
   const perfect = scoreAnimalAssignments(data, board, validation.winners)!;
@@ -215,7 +216,7 @@ test("new prototype balances categories and mirrors measured values exactly", ()
   expect(categories.some(t => /^(bird_beak_width|bird_beak_depth|bird_tarsus_length|bird_hand_wing_index)(?:__low)?$/.test(t.id))).toBe(false);
   expect(new Set(categories.map(t => t.metricKey)).size).toBe(categories.length);
   expect(categories.filter(t => t.metricKey === "reproduction").length).toBeLessThanOrEqual(1);
-  expect(validateAnimalBoard(data, board).valid).toBe(true);
+  expect(validateReleaseBoard(board).valid).toBe(true);
  }
 });
 
@@ -228,7 +229,7 @@ test("new mammal comparisons preserve measured facts and stay separate", () => {
  });
  expect(breathing.some(v=>v.animalId==="canis_lupus")).toBe(false);
  const milk=data.values.filter(v=>v.traitId.startsWith("milk_")&&!v.traitId.endsWith("__low"));
- expect(milk).toHaveLength(34);
+ expect(milk).toHaveLength(46);
  expect(milk.some(v=>["macropus_rufus","phascolarctos_cinereus","ornithorhynchus_anatinus"].includes(v.animalId))).toBe(false);
  expect(milk.some(v=>v.animalId==="giraffa_camelopardalis"&&v.traitId==="milk_sugar_concentration")).toBe(false);
  for(const v of [...breathing,...milk]) {
@@ -248,7 +249,7 @@ test("new mammal comparisons preserve measured facts and stay separate", () => {
 test("diet and range geography use exact evidence and keep related prizes apart",()=>{
  const data=animalDataset as AnimalDataset;
  const foods=data.values.filter(v=>v.traitId==='diet_food_group_count');
- expect(foods).toHaveLength(29);
+ expect(foods).toHaveLength(45);
  expect(Object.fromEntries(foods.filter(v=>['giraffa_camelopardalis','gorilla_gorilla','macaca_mulatta','pan_troglodytes'].includes(v.animalId)).map(v=>[v.animalId,v.valueNumeric]))).toEqual({giraffa_camelopardalis:1,gorilla_gorilla:2,macaca_mulatta:3,pan_troglodytes:4});
  expect(foods.some(v=>v.animalId==='enhydra_lutris')).toBe(false);
  const value=(animalId:string,traitId:string)=>data.values.find(v=>v.animalId===animalId&&v.traitId===traitId)?.valueNumeric;
@@ -350,7 +351,7 @@ test("podium remove returns an animal to the pen and supports replacement", asyn
 
 import {cartoonSpecies} from '../lib/animalstatsCartoons';
 test('every playable species has an illustrated profile',()=>{
- expect(cartoonSpecies).toHaveLength(85);
+ expect(cartoonSpecies).toHaveLength(105);
  for(const board of candidateData.boards)for(const id of board.animalIds)expect(cartoonSpecies).toContain(id);
 });
 for(const viewport of [{width:1440,height:900},{width:1366,height:768},{width:390,height:844},{width:375,height:667}]){

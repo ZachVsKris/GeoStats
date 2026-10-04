@@ -3,6 +3,36 @@
   "reviewedAt": "2026-10-03",
   "records": [
     {
+      "species": "Rangifer tarandus",
+      "traitId": "milk_fat_concentration",
+      "value": 10.9,
+      "column": "Fat",
+      "row": 22,
+      "sampleSizeRaw": "6",
+      "lactationStageRaw": "21-30",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Rangifer tarandus",
+      "traitId": "milk_sugar_concentration",
+      "value": 3.4,
+      "column": "Sugar",
+      "row": 22,
+      "sampleSizeRaw": "6",
+      "lactationStageRaw": "21-30",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Rangifer tarandus",
+      "traitId": "milk_protein_concentration",
+      "value": 9.5,
+      "column": "Protein",
+      "row": 22,
+      "sampleSizeRaw": "6",
+      "lactationStageRaw": "21-30",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
       "species": "Giraffa camelopardalis",
       "traitId": "milk_fat_concentration",
       "value": 4.8,
@@ -80,6 +110,36 @@
       "row": 28,
       "sampleSizeRaw": "6",
       "lactationStageRaw": "45-90",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Zalophus californianus",
+      "traitId": "milk_fat_concentration",
+      "value": 31.7,
+      "column": "Fat",
+      "row": 38,
+      "sampleSizeRaw": "9",
+      "lactationStageRaw": "~3-60",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Zalophus californianus",
+      "traitId": "milk_sugar_concentration",
+      "value": 0.3,
+      "column": "Sugar",
+      "row": 38,
+      "sampleSizeRaw": "9",
+      "lactationStageRaw": "~3-60",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Zalophus californianus",
+      "traitId": "milk_protein_concentration",
+      "value": 8.6,
+      "column": "Protein",
+      "row": 38,
+      "sampleSizeRaw": "9",
+      "lactationStageRaw": "~3-60",
       "decision": "approved-placental-mid-lactation-compilation"
     },
     {
@@ -340,6 +400,66 @@
       "row": 112,
       "sampleSizeRaw": "10",
       "lactationStageRaw": "4-9",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Mesocricetus auratus",
+      "traitId": "milk_fat_concentration",
+      "value": 4.9,
+      "column": "Fat",
+      "row": 115,
+      "sampleSizeRaw": "6",
+      "lactationStageRaw": "Mid",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Mesocricetus auratus",
+      "traitId": "milk_sugar_concentration",
+      "value": 4.9,
+      "column": "Sugar",
+      "row": 115,
+      "sampleSizeRaw": "6",
+      "lactationStageRaw": "Mid",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Mesocricetus auratus",
+      "traitId": "milk_protein_concentration",
+      "value": 9.4,
+      "column": "Protein",
+      "row": 115,
+      "sampleSizeRaw": "6",
+      "lactationStageRaw": "Mid",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Mus musculus",
+      "traitId": "milk_fat_concentration",
+      "value": 27.0,
+      "column": "Fat",
+      "row": 118,
+      "sampleSizeRaw": "5",
+      "lactationStageRaw": "9-10",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Mus musculus",
+      "traitId": "milk_sugar_concentration",
+      "value": 2.6,
+      "column": "Sugar",
+      "row": 118,
+      "sampleSizeRaw": "5",
+      "lactationStageRaw": "9-10",
+      "decision": "approved-placental-mid-lactation-compilation"
+    },
+    {
+      "species": "Mus musculus",
+      "traitId": "milk_protein_concentration",
+      "value": 12.5,
+      "column": "Protein",
+      "row": 118,
+      "sampleSizeRaw": "5",
+      "lactationStageRaw": "9-10",
       "decision": "approved-placental-mid-lactation-compilation"
     }
   ],

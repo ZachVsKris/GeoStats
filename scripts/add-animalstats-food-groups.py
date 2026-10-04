@@ -52,7 +52,7 @@ for number, row in enumerate(csv.DictReader(path.open()), 2):
                               sourceId=sid, observationType='compiled', confidence='approved', uncertaintyStatus='not-reported', notes=notes))
     audit.append(dict(scientificName=name, foodGroups=count, classifications=bits, sourceRow=number,
                       decision='approved-published-food-group-count'))
-assert len(audit) == 29
+assert len(audit) >= 29
 (OUT / 'pilot.json').write_text(json.dumps(data, indent=2, ensure_ascii=False)+'\n')
 (OUT / 'research/food-groups-gameplay-audit.json').write_text(json.dumps(dict(
     reviewedAt='2026-10-03', sourceSha256=hashlib.sha256(path.read_bytes()).hexdigest(),

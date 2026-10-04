@@ -116,17 +116,18 @@ for tid,label,direction,key in [('diet_largest_prey','Largest prey in published 
  t=originals[tid];t.pop('counterTraitId',None);t.update(displayName=label,direction=direction,prototypeCategory=True,categoryKind='intuitive',metricKey=key,oneSided=True)
 # ADW realm labels are source labels, not invented continent assignments or numerical ranges.
 cache=OUT/'research/regions.json'
-if cache.exists():regions=json.loads(cache.read_text())
-else:
- def fetch(a):
-  url='https://animaldiversity.org/accounts/'+a['scientificName'].replace(' ','_')+'/'
-  try:
-   html=urllib.request.urlopen(url,timeout=15).read().decode();section=html.split('id="geographic_range"',1)[1].split('</section>',1)[0]
-   block=section.split('Biogeographic Regions',1)[1]
-   labels=list(dict.fromkeys(re.findall(r'<button[^>]*>\s*(nearctic|palearctic|oriental|ethiopian|neotropical|australian|antarctica|oceanic islands|atlantic ocean|pacific ocean|indian ocean|arctic ocean)\s*</button>',block,re.I)))
-   return a['id'],dict(labels=labels,sourceUrl=url,retrievedAt='2026-09-30')
-  except Exception:return a['id'],dict(labels=[],sourceUrl=url,retrievedAt='2026-09-30')
- with concurrent.futures.ThreadPoolExecutor(max_workers=8) as ex:regions=dict(ex.map(fetch,d['animals']))
+regions=json.loads(cache.read_text()) if cache.exists() else {}
+def fetch(a):
+ url='https://animaldiversity.org/accounts/'+a['scientificName'].replace(' ','_')+'/'
+ try:
+  html=urllib.request.urlopen(url,timeout=15).read().decode();section=html.split('id="geographic_range"',1)[1].split('</section>',1)[0]
+  block=section.split('Biogeographic Regions',1)[1]
+  labels=list(dict.fromkeys(re.findall(r'<button[^>]*>\s*(nearctic|palearctic|oriental|ethiopian|neotropical|australian|antarctica|oceanic islands|atlantic ocean|pacific ocean|indian ocean|arctic ocean)\s*</button>',block,re.I)))
+  return a['id'],dict(labels=labels,sourceUrl=url,retrievedAt='2026-10-04')
+ except Exception:return a['id'],dict(labels=[],sourceUrl=url,retrievedAt='2026-10-04')
+missing=[a for a in d['animals'] if a['id'] not in regions]
+if missing:
+ with concurrent.futures.ThreadPoolExecutor(max_workers=8) as ex:regions.update(dict(ex.map(fetch,missing)))
  cache.write_text(json.dumps(regions,indent=2)+'\n')
 for a in d['animals']:
  r=regions.get(a['id'],{});a['biogeographicRegions']=r.get('labels',[]);a['regionSourceUrl']=r.get('sourceUrl')
@@ -137,7 +138,7 @@ illustrated=set(re.findall(r'^\s{2}([a-z]+_[a-z]+):', (ROOT/'lib/animalstatsCart
 # Shared compact bird profiles are assigned in the table below the main object.
 illustrated.update(re.findall(r'\b([a-z]+_[a-z]+)\s*:', (ROOT/'lib/animalstatsCartoons.ts').read_text()))
 active=sorted(p['animalId'] for p in d['photos'] if p['approved'] and A[p['animalId']]['active'] and p['animalId'] in illustrated)
-pools={'birds':[i for i in active if A[i]['taxonomicGroup']=='bird'],'mammals':[i for i in active if A[i]['taxonomicGroup'] in {'carnivore','bear','large-mammal','primate','marsupial','rodent','marine-mammal','monotreme','insectivore','treeshrew','lagomorph'}],'world':active}
+pools={'birds':[i for i in active if A[i]['taxonomicGroup']=='bird'],'mammals':[i for i in active if A[i]['taxonomicGroup'] in {'carnivore','bear','large-mammal','primate','marsupial','rodent','marine-mammal','monotreme','insectivore','treeshrew','lagomorph','bat'}],'world':active}
 pools['flight']=[i for i in active if (i,'cruising_flight_speed') in V]
 pools['brains']=[i for i in active if (i,'weighed_brain_mass') in V]
 pools['reptile-brains']=[i for i in pools['brains'] if A[i]['taxonomicGroup'] in {'crocodilian','turtle','snake'}]
@@ -182,10 +183,11 @@ for mode,n,k in [('easy',4,4),('normal',6,4),('expert',8,6)]:
    ids=rng.sample(pool,n);
    if name=="world" and len({A[i]["taxonomicGroup"] for i in ids})<2:continue
    options=valid(ids);basic=[x for x in options if T[x[0]]['categoryKind']=='intuitive'];niche=[x for x in options if T[x[0]]['categoryKind']=='specialist']
-   if len(basic)<k//2:continue
+   minimum_basic=4 if k==6 else 3
+   if len(basic)<minimum_basic:continue
    found=False
    combinations=[]
-   for basic_count in range(k,k//2-1,-1):
+   for basic_count in range(k,minimum_basic-1,-1):
     choices=list(itertools.combinations(basic,basic_count));rng.shuffle(choices)
     details=list(itertools.combinations(niche,k-basic_count));rng.shuffle(details)
     combinations.extend((b,s) for b in choices for s in details)
@@ -206,7 +208,7 @@ for mode,n,k in [('easy',4,4),('normal',6,4),('expert',8,6)]:
     seen.add(signature);rng.shuffle(tids);regions=sorted({r for i in ids for r in A[i].get('biogeographicRegions',[])})
     bid=hashlib.sha256((mode+'|'+','.join(ids)+'|'+','.join(tids)).encode()).hexdigest()[:16]
     families=[T[t].get('gameplayFamily','anatomy') for t in tids]
-    boards.append(dict(id=bid,mode=mode,boardType='themed' if name in {'birds','flight'} else 'cross-animal',title='Wings of the world' if name in {'birds','flight'} else 'The water sports fair' if name in {'field_swim_speed','field_max_dive'} else 'The sleepyhead showdown' if name in {'sleep','daily_rem_sleep'} else 'The tooth fairy trials' if name=='adult_tooth_count' else 'The worldwide menagerie',animalIds=ids,traitIds=tids,editorial=dict(families=families,multiTraitContenders=sum(sum(x[2][j]<=2 for x in combo)>=2 for j in range(n)),policy='intuitive-majority-distinct-winners-v5'),biogeographicRegions=regions));count+=1;found=True;break
+    boards.append(dict(id=bid,mode=mode,boardType='themed' if name in {'birds','flight'} else 'cross-animal',title='Wings of the world' if name in {'birds','flight'} else 'The water sports fair' if name in {'field_swim_speed','field_max_dive'} else 'The sleepyhead showdown' if name in {'sleep','daily_rem_sleep'} else 'The tooth fairy trials' if name=='adult_tooth_count' else 'The worldwide menagerie',animalIds=ids,traitIds=tids,editorial=dict(families=families,multiTraitContenders=sum(sum(x[2][j]<=2 for x in combo)>=2 for j in range(n)),policy='intuitive-majority-distinct-winners-v5',intuitiveMinimum=minimum_basic),biogeographicRegions=regions));count+=1;found=True;break
   print(mode,name,count,flush=True)
 # Include every feasible opposite direction. Solve orientations jointly so winners stay distinct.
 for original in list(boards):

@@ -36,6 +36,11 @@ const base: Profile = {
   tail: 1,
 };
 const profiles: Record<string, Partial<Profile>> = {
+  lemur_catta: {color:"#96958c",belly:"#f0eadc",leg:.65,ear:.25,tail:1.7,snout:.45,feature:"lemur"},
+  equus_caballus: {color:"#a66c44",belly:"#ead6b8",leg:1.1,ear:.25,tail:.9,feature:"horse"},
+  camelus_dromedarius: {color:"#d5aa68",belly:"#efdbb5",leg:1.1,neck:1,ear:.15,tail:.5,feature:"camel"},
+  oryctolagus_cuniculus: {color:"#bd9c7e",belly:"#f6ead9",leg:.3,ear:.8,tail:.12,feature:"rabbit"},
+  mus_musculus: {color:"#aba59b",belly:"#ede4d8",leg:.3,ear:.3,tail:1.2,feature:"mouse"},
   cetorhinus_maximus: { kind: "shark", color: "#9d9b8b", belly: "#e3dfc6", feature: "baskingshark" },
   sphyrna_lewini: { kind: "shark", color: "#889d9e", belly: "#e5e5d4", feature: "hammerhead" },
   isurus_oxyrinchus: { kind: "shark", color: "#638ea2", belly: "#f3efd9", feature: "mako" },

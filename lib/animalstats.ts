@@ -44,12 +44,13 @@ export type Trait = {
   categoryKind?: "intuitive" | "specialist";
   metricKey?: string;
   counterTraitId?: string;
+  oneSided?: boolean;
   definition: string;
   direction: "higher_wins" | "lower_wins";
   unit: string;
   eligibilityGroups: string[]; // Empty means all groups.
   canonicalSourceId: string;
-  separationMethod: "positive_ratio_5_percent";
+  separationMethod: "positive_ratio_5_percent" | "distinct_ordinal";
   measurementBasis: string;
 };
 
@@ -127,6 +128,10 @@ export function validateAnimalDataset(data: AnimalDataset): string[] {
       reasons.push(`trait ${trait.id}: incomplete definition or canonical source`);
   }
   for (const trait of data.traits.filter((item) => item.prototypeCategory)) {
+    if (trait.oneSided) {
+      if (trait.counterTraitId) reasons.push(`trait ${trait.id}: one-sided category cannot have a counter`);
+      continue;
+    }
     const counter = traits.get(trait.counterTraitId ?? "");
     if (!counter?.prototypeCategory || counter.counterTraitId !== trait.id || counter.direction === trait.direction || counter.metricKey !== trait.metricKey || counter.measurementBasis !== trait.measurementBasis || counter.canonicalSourceId !== trait.canonicalSourceId) reasons.push(`trait ${trait.id}: invalid counter category`);
   }
@@ -138,6 +143,7 @@ export function validateAnimalDataset(data: AnimalDataset): string[] {
     const trait = traits.get(value.traitId);
     if (!animals.has(value.animalId) || !trait || !sources.has(value.sourceId))
       reasons.push(`value ${value.animalId}:${value.traitId}: unknown animal, trait, or source`);
+    if (trait?.separationMethod === "distinct_ordinal" && (trait.unit !== "IUCN category" || !Number.isInteger(value.valueNumeric) || value.valueNumeric < 1 || value.valueNumeric > 7)) reasons.push(`value ${value.animalId}:${value.traitId}: invalid ordered conservation category`);
     if (trait && value.unit !== trait.unit) reasons.push(`value ${value.animalId}:${value.traitId}: unit mismatch`);
     if (!Number.isFinite(value.valueNumeric) || value.valueNumeric <= 0)
       reasons.push(`value ${value.animalId}:${value.traitId}: positive finite value required`);
@@ -166,10 +172,11 @@ export function validateAnimalBoard(data: AnimalDataset, board: BoardCandidate):
     const lifeHistoryKeys = new Set(["pregnancy", "offspring", "incubation", "weaning", "maturity", "reproduction", "breeding", "egg-size"]);
     if (categories.filter(trait => lifeHistoryKeys.has(trait?.metricKey ?? "")).length > (board.mode === "expert" ? 3 : 1)) reasons.push("too many life-history prizes on one board");
     if (categories.some((trait) => /^(bird_beak_width|bird_beak_depth|bird_tarsus_length|bird_hand_wing_index)(?:__low)?$/.test(trait?.id ?? ""))) reasons.push("obscure bird anatomy is excluded");
-    if (categories.some((trait) => !trait?.prototypeCategory || !trait.counterTraitId || !trait.metricKey) || categories.filter((trait) => trait?.categoryKind === "intuitive").length < Math.ceil(board.traitIds.length / 2)) reasons.push("board must have at least half intuitive categories");
+    if (categories.some((trait) => !trait?.prototypeCategory || (!trait.counterTraitId && !trait.oneSided) || !trait.metricKey) || categories.filter((trait) => trait?.categoryKind === "intuitive").length < Math.ceil(board.traitIds.length / 2)) reasons.push("board must have at least half intuitive categories");
     if (new Set(categories.map((trait) => trait?.metricKey)).size !== categories.length) reasons.push("repeated metric or opposite categories on the same board");
   }
   const families = board.traitIds.map((id) => data.traits.find((trait) => trait.id === id)?.gameplayFamily);
+  if (families.filter((family) => family === "prey-size").length > 1) reasons.push("only one prey-size prize per board");
   if (families.filter((family) => family === "milk-composition").length > 1) reasons.push("only one milk-composition prize per board");
   if (families.filter((family) => family === "range-geography" || family === "range").length > 1) reasons.push("only one mapped-range prize per board");
   if (!balanced && (families.some((family) => !family) || families.some((family) => families.filter((item) => item === family).length > (board.mode === "expert" && family === "anatomy" ? 2 : 1)) || new Set(families).size < families.length - (board.mode === "expert" ? 1 : 0))) reasons.push("repeated or unclassified gameplay family");
@@ -213,7 +220,7 @@ export function validateAnimalBoard(data: AnimalDataset, board: BoardCandidate):
       const second = ranked[i + 1].value;
       const larger = Math.max(first.valueNumeric, second.valueNumeric);
       const smaller = Math.min(first.valueNumeric, second.valueNumeric);
-      if (larger / smaller < 1.05 - 1e-12) reasons.push(`trait ${id}: ranks ${i + 1}-${i + 2} separated by less than 5%`);
+      if (trait.separationMethod === "distinct_ordinal" ? larger === smaller : larger / smaller < 1.05 - 1e-12) reasons.push(trait.separationMethod === "distinct_ordinal" ? `trait ${id}: ranks ${i + 1}-${i + 2} share the same category` : `trait ${id}: ranks ${i + 1}-${i + 2} separated by less than 5%`);
       const firstMin = first.valueMin ?? first.valueNumeric;
       const firstMax = first.valueMax ?? first.valueNumeric;
       const secondMin = second.valueMin ?? second.valueNumeric;

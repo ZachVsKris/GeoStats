@@ -1,0 +1,474 @@
+{
+  "reviewedAt": "2026-10-04",
+  "newAnimals": {
+    "Equus caballus": [
+      "Horse",
+      "large-mammal"
+    ],
+    "Camelus dromedarius": [
+      "Dromedary camel",
+      "large-mammal"
+    ],
+    "Oryctolagus cuniculus": [
+      "European rabbit",
+      "lagomorph"
+    ],
+    "Mus musculus": [
+      "House mouse",
+      "rodent"
+    ],
+    "Lemur catta": [
+      "Ring-tailed lemur",
+      "primate"
+    ]
+  },
+  "imports": {
+    "measured_eye_length": [
+      {
+        "species": "Camelus dromedarius",
+        "value": 33.0,
+        "notes": "Original Supplementary Table 1 row: Camelus dromedarius           33     10.4     415    A                                   [5]           [5,9]. Reported axial length retained exactly; no values calculated from acuity or body mass."
+      },
+      {
+        "species": "Giraffa camelopardalis",
+        "value": 42.26,
+        "notes": "Original Supplementary Table 1 row: Giraffa camelopardalis      42.26   25.46    1000    A                                  [14]           [13]. Reported axial length retained exactly; no values calculated from acuity or body mass."
+      },
+      {
+        "species": "Acinonyx jubatus",
+        "value": 36.7,
+        "notes": "Original Supplementary Table 1 row: Acinonyx jubatus             36.7   23.02    45.6    A                          this study: [6,12]     [6,9]. Reported axial length retained exactly; no values calculated from acuity or body mass."
+      },
+      {
+        "species": "Enhydra lutris",
+        "value": 14.0,
+        "notes": "Original Supplementary Table 1 row: Enhydra lutris                14      4.2   27.05    A                                 [21]            [2,9]. Reported axial length retained exactly; no values calculated from acuity or body mass."
+      },
+      {
+        "species": "Didelphis marsupialis",
+        "value": 8.7,
+        "notes": "Original Supplementary Table 1 row: Didelphis marsupialis         8.7    1.25    1.48    A                         [56]            [6,9]. Reported axial length retained exactly; no values calculated from acuity or body mass."
+      },
+      {
+        "species": "Phascolarctos cinereus",
+        "value": 12.6,
+        "notes": "Original Supplementary Table 1 row: Phascolarctos cinereus        12.6     2.4    6.96   A                          [60]           [9,61]. Reported axial length retained exactly; no values calculated from acuity or body mass."
+      },
+      {
+        "species": "Oryctolagus cuniculus",
+        "value": 18.04,
+        "notes": "Original Supplementary Table 1 row: Oryctolagus cuniculus        18.04    3      1.52    B   56     C   H          [67]            [6,9]        [3,68]. Reported axial length retained exactly; no values calculated from acuity or body mass."
+      },
+      {
+        "species": "Equus caballus",
+        "value": 42.0,
+        "notes": "Original Supplementary Table 1 row: Equus caballus              42     23.3    350     B   70   C   H          [72]            [6,13]        [6,73]   [69]. Reported axial length retained exactly; no values calculated from acuity or body mass."
+      },
+      {
+        "species": "Macaca mulatta",
+        "value": 20.0,
+        "notes": "Original Supplementary Table 1 row: Macaca mulatta              20      53.6    5.30   B                       [83,84]           [6,9]. Reported axial length retained exactly; no values calculated from acuity or body mass."
+      },
+      {
+        "species": "Pan troglodytes",
+        "value": 20.9,
+        "notes": "Original Supplementary Table 1 row: Pan troglodytes            20.9    64.28   49.21   B                         [85]            [6,9]. Reported axial length retained exactly; no values calculated from acuity or body mass."
+      },
+      {
+        "species": "Lemur catta",
+        "value": 15.6,
+        "notes": "Original Supplementary Table 1 row: Lemur catta                15.6     6.7    1.96    B        D   H          [90]             [6,9]. Reported axial length retained exactly; no values calculated from acuity or body mass."
+      },
+      {
+        "species": "Loxodonta africana",
+        "value": 39.6,
+        "notes": "Original Supplementary Table 1 row: Loxodonta africana         39.6    13.16   2420    A                       [94]             [6,9]. Reported axial length retained exactly; no values calculated from acuity or body mass."
+      },
+      {
+        "species": "Hydrochoerus hydrochaeris",
+        "value": 21.04,
+        "notes": "Original Supplementary Table 1 row: Hydrochoerus hydrochaeris        21.04     5.8     39.13     A                                  [95]              [9,95]. Reported axial length retained exactly; no values calculated from acuity or body mass."
+      },
+      {
+        "species": "Mus musculus",
+        "value": 5.28,
+        "notes": "Original Supplementary Table 1 row: Mus musculus                      5.28     0.5      0.02     B      13.1    N                  [109]               [2,9]         [3]         [110]. Reported axial length retained exactly; no values calculated from acuity or body mass."
+      },
+      {
+        "species": "Tupaia glis",
+        "value": 8.7,
+        "notes": "Original Supplementary Table 1 row: Tupaia glis                       8.7      4.7      0.13     B              D                  [121]              [6,9]. Reported axial length retained exactly; no values calculated from acuity or body mass."
+      }
+    ],
+    "behavioral_visual_acuity": [
+      {
+        "species": "Oryctolagus cuniculus",
+        "value": 3.0,
+        "notes": "Original Supplementary Table 1 row: Oryctolagus cuniculus        18.04    3      1.52    B   56     C   H          [67]            [6,9]        [3,68]. Measurement type B = behavioral; original cited test maximum. No retinal-density calculation."
+      },
+      {
+        "species": "Equus caballus",
+        "value": 23.3,
+        "notes": "Original Supplementary Table 1 row: Equus caballus              42     23.3    350     B   70   C   H          [72]            [6,13]        [6,73]   [69]. Measurement type B = behavioral; original cited test maximum. No retinal-density calculation."
+      },
+      {
+        "species": "Macaca mulatta",
+        "value": 53.6,
+        "notes": "Original Supplementary Table 1 row: Macaca mulatta              20      53.6    5.30   B                       [83,84]           [6,9]. Measurement type B = behavioral; original cited test maximum. No retinal-density calculation."
+      },
+      {
+        "species": "Pan troglodytes",
+        "value": 64.28,
+        "notes": "Original Supplementary Table 1 row: Pan troglodytes            20.9    64.28   49.21   B                         [85]            [6,9]. Measurement type B = behavioral; original cited test maximum. No retinal-density calculation."
+      },
+      {
+        "species": "Lemur catta",
+        "value": 6.7,
+        "notes": "Original Supplementary Table 1 row: Lemur catta                15.6     6.7    1.96    B        D   H          [90]             [6,9]. Measurement type B = behavioral; original cited test maximum. No retinal-density calculation."
+      },
+      {
+        "species": "Mus musculus",
+        "value": 0.5,
+        "notes": "Original Supplementary Table 1 row: Mus musculus                      5.28     0.5      0.02     B      13.1    N                  [109]               [2,9]         [3]         [110]. Measurement type B = behavioral; original cited test maximum. No retinal-density calculation."
+      },
+      {
+        "species": "Tupaia glis",
+        "value": 4.7,
+        "notes": "Original Supplementary Table 1 row: Tupaia glis                       8.7      4.7      0.13     B              D                  [121]              [6,9]. Measurement type B = behavioral; original cited test maximum. No retinal-density calculation."
+      }
+    ],
+    "recorded_chewing_rate": [
+      {
+        "species": "Giraffa camelopardalis",
+        "value": 61.47540983606557,
+        "notes": "Table 1 row 2: Giraffe; reported cycle 976 ms; cited references authors video study. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      },
+      {
+        "species": "Camelus dromedarius",
+        "value": 60.60606060606061,
+        "notes": "Table 1 row 41: Dromedary camel; reported cycle 990 ms; cited references authors video study. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      },
+      {
+        "species": "Hippopotamus amphibius",
+        "value": 57.74783445620789,
+        "notes": "Table 1 row 46: Hippo; reported cycle 1039 ms; cited references authors video study. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      },
+      {
+        "species": "Ceratotherium simum",
+        "value": 41.666666666666664,
+        "notes": "Table 1 row 51: White rhinoceros; reported cycle 1440 ms; cited references authors video study. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      },
+      {
+        "species": "Equus caballus",
+        "value": 76.43312101910828,
+        "notes": "Table 1 row 54: Domestic horse; reported cycle 785 ms; cited references ['8']. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      },
+      {
+        "species": "Ursus americanus",
+        "value": 153.84615384615384,
+        "notes": "Table 1 row 67: American black bear; reported cycle 390 ms; cited references authors video study. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      },
+      {
+        "species": "Ursus maritimus",
+        "value": 122.44897959183673,
+        "notes": "Table 1 row 68: Polar bear; reported cycle 490 ms; cited references authors video study. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      },
+      {
+        "species": "Tremarctos ornatus",
+        "value": 127.65957446808511,
+        "notes": "Table 1 row 70: Spectacled bear; reported cycle 470 ms; cited references authors video study. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      },
+      {
+        "species": "Panthera pardus",
+        "value": 103.44827586206897,
+        "notes": "Table 1 row 74: Leopard; reported cycle 580 ms; cited references authors video study. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      },
+      {
+        "species": "Panthera leo",
+        "value": 86.95652173913044,
+        "notes": "Table 1 row 75: Lion; reported cycle 690 ms; cited references authors video study. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      },
+      {
+        "species": "Panthera tigris",
+        "value": 153.84615384615384,
+        "notes": "Table 1 row 76: Tiger; reported cycle 390 ms; cited references authors video study. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      },
+      {
+        "species": "Loxodonta africana",
+        "value": 39.21568627450981,
+        "notes": "Table 1 row 79: African elephant; reported cycle 1530 ms; cited references authors video study. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      },
+      {
+        "species": "Oryctolagus cuniculus",
+        "value": 333.3333333333333,
+        "notes": "Table 1 row 80: Domestic rabbit; reported cycle 180 ms; cited references authors video study. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      },
+      {
+        "species": "Lemur catta",
+        "value": 222.22222222222223,
+        "notes": "Table 1 row 82: Ring-tailed lemur; reported cycle 270 ms; cited references authors video study. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      },
+      {
+        "species": "Macaca mulatta",
+        "value": 179.64071856287424,
+        "notes": "Table 1 row 91: Rhesus macaque; reported cycle 334 ms; cited references ['8']. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      },
+      {
+        "species": "Pan troglodytes",
+        "value": 111.11111111111111,
+        "notes": "Table 1 row 101: Chimpanzee; reported cycle 540 ms; cited references authors video study. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      },
+      {
+        "species": "Gorilla gorilla",
+        "value": 86.95652173913044,
+        "notes": "Table 1 row 102: Gorilla; reported cycle 690 ms; cited references authors video study. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      },
+      {
+        "species": "Pongo pygmaeus",
+        "value": 90.9090909090909,
+        "notes": "Table 1 row 103: Orangutan; reported cycle 660 ms; cited references authors video study. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      },
+      {
+        "species": "Tupaia glis",
+        "value": 252.10084033613447,
+        "notes": "Table 1 row 104: Tree shrew; reported cycle 238 ms; cited references ['8']. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      },
+      {
+        "species": "Hydrochoerus hydrochaeris",
+        "value": 48.03843074459568,
+        "notes": "Table 1 row 107: Capybara; reported cycle 1249 ms; cited references authors video study. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      },
+      {
+        "species": "Cavia porcellus",
+        "value": 370.3703703703704,
+        "notes": "Table 1 row 108: Guinea pig; reported cycle 162 ms; cited references authors video study. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      },
+      {
+        "species": "Macropus rufus",
+        "value": 111.52416356877323,
+        "notes": "Table 1 row 125: Red kangaroo; reported cycle 538 ms; cited references authors video study. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      },
+      {
+        "species": "Phascolarctos cinereus",
+        "value": 146.34146341463415,
+        "notes": "Table 1 row 132: Koala; reported cycle 410 ms; cited references authors video study. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      },
+      {
+        "species": "Didelphis marsupialis",
+        "value": 153.84615384615384,
+        "notes": "Table 1 row 133: Opossum; reported cycle 390 ms; cited references ['8']. Exact source rate conversion. Species-specific N, ages and uncertainty not supplied; do not infer species-wide precision from the displayed rate."
+      }
+    ],
+    "diet_largest_prey": [
+      {
+        "species": "Balaenoptera musculus",
+        "value": 0.0005999999994699769,
+        "notes": "data_DNB worksheet row 8; log10 minimum=-5.117475462, maximum=-3.22184875, range=-3.227406944; prey mass references: Omori 1969; Ross et al. 2004; diet references: Mizdalski 1988; Fiedler 1998; habitat Marine. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Enhydra lutris",
+        "value": 11.99999999868408,
+        "notes": "data_DNB worksheet row 20; log10 minimum=-2.563837353, maximum=1.079181246, range=1.079082433; prey mass references: Kvitek et al. 1992; Harrison et al. 1965; diet references: Wolt et al. 2012; habitat Marine. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Megaptera novaeangliae",
+        "value": 3.4720000039616774e-05,
+        "notes": "data_DNB worksheet row 36; log10 minimum=-4.65304551, maximum=-4.459420283, range=-4.90346431; prey mass references: Mizdalski 1988; Omori 1969; diet references: Friedlaender  et al. 2008;  Mizdalski 1988; habitat Marine. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Orcinus orca",
+        "value": 5587.093585700154,
+        "notes": "data_DNB worksheet row 45; log10 minimum=0.52698765, maximum=3.747185946, range=3.746924298; prey mass references: Artigues et al. 2003; Jones et al. 2009; diet references: Pitman et al. 2003; habitat Marine. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Tursiops truncatus",
+        "value": 4.399999995074253,
+        "notes": "data_DNB worksheet row 54; log10 minimum=-3.301029996, maximum=0.643452676, range=0.643403322; prey mass references: Smith 1969; Kjesbut 1989; diet references: Santos et al. 2001; Skog et al. 2003; Kjesbu et al. 1989; Anderson et al. 2005; habitat Marine. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Ursus maritimus",
+        "value": 12999.989454190158,
+        "notes": "data_DNB worksheet row 55; log10 minimum=-0.782516056, maximum=4.113943, range=4.113937488; prey mass references: Taylor 1994; Jones et al. 2009; diet references: Iverson et al. 2013; habitat Marine. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Acinonyx jubatus",
+        "value": 549.9999993740787,
+        "notes": "data_DNB worksheet row 59; log10 minimum=-0.301029996, maximum=2.740362689, range=2.739967697; prey mass references: Hayward et al. 2006; diet references: Hayward et al. 2006; habitat Terrestrial. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Canis lupus",
+        "value": 624.5770699976127,
+        "notes": "data_DNB worksheet row 64; log10 minimum=0.581657301, maximum=2.795586036, range=2.792924172; prey mass references: Jones et al. 2009; diet references: Metz et al. 2012; Nowak et al. 2011; habitat Terrestrial. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Panthera leo",
+        "value": 549.9999993740787,
+        "notes": "data_DNB worksheet row 95; log10 minimum=1.653212514, maximum=2.740362689, range=2.703291378; prey mass references: Hayward et al. 2005; diet references: Hayward et al. 2005; habitat Terrestrial. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Panthera pardus",
+        "value": 432.0000001841099,
+        "notes": "data_DNB worksheet row 97; log10 minimum=0, maximum=2.635483747, range=2.63447727; prey mass references: Hayward et al. 2006; diet references: Hayward et al. 2006; habitat Terrestrial. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Panthera tigris",
+        "value": 2719.9999997858113,
+        "notes": "data_DNB worksheet row 98; log10 minimum=0.698970004, maximum=3.434568904, range=3.433769834; prey mass references: Hayward et al. 2012; diet references: Hayward et al. 2012; habitat Terrestrial. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Vulpes vulpes",
+        "value": 0.08500000005591857,
+        "notes": "data_DNB worksheet row 109; log10 minimum=-3.634512015, maximum=-1.070581074, range=-1.071768063; prey mass references: Warburg 1968; Jones et al. 2009; diet references: Jedrzejewski et al. 1992; habitat Terrestrial. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      }
+    ],
+    "diet_smallest_prey": [
+      {
+        "species": "Balaenoptera musculus",
+        "value": 7.630000000792696e-06,
+        "notes": "data_DNB worksheet row 8; log10 minimum=-5.117475462, maximum=-3.22184875, range=-3.227406944; prey mass references: Omori 1969; Ross et al. 2004; diet references: Mizdalski 1988; Fiedler 1998; habitat Marine. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Enhydra lutris",
+        "value": 0.0027299999997438063,
+        "notes": "data_DNB worksheet row 20; log10 minimum=-2.563837353, maximum=1.079181246, range=1.079082433; prey mass references: Kvitek et al. 1992; Harrison et al. 1965; diet references: Wolt et al. 2012; habitat Marine. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Megaptera novaeangliae",
+        "value": 2.2230769207749307e-05,
+        "notes": "data_DNB worksheet row 36; log10 minimum=-4.65304551, maximum=-4.459420283, range=-4.90346431; prey mass references: Mizdalski 1988; Omori 1969; diet references: Friedlaender  et al. 2008;  Mizdalski 1988; habitat Marine. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Orcinus orca",
+        "value": 3.3650200015698863,
+        "notes": "data_DNB worksheet row 45; log10 minimum=0.52698765, maximum=3.747185946, range=3.746924298; prey mass references: Artigues et al. 2003; Jones et al. 2009; diet references: Pitman et al. 2003; habitat Marine. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Tursiops truncatus",
+        "value": 0.000499999999613144,
+        "notes": "data_DNB worksheet row 54; log10 minimum=-3.301029996, maximum=0.643452676, range=0.643403322; prey mass references: Smith 1969; Kjesbut 1989; diet references: Santos et al. 2001; Skog et al. 2003; Kjesbu et al. 1989; Anderson et al. 2005; habitat Marine. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Ursus maritimus",
+        "value": 0.16499999991873135,
+        "notes": "data_DNB worksheet row 55; log10 minimum=-0.782516056, maximum=4.113943, range=4.113937488; prey mass references: Taylor 1994; Jones et al. 2009; diet references: Iverson et al. 2013; habitat Marine. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Acinonyx jubatus",
+        "value": 0.499999999613144,
+        "notes": "data_DNB worksheet row 59; log10 minimum=-0.301029996, maximum=2.740362689, range=2.739967697; prey mass references: Hayward et al. 2006; diet references: Hayward et al. 2006; habitat Terrestrial. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Canis lupus",
+        "value": 3.816429999381193,
+        "notes": "data_DNB worksheet row 64; log10 minimum=0.581657301, maximum=2.795586036, range=2.792924172; prey mass references: Jones et al. 2009; diet references: Metz et al. 2012; Nowak et al. 2011; habitat Terrestrial. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Panthera leo",
+        "value": 45.00000002327806,
+        "notes": "data_DNB worksheet row 95; log10 minimum=1.653212514, maximum=2.740362689, range=2.703291378; prey mass references: Hayward et al. 2005; diet references: Hayward et al. 2005; habitat Terrestrial. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Panthera pardus",
+        "value": 1,
+        "notes": "data_DNB worksheet row 97; log10 minimum=0, maximum=2.635483747, range=2.63447727; prey mass references: Hayward et al. 2006; diet references: Hayward et al. 2006; habitat Terrestrial. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Panthera tigris",
+        "value": 4.99999999613144,
+        "notes": "data_DNB worksheet row 98; log10 minimum=0.698970004, maximum=3.434568904, range=3.433769834; prey mass references: Hayward et al. 2012; diet references: Hayward et al. 2012; habitat Terrestrial. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Vulpes vulpes",
+        "value": 0.00023200000005828142,
+        "notes": "data_DNB worksheet row 109; log10 minimum=-3.634512015, maximum=-1.070581074, range=-1.071768063; prey mass references: Warburg 1968; Jones et al. 2009; diet references: Jedrzejewski et al. 1992; habitat Terrestrial. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      }
+    ],
+    "diet_prey_mass_span": [
+      {
+        "species": "Balaenoptera musculus",
+        "value": 0.0005923700000186935,
+        "notes": "data_DNB worksheet row 8; log10 minimum=-5.117475462, maximum=-3.22184875, range=-3.227406944; prey mass references: Omori 1969; Ross et al. 2004; diet references: Mizdalski 1988; Fiedler 1998; habitat Marine. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Enhydra lutris",
+        "value": 11.997270005177976,
+        "notes": "data_DNB worksheet row 20; log10 minimum=-2.563837353, maximum=1.079181246, range=1.079082433; prey mass references: Kvitek et al. 1992; Harrison et al. 1965; diet references: Wolt et al. 2012; habitat Marine. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Megaptera novaeangliae",
+        "value": 1.2489230759498898e-05,
+        "notes": "data_DNB worksheet row 36; log10 minimum=-4.65304551, maximum=-4.459420283, range=-4.90346431; prey mass references: Mizdalski 1988; Omori 1969; diet references: Friedlaender  et al. 2008;  Mizdalski 1988; habitat Marine. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Orcinus orca",
+        "value": 5583.728561152912,
+        "notes": "data_DNB worksheet row 45; log10 minimum=0.52698765, maximum=3.747185946, range=3.746924298; prey mass references: Artigues et al. 2003; Jones et al. 2009; diet references: Pitman et al. 2003; habitat Marine. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Tursiops truncatus",
+        "value": 4.3994999996329485,
+        "notes": "data_DNB worksheet row 54; log10 minimum=-3.301029996, maximum=0.643452676, range=0.643403322; prey mass references: Smith 1969; Kjesbut 1989; diet references: Santos et al. 2001; Skog et al. 2003; Kjesbu et al. 1989; Anderson et al. 2005; habitat Marine. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Ursus maritimus",
+        "value": 12999.824461333628,
+        "notes": "data_DNB worksheet row 55; log10 minimum=-0.782516056, maximum=4.113943, range=4.113937488; prey mass references: Taylor 1994; Jones et al. 2009; diet references: Iverson et al. 2013; habitat Marine. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Acinonyx jubatus",
+        "value": 549.5000003042857,
+        "notes": "data_DNB worksheet row 59; log10 minimum=-0.301029996, maximum=2.740362689, range=2.739967697; prey mass references: Hayward et al. 2006; diet references: Hayward et al. 2006; habitat Terrestrial. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Canis lupus",
+        "value": 620.7606396975535,
+        "notes": "data_DNB worksheet row 64; log10 minimum=0.581657301, maximum=2.795586036, range=2.792924172; prey mass references: Jones et al. 2009; diet references: Metz et al. 2012; Nowak et al. 2011; habitat Terrestrial. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Panthera leo",
+        "value": 504.9999998620197,
+        "notes": "data_DNB worksheet row 95; log10 minimum=1.653212514, maximum=2.740362689, range=2.703291378; prey mass references: Hayward et al. 2005; diet references: Hayward et al. 2005; habitat Terrestrial. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Panthera pardus",
+        "value": 430.99999984048776,
+        "notes": "data_DNB worksheet row 97; log10 minimum=0, maximum=2.635483747, range=2.63447727; prey mass references: Hayward et al. 2006; diet references: Hayward et al. 2006; habitat Terrestrial. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Panthera tigris",
+        "value": 2715.000000469703,
+        "notes": "data_DNB worksheet row 98; log10 minimum=0.698970004, maximum=3.434568904, range=3.433769834; prey mass references: Hayward et al. 2012; diet references: Hayward et al. 2012; habitat Terrestrial. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      },
+      {
+        "species": "Vulpes vulpes",
+        "value": 0.08476800007472933,
+        "notes": "data_DNB worksheet row 109; log10 minimum=-3.634512015, maximum=-1.070581074, range=-1.071768063; prey mass references: Warburg 1968; Jones et al. 2009; diet references: Jedrzejewski et al. 1992; habitat Terrestrial. Exponentiation reverses the source units only. No model-predicted or body-mass-scaled values. Published endpoints are not individual prey weights."
+      }
+    ]
+  },
+  "files": {
+    "anage-build-15.zip": {
+      "sha256": "e3ddb66e32e973a79932859ba53013e8f60d957c6ec01c6eb573e3ea3018d630",
+      "bytes": 169150
+    },
+    "new-20261004-eyes-table.pdf": {
+      "sha256": "2bc29d12572d70055f5afd9214f7752acfb9862673df2e543b5235f043613e23",
+      "bytes": 205578
+    },
+    "expansion-chewing-records.json": {
+      "sha256": "9e60d9bcc39890f7ebbb533a320bd310f56155b68c6dde62ea9c9f970d682bf1",
+      "bytes": 41046
+    },
+    "expansion-prey-data.xlsx": {
+      "sha256": "1182a77511a6faa82f9796677c24f86598357511e255bea3038ff2532e0c4b2e",
+      "bytes": 44147
+    }
+  },
+  "heldRecords": [
+    {
+      "species": "Oryctolagus cuniculus",
+      "field": "female_maturity",
+      "reason": "AnAge 730 days is full wild female maturity, not earliest breeding; excluded pending comparable definition."
+    }
+  ]
+}

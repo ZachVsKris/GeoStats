@@ -1,0 +1,1298 @@
+{
+  "reviewedAt": "2026-10-04",
+  "sourceSha256": "6d431111e6e0dd4b0bb7d40377b29150decce9a9c1f4edaaf1c95108eb4d6ec8",
+  "publisherMetadata": {
+    "key": "19491596-35ae-4a91-9a98-85cf505f1bd3",
+    "installationKey": "fb5e4c2a-579c-434b-a446-3a665dd732ad",
+    "publishingOrganizationKey": "d44af9a3-e779-40c0-a186-79e7717c6d2b",
+    "doi": "10.15468/0qnb58",
+    "external": false,
+    "numConstituents": 0,
+    "type": "CHECKLIST",
+    "title": "The IUCN Red List of Threatened Species",
+    "description": "<p>Established in 1964, the International Union for Conservation of Nature’s Red List of Threatened Species has evolved to become the world’s most comprehensive information source on the global extinction risk status of animal, fungus and plant species.</p><p>The IUCN Red List is a critical indicator of the health of the world’s biodiversity. Far more than a list of species and their status, it is a powerful tool to inform and catalyse action for biodiversity conservation and policy change, critical to protecting the natural resources we need to survive. It provides information about range, population size, habitat and ecology, use and/or trade, threats, and conservation actions that will help inform necessary conservation decisions.</p><p>The IUCN Red List is used by government agencies, wildlife departments, conservation-related non-governmental organisations (NGOs), natural resource planners, educational organisations, students, and the business community. The Red List process has become a massive enterprise involving the IUCN Global Species Program staff, partner organisations and experts in the IUCN Species Survival Commission and partner networks who compile the species information to make The IUCN Red List the indispensable product it is today.</p>",
+    "language": "eng",
+    "homepage": "https://www.iucnredlist.org/",
+    "logoUrl": "https://raw.githubusercontent.com/mdoering/checklist_builder/master/src/main/resources/iucn/IUCN_Red_List.svg",
+    "citation": {
+      "text": "IUCN (2026). The IUCN Red List of Threatened Species. Version 2026-1. https://www.iucnredlist.org. Downloaded on 2026-07-28. https://doi.org/10.15468/0qnb58 accessed via GBIF.org on 2026-10-04.",
+      "citationProvidedBySource": true
+    },
+    "contactsCitation": [],
+    "lockedForAutoUpdate": false,
+    "createdBy": "registry-migration.gbif.org",
+    "modifiedBy": "crawler.gbif.org",
+    "created": "2011-07-18T12:35:28.000+00:00",
+    "modified": "2026-07-30T02:30:35.334+00:00",
+    "contacts": [
+      {
+        "key": 7094395,
+        "type": "ORIGINATOR",
+        "primary": true,
+        "userId": [],
+        "lastName": "International Union for Conservation of Nature",
+        "position": [],
+        "email": [],
+        "phone": [],
+        "homepage": [
+          "https://www.iucn.org/"
+        ],
+        "organization": "International Union for Conservation of Nature",
+        "address": [],
+        "createdBy": "crawler.gbif.org",
+        "modifiedBy": "crawler.gbif.org",
+        "created": "2026-07-30T02:30:35.308+00:00",
+        "modified": "2026-07-30T02:30:35.308+00:00"
+      },
+      {
+        "key": 7094396,
+        "type": "METADATA_AUTHOR",
+        "primary": true,
+        "userId": [
+          "https://orcid.org/0000-0003-0623-6682"
+        ],
+        "firstName": "Matthew",
+        "lastName": "Blissett",
+        "position": [
+          "Software Developer"
+        ],
+        "email": [
+          "mblissett@gbif.org"
+        ],
+        "phone": [],
+        "homepage": [],
+        "organization": "GBIF",
+        "address": [],
+        "createdBy": "crawler.gbif.org",
+        "modifiedBy": "crawler.gbif.org",
+        "created": "2026-07-30T02:30:35.310+00:00",
+        "modified": "2026-07-30T02:30:35.310+00:00"
+      },
+      {
+        "key": 7094397,
+        "type": "TECHNICAL_POINT_OF_CONTACT",
+        "primary": false,
+        "userId": [],
+        "firstName": "Simon",
+        "lastName": "Tarr",
+        "position": [
+          "Biodiversity Systems Manager"
+        ],
+        "email": [
+          "Simon.TARR@iucn.org"
+        ],
+        "phone": [],
+        "homepage": [],
+        "organization": "International Union for Conservation of Nature",
+        "address": [],
+        "createdBy": "crawler.gbif.org",
+        "modifiedBy": "crawler.gbif.org",
+        "created": "2026-07-30T02:30:35.311+00:00",
+        "modified": "2026-07-30T02:30:35.311+00:00"
+      },
+      {
+        "key": 7094398,
+        "type": "PROGRAMMER",
+        "primary": false,
+        "userId": [
+          "https://orcid.org/0000-0003-0623-6682"
+        ],
+        "firstName": "Matthew",
+        "lastName": "Blissett",
+        "position": [
+          "Software Developer"
+        ],
+        "email": [
+          "mblissett@gbif.org"
+        ],
+        "phone": [],
+        "homepage": [],
+        "organization": "GBIF",
+        "address": [],
+        "createdBy": "crawler.gbif.org",
+        "modifiedBy": "crawler.gbif.org",
+        "created": "2026-07-30T02:30:35.313+00:00",
+        "modified": "2026-07-30T02:30:35.313+00:00"
+      },
+      {
+        "key": 7094399,
+        "type": "ADMINISTRATIVE_POINT_OF_CONTACT",
+        "primary": true,
+        "userId": [],
+        "firstName": "Craig",
+        "lastName": "Hilton-Taylor",
+        "position": [],
+        "email": [
+          "Craig.HILTON-TAYLOR@iucn.org"
+        ],
+        "phone": [],
+        "homepage": [],
+        "organization": "International Union for Conservation of Nature",
+        "address": [],
+        "createdBy": "crawler.gbif.org",
+        "modifiedBy": "crawler.gbif.org",
+        "created": "2026-07-30T02:30:35.314+00:00",
+        "modified": "2026-07-30T02:30:35.314+00:00"
+      }
+    ],
+    "endpoints": [
+      {
+        "key": 1294697,
+        "type": "DWC_ARCHIVE",
+        "url": "https://hosted-datasets.gbif.org/datasets/iucn/iucn-latest.zip",
+        "createdBy": "MattBlissett",
+        "modifiedBy": "MattBlissett",
+        "created": "2026-06-09T11:13:43.800+00:00",
+        "modified": "2026-06-09T11:13:43.800+00:00",
+        "machineTags": []
+      }
+    ],
+    "machineTags": [
+      {
+        "key": 32939126,
+        "namespace": "crawler.gbif.org",
+        "name": "crawl_attempt",
+        "value": "421",
+        "createdBy": "crawler.gbif.org",
+        "created": "2026-09-29T07:55:48.456+00:00"
+      }
+    ],
+    "tags": [],
+    "identifiers": [
+      {
+        "key": 436650,
+        "type": "CLB_DATASET_KEY",
+        "identifier": "53131",
+        "createdBy": "clb-bot",
+        "created": "2025-02-21T11:21:46.961+00:00",
+        "primary": false
+      },
+      {
+        "key": 11549,
+        "type": "GBIF_PORTAL",
+        "identifier": "13623",
+        "createdBy": "registry-migration.gbif.org",
+        "created": "2012-09-05T14:04:22.000+00:00",
+        "primary": false
+      }
+    ],
+    "comments": [
+      {
+        "key": 35448,
+        "content": "[2023-11-20, ah] changed technical contact on request from IUCN contact (helpdesk email: 17.11. via Andrew R.)",
+        "createdBy": "andrea",
+        "modifiedBy": "andrea",
+        "created": "2023-11-20T08:02:07.607+00:00",
+        "modified": "2023-11-20T08:02:07.607+00:00"
+      },
+      {
+        "key": 35445,
+        "content": "[2023-11-17, ah] License update from CC BY-NC to CC BY on consultation with IUCN contact (helpdesk email: 17.11.23, via Andrew R.)",
+        "createdBy": "andrea",
+        "modifiedBy": "andrea",
+        "created": "2023-11-17T08:36:51.837+00:00",
+        "modified": "2023-11-17T08:36:51.837+00:00"
+      }
+    ],
+    "bibliographicCitations": [],
+    "curatorialUnits": [],
+    "taxonomicCoverages": [],
+    "geographicCoverages": [],
+    "temporalCoverages": [],
+    "keywordCollections": [],
+    "countryCoverage": [],
+    "collections": [],
+    "dataDescriptions": [],
+    "dataLanguage": "eng",
+    "pubDate": "2026-07-28T00:00:00.000+00:00",
+    "license": "http://creativecommons.org/licenses/by/4.0/legalcode",
+    "dwca": {
+      "coreType": "http://rs.tdwg.org/dwc/terms/Taxon",
+      "extensions": [
+        "http://rs.gbif.org/terms/1.0/VernacularName",
+        "http://rs.gbif.org/terms/1.0/Distribution"
+      ],
+      "modified": "2026-09-29T07:57:19.019+00:00"
+    },
+    "approximateCounts": {
+      "occurrenceCount": 0,
+      "nameUsageCount": 338085
+    }
+  },
+  "records": [
+    {
+      "animalId": "panthera_leo",
+      "gbifKey": "5219404",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "panthera_tigris",
+      "gbifKey": "5219416",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "EN"
+    },
+    {
+      "animalId": "panthera_pardus",
+      "gbifKey": "5219436",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "acinonyx_jubatus",
+      "gbifKey": "2435270",
+      "authorship": "(Schreber, 1775)",
+      "descriptionYear": 1775,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "canis_lupus",
+      "gbifKey": "5219173",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "vulpes_vulpes",
+      "gbifKey": "5219243",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "ursus_maritimus",
+      "gbifKey": "2433451",
+      "authorship": "Phipps, 1774",
+      "descriptionYear": 1774,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "ursus_arctos",
+      "gbifKey": "2433433",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "ursus_americanus",
+      "gbifKey": "2433407",
+      "authorship": "Pallas, 1780",
+      "descriptionYear": 1780,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "ailuropoda_melanoleuca",
+      "gbifKey": "2433399",
+      "authorship": "(David, 1869)",
+      "descriptionYear": 1869,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "loxodonta_africana",
+      "gbifKey": "2435350",
+      "authorship": "(Blumenbach, 1797)",
+      "descriptionYear": 1797,
+      "iucnCode": "EN"
+    },
+    {
+      "animalId": "giraffa_camelopardalis",
+      "gbifKey": "2441205",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "hippopotamus_amphibius",
+      "gbifKey": "2441247",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "ceratotherium_simum",
+      "gbifKey": "2440880",
+      "authorship": "(Burchell, 1817)",
+      "descriptionYear": 1817,
+      "iucnCode": "NT"
+    },
+    {
+      "animalId": "bison_bison",
+      "gbifKey": "2441176",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "NT"
+    },
+    {
+      "animalId": "equus_quagga",
+      "gbifKey": "2440892",
+      "authorship": "Boddaert, 1785",
+      "descriptionYear": 1785,
+      "iucnCode": "NT"
+    },
+    {
+      "animalId": "equus_asinus",
+      "gbifKey": "2440891",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": null
+    },
+    {
+      "animalId": "gorilla_gorilla",
+      "gbifKey": "2436441",
+      "authorship": "(Savage, 1847)",
+      "descriptionYear": 1847,
+      "iucnCode": "CR"
+    },
+    {
+      "animalId": "pan_troglodytes",
+      "gbifKey": "5219534",
+      "authorship": "(Blumenbach, 1775)",
+      "descriptionYear": 1775,
+      "iucnCode": "EN"
+    },
+    {
+      "animalId": "pongo_pygmaeus",
+      "gbifKey": "5219532",
+      "authorship": "(Linnaeus, 1760)",
+      "descriptionYear": 1760,
+      "iucnCode": "CR"
+    },
+    {
+      "animalId": "macaca_mulatta",
+      "gbifKey": "2436604",
+      "authorship": "(Zimmermann, 1780)",
+      "descriptionYear": 1780,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "phascolarctos_cinereus",
+      "gbifKey": "2440012",
+      "authorship": "(Goldfuss, 1817)",
+      "descriptionYear": 1817,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "macropus_rufus",
+      "gbifKey": "5219963",
+      "authorship": "(Desmarest, 1822)",
+      "descriptionYear": 1822,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "hydrochoerus_hydrochaeris",
+      "gbifKey": "5786666",
+      "authorship": "(Linnaeus, 1766)",
+      "descriptionYear": 1766,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "castor_canadensis",
+      "gbifKey": "2439838",
+      "authorship": "Kuhl, 1820",
+      "descriptionYear": 1820,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "enhydra_lutris",
+      "gbifKey": "2433670",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "EN"
+    },
+    {
+      "animalId": "tursiops_truncatus",
+      "gbifKey": "2440447",
+      "authorship": "(Montagu, 1821)",
+      "descriptionYear": 1821,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "orcinus_orca",
+      "gbifKey": "2440483",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": null
+    },
+    {
+      "animalId": "balaenoptera_musculus",
+      "gbifKey": "2440735",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "EN"
+    },
+    {
+      "animalId": "megaptera_novaeangliae",
+      "gbifKey": "5220086",
+      "authorship": "(Borowski, 1781)",
+      "descriptionYear": 1781,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "aquila_chrysaetos",
+      "gbifKey": "2480506",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "haliaeetus_leucocephalus",
+      "gbifKey": "2480446",
+      "authorship": "(Linnaeus, 1766)",
+      "descriptionYear": 1766,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "anas_platyrhynchos",
+      "gbifKey": "9761484",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "cygnus_olor",
+      "gbifKey": "2498343",
+      "authorship": "(J.F.Gmelin, 1789)",
+      "descriptionYear": 1789,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "columba_livia",
+      "gbifKey": "2495414",
+      "authorship": "J.F.Gmelin, 1789",
+      "descriptionYear": 1789,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "falco_peregrinus",
+      "gbifKey": "2481047",
+      "authorship": "Tunstall, 1771",
+      "descriptionYear": 1771,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "gallus_gallus",
+      "gbifKey": "9326020",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "pavo_cristatus",
+      "gbifKey": "9451184",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "cardinalis_cardinalis",
+      "gbifKey": "2490384",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "corvus_corax",
+      "gbifKey": "2482492",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "hirundo_rustica",
+      "gbifKey": "9515886",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "pelecanus_occidentalis",
+      "gbifKey": "5229158",
+      "authorship": "Linnaeus, 1766",
+      "descriptionYear": 1766,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "phoenicopterus_roseus",
+      "gbifKey": "4352332",
+      "authorship": "Pallas, 1811",
+      "descriptionYear": 1811,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "ramphastos_toco",
+      "gbifKey": "2478765",
+      "authorship": "P.L.S.Müller, 1776",
+      "descriptionYear": 1776,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "diomedea_exulans",
+      "gbifKey": "5229302",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "phoebastria_immutabilis",
+      "gbifKey": "2481381",
+      "authorship": "(Rothschild, 1893)",
+      "descriptionYear": 1893,
+      "iucnCode": "NT"
+    },
+    {
+      "animalId": "cacatua_galerita",
+      "gbifKey": "2479888",
+      "authorship": "(Latham, 1790)",
+      "descriptionYear": 1790,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "ara_macao",
+      "gbifKey": "5959227",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "aptenodytes_forsteri",
+      "gbifKey": "2481661",
+      "authorship": "G.R.Gray, 1844",
+      "descriptionYear": 1844,
+      "iucnCode": "NT"
+    },
+    {
+      "animalId": "aptenodytes_patagonicus",
+      "gbifKey": "2481660",
+      "authorship": "J.F.Miller, 1778",
+      "descriptionYear": 1778,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "eudyptula_minor",
+      "gbifKey": "2481646",
+      "authorship": "(J.R.Forster, 1781)",
+      "descriptionYear": 1781,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "pygoscelis_adeliae",
+      "gbifKey": "2481663",
+      "authorship": "(Hombron & Jacquinot, 1841)",
+      "descriptionYear": 1841,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "pygoscelis_papua",
+      "gbifKey": "2481666",
+      "authorship": "(J.R.Forster, 1781)",
+      "descriptionYear": 1781,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "spheniscus_demersus",
+      "gbifKey": "5229384",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "CR"
+    },
+    {
+      "animalId": "bubo_virginianus",
+      "gbifKey": "5959118",
+      "authorship": "(J.F.Gmelin, 1788)",
+      "descriptionYear": 1788,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "tyto_alba",
+      "gbifKey": "2497921",
+      "authorship": "(Scopoli, 1769)",
+      "descriptionYear": 1769,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "dromaius_novaehollandiae",
+      "gbifKey": "2495134",
+      "authorship": "(Latham, 1790)",
+      "descriptionYear": 1790,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "struthio_camelus",
+      "gbifKey": "2495150",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "alligator_mississippiensis",
+      "gbifKey": "2441370",
+      "authorship": "(Daudin, 1801)",
+      "descriptionYear": 1801,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "crocodylus_niloticus",
+      "gbifKey": "2441341",
+      "authorship": "Laurenti, 1768",
+      "descriptionYear": 1768,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "crocodylus_acutus",
+      "gbifKey": "2441329",
+      "authorship": "(Cuvier, 1807)",
+      "descriptionYear": 1807,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "gavialis_gangeticus",
+      "gbifKey": "2441360",
+      "authorship": "(Gmelin, 1789)",
+      "descriptionYear": 1789,
+      "iucnCode": "CR"
+    },
+    {
+      "animalId": "osteolaemus_tetraspis",
+      "gbifKey": "2441385",
+      "authorship": "Cope, 1861",
+      "descriptionYear": 1861,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "boa_constrictor",
+      "gbifKey": "2464899",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "eunectes_murinus",
+      "gbifKey": "5225712",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "python_regius",
+      "gbifKey": "2465380",
+      "authorship": "(Shaw, 1802)",
+      "descriptionYear": 1802,
+      "iucnCode": "NT"
+    },
+    {
+      "animalId": "python_molurus",
+      "gbifKey": "2465369",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "NT"
+    },
+    {
+      "animalId": "crotalus_atrox",
+      "gbifKey": "2444356",
+      "authorship": "Baird & Girard, 1853",
+      "descriptionYear": 1853,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "agkistrodon_contortrix",
+      "gbifKey": "9215881",
+      "authorship": "(Linnaeus, 1766)",
+      "descriptionYear": 1766,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "eublepharis_macularius",
+      "gbifKey": "5221283",
+      "authorship": "(Blyth, 1854)",
+      "descriptionYear": 1854,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "sphenodon_punctatus",
+      "gbifKey": "5227650",
+      "authorship": "(Gray, 1842)",
+      "descriptionYear": 1842,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "chlamydosaurus_kingii",
+      "gbifKey": "2466087",
+      "authorship": "Gray, 1825",
+      "descriptionYear": 1825,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "chelonia_mydas",
+      "gbifKey": "2442225",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "caretta_caretta",
+      "gbifKey": "8894817",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "dermochelys_coriacea",
+      "gbifKey": "9789983",
+      "authorship": "(Vandelli, 1761)",
+      "descriptionYear": 1761,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "macrochelys_temminckii",
+      "gbifKey": "5220318",
+      "authorship": "Troost, 1835",
+      "descriptionYear": 1835,
+      "iucnCode": "EN"
+    },
+    {
+      "animalId": "trachemys_scripta",
+      "gbifKey": "2443002",
+      "authorship": "(Thunberg In Schoepff, 1792)",
+      "descriptionYear": 1792,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "gopherus_agassizii",
+      "gbifKey": "2441814",
+      "authorship": "(Cooper, 1861)",
+      "descriptionYear": 1861,
+      "iucnCode": "CR"
+    },
+    {
+      "animalId": "anaxyrus_americanus",
+      "gbifKey": "2422872",
+      "authorship": "(Holbrook, 1836)",
+      "descriptionYear": 1836,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "rhinella_marina",
+      "gbifKey": "5216933",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "lithobates_catesbeianus",
+      "gbifKey": "2427091",
+      "authorship": "(Shaw, 1802)",
+      "descriptionYear": 1802,
+      "iucnCode": null
+    },
+    {
+      "animalId": "xenopus_laevis",
+      "gbifKey": "5217334",
+      "authorship": "(Daudin, 1802)",
+      "descriptionYear": 1802,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "dendrobates_auratus",
+      "gbifKey": "5218022",
+      "authorship": "(Girard, 1855)",
+      "descriptionYear": 1855,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "dendrobates_leucomelas",
+      "gbifKey": "5218028",
+      "authorship": "Steindachner, 1864",
+      "descriptionYear": 1864,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "pyxicephalus_adspersus",
+      "gbifKey": "2429965",
+      "authorship": "Tschudi, 1838",
+      "descriptionYear": 1838,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "conraua_goliath",
+      "gbifKey": "2428946",
+      "authorship": "(Boulenger, 1906)",
+      "descriptionYear": 1906,
+      "iucnCode": "EN"
+    },
+    {
+      "animalId": "ambystoma_mexicanum",
+      "gbifKey": "2431950",
+      "authorship": "(Shaw & Nodder, 1798)",
+      "descriptionYear": 1798,
+      "iucnCode": "CR"
+    },
+    {
+      "animalId": "ambystoma_tigrinum",
+      "gbifKey": "2431993",
+      "authorship": "(Green, 1825)",
+      "descriptionYear": 1825,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "ambystoma_maculatum",
+      "gbifKey": "2431951",
+      "authorship": "(Shaw, 1802)",
+      "descriptionYear": 1802,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "salamandra_salamandra",
+      "gbifKey": "2431776",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "proteus_anguinus",
+      "gbifKey": "2432042",
+      "authorship": "Laurenti, 1768",
+      "descriptionYear": 1768,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "cryptobranchus_alleganiensis",
+      "gbifKey": "2432031",
+      "authorship": "(Sonnini de Manoncourt & Latreille, 1801)",
+      "descriptionYear": 1801,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "andrias_japonicus",
+      "gbifKey": "2432039",
+      "authorship": "(Temminck, 1836)",
+      "descriptionYear": 1836,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "carcharodon_carcharias",
+      "gbifKey": "2420694",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "rhincodon_typus",
+      "gbifKey": "2417522",
+      "authorship": "Smith, 1828",
+      "descriptionYear": 1828,
+      "iucnCode": "EN"
+    },
+    {
+      "animalId": "galeocerdo_cuvier",
+      "gbifKey": "2418234",
+      "authorship": "(Péron & Lesueur, 1822)",
+      "descriptionYear": 1822,
+      "iucnCode": "NT"
+    },
+    {
+      "animalId": "carcharhinus_leucas",
+      "gbifKey": "2418036",
+      "authorship": "(Müller & Henle, 1839)",
+      "descriptionYear": 1839,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "prionace_glauca",
+      "gbifKey": "2417940",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "NT"
+    },
+    {
+      "animalId": "sphyrna_lewini",
+      "gbifKey": "2418789",
+      "authorship": "(Griffith & Smith, 1834)",
+      "descriptionYear": 1834,
+      "iucnCode": "CR"
+    },
+    {
+      "animalId": "isurus_oxyrinchus",
+      "gbifKey": "5216248",
+      "authorship": "Rafinesque, 1810",
+      "descriptionYear": 1810,
+      "iucnCode": "EN"
+    },
+    {
+      "animalId": "triakis_semifasciata",
+      "gbifKey": "2418369",
+      "authorship": "Girard, 1855",
+      "descriptionYear": 1855,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "carcharias_taurus",
+      "gbifKey": "2420766",
+      "authorship": "Rafinesque, 1810",
+      "descriptionYear": 1810,
+      "iucnCode": "CR"
+    },
+    {
+      "animalId": "negaprion_brevirostris",
+      "gbifKey": "2417919",
+      "authorship": "(Poey, 1868)",
+      "descriptionYear": 1868,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "cetorhinus_maximus",
+      "gbifKey": "2420726",
+      "authorship": "(Gunnerus, 1765)",
+      "descriptionYear": 1765,
+      "iucnCode": "EN"
+    },
+    {
+      "animalId": "myliobatis_californica",
+      "gbifKey": "2419300",
+      "authorship": "Gill, 1865",
+      "descriptionYear": 1865,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "cyprinus_carpio",
+      "gbifKey": "4286975",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "carassius_auratus",
+      "gbifKey": "4286942",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "salmo_salar",
+      "gbifKey": "7595433",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "NT"
+    },
+    {
+      "animalId": "gadus_morhua",
+      "gbifKey": "8084280",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "thunnus_alalunga",
+      "gbifKey": "9694948",
+      "authorship": "(Bonnaterre, 1788)",
+      "descriptionYear": 1788,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "pylodictis_olivaris",
+      "gbifKey": "2341077",
+      "authorship": "(Rafinesque, 1818)",
+      "descriptionYear": 1818,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "homarus_americanus",
+      "gbifKey": "5972004",
+      "authorship": "H.Milne Edwards, 1837",
+      "descriptionYear": 1837,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "arctica_islandica",
+      "gbifKey": "5189341",
+      "authorship": "(Linnaeus, 1767)",
+      "descriptionYear": 1767,
+      "iucnCode": null
+    },
+    {
+      "animalId": "panopea_generosa",
+      "gbifKey": "5189532",
+      "authorship": "A.Gould, 1850",
+      "descriptionYear": 1850,
+      "iucnCode": null
+    },
+    {
+      "animalId": "mercenaria_mercenaria",
+      "gbifKey": "2287668",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": null
+    },
+    {
+      "animalId": "mytilus_edulis",
+      "gbifKey": "8288896",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": null
+    },
+    {
+      "animalId": "crassostrea_virginica",
+      "gbifKey": "2286079",
+      "authorship": "(Gmelin, 1791)",
+      "descriptionYear": 1791,
+      "iucnCode": null
+    },
+    {
+      "animalId": "apis_mellifera",
+      "gbifKey": "1341976",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": null
+    },
+    {
+      "animalId": "drosophila_melanogaster",
+      "gbifKey": "5073713",
+      "authorship": "Meigen, 1830",
+      "descriptionYear": 1830,
+      "iucnCode": null
+    },
+    {
+      "animalId": "helarctos_malayanus",
+      "gbifKey": "2433403",
+      "authorship": "(Raffles, 1822)",
+      "descriptionYear": 1822,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "melursus_ursinus",
+      "gbifKey": "2433395",
+      "authorship": "(Shaw, 1791)",
+      "descriptionYear": 1791,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "tremarctos_ornatus",
+      "gbifKey": "2433401",
+      "authorship": "(F.G.Cuvier, 1825)",
+      "descriptionYear": 1825,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "ursus_thibetanus",
+      "gbifKey": "9335699",
+      "authorship": "G",
+      "descriptionYear": null,
+      "iucnCode": "VU"
+    },
+    {
+      "animalId": "apus_apus",
+      "gbifKey": "5228676",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "anser_anser",
+      "gbifKey": "2498036",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "ardea_cinerea",
+      "gbifKey": "9797180",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "phalacrocorax_carbo",
+      "gbifKey": "2481890",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "larus_argentatus",
+      "gbifKey": "2481139",
+      "authorship": "Pontoppidan, 1763",
+      "descriptionYear": 1763,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "corvus_corone",
+      "gbifKey": "9409796",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "erithacus_rubecula",
+      "gbifKey": "2492462",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "sturnus_vulgaris",
+      "gbifKey": "9809229",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "ornithorhynchus_anatinus",
+      "gbifKey": "2433376",
+      "authorship": "(Shaw, 1799)",
+      "descriptionYear": 1799,
+      "iucnCode": "NT"
+    },
+    {
+      "animalId": "erinaceus_europaeus",
+      "gbifKey": "5219616",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "NT"
+    },
+    {
+      "animalId": "didelphis_marsupialis",
+      "gbifKey": "2439920",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "tupaia_glis",
+      "gbifKey": "2436271",
+      "authorship": "(Diard, 1820)",
+      "descriptionYear": 1820,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "cavia_porcellus",
+      "gbifKey": "5219702",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": null
+    },
+    {
+      "animalId": "columba_palumbus",
+      "gbifKey": "2495455",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "corvus_frugilegus",
+      "gbifKey": "2482513",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "alauda_arvensis",
+      "gbifKey": "8077224",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "somateria_mollissima",
+      "gbifKey": "2498352",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "NT"
+    },
+    {
+      "animalId": "vanellus_vanellus",
+      "gbifKey": "2480242",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "NT"
+    },
+    {
+      "animalId": "haematopus_ostralegus",
+      "gbifKey": "7788295",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "NT"
+    },
+    {
+      "animalId": "sterna_hirundo",
+      "gbifKey": "9367409",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "equus_caballus",
+      "gbifKey": "2440886",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": null
+    },
+    {
+      "animalId": "camelus_dromedarius",
+      "gbifKey": "9055455",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": null
+    },
+    {
+      "animalId": "oryctolagus_cuniculus",
+      "gbifKey": "2436940",
+      "authorship": "(Linnaeus, 1758)",
+      "descriptionYear": 1758,
+      "iucnCode": "EN"
+    },
+    {
+      "animalId": "mus_musculus",
+      "gbifKey": "7429082",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "LC"
+    },
+    {
+      "animalId": "lemur_catta",
+      "gbifKey": "2436412",
+      "authorship": "Linnaeus, 1758",
+      "descriptionYear": 1758,
+      "iucnCode": "EN"
+    }
+  ],
+  "excluded": [
+    {
+      "animalId": "elaphe_guttata",
+      "reason": "Not an unambiguous exact accepted animal species match"
+    },
+    {
+      "animalId": "chelonoidis_nigra",
+      "reason": "Not an unambiguous exact accepted animal species match"
+    },
+    {
+      "animalId": "hyla_versicolor",
+      "reason": "Not an unambiguous exact accepted animal species match"
+    },
+    {
+      "animalId": "litoria_caerulea",
+      "reason": "Not an unambiguous exact accepted animal species match"
+    },
+    {
+      "animalId": "manta_birostris",
+      "reason": "Not an unambiguous exact accepted animal species match"
+    },
+    {
+      "animalId": "dasyatis_americana",
+      "reason": "Not an unambiguous exact accepted animal species match"
+    },
+    {
+      "animalId": "crassostrea_gigas",
+      "reason": "Not an unambiguous exact accepted animal species match"
+    },
+    {
+      "animalId": "strongylocentrotus_franciscanus",
+      "reason": "Not an unambiguous exact accepted animal species match"
+    },
+    {
+      "animalId": "larus_ridibundus",
+      "reason": "Not an unambiguous exact accepted animal species match"
+    }
+  ]
+}

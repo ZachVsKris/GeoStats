@@ -35,6 +35,14 @@ if (OUT/'source/pantheria-2009.zip').exists():
    d['values'].append(dict(animalId=animal['id'],traitId='mammal_range_area',valueNumeric=number,unit='km²',sex='species-level',lifeStage='species-level',measurementBasis=range_basis,sourceId='pantheria-range-maps',observationType='compiled',confidence='approved',uncertaintyStatus='not-reported',notes='Exact species match; published GIS map area. No modeled body-length, mass, or home-range values imported.'))
 # Every admitted category gets its reverse from identical records, never from a second source.
 METRICS={
+'scientific_description_age':('Oldest scientific description','Newest scientific description','specialist','scientific-history'),
+'iucn_extinction_risk':('Most threatened','Least threatened','intuitive','conservation'),
+'measured_eye_length':('Largest eyes','Smallest eyes','intuitive','eyes'),
+'behavioral_visual_acuity':('Sharpest measured vision','Least sharp measured vision','intuitive','vision'),
+'recorded_chewing_rate':('Fastest recorded chewing','Slowest recorded chewing','intuitive','chewing'),
+'diet_prey_mass_span':('Widest prey-size range','Narrowest prey-size range','intuitive','prey-size-span'),
+'hatching_mass':('Heaviest hatchling','Lightest hatchling','intuitive','hatchling-mass'),
+'raw_hatching_mass':('Heaviest hatchling','Lightest hatchling','intuitive','hatchling-mass'),
 'adult_intestine_length':('Longest intestine','Shortest intestine','specialist','intestine'),
 'male_maturity':('Latest male maturity','Earliest male maturity','specialist','maturity'),
 'weaning_mass':('Heaviest at weaning','Lightest at weaning','intuitive','weaning'),
@@ -102,6 +110,10 @@ for tid,(hi,lo,kind,key) in METRICS.items():
  rev=copy.deepcopy(t);rev.update(id=tid+'__low',displayName=lo,direction='lower_wins',counterTraitId=tid)
  d['traits']=[x for x in d['traits'] if x['id']!=rev['id']]+[rev]
  d['values']=[x for x in d['values'] if x['traitId']!=rev['id']]+[{**v,'traitId':rev['id']} for v in original_values if v['traitId']==tid]
+# Natural one-sided diet endpoints use distinct measurements, not artificial opposites.
+for tid,label,direction,key in [('diet_largest_prey','Largest prey in published diet','higher_wins','prey-size-maximum'),('diet_smallest_prey','Smallest prey in published diet','lower_wins','prey-size-minimum')]:
+ if tid not in originals:continue
+ t=originals[tid];t.pop('counterTraitId',None);t.update(displayName=label,direction=direction,prototypeCategory=True,categoryKind='intuitive',metricKey=key,oneSided=True)
 # ADW realm labels are source labels, not invented continent assignments or numerical ranges.
 cache=OUT/'research/regions.json'
 if cache.exists():regions=json.loads(cache.read_text())
@@ -125,10 +137,12 @@ illustrated=set(re.findall(r'^\s{2}([a-z]+_[a-z]+):', (ROOT/'lib/animalstatsCart
 # Shared compact bird profiles are assigned in the table below the main object.
 illustrated.update(re.findall(r'\b([a-z]+_[a-z]+)\s*:', (ROOT/'lib/animalstatsCartoons.ts').read_text()))
 active=sorted(p['animalId'] for p in d['photos'] if p['approved'] and A[p['animalId']]['active'] and p['animalId'] in illustrated)
-pools={'birds':[i for i in active if A[i]['taxonomicGroup']=='bird'],'mammals':[i for i in active if A[i]['taxonomicGroup'] in {'carnivore','bear','large-mammal','primate','marsupial','rodent','marine-mammal','monotreme','insectivore','treeshrew'}],'world':active}
+pools={'birds':[i for i in active if A[i]['taxonomicGroup']=='bird'],'mammals':[i for i in active if A[i]['taxonomicGroup'] in {'carnivore','bear','large-mammal','primate','marsupial','rodent','marine-mammal','monotreme','insectivore','treeshrew','lagomorph'}],'world':active}
 pools['flight']=[i for i in active if (i,'cruising_flight_speed') in V]
 pools['brains']=[i for i in active if (i,'weighed_brain_mass') in V]
 pools['reptile-brains']=[i for i in pools['brains'] if A[i]['taxonomicGroup'] in {'crocodilian','turtle','snake'}]
+for metric in ['scientific_description_age','iucn_extinction_risk','measured_eye_length','behavioral_visual_acuity','recorded_chewing_rate','diet_largest_prey','diet_smallest_prey','diet_prey_mass_span','hatching_mass','raw_hatching_mass']:
+ pools[metric]=[i for i in active if (i,metric) in V]
 pools['sleep']=[i for i in active if (i,'daily_sleep') in V]
 pools['intestines']=[i for i in active if (i,'adult_intestine_length') in V]
 pools['weaning-size']=[i for i in active if (i,'weaning_mass') in V]
@@ -138,7 +152,7 @@ pools['milk']=[i for i in active if any((i,t) in V for t in ['milk_fat_concentra
 pools['diet']=[i for i in active if (i,'diet_food_group_count') in V]
 pools['range-geography']=[i for i in active if (i,'mapped_latitude_span') in V]
 pools['broad-mammals']=[i for i in pools['mammals'] if (i,'mammal_range_area') in V and (i,'female_maturity') in V and (i,'maximum_documented_lifespan') in V]
-for metric in ['adult_tooth_count','field_travel_speed','field_swim_speed','daily_rem_sleep','basal_energy','mass_specific_basal_energy','field_max_dive','habitat_elevation_ceiling','habitat_depth_ceiling','adult_shoulder_height','mammal_tail_length_upper','aquatic_length_upper','raw_clutch_frequency','litters_per_year','raw_egg_length','raw_egg_width']:
+for metric in ['annual_home_range','adult_tooth_count','field_travel_speed','field_swim_speed','daily_rem_sleep','basal_energy','mass_specific_basal_energy','field_max_dive','habitat_elevation_ceiling','habitat_depth_ceiling','adult_shoulder_height','mammal_tail_length_upper','aquatic_length_upper','raw_clutch_frequency','litters_per_year','raw_egg_length','raw_egg_width']:
  pools[metric]=[i for i in active if (i,metric) in V]
 @functools.lru_cache(maxsize=20000)
 def valid_cached(ids):
@@ -150,7 +164,9 @@ def valid_cached(ids):
   if len({v['sex'] for v in rows})!=1 or len({v['lifeStage'] for v in rows})!=1:continue
   if t['eligibilityGroups'] and any(A[i]['taxonomicGroup'] not in t['eligibilityGroups'] for i in ids):continue
   ranked=sorted(zip(ids,rows),key=lambda x:x[1]['valueNumeric'],reverse=t['direction']=='higher_wins')
-  if any(max(a[1]['valueNumeric'],b[1]['valueNumeric'])/min(a[1]['valueNumeric'],b[1]['valueNumeric'])<1.05-1e-12 for a,b in zip(ranked,ranked[1:])):continue
+  if t['separationMethod']=='distinct_ordinal':
+   if any(a[1]['valueNumeric']==b[1]['valueNumeric'] for a,b in zip(ranked,ranked[1:])):continue
+  elif any(max(a[1]['valueNumeric'],b[1]['valueNumeric'])/min(a[1]['valueNumeric'],b[1]['valueNumeric'])<1.05-1e-12 for a,b in zip(ranked,ranked[1:])):continue
   if any(a[1].get('valueMin',a[1]['valueNumeric'])<=b[1].get('valueMax',b[1]['valueNumeric']) and b[1].get('valueMin',b[1]['valueNumeric'])<=a[1].get('valueMax',a[1]['valueNumeric']) for a,b in zip(ranked,ranked[1:])):continue
   out.append((tid,ranked[0][0],[next(j+1 for j,(aid,_) in enumerate(ranked) if aid==i) for i in ids]))
  return out
@@ -176,7 +192,9 @@ for mode,n,k in [('easy',4,4),('normal',6,4),('expert',8,6)]:
    for b,s in combinations:
     combo=b+s;tids=[x[0] for x in combo]
     focus={'intestines':'intestine','weaning-size':'weaning','male-maturity':'maturity'}.get(name)
+    if name in {'scientific_description_age','iucn_extinction_risk','measured_eye_length','behavioral_visual_acuity','recorded_chewing_rate','diet_largest_prey','diet_smallest_prey','diet_prey_mass_span','hatching_mass','raw_hatching_mass','annual_home_range','field_max_dive','field_travel_speed','raw_clutch_frequency','raw_egg_width'} and not any(t.removesuffix('__low')==name for t in tids):continue
     if focus and not any(T[t]['metricKey']==focus and (name!='male-maturity' or t.startswith('male_maturity')) for t in tids):continue
+    if sum(T[t].get('gameplayFamily')=='prey-size' for t in tids)>1:continue
     if sum(T[t].get('gameplayFamily')=='milk-composition' for t in tids)>1:continue
     if sum(T[t].get('gameplayFamily') in {'range-geography','range'} for t in tids)>1:continue
     if sum(T[t]['metricKey'] in LIFECYCLE for t in tids)>(3 if k==6 else 1):continue
@@ -193,7 +211,7 @@ for mode,n,k in [('easy',4,4),('normal',6,4),('expert',8,6)]:
 # Include every feasible opposite direction. Solve orientations jointly so winners stay distinct.
 for original in list(boards):
  for bits in itertools.product([False,True],repeat=len(original['traitIds'])):
-  tids=[T[t]['counterTraitId'] if bit else t for t,bit in zip(original['traitIds'],bits)]
+  tids=[T[t].get('counterTraitId',t) if bit else t for t,bit in zip(original['traitIds'],bits)]
   available={t:w for t,w,r in valid(original['animalIds'])}
   if any(t not in available for t in tids) or len({available[t] for t in tids})!=len(tids):continue
   ranks=[r for t,w,r in valid(original['animalIds']) if t in tids]
@@ -211,7 +229,7 @@ selected=list(nonbirds);covered={t for b in selected for t in b['traitIds']};lin
 for mode,limit in [('easy',16),('normal',16),('expert',12)]:
  remaining=[b for b in boards if b['mode']==mode and all(A[i]['taxonomicGroup']=='bird' for i in b['animalIds'])]
  for _ in range(min(limit,len(remaining))):
-  chosen=max(remaining,key=lambda b:sum(T[t]['counterTraitId'] in covered and t not in covered for t in b['traitIds'])*100+sum(t not in covered for t in b['traitIds'])*10+sum(T[t]['metricKey'] in {'flight','wingspan','movement'} for t in b['traitIds'])*30+(tuple(sorted(b['animalIds'])) not in lineups)*4+sum(A[i]['familiarityTier']=='core' for i in b['animalIds']))
+  chosen=max(remaining,key=lambda b:sum(T[t].get('counterTraitId') in covered and t not in covered for t in b['traitIds'])*100+sum(t not in covered for t in b['traitIds'])*10+sum(T[t]['metricKey'] in {'flight','wingspan','movement'} for t in b['traitIds'])*30+(tuple(sorted(b['animalIds'])) not in lineups)*4+sum(A[i]['familiarityTier']=='core' for i in b['animalIds']))
   selected.append(chosen);remaining.remove(chosen);covered.update(chosen['traitIds']);lineups.add(tuple(sorted(chosen['animalIds'])))
 boards=selected
 # Keep previously shared challenges when their exact measurements still pass.

@@ -1,0 +1,107 @@
+{
+  "date": "2026-10-04",
+  "previousDistinctPlayableLabels": 84,
+  "distinctPlayableLabels": 100,
+  "playableTraitIds": 110,
+  "candidateBoards": 4269,
+  "addedDistinctLabels": 16,
+  "added": [
+    {
+      "label": "Heaviest hatchling",
+      "opposite": "Lightest hatchling",
+      "traitId": "raw_hatching_mass",
+      "counterTraitId": "raw_hatching_mass__low",
+      "eligibleSpecies": 40,
+      "source": "amniote-raw-2015"
+    },
+    {
+      "label": "Largest eyes",
+      "opposite": "Smallest eyes",
+      "traitId": "measured_eye_length",
+      "counterTraitId": "measured_eye_length__low",
+      "eligibleSpecies": 15,
+      "source": "veilleux-kirk-2014"
+    },
+    {
+      "label": "Sharpest measured vision",
+      "opposite": "Least sharp measured vision",
+      "traitId": "behavioral_visual_acuity",
+      "counterTraitId": "behavioral_visual_acuity__low",
+      "eligibleSpecies": 7,
+      "source": "veilleux-kirk-2014"
+    },
+    {
+      "label": "Fastest recorded chewing",
+      "opposite": "Slowest recorded chewing",
+      "traitId": "recorded_chewing_rate",
+      "counterTraitId": "recorded_chewing_rate__low",
+      "eligibleSpecies": 24,
+      "source": "gerstner-gerstein-2008"
+    },
+    {
+      "label": "Largest prey in published diet",
+      "opposite": null,
+      "traitId": "diet_largest_prey",
+      "counterTraitId": null,
+      "eligibleSpecies": 12,
+      "source": "tucker-rogers-2014-diet"
+    },
+    {
+      "label": "Smallest prey in published diet",
+      "opposite": null,
+      "traitId": "diet_smallest_prey",
+      "counterTraitId": null,
+      "eligibleSpecies": 12,
+      "source": "tucker-rogers-2014-diet"
+    },
+    {
+      "label": "Widest prey-size range",
+      "opposite": "Narrowest prey-size range",
+      "traitId": "diet_prey_mass_span",
+      "counterTraitId": "diet_prey_mass_span__low",
+      "eligibleSpecies": 12,
+      "source": "tucker-rogers-2014-diet"
+    },
+    {
+      "label": "Oldest scientific description",
+      "opposite": "Newest scientific description",
+      "traitId": "scientific_description_age",
+      "counterTraitId": "scientific_description_age__low",
+      "eligibleSpecies": 147,
+      "source": "gbif-authorship-20261004"
+    },
+    {
+      "label": "Most threatened",
+      "opposite": "Least threatened",
+      "traitId": "iucn_extinction_risk",
+      "counterTraitId": "iucn_extinction_risk__low",
+      "eligibleSpecies": 135,
+      "source": "iucn-gbif-20260728"
+    }
+  ],
+  "newSpecies": [
+    "Horse",
+    "Dromedary camel",
+    "European rabbit",
+    "House mouse",
+    "Ring-tailed lemur"
+  ],
+  "categoryKinds": {
+    "intuitive": 74,
+    "specialist": 36
+  },
+  "boardsByMode": {
+    "easy": 1792,
+    "normal": 2191,
+    "expert": 286
+  },
+  "dailyApproval": "Separate evidence-bound daily review; no automatic approval for new categories",
+  "held": "Rabbit full-wild-maturity value excluded; anatomy-derived vision excluded; dog-as-wolf eye records and named chewing subspecies excluded; no imputed or modeled values admitted",
+  "validation": {
+    "productionBuild": "passed",
+    "browserAndCatalogChecks": 39,
+    "browserAndCatalogResult": "all passed",
+    "warehouseUpsertRecords": 1101,
+    "warehouseSync": "completed; source coverage and excluded rabbit value verified"
+  }
+}

@@ -198,7 +198,7 @@ test("variety picker rotates groups and opening boards avoid paired bird themes"
 test("new prototype balances categories and mirrors measured values exactly", () => {
  const data = animalDataset as AnimalDataset;
  const traits = new Map(data.traits.map(t => [t.id, t]));
- for (const trait of data.traits.filter(t => t.prototypeCategory)) {
+ for (const trait of data.traits.filter(t => t.prototypeCategory && !t.oneSided)) {
   const counter = traits.get(trait.counterTraitId!);
   expect(counter?.counterTraitId).toBe(trait.id);
   expect(counter?.direction).not.toBe(trait.direction);
@@ -208,7 +208,7 @@ test("new prototype balances categories and mirrors measured values exactly", ()
   expect(mirrored).toEqual(original);
  }
  const used = new Set((candidateData.boards as BoardCandidate[]).flatMap(board => board.traitIds));
- for (const id of used) expect(used.has(traits.get(id)!.counterTraitId!)).toBe(true);
+ for (const id of used) { const trait = traits.get(id)!; if (!trait.oneSided) expect(used.has(trait.counterTraitId!)).toBe(true); else expect(trait.counterTraitId).toBeUndefined(); }
  for (const board of candidateData.boards as BoardCandidate[]) {
   const categories = board.traitIds.map(id => traits.get(id)!);
   expect(categories.filter(t => t.categoryKind === "intuitive").length).toBeGreaterThanOrEqual(Math.ceil(categories.length / 2));
@@ -350,7 +350,7 @@ test("podium remove returns an animal to the pen and supports replacement", asyn
 
 import {cartoonSpecies} from '../lib/animalstatsCartoons';
 test('every playable species has an illustrated profile',()=>{
- expect(cartoonSpecies).toHaveLength(80);
+ expect(cartoonSpecies).toHaveLength(85);
  for(const board of candidateData.boards)for(const id of board.animalIds)expect(cartoonSpecies).toContain(id);
 });
 for(const viewport of [{width:1440,height:900},{width:1366,height:768},{width:390,height:844},{width:375,height:667}]){

@@ -143,7 +143,11 @@ export function validateAnimalDataset(data: AnimalDataset): string[] {
     const trait = traits.get(value.traitId);
     if (!animals.has(value.animalId) || !trait || !sources.has(value.sourceId))
       reasons.push(`value ${value.animalId}:${value.traitId}: unknown animal, trait, or source`);
-    if (trait?.separationMethod === "distinct_ordinal" && (trait.unit !== "IUCN category" || !Number.isInteger(value.valueNumeric) || value.valueNumeric < 1 || value.valueNumeric > 7)) reasons.push(`value ${value.animalId}:${value.traitId}: invalid ordered conservation category`);
+    if (trait?.separationMethod === "distinct_ordinal") {
+      const conservation = trait.unit === "IUCN category" && Number.isInteger(value.valueNumeric) && value.valueNumeric >= 1 && value.valueNumeric <= 7;
+      const descriptionDate = trait.metricKey === "scientific-history" && trait.unit === "years since description (2026)" && Number.isInteger(value.valueNumeric) && value.valueNumeric > 0 && value.valueNumeric < 2026;
+      if (!conservation && !descriptionDate) reasons.push(`value ${value.animalId}:${value.traitId}: invalid ordered category or calendar date`);
+    }
     if (trait && value.unit !== trait.unit) reasons.push(`value ${value.animalId}:${value.traitId}: unit mismatch`);
     if (!Number.isFinite(value.valueNumeric) || value.valueNumeric <= 0)
       reasons.push(`value ${value.animalId}:${value.traitId}: positive finite value required`);

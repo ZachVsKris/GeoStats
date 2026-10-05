@@ -64,6 +64,21 @@ function mammalDesign(p: Profile) {
   return { bodyPath, hx, hy, rx, ry, root, legXs, foot, cat, bear };
 }
 
+function GuineaPig({ clipId }: { clipId: string }) {
+  const silhouette = "M29 120 C20 104 26 80 44 70 C63 59 88 61 108 66 C125 60 143 65 151 75 C163 79 173 93 174 105 C180 110 177 120 165 125 C147 137 124 138 103 137 C77 140 43 137 29 120 Z";
+  return <g className="cartoonBody">
+    <g className="cartoonFeet" fill="#cb9273"><path d="M47 127 Q43 139 49 143 L64 143 Q66 139 57 135" /><path d="M121 130 Q119 140 125 143 L140 143 Q145 140 132 135" /><path d="M60 139v4 M55 139v4 M133 139v4 M128 139v4" /></g>
+    <defs><clipPath id={clipId}><path d={silhouette} /></clipPath></defs>
+    <path d={silhouette} fill="#fff3db" />
+    <g clipPath={`url(#${clipId})`} stroke="none"><path d="M20 68 Q44 48 79 64 Q71 84 79 103 Q73 116 83 143 L19 148 Z" fill="#975433" /><path d="M104 57 Q122 57 148 67 L183 76 V136 L134 144 Q111 128 115 112 Q109 93 104 57" fill="#b77342" /><path d="M40 84q8-9 19-9 M39 91q5-6 12-7 M90 122q8 5 16 2" stroke="#ddb896" strokeWidth="1.2" /><path d="M145 127q12-2 20-8" stroke="#8c4e30" strokeWidth="1.2" /></g>
+    <path d={silhouette} fill="none" />
+    <path d="M127 69 C115 59 110 68 114 78 Q117 85 126 83 L132 76" fill="#ad704e" /><path d="M117 70 Q116 77 124 79" fill="none" stroke="#da9d8b" strokeWidth="3" />
+    <g className="cartoonBlink" style={{ transformOrigin: "149px 94px" }}><ellipse cx="149" cy="94" rx="5.3" ry="6" fill="#29221f" strokeWidth="1.2" /><circle cx="150" cy="92" r="1.7" fill="#fff" stroke="none" /></g>
+    <path d="M164 109 Q170 105 173 110 L168 114 Z" fill="#ce9284" strokeWidth="1.2" /><path d="M168 114v5m0 0-5 2m5-2 5 1" fill="none" strokeWidth="1.4" />
+    <path d="M160 115l-13-3m13 7-14 2m26-5 9-3m-8 7 8 2" fill="none" strokeWidth="1" />
+  </g>;
+}
+
 function Mammal({ p, clipId }: { p: Profile; clipId: string }) {
   const f = p.feature ?? "", d = mammalDesign(p), { hx: x, hy: y, rx, ry } = d;
   const fox = f === "fox", canine = fox || f === "wolf", pointed = canine || ["opossum", "treeshrew", "hedgehog", "mouse", "rat", "lemur", "raccoon", "badger"].includes(f);
@@ -398,7 +413,7 @@ export const AnimalSprite = memo(function AnimalSprite({ animal, className = "" 
   return <svg viewBox="0 0 200 160" className={`animalSprite fairCartoon ${className}`} role="img" aria-label={animal.commonName} data-animal-id={animal.id} data-art-version="fair-cartoon-v2" data-normalized-size="142" data-anatomy={p.feature}>
     <ellipse className="cartoonGround" cx="100" cy="149" rx="65" ry="5" fill="#60482c" opacity=".12" />
     <g stroke={INK} strokeWidth="2.3" strokeLinejoin="round" strokeLinecap="round">
-      {["seal","sealion"].includes(p.feature ?? "") ? <Pinniped p={p}/> : ["littlebat","flyingfox"].includes(p.feature ?? "") ? <Bat p={p}/> : ["echidna","anteater","armadillo"].includes(p.feature ?? "") ? <SmallSpecialist p={p}/> : ["meerkat","seaotter"].includes(p.feature ?? "") ? <UprightMammal p={p}/> : p.kind === "bird" || p.kind === "penguin" ? <Bird p={p} /> : p.kind === "marine" ? <Marine p={p} /> : p.kind === "shark" ? <Shark p={p} clipId={clipId}/> : p.kind === "primate" ? <Primate p={p} /> : ["reptile", "snake", "turtle"].includes(p.kind) ? <Reptile p={p} /> : p.feature === "kangaroo" ? <Kangaroo p={p} /> : <Mammal p={p} clipId={clipId} />}
+      {p.feature === "guineapig" ? <GuineaPig clipId={clipId} /> : ["seal","sealion"].includes(p.feature ?? "") ? <Pinniped p={p}/> : ["littlebat","flyingfox"].includes(p.feature ?? "") ? <Bat p={p}/> : ["echidna","anteater","armadillo"].includes(p.feature ?? "") ? <SmallSpecialist p={p}/> : ["meerkat","seaotter"].includes(p.feature ?? "") ? <UprightMammal p={p}/> : p.kind === "bird" || p.kind === "penguin" ? <Bird p={p} /> : p.kind === "marine" ? <Marine p={p} /> : p.kind === "shark" ? <Shark p={p} clipId={clipId}/> : p.kind === "primate" ? <Primate p={p} /> : ["reptile", "snake", "turtle"].includes(p.kind) ? <Reptile p={p} /> : p.feature === "kangaroo" ? <Kangaroo p={p} /> : <Mammal p={p} clipId={clipId} />}
     </g>
   </svg>;
 });

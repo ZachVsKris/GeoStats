@@ -146,3 +146,37 @@
   .countyFair[data-animal-count="6"] .animalBank { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); }
   .countyFair .podiumEmpty { width: 58px; height: 58px; }
 }
+
+.animalCategoryLabel { display: inline; }
+.animalCategoryInfo { display: inline-flex; align-items: center; justify-content: center; border: 0; background: transparent; color: inherit; opacity: .7; padding: 2px 3px; margin-left: 2px; font: inherit; font-size: 12px; cursor: help; vertical-align: baseline; }
+.animalCategoryInfo:focus-visible { outline: 2px solid #287c80; outline-offset: 2px; border-radius: 4px; }
+.animalCategoryTooltip { position: fixed; z-index: 10000; box-sizing: border-box; width: min(340px, calc(100vw - 24px)); max-height: 45vh; overflow: auto; padding: 12px 14px; border: 1px solid #d6c8aa; border-radius: 10px; background: #fffdf7; color: #42362b; box-shadow: 0 5px 24px #352c2926; font: 14px/1.5 system-ui, sans-serif; pointer-events: none; }
+.animalCategoryTooltip strong { display: block; margin-bottom: 4px; font-size: 14px; }
+
+.animalPresentationControl { display: flex; justify-content: flex-end; align-items: center; gap: 9px; margin: 6px 0 10px; font: 600 13px var(--sans); color: var(--muted); }
+.animalPresentationControl .active { color: var(--ink); }
+.animalPresentationLever { width: 48px; height: 26px; padding: 3px; border: 1px solid var(--line); border-radius: 20px; background: var(--surface-2); cursor: pointer; }
+.animalPresentationLever > span { display: block; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); transition: transform .2s; }
+.animalPresentationLever[aria-checked=true] > span { transform: translateX(20px); }
+.realAnimalPage { --bg: #f5fbf7; --surface: #fff; --surface-2: #e7f5ec; --ink: #193c30; --muted: #537163; --line: #bdd7c7; --line-soft: #dceadf; --accent: #187a4c; --accent-2: #c25735; padding: 12px 24px 20px; }
+.realAnimalPage .animalShell { max-width: 1160px; padding: 0; }
+.realAnimalPage .animalGeoHeader { display: flex; align-items: center; gap: 16px; padding: 8px 0 12px; }
+.realAnimalPage .animalGeoBrand { display: flex; align-items: center; gap: 8px; text-decoration: none; color: inherit; }
+.realAnimalPage .animalGeoBrand h1 { font: 700 30px var(--display); margin: 0; }
+.realAnimalPage .animalGeoModes { display: flex; margin-left: auto; }
+.realAnimalPage .animalGeoMenu > div { position: absolute; z-index: 40; background: var(--surface); padding: 12px; display: flex; flex-direction: column; gap: 8px; border: 1px solid var(--line); }
+.realAnimalPage .animalGeoMenu:not([open]) > div { display: none; }
+.realAnimalPage .animalToolbar { display: flex; justify-content: space-between; align-items: center; }
+.animalRealPhoto { width: 42px; height: 36px; object-fit: cover; border-radius: 5px; vertical-align: middle; }
+.results .animalRealPhoto, .results .animalSprite { display: inline-block; width: 27px; height: 23px; object-fit: cover; vertical-align: middle; }
+.realAnimalPage .animalSubmit { display: flex; justify-content: flex-end; gap: 16px; align-items: center; margin-top: 14px; }
+.realAnimalPage .animalSubmit > button { background: var(--accent); color: white; padding: 14px 24px; border: 0; border-radius: 8px; font-weight: 700; cursor: pointer; }
+.realAnimalPage .animalSubmit > p { color: var(--accent-2); }
+@media (max-width: 750px) { .realAnimalPage { padding: 8px 10px 12px; } .realAnimalPage .animalGeoHeader { flex-wrap: wrap; gap: 8px; } .realAnimalPage .animalGeoBrand h1 { font-size: 23px; } .realAnimalPage .animalGeoModes { order: 5; width: 100%; margin: 0; } .realAnimalPage .category > .desktopCategoryIcon { display: inline-block; } .realAnimalPage .categoryCopy small { display: none; } .realAnimalPage .animalSubmit { flex-wrap: wrap; } .realAnimalPage .animalRealPhoto { width: 32px; height: 30px; } }
+@media (prefers-reduced-motion: reduce) { .animalPresentationLever > span { transition: none; } }
+
+.animalPage.realAnimalPage { background: var(--bg); color-scheme: light; }
+.realAnimalPage .animalShell { background: transparent; border: 0; border-radius: 0; box-shadow: none; }
+.realAnimalPage .animalGeoHeader .fairMobileHelp { display: none; }
+@media (max-width: 750px) { .realAnimalPage .animalGeoHeader .fairMobileHelp { display: inline; } .realAnimalPage .animalGeoHeader .fairDesktopHelp { display: none; } }
+.animalPhotoCredits{list-style:none;padding:0;display:grid;gap:12px}.animalPhotoCredits li{display:flex;flex-wrap:wrap;gap:6px 14px;padding:12px 0;border-bottom:1px solid var(--line)}.animalPhotoCredits li strong{flex-basis:100%}.animalPhotoCredits a{color:var(--accent)}

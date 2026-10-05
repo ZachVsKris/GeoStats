@@ -1,5 +1,10 @@
 "use client";
 
+import AnimalPortrait from "./AnimalPortrait";
+import AnimalPhotoCredits from "./AnimalPhotoCredits";
+import { animalTraitIcon } from "../lib/animalstatsIcons";
+import AnimalCategoryLabel from "./AnimalCategoryLabel";
+
 import { useCallback, useEffect, useMemo, useRef, useState, type PointerEvent, type CSSProperties } from "react";
 import { animalRegionLabel } from "../lib/animalstatsRegions";
 import { randomAnimalBoardIndex } from "../lib/animalstatsVariety";
@@ -19,7 +24,7 @@ import "../app/animals/animalstats.css";
 import "../app/animals/animal-sanctuary.css";
 import "../app/animals/animal-fair-refresh.css";
 
-type Props = { initialBoardId?: string; data: AnimalDataset; boards: BoardCandidate[]; approvedBoardIds: string[]; date: string };
+type Props = { initialBoardId?: string; initialMode?: DailyDifficulty; data: AnimalDataset; boards: BoardCandidate[]; approvedBoardIds: string[]; date: string };
 type Assignment = Record<string, string>;
 
 function challengeUrl(boardId: string) {
@@ -36,12 +41,16 @@ function observationLinks(notes: string) {
 
 const formatValue = formatAnimalValue;
 
-export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, initialBoardId }: Props) {
+export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, initialBoardId, initialMode = "easy" }: Props) {
   const sound = useGameSound();
+  const [presentation, setPresentation] = useState<"cute" | "real">("cute");
+  useEffect(() => { try { if (localStorage.getItem("animalstats-presentation-v1") === "real") setPresentation("real"); } catch {} }, []);
+  function changePresentation() { const next = presentation === "cute" ? "real" : "cute"; setPresentation(next); try { localStorage.setItem("animalstats-presentation-v1", next); } catch {} }
   const [view, setView] = useState<"play" | "stats" | "guide" | "prizes">("play");
   const [prizeSearch, setPrizeSearch] = useState("");
   const [prizeKind, setPrizeKind] = useState("all");
   const [focusTrait, setFocusTrait] = useState<string | null>(null);
+  const [photoCreditsOpen, setPhotoCreditsOpen] = useState(false);
   const [helpOpen, setHelpOpen] = useState(false);
   const [helpTopic, setHelpTopic] = useState<"play" | "scoring">("play");
   const menuRef = useRef<HTMLDetailsElement>(null);
@@ -73,8 +82,8 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
     }).catch(() => { /* Device history remains usable when account loading is unavailable. */ });
     return () => controller.abort();
   }, []);
-  const [mode, setMode] = useState<DailyDifficulty>(initialBoard?.mode ?? "easy");
-  const [statsMode, setStatsMode] = useState<DailyDifficulty>(initialBoard?.mode ?? "easy");
+  const [mode, setMode] = useState<DailyDifficulty>(initialBoard?.mode ?? initialMode);
+  const [statsMode, setStatsMode] = useState<DailyDifficulty>(initialBoard?.mode ?? initialMode);
   const [boardIndex, setBoardIndex] = useState(initialBoard ? boards.filter(candidate => candidate.mode === initialBoard.mode).indexOf(initialBoard) : 0);
   const [assignments, setAssignments] = useState<Assignment>({});
   const [selectedTrait, setSelectedTrait] = useState<string | null>(null);
@@ -186,7 +195,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
   }
 
   useEffect(() => {
-    if (submitted) document.querySelector(".animalGeoResults")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (submitted) document.querySelector(".animalShell .results")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }, [submitted]);
 
   function assign(traitId: string, animalId: string) {
@@ -234,7 +243,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
           suppressClick.current = true;
           const target = document.elementFromPoint(event.clientX, event.clientY)?.closest<HTMLElement>("[data-trait-id]")?.dataset.traitId;
           if (target) assign(target, id);
-          else if (document.elementFromPoint(event.clientX, event.clientY)?.closest(".animalPen")) {
+          else if (document.elementFromPoint(event.clientX, event.clientY)?.closest(".animalPen, .bankPanel")) {
             setAssignments(previous => Object.fromEntries(Object.entries(previous).filter(([, animalId]) => animalId !== id)));
             setSelectedAnimal(null); setSelectedTrait(null);
           }
@@ -248,7 +257,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
   function traitPointerHandlers(id: string) {
     return {
       onPointerDown(event: PointerEvent<HTMLElement>) {
-        if (submitted || event.button !== 0 || (event.target as HTMLElement).closest(".podiumRemove, .podiumAnimal[data-animal-drag]")) return;
+        if (submitted || event.button !== 0 || (event.target as HTMLElement).closest('button, [data-animal-drag="true"]')) return;
         pointer.current = { id, kind: "trait", x: event.clientX, y: event.clientY, moved: false };
         suppressClick.current = false;
         event.currentTarget.setPointerCapture(event.pointerId);
@@ -287,16 +296,17 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
   const optimalChoices = results.filter((row) => row.rank === 1).length;
 
 
-  return <main className="animalPage animalSanctuary countyFair" data-animal-count={board?.animalIds.length} data-view={view} data-submitted={submitted} data-motion={motionPaused ? "paused" : "playing"} data-board-habitat={board && board.animalIds.every((id) => ["frog", "salamander"].includes(animalMap.get(id)?.taxonomicGroup ?? "")) ? "pond" : board && board.animalIds.every((id) => ["turtle", "snake", "crocodilian", "lizard", "reptile"].includes(animalMap.get(id)?.taxonomicGroup ?? "")) ? "reptiles" : "forest"}>
-    <div className={`animalShell ${submitted && view === "play" ? "shell resultsView" : ""}`}>
+  return <main className={`animalPage ${presentation === "cute" ? "animalSanctuary countyFair" : "realAnimalPage"}`} data-presentation={presentation} data-animal-count={board?.animalIds.length} data-view={view} data-submitted={submitted} data-motion={motionPaused ? "paused" : "playing"} data-board-habitat={board && board.animalIds.every((id) => ["frog", "salamander"].includes(animalMap.get(id)?.taxonomicGroup ?? "")) ? "pond" : board && board.animalIds.every((id) => ["turtle", "snake", "crocodilian", "lizard", "reptile"].includes(animalMap.get(id)?.taxonomicGroup ?? "")) ? "reptiles" : "forest"}>
+    <div className={`animalShell shell ${submitted && view === "play" ? "resultsView" : presentation === "real" && view === "play" ? `activePlay ${mode}Round` : ""}`}>
       <header className="animalGeoHeader">
         <a href="/animals" className="animalGeoBrand"><span className="animalGeoLogo" aria-hidden="true"><svg viewBox="0 0 32 32" width="26" height="26" fill="currentColor"><ellipse cx="8" cy="10" rx="4" ry="5"/><ellipse cx="16" cy="7" rx="4" ry="5"/><ellipse cx="24" cy="10" rx="4" ry="5"/><path d="M7 24c0-5 5-11 9-11s9 6 9 11c0 6-6 3-9 3s-9 3-9-3Z"/></svg></span><h1>AnimalStats</h1></a>
         <nav className="animalGeoModes desktopNavGroup desktopGameNav" aria-label="Difficulty">{(["easy", "normal", "expert"] as const).map(difficulty => <button type="button" key={difficulty} className={`dailyModeButton ${mode === difficulty ? "active" : ""}`} aria-current={mode === difficulty ? "page" : undefined} onClick={() => { setFocusTrait(null); switchBoard(difficulty); }}>{ROUND_CONFIGS[difficulty].label}</button>)}</nav>
         <button className="animalGeoStatsButton headerLink" onClick={() => { setStatsMode(mode); setView("stats"); }}>My Stats</button>
-        <details ref={menuRef} className="animalGeoMenu desktopSupportMenu"><summary><span className="fairDesktopHelp">Help &amp; tools</span><span className="fairMobileHelp">Help</span></summary><div onClick={event => { if ((event.target as HTMLElement).closest("button, a") && menuRef.current) menuRef.current.open = false; }}><button onClick={() => showHelp()}>How to play</button><button onClick={() => showHelp("scoring")}>Scoring</button><button onClick={() => setView("prizes")}>Categories</button><button onClick={() => setView("guide")}>Full data</button><button aria-pressed={sound.enabled} onClick={sound.toggle}>Game sounds: {sound.enabled ? "on" : "off"}</button><button aria-pressed={motionPaused} onClick={() => setMotionPaused(!motionPaused)}>{motionPaused ? "Animate animals" : "Pause animation"}</button><GameTools categories={board?.traitIds.map(id => ({ id, name: traitMap.get(id)!.displayName })) ?? []} difficulty={mode} /><a href="/daily">GeoStats</a></div></details>
+        <details ref={menuRef} className="animalGeoMenu desktopSupportMenu"><summary><span className="fairDesktopHelp">Help &amp; tools</span><span className="fairMobileHelp">Help</span></summary><div onClick={event => { if ((event.target as HTMLElement).closest("button, a") && menuRef.current) menuRef.current.open = false; }}><button onClick={() => showHelp()}>How to play</button><button onClick={() => setPhotoCreditsOpen(true)}>Photo credits</button><button onClick={() => showHelp("scoring")}>Scoring</button><button onClick={() => setView("prizes")}>Categories</button><button onClick={() => setView("guide")}>Full data</button><button aria-pressed={sound.enabled} onClick={sound.toggle}>Game sounds: {sound.enabled ? "on" : "off"}</button><button aria-pressed={motionPaused} onClick={() => setMotionPaused(!motionPaused)}>{motionPaused ? "Animate animals" : "Pause animation"}</button><GameTools categories={board?.traitIds.map(id => ({ id, name: traitMap.get(id)!.displayName })) ?? []} difficulty={mode} /><a href="/daily">GeoStats</a></div></details>
         <div className="gameAccount"><AccountControls difficulty={mode} hideLeaderboardLink compact /></div>
       </header>
       <section className="challengeBar animalGeoChallenge"><div className="challengeIdentity"><span className="kicker">{config.label} {playKind === "random" ? "Random" : "Daily"}</span></div><div className="challengeActions"><button type="button" aria-pressed={view === "play" && playKind === "daily"} onClick={() => { setFocusTrait(null); setPlayKind("daily"); setView("play"); switchBoard(mode); }}>Daily</button><button type="button" aria-pressed={view === "play" && playKind === "random"} onClick={() => { setFocusTrait(null); setPlayKind("random"); setView("play"); switchBoard(mode, randomAnimalBoardIndex(data, modeBoards, board, Math.random, recentBoards.current)); }}>Random</button>{view !== "play" && <button onClick={() => setView("play")}>Back to game</button>}{view === "play" && <><button onClick={nextBoard}>New board</button><button onClick={copyBoard}>{boardCopied ? "Link copied ✓" : "Copy link"}</button></>}</div></section>
+      <div className="animalPresentationControl"><span className={presentation === "cute" ? "active" : ""}>Cute</span><button type="button" role="switch" aria-label="Real animal photos" aria-checked={presentation === "real"} className="animalPresentationLever" onClick={changePresentation}><span /></button><span className={presentation === "real" ? "active" : ""}>Real</span></div>
       {view === "prizes" || view === "guide" ? <AnimalCatalogView key={view} boards={boards} initialTab={view === "prizes" ? "categories" : "animals"} onPlay={playPrize} /> : view === "stats" ? <section className="animalHistory" aria-label="AnimalStats personal stats">
         <button type="button" className="personalBackButton" onClick={() => setView("play")}>← Back</button><h2>My Stats</h2><nav className="personalModeTabs" aria-label="Stats difficulty">{(["easy", "normal", "expert"] as const).map(difficulty => <button type="button" key={difficulty} className={statsMode === difficulty ? "active" : ""} aria-pressed={statsMode === difficulty} onClick={() => setStatsMode(difficulty)}>{ROUND_CONFIGS[difficulty].label}</button>)}</nav><p className="personalStatsIntro">{signedIn ? "Saved to your account." : "Saved on this device. Sign in to save future results to your account."}</p>
         <div className="personalStats animalStatGrid">{[["Average Score", stats.games ? stats.averageScore.toFixed(1) : "—"], ["Best Result", stats.games ? stats.best : "—"], ["Games Played", stats.games], ["Average Placement", stats.games ? stats.averagePlacement.toFixed(2) : "—"]].map(([label, value]) => <div key={label}><span>{label}</span><strong>{value}</strong></div>)}</div>
@@ -308,9 +318,9 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
       </section> : !board ? <section className="animalEmpty"><h2>{playKind === "daily" ? "Daily boards are awaiting review" : "More field challenges are in preparation"}</h2><p>{playKind === "daily" ? "A daily board must pass source, uncertainty, and playability review. Numerical validation alone does not approve it." : "We are replacing repetitive boards with more distinctive comparisons. Try another difficulty or explore the Field Guide."}</p><button className="animalNext" type="button" onClick={() => { setPlayKind("random"); switchBoard(playKind === "daily" ? mode : "easy"); }}>{playKind === "daily" ? "Play a random candidate" : "Play Scout"}</button></section> : <>
       {focusTrait && <div className="fairFocusNotice"><span>{traitMap.get(focusTrait)?.displayName}</span><button type="button" onClick={() => { setFocusTrait(null); switchBoard(mode); }}>All categories ×</button></div>}
       {!submitted && <>
-        <div className="animalToolbar"><p className="animalInstruction">Match animals to prizes. Use each animal once.</p><button type="button" className="animalNext" onClick={() => { setAssignments({}); setSelectedAnimal(null); setSelectedTrait(null); setMessage(""); }}>Reset choices</button></div>
+        <div className="animalToolbar"><p className="animalInstruction">Match animals to {presentation === "cute" ? "prizes" : "statistics"}. Use each animal once.</p><button type="button" className="animalNext" onClick={() => { setAssignments({}); setSelectedAnimal(null); setSelectedTrait(null); setMessage(""); }}>Reset choices</button></div>
 
-        <div className="animalPlayBoard sanctuaryBoard">
+        {presentation === "cute" ? <div className="animalPlayBoard sanctuaryBoard">
           <section className="animalPen" aria-label="Animal pen">
             <div className="penSky" aria-hidden="true"><i className="penSun"/><i className="penCloud penCloudOne"/><i className="penCloud penCloudTwo"/><i className="penButterfly">✦</i></div>
             <div className="penSign"><span>Animals</span><small>{board.animalIds.length - Object.keys(assignments).length} available</small></div>
@@ -358,7 +368,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
                 </span>
                 <span className="podiumTop" aria-hidden="true"/>
                 <span className="podiumPlaque">
-                  <span className="animalTraitName" title={trait.playerHint ?? trait.definition}>{trait.displayName}</span>
+                  <span className="animalTraitName"><AnimalCategoryLabel trait={trait} /></span>
                   <span className="animalTraitDefinition">{trait.playerHint ?? trait.definition}</span>
                   <span className="animalTraitChoice">{animal ? animal.commonName : "Enter a contestant"}</span>
 
@@ -366,9 +376,15 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
               </div>;
             })}
           </section>
-        </div>
+        </div> : <div className={`grid playGrid ${selectedAnimal ? "holdingCountry" : ""} ${selectedTrait ? "choosingCountry" : ""}`}>
+          <section className="panel bankPanel"><div className="panelTitle"><div><h3>Your animals</h3></div><small>{board.animalIds.length} animals · use each once</small></div>
+            <div className="countries" aria-label="Available animals">{board.animalIds.map(id => { const animal = animalMap.get(id)!; const used = Object.values(assignments).includes(id); return <button type="button" key={id} data-animal-id={id} className={`country ${selectedAnimal === id ? "selected" : ""} ${used ? "used" : ""}`} aria-label={animal.commonName} aria-pressed={selectedAnimal === id} {...animalPointerHandlers(id)} onClick={() => { if (suppressClick.current) { suppressClick.current = false; return; } if (selectedTrait) assign(selectedTrait, id); else setSelectedAnimal(selectedAnimal === id ? null : id); }}><span><AnimalPortrait animal={animal} photo={photoMap.get(id)} presentation="real" /></span><div><strong>{animal.commonName}</strong></div>{used && <b>USED</b>}</button>; })}</div>
+          </section><div className="boardSpine" aria-hidden="true" />
+          <section className="panel boardPanel"><div className="panelTitle"><div><h3>Make your matches</h3></div></div><div className="slots" aria-label="Measures to match">{board.traitIds.map(id => { const trait = traitMap.get(id)!; const animal = animalMap.get(assignments[id]); return <div key={id} data-trait-id={id} className={`slot ${animal ? "assigned" : ""} ${selectedTrait === id ? "selectedCategory" : ""} ${dropTarget === id ? "touchTarget" : ""}`} role="button" tabIndex={0} aria-label={`${trait.displayName}: ${animal ? animal.commonName : "empty match"}`} aria-pressed={selectedTrait === id} {...traitPointerHandlers(id)} onClick={() => { if (suppressClick.current) { suppressClick.current = false; return; } selectedAnimal ? assign(id, selectedAnimal) : setSelectedTrait(selectedTrait === id ? null : id); }} onKeyDown={event => { if (event.target === event.currentTarget && (event.key === "Enter" || event.key === " ")) { event.preventDefault(); selectedAnimal ? assign(id, selectedAnimal) : setSelectedTrait(selectedTrait === id ? null : id); } }}><span className="cornerNotch" aria-hidden="true" /><div className="category"><span className="desktopCategoryIcon">{animalTraitIcon(trait)}</span><div className="categoryCopy"><strong><AnimalCategoryLabel trait={trait} /></strong><small>{trait.playerHint ?? trait.definition}</small></div></div><div className={`choice ${animal ? "filled" : ""}`} data-animal-drag={animal ? "true" : undefined} {...(animal ? animalPointerHandlers(animal.id) : {})}>{animal ? <><span className="pieceFlag"><AnimalPortrait animal={animal} photo={photoMap.get(animal.id)} presentation="real" /></span><strong className="pieceName">{animal.commonName}</strong><button type="button" className="removePiece" aria-label={`Remove ${animal.commonName} from ${trait.displayName}`} onPointerDown={event => event.stopPropagation()} onClick={event => { event.stopPropagation(); sound.play("remove"); setAssignments(previous => { const next = { ...previous }; delete next[id]; return next; }); setSelectedAnimal(null); setSelectedTrait(null); }}>×</button></> : <em>{selectedAnimal ? "Place here" : selectedTrait === id ? "Choose an animal" : "Assign animal"}</em>}</div></div>; })}</div></section>
+        </div>}
+
         {draggingTrait && <div className="animalDragGhost animalTraitGhost" style={{ left: draggingTrait.x, top: draggingTrait.y }}>{traitMap.get(draggingTrait.id)?.displayName}</div>}
-        {dragging && <div className="animalDragGhost sanctuaryDragGhost" style={{ left: dragging.x, top: dragging.y }}><AnimalSprite animal={animalMap.get(dragging.id)!}/><span>{animalMap.get(dragging.id)?.commonName}</span></div>}
+        {dragging && <div className="animalDragGhost sanctuaryDragGhost" style={{ left: dragging.x, top: dragging.y }}><AnimalPortrait animal={animalMap.get(dragging.id)!} photo={photoMap.get(dragging.id)} presentation={presentation} /><span>{animalMap.get(dragging.id)?.commonName}</span></div>}
         <div className="animalSubmit"><button type="button" onClick={() => {
           if (Object.keys(assignments).length < board.traitIds.length) {
             setMessage(`Choose an animal for all ${board.traitIds.length} traits first.`); return;
@@ -381,7 +397,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
       </>}
       {submitted && <>
         {accountMessage && <p role="status" className="animalSaveStatus">{accountMessage}</p>}
-        <AnimalResults data={data} board={board} results={results} mode={mode} total={total} optimalChoices={optimalChoices} onNext={nextBoard} onHelp={() => showHelp()} onScoring={() => showHelp("scoring")} />
+        <AnimalResults data={data} board={board} results={results} mode={mode} total={total} optimalChoices={optimalChoices} presentation={presentation} onModeChange={difficulty => { setFocusTrait(null); switchBoard(difficulty); }} onNext={nextBoard} onHelp={() => showHelp()} onScoring={() => showHelp("scoring")} />
         <div className="animalActions">
           <button type="button" className="animalNext" onClick={async () => {
             const message = `Countries, Animals & Things\nAnimalStats ${config.label} · ${playKind} · ${date}\n${total}/${config.maxScore} · ${optimalChoices} Optimal Choices\n${results.map((row) => row.rank === 1 ? "🎯" : row.points >= 50 ? "🟩" : "🟨").join("")}\n${challengeUrl(board.id!)}`;
@@ -390,6 +406,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
       </>}
       </>}
     </div>
+    {photoCreditsOpen && <AnimalPhotoCredits photos={data.photos} animals={data.animals} onClose={() => setPhotoCreditsOpen(false)} />}
     {helpOpen && <div className="modal rulesModal" onClick={event => event.target === event.currentTarget && setHelpOpen(false)}><section ref={helpRef} className="rulesModalCard" role="dialog" aria-modal="true" aria-labelledby="rulesTitle" onKeyDown={event => { if (event.key === "Escape") setHelpOpen(false); }}><h2 id="rulesTitle">{helpTopic === "scoring" ? "Scoring" : "How to play"}</h2>{helpTopic === "play" ? <ol><li><strong>Choose an animal and a prize.</strong> Click either one first, or drag in either direction.</li><li><strong>Use each animal once.</strong> Move to swap prizes, or select × to remove a choice.</li><li><strong>Submit your answers.</strong> See your placements and explore the rankings.</li></ol> : <><p>First place among the animals on your board earns 100 points.</p><p>{config.label}: {config.pointsByRank.map((points, index) => `${index + 1}${index === 0 ? "st" : index === 1 ? "nd" : index === 2 ? "rd" : "th"} = ${points}`).join(" · ")} points.</p><p>Your score adds up all {config.categoryCount} matches, for a maximum of {config.maxScore}.</p></>}<button type="button" onClick={() => setHelpOpen(false)}>Back to game</button></section></div>}
 
   </main>;

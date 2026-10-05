@@ -35,6 +35,7 @@ if (OUT/'source/pantheria-2009.zip').exists():
    d['values'].append(dict(animalId=animal['id'],traitId='mammal_range_area',valueNumeric=number,unit='km²',sex='species-level',lifeStage='species-level',measurementBasis=range_basis,sourceId='pantheria-range-maps',observationType='compiled',confidence='approved',uncertaintyStatus='not-reported',notes='Exact species match; published GIS map area. No modeled body-length, mass, or home-range values imported.'))
 # Every admitted category gets its reverse from identical records, never from a second source.
 METRICS={
+'maximum_hibernation_bout':('Longest hibernation stretch','Shortest hibernation stretch','intuitive','hibernation-bout'),
 'scientific_description_age':('Oldest scientific description','Newest scientific description','specialist','scientific-history'),
 'iucn_extinction_risk':('Most threatened','Least threatened','intuitive','conservation'),
 'measured_eye_length':('Largest eyes','Smallest eyes','intuitive','eyes'),

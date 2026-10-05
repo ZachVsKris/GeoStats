@@ -47,6 +47,7 @@ try {
   assert(bird.neck>50,`${id} lost its long neck`);
   assert(bird.feet>40,`${id} lost its long legs`);
  }
+ await page.locator('svg[data-animal-id="cavia_porcellus"]').screenshot({path:join(root,'artifacts/animalstats-guinea-pig.png')});
  console.log(`All ${animals.length} cartoons fit their frames; unique coat masks and long-necked bird anatomy passed.`);
 } finally {
  await browser?.close();

@@ -14,7 +14,7 @@ OUT = ROOT / "data" / "animalstats"
 DATA = json.loads((OUT / "pilot.json").read_text())
 HEADERS = {"User-Agent": "AnimalStatsPrototype/0.1"}
 API = "https://commons.wikimedia.org/w/api.php?"
-ALLOWED = {"CC BY 4.0", "CC BY 3.0", "CC BY 2.0", "CC0", "Public domain"}
+ALLOWED = {"CC BY 4.0", "CC BY 3.0", "CC BY 2.0", "CC BY-SA 4.0", "CC BY-SA 3.0", "CC BY-SA 2.0", "CC0", "Public domain"}
 
 def clean(markup):
     return re.sub(r"<[^>]+>", "", html.unescape(markup)).strip()
@@ -22,7 +22,7 @@ def clean(markup):
 def find_photo(animal):
     query = urllib.parse.urlencode(dict(action="query", generator="search",
         gsrsearch=f'filetype:bitmap "{animal["scientificName"]}"', gsrnamespace=6,
-        gsrlimit=15, prop="imageinfo", iiprop="url|extmetadata", iiurlwidth=480, format="json"))
+        gsrlimit=30, prop="imageinfo", iiprop="url|extmetadata", iiurlwidth=480, format="json"))
     request = urllib.request.Request(API + query, headers=HEADERS)
     for attempt in range(4):
         try:
@@ -34,7 +34,9 @@ def find_photo(animal):
             time.sleep(5 * (attempt + 1))
     for page in sorted(pages, key=lambda p: p.get("index", 99)):
         title = page["title"]
-        if any(term in title.lower() for term in ("skull", "skeleton", "drawing", "museum", "map", "cub", "juvenile", "egg", "footprint")):
+        if animal["id"] in {"sus_scrofa", "rattus_norvegicus"} and animal["scientificName"].lower().replace(" ", "_") not in title.lower().replace(" ", "_"):
+            continue
+        if any(term in title.lower() for term in ("skull", "skeleton", "drawing", "museum", "map", "cub", "juvenile", "egg", "footprint", "suffrage", "program", "mascot", "mammalia", "sow", "piglet", "corpse", "sculpture", "statue", "engraving", "illustration", "painting")):
             continue
         info = page.get("imageinfo", [{}])[0]
         meta = info.get("extmetadata", {})

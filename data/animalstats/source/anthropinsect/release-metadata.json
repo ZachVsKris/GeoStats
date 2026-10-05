@@ -1,0 +1,30 @@
+{
+  "versionNumber": 1,
+  "versionMinorNumber": 0,
+  "releaseTime": "2026-06-02T12:45:44Z",
+  "license": {
+    "name": "CC BY 4.0",
+    "uri": "http://creativecommons.org/licenses/by/4.0",
+    "iconUri": "https://licensebuttons.net/l/by/4.0/88x31.png"
+  },
+  "dataFile": {
+    "id": 37049,
+    "persistentId": "",
+    "filename": "AnthropInsect_2.0.xlsx",
+    "contentType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "friendlyType": "MS Excel Spreadsheet",
+    "filesize": 1539001,
+    "description": "AnthropInsect is a global database that compiles and harmonizes existing information on insect traits, as well as data on the interactions between insects and humans. The database encompasses 5,862 species across six major insect orders : Coleoptera, Lepidoptera, Hemiptera, Hymenoptera and Blattodea. Each species is described through 35 variables grouped into five categories: (i) taxonomic descriptors; (ii) ecological descriptors (native bioregions and habitat); (iii) human-activity relationships (edibility and invasive status); (iv) functional traits (behavior, morphology, life history and feeding); (v) and macroecological descriptors of native-range geography and climate.\n",
+    "storageIdentifier": "file://19e73d2e8fb-1414fb6577b8",
+    "rootDataFileId": 37049,
+    "md5": "435a4f324ee5ff2f018dd375bff8c3fd",
+    "checksum": {
+      "type": "MD5",
+      "value": "435a4f324ee5ff2f018dd375bff8c3fd"
+    },
+    "tabularData": false,
+    "creationDate": "2026-05-29",
+    "publicationDate": "2026-06-02",
+    "fileAccessRequest": true
+  }
+}

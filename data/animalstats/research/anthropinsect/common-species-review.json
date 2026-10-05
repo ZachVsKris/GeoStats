@@ -1,0 +1,527 @@
+[
+  {
+    "sourceRow": 558,
+    "species": "Coccinella septempunctata",
+    "fields": [
+      "Body_size_adult_min",
+      "Body_size_adult_max",
+      "Body_size_adult_mean",
+      "Lifespan_min",
+      "Lifespan_max",
+      "Lifespan_mean",
+      "Fecundity_min",
+      "Fecundity_max",
+      "Fecundity_estimate",
+      "Fecundity_mean",
+      "Voltinism_min",
+      "Voltinism_max",
+      "Voltinism_mean"
+    ],
+    "referenceLeads": [
+      {
+        "row": 187,
+        "id": 180,
+        "species": "Coccinella septempunctata",
+        "traits": "FEC/VOL/LS",
+        "citation": "Ashraf et al. 2010. A Study on Laboratory Rearing of Lady Bird Beetle (Coccinella Septempunctata) to Observe Its Fecundity and Longevity on Natural and Artificial Diets",
+        "sisterSpecies": "No",
+        "details": null
+      },
+      {
+        "row": 961,
+        "id": 611,
+        "species": "Coccinella septempunctata",
+        "traits": "All",
+        "citation": "https://animaldiversity.org/accounts/Coccinella_septempunctata/",
+        "sisterSpecies": "No",
+        "details": null
+      }
+    ],
+    "status": "not-approved"
+  },
+  {
+    "sourceRow": 1252,
+    "species": "Tenebrio molitor",
+    "fields": [
+      "Body_size_adult_min",
+      "Body_size_adult_max",
+      "Body_size_adult_estimate",
+      "Body_size_adult_mean",
+      "Lifespan_min",
+      "Lifespan_max",
+      "Lifespan_mean",
+      "Fecundity_min",
+      "Fecundity_max",
+      "Fecundity_mean"
+    ],
+    "referenceLeads": [
+      {
+        "row": 192,
+        "id": 185,
+        "species": "Tenebrio molitor",
+        "traits": "FEC/BSA/LS",
+        "citation": "Ribeiro et al., 2018_a review of the scientific literature for optimal conditions for mass rearing Tenebrio molitor",
+        "sisterSpecies": "No",
+        "details": null
+      }
+    ],
+    "status": "not-approved"
+  },
+  {
+    "sourceRow": 3526,
+    "species": "Apis mellifera",
+    "fields": [
+      "Body_size_adult_min",
+      "Body_size_adult_max",
+      "Body_size_adult_estimate",
+      "Body_size_adult_mean",
+      "Lifespan_min",
+      "Lifespan_max",
+      "Lifespan_estimate",
+      "Lifespan_mean",
+      "Fecundity_min",
+      "Fecundity_max",
+      "Fecundity_estimate",
+      "Fecundity_mean",
+      "Voltinism_min",
+      "Voltinism_max",
+      "Voltinism_estimate",
+      "Voltinism_mean"
+    ],
+    "referenceLeads": [
+      {
+        "row": 34,
+        "id": 32,
+        "species": "Apis cerana/Apis dorsata/Apis florea/Apis mellifera",
+        "traits": "Nat",
+        "citation": "Crane, E. (2009). Apis species:(Honey bees). In Encyclopedia of insects (pp. 31-32). Academic Press.",
+        "sisterSpecies": "No",
+        "details": null
+      },
+      {
+        "row": 391,
+        "id": 273,
+        "species": "Apis mellifera",
+        "traits": "BSA",
+        "citation": "Ropars et al. 2022_Seasonal dynamics of competition between honey bees and wild bees in a protected Mediterranean scrubland",
+        "sisterSpecies": "No",
+        "details": null
+      }
+    ],
+    "status": "not-approved"
+  },
+  {
+    "sourceRow": 3546,
+    "species": "Bombus terrestris",
+    "fields": [
+      "Lifespan_estimate",
+      "Lifespan_mean",
+      "Fecundity_min",
+      "Fecundity_max",
+      "Fecundity_mean",
+      "Voltinism_max"
+    ],
+    "referenceLeads": [
+      {
+        "row": 40,
+        "id": 38,
+        "species": "Bombus terrestris",
+        "traits": "Volt/Fec",
+        "citation": "ZAMOSCIK, V. Chemical recognition signals on the surface of eggs of the bumblebee Bombus terrestris (Hymenoptera: Apidae).",
+        "sisterSpecies": "No",
+        "details": null
+      },
+      {
+        "row": 45,
+        "id": 42,
+        "species": "Bombus atratus\nBombus ephippiatus\nBombus impatiens\nBombus lucorum\nBombus medius\nBombus terrestris\nBombus vosnesenskii",
+        "traits": "BS/Fec",
+        "citation": "Cueva del Castillo et al., (2015). Trade‐offs in the evolution of bumblebee colony and body size: a comparative analysis. Ecology and Evolution, 5(18), 3914-3926.",
+        "sisterSpecies": "No",
+        "details": null
+      },
+      {
+        "row": 54,
+        "id": 51,
+        "species": "Bombus terrestris",
+        "traits": "Nat",
+        "citation": "Improving International Trade Regulation by Considering Intraspecific Variation for Invasion Risk Assessment of Commercially Traded Species:",
+        "sisterSpecies": "No",
+        "details": null
+      },
+      {
+        "row": 644,
+        "id": 402,
+        "species": "Bombus terrestris",
+        "traits": "Fec/LS",
+        "citation": "https://www.cabidigitallibrary.org/doi/10.1079/cabicompendium.91578",
+        "sisterSpecies": "No",
+        "details": null
+      }
+    ],
+    "status": "not-approved"
+  },
+  {
+    "sourceRow": 4857,
+    "species": "Bombyx mori",
+    "fields": [
+      "Body_size_adult_min",
+      "Body_size_adult_max",
+      "Body_size_adult_estimate",
+      "Lifespan_min",
+      "Lifespan_max",
+      "Fecundity_min",
+      "Fecundity_max",
+      "Fecundity_estimate",
+      "Voltinism_min",
+      "Voltinism_max",
+      "Voltinism_estimate"
+    ],
+    "referenceLeads": [
+      {
+        "row": 338,
+        "id": 220,
+        "species": "Bombyx mori",
+        "traits": "All",
+        "citation": "Andarari et al., 2022_Lens on Tropical Sericulture Development in Indonesia: Recent Status and Future Directions for Industry and Social Forestry",
+        "sisterSpecies": "No",
+        "details": null
+      }
+    ],
+    "status": "not-approved"
+  },
+  {
+    "sourceRow": 5294,
+    "species": "Danaus plexippus",
+    "fields": [
+      "Body_size_adult_min",
+      "Body_size_adult_max",
+      "Body_size_adult_estimate",
+      "Lifespan_min",
+      "Lifespan_max",
+      "Lifespan_estimate",
+      "Fecundity_min",
+      "Fecundity_max",
+      "Fecundity_estimate",
+      "Voltinism_min",
+      "Voltinism_max",
+      "Voltinism_estimate"
+    ],
+    "referenceLeads": [
+      {
+        "row": 380,
+        "id": 262,
+        "species": "Danaus plexippus",
+        "traits": "All",
+        "citation": "Neves et al., 2001_THE OCCURENCE OF THE MONARCH BUTTERFLY, Danaus plexippus L. IN THE AZORES, WITH A BRIEF REVIEW OF ITS BIOLOGY",
+        "sisterSpecies": "No",
+        "details": null
+      }
+    ],
+    "status": "not-approved"
+  },
+  {
+    "sourceRow": 5711,
+    "species": "Locusta migratoria",
+    "fields": [
+      "Body_size_adult_min",
+      "Body_size_adult_max",
+      "Body_size_adult_estimate",
+      "Body_size_adult_mean",
+      "Lifespan_max",
+      "Lifespan_estimate",
+      "Lifespan_mean",
+      "Fecundity_min",
+      "Fecundity_max",
+      "Fecundity_estimate",
+      "Fecundity_mean",
+      "Voltinism_min",
+      "Voltinism_max",
+      "Voltinism_estimate",
+      "Voltinism_mean"
+    ],
+    "referenceLeads": [
+      {
+        "row": 97,
+        "id": 94,
+        "species": "Locusta migratoria",
+        "traits": "Nat",
+        "citation": "Hosni EM, Al-Khalaf AA, Nasser MG, ElShahed SM, Alashaal SA (2024) Locusta migratoria (L.) (Orthoptera) in a warming world: unravelling the ecological consequences of climate change using GIS. Biodiversity Data Journal 12: e115845. https://doi.org/10.3897/BDJ.12.e115845",
+        "sisterSpecies": "No",
+        "details": "We considered native range as afrotropical and paleartic as it says that it expanded to Indomalay regions and its a pest in Australia"
+      },
+      {
+        "row": 538,
+        "id": 305,
+        "species": "Locusta migratoria",
+        "traits": "BS/Vol/DA/FBA",
+        "citation": "Laib, D. E., Benzehra, A., Laib, I., Aouzal, B., & Akkal, S. (2023). Review on Locusta migratoria (Linnaeus, 1758) (Orthoptera: Acrididae). Journal of Bioresource Management, 10(4), 164–174",
+        "sisterSpecies": "No",
+        "details": null
+      },
+      {
+        "row": 539,
+        "id": 306,
+        "species": "Locusta migratoria",
+        "traits": "ELS/Fec",
+        "citation": "https://theinsectguide.net/migratory-locust/",
+        "sisterSpecies": "No",
+        "details": null
+      },
+      {
+        "row": 540,
+        "id": 307,
+        "species": "Locusta migratoria",
+        "traits": "BS",
+        "citation": "https://locust.cirad.fr/principales_especes/lmi_fr.html",
+        "sisterSpecies": "No",
+        "details": null
+      },
+      {
+        "row": 807,
+        "id": 503,
+        "species": "Locusta migratoria",
+        "traits": "LS/Vol/Fec/Els/PC/BS",
+        "citation": "FAO (n.d.). Asian Migratory Locust (LMI). https://www.fao.org/locusts-cca/bioecology/asian-migratory-locust-lmi/en/",
+        "sisterSpecies": "No",
+        "details": null
+      }
+    ],
+    "status": "not-approved"
+  },
+  {
+    "sourceRow": 5754,
+    "species": "Schistocerca gregaria",
+    "fields": [
+      "Body_size_adult_min",
+      "Body_size_adult_max",
+      "Body_size_adult_estimate",
+      "Body_size_adult_mean",
+      "Lifespan_min",
+      "Lifespan_max",
+      "Lifespan_estimate",
+      "Lifespan_mean",
+      "Fecundity_min",
+      "Fecundity_max",
+      "Fecundity_estimate",
+      "Fecundity_mean",
+      "Voltinism_min",
+      "Voltinism_max",
+      "Voltinism_estimate",
+      "Voltinism_mean"
+    ],
+    "referenceLeads": [
+      {
+        "row": 589,
+        "id": 350,
+        "species": "Schistocerca gregaria",
+        "traits": "FBA/FBL/DA/DL/LS/FEC/Soc",
+        "citation": "Katel et al., 2021_Desert locust (Schistocerca gregaria Forskal) and its management: A review",
+        "sisterSpecies": "No",
+        "details": null
+      },
+      {
+        "row": 590,
+        "id": 351,
+        "species": "Schistocerca gregaria",
+        "traits": "BS/LSmax",
+        "citation": "https://www.dimensions.com/element/desert-locust-schistocerca-gregaria",
+        "sisterSpecies": "No",
+        "details": null
+      },
+      {
+        "row": 591,
+        "id": 352,
+        "species": "Schistocerca gregaria",
+        "traits": "Vol",
+        "citation": "Rogers et al., 2003_Mechanosensory-induced behavioural gregarization in the desert locust Schistocerca gregaria",
+        "sisterSpecies": "No",
+        "details": "https://journals.biologists.com/jeb/article/206/22/3991/14101/Mechanosensory-induced-behavioural-gregarization"
+      },
+      {
+        "row": 856,
+        "id": 523,
+        "species": "Schistocerca gregaria",
+        "traits": "LS/Vol/Fec/Els/PC/BS",
+        "citation": "Maeno. K.. Piou. C.. Ould Ely. S.. Ould Mohamed. S.. Jaavar. M.E.H.. Ould Babah. M.A.. & Nakamura. S. (2020). The desert locust. Schistocerca gregaria. plastically manipulates egg size by regulating both egg numbers and production rate according to population density. Journal of Insect Physiology. 122. 104020. https://www.sciencedirect.com/science/article/pii/S0022191020300105",
+        "sisterSpecies": "No",
+        "details": null
+      }
+    ],
+    "status": "not-approved"
+  },
+  {
+    "sourceRow": 5831,
+    "species": "Acheta domesticus",
+    "fields": [
+      "Body_size_adult_min",
+      "Body_size_adult_max",
+      "Body_size_adult_estimate",
+      "Body_size_adult_mean",
+      "Lifespan_min",
+      "Lifespan_max",
+      "Lifespan_mean",
+      "Fecundity_min",
+      "Fecundity_max",
+      "Fecundity_estimate",
+      "Fecundity_mean",
+      "Voltinism_min",
+      "Voltinism_max",
+      "Voltinism_estimate",
+      "Voltinism_mean"
+    ],
+    "referenceLeads": [
+      {
+        "row": 17,
+        "id": 15,
+        "species": "Acheta domesticus",
+        "traits": "Nat/HaL/HaA/TEA/LS/Vol/PC",
+        "citation": "McCluney, K. E., & Date, R. C. (2008). The effects of hydration on growth of the house cricket, Acheta domesticus. Journal of Insect Science, 8(1), 32.",
+        "sisterSpecies": "No",
+        "details": null
+      },
+      {
+        "row": 19,
+        "id": 17,
+        "species": "Acheta domesticus",
+        "traits": "Soc/Agg",
+        "citation": "Reed College - Lecture on Animal behavior",
+        "sisterSpecies": "No",
+        "details": null
+      },
+      {
+        "row": 106,
+        "id": 103,
+        "species": "Acheta domesticus",
+        "traits": "Nat",
+        "citation": "Ghouri A.S.K. 1961. Home and distribution of the House cricket Acheta domesticus L. Nature 192:1000",
+        "sisterSpecies": "No",
+        "details": null
+      },
+      {
+        "row": 107,
+        "id": 104,
+        "species": "Acheta domesticus",
+        "traits": "Ali/TEL/TEA/Fly/TM",
+        "citation": "Benton T. 2012. Grasshoppers & crickets. HarperCollins Publishers, UK",
+        "sisterSpecies": "No",
+        "details": null
+      },
+      {
+        "row": 108,
+        "id": 105,
+        "species": "Acheta domesticus",
+        "traits": "INa/Soc/Agg/Hal HaA/DM/Par/LS/Vol/Fec/PC",
+        "citation": "Åsa Berggren, pers obs",
+        "sisterSpecies": "No",
+        "details": "Since we rear the species we have lots of ecological/biological info on the species"
+      },
+      {
+        "row": 555,
+        "id": 322,
+        "species": "Gryllodes sigillatus/Gryllodes assimilis/Acheta domesticus",
+        "traits": "LS/Vol/Fec/Nat",
+        "citation": "E. Rowe, K.Y. Robles López, K.M. Robinson, K.M. Baudier, and M. Barrett. Farmed cricket (Acheta domesticus, Gryllus assimilis, and Gryllodes sigillatus; Orthoptera) welfare considerations: recommendations for improving global practice",
+        "sisterSpecies": "No",
+        "details": null
+      },
+      {
+        "row": 725,
+        "id": 451,
+        "species": "Acheta domesticus",
+        "traits": "LS/Vol/Fec/Els/PC/BS",
+        "citation": "Lifespan: A review of Gryllidae (Grylloidea) with the description of one new species from China; Body size: Edible crickets. but which species?",
+        "sisterSpecies": "No",
+        "details": null
+      }
+    ],
+    "status": "not-approved"
+  },
+  {
+    "sourceRow": 5835,
+    "species": "Gryllus bimaculatus",
+    "fields": [
+      "Body_size_adult_min",
+      "Body_size_adult_max",
+      "Body_size_adult_estimate",
+      "Body_size_adult_mean",
+      "Lifespan_min",
+      "Lifespan_max",
+      "Lifespan_estimate",
+      "Lifespan_mean",
+      "Fecundity_max",
+      "Fecundity_estimate",
+      "Fecundity_mean",
+      "Voltinism_min",
+      "Voltinism_max",
+      "Voltinism_estimate",
+      "Voltinism_mean"
+    ],
+    "referenceLeads": [
+      {
+        "row": 18,
+        "id": 16,
+        "species": "Gryllus bimaculatus",
+        "traits": "Agg",
+        "citation": "Hofmann, H. A., & Stevenson, P. A. (2000). Flight restores fight in crickets: Aggressiveness recovers much faster in male crickets forced to fly after a defeat. Nature (London), 403(6770).",
+        "sisterSpecies": "No",
+        "details": null
+      },
+      {
+        "row": 96,
+        "id": 93,
+        "species": "Gryllus bimaculatus",
+        "traits": "Ali",
+        "citation": "https://www.gbif.org/species/1713034",
+        "sisterSpecies": "No",
+        "details": null
+      },
+      {
+        "row": 122,
+        "id": 117,
+        "species": "Gryllus bimaculatus",
+        "traits": "Nat/Ali",
+        "citation": "GBIF gbif.org: https://www.gbif.org/es/species/1713034",
+        "sisterSpecies": "No",
+        "details": null
+      },
+      {
+        "row": 123,
+        "id": 107,
+        "species": "Gryllus bimaculatus",
+        "traits": "Soc/Met/HaL/HaA/Par",
+        "citation": "Benton T. 2012. Grasshoppers & crickets. HarperCollins Publishers, UK",
+        "sisterSpecies": "No",
+        "details": null
+      },
+      {
+        "row": 552,
+        "id": 319,
+        "species": "Gryllus bimaculatus ",
+        "traits": "HaL/HaA/",
+        "citation": "German insect site, Gryllus bimaculatus ",
+        "sisterSpecies": "No",
+        "details": "http://www.pyrgus.de/Gryllus_bimaculatus_en.html"
+      },
+      {
+        "row": 553,
+        "id": 320,
+        "species": "Gryllus bimaculatus",
+        "traits": "LS",
+        "citation": "Martin K Ventura, Valerie J Stull, Susan M Paskewitz. Maintaining Laboratory Cultures of Gryllus bimaculatus, a Versatile Orthopteran Model for Insect Agriculture and Invertebrate Physiology, DOI: 10.3791/63277 : https://app.jove.com/t/63277/maintaining-laboratory-cultures-gryllus-bimaculatus-versatile?trialstart=1",
+        "sisterSpecies": "No",
+        "details": "Data from reared population"
+      },
+      {
+        "row": 791,
+        "id": 468,
+        "species": "Gryllus bimaculatus/Gymnogryllus leucostictus",
+        "traits": "LS/Vol/Fec/Els/PC/BS",
+        "citation": "Estimated based on genus Gryllus. Orthoptera Species File",
+        "sisterSpecies": "Yes",
+        "details": null
+      }
+    ],
+    "status": "not-approved"
+  }
+]

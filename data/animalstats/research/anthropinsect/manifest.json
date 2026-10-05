@@ -1,0 +1,77 @@
+{
+  "dataset": "AnthropInsect 2.0",
+  "doi": "10.48579/PRO/LYB70N",
+  "sourceUrl": "https://data.indores.fr/api/access/datafile/37049",
+  "releaseTime": "2026-06-02T12:45:44Z",
+  "license": "CC BY 4.0",
+  "sha256": "6854354950859488b741d42bb095731bf947b639fce1a3163d6929ce44391b12",
+  "md5": "435a4f324ee5ff2f018dd375bff8c3fd",
+  "speciesRows": 5867,
+  "uniqueSpecies": 5864,
+  "referenceRows": 972,
+  "observations": 15402,
+  "counts": {
+    "needs-primary-review": 8248,
+    "Body_size_adult:min": 1424,
+    "Body_size_adult:max": 1427,
+    "excluded-estimate": 3840,
+    "Body_size_adult:estimate": 1182,
+    "excluded-derived-mean": 3314,
+    "Body_size_adult:mean": 1183,
+    "Lifespan:min": 845,
+    "Lifespan:max": 845,
+    "Lifespan:mean": 657,
+    "Fecundity:max": 890,
+    "Fecundity:estimate": 871,
+    "Fecundity:mean": 702,
+    "Voltinism:min": 961,
+    "Voltinism:estimate": 967,
+    "Voltinism:mean": 772,
+    "Fecundity:min": 882,
+    "Voltinism:max": 974,
+    "Lifespan:estimate": 820
+  },
+  "approvedObservations": 0,
+  "gameplayLabelsAdded": 0,
+  "labelPairsToReview": [
+    {
+      "family": "Body_size_adult",
+      "labels": [
+        "Longest adult body",
+        "Shortest adult body"
+      ]
+    },
+    {
+      "family": "Lifespan",
+      "labels": [
+        "Longest life",
+        "Shortest life"
+      ]
+    },
+    {
+      "family": "Fecundity",
+      "labels": [
+        "Most eggs in a lifetime",
+        "Fewest eggs in a lifetime"
+      ]
+    },
+    {
+      "family": "Voltinism",
+      "labels": [
+        "Most generations per year",
+        "Fewest generations per year"
+      ]
+    }
+  ],
+  "admissionRules": [
+    "Never approve typical estimates, calculated means, genus/family substitutions or sister-species values.",
+    "Verify reported min/max against the exact primary species study before admission.",
+    "Queen, worker and other caste measurements cannot be silently mixed.",
+    "Eggs per day or clutch cannot be presented as eggs over a lifetime.",
+    "Body length must not use caterpillar length, wingspan, antennae or appendages.",
+    "Generations per year must state geography and conditions; not a universal species constant.",
+    "Latitude/longitude/climate extents of occurrence records are not complete biological range maps."
+  ],
+  "anomalyCount": 68,
+  "commonSpeciesFound": 10
+}

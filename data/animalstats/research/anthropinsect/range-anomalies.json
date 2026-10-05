@@ -1,0 +1,599 @@
+[
+  {
+    "sourceRow": 182,
+    "species": "Attagenus simplex",
+    "family": "Body_size_adult",
+    "issue": "estimate-outside-reported-range",
+    "min": 6,
+    "max": 7,
+    "estimate": 5
+  },
+  {
+    "sourceRow": 1252,
+    "species": "Tenebrio molitor",
+    "family": "Body_size_adult",
+    "issue": "estimate-outside-reported-range",
+    "min": 22.5,
+    "max": 25,
+    "estimate": 16
+  },
+  {
+    "sourceRow": 1384,
+    "species": "Anomala lasiocnemis",
+    "family": "Body_size_adult",
+    "issue": "reversed-range",
+    "min": 29.7,
+    "max": 21.9
+  },
+  {
+    "sourceRow": 1384,
+    "species": "Anomala lasiocnemis",
+    "family": "Body_size_adult",
+    "issue": "estimate-outside-reported-range",
+    "min": 29.7,
+    "max": 21.9,
+    "estimate": 30.7
+  },
+  {
+    "sourceRow": 1396,
+    "species": "Anoplognathus viridiaeneus",
+    "family": "Body_size_adult",
+    "issue": "estimate-outside-reported-range",
+    "min": 16,
+    "max": 17,
+    "estimate": 35
+  },
+  {
+    "sourceRow": 1600,
+    "species": "Trypoxylus dichotomus",
+    "family": "Lifespan",
+    "issue": "estimate-outside-reported-range",
+    "min": 300,
+    "max": 365,
+    "estimate": 450
+  },
+  {
+    "sourceRow": 2779,
+    "species": "Eriosoma grossulariae",
+    "family": "Body_size_adult",
+    "issue": "estimate-outside-reported-range",
+    "min": 25,
+    "max": 35,
+    "estimate": 20
+  },
+  {
+    "sourceRow": 2794,
+    "species": "Geoica setulosa",
+    "family": "Body_size_adult",
+    "issue": "estimate-outside-reported-range",
+    "min": 25,
+    "max": 35,
+    "estimate": 20
+  },
+  {
+    "sourceRow": 3477,
+    "species": "Cacopsylla pyricola",
+    "family": "Fecundity",
+    "issue": "estimate-outside-reported-range",
+    "min": 486,
+    "max": 665,
+    "estimate": 387
+  },
+  {
+    "sourceRow": 3492,
+    "species": "Diaphorina citri",
+    "family": "Fecundity",
+    "issue": "estimate-outside-reported-range",
+    "min": 210,
+    "max": 807,
+    "estimate": 858
+  },
+  {
+    "sourceRow": 3527,
+    "species": "Apotrigona nebulata",
+    "family": "Fecundity",
+    "issue": "estimate-outside-reported-range",
+    "min": 1600,
+    "max": 1800,
+    "estimate": 20000
+  },
+  {
+    "sourceRow": 3528,
+    "species": "Axestotrigona erythra",
+    "family": "Fecundity",
+    "issue": "estimate-outside-reported-range",
+    "min": 2000,
+    "max": 2000,
+    "estimate": 20000
+  },
+  {
+    "sourceRow": 3529,
+    "species": "Axestotrigona ferruginea",
+    "family": "Fecundity",
+    "issue": "estimate-outside-reported-range",
+    "min": 2000,
+    "max": 2000,
+    "estimate": 20000
+  },
+  {
+    "sourceRow": 3530,
+    "species": "Axestotrigona richardsi",
+    "family": "Fecundity",
+    "issue": "estimate-outside-reported-range",
+    "min": 2000,
+    "max": 2000,
+    "estimate": 20000
+  },
+  {
+    "sourceRow": 4291,
+    "species": "Rhynchium brunneum",
+    "family": "Body_size_adult",
+    "issue": "estimate-outside-reported-range",
+    "min": 18,
+    "max": 25,
+    "estimate": 12.5
+  },
+  {
+    "sourceRow": 4327,
+    "species": "Camponotus consobrinus",
+    "family": "Lifespan",
+    "issue": "estimate-outside-reported-range",
+    "min": 1825,
+    "max": 3650,
+    "estimate": 700
+  },
+  {
+    "sourceRow": 4465,
+    "species": "Orectognathus antennatus",
+    "family": "Body_size_adult",
+    "issue": "estimate-outside-reported-range",
+    "min": 22,
+    "max": 24,
+    "estimate": 21
+  },
+  {
+    "sourceRow": 4659,
+    "species": "Polistes olivaceus",
+    "family": "Body_size_adult",
+    "issue": "estimate-outside-reported-range",
+    "min": 18,
+    "max": 24,
+    "estimate": 16
+  },
+  {
+    "sourceRow": 4751,
+    "species": "Monsoma pulveratum",
+    "family": "Body_size_adult",
+    "issue": "reversed-range",
+    "min": 60,
+    "max": 10
+  },
+  {
+    "sourceRow": 4751,
+    "species": "Monsoma pulveratum",
+    "family": "Body_size_adult",
+    "issue": "estimate-outside-reported-range",
+    "min": 60,
+    "max": 10,
+    "estimate": 8
+  },
+  {
+    "sourceRow": 4781,
+    "species": "Hodotermes mossambicus",
+    "family": "Fecundity",
+    "issue": "estimate-outside-reported-range",
+    "min": 3285,
+    "max": 25550,
+    "estimate": 862583
+  },
+  {
+    "sourceRow": 4865,
+    "species": "Paysandisia archon",
+    "family": "Fecundity",
+    "issue": "estimate-outside-reported-range",
+    "min": 120,
+    "max": 200,
+    "estimate": 50
+  },
+  {
+    "sourceRow": 4889,
+    "species": "Catoxophylla cyanaugus",
+    "family": "Voltinism",
+    "issue": "reversed-range",
+    "min": 1,
+    "max": 0.5
+  },
+  {
+    "sourceRow": 4889,
+    "species": "Catoxophylla cyanaugus",
+    "family": "Voltinism",
+    "issue": "estimate-outside-reported-range",
+    "min": 1,
+    "max": 0.5,
+    "estimate": 1
+  },
+  {
+    "sourceRow": 4892,
+    "species": "Endoxyla amphiplecta",
+    "family": "Voltinism",
+    "issue": "reversed-range",
+    "min": 0.33,
+    "max": 0.25
+  },
+  {
+    "sourceRow": 4892,
+    "species": "Endoxyla amphiplecta",
+    "family": "Voltinism",
+    "issue": "estimate-outside-reported-range",
+    "min": 0.33,
+    "max": 0.25,
+    "estimate": 0.33
+  },
+  {
+    "sourceRow": 4893,
+    "species": "Endoxyla biarpiti",
+    "family": "Voltinism",
+    "issue": "reversed-range",
+    "min": 0.33,
+    "max": 0.25
+  },
+  {
+    "sourceRow": 4893,
+    "species": "Endoxyla biarpiti",
+    "family": "Voltinism",
+    "issue": "estimate-outside-reported-range",
+    "min": 0.33,
+    "max": 0.25,
+    "estimate": 0.33
+  },
+  {
+    "sourceRow": 4895,
+    "species": "Endoxyla encalypti",
+    "family": "Voltinism",
+    "issue": "reversed-range",
+    "min": 0.33,
+    "max": 0.25
+  },
+  {
+    "sourceRow": 4895,
+    "species": "Endoxyla encalypti",
+    "family": "Voltinism",
+    "issue": "estimate-outside-reported-range",
+    "min": 0.33,
+    "max": 0.25,
+    "estimate": 0.33
+  },
+  {
+    "sourceRow": 4896,
+    "species": "Endoxyla leucomochla",
+    "family": "Voltinism",
+    "issue": "reversed-range",
+    "min": 0.33,
+    "max": 0.25
+  },
+  {
+    "sourceRow": 4896,
+    "species": "Endoxyla leucomochla",
+    "family": "Voltinism",
+    "issue": "estimate-outside-reported-range",
+    "min": 0.33,
+    "max": 0.25,
+    "estimate": 0.33
+  },
+  {
+    "sourceRow": 4897,
+    "species": "Endoxyla lituratus",
+    "family": "Voltinism",
+    "issue": "reversed-range",
+    "min": 0.33,
+    "max": 0.25
+  },
+  {
+    "sourceRow": 4897,
+    "species": "Endoxyla lituratus",
+    "family": "Voltinism",
+    "issue": "estimate-outside-reported-range",
+    "min": 0.33,
+    "max": 0.25,
+    "estimate": 0.33
+  },
+  {
+    "sourceRow": 5059,
+    "species": "Eois mexicaria",
+    "family": "Voltinism",
+    "issue": "reversed-range",
+    "min": 3,
+    "max": 2
+  },
+  {
+    "sourceRow": 5059,
+    "species": "Eois mexicaria",
+    "family": "Voltinism",
+    "issue": "estimate-outside-reported-range",
+    "min": 3,
+    "max": 2,
+    "estimate": 2
+  },
+  {
+    "sourceRow": 5517,
+    "species": "Platysphinx stigmatica",
+    "family": "Lifespan",
+    "issue": "reversed-range",
+    "min": 365,
+    "max": 180
+  },
+  {
+    "sourceRow": 5517,
+    "species": "Platysphinx stigmatica",
+    "family": "Lifespan",
+    "issue": "estimate-outside-reported-range",
+    "min": 365,
+    "max": 180,
+    "estimate": 180
+  },
+  {
+    "sourceRow": 5518,
+    "species": "Psilogramma increta",
+    "family": "Lifespan",
+    "issue": "reversed-range",
+    "min": 365,
+    "max": 180
+  },
+  {
+    "sourceRow": 5518,
+    "species": "Psilogramma increta",
+    "family": "Lifespan",
+    "issue": "estimate-outside-reported-range",
+    "min": 365,
+    "max": 180,
+    "estimate": 180
+  },
+  {
+    "sourceRow": 5519,
+    "species": "Smerinthus planus",
+    "family": "Body_size_adult",
+    "issue": "estimate-outside-reported-range",
+    "min": 45,
+    "max": 50,
+    "estimate": 40
+  },
+  {
+    "sourceRow": 5521,
+    "species": "Theretra nessus",
+    "family": "Lifespan",
+    "issue": "reversed-range",
+    "min": 180,
+    "max": 90
+  },
+  {
+    "sourceRow": 5521,
+    "species": "Theretra nessus",
+    "family": "Lifespan",
+    "issue": "estimate-outside-reported-range",
+    "min": 180,
+    "max": 90,
+    "estimate": 120
+  },
+  {
+    "sourceRow": 5644,
+    "species": "Zelleria oleastrella",
+    "family": "Body_size_adult",
+    "issue": "estimate-outside-reported-range",
+    "min": 60,
+    "max": 70,
+    "estimate": 80
+  },
+  {
+    "sourceRow": 5695,
+    "species": "Gastrimargus africanus",
+    "family": "Voltinism",
+    "issue": "estimate-outside-reported-range",
+    "min": 1,
+    "max": 2,
+    "estimate": 3
+  },
+  {
+    "sourceRow": 5711,
+    "species": "Locusta migratoria",
+    "family": "Voltinism",
+    "issue": "estimate-outside-reported-range",
+    "min": 3,
+    "max": 5,
+    "estimate": 1
+  },
+  {
+    "sourceRow": 5724,
+    "species": "Nomadacris septemfasciata",
+    "family": "Fecundity",
+    "issue": "estimate-outside-reported-range",
+    "min": 20,
+    "max": 195,
+    "estimate": 800
+  },
+  {
+    "sourceRow": 5728,
+    "species": "Oedaleus senegalensis",
+    "family": "Lifespan",
+    "issue": "estimate-outside-reported-range",
+    "min": 90,
+    "max": 110,
+    "estimate": 365
+  },
+  {
+    "sourceRow": 5754,
+    "species": "Schistocerca gregaria",
+    "family": "Fecundity",
+    "issue": "estimate-outside-reported-range",
+    "min": 80,
+    "max": 160,
+    "estimate": 500
+  },
+  {
+    "sourceRow": 5768,
+    "species": "Lamarckiana cucullata",
+    "family": "Body_size_adult",
+    "issue": "estimate-outside-reported-range",
+    "min": 60,
+    "max": 86,
+    "estimate": 20
+  },
+  {
+    "sourceRow": 5781,
+    "species": "Pyrgomorpha vignaudii",
+    "family": "Voltinism",
+    "issue": "estimate-outside-reported-range",
+    "min": 2,
+    "max": 2,
+    "estimate": 3
+  },
+  {
+    "sourceRow": 5784,
+    "species": "Zonocerus elegans",
+    "family": "Lifespan",
+    "issue": "estimate-outside-reported-range",
+    "min": 42,
+    "max": 153,
+    "estimate": 180
+  },
+  {
+    "sourceRow": 5784,
+    "species": "Zonocerus elegans",
+    "family": "Fecundity",
+    "issue": "estimate-outside-reported-range",
+    "min": 23,
+    "max": 148,
+    "estimate": 200
+  },
+  {
+    "sourceRow": 5785,
+    "species": "Zonocerus variegatus",
+    "family": "Fecundity",
+    "issue": "estimate-outside-reported-range",
+    "min": 180,
+    "max": 220,
+    "estimate": 89
+  },
+  {
+    "sourceRow": 5786,
+    "species": "Schizodactylus monstrosus",
+    "family": "Body_size_adult",
+    "issue": "estimate-outside-reported-range",
+    "min": 55,
+    "max": 65,
+    "estimate": 40
+  },
+  {
+    "sourceRow": 5813,
+    "species": "Conocephalus bilineatus",
+    "family": "Body_size_adult",
+    "issue": "estimate-outside-reported-range",
+    "min": 27,
+    "max": 27,
+    "estimate": 10
+  },
+  {
+    "sourceRow": 5824,
+    "species": "Ruspolia nitidula",
+    "family": "Fecundity",
+    "issue": "reversed-range",
+    "min": 80,
+    "max": 1
+  },
+  {
+    "sourceRow": 5824,
+    "species": "Ruspolia nitidula",
+    "family": "Fecundity",
+    "issue": "estimate-outside-reported-range",
+    "min": 80,
+    "max": 1,
+    "estimate": 60
+  },
+  {
+    "sourceRow": 5831,
+    "species": "Acheta domesticus",
+    "family": "Fecundity",
+    "issue": "estimate-outside-reported-range",
+    "min": 1200,
+    "max": 2994,
+    "estimate": 300
+  },
+  {
+    "sourceRow": 5833,
+    "species": "Gryllodes sigillatus",
+    "family": "Body_size_adult",
+    "issue": "estimate-outside-reported-range",
+    "min": 13,
+    "max": 18,
+    "estimate": 20
+  },
+  {
+    "sourceRow": 5833,
+    "species": "Gryllodes sigillatus",
+    "family": "Fecundity",
+    "issue": "estimate-outside-reported-range",
+    "min": 713,
+    "max": 2328,
+    "estimate": 250
+  },
+  {
+    "sourceRow": 5833,
+    "species": "Gryllodes sigillatus",
+    "family": "Voltinism",
+    "issue": "reversed-range",
+    "min": 2,
+    "max": 1
+  },
+  {
+    "sourceRow": 5833,
+    "species": "Gryllodes sigillatus",
+    "family": "Voltinism",
+    "issue": "estimate-outside-reported-range",
+    "min": 2,
+    "max": 1,
+    "estimate": 1
+  },
+  {
+    "sourceRow": 5834,
+    "species": "Gryllus assimilis",
+    "family": "Fecundity",
+    "issue": "estimate-outside-reported-range",
+    "min": 1250,
+    "max": 3100,
+    "estimate": 270
+  },
+  {
+    "sourceRow": 5834,
+    "species": "Gryllus assimilis",
+    "family": "Voltinism",
+    "issue": "estimate-outside-reported-range",
+    "min": 2,
+    "max": 3,
+    "estimate": 1
+  },
+  {
+    "sourceRow": 5851,
+    "species": "Gryllotalpa africana",
+    "family": "Fecundity",
+    "issue": "reversed-range",
+    "min": 200,
+    "max": 48
+  },
+  {
+    "sourceRow": 5851,
+    "species": "Gryllotalpa africana",
+    "family": "Fecundity",
+    "issue": "estimate-outside-reported-range",
+    "min": 200,
+    "max": 48,
+    "estimate": 220
+  },
+  {
+    "sourceRow": 5868,
+    "species": "Ammopelmatus fuscus",
+    "family": "Body_size_adult",
+    "issue": "estimate-outside-reported-range",
+    "min": 30,
+    "max": 50,
+    "estimate": 55
+  }
+]

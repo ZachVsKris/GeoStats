@@ -96,3 +96,9 @@ data/animalstats/research/additional-source-records.jsonl.gz
 
 # Public research acquisition snapshots retained privately
 data/animalstats/source/discovery-*
+
+# Research working database; the reproducible compressed checkpoint is tracked.
+data/animalstats/research/anthropinsect/research.sqlite
+
+# Large original museum collection download; checksummed source manifest is tracked.
+data/animalstats/source/ranges/*.zip

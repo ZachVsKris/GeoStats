@@ -42,3 +42,10 @@
 - Original MacLean et al. transparent-cylinder trial scores admitted for five unambiguous species, with cohort size, individual score ranges and source rows disclosed. Two Scout boards use four intuitive categories and distinct winners. These are measured cohort comparisons, never a species-wide IQ or population-intelligence ranking.
 - New large-source metadata review saved: PanTHERIA physiological summaries can be modeled even in non-EXT columns; Amniote consolidated output shares/interpolates taxa; avian SSD sources may include range midpoints. No bulk approval from those outputs.
 - 39 original avian SSD rows saved for targeted source review.
+
+## Insect source acquisition and sharing follow-up
+- Staged the original public CC BY 4.0 AnthropInsect 2.0 workbook, verified against repository MD5 and byte size; pinned source release and SHA-256.
+- Separate research database stores 5,867 rows / 5,864 distinct source species names and 15,402 numerical cells. 8,248 reported min/max cells need original-study review; 3,840 typical estimates and 3,314 derived means are excluded. Zero automatic gameplay admissions.
+- Source-stage/caste, lifetime versus per-day fecundity, regional generation counts and cell-level provenance are mandatory gates. Audit records 68 reversed ranges or typical estimates outside min/max.
+- Added downloadable AnimalStats score images with matching score-card layout, file-sharing capability checks and download fallback. Reusing another board resets the image preview.
+- Live deployed Real round verified at 400/400 with expanded rankings and full five-cohort cognition catalog.

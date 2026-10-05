@@ -19,6 +19,7 @@ import GameTools from "./GameTools";
 import useGameSound from "./useGameSound";
 import AnimalCatalogView from "./AnimalCatalogView";
 import AnimalResults from "./AnimalResults";
+import AnimalScoreImage from "./AnimalScoreImage";
 import { AnimalSprite } from "./AnimalSprite";
 import "../app/animals/animalstats.css";
 import "../app/animals/animal-sanctuary.css";
@@ -409,7 +410,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
       </>}
       {submitted && <>
         {accountMessage && <p role="status" className="animalSaveStatus">{accountMessage}</p>}
-        <AnimalResults data={data} board={board} results={results} mode={mode} total={total} optimalChoices={optimalChoices} presentation={presentation} onModeChange={difficulty => { setFocusTrait(null); switchBoard(difficulty); }} onNext={nextBoard} shareActions={<><details className="scoreShareOptions"><summary className="shareScore">Share score</summary><div className="scoreShareMenu"><button type="button" onClick={() => void shareResult()}>{copied ? "Score copied ✓" : "Copy score"}</button><button type="button" onClick={() => void shareResult(true)}>More sharing options</button></div></details><span className="sr-only" role="status">{copied ? "Score copied to clipboard" : ""}</span></>} />
+        <AnimalResults data={data} board={board} results={results} mode={mode} total={total} optimalChoices={optimalChoices} presentation={presentation} onModeChange={difficulty => { setFocusTrait(null); switchBoard(difficulty); }} onNext={nextBoard} shareActions={<><details className="scoreShareOptions"><summary className="shareScore">Share score</summary><div className="scoreShareMenu"><button type="button" onClick={() => void shareResult()}>{copied ? "Score copied ✓" : "Copy score"}</button><button type="button" onClick={() => void shareResult(true)}>More sharing options</button></div></details><span className="sr-only" role="status">{copied ? "Score copied to clipboard" : ""}</span><AnimalScoreImage key={board.id} total={total} maximum={config.maxScore} optimal={optimalChoices} categories={board.traitIds.length} difficulty={config.label} kind={playKind} date={date} challengeUrl={() => challengeUrl(board.id!)} /></>} />
         <div className="resultsGameTools"><GameTools categories={board.traitIds.map(id=>({id,name:traitMap.get(id)!.displayName}))} difficulty={mode}/></div>
       </>}
       </>}

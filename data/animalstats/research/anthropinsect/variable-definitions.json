@@ -1,0 +1,327 @@
+{
+  "Column name": {
+    "definition": "Definition",
+    "units": "Categories",
+    "abbreviation": "Abreviation"
+  },
+  "Identification": {
+    "definition": null,
+    "units": null,
+    "abbreviation": null
+  },
+  "scientificNameID": {
+    "definition": "GBIF backbone taxon ID",
+    "units": null,
+    "abbreviation": null
+  },
+  "Source": {
+    "definition": "Database or study names where invasive status or species edibility were found",
+    "units": null,
+    "abbreviation": null
+  },
+  "Taxonomy": {
+    "definition": null,
+    "units": null,
+    "abbreviation": null
+  },
+  "Order": {
+    "definition": "﻿The full scientific name of the order in which the taxon is classified",
+    "units": null,
+    "abbreviation": null
+  },
+  "Suborder": {
+    "definition": "﻿The full scientific name of the suborder in which the taxon is classified",
+    "units": null,
+    "abbreviation": null
+  },
+  "Infraorder": {
+    "definition": "The full scientific name of the infraorder in which the taxon is classified",
+    "units": null,
+    "abbreviation": null
+  },
+  "Superfamily": {
+    "definition": "﻿The full scientific name of the superfamily in which the taxon is classified",
+    "units": null,
+    "abbreviation": null
+  },
+  "Family": {
+    "definition": "﻿The full scientific name of the family in which the taxon is classified",
+    "units": null,
+    "abbreviation": null
+  },
+  "Genus": {
+    "definition": "The full scientific name of the genus  in which the taxon is classified",
+    "units": null,
+    "abbreviation": null
+  },
+  "Scientific_name": {
+    "definition": "﻿The full name, with authorship and date information of the currently valid (zoological) taxon",
+    "units": null,
+    "abbreviation": null
+  },
+  "Species": {
+    "definition": "The simplified name (i.e., without authorship and date information) of the currently valid taxon",
+    "units": null,
+    "abbreviation": null
+  },
+  "Ecological descriptors": {
+    "definition": null,
+    "units": null,
+    "abbreviation": null
+  },
+  "Native_bioregion": {
+    "definition": "Native species territory whose limits are defined by geographical limits that take into account both human communities and ecosystems (based on vertebrate bioregions from Holt et al., (2013), as insect bioregions are not yet delineated in the literature.",
+    "units": "Nearctic  ; Neotropical  ; Palearctic  ; Afrotropical  ; Oriental  ; Australian  ; Oceanian  ; Antarctic  ; Marine  ; Panamanian  ; Sino-Japanese  ; Saharo-Arabian ; Antarctica",
+    "abbreviation": "Nat"
+  },
+  "Habitat_larva": {
+    "definition": "Habitat where the life stage cycle occurred.",
+    "units": "Aquatic ; Semi-aquatic ; Terrestrial",
+    "abbreviation": "HabL"
+  },
+  "Habitat_adult": {
+    "definition": null,
+    "units": "Aquatic ; Semi-aquatic ; Terrestrial",
+    "abbreviation": "HabA"
+  },
+  "Human associations": {
+    "definition": null,
+    "units": null,
+    "abbreviation": null
+  },
+  "Edibility": {
+    "definition": "Species known to be consumed by humans (adapted from Itterbeeck et al., 2022).",
+    "units": "YES ; NO",
+    "abbreviation": "Edi"
+  },
+  "Invasive_status": {
+    "definition": "Native only species: species that occur naturally within their original geographic range and have not been transported by human activities.\nEstablished species: species that humans have introduced outside their native range and that have successfully formed viable, self-sustaining populations, potentially spreading beyond the initial introduction site.\n Invasive species: established species that spread widely and cause negative impacts on native biodiversity and socio economic systems.",
+    "units": "Native only ; Established ; Invasive",
+    "abbreviation": "Ali"
+  },
+  "Functional traits": {
+    "definition": null,
+    "units": null,
+    "abbreviation": null
+  },
+  "Life history": {
+    "definition": null,
+    "units": null,
+    "abbreviation": null
+  },
+  "Metamorphosis": {
+    "definition": "The changes in form that occur during the insect cycle.",
+    "units": "Holometabolous ; Hemimetabolous",
+    "abbreviation": "Met"
+  },
+  "Inactivity_period": {
+    "definition": "Temporary state of inactivity that is typically induced by external factors such as unfavorable environmental conditions (include diapause and quiescence).",
+    "units": "YES ; NO",
+    "abbreviation": "Ina"
+  },
+  "Host": {
+    "definition": "Strict relationship between the insect species and another species for its life cycle, reproduction, or survival.",
+    "units": "YES ; NO",
+    "abbreviation": "Hos"
+  },
+  "Host_specificity": {
+    "definition": "Scientific name of the taxonomic level of the host.",
+    "units": null,
+    "abbreviation": "HosSpe"
+  },
+  "Parthenogenesis": {
+    "definition": "Can produce offspring through asexual reproduction.",
+    "units": "YES ; NO",
+    "abbreviation": "Par"
+  },
+  "Egg-laying_pattern": {
+    "definition": "Details the egg-laying patterns: all at once, continuously (along adult’s life), one by one or in clusters (patches).",
+    "units": "Once  ; Continuously ; Singly ; Clusters",
+    "abbreviation": "EGS"
+  },
+  "Parental_care": {
+    "definition": "Behavior exhibited by adult insects to care for their offspring (e.g., eggs and larvae), involving the adults' presence before and/or after the eggs hatch to enhance the offspring's survival and growth.",
+    "units": "YES ; NO",
+    "abbreviation": "PC"
+  },
+  "Lifespan_min": {
+    "definition": "Minimal duration of an individual insect's life, measured from the egg stage to death. For insects living in colonies, consider the lifespan of the queen. ",
+    "units": "Quantitative data in days",
+    "abbreviation": "LS"
+  },
+  "Lifespan_max": {
+    "definition": "Maximal duration of an individual insect's life, measured from the egg stage to death. For insects living in colonies, consider the lifespan of the queen.",
+    "units": null,
+    "abbreviation": null
+  },
+  "Lifespan_estimate": {
+    "definition": "Typical duration estimation of an individual insect's life, measured from the egg stage to death. For insects living in colonies, consider the lifespan of the queen.",
+    "units": null,
+    "abbreviation": null
+  },
+  "Lifespan_mean": {
+    "definition": "Lifespan_Estimate and/or the mean between the Lifespan_Min and Lifespan_Max",
+    "units": null,
+    "abbreviation": "Filled up automatically"
+  },
+  "Voltinism_min": {
+    "definition": "The minimal number of generations an organism completes within a single year.",
+    "units": "Quantitative data without unit",
+    "abbreviation": "Vol"
+  },
+  "Voltinism_max": {
+    "definition": "The maximal number of generations an organism completes within a single year.",
+    "units": null,
+    "abbreviation": null
+  },
+  "Voltinism_estimate": {
+    "definition": "Typical number estimation of generations an organism completes within a single year.",
+    "units": null,
+    "abbreviation": null
+  },
+  "Voltinism_mean": {
+    "definition": "Voltinism_Estimate and/or the mean between the Voltinism_Min and Voltinism_Max",
+    "units": null,
+    "abbreviation": "Filled up automatically"
+  },
+  "Fecundity_min": {
+    "definition": "Minimal number of eggs laid by a female over its lifespan. For insects living in colonies, consider the number of eggs laid by the queen.",
+    "units": "Quantitative data without unit",
+    "abbreviation": "Fec"
+  },
+  "Fecundity_max": {
+    "definition": "Maximal number of eggs laid by a female over its lifespan. For insects living in colonies, consider the number of eggs laid by the queen.",
+    "units": null,
+    "abbreviation": null
+  },
+  "Fecundity_estimate": {
+    "definition": "Typical number of eggs estimation laid by a female over its lifespan. For insects living in colonies, consider the number of eggs laid by the queen.",
+    "units": null,
+    "abbreviation": null
+  },
+  "Fecundity_mean": {
+    "definition": "Fecundity_Estimate and/or the mean between the Fecundity_Min and Fecundity_Max.",
+    "units": null,
+    "abbreviation": "Filled up automatically"
+  },
+  "Dispersal_mobility": {
+    "definition": "Species locomotion for moving or spreading.",
+    "units": "Flying ; Swimming ; Walking ; Burrowing ; Skating ; Abiotic dispersal",
+    "abbreviation": "Disp"
+  },
+  "Behavior": {
+    "definition": null,
+    "units": null,
+    "abbreviation": null
+  },
+  "Sociability": {
+    "definition": "The degree to which individuals within a population engage in social behaviors or form social structures.",
+    "units": "Solitary ; Social (includes communal, quasisocial, subsocial) ; Eusocial",
+    "abbreviation": "Soc"
+  },
+  "Aggressiveness": {
+    "definition": "The behavior or tendency of individuals to display aggression, which involves actions intended to harm or intimidate others.",
+    "units": "NO  ; Intra-specific  ; Inter-specific ; Intra-specific/Inter-specific",
+    "abbreviation": "Agg"
+  },
+  "Feeding": {
+    "definition": null,
+    "units": null,
+    "abbreviation": null
+  },
+  "Diet_larva": {
+    "definition": "Diet of species life stage cycle.",
+    "units": "Phytophage ; Mycophage ; Saprophage ; Zoophage ; Omnivore",
+    "abbreviation": "DL"
+  },
+  "Diet_adult": {
+    "definition": null,
+    "units": "Phytophage ; Mycophage ; Saprophage ; Zoophage ; Omnivore ; Nothing",
+    "abbreviation": "DA"
+  },
+  "Feeding_behavior_larva": {
+    "definition": "Location of the feeding area of the species life",
+    "units": "Endophage ; Exophage",
+    "abbreviation": "FBL"
+  },
+  "Feeding_behavior_adult": {
+    "definition": null,
+    "units": "Endophage ; Exophage ; Nothing",
+    "abbreviation": "FBA"
+  },
+  "Morphology": {
+    "definition": null,
+    "units": null,
+    "abbreviation": null
+  },
+  "Body_size_adult_min": {
+    "definition": "Minimal length of the adult body. For eusocial insects, consider the queen's size.",
+    "units": "Quantitative data in millimeter",
+    "abbreviation": "BS"
+  },
+  "Body_size_adult_max": {
+    "definition": "Maximal length of the adult body. For eusocial insects, consider the queen's size.",
+    "units": null,
+    "abbreviation": null
+  },
+  "Body_size_adult_estimate": {
+    "definition": "Typical length estimation of the adult body. For eusocial insects, consider the queen's size.",
+    "units": null,
+    "abbreviation": null
+  },
+  "Body_size_adult_mean": {
+    "definition": "Body_size_adult_Estimate   and/or the mean between the Body_size_adult_Min and Body_size_adult_Max",
+    "units": null,
+    "abbreviation": "Filled up automatically"
+  },
+  "Macroecological variables": {
+    "definition": null,
+    "units": null,
+    "abbreviation": null
+  },
+  "Species known occurrences": {
+    "definition": null,
+    "units": null,
+    "abbreviation": null
+  },
+  "Occurrence numbers": {
+    "definition": "Number of species occurrences from 1980 to 2024.",
+    "units": "Quantitative data",
+    "abbreviation": null
+  },
+  "Distribution ranges": {
+    "definition": null,
+    "units": null,
+    "abbreviation": null
+  },
+  "Lat_range": {
+    "definition": "Latitudinal species distribution in its native range",
+    "units": "Quantitative data in degree",
+    "abbreviation": "Filled up automatically"
+  },
+  "Long_range": {
+    "definition": "Longitudinal species distribution in its native range",
+    "units": null,
+    "abbreviation": null
+  },
+  "Climatic condition ranges": {
+    "definition": null,
+    "units": null,
+    "abbreviation": null
+  },
+  "Temp_range": {
+    "definition": "Thermal range of a species in its native range",
+    "units": "Quantitative data in Celsius degree",
+    "abbreviation": "Filled up automatically"
+  },
+  "Hum_range": {
+    "definition": "Humidity range of a species in its native range",
+    "units": "Quantitative data in % of humidity",
+    "abbreviation": null
+  },
+  "Occurence_nb": {
+    "definition": "Number of species occurences from 1980 to 2024",
+    "units": "Quantitative data",
+    "abbreviation": "Filled up automatically"
+  }
+}

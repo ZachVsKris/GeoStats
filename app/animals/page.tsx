@@ -9,7 +9,7 @@ import { createAnimalBoardValidator, type AnimalDataset, type BoardCandidate } f
 import { orderAnimalPilotBoards } from "../../lib/animalstatsDaily";
 import { newYorkDate } from "../../lib/time";
 
-export const metadata = { title: "AnimalStats private prototype", robots: { index: false, follow: false }, alternates: { canonical: "/animals" } };
+export const metadata = { title: "AnimalStats · The animal fair", description: "Match familiar animals to surprising facts. Pick your prize winners, then explore the sourced rankings.", robots: { index: false, follow: false }, alternates: { canonical: "/animals" } };
 export const dynamic = "force-dynamic";
 
 // These imports are immutable source snapshots. Validate once per worker, not once per visitor.
@@ -22,7 +22,14 @@ function getCatalog() {
   const boards = (candidates.boards as BoardCandidate[]).filter((board) => !board.traitIds.some(id => excluded.has(id)) && validate(board).valid);
   const pairedTraits = data.traits.filter((trait) => trait.prototypeCategory && !excluded.has(trait.id));
   const pairedIds = new Set(pairedTraits.map((trait) => trait.id));
-  const clientData = { ...data, traits: pairedTraits, values: data.values.filter((row) => pairedIds.has(row.traitId)) };
+  // The game needs numbers, not thousands of repeated citation paragraphs.
+  // Complete observations are fetched when someone opens Data & Source.
+  const clientData = { ...data, photos: [], traits: pairedTraits, values: data.values.filter((row) => pairedIds.has(row.traitId)).map(row => ({
+    animalId: row.animalId, traitId: row.traitId, valueNumeric: row.valueNumeric,
+    unit: row.unit, sourceId: row.sourceId, confidence: row.confidence,
+    observationType: row.observationType, sex: row.sex, lifeStage: row.lifeStage,
+    valueMin: row.valueMin, valueMax: row.valueMax, notes: "", measurementBasis: "",
+  })) };
   catalog = { data, boards, clientData };
   return catalog;
 }
@@ -33,5 +40,5 @@ export default async function AnimalStatsPage({ searchParams }: { searchParams: 
   if (!animalPreviewEnabled()) notFound();
   const { data, boards, clientData } = getCatalog();
   if (!boards.length) notFound();
-  return <AnimalStatsGame initialBoardId={requested.board} data={clientData} boards={orderAnimalPilotBoards(boards, newYorkDate(), data)} approvedBoardIds={approvedAnimalBoards(data, boards, reviews as AnimalBoardReview[]).map((board) => board.id!)} date={newYorkDate()} />;
+  return <AnimalStatsGame initialBoardId={requested.board} data={clientData} boards={orderAnimalPilotBoards(boards, newYorkDate(), data).map(({id, mode, boardType, animalIds, traitIds, biogeographicRegions}) => ({id, mode, boardType, animalIds, traitIds, biogeographicRegions}))} approvedBoardIds={approvedAnimalBoards(data, boards, reviews as AnimalBoardReview[]).map((board) => board.id!)} date={newYorkDate()} />;
 }

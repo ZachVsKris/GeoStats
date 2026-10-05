@@ -33,7 +33,7 @@ test("phone layout fits and exposes sources after scoring", async ({ page }) => 
   }
   await page.getByRole("button", { name: "Submit answers" }).click();
   await expect(page.getByText("Optimal score: 400")).toBeVisible();
-  await page.getByRole("button", { name: "View rankings" }).first().click();
+  await page.getByRole("button", { name: "View ranking" }).first().click();
   await page.getByRole("button", { name: "Data & Source" }).first().click();
   await expect(page.getByRole("heading", { name: "Full catalog rankings" })).toBeVisible();
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
@@ -291,7 +291,7 @@ for(const prefix of ["resting_breathing_frequency","milk_fat_concentration",'die
   await expect(page.locator('.resultWrap')).toHaveCount(4);
   const trait=(animalDataset as AnimalDataset).traits.find(t=>t.id===prefix)!;
   const result=page.locator('.resultWrap').filter({hasText:trait.displayName});
-  await result.getByRole('button',{name:'View rankings'}).click();
+  await result.getByRole('button',{name:'View ranking'}).click();
   await expect(result.locator('.boardRank')).toHaveCount(4);
   await expect(result).toContainText(trait.unit);
  });
@@ -304,7 +304,7 @@ test("GeoStats result layout replaces the separate award ceremony", async ({page
  await expect(page.locator('.resultWrap')).toHaveCount(4);
  await expect(page.locator('.hybridNursery,.hybridBaby,.pairingCanvas,.fairAwards')).toHaveCount(0);
  await expect(page.getByText('Optimal Choice',{exact:true})).toHaveCount(4);
- await expect(page.getByRole('button',{name:'View rankings'})).toHaveCount(4);
+ await expect(page.getByRole('button',{name:'View ranking'})).toHaveCount(4);
 });
 
 test("phone pen supports touch drag and reduced-motion results", async ({ page }) => {

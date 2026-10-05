@@ -1,0 +1,148 @@
+/* The familiar GeoStats shell surrounds a brighter, quieter animal fair. */
+.countyFair {
+  --bg: #f5fbf7;
+  --surface: #fff;
+  --surface-2: #e7f5ec;
+  --surface-3: #f1f8f3;
+  --ink: #193c30;
+  --muted: #537163;
+  --line: #bdd7c7;
+  --line-soft: #dceadf;
+  --accent: #187a4c;
+  --accent-2: #c25735;
+  background: var(--bg);
+  padding: 12px 24px 20px;
+}
+.countyFair .animalShell {
+  max-width: 1160px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.countyFair .animalGeoHeader { gap: 16px; padding: 8px 0 12px; }
+.countyFair .animalGeoBrand h1 { font-family: var(--display); font-size: 30px; font-weight: 700; }
+.countyFair .animalGeoLogo { background: #fff; border-color: var(--line); }
+.countyFair .animalGeoChallenge { margin: 8px 0; }
+.countyFair .animalToolbar { min-height: 30px; margin-bottom: 8px; }
+.countyFair .animalInstruction { font-size: 13px; line-height: 1.4; }
+.countyFair .animalToolbar .animalNext { background: transparent; border: 0; color: var(--accent); font-size: 12px; }
+.countyFair .sanctuaryBoard {
+  gap: 22px;
+  padding: 30px 18px 16px;
+  border: 1px solid #e4c58d;
+  border-radius: 14px;
+  background: #fffcf2;
+  box-shadow: 0 3px 0 #ecd8b1;
+}
+.countyFair .animalPen {
+  background: linear-gradient(#d7f0ff 0%, #e6f7c7 38%, #ceeb9c 100%);
+  border: 1px solid #afce89;
+  box-shadow: none;
+}
+.countyFair .penSign { border-bottom: 0; margin: 0; padding: 12px 12px 0; }
+.countyFair .penSign > span, .countyFair .podiumSectionTitle > span {
+  font: 700 12px var(--sans);
+  letter-spacing: .04em;
+  color: #436541;
+}
+.countyFair .penSign small { color: #567447; }
+.countyFair .animalBank { gap: 8px; padding: 10px; }
+.countyFair .penAnimal, .countyFair .penAnimal.selected {
+  border: 1px solid #b3ce91;
+  background: #fffef5b8;
+  padding: 24px 4px 6px;
+  box-shadow: none;
+  overflow: hidden;
+}
+.countyFair .penAnimal.selected { border: 2px solid var(--accent); background: #fffdeb; }
+.countyFair .penAnimal.used { opacity: 1; background: #e8f2d7; }
+.countyFair .penAnimal.used > .animalSprite { opacity: .3; }
+.countyFair .penAnimal.beingDragged > .animalSprite { opacity: .2; }
+.countyFair .penAnimal > .animalNameTag {
+  position: absolute;
+  top: 8px;
+  padding: 0 4px;
+  font: 700 12px/1.15 var(--sans);
+  color: #294d37;
+}
+.countyFair .penAnimal > .animalSprite { max-height: 170px; max-width: 190px; }
+.countyFair .penAssigned { font-size: 9px; bottom: 4px; padding: 2px 5px; color: #456337; }
+.countyFair .podiumGrid { gap: 12px; padding-top: 18px; }
+.countyFair .podiumSectionTitle { top: 25px; }
+.countyFair .traitPodium, .countyFair .traitPodium.selected {
+  border: 1px solid #e7d4a7;
+  border-radius: 10px;
+  background: #fffdf8;
+  padding: 15px 12px 10px;
+  box-shadow: none;
+}
+.countyFair .traitPodium.selected { border: 2px solid var(--accent); background: #eff9df; outline: 0; }
+.countyFair .podiumPlaque { padding-top: 7px; }
+.countyFair .animalTraitName { font-size: 17px; line-height: 1.15; color: #463f30; }
+.countyFair .animalTraitDefinition, .countyFair .animalTraitChoice { display: none; }
+.countyFair .podiumNameTag { font: 700 11px/1.1 var(--sans); color: #355541; }
+.countyFair .podiumRemove { width: 28px; height: 28px; font-size: 20px; background: #fff; color: #795648; border: 1px solid #dec7a1; }
+.countyFair .podiumEmpty { opacity: .65; fill: #ffe1a0; stroke: #ba9046; }
+.countyFair .podiumTop { width: 78%; border-radius: 4px 4px 0 0; }
+.countyFair .animalSubmit { min-height: 45px; flex-shrink: 0; margin: 12px 0 0; padding-top: 10px; flex-wrap: wrap; }
+.countyFair .animalSubmit > button { min-height: 44px; padding: 11px 24px; font-size: 14px; background: var(--accent); }
+.countyFair .animalSubmit > p { flex-basis: 100%; order: 3; margin: 0; font-size: 12px; }
+.countyFair .animalProgress { font-size: 12px; color: var(--muted); }
+.countyFair .animalHistory { border: 0; background: transparent; padding: 20px 0; }
+.countyFair .animalHistory h2 { font: 600 34px var(--display); margin: 14px 0; }
+.countyFair .animalStatGrid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.countyFair .animalStatGrid > div { background: white; border-color: var(--line-soft); border-radius: 10px; }
+.countyFair .personalModeTabs button { cursor: pointer; }
+.countyFair .animalGeoMenu > div { min-width: 210px; }
+.countyFair button:disabled { opacity: .55; cursor: wait; }
+.countyFair .animalGeoResults .mobileBestMatch { border: 0; }
+
+@media (max-width: 750px) {
+  .countyFair { padding: 8px 10px 12px; }
+  .countyFair .animalGeoHeader { display: grid; grid-template-columns: 1fr auto auto; gap: 6px 12px; padding: 4px 0 8px; }
+  .countyFair .animalGeoBrand { grid-column: 1; gap: 7px; }
+  .countyFair .animalGeoBrand h1 { font-size: 23px; }
+  .countyFair .animalGeoLogo { width: 30px; height: 30px; font-size: 18px; }
+  .countyFair .animalGeoHeader .gameAccount { grid-column: 3; grid-row: 1; margin: 0; }
+  .countyFair .animalGeoStatsButton { grid-column: 2; grid-row: 1; padding: 6px 0; font-size: 12px; }
+  .countyFair .animalGeoModes { grid-column: 1 / 3; grid-row: 2; margin: 0; gap: 2px; }
+  .countyFair .animalGeoModes button { padding: 8px 10px; font-size: 12px; }
+  .countyFair .animalGeoMenu { grid-column: 3; grid-row: 2; margin: 0; justify-self: end; }
+  .countyFair .animalGeoMenu summary { padding: 8px 0; font-size: 11px; }
+  .countyFair .animalGeoChallenge { margin: 5px 0; padding: 5px 0 8px; }
+  .countyFair .animalGeoChallenge .kicker { font-size: 10px; }
+  .countyFair .animalGeoChallenge button { font-size: 10px; padding: 6px; }
+  .countyFair .animalToolbar { min-height: 25px; gap: 5px; margin-bottom: 5px; }
+  .countyFair .animalInstruction { font-size: 11px; }
+  .countyFair .animalToolbar .animalNext { font-size: 10px; padding: 4px; }
+  .countyFair .sanctuaryBoard { gap: 12px; padding: 24px 8px 9px; }
+  .countyFair .penSign { padding: 8px 8px 0; }
+  .countyFair .penSign > span, .countyFair .podiumSectionTitle > span { font-size: 10px; }
+  .countyFair .animalBank { gap: 5px; padding: 6px; }
+  .countyFair .penAnimal, .countyFair .penAnimal.selected { padding: 24px 2px 4px; }
+  .countyFair .penAnimal > .animalNameTag { top: 5px; font-size: 10px; }
+  .countyFair .podiumGrid { gap: 6px; padding-top: 16px; }
+  .countyFair .traitPodium, .countyFair .traitPodium.selected { padding: 11px 5px 7px; }
+  .countyFair .animalTraitName { font-size: 12px; }
+  .countyFair .podiumNameTag { font-size: 9px; }
+  .countyFair .animalSubmit { margin-top: 8px; padding-top: 8px; }
+  .countyFair .animalSubmit > button { padding: 10px 16px; font-size: 13px; }
+  .countyFair .animalStatGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-height: 620px) {
+  .countyFair[data-view=play][data-submitted=false] { height: auto; min-height: 100svh; overflow: visible; }
+  .countyFair[data-view=play][data-submitted=false] .animalShell { height: auto; }
+  .countyFair .sanctuaryBoard { min-height: 390px; }
+}
+
+.countyFair .fairMobileHelp { display: none; }
+.countyFair .podiumEmpty { width: 90px; height: 90px; }
+@media (max-width: 700px) {
+  .countyFair .fairDesktopHelp { display: none; }
+  .countyFair .fairMobileHelp { display: inline; }
+  .countyFair[data-animal-count="4"] .animalBank { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); }
+  .countyFair[data-animal-count="6"] .animalBank { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); }
+  .countyFair .podiumEmpty { width: 58px; height: 58px; }
+}

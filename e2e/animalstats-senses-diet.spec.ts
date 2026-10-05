@@ -57,7 +57,7 @@ test('new source families play, score and return complete rankings',async({page,
   const response=await request.get('/api/animals/data?trait='+id);expect(response.status()).toBe(200);
   const body=await response.json();expect(body.values.length).toBe(data.values.filter(v=>v.traitId===id&&v.confidence==='approved').length);
   if(id==='iucn_extinction_risk'){
-   await page.locator('.resultWrap').filter({hasText:'Most threatened'}).getByRole('button',{name:'View rankings'}).click();
+   await page.locator('.resultWrap').filter({hasText:'Most threatened'}).getByRole('button',{name:'View ranking'}).click();
    await page.getByRole('button',{name:'Data & Source',exact:true}).click();
    await expect(page.locator('.sourceDataRow')).toHaveCount(data.values.filter(v=>v.traitId==='iucn_extinction_risk'&&v.confidence==='approved').length);await expect(page.locator('.sourceLoading')).toHaveCount(0);await expect(page.locator('.sourceLoadError')).toHaveCount(0);
    await expect(page.locator('.sourceDataRow').first()).toContainText('Critically Endangered');

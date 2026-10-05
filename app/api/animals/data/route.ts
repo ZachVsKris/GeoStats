@@ -7,7 +7,13 @@ import candidates from "../../../../data/animalstats/candidates.json";
 const playable = new Set(candidates.boards.flatMap(b => b.traitIds));
 export async function GET(request: Request) {
   if (!animalPreviewEnabled()) return NextResponse.json({ error: "Not found" }, { status: 404 });
-  const traitId = new URL(request.url).searchParams.get("trait");
+  const params = new URL(request.url).searchParams;
+  if (params.get("scope") === "catalog") {
+    const traits = catalog.traits.filter(t => playable.has(t.id) && !t.id.startsWith("adult_shoulder_height"));
+    const ids = new Set(traits.map(t => t.id));
+    return NextResponse.json({ data: { ...catalog, photos: [], traits, values: catalog.values.filter(v => ids.has(v.traitId) && v.confidence === "approved" && v.observationType !== "imputed") }, origin: "release-snapshot" }, { headers: { "Cache-Control": "private, max-age=300" } });
+  }
+  const traitId = params.get("trait");
   const trait = catalog.traits.find(t => t.id === traitId);
   if (!trait || !playable.has(trait.id)) return NextResponse.json({ error: "Unknown category" }, { status: 404 });
   const expected = catalog.values.filter(v => v.traitId === trait.id && v.confidence === "approved" && v.observationType !== "imputed");

@@ -65,6 +65,12 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
   const closeHelp = useCallback(() => setHelpOpen(false), []);
   useGameDialog(helpOpen, helpRef, closeHelp);
   const [boardCopied, setBoardCopied] = useState(false);
+  async function shareResult(native = false) {
+    if (!board) return;
+    const message = `Countries, Animals & Things\nAnimalStats ${config.label} · ${playKind} · ${date}\n${total}/${config.maxScore} · ${optimalChoices} Optimal Choices\n${results.map(row => row.rank === 1 ? "🎯" : row.points >= 50 ? "🟩" : "🟨").join("")}\n${challengeUrl(board.id!)}`;
+    if (native && navigator.share) { try { await navigator.share({text:message}); return; } catch (error) { if ((error as DOMException).name === "AbortError") return; } }
+    try { await navigator.clipboard.writeText(message); setCopied(true); } catch { setCopied(false); setManualScoreCopy(message); }
+  }
   const initialBoard = boards.find(candidate => candidate.id === initialBoardId);
   const [guideSearch, setGuideSearch] = useState("");
   const [guideGroup, setGuideGroup] = useState("all");
@@ -98,6 +104,10 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
   const [submitted, setSubmitted] = useState(false);
   const [message, setMessage] = useState("");
   const [copied, setCopied] = useState(false);
+  const [manualScoreCopy, setManualScoreCopy] = useState("");
+  const copyPanelRef = useRef<HTMLDivElement>(null);
+  const closeScoreCopy = useCallback(() => setManualScoreCopy(""), []);
+  useGameDialog(Boolean(manualScoreCopy), copyPanelRef, closeScoreCopy);
   const [reviewLabel, setReviewLabel] = useState<ReviewLabel | "">("");
   const [reviewNotes, setReviewNotes] = useState("");
   const [reviewSaved, setReviewSaved] = useState(false);
@@ -296,6 +306,16 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
   const optimalChoices = results.filter((row) => row.rank === 1).length;
 
 
+  const submitControl = board ? <div className={presentation === "real" ? "lock" : "animalSubmit"}><button type="button" className={presentation === "real" ? "submitAnswersButton" : undefined} aria-disabled={Object.keys(assignments).length !== board.traitIds.length} onClick={() => {
+          if (Object.keys(assignments).length < board.traitIds.length) {
+            setMessage(`Choose an animal for all ${board.traitIds.length} traits first.`); return;
+          }
+          sound.play("result");
+          setSubmitted(true);
+          setMessage("");
+          saveResult();
+        }}>Submit answers</button>{message && <p role="status">{message}</p>}<span className="animalProgress" aria-live="polite">{Object.keys(assignments).length} / {board.traitIds.length} placed</span></div> : null;
+
   return <main className={`animalPage ${presentation === "cute" ? "animalSanctuary countyFair" : "realAnimalPage"}`} data-presentation={presentation} data-animal-count={board?.animalIds.length} data-view={view} data-submitted={submitted} data-motion={motionPaused ? "paused" : "playing"} data-board-habitat={board && board.animalIds.every((id) => ["frog", "salamander"].includes(animalMap.get(id)?.taxonomicGroup ?? "")) ? "pond" : board && board.animalIds.every((id) => ["turtle", "snake", "crocodilian", "lizard", "reptile"].includes(animalMap.get(id)?.taxonomicGroup ?? "")) ? "reptiles" : "forest"}>
     <div className={`animalShell shell ${submitted && view === "play" ? "resultsView" : presentation === "real" && view === "play" ? `activePlay ${mode}Round` : ""}`}>
       <header className="animalGeoHeader">
@@ -380,32 +400,21 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
           <section className="panel bankPanel"><div className="panelTitle"><div><h3>Your animals</h3></div><small>{board.animalIds.length} animals · use each once</small></div>
             <div className="countries" aria-label="Available animals">{board.animalIds.map(id => { const animal = animalMap.get(id)!; const used = Object.values(assignments).includes(id); return <button type="button" key={id} data-animal-id={id} className={`country ${selectedAnimal === id ? "selected" : ""} ${used ? "used" : ""}`} aria-label={animal.commonName} aria-pressed={selectedAnimal === id} {...animalPointerHandlers(id)} onClick={() => { if (suppressClick.current) { suppressClick.current = false; return; } if (selectedTrait) assign(selectedTrait, id); else setSelectedAnimal(selectedAnimal === id ? null : id); }}><span><AnimalPortrait animal={animal} photo={photoMap.get(id)} presentation="real" /></span><div><strong>{animal.commonName}</strong></div>{used && <b>USED</b>}</button>; })}</div>
           </section><div className="boardSpine" aria-hidden="true" />
-          <section className="panel boardPanel"><div className="panelTitle"><div><h3>Make your matches</h3></div></div><div className="slots" aria-label="Measures to match">{board.traitIds.map(id => { const trait = traitMap.get(id)!; const animal = animalMap.get(assignments[id]); return <div key={id} data-trait-id={id} className={`slot ${animal ? "assigned" : ""} ${selectedTrait === id ? "selectedCategory" : ""} ${dropTarget === id ? "touchTarget" : ""}`} role="button" tabIndex={0} aria-label={`${trait.displayName}: ${animal ? animal.commonName : "empty match"}`} aria-pressed={selectedTrait === id} {...traitPointerHandlers(id)} onClick={() => { if (suppressClick.current) { suppressClick.current = false; return; } selectedAnimal ? assign(id, selectedAnimal) : setSelectedTrait(selectedTrait === id ? null : id); }} onKeyDown={event => { if (event.target === event.currentTarget && (event.key === "Enter" || event.key === " ")) { event.preventDefault(); selectedAnimal ? assign(id, selectedAnimal) : setSelectedTrait(selectedTrait === id ? null : id); } }}><span className="cornerNotch" aria-hidden="true" /><div className="category"><span className="desktopCategoryIcon">{animalTraitIcon(trait)}</span><div className="categoryCopy"><strong><AnimalCategoryLabel trait={trait} /></strong><small>{trait.playerHint ?? trait.definition}</small></div></div><div className={`choice ${animal ? "filled" : ""}`} data-animal-drag={animal ? "true" : undefined} {...(animal ? animalPointerHandlers(animal.id) : {})}>{animal ? <><span className="pieceFlag"><AnimalPortrait animal={animal} photo={photoMap.get(animal.id)} presentation="real" /></span><strong className="pieceName">{animal.commonName}</strong><button type="button" className="removePiece" aria-label={`Remove ${animal.commonName} from ${trait.displayName}`} onPointerDown={event => event.stopPropagation()} onClick={event => { event.stopPropagation(); sound.play("remove"); setAssignments(previous => { const next = { ...previous }; delete next[id]; return next; }); setSelectedAnimal(null); setSelectedTrait(null); }}>×</button></> : <em>{selectedAnimal ? "Place here" : selectedTrait === id ? "Choose an animal" : "Assign animal"}</em>}</div></div>; })}</div></section>
+          <section className="panel boardPanel"><div className="panelTitle"><div><h3>Make your matches</h3></div></div><div className="slots" aria-label="Measures to match">{board.traitIds.map(id => { const trait = traitMap.get(id)!; const animal = animalMap.get(assignments[id]); return <div key={id} data-trait-id={id} className={`slot ${animal ? "assigned" : ""} ${selectedTrait === id ? "selectedCategory" : ""} ${dropTarget === id ? "touchTarget" : ""}`} role="button" tabIndex={0} aria-label={`${trait.displayName}: ${animal ? animal.commonName : "empty match"}`} aria-pressed={selectedTrait === id} {...traitPointerHandlers(id)} onClick={() => { if (suppressClick.current) { suppressClick.current = false; return; } selectedAnimal ? assign(id, selectedAnimal) : setSelectedTrait(selectedTrait === id ? null : id); }} onKeyDown={event => { if (event.target === event.currentTarget && (event.key === "Enter" || event.key === " ")) { event.preventDefault(); selectedAnimal ? assign(id, selectedAnimal) : setSelectedTrait(selectedTrait === id ? null : id); } }}><span className="cornerNotch" aria-hidden="true" /><div className="category"><span className="desktopCategoryIcon">{animalTraitIcon(trait)}</span><div className="categoryCopy"><strong><AnimalCategoryLabel trait={trait} /></strong><small>{trait.playerHint ?? trait.definition}</small></div></div><div className={`choice ${animal ? "filled" : ""}`} data-animal-drag={animal ? "true" : undefined} {...(animal ? animalPointerHandlers(animal.id) : {})}>{animal ? <><span className="pieceFlag"><AnimalPortrait animal={animal} photo={photoMap.get(animal.id)} presentation="real" /></span><strong className="pieceName">{animal.commonName}</strong><button type="button" className="removePiece" aria-label={`Remove ${animal.commonName} from ${trait.displayName}`} onPointerDown={event => event.stopPropagation()} onClick={event => { event.stopPropagation(); sound.play("remove"); setAssignments(previous => { const next = { ...previous }; delete next[id]; return next; }); setSelectedAnimal(null); setSelectedTrait(null); }}>×</button></> : <em>{selectedAnimal ? "Place here" : selectedTrait === id ? "Choose an animal" : "Assign animal"}</em>}</div></div>; })}</div>{submitControl}</section>
         </div>}
 
         {draggingTrait && <div className="animalDragGhost animalTraitGhost" style={{ left: draggingTrait.x, top: draggingTrait.y }}>{traitMap.get(draggingTrait.id)?.displayName}</div>}
         {dragging && <div className="animalDragGhost sanctuaryDragGhost" style={{ left: dragging.x, top: dragging.y }}><AnimalPortrait animal={animalMap.get(dragging.id)!} photo={photoMap.get(dragging.id)} presentation={presentation} /><span>{animalMap.get(dragging.id)?.commonName}</span></div>}
-        <div className="animalSubmit"><button type="button" onClick={() => {
-          if (Object.keys(assignments).length < board.traitIds.length) {
-            setMessage(`Choose an animal for all ${board.traitIds.length} traits first.`); return;
-          }
-          sound.play("result");
-          setSubmitted(true);
-          setMessage("");
-          saveResult();
-        }}>Submit answers</button>{message && <p role="status">{message}</p>}<span className="animalProgress" aria-live="polite">{Object.keys(assignments).length} / {board.traitIds.length} placed</span></div>
+        {presentation === "cute" && submitControl}
       </>}
       {submitted && <>
         {accountMessage && <p role="status" className="animalSaveStatus">{accountMessage}</p>}
-        <AnimalResults data={data} board={board} results={results} mode={mode} total={total} optimalChoices={optimalChoices} presentation={presentation} onModeChange={difficulty => { setFocusTrait(null); switchBoard(difficulty); }} onNext={nextBoard} onHelp={() => showHelp()} onScoring={() => showHelp("scoring")} />
-        <div className="animalActions">
-          <button type="button" className="animalNext" onClick={async () => {
-            const message = `Countries, Animals & Things\nAnimalStats ${config.label} · ${playKind} · ${date}\n${total}/${config.maxScore} · ${optimalChoices} Optimal Choices\n${results.map((row) => row.rank === 1 ? "🎯" : row.points >= 50 ? "🟩" : "🟨").join("")}\n${challengeUrl(board.id!)}`;
-            try { await navigator.clipboard.writeText(message); setCopied(true); } catch { setCopied(false); }
-          }}>{copied ? "Copied ✓" : "Copy result"}</button></div>
+        <AnimalResults data={data} board={board} results={results} mode={mode} total={total} optimalChoices={optimalChoices} presentation={presentation} onModeChange={difficulty => { setFocusTrait(null); switchBoard(difficulty); }} onNext={nextBoard} shareActions={<><details className="scoreShareOptions"><summary className="shareScore">Share score</summary><div className="scoreShareMenu"><button type="button" onClick={() => void shareResult()}>{copied ? "Score copied ✓" : "Copy score"}</button><button type="button" onClick={() => void shareResult(true)}>More sharing options</button></div></details><span className="sr-only" role="status">{copied ? "Score copied to clipboard" : ""}</span></>} />
+        <div className="resultsGameTools"><GameTools categories={board.traitIds.map(id=>({id,name:traitMap.get(id)!.displayName}))} difficulty={mode}/></div>
       </>}
       </>}
     </div>
+    {manualScoreCopy && <div className="modal copyFallback" role="dialog" aria-modal="true" aria-label="Copy your score" onClick={event=>{if(event.target===event.currentTarget)setManualScoreCopy("");}}><div ref={copyPanelRef}><h2>Copy your score</h2><p>Your browser blocked automatic copying. Select the text below and copy it.</p><textarea aria-label="Score to copy" readOnly value={manualScoreCopy} onFocus={event=>event.currentTarget.select()} rows={7} autoFocus/><button type="button" onClick={()=>setManualScoreCopy("")}>Close</button></div></div>}
     {photoCreditsOpen && <AnimalPhotoCredits photos={data.photos} animals={data.animals} onClose={() => setPhotoCreditsOpen(false)} />}
     {helpOpen && <div className="modal rulesModal" onClick={event => event.target === event.currentTarget && setHelpOpen(false)}><section ref={helpRef} className="rulesModalCard" role="dialog" aria-modal="true" aria-labelledby="rulesTitle" onKeyDown={event => { if (event.key === "Escape") setHelpOpen(false); }}><h2 id="rulesTitle">{helpTopic === "scoring" ? "Scoring" : "How to play"}</h2>{helpTopic === "play" ? <ol><li><strong>Choose an animal and a prize.</strong> Click either one first, or drag in either direction.</li><li><strong>Use each animal once.</strong> Move to swap prizes, or select × to remove a choice.</li><li><strong>Submit your answers.</strong> See your placements and explore the rankings.</li></ol> : <><p>First place among the animals on your board earns 100 points.</p><p>{config.label}: {config.pointsByRank.map((points, index) => `${index + 1}${index === 0 ? "st" : index === 1 ? "nd" : index === 2 ? "rd" : "th"} = ${points}`).join(" · ")} points.</p><p>Your score adds up all {config.categoryCount} matches, for a maximum of {config.maxScore}.</p></>}<button type="button" onClick={() => setHelpOpen(false)}>Back to game</button></section></div>}
 

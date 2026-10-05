@@ -1,0 +1,346 @@
+Species,Population,Sex,Sub #,Trials to criterion,Test Accuracy
+Ring-tailed lemur,Duke Lemur Center,M,1,3,0
+Ring-tailed lemur,Duke Lemur Center,F,2,6,1
+Ring-tailed lemur,Duke Lemur Center,M,3,3,1
+Ring-tailed lemur,Duke Lemur Center,M,4,3,0
+Ring-tailed lemur,Duke Lemur Center,F,5,15,0
+Ring-tailed lemur,Duke Lemur Center,M,6,3,0
+Ring-tailed lemur,Duke Lemur Center,M,7,3,1
+Ring-tailed lemur,Duke Lemur Center,F,8,12,0
+Ring-tailed lemur,Duke Lemur Center,F,9,6,0
+Ring-tailed lemur,Duke Lemur Center,M,10,9,1
+Mongoose lemur,Duke Lemur Center,M,1,3,1
+Mongoose lemur,Duke Lemur Center,F,2,3,1
+Mongoose lemur,Duke Lemur Center,M,3,3,1
+Mongoose lemur,Duke Lemur Center,M,4,6,1
+Mongoose lemur,Duke Lemur Center,M,5,3,1
+Mongoose lemur,Duke Lemur Center,F,6,3,0
+Mongoose lemur,Duke Lemur Center,M,7,12,0
+Mongoose lemur,Duke Lemur Center,M,8,3,0
+Mongoose lemur,Duke Lemur Center,F,9,21,0
+Mongoose lemur,Duke Lemur Center,F,10,6,0
+Black lemur,Duke Lemur Center,M,1,6,1
+Black lemur,Duke Lemur Center,F,2,3,1
+Black lemur,Duke Lemur Center,M,3,3,1
+Black lemur,Duke Lemur Center,F,4,3,0
+Black lemur,Duke Lemur Center,M,5,9,0
+Black lemur,Duke Lemur Center,F,6,3,0
+Black lemur,Duke Lemur Center,M,7,6,1
+Black lemur,Duke Lemur Center,M,8,3,0
+Black lemur,Duke Lemur Center,F,9,12,1
+Black lemur,Duke Lemur Center,M,10,3,1
+Ruffed lemur,Duke Lemur Center,M,1,6,0
+Ruffed lemur,Duke Lemur Center,M,2,6,1
+Ruffed lemur,Duke Lemur Center,F,3,3,0
+Ruffed lemur,Duke Lemur Center,M,4,3,0
+Ruffed lemur,Duke Lemur Center,F,5,6,0
+Ruffed lemur,Duke Lemur Center,F,6,12,0
+Ruffed lemur,Duke Lemur Center,F,7,6,0
+Ruffed lemur,Duke Lemur Center,M,8,3,0
+Ruffed lemur,Duke Lemur Center,F,9,9,0
+Ruffed lemur,Duke Lemur Center,M,10,3,0
+Coquerel's sifaka,Duke Lemur Center,M,1,6,0
+Coquerel's sifaka,Duke Lemur Center,M,2,6,0
+Coquerel's sifaka,Duke Lemur Center,F,3,6,1
+Coquerel's sifaka,Duke Lemur Center,M,4,15,0
+Coquerel's sifaka,Duke Lemur Center,M,5,6,0
+Coquerel's sifaka,Duke Lemur Center,M,6,3,0
+Coquerel's sifaka,Duke Lemur Center,F,7,6,0
+Coquerel's sifaka,Duke Lemur Center,M,8,6,1
+Coquerel's sifaka,Duke Lemur Center,F,9,3,1
+Coquerel's sifaka,Duke Lemur Center,M,10,3,0
+Hamadryus baboon,North Carolina Zoo,M,1,6,1
+Hamadryus baboon,North Carolina Zoo,M,2,3,1
+Hamadryus baboon,North Carolina Zoo,F,3,3,1
+Hamadryus baboon,North Carolina Zoo,M,4,3,1
+Hamadryus baboon,North Carolina Zoo,M,5,3,1
+Hamadryus baboon,North Carolina Zoo,F,6,12,1
+Hamadryus baboon,North Carolina Zoo,F,7,6,1
+Hamadryus baboon,North Carolina Zoo,F,8,3,0
+Hamadryus baboon,North Carolina Zoo,M,9,3,0
+Hamadryus baboon,North Carolina Zoo,M,10,6,0
+Hamadryus baboon,North Carolina Zoo,m,11,3,0
+Olive baboon,Seneca Park Zoo,M,1,3,1
+Olive baboon,Seneca Park Zoo,M,2,3,1
+Olive baboon,Seneca Park Zoo,M,3,3,1
+Olive baboon,Seneca Park Zoo,F,4,3,1
+Olive baboon,Seneca Park Zoo,F,5,3,1
+Olive baboon,Seneca Park Zoo,F,6,3,1
+Olive baboon,Seneca Park Zoo,F,7,3,1
+Olive baboon,Seneca Park Zoo,F,8,3,1
+Olive baboon,Seneca Park Zoo,F,9,3,1
+Golden monkey,Beijing Wildlife Park,M,1,3,1
+Golden monkey,Beijing Wildlife Park,F,2,3,1
+Golden monkey,Beijing Wildlife Park,F,3,3,0
+Golden monkey,Beijing Wildlife Park,F,4,3,1
+Golden monkey,Beijing Wildlife Park,M,5,6,0
+Golden monkey,Beijing Wildlife Park,F,6,3,0
+Golden monkey,Beijing Wildlife Park,F,7,3,1
+Golden monkey,Beijing Wildlife Park,M,8,9,0
+Golden monkey,Beijing Wildlife Park,M,9,3,1
+Marmoset,University of Zurich,M,1,3,1
+Marmoset,University of Zurich,M,2,3,1
+Marmoset,University of Zurich,M,3,3,1
+Marmoset,University of Zurich,M,4,3,0
+Marmoset,University of Zurich,F,5,3,1
+Marmoset,University of Zurich,F,6,3,1
+Marmoset,University of Zurich,F,7,3,0
+Marmoset,University of Zurich,F,8,3,0
+Marmoset,University of Zurich,F,9,3,0
+Marmoset,University of Zurich,M,10,3,1
+Fox Squirrel,UC Berkeley,F,1,24,0
+Fox Squirrel,UC Berkeley,M,2,12,1
+Fox Squirrel,UC Berkeley,F,3,15,0
+Fox Squirrel,UC Berkeley,Unknown,4,6,0
+Fox Squirrel,UC Berkeley,F,5,30,0
+Fox Squirrel,UC Berkeley,M,6,3,0
+Fox Squirrel,UC Berkeley,M,7,3,0
+Fox Squirrel,UC Berkeley,F,8,12,0
+Stump-tailed macaque,Peking University,M,1,3,1
+Stump-tailed macaque,Peking University,M,2,3,1
+Stump-tailed macaque,Peking University,M,3,12,1
+Stump-tailed macaque,Peking University,M,4,3,0
+Stump-tailed macaque,Peking University,M,5,3,1
+Stump-tailed macaque,Peking University,F,6,3,0
+Stump-tailed macaque,Peking University,M,7,6,0
+Chimpanzee,MPI-Leipzig,F,1,3,1
+Chimpanzee,MPI-Leipzig,F,2,3,1
+Chimpanzee,MPI-Leipzig,F,3,3,1
+Chimpanzee,MPI-Leipzig,F,4,3,1
+Chimpanzee,MPI-Leipzig,F,5,3,1
+Chimpanzee,MPI-Leipzig,F,6,3,1
+Chimpanzee,MPI-Leipzig,M,7,3,1
+Chimpanzee,North Carolina Zoo,F,8,3,1
+Chimpanzee,North Carolina Zoo,F,9,6,1
+Chimpanzee,North Carolina Zoo,M,10,3,0
+Chimpanzee,North Carolina Zoo,M,11,3,1
+Chimpanzee,North Carolina Zoo,M,12,3,1
+Chimpanzee,North Carolina Zoo,F,13,3,1
+Chimpanzee,North Carolina Zoo,F,14,9,0
+Chimpanzee,North Carolina Zoo,M,15,3,1
+Bonobo,MPI-Leipzig,F,1,3,1
+Bonobo,MPI-Leipzig,M,2,3,1
+Bonobo,MPI-Leipzig,M,3,3,1
+Bonobo,MPI-Leipzig,M,4,3,1
+Orangutan,MPI-Leipzig,M,1,3,1
+Orangutan,MPI-Leipzig,M,2,3,1
+Orangutan,MPI-Leipzig,F,3,3,0
+Orangutan,MPI-Leipzig,F,4,3,1
+Orangutan,MPI-Leipzig,F,5,3,1
+Orangutan,MPI-Leipzig,F,6,3,1
+Orangutan,National Zoo,M,7,3,1
+Orangutan,National Zoo,F,8,3,1
+Orangutan,National Zoo,F,9,3,1
+Orangutan,National Zoo,M,10,3,1
+Orangutan,National Zoo,F,11,3,1
+Orangutan,National Zoo,F,12,3,1
+Gorilla,MPI-Leipzig,M,1,3,1
+Gorilla,MPI-Leipzig,F,2,3,1
+Gorilla,MPI-Leipzig,M,3,3,1
+Gorilla,MPI-Leipzig,F,4,3,1
+Gorilla,MPI-Leipzig,F,5,3,1
+Gorilla,MPI-Leipzig,F,6,3,1
+Gorilla,MPI-Leipzig,F,7,3,1
+Gorilla,National Zoo,M,8,3,1
+Gorilla,National Zoo,F,9,3,1
+Gorilla,National Zoo,M,10,3,1
+Gorilla,National Zoo,M,12,3,1
+Gorilla,National Zoo,F,13,3,1
+Long-tailed macaque,University of Utrecht,M,1,3,0
+Long-tailed macaque,University of Utrecht,M,2,3,1
+Long-tailed macaque,University of Utrecht,M,3,3,1
+Long-tailed macaque,University of Utrecht,M,4,3,1
+Long-tailed macaque,University of Utrecht,F,5,3,1
+Long-tailed macaque,University of Utrecht,F,6,3,1
+Long-tailed macaque,University of Utrecht,F,7,6,1
+Long-tailed macaque,University of Utrecht,F,8,3,0
+Long-tailed macaque,University of Utrecht,F,9,3,0
+Long-tailed macaque,University of Utrecht,F,10,3,1
+Long-tailed macaque,University of Utrecht,F,11,3,0
+Long-tailed macaque,University of Utrecht,F,12,3,1
+Spider monkey,Mexico,UNKNOWN,1,3,1
+Spider monkey,Mexico,UNKNOWN,2,3,1
+Spider monkey,Mexico,UNKNOWN,3,3,1
+Spider monkey,Mexico,UNKNOWN,4,3,1
+Spider monkey,Mexico,UNKNOWN,5,3,1
+Spider monkey,Mexico,UNKNOWN,6,3,1
+Spider monkey,Mexico,UNKNOWN,7,3,1
+Spider monkey,Mexico,UNKNOWN,8,3,1
+Spider monkey,Mexico,UNKNOWN,9,6,1
+Spider monkey,Mexico,UNKNOWN,10,3,1
+Spider monkey,Mexico,UNKNOWN,11,3,1
+Spider monkey,Mexico,UNKNOWN,12,3,1
+Spider monkey,Mexico,UNKNOWN,13,3,1
+Spider monkey,Mexico,UNKNOWN,14,3,0
+Spider monkey,Mexico,UNKNOWN,15,3,1
+Capuchin monkey,Institute of Cognitive Sciences and Technologies,F,1,3,1
+Capuchin monkey,Institute of Cognitive Sciences and Technologies,M,2,3,1
+Capuchin monkey,Institute of Cognitive Sciences and Technologies,F,3,3,1
+Capuchin monkey,Institute of Cognitive Sciences and Technologies,F,4,3,0
+Capuchin monkey,Institute of Cognitive Sciences and Technologies,M,5,3,1
+Capuchin monkey,Institute of Cognitive Sciences and Technologies,M,6,3,1
+Capuchin monkey,Institute of Cognitive Sciences and Technologies,F,7,3,1
+Capuchin monkey,Institute of Cognitive Sciences and Technologies,M,8,3,1
+Capuchin monkey,Institute of Cognitive Sciences and Technologies,F,9,3,0
+Capuchin monkey,Institute of Cognitive Sciences and Technologies,F,10,3,1
+Capuchin monkey,Institute of Cognitive Sciences and Technologies,M,11,3,1
+Capuchin monkey,Institute of Cognitive Sciences and Technologies,F,12,3,1
+Capuchin monkey,Institute of Cognitive Sciences and Technologies,M,13,3,1
+Capuchin monkey,Institute of Cognitive Sciences and Technologies,M,14,3,0
+Capuchin monkey,Institute of Cognitive Sciences and Technologies,F,15,3,1
+Capuchin monkey,Institute of Cognitive Sciences and Technologies,F,16,3,0
+Capuchin monkey,Institute of Cognitive Sciences and Technologies,M,17,3,1
+Capuchin monkey,Institute of Cognitive Sciences and Technologies,M,18,3,1
+Capuchin monkey,Institute of Cognitive Sciences and Technologies,M,19,3,1
+Capuchin monkey,Yale University,M,20,3,1
+Capuchin monkey,Yale University,M,21,3,1
+Capuchin monkey,Yale University,M,22,3,1
+Capuchin monkey,Yale University,M,23,3,1
+Capuchin monkey,Yale University,F,24,3,1
+Capuchin monkey,Yale University,F,25,3,1
+Capuchin monkey,Yale University,F,26,3,1
+Capuchin monkey,Yale University,F,27,3,1
+Capuchin monkey,Yale University,F,28,3,1
+Capuchin monkey,Yale University,F,29,9,1
+Squirrel monkey,Kyoto University,M,1,5,0
+Squirrel monkey,Kyoto University,M,2,3,1
+Squirrel monkey,Kyoto University,F,3,7,0
+Squirrel monkey,Kyoto University,F,4,6,0
+Squirrel monkey,Kyoto University,F,5,10,0
+Squirrel monkey,Kyoto University,F,6,3,0
+Squirrel monkey,Kyoto University,M,7,3,0
+Squirrel monkey,Kyoto University,F,8,4,0
+Squirrel monkey,Kyoto University,F,9,3,0
+Squirrel monkey,Kyoto University,F,10,5,0
+Squirrel monkey,"Living Links, University of St. Andrews",F,11,3,0
+Squirrel monkey,"Living Links, University of St. Andrews",F,12,3,0
+Squirrel monkey,"Living Links, University of St. Andrews",F,13,3,0
+Squirrel monkey,"Living Links, University of St. Andrews",F,14,6,0
+Squirrel monkey,"Living Links, University of St. Andrews",F,15,3,0
+Squirrel monkey,"Living Links, University of St. Andrews",F,16,3,0
+Squirrel monkey,"Living Links, University of St. Andrews",F,17,6,1
+Squirrel monkey,"Living Links, University of St. Andrews",F,18,5,1
+Squirrel monkey,"Living Links, University of St. Andrews",M,19,3,0
+Eurasian jay,University of Cambridge,M,1,3,0
+Eurasian jay,University of Cambridge,M,2,6,0
+Eurasian jay,University of Cambridge,M,3,30,0
+Eurasian jay,University of Cambridge,M,4,3,1
+Eurasian jay,University of Cambridge,F,5,3,0
+Eurasian jay,University of Cambridge,M,6,3,0
+Western scrub jay,University of Cambridge,M,1,30,0
+Western scrub jay,University of Cambridge,F,2,132,1
+Western scrub jay,University of Cambridge,F,3,6,0
+Western scrub jay,University of Cambridge,UNKNOWN,4,3,0
+Western scrub jay,University of Cambridge,M,5,3,0
+Western scrub jay,University of Cambridge,M,6,24,0
+Mongolian Gerbil,UC Berkeley,M,1,27,0
+Mongolian Gerbil,UC Berkeley,M,2,9,1
+Mongolian Gerbil,UC Berkeley,F,3,18,0
+Mongolian Gerbil,UC Berkeley,M,4,12,0
+Mongolian Gerbil,UC Berkeley,F,5,42,0
+Mongolian Gerbil,UC Berkeley,M,6,27,0
+Mongolian Gerbil,UC Berkeley,F,7,15,1
+Mongolian Gerbil,UC Berkeley,F,8,6,0
+Mongolian Gerbil,UC Berkeley,F,9,24,0
+Mongolian Gerbil,UC Berkeley,F,10,18,0
+Elphas maximus,Golden Triangle Asian Elephant Foundation,M,1,12,0
+Elphas maximus,Golden Triangle Asian Elephant Foundation,F,2,12,0
+Elphas maximus,Golden Triangle Asian Elephant Foundation,F,3,3,0
+Elphas maximus,Golden Triangle Asian Elephant Foundation,M,4,12,0
+Elphas maximus,Golden Triangle Asian Elephant Foundation,F,5,9,0
+Elphas maximus,Golden Triangle Asian Elephant Foundation,F,6,9,0
+Elphas maximus,Golden Triangle Asian Elephant Foundation,F,7,9,0
+Canis latrans,"Logan Field Station, Utah",M,,3,0
+Canis latrans,"Logan Field Station, Utah",F,,3,0
+Canis latrans,"Logan Field Station, Utah",M,,3,0
+Canis latrans,"Logan Field Station, Utah",M,,3,1
+Canis latrans,"Logan Field Station, Utah",F,,3,0
+Canis latrans,"Logan Field Station, Utah",M,,3,0
+Canis latrans,"Logan Field Station, Utah",M,,3,1
+White Carnea Pigeon,University of Kentucky,M,1,3,1
+White Carnea Pigeon,University of Kentucky,M,2,3,0
+White Carnea Pigeon,University of Kentucky,M,3,3,0
+White Carnea Pigeon,University of Kentucky,M,4,3,1
+White Carnea Pigeon,University of Kentucky,M,5,3,0
+White Carnea Pigeon,University of Kentucky,M,6,3,1
+White Carnea Pigeon,University of Kentucky,M,7,3,0
+White Carnea Pigeon,University of Kentucky,M,8,3,0
+White Carnea Pigeon,University of Kentucky,M,9,3,1
+White Carnea Pigeon,University of Kentucky,M,10,3,1
+White Carnea Pigeon,University of Kentucky,M,11,3,1
+Orange-winged Amazon,University of St. Andrews,M,1,9,0
+Orange-winged Amazon,University of St. Andrews,M,2,7,0
+Orange-winged Amazon,University of St. Andrews,M,3,25,0
+Orange-winged Amazon,University of St. Andrews,F,4,3,0
+Orange-winged Amazon,University of St. Andrews,M,5,3,0
+Orange-winged Amazon,University of St. Andrews,F,6,6,0
+Orange-winged Amazon,University of St. Andrews,F,7,5,0
+Orange-winged Amazon,University of St. Andrews,M,8,9,0
+Orange-winged Amazon,University of St. Andrews,M,9,5,1
+Orange-winged Amazon,University of St. Andrews,M,10,6,0
+Domestic Dog,Duke,F,1,3,1
+Domestic Dog,Duke,F,2,3,1
+Domestic Dog,Duke,M,3,3,1
+Domestic Dog,Duke,M,4,3,1
+Domestic Dog,Duke,M,5,9,0
+Domestic Dog,Duke,F,6,3,1
+Domestic Dog,Duke,M,7,3,1
+Domestic Dog,Duke,F,8,3,1
+Domestic Dog,Duke,F,9,3,1
+Domestic Dog,Duke,F,10,3,1
+Domestic Dog,Duke,M,11,3,1
+Domestic Dog,Duke,F,12,3,0
+Domestic Dog,Duke,F,13,3,1
+Domestic Dog,Duke,F,14,3,0
+Domestic Dog,Duke,F,15,3,1
+Domestic Dog,Duke,M,16,3,1
+Domestic Dog,Duke,M,17,3,0
+Domestic Dog,Duke,F,18,3,1
+Domestic Dog,Duke,F,19,3,1
+Domestic Dog,Duke,F,20,3,0
+Domestic Dog,Duke,M,21,3,0
+Domestic Dog,Duke,F,22,3,1
+Domestic Dog,Duke,F,23,3,1
+Domestic Dog,Duke,M,24,3,1
+Domestic Dog,Duke,M,25,3,1
+Domestic Dog,Duke,M,26,3,1
+Domestic Dog,Duke,F,27,6,1
+Domestic Dog,Duke,M,28,3,1
+Domestic Dog,Duke,M,29,3,1
+Domestic Dog,Duke,F,30,3,1
+Domestic Dog,Duke,F,31,3,1
+Domestic Dog,Duke,M,32,3,1
+Domestic Dog,Duke,M,33,3,1
+Domestic Dog,Duke,F,34,3,1
+Domestic Dog,Duke,F,35,3,1
+Domestic Dog,Duke,M,36,3,1
+Domestic Dog,Duke,M,37,3,0
+Domestic Dog,Duke,M,38,3,1
+Domestic Dog,Duke,M,39,3,1
+Domestic Dog,Duke,F,40,3,1
+Domestic Dog,Duke,F,41,3,1
+Domestic Dog,Duke,M,42,3,1
+Domestic Dog,Duke,F,43,6,1
+Domestic Dog,Duke,M,44,3,1
+Domestic Dog,Duke,M,45,3,1
+Domestic Dog,Duke,M,46,3,1
+Domestic Dog,Duke,F,47,3,1
+Domestic Dog,Duke,M,48,3,1
+Domestic Dog,Duke,F,49,3,1
+Domestic Dog,Duke,M,50,3,1
+Domestic Dog,Duke,M,51,3,1
+Domestic Dog,Duke,M,52,3,1
+Domestic Dog,Duke,M,53,3,1
+Domestic Dog,Duke,F,54,3,1
+Domestic Dog,MPI,F,55,3,1
+Domestic Dog,MPI,M,56,3,1
+Domestic Dog,MPI,M,57,3,1
+Domestic Dog,MPI,F,58,3,1
+Domestic Dog,MPI,M,59,3,1
+Domestic Dog,MPI,M,60,3,1
+Domestic Dog,MPI,F,61,3,1
+Domestic Dog,MPI,F,62,3,1
+Domestic Dog,MPI,F,63,3,1
+Domestic Dog,MPI,M,64,3,1
+Domestic Dog,MPI,F,65,3,1
+Domestic Dog,MPI,M,66,3,1

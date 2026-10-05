@@ -113,7 +113,7 @@ function Mammal({ p, clipId }: { p: Profile; clipId: string }) {
     {f === "opossum" && <path fill="#b6b8aa" stroke="none" d="M52 94 l8-7 4 5 7-9 5 5 8-5 5 7 9-4 8 8 11 1 -4 5 Q80 90 52 100 Z" />}
     {f === "guineapig" && <path fill={CREAM} stroke="none" d="M83 78 Q68 100 88 131 L113 129 Q97 105 112 85 Z" />}
     {f === "hedgehog" && <g fill="#705338">{Array.from({length: 19}, (_,i) => { const a = Math.PI * (1.05 + i / 19 * .9), sx = 81 + Math.cos(a) * 40, sy = 107 + Math.sin(a) * 25; return <path key={i} d={`M${sx-5} ${sy+8} l3-19 8 14 Z`} />; })}</g>}
-    {f === "bison" && <><path fill="#573d2d" d="M107 64 Q136 66 146 91 L137 125 127 122 119 132 112 123 104 125 103 112 96 106 Z" /><path fill="#e1d3af" d="M134 71 Q120 60 127 48 Q126 63 142 65 M148 68 Q163 57 155 48 Q169 60 153 78" /></>}
+    {f === "bison" && <><path fill="#573d2d" d="M107 64 Q136 66 146 91 L137 125 127 122 119 132 112 123 104 125 103 112 96 106 Z" /></>}
     {hoof ? <path fill={color} d={f === "giraffe" ? "M106 89 L123 29 Q132 22 142 32 L130 96 Z" : f === "camel" ? "M105 94 Q115 82 119 50 Q122 37 140 43 L142 64 Q129 78 126 108 Z" : "M103 83 L119 50 Q130 41 140 55 L125 102 Z"} /> : null}
     {f === "giraffe" && <g fill="#96623e" stroke="none"><path d="M116 66 l9-4 4 11 -10 6 Z M125 45 l9-2 2 10 -10 3 Z M110 84 l11-5 4 9 -13 6 Z" /></g>}
     {f === "zebra" && <path fill="#3b3c37" d="M111 74 l-2-14 5-15 7 4 -4 13 4 11 Z" />}
@@ -147,13 +147,15 @@ function Mammal({ p, clipId }: { p: Profile; clipId: string }) {
       !pointed && !flat ? <path fill={hoof ? "#e1d4bc" : d.bear || d.cat ? muzzle : head} d={`M${x+4} ${y+6} Q${x+13} ${y+1} ${x+29} ${y+8} Q${x+39} ${y+19} ${x+18} ${y+24} Q${x+1} ${y+22} ${x+4} ${y+6} Z`} /> :
       canine ? <path fill={p.belly} stroke="none" d={`M${x-6} ${y+8} L${x+19} ${y+5} ${x+43} ${y+12} Q${x+38} ${y+23} ${x+15} ${y+22} L${x-6} ${y+8} Z`} /> : null}
       {f === "boar" && <><ellipse fill="#b7997d" cx={x+30} cy={y+11} rx="12" ry="9"/><circle fill={INK} stroke="none" cx={x+26} cy={y+10} r="2"/><circle fill={INK} stroke="none" cx={x+33} cy={y+10} r="2"/><path fill={CREAM} d={`M${x+18} ${y+22} q-13-4-8-17 q-1 9 11 10 Z`}/></>}
+      {f === "bison" && <g data-anatomy="visible-horns"><path fill="#e1d3af" d={`M${x-16} ${y-18} Q${x-31} ${y-24} ${x-26} ${y-39} Q${x-22} ${y-28} ${x-9} ${y-25} Z M${x+13} ${y-20} Q${x+29} ${y-26} ${x+22} ${y-40} Q${x+37} ${y-28} ${x+20} ${y-12} Z`}/><path fill="#4b3428" stroke="none" d={`M${x-20} ${y-15} l6-11 5 9 7-10 6 9 8-5 7 13 -7-2 -4 7 -6-6 -9 4 -5-8 Z`}/><path fill="#573d2d" d={`M${x+11} ${y+21} l-4 17 11-8 5-12 Z`}/></g>}
+      {f === "hippo" && <g data-anatomy="broad-muzzle"><path fill="#ad9a9c" d={`M${x+10} ${y+2} Q${x+29} ${y-2} ${x+43} ${y+6} L${x+43} ${y+20} Q${x+24} ${y+33} ${x+6} ${y+20} Z`}/><ellipse fill={INK} stroke="none" cx={x+25} cy={y+7} rx="2.5" ry="2"/><ellipse fill={INK} stroke="none" cx={x+37} cy={y+8} rx="2.5" ry="2"/><path fill="none" strokeWidth="1.5" d={`M${x+10} ${y+20} q17 7 30-2`}/></g>}
       {f === "rhino" && <><path fill="#e9ddc4" d={`M${x+24} ${y+6} Q${x+24} ${y-9} ${x+37} ${y-23} L${x+35} ${y+11} Z`} /><path fill="#e9ddc4" d={`M${x+15} ${y+4} l4-15 6 17 Z`} /></>}
       {f === "goat" && <><path fill="#937d62" d={`M${x-9} ${y-15} Q${x-14} ${y-37} ${x-27} ${y-32} Q${x-20} ${y-27} ${x-17} ${y-12} Z`}/><path fill="#937d62" d={`M${x+4} ${y-17} Q${x+1} ${y-37} ${x-10} ${y-35} Q${x-4} ${y-28} ${x-3} ${y-15} Z`}/><path fill={p.belly} d={`M${x+17} ${y+20} l-3 14 10-9 7-4 Z`}/></>}
       {["deer","reindeer"].includes(f) && <g fill="none" stroke="#7c5b3e" strokeWidth="4"><path d={`M${x-8} ${y-15} l-10-20 -5-11 m9 27 -15-7 m11 1 -1-15 M${x+4} ${y-17} l5-17 9-12 m-12 20 13-3 m-12-4 -5-12`}/>{f === "reindeer" && <path d={`M${x-22} ${y-34} l-11-6 m5 9 -8-1 M${x+12} ${y-36} l9-4`}/>}</g>}
       {f === "giraffe" && <><path strokeWidth="4" d="M133 16 l-2-8 m11 9 3-9" /><circle fill="#94623e" cx="131" cy="7" r="3" /><circle fill="#94623e" cx="145" cy="7" r="3" /></>}
       {f === "zebra" && <path fill="#393c39" stroke="none" d={`M${x-15} ${y-14} l8 3 -1 10 -8-1 Z M${x+1} ${y-18} l6 3 -2 7 -6-1 Z`} />}
       <Eye x={x + (flat ? 5 : 3)} y={y - 3} size={f === "platypus" ? 6 : pointed ? 7 : 8} />
-      {f !== "platypus" && f !== "elephant" && f !== "koala" && <ellipse fill={f === "opossum" ? "#dc989e" : INK} stroke="none" cx={x + (pointed ? 42 : flat ? 33 : 29)} cy={y + (pointed ? 12 : 10)} rx={pointed ? 3 : 4} ry="3" />}
+      {f !== "platypus" && f !== "elephant" && f !== "koala" && f !== "hippo" && <ellipse fill={f === "opossum" ? "#dc989e" : INK} stroke="none" cx={x + (pointed ? 42 : flat ? 33 : 29)} cy={y + (pointed ? 12 : 10)} rx={pointed ? 3 : 4} ry="3" />}
       <path fill="none" strokeWidth="1.5" d={`M${x-3} ${y-16} q7-4 12 0 M${x+18} ${y+19} q6 5 12 0`} />
       <ellipse fill="#e6a594" opacity=".5" stroke="none" cx={x-2} cy={y+10} rx="5" ry="3" />
       {(d.cat || ["opossum","mouse","rabbit"].includes(f)) && <path fill="none" strokeWidth="1.1" d={`M${x+21} ${y+12} l-18-3 m19 8 -19 2`} />}

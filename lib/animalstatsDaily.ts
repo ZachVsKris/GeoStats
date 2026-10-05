@@ -1,42 +1,32 @@
-import { animalBoardGroup, animalBoardIsHighlyIntuitive } from "./animalstatsVariety";
-import type { AnimalDataset, BoardCandidate, BoardType } from "./animalstats";
+import { animalBoardGroup, randomAnimalBoardIndex } from "./animalstatsVariety";
+import { animalBoardComposition } from "./animalstatsComposition";
+import type { AnimalDataset, BoardCandidate } from "./animalstats";
 import type { DailyDifficulty } from "./gameRules";
 
-const SUBJECTS: Record<DailyDifficulty, string[]> = {
- easy: ["mammals", "amphibians", "bears", "birds"],
- normal: ["reptiles", "mammals", "birds", "reptiles"],
- expert: ["mammals"],
-};
-const PATTERN: Record<DailyDifficulty, BoardType[]> = {
-  easy: ["themed", "clustered", "cross-animal"],
-  normal: ["clustered", "cross-animal", "themed"],
-  expert: ["cross-animal", "themed", "clustered"],
-};
+function seededRandom(seed: number) {
+  let value = seed >>> 0;
+  return () => { value = (Math.imul(value, 1664525) + 1013904223) >>> 0; return value / 4294967296; };
+}
 
+/** Opening challenges rotate by date using the same category/animal balance as random
+ * play. This ordering never grants daily approval or changes a saved challenge. */
 export function orderAnimalPilotBoards(boards: BoardCandidate[], date: string, data?: AnimalDataset) {
   const day = Math.floor(Date.parse(`${date}T12:00:00Z`) / 86_400_000);
   const modes: DailyDifficulty[] = ["easy", "normal", "expert"];
   const usedGroups = new Set<string>();
-  return modes.flatMap((mode) => {
-    const pool = boards.filter((board) => board.mode === mode);
-    const desiredType = PATTERN[mode][day % 3];
-    const subject = SUBJECTS[mode][day % SUBJECTS[mode].length];
-    const targeted = data ? pool.filter((board) => animalBoardGroup(data, board) === subject) : [];
-    const diverse = data ? pool.filter((board) => !usedGroups.has(animalBoardGroup(data, board))) : pool;
-    const nonBirds = data ? pool.filter((board) => animalBoardGroup(data, board) !== "birds") : [];
-    const highInterest = data ? pool.filter(board => animalBoardIsHighlyIntuitive(data, board)) : [];
-    const highDiverse = data ? highInterest.filter(board => !usedGroups.has(animalBoardGroup(data, board)) && (mode !== 'easy' || animalBoardGroup(data, board) !== 'birds')) : highInterest;
-    const preferred = highDiverse.length ? highDiverse : highInterest.length ? highInterest : mode === "easy" && nonBirds.length ? nonBirds : targeted.length ? targeted : diverse.length ? diverse : pool;
-    const options = preferred.filter((board) => board.boardType === desiredType);
-    const behaviorBoards = mode === "easy" && data ? preferred.filter((board) => board.traitIds.some((id) => ["movement","sleep","space"].includes(data.traits.find((trait) => trait.id === id)?.gameplayFamily ?? ""))) : [];
-    const selectionPool = behaviorBoards.length ? behaviorBoards : options.length ? options : preferred;
-    const selected = selectionPool[Math.floor(day / 3) % selectionPool.length];
-    if (!selected) return [];
-    if (data) usedGroups.add(animalBoardGroup(data, selected));
-    const rest = pool.filter((board) => board !== selected);
-    const second = rest.find((board) => board.boardType !== selected.boardType);
-    const third = rest.find((board) => board !== second && board.boardType !== selected.boardType && board.boardType !== second?.boardType) ?? rest.find((board) => board !== second);
-    const leading = [selected, second, third].filter((board): board is BoardCandidate => Boolean(board));
-    return [...leading, ...pool.filter((board) => !leading.includes(board))];
+  return modes.flatMap((mode, modeIndex) => {
+    const pool = boards.filter(board => board.mode === mode);
+    if (!pool.length) return [];
+    let selected: BoardCandidate;
+    if (data) {
+      const composed = pool.filter(board => animalBoardComposition(data, board).eligible);
+      const safe = composed.length ? composed : pool;
+      const diverse = safe.filter(board => !usedGroups.has(animalBoardGroup(data, board)));
+      const preferred = diverse.length ? diverse : safe;
+      const previous = preferred[randomAnimalBoardIndex(data, preferred, undefined, seededRandom((day - 1) * 997 + modeIndex * 104729))];
+      selected = preferred[randomAnimalBoardIndex(data, preferred, previous, seededRandom(day * 997 + modeIndex * 104729))];
+      usedGroups.add(animalBoardGroup(data, selected));
+    } else selected = pool[((day % pool.length) + pool.length) % pool.length];
+    return [selected, ...pool.filter(board => board !== selected)];
   });
 }

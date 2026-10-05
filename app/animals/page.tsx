@@ -7,6 +7,7 @@ import { approvedAnimalBoards, type AnimalBoardReview } from "../../lib/animalst
 import candidates from "../../data/animalstats/candidates.json";
 import { createAnimalBoardValidator, type AnimalDataset, type BoardCandidate } from "../../lib/animalstats";
 import { orderAnimalPilotBoards } from "../../lib/animalstatsDaily";
+import { animalBoardComposition } from "../../lib/animalstatsComposition";
 import { newYorkDate } from "../../lib/time";
 
 export const metadata = { title: "AnimalStats · The animal fair", description: "Match familiar animals to surprising facts. Pick your prize winners, then explore the sourced rankings.", robots: { index: false, follow: false }, alternates: { canonical: "/animals" } };
@@ -39,6 +40,10 @@ export default async function AnimalStatsPage({ searchParams }: { searchParams: 
   // Read at request time so promoting a preview build cannot expose the pilot.
   if (!animalPreviewEnabled()) notFound();
   const { data, boards, clientData } = getCatalog();
+  const defaultBoards = boards.filter(board => animalBoardComposition(data, board).eligible);
+  // Existing challenge links remain exact; stricter composition governs ordinary play.
+  const shared = requested.board ? boards.find(board => board.id === requested.board) : undefined;
+  const releaseBoards = shared && !defaultBoards.includes(shared) ? [...defaultBoards, shared] : defaultBoards;
   if (!boards.length) notFound();
-  return <AnimalStatsGame initialBoardId={requested.board} data={clientData} boards={orderAnimalPilotBoards(boards, newYorkDate(), data).map(({id, mode, boardType, animalIds, traitIds, biogeographicRegions}) => ({id, mode, boardType, animalIds, traitIds, biogeographicRegions}))} approvedBoardIds={approvedAnimalBoards(data, boards, reviews as AnimalBoardReview[]).map((board) => board.id!)} date={newYorkDate()} />;
+  return <AnimalStatsGame initialBoardId={requested.board} data={clientData} boards={orderAnimalPilotBoards(releaseBoards, newYorkDate(), data).map(({id, mode, boardType, animalIds, traitIds, biogeographicRegions}) => ({id, mode, boardType, animalIds, traitIds, biogeographicRegions}))} approvedBoardIds={approvedAnimalBoards(data, boards, reviews as AnimalBoardReview[]).map((board) => board.id!)} date={newYorkDate()} />;
 }

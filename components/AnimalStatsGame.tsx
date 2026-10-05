@@ -92,10 +92,20 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
   const [reviewLabel, setReviewLabel] = useState<ReviewLabel | "">("");
   const [reviewNotes, setReviewNotes] = useState("");
   const [reviewSaved, setReviewSaved] = useState(false);
-  const modeBoards = boards.filter((board) => board.mode === mode);
-  const focusedBoards = focusTrait ? modeBoards.filter(candidate => candidate.traitIds.includes(focusTrait)) : modeBoards;
+  const modeBoards = useMemo(() => boards.filter((board) => board.mode === mode), [boards, mode]);
+  const recentBoards = useRef<BoardCandidate[]>([]);
+  const focusedBoards = useMemo(() => focusTrait ? modeBoards.filter(candidate => candidate.traitIds.includes(focusTrait)) : modeBoards, [modeBoards, focusTrait]);
   const pool = playKind === "daily" ? modeBoards.filter((board) => approvedBoardIds.includes(board.id ?? "")).slice(0, 3) : focusedBoards;
   const board = pool[boardIndex % pool.length];
+  useEffect(() => {
+    if (!board) return;
+    try {
+      const saved: string[] = JSON.parse(localStorage.getItem("animalstats-rotation-v1") ?? "[]");
+      const ids = [...(Array.isArray(saved) ? saved.filter(id => typeof id === "string") : []), board.id!].slice(-12);
+      recentBoards.current = ids.map(id => boards.find(b => b.id === id)).filter((b): b is BoardCandidate => Boolean(b));
+      localStorage.setItem("animalstats-rotation-v1", JSON.stringify(ids));
+    } catch { recentBoards.current = [...recentBoards.current, board].slice(-12); }
+  }, [board, boards]);
   const animalMap = useMemo(() => new Map(data.animals.map((animal) => [animal.id, animal])), [data.animals]);
   const photoMap = useMemo(() => new Map(data.photos.map((photo) => [photo.animalId, photo])), [data.photos]);
   const traitMap = useMemo(() => new Map(data.traits.map((trait) => [trait.id, trait])), [data.traits]);
@@ -143,7 +153,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
   }
 
   function nextBoard() {
-    const next = playKind === "daily" ? (boardIndex + 1) % pool.length : randomAnimalBoardIndex(data, pool, board);
+    const next = playKind === "daily" ? (boardIndex + 1) % pool.length : randomAnimalBoardIndex(data, pool, board, Math.random, recentBoards.current);
     switchBoard(mode, next);
   }
 
@@ -286,7 +296,7 @@ export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, 
         <details ref={menuRef} className="animalGeoMenu desktopSupportMenu"><summary><span className="fairDesktopHelp">Help &amp; tools</span><span className="fairMobileHelp">Help</span></summary><div onClick={event => { if ((event.target as HTMLElement).closest("button, a") && menuRef.current) menuRef.current.open = false; }}><button onClick={() => showHelp()}>How to play</button><button onClick={() => showHelp("scoring")}>Scoring</button><button onClick={() => setView("prizes")}>Categories</button><button onClick={() => setView("guide")}>Full data</button><button aria-pressed={sound.enabled} onClick={sound.toggle}>Game sounds: {sound.enabled ? "on" : "off"}</button><button aria-pressed={motionPaused} onClick={() => setMotionPaused(!motionPaused)}>{motionPaused ? "Animate animals" : "Pause animation"}</button><GameTools categories={board?.traitIds.map(id => ({ id, name: traitMap.get(id)!.displayName })) ?? []} difficulty={mode} /><a href="/daily">GeoStats</a></div></details>
         <div className="gameAccount"><AccountControls difficulty={mode} hideLeaderboardLink compact /></div>
       </header>
-      <section className="challengeBar animalGeoChallenge"><div className="challengeIdentity"><span className="kicker">{config.label} {playKind === "random" ? "Random" : "Daily"}</span></div><div className="challengeActions"><button type="button" aria-pressed={view === "play" && playKind === "daily"} onClick={() => { setFocusTrait(null); setPlayKind("daily"); setView("play"); switchBoard(mode); }}>Daily</button><button type="button" aria-pressed={view === "play" && playKind === "random"} onClick={() => { setFocusTrait(null); setPlayKind("random"); setView("play"); switchBoard(mode, randomAnimalBoardIndex(data, modeBoards, board)); }}>Random</button>{view !== "play" && <button onClick={() => setView("play")}>Back to game</button>}{view === "play" && <><button onClick={nextBoard}>New board</button><button onClick={copyBoard}>{boardCopied ? "Link copied ✓" : "Copy link"}</button></>}</div></section>
+      <section className="challengeBar animalGeoChallenge"><div className="challengeIdentity"><span className="kicker">{config.label} {playKind === "random" ? "Random" : "Daily"}</span></div><div className="challengeActions"><button type="button" aria-pressed={view === "play" && playKind === "daily"} onClick={() => { setFocusTrait(null); setPlayKind("daily"); setView("play"); switchBoard(mode); }}>Daily</button><button type="button" aria-pressed={view === "play" && playKind === "random"} onClick={() => { setFocusTrait(null); setPlayKind("random"); setView("play"); switchBoard(mode, randomAnimalBoardIndex(data, modeBoards, board, Math.random, recentBoards.current)); }}>Random</button>{view !== "play" && <button onClick={() => setView("play")}>Back to game</button>}{view === "play" && <><button onClick={nextBoard}>New board</button><button onClick={copyBoard}>{boardCopied ? "Link copied ✓" : "Copy link"}</button></>}</div></section>
       {view === "prizes" || view === "guide" ? <AnimalCatalogView key={view} boards={boards} initialTab={view === "prizes" ? "categories" : "animals"} onPlay={playPrize} /> : view === "stats" ? <section className="animalHistory" aria-label="AnimalStats personal stats">
         <button type="button" className="personalBackButton" onClick={() => setView("play")}>← Back</button><h2>My Stats</h2><nav className="personalModeTabs" aria-label="Stats difficulty">{(["easy", "normal", "expert"] as const).map(difficulty => <button type="button" key={difficulty} className={statsMode === difficulty ? "active" : ""} aria-pressed={statsMode === difficulty} onClick={() => setStatsMode(difficulty)}>{ROUND_CONFIGS[difficulty].label}</button>)}</nav><p className="personalStatsIntro">{signedIn ? "Saved to your account." : "Saved on this device. Sign in to save future results to your account."}</p>
         <div className="personalStats animalStatGrid">{[["Average Score", stats.games ? stats.averageScore.toFixed(1) : "—"], ["Best Result", stats.games ? stats.best : "—"], ["Games Played", stats.games], ["Average Placement", stats.games ? stats.averagePlacement.toFixed(2) : "—"]].map(([label, value]) => <div key={label}><span>{label}</span><strong>{value}</strong></div>)}</div>

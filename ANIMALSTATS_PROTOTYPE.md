@@ -31,6 +31,8 @@ A 9,000-draw audit reaches every available animal and label in each difficulty w
 
 Insect and other invertebrate coverage remains insufficient. The original AnthropInsect 2.0 workbook is staged with 5,867 source rows and explicit estimate exclusions; zero observations from that staging are approved for play. Citation-to-cell, life-stage, caste and unit ambiguities require primary-source review. Common domestic cats, dogs, cattle, sheep and chickens need better coverage; wild taxa must not be relabeled as domestic equivalents. Breed-dependent measurements need explicit cohorts.
 
+The original CarniDIET 1.0 CSV and workbook are now pinned and checksum-verified: 29,121 study/prey rows for 103 source taxa, with 11 exact catalog matches. Source metadata distinguishes estimated biomass/volume from sample occurrence and dry-weight records. A primary-paper shortlist is staged; zero diet observations or labels are approved from this pass.
+
 Universal strength, global IQ, abundance, lifetime travel and several other attractive comparisons still need defensible comparable data. Do not fill these gaps with guesses, modeled values or repeated category names.
 
 ## Verification

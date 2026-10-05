@@ -61,3 +61,8 @@
 - MDD v2.5 contributes 296 independently reconciled observations: native/historical country and continent lists plus recognized living species in the taxonomic family. Six paired labels occur on 96 new composition-approved boards. Uncertain entries and recent introductions are excluded according to the pinned source definition.
 - Expert now includes 12 bird boards, each with four intuitive prizes, unique winners and a 600-point allocation. Barn owl and Laysan albatross have explicit species drawings.
 - Recorded practice-trial means from the original MacLean dataset add a pair of task-specific prizes and two all-intuitive Scout boards. Primary Methods confirm the shared training criterion. These compare tested cohorts only; no missing training failures or population learning ability is inferred. Practice and performance prizes cannot share a board. All 20 cognition endpoints reconcile to original individual rows.
+
+## Original diet-source recovery and screen
+- Pinned the author-repository CarniDIET 1.0 CSV and metadata workbook; Git blob identities, original bytes and SHA-256 verified against the earlier research checkpoint. All 29,121 rows and 103 source taxa retained, including 11 exact current-catalog matches.
+- Biomass and volume percentages are described as estimates in the original metadata and remain excluded. Sample-occurrence proportions must never be relabeled percentage of food consumed.
+- Direct dry-weight records are staged for primary-paper review with raw row IDs, context and citations. Diet percentages, prey diversity and missing-item zeros are not synthesized. Zero new game observations or playable labels admitted from CarniDIET.

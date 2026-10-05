@@ -1,0 +1,24 @@
+{
+  "paper": "https://doi.org/10.1111/geb.13296",
+  "dataset": "https://doi.org/10.5061/dryad.2v6wwpzmr",
+  "authorRepository": "https://github.com/osmiddleton/GEB-2021-CarniDIET_database",
+  "license": "Published dataset on Dryad under CC0; author repository original file mirror.",
+  "encoding": "Original CSV Windows-1252; bytes preserved in gzip.",
+  "gameApproved": 0,
+  "files": [
+    {
+      "local": "CarniDIET_1.0.csv.gz",
+      "originalBytes": 24848622,
+      "sha256": "4b3fca67eab47d121f0b19ed8f8a1b677863f8c07bd426205626cc972525dec7",
+      "githubBlobSha": "9d80fdb42d50d07260dda9b13a7bf9d0b9cd0dac",
+      "originalAuthorUrl": "https://raw.githubusercontent.com/osmiddleton/GEB-2021-CarniDIET_database/master/Version%201.0/CarniDIET%201.0.csv"
+    },
+    {
+      "local": "CarniDIET_1.0_Metadata.xlsx",
+      "originalBytes": 22551,
+      "sha256": "6642e290eaaa8e61ef6fbfd7c87bf4a29a10481fc1c0f73851bacb5c07bb085d",
+      "githubBlobSha": "04bc2559576935b0fdda3559032fbcf4b02a4e14",
+      "originalAuthorUrl": "https://raw.githubusercontent.com/osmiddleton/GEB-2021-CarniDIET_database/master/Version%201.0/CarniDIET%201.0_Metadata.xlsx"
+    }
+  ]
+}

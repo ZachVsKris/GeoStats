@@ -67,7 +67,7 @@
   font: 700 12px/1.15 var(--sans);
   color: #294d37;
 }
-.countyFair .penAnimal > .animalSprite { max-height: 170px; max-width: 190px; }
+.countyFair .penAnimal > .animalSprite { height: 100%; max-height: 170px; max-width: 190px; }
 .countyFair .penAssigned { font-size: 9px; bottom: 4px; padding: 2px 5px; color: #456337; }
 .countyFair .podiumGrid { gap: 12px; padding-top: 18px; }
 .countyFair .podiumSectionTitle { top: 25px; }

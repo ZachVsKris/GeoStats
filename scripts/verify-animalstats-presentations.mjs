@@ -12,6 +12,10 @@ try {
  await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(Error('Server timeout '+logs)),60000);server.stdout.on('data',x=>{logs+=x;if(logs.includes('Ready in')){clearTimeout(timer);resolve();}});server.on('exit',()=>reject(Error(logs)));});
  browser=await chromium.launch(); const page=await browser.newPage({viewport:{width:1440,height:900}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto('http://localhost:3012/animals',{waitUntil:'networkidle',timeout:120000});
+ const lifespanResponse=await page.request.get('http://localhost:3012/api/animals/data?trait=wild_recorded_lifespan');
+ assert(lifespanResponse.ok());const lifespan=await lifespanResponse.json();
+ assert(lifespan.values.length>10);assert(!lifespan.values.some(v=>['proteus_anguinus','homarus_americanus','orcinus_orca','rhincodon_typus'].includes(v.animalId)));
+ const catalogResponse=await page.request.get('http://localhost:3012/api/animals/data?scope=catalog');const fullCatalog=await catalogResponse.json();assert(!fullCatalog.data.values.some(v=>v.animalId==='proteus_anguinus'&&/lifespan/.test(v.traitId)));
  const animals=page.locator('[data-animal-id].penAnimal'), traits=page.locator('[data-trait-id].traitPodium');
  assert.equal(await animals.count(),4); await animals.nth(0).click();await traits.nth(0).click();
  const placed=await traits.nth(0).getAttribute('data-trait-id');const first=await animals.nth(0).getAttribute('data-animal-id');
@@ -31,7 +35,7 @@ try {
  await page.getByRole('switch').click();await page.screenshot({path:join(root,'artifacts/animalstats-cute-phone.png'),fullPage:true});
  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth));
  await page.getByRole('switch').click();
- const mobileSlot=page.locator('.slot').first();await mobileSlot.getByRole('button',{name:/Definition of/}).click();await page.getByRole('tooltip').waitFor();assert.equal(await page.locator('.choice.filled').count(),0);await page.locator('.animalGeoBrand').click();await page.getByRole('switch').waitFor();
+ const mobileSlot=page.locator('.slot').first();await mobileSlot.getByRole('button',{name:/Definition of/}).click();await page.getByRole('tooltip').waitFor();assert.equal(await page.locator('.choice.filled').count(),0);await Promise.all([page.waitForURL('http://localhost:3012/animals'),page.locator('.animalGeoBrand').click()]);await page.waitForLoadState('networkidle');await page.locator('.realAnimalPage').waitFor();
  const lever=page.getByRole('switch');if(await lever.getAttribute('aria-checked')==='false')await lever.click();
  async function drag(from,to){const a=await from.boundingBox(),b=await to.boundingBox();assert(a&&b);await page.mouse.move(a.x+a.width/2,a.y+a.height/2);await page.mouse.down();await page.mouse.move(b.x+b.width/2,b.y+b.height/2,{steps:12});await page.mouse.up();}
  await page.setViewportSize({width:1440,height:900});

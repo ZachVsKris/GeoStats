@@ -29,7 +29,7 @@ export async function GET(request: Request) {
   }
   const knownAnimals = new Set(catalog.animals.map(a => a.id));
   const warehouse = new Map(rows.map(r => [r.animalId, r]));
-  if (warehouse.size !== rows.length || rows.some(r => !knownAnimals.has(r.animalId) || r.traitId !== trait.id || r.measurementBasis !== trait.measurementBasis || r.unit !== trait.unit || r.confidence !== "approved" || !["observed", "compiled"].includes(r.observationType) || !Number.isFinite(r.valueNumeric) || r.valueNumeric <= 0 || r.sourceId !== trait.canonicalSourceId) || expected.some(v => {
+  if (rows.length !== expected.length || warehouse.size !== rows.length || rows.some(r => !knownAnimals.has(r.animalId) || r.traitId !== trait.id || r.measurementBasis !== trait.measurementBasis || r.unit !== trait.unit || r.confidence !== "approved" || !["observed", "compiled"].includes(r.observationType) || !Number.isFinite(r.valueNumeric) || r.valueNumeric <= 0 || r.sourceId !== trait.canonicalSourceId) || expected.some(v => {
     const row = warehouse.get(v.animalId);
     return !row || row.valueNumeric !== v.valueNumeric || row.sex !== v.sex || row.lifeStage !== v.lifeStage || row.valueMin !== v.valueMin || row.valueMax !== v.valueMax;
   })) return snapshot();

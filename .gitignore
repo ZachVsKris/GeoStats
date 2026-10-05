@@ -102,3 +102,6 @@ data/animalstats/research/anthropinsect/research.sqlite
 
 # Large original museum collection download; checksummed source manifest is tracked.
 data/animalstats/source/ranges/*.zip
+
+# Unmodified taxonomic source archive; pin checksums and selected data separately.
+data/animalstats/source/mdd/*.zip

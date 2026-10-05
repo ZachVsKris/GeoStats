@@ -1,0 +1,292 @@
+{
+  "record": 18201648,
+  "doi": "10.5281/zenodo.18201648",
+  "metadata": {
+    "title": "Ranges Network collected mammal trait measurements and summary from western North America",
+    "doi": "10.5281/zenodo.18201648",
+    "publication_date": "2026-01-09",
+    "description": "<p dir=\"ltr\">Over the past two decades, digitization of U.S. vertebrate collections has opened critical temporal, spatial, and taxonomic information from specimens, stimulating new levels of data sharing and significantly advancing biodiversity knowledge. However, still missing are the specimen-level trait data essential for establishing faunal baselines and informing predictions of global change response. We propose the Ranges Digitization Network (Ranges), which will close this gap by mobilizing an estimated &gt;5 million trait measurements from 1.2 million specimens from Western North America (WNA). WNA is a region of high temperate mammal diversity and a natural laboratory for studying speciation, phenotypic diversification, biogeographic principles, and community assembly over deep and shallow timescales. To build capacity for transformative research in these areas, Ranges brings together a digitization network of 19 institutions, expands informatics tools for trait extraction and standardization from specimen records, and immediately (in Year 1) provisions specimen-linked trait data in usable form via existing portals. The specific goals of Ranges will be to: 1) Digitize traits from 1.2 million mammal specimens, append these to digital records, and publish openly in community repositories; 2) digitize, georeference, and mobilize four regionally significant mammal collections, making their data research-ready for the first time; and 3) develop dense, intraspecific-level 3D image resources for &gt;3,500 mammal specimens to facilitate acquisition of complex internal traits that can be linked to complimentary, specimen-level datasets existing in an extended specimen network.&nbsp;</p>\n<p dir=\"ltr\">&nbsp;</p>\n<p dir=\"ltr\"><strong>The Ranges Project</strong></p>\n<p dir=\"ltr\">Ranges is an <a href=\"https://www.nsf.gov/awardsearch/showAward?AWD_ID=2228385&amp;HistoricalAwards=false\">NSF-funded</a> project that seeks to digitize traits from over one million mammal specimens from 19 natural history museums, with a focus on western North America.</p>\n<p dir=\"ltr\">The project will allow researchers to build better baselines for biodiversity and improve predictions of how mammals respond to changing environments to address major digitization challenges, expand the utility of specimens and use them to create new scientific knowledge.</p>\n<p dir=\"ltr\">Website: <a href=\"https://ranges-network.org/\">https://ranges-network.org/</a></p>\n<p dir=\"ltr\">&nbsp;</p>\n<p dir=\"ltr\"><strong>Give Credit Where Credit is Due</strong></p>\n<p dir=\"ltr\">Please cite this Zenodo resource AND any additional DOIs from individual institutional downloads.</p>\n<p dir=\"ltr\">&nbsp;</p>\n<p dir=\"ltr\"><strong>Ranges Baseline Sources</strong></p>\n<p dir=\"ltr\">The Ranges Baseline Trait Collection contains 19 datasets downloaded from the Global Biodiversity Information Facility (GBIF) in January/February of 2024. The institutions represented are all participants in the Ranges Network. The purpose of this dataset is (1) to provide a baseline of the traits digitized by the 19 Ranges institutional participants prior to the start of the Ranges digitization effort, and (2) to update the FuTRES traits index to include occurrenceIDs for each record in the FuTRES traits portal (<a href=\"https://futres-data-interface.netlify.app/\">https://futres-data-interface.netlify.app/</a>).</p>\n<p dir=\"ltr\"><strong>Source Institutions</strong> (for a complete list of citations see the document, <strong>SourceDataset_DOIs.tsv</strong>.:</p>\n<div dir=\"ltr\">\n<table><colgroup><col><col><col></colgroup>\n<tbody>\n<tr>\n<td>\n<p dir=\"ltr\">Date</p>\n</td>\n<td>\n<p dir=\"ltr\">Institution</p>\n</td>\n<td>\n<p dir=\"ltr\">DOI</p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">20240227</p>\n</td>\n<td>\n<p dir=\"ltr\">ASU, Arizona State University</p>\n</td>\n<td>\n<p dir=\"ltr\"><a href=\"https://doi.org/10.15468/dl.pztqzk\">https://doi.org/10.15468/dl.pztqzk</a></p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">20240110</p>\n</td>\n<td>\n<p dir=\"ltr\">CAS, California Academy of Sciences</p>\n</td>\n<td>\n<p dir=\"ltr\"><a href=\"https://doi.org/10.15468/dl.897qq5\">https://doi.org/10.15468/dl.897qq5</a></p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">20240227</p>\n</td>\n<td>\n<p dir=\"ltr\">CSULB, California State University, Long Beach</p>\n</td>\n<td>\n<p dir=\"ltr\"><a href=\"https://doi.org/10.15468/dl.cfh4uq\">https://doi.org/10.15468/dl.cfh4uq</a></p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">20240110</p>\n</td>\n<td>\n<p dir=\"ltr\">DMNS, Denver Museum of Nature and Science</p>\n</td>\n<td>\n<p dir=\"ltr\"><a href=\"https://doi.org/10.15468/dl.v5y2pr\">https://doi.org/10.15468/dl.v5y2pr</a></p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">20240227</p>\n</td>\n<td>\n<p dir=\"ltr\">FMNH, Field Museum of Natural History</p>\n</td>\n<td>\n<p dir=\"ltr\"><a href=\"https://doi.org/10.15468/dl.gzuptm\">https://doi.org/10.15468/dl.gzuptm</a></p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">20240110</p>\n</td>\n<td>\n<p dir=\"ltr\">HSUVM, California Polytechnic Univ. Humboldt, Vertebrate Museum</p>\n</td>\n<td>\n<p dir=\"ltr\"><a href=\"https://doi.org/10.15468/dl.tyds38\">https://doi.org/10.15468/dl.tyds38</a></p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">20240227</p>\n</td>\n<td>\n<p dir=\"ltr\">KU, Univ. of Kansas Natural History Museum</p>\n</td>\n<td>\n<p dir=\"ltr\"><a href=\"https://doi.org/10.15468/dl.7g7j8m\">https://doi.org/10.15468/dl.7g7j8m</a></p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">20240227</p>\n</td>\n<td>\n<p dir=\"ltr\">LACM, Natural History Museum of LA County</p>\n</td>\n<td>\n<p dir=\"ltr\"><a href=\"https://doi.org/10.15468/dl.9hrst8\">https://doi.org/10.15468/dl.9hrst8</a></p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">20240225</p>\n</td>\n<td>\n<p dir=\"ltr\">MSB, Univ. of New Mexico, Museum of Southwestern Biology</p>\n</td>\n<td>\n<p dir=\"ltr\"><a href=\"https://doi.org/10.15468/dl.5wwfu9\">https://doi.org/10.15468/dl.5wwfu9</a></p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">20240225</p>\n</td>\n<td>\n<p dir=\"ltr\">MVZ, Univ. of California Berkeley, Museum of Vertebrate Zoology</p>\n</td>\n<td>\n<p dir=\"ltr\"><a href=\"https://doi.org/10.15468/dl.5mbsge\">https://doi.org/10.15468/dl.5mbsge</a></p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">20240110</p>\n</td>\n<td>\n<p dir=\"ltr\">TCWC, Texas A&amp;M Univ., Biodiversity Research &amp; Teaching Collection</p>\n</td>\n<td>\n<p dir=\"ltr\"><a href=\"https://doi.org/10.15468/dl.26eh3k\">https://doi.org/10.15468/dl.26eh3k</a></p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">20240110</p>\n</td>\n<td>\n<p dir=\"ltr\">TTU, Texas Tech University</p>\n</td>\n<td>\n<p dir=\"ltr\"><a href=\"https://doi.org/10.15468/dl.45wsbt\">https://doi.org/10.15468/dl.45wsbt</a></p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">20240227</p>\n</td>\n<td>\n<p dir=\"ltr\">UAM, University of Alaska, Museum of the North</p>\n</td>\n<td>\n<p dir=\"ltr\"><a href=\"https://doi.org/10.15468/dl.8c95qk\">https://doi.org/10.15468/dl.8c95qk</a></p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">20240225</p>\n</td>\n<td>\n<p dir=\"ltr\">UMMZ, University of Michigan, Museum of Zoology</p>\n</td>\n<td>\n<p dir=\"ltr\"><a href=\"https://doi.org/10.15468/dl.w7a35w\">https://doi.org/10.15468/dl.w7a35w</a></p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">20240225</p>\n</td>\n<td>\n<p dir=\"ltr\">UMNH, Natural History Museum of Utah</p>\n</td>\n<td>\n<p dir=\"ltr\"><a href=\"https://doi.org/10.15468/dl.2erdam\">https://doi.org/10.15468/dl.2erdam</a></p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">20240227</p>\n</td>\n<td>\n<p dir=\"ltr\">UMZM, Univ. of Montana, Philip L. Wright Zoological Museum</p>\n</td>\n<td>\n<p dir=\"ltr\"><a href=\"https://doi.org/10.15468/dl.jevgd8\">https://doi.org/10.15468/dl.jevgd8</a></p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">20240225</p>\n</td>\n<td>\n<p dir=\"ltr\">UNR, University of Nevada Museum of Natural History</p>\n</td>\n<td>\n<p dir=\"ltr\"><a href=\"https://doi.org/10.15468/dl.fbcvye\">https://doi.org/10.15468/dl.fbcvye</a></p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">20240225</p>\n</td>\n<td>\n<p dir=\"ltr\">UWBM, Univ. of Washington, Burke Museum</p>\n</td>\n<td>\n<p dir=\"ltr\"><a href=\"https://doi.org/10.15468/dl.s5u9z5\">https://doi.org/10.15468/dl.s5u9z5</a></p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">20240227</p>\n</td>\n<td>\n<p dir=\"ltr\">UWYMV, University of Wyoming Museum of Vertebrates</p>\n</td>\n<td>\n<p dir=\"ltr\"><a href=\"https://doi.org/10.15468/dl.9wsn76\">https://doi.org/10.15468/dl.9wsn76</a></p>\n</td>\n</tr>\n</tbody>\n</table>\n</div>\n<p dir=\"ltr\">&nbsp;</p>\n<p dir=\"ltr\"><strong>Traits represented in the Ranges Baseline</strong></p>\n<p dir=\"ltr\">The Ranges Baseline dataset contains measurements for 56 specific mammal traits. A complete list of the traits is available in the attached file, <strong>Ranges Baseline Trait List.pdf</strong>.</p>\n<p dir=\"ltr\">&nbsp;</p>\n<p dir=\"ltr\"><strong>Statistics for the Ranges Baseline</strong></p>\n<p dir=\"ltr\"><strong>Record set info:&nbsp;</strong></p>\n<ul>\n<li>1,849,448 records</li>\n<li>1,779,593 occurrenceIDs</li>\n<li>19 institutions<strong><br></strong></li>\n</ul>\n<p dir=\"ltr\"><strong>Measurements across all traits (total):&nbsp;</strong></p>\n<ul>\n<li>2,941,833</li>\n</ul>\n<p dir=\"ltr\"><strong>Taxonomic Representation*:</strong></p>\n<p dir=\"ltr\">Percent of Extracted Digital Traits by Mammalian Order - See attached file, <strong>Graphic_ Percent of Extracted Digital Traits by Mammalian Order.pdf</strong>.</p>\n<p dir=\"ltr\">Each layer of the plot depicts cumulative percent of traits available per taxonomic Order. The outer layer shows values for all traits, and the inner two layers show values for just morphological and reproductive traits, respectively. Only data that were mappable to a formerly or currently recognized mammalian order were considered.</p>\n<p dir=\"ltr\"><strong>Measurements per trait (summary):&nbsp;</strong></p>\n<ul>\n<li>mean 52,532.73</li>\n<li>median 3401.5</li>\n<li>range 0 - 437,752</li>\n</ul>\n<p dir=\"ltr\"><strong>Measurements per trait (all, ordered) (6 columns):&nbsp;</strong></p>\n<div dir=\"ltr\">\n<table style=\"width: 118.285%; height: 951.876px;\"><colgroup><col style=\"width: 20.5915%;\"><col style=\"width: 11.6294%;\"><col style=\"width: 17.6087%;\"><col style=\"width: 17.5995%;\"><col style=\"width: 20.9115%;\"><col style=\"width: 11.6294%;\"></colgroup>\n<tbody>\n<tr style=\"height: 47.5938px;\">\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">Trait</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">Total&nbsp;Meas.</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">Trait</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">Total&nbsp;Meas.</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">Trait</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">Total&nbsp;Meas.</p>\n</td>\n</tr>\n<tr style=\"height: 47.5938px;\">\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">hind_foot_length_mm</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">437752</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">pregnancy_state</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">14085</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">mammary_count</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">266</p>\n</td>\n</tr>\n<tr style=\"height: 47.5938px;\">\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">total_length_mm</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">409444</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">tragus_length_mm</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">13370</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">tail_length_ambiguous</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">234</p>\n</td>\n</tr>\n<tr style=\"height: 47.5938px;\">\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">tail_length_mm</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">391253</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">hind_foot_length_units_inferred</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">12320</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">ear_length_estimated</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">123</p>\n</td>\n</tr>\n<tr style=\"height: 47.5938px;\">\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">body_mass_grams</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">388288</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">embryo_size_length_mm</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">9541</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">ovary_length_mm</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">84</p>\n</td>\n</tr>\n<tr style=\"height: 47.5938px;\">\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">ear_length_mm</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">344047</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">embryo_count_right</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">7624</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">hind_foot_length_estimated</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">81</p>\n</td>\n</tr>\n<tr style=\"height: 47.5938px;\">\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">hind_foot_length_includes</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">335367</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">embryo_count_left</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">7417</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">ovary_width_mm</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">79</p>\n</td>\n</tr>\n<tr style=\"height: 47.5938px;\">\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">ear_length_measured_from</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">233196</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">placental_scar_count</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">7187</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">placental_scars_side_1</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">49</p>\n</td>\n</tr>\n<tr style=\"height: 47.5938px;\">\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">total_length_units_inferred</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">42786</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">forearm_length_units_inferred</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">3685</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">placental_scars_both_sides</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">47</p>\n</td>\n</tr>\n<tr style=\"height: 47.5938px;\">\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">tail_length_units_inferred</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">35685</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">placental_scars_right_side</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">3652</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">placental_scars_side_2</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">47</p>\n</td>\n</tr>\n<tr style=\"height: 47.5938px;\">\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">placental_scars_present</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">31274</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">embryo_size_units_inferred</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">3151</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">ovary_description</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">9</p>\n</td>\n</tr>\n<tr style=\"height: 47.5938px;\">\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">ear_length_units_inferred</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">27396</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">placental_scars_left_side</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">3066</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">forearm_length_estimated</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">5</p>\n</td>\n</tr>\n<tr style=\"height: 47.5938px;\">\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">total_length_ambiguous</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">23875</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">body_mass_estimated</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">1857</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">embryo_count_males</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">5</p>\n</td>\n</tr>\n<tr style=\"height: 47.5938px;\">\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">vagina_state</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">22708</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">total_length_estimated</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">1357</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">tragus_length_estimated</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">3</p>\n</td>\n</tr>\n<tr style=\"height: 47.5938px;\">\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">body_mass_ambiguous</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">22277</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">tail_length_estimated</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">1267</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">embryo_count_females</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">3</p>\n</td>\n</tr>\n<tr style=\"height: 47.5938px;\">\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">body_mass_units_inferred</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">22013</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">mammary_state</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">1113</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">embryo_count_side_1</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">2</p>\n</td>\n</tr>\n<tr style=\"height: 47.5938px;\">\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">lactation_state</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">21317</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">tragus_length_units_inferred</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">932</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">embryo_count_side_2</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">2</p>\n</td>\n</tr>\n<tr style=\"height: 47.5938px;\">\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">forearm_length_mm</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">21257</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">embryo_size_width_mm</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">299</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">ovary_size_units_inferred</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">1</p>\n</td>\n</tr>\n<tr style=\"height: 47.5938px;\">\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">embryo_count</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">20585</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">gonad_length_mm</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">273</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">gonad_size_units_inferred</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">0</p>\n</td>\n</tr>\n<tr style=\"height: 47.5938px;\">\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">ear_length_ambiguous</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">17808</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">gonad_width_mm</p>\n</td>\n<td style=\"height: 47.5938px;\">\n<p dir=\"ltr\">269</p>\n</td>\n<td style=\"height: 47.5938px;\">&nbsp;</td>\n<td style=\"height: 47.5938px;\">&nbsp;</td>\n</tr>\n</tbody>\n</table>\n</div>\n<p>&nbsp;</p>\n<p dir=\"ltr\"><strong>Measurements per institution (all, ordered):&nbsp;</strong></p>\n<div dir=\"ltr\">\n<table><colgroup><col><col><col><col></colgroup>\n<tbody>\n<tr>\n<td>\n<p dir=\"ltr\"><strong>institutionCode</strong></p>\n</td>\n<td>\n<p dir=\"ltr\"><strong>total measurements</strong></p>\n</td>\n<td>\n<p dir=\"ltr\"><strong>institutionCode</strong></p>\n</td>\n<td>\n<p dir=\"ltr\"><strong>total measurements</strong></p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">MSB</p>\n</td>\n<td>\n<p dir=\"ltr\">1095463</p>\n</td>\n<td>\n<p dir=\"ltr\">CAS</p>\n</td>\n<td>\n<p dir=\"ltr\">37027</p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">UAM</p>\n</td>\n<td>\n<p dir=\"ltr\">542499</p>\n</td>\n<td>\n<p dir=\"ltr\">HSU</p>\n</td>\n<td>\n<p dir=\"ltr\">34556</p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">UWBM</p>\n</td>\n<td>\n<p dir=\"ltr\">354348</p>\n</td>\n<td>\n<p dir=\"ltr\">UNR</p>\n</td>\n<td>\n<p dir=\"ltr\">15002</p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">MVZ</p>\n</td>\n<td>\n<p dir=\"ltr\">203000</p>\n</td>\n<td>\n<p dir=\"ltr\">ASU</p>\n</td>\n<td>\n<p dir=\"ltr\">3304</p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">TTU</p>\n</td>\n<td>\n<p dir=\"ltr\">189785</p>\n</td>\n<td>\n<p dir=\"ltr\">UWYMV</p>\n</td>\n<td>\n<p dir=\"ltr\">1284</p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">LACM</p>\n</td>\n<td>\n<p dir=\"ltr\">136305</p>\n</td>\n<td>\n<p dir=\"ltr\">CSULB</p>\n</td>\n<td>\n<p dir=\"ltr\">0</p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">DMNS</p>\n</td>\n<td>\n<p dir=\"ltr\">106071</p>\n</td>\n<td>\n<p dir=\"ltr\">FMNH</p>\n</td>\n<td>\n<p dir=\"ltr\">0</p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">UMNH</p>\n</td>\n<td>\n<p dir=\"ltr\">96830</p>\n</td>\n<td>\n<p dir=\"ltr\">TCWC</p>\n</td>\n<td>\n<p dir=\"ltr\">0</p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">KU</p>\n</td>\n<td>\n<p dir=\"ltr\">69774</p>\n</td>\n<td>\n<p dir=\"ltr\">UMMZ</p>\n</td>\n<td>\n<p dir=\"ltr\">0</p>\n</td>\n</tr>\n<tr>\n<td>\n<p dir=\"ltr\">UMZM</p>\n</td>\n<td>\n<p dir=\"ltr\">56585</p>\n</td>\n<td>&nbsp;</td>\n<td>&nbsp;</td>\n</tr>\n</tbody>\n</table>\n</div>\n<div dir=\"ltr\">&nbsp;</div>\n<p dir=\"ltr\"><strong>Statistics Per Institution</strong></p>\n<p dir=\"ltr\">A complete tally of the number of trait measurements by institution per trait type is available in the attached file, <strong>Ranges Baseline Traits: Measurements per Trait by Institution.pdf</strong>.</p>\n<p>&nbsp;</p>\n<p dir=\"ltr\"><strong>*</strong><strong>Disclaimer</strong></p>\n<p>Some taxonomic names in this collection may be assigned to non-mammalian taxa or may no longer be valid. All data are presented as downloaded from&nbsp;<a href=\"http://gbif.org\">GBIF.org</a>. Users of this data are responsible for their own data quality and completeness checking. The Ranges Network is not responsible for the quality and completeness of these data.</p>",
+    "access_right": "open",
+    "creators": [
+      {
+        "name": "McLean, Bryan",
+        "affiliation": "University of North Carolina at Greensboro",
+        "orcid": "0000-0002-1293-5298"
+      },
+      {
+        "name": "Bloom, David",
+        "affiliation": "University of North Carolina at Greensboro",
+        "orcid": "0000-0003-1273-1807"
+      },
+      {
+        "name": "Lafrance, Raphael",
+        "affiliation": "Florida Museum of Natural History"
+      },
+      {
+        "name": "Guralnick, Robert",
+        "affiliation": "University of Florida",
+        "orcid": "0000-0001-6682-1504"
+      },
+      {
+        "name": "Santana, Sharlene",
+        "affiliation": "University of Washington",
+        "orcid": "0000-0001-6463-3569"
+      },
+      {
+        "name": "Davis, Edward",
+        "affiliation": null,
+        "orcid": "0000-0002-0918-5852"
+      }
+    ],
+    "contributors": [
+      {
+        "name": "Arizona State University",
+        "affiliation": null,
+        "type": "ProjectMember"
+      },
+      {
+        "name": "California Academy of Sciences",
+        "affiliation": null,
+        "type": "ProjectMember"
+      },
+      {
+        "name": "California State University, Long Beach",
+        "affiliation": null,
+        "type": "ProjectMember"
+      },
+      {
+        "name": "Denver Museum of Nature and Science",
+        "affiliation": null,
+        "type": "ProjectMember"
+      },
+      {
+        "name": "Field Museum of Natural History",
+        "affiliation": null,
+        "type": "ProjectMember"
+      },
+      {
+        "name": "Humboldt State University",
+        "affiliation": null,
+        "type": "ProjectMember"
+      },
+      {
+        "name": "University of Kansas",
+        "affiliation": null,
+        "type": "ProjectMember"
+      },
+      {
+        "name": "Natural History Museum of Los Angeles County",
+        "affiliation": null,
+        "type": "ProjectMember"
+      },
+      {
+        "name": "University of New Mexico",
+        "affiliation": null,
+        "type": "ProjectMember"
+      },
+      {
+        "name": "Museum of Vertebrate Zoology",
+        "affiliation": null,
+        "type": "ProjectMember"
+      },
+      {
+        "name": "Texas A&M University",
+        "affiliation": null,
+        "type": "ProjectMember"
+      },
+      {
+        "name": "Texas Tech University",
+        "affiliation": null,
+        "type": "ProjectMember"
+      },
+      {
+        "name": "University of Alaska Fairbanks",
+        "affiliation": null,
+        "type": "ProjectMember"
+      },
+      {
+        "name": "University of Michigan\u2013Ann Arbor",
+        "affiliation": null,
+        "type": "ProjectMember"
+      },
+      {
+        "name": "Natural History Museum of Utah",
+        "affiliation": null,
+        "type": "ProjectMember"
+      },
+      {
+        "name": "University of Montana",
+        "affiliation": null,
+        "type": "ProjectMember"
+      },
+      {
+        "name": "University of Nevada, Reno",
+        "affiliation": null,
+        "type": "ProjectMember"
+      },
+      {
+        "name": "Burke Museum of Natural History and Culture",
+        "affiliation": null,
+        "type": "ProjectMember"
+      },
+      {
+        "name": "University of Wyoming",
+        "affiliation": null,
+        "type": "ProjectMember"
+      }
+    ],
+    "related_identifiers": [
+      {
+        "identifier": "10.1093/jmammal/gyaf062",
+        "relation": "isCompiledBy",
+        "resource_type": "publication-journal",
+        "scheme": "doi"
+      }
+    ],
+    "version": "Version 1.0",
+    "references": [
+      "Bryan S McLean, David Bloom, et al. Extending mammal specimens with their essential phenotypic traits, Journal of Mammalogy, Volume 106, Issue 5, October 2025. Pages 1282-1291. https://doi.org/10.1093/jmammal/gyaf062",
+      "Balk, Meghan A., et al. A solution to the challenges of interdisciplinary aggregation and use of specimen-level trait data. iScience, Volume 25, Issue 10, 105101, October 2022.  DOI  10.1016/j.isci.2022.105101",
+      "GBIF: The Global Biodiversity Information Facility (year) What is GBIF?. Available from https://www.gbif.org/what-is-gbif [13 January 2020]"
+    ],
+    "language": "eng",
+    "resource_type": {
+      "title": "Dataset",
+      "type": "dataset"
+    },
+    "license": {
+      "id": "cc-by-4.0"
+    },
+    "grants": [
+      {
+        "code": "2228385",
+        "internal_id": "10.13039/100000001::2228385",
+        "funder": {
+          "name": "U.S. National Science Foundation",
+          "doi": "10.13039/100000001",
+          "acronym": "NSF"
+        },
+        "title": "Collaborative Research: Ranges: Building Capacity to Extend Mammal Specimens from Western North America",
+        "url": "https://www.nsf.gov/awardsearch/show-award/?AWD_ID=2228385&HistoricalAwards=false"
+      }
+    ],
+    "communities": [
+      {
+        "id": "rangesnetwork"
+      }
+    ],
+    "relations": {
+      "version": [
+        {
+          "index": 0,
+          "is_last": true,
+          "parent": {
+            "pid_type": "recid",
+            "pid_value": "18201647"
+          }
+        }
+      ]
+    }
+  },
+  "files": [
+    {
+      "id": "d446c1ac-f957-4a79-a1a2-8060b909eb80",
+      "key": "Ranges_Baseline_Traits_Jan-Feb2024.csv",
+      "size": 660311737,
+      "checksum": "md5:aa77b3440c40606cd266e5f50cd7fe74",
+      "links": {
+        "self": "https://zenodo.org/api/records/18201648/files/Ranges_Baseline_Traits_Jan-Feb2024.csv/content"
+      }
+    },
+    {
+      "id": "49295b84-0977-4b01-9a74-5b663f90401a",
+      "key": "Graphic_ Percent of Extracted Digital Traits by Mammalian Order.pdf",
+      "size": 76510,
+      "checksum": "md5:9ed582ace18ff101e8f6c28a92dea579",
+      "links": {
+        "self": "https://zenodo.org/api/records/18201648/files/Graphic_%20Percent%20of%20Extracted%20Digital%20Traits%20by%20Mammalian%20Order.pdf/content"
+      }
+    },
+    {
+      "id": "e6c3a4fc-9ad2-4601-b7b5-1a9d913bc4ac",
+      "key": "Ranges_Baseline_Traits_Jan-Feb2024.tar.gz",
+      "size": 87054217,
+      "checksum": "md5:31f6a27352e7539c9fc279d7670de142",
+      "links": {
+        "self": "https://zenodo.org/api/records/18201648/files/Ranges_Baseline_Traits_Jan-Feb2024.tar.gz/content"
+      }
+    },
+    {
+      "id": "d1a4d27c-9f78-4b1d-9c3f-2db97a7f0a2a",
+      "key": "SourceDataset_DOIs.tsv",
+      "size": 4346,
+      "checksum": "md5:a724c44efefc6d60de1dbbe62d55581f",
+      "links": {
+        "self": "https://zenodo.org/api/records/18201648/files/SourceDataset_DOIs.tsv/content"
+      }
+    },
+    {
+      "id": "9470870b-cf94-412c-b847-df869628cc3e",
+      "key": "Ranges_Baseline_Traits_Jan-Feb2024.csv.zip",
+      "size": 90399393,
+      "checksum": "md5:4f971dc85af857fc83d6d359ee443edc",
+      "links": {
+        "self": "https://zenodo.org/api/records/18201648/files/Ranges_Baseline_Traits_Jan-Feb2024.csv.zip/content"
+      }
+    },
+    {
+      "id": "ebdefb27-e9e7-488a-a5d5-0c4f4699d369",
+      "key": "Ranges Baseline Trait List.pdf",
+      "size": 45904,
+      "checksum": "md5:1c14a2a76018c393fb56a5992ffa6a52",
+      "links": {
+        "self": "https://zenodo.org/api/records/18201648/files/Ranges%20Baseline%20Trait%20List.pdf/content"
+      }
+    },
+    {
+      "id": "067fe221-7221-4317-b6bb-08df8f335105",
+      "key": "SourceDatats_complete.zip",
+      "size": 707929485,
+      "checksum": "md5:e03ce44a588a8a1dd4c86e831340af0a",
+      "links": {
+        "self": "https://zenodo.org/api/records/18201648/files/SourceDatats_complete.zip/content"
+      }
+    },
+    {
+      "id": "f55cc95f-6088-4b5a-9037-3c67361931d4",
+      "key": "SourceDatasets_Part_3.zip",
+      "size": 140551037,
+      "checksum": "md5:32c5d83a965f1ba2a09f5a094ef4b8c6",
+      "links": {
+        "self": "https://zenodo.org/api/records/18201648/files/SourceDatasets_Part_3.zip/content"
+      }
+    },
+    {
+      "id": "a86d480c-ae0a-44c1-a7fa-56d785de5485",
+      "key": "SourceDatasets_Part_2.zip",
+      "size": 423903796,
+      "checksum": "md5:89a26d2783d0e70a0240ae116f8f8a3b",
+      "links": {
+        "self": "https://zenodo.org/api/records/18201648/files/SourceDatasets_Part_2.zip/content"
+      }
+    },
+    {
+      "id": "327f0e66-863d-40b6-adbe-c589c592c22f",
+      "key": "SourceDatasets_Part_4.zip",
+      "size": 61170352,
+      "checksum": "md5:6150bdc6273f6ad12145f2c0247b333e",
+      "links": {
+        "self": "https://zenodo.org/api/records/18201648/files/SourceDatasets_Part_4.zip/content"
+      }
+    },
+    {
+      "id": "2730cf9e-99c3-4fbd-be5d-52936846103e",
+      "key": "SourceDatasets_Part_1.zip",
+      "size": 82304366,
+      "checksum": "md5:8fdcfabdafd0cf1cfe02d25f5a59dfa9",
+      "links": {
+        "self": "https://zenodo.org/api/records/18201648/files/SourceDatasets_Part_1.zip/content"
+      }
+    }
+  ]
+}

@@ -15,7 +15,7 @@
 - Production build and desktop/phone interaction checks pass.
 
 ## Still outstanding — do not represent these as completed
-- Expansion to at least 200 playable distinct labels, ideally 500. Current default pool: 96 distinct labels / 110 trait directions, 3,452 boards and 99 animals. Catalog: 176 animals / 6,677 observations. Duplicate labels are not counted twice.
+- Expansion to at least 200 playable distinct labels, ideally 500. Current default pool: 98 distinct labels / 112 trait directions, 3,454 boards and 99 animals. Catalog: 176 animals / 6,689 observations. Duplicate labels are not counted twice.
 - Occasional insect and other invertebrate boards. Existing bee/fruit-fly/lobster records do not yet give enough comparable intuitive categories for a valid complete board. No fabricated missing facts added.
 - Broader Expert coverage: current Expert pool remains mammal-only. Scout/Adventurer rotate mammals, birds and mixed boards.
 - Continue improving species recognition where needed. All 105 native cartoons have now been visually compared with their approved reference photos; guinea pig, bison horns and hippo muzzle corrected. This does not cover the 71 additional catalog animals without native cartoons. Frame tests alone cannot establish anatomical correctness.
@@ -49,3 +49,10 @@
 - Source-stage/caste, lifetime versus per-day fecundity, regional generation counts and cell-level provenance are mandatory gates. Audit records 68 reversed ranges or typical estimates outside min/max.
 - Added downloadable AnimalStats score images with matching score-card layout, file-sharing capability checks and download fallback. Reusing another board resets the image preview.
 - Live deployed Real round verified at 400/400 with expanded rankings and full five-cohort cognition catalog.
+
+## Verified museum ear measurements
+- Added longest/shortest ear comparisons for six exact mammal taxa from 1,262 independent explicitly adult museum specimen records. Every admitted measurement matches an explicit raw ear-from-notch value in millimetres; original adult evidence, accession and institutional download DOI retained.
+- Estimated values, inferred units, missing ages, substituted subspecies, unit errors and conflicting repeated specimen measurements excluded. Reported statistics are exact cohort medians, not worldwide population estimates; individual ranges and sex composition disclosed.
+- Both directions now occur in default play, on four-intuitive-prize boards with different winners and attainable 400/400 scores.
+- A fully intuitive four-prize board may pair pregnancy duration with litter size; other life-history limits and all independent rank/winner checks remain.
+- Current audited release: 176 catalog animals / 6,689 observations, 3,880 valid candidate boards, 3,454 default boards, 98 distinct playable labels / 112 directions and 99 played animals. Expert remains mammal-only; insects remain outside play pending complete comparable board data.

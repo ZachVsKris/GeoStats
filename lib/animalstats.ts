@@ -198,7 +198,15 @@ function validateIndexedAnimalBoard(board: BoardCandidate, index: ReturnType<typ
   const categories = board.traitIds.map((id) => traitMap.get(id));
   if (balanced) {
     const lifeHistoryKeys = new Set(["pregnancy", "offspring", "incubation", "weaning", "maturity", "reproduction", "breeding", "egg-size"]);
-    if (categories.filter(trait => lifeHistoryKeys.has(trait?.metricKey ?? "")).length > (board.mode === "expert" ? 3 : 1)) reasons.push("too many life-history prizes on one board");
+    const lifeHistory = categories.filter(trait => lifeHistoryKeys.has(trait?.metricKey ?? ""));
+    // A fully intuitive four-prize board can pair pregnancy length with litter
+    // size. These are distinct, familiar facts; all other life-history limits,
+    // source checks and independent winner/rank checks still apply.
+    const simplePregnancyAndLitter = categories.length === 4 &&
+      categories.every(trait => trait?.categoryKind === "intuitive") &&
+      lifeHistory.length === 2 && new Set(lifeHistory.map(trait => trait?.metricKey)).size === 2 &&
+      lifeHistory.every(trait => ["pregnancy", "offspring"].includes(trait?.metricKey ?? ""));
+    if (lifeHistory.length > (board.mode === "expert" ? 3 : simplePregnancyAndLitter ? 2 : 1)) reasons.push("too many life-history prizes on one board");
     if (categories.some((trait) => /^(bird_beak_width|bird_beak_depth|bird_tarsus_length|bird_hand_wing_index)(?:__low)?$/.test(trait?.id ?? ""))) reasons.push("obscure bird anatomy is excluded");
     if (categories.some((trait) => !trait?.prototypeCategory || (!trait.counterTraitId && !trait.oneSided) || !trait.metricKey) || categories.filter((trait) => trait?.categoryKind === "intuitive").length < Math.ceil(board.traitIds.length / 2)) reasons.push("board must have at least half intuitive categories");
     if (board.editorial?.intuitiveMinimum !== undefined && (!Number.isInteger(board.editorial.intuitiveMinimum) || board.editorial.intuitiveMinimum < Math.ceil(board.traitIds.length / 2) || board.editorial.intuitiveMinimum > board.traitIds.length || categories.filter(trait => trait?.categoryKind === "intuitive").length < board.editorial.intuitiveMinimum)) reasons.push("board does not meet its stricter intuitive-category minimum");

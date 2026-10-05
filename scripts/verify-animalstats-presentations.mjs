@@ -65,6 +65,16 @@ try {
  await page.getByRole('button',{name:'Close preview',exact:true}).click();assert.equal(await page.locator('.scoreImagePreview').count(),0);
  await page.screenshot({path:join(root,'artifacts/animalstats-cognition-results.png'),fullPage:true});
  await page.evaluate(()=>{navigator.clipboard.writeText=async()=>{throw new DOMException('Blocked','NotAllowedError');};});await page.locator('.scoreShareOptions summary').click();await page.getByRole('button',{name:'Copy score',exact:true}).click();await page.getByRole('dialog',{name:'Copy your score',exact:true}).waitFor();assert((await page.getByRole('textbox',{name:'Score to copy'}).inputValue()).includes('400/400'));await page.keyboard.press('Escape');assert.equal(await page.getByRole('dialog',{name:'Copy your score',exact:true}).count(),0);
+ for(const [side,pairs] of [
+  ['long',[['measured_adult_ear_length','vulpes_vulpes'],['adult_body_mass','procyon_lotor'],['gestation__low','rattus_norvegicus'],['litter_size__low','myotis_lucifugus']]],
+  ['short',[['measured_adult_ear_length__low','myotis_lucifugus'],['adult_body_mass','procyon_lotor'],['litter_size','mus_musculus'],['birth_weight','vulpes_vulpes']]],
+ ]) {
+  await page.goto(`http://localhost:3012/animals?board=fair-ears-easy-${side}-20261005`,{waitUntil:'networkidle'});
+  for(const [trait,animal] of pairs){await page.locator(`.country[data-animal-id="${animal}"]`).click();await page.locator(`.slot[data-trait-id="${trait}"]`).click();}
+  await page.getByRole('button',{name:'Submit answers',exact:true}).click();assert.equal(await page.locator('.scoreValue strong').textContent(),'400');
+  await page.getByRole('button',{name:'View rankings',exact:true}).first().click();await page.locator('.leaderboard').getByRole('button',{name:'Data & Source',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('.sourceLoading'));
+  assert.equal(await page.locator('.sourceDataRow').count(),6);assert((await page.locator('.sourceHeroDescription').innerText()).includes('not species-wide maxima'));await page.getByRole('button',{name:'Close data and source'}).click();
+ }
  await page.goto('http://localhost:3012/animals?mode=expert',{waitUntil:'networkidle'});assert.equal(await page.locator('.country').count(),8);
  assert.deepEqual(errors,[]);
  console.log(JSON.stringify({desktopAndPhone:true,modesPreserveChoicesAndResults:true,tooltips:true,fullRankings:true,pageErrors:errors}));

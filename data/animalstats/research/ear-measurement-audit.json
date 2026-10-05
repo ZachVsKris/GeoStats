@@ -1,0 +1,148 @@
+{
+  "sourceUrl": "https://zenodo.org/records/18201648",
+  "archiveMD5": "4f971dc85af857fc83d6d359ee443edc",
+  "selectedExtractionSha256": "bfbdb94b627c72da17ef7d6b5fcddb419f27ce735187753a2a47399187a85cc2",
+  "specimens": 1262,
+  "cohorts": [
+    {
+      "animalId": "vulpes_vulpes",
+      "scientificName": "Vulpes vulpes",
+      "n": 16,
+      "medianMM": 90.5,
+      "individualMinMM": 70.0,
+      "individualMaxMM": 102.0,
+      "sexCounts": {
+        "FEMALE": 11,
+        "MALE": 5
+      },
+      "countries": [
+        "US"
+      ],
+      "institutionDownloadDOIs": [
+        "https://doi.org/10.15468/dl.v5y2pr"
+      ]
+    },
+    {
+      "animalId": "procyon_lotor",
+      "scientificName": "Procyon lotor",
+      "n": 20,
+      "medianMM": 64.0,
+      "individualMinMM": 52.0,
+      "individualMaxMM": 71.0,
+      "sexCounts": {
+        "MALE": 15,
+        "FEMALE": 5
+      },
+      "countries": [
+        "US"
+      ],
+      "institutionDownloadDOIs": [
+        "https://doi.org/10.15468/dl.5wwfu9",
+        "https://doi.org/10.15468/dl.s5u9z5",
+        "https://doi.org/10.15468/dl.v5y2pr"
+      ]
+    },
+    {
+      "animalId": "mus_musculus",
+      "scientificName": "Mus musculus",
+      "n": 958,
+      "medianMM": 13.0,
+      "individualMinMM": 7.0,
+      "individualMaxMM": 19.5,
+      "sexCounts": {
+        "MALE": 500,
+        "FEMALE": 433,
+        "unknown": 23,
+        "HERMAPHRODITE": 1,
+        "not reported": 1
+      },
+      "countries": [
+        "AF",
+        "EC",
+        "MN",
+        "PA",
+        "PR",
+        "RU",
+        "US"
+      ],
+      "institutionDownloadDOIs": [
+        "https://doi.org/10.15468/dl.2erdam",
+        "https://doi.org/10.15468/dl.5mbsge",
+        "https://doi.org/10.15468/dl.5wwfu9",
+        "https://doi.org/10.15468/dl.fbcvye",
+        "https://doi.org/10.15468/dl.v5y2pr"
+      ]
+    },
+    {
+      "animalId": "myotis_lucifugus",
+      "scientificName": "Myotis lucifugus",
+      "n": 33,
+      "medianMM": 12.0,
+      "individualMinMM": 9.0,
+      "individualMaxMM": 15.0,
+      "sexCounts": {
+        "MALE": 12,
+        "FEMALE": 20,
+        "unknown": 1
+      },
+      "countries": [
+        "US"
+      ],
+      "institutionDownloadDOIs": [
+        "https://doi.org/10.15468/dl.5wwfu9",
+        "https://doi.org/10.15468/dl.8c95qk",
+        "https://doi.org/10.15468/dl.jevgd8",
+        "https://doi.org/10.15468/dl.v5y2pr"
+      ]
+    },
+    {
+      "animalId": "rattus_norvegicus",
+      "scientificName": "Rattus norvegicus",
+      "n": 109,
+      "medianMM": 21.0,
+      "individualMinMM": 15.0,
+      "individualMaxMM": 24.0,
+      "sexCounts": {
+        "MALE": 53,
+        "FEMALE": 56
+      },
+      "countries": [
+        "EC",
+        "MN",
+        "PA",
+        "US"
+      ],
+      "institutionDownloadDOIs": [
+        "https://doi.org/10.15468/dl.2erdam",
+        "https://doi.org/10.15468/dl.5mbsge",
+        "https://doi.org/10.15468/dl.5wwfu9",
+        "https://doi.org/10.15468/dl.8c95qk",
+        "https://doi.org/10.15468/dl.v5y2pr"
+      ]
+    },
+    {
+      "animalId": "didelphis_marsupialis",
+      "scientificName": "Didelphis marsupialis",
+      "n": 126,
+      "medianMM": 50.0,
+      "individualMinMM": 35.0,
+      "individualMaxMM": 92.0,
+      "sexCounts": {
+        "MALE": 65,
+        "FEMALE": 58,
+        "unknown": 3
+      },
+      "countries": [
+        "BR",
+        "PA"
+      ],
+      "institutionDownloadDOIs": [
+        "https://doi.org/10.15468/dl.5mbsge",
+        "https://doi.org/10.15468/dl.5wwfu9"
+      ]
+    }
+  ],
+  "excludedRecords": 9701,
+  "rankingScope": "exact recorded-cohort medians; no population estimate or maximum-record inference",
+  "uncertainty": "Individual ranges disclosed as descriptive variation, not invented confidence intervals."
+}

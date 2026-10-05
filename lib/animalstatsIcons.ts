@@ -5,6 +5,7 @@ export function animalTraitIcon(trait: Trait): string {
   const text = `${trait.metricKey ?? ""} ${trait.gameplayFamily ?? ""} ${trait.id}`;
   if (/lifespan|longevity/.test(text)) return "⏳";
   if (/cognition|cylinder/.test(text)) return "🧩";
+  if (/ear-length|adult_ear/.test(text)) return "👂";
   if (/mass|weight/.test(text)) return "⚖️";
   if (/height|length|size|span/.test(text)) return "📏";
   if (/speed|locomotion|travel/.test(text)) return "💨";

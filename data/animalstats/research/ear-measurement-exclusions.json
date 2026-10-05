@@ -1,0 +1,225 @@
+{
+  "excludedRecords": 9701,
+  "byReason": {
+    "Life stage is not explicitly adult.": 9268,
+    "No single matching raw ear-from-notch measurement with explicit millimetres.": 56,
+    "Subspecies retained outside this exact-binomial comparison; no silent taxon sharing.": 235,
+    "Adult label lacks matching explicit raw age/reproductive evidence.": 20,
+    "Nonpositive ear length or ear not shorter than recorded total body length.": 51,
+    "Estimated, ambiguous or inferred-unit flag is present.": 50,
+    "Conflicting repeated measurements for one specimen; no arbitrary selection.": 21
+  },
+  "fullRecords": "ear-measurement-exclusions.json.gz",
+  "reviewExamples": [
+    {
+      "sourceRow": 61424,
+      "scientificName": "Procyon lotor (Linnaeus, 1758)",
+      "occurrenceID": "http://arctos.database.museum/guid/DMNS:Mamm:20252?seid=4460760",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 54.0
+    },
+    {
+      "sourceRow": 63427,
+      "scientificName": "Procyon lotor (Linnaeus, 1758)",
+      "occurrenceID": "http://arctos.database.museum/guid/DMNS:Mamm:18762?seid=4002537",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 82.0
+    },
+    {
+      "sourceRow": 66007,
+      "scientificName": "Vulpes vulpes (Linnaeus, 1758)",
+      "occurrenceID": "http://arctos.database.museum/guid/DMNS:Mamm:16472?seid=3174310",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 90.0
+    },
+    {
+      "sourceRow": 66041,
+      "scientificName": "Vulpes vulpes (Linnaeus, 1758)",
+      "occurrenceID": "http://arctos.database.museum/guid/DMNS:Mamm:16449?seid=3165503",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 105.0
+    },
+    {
+      "sourceRow": 66063,
+      "scientificName": "Vulpes vulpes (Linnaeus, 1758)",
+      "occurrenceID": "http://arctos.database.museum/guid/DMNS:Mamm:16424?seid=3149588",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 100.0
+    },
+    {
+      "sourceRow": 66497,
+      "scientificName": "Rattus norvegicus (Berkenhout, 1769)",
+      "occurrenceID": "http://arctos.database.museum/guid/DMNS:Mamm:15379?seid=3125958",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 18.0
+    },
+    {
+      "sourceRow": 76536,
+      "scientificName": "Vulpes vulpes (Linnaeus, 1758)",
+      "occurrenceID": "http://arctos.database.museum/guid/DMNS:Mamm:14913?seid=2654081",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 115.0
+    },
+    {
+      "sourceRow": 76589,
+      "scientificName": "Vulpes vulpes (Linnaeus, 1758)",
+      "occurrenceID": "http://arctos.database.museum/guid/DMNS:Mamm:14912?seid=2654080",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 84.0
+    },
+    {
+      "sourceRow": 608640,
+      "scientificName": "Mus musculus Linnaeus, 1758",
+      "occurrenceID": "http://arctos.database.museum/guid/MSB:Mamm:153747?seid=168911",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 170.0
+    },
+    {
+      "sourceRow": 614718,
+      "scientificName": "Mus musculus Linnaeus, 1758",
+      "occurrenceID": "http://arctos.database.museum/guid/MSB:Mamm:153765?seid=1753768",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 170.0
+    },
+    {
+      "sourceRow": 629285,
+      "scientificName": "Mus musculus Linnaeus, 1758",
+      "occurrenceID": "http://arctos.database.museum/guid/MSB:Mamm:153758?seid=672701",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 180.0
+    },
+    {
+      "sourceRow": 629286,
+      "scientificName": "Rattus norvegicus (Berkenhout, 1769)",
+      "occurrenceID": "http://arctos.database.museum/guid/MSB:Mamm:153783?seid=318515",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 280.0
+    },
+    {
+      "sourceRow": 643039,
+      "scientificName": "Mus musculus Linnaeus, 1758",
+      "occurrenceID": "http://arctos.database.museum/guid/MSB:Mamm:315646?seid=4022615",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 11.0
+    },
+    {
+      "sourceRow": 643040,
+      "scientificName": "Mus musculus Linnaeus, 1758",
+      "occurrenceID": "http://arctos.database.museum/guid/MSB:Mamm:315646?seid=4022615",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 11.0
+    },
+    {
+      "sourceRow": 645440,
+      "scientificName": "Procyon lotor (Linnaeus, 1758)",
+      "occurrenceID": "http://arctos.database.museum/guid/MSB:Mamm:346086?seid=5925735",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 50.0
+    },
+    {
+      "sourceRow": 650073,
+      "scientificName": "Mus musculus Linnaeus, 1758",
+      "occurrenceID": "http://arctos.database.museum/guid/MSB:Mamm:153777?seid=175872",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 150.0
+    },
+    {
+      "sourceRow": 655721,
+      "scientificName": "Rattus norvegicus (Berkenhout, 1769)",
+      "occurrenceID": "http://arctos.database.museum/guid/MSB:Mamm:133058?seid=1353171",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 280.0
+    },
+    {
+      "sourceRow": 656155,
+      "scientificName": "Mus musculus Linnaeus, 1758",
+      "occurrenceID": "http://arctos.database.museum/guid/MSB:Mamm:153798?seid=1624908",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 170.0
+    },
+    {
+      "sourceRow": 663692,
+      "scientificName": "Mus musculus Linnaeus, 1758",
+      "occurrenceID": "http://arctos.database.museum/guid/MSB:Mamm:315646?seid=4015608",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 11.0
+    },
+    {
+      "sourceRow": 663693,
+      "scientificName": "Mus musculus Linnaeus, 1758",
+      "occurrenceID": "http://arctos.database.museum/guid/MSB:Mamm:315646?seid=4015608",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 11.0
+    },
+    {
+      "sourceRow": 663729,
+      "scientificName": "Mus musculus Linnaeus, 1758",
+      "occurrenceID": "http://arctos.database.museum/guid/MSB:Mamm:316122?seid=4022611",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 10.0
+    },
+    {
+      "sourceRow": 663730,
+      "scientificName": "Mus musculus Linnaeus, 1758",
+      "occurrenceID": "http://arctos.database.museum/guid/MSB:Mamm:316122?seid=4022611",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 11.0
+    },
+    {
+      "sourceRow": 675422,
+      "scientificName": "Vulpes vulpes (Linnaeus, 1758)",
+      "occurrenceID": "http://arctos.database.museum/guid/MSB:Mamm:198741?seid=44611",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 105000.0
+    },
+    {
+      "sourceRow": 678910,
+      "scientificName": "Mus musculus Linnaeus, 1758",
+      "occurrenceID": "http://arctos.database.museum/guid/MSB:Mamm:153773?seid=473030",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 160.0
+    },
+    {
+      "sourceRow": 684847,
+      "scientificName": "Rattus norvegicus (Berkenhout, 1769)",
+      "occurrenceID": "http://arctos.database.museum/guid/MSB:Mamm:153749?seid=1667049",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 270.0
+    },
+    {
+      "sourceRow": 692356,
+      "scientificName": "Mus musculus Linnaeus, 1758",
+      "occurrenceID": "http://arctos.database.museum/guid/MSB:Mamm:315646?seid=4022614",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 11.0
+    },
+    {
+      "sourceRow": 692357,
+      "scientificName": "Mus musculus Linnaeus, 1758",
+      "occurrenceID": "http://arctos.database.museum/guid/MSB:Mamm:315646?seid=4022614",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 11.0
+    },
+    {
+      "sourceRow": 699488,
+      "scientificName": "Mus musculus Linnaeus, 1758",
+      "occurrenceID": "http://arctos.database.museum/guid/MSB:Mamm:153759?seid=794443",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 170.0
+    },
+    {
+      "sourceRow": 719609,
+      "scientificName": "Rattus norvegicus (Berkenhout, 1769)",
+      "occurrenceID": "http://arctos.database.museum/guid/MSB:Mamm:133066?seid=146645",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 220.0
+    },
+    {
+      "sourceRow": 726136,
+      "scientificName": "Rattus norvegicus (Berkenhout, 1769)",
+      "occurrenceID": "http://arctos.database.museum/guid/MSB:Mamm:153771?seid=1230817",
+      "reason": "No single matching raw ear-from-notch measurement with explicit millimetres.",
+      "value": 210.0
+    }
+  ]
+}

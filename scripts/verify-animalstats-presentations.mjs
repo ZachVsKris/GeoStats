@@ -1,3 +1,4 @@
+import { readFile } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
@@ -74,6 +75,21 @@ try {
   await page.getByRole('button',{name:'Submit answers',exact:true}).click();assert.equal(await page.locator('.scoreValue strong').textContent(),'400');
   await page.getByRole('button',{name:'View rankings',exact:true}).first().click();await page.locator('.leaderboard').getByRole('button',{name:'Data & Source',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('.sourceLoading'));
   assert.equal(await page.locator('.sourceDataRow').count(),6);assert((await page.locator('.sourceHeroDescription').innerText()).includes('not species-wide maxima'));await page.getByRole('button',{name:'Close data and source'}).click();
+ }
+ const mddData=JSON.parse(await readFile(join(root,'data/animalstats/pilot.json'),'utf8'));
+ const mddCandidates=JSON.parse(await readFile(join(root,'data/animalstats/candidates.json'),'utf8'));
+ for(const id of ['mdd_country_count','mdd_country_count__low','mdd_continent_count','mdd_continent_count__low','mdd_family_species_count','mdd_family_species_count__low']) {
+  const board=mddCandidates.boards.find(b=>b.id.startsWith(`fair-mdd-${id}-easy-`));assert(board);
+  await page.goto(`http://localhost:3012/animals?board=${board.id}`,{waitUntil:'networkidle'});
+  for(const tid of board.traitIds){
+   const trait=mddData.traits.find(t=>t.id===tid);
+   const ranked=mddData.values.filter(v=>v.traitId===tid&&board.animalIds.includes(v.animalId)).sort((a,b)=>trait.direction==='higher_wins'?b.valueNumeric-a.valueNumeric:a.valueNumeric-b.valueNumeric);
+   await page.locator(`.country[data-animal-id="${ranked[0].animalId}"]`).click();await page.locator(`.slot[data-trait-id="${tid}"]`).click();
+  }
+  await page.getByRole('button',{name:'Submit answers',exact:true}).click();assert.equal(await page.locator('.scoreValue strong').textContent(),'400');
+  const row=page.locator('.result').filter({hasText:mddData.traits.find(t=>t.id===id).displayName});await row.getByRole('button',{name:'View rankings',exact:true}).click();
+  await page.locator('.leaderboard').getByRole('button',{name:'Data & Source',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('.sourceLoading'));
+  assert((await page.locator('.sourceDataRow').count())>=40);await page.getByRole('button',{name:'Close data and source'}).click();
  }
  await page.goto('http://localhost:3012/animals?mode=expert',{waitUntil:'networkidle'});assert.equal(await page.locator('.country').count(),8);
  assert.deepEqual(errors,[]);

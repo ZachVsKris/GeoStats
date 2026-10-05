@@ -1,0 +1,38 @@
+{
+  "record": 21654811,
+  "doi": "10.5281/zenodo.21654811",
+  "version": "v2.5",
+  "publicationDate": "2026-07-28",
+  "license": {
+    "id": "cc-by-4.0"
+  },
+  "files": [
+    {
+      "id": "08b0d734-d38f-426c-a8e7-e47fa15ca5a7",
+      "key": "META_v2.5.csv",
+      "size": 28196,
+      "checksum": "md5:2c013cde9933dd2b7dd93e990df49006",
+      "links": {
+        "self": "https://zenodo.org/api/records/21654811/files/META_v2.5.csv/content"
+      }
+    },
+    {
+      "id": "a96d37eb-7925-409b-a99a-a8f8f1dfe1c5",
+      "key": "MDD_v2.5_6904species.csv",
+      "size": 9303589,
+      "checksum": "md5:533e662fd5b8f66a5f56c191e7efac44",
+      "links": {
+        "self": "https://zenodo.org/api/records/21654811/files/MDD_v2.5_6904species.csv/content"
+      }
+    },
+    {
+      "id": "6cc17643-cd1b-4db0-a2f7-756f4224b598",
+      "key": "release.toml",
+      "size": 544,
+      "checksum": "md5:6670ccf2f7ff84134866813a89a22c4e",
+      "links": {
+        "self": "https://zenodo.org/api/records/21654811/files/release.toml/content"
+      }
+    }
+  ]
+}

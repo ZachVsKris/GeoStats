@@ -1,1 +1,8 @@
-{"source":"AnAge Build 15","sha256":"e3ddb66e32e973a79932859ba53013e8f60d957c6ec01c6eb573e3ea3018d630","pinnedRowsChecked":2538,"errors":[],"unmapped":[],"scope":"Original pinned AnAge values, exact taxa, lifespan origin, and calculated mass-specific metabolic rate. Other source families require their existing extraction audits; not a fresh scientific replication."}
+{
+  "source": "AnAge Build 15",
+  "sha256": "e3ddb66e32e973a79932859ba53013e8f60d957c6ec01c6eb573e3ea3018d630",
+  "pinnedRowsChecked": 2538,
+  "errors": [],
+  "unmapped": [],
+  "scope": "Original pinned AnAge values, exact taxa, lifespan origin, and calculated mass-specific metabolic rate. Other source families require their existing extraction audits; not a fresh scientific replication."
+}

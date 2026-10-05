@@ -1,0 +1,808 @@
+{
+  "doi": "10.5281/zenodo.21654811",
+  "version": "v2.5",
+  "rawCsvSha256": "0d07a7e9409712fa86c1e3afadcf4c67bf4f9e16d5693a878e11ec1bf6860493",
+  "recognizedRecords": 6904,
+  "livingRecords": 6791,
+  "matchedTargets": 54,
+  "observationDirectionsAdded": 296,
+  "labelPairs": [
+    [
+      "Most countries & territories",
+      "Fewest countries & territories"
+    ],
+    [
+      "Most continents",
+      "Fewest continents"
+    ],
+    [
+      "Most species in its family",
+      "Fewest species in its family"
+    ]
+  ],
+  "admitted": [
+    {
+      "animalId": "panthera_leo",
+      "sourceRow": 6422,
+      "mddId": "1006020",
+      "sciName": "Panthera_leo",
+      "family": "Felidae",
+      "measurements": {
+        "mdd_family_species_count": 46,
+        "mdd_country_count": 27,
+        "mdd_continent_count": 2
+      },
+      "uncertainCountries": [
+        "Cote d'Ivoire?",
+        "Ghana?",
+        "Guinea?",
+        "Mali?",
+        "Rwanda?",
+        "Togo?"
+      ]
+    },
+    {
+      "animalId": "panthera_tigris",
+      "sourceRow": 6425,
+      "mddId": "1006023",
+      "sciName": "Panthera_tigris",
+      "family": "Felidae",
+      "measurements": {
+        "mdd_family_species_count": 46,
+        "mdd_country_count": 11,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": [
+        "Cambodia?",
+        "North Korea?",
+        "Vietnam?"
+      ]
+    },
+    {
+      "animalId": "panthera_pardus",
+      "sourceRow": 6424,
+      "mddId": "1006022",
+      "sciName": "Panthera_pardus",
+      "family": "Felidae",
+      "measurements": {
+        "mdd_family_species_count": 46,
+        "mdd_country_count": 63,
+        "mdd_continent_count": 3
+      },
+      "uncertainCountries": [
+        "Algeria?",
+        "Gambia?",
+        "Georgia?",
+        "Israel?",
+        "Laos?",
+        "Lesotho?",
+        "North Korea?",
+        "Palestine?",
+        "Tajikistan?",
+        "Vietnam?"
+      ]
+    },
+    {
+      "animalId": "acinonyx_jubatus",
+      "sourceRow": 6381,
+      "mddId": "1005979",
+      "sciName": "Acinonyx_jubatus",
+      "family": "Felidae",
+      "measurements": {
+        "mdd_family_species_count": 46,
+        "mdd_country_count": 21,
+        "mdd_continent_count": 2
+      },
+      "uncertainCountries": [
+        "Djibouti?",
+        "Egypt?",
+        "Eritrea?",
+        "Libya?",
+        "Somalia?",
+        "Sudan?",
+        "Togo?"
+      ]
+    },
+    {
+      "animalId": "canis_lupus",
+      "sourceRow": 6345,
+      "mddId": "1005943",
+      "sciName": "Canis_lupus",
+      "family": "Canidae",
+      "measurements": {
+        "mdd_family_species_count": 39,
+        "mdd_country_count": 73,
+        "mdd_continent_count": 3
+      },
+      "uncertainCountries": [
+        "Bangladesh?"
+      ]
+    },
+    {
+      "animalId": "vulpes_vulpes",
+      "sourceRow": 6379,
+      "mddId": "1005977",
+      "sciName": "Vulpes_vulpes",
+      "family": "Canidae",
+      "measurements": {
+        "mdd_family_species_count": 39,
+        "mdd_country_count": 81,
+        "mdd_continent_count": 4
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "ursus_maritimus",
+      "sourceRow": 6339,
+      "mddId": "1005936",
+      "sciName": "Ursus_maritimus",
+      "family": "Ursidae",
+      "measurements": {
+        "mdd_family_species_count": 8,
+        "mdd_country_count": 5,
+        "mdd_continent_count": 3
+      },
+      "uncertainCountries": [
+        "Iceland?"
+      ]
+    },
+    {
+      "animalId": "ursus_arctos",
+      "sourceRow": 6338,
+      "mddId": "1005935",
+      "sciName": "Ursus_arctos",
+      "family": "Ursidae",
+      "measurements": {
+        "mdd_family_species_count": 8,
+        "mdd_country_count": 46,
+        "mdd_continent_count": 3
+      },
+      "uncertainCountries": [
+        "Austria?",
+        "Bhutan?",
+        "Czech Republic?",
+        "Switzerland?",
+        "Turkmenistan?"
+      ]
+    },
+    {
+      "animalId": "ursus_americanus",
+      "sourceRow": 6337,
+      "mddId": "1005934",
+      "sciName": "Ursus_americanus",
+      "family": "Ursidae",
+      "measurements": {
+        "mdd_family_species_count": 8,
+        "mdd_country_count": 3,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "ailuropoda_melanoleuca",
+      "sourceRow": 6333,
+      "mddId": "1005930",
+      "sciName": "Ailuropoda_melanoleuca",
+      "family": "Ursidae",
+      "measurements": {
+        "mdd_family_species_count": 8,
+        "mdd_country_count": 1,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "loxodonta_africana",
+      "sourceRow": 559,
+      "mddId": "1000522",
+      "sciName": "Loxodonta_africana",
+      "family": "Elephantidae",
+      "measurements": {
+        "mdd_family_species_count": 3,
+        "mdd_country_count": 34,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "hippopotamus_amphibius",
+      "sourceRow": 6533,
+      "mddId": "1006390",
+      "sciName": "Hippopotamus_amphibius",
+      "family": "Hippopotamidae",
+      "measurements": {
+        "mdd_family_species_count": 2,
+        "mdd_country_count": 38,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "equus_asinus",
+      "sourceRow": 6524,
+      "mddId": "1006121",
+      "sciName": "Equus_asinus",
+      "family": "Equidae",
+      "measurements": {
+        "mdd_family_species_count": 9
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "gorilla_gorilla",
+      "sourceRow": 764,
+      "mddId": "1000717",
+      "sciName": "Gorilla_gorilla",
+      "family": "Hominidae",
+      "measurements": {
+        "mdd_family_species_count": 8,
+        "mdd_country_count": 7,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "pan_troglodytes",
+      "sourceRow": 767,
+      "mddId": "1000720",
+      "sciName": "Pan_troglodytes",
+      "family": "Hominidae",
+      "measurements": {
+        "mdd_family_species_count": 8,
+        "mdd_country_count": 20,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "pongo_pygmaeus",
+      "sourceRow": 769,
+      "mddId": "1000722",
+      "sciName": "Pongo_pygmaeus",
+      "family": "Hominidae",
+      "measurements": {
+        "mdd_family_species_count": 8,
+        "mdd_country_count": 2,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "macaca_mulatta",
+      "sourceRow": 655,
+      "mddId": "1000612",
+      "sciName": "Macaca_mulatta",
+      "family": "Cercopithecidae",
+      "measurements": {
+        "mdd_family_species_count": 166,
+        "mdd_country_count": 11,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "phascolarctos_cinereus",
+      "sourceRow": 436,
+      "mddId": "1000404",
+      "sciName": "Phascolarctos_cinereus",
+      "family": "Phascolarctidae",
+      "measurements": {
+        "mdd_family_species_count": 1,
+        "mdd_country_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "hydrochoerus_hydrochaeris",
+      "sourceRow": 1253,
+      "mddId": "1001209",
+      "sciName": "Hydrochoerus_hydrochaeris",
+      "family": "Caviidae",
+      "measurements": {
+        "mdd_family_species_count": 24,
+        "mdd_country_count": 12,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "castor_canadensis",
+      "sourceRow": 1918,
+      "mddId": "1001957",
+      "sciName": "Castor_canadensis",
+      "family": "Castoridae",
+      "measurements": {
+        "mdd_family_species_count": 2,
+        "mdd_country_count": 3,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "enhydra_lutris",
+      "sourceRow": 6235,
+      "mddId": "1005842",
+      "sciName": "Enhydra_lutris",
+      "family": "Mustelidae",
+      "measurements": {
+        "mdd_family_species_count": 70,
+        "mdd_country_count": 5,
+        "mdd_continent_count": 2
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "balaenoptera_musculus",
+      "sourceRow": 6545,
+      "mddId": "1006401",
+      "sciName": "Balaenoptera_musculus",
+      "family": "Balaenopteridae",
+      "measurements": {
+        "mdd_family_species_count": 11,
+        "mdd_country_count": 78,
+        "mdd_continent_count": 6
+      },
+      "uncertainCountries": [
+        "China?",
+        "Gabon?",
+        "North Korea?",
+        "South Korea?",
+        "Taiwan?"
+      ]
+    },
+    {
+      "animalId": "megaptera_novaeangliae",
+      "sourceRow": 6550,
+      "mddId": "1006405",
+      "sciName": "Megaptera_novaeangliae",
+      "family": "Balaenopteridae",
+      "measurements": {
+        "mdd_family_species_count": 11,
+        "mdd_country_count": 162,
+        "mdd_continent_count": 6
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "helarctos_malayanus",
+      "sourceRow": 6335,
+      "mddId": "1005932",
+      "sciName": "Helarctos_malayanus",
+      "family": "Ursidae",
+      "measurements": {
+        "mdd_family_species_count": 8,
+        "mdd_country_count": 10,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": [
+        "China?"
+      ]
+    },
+    {
+      "animalId": "melursus_ursinus",
+      "sourceRow": 6336,
+      "mddId": "1005933",
+      "sciName": "Melursus_ursinus",
+      "family": "Ursidae",
+      "measurements": {
+        "mdd_family_species_count": 8,
+        "mdd_country_count": 5,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "tremarctos_ornatus",
+      "sourceRow": 6334,
+      "mddId": "1005931",
+      "sciName": "Tremarctos_ornatus",
+      "family": "Ursidae",
+      "measurements": {
+        "mdd_family_species_count": 8,
+        "mdd_country_count": 5,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": [
+        "Argentina?"
+      ]
+    },
+    {
+      "animalId": "ursus_thibetanus",
+      "sourceRow": 6340,
+      "mddId": "1005937",
+      "sciName": "Ursus_thibetanus",
+      "family": "Ursidae",
+      "measurements": {
+        "mdd_family_species_count": 8,
+        "mdd_country_count": 18,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "ornithorhynchus_anatinus",
+      "sourceRow": 2,
+      "mddId": "1000001",
+      "sciName": "Ornithorhynchus_anatinus",
+      "family": "Ornithorhynchidae",
+      "measurements": {
+        "mdd_family_species_count": 1,
+        "mdd_country_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "erinaceus_europaeus",
+      "sourceRow": 4052,
+      "mddId": "1003810",
+      "sciName": "Erinaceus_europaeus",
+      "family": "Erinaceidae",
+      "measurements": {
+        "mdd_family_species_count": 35,
+        "mdd_country_count": 24,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "didelphis_marsupialis",
+      "sourceRow": 22,
+      "mddId": "1000021",
+      "sciName": "Didelphis_marsupialis",
+      "family": "Didelphidae",
+      "measurements": {
+        "mdd_family_species_count": 132,
+        "mdd_country_count": 19,
+        "mdd_continent_count": 2
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "tupaia_glis",
+      "sourceRow": 584,
+      "mddId": "1000546",
+      "sciName": "Tupaia_glis",
+      "family": "Tupaiidae",
+      "measurements": {
+        "mdd_family_species_count": 22,
+        "mdd_country_count": 3,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "cavia_porcellus",
+      "sourceRow": 1237,
+      "mddId": "1001195",
+      "sciName": "Cavia_porcellus",
+      "family": "Caviidae",
+      "measurements": {
+        "mdd_family_species_count": 24
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "equus_caballus",
+      "sourceRow": 6525,
+      "mddId": "1006122",
+      "sciName": "Equus_caballus",
+      "family": "Equidae",
+      "measurements": {
+        "mdd_family_species_count": 9
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "camelus_dromedarius",
+      "sourceRow": 6900,
+      "mddId": "1006383",
+      "sciName": "Camelus_dromedarius",
+      "family": "Camelidae",
+      "measurements": {
+        "mdd_family_species_count": 7
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "oryctolagus_cuniculus",
+      "sourceRow": 1151,
+      "mddId": "1001113",
+      "sciName": "Oryctolagus_cuniculus",
+      "family": "Leporidae",
+      "measurements": {
+        "mdd_family_species_count": 78,
+        "mdd_country_count": 19,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "mus_musculus",
+      "sourceRow": 3567,
+      "mddId": "1003372",
+      "sciName": "Mus_musculus",
+      "family": "Muridae",
+      "measurements": {
+        "mdd_family_species_count": 865,
+        "mdd_country_count": 89,
+        "mdd_continent_count": 3
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "lemur_catta",
+      "sourceRow": 1044,
+      "mddId": "1001008",
+      "sciName": "Lemur_catta",
+      "family": "Lemuridae",
+      "measurements": {
+        "mdd_family_species_count": 21,
+        "mdd_country_count": 1,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "capra_hircus",
+      "sourceRow": 6692,
+      "mddId": "1006184",
+      "sciName": "Capra_hircus",
+      "family": "Bovidae",
+      "measurements": {
+        "mdd_family_species_count": 153
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "procyon_lotor",
+      "sourceRow": 6294,
+      "mddId": "1005892",
+      "sciName": "Procyon_lotor",
+      "family": "Procyonidae",
+      "measurements": {
+        "mdd_family_species_count": 13,
+        "mdd_country_count": 10,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "meles_meles",
+      "sourceRow": 6257,
+      "mddId": "1005859",
+      "sciName": "Meles_meles",
+      "family": "Mustelidae",
+      "measurements": {
+        "mdd_family_species_count": 70,
+        "mdd_country_count": 40,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "panthera_onca",
+      "sourceRow": 6423,
+      "mddId": "1006021",
+      "sciName": "Panthera_onca",
+      "family": "Felidae",
+      "measurements": {
+        "mdd_family_species_count": 46,
+        "mdd_country_count": 19,
+        "mdd_continent_count": 2
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "puma_concolor",
+      "sourceRow": 6419,
+      "mddId": "1006017",
+      "sciName": "Puma_concolor",
+      "family": "Felidae",
+      "measurements": {
+        "mdd_family_species_count": 46,
+        "mdd_country_count": 22,
+        "mdd_continent_count": 2
+      },
+      "uncertainCountries": [
+        "Uruguay?"
+      ]
+    },
+    {
+      "animalId": "phoca_vitulina",
+      "sourceRow": 6328,
+      "mddId": "1005926",
+      "sciName": "Phoca_vitulina",
+      "family": "Phocidae",
+      "measurements": {
+        "mdd_family_species_count": 19,
+        "mdd_country_count": 19,
+        "mdd_continent_count": 3
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "zalophus_californianus",
+      "sourceRow": 6310,
+      "mddId": "1005908",
+      "sciName": "Zalophus_californianus",
+      "family": "Otariidae",
+      "measurements": {
+        "mdd_family_species_count": 15,
+        "mdd_country_count": 7,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "vombatus_ursinus",
+      "sourceRow": 439,
+      "mddId": "1000407",
+      "sciName": "Vombatus_ursinus",
+      "family": "Vombatidae",
+      "measurements": {
+        "mdd_family_species_count": 3,
+        "mdd_country_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "tachyglossus_aculeatus",
+      "sourceRow": 3,
+      "mddId": "1000002",
+      "sciName": "Tachyglossus_aculeatus",
+      "family": "Tachyglossidae",
+      "measurements": {
+        "mdd_family_species_count": 4,
+        "mdd_country_count": 3
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "rangifer_tarandus",
+      "sourceRow": 6826,
+      "mddId": "1006306",
+      "sciName": "Rangifer_tarandus",
+      "family": "Cervidae",
+      "measurements": {
+        "mdd_family_species_count": 60,
+        "mdd_country_count": 7,
+        "mdd_continent_count": 3
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "suricata_suricatta",
+      "sourceRow": 6471,
+      "mddId": "1006070",
+      "sciName": "Suricata_suricatta",
+      "family": "Herpestidae",
+      "measurements": {
+        "mdd_family_species_count": 35,
+        "mdd_country_count": 4,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "rattus_norvegicus",
+      "sourceRow": 3855,
+      "mddId": "1003649",
+      "sciName": "Rattus_norvegicus",
+      "family": "Muridae",
+      "measurements": {
+        "mdd_family_species_count": 865,
+        "mdd_country_count": 58,
+        "mdd_continent_count": 3
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "mesocricetus_auratus",
+      "sourceRow": 2325,
+      "mddId": "1002208",
+      "sciName": "Mesocricetus_auratus",
+      "family": "Cricetidae",
+      "measurements": {
+        "mdd_family_species_count": 882,
+        "mdd_country_count": 2,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "myotis_lucifugus",
+      "sourceRow": 5360,
+      "mddId": "1005432",
+      "sciName": "Myotis_lucifugus",
+      "family": "Vespertilionidae",
+      "measurements": {
+        "mdd_family_species_count": 556,
+        "mdd_country_count": 2,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": []
+    },
+    {
+      "animalId": "pteropus_vampyrus",
+      "sourceRow": 5944,
+      "mddId": "1004507",
+      "sciName": "Pteropus_vampyrus",
+      "family": "Pteropodidae",
+      "measurements": {
+        "mdd_family_species_count": 197,
+        "mdd_country_count": 10,
+        "mdd_continent_count": 1
+      },
+      "uncertainCountries": [
+        "China?"
+      ]
+    },
+    {
+      "animalId": "myrmecophaga_tridactyla",
+      "sourceRow": 479,
+      "mddId": "1000442",
+      "sciName": "Myrmecophaga_tridactyla",
+      "family": "Myrmecophagidae",
+      "measurements": {
+        "mdd_family_species_count": 3,
+        "mdd_country_count": 15,
+        "mdd_continent_count": 2
+      },
+      "uncertainCountries": [
+        "Belize?",
+        "El Salvador?",
+        "Guatemala?",
+        "Uruguay?"
+      ]
+    },
+    {
+      "animalId": "dasypus_novemcinctus",
+      "sourceRow": 460,
+      "mddId": "1000424",
+      "sciName": "Dasypus_novemcinctus",
+      "family": "Dasypodidae",
+      "measurements": {
+        "mdd_family_species_count": 11,
+        "mdd_country_count": 11,
+        "mdd_continent_count": 2
+      },
+      "uncertainCountries": []
+    }
+  ],
+  "excluded": [
+    {
+      "animalId": "giraffa_camelopardalis",
+      "reason": "Recently extinct or taxonomically questionable target."
+    },
+    {
+      "animalId": "ceratotherium_simum",
+      "reason": "Recently extinct or taxonomically questionable target."
+    },
+    {
+      "animalId": "equus_quagga",
+      "reason": "Recently extinct or taxonomically questionable target."
+    },
+    {
+      "animalId": "tursiops_truncatus",
+      "reason": "Recently extinct or taxonomically questionable target."
+    },
+    {
+      "animalId": "orcinus_orca",
+      "reason": "Recently extinct or taxonomically questionable target."
+    },
+    {
+      "animalId": "sus_scrofa",
+      "reason": "Recently extinct or taxonomically questionable target."
+    },
+    {
+      "animalId": "cervus_elaphus",
+      "reason": "Recently extinct or taxonomically questionable target."
+    }
+  ],
+  "qualityNotes": [
+    "Homepage\u2019s displayed DOI resolves to v2.3; used the original v2.5 release.toml DOI and verified original file MD5.",
+    "META text mentions 19 domestic species; actual pinned v2.5 rows contain 17, matching release.toml. Counts use actual rows.",
+    "No imputation, uncertain country inclusion, unannounced taxon substitution or population inference.",
+    "Distribution describes native/historical lists, including pre-1500 introductions; never presented as all modern populations."
+  ]
+}

@@ -59,8 +59,13 @@ export function randomAnimalBoardIndex(data: AnimalDataset, pool: BoardCandidate
   const { groups: grouped, labels, byLabel } = rotationIndex(data, pool);
   const currentGroup = current ? animalBoardGroup(data, current) : undefined;
   const alternatives = [...grouped.keys()].filter(g => g !== currentGroup);
-  const groups = alternatives.length ? alternatives : [...grouped.keys()];
-  const group = weightedChoice(groups, () => 1, random);
+  // Expert has a smaller verified bird pool. Keep mammals more frequent and
+  // soften group switching so four bird lineups cannot dominate every other round.
+  const expert = (current?.mode ?? pool[0]?.mode) === "expert";
+  const groups = expert ? [...grouped.keys()] : alternatives.length ? alternatives : [...grouped.keys()];
+  const group = weightedChoice(groups, name => expert
+    ? (name === "mammals" ? 3 : 1) * (name === currentGroup ? .65 : 1)
+    : 1, random);
   const history = recent.length ? recent.slice(-12) : current ? [current] : [];
   const labelCounts = new Map<string, number>(), animalCounts = new Map<string, number>();
   for (const board of history) {

@@ -409,6 +409,8 @@ const birds: Record<string, [string, string, string, number, number?]> = {
   aquila_chrysaetos: ["#6a4e32", "#b69a64", "eagle", 0.34],
   ara_macao: ["#d73c30", "#ed6241", "macaw", 0.42],
   ardea_cinerea: ["#a9b9bb", "#e9ece1", "heron", 0.85, 1.05],
+  tyto_alba: ["#c8a373", "#fff5df", "barnowl", 0.2],
+  phoebastria_immutabilis: ["#f1efdf", "#fff7e4", "laysanalbatross", 0.56],
   bubo_virginianus: ["#9a8058", "#d8c9a0", "owl", 0.2],
   cardinalis_cardinalis: ["#d44239", "#e26052", "cardinal", 0.24],
   columba_palumbus: ["#9da9b5", "#bdb1b1", "pigeon", 0.25],

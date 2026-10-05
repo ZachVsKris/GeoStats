@@ -290,12 +290,13 @@ function Swift({ p }: { p: Profile }) {
 
 function Bird({ p }: { p: Profile }) {
   const f = p.feature ?? "", ostrich = f === "ostrich", emu = f === "emu", heron = f === "heron", tall = ostrich || emu || heron;
-  const penguin = p.kind === "penguin", duck = ["mallard", "eider", "goose"].includes(f), goose = f === "goose", owl = f === "owl", parrot = f === "macaw";
-  const raptor = ["eagle", "baldeagle", "falcon"].includes(f), sea = ["gull", "blackheadedgull", "tern", "albatross", "oystercatcher", "pelican", "cormorant"].includes(f);
+  const penguin = p.kind === "penguin", duck = ["mallard", "eider", "goose"].includes(f), goose = f === "goose", owl = f === "owl" || f === "barnowl", parrot = f === "macaw";
+  const barnOwl = f === "barnowl", albatross = f === "albatross" || f === "laysanalbatross";
+  const raptor = ["eagle", "baldeagle", "falcon"].includes(f), sea = ["gull", "blackheadedgull", "tern", "albatross", "laysanalbatross", "oystercatcher", "pelican", "cormorant"].includes(f);
   if (f === "swift") return <Swift p={p} />;
   const color = p.color, neckColor = ostrich ? "#d9aa97" : emu ? "#73888b" : heron ? "#e9ece1" : color;
   const bx = tall ? 85 : penguin ? 99 : duck ? 81 : 90, by = tall ? 86 : penguin ? 93 : duck ? 109 : sea ? 98 : 99;
-  const brx = tall ? heron ? 28 : 39 : penguin ? 27 : duck ? 43 : owl ? 30 : f === "albatross" || f === "pelican" ? 43 : raptor ? 34 : 32, bry = tall ? 25 : penguin ? 43 : duck ? 24 : owl ? 38 : raptor ? 35 : 31;
+  const brx = tall ? heron ? 28 : 39 : penguin ? 27 : duck ? 43 : owl ? 30 : albatross || f === "pelican" ? 43 : raptor ? 34 : 32, bry = tall ? 25 : penguin ? 43 : duck ? 24 : owl ? 38 : albatross ? 25 : raptor ? 35 : 31;
   const hx = tall ? 134 : penguin ? 106 : goose ? 129 : duck ? 127 : owl ? 102 : parrot ? 117 : 120;
   const hy = tall ? 24 : penguin ? 49 : goose ? 61 : duck ? 96 : owl ? 61 : parrot ? 56 : 68;
   const hr = tall ? 13 : penguin ? 23 : duck ? 22 : owl ? 30 : parrot ? 25 : 22;
@@ -303,18 +304,19 @@ function Bird({ p }: { p: Profile }) {
   return <>
     <g className="cartoonFeet">{[bx-11,bx+11].map((lx,i) => <g key={lx} className={i ? "cartoonStepBack" : "cartoonStep"} style={{ transformOrigin: `${lx}px ${legTop}px` }}>
       {tall ? <><path fill={legColor} d={`M${lx-3} ${legTop} L${lx+1} 121 ${lx-3} 140 Q${lx-5} 146 ${lx+2} 145 L${lx+5} 124 ${lx+4} ${legTop} Z`} /><path fill="none" stroke={legColor} strokeWidth="4" d={`M${lx} 144 l12 1 m-12-1 5-5 ${ostrich ? '' : `m-5 5 -7 1`}`} /><path strokeWidth="1" d={`M${lx+11} 145 l3-1`} /></> :
-      duck || penguin ? <path fill={legColor} d={`M${lx-4} ${legTop} l0 ${penguin ? 28 : 10} -9 9 5 3 5-2 4 3 6-3 5 0 -8-10 -1-${penguin ? 28 : 10} Z`} /> : <><path fill="none" stroke={legColor} strokeWidth="4" d={`M${lx} ${legTop} l-2 26 0 7 m0 0 -8 2 m8-2 10 1 m-10-1 4-4`} /></>}
+      duck || penguin || albatross ? <path fill={legColor} d={`M${lx-4} ${legTop} l0 ${penguin ? 28 : albatross ? 22 : 10} -9 9 5 3 5-2 4 3 6-3 5 0 -8-10 -1-${penguin ? 28 : albatross ? 22 : 10} Z`} /> : <><path fill="none" stroke={legColor} strokeWidth="4" d={`M${lx} ${legTop} l-2 26 0 7 m0 0 -8 2 m8-2 10 1 m-10-1 4-4`} /></>}
     </g>)}</g>
-    {!penguin && <path fill={tall ? ostrich ? CREAM : color : f === "rooster" ? "#43716b" : f === "baldeagle" ? CREAM : color} d={tall ? "M51 80 Q33 79 37 95 L58 101 Z" : f === "rooster" ? "M66 99 Q29 104 28 61 Q41 67 49 88 Q31 56 45 47 Q57 68 62 89 Z" : f === "swallow" || f === "tern" ? "M66 100 L28 130 42 106 23 101 62 88 Z" : parrot ? "M75 100 L58 148 83 124 94 111 Z" : "M65 97 L39 80 45 107 71 115 Z"} />}
+    {!penguin && <path fill={tall ? ostrich ? CREAM : color : f === "rooster" ? "#43716b" : f === "baldeagle" ? CREAM : albatross ? "#4f5148" : color} d={tall ? "M51 80 Q33 79 37 95 L58 101 Z" : f === "rooster" ? "M66 99 Q29 104 28 61 Q41 67 49 88 Q31 56 45 47 Q57 68 62 89 Z" : f === "swallow" || f === "tern" ? "M66 100 L28 130 42 106 23 101 62 88 Z" : parrot ? "M75 100 L58 148 83 124 94 111 Z" : "M65 97 L39 80 45 107 71 115 Z"} />}
     <ellipse fill={color} cx={bx} cy={by} rx={brx} ry={bry} />
     {tall && <path fill={neckColor} data-anatomy="long-neck" d={heron ? "M106 83 Q138 78 125 57 Q109 35 125 20 L140 25 Q126 38 139 58 Q153 84 113 104 Z" : "M109 83 Q124 57 125 25 L139 23 Q143 64 122 101 Z"} />}
     {(goose || f === "cormorant" || f === "pelican") && <path fill={color} d={goose ? "M100 112 Q126 103 116 62 L135 60 Q148 116 110 129 Z" : "M108 98 Q130 86 117 60 L134 62 Q146 94 117 117 Z"} />}
-    {(penguin || duck || ["gull", "tern", "blackheadedgull", "heron", "oystercatcher", "falcon", "albatross", "swallow", "lapwing", "pigeon"].includes(f)) && <ellipse fill={p.belly} stroke="none" cx={bx+7} cy={by+7} rx={penguin ? 18 : brx*.75} ry={penguin ? 34 : bry*.67} />}
+    {(penguin || duck || ["gull", "tern", "blackheadedgull", "heron", "oystercatcher", "falcon", "albatross", "laysanalbatross", "barnowl", "swallow", "lapwing", "pigeon"].includes(f)) && <ellipse fill={p.belly} stroke="none" cx={bx+7} cy={by+7} rx={penguin ? 18 : brx*.75} ry={penguin ? 34 : bry*.67} />}
     <g className="cartoonWing" style={{ transformOrigin: `${bx+4}px ${by-13}px` }}>
-      <path fill={ostrich ? CREAM : penguin ? color : f === "mallard" ? "#918879" : f === "eider" ? CREAM : f === "albatross" ? "#5b5d58" : color} d={penguin ? `M${bx-12} ${by-22} Q${bx-42} ${by+17} ${bx-27} ${by+30} Q${bx-13} ${by+6} ${bx-9} ${by-16} Z` : `M${bx+9} ${by-18} Q${bx-28} ${by-23} ${bx-27} ${by+4} Q${bx-27} ${by+23} ${bx+17} ${by+4} Q${bx-6} ${by+16} ${bx-13} ${by+5} Q${bx+7} ${by+6} ${bx+9} ${by-18} Z`} />
+      <path fill={ostrich ? CREAM : penguin ? color : f === "mallard" ? "#918879" : f === "eider" ? CREAM : albatross ? "#5b5d58" : color} d={penguin ? `M${bx-12} ${by-22} Q${bx-42} ${by+17} ${bx-27} ${by+30} Q${bx-13} ${by+6} ${bx-9} ${by-16} Z` : `M${bx+9} ${by-18} Q${bx-28} ${by-23} ${bx-27} ${by+4} Q${bx-27} ${by+23} ${bx+17} ${by+4} Q${bx-6} ${by+16} ${bx-13} ${by+5} Q${bx+7} ${by+6} ${bx+9} ${by-18} Z`} />
       {parrot && <><path stroke="none" fill="#e6c75c" d="M73 83 Q101 81 105 99 L69 111 Z" /><path stroke="none" fill="#477e9d" d="M69 100 Q88 108 109 96 L75 119 65 113 Z" /></>}
       {f === "mallard" && <path stroke="none" fill="#48799a" d="M60 109 l25-6 0 9 -22 5 Z" />}
       {emu && <path fill="none" stroke="#a7977c" strokeWidth="2" d="M62 78 l-2 13 m9-18 -1 14 m10-14 -2 16 m11-14 -3 18 M57 94 l2 11 m8-7 1 11 m9-7 1 9" />}
+      {barnOwl && <><path fill="#8d9290" stroke="none" d="M71 84 Q88 78 99 85 L87 100 69 113 64 105 Z" /><g fill="#fff0cc" stroke="none">{[0,1,2,3,4,5].map(i=><circle key={i} cx={70+i%3*9} cy={89+Math.floor(i/3)*13} r="1.5" />)}</g></>}
       {f === "lark" || f === "starling" || owl || raptor ? <g stroke={f === "starling" ? "#cabd8e" : p.belly} strokeWidth="1.5"><path d={`M${bx-14} ${by-13} l2 6 m7-9 2 6 m6-7 2 5 m-19 9 3 6 m7-7 2 5`} /></g> : null}
     </g>
     {f === "pigeon" && <path fill="none" stroke={CREAM} strokeWidth="5" d="M109 82 q9 8 16 5" />}
@@ -322,7 +324,7 @@ function Bird({ p }: { p: Profile }) {
     {f === "africanpenguin" && <path fill="none" stroke={color} strokeWidth="5" d="M85 82 Q111 69 116 99" />}
     {f === "kingpenguin" && <path fill="#efb754" stroke="none" d="M99 68 Q115 74 115 92 L104 82 Z" />}
     <g className="cartoonHead" style={{ transformOrigin: `${hx-8}px ${hy+12}px` }}>
-      <ellipse fill={f === "baldeagle" || ["gull", "albatross", "tern"].includes(f) ? CREAM : f === "mallard" ? "#4c8d68" : f === "blackheadedgull" ? "#625044" : tall ? neckColor : color} cx={hx} cy={hy} rx={hr} ry={tall ? 12 : owl ? 27 : 22} />
+      <ellipse fill={f === "baldeagle" || ["gull", "albatross", "laysanalbatross", "tern"].includes(f) ? CREAM : f === "mallard" ? "#4c8d68" : f === "blackheadedgull" ? "#625044" : tall ? neckColor : color} cx={hx} cy={hy} rx={hr} ry={tall ? 12 : owl ? 27 : 22} />
       {f === "mallard" && <path fill="none" stroke={CREAM} strokeWidth="4" d="M114 112 q12 10 25 1" />}
       {f === "eider" && <><path fill={CREAM} stroke="none" d="M108 93 Q108 69 132 76 L144 88 123 94 Z" /><path fill="#839881" stroke="none" d="M109 92 l9-3 5 11 -7 6 Z"/><path fill="#353b39" stroke="none" d="M109 86 Q120 67 138 80 L141 88 123 88 Z"/></>}
       {f === "baldeagle" && <path fill={CREAM} stroke="none" d="M102 69 l-2 22 8-4 6 7 4-8 7 3 6-7 8 2 -4-15 Z" />}
@@ -338,9 +340,11 @@ function Bird({ p }: { p: Profile }) {
         {f === "gentoo" ? <path fill={CREAM} stroke="none" d="M90 36 Q112 23 120 41 L110 44 Q103 33 91 42 Z" /> : f === "kingpenguin" ? <path fill="#edb256" stroke="none" d="M91 57 q9 13 20 7 l-7 11 -12-4 Z" /> : <path fill={CREAM} stroke="none" d="M88 33 Q105 24 120 38 L116 42 Q101 32 91 42 L88 59 96 65 91 71 Q79 57 88 33 Z" />}
       </>}
       {parrot && <path fill={CREAM} d="M119 41 Q139 38 142 60 L130 72 113 63 Z" />}
-      {owl ? <><path fill={color} d="M79 44 l-1-19 17 15 M117 40 l18-17 -3 25" /><ellipse fill={p.belly} cx="91" cy="61" rx="16" ry="20" /><ellipse fill={p.belly} cx="113" cy="61" rx="16" ry="20" /><Eye x={91} y={60} size={8} /><Eye x={114} y={60} size={8} /><path fill="#c79c57" d="M98 70 l9 0 -4 9 Z" /></> : <>
+      {f === "laysanalbatross" && <path fill="#4a4c47" stroke="none" data-anatomy="dark-eye-patch" d="M111 65 Q124 55 137 62 L134 72 Q123 71 116 75 Z" />}
+      {barnOwl ? <><path fill={p.belly} data-anatomy="heart-face" d="M102 45 C90 32 72 37 69 54 C64 73 81 87 102 95 C123 85 139 73 135 55 C132 37 116 32 102 45 Z" /><path fill="none" stroke="#d3b98e" strokeWidth="1.2" d="M102 46 Q98 57 100 71 M77 44 Q84 38 91 42 M114 42 Q124 37 129 46" /><g className="cartoonBlink" style={{transformOrigin:"102px 60px"}}><ellipse fill="#302822" cx="89" cy="60" rx="5.4" ry="7" /><ellipse fill="#302822" cx="116" cy="60" rx="5.4" ry="7" /><circle fill="#fff9e7" stroke="none" cx="91" cy="57" r="1.7" /><circle fill="#fff9e7" stroke="none" cx="118" cy="57" r="1.7" /></g><path fill="#d6b49f" d="M99 71 l7 0 -3 10 Z" /></> :
+      owl ? <><path fill={color} d="M79 44 l-1-19 17 15 M117 40 l18-17 -3 25" /><ellipse fill={p.belly} cx="91" cy="61" rx="16" ry="20" /><ellipse fill={p.belly} cx="113" cy="61" rx="16" ry="20" /><Eye x={91} y={60} size={8} /><Eye x={114} y={60} size={8} /><path fill="#c79c57" d="M98 70 l9 0 -4 9 Z" /></> : <>
         <Eye x={hx+4} y={hy-2} size={tall ? 5.5 : parrot ? 7 : 7.5} />
-        {duck ? <path fill="#d9ad66" d={`M${hx+14} ${hy+4} Q${hx+34} ${hy+2} ${hx+45} ${hy+10} Q${hx+47} ${hy+18} ${hx+17} ${hy+17} Z`} /> :
+        {f === "laysanalbatross" ? <><path fill="#d7b497" data-anatomy="hooked-bill" d={`M${hx+17} ${hy+4} L${hx+42} ${hy+10} Q${hx+51} ${hy+13} ${hx+46} ${hy+20} L${hx+40} ${hy+17} ${hx+17} ${hy+12} Z`} /><path fill="none" strokeWidth="1" d={`M${hx+19} ${hy+9} l22 6`} /></> : duck ? <path fill="#d9ad66" d={`M${hx+14} ${hy+4} Q${hx+34} ${hy+2} ${hx+45} ${hy+10} Q${hx+47} ${hy+18} ${hx+17} ${hy+17} Z`} /> :
         parrot || raptor ? <path fill={parrot ? "#e6cfa8" : "#dcb864"} d={`M${hx+15} ${hy+2} Q${hx+37} ${hy-2} ${hx+35} ${hy+12} L${hx+23} ${hy+23} ${hx+22} ${hy+12} ${hx+15} ${hy+11} Z`} /> :
         f === "pelican" ? <><path fill="#d2b97b" d={`M${hx+15} ${hy+4} l47 4 -44 8 Z`} /><path fill="#d3bd93" d={`M${hx+16} ${hy+12} q35 34 45-4 L${hx+16} ${hy+12} Z`} /></> :
         <path fill={f === "oystercatcher" || f === "tern" || penguin ? "#dba064" : tall ? "#b99c7b" : ["crow", "rook", "cormorant"].includes(f) ? "#53504a" : "#d8b066"} d={`M${hx+hr-4} ${hy+3} l${heron ? 39 : sea ? 28 : tall ? 15 : 18} 5 -${heron ? 39 : sea ? 27 : tall ? 15 : 17} 7 Z`} />}

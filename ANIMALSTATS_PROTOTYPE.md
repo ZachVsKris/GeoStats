@@ -1,41 +1,46 @@
-# AnimalStats paired-category prototype
+# AnimalStats release
 
-This private preview replaces reproduction-heavy and frog-heavy board selection with at least half intuitive questions on every individual board. Generation tries the highest intuitive count first; specialist details are optional. Scout and Adventurer have two to four intuitive questions; Expert has at least three. Life-history metrics are capped at one per Scout/Adventurer board and three per Expert board. Every category has a playable opposite, using identical source observations. Opposites and closely related measurements cannot share a board. All category winners are different, so a perfect allocation remains attainable.
+## Current scope
 
-The playable pool contains 517 direction-specific rounds, 76 animals and 29 category pairs. The broader research collection remains accessible in the Field Guide. There are 36 paired metrics in the measurement archive; incomplete intersections do not enter play. Categories include mass, lifespan records, flight, wingspan, breeding-range area, published mammal range-map area, directly weighed brain cohorts, and selected life-history comparisons. Beak width/depth, lower-leg length and wing shape are excluded. Tail length is a specialist detail. Pregnancy duration, number of young and incubation duration are intuitive questions; sexual maturity and weaning remain specialist details. Distinct concepts may have statistically correlated rankings; identical or reversed rank vectors, repeated metric keys and shared winners remain forbidden.
+The October 5 release has 176 catalog animals, 6,985 released observations and 178 archived trait directions. Default play uses 3,562 composition-approved boards, 101 animals and **104 distinct visible prize labels** (118 underlying source-specific directions). Opposites count separately in the label total; repeated labels do not. The requested 200-label minimum and 500-label ambition are not complete.
 
-Geography comes from 144 Animal Diversity Web species accounts. The UI translates their biogeographic labels and links each account. These labels include introduced distributions and are not native-only range claims. Playable animals cover the Nearctic, Neotropical, Palearctic, Oriental, Ethiopian, Australian and Antarctic regions, oceanic islands, and Atlantic, Pacific and Arctic waters. Random play chooses animal groups before board counts and gives regions absent from the previous round an equal chance. It avoids consecutive identical lineups where alternatives exist.
+Every default Scout/Adventurer board has at least three intuitive prizes out of four. Expert has at least four out of six. Familiar animal types anchor every board: one of four contestants or two of six/eight. Opposites, identical/reversed orderings and shared winners cannot appear on the same board. A perfect allocation is attainable. Scientific names remain exact; recognizability is an editorial classification, never a data substitution.
 
-## Evidence and limitations
+All 3,988 stored candidates pass structural checks. The 426 older composition-ineligible challenges remain addressable by their original links but do not enter default rotation. Shoulder-height boards are excluded. Missing illustrations, invalid source references, unit mismatches, source-method mismatches, inferred facts, unapproved rows, incompatible sex/stage, overlapping supplied bounds and ranks less than five percent apart block release.
 
-Numbers remain observed or compiled from named sources; no imputed measurements are admitted. Paired directions copy every observation, note, bound and source exactly. Five-percent adjacent separation and supplied range checks apply. Missing bounds remain explicitly unknown and keep daily approval separate.
+## Presentation and interaction
 
-New brain data includes only AnimalTraits records explicitly marked `brain weighed`, originally reported in grams or kilograms. Volume conversions and records without a measurement method are excluded. Published cohort medians and their full observed envelopes are used; cohort sex and age are not standardized and this is disclosed in the definition and source notes. Brain size is not intelligence. This subset is suitable for source-aware playtesting, pending daily review.
+Cute mode uses the county-fair pen, attached names, uniform 200×160 animation frames and unnumbered prize podiums. There are 107 explicit native species drawings. Real mode uses the GeoStats matching layout, licensed real photos and measurement icons. The top lever preserves choices, round and results. Both modes use the actual shared GeoStats score summary, result rows, optimal choices and ranking components.
 
-Some requested concepts still lack comparable source coverage: universal strength, population rankings, lifetime path length, precise diet diversity and endangerment-as-a-number are excluded. Scout has 242 rounds, Adventurer 221 and Expert 54. Play includes mammals, reptiles, birds and selected sharks. Insects, shellfish and amphibians remain in the research collection but do not yet have eligible illustrated boards. This is a prototype of the approved direction, not a claim of completed worldwide taxonomic coverage.
+Both-direction click/tap selection, drag, swaps, return-to-bank and × removal are supported. Category definitions open on hover, focus or tap. Results include board rankings, full released source rankings, provenance and CSV exports. Score sharing supports text, PNG preview/download and native sharing with fallback. No breeding, birth or hybrid system remains. Motion respects reduced-motion preferences.
 
-Mammal mapped range imports only positive, exact-species GIS area values from PanTHERIA WR05 August 2008, whose range maps date to 2003. It is historical mapped extent, not current occupied habitat. Model-adjusted body-length and other estimated PanTHERIA traits are excluded.
+## New verified comparisons
 
-## County fair design
+- Museum ear length: six exact adult specimen cohorts, explicit millimetres and notch-to-tip measurements. Recorded cohort medians are disclosed as such, not population means or species maxima. Unknown ages, estimated measurements, inferred units, conflicting duplicates and domestic dogs misidentified as wild wolves are excluded.
+- Mammal Diversity Database v2.5: 296 exact released counts matched to 54 unambiguous catalog taxa. Country/territory and continent lists follow the source's native/historical definition, including introductions before 1500 and excluding recent introductions. Uncertain country entries are excluded. Family diversity means recognized living species in the versioned taxonomic family, not individuals or offspring. Original CSV checksums and independent reconciliation are retained.
+- Hibernation: directly reported conventional-hibernation records, with no estimated table means admitted.
+- Treat-puzzle performance: original tested cohorts, sample sizes and individual variation. These are task scores, never general intelligence rankings.
 
-The bunting-trimmed ring holds animated SVG contestants and four or six ribbon stands on one screen. Eighty species have explicit drawings; 76 currently enter the 517 valid boards. Every drawing uses a 200×160 frame at equal presentation size. Names are always visible above each contestant in an attached nameplate. Species features include long-necked ostriches and emus, a platypus bill and webbed feet, distinct primates and bear markings, and individual bird bills/plumage.
+## Rotation
 
-Mouse and touch dragging, either-order tap selection, keyboard selection, swapping, and × removal are supported. Blink, head, tail and limb animations respect pause and reduced motion. Results award the real first-place animal; no breeding, birth or hybrid system remains.
+Scout rotates mammals, birds and mixed boards. Adventurer rotates mammals and birds. Expert now has 12 valid bird boards across four distinct lineups, alongside the mammal pool. Expert subject weights favor mammals and allow softer group switching so the small bird pool does not occupy every other round. Board counts never directly determine subject exposure. Recent labels, contestants and lineups are downweighted; immediate identical lineups are avoided where alternatives exist.
 
-The active board and submit button fit desktop 1440×900 and 1366×768 and phone 390×844 and 375×667, including Expert’s eight contestants and six stands. Prize browsing, results, history and the field guide may scroll. The renderer is `components/AnimalSprite.tsx`, profiles are `lib/animalstatsCartoons.ts`, gameplay is `components/AnimalStatsGame.tsx`, and styling is `app/animals/animal-sanctuary.css`.
+A 9,000-draw audit reaches every available animal and label in each difficulty without immediate repeated lineups. The current Expert simulation is 2,161 mammal and 839 bird rounds. This is simulation evidence, not a promised fixed quota.
 
-Preview is enabled only by the existing feature branch or explicit preview flag; production navigation is unchanged. The immutable pinned catalog is validated once per server worker, then reused. Daily still requires a review bound to the exact board and data fingerprints.
+## Remaining expansion
 
-## Expanded county fair (2026-10-02)
+Insect and other invertebrate coverage remains insufficient. The original AnthropInsect 2.0 workbook is staged with 5,867 source rows and explicit estimate exclusions; zero observations from that staging are approved for play. Citation-to-cell, life-stage, caste and unit ambiguities require primary-source review. Common domestic cats, dogs, cattle, sheep and chickens need better coverage; wild taxa must not be relabeled as domestic equivalents. Breed-dependent measurements need explicit cohorts.
 
-The Prizes tent browses playable sourced pairs, with search and question-style filters. Either direction launches a compatible board trail; changing difficulty or returning to Random clears the trail. Challenge links pin the exact board ID without revealing assignments. Existing Vercel share access is preserved when supplied in the fair_share URL fragment; those access links expire independently of board IDs.
+Universal strength, global IQ, abundance, lifetime travel and several other attractive comparisons still need defensible comparable data. Do not fill these gaps with guesses, modeled values or repeated category names.
 
-Judging reveals a staggered award ceremony and every animal’s ranked source value, highlighting the player’s entry. Very small W/g values retain three significant digits rather than rounding to zero. Help explains allocation, swaps, removal, equal illustration frames, and board-relative rankings. Focus stays inside the help dialog; Escape closes it. Animation respects pause and reduced motion.
+## Verification
 
-New eligible pairs cover normal complete permanent tooth counts, empirical swimming travel speed, adult EEG paradoxical/REM sleep, laboratory basal energy use, and basal energy per gram using the source-matched metabolic assay body mass. Teeth are exact dental-formula counts, with direct observation reference links. REM is not a count of dreams. Basal energy is not food consumption. Travel speeds are observed study means, never maximum sprint claims or model predictions. Full included study-mean envelopes prevent overlapping comparisons.
+- `node scripts/audit-animalstats-playability.mjs`: full board/data/paired-direction/illustration audit, rotation and opening-board simulation.
+- `python scripts/audit-animalstats-source-reconciliation.py`: exact pinned AnAge reconciliation.
+- `python scripts/audit-animalstats-mdd-reconciliation.py`: original MDD CSV checksum and all 296 released count checks.
+- `node scripts/test-animal-cartoon-frames.mjs`: all 107 native drawings stay inside uniform frames.
+- `node scripts/review-animalstats-art.mjs [species IDs]`: read-only drawing/reference-photo contact sheets.
+- `node scripts/verify-animalstats-presentations.mjs`: desktop/phone, both modes, choices/results persistence, definitions, drag/click, rankings, source access, sharing fallbacks, perfect ear/cognition/MDD/Expert-bird rounds and zero page errors.
+- `npm run build -- --webpack`: production compilation, TypeScript and route generation.
 
-The land-travel pair remains in the archive because its four eligible contestants cannot form a distinct-ranking, distinct-winner board; it is not advertised in the playable prize tent. Population abundance, current extinction risk, bite force, lifetime distance and generic strength are not fabricated to fill coverage gaps.
-
-Six additional drawings distinguish basking, scalloped hammerhead, shortfin mako, leopard and whale sharks, plus loggerhead turtles. Sharks have vertical caudal fins and gill slits; whale sharks have pale spots, leopard sharks dark saddles, and hammerheads broad heads. Loggerheads have flippers and a broad beaked head. The generator requires an explicit illustrated profile; unsupported taxa cannot silently use generic fallback artwork. All 80 illustrations are frame-checked.
-
-Reproduce additions with `python scripts/expand-animalstats-fair.py`, then `python scripts/redesign-animalstats-prototype.py`. The travel archive is downloaded on demand and its SHA-256 is pinned in `fair-expansion-observations.json`; source records and arithmetic are preserved there. Build with `ANIMALSTATS_PREVIEW_ENABLED=true npm run build`, run the AnimalStats Chromium end-to-end suite, and run `node scripts/test-animal-cartoon-frames.mjs`. Daily boards remain gated by independent source/uncertainty/editorial review; no approvals are invented.
+This branch previews Animals without changing the GeoStats main production branch. Permanent public deployment access has not been changed; temporary sharing access expires independently of challenge URLs.

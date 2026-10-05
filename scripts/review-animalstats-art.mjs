@@ -28,8 +28,9 @@ try {
  const { AnimalSprite } = await import(pathToFileURL(componentPath));
  const { cartoonSpecies } = await import(pathToFileURL(profilePath));
  const data = JSON.parse(await readFile(join(root,'data/animalstats/pilot.json'),'utf8'));
- const animals = data.animals.filter(a=>cartoonSpecies.includes(a.id));
- assert.equal(animals.length,cartoonSpecies.length);
+ const selectedIds=process.argv.slice(2);
+ const animals = data.animals.filter(a=>cartoonSpecies.includes(a.id)&&(!selectedIds.length||selectedIds.includes(a.id)));
+ assert.equal(animals.length,selectedIds.length||cartoonSpecies.length);
  const photos=JSON.parse(await readFile(join(root,'data/animalstats/photos.json'),'utf8'));
  browser=await chromium.launch();const page=await browser.newPage({viewport:{width:1200,height:820}});
  for(let start=0;start<animals.length;start+=20){
@@ -41,7 +42,7 @@ try {
  cards.push('<figure><div>'+renderToStaticMarkup(React.createElement(AnimalSprite,{animal}))+image+'</div><figcaption>'+animal.commonName+'</figcaption><small>'+animal.scientificName+'</small></figure>');
  }
  await page.setContent('<html><style>body{margin:0;background:#f5fbf7;font:14px Arial;color:#193c30}main{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:12px}figure{margin:0;padding:8px;background:white;border:1px solid #bcd7c7;border-radius:8px}figure>div{display:flex;align-items:center;height:112px}svg{width:160px;height:128px}img{width:100px;height:100px;object-fit:contain}figcaption{font-weight:bold;margin-top:8px}small{font-size:11px;color:#537163}</style><main>'+cards.join('')+'</main></html>');
- await page.screenshot({path:join(root,'artifacts',`animal-recognition-${Math.floor(start/20)+1}.png`),fullPage:true});
+ await page.screenshot({path:join(root,'artifacts',`animal-recognition-${selectedIds.length?"targeted-":""}${Math.floor(start/20)+1}.png`),fullPage:true});
  }
  console.log('Rendered '+animals.length+' cartoon/photo recognition comparisons.');
 

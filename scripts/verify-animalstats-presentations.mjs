@@ -91,6 +91,14 @@ try {
   await page.locator('.leaderboard').getByRole('button',{name:'Data & Source',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('.sourceLoading'));
   assert((await page.locator('.sourceDataRow').count())>=40);await page.getByRole('button',{name:'Close data and source'}).click();
  }
+ const expertBird=mddCandidates.boards.find(b=>b.id.startsWith('fair-expert-birds-'));assert(expertBird);
+ await page.goto(`http://localhost:3012/animals?board=${expertBird.id}`,{waitUntil:'networkidle'});assert.equal(await page.locator('.country').count(),8);
+ for(const tid of expertBird.traitIds){
+  const trait=mddData.traits.find(t=>t.id===tid);
+  const ranked=mddData.values.filter(v=>v.traitId===tid&&expertBird.animalIds.includes(v.animalId)).sort((a,b)=>trait.direction==='higher_wins'?b.valueNumeric-a.valueNumeric:a.valueNumeric-b.valueNumeric);
+  await page.locator(`.country[data-animal-id="${ranked[0].animalId}"]`).click();await page.locator(`.slot[data-trait-id="${tid}"]`).click();
+ }
+ await page.getByRole('button',{name:'Submit answers',exact:true}).click();assert.equal(await page.locator('.scoreValue strong').textContent(),'600');assert.equal(await page.locator('.perfectRow').count(),6);
  await page.goto('http://localhost:3012/animals?mode=expert',{waitUntil:'networkidle'});assert.equal(await page.locator('.country').count(),8);
  assert.deepEqual(errors,[]);
  console.log(JSON.stringify({desktopAndPhone:true,modesPreserveChoicesAndResults:true,tooltips:true,fullRankings:true,pageErrors:errors}));

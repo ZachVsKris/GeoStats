@@ -3,9 +3,9 @@ import type { Trait } from "./animalstats";
 /** Editorial icons identify the measurement, never the winning animal. */
 export function animalTraitIcon(trait: Trait): string {
   const text = `${trait.metricKey ?? ""} ${trait.gameplayFamily ?? ""} ${trait.id}`;
+  if (/lifespan|longevity/.test(text)) return "⏳";
   if (/mass|weight/.test(text)) return "⚖️";
   if (/height|length|size|span/.test(text)) return "📏";
-  if (/lifespan|longevity/.test(text)) return "⏳";
   if (/speed|locomotion|travel/.test(text)) return "💨";
   if (/range|geograph|habitat/.test(text)) return "🌍";
   if (/diet|food|prey/.test(text)) return "🍽️";

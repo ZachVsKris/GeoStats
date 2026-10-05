@@ -2,11 +2,11 @@
 
 ## Current scope
 
-The October 5 release has 176 catalog animals, 6,985 released observations and 178 archived trait directions. Default play uses 3,562 composition-approved boards, 101 animals and **104 distinct visible prize labels** (118 underlying source-specific directions). Opposites count separately in the label total; repeated labels do not. The requested 200-label minimum and 500-label ambition are not complete.
+The October 5 release has 176 catalog animals, 6,995 released observations and 180 archived trait directions. Default play uses 3,564 composition-approved boards, 101 animals and **106 distinct visible prize labels** (120 underlying source-specific directions). Opposites count separately in the label total; repeated labels do not. The requested 200-label minimum and 500-label ambition are not complete.
 
 Every default Scout/Adventurer board has at least three intuitive prizes out of four. Expert has at least four out of six. Familiar animal types anchor every board: one of four contestants or two of six/eight. Opposites, identical/reversed orderings and shared winners cannot appear on the same board. A perfect allocation is attainable. Scientific names remain exact; recognizability is an editorial classification, never a data substitution.
 
-All 3,988 stored candidates pass structural checks. The 426 older composition-ineligible challenges remain addressable by their original links but do not enter default rotation. Shoulder-height boards are excluded. Missing illustrations, invalid source references, unit mismatches, source-method mismatches, inferred facts, unapproved rows, incompatible sex/stage, overlapping supplied bounds and ranks less than five percent apart block release.
+All 3,990 stored candidates pass structural checks. The 426 older composition-ineligible challenges remain addressable by their original links but do not enter default rotation. Shoulder-height boards are excluded. Missing illustrations, invalid source references, unit mismatches, source-method mismatches, inferred facts, unapproved rows, incompatible sex/stage, overlapping supplied bounds and ranks less than five percent apart block release.
 
 ## Presentation and interaction
 
@@ -19,7 +19,7 @@ Both-direction click/tap selection, drag, swaps, return-to-bank and × removal a
 - Museum ear length: six exact adult specimen cohorts, explicit millimetres and notch-to-tip measurements. Recorded cohort medians are disclosed as such, not population means or species maxima. Unknown ages, estimated measurements, inferred units, conflicting duplicates and domestic dogs misidentified as wild wolves are excluded.
 - Mammal Diversity Database v2.5: 296 exact released counts matched to 54 unambiguous catalog taxa. Country/territory and continent lists follow the source's native/historical definition, including introductions before 1500 and excluding recent introductions. Uncertain country entries are excluded. Family diversity means recognized living species in the versioned taxonomic family, not individuals or offspring. Original CSV checksums and independent reconciliation are retained.
 - Hibernation: directly reported conventional-hibernation records, with no estimated table means admitted.
-- Treat-puzzle performance: original tested cohorts, sample sizes and individual variation. These are task scores, never general intelligence rankings.
+- Treat-puzzle performance and practice: original tested cohorts, sample sizes, individual variation and exact recorded familiarization counts. The practice endpoint follows the common four-correct-in-five rule in the original Methods; animals absent from the test dataset are not inferred. These are task-specific cohort comparisons, never general intelligence rankings. Practice and performance cannot share a board.
 
 ## Rotation
 
@@ -37,6 +37,7 @@ Universal strength, global IQ, abundance, lifetime travel and several other attr
 
 - `node scripts/audit-animalstats-playability.mjs`: full board/data/paired-direction/illustration audit, rotation and opening-board simulation.
 - `python scripts/audit-animalstats-source-reconciliation.py`: exact pinned AnAge reconciliation.
+- `python scripts/audit-animalstats-cognition-reconciliation.py`: independent exact arithmetic checks of all 20 released cohort endpoints and no practice/performance co-boards.
 - `python scripts/audit-animalstats-mdd-reconciliation.py`: original MDD CSV checksum and all 296 released count checks.
 - `node scripts/test-animal-cartoon-frames.mjs`: all 107 native drawings stay inside uniform frames.
 - `node scripts/review-animalstats-art.mjs [species IDs]`: read-only drawing/reference-photo contact sheets.

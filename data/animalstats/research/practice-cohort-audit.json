@@ -1,0 +1,156 @@
+{
+  "sourceUrl": "https://figshare.com/articles/dataset/MacLean_et_al_PNAS_2014_Self-Control_Data/5579335",
+  "methodsCopy": "https://vtechworks.lib.vt.edu/server/api/core/bitstreams/740f3783-10c5-4b97-8160-c92c80d31315/content",
+  "paper": "https://doi.org/10.1073/pnas.1323533111",
+  "methodsPage": "E2145",
+  "rawExtractionSha256": "38a966665f9dbe8d3b549c3f15445a7923b1a31fe149865f0787ade3bc1e5260",
+  "rawProvenance": "Original raw field strings restored from research checkpoint; CSV reserialized, not byte-identical original download.",
+  "rankingScope": "Recorded tested-cohort means, not population learning speed. Training failures absent from the test dataset are not inferred.",
+  "boardPolicy": "Practice and test-success prizes share one metric key so cannot appear together.",
+  "cohorts": [
+    {
+      "animalId": "pan_troglodytes",
+      "sourceLabel": "Chimpanzee",
+      "n": 5,
+      "mean": 4.0,
+      "individualMin": 4.0,
+      "individualMax": 4.0,
+      "sourceRows": [
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "individualCounts": [
+        4.0,
+        4.0,
+        4.0,
+        4.0,
+        4.0
+      ]
+    },
+    {
+      "animalId": "gorilla_gorilla",
+      "sourceLabel": "Gorilla",
+      "n": 9,
+      "mean": 4.333333333333333,
+      "individualMin": 4.0,
+      "individualMax": 5.0,
+      "sourceRows": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21
+      ],
+      "individualCounts": [
+        4.0,
+        4.0,
+        4.0,
+        4.0,
+        5.0,
+        4.0,
+        5.0,
+        4.0,
+        5.0
+      ]
+    },
+    {
+      "animalId": "canis_lupus",
+      "sourceLabel": "Gray wolf",
+      "n": 11,
+      "mean": 5.454545454545454,
+      "individualMin": 4.0,
+      "individualMax": 14.0,
+      "sourceRows": [
+        190,
+        191,
+        192,
+        193,
+        194,
+        195,
+        196,
+        197,
+        198,
+        199,
+        200
+      ],
+      "individualCounts": [
+        4.0,
+        6.0,
+        4.0,
+        4.0,
+        4.0,
+        4.0,
+        8.0,
+        4.0,
+        4.0,
+        4.0,
+        14.0
+      ]
+    },
+    {
+      "animalId": "lemur_catta",
+      "sourceLabel": "Ring-tailed Lemur",
+      "n": 11,
+      "mean": 5.909090909090909,
+      "individualMin": 4.0,
+      "individualMax": 14.0,
+      "sourceRows": [
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107
+      ],
+      "individualCounts": [
+        7.0,
+        4.0,
+        4.0,
+        5.0,
+        5.0,
+        5.0,
+        6.0,
+        14.0,
+        4.0,
+        7.0,
+        4.0
+      ]
+    },
+    {
+      "animalId": "macaca_mulatta",
+      "sourceLabel": "Rhesus macaque",
+      "n": 6,
+      "mean": 4.0,
+      "individualMin": 4.0,
+      "individualMax": 4.0,
+      "sourceRows": [
+        91,
+        92,
+        93,
+        94,
+        95,
+        96
+      ],
+      "individualCounts": [
+        4.0,
+        4.0,
+        4.0,
+        4.0,
+        4.0,
+        4.0
+      ]
+    }
+  ]
+}

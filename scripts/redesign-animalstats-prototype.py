@@ -40,6 +40,7 @@ METRICS={
 'mdd_family_species_count':('Most species in its family','Fewest species in its family','specialist','family-diversity'),
 'measured_adult_ear_length':('Longest ears','Shortest ears','intuitive','ear-length'),
 'cylinder_treat_success':('Most successful in a treat puzzle','Least successful in a treat puzzle','intuitive','cylinder-treat-puzzle'),
+'cylinder_practice_trials':('Most practice tries','Fewest practice tries','intuitive','cylinder-treat-puzzle'),
 'maximum_hibernation_bout':('Longest hibernation stretch','Shortest hibernation stretch','intuitive','hibernation-bout'),
 'scientific_description_age':('Oldest scientific description','Newest scientific description','specialist','scientific-history'),
 'iucn_extinction_risk':('Most threatened','Least threatened','intuitive','conservation'),

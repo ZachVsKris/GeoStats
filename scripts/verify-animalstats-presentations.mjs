@@ -91,6 +91,23 @@ try {
   await page.locator('.leaderboard').getByRole('button',{name:'Data & Source',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('.sourceLoading'));
   assert((await page.locator('.sourceDataRow').count())>=40);await page.getByRole('button',{name:'Close data and source'}).click();
  }
+ for(const side of ['high','low']) {
+  const board=mddCandidates.boards.find(b=>b.id===`fair-practice-easy-${side}-20261005`);assert(board);
+  await page.goto(`http://localhost:3012/animals?board=${board.id}`,{waitUntil:'networkidle'});
+  if(side==='low') await page.getByRole('switch',{name:'Real animal photos'}).check();
+  for(const tid of board.traitIds){
+   const trait=mddData.traits.find(t=>t.id===tid);
+   const ranked=mddData.values.filter(v=>v.traitId===tid&&board.animalIds.includes(v.animalId)).sort((a,b)=>trait.direction==='higher_wins'?b.valueNumeric-a.valueNumeric:a.valueNumeric-b.valueNumeric);
+   await page.locator(`.country[data-animal-id="${ranked[0].animalId}"]`).click();await page.locator(`.slot[data-trait-id="${tid}"]`).click();
+  }
+  await page.getByRole('button',{name:'Submit answers',exact:true}).click();assert.equal(await page.locator('.scoreValue strong').textContent(),'400');
+  await page.getByRole('button',{name:'View rankings',exact:true}).first().click();
+  await page.locator('.leaderboard').getByRole('button',{name:'Data & Source',exact:true}).click();await page.waitForFunction(()=>!document.querySelector('.sourceLoading'));
+  assert.equal(await page.locator('.sourceDataRow').count(),5);
+  assert((await page.locator('.sourceHeroDescription').textContent()).includes('four correct detours'));
+  assert((await page.locator('.sourceDataTable').textContent()).includes('not all animals ever trained'));
+  await page.getByRole('button',{name:'Close data and source'}).click();
+ }
  const expertBird=mddCandidates.boards.find(b=>b.id.startsWith('fair-expert-birds-'));assert(expertBird);
  await page.goto(`http://localhost:3012/animals?board=${expertBird.id}`,{waitUntil:'networkidle'});assert.equal(await page.locator('.country').count(),8);
  for(const tid of expertBird.traitIds){

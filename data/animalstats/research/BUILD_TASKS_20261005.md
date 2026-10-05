@@ -8,18 +8,18 @@
 - Two-way clicking and dragging, swaps, removal, and dragging an animal back to its bank.
 - All animals in the candidate board pool have approved real photos. Twenty-five additional photos manually reviewed; mistaken species, illustrations, habitat-only images and predator/prey images rejected.
 - Accessible photo credits list original creator, file page and license.
-- Guinea pig redrawn with a compact connected body, folded ears, short feet, coat patches and no tail. All 105 existing cartoon frames and coat masks checked.
+- Guinea pig redrawn with a compact connected body, folded ears, short feet, coat patches and no tail. All 107 current cartoon frames and coat masks checked.
 - Exactly tabulated maximum hibernation bouts admitted for four named mammals; longest/shortest labels adjacent in the category browser, three intuitive categories per new board, distinct winners and attainable perfect score.
 - Calendar naming-date comparisons use exact integer ordering; IUCN scores retain their bounded ordinal validation.
 - 9,000-board rotation simulation, 90 days of opening boards, board data validation and 2,538 AnAge numerical reconciliations pass.
 - Production build and desktop/phone interaction checks pass.
 
 ## Still outstanding — do not represent these as completed
-- Expansion to at least 200 playable distinct labels, ideally 500. Current default pool: 98 distinct labels / 112 trait directions, 3,454 boards and 99 animals. Catalog: 176 animals / 6,689 observations. Duplicate labels are not counted twice.
+- Expansion to at least 200 playable distinct labels, ideally 500. Current default pool: 106 distinct labels / 120 trait directions, 3,564 boards and 101 animals. Catalog: 176 animals / 6,995 observations. Duplicate labels are not counted twice.
 - Occasional insect and other invertebrate boards. Existing bee/fruit-fly/lobster records do not yet give enough comparable intuitive categories for a valid complete board. No fabricated missing facts added.
-- Broader Expert coverage: current Expert pool remains mammal-only. Scout/Adventurer rotate mammals, birds and mixed boards.
-- Continue improving species recognition where needed. All 105 native cartoons have now been visually compared with their approved reference photos; guinea pig, bison horns and hippo muzzle corrected. This does not cover the 71 additional catalog animals without native cartoons. Frame tests alone cannot establish anatomical correctness.
-- Remaining cross-domain page controls and score-image sharing; the requested game/results layouts now use shared score summary, optimal choices, result row and expanded rankings.
+- Broader Expert coverage: 12 bird boards across four lineups now join mammals, with mammal-weighted rotation. Reptile, fish and invertebrate Expert coverage still needs vetted complete boards. Scout rotates mammals, birds and mixed boards; Adventurer rotates mammals and birds.
+- Continue improving species recognition where needed. All 107 native cartoons have now been visually compared with their approved reference photos; guinea pig, bison horns and hippo muzzle corrected. This does not cover the 69 additional catalog animals without native cartoons. Frame tests alone cannot establish anatomical correctness.
+- Further cross-domain page-control consolidation; score-image preview/download/native sharing is implemented, and game/results use shared score summary, optimal choices, result row and expanded rankings.
 - New data pending review: LepTraits, measured heart rates, further cognition tasks, GlobTherm, further hibernators. Research SQLite restored and verified with quick_check; raw records remain outside approved play until comparability/provenance checks pass.
 
 ## Scientific admission decisions this pass
@@ -55,4 +55,9 @@
 - Estimated values, inferred units, missing ages, substituted subspecies, unit errors and conflicting repeated specimen measurements excluded. Reported statistics are exact cohort medians, not worldwide population estimates; individual ranges and sex composition disclosed.
 - Both directions now occur in default play, on four-intuitive-prize boards with different winners and attainable 400/400 scores.
 - A fully intuitive four-prize board may pair pregnancy duration with litter size; other life-history limits and all independent rank/winner checks remain.
-- Current audited release: 176 catalog animals / 6,689 observations, 3,880 valid candidate boards, 3,454 default boards, 98 distinct playable labels / 112 directions and 99 played animals. Expert remains mammal-only; insects remain outside play pending complete comparable board data.
+- Current audited release: 176 catalog animals / 6,995 observations, 3,990 valid candidate boards, 3,564 default boards, 106 distinct playable labels / 120 directions and 101 played animals. Insects remain outside play pending complete comparable board data.
+
+## Latest source and Expert expansion
+- MDD v2.5 contributes 296 independently reconciled observations: native/historical country and continent lists plus recognized living species in the taxonomic family. Six paired labels occur on 96 new composition-approved boards. Uncertain entries and recent introductions are excluded according to the pinned source definition.
+- Expert now includes 12 bird boards, each with four intuitive prizes, unique winners and a 600-point allocation. Barn owl and Laysan albatross have explicit species drawings.
+- Recorded practice-trial means from the original MacLean dataset add a pair of task-specific prizes and two all-intuitive Scout boards. Primary Methods confirm the shared training criterion. These compare tested cohorts only; no missing training failures or population learning ability is inferred. Practice and performance prizes cannot share a board. All 20 cognition endpoints reconcile to original individual rows.

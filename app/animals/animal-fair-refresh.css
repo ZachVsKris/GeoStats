@@ -180,3 +180,59 @@
 .realAnimalPage .animalGeoHeader .fairMobileHelp { display: none; }
 @media (max-width: 750px) { .realAnimalPage .animalGeoHeader .fairMobileHelp { display: inline; } .realAnimalPage .animalGeoHeader .fairDesktopHelp { display: none; } }
 .animalPhotoCredits{list-style:none;padding:0;display:grid;gap:12px}.animalPhotoCredits li{display:flex;flex-wrap:wrap;gap:6px 14px;padding:12px 0;border-bottom:1px solid var(--line)}.animalPhotoCredits li strong{flex-basis:100%}.animalPhotoCredits a{color:var(--accent)}
+
+/* Animal photographs need more room than the country flags this layout uses. */
+.realAnimalPage .activePlay .country {
+  flex-direction: column; justify-content: center; gap: 10px;
+  padding: 12px 8px !important; text-align: center;
+}
+.realAnimalPage .activePlay .country > span { display: block; flex: 0 0 auto; }
+.realAnimalPage .activePlay .country strong {
+  font-size: clamp(15px, 1.2vw, 18px) !important; line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+.realAnimalPage .activePlay .country .animalRealPhoto {
+  display: block; width: clamp(88px, 8vw, 124px); height: clamp(72px, 11vh, 104px);
+  max-width: 100%; object-fit: contain; background: #edf5f0; border-radius: 8px;
+}
+.realAnimalPage .activePlay .choice .animalRealPhoto {
+  width: 64px; height: 54px; object-fit: contain;
+}
+@media (min-width: 901px) {
+  .realAnimalPage .activePlay.easyRound .bankPanel .countries { grid-template-rows: repeat(2, minmax(0, 1fr)); }
+  .realAnimalPage .activePlay.normalRound .bankPanel .countries { grid-template-rows: repeat(3, minmax(0, 1fr)); }
+  .realAnimalPage .activePlay.expertRound .bankPanel .countries { grid-template-rows: repeat(4, minmax(0, 1fr)); }
+  .realAnimalPage .activePlay.expertRound .country { padding: 6px 8px !important; gap: 6px; }
+  .realAnimalPage .activePlay.expertRound .country strong { font-size: 15px !important; }
+  .realAnimalPage .activePlay.expertRound .country .animalRealPhoto { width: 100px; height: 72px; }
+}
+@media (max-width: 900px) and (min-width: 621px) {
+  .realAnimalPage .activePlay .bankPanel .countries { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: auto; }
+  .realAnimalPage .activePlay .country .animalRealPhoto { width: 96px; height: 76px; }
+}
+@media (max-width: 620px) {
+  .realAnimalPage .shell.activePlay .bankPanel .countries {
+    height: auto; grid-template-rows: none; grid-auto-rows: minmax(102px, auto);
+  }
+  .realAnimalPage .shell.activePlay .bankPanel .country {
+    height: auto; min-height: 102px; overflow: visible;
+  }
+  .realAnimalPage .activePlay .bankPanel .countries { gap: 5px; padding: 4px; }
+  .realAnimalPage .activePlay.easyRound .bankPanel .countries { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: 1fr; }
+  .realAnimalPage .activePlay.normalRound .bankPanel .countries { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); }
+  .realAnimalPage .activePlay.expertRound .bankPanel .countries { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); }
+  .realAnimalPage .activePlay .country { padding: 5px 3px !important; gap: 5px; }
+  .realAnimalPage .activePlay .country strong { font-size: 11px !important; line-height: 1.16; }
+  .realAnimalPage .activePlay .country .animalRealPhoto { width: 64px; height: 54px; }
+  .realAnimalPage .activePlay .choice .animalRealPhoto { width: 40px; height: 36px; }
+}
+@media (max-width: 620px) and (max-height: 740px) {
+  .realAnimalPage .shell.activePlay.expertRound .bankPanel .countries { grid-auto-rows: minmax(84px, auto); }
+  .realAnimalPage .shell.activePlay.expertRound .bankPanel .country { min-height: 84px; padding: 4px 3px !important; gap: 3px; }
+  .realAnimalPage .shell.activePlay.expertRound .country .animalRealPhoto { width: 56px; height: 42px; }
+  .realAnimalPage .shell.activePlay.expertRound .country strong { font-size: 10px !important; }
+  .realAnimalPage .shell.activePlay.expertRound .boardPanel .slot { padding: 2px !important; gap: 2px; }
+  .realAnimalPage .shell.activePlay.expertRound .boardPanel .category strong { font-size: 13px !important; line-height: 1.1 !important; }
+  .realAnimalPage .shell.activePlay.expertRound .choice { min-height: 28px !important; }
+  .realAnimalPage .shell.activePlay.expertRound .choice em { font-size: 11px !important; }
+}

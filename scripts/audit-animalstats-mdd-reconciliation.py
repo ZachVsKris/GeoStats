@@ -12,7 +12,7 @@ assert hashlib.md5(raw).hexdigest()==original['checksum'].split(':')[1]
 rows=list(csv.DictReader(raw.decode('utf-8-sig').splitlines()))
 index={r['sciName'].replace('_',' '):r for r in rows}
 families=Counter(r['family'] for r in rows if r['extinct']=='0')
-data=json.loads((P/'pilot.json').read_text());animals={a['id']:a for a in data['animals']}
+data=json.loads((P/'pilot.json').read_text());animals={a['id']:a for a in data['animals'] if a.get('entityType') != 'breed'}
 checked=0
 for v in data['values']:
  if v['sourceId']!='asm-mdd-v25-counts':continue

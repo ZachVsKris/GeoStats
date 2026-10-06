@@ -1,0 +1,18 @@
+{
+  "reviewedAt": "2026-10-06",
+  "primaryRawHashes": {
+    "dogdemography.pdf": "8543eea78aae5a709a3f9144eaeec0b495284a785bdd907204081dabe6c4843b",
+    "doglongevity.pdf": "5eb63767ab754215386c9fba70df95ed6a43748fc29552eafec9f9e70e148301",
+    "catadult.pdf": "5f5958603703414985f9ce29ede211f3a46425931b6c892fca1744f6499a68c8",
+    "catlitter.pdf": "b06ef96ebddca8408c5e3665da00bf9782c6d694e16c55bb4b06acb6d5f42599",
+    "catregistry.pdf": "e1f3c527d1d2b4c54851bb6a889d13d11e0be9ad2da33c9dd7ff2e978e60dc87",
+    "mcmillan-2024-table-s3.docx": "4102f943cab03cb68bb220ce7537bd605ce6553788fd69bc233693fed14f36ab"
+  },
+  "rawDogDemographyFormat": "Publisher JATS XML returned by manuscript URL, not PDF; archived exact XML gzip",
+  "transcriptionScope": "Exact table cells; cat longevity and dog litter tables reviewed from primary article copies through web retrieval. Copyrighted full articles are not redistributed.",
+  "excluded": "Combined breed categories; broad Husky; designer crosses; breed-standard midpoints; personality scores; model predictions; health-disorder prizes. Species observations never inherited by breeds.",
+  "biologyPolicy": "Cohort statistics with explicit definitions and endpoint sample sizes where published; SD and IQR are not CI. Dog lifespan reported 95% CIs retained. Dog litter SEM retained and labelled as SEM.",
+  "observations": 162,
+  "sourceCount": 8,
+  "survivalPolicy": "Empirical Kaplan\u2013Meier cohort medians with original 95% CI; no projection, fitted maximum or imputed biology. Cannot appear with other lifespan categories."
+}

@@ -5,7 +5,7 @@ import csv,io,json,zipfile,statistics,collections,hashlib
 import pandas as pd
 import urllib.request
 ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'data/animalstats';SRC=OUT/'source'
-d=json.loads((OUT/'pilot.json').read_text());animals={a['scientificName'].lower():a for a in d['animals']}; evidence=[]
+d=json.loads((OUT/'pilot.json').read_text());animals={a['scientificName'].lower():a for a in d['animals'] if a.get('entityType') != 'breed'}; evidence=[]
 def source(id,name,url,version,license,kind='curated-trait-database'):
  if id not in {s['id'] for s in d['sources']}:d['sources'].append(dict(id=id,name=name,url=url,versionYear=version,license=license,sourceClass=kind,retrievedAt='2026-10-02'))
 def trait(id,name,unit,basis,src,family,hint):

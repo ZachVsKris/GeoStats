@@ -5,7 +5,7 @@ P=Path(__file__).resolve().parents[1]/'data/animalstats'
 d=json.loads((P/'pilot.json').read_text())
 roster=json.loads((P/'research/roster-expansion-audit.json').read_text())
 # Reconcile the whole roster, so existing animals also receive eligible rows.
-A={a['scientificName'].lower():a for a in d['animals']}
+A={a['scientificName'].lower():a for a in d['animals'] if a.get('entityType') != 'breed'}
 T={t['id']:t for t in d['traits']}
 audit={'reviewedAt':'2026-10-04','files':{},'observations':[]}
 def add(a,tid,n,notes,sex='species-level',stage='adult',origin='not-specified',bounds=None):

@@ -9,6 +9,8 @@ export type Animal = {
   scientificName: string;
   taxonomicGroup: string;
   parentTaxon?: string;
+  entityType?: "species" | "breed";
+  breedName?: string;
   familiarityTier: "core" | "familiar" | "edge";
   active: boolean;
   biogeographicRegions?: string[];
@@ -17,6 +19,7 @@ export type Animal = {
 
 export type Source = {
   id: string;
+  entityScope?: "species" | "breed";
   name: string;
   sourceClass: "institutional-database" | "curated-trait-database" | "primary-research" | "institutional-account";
   url: string;
@@ -117,7 +120,13 @@ export function validateAnimalDataset(data: AnimalDataset): string[] {
     if (!unique(ids)) reasons.push(`duplicate ${name} identifier`);
   }
   const animals = new Set(data.animals.map((item) => item.id));
+  const animalById = new Map(data.animals.map(item => [item.id, item]));
+  const sourceById = new Map(data.sources.map(item => [item.id, item]));
   const sources = new Set(data.sources.map((item) => item.id));
+  for (const animal of data.animals) {
+    if (animal.entityType === "breed" && (!animal.breedName || !animal.parentTaxon))
+      reasons.push(`animal ${animal.id}: incomplete breed identity`);
+  }
   const traits = new Map(data.traits.map((item) => [item.id, item]));
   for (const source of data.sources) {
     if (![source.name, source.url, source.versionYear, source.retrievedAt, source.license].every(present))
@@ -141,6 +150,10 @@ export function validateAnimalDataset(data: AnimalDataset): string[] {
   }
   for (const value of data.values) {
     const trait = traits.get(value.traitId);
+    const animal = animalById.get(value.animalId);
+    const source = sourceById.get(value.sourceId);
+    if (animal?.entityType === "breed" && source?.entityScope !== "breed")
+      reasons.push(`value ${value.animalId}:${value.traitId}: species data cannot be inherited by a breed`);
     if (!animals.has(value.animalId) || !trait || !sources.has(value.sourceId))
       reasons.push(`value ${value.animalId}:${value.traitId}: unknown animal, trait, or source`);
     if (trait?.separationMethod === "distinct_ordinal") {

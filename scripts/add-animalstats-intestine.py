@@ -4,7 +4,7 @@ from pathlib import Path
 import openpyxl
 ROOT=Path(__file__).resolve().parents[1];P=ROOT/'data/animalstats';source=P/'source/deep-20261003-intestine.xlsx'
 assert hashlib.md5(source.read_bytes()).hexdigest()=='4a3b03dbe7de9a08782dca72a0f14a64'
-d=json.loads((P/'pilot.json').read_text());animals={a['scientificName']:a for a in d['animals']}
+d=json.loads((P/'pilot.json').read_text());animals={a['scientificName']:a for a in d['animals'] if a.get('entityType') != 'breed'}
 sid='duque-correa-2021-intestine';tid='adult_intestine_length'
 basis=('Published sample-size-weighted mean total intestinal length of adult mammals in Duque-Correa et al. 2021. '
        'Measured post-mortem anatomy, including reported sums of small and large intestine lengths. '

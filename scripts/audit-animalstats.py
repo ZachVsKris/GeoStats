@@ -3,7 +3,7 @@
 import json,hashlib,collections
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'data/animalstats'
-d=json.loads((OUT/'pilot.json').read_text());boards=json.loads((OUT/'candidates.json').read_text())['boards'];values={(v['animalId'],v['traitId']):v for v in d['values']};traits={t['id']:t for t in d['traits']};animals={a['id']:a for a in d['animals']}
+d=json.loads((OUT/'pilot.json').read_text());boards=json.loads((OUT/'candidates.json').read_text())['boards'];values={(v['animalId'],v['traitId']):v for v in d['values']};traits={t['id']:t for t in d['traits']};animals={a['id']:a for a in d['animals'] if a.get('entityType') != 'breed'}
 report=[]
 for b in boards:
  risks=[];comparisons=[]

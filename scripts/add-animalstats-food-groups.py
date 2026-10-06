@@ -10,7 +10,7 @@ OUT = ROOT / 'data/animalstats'
 path = OUT / 'source/mammal-food-types-Supplemental_data_1_diet_dataset.csv'
 assert hashlib.sha256(path.read_bytes()).hexdigest() == '59e4c08607113f7210408b8b058287f66b639c7ea1441d265b0930df84167951'
 data = json.loads((OUT / 'pilot.json').read_text())
-animals = {a['scientificName']: a for a in data['animals']}
+animals = {a['scientificName']: a for a in data['animals'] if a.get('entityType') != 'breed'}
 sid = 'reuter-2023-observed-food-groups'
 tid = 'diet_food_group_count'
 basis = ('Number of four broad food groups classified as substantial in the published Reuter, Hopkins & Price 2023 terrestrial-mammal diet dataset: vertebrate prey, invertebrate prey, fibrous plants and nonfibrous plants. '

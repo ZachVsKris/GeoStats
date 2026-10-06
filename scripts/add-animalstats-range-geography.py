@@ -17,7 +17,7 @@ with zipfile.ZipFile(archive) as z:
 assert '26-2_GR_MaxLat_dd' in raw.decode() and '26-3_GR_MinLat_dd' in raw.decode()
 assert 'Sechrest' in metadata and '2003' in metadata
 data = json.loads((OUT / 'pilot.json').read_text())
-animals = {a['scientificName']: a for a in data['animals']}
+animals = {a['scientificName']: a for a in data['animals'] if a.get('entityType') != 'breed'}
 sid = 'pantheria-range-maps'
 assert sid in {s['id'] for s in data['sources']}
 metrics = {

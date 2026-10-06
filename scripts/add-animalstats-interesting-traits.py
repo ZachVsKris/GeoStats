@@ -3,7 +3,7 @@
 import csv,hashlib,io,json,math,re,statistics,subprocess,urllib.request,zipfile
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'data/animalstats';SRC=OUT/'source'
-d=json.loads((OUT/'pilot.json').read_text());animals={a['scientificName'].lower():a for a in d['animals']}
+d=json.loads((OUT/'pilot.json').read_text());animals={a['scientificName'].lower():a for a in d['animals'] if a.get('entityType') != 'breed'}
 NEW={
  'Apus apus':('Common swift','bird'),'Anser anser':('Greylag goose','bird'),'Ardea cinerea':('Grey heron','bird'),'Phalacrocorax carbo':('Great cormorant','bird'),'Larus argentatus':('Herring gull','bird'),'Corvus corone':('Carrion crow','bird'),'Erithacus rubecula':('European robin','bird'),'Sturnus vulgaris':('Common starling','bird'),
  'Ornithorhynchus anatinus':('Platypus','monotreme'),'Erinaceus europaeus':('European hedgehog','insectivore'),'Didelphis marsupialis':('Common opossum','marsupial'),'Tupaia glis':('Common treeshrew','treeshrew'),'Cavia porcellus':('Guinea pig','rodent'),

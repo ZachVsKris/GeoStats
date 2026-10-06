@@ -29,7 +29,7 @@ def main():
  d=json.loads((OUT/'pilot.json').read_text())
  with zipfile.ZipFile(OUT/'source/anage-build-15.zip') as z:rows=list(csv.DictReader(io.TextIOWrapper(z.open('anage_data.txt')),delimiter='\t'))
  lookup={f"{r['Genus']} {r['Species']}":r for r in rows}
- species={a['scientificName']:a for a in d['animals']}
+ species={a['scientificName']:a for a in d['animals'] if a.get('entityType') != 'breed'}
  for name,(common,group) in SPECIES.items():
   if name not in lookup:print('No AnAge entry',name);continue
   if name not in species:

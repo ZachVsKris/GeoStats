@@ -12,7 +12,7 @@ P=ROOT/'data/animalstats'
 path=P/'source/expansion-milk-data.csv'
 assert hashlib.sha256(path.read_bytes()).hexdigest()=='16358f4f0263393d1c6725e7455425a0d9018b4a6349b2f1d73ac116b6c7601e'
 data=json.loads((P/'pilot.json').read_text())
-animals={a['scientificName']:a for a in data['animals']}
+animals={a['scientificName']:a for a in data['animals'] if a.get('entityType') != 'breed'}
 sid='blomquist-2019-measured-milk'
 source=dict(id=sid,name='Blomquist: corrected measured milk composition',sourceClass='curated-trait-database',
             url='https://doi.org/10.7717/peerj.8085',versionYear='Blomquist 2019',

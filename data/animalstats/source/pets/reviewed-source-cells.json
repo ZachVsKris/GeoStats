@@ -1,0 +1,1460 @@
+[
+  {
+    "animalId": "dog_labrador_retriever",
+    "metric": "pet_dog_adult_mass",
+    "value": "31.6",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Labrador Retriever; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_labrador_retriever",
+    "metric": "pet_dog_popularity",
+    "value": "154222",
+    "n": "154222",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Labrador Retriever; Freq."
+  },
+  {
+    "animalId": "dog_english_cocker_spaniel",
+    "metric": "pet_dog_adult_mass",
+    "value": "14.9",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; English Cocker Spaniel; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_english_cocker_spaniel",
+    "metric": "pet_dog_popularity",
+    "value": "96824",
+    "n": "96824",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; English Cocker Spaniel; Freq."
+  },
+  {
+    "animalId": "dog_staffordshire_bull_terrier",
+    "metric": "pet_dog_adult_mass",
+    "value": "20.6",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Staffordshire Bull Terrier; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_staffordshire_bull_terrier",
+    "metric": "pet_dog_popularity",
+    "value": "93883",
+    "n": "93883",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Staffordshire Bull Terrier; Freq."
+  },
+  {
+    "animalId": "dog_chihuahua",
+    "metric": "pet_dog_adult_mass",
+    "value": "3.8",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Chihuahua; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_chihuahua",
+    "metric": "pet_dog_popularity",
+    "value": "80609",
+    "n": "80609",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Chihuahua; Freq."
+  },
+  {
+    "animalId": "dog_shih_tzu",
+    "metric": "pet_dog_adult_mass",
+    "value": "8.0",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Shih-tzu; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_shih_tzu",
+    "metric": "pet_dog_popularity",
+    "value": "67368",
+    "n": "67368",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Shih-tzu; Freq."
+  },
+  {
+    "animalId": "dog_french_bulldog",
+    "metric": "pet_dog_adult_mass",
+    "value": "12.9",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; French Bulldog; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_french_bulldog",
+    "metric": "pet_dog_popularity",
+    "value": "66997",
+    "n": "66997",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; French Bulldog; Freq."
+  },
+  {
+    "animalId": "dog_border_collie",
+    "metric": "pet_dog_adult_mass",
+    "value": "21.0",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Border Collie; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_border_collie",
+    "metric": "pet_dog_popularity",
+    "value": "61802",
+    "n": "61802",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Border Collie; Freq."
+  },
+  {
+    "animalId": "dog_yorkshire_terrier",
+    "metric": "pet_dog_adult_mass",
+    "value": "5.1",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Yorkshire Terrier; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_yorkshire_terrier",
+    "metric": "pet_dog_popularity",
+    "value": "53246",
+    "n": "53246",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Yorkshire Terrier; Freq."
+  },
+  {
+    "animalId": "dog_english_springer_spaniel",
+    "metric": "pet_dog_adult_mass",
+    "value": "20.0",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; English Springer Spaniel; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_english_springer_spaniel",
+    "metric": "pet_dog_popularity",
+    "value": "51802",
+    "n": "51802",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; English Springer Spaniel; Freq."
+  },
+  {
+    "animalId": "dog_german_shepherd",
+    "metric": "pet_dog_adult_mass",
+    "value": "35.9",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; German Shepherd Dog; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_german_shepherd",
+    "metric": "pet_dog_popularity",
+    "value": "47407",
+    "n": "47407",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; German Shepherd Dog; Freq."
+  },
+  {
+    "animalId": "dog_pug",
+    "metric": "pet_dog_adult_mass",
+    "value": "9.2",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Pug; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_pug",
+    "metric": "pet_dog_popularity",
+    "value": "40509",
+    "n": "40509",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Pug; Freq."
+  },
+  {
+    "animalId": "dog_west_highland_white_terrier",
+    "metric": "pet_dog_adult_mass",
+    "value": "9.5",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; West Highland White Terrier; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_west_highland_white_terrier",
+    "metric": "pet_dog_popularity",
+    "value": "35814",
+    "n": "35814",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; West Highland White Terrier; Freq."
+  },
+  {
+    "animalId": "dog_cavalier_king_charles_spaniel",
+    "metric": "pet_dog_adult_mass",
+    "value": "10.4",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Cavalier King Charles Spaniel; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_cavalier_king_charles_spaniel",
+    "metric": "pet_dog_popularity",
+    "value": "35240",
+    "n": "35240",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Cavalier King Charles Spaniel; Freq."
+  },
+  {
+    "animalId": "dog_golden_retriever",
+    "metric": "pet_dog_adult_mass",
+    "value": "33.5",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Golden Retriever; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_golden_retriever",
+    "metric": "pet_dog_popularity",
+    "value": "27491",
+    "n": "27491",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Golden Retriever; Freq."
+  },
+  {
+    "animalId": "dog_bichon_frise",
+    "metric": "pet_dog_adult_mass",
+    "value": "8.3",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Bichon Frise; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_bichon_frise",
+    "metric": "pet_dog_popularity",
+    "value": "25162",
+    "n": "25162",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Bichon Frise; Freq."
+  },
+  {
+    "animalId": "dog_miniature_dachshund",
+    "metric": "pet_dog_adult_mass",
+    "value": "6.4",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Miniature Dachshund; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_miniature_dachshund",
+    "metric": "pet_dog_popularity",
+    "value": "24831",
+    "n": "24831",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Miniature Dachshund; Freq."
+  },
+  {
+    "animalId": "dog_border_terrier",
+    "metric": "pet_dog_adult_mass",
+    "value": "9.9",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Border Terrier; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_border_terrier",
+    "metric": "pet_dog_popularity",
+    "value": "24697",
+    "n": "24697",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Border Terrier; Freq."
+  },
+  {
+    "animalId": "dog_miniature_schnauzer",
+    "metric": "pet_dog_adult_mass",
+    "value": "9.6",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Miniature Schnauzer; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_miniature_schnauzer",
+    "metric": "pet_dog_popularity",
+    "value": "21154",
+    "n": "21154",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Miniature Schnauzer; Freq."
+  },
+  {
+    "animalId": "dog_beagle",
+    "metric": "pet_dog_adult_mass",
+    "value": "18.0",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Beagle; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_beagle",
+    "metric": "pet_dog_popularity",
+    "value": "20229",
+    "n": "20229",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Beagle; Freq."
+  },
+  {
+    "animalId": "dog_boxer",
+    "metric": "pet_dog_adult_mass",
+    "value": "30.3",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Boxer; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_boxer",
+    "metric": "pet_dog_popularity",
+    "value": "17572",
+    "n": "17572",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Boxer; Freq."
+  },
+  {
+    "animalId": "dog_pomeranian",
+    "metric": "pet_dog_adult_mass",
+    "value": "5.4",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Pomeranian; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_pomeranian",
+    "metric": "pet_dog_popularity",
+    "value": "14844",
+    "n": "14844",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Pomeranian; Freq."
+  },
+  {
+    "animalId": "dog_rottweiler",
+    "metric": "pet_dog_adult_mass",
+    "value": "42.3",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Rottweiler; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_rottweiler",
+    "metric": "pet_dog_popularity",
+    "value": "13203",
+    "n": "13203",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Rottweiler; Freq."
+  },
+  {
+    "animalId": "dog_whippet",
+    "metric": "pet_dog_adult_mass",
+    "value": "14.5",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Whippet; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_whippet",
+    "metric": "pet_dog_popularity",
+    "value": "12765",
+    "n": "12765",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Whippet; Freq."
+  },
+  {
+    "animalId": "dog_greyhound",
+    "metric": "pet_dog_adult_mass",
+    "value": "29.7",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Greyhound; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_greyhound",
+    "metric": "pet_dog_popularity",
+    "value": "12640",
+    "n": "12640",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Greyhound; Freq."
+  },
+  {
+    "animalId": "dog_toy_poodle",
+    "metric": "pet_dog_adult_mass",
+    "value": "5.1",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Toy Poodle; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_toy_poodle",
+    "metric": "pet_dog_popularity",
+    "value": "8601",
+    "n": "8601",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Toy Poodle; Freq."
+  },
+  {
+    "animalId": "dog_maltese",
+    "metric": "pet_dog_adult_mass",
+    "value": "4.6",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Maltese; adult bodyweight\u2014median"
+  },
+  {
+    "animalId": "dog_maltese",
+    "metric": "pet_dog_popularity",
+    "value": "8488",
+    "n": "8488",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Maltese; Freq."
+  },
+  {
+    "animalId": "cat_abyssinian",
+    "metric": "pet_cat_adult_mass",
+    "value": "2.8",
+    "n": "9",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Females; Abyssinian"
+  },
+  {
+    "animalId": "cat_russian_blue",
+    "metric": "pet_cat_adult_mass",
+    "value": "2.9",
+    "n": "16",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Females; Russian Blue"
+  },
+  {
+    "animalId": "cat_exotic_shorthair",
+    "metric": "pet_cat_adult_mass",
+    "value": "2.9",
+    "n": "5",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Females; Exotic Shorthair"
+  },
+  {
+    "animalId": "cat_somali",
+    "metric": "pet_cat_adult_mass",
+    "value": "3.1",
+    "n": "6",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Females; Somali"
+  },
+  {
+    "animalId": "cat_persian",
+    "metric": "pet_cat_adult_mass",
+    "value": "3.1",
+    "n": "29",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Females; Persian"
+  },
+  {
+    "animalId": "cat_birman",
+    "metric": "pet_cat_adult_mass",
+    "value": "3.5",
+    "n": "36",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Females; Birman"
+  },
+  {
+    "animalId": "cat_british_shorthair",
+    "metric": "pet_cat_adult_mass",
+    "value": "3.6",
+    "n": "10",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Females; British Shorthair"
+  },
+  {
+    "animalId": "cat_norwegian_forest",
+    "metric": "pet_cat_adult_mass",
+    "value": "3.9",
+    "n": "34",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Females; Norwegian Forest"
+  },
+  {
+    "animalId": "cat_siberian",
+    "metric": "pet_cat_adult_mass",
+    "value": "4.1",
+    "n": "8",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Females; Siberian"
+  },
+  {
+    "animalId": "cat_ragdoll",
+    "metric": "pet_cat_adult_mass",
+    "value": "4.2",
+    "n": "7",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Females; Ragdoll"
+  },
+  {
+    "animalId": "cat_maine_coon",
+    "metric": "pet_cat_adult_mass",
+    "value": "4.8",
+    "n": "22",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Females; Maine Coon"
+  },
+  {
+    "animalId": "cat_persian",
+    "metric": "pet_cat_litter",
+    "value": "3.4",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 2; Persian; mean litter size (kittens born)"
+  },
+  {
+    "animalId": "cat_maine_coon",
+    "metric": "pet_cat_litter",
+    "value": "4.5",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 2; Maine Coon; mean litter size (kittens born)"
+  },
+  {
+    "animalId": "cat_birman",
+    "metric": "pet_cat_litter",
+    "value": "3.7",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 2; Birman; mean litter size (kittens born)"
+  },
+  {
+    "animalId": "cat_british_shorthair",
+    "metric": "pet_cat_litter",
+    "value": "4.1",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 2; British Shorthair; mean litter size (kittens born)"
+  },
+  {
+    "animalId": "cat_norwegian_forest",
+    "metric": "pet_cat_litter",
+    "value": "4.2",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 2; Norwegian Forest; mean litter size (kittens born)"
+  },
+  {
+    "animalId": "cat_bengal",
+    "metric": "pet_cat_litter",
+    "value": "4.1",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 2; Bengal; mean litter size (kittens born)"
+  },
+  {
+    "animalId": "cat_ragdoll",
+    "metric": "pet_cat_litter",
+    "value": "4.5",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 2; Ragdoll; mean litter size (kittens born)"
+  },
+  {
+    "animalId": "cat_exotic_shorthair",
+    "metric": "pet_cat_litter",
+    "value": "3.3",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 2; Exotic Shorthair; mean litter size (kittens born)"
+  },
+  {
+    "animalId": "cat_sphynx",
+    "metric": "pet_cat_litter",
+    "value": "4",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 2; Sphynx; mean litter size (kittens born)"
+  },
+  {
+    "animalId": "cat_siamese",
+    "metric": "pet_cat_litter",
+    "value": "4.2",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 2; Siamese; mean litter size (kittens born)"
+  },
+  {
+    "animalId": "cat_siberian",
+    "metric": "pet_cat_litter",
+    "value": "4.5",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 2; Siberian; mean litter size (kittens born)"
+  },
+  {
+    "animalId": "cat_abyssinian",
+    "metric": "pet_cat_litter",
+    "value": "3.6",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 2; Abyssinian; mean litter size (kittens born)"
+  },
+  {
+    "animalId": "cat_somali",
+    "metric": "pet_cat_litter",
+    "value": "3.4",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 2; Somali; mean litter size (kittens born)"
+  },
+  {
+    "animalId": "cat_russian_blue",
+    "metric": "pet_cat_litter",
+    "value": "3.8",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 2; Russian Blue; mean litter size (kittens born)"
+  },
+  {
+    "animalId": "cat_burmese",
+    "metric": "pet_cat_litter",
+    "value": "4.6",
+    "n": "",
+    "min": "",
+    "max": "",
+    "locator": "Table 2; Burmese; mean litter size (kittens born)"
+  },
+  {
+    "animalId": "cat_birman",
+    "metric": "pet_cat_lifespan",
+    "value": "16.1",
+    "n": "12",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Birman; Median (years)"
+  },
+  {
+    "animalId": "cat_burmese",
+    "metric": "pet_cat_lifespan",
+    "value": "14.3",
+    "n": "31",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Burmese; Median (years)"
+  },
+  {
+    "animalId": "cat_siamese",
+    "metric": "pet_cat_lifespan",
+    "value": "14.2",
+    "n": "31",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Siamese; Median (years)"
+  },
+  {
+    "animalId": "cat_persian",
+    "metric": "pet_cat_lifespan",
+    "value": "14.1",
+    "n": "70",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Persian; Median (years)"
+  },
+  {
+    "animalId": "cat_british_shorthair",
+    "metric": "pet_cat_lifespan",
+    "value": "11.8",
+    "n": "69",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; British Shorthair; Median (years)"
+  },
+  {
+    "animalId": "cat_maine_coon",
+    "metric": "pet_cat_lifespan",
+    "value": "11",
+    "n": "14",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Maine Coon; Median (years)"
+  },
+  {
+    "animalId": "cat_ragdoll",
+    "metric": "pet_cat_lifespan",
+    "value": "10.1",
+    "n": "21",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Ragdoll; Median (years)"
+  },
+  {
+    "animalId": "cat_abyssinian",
+    "metric": "pet_cat_lifespan",
+    "value": "10",
+    "n": "11",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Abyssinian; Median (years)"
+  },
+  {
+    "animalId": "cat_bengal",
+    "metric": "pet_cat_lifespan",
+    "value": "7.3",
+    "n": "15",
+    "min": "",
+    "max": "",
+    "locator": "Table 1; Bengal; Median (years)"
+  },
+  {
+    "animalId": "cat_british_shorthair",
+    "metric": "pet_cat_popularity",
+    "value": "5873",
+    "n": "5873",
+    "min": "",
+    "max": "",
+    "locator": "Registered Cats by Breed 2024\u20132025; Registered cats 2025; British Shorthair"
+  },
+  {
+    "animalId": "cat_ragdoll",
+    "metric": "pet_cat_popularity",
+    "value": "3111",
+    "n": "3111",
+    "min": "",
+    "max": "",
+    "locator": "Registered Cats by Breed 2024\u20132025; Registered cats 2025; Ragdoll"
+  },
+  {
+    "animalId": "cat_maine_coon",
+    "metric": "pet_cat_popularity",
+    "value": "2324",
+    "n": "2324",
+    "min": "",
+    "max": "",
+    "locator": "Registered Cats by Breed 2024\u20132025; Registered cats 2025; Maine Coon"
+  },
+  {
+    "animalId": "cat_siamese",
+    "metric": "pet_cat_popularity",
+    "value": "860",
+    "n": "860",
+    "min": "",
+    "max": "",
+    "locator": "Registered Cats by Breed 2024\u20132025; Registered cats 2025; Siamese"
+  },
+  {
+    "animalId": "cat_burmese",
+    "metric": "pet_cat_popularity",
+    "value": "805",
+    "n": "805",
+    "min": "",
+    "max": "",
+    "locator": "Registered Cats by Breed 2024\u20132025; Registered cats 2025; Burmese"
+  },
+  {
+    "animalId": "cat_persian",
+    "metric": "pet_cat_popularity",
+    "value": "359",
+    "n": "359",
+    "min": "",
+    "max": "",
+    "locator": "Registered Cats by Breed 2024\u20132025; Registered cats 2025; Persian"
+  },
+  {
+    "animalId": "cat_siberian",
+    "metric": "pet_cat_popularity",
+    "value": "321",
+    "n": "321",
+    "min": "",
+    "max": "",
+    "locator": "Registered Cats by Breed 2024\u20132025; Registered cats 2025; Siberian"
+  },
+  {
+    "animalId": "cat_birman",
+    "metric": "pet_cat_popularity",
+    "value": "260",
+    "n": "260",
+    "min": "",
+    "max": "",
+    "locator": "Registered Cats by Breed 2024\u20132025; Registered cats 2025; Birman"
+  },
+  {
+    "animalId": "cat_norwegian_forest",
+    "metric": "pet_cat_popularity",
+    "value": "201",
+    "n": "201",
+    "min": "",
+    "max": "",
+    "locator": "Registered Cats by Breed 2024\u20132025; Registered cats 2025; Norwegian Forest"
+  },
+  {
+    "animalId": "cat_abyssinian",
+    "metric": "pet_cat_popularity",
+    "value": "186",
+    "n": "186",
+    "min": "",
+    "max": "",
+    "locator": "Registered Cats by Breed 2024\u20132025; Registered cats 2025; Abyssinian"
+  },
+  {
+    "animalId": "cat_sphynx",
+    "metric": "pet_cat_popularity",
+    "value": "113",
+    "n": "113",
+    "min": "",
+    "max": "",
+    "locator": "Registered Cats by Breed 2024\u20132025; Registered cats 2025; Sphynx"
+  },
+  {
+    "animalId": "cat_bengal",
+    "metric": "pet_cat_popularity",
+    "value": "86",
+    "n": "86",
+    "min": "",
+    "max": "",
+    "locator": "Registered Cats by Breed 2024\u20132025; Registered cats 2025; Bengal"
+  },
+  {
+    "animalId": "dog_labrador_retriever",
+    "metric": "pet_dog_lifespan",
+    "value": "138.0",
+    "n": "728",
+    "min": "134.14",
+    "max": "141.86",
+    "locator": "Table 1; Labrador Retriever; median months and 95% CI"
+  },
+  {
+    "animalId": "dog_golden_retriever",
+    "metric": "pet_dog_lifespan",
+    "value": "141.0",
+    "n": "373",
+    "min": "136.09",
+    "max": "145.91",
+    "locator": "Table 1; Golden Retriever; median months and 95% CI"
+  },
+  {
+    "animalId": "dog_english_cocker_spaniel",
+    "metric": "pet_dog_lifespan",
+    "value": "129.0",
+    "n": "266",
+    "min": "121.93",
+    "max": "136.07",
+    "locator": "Table 1; Cocker Spaniel; median months and 95% CI"
+  },
+  {
+    "animalId": "dog_english_springer_spaniel",
+    "metric": "pet_dog_lifespan",
+    "value": "135.5",
+    "n": "224",
+    "min": "127.32",
+    "max": "143.68",
+    "locator": "Table 1; English Springer Spaniel; median months and 95% CI"
+  },
+  {
+    "animalId": "dog_cavalier_king_charles_spaniel",
+    "metric": "pet_dog_lifespan",
+    "value": "117.0",
+    "n": "222",
+    "min": "111.17",
+    "max": "122.83",
+    "locator": "Table 1; Cavalier King Charles Spaniel; median months and 95% CI"
+  },
+  {
+    "animalId": "dog_boxer",
+    "metric": "pet_dog_lifespan",
+    "value": "105.5",
+    "n": "170",
+    "min": "99.08",
+    "max": "111.92",
+    "locator": "Table 1; Boxer; median months and 95% CI"
+  },
+  {
+    "animalId": "dog_border_collie",
+    "metric": "pet_dog_lifespan",
+    "value": "143.0",
+    "n": "119",
+    "min": "134.09",
+    "max": "151.91",
+    "locator": "Table 1; Border Collie; median months and 95% CI"
+  },
+  {
+    "animalId": "dog_border_terrier",
+    "metric": "pet_dog_lifespan",
+    "value": "145.0",
+    "n": "98",
+    "min": "133.19",
+    "max": "156.81",
+    "locator": "Table 1; Border Terrier; median months and 95% CI"
+  },
+  {
+    "animalId": "dog_west_highland_white_terrier",
+    "metric": "pet_dog_lifespan",
+    "value": "152.5",
+    "n": "96",
+    "min": "142.1",
+    "max": "162.9",
+    "locator": "Table 1; West Highland White Terrier; median months and 95% CI"
+  },
+  {
+    "animalId": "dog_miniature_schnauzer",
+    "metric": "pet_dog_lifespan",
+    "value": "118.5",
+    "n": "76",
+    "min": "102.82",
+    "max": "134.18",
+    "locator": "Table 1; Miniature Schnauzer; median months and 95% CI"
+  },
+  {
+    "animalId": "dog_rottweiler",
+    "metric": "pet_dog_lifespan",
+    "value": "100.5",
+    "n": "76",
+    "min": "90.98",
+    "max": "110.02",
+    "locator": "Table 1; Rottweiler; median months and 95% CI"
+  },
+  {
+    "animalId": "dog_staffordshire_bull_terrier",
+    "metric": "pet_dog_lifespan",
+    "value": "130.0",
+    "n": "71",
+    "min": "118.7",
+    "max": "141.3",
+    "locator": "Table 1; Staffordshire Bull Terrier; median months and 95% CI"
+  },
+  {
+    "animalId": "dog_whippet",
+    "metric": "pet_dog_lifespan",
+    "value": "118.0",
+    "n": "55",
+    "min": "104.26",
+    "max": "131.74",
+    "locator": "Table 1; Whippet; median months and 95% CI"
+  },
+  {
+    "animalId": "dog_golden_retriever",
+    "metric": "pet_dog_litter",
+    "value": "7.5",
+    "n": "291",
+    "min": "7.3",
+    "max": "7.7",
+    "locator": "Table 1; Golden Retriever; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_rottweiler",
+    "metric": "pet_dog_litter",
+    "value": "7.4",
+    "n": "214",
+    "min": "7.2",
+    "max": "7.6",
+    "locator": "Table 1; Rottweiler; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_english_springer_spaniel",
+    "metric": "pet_dog_litter",
+    "value": "7.3",
+    "n": "74",
+    "min": "7.0",
+    "max": "7.6",
+    "locator": "Table 1; English Springer Spaniel; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_labrador_retriever",
+    "metric": "pet_dog_litter",
+    "value": "6.9",
+    "n": "223",
+    "min": "6.7",
+    "max": "7.1",
+    "locator": "Table 1; Labrador Retriever; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_boxer",
+    "metric": "pet_dog_litter",
+    "value": "6.6",
+    "n": "139",
+    "min": "6.4",
+    "max": "6.8",
+    "locator": "Table 1; Boxer; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_whippet",
+    "metric": "pet_dog_litter",
+    "value": "6.1",
+    "n": "47",
+    "min": "5.8",
+    "max": "6.4",
+    "locator": "Table 1; Whippet; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_german_shepherd",
+    "metric": "pet_dog_litter",
+    "value": "6.1",
+    "n": "465",
+    "min": "6.0",
+    "max": "6.2",
+    "locator": "Table 1; German Shepherd; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_border_collie",
+    "metric": "pet_dog_litter",
+    "value": "6",
+    "n": "323",
+    "min": "5.9",
+    "max": "6.1",
+    "locator": "Table 1; Border Collie; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_english_cocker_spaniel",
+    "metric": "pet_dog_litter",
+    "value": "5.7",
+    "n": "174",
+    "min": "5.5",
+    "max": "5.9",
+    "locator": "Table 1; English Cocker Spaniel; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_staffordshire_bull_terrier",
+    "metric": "pet_dog_litter",
+    "value": "5.6",
+    "n": "82",
+    "min": "5.4",
+    "max": "5.8",
+    "locator": "Table 1; Staffordshire Bull Terrier; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_beagle",
+    "metric": "pet_dog_litter",
+    "value": "5.5",
+    "n": "113",
+    "min": "5.3",
+    "max": "5.7",
+    "locator": "Table 1; Beagle; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_border_terrier",
+    "metric": "pet_dog_litter",
+    "value": "5.1",
+    "n": "27",
+    "min": "4.7",
+    "max": "5.5",
+    "locator": "Table 1; Border Terrier; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_french_bulldog",
+    "metric": "pet_dog_litter",
+    "value": "4.7",
+    "n": "35",
+    "min": "4.4",
+    "max": "5.0",
+    "locator": "Table 1; French Bulldog; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_miniature_schnauzer",
+    "metric": "pet_dog_litter",
+    "value": "4.7",
+    "n": "205",
+    "min": "4.6",
+    "max": "4.8",
+    "locator": "Table 1; Miniature Schnauzer; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_bichon_frise",
+    "metric": "pet_dog_litter",
+    "value": "4.6",
+    "n": "192",
+    "min": "4.5",
+    "max": "4.7",
+    "locator": "Table 1; Bichon Frise; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_miniature_dachshund",
+    "metric": "pet_dog_litter",
+    "value": "4.4",
+    "n": "144",
+    "min": "4.3",
+    "max": "4.5",
+    "locator": "Table 1; Miniature Dachshund; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_pug",
+    "metric": "pet_dog_litter",
+    "value": "4.2",
+    "n": "120",
+    "min": "4.0",
+    "max": "4.4",
+    "locator": "Table 1; Pug; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_shih_tzu",
+    "metric": "pet_dog_litter",
+    "value": "4.2",
+    "n": "95",
+    "min": "4.0",
+    "max": "4.4",
+    "locator": "Table 1; Shih Tzu; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_cavalier_king_charles_spaniel",
+    "metric": "pet_dog_litter",
+    "value": "4.1",
+    "n": "439",
+    "min": "4.0",
+    "max": "4.2",
+    "locator": "Table 1; Cavalier King Charles Spaniel; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_west_highland_white_terrier",
+    "metric": "pet_dog_litter",
+    "value": "3.7",
+    "n": "37",
+    "min": "3.4",
+    "max": "4.0",
+    "locator": "Table 1; West Highland White Terrier; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_yorkshire_terrier",
+    "metric": "pet_dog_litter",
+    "value": "3.5",
+    "n": "35",
+    "min": "3.2",
+    "max": "3.8",
+    "locator": "Table 1; Yorkshire Terrier; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_chihuahua",
+    "metric": "pet_dog_litter",
+    "value": "3.2",
+    "n": "269",
+    "min": "3.1",
+    "max": "3.3",
+    "locator": "Table 1; Chihuahua; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_pomeranian",
+    "metric": "pet_dog_litter",
+    "value": "2.4",
+    "n": "179",
+    "min": "2.3",
+    "max": "2.5",
+    "locator": "Table 1; Pomeranian; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_toy_poodle",
+    "metric": "pet_dog_litter",
+    "value": "2.4",
+    "n": "100",
+    "min": "2.3",
+    "max": "2.5",
+    "locator": "Table 1; Toy Poodle; n, Mean, SEM"
+  },
+  {
+    "animalId": "dog_german_shepherd",
+    "metric": "pet_dog_lifespan",
+    "value": "114",
+    "n": "279",
+    "min": "109.46",
+    "max": "118.54",
+    "locator": "Table 1; German Shepherd Dog; median months and 95% CI"
+  },
+  {
+    "animalId": "dog_beagle",
+    "metric": "pet_dog_survival",
+    "value": "12.5",
+    "n": "1552",
+    "min": "12.3",
+    "max": "12.7",
+    "locator": "Supplementary Table S3; Beagle; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_bichon_frise",
+    "metric": "pet_dog_survival",
+    "value": "12.5",
+    "n": "2900",
+    "min": "12.3",
+    "max": "12.7",
+    "locator": "Supplementary Table S3; Bichon Frise; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_border_collie",
+    "metric": "pet_dog_survival",
+    "value": "13.1",
+    "n": "7969",
+    "min": "13",
+    "max": "13.2",
+    "locator": "Supplementary Table S3; Border Collie; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_border_terrier",
+    "metric": "pet_dog_survival",
+    "value": "14.2",
+    "n": "2427",
+    "min": "14.1",
+    "max": "14.3",
+    "locator": "Supplementary Table S3; Border Terrier; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_boxer",
+    "metric": "pet_dog_survival",
+    "value": "11.3",
+    "n": "5925",
+    "min": "11.3",
+    "max": "11.5",
+    "locator": "Supplementary Table S3; Boxer; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_cavalier_king_charles_spaniel",
+    "metric": "pet_dog_survival",
+    "value": "11.8",
+    "n": "6879",
+    "min": "11.7",
+    "max": "11.9",
+    "locator": "Supplementary Table S3; Cavalier King Charles Spaniel; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_chihuahua",
+    "metric": "pet_dog_survival",
+    "value": "11.8",
+    "n": "3848",
+    "min": "11.5",
+    "max": "11.9",
+    "locator": "Supplementary Table S3; Chihuahua; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_english_cocker_spaniel",
+    "metric": "pet_dog_survival",
+    "value": "13.3",
+    "n": "7584",
+    "min": "13.2",
+    "max": "13.3",
+    "locator": "Supplementary Table S3; English Cocker Spaniel; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_english_springer_spaniel",
+    "metric": "pet_dog_survival",
+    "value": "13.5",
+    "n": "6221",
+    "min": "13.4",
+    "max": "13.6",
+    "locator": "Supplementary Table S3; English Springer Spaniel; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_french_bulldog",
+    "metric": "pet_dog_survival",
+    "value": "9.8",
+    "n": "2495",
+    "min": "9.4",
+    "max": "10.1",
+    "locator": "Supplementary Table S3; French Bulldog; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_german_shepherd",
+    "metric": "pet_dog_survival",
+    "value": "11.3",
+    "n": "10773",
+    "min": "11.3",
+    "max": "11.4",
+    "locator": "Supplementary Table S3; German Shepherd Dog; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_golden_retriever",
+    "metric": "pet_dog_survival",
+    "value": "13.2",
+    "n": "4252",
+    "min": "13.1",
+    "max": "13.2",
+    "locator": "Supplementary Table S3; Golden Retriever; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_greyhound",
+    "metric": "pet_dog_survival",
+    "value": "11.5",
+    "n": "3025",
+    "min": "11.4",
+    "max": "11.6",
+    "locator": "Supplementary Table S3; Greyhound; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_labrador_retriever",
+    "metric": "pet_dog_survival",
+    "value": "13.1",
+    "n": "16155",
+    "min": "13",
+    "max": "13.1",
+    "locator": "Supplementary Table S3; Labrador Retriever; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_maltese",
+    "metric": "pet_dog_survival",
+    "value": "13.1",
+    "n": "666",
+    "min": "12.6",
+    "max": "13.5",
+    "locator": "Supplementary Table S3; Maltese; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_miniature_dachshund",
+    "metric": "pet_dog_survival",
+    "value": "14",
+    "n": "1655",
+    "min": "13.7",
+    "max": "14.2",
+    "locator": "Supplementary Table S3; Miniature Dachshund; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_miniature_schnauzer",
+    "metric": "pet_dog_survival",
+    "value": "13.3",
+    "n": "1977",
+    "min": "13.2",
+    "max": "13.5",
+    "locator": "Supplementary Table S3; Miniature Schnauzer; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_pomeranian",
+    "metric": "pet_dog_survival",
+    "value": "12.2",
+    "n": "1170",
+    "min": "12",
+    "max": "12.5",
+    "locator": "Supplementary Table S3; Pomeranian; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_pug",
+    "metric": "pet_dog_survival",
+    "value": "11.6",
+    "n": "2782",
+    "min": "11.4",
+    "max": "11.8",
+    "locator": "Supplementary Table S3; Pug; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_rottweiler",
+    "metric": "pet_dog_survival",
+    "value": "10.6",
+    "n": "3442",
+    "min": "10.4",
+    "max": "10.7",
+    "locator": "Supplementary Table S3; Rottweiler; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_shih_tzu",
+    "metric": "pet_dog_survival",
+    "value": "12.8",
+    "n": "5894",
+    "min": "12.6",
+    "max": "12.9",
+    "locator": "Supplementary Table S3; Shih Tzu; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_staffordshire_bull_terrier",
+    "metric": "pet_dog_survival",
+    "value": "12",
+    "n": "25332",
+    "min": "12",
+    "max": "12.1",
+    "locator": "Supplementary Table S3; Staffordshire Bull Terrier; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_west_highland_white_terrier",
+    "metric": "pet_dog_survival",
+    "value": "13.4",
+    "n": "6730",
+    "min": "13.3",
+    "max": "13.5",
+    "locator": "Supplementary Table S3; West Highland White Terrier; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_whippet",
+    "metric": "pet_dog_survival",
+    "value": "13.4",
+    "n": "1483",
+    "min": "13.2",
+    "max": "13.7",
+    "locator": "Supplementary Table S3; Whippet; Median Survival and 95% CI"
+  },
+  {
+    "animalId": "dog_yorkshire_terrier",
+    "metric": "pet_dog_survival",
+    "value": "13.3",
+    "n": "9509",
+    "min": "13.3",
+    "max": "13.4",
+    "locator": "Supplementary Table S3; Yorkshire Terrier; Median Survival and 95% CI"
+  }
+]

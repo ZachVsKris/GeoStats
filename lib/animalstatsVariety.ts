@@ -8,6 +8,7 @@ export function animalBoardGroup(data: AnimalDataset, board: BoardCandidate) {
   let map = groupMaps.get(data);
   if (!map) { map = new Map(data.animals.map(animal => [animal.id, animal.taxonomicGroup])); groupMaps.set(data, map); }
   const groups = board.animalIds.map((id) => map.get(id) ?? "unknown");
+  if (groups.every((group) => ["dog-breed", "cat-breed"].includes(group))) return "pets";
   if (groups.every((group) => group === "bird")) return "birds";
   if (groups.every((group) => group === "bear")) return "bears";
   if (groups.every((group) => MAMMALS.has(group))) return "mammals";
@@ -76,8 +77,20 @@ export function randomAnimalBoardIndex(data: AnimalDataset, pool: BoardCandidate
   const originalCategories = byLabel.get(group)!;
   const freshCategories = new Map([...originalCategories].map(([label, indexes]) => [label, indexes.filter(index => pool[index].animalIds.slice().sort().join(",") !== lineup)] as const).filter(([,indexes]) => indexes.length));
   const categories = freshCategories.size ? freshCategories : originalCategories;
-  const category = weightedChoice([...categories.keys()], label => 1 / (1 + (labelCounts.get(label) ?? 0)) ** 2, random);
-  let choices = categories.get(category)!;
+  // Some common animals have only one well-supported lineup. Give animals an
+  // independent route into rotation instead of requiring their rare prize first.
+  const groupAnimals = new Map<string, Set<number>>();
+  for (const indexes of categories.values()) for (const index of indexes) {
+    for (const id of pool[index].animalIds) {
+      const indexesForAnimal = groupAnimals.get(id) ?? new Set<number>();
+      indexesForAnimal.add(index); groupAnimals.set(id, indexesForAnimal);
+    }
+  }
+  const animalFirst = random() < .35;
+  const anchor = animalFirst ? weightedChoice([...groupAnimals.keys()], id => 1 / (1 + (animalCounts.get(id) ?? 0)) ** 2, random) : undefined;
+  const availableCategories = anchor ? [...categories.keys()].filter(label => categories.get(label)!.some(index => groupAnimals.get(anchor)!.has(index))) : [...categories.keys()];
+  const category = weightedChoice(availableCategories, label => 1 / (1 + (labelCounts.get(label) ?? 0)) ** 2, random);
+  let choices = anchor ? categories.get(category)!.filter(index => groupAnimals.get(anchor)!.has(index)) : categories.get(category)!;
   const fresh = choices.filter(index => pool[index].animalIds.slice().sort().join(",") !== lineup);
   if (fresh.length) choices = fresh;
   const animalBoards = new Map<string, number[]>();

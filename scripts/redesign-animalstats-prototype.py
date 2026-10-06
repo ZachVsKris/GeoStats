@@ -11,7 +11,7 @@ if 'animaltraits-2022' not in {x['id'] for x in d['sources']}:
  d['sources'].append(dict(id='animaltraits-2022',name='AnimalTraits directly weighed brain cohorts',sourceClass='curated-trait-database',url='https://doi.org/10.1038/s41597-022-01364-9',versionYear='Zenodo v1.0.7 (2022)',retrievedAt='2026-09-30',license='CC BY 4.0'))
 d['traits']=[t for t in d['traits'] if t['id']!='weighed_brain_mass']+[dict(id='weighed_brain_mass',displayName='Largest measured brain',unit='g',definition=brain_basis,measurementBasis=brain_basis,canonicalSourceId='animaltraits-2022',eligibilityGroups=[],direction='higher_wins',separationMethod='positive_ratio_5_percent',gameplayFamily='brain',playerHint='Published brain weights. Brain size does not measure intelligence.')]
 if (OUT/'source/animaltraits-v1.0.7-observations.csv').exists():
- by=collections.defaultdict(list);animals={a['scientificName'].lower():a for a in d['animals']}
+ by=collections.defaultdict(list);animals={a['scientificName'].lower():a for a in d['animals'] if a.get('entityType') != 'breed'}
  for r in csv.DictReader((OUT/'source/animaltraits-v1.0.7-observations.csv').open()):
   if r['species'].lower() in animals and r['brain size - method']=='brain weighed' and r['original brain size - units'] in {'g','kg'}:
    n=float(r['original brain size'])*(1000 if r['original brain size - units']=='kg' else 1)
@@ -27,7 +27,7 @@ if 'pantheria-range-maps' not in {x['id'] for x in d['sources']}:
  d['sources'].append(dict(id='pantheria-range-maps',name='PanTHERIA published mammal range maps',sourceClass='curated-trait-database',url='https://esapubs.org/archive/ecol/E090/184/metadata.htm',versionYear='WR05 August 2008; maps 2003',retrievedAt='2026-09-30',license='Archive metadata: no copyright restrictions'))
 d['traits']=[t for t in d['traits'] if t['id']!='mammal_range_area']+[dict(id='mammal_range_area',displayName='Largest mapped range',unit='km²',definition=range_basis,measurementBasis=range_basis,canonicalSourceId='pantheria-range-maps',eligibilityGroups=[],direction='higher_wins',separationMethod='positive_ratio_5_percent',gameplayFamily='range',playerHint='Historical species range maps—not an individual territory or a current population count.')]
 if (OUT/'source/pantheria-2009.zip').exists():
- archive=zipfile.ZipFile(OUT/'source/pantheria-2009.zip'); rows=csv.DictReader(io.StringIO(archive.read('PanTHERIA_1-0_WR05_Aug2008.txt').decode()),delimiter='\t'); animals={a['scientificName'].lower():a for a in d['animals']}
+ archive=zipfile.ZipFile(OUT/'source/pantheria-2009.zip'); rows=csv.DictReader(io.StringIO(archive.read('PanTHERIA_1-0_WR05_Aug2008.txt').decode()),delimiter='\t'); animals={a['scientificName'].lower():a for a in d['animals'] if a.get('entityType') != 'breed'}
  d['values']=[v for v in d['values'] if v['traitId']!='mammal_range_area']
  for row in rows:
   animal=animals.get(row['MSW05_Binomial'].lower()); number=float(row['26-1_GR_Area_km2'])
@@ -140,7 +140,7 @@ for a in d['animals']:
  r=regions.get(a['id'],{});a['biogeographicRegions']=r.get('labels',[]);a['regionSourceUrl']=r.get('sourceUrl')
 (OUT/'pilot.json').write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n')
 print('Paired metrics:',len(METRICS),'region accounts:',sum(bool(r['labels']) for r in regions.values()),flush=True)
-A={a['id']:a for a in d['animals']};T={t['id']:t for t in d['traits'] if t.get('prototypeCategory')};V={(v['animalId'],v['traitId']):v for v in d['values'] if v['confidence']=='approved' and v['observationType']!='imputed'}
+A={a['id']:a for a in d['animals'] if a.get('entityType') != 'breed'};T={t['id']:t for t in d['traits'] if t.get('prototypeCategory')};V={(v['animalId'],v['traitId']):v for v in d['values'] if v['confidence']=='approved' and v['observationType']!='imputed'}
 illustrated=set(re.findall(r'^\s{2}([a-z]+_[a-z]+):', (ROOT/'lib/animalstatsCartoons.ts').read_text(),re.M))
 # Shared compact bird profiles are assigned in the table below the main object.
 illustrated.update(re.findall(r'\b([a-z]+_[a-z]+)\s*:', (ROOT/'lib/animalstatsCartoons.ts').read_text()))

@@ -34,7 +34,7 @@ def eligible(a,scope):
 def main():
  if not ARCHIVE.exists():urllib.request.urlretrieve(URL,ARCHIVE)
  if hashlib.sha256(ARCHIVE.read_bytes()).hexdigest()!='f7a8973452625422868ff33cc6fc2362e965eede173b2fd4262ed1668abe0f2f':raise SystemExit('Upstream release changed; review before importing')
- d=json.loads((OUT/'pilot.json').read_text());animals={a['scientificName']:a for a in d['animals']}
+ d=json.loads((OUT/'pilot.json').read_text());animals={a['scientificName']:a for a in d['animals'] if a.get('entityType') != 'breed'}
  with zipfile.ZipFile(ARCHIVE) as z:raw=list(csv.DictReader(io.TextIOWrapper(z.open('Data_Files/Amniote_Sparse_Table_Aug_2015.csv'))))
  selected=[r for r in raw if r['genus']+' '+r['species'] in animals and r['subspecies'] in ['-999','','NA']]
  # Keep the raw supporting rows available for direct source review.

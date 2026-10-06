@@ -1,0 +1,36 @@
+{
+  "approvedBoards": 50,
+  "dogBoards": 48,
+  "catBoards": 2,
+  "playedBreeds": [
+    "dog_labrador_retriever",
+    "dog_french_bulldog",
+    "dog_german_shepherd",
+    "dog_pomeranian",
+    "dog_cavalier_king_charles_spaniel",
+    "dog_miniature_dachshund",
+    "dog_rottweiler",
+    "dog_border_terrier",
+    "dog_english_cocker_spaniel",
+    "dog_pug",
+    "dog_bichon_frise",
+    "dog_staffordshire_bull_terrier",
+    "dog_golden_retriever",
+    "dog_shih_tzu",
+    "dog_english_springer_spaniel",
+    "dog_boxer",
+    "dog_yorkshire_terrier",
+    "dog_beagle",
+    "cat_maine_coon",
+    "cat_british_shorthair",
+    "cat_persian",
+    "cat_abyssinian"
+  ],
+  "lineups": 25,
+  "allFourPrizesIntuitive": true,
+  "independentWinnersAndReportedBounds": true,
+  "rejectionCounts": {
+    "category winners are not distinct; perfect score unattainable": 3142,
+    "traits have nearly identical or reversed rankings": 2752
+  }
+}

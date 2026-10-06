@@ -1,0 +1,82 @@
+[
+  {
+    "id": "vetcompass-2019-breeds",
+    "name": "O’Neill et al.: UK veterinary dog cohorts, 2019",
+    "sourceClass": "primary-research",
+    "url": "https://doi.org/10.1371/journal.pone.0288081",
+    "versionYear": "2019 data · 2023 publication",
+    "retrievedAt": "2026-10-06",
+    "license": "CC BY 4.0",
+    "entityScope": "breed"
+  },
+  {
+    "id": "kienzle-moik-2011-cat-weight",
+    "name": "Kienzle & Moik: measured adult purebred cat weights",
+    "sourceClass": "primary-research",
+    "url": "https://doi.org/10.1017/S0007114511001802",
+    "versionYear": "2011",
+    "retrievedAt": "2026-10-06",
+    "license": "Published numerical facts; article copyright authors/Cambridge",
+    "entityScope": "breed"
+  },
+  {
+    "id": "fournier-2017-cat-litters",
+    "name": "Fournier et al.: French pedigree cat litter records",
+    "sourceClass": "primary-research",
+    "url": "https://doi.org/10.1111/rda.12844",
+    "versionYear": "2011–2014 records · 2017 publication",
+    "retrievedAt": "2026-10-06",
+    "license": "Published numerical facts; author manuscript at HAL-01600879",
+    "entityScope": "breed"
+  },
+  {
+    "id": "oneill-2015-cat-longevity",
+    "name": "O’Neill et al.: observed cat ages at death in England",
+    "sourceClass": "primary-research",
+    "url": "https://doi.org/10.1177/1098612X14536176",
+    "versionYear": "2009–2012 clinical records · 2015 publication",
+    "retrievedAt": "2026-10-06",
+    "license": "Published numerical facts; article copyright Sage/ISFM",
+    "entityScope": "breed"
+  },
+  {
+    "id": "gccf-2025-breeds",
+    "name": "GCCF: cats registered by breed in 2025",
+    "sourceClass": "institutional-database",
+    "url": "https://www.gccfcats.org/wp-content/uploads/2026/01/Registered-Cats-By-Breed-2024-2025.pdf",
+    "versionYear": "2025 registrations · January 2026 report",
+    "retrievedAt": "2026-10-06",
+    "license": "Published registry counts; report copyright GCCF",
+    "entityScope": "breed"
+  },
+  {
+    "id": "lewis-2018-dog-longevity",
+    "name": "Lewis et al.: UK Kennel Club owner-reported dog ages at death",
+    "sourceClass": "primary-research",
+    "url": "https://doi.org/10.1186/s40575-018-0066-8",
+    "versionYear": "2005–2014 deaths · 2018 publication",
+    "retrievedAt": "2026-10-06",
+    "license": "CC BY 4.0",
+    "entityScope": "breed"
+  },
+  {
+    "id": "borge-2011-dog-litters",
+    "name": "Borge et al.: Norwegian Kennel Club litter records",
+    "sourceClass": "primary-research",
+    "url": "https://doi.org/10.1016/j.theriogenology.2010.10.034",
+    "versionYear": "2006–2007 records · 2011 publication",
+    "retrievedAt": "2026-10-06",
+    "license": "Published numerical facts; article copyright Elsevier",
+    "entityScope": "breed"
+  },
+  {
+    "id": "mcmillan-2024-dog-survival",
+    "entityScope": "breed",
+    "name": "McMillan et al.: observed companion-dog survival cohorts",
+    "sourceClass": "primary-research",
+    "url": "https://doi.org/10.1038/s41598-023-50458-w",
+    "versionYear": "2024 · Supplementary Table S3",
+    "retrievedAt": "2026-10-06",
+    "license": "CC BY 4.0"
+  }
+]

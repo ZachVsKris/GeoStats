@@ -12,7 +12,7 @@ P=ROOT/'data/animalstats'
 source_file=P/'source/discovery-heart-frdata-filter.csv'
 assert hashlib.sha1(b'blob '+str(len(source_file.read_bytes())).encode()+b'\0'+source_file.read_bytes()).hexdigest()=='5dba3c5a2664b7dea11b481d2a5b6f00a61482de'
 data=json.loads((P/'pilot.json').read_text())
-animals={a['scientificName']:a for a in data['animals']}
+animals={a['scientificName']:a for a in data['animals'] if a.get('entityType') != 'breed'}
 accepted={'Ceratotherium simum','Hippopotamus amphibius','Giraffa camelopardalis','Ursus maritimus','Castor canadensis'}
 basis=('Reported breathing frequency in awake, resting adult mammals from Mortola & Lanthier 2005, '
        'as transcribed in the author mammal-allometry archive pinned to 91c6e5df80459a9c69c445a32e30653e5c351f10. '

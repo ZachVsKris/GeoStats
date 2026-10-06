@@ -7,6 +7,7 @@ export function animalTraitIcon(trait: Trait): string {
   if (/cognition|cylinder/.test(text)) return "🧩";
   if (/ear-length|adult_ear/.test(text)) return "👂";
   if (/mass|weight/.test(text)) return "⚖️";
+  if (/pet-popularity/.test(text)) return "🏡";
   if (/offspring|litter/.test(text)) return "🍼";
   if (/clutch|incubation/.test(text)) return "🥚";
   if (/height|length|size|span/.test(text)) return "📏";

@@ -26,7 +26,7 @@ FLAGS = ['ear_length_estimated', 'ear_length_units_inferred', 'ear_length_ambigu
 def main():
     assert hashlib.md5(ARCHIVE.read_bytes()).hexdigest() == EXPECTED_MD5
     data = json.loads((P / 'pilot.json').read_text())
-    animals = {a['scientificName']: a for a in data['animals']}
+    animals = {a['scientificName']: a for a in data['animals'] if a.get('entityType') != 'breed'}
     citations = {r['Institution'].split(',')[0]: r['DOI'] for r in csv.DictReader((SOURCE / 'SourceDataset_DOIs.tsv').open(), delimiter='\t')}
     selected, exclusions, repeats = defaultdict(dict), [], defaultdict(set)
     with zipfile.ZipFile(ARCHIVE) as archive, archive.open(archive.namelist()[0]) as source:

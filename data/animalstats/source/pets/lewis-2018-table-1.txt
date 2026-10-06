@@ -1,0 +1,32 @@
+Table 1 Age at death statistics of the 25 breeds (with > 50 reported deaths), including the number of deaths reported (N), the
+contribution per breed (as a percentage of all deaths reported in the survey), the median, inter-quartile range (IQR), range (minimum
+and maximum) and 95% confidence interval of the median of age of death in months
+Breed                             No. Deaths        % of         Parameters of age at death (months) by breed (with n ≥ 50)
+                                  (N)               all deaths
+                                                                 Median             IQR                      Range             95% CI
+Labrador Retriever                728               12.86        138                94–160                   2–242             3.86
+Golden Retriever                  373               6.59         141                102–162                  4–254             4.91
+German Shepherd Dog               279               4.93         114                90–138                   4–234             4.54
+Cocker Spaniel                    266               4.70         129                82–155                   7–200             7.07
+Flat Coated Retriever             225               3.97         114                90–136                   18–180            4.85
+English Springer Spaniel          224               3.96         135.5              87.5–165                 3–210             8.18
+Cavalier King Charles Spaniel     222               3.92         117                90–145                   7–255             5.83
+Boxer                             170               3.00         105.5              78–131                   6–165             6.42
+Border Collie                     119               2.10         143                107.5–169                1–206             8.91
+Dobermann                         99                1.75         92                 63.75–117.25             7–214             8.50
+Border Terrier                    98                1.73         145                97–171                   6–228             11.81
+Irish Setter                      98                1.73         133                93–155                   6–200             9.90
+West Highland White Terrier       96                1.70         152.5              110.5–175                2–267             10.40
+Bernese Mountain Dog              78                1.38         96.5               72–115                   3–178             7.69
+Miniature Schnauzer               76                1.34         118.5              72.5–159                 4–202             15.68
+Rottweiler                        76                1.34         100.5              75–127.5                 5–173             9.52
+Weimaraner                        74                1.31         124                98–155                   0–186             10.47
+Staffordshire Bull Terrier        71                1.25         130                100.25–160.5             3–297             11.30
+Shetland Sheepdog                 56                0.99         135.5              114–162                  11–191            10.14
+Whippet                           55                0.97         118                81.5–146                 3–199             13.74
+Gordon Setter                     54                0.95         142.5              119–158                  49–178            8.39
+Newfoundland                      53                0.94         113                90–137                   2–171             10.20
+Bearded Collie                    52                0.92         149.5              117.5–176.5              19–213            12.93
+Dalmatian                         52                0.92         130                80–165                   1–187             18.62
+Pointer                           50                0.88         134.5              86–152                   8–194             14.75
+

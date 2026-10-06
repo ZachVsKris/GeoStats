@@ -1,0 +1,146 @@
+[
+  {
+    "id": "pet_dog_adult_mass",
+    "labels": [
+      "Heaviest adult",
+      "Lightest adult"
+    ],
+    "unit": "kg",
+    "canonicalSourceId": "vetcompass-2019-breeds",
+    "metricKey": "adult-mass",
+    "gameplayFamily": "mass",
+    "definition": "Median adult weight in the UK VetCompass 2019 cohort, Table 1. Each dog’s adult weight is the median of its veterinary scale readings after 18 months; the breed statistic is the median across those dogs, both sexes. Breed labels come from veterinary records, not genetic ancestry tests. This ranks observed cohorts, not breed-standard limits or ideal weights. Weight sample sizes and confidence intervals are not given by breed in Table 1.",
+    "measurementBasis": "Median adult weight in the UK VetCompass 2019 cohort, Table 1. Each dog’s adult weight is the median of its veterinary scale readings after 18 months; the breed statistic is the median across those dogs, both sexes. Breed labels come from veterinary records, not genetic ancestry tests. This ranks observed cohorts, not breed-standard limits or ideal weights. Weight sample sizes and confidence intervals are not given by breed in Table 1.",
+    "sex": "both sexes",
+    "lifeStage": "adult; after 18 months",
+    "playerHint": "Measured adult weight, median in a UK veterinary cohort."
+  },
+  {
+    "id": "pet_dog_popularity",
+    "labels": [
+      "Most popular breed",
+      "Least popular breed"
+    ],
+    "unit": "dogs",
+    "canonicalSourceId": "vetcompass-2019-breeds",
+    "metricKey": "pet-popularity",
+    "gameplayFamily": "population",
+    "definition": "Number of dogs of the named breed under primary veterinary care at participating UK VetCompass practices during 2019, Table 1. The study includes 2,237,105 dogs; counts are cohort membership, not a census of every UK or worldwide pet. Breed assignments use clinical records.",
+    "measurementBasis": "Number of dogs of the named breed under primary veterinary care at participating UK VetCompass practices during 2019, Table 1. The study includes 2,237,105 dogs; counts are cohort membership, not a census of every UK or worldwide pet. Breed assignments use clinical records.",
+    "sex": "both sexes",
+    "lifeStage": "all ages",
+    "playerHint": "Dogs in a UK veterinary cohort in 2019; not worldwide population."
+  },
+  {
+    "id": "pet_cat_adult_mass",
+    "labels": [
+      "Heaviest adult",
+      "Lightest adult"
+    ],
+    "unit": "kg",
+    "canonicalSourceId": "kienzle-moik-2011-cat-weight",
+    "metricKey": "adult-mass",
+    "gameplayFamily": "mass",
+    "definition": "Mean measured weight of adult female cats aged at least one year, with ideal body condition (BCS 5), Kienzle & Moik 2011 Table 1. Cats were recruited at shows in southern Germany and Alsace and veterinary practices in southern Germany. Both intact and neutered females are included. Only exact individual breed rows with at least five cats are admitted; combined breeds are excluded. These are small sampled cohorts, not worldwide breed averages. Published SD describes individual variation; confidence intervals for the means are not reported.",
+    "measurementBasis": "Mean measured weight of adult female cats aged at least one year, with ideal body condition (BCS 5), Kienzle & Moik 2011 Table 1. Cats were recruited at shows in southern Germany and Alsace and veterinary practices in southern Germany. Both intact and neutered females are included. Only exact individual breed rows with at least five cats are admitted; combined breeds are excluded. These are small sampled cohorts, not worldwide breed averages. Published SD describes individual variation; confidence intervals for the means are not reported.",
+    "sex": "female; intact and neutered",
+    "lifeStage": "adult; at least one year",
+    "playerHint": "Mean measured weight of healthy-weight adult females in a study."
+  },
+  {
+    "id": "pet_cat_litter",
+    "labels": [
+      "Largest litter",
+      "Smallest litter"
+    ],
+    "unit": "kittens",
+    "canonicalSourceId": "fournier-2017-cat-litters",
+    "metricKey": "offspring",
+    "gameplayFamily": "life-history",
+    "definition": "Mean number of kittens born per litter, including stillborn kittens, in French breeder management records from 2011–2014; Fournier et al. 2017 Table 2. These descriptive means rank recorded litters, not the paper’s regression predictions. Breed-specific SD is variation between litters; mean confidence intervals and litter sample sizes are not published in Table 2. Its oestrus counts are NOT litter counts.",
+    "measurementBasis": "Mean number of kittens born per litter, including stillborn kittens, in French breeder management records from 2011–2014; Fournier et al. 2017 Table 2. These descriptive means rank recorded litters, not the paper’s regression predictions. Breed-specific SD is variation between litters; mean confidence intervals and litter sample sizes are not published in Table 2. Its oestrus counts are NOT litter counts.",
+    "sex": "breeding females",
+    "lifeStage": "birth; all kittens born",
+    "playerHint": "Recorded average kittens per litter, including stillborn kittens."
+  },
+  {
+    "id": "pet_cat_lifespan",
+    "labels": [
+      "Longest lifespan",
+      "Shortest lifespan"
+    ],
+    "unit": "years",
+    "canonicalSourceId": "oneill-2015-cat-longevity",
+    "metricKey": "lifespan",
+    "gameplayFamily": "longevity",
+    "definition": "Median observed age at death in O’Neill et al. 2015 Table 1, among cats attending primary veterinary practices in England during 2009–2012. Breed cohorts have at least ten deaths. Dates of birth and confirmed deaths come from clinical records; cats without a birth date are omitted. Both sexes and all ages at death are included. This is a descriptive deceased-cohort median, not life expectancy at birth, a survival forecast or a maximum lifespan. IQR describes individual ages, not a confidence interval of the median.",
+    "measurementBasis": "Median observed age at death in O’Neill et al. 2015 Table 1, among cats attending primary veterinary practices in England during 2009–2012. Breed cohorts have at least ten deaths. Dates of birth and confirmed deaths come from clinical records; cats without a birth date are omitted. Both sexes and all ages at death are included. This is a descriptive deceased-cohort median, not life expectancy at birth, a survival forecast or a maximum lifespan. IQR describes individual ages, not a confidence interval of the median.",
+    "sex": "both sexes",
+    "lifeStage": "observed age at death; all ages",
+    "playerHint": "Median recorded lifespan in an English veterinary study; not a prediction."
+  },
+  {
+    "id": "pet_cat_popularity",
+    "labels": [
+      "Most popular breed",
+      "Least popular breed"
+    ],
+    "unit": "registrations",
+    "canonicalSourceId": "gccf-2025-breeds",
+    "metricKey": "pet-popularity",
+    "gameplayFamily": "population",
+    "definition": "Number of cats registered under each named breed by the UK Governing Council of the Cat Fancy during 2025. This is one registry’s registrations in one year, not total living cats or worldwide popularity. Broad Russian and other combined categories are excluded from an individual breed. Counts are used directly, not ranks or projected populations.",
+    "measurementBasis": "Number of cats registered under each named breed by the UK Governing Council of the Cat Fancy during 2025. This is one registry’s registrations in one year, not total living cats or worldwide popularity. Broad Russian and other combined categories are excluded from an individual breed. Counts are used directly, not ranks or projected populations.",
+    "sex": "both sexes",
+    "lifeStage": "2025 registered cats; registry ages not standardized",
+    "playerHint": "Cats registered with the UK GCCF during 2025."
+  },
+  {
+    "id": "pet_dog_lifespan",
+    "labels": [
+      "Longest lifespan",
+      "Shortest lifespan"
+    ],
+    "unit": "months",
+    "canonicalSourceId": "lewis-2018-dog-longevity",
+    "metricKey": "lifespan",
+    "gameplayFamily": "longevity",
+    "definition": "Median observed age at death in Lewis et al. 2018 Table 1, among UK Kennel Club registered dogs reported by owners in the 2014 survey. Birth dates were verified against registry records; deaths occurred during 2005–2014. Only cohorts with at least 50 deaths are admitted. This is an observed deceased-cohort median, not life expectancy at birth or a maximum lifespan. Published approximate 95% confidence-interval half-widths are preserved as median minus/plus the reported half-width; overlapping intervals are excluded from boards.",
+    "measurementBasis": "Median observed age at death in Lewis et al. 2018 Table 1, among UK Kennel Club registered dogs reported by owners in the 2014 survey. Birth dates were verified against registry records; deaths occurred during 2005–2014. Only cohorts with at least 50 deaths are admitted. This is an observed deceased-cohort median, not life expectancy at birth or a maximum lifespan. Published approximate 95% confidence-interval half-widths are preserved as median minus/plus the reported half-width; overlapping intervals are excluded from boards.",
+    "sex": "both sexes",
+    "lifeStage": "observed age at death; all ages",
+    "playerHint": "Median recorded lifespan in a UK pedigree-dog survey."
+  },
+  {
+    "id": "pet_dog_litter",
+    "labels": [
+      "Largest litter",
+      "Smallest litter"
+    ],
+    "unit": "puppies",
+    "canonicalSourceId": "borge-2011-dog-litters",
+    "metricKey": "offspring",
+    "gameplayFamily": "life-history",
+    "definition": "Arithmetic mean puppies born per registered litter in the Norwegian Kennel Club during 2006–2007, Borge et al. 2011 Table 1. Includes liveborn and stillborn puppies; litters where every puppy died before registration are absent. The source reports SEM, not a confidence interval. Boards require nonoverlap of the reported mean ± one SEM as well as the normal 5% gap. These are descriptive means, not the paper’s regression predictions.",
+    "measurementBasis": "Arithmetic mean puppies born per registered litter in the Norwegian Kennel Club during 2006–2007, Borge et al. 2011 Table 1. Includes liveborn and stillborn puppies; litters where every puppy died before registration are absent. The source reports SEM, not a confidence interval. Boards require nonoverlap of the reported mean ± one SEM as well as the normal 5% gap. These are descriptive means, not the paper’s regression predictions.",
+    "sex": "breeding females",
+    "lifeStage": "birth; all puppies born",
+    "playerHint": "Recorded average puppies per litter, including stillborn puppies."
+  },
+  {
+    "id": "pet_dog_survival",
+    "labels": [
+      "Longest lifespan",
+      "Shortest lifespan"
+    ],
+    "unit": "years",
+    "canonicalSourceId": "mcmillan-2024-dog-survival",
+    "metricKey": "lifespan",
+    "gameplayFamily": "longevity",
+    "definition": "Median survival age in the UK companion-dog cohorts of McMillan et al. 2024, Supplementary Table S3. Kaplan–Meier summarises recorded birth, death and last-observed ages, retaining dogs alive at observation as censored records. This is an empirical survival statistic with published 95% confidence limits, not an extrapolated maximum age or a promise for an individual dog. Only exact named breed rows with at least five deaths and reported numeric limits are admitted. Bounds are copied directly and overlapping confidence limits cannot share a board.",
+    "measurementBasis": "Median survival age in the UK companion-dog cohorts of McMillan et al. 2024, Supplementary Table S3. Kaplan–Meier summarises recorded birth, death and last-observed ages, retaining dogs alive at observation as censored records. This is an empirical survival statistic with published 95% confidence limits, not an extrapolated maximum age or a promise for an individual dog. Only exact named breed rows with at least five deaths and reported numeric limits are admitted. Bounds are copied directly and overlapping confidence limits cannot share a board.",
+    "sex": "both sexes",
+    "lifeStage": "survival age from birth; observed cohort",
+    "playerHint": "Median survival in UK dog cohorts; published uncertainty retained."
+  }
+]

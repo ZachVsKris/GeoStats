@@ -18,7 +18,7 @@ assert len(raw) == 24848622
 rows = list(csv.DictReader(io.StringIO(raw.decode('cp1252'))))
 assert len(rows) == 29121
 data = json.loads((P / 'pilot.json').read_text())
-catalog = {a['scientificName'].replace(' ', '_'): a for a in data['animals']}
+catalog = {a['scientificName'].replace(' ', '_'): a for a in data['animals'] if a.get('entityType') != 'breed'}
 methods = collections.Counter(r['methodQuantification'] for r in rows)
 protocols = collections.Counter(r['samplingProtocol'] for r in rows)
 foods = collections.Counter(r['foodType'] for r in rows)

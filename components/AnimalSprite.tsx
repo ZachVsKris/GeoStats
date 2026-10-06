@@ -414,12 +414,71 @@ function Reptile({ p }: { p: Profile }) {
   </>;
 }
 
+
+/** Breed silhouettes share a fixed frame; proportions are character design, never rankings. */
+function Pet({ p, clipId }: { p: Profile; clipId: string }) {
+  const f = p.feature ?? "", cat = f.startsWith("pet:cat_"), name = f.replace(/^pet:(?:dog|cat)_/, "");
+  const pointCat = ["ragdoll", "birman", "siamese"].includes(name);
+  const flat = ["pug", "french_bulldog", "boxer", "persian", "exotic_shorthair"].includes(name);
+  const long = ["miniature_dachshund", "whippet", "greyhound"].includes(name);
+  const fluffy = ["maine_coon", "norwegian_forest", "siberian", "persian", "ragdoll", "birman", "somali", "pomeranian", "maltese", "shih_tzu", "bichon_frise", "toy_poodle", "golden_retriever"].includes(name);
+  const upright = cat || ["german_shepherd", "chihuahua", "french_bulldog", "pomeranian", "west_highland_white_terrier", "yorkshire_terrier"].includes(name);
+  const spaniel = name.includes("spaniel");
+  const slender = ["greyhound", "whippet", "siamese", "abyssinian", "russian_blue"].includes(name);
+  const hx = long ? 146 : 137, hy = name === "miniature_dachshund" ? 82 : 67;
+  const top = name === "miniature_dachshund" ? 99 : slender ? 88 : 81, bottom = name === "miniature_dachshund" ? 132 : slender ? 108 : 119;
+  const head = name === "chihuahua" ? 27 : flat ? 26 : name === "british_shorthair" ? 24 : cat ? 21 : 22;
+  const plush = ["pomeranian", "maine_coon", "norwegian_forest", "siberian", "ragdoll", "birman", "somali"].includes(name);
+  const body = plush ? `M39 ${top+13} Q33 ${top-1} 48 ${top-3} Q51 ${top-14} 65 ${top-8} Q76 ${top-17} 89 ${top-9} Q107 ${top-15} 118 ${top-3} Q139 ${top-3} 141 ${top+17} L134 ${bottom-2} Q131 ${bottom+10} 117 ${bottom+3} Q107 ${bottom+14} 92 ${bottom+7} Q80 ${bottom+15} 68 ${bottom+6} Q49 ${bottom+13} 42 ${bottom-2} Q32 ${bottom-1} 39 ${top+13} Z` : name === "french_bulldog" || name === "british_shorthair" ? `M42 ${top+10} Q40 ${top-14} 81 ${top-9} Q115 ${top-14} 137 ${top+15} L132 ${bottom} Q101 ${bottom+13} 57 ${bottom+3} Q35 ${bottom+2} 42 ${top+10} Z` : `M42 ${top+10} Q48 ${top-8} 86 ${top} Q116 ${top-4} 137 ${top+15} L132 ${bottom-2} Q102 ${bottom+8} 59 ${bottom-1} Q39 ${bottom-3} 42 ${top+10} Z`;
+  const point = pointCat ? "#786354" : p.color, ear = pointCat ? point : name === "beagle" || spaniel ? "#986442" : p.color;
+  return <>
+    <g className="cartoonWag" style={{transformOrigin:`45px ${top+15}px`}}>
+      <path fill="none" stroke={p.color} strokeWidth={fluffy ? 15 : cat ? 6 : 8} d={name === "pug" || name === "pomeranian" ? `M47 ${top+15} Q13 ${top-7} 24 ${top-21} Q39 ${top-28} 33 ${top-12}` : cat ? `M46 ${top+16} Q16 ${top+18} 21 ${top-9} Q24 ${top-27} 33 ${top-20}` : `M45 ${top+18} Q20 ${top+12} 21 ${top-13}`} />
+    </g>
+    <g className="cartoonFeet" data-anatomy="attached-legs">
+      {[60,113].map((x,i)=><path key={`far${i}`} fill={pointCat ? point : p.color} d={`M${x} ${bottom-12} l-3 ${148-bottom} q-9 0-9 8 h18 l4-${150-bottom} Z`} />)}
+    </g>
+    <path fill={p.color} d={body}/><clipPath id={clipId}><path d={body}/></clipPath>
+    <g clipPath={`url(#${clipId})`} stroke="none">
+      {p.pattern === "patches" && <><path fill="#39413b" d={`M66 ${top-8} Q112 ${top-9} 125 ${top+22} L84 ${top+32} Q58 ${top+20} 66 ${top-8} Z`}/><path fill={p.belly} d={`M113 ${top-1} Q136 ${top+9} 131 ${bottom} L111 ${bottom} Z`}/></>}
+      {p.pattern === "stripes" && [0,1,2,3,4].map(i=><path key={i} fill="#6b5642" d={`M${55+i*14} ${top-3} q-9 14 1 25 l5-4 q-6-14 1-21 Z`}/>)}
+      {p.pattern === "rosettes" && [0,1,2,3,4,5,6,7].map(i=><ellipse key={i} fill="none" stroke="#765335" strokeWidth="3" cx={59+i%4*17} cy={top+10+Math.floor(i/4)*17} rx="5" ry="4"/>)}
+      {name === "yorkshire_terrier" && <path fill="#737b7a" d={`M49 ${top} h71 v38 H52 Z`}/>}
+      {(pointCat || name === "beagle" || name === "cavalier_king_charles_spaniel" || name === "staffordshire_bull_terrier" || name === "boxer") && <path fill={p.belly} d={`M116 ${top} Q130 ${top+12} 135 ${bottom} L113 ${bottom} Q122 ${top+16} 116 ${top} Z`}/>}
+    </g>
+    <g className="cartoonFeet" data-anatomy="attached-legs">
+      {[72,126].map((x,i)=><g key={i}><path fill={pointCat ? point : p.color} d={`M${x} ${bottom-11} l-2 ${150-bottom} q10-1 13 6 h-25 q-3-7 0-17 l1-${Math.max(4,134-bottom)} Z`}/>{name === "birman" && <path fill={CREAM} stroke="none" d={`M${x-9} 132 h9 v8 h12 q1 4-3 5 h-19 Z`}/>}<path fill="none" strokeWidth="1" d={`M${x} 140 v4 m5-4v4`}/></g>)}
+    </g>
+    {fluffy && <path fill={p.color} d={`M113 ${top+1} l4-16 6 8 4-12 6 12 8-9 1 16 10 7-10 13-3 17-9-6-10 8-1-14-10-6 Z`}/>}
+    {["persian","maltese","shih_tzu"].includes(name) && <path fill={p.color} d={`M44 ${top+12} q-7 18 0 33 q8 8 14-1 q8 10 16 0 q9 10 16-1 q8 8 15-1 q12 4 17-5 l-2-30 Z`}/>}
+    <path fill={p.color} d={`M117 ${top+16} Q115 ${hy+15} ${hx-15} ${hy+5} L${hx+14} ${hy+11} Q${hx+4} ${top+13} 133 ${bottom-10} Z`}/>
+    <g className="cartoonHead" style={{transformOrigin:`${hx-14}px ${hy+19}px`}}>
+      {name === "french_bulldog" ? <><path fill={ear} d={`M${hx-21} ${hy-7} Q${hx-31} ${hy-42} ${hx-19} ${hy-40} Q${hx-6} ${hy-34} ${hx-6} ${hy-12} Z M${hx+6} ${hy-13} Q${hx+7} ${hy-43} ${hx+20} ${hy-39} Q${hx+29} ${hy-31} ${hx+23} ${hy-4} Z`}/><path fill="#daa8a0" stroke="none" d={`M${hx-21} ${hy-14} q-5-22 1-20 q7 5 8 18 Z M${hx+12} ${hy-14} q1-20 6-20 q5 9 0 23 Z`}/></> : ["greyhound","whippet"].includes(name) ? <path fill={p.color} d={`M${hx-19} ${hy-12} l-13-10 21 2 8 12 Z`}/> : upright ? <><path fill={ear} d={`M${hx-18} ${hy-9} l-7-${name === "sphynx" || name === "chihuahua" ? 30 : ["persian","exotic_shorthair","british_shorthair"].includes(name) ? 9 : 23} 24 20 Z M${hx+5} ${hy-13} l17-${name === "sphynx" || name === "chihuahua" ? 28 : ["persian","exotic_shorthair","british_shorthair"].includes(name) ? 8 : 19} -1 34 Z`}/><path fill="#daa8a0" stroke="none" d={`M${hx-18} ${hy-15} l-3-12 12 12 Z M${hx+10} ${hy-12} l8-12 -1 20 Z`}/></> : <><path fill={ear} d={`M${hx-13} ${hy-18} Q${hx-34} ${hy-20} ${hx-28} ${hy+24} Q${hx-15} ${hy+34} ${hx-11} ${hy+11} Z`}/><path fill={ear} d={`M${hx+10} ${hy-16} q15-4 13 24 q-10 12-14-9 Z`}/></>}
+      {["toy_poodle","bichon_frise"].includes(name) && <path fill={p.color} d={`M${hx-28} ${hy-4} q-9-11 1-16 q-4-12 9-14 q5-10 14-4 q11-5 17 3 q13 0 12 12 q12 8 5 18 l-10 15-35 0 Z`}/>}
+      <ellipse fill={pointCat ? point : p.color} cx={hx} cy={hy} rx={head} ry={cat ? flat ? 22 : 20 : 23}/>
+      {name === "german_shepherd" && <path fill="#4a4540" stroke="none" d={`M${hx-15} ${hy-17} q18-11 32 9 l-9 15-13-4 Z`}/>}
+      {["border_collie", "cavalier_king_charles_spaniel"].includes(name) && <path fill={CREAM} stroke="none" d={`M${hx-5} ${hy-22} l12 1 -4 31-12-3 Z`}/>}
+      <path fill={flat ? pointCat ? point : "#66554b" : cat ? pointCat ? point : p.belly : p.belly} d={flat ? `M${hx+2} ${hy+6} q18-4 22 7 q-2 14-21 10 q-10-10-1-17 Z` : cat ? `M${hx+1} ${hy+6} q11-5 23 3 q5 14-13 16 q-19-1-10-19 Z` : `M${hx+3} ${hy+6} q14-9 33 1 l5 8 q-9 14-29 10 q-13-6-9-19 Z`}/>
+      <Eye x={hx+3} y={hy-3} size={cat ? 7.5 : 8}/>
+      <path fill={cat ? "#ba817c" : INK} stroke="none" d={cat ? `M${hx+21} ${hy+10} l8 1 -5 5 Z` : `M${hx+(flat?18:31)} ${hy+9} q10-3 9 5 q-5 7-9-1 Z`}/>
+      <path fill="none" strokeWidth="1.3" d={`M${hx+15} ${hy+20} q8 6 15-1`}/>
+      {!cat && <path fill="#ec9c9d" d={`M${hx+21} ${hy+24} q2 12 8 7 l1-9 Z`}/>}
+      {cat && <path fill="none" strokeWidth="1" d={`M${hx+16} ${hy+11} l-14-3 m16 8-17 2 M${hx+31} ${hy+14} l12-2 m-12 6 10 2`}/>}
+      {["maine_coon", "norwegian_forest", "siberian"].includes(name) && <><path fill={p.color} d={`M${hx-17} ${hy-26} l-3-10 8 12 M${hx+15} ${hy-27} l5-9-1 16`}/><path fill="none" strokeWidth="1.3" d={`M${hx-19} ${hy+7} l-7 5 6 2 -4 5 M${hx-10} ${hy+20} l1 6 5-1`}/></>}
+      {name === "persian" && <path fill="none" strokeWidth="1.1" d={`M${hx-19} ${hy+9} l-6 4 6 1 M${hx-13} ${hy+19} l-3 6 6-2`}/>}
+      {name === "sphynx" && <path fill="none" stroke="#b88880" strokeWidth="1" d={`M${hx-10} ${hy-11} q8-4 15 0 m-14 4q7-4 14 0 M${hx-14} ${hy+10} q3 8 8 9`}/>}
+      {name.includes("schnauzer") || name === "border_terrier" ? <path fill={p.belly} d={`M${hx+6} ${hy+12} l2 20 8-5 6 8 9-8 6-16-15 4 Z`}/> : null}
+      <path fill="none" strokeWidth="1.1" d={`M${hx-3} ${hy-14} q5-3 10 0`}/>
+    </g>
+  </>;
+}
+
 export const AnimalSprite = memo(function AnimalSprite({ animal, className = "" }: { animal: Animal; className?: string }) {
   const clipId = `coat${useId().replaceAll(":", "")}`, p = cartoonProfile(animal.id);
   return <svg viewBox="0 0 200 160" className={`animalSprite fairCartoon ${className}`} role="img" aria-label={animal.commonName} data-animal-id={animal.id} data-art-version="fair-cartoon-v2" data-normalized-size="142" data-anatomy={p.feature}>
     <ellipse className="cartoonGround" cx="100" cy="149" rx="65" ry="5" fill="#60482c" opacity=".12" />
     <g stroke={INK} strokeWidth="2.3" strokeLinejoin="round" strokeLinecap="round">
-      {p.feature === "guineapig" ? <GuineaPig clipId={clipId} /> : ["seal","sealion"].includes(p.feature ?? "") ? <Pinniped p={p}/> : ["littlebat","flyingfox"].includes(p.feature ?? "") ? <Bat p={p}/> : ["echidna","anteater","armadillo"].includes(p.feature ?? "") ? <SmallSpecialist p={p}/> : ["meerkat","seaotter"].includes(p.feature ?? "") ? <UprightMammal p={p}/> : p.kind === "bird" || p.kind === "penguin" ? <Bird p={p} /> : p.kind === "marine" ? <Marine p={p} /> : p.kind === "shark" ? <Shark p={p} clipId={clipId}/> : p.kind === "primate" ? <Primate p={p} /> : ["reptile", "snake", "turtle"].includes(p.kind) ? <Reptile p={p} /> : p.feature === "kangaroo" ? <Kangaroo p={p} /> : <Mammal p={p} clipId={clipId} />}
+      {p.feature?.startsWith("pet:") ? <Pet p={p} clipId={clipId}/> : p.feature === "guineapig" ? <GuineaPig clipId={clipId} /> : ["seal","sealion"].includes(p.feature ?? "") ? <Pinniped p={p}/> : ["littlebat","flyingfox"].includes(p.feature ?? "") ? <Bat p={p}/> : ["echidna","anteater","armadillo"].includes(p.feature ?? "") ? <SmallSpecialist p={p}/> : ["meerkat","seaotter"].includes(p.feature ?? "") ? <UprightMammal p={p}/> : p.kind === "bird" || p.kind === "penguin" ? <Bird p={p} /> : p.kind === "marine" ? <Marine p={p} /> : p.kind === "shark" ? <Shark p={p} clipId={clipId}/> : p.kind === "primate" ? <Primate p={p} /> : ["reptile", "snake", "turtle"].includes(p.kind) ? <Reptile p={p} /> : p.feature === "kangaroo" ? <Kangaroo p={p} /> : <Mammal p={p} clipId={clipId} />}
     </g>
   </svg>;
 });

@@ -78,6 +78,8 @@ def main():
             })
     admitted, excluded = [], []
     for animal in data['animals']:
+        if animal.get('entityType') == 'breed':
+            continue  # Species distributions and family counts are not breed data.
         match = index.get(animal['scientificName'])
         if not match:
             continue  # No silent synonym/species-complex substitution.

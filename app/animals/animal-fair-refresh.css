@@ -185,7 +185,9 @@
 .realAnimalPage .activePlay .country {
   flex-direction: column; justify-content: center; gap: 10px;
   padding: 12px 8px !important; text-align: center;
+  background: var(--surface);
 }
+.realAnimalPage .activePlay .country.selected { background: var(--surface); }
 .realAnimalPage .activePlay .country > span { display: block; flex: 0 0 auto; }
 .realAnimalPage .activePlay .country strong {
   font-size: clamp(15px, 1.2vw, 18px) !important; line-height: 1.2;
@@ -193,10 +195,13 @@
 }
 .realAnimalPage .activePlay .country .animalRealPhoto {
   display: block; width: clamp(88px, 8vw, 124px); height: clamp(72px, 11vh, 104px);
-  max-width: 100%; object-fit: contain; background: #edf5f0; border-radius: 8px;
+  max-width: 100%; object-fit: contain; background: #f2f2ef; border-radius: 8px;
+  padding: 4px; box-sizing: border-box; border: 1px solid #deded8;
 }
 .realAnimalPage .activePlay .choice .animalRealPhoto {
   width: 64px; height: 54px; object-fit: contain;
+  background: #f2f2ef; border: 1px solid #deded8; border-radius: 5px;
+  padding: 2px; box-sizing: border-box;
 }
 @media (min-width: 901px) {
   .realAnimalPage .activePlay.easyRound .bankPanel .countries { grid-template-rows: repeat(2, minmax(0, 1fr)); }

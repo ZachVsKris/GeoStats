@@ -289,3 +289,115 @@
 .animalPhotoGallery figcaption small { color: var(--muted); font-size: 11px; }
 .animalPhotoGallery figcaption a { color: var(--accent); font-size: 12px; }
 @media (max-width: 620px) { .animalPhotoGalleryGrid { grid-template-columns: 1fr; } }
+
+/* Size the playing surface from the space left after the header, in both modes. */
+.animalPage[data-view="play"][data-submitted="false"] {
+  box-sizing: border-box; height: 100dvh; min-height: 0; padding: 8px 16px;
+}
+.animalPage[data-view="play"][data-submitted="false"] > .animalShell {
+  height: 100%; min-height: 0; display: flex; flex-direction: column; overflow: visible;
+}
+.animalPage[data-view="play"][data-submitted="false"] .animalGeoHeader,
+.animalPage[data-view="play"][data-submitted="false"] .animalGeoChallenge,
+.animalPage[data-view="play"][data-submitted="false"] .animalPresentationControl,
+.animalPage[data-view="play"][data-submitted="false"] .animalToolbar { flex-shrink: 0; }
+.realAnimalPage .shell.activePlay .playGrid {
+  flex: 1; height: auto; min-height: 0; margin: 0; display: grid;
+  grid-template-columns: minmax(0, .85fr) 12px minmax(0, 1.15fr); grid-template-rows: minmax(0, 1fr);
+}
+.realAnimalPage .shell.activePlay .playGrid .panel {
+  height: 100%; min-height: 0; display: flex; flex-direction: column;
+}
+.realAnimalPage .shell.activePlay .panelTitle { flex-shrink: 0; padding: 8px 10px; }
+.realAnimalPage .shell.activePlay .bankPanel .countries,
+.realAnimalPage .shell.activePlay .boardPanel .slots {
+  flex: 1; height: auto; min-height: 0; overflow: visible; grid-auto-rows: minmax(0, 1fr);
+}
+.realAnimalPage .shell.activePlay .bankPanel .countries { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.realAnimalPage .shell.activePlay.easyRound .bankPanel .countries { grid-template-rows: repeat(2, minmax(0, 1fr)); }
+.realAnimalPage .shell.activePlay.normalRound .bankPanel .countries { grid-template-rows: repeat(3, minmax(0, 1fr)); }
+.realAnimalPage .shell.activePlay.expertRound .bankPanel .countries { grid-template-rows: repeat(4, minmax(0, 1fr)); }
+.realAnimalPage .shell.activePlay .bankPanel .country {
+  height: 100%; min-height: 0; padding: 5px !important; gap: 3px;
+  display: grid; grid-template-rows: minmax(0, 1fr) auto; justify-items: center; align-items: center;
+}
+.realAnimalPage .shell.activePlay .country > span { height: 100%; min-height: 0; width: 100%; container-type: size; align-items: center; }
+.realAnimalPage .shell.activePlay .country .animalRealPhoto {
+  width: min(100cqw, 100cqh, 174px); height: min(100cqw, 100cqh, 174px); max-height: 100%;
+}
+.realAnimalPage .shell.activePlay .country > div { width: 100%; }
+.realAnimalPage .shell.activePlay .country strong { min-height: 0; font-size: 14px !important; line-height: 1.15; }
+.realAnimalPage .shell.activePlay .boardPanel .slots { grid-template-columns: 1fr; grid-template-rows: none; }
+.realAnimalPage .shell.activePlay .boardPanel .slot { min-height: 0; padding: 6px !important; gap: 4px; }
+.realAnimalPage .shell.activePlay .boardPanel .category { min-height: 0; }
+.realAnimalPage .shell.activePlay .categoryCopy small { display: none; }
+.realAnimalPage .shell.activePlay .choice { min-height: 0 !important; padding: 3px 6px; }
+.realAnimalPage .shell.activePlay .choice .animalRealPhoto { width: 32px; height: 32px; }
+.realAnimalPage .shell.activePlay .boardPanel .lock { flex-shrink: 0; padding: 8px; margin: 0; }
+.animalPage[data-view="play"][data-submitted="false"] .sanctuaryBoard { min-height: 0; }
+@media (max-width: 900px) {
+  .realAnimalPage .shell.activePlay .playGrid {
+    grid-template-columns: 1fr; grid-template-rows: minmax(0, .9fr) minmax(0, 1.3fr); gap: 6px;
+  }
+  .realAnimalPage .shell.activePlay .boardSpine { display: none; }
+  .realAnimalPage .shell.activePlay .bankPanel .countries { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: repeat(2, minmax(0, 1fr)); padding: 4px; gap: 4px; }
+  .realAnimalPage .shell.activePlay.easyRound .bankPanel .countries { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: minmax(0, 1fr); }
+  .realAnimalPage .shell.activePlay.normalRound .bankPanel .countries { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .realAnimalPage .shell.activePlay .boardPanel .slots { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: none; padding: 4px; gap: 4px; }
+  .realAnimalPage .shell.activePlay .panelTitle { display: flex; padding: 3px 6px; }
+  .realAnimalPage .shell.activePlay .panelTitle h3 { font-size: 12px; }
+  .realAnimalPage .shell.activePlay .panelTitle small { display: none; }
+  .realAnimalPage .shell.activePlay .country strong { font-size: 11px !important; }
+  .realAnimalPage .shell.activePlay .category strong { font-size: 13px !important; line-height: 1.1 !important; }
+  .realAnimalPage .shell.activePlay .choice .animalRealPhoto { width: 24px; height: 24px; }
+  .realAnimalPage .shell.activePlay .choice { gap: 4px; }
+  .realAnimalPage .shell.activePlay .pieceName { font-size: 11px; }
+  .realAnimalPage .shell.activePlay .category > .desktopCategoryIcon { display: none; }
+}
+@media (max-width: 750px), (max-height: 750px) {
+  .animalPage[data-view="play"][data-submitted="false"] { padding: 4px 8px; }
+  .animalPage[data-view="play"][data-submitted="false"] .animalGeoHeader { padding: 2px 0 4px; gap: 4px; }
+  .animalPage[data-view="play"][data-submitted="false"] .animalGeoChallenge { min-height: 0; margin: 3px 0; padding: 3px 0; }
+  .animalPage[data-view="play"][data-submitted="false"] .animalPresentationControl { margin: 3px 0; }
+  .animalPage[data-view="play"][data-submitted="false"] .animalToolbar { min-height: 20px; margin-bottom: 3px; }
+  .animalPage[data-view="play"][data-submitted="false"] .animalSubmit { min-height: 36px; margin-top: 4px; padding-top: 4px; }
+  .countyFair .sanctuaryBoard { padding: 22px 6px 6px; gap: 6px; }
+}
+.realAnimalPage .shell.activePlay .country > div { height: 2.3em; font-size: 14px; display: grid; align-items: center; }
+@media (max-width: 900px) { .realAnimalPage .shell.activePlay .country > div { font-size: 11px; height: 3.45em; } }
+@media (min-width: 901px) {
+ .realAnimalPage .shell.activePlay .bankPanel { grid-column: 1; grid-row: 1; }
+ .realAnimalPage .shell.activePlay .boardPanel { grid-column: 3; grid-row: 1; }
+ .realAnimalPage .shell.activePlay .boardSpine { grid-column: 2; grid-row: 1; display: block; }
+}
+.realAnimalPage .shell.activePlay .boardPanel .lock { flex: 0 0 auto; min-height: 0; }
+.realAnimalPage .shell.activePlay .boardPanel .lock button { height: 36px; padding: 6px 14px; font-size: 13px; }
+.realAnimalPage .shell.activePlay .boardPanel .slot { box-sizing: border-box; }
+.realAnimalPage .shell.activePlay .boardPanel .lock button { min-height: 36px; box-sizing: border-box; }
+/* GeoStats' editorial overrides deliberately allow scrolling; the animal board doesn't. */
+.realAnimalPage[data-view="play"][data-submitted="false"] > .shell.activePlay { height: 100% !important; padding: 0; }
+.realAnimalPage .shell.activePlay .playGrid { flex: 1 1 0 !important; }
+.realAnimalPage .shell.activePlay .playGrid > .panel { height: 100% !important; }
+.realAnimalPage .shell.activePlay .playGrid .countries,
+.realAnimalPage .shell.activePlay .playGrid .slots { flex: 1 1 0 !important; }
+.realAnimalPage .shell.activePlay .boardPanel .slot { height: 100% !important; justify-content: space-between !important; }
+.realAnimalPage .shell.activePlay .categoryCopy small { display: none !important; }
+@media (max-width: 900px) {
+ .realAnimalPage .shell.activePlay .boardPanel .category { grid-template-columns: minmax(0, 1fr); }
+ .realAnimalPage .shell.activePlay .boardPanel .category strong { font-size: 13px !important; }
+ .realAnimalPage .shell.activePlay .choice.filled { padding-right: 22px !important; }
+ .realAnimalPage .shell.activePlay .choice .pieceName { font-size: 11px !important; }
+}
+.realAnimalPage .shell.activePlay .bankPanel .country { grid-template-columns: minmax(0, 1fr); justify-content: stretch; width: 100%; }
+@media (min-width: 901px) {
+ .realAnimalPage .shell.activePlay.normalRound .boardPanel .slots,
+ .realAnimalPage .shell.activePlay.expertRound .boardPanel .slots { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.realAnimalPage .shell.activePlay .country .animalRealPhoto {
+ width: min(100cqw, 100cqh, 174px) !important; height: min(100cqw, 100cqh, 174px) !important;
+}
+.realAnimalPage .shell.activePlay .bankPanel .country { min-height: 0 !important; height: 100% !important; box-sizing: border-box; }
+@media (max-width: 900px) {
+ .realAnimalPage .shell.activePlay.normalRound .bankPanel .countries,
+ .realAnimalPage .shell.activePlay.expertRound .bankPanel .countries { grid-template-rows: repeat(2, minmax(0, 1fr)); }
+}

@@ -41,7 +41,7 @@ export const ROUND_CONFIGS: Record<DailyDifficulty, RoundConfig> = {
     maxFaostatCategories: 1,
     maxBroadDomain: 2,
     maxCountriesPerContinent: 2,
-    pointsByRank: [100, 75, 50, 25],
+    pointsByRank: [100, 65, 45, 25],
   },
   normal: {
     difficulty: "normal",
@@ -59,7 +59,7 @@ export const ROUND_CONFIGS: Record<DailyDifficulty, RoundConfig> = {
     maxFaostatCategories: 1,
     maxBroadDomain: 2,
     maxCountriesPerContinent: 2,
-    pointsByRank: [100, 80, 60, 40, 20, 0],
+    pointsByRank: [100, 70, 45, 25, 10, 0],
   },
   expert: {
     difficulty: "expert",
@@ -77,7 +77,7 @@ export const ROUND_CONFIGS: Record<DailyDifficulty, RoundConfig> = {
     maxFaostatCategories: 2,
     maxBroadDomain: 2,
     maxCountriesPerContinent: 3,
-    pointsByRank: [100, 85, 70, 55, 40, 25, 10, 0],
+    pointsByRank: [100, 75, 55, 40, 25, 15, 5, 0],
   },
 };
 

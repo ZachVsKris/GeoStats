@@ -60,7 +60,7 @@ const loadCachedCompleteDaily = unstable_cache(
       generated: false,
       legacyModes: Object.keys(inspected.outdated),
       warning: Object.keys(inspected.outdated).length
-        ? "This Daily keeps its original countries, values, rules, and scoring; category wording reflects the current reviewed catalog."
+        ? "This Daily keeps its original countries and values; scoring follows the displayed rank table and category wording reflects the reviewed catalog."
         : undefined,
       preferenceWarnings: dailyTrioPreferenceWarnings(inspected.rounds as DailyTrioLike),
       ...boards,

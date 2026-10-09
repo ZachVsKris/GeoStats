@@ -20,7 +20,7 @@ try {
  for(const kind of ['dog','cat']) {
   const board=boards.find(b=>b.id.startsWith('fair-pet-'+kind+'-easy-'));assert(board);
   await page.goto('http://localhost:3012/animals?board='+board.id,{waitUntil:'networkidle',timeout:120000});
-  const lever=page.getByRole('switch',{name:'Real animal photos'});
+  const lever=page.getByRole('switch',{name:'Static animal photos'});
   if(await lever.getAttribute('aria-checked')==='true')await lever.click();
   assert.equal(await page.locator('.penAnimal .animalSprite').count(),4);
   await page.screenshot({path:join(root,'artifacts/pets-'+kind+'-cute.png'),fullPage:true});

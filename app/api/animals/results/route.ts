@@ -1,3 +1,4 @@
+import { publishedAnimalTraitIds } from "../../../../lib/animalstatsCoverage";
 import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
 import { animalPreviewEnabled } from "../../../../lib/animalstatsPreview";
@@ -12,7 +13,8 @@ import dataset from "../../../../data/animalstats/pilot.json";
 import candidates from "../../../../data/animalstats/candidates.json";
 import reviewManifest from "../../../../data/animalstats/reviews.json";
 const data = dataset as AnimalDataset;
-const boards = candidates.boards as BoardCandidate[];
+const published = publishedAnimalTraitIds(data);
+const boards = (candidates.boards as BoardCandidate[]).filter(b => b.traitIds.every(id => published.has(id)));
 const headers = { "Cache-Control": "private, no-store" };
 const columns = "game_id,board_id,challenge_date,difficulty,play_kind,score,optimal_choices,average_placement,ranks,completed_at";
 type StoredResult = { game_id:string;board_id:string;challenge_date:string;difficulty:string;play_kind:string;score:number;optimal_choices:number;average_placement:number;ranks:number[];completed_at:string };
@@ -41,7 +43,7 @@ export async function POST(request: Request) {
  if (!board || (body.kind!=="daily" && body.kind!=="random")) return NextResponse.json({error:"Invalid board."},{status:400,headers});
  const date=newYorkDate();
  if (body.kind==="daily") {
-  const daily=orderAnimalPilotBoards(approvedAnimalBoards(data,boards,reviewManifest as AnimalBoardReview[]),date,data).filter((row)=>row.mode===board.mode).slice(0,3);
+  const daily=orderAnimalPilotBoards(approvedAnimalBoards(data,boards,reviewManifest as AnimalBoardReview[]),date,data).filter((row)=>row.mode===board.mode).slice(0,1);
   if(!daily.some((row)=>row.id===board.id))return NextResponse.json({error:"This board is not an approved daily."},{status:400,headers});
  }
  const scored=scoreAnimalAssignments(data,board,body.assignments);

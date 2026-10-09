@@ -241,3 +241,11 @@
   .realAnimalPage .shell.activePlay.expertRound .choice { min-height: 28px !important; }
   .realAnimalPage .shell.activePlay.expertRound .choice em { font-size: 11px !important; }
 }
+
+/* Each prize has its own ribbon. */
+.countyFair .traitPodium:nth-child(1) .podiumBadge, .countyFair .traitPodium:nth-child(1) .podiumBadge::after { background: #d89b16; }
+.countyFair .traitPodium:nth-child(2) .podiumBadge, .countyFair .traitPodium:nth-child(2) .podiumBadge::after { background: #168f60; }
+.countyFair .traitPodium:nth-child(3) .podiumBadge, .countyFair .traitPodium:nth-child(3) .podiumBadge::after { background: #e85e3d; }
+.countyFair .traitPodium:nth-child(4) .podiumBadge, .countyFair .traitPodium:nth-child(4) .podiumBadge::after { background: #3769c7; }
+.countyFair .traitPodium:nth-child(5) .podiumBadge, .countyFair .traitPodium:nth-child(5) .podiumBadge::after { background: #9751bc; }
+.countyFair .traitPodium:nth-child(6) .podiumBadge, .countyFair .traitPodium:nth-child(6) .podiumBadge::after { background: #c8447a; }

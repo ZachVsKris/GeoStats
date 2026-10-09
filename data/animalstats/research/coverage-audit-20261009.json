@@ -1,0 +1,2763 @@
+{
+  "policy": {
+    "minimums": {
+      "broad": 50,
+      "scoped": 20,
+      "breed": 8
+    },
+    "broadMinimumMajorGroups": 3
+  },
+  "audit": [
+    {
+      "traitId": "adult_body_mass",
+      "label": "Heaviest adult",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 154,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles",
+        "amphibians",
+        "fish",
+        "monotreme",
+        "insectivore",
+        "treeshrew",
+        "bat",
+        "lagomorph"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "maximum_documented_lifespan",
+      "label": "Longest documented lifespan",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 93,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles",
+        "amphibians",
+        "fish",
+        "monotreme",
+        "insectivore",
+        "treeshrew",
+        "bat",
+        "lagomorph"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "gestation",
+      "label": "Longest pregnancy",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 62,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "monotreme",
+        "insectivore",
+        "treeshrew",
+        "bat",
+        "lagomorph"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "litter_size",
+      "label": "Most young per birth",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 63,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "monotreme",
+        "insectivore",
+        "treeshrew",
+        "bat",
+        "lagomorph"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "female_maturity",
+      "label": "Latest female maturity",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 132,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles",
+        "amphibians",
+        "fish",
+        "molluscs",
+        "echinoderm",
+        "insect",
+        "monotreme",
+        "bat"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "male_maturity",
+      "label": "Latest male maturity",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 116,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles",
+        "amphibians",
+        "fish",
+        "molluscs",
+        "echinoderm",
+        "insect",
+        "monotreme",
+        "bat"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "weaning_age",
+      "label": "Longest time on milk",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 40,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "monotreme",
+        "bat",
+        "lagomorph"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "birth_weight",
+      "label": "Heaviest newborn",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 57,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "monotreme",
+        "bat",
+        "lagomorph"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "litters_per_year",
+      "label": "Most litters per year",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 50,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "bat",
+        "lagomorph"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "interbirth_interval",
+      "label": "Longest gap between births",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 49,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "monotreme",
+        "bat",
+        "lagomorph"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "bird_mass",
+      "label": "Heaviest adult",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 44,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "bird_beak_length",
+      "label": "Longest beak",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 44,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "bird_beak_width",
+      "label": "Widest beak",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 44,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "bird_beak_depth",
+      "label": "Deepest beak",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 44,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "bird_tarsus_length",
+      "label": "Longest lower leg",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 44,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "bird_wing_length",
+      "label": "Wing length",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 44,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "bird_kipps_distance",
+      "label": "Wingtip extension",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 44,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "bird_secondary_length",
+      "label": "Inner wing length",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 44,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "bird_hand_wing_index",
+      "label": "Most pointed wings",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 44,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "bird_tail_length",
+      "label": "Longest tail feathers",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 44,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "bird_range_area",
+      "label": "Largest breeding range",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 44,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "incubation",
+      "label": "Longest wait to hatch",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 25,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "clutch_size",
+      "label": "Most eggs per clutch",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 24,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "clutches_per_year",
+      "label": "Clutches per year",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 13,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "hatching_mass",
+      "label": "Heaviest hatchling",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 13,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "wild_recorded_lifespan",
+      "label": "Longest recorded wild life",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 43,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "fish",
+        "molluscs"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "egg_clutch_size",
+      "label": "Most eggs in one clutch",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 35,
+      "minimum": 20,
+      "majorGroups": [
+        "bird",
+        "reptiles",
+        "amphibians"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "frog_max_svl",
+      "label": "Longest frog body",
+      "scope": "frog",
+      "kind": "scoped",
+      "count": 10,
+      "minimum": 20,
+      "majorGroups": [
+        "amphibians"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "amphibian_max_mass",
+      "label": "Heaviest recorded adult",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 14,
+      "minimum": 20,
+      "majorGroups": [
+        "amphibians"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "amphibian_max_clutch",
+      "label": "Most eggs in one clutch",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 15,
+      "minimum": 20,
+      "majorGroups": [
+        "amphibians"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "amphibian_min_maturity",
+      "label": "First to grow up",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 14,
+      "minimum": 20,
+      "majorGroups": [
+        "amphibians"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "amphibian_max_events",
+      "label": "Maximum breeding events per year",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 17,
+      "minimum": 20,
+      "majorGroups": [
+        "amphibians"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "weaning_mass",
+      "label": "Heaviest at weaning",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 27,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "shark_litter_size",
+      "label": "Pups per litter",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 12,
+      "minimum": 20,
+      "majorGroups": [
+        "fish"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "shortest_gestation",
+      "label": "Shortest pregnancy",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 34,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "earliest_female_maturity",
+      "label": "First to grow up",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 110,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles",
+        "amphibians",
+        "fish",
+        "molluscs",
+        "echinoderm",
+        "insect"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "earliest_weaning",
+      "label": "Fastest off milk",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 25,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "lightest_newborn",
+      "label": "Lightest newborn",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 34,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "smallest_adult_mass",
+      "label": "Lightest adult",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 130,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles",
+        "amphibians",
+        "fish",
+        "monotreme",
+        "insectivore",
+        "treeshrew"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "shortest_wild_lifespan",
+      "label": "Shortest recorded life in the wild",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 30,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "fish",
+        "molluscs"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "fewest_shark_pups",
+      "label": "Fewest pups per litter",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 12,
+      "minimum": 20,
+      "majorGroups": [
+        "fish"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "raw_adult_mass",
+      "label": "Adult body mass (source median)",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 98,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "raw_female_maturity",
+      "label": "Latest start to parenthood",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 94,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "raw_early_female_maturity",
+      "label": "Earliest female maturity (source median)",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 94,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "raw_egg_mass",
+      "label": "Heaviest egg",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 58,
+      "minimum": 20,
+      "majorGroups": [
+        "bird",
+        "reptiles"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "raw_egg_length",
+      "label": "Longest egg",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 15,
+      "minimum": 20,
+      "majorGroups": [
+        "bird",
+        "reptiles"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "raw_egg_width",
+      "label": "Widest egg",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 12,
+      "minimum": 20,
+      "majorGroups": [
+        "bird",
+        "reptiles"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "raw_incubation",
+      "label": "Longest wait to hatch",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 58,
+      "minimum": 20,
+      "majorGroups": [
+        "bird",
+        "reptiles"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "raw_clutch_size",
+      "label": "Most eggs per clutch",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 59,
+      "minimum": 20,
+      "majorGroups": [
+        "bird",
+        "reptiles"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "raw_clutch_frequency",
+      "label": "Most egg clutches per year",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 57,
+      "minimum": 20,
+      "majorGroups": [
+        "bird",
+        "reptiles"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "raw_hatching_mass",
+      "label": "Heaviest hatchling",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 40,
+      "minimum": 20,
+      "majorGroups": [
+        "bird",
+        "reptiles"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "raw_fledging_age",
+      "label": "Time until fledging",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 38,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "raw_fledging_mass",
+      "label": "Body mass at fledging",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 7,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "raw_gestation",
+      "label": "Longest pregnancy",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 35,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "raw_short_gestation",
+      "label": "Shortest gestation (source median)",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 35,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "raw_weaning_age",
+      "label": "Longest time on milk",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 35,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "raw_weaning_mass",
+      "label": "Body mass at weaning (source median)",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 26,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "raw_litter_size",
+      "label": "Most young per birth",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 35,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "raw_litter_frequency",
+      "label": "Litters per year (source median)",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 32,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "raw_birth_mass",
+      "label": "Heaviest newborn",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 35,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "cruising_flight_speed",
+      "label": "Fastest cruising flight",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 16,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "measured_wingspan",
+      "label": "Largest wingspan",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 15,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "daily_sleep",
+      "label": "Most time asleep",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 6,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals",
+        "insectivore",
+        "monotreme",
+        "treeshrew"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "annual_home_range",
+      "label": "Largest home range",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 9,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "field_max_dive",
+      "label": "Longest recorded dive",
+      "scope": "Aquatic animals",
+      "kind": "scoped",
+      "count": 11,
+      "minimum": 20,
+      "majorGroups": [
+        "bird",
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "ringing_longevity",
+      "label": "Longest recorded wild life",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 23,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "lightest_bird",
+      "label": "Lightest adult",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 44,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "bird_beak_width__low",
+      "label": "Narrowest beak",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 44,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "bird_beak_depth__low",
+      "label": "Shallowest beak",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 44,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "bird_tarsus_length__low",
+      "label": "Shortest lower leg",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 44,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "bird_hand_wing_index__low",
+      "label": "Least pointed wings",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 44,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "adult_tooth_count",
+      "label": "Most adult teeth",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 6,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals",
+        "insectivore"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "field_travel_speed",
+      "label": "Fastest measured land travel",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 4,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "field_swim_speed",
+      "label": "Fastest measured swimming",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 20,
+      "minimum": 50,
+      "majorGroups": [
+        "fish",
+        "mammals",
+        "reptiles",
+        "bird"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "basal_energy",
+      "label": "Most resting energy use",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 35,
+      "minimum": 50,
+      "majorGroups": [
+        "bird",
+        "mammals",
+        "insectivore",
+        "monotreme",
+        "treeshrew"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "mass_specific_basal_energy",
+      "label": "Most resting energy per gram",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 35,
+      "minimum": 50,
+      "majorGroups": [
+        "bird",
+        "mammals",
+        "insectivore",
+        "monotreme",
+        "treeshrew"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "daily_rem_sleep",
+      "label": "Most REM sleep",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 6,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals",
+        "insectivore",
+        "monotreme",
+        "treeshrew"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "habitat_elevation_ceiling",
+      "label": "Highest mountain habitat",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 33,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles",
+        "amphibians",
+        "monotreme",
+        "insectivore"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "habitat_depth_ceiling",
+      "label": "Deepest water habitat",
+      "scope": "Aquatic animals",
+      "kind": "scoped",
+      "count": 32,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles",
+        "amphibians",
+        "fish",
+        "crustacean",
+        "molluscs",
+        "echinoderm",
+        "monotreme"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "adult_shoulder_height",
+      "label": "Tallest at the shoulder",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 11,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "mammal_tail_length_upper",
+      "label": "Longest mammal tail",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 8,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "aquatic_length_upper",
+      "label": "Longest aquatic body",
+      "scope": "Aquatic animals",
+      "kind": "scoped",
+      "count": 6,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "fish"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "adult_shoulder_height__low",
+      "label": "Shortest at the shoulder",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 11,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "resting_breathing_frequency",
+      "label": "Fastest breathing at rest",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 5,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "adult_intestine_length",
+      "label": "Longest intestine",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 8,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "insectivore"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "measured_eye_length",
+      "label": "Largest eyes",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 21,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "lagomorph",
+        "monotreme",
+        "treeshrew"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "behavioral_visual_acuity",
+      "label": "Sharpest measured vision",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 10,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "lagomorph",
+        "treeshrew"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "recorded_chewing_rate",
+      "label": "Fastest recorded chewing",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 33,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "bat",
+        "lagomorph",
+        "treeshrew"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "diet_largest_prey",
+      "label": "Largest prey in published diet",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 18,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "diet_smallest_prey",
+      "label": "Smallest prey in published diet",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 18,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "diet_prey_mass_span",
+      "label": "Widest prey-size range",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 18,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "scientific_description_age",
+      "label": "Oldest scientific description",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 166,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles",
+        "amphibians",
+        "fish",
+        "crustacean",
+        "molluscs",
+        "insect",
+        "monotreme",
+        "insectivore",
+        "treeshrew",
+        "lagomorph",
+        "bat"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "iucn_extinction_risk",
+      "label": "Most threatened",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 153,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles",
+        "amphibians",
+        "fish",
+        "crustacean",
+        "monotreme",
+        "insectivore",
+        "treeshrew",
+        "lagomorph",
+        "bat"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "milk_fat_concentration",
+      "label": "Fattiest milk",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 16,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "milk_sugar_concentration",
+      "label": "Most sugar in milk",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 14,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "milk_protein_concentration",
+      "label": "Most protein in milk",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 16,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "diet_food_group_count",
+      "label": "Most food groups",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 45,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "bat",
+        "lagomorph",
+        "insectivore",
+        "treeshrew"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "mapped_north_pole_distance",
+      "label": "Farthest from North Pole",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 45,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "insectivore",
+        "monotreme",
+        "lagomorph",
+        "bat",
+        "treeshrew"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "mapped_south_pole_distance",
+      "label": "Farthest from South Pole",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 45,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "insectivore",
+        "monotreme",
+        "lagomorph",
+        "bat",
+        "treeshrew"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "mapped_latitude_span",
+      "label": "Widest north–south range",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 45,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "insectivore",
+        "monotreme",
+        "lagomorph",
+        "bat",
+        "treeshrew"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "weighed_brain_mass",
+      "label": "Largest measured brain",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 31,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "mammal_range_area",
+      "label": "Largest mapped range",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 45,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "insectivore",
+        "monotreme",
+        "lagomorph",
+        "bat",
+        "treeshrew"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "scientific_description_age__low",
+      "label": "Newest scientific description",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 166,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles",
+        "amphibians",
+        "fish",
+        "crustacean",
+        "molluscs",
+        "insect",
+        "monotreme",
+        "insectivore",
+        "treeshrew",
+        "lagomorph",
+        "bat"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "iucn_extinction_risk__low",
+      "label": "Least threatened",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 153,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles",
+        "amphibians",
+        "fish",
+        "crustacean",
+        "monotreme",
+        "insectivore",
+        "treeshrew",
+        "lagomorph",
+        "bat"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "measured_eye_length__low",
+      "label": "Smallest eyes",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 21,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "lagomorph",
+        "monotreme",
+        "treeshrew"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "behavioral_visual_acuity__low",
+      "label": "Least sharp measured vision",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 10,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "lagomorph",
+        "treeshrew"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "recorded_chewing_rate__low",
+      "label": "Slowest recorded chewing",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 33,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "bat",
+        "lagomorph",
+        "treeshrew"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "diet_prey_mass_span__low",
+      "label": "Narrowest prey-size range",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 18,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "hatching_mass__low",
+      "label": "Lightest hatchling",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 13,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "raw_hatching_mass__low",
+      "label": "Lightest hatchling",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 40,
+      "minimum": 20,
+      "majorGroups": [
+        "bird",
+        "reptiles"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "adult_intestine_length__low",
+      "label": "Shortest intestine",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 8,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "insectivore"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "male_maturity__low",
+      "label": "Earliest male maturity",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 116,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles",
+        "amphibians",
+        "fish",
+        "molluscs",
+        "echinoderm",
+        "insect",
+        "monotreme",
+        "bat"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "weaning_mass__low",
+      "label": "Lightest at weaning",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 27,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "mapped_north_pole_distance__low",
+      "label": "Closest to North Pole",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 45,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "insectivore",
+        "monotreme",
+        "lagomorph",
+        "bat",
+        "treeshrew"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "mapped_south_pole_distance__low",
+      "label": "Closest to South Pole",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 45,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "insectivore",
+        "monotreme",
+        "lagomorph",
+        "bat",
+        "treeshrew"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "mapped_latitude_span__low",
+      "label": "Narrowest north–south range",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 45,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "insectivore",
+        "monotreme",
+        "lagomorph",
+        "bat",
+        "treeshrew"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "diet_food_group_count__low",
+      "label": "Fewest food groups",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 45,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "bat",
+        "lagomorph",
+        "insectivore",
+        "treeshrew"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "resting_breathing_frequency__low",
+      "label": "Slowest breathing at rest",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 5,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "milk_fat_concentration__low",
+      "label": "Least fat in milk",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 16,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "milk_sugar_concentration__low",
+      "label": "Least sugar in milk",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 14,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "milk_protein_concentration__low",
+      "label": "Least protein in milk",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 16,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "habitat_elevation_ceiling__low",
+      "label": "Lowest mountain ceiling",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 33,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles",
+        "amphibians",
+        "monotreme",
+        "insectivore"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "habitat_depth_ceiling__low",
+      "label": "Shallowest water limit",
+      "scope": "Aquatic animals",
+      "kind": "scoped",
+      "count": 32,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles",
+        "amphibians",
+        "fish",
+        "crustacean",
+        "molluscs",
+        "echinoderm",
+        "monotreme"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "mammal_tail_length_upper__low",
+      "label": "Shortest mammal tail",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 8,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "aquatic_length_upper__low",
+      "label": "Shortest aquatic body",
+      "scope": "Aquatic animals",
+      "kind": "scoped",
+      "count": 6,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "fish"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "raw_egg_length__low",
+      "label": "Shortest egg",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 15,
+      "minimum": 20,
+      "majorGroups": [
+        "bird",
+        "reptiles"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "raw_egg_width__low",
+      "label": "Narrowest egg",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 12,
+      "minimum": 20,
+      "majorGroups": [
+        "bird",
+        "reptiles"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "raw_clutch_frequency__low",
+      "label": "Fewest egg clutches per year",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 57,
+      "minimum": 20,
+      "majorGroups": [
+        "bird",
+        "reptiles"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "litters_per_year__low",
+      "label": "Fewest litters per year",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 50,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "bat",
+        "lagomorph"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "interbirth_interval__low",
+      "label": "Shortest gap between births",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 49,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "monotreme",
+        "bat",
+        "lagomorph"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "adult_tooth_count__low",
+      "label": "Fewest adult teeth",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 6,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals",
+        "insectivore"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "field_travel_speed__low",
+      "label": "Slowest measured land travel",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 4,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "field_swim_speed__low",
+      "label": "Slowest measured swimming",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 20,
+      "minimum": 50,
+      "majorGroups": [
+        "fish",
+        "mammals",
+        "reptiles",
+        "bird"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "basal_energy__low",
+      "label": "Least resting energy use",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 35,
+      "minimum": 50,
+      "majorGroups": [
+        "bird",
+        "mammals",
+        "insectivore",
+        "monotreme",
+        "treeshrew"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "mass_specific_basal_energy__low",
+      "label": "Least resting energy per gram",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 35,
+      "minimum": 50,
+      "majorGroups": [
+        "bird",
+        "mammals",
+        "insectivore",
+        "monotreme",
+        "treeshrew"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "daily_rem_sleep__low",
+      "label": "Least REM sleep",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 6,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals",
+        "insectivore",
+        "monotreme",
+        "treeshrew"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "weighed_brain_mass__low",
+      "label": "Smallest measured brain",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 31,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "adult_body_mass__low",
+      "label": "Lightest adult",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 154,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles",
+        "amphibians",
+        "fish",
+        "monotreme",
+        "insectivore",
+        "treeshrew",
+        "bat",
+        "lagomorph"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "bird_mass__low",
+      "label": "Lightest adult",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 44,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "amphibian_max_mass__low",
+      "label": "Lightest recorded adult",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 14,
+      "minimum": 20,
+      "majorGroups": [
+        "amphibians"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "frog_max_svl__low",
+      "label": "Shortest frog body",
+      "scope": "frog",
+      "kind": "scoped",
+      "count": 10,
+      "minimum": 20,
+      "majorGroups": [
+        "amphibians"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "maximum_documented_lifespan__low",
+      "label": "Shortest documented lifespan",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 93,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles",
+        "amphibians",
+        "fish",
+        "monotreme",
+        "insectivore",
+        "treeshrew",
+        "bat",
+        "lagomorph"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "wild_recorded_lifespan__low",
+      "label": "Shortest recorded wild life",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 43,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "fish",
+        "molluscs"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "ringing_longevity__low",
+      "label": "Shortest recorded wild life",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 23,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "cruising_flight_speed__low",
+      "label": "Slowest cruising flight",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 16,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "measured_wingspan__low",
+      "label": "Smallest wingspan",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 15,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "bird_range_area__low",
+      "label": "Smallest breeding range",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 44,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "mammal_range_area__low",
+      "label": "Smallest mapped range",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 45,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "insectivore",
+        "monotreme",
+        "lagomorph",
+        "bat",
+        "treeshrew"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "daily_sleep__low",
+      "label": "Least time asleep",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 6,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals",
+        "insectivore",
+        "monotreme",
+        "treeshrew"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "annual_home_range__low",
+      "label": "Smallest home range",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 9,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "field_max_dive__low",
+      "label": "Shortest recorded dive",
+      "scope": "Aquatic animals",
+      "kind": "scoped",
+      "count": 11,
+      "minimum": 20,
+      "majorGroups": [
+        "bird",
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "bird_beak_length__low",
+      "label": "Shortest beak",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 44,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "bird_tail_length__low",
+      "label": "Shortest tail feathers",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 44,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "raw_egg_mass__low",
+      "label": "Lightest egg",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 58,
+      "minimum": 20,
+      "majorGroups": [
+        "bird",
+        "reptiles"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "birth_weight__low",
+      "label": "Lightest newborn",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 57,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "monotreme",
+        "bat",
+        "lagomorph"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "gestation__low",
+      "label": "Shortest pregnancy",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 62,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "monotreme",
+        "insectivore",
+        "treeshrew",
+        "bat",
+        "lagomorph"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "raw_gestation__low",
+      "label": "Shortest pregnancy",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 35,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "clutch_size__low",
+      "label": "Fewest eggs per clutch",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 24,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "raw_clutch_size__low",
+      "label": "Fewest eggs per clutch",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 59,
+      "minimum": 20,
+      "majorGroups": [
+        "bird",
+        "reptiles"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "incubation__low",
+      "label": "Shortest wait to hatch",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 25,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "raw_incubation__low",
+      "label": "Shortest wait to hatch",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 58,
+      "minimum": 20,
+      "majorGroups": [
+        "bird",
+        "reptiles"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "weaning_age__low",
+      "label": "Shortest time on milk",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 40,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "monotreme",
+        "bat",
+        "lagomorph"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "raw_weaning_age__low",
+      "label": "Shortest time on milk",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 35,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "female_maturity__low",
+      "label": "Earliest female maturity",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 132,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles",
+        "amphibians",
+        "fish",
+        "molluscs",
+        "echinoderm",
+        "insect",
+        "monotreme",
+        "bat"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "raw_birth_mass__low",
+      "label": "Lightest newborn",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 35,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "litter_size__low",
+      "label": "Fewest young per birth",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 63,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "monotreme",
+        "insectivore",
+        "treeshrew",
+        "bat",
+        "lagomorph"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "maximum_hibernation_bout",
+      "label": "Longest hibernation stretch",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 4,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "bat",
+        "insectivore",
+        "monotreme"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "maximum_hibernation_bout__low",
+      "label": "Shortest hibernation stretch",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 4,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "bat",
+        "insectivore",
+        "monotreme"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "cylinder_treat_success",
+      "label": "Most successful in a treat puzzle",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 5,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "cylinder_treat_success__low",
+      "label": "Least successful in a treat puzzle",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 5,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "measured_adult_ear_length",
+      "label": "Longest ears",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 6,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "bat"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "measured_adult_ear_length__low",
+      "label": "Shortest ears",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 6,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "bat"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "mdd_country_count",
+      "label": "Most countries & territories",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 49,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "monotreme",
+        "insectivore",
+        "treeshrew",
+        "lagomorph",
+        "bat"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "mdd_country_count__low",
+      "label": "Fewest countries & territories",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 49,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "monotreme",
+        "insectivore",
+        "treeshrew",
+        "lagomorph",
+        "bat"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "mdd_continent_count",
+      "label": "Most continents",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 45,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "insectivore",
+        "treeshrew",
+        "lagomorph",
+        "bat"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "mdd_continent_count__low",
+      "label": "Fewest continents",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 45,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "insectivore",
+        "treeshrew",
+        "lagomorph",
+        "bat"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "mdd_family_species_count",
+      "label": "Most species in its family",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 54,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "monotreme",
+        "insectivore",
+        "treeshrew",
+        "lagomorph",
+        "bat"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "mdd_family_species_count__low",
+      "label": "Fewest species in its family",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 54,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "monotreme",
+        "insectivore",
+        "treeshrew",
+        "lagomorph",
+        "bat"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "cylinder_practice_trials",
+      "label": "Most practice tries",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 5,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "cylinder_practice_trials__low",
+      "label": "Fewest practice tries",
+      "scope": "Across animal groups",
+      "kind": "broad",
+      "count": 5,
+      "minimum": 50,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": false
+    },
+    {
+      "traitId": "pet_dog_adult_mass",
+      "label": "Heaviest adult",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 26,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_adult_mass__low",
+      "label": "Lightest adult",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 26,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_popularity",
+      "label": "Most popular breed",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 26,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_popularity__low",
+      "label": "Least popular breed",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 26,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_cat_adult_mass",
+      "label": "Heaviest adult",
+      "scope": "Cat breeds",
+      "kind": "breed",
+      "count": 11,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_cat_adult_mass__low",
+      "label": "Lightest adult",
+      "scope": "Cat breeds",
+      "kind": "breed",
+      "count": 11,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_cat_litter",
+      "label": "Largest litter",
+      "scope": "Cat breeds",
+      "kind": "breed",
+      "count": 15,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_cat_litter__low",
+      "label": "Smallest litter",
+      "scope": "Cat breeds",
+      "kind": "breed",
+      "count": 15,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_cat_lifespan",
+      "label": "Longest lifespan",
+      "scope": "Cat breeds",
+      "kind": "breed",
+      "count": 9,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_cat_lifespan__low",
+      "label": "Shortest lifespan",
+      "scope": "Cat breeds",
+      "kind": "breed",
+      "count": 9,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_cat_popularity",
+      "label": "Most popular breed",
+      "scope": "Cat breeds",
+      "kind": "breed",
+      "count": 12,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_cat_popularity__low",
+      "label": "Least popular breed",
+      "scope": "Cat breeds",
+      "kind": "breed",
+      "count": 12,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_lifespan",
+      "label": "Longest lifespan",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 14,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_lifespan__low",
+      "label": "Shortest lifespan",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 14,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_litter",
+      "label": "Largest litter",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 24,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_litter__low",
+      "label": "Smallest litter",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 24,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_survival",
+      "label": "Longest lifespan",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 25,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_survival__low",
+      "label": "Shortest lifespan",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 25,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    }
+  ]
+}

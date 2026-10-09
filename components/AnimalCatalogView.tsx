@@ -12,14 +12,15 @@ export default function AnimalCatalogView({ boards, initialTab, onPlay }: { boar
   const [attempt, setAttempt] = useState(0);
   useEffect(() => {
     const controller = new AbortController();
+    const timeout = setTimeout(() => { controller.abort(); setError(true); }, 12000);
     setError(false);
     fetch("/api/animals/data?scope=catalog", { signal: controller.signal }).then(async response => {
       if (!response.ok) throw new Error("Catalog unavailable");
       const payload = await response.json();
       if (payload.origin !== "release-snapshot" || !Array.isArray(payload.data?.values)) throw new Error("Catalog unavailable");
       setData(payload.data);
-    }).catch(() => { if (!controller.signal.aborted) setError(true); });
-    return () => controller.abort();
+    }).catch(() => { if (!controller.signal.aborted) setError(true); }).finally(() => clearTimeout(timeout));
+    return () => { clearTimeout(timeout); controller.abort(); };
   }, [attempt]);
   if (error) return <section className="panel animalDataBrowser"><p role="alert">The data could not be loaded.</p><button onClick={() => setAttempt(a => a + 1)}>Try again</button></section>;
   if (!data) return <p role="status">Loading data…</p>;

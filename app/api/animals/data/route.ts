@@ -1,17 +1,22 @@
+import { publishedAnimalTraitIds, auditAnimalCoverage, ANIMAL_COVERAGE_MINIMUMS } from "../../../../lib/animalstatsCoverage";
+import type { AnimalDataset, BoardCandidate } from "../../../../lib/animalstats";
+import photos from "../../../../data/animalstats/photos.json";
 import { NextResponse } from "next/server";
 import { animalPreviewEnabled } from "../../../../lib/animalstatsPreview";
 import { createSupabaseServerClient } from "../../../../lib/supabase/server";
 import catalog from "../../../../data/animalstats/pilot.json";
 import candidates from "../../../../data/animalstats/candidates.json";
 
-const playable = new Set(candidates.boards.flatMap(b => b.traitIds));
+const published = publishedAnimalTraitIds(catalog as AnimalDataset);
+const playable = new Set((candidates.boards as BoardCandidate[]).filter(b => b.traitIds.every(id => published.has(id))).flatMap(b => b.traitIds));
 export async function GET(request: Request) {
   if (!animalPreviewEnabled()) return NextResponse.json({ error: "Not found" }, { status: 404 });
   const params = new URL(request.url).searchParams;
+  if (params.get("scope") === "coverage") return NextResponse.json({ policy: { minimums: ANIMAL_COVERAGE_MINIMUMS, broadMinimumMajorGroups: 3 }, audit: auditAnimalCoverage(catalog as AnimalDataset) });
   if (params.get("scope") === "catalog") {
     const traits = catalog.traits.filter(t => playable.has(t.id) && !t.id.startsWith("adult_shoulder_height"));
     const ids = new Set(traits.map(t => t.id));
-    return NextResponse.json({ data: { ...catalog, photos: [], traits, values: catalog.values.filter(v => ids.has(v.traitId) && v.confidence === "approved" && v.observationType !== "imputed") }, origin: "release-snapshot" }, { headers: { "Cache-Control": "private, max-age=300" } });
+    return NextResponse.json({ data: { ...catalog, photos: photos.filter(p => p.approved), traits, values: catalog.values.filter(v => ids.has(v.traitId) && v.confidence === "approved" && v.observationType !== "imputed") }, origin: "release-snapshot" }, { headers: { "Cache-Control": "private, max-age=300" } });
   }
   const traitId = params.get("trait");
   const trait = catalog.traits.find(t => t.id === traitId);

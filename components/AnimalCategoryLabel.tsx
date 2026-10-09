@@ -1,4 +1,5 @@
 "use client";
+import { animalComparisonScope } from "../lib/animalstatsCoverage";
 
 import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
@@ -36,6 +37,6 @@ export default function AnimalCategoryLabel({ trait }: { trait: Trait }) {
   }, [open]);
   return <span ref={anchor} className="animalCategoryLabel" onPointerEnter={event => { if (event.pointerType === "mouse") setHovered(true); }} onPointerLeave={() => setHovered(false)}>
     {trait.displayName}<button type="button" className="animalCategoryInfo" aria-label={`Definition of ${trait.displayName}`} aria-expanded={open} aria-describedby={open ? id : undefined} onPointerDown={event => event.stopPropagation()} onClick={event => { event.stopPropagation(); setPinned(value => !value); }} onFocus={event => { if (event.currentTarget.matches(":focus-visible")) setFocused(true); }} onBlur={() => setFocused(false)}><svg width="12" height="12" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor"/><path d="M8 7v5" stroke="currentColor" strokeWidth="1.5"/><circle cx="8" cy="4.5" r=".9" fill="currentColor"/></svg></button>
-    {open && createPortal(<span ref={tooltip} id={id} role="tooltip" className="animalCategoryTooltip" style={position}><strong>{trait.displayName}</strong><span>{trait.definition}</span></span>, document.body)}
+    {open && createPortal(<span ref={tooltip} id={id} role="tooltip" className="animalCategoryTooltip" style={position}><strong>{trait.displayName}</strong><span>{trait.definition}</span><span>Comparison: {animalComparisonScope(trait).label}</span></span>, document.body)}
   </span>;
 }

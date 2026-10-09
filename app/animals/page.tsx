@@ -1,3 +1,4 @@
+import { publishedAnimalTraitIds } from "../../lib/animalstatsCoverage";
 import { animalPreviewEnabled } from "../../lib/animalstatsPreview";
 import { notFound } from "next/navigation";
 import AnimalStatsGame from "../../components/AnimalStatsGame";
@@ -20,7 +21,8 @@ function getCatalog() {
   if (catalog) return catalog;
   const data = dataset as AnimalDataset;
   const validate = createAnimalBoardValidator(data);
-  const excluded = new Set(["adult_shoulder_height", "adult_shoulder_height__low"]);
+  const published = publishedAnimalTraitIds(data);
+  const excluded = new Set(["adult_shoulder_height", "adult_shoulder_height__low", ...data.traits.filter(t => !published.has(t.id)).map(t => t.id)]);
   const boards = (candidates.boards as BoardCandidate[]).filter((board) => !board.traitIds.some(id => excluded.has(id)) && validate(board).valid);
   const pairedTraits = data.traits.filter((trait) => trait.prototypeCategory && !excluded.has(trait.id));
   const pairedIds = new Set(pairedTraits.map((trait) => trait.id));
@@ -46,5 +48,5 @@ export default async function AnimalStatsPage({ searchParams }: { searchParams: 
   const shared = requested.board ? boards.find(board => board.id === requested.board) : undefined;
   const releaseBoards = shared && !defaultBoards.includes(shared) ? [...defaultBoards, shared] : defaultBoards;
   if (!boards.length) notFound();
-  return <AnimalStatsGame initialMode={requested.mode === "normal" || requested.mode === "expert" ? requested.mode : "easy"} initialBoardId={requested.board} data={clientData} boards={orderAnimalPilotBoards(releaseBoards, newYorkDate(), data).map(({id, mode, boardType, animalIds, traitIds, biogeographicRegions}) => ({id, mode, boardType, animalIds, traitIds, biogeographicRegions}))} approvedBoardIds={approvedAnimalBoards(data, boards, reviews as AnimalBoardReview[]).map((board) => board.id!)} date={newYorkDate()} />;
+  return <AnimalStatsGame initialMode={requested.mode === "normal" || requested.mode === "expert" ? requested.mode : "easy"} initialBoardId={shared?.id} unavailableBoard={Boolean(requested.board && !shared)} data={clientData} boards={orderAnimalPilotBoards(releaseBoards, newYorkDate(), data).map(({id, mode, boardType, animalIds, traitIds, biogeographicRegions}) => ({id, mode, boardType, animalIds, traitIds, biogeographicRegions}))} approvedBoardIds={approvedAnimalBoards(data, boards, reviews as AnimalBoardReview[]).map((board) => board.id!)} date={newYorkDate()} />;
 }

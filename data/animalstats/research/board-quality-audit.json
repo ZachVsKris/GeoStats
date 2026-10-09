@@ -1,5 +1,5 @@
 {
-  "auditedAt": "2026-10-06T18:00:46.309Z",
+  "auditedAt": "2026-10-09T18:34:09.074Z",
   "policy": {
     "intuitiveMinimum": "3 of 4 or 4 of 6",
     "commonAnimalMinimum": "1 of 4 or 2 of 6/8",
@@ -11,18 +11,20 @@
     "catalogObservations": 7319,
     "candidateBoards": 4040,
     "structurallyValidBoards": 4040,
-    "defaultBoards": 3614,
-    "defaultDistinctPrizeLabels": 112,
-    "defaultTraitDirections": 135,
-    "defaultAnimals": 123,
-    "legacyOnlyBoards": 426,
+    "publicationEligibleBoards": 2258,
+    "excludedCoverageBoards": 1782,
+    "defaultBoards": 2192,
+    "defaultDistinctPrizeLabels": 66,
+    "defaultTraitDirections": 83,
+    "defaultAnimals": 117,
+    "legacyOnlyBoards": 66,
     "invalidBoards": 0,
     "excludedShoulderHeightBoards": 0,
     "missingArt": [],
     "datasetErrors": [],
     "counterpartFailures": [],
-    "comparisonsWithoutReportedBounds": 72575,
-    "uniqueObservationsWithoutReportedBounds": 2915
+    "comparisonsWithoutReportedBounds": 44942,
+    "uniqueObservationsWithoutReportedBounds": 2159
   },
   "rejections": [],
   "legacyComposition": [
@@ -3442,8 +3444,8 @@
       "group": "carnivore",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 908,
-      "approvedRankingRows": 66
+      "defaultBoards": 385,
+      "approvedRankingRows": 46
     },
     {
       "id": "panthera_tigris",
@@ -3451,8 +3453,8 @@
       "group": "carnivore",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 541,
-      "approvedRankingRows": 60
+      "defaultBoards": 323,
+      "approvedRankingRows": 50
     },
     {
       "id": "panthera_pardus",
@@ -3460,8 +3462,8 @@
       "group": "carnivore",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 430,
-      "approvedRankingRows": 58
+      "defaultBoards": 248,
+      "approvedRankingRows": 50
     },
     {
       "id": "acinonyx_jubatus",
@@ -3469,8 +3471,8 @@
       "group": "carnivore",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 573,
-      "approvedRankingRows": 58
+      "defaultBoards": 280,
+      "approvedRankingRows": 48
     },
     {
       "id": "canis_lupus",
@@ -3478,8 +3480,8 @@
       "group": "carnivore",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 638,
-      "approvedRankingRows": 60
+      "defaultBoards": 385,
+      "approvedRankingRows": 48
     },
     {
       "id": "vulpes_vulpes",
@@ -3487,8 +3489,8 @@
       "group": "carnivore",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 687,
-      "approvedRankingRows": 70
+      "defaultBoards": 224,
+      "approvedRankingRows": 46
     },
     {
       "id": "ursus_maritimus",
@@ -3496,8 +3498,8 @@
       "group": "bear",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 381,
-      "approvedRankingRows": 50
+      "defaultBoards": 158,
+      "approvedRankingRows": 42
     },
     {
       "id": "ursus_arctos",
@@ -3505,8 +3507,8 @@
       "group": "bear",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 634,
-      "approvedRankingRows": 58
+      "defaultBoards": 400,
+      "approvedRankingRows": 48
     },
     {
       "id": "ursus_americanus",
@@ -3514,8 +3516,8 @@
       "group": "bear",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 538,
-      "approvedRankingRows": 58
+      "defaultBoards": 326,
+      "approvedRankingRows": 50
     },
     {
       "id": "ailuropoda_melanoleuca",
@@ -3523,8 +3525,8 @@
       "group": "bear",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 487,
-      "approvedRankingRows": 46
+      "defaultBoards": 449,
+      "approvedRankingRows": 44
     },
     {
       "id": "loxodonta_africana",
@@ -3532,8 +3534,8 @@
       "group": "large-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 323,
-      "approvedRankingRows": 58
+      "defaultBoards": 235,
+      "approvedRankingRows": 50
     },
     {
       "id": "giraffa_camelopardalis",
@@ -3541,8 +3543,8 @@
       "group": "large-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 446,
-      "approvedRankingRows": 48
+      "defaultBoards": 355,
+      "approvedRankingRows": 40
     },
     {
       "id": "hippopotamus_amphibius",
@@ -3550,8 +3552,8 @@
       "group": "large-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 296,
-      "approvedRankingRows": 52
+      "defaultBoards": 278,
+      "approvedRankingRows": 50
     },
     {
       "id": "ceratotherium_simum",
@@ -3559,8 +3561,8 @@
       "group": "large-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 244,
-      "approvedRankingRows": 42
+      "defaultBoards": 226,
+      "approvedRankingRows": 40
     },
     {
       "id": "bison_bison",
@@ -3568,8 +3570,8 @@
       "group": "large-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 479,
-      "approvedRankingRows": 44
+      "defaultBoards": 475,
+      "approvedRankingRows": 42
     },
     {
       "id": "equus_quagga",
@@ -3586,8 +3588,8 @@
       "group": "large-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 252,
-      "approvedRankingRows": 36
+      "defaultBoards": 86,
+      "approvedRankingRows": 24
     },
     {
       "id": "gorilla_gorilla",
@@ -3595,8 +3597,8 @@
       "group": "primate",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 411,
-      "approvedRankingRows": 50
+      "defaultBoards": 407,
+      "approvedRankingRows": 46
     },
     {
       "id": "pan_troglodytes",
@@ -3604,8 +3606,8 @@
       "group": "primate",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 547,
-      "approvedRankingRows": 62
+      "defaultBoards": 477,
+      "approvedRankingRows": 52
     },
     {
       "id": "pongo_pygmaeus",
@@ -3613,8 +3615,8 @@
       "group": "primate",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 322,
-      "approvedRankingRows": 50
+      "defaultBoards": 279,
+      "approvedRankingRows": 48
     },
     {
       "id": "macaca_mulatta",
@@ -3622,8 +3624,8 @@
       "group": "primate",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 847,
-      "approvedRankingRows": 68
+      "defaultBoards": 440,
+      "approvedRankingRows": 48
     },
     {
       "id": "phascolarctos_cinereus",
@@ -3631,8 +3633,8 @@
       "group": "marsupial",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 629,
-      "approvedRankingRows": 56
+      "defaultBoards": 527,
+      "approvedRankingRows": 50
     },
     {
       "id": "macropus_rufus",
@@ -3640,8 +3642,8 @@
       "group": "marsupial",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 510,
-      "approvedRankingRows": 50
+      "defaultBoards": 275,
+      "approvedRankingRows": 42
     },
     {
       "id": "hydrochoerus_hydrochaeris",
@@ -3649,8 +3651,8 @@
       "group": "rodent",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 581,
-      "approvedRankingRows": 50
+      "defaultBoards": 509,
+      "approvedRankingRows": 46
     },
     {
       "id": "castor_canadensis",
@@ -3658,8 +3660,8 @@
       "group": "rodent",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 420,
-      "approvedRankingRows": 52
+      "defaultBoards": 326,
+      "approvedRankingRows": 44
     },
     {
       "id": "enhydra_lutris",
@@ -3667,8 +3669,8 @@
       "group": "marine-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 80,
-      "approvedRankingRows": 50
+      "defaultBoards": 13,
+      "approvedRankingRows": 40
     },
     {
       "id": "tursiops_truncatus",
@@ -3676,8 +3678,8 @@
       "group": "marine-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 245,
-      "approvedRankingRows": 38
+      "defaultBoards": 27,
+      "approvedRankingRows": 28
     },
     {
       "id": "orcinus_orca",
@@ -3685,8 +3687,8 @@
       "group": "marine-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 112,
-      "approvedRankingRows": 32
+      "defaultBoards": 0,
+      "approvedRankingRows": 26
     },
     {
       "id": "balaenoptera_musculus",
@@ -3694,8 +3696,8 @@
       "group": "marine-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 191,
-      "approvedRankingRows": 48
+      "defaultBoards": 6,
+      "approvedRankingRows": 36
     },
     {
       "id": "megaptera_novaeangliae",
@@ -3703,8 +3705,8 @@
       "group": "marine-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 182,
-      "approvedRankingRows": 42
+      "defaultBoards": 2,
+      "approvedRankingRows": 32
     },
     {
       "id": "aquila_chrysaetos",
@@ -3712,8 +3714,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 13,
-      "approvedRankingRows": 42
+      "defaultBoards": 6,
+      "approvedRankingRows": 28
     },
     {
       "id": "haliaeetus_leucocephalus",
@@ -3722,7 +3724,7 @@
       "commonAnchor": true,
       "illustrated": true,
       "defaultBoards": 6,
-      "approvedRankingRows": 28
+      "approvedRankingRows": 25
     },
     {
       "id": "anas_platyrhynchos",
@@ -3730,8 +3732,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 63,
-      "approvedRankingRows": 40
+      "defaultBoards": 10,
+      "approvedRankingRows": 26
     },
     {
       "id": "cygnus_olor",
@@ -3740,7 +3742,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 38
+      "approvedRankingRows": 26
     },
     {
       "id": "columba_livia",
@@ -3749,7 +3751,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 36
+      "approvedRankingRows": 28
     },
     {
       "id": "falco_peregrinus",
@@ -3757,8 +3759,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 52,
-      "approvedRankingRows": 38
+      "defaultBoards": 4,
+      "approvedRankingRows": 26
     },
     {
       "id": "gallus_gallus",
@@ -3766,8 +3768,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 2,
-      "approvedRankingRows": 28
+      "defaultBoards": 1,
+      "approvedRankingRows": 23
     },
     {
       "id": "pavo_cristatus",
@@ -3776,7 +3778,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 34
+      "approvedRankingRows": 27
     },
     {
       "id": "cardinalis_cardinalis",
@@ -3784,8 +3786,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 15,
-      "approvedRankingRows": 34
+      "defaultBoards": 10,
+      "approvedRankingRows": 25
     },
     {
       "id": "corvus_corax",
@@ -3794,7 +3796,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 36
+      "approvedRankingRows": 26
     },
     {
       "id": "hirundo_rustica",
@@ -3802,8 +3804,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 59,
-      "approvedRankingRows": 44
+      "defaultBoards": 15,
+      "approvedRankingRows": 26
     },
     {
       "id": "pelecanus_occidentalis",
@@ -3811,8 +3813,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 6,
-      "approvedRankingRows": 30
+      "defaultBoards": 5,
+      "approvedRankingRows": 25
     },
     {
       "id": "phoenicopterus_roseus",
@@ -3821,7 +3823,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 30
+      "approvedRankingRows": 25
     },
     {
       "id": "ramphastos_toco",
@@ -3830,7 +3832,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 26
+      "approvedRankingRows": 21
     },
     {
       "id": "diomedea_exulans",
@@ -3838,8 +3840,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 14,
-      "approvedRankingRows": 28
+      "defaultBoards": 13,
+      "approvedRankingRows": 23
     },
     {
       "id": "phoebastria_immutabilis",
@@ -3848,7 +3850,7 @@
       "commonAnchor": false,
       "illustrated": true,
       "defaultBoards": 6,
-      "approvedRankingRows": 38
+      "approvedRankingRows": 25
     },
     {
       "id": "cacatua_galerita",
@@ -3857,7 +3859,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 34
+      "approvedRankingRows": 25
     },
     {
       "id": "ara_macao",
@@ -3866,7 +3868,7 @@
       "commonAnchor": true,
       "illustrated": true,
       "defaultBoards": 0,
-      "approvedRankingRows": 22
+      "approvedRankingRows": 19
     },
     {
       "id": "aptenodytes_forsteri",
@@ -3875,7 +3877,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 20
+      "approvedRankingRows": 17
     },
     {
       "id": "aptenodytes_patagonicus",
@@ -3883,8 +3885,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 8,
-      "approvedRankingRows": 32
+      "defaultBoards": 2,
+      "approvedRankingRows": 21
     },
     {
       "id": "eudyptula_minor",
@@ -3893,7 +3895,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 28
+      "approvedRankingRows": 21
     },
     {
       "id": "pygoscelis_adeliae",
@@ -3902,7 +3904,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 20
+      "approvedRankingRows": 17
     },
     {
       "id": "pygoscelis_papua",
@@ -3911,7 +3913,7 @@
       "commonAnchor": true,
       "illustrated": true,
       "defaultBoards": 3,
-      "approvedRankingRows": 28
+      "approvedRankingRows": 25
     },
     {
       "id": "spheniscus_demersus",
@@ -3919,8 +3921,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 12,
-      "approvedRankingRows": 26
+      "defaultBoards": 6,
+      "approvedRankingRows": 23
     },
     {
       "id": "bubo_virginianus",
@@ -3928,8 +3930,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 8,
-      "approvedRankingRows": 40
+      "defaultBoards": 0,
+      "approvedRankingRows": 25
     },
     {
       "id": "tyto_alba",
@@ -3937,8 +3939,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 12,
-      "approvedRankingRows": 34
+      "defaultBoards": 6,
+      "approvedRankingRows": 26
     },
     {
       "id": "dromaius_novaehollandiae",
@@ -3947,7 +3949,7 @@
       "commonAnchor": true,
       "illustrated": true,
       "defaultBoards": 7,
-      "approvedRankingRows": 24
+      "approvedRankingRows": 23
     },
     {
       "id": "struthio_camelus",
@@ -3955,8 +3957,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 13,
-      "approvedRankingRows": 30
+      "defaultBoards": 11,
+      "approvedRankingRows": 23
     },
     {
       "id": "alligator_mississippiensis",
@@ -3964,8 +3966,8 @@
       "group": "crocodilian",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 6,
-      "approvedRankingRows": 22
+      "defaultBoards": 2,
+      "approvedRankingRows": 19
     },
     {
       "id": "crocodylus_niloticus",
@@ -3974,7 +3976,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 18
+      "approvedRankingRows": 17
     },
     {
       "id": "crocodylus_acutus",
@@ -3982,8 +3984,8 @@
       "group": "crocodilian",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 4,
-      "approvedRankingRows": 18
+      "defaultBoards": 2,
+      "approvedRankingRows": 15
     },
     {
       "id": "gavialis_gangeticus",
@@ -3992,7 +3994,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 20
+      "approvedRankingRows": 19
     },
     {
       "id": "osteolaemus_tetraspis",
@@ -4001,7 +4003,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 18
+      "approvedRankingRows": 17
     },
     {
       "id": "boa_constrictor",
@@ -4010,7 +4012,7 @@
       "commonAnchor": true,
       "illustrated": true,
       "defaultBoards": 0,
-      "approvedRankingRows": 16
+      "approvedRankingRows": 12
     },
     {
       "id": "eunectes_murinus",
@@ -4028,7 +4030,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 20
+      "approvedRankingRows": 19
     },
     {
       "id": "python_molurus",
@@ -4036,8 +4038,8 @@
       "group": "snake",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 6,
-      "approvedRankingRows": 22
+      "defaultBoards": 2,
+      "approvedRankingRows": 19
     },
     {
       "id": "elaphe_guttata",
@@ -4073,7 +4075,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 20
+      "approvedRankingRows": 19
     },
     {
       "id": "sphenodon_punctatus",
@@ -4091,7 +4093,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 16
+      "approvedRankingRows": 15
     },
     {
       "id": "chelonia_mydas",
@@ -4100,7 +4102,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 22
+      "approvedRankingRows": 17
     },
     {
       "id": "caretta_caretta",
@@ -4109,7 +4111,7 @@
       "commonAnchor": true,
       "illustrated": true,
       "defaultBoards": 0,
-      "approvedRankingRows": 22
+      "approvedRankingRows": 17
     },
     {
       "id": "dermochelys_coriacea",
@@ -4118,7 +4120,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 18
+      "approvedRankingRows": 15
     },
     {
       "id": "macrochelys_temminckii",
@@ -4127,7 +4129,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 18
+      "approvedRankingRows": 17
     },
     {
       "id": "trachemys_scripta",
@@ -4136,7 +4138,7 @@
       "commonAnchor": true,
       "illustrated": true,
       "defaultBoards": 0,
-      "approvedRankingRows": 20
+      "approvedRankingRows": 17
     },
     {
       "id": "gopherus_agassizii",
@@ -4145,7 +4147,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 18
+      "approvedRankingRows": 17
     },
     {
       "id": "chelonoidis_nigra",
@@ -4226,7 +4228,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 12
+      "approvedRankingRows": 10
     },
     {
       "id": "pyxicephalus_adspersus",
@@ -4298,7 +4300,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 12
+      "approvedRankingRows": 10
     },
     {
       "id": "andrias_japonicus",
@@ -4307,7 +4309,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 12
+      "approvedRankingRows": 10
     },
     {
       "id": "carcharodon_carcharias",
@@ -4316,7 +4318,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 10
+      "approvedRankingRows": 8
     },
     {
       "id": "rhincodon_typus",
@@ -4325,7 +4327,7 @@
       "commonAnchor": true,
       "illustrated": true,
       "defaultBoards": 0,
-      "approvedRankingRows": 12
+      "approvedRankingRows": 10
     },
     {
       "id": "galeocerdo_cuvier",
@@ -4334,7 +4336,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 14
+      "approvedRankingRows": 10
     },
     {
       "id": "carcharhinus_leucas",
@@ -4343,7 +4345,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 12
+      "approvedRankingRows": 10
     },
     {
       "id": "prionace_glauca",
@@ -4352,7 +4354,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 12
+      "approvedRankingRows": 8
     },
     {
       "id": "sphyrna_lewini",
@@ -4360,8 +4362,8 @@
       "group": "shark",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 6,
-      "approvedRankingRows": 14
+      "defaultBoards": 0,
+      "approvedRankingRows": 10
     },
     {
       "id": "isurus_oxyrinchus",
@@ -4370,7 +4372,7 @@
       "commonAnchor": false,
       "illustrated": true,
       "defaultBoards": 0,
-      "approvedRankingRows": 10
+      "approvedRankingRows": 8
     },
     {
       "id": "triakis_semifasciata",
@@ -4378,8 +4380,8 @@
       "group": "shark",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 6,
-      "approvedRankingRows": 14
+      "defaultBoards": 0,
+      "approvedRankingRows": 10
     },
     {
       "id": "carcharias_taurus",
@@ -4388,7 +4390,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 12
+      "approvedRankingRows": 10
     },
     {
       "id": "negaprion_brevirostris",
@@ -4397,7 +4399,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 12
+      "approvedRankingRows": 8
     },
     {
       "id": "cetorhinus_maximus",
@@ -4405,8 +4407,8 @@
       "group": "shark",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 4,
-      "approvedRankingRows": 14
+      "defaultBoards": 0,
+      "approvedRankingRows": 10
     },
     {
       "id": "manta_birostris",
@@ -4415,7 +4417,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 6
+      "approvedRankingRows": 4
     },
     {
       "id": "myliobatis_californica",
@@ -4424,7 +4426,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 12
+      "approvedRankingRows": 10
     },
     {
       "id": "dasyatis_americana",
@@ -4433,7 +4435,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 6
+      "approvedRankingRows": 4
     },
     {
       "id": "cyprinus_carpio",
@@ -4451,7 +4453,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 6
+      "approvedRankingRows": 4
     },
     {
       "id": "salmo_salar",
@@ -4460,7 +4462,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 10
+      "approvedRankingRows": 8
     },
     {
       "id": "gadus_morhua",
@@ -4469,7 +4471,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 12
+      "approvedRankingRows": 10
     },
     {
       "id": "thunnus_alalunga",
@@ -4478,7 +4480,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 12
+      "approvedRankingRows": 10
     },
     {
       "id": "pylodictis_olivaris",
@@ -4487,7 +4489,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 12
+      "approvedRankingRows": 10
     },
     {
       "id": "homarus_americanus",
@@ -4505,7 +4507,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 8
+      "approvedRankingRows": 6
     },
     {
       "id": "panopea_generosa",
@@ -4514,7 +4516,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 4
+      "approvedRankingRows": 2
     },
     {
       "id": "mercenaria_mercenaria",
@@ -4523,7 +4525,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 4
+      "approvedRankingRows": 2
     },
     {
       "id": "mytilus_edulis",
@@ -4532,7 +4534,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 4
+      "approvedRankingRows": 2
     },
     {
       "id": "crassostrea_gigas",
@@ -4541,7 +4543,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 2
+      "approvedRankingRows": 0
     },
     {
       "id": "crassostrea_virginica",
@@ -4550,7 +4552,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 4
+      "approvedRankingRows": 2
     },
     {
       "id": "strongylocentrotus_franciscanus",
@@ -4594,8 +4596,8 @@
       "group": "bear",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 376,
-      "approvedRankingRows": 48
+      "defaultBoards": 274,
+      "approvedRankingRows": 44
     },
     {
       "id": "tremarctos_ornatus",
@@ -4603,8 +4605,8 @@
       "group": "bear",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 273,
-      "approvedRankingRows": 46
+      "defaultBoards": 232,
+      "approvedRankingRows": 44
     },
     {
       "id": "ursus_thibetanus",
@@ -4612,8 +4614,8 @@
       "group": "bear",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 146,
-      "approvedRankingRows": 44
+      "defaultBoards": 116,
+      "approvedRankingRows": 42
     },
     {
       "id": "apus_apus",
@@ -4621,8 +4623,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 43,
-      "approvedRankingRows": 34
+      "defaultBoards": 7,
+      "approvedRankingRows": 22
     },
     {
       "id": "anser_anser",
@@ -4630,8 +4632,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 37,
-      "approvedRankingRows": 30
+      "defaultBoards": 3,
+      "approvedRankingRows": 24
     },
     {
       "id": "ardea_cinerea",
@@ -4639,8 +4641,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 10,
-      "approvedRankingRows": 28
+      "defaultBoards": 2,
+      "approvedRankingRows": 22
     },
     {
       "id": "phalacrocorax_carbo",
@@ -4648,8 +4650,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 42,
-      "approvedRankingRows": 34
+      "defaultBoards": 5,
+      "approvedRankingRows": 22
     },
     {
       "id": "larus_argentatus",
@@ -4657,8 +4659,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 28,
-      "approvedRankingRows": 36
+      "defaultBoards": 4,
+      "approvedRankingRows": 22
     },
     {
       "id": "corvus_corone",
@@ -4666,8 +4668,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 15,
-      "approvedRankingRows": 32
+      "defaultBoards": 5,
+      "approvedRankingRows": 22
     },
     {
       "id": "erithacus_rubecula",
@@ -4676,7 +4678,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 28
+      "approvedRankingRows": 20
     },
     {
       "id": "sturnus_vulgaris",
@@ -4684,8 +4686,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 15,
-      "approvedRankingRows": 36
+      "defaultBoards": 3,
+      "approvedRankingRows": 22
     },
     {
       "id": "ornithorhynchus_anatinus",
@@ -4693,8 +4695,8 @@
       "group": "monotreme",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 238,
-      "approvedRankingRows": 32
+      "defaultBoards": 67,
+      "approvedRankingRows": 24
     },
     {
       "id": "erinaceus_europaeus",
@@ -4702,8 +4704,8 @@
       "group": "insectivore",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 334,
-      "approvedRankingRows": 42
+      "defaultBoards": 105,
+      "approvedRankingRows": 28
     },
     {
       "id": "didelphis_marsupialis",
@@ -4711,8 +4713,8 @@
       "group": "marsupial",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 460,
-      "approvedRankingRows": 54
+      "defaultBoards": 139,
+      "approvedRankingRows": 38
     },
     {
       "id": "tupaia_glis",
@@ -4720,8 +4722,8 @@
       "group": "treeshrew",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 278,
-      "approvedRankingRows": 40
+      "defaultBoards": 105,
+      "approvedRankingRows": 32
     },
     {
       "id": "cavia_porcellus",
@@ -4729,8 +4731,8 @@
       "group": "rodent",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 107,
-      "approvedRankingRows": 38
+      "defaultBoards": 16,
+      "approvedRankingRows": 20
     },
     {
       "id": "columba_palumbus",
@@ -4738,8 +4740,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 44,
-      "approvedRankingRows": 28
+      "defaultBoards": 6,
+      "approvedRankingRows": 22
     },
     {
       "id": "corvus_frugilegus",
@@ -4747,8 +4749,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 19,
-      "approvedRankingRows": 32
+      "defaultBoards": 4,
+      "approvedRankingRows": 20
     },
     {
       "id": "alauda_arvensis",
@@ -4756,8 +4758,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 36,
-      "approvedRankingRows": 36
+      "defaultBoards": 5,
+      "approvedRankingRows": 20
     },
     {
       "id": "somateria_mollissima",
@@ -4765,8 +4767,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 16,
-      "approvedRankingRows": 30
+      "defaultBoards": 3,
+      "approvedRankingRows": 22
     },
     {
       "id": "vanellus_vanellus",
@@ -4774,8 +4776,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 27,
-      "approvedRankingRows": 34
+      "defaultBoards": 4,
+      "approvedRankingRows": 22
     },
     {
       "id": "haematopus_ostralegus",
@@ -4783,8 +4785,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 44,
-      "approvedRankingRows": 34
+      "defaultBoards": 2,
+      "approvedRankingRows": 22
     },
     {
       "id": "sterna_hirundo",
@@ -4793,7 +4795,7 @@
       "commonAnchor": false,
       "illustrated": true,
       "defaultBoards": 4,
-      "approvedRankingRows": 28
+      "approvedRankingRows": 22
     },
     {
       "id": "larus_ridibundus",
@@ -4801,8 +4803,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 5,
-      "approvedRankingRows": 12
+      "defaultBoards": 0,
+      "approvedRankingRows": 8
     },
     {
       "id": "equus_caballus",
@@ -4810,8 +4812,8 @@
       "group": "large-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 35,
-      "approvedRankingRows": 26
+      "defaultBoards": 11,
+      "approvedRankingRows": 24
     },
     {
       "id": "camelus_dromedarius",
@@ -4828,8 +4830,8 @@
       "group": "lagomorph",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 271,
-      "approvedRankingRows": 44
+      "defaultBoards": 209,
+      "approvedRankingRows": 42
     },
     {
       "id": "mus_musculus",
@@ -4837,8 +4839,8 @@
       "group": "rodent",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 47,
-      "approvedRankingRows": 42
+      "defaultBoards": 30,
+      "approvedRankingRows": 32
     },
     {
       "id": "lemur_catta",
@@ -4846,8 +4848,8 @@
       "group": "primate",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 349,
-      "approvedRankingRows": 52
+      "defaultBoards": 293,
+      "approvedRankingRows": 44
     },
     {
       "id": "capra_hircus",
@@ -4873,8 +4875,8 @@
       "group": "carnivore",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 120,
-      "approvedRankingRows": 52
+      "defaultBoards": 84,
+      "approvedRankingRows": 44
     },
     {
       "id": "meles_meles",
@@ -4882,8 +4884,8 @@
       "group": "carnivore",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 38,
-      "approvedRankingRows": 36
+      "defaultBoards": 22,
+      "approvedRankingRows": 32
     },
     {
       "id": "panthera_onca",
@@ -4891,8 +4893,8 @@
       "group": "carnivore",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 159,
-      "approvedRankingRows": 48
+      "defaultBoards": 119,
+      "approvedRankingRows": 42
     },
     {
       "id": "puma_concolor",
@@ -4900,8 +4902,8 @@
       "group": "carnivore",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 135,
-      "approvedRankingRows": 46
+      "defaultBoards": 44,
+      "approvedRankingRows": 40
     },
     {
       "id": "phoca_vitulina",
@@ -4909,8 +4911,8 @@
       "group": "marine-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 72,
-      "approvedRankingRows": 36
+      "defaultBoards": 15,
+      "approvedRankingRows": 32
     },
     {
       "id": "zalophus_californianus",
@@ -4918,8 +4920,8 @@
       "group": "marine-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 114,
-      "approvedRankingRows": 44
+      "defaultBoards": 33,
+      "approvedRankingRows": 34
     },
     {
       "id": "vombatus_ursinus",
@@ -4936,8 +4938,8 @@
       "group": "monotreme",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 67,
-      "approvedRankingRows": 40
+      "defaultBoards": 65,
+      "approvedRankingRows": 38
     },
     {
       "id": "rangifer_tarandus",
@@ -4945,8 +4947,8 @@
       "group": "large-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 129,
-      "approvedRankingRows": 48
+      "defaultBoards": 87,
+      "approvedRankingRows": 40
     },
     {
       "id": "cervus_elaphus",
@@ -4963,8 +4965,8 @@
       "group": "carnivore",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 146,
-      "approvedRankingRows": 44
+      "defaultBoards": 118,
+      "approvedRankingRows": 42
     },
     {
       "id": "rattus_norvegicus",
@@ -4972,8 +4974,8 @@
       "group": "rodent",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 76,
-      "approvedRankingRows": 36
+      "defaultBoards": 28,
+      "approvedRankingRows": 30
     },
     {
       "id": "mesocricetus_auratus",
@@ -4981,8 +4983,8 @@
       "group": "rodent",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 104,
-      "approvedRankingRows": 50
+      "defaultBoards": 64,
+      "approvedRankingRows": 40
     },
     {
       "id": "myotis_lucifugus",
@@ -4990,8 +4992,8 @@
       "group": "bat",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 27,
-      "approvedRankingRows": 36
+      "defaultBoards": 23,
+      "approvedRankingRows": 32
     },
     {
       "id": "pteropus_vampyrus",
@@ -5017,8 +5019,8 @@
       "group": "large-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 53,
-      "approvedRankingRows": 40
+      "defaultBoards": 46,
+      "approvedRankingRows": 38
     },
     {
       "id": "dog_labrador_retriever",
@@ -5396,7 +5398,7 @@
       "label": "Lightest newborn",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 1084,
+      "boards": 801,
       "coverage": 57
     },
     {
@@ -5404,7 +5406,7 @@
       "label": "Lightest adult",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 1513,
+      "boards": 940,
       "coverage": 154
     },
     {
@@ -5412,7 +5414,7 @@
       "label": "Farthest from South Pole",
       "intuitive": true,
       "source": "pantheria-range-maps",
-      "boards": 131,
+      "boards": 90,
       "coverage": 45
     },
     {
@@ -5420,7 +5422,7 @@
       "label": "Longest documented lifespan",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 592,
+      "boards": 466,
       "coverage": 93
     },
     {
@@ -5428,7 +5430,7 @@
       "label": "Heaviest newborn",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 891,
+      "boards": 647,
       "coverage": 57
     },
     {
@@ -5436,7 +5438,7 @@
       "label": "Farthest from North Pole",
       "intuitive": true,
       "source": "pantheria-range-maps",
-      "boards": 138,
+      "boards": 96,
       "coverage": 45
     },
     {
@@ -5444,7 +5446,7 @@
       "label": "Shortest pregnancy",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 712,
+      "boards": 455,
       "coverage": 62
     },
     {
@@ -5452,7 +5454,7 @@
       "label": "Most young per birth",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 182,
+      "boards": 77,
       "coverage": 63
     },
     {
@@ -5460,7 +5462,7 @@
       "label": "Longest pregnancy",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 659,
+      "boards": 386,
       "coverage": 62
     },
     {
@@ -5468,7 +5470,7 @@
       "label": "Shortest documented lifespan",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 513,
+      "boards": 385,
       "coverage": 93
     },
     {
@@ -5476,7 +5478,7 @@
       "label": "Closest to South Pole",
       "intuitive": true,
       "source": "pantheria-range-maps",
-      "boards": 95,
+      "boards": 63,
       "coverage": 45
     },
     {
@@ -5484,7 +5486,7 @@
       "label": "Heaviest adult",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 1441,
+      "boards": 898,
       "coverage": 154
     },
     {
@@ -5492,7 +5494,7 @@
       "label": "Earliest female maturity",
       "intuitive": false,
       "source": "anage-15",
-      "boards": 114,
+      "boards": 72,
       "coverage": 132
     },
     {
@@ -5500,7 +5502,7 @@
       "label": "Smallest mapped range",
       "intuitive": true,
       "source": "pantheria-range-maps",
-      "boards": 619,
+      "boards": 489,
       "coverage": 45
     },
     {
@@ -5508,7 +5510,7 @@
       "label": "Most threatened",
       "intuitive": true,
       "source": "iucn-gbif-20260728",
-      "boards": 50,
+      "boards": 42,
       "coverage": 153
     },
     {
@@ -5516,7 +5518,7 @@
       "label": "Widest north–south range",
       "intuitive": true,
       "source": "pantheria-range-maps",
-      "boards": 242,
+      "boards": 164,
       "coverage": 45
     },
     {
@@ -5524,7 +5526,7 @@
       "label": "Fewest litters per year",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 136,
+      "boards": 105,
       "coverage": 50
     },
     {
@@ -5532,7 +5534,7 @@
       "label": "Most food groups",
       "intuitive": true,
       "source": "reuter-2023-observed-food-groups",
-      "boards": 31,
+      "boards": 30,
       "coverage": 45
     },
     {
@@ -5540,7 +5542,7 @@
       "label": "Closest to North Pole",
       "intuitive": true,
       "source": "pantheria-range-maps",
-      "boards": 148,
+      "boards": 114,
       "coverage": 45
     },
     {
@@ -5548,7 +5550,7 @@
       "label": "Latest female maturity",
       "intuitive": false,
       "source": "anage-15",
-      "boards": 198,
+      "boards": 120,
       "coverage": 132
     },
     {
@@ -5556,7 +5558,7 @@
       "label": "Least threatened",
       "intuitive": true,
       "source": "iucn-gbif-20260728",
-      "boards": 58,
+      "boards": 52,
       "coverage": 153
     },
     {
@@ -5564,7 +5566,7 @@
       "label": "Narrowest north–south range",
       "intuitive": true,
       "source": "pantheria-range-maps",
-      "boards": 171,
+      "boards": 118,
       "coverage": 45
     },
     {
@@ -5572,7 +5574,7 @@
       "label": "Fewest young per birth",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 160,
+      "boards": 72,
       "coverage": 63
     },
     {
@@ -5580,7 +5582,7 @@
       "label": "Oldest scientific description",
       "intuitive": false,
       "source": "gbif-authorship-20261004",
-      "boards": 38,
+      "boards": 31,
       "coverage": 166
     },
     {
@@ -5588,7 +5590,7 @@
       "label": "Largest mapped range",
       "intuitive": true,
       "source": "pantheria-range-maps",
-      "boards": 666,
+      "boards": 484,
       "coverage": 45
     },
     {
@@ -5596,7 +5598,7 @@
       "label": "Fewest food groups",
       "intuitive": true,
       "source": "reuter-2023-observed-food-groups",
-      "boards": 27,
+      "boards": 26,
       "coverage": 45
     },
     {
@@ -5604,7 +5606,7 @@
       "label": "Latest male maturity",
       "intuitive": false,
       "source": "anage-15",
-      "boards": 292,
+      "boards": 185,
       "coverage": 116
     },
     {
@@ -5612,7 +5614,7 @@
       "label": "Fastest recorded chewing",
       "intuitive": true,
       "source": "gerstner-gerstein-2008",
-      "boards": 147,
+      "boards": 121,
       "coverage": 33
     },
     {
@@ -5620,23 +5622,15 @@
       "label": "Heaviest at weaning",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 26,
+      "boards": 21,
       "coverage": 29
-    },
-    {
-      "id": "weighed_brain_mass",
-      "label": "Largest measured brain",
-      "intuitive": false,
-      "source": "animaltraits-2022",
-      "boards": 23,
-      "coverage": 31
     },
     {
       "id": "raw_gestation__low",
       "label": "Shortest pregnancy",
       "intuitive": true,
       "source": "amniote-raw-2015",
-      "boards": 38,
+      "boards": 21,
       "coverage": 35
     },
     {
@@ -5644,7 +5638,7 @@
       "label": "Most litters per year",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 148,
+      "boards": 102,
       "coverage": 50
     },
     {
@@ -5652,47 +5646,23 @@
       "label": "Slowest recorded chewing",
       "intuitive": true,
       "source": "gerstner-gerstein-2008",
-      "boards": 119,
+      "boards": 105,
       "coverage": 33
-    },
-    {
-      "id": "weighed_brain_mass__low",
-      "label": "Smallest measured brain",
-      "intuitive": false,
-      "source": "animaltraits-2022",
-      "boards": 23,
-      "coverage": 31
     },
     {
       "id": "scientific_description_age__low",
       "label": "Newest scientific description",
       "intuitive": false,
       "source": "gbif-authorship-20261004",
-      "boards": 32,
+      "boards": 24,
       "coverage": 166
-    },
-    {
-      "id": "milk_sugar_concentration",
-      "label": "Most sugar in milk",
-      "intuitive": true,
-      "source": "blomquist-2019-measured-milk",
-      "boards": 41,
-      "coverage": 14
-    },
-    {
-      "id": "diet_largest_prey",
-      "label": "Largest prey in published diet",
-      "intuitive": true,
-      "source": "tucker-rogers-2014-diet",
-      "boards": 103,
-      "coverage": 18
     },
     {
       "id": "measured_eye_length",
       "label": "Largest eyes",
       "intuitive": true,
       "source": "veilleux-kirk-2014",
-      "boards": 97,
+      "boards": 79,
       "coverage": 21
     },
     {
@@ -5700,47 +5670,71 @@
       "label": "Smallest eyes",
       "intuitive": true,
       "source": "veilleux-kirk-2014",
-      "boards": 87,
+      "boards": 48,
       "coverage": 21
-    },
-    {
-      "id": "behavioral_visual_acuity",
-      "label": "Sharpest measured vision",
-      "intuitive": true,
-      "source": "veilleux-kirk-2014",
-      "boards": 44,
-      "coverage": 10
-    },
-    {
-      "id": "behavioral_visual_acuity__low",
-      "label": "Least sharp measured vision",
-      "intuitive": true,
-      "source": "veilleux-kirk-2014",
-      "boards": 25,
-      "coverage": 10
-    },
-    {
-      "id": "raw_birth_mass__low",
-      "label": "Lightest newborn",
-      "intuitive": true,
-      "source": "amniote-raw-2015",
-      "boards": 182,
-      "coverage": 35
     },
     {
       "id": "weaning_age",
       "label": "Longest time on milk",
       "intuitive": false,
       "source": "anage-15",
-      "boards": 73,
+      "boards": 61,
       "coverage": 40
+    },
+    {
+      "id": "weaning_age__low",
+      "label": "Shortest time on milk",
+      "intuitive": false,
+      "source": "anage-15",
+      "boards": 69,
+      "coverage": 40
+    },
+    {
+      "id": "male_maturity__low",
+      "label": "Earliest male maturity",
+      "intuitive": false,
+      "source": "anage-15",
+      "boards": 130,
+      "coverage": 116
+    },
+    {
+      "id": "raw_birth_mass__low",
+      "label": "Lightest newborn",
+      "intuitive": true,
+      "source": "amniote-raw-2015",
+      "boards": 110,
+      "coverage": 35
+    },
+    {
+      "id": "raw_birth_mass",
+      "label": "Heaviest newborn",
+      "intuitive": true,
+      "source": "amniote-raw-2015",
+      "boards": 105,
+      "coverage": 35
+    },
+    {
+      "id": "raw_gestation",
+      "label": "Longest pregnancy",
+      "intuitive": true,
+      "source": "amniote-raw-2015",
+      "boards": 25,
+      "coverage": 35
     },
     {
       "id": "interbirth_interval__low",
       "label": "Shortest gap between births",
       "intuitive": false,
       "source": "anage-15",
-      "boards": 51,
+      "boards": 41,
+      "coverage": 49
+    },
+    {
+      "id": "interbirth_interval",
+      "label": "Longest gap between births",
+      "intuitive": false,
+      "source": "anage-15",
+      "boards": 47,
       "coverage": 49
     },
     {
@@ -5748,335 +5742,39 @@
       "label": "Lightest at weaning",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 34,
+      "boards": 23,
       "coverage": 29
     },
     {
-      "id": "diet_smallest_prey",
-      "label": "Smallest prey in published diet",
-      "intuitive": true,
-      "source": "tucker-rogers-2014-diet",
-      "boards": 79,
-      "coverage": 18
-    },
-    {
-      "id": "diet_prey_mass_span__low",
-      "label": "Narrowest prey-size range",
-      "intuitive": true,
-      "source": "tucker-rogers-2014-diet",
-      "boards": 42,
-      "coverage": 18
-    },
-    {
-      "id": "diet_prey_mass_span",
-      "label": "Widest prey-size range",
-      "intuitive": true,
-      "source": "tucker-rogers-2014-diet",
-      "boards": 84,
-      "coverage": 18
-    },
-    {
-      "id": "weaning_age__low",
-      "label": "Shortest time on milk",
+      "id": "raw_egg_mass",
+      "label": "Heaviest egg",
       "intuitive": false,
-      "source": "anage-15",
-      "boards": 73,
-      "coverage": 40
-    },
-    {
-      "id": "raw_birth_mass",
-      "label": "Heaviest newborn",
-      "intuitive": true,
       "source": "amniote-raw-2015",
-      "boards": 183,
-      "coverage": 35
+      "boards": 1,
+      "coverage": 58
     },
     {
-      "id": "interbirth_interval",
-      "label": "Longest gap between births",
-      "intuitive": false,
-      "source": "anage-15",
-      "boards": 59,
-      "coverage": 49
-    },
-    {
-      "id": "daily_sleep__low",
-      "label": "Least time asleep",
+      "id": "bird_range_area",
+      "label": "Largest breeding range",
       "intuitive": true,
-      "source": "sleep-bu-2007",
-      "boards": 22,
-      "coverage": 6
-    },
-    {
-      "id": "daily_sleep",
-      "label": "Most time asleep",
-      "intuitive": true,
-      "source": "sleep-bu-2007",
-      "boards": 18,
-      "coverage": 6
-    },
-    {
-      "id": "mass_specific_basal_energy__low",
-      "label": "Least resting energy per gram",
-      "intuitive": false,
-      "source": "anage-15",
-      "boards": 49,
-      "coverage": 35
-    },
-    {
-      "id": "basal_energy",
-      "label": "Most resting energy use",
-      "intuitive": false,
-      "source": "anage-15",
-      "boards": 87,
-      "coverage": 35
-    },
-    {
-      "id": "adult_intestine_length",
-      "label": "Longest intestine",
-      "intuitive": false,
-      "source": "duque-correa-2021-intestine",
-      "boards": 35,
-      "coverage": 8
-    },
-    {
-      "id": "adult_intestine_length__low",
-      "label": "Shortest intestine",
-      "intuitive": false,
-      "source": "duque-correa-2021-intestine",
-      "boards": 26,
-      "coverage": 8
-    },
-    {
-      "id": "male_maturity__low",
-      "label": "Earliest male maturity",
-      "intuitive": false,
-      "source": "anage-15",
-      "boards": 170,
-      "coverage": 116
-    },
-    {
-      "id": "resting_breathing_frequency",
-      "label": "Fastest breathing at rest",
-      "intuitive": true,
-      "source": "mortola-lanthier-2005-breathing",
-      "boards": 8,
-      "coverage": 5
-    },
-    {
-      "id": "resting_breathing_frequency__low",
-      "label": "Slowest breathing at rest",
-      "intuitive": true,
-      "source": "mortola-lanthier-2005-breathing",
+      "source": "avonet-7",
       "boards": 10,
-      "coverage": 5
-    },
-    {
-      "id": "raw_gestation",
-      "label": "Longest pregnancy",
-      "intuitive": true,
-      "source": "amniote-raw-2015",
-      "boards": 38,
-      "coverage": 35
-    },
-    {
-      "id": "milk_fat_concentration",
-      "label": "Fattiest milk",
-      "intuitive": true,
-      "source": "blomquist-2019-measured-milk",
-      "boards": 44,
-      "coverage": 16
-    },
-    {
-      "id": "milk_sugar_concentration__low",
-      "label": "Least sugar in milk",
-      "intuitive": true,
-      "source": "blomquist-2019-measured-milk",
-      "boards": 17,
-      "coverage": 14
-    },
-    {
-      "id": "milk_fat_concentration__low",
-      "label": "Least fat in milk",
-      "intuitive": true,
-      "source": "blomquist-2019-measured-milk",
-      "boards": 104,
-      "coverage": 16
-    },
-    {
-      "id": "adult_tooth_count",
-      "label": "Most adult teeth",
-      "intuitive": true,
-      "source": "dental-accounts-2026",
-      "boards": 14,
-      "coverage": 6
-    },
-    {
-      "id": "habitat_elevation_ceiling",
-      "label": "Highest mountain habitat",
-      "intuitive": false,
-      "source": "adw-endpoints-2026",
-      "boards": 85,
-      "coverage": 33
-    },
-    {
-      "id": "adult_tooth_count__low",
-      "label": "Fewest adult teeth",
-      "intuitive": true,
-      "source": "dental-accounts-2026",
-      "boards": 16,
-      "coverage": 6
-    },
-    {
-      "id": "field_swim_speed",
-      "label": "Fastest measured swimming",
-      "intuitive": true,
-      "source": "travel-speed-2023",
-      "boards": 4,
-      "coverage": 20
-    },
-    {
-      "id": "wild_recorded_lifespan",
-      "label": "Longest recorded wild life",
-      "intuitive": true,
-      "source": "anage-15",
-      "boards": 8,
-      "coverage": 43
-    },
-    {
-      "id": "mass_specific_basal_energy",
-      "label": "Most resting energy per gram",
-      "intuitive": false,
-      "source": "anage-15",
-      "boards": 48,
-      "coverage": 35
-    },
-    {
-      "id": "mammal_tail_length_upper__low",
-      "label": "Shortest mammal tail",
-      "intuitive": true,
-      "source": "adw-endpoints-2026",
-      "boards": 116,
-      "coverage": 8
-    },
-    {
-      "id": "mammal_tail_length_upper",
-      "label": "Longest mammal tail",
-      "intuitive": true,
-      "source": "adw-endpoints-2026",
-      "boards": 59,
-      "coverage": 8
-    },
-    {
-      "id": "milk_protein_concentration__low",
-      "label": "Least protein in milk",
-      "intuitive": false,
-      "source": "blomquist-2019-measured-milk",
-      "boards": 6,
-      "coverage": 16
-    },
-    {
-      "id": "basal_energy__low",
-      "label": "Least resting energy use",
-      "intuitive": false,
-      "source": "anage-15",
-      "boards": 65,
-      "coverage": 35
-    },
-    {
-      "id": "habitat_elevation_ceiling__low",
-      "label": "Lowest mountain ceiling",
-      "intuitive": false,
-      "source": "adw-endpoints-2026",
-      "boards": 45,
-      "coverage": 33
-    },
-    {
-      "id": "field_swim_speed__low",
-      "label": "Slowest measured swimming",
-      "intuitive": true,
-      "source": "travel-speed-2023",
-      "boards": 2,
-      "coverage": 20
-    },
-    {
-      "id": "wild_recorded_lifespan__low",
-      "label": "Shortest recorded wild life",
-      "intuitive": true,
-      "source": "anage-15",
-      "boards": 4,
-      "coverage": 43
+      "coverage": 44
     },
     {
       "id": "ringing_longevity__low",
       "label": "Shortest recorded wild life",
       "intuitive": true,
       "source": "euring-2023",
-      "boards": 26,
+      "boards": 2,
       "coverage": 23
-    },
-    {
-      "id": "cruising_flight_speed__low",
-      "label": "Slowest cruising flight",
-      "intuitive": true,
-      "source": "flight-2007",
-      "boards": 33,
-      "coverage": 16
     },
     {
       "id": "bird_beak_length",
       "label": "Longest beak",
       "intuitive": false,
       "source": "avonet-7",
-      "boards": 19,
-      "coverage": 44
-    },
-    {
-      "id": "measured_wingspan",
-      "label": "Largest wingspan",
-      "intuitive": true,
-      "source": "flight-2007",
-      "boards": 22,
-      "coverage": 15
-    },
-    {
-      "id": "ringing_longevity",
-      "label": "Longest recorded wild life",
-      "intuitive": true,
-      "source": "euring-2023",
-      "boards": 26,
-      "coverage": 23
-    },
-    {
-      "id": "cruising_flight_speed",
-      "label": "Fastest cruising flight",
-      "intuitive": true,
-      "source": "flight-2007",
-      "boards": 48,
-      "coverage": 16
-    },
-    {
-      "id": "bird_beak_length__low",
-      "label": "Shortest beak",
-      "intuitive": false,
-      "source": "avonet-7",
-      "boards": 18,
-      "coverage": 44
-    },
-    {
-      "id": "measured_wingspan__low",
-      "label": "Smallest wingspan",
-      "intuitive": true,
-      "source": "flight-2007",
-      "boards": 17,
-      "coverage": 15
-    },
-    {
-      "id": "bird_tail_length__low",
-      "label": "Shortest tail feathers",
-      "intuitive": false,
-      "source": "avonet-7",
-      "boards": 23,
+      "boards": 7,
       "coverage": 44
     },
     {
@@ -6084,31 +5782,47 @@
       "label": "Smallest breeding range",
       "intuitive": true,
       "source": "avonet-7",
-      "boards": 50,
+      "boards": 17,
       "coverage": 44
+    },
+    {
+      "id": "raw_incubation",
+      "label": "Longest wait to hatch",
+      "intuitive": true,
+      "source": "amniote-raw-2015",
+      "boards": 8,
+      "coverage": 58
+    },
+    {
+      "id": "bird_tail_length__low",
+      "label": "Shortest tail feathers",
+      "intuitive": false,
+      "source": "avonet-7",
+      "boards": 9,
+      "coverage": 44
+    },
+    {
+      "id": "raw_incubation__low",
+      "label": "Shortest wait to hatch",
+      "intuitive": true,
+      "source": "amniote-raw-2015",
+      "boards": 14,
+      "coverage": 58
     },
     {
       "id": "bird_mass",
       "label": "Heaviest adult",
       "intuitive": true,
       "source": "avonet-7",
-      "boards": 30,
+      "boards": 6,
       "coverage": 44
     },
     {
-      "id": "hatching_mass",
-      "label": "Heaviest hatchling",
-      "intuitive": true,
-      "source": "anage-15",
-      "boards": 1,
-      "coverage": 13
-    },
-    {
-      "id": "bird_range_area",
-      "label": "Largest breeding range",
-      "intuitive": true,
+      "id": "bird_beak_length__low",
+      "label": "Shortest beak",
+      "intuitive": false,
       "source": "avonet-7",
-      "boards": 38,
+      "boards": 9,
       "coverage": 44
     },
     {
@@ -6116,87 +5830,15 @@
       "label": "Lightest adult",
       "intuitive": true,
       "source": "avonet-7",
-      "boards": 25,
+      "boards": 8,
       "coverage": 44
-    },
-    {
-      "id": "bird_tail_length",
-      "label": "Longest tail feathers",
-      "intuitive": false,
-      "source": "avonet-7",
-      "boards": 34,
-      "coverage": 44
-    },
-    {
-      "id": "hatching_mass__low",
-      "label": "Lightest hatchling",
-      "intuitive": true,
-      "source": "anage-15",
-      "boards": 2,
-      "coverage": 13
-    },
-    {
-      "id": "incubation__low",
-      "label": "Shortest wait to hatch",
-      "intuitive": true,
-      "source": "anage-15",
-      "boards": 1,
-      "coverage": 25
-    },
-    {
-      "id": "incubation",
-      "label": "Longest wait to hatch",
-      "intuitive": true,
-      "source": "anage-15",
-      "boards": 1,
-      "coverage": 25
-    },
-    {
-      "id": "raw_incubation",
-      "label": "Longest wait to hatch",
-      "intuitive": true,
-      "source": "amniote-raw-2015",
-      "boards": 10,
-      "coverage": 58
-    },
-    {
-      "id": "raw_hatching_mass__low",
-      "label": "Lightest hatchling",
-      "intuitive": true,
-      "source": "amniote-raw-2015",
-      "boards": 11,
-      "coverage": 40
-    },
-    {
-      "id": "raw_hatching_mass",
-      "label": "Heaviest hatchling",
-      "intuitive": true,
-      "source": "amniote-raw-2015",
-      "boards": 13,
-      "coverage": 40
-    },
-    {
-      "id": "raw_incubation__low",
-      "label": "Shortest wait to hatch",
-      "intuitive": true,
-      "source": "amniote-raw-2015",
-      "boards": 28,
-      "coverage": 58
-    },
-    {
-      "id": "raw_egg_mass",
-      "label": "Heaviest egg",
-      "intuitive": false,
-      "source": "amniote-raw-2015",
-      "boards": 2,
-      "coverage": 58
     },
     {
       "id": "raw_weaning_age",
       "label": "Longest time on milk",
       "intuitive": false,
       "source": "amniote-raw-2015",
-      "boards": 22,
+      "boards": 21,
       "coverage": 35
     },
     {
@@ -6204,79 +5846,55 @@
       "label": "Shortest time on milk",
       "intuitive": false,
       "source": "amniote-raw-2015",
-      "boards": 34,
+      "boards": 32,
       "coverage": 35
+    },
+    {
+      "id": "raw_hatching_mass",
+      "label": "Heaviest hatchling",
+      "intuitive": true,
+      "source": "amniote-raw-2015",
+      "boards": 4,
+      "coverage": 40
     },
     {
       "id": "raw_clutch_size",
       "label": "Most eggs per clutch",
       "intuitive": true,
       "source": "amniote-raw-2015",
-      "boards": 4,
+      "boards": 2,
       "coverage": 59
+    },
+    {
+      "id": "raw_hatching_mass__low",
+      "label": "Lightest hatchling",
+      "intuitive": true,
+      "source": "amniote-raw-2015",
+      "boards": 4,
+      "coverage": 40
     },
     {
       "id": "raw_clutch_size__low",
       "label": "Fewest eggs per clutch",
       "intuitive": true,
       "source": "amniote-raw-2015",
-      "boards": 3,
+      "boards": 1,
       "coverage": 59
     },
     {
-      "id": "milk_protein_concentration",
-      "label": "Most protein in milk",
+      "id": "bird_tail_length",
+      "label": "Longest tail feathers",
       "intuitive": false,
-      "source": "blomquist-2019-measured-milk",
-      "boards": 4,
-      "coverage": 16
-    },
-    {
-      "id": "raw_egg_mass__low",
-      "label": "Lightest egg",
-      "intuitive": false,
-      "source": "amniote-raw-2015",
-      "boards": 1,
-      "coverage": 58
-    },
-    {
-      "id": "maximum_hibernation_bout",
-      "label": "Longest hibernation stretch",
-      "intuitive": true,
-      "source": "ruf-geiser-2015-hibernation",
-      "boards": 1,
-      "coverage": 4
-    },
-    {
-      "id": "maximum_hibernation_bout__low",
-      "label": "Shortest hibernation stretch",
-      "intuitive": true,
-      "source": "ruf-geiser-2015-hibernation",
-      "boards": 1,
-      "coverage": 4
-    },
-    {
-      "id": "measured_adult_ear_length",
-      "label": "Longest ears",
-      "intuitive": true,
-      "source": "ranges-2026-explicit-adult-ears",
-      "boards": 1,
-      "coverage": 6
-    },
-    {
-      "id": "measured_adult_ear_length__low",
-      "label": "Shortest ears",
-      "intuitive": true,
-      "source": "ranges-2026-explicit-adult-ears",
-      "boards": 1,
-      "coverage": 6
+      "source": "avonet-7",
+      "boards": 7,
+      "coverage": 44
     },
     {
       "id": "mdd_country_count",
       "label": "Most countries & territories",
       "intuitive": true,
       "source": "asm-mdd-v25-counts",
-      "boards": 20,
+      "boards": 13,
       "coverage": 49
     },
     {
@@ -6284,7 +5902,7 @@
       "label": "Fewest countries & territories",
       "intuitive": true,
       "source": "asm-mdd-v25-counts",
-      "boards": 20,
+      "boards": 12,
       "coverage": 49
     },
     {
@@ -6292,7 +5910,7 @@
       "label": "Most continents",
       "intuitive": true,
       "source": "asm-mdd-v25-counts",
-      "boards": 8,
+      "boards": 2,
       "coverage": 45
     },
     {
@@ -6300,7 +5918,7 @@
       "label": "Fewest continents",
       "intuitive": true,
       "source": "asm-mdd-v25-counts",
-      "boards": 8,
+      "boards": 1,
       "coverage": 45
     },
     {
@@ -6308,7 +5926,7 @@
       "label": "Most species in its family",
       "intuitive": false,
       "source": "asm-mdd-v25-counts",
-      "boards": 20,
+      "boards": 18,
       "coverage": 54
     },
     {
@@ -6316,40 +5934,8 @@
       "label": "Fewest species in its family",
       "intuitive": false,
       "source": "asm-mdd-v25-counts",
-      "boards": 20,
+      "boards": 16,
       "coverage": 54
-    },
-    {
-      "id": "cylinder_treat_success",
-      "label": "Most successful in a treat puzzle",
-      "intuitive": true,
-      "source": "maclean-2014-cylinder-cohorts",
-      "boards": 1,
-      "coverage": 5
-    },
-    {
-      "id": "cylinder_treat_success__low",
-      "label": "Least successful in a treat puzzle",
-      "intuitive": true,
-      "source": "maclean-2014-cylinder-cohorts",
-      "boards": 1,
-      "coverage": 5
-    },
-    {
-      "id": "cylinder_practice_trials__low",
-      "label": "Fewest practice tries",
-      "intuitive": true,
-      "source": "maclean-2014-cylinder-cohorts",
-      "boards": 1,
-      "coverage": 5
-    },
-    {
-      "id": "cylinder_practice_trials",
-      "label": "Most practice tries",
-      "intuitive": true,
-      "source": "maclean-2014-cylinder-cohorts",
-      "boards": 1,
-      "coverage": 5
     },
     {
       "id": "pet_dog_adult_mass",
@@ -6475,545 +6061,427 @@
   "simulations": {
     "easy": {
       "draws": 3000,
-      "uniqueBoards": 630,
+      "uniqueBoards": 477,
       "groups": {
         "mammals": 752,
         "birds": 761,
         "pets": 744,
         "mixed": 743
       },
-      "availableAnimals": 118,
-      "seenAnimals": 118,
-      "availableLabels": 111,
-      "seenLabels": 111,
+      "availableAnimals": 98,
+      "seenAnimals": 98,
+      "availableLabels": 60,
+      "seenLabels": 60,
       "unseenAnimals": [],
       "unseenLabels": [],
       "animalCounts": {
-        "panthera_pardus": 68,
-        "panthera_onca": 151,
-        "panthera_leo": 121,
-        "ursus_maritimus": 248,
-        "larus_ridibundus": 18,
-        "larus_argentatus": 212,
-        "somateria_mollissima": 134,
-        "alauda_arvensis": 191,
-        "loxodonta_africana": 51,
-        "megaptera_novaeangliae": 31,
-        "tursiops_truncatus": 48,
-        "vulpes_vulpes": 129,
+        "panthera_leo": 98,
+        "macropus_rufus": 279,
+        "hippopotamus_amphibius": 72,
+        "macaca_mulatta": 96,
+        "spheniscus_demersus": 197,
+        "haliaeetus_leucocephalus": 197,
+        "anas_platyrhynchos": 547,
+        "columba_palumbus": 411,
+        "ursus_americanus": 106,
+        "sus_scrofa": 41,
+        "bison_bison": 86,
+        "melursus_ursinus": 62,
         "dog_shih_tzu": 75,
-        "dog_english_springer_spaniel": 132,
-        "dog_border_terrier": 180,
-        "dog_boxer": 114,
-        "crocodylus_acutus": 231,
-        "lemur_catta": 207,
-        "castor_canadensis": 180,
-        "dog_labrador_retriever": 91,
-        "dog_french_bulldog": 191,
-        "dog_german_shepherd": 245,
-        "dog_pomeranian": 215,
-        "triakis_semifasciata": 249,
-        "sphyrna_lewini": 249,
-        "aptenodytes_patagonicus": 263,
-        "cetorhinus_maximus": 170,
-        "hydrochoerus_hydrochaeris": 51,
-        "panthera_tigris": 314,
-        "acinonyx_jubatus": 87,
-        "dog_cavalier_king_charles_spaniel": 101,
-        "dog_miniature_dachshund": 146,
-        "dog_rottweiler": 189,
-        "haematopus_ostralegus": 180,
-        "aquila_chrysaetos": 97,
-        "sturnus_vulgaris": 79,
-        "corvus_corone": 97,
-        "dog_golden_retriever": 162,
-        "dog_english_cocker_spaniel": 106,
-        "dog_pug": 144,
-        "dog_bichon_frise": 106,
-        "apus_apus": 153,
-        "corvus_frugilegus": 129,
-        "anas_platyrhynchos": 318,
+        "dog_english_springer_spaniel": 142,
+        "dog_border_terrier": 171,
+        "dog_boxer": 121,
+        "equus_quagga": 253,
+        "pteropus_vampyrus": 237,
+        "crocodylus_acutus": 233,
+        "dog_labrador_retriever": 87,
+        "dog_french_bulldog": 200,
+        "dog_german_shepherd": 249,
+        "dog_pomeranian": 226,
+        "dromaius_novaehollandiae": 289,
+        "ursus_maritimus": 341,
+        "panthera_tigris": 568,
+        "python_molurus": 289,
+        "pan_troglodytes": 125,
+        "panthera_pardus": 88,
+        "ursus_thibetanus": 56,
+        "ailuropoda_melanoleuca": 94,
+        "dog_cavalier_king_charles_spaniel": 91,
+        "dog_miniature_dachshund": 151,
+        "dog_rottweiler": 170,
+        "struthio_camelus": 564,
+        "pelecanus_occidentalis": 214,
+        "phalacrocorax_carbo": 214,
+        "dog_golden_retriever": 150,
+        "alligator_mississippiensis": 221,
+        "gorilla_gorilla": 290,
+        "tremarctos_ornatus": 281,
+        "dog_english_cocker_spaniel": 94,
+        "dog_pug": 138,
+        "dog_bichon_frise": 94,
         "dog_beagle": 99,
-        "vombatus_ursinus": 16,
-        "meles_meles": 21,
-        "phascolarctos_cinereus": 61,
-        "myotis_lucifugus": 44,
-        "hirundo_rustica": 189,
-        "phalacrocorax_carbo": 262,
-        "tremarctos_ornatus": 100,
-        "ailuropoda_melanoleuca": 52,
-        "bison_bison": 53,
-        "ceratotherium_simum": 39,
-        "cat_maine_coon": 121,
-        "cat_british_shorthair": 121,
-        "cat_persian": 121,
-        "cat_abyssinian": 121,
-        "macropus_rufus": 173,
-        "cavia_porcellus": 39,
-        "oryctolagus_cuniculus": 67,
-        "equus_caballus": 7,
-        "pan_troglodytes": 109,
-        "bubo_virginianus": 59,
-        "cardinalis_cardinalis": 71,
-        "pelecanus_occidentalis": 76,
-        "falco_peregrinus": 185,
-        "ursus_thibetanus": 24,
-        "helarctos_malayanus": 26,
-        "macaca_mulatta": 111,
-        "ursus_americanus": 88,
-        "enhydra_lutris": 35,
-        "tachyglossus_aculeatus": 29,
-        "equus_quagga": 122,
-        "spheniscus_demersus": 40,
-        "haliaeetus_leucocephalus": 40,
-        "columba_palumbus": 209,
-        "dog_staffordshire_bull_terrier": 64,
-        "anser_anser": 108,
-        "vanellus_vanellus": 107,
-        "phoca_vitulina": 27,
-        "puma_concolor": 47,
-        "procyon_lotor": 45,
-        "rattus_norvegicus": 27,
-        "dasypus_novemcinctus": 14,
-        "dog_yorkshire_terrier": 132,
-        "erinaceus_europaeus": 83,
-        "pteropus_vampyrus": 118,
-        "struthio_camelus": 93,
-        "giraffa_camelopardalis": 62,
-        "ursus_arctos": 94,
-        "alligator_mississippiensis": 166,
-        "gorilla_gorilla": 152,
-        "ardea_cinerea": 24,
-        "python_molurus": 186,
-        "ornithorhynchus_anatinus": 47,
-        "didelphis_marsupialis": 80,
-        "suricata_suricatta": 36,
-        "dromaius_novaehollandiae": 97,
-        "mus_musculus": 20,
-        "mesocricetus_auratus": 37,
-        "tupaia_glis": 78,
-        "canis_lupus": 94,
-        "capra_hircus": 11,
-        "sus_scrofa": 25,
-        "camelus_dromedarius": 16,
-        "pongo_pygmaeus": 39,
-        "rangifer_tarandus": 30,
-        "balaenoptera_musculus": 30,
-        "hippopotamus_amphibius": 52,
-        "diomedea_exulans": 38,
-        "melursus_ursinus": 33,
-        "zalophus_californianus": 42,
-        "orcinus_orca": 11,
-        "equus_asinus": 27,
-        "cervus_elaphus": 15,
-        "myrmecophaga_tridactyla": 10
+        "vombatus_ursinus": 24,
+        "meles_meles": 15,
+        "phascolarctos_cinereus": 109,
+        "myotis_lucifugus": 17,
+        "alauda_arvensis": 180,
+        "aptenodytes_patagonicus": 180,
+        "pongo_pygmaeus": 68,
+        "loxodonta_africana": 69,
+        "cat_maine_coon": 128,
+        "cat_british_shorthair": 128,
+        "cat_persian": 128,
+        "cat_abyssinian": 128,
+        "panthera_onca": 46,
+        "megaptera_novaeangliae": 11,
+        "corvus_frugilegus": 170,
+        "diomedea_exulans": 170,
+        "acinonyx_jubatus": 95,
+        "mus_musculus": 11,
+        "vulpes_vulpes": 72,
+        "dog_staffordshire_bull_terrier": 63,
+        "giraffa_camelopardalis": 63,
+        "castor_canadensis": 59,
+        "ceratotherium_simum": 42,
+        "dog_yorkshire_terrier": 143,
+        "canis_lupus": 85,
+        "ursus_arctos": 91,
+        "hydrochoerus_hydrochaeris": 80,
+        "oryctolagus_cuniculus": 72,
+        "ornithorhynchus_anatinus": 24,
+        "suricata_suricatta": 37,
+        "erinaceus_europaeus": 26,
+        "enhydra_lutris": 27,
+        "camelus_dromedarius": 34,
+        "equus_asinus": 32,
+        "puma_concolor": 36,
+        "mesocricetus_auratus": 34,
+        "tachyglossus_aculeatus": 27,
+        "rangifer_tarandus": 23,
+        "phoca_vitulina": 6,
+        "didelphis_marsupialis": 56,
+        "zalophus_californianus": 16,
+        "cervus_elaphus": 45,
+        "lemur_catta": 99,
+        "procyon_lotor": 30,
+        "tupaia_glis": 55,
+        "helarctos_malayanus": 47,
+        "myrmecophaga_tridactyla": 14,
+        "capra_hircus": 17,
+        "cavia_porcellus": 16,
+        "tursiops_truncatus": 12,
+        "dasypus_novemcinctus": 13,
+        "balaenoptera_musculus": 9,
+        "rattus_norvegicus": 11
       },
       "labelCounts": {
-        "Smallest prey in published diet": 21,
-        "Heaviest newborn": 209,
-        "Lightest adult": 1185,
-        "Shortest gap between births": 15,
-        "Shortest tail feathers": 126,
-        "Slowest cruising flight": 207,
-        "Smallest breeding range": 341,
-        "Heaviest adult": 1320,
-        "Fattiest milk": 9,
-        "Newest scientific description": 183,
+        "Lightest newborn": 272,
+        "Heaviest adult": 1132,
+        "Latest male maturity": 25,
+        "Largest mapped range": 80,
+        "Shortest wait to hatch": 197,
+        "Shortest tail feathers": 367,
+        "Largest breeding range": 591,
+        "Closest to South Pole": 52,
+        "Fewest food groups": 43,
+        "Lightest adult": 1652,
+        "Most popular breed": 421,
+        "Largest litter": 357,
+        "Longest lifespan": 378,
+        "Oldest scientific description": 242,
+        "Longest documented lifespan": 624,
+        "Least threatened": 313,
+        "Least popular breed": 323,
+        "Shortest lifespan": 366,
+        "Latest female maturity": 162,
+        "Most threatened": 521,
+        "Shortest documented lifespan": 414,
+        "Shortest gap between births": 22,
+        "Smallest litter": 387,
+        "Most eggs per clutch": 214,
+        "Longest beak": 214,
+        "Newest scientific description": 264,
+        "Earliest female maturity": 185,
         "Longest pregnancy": 113,
-        "Most popular breed": 411,
-        "Largest litter": 354,
-        "Longest lifespan": 376,
-        "Largest measured brain": 98,
-        "Longest documented lifespan": 388,
-        "Least threatened": 248,
-        "Least popular breed": 333,
-        "Shortest lifespan": 368,
-        "Slowest measured swimming": 112,
-        "Earliest female maturity": 137,
-        "Shortest recorded wild life": 293,
-        "Least resting energy use": 13,
-        "Closest to North Pole": 37,
-        "Lightest newborn": 219,
-        "Smallest litter": 390,
-        "Smallest wingspan": 92,
-        "Heaviest hatchling": 117,
-        "Smallest measured brain": 118,
-        "Shortest documented lifespan": 311,
-        "Most threatened": 307,
-        "Largest breeding range": 234,
-        "Longest recorded wild life": 279,
-        "Longest tail feathers": 102,
-        "Fastest measured swimming": 137,
-        "Oldest scientific description": 189,
-        "Heaviest egg": 26,
-        "Farthest from South Pole": 41,
-        "Latest male maturity": 33,
-        "Shortest pregnancy": 117,
-        "Slowest recorded chewing": 36,
-        "Most litters per year": 42,
-        "Smallest eyes": 37,
-        "Sharpest measured vision": 28,
-        "Narrowest north–south range": 32,
-        "Fewest countries & territories": 14,
-        "Lightest egg": 39,
-        "Fastest cruising flight": 253,
-        "Largest mapped range": 83,
-        "Shortest mammal tail": 19,
-        "Shortest time on milk": 18,
-        "Shortest wait to hatch": 117,
-        "Longest beak": 113,
-        "Largest prey in published diet": 34,
-        "Smallest mapped range": 80,
-        "Longest ears": 11,
-        "Fewest young per birth": 65,
-        "Shortest beak": 63,
-        "Farthest from North Pole": 51,
-        "Most young per birth": 62,
-        "Longest wait to hatch": 99,
-        "Most protein in milk": 7,
-        "Most resting energy per gram": 8,
-        "Lightest hatchling": 92,
-        "Largest eyes": 22,
-        "Most species in its family": 21,
-        "Latest female maturity": 115,
-        "Least sugar in milk": 10,
-        "Most eggs per clutch": 63,
-        "Earliest male maturity": 26,
-        "Longest intestine": 10,
-        "Largest wingspan": 88,
-        "Least sharp measured vision": 9,
-        "Most food groups": 21,
-        "Least successful in a treat puzzle": 10,
-        "Lowest mountain ceiling": 6,
-        "Closest to South Pole": 26,
-        "Most successful in a treat puzzle": 6,
-        "Fewest litters per year": 43,
-        "Widest north–south range": 41,
-        "Fastest recorded chewing": 33,
-        "Most time asleep": 19,
-        "Longest time on milk": 31,
-        "Heaviest at weaning": 14,
-        "Widest prey-size range": 19,
-        "Fewest eggs per clutch": 30,
-        "Least resting energy per gram": 43,
-        "Least fat in milk": 17,
-        "Longest mammal tail": 13,
-        "Narrowest prey-size range": 15,
-        "Fewest species in its family": 14,
-        "Least time asleep": 16,
-        "Most countries & territories": 14,
-        "Most sugar in milk": 22,
-        "Fewest continents": 10,
-        "Fewest food groups": 13,
-        "Most resting energy use": 20,
-        "Fewest adult teeth": 15,
-        "Fewest practice tries": 6,
-        "Shortest intestine": 7,
-        "Lightest at weaning": 12,
-        "Longest gap between births": 15,
-        "Fastest breathing at rest": 11,
-        "Slowest breathing at rest": 5,
-        "Most continents": 10,
-        "Longest hibernation stretch": 4,
-        "Shortest hibernation stretch": 7,
-        "Highest mountain habitat": 12,
-        "Most practice tries": 9,
-        "Shortest ears": 11,
-        "Most adult teeth": 4
+        "Longest tail feathers": 180,
+        "Longest wait to hatch": 350,
+        "Most food groups": 52,
+        "Heaviest at weaning": 24,
+        "Heaviest newborn": 207,
+        "Lightest at weaning": 26,
+        "Shortest pregnancy": 121,
+        "Most countries & territories": 25,
+        "Smallest breeding range": 170,
+        "Largest eyes": 36,
+        "Most litters per year": 44,
+        "Earliest male maturity": 37,
+        "Farthest from South Pole": 56,
+        "Shortest time on milk": 27,
+        "Widest north–south range": 58,
+        "Most young per birth": 52,
+        "Fewest countries & territories": 23,
+        "Farthest from North Pole": 49,
+        "Fewest litters per year": 39,
+        "Smallest eyes": 41,
+        "Fewest continents": 18,
+        "Longest time on milk": 34,
+        "Smallest mapped range": 88,
+        "Most species in its family": 27,
+        "Closest to North Pole": 49,
+        "Slowest recorded chewing": 62,
+        "Fastest recorded chewing": 59,
+        "Fewest young per birth": 35,
+        "Narrowest north–south range": 30,
+        "Most continents": 12,
+        "Longest gap between births": 13,
+        "Fewest species in its family": 25
       },
       "immediateRepeatedLineups": 0
     },
     "normal": {
       "draws": 3000,
-      "uniqueBoards": 853,
+      "uniqueBoards": 609,
       "groups": {
         "birds": 1500,
         "mammals": 1500
       },
-      "availableAnimals": 91,
-      "seenAnimals": 91,
-      "availableLabels": 77,
-      "seenLabels": 77,
+      "availableAnimals": 85,
+      "seenAnimals": 85,
+      "availableLabels": 47,
+      "seenLabels": 47,
       "unseenAnimals": [],
       "unseenLabels": [],
       "animalCounts": {
-        "larus_argentatus": 253,
-        "alauda_arvensis": 425,
-        "larus_ridibundus": 112,
-        "hirundo_rustica": 1022,
-        "anser_anser": 450,
-        "anas_platyrhynchos": 842,
-        "lemur_catta": 189,
-        "phascolarctos_cinereus": 298,
-        "vulpes_vulpes": 385,
-        "acinonyx_jubatus": 308,
-        "pongo_pygmaeus": 139,
-        "gorilla_gorilla": 127,
-        "columba_palumbus": 281,
-        "vanellus_vanellus": 484,
-        "falco_peregrinus": 469,
-        "ailuropoda_melanoleuca": 169,
-        "pan_troglodytes": 213,
-        "ursus_thibetanus": 83,
-        "haematopus_ostralegus": 361,
-        "phalacrocorax_carbo": 400,
-        "equus_asinus": 168,
-        "ursus_arctos": 233,
-        "tursiops_truncatus": 136,
-        "zalophus_californianus": 136,
-        "balaenoptera_musculus": 147,
-        "rangifer_tarandus": 108,
-        "pelecanus_occidentalis": 207,
-        "spheniscus_demersus": 336,
-        "diomedea_exulans": 402,
-        "ursus_maritimus": 226,
-        "panthera_leo": 393,
-        "canis_lupus": 262,
-        "panthera_pardus": 197,
-        "orcinus_orca": 105,
-        "aquila_chrysaetos": 144,
-        "sturnus_vulgaris": 235,
-        "apus_apus": 337,
-        "erinaceus_europaeus": 162,
-        "tremarctos_ornatus": 104,
-        "ornithorhynchus_anatinus": 104,
-        "didelphis_marsupialis": 278,
-        "tupaia_glis": 157,
-        "pygoscelis_papua": 96,
-        "haliaeetus_leucocephalus": 198,
-        "melursus_ursinus": 127,
-        "struthio_camelus": 424,
-        "corvus_corone": 284,
-        "cardinalis_cardinalis": 346,
-        "hydrochoerus_hydrochaeris": 216,
-        "tachyglossus_aculeatus": 45,
-        "giraffa_camelopardalis": 208,
-        "mesocricetus_auratus": 94,
-        "macaca_mulatta": 389,
-        "loxodonta_africana": 137,
-        "corvus_frugilegus": 201,
-        "dromaius_novaehollandiae": 174,
-        "panthera_tigris": 210,
-        "macropus_rufus": 230,
-        "castor_canadensis": 151,
-        "sterna_hirundo": 167,
-        "suricata_suricatta": 155,
-        "vombatus_ursinus": 48,
-        "ceratotherium_simum": 61,
-        "myrmecophaga_tridactyla": 55,
-        "ursus_americanus": 219,
-        "gallus_gallus": 119,
-        "cavia_porcellus": 79,
-        "sus_scrofa": 72,
-        "ardea_cinerea": 108,
-        "panthera_onca": 124,
-        "megaptera_novaeangliae": 139,
-        "meles_meles": 47,
-        "phoca_vitulina": 95,
-        "enhydra_lutris": 86,
-        "somateria_mollissima": 68,
-        "rattus_norvegicus": 133,
-        "puma_concolor": 117,
-        "dasypus_novemcinctus": 75,
-        "aptenodytes_patagonicus": 55,
-        "procyon_lotor": 108,
-        "bison_bison": 145,
-        "mus_musculus": 62,
-        "oryctolagus_cuniculus": 156,
-        "equus_quagga": 35,
-        "hippopotamus_amphibius": 98,
-        "cervus_elaphus": 51,
-        "helarctos_malayanus": 43,
-        "equus_caballus": 53,
-        "capra_hircus": 46,
-        "camelus_dromedarius": 49,
-        "myotis_lucifugus": 15
+        "haematopus_ostralegus": 142,
+        "dromaius_novaehollandiae": 295,
+        "struthio_camelus": 445,
+        "hirundo_rustica": 1073,
+        "sturnus_vulgaris": 183,
+        "diomedea_exulans": 652,
+        "myotis_lucifugus": 22,
+        "lemur_catta": 269,
+        "ursus_maritimus": 196,
+        "gorilla_gorilla": 213,
+        "suricata_suricatta": 175,
+        "phascolarctos_cinereus": 490,
+        "vanellus_vanellus": 739,
+        "pelecanus_occidentalis": 452,
+        "spheniscus_demersus": 590,
+        "anas_platyrhynchos": 742,
+        "ursus_americanus": 224,
+        "hydrochoerus_hydrochaeris": 397,
+        "vulpes_vulpes": 190,
+        "castor_canadensis": 206,
+        "panthera_tigris": 233,
+        "bison_bison": 296,
+        "gallus_gallus": 80,
+        "larus_argentatus": 143,
+        "columba_palumbus": 343,
+        "cardinalis_cardinalis": 286,
+        "panthera_pardus": 187,
+        "panthera_leo": 195,
+        "rattus_norvegicus": 82,
+        "tremarctos_ornatus": 180,
+        "ardea_cinerea": 120,
+        "melursus_ursinus": 124,
+        "hippopotamus_amphibius": 160,
+        "corvus_corone": 323,
+        "somateria_mollissima": 89,
+        "haliaeetus_leucocephalus": 277,
+        "falco_peregrinus": 422,
+        "sterna_hirundo": 225,
+        "oryctolagus_cuniculus": 207,
+        "cervus_elaphus": 90,
+        "panthera_onca": 181,
+        "macaca_mulatta": 260,
+        "didelphis_marsupialis": 132,
+        "dasypus_novemcinctus": 118,
+        "pan_troglodytes": 382,
+        "procyon_lotor": 106,
+        "pygoscelis_papua": 127,
+        "ursus_arctos": 265,
+        "canis_lupus": 256,
+        "vombatus_ursinus": 62,
+        "ailuropoda_melanoleuca": 266,
+        "puma_concolor": 38,
+        "sus_scrofa": 130,
+        "ursus_thibetanus": 133,
+        "macropus_rufus": 212,
+        "loxodonta_africana": 245,
+        "anser_anser": 351,
+        "phalacrocorax_carbo": 330,
+        "alauda_arvensis": 235,
+        "ceratotherium_simum": 101,
+        "acinonyx_jubatus": 241,
+        "giraffa_camelopardalis": 256,
+        "mus_musculus": 56,
+        "camelus_dromedarius": 142,
+        "capra_hircus": 100,
+        "tachyglossus_aculeatus": 95,
+        "rangifer_tarandus": 91,
+        "apus_apus": 60,
+        "pongo_pygmaeus": 190,
+        "corvus_frugilegus": 176,
+        "tursiops_truncatus": 36,
+        "aptenodytes_patagonicus": 100,
+        "equus_asinus": 51,
+        "zalophus_californianus": 72,
+        "myrmecophaga_tridactyla": 85,
+        "mesocricetus_auratus": 132,
+        "equus_quagga": 81,
+        "erinaceus_europaeus": 67,
+        "tupaia_glis": 53,
+        "meles_meles": 46,
+        "equus_caballus": 28,
+        "helarctos_malayanus": 67,
+        "phoca_vitulina": 41,
+        "cavia_porcellus": 23,
+        "ornithorhynchus_anatinus": 24
       },
       "labelCounts": {
-        "Smallest wingspan": 181,
-        "Fastest cruising flight": 219,
-        "Heaviest adult": 1365,
-        "Smallest breeding range": 784,
-        "Earliest male maturity": 81,
-        "Widest north–south range": 111,
-        "Lightest adult": 1125,
-        "Heaviest newborn": 501,
-        "Longest recorded wild life": 93,
-        "Shortest tail feathers": 273,
-        "Earliest female maturity": 55,
-        "Smallest mapped range": 166,
-        "Largest wingspan": 270,
-        "Shortest recorded wild life": 189,
-        "Least fat in milk": 43,
-        "Latest female maturity": 101,
-        "Lightest newborn": 568,
-        "Longest beak": 323,
-        "Heaviest hatchling": 161,
-        "Most eggs per clutch": 100,
-        "Smallest prey in published diet": 44,
-        "Most litters per year": 64,
-        "Lightest hatchling": 170,
-        "Shortest wait to hatch": 536,
-        "Largest mapped range": 165,
-        "Longest documented lifespan": 252,
-        "Lowest mountain ceiling": 33,
-        "Longest tail feathers": 214,
-        "Slowest cruising flight": 121,
-        "Least resting energy per gram": 37,
-        "Longest pregnancy": 253,
-        "Farthest from South Pole": 39,
-        "Longest wait to hatch": 238,
-        "Narrowest north–south range": 84,
-        "Shortest pregnancy": 320,
-        "Least resting energy use": 112,
-        "Largest breeding range": 423,
-        "Smallest eyes": 63,
-        "Most resting energy per gram": 36,
-        "Heaviest egg": 92,
-        "Shortest intestine": 25,
-        "Least sugar in milk": 23,
-        "Most resting energy use": 131,
-        "Least protein in milk": 21,
-        "Fewest eggs per clutch": 107,
-        "Widest prey-size range": 66,
-        "Longest gap between births": 36,
-        "Shortest beak": 162,
-        "Smallest measured brain": 25,
-        "Longest time on milk": 35,
-        "Shortest documented lifespan": 184,
-        "Fastest recorded chewing": 74,
-        "Fewest young per birth": 54,
-        "Most sugar in milk": 22,
-        "Farthest from North Pole": 60,
-        "Shortest time on milk": 33,
-        "Latest male maturity": 124,
-        "Fattiest milk": 31,
-        "Largest eyes": 79,
-        "Least sharp measured vision": 31,
-        "Most young per birth": 68,
-        "Closest to South Pole": 51,
-        "Shortest gap between births": 32,
-        "Largest prey in published diet": 72,
-        "Heaviest at weaning": 22,
-        "Longest mammal tail": 19,
-        "Fewest litters per year": 43,
-        "Most protein in milk": 24,
-        "Highest mountain habitat": 43,
-        "Largest measured brain": 27,
-        "Sharpest measured vision": 39,
-        "Slowest recorded chewing": 51,
-        "Shortest mammal tail": 33,
-        "Closest to North Pole": 63,
-        "Longest intestine": 22,
-        "Lightest at weaning": 30,
-        "Narrowest prey-size range": 33
+        "Shortest wait to hatch": 447,
+        "Lightest adult": 1000,
+        "Smallest breeding range": 975,
+        "Longest beak": 633,
+        "Longest pregnancy": 225,
+        "Fastest recorded chewing": 113,
+        "Lightest newborn": 679,
+        "Heaviest adult": 1374,
+        "Heaviest hatchling": 229,
+        "Most eggs per clutch": 229,
+        "Farthest from North Pole": 79,
+        "Latest male maturity": 121,
+        "Shortest tail feathers": 423,
+        "Heaviest newborn": 617,
+        "Fewest young per birth": 58,
+        "Shortest beak": 268,
+        "Longest wait to hatch": 314,
+        "Widest north–south range": 139,
+        "Largest breeding range": 525,
+        "Longest documented lifespan": 376,
+        "Most litters per year": 72,
+        "Closest to South Pole": 60,
+        "Shortest documented lifespan": 255,
+        "Largest mapped range": 195,
+        "Longest time on milk": 78,
+        "Lightest hatchling": 223,
+        "Fewest eggs per clutch": 223,
+        "Latest female maturity": 106,
+        "Farthest from South Pole": 60,
+        "Lightest at weaning": 47,
+        "Heaviest egg": 176,
+        "Shortest recorded wild life": 287,
+        "Narrowest north–south range": 103,
+        "Earliest female maturity": 73,
+        "Heaviest at weaning": 48,
+        "Largest eyes": 125,
+        "Smallest mapped range": 212,
+        "Shortest time on milk": 63,
+        "Shortest pregnancy": 231,
+        "Slowest recorded chewing": 88,
+        "Earliest male maturity": 88,
+        "Fewest litters per year": 55,
+        "Shortest gap between births": 43,
+        "Closest to North Pole": 97,
+        "Most young per birth": 55,
+        "Longest gap between births": 46,
+        "Smallest eyes": 67
       },
       "immediateRepeatedLineups": 0
     },
     "expert": {
       "draws": 3000,
-      "uniqueBoards": 104,
+      "uniqueBoards": 98,
       "groups": {
         "mammals": 2151,
         "birds": 849
       },
-      "availableAnimals": 53,
-      "seenAnimals": 53,
-      "availableLabels": 35,
-      "seenLabels": 35,
+      "availableAnimals": 46,
+      "seenAnimals": 46,
+      "availableLabels": 31,
+      "seenLabels": 31,
       "unseenAnimals": [],
       "unseenLabels": [],
       "animalCounts": {
-        "bison_bison": 487,
+        "bison_bison": 475,
         "canis_lupus": 417,
-        "melursus_ursinus": 325,
-        "pan_troglodytes": 512,
-        "ursus_americanus": 363,
-        "hydrochoerus_hydrochaeris": 1158,
-        "ailuropoda_melanoleuca": 521,
-        "ceratotherium_simum": 867,
-        "macropus_rufus": 321,
-        "suricata_suricatta": 272,
-        "tachyglossus_aculeatus": 531,
-        "cervus_elaphus": 189,
-        "puma_concolor": 245,
-        "ursus_arctos": 238,
-        "lemur_catta": 1144,
-        "phascolarctos_cinereus": 820,
-        "vulpes_vulpes": 382,
-        "loxodonta_africana": 424,
-        "gorilla_gorilla": 757,
-        "giraffa_camelopardalis": 686,
-        "spheniscus_demersus": 420,
-        "bubo_virginianus": 420,
+        "melursus_ursinus": 331,
+        "pan_troglodytes": 511,
+        "ursus_americanus": 362,
+        "hydrochoerus_hydrochaeris": 1169,
+        "ailuropoda_melanoleuca": 532,
+        "ceratotherium_simum": 860,
+        "macropus_rufus": 323,
+        "suricata_suricatta": 298,
+        "tachyglossus_aculeatus": 545,
+        "cervus_elaphus": 198,
+        "puma_concolor": 248,
+        "ursus_arctos": 243,
+        "lemur_catta": 1154,
+        "phascolarctos_cinereus": 808,
+        "vulpes_vulpes": 385,
+        "loxodonta_africana": 427,
+        "gorilla_gorilla": 711,
+        "giraffa_camelopardalis": 668,
+        "aquila_chrysaetos": 849,
+        "cardinalis_cardinalis": 849,
+        "hirundo_rustica": 849,
+        "diomedea_exulans": 849,
+        "phoebastria_immutabilis": 849,
         "tyto_alba": 849,
-        "ardea_cinerea": 420,
-        "corvus_corone": 420,
-        "sturnus_vulgaris": 420,
-        "columba_palumbus": 420,
-        "haematopus_ostralegus": 420,
-        "hippopotamus_amphibius": 722,
-        "oryctolagus_cuniculus": 324,
-        "macaca_mulatta": 1055,
-        "panthera_tigris": 371,
-        "panthera_onca": 408,
-        "procyon_lotor": 202,
-        "castor_canadensis": 629,
-        "aquila_chrysaetos": 429,
-        "cardinalis_cardinalis": 429,
-        "hirundo_rustica": 429,
-        "pelecanus_occidentalis": 140,
-        "diomedea_exulans": 429,
-        "phoebastria_immutabilis": 429,
-        "apus_apus": 429,
-        "pongo_pygmaeus": 533,
-        "panthera_pardus": 298,
-        "somateria_mollissima": 145,
-        "tremarctos_ornatus": 206,
-        "panthera_leo": 397,
-        "mesocricetus_auratus": 206,
-        "sus_scrofa": 465,
-        "larus_argentatus": 144,
-        "acinonyx_jubatus": 327,
-        "camelus_dromedarius": 203,
-        "mus_musculus": 203
+        "apus_apus": 849,
+        "larus_argentatus": 271,
+        "hippopotamus_amphibius": 720,
+        "oryctolagus_cuniculus": 311,
+        "macaca_mulatta": 1052,
+        "panthera_tigris": 366,
+        "panthera_onca": 416,
+        "procyon_lotor": 203,
+        "castor_canadensis": 638,
+        "pelecanus_occidentalis": 289,
+        "pongo_pygmaeus": 549,
+        "panthera_pardus": 302,
+        "somateria_mollissima": 289,
+        "tremarctos_ornatus": 213,
+        "panthera_leo": 395,
+        "mesocricetus_auratus": 213,
+        "sus_scrofa": 460,
+        "acinonyx_jubatus": 311,
+        "camelus_dromedarius": 197,
+        "mus_musculus": 197
       },
       "labelCounts": {
-        "Earliest female maturity": 447,
-        "Smallest mapped range": 1171,
-        "Lightest adult": 1366,
-        "Longest gap between births": 276,
-        "Shortest pregnancy": 988,
-        "Heaviest newborn": 1135,
-        "Longest documented lifespan": 319,
-        "Longest pregnancy": 892,
-        "Heaviest adult": 1634,
-        "Lightest newborn": 1016,
-        "Shortest gap between births": 248,
-        "Latest male maturity": 385,
+        "Earliest female maturity": 442,
+        "Smallest mapped range": 1181,
+        "Lightest adult": 1383,
+        "Longest gap between births": 283,
+        "Shortest pregnancy": 1025,
+        "Heaviest newborn": 1157,
+        "Longest documented lifespan": 305,
+        "Longest pregnancy": 846,
+        "Heaviest adult": 1617,
+        "Lightest newborn": 994,
+        "Shortest gap between births": 228,
+        "Latest male maturity": 386,
         "Shortest time on milk": 223,
-        "Largest breeding range": 420,
-        "Lightest hatchling": 418,
-        "Longest recorded wild life": 227,
-        "Longest beak": 324,
+        "Smallest breeding range": 849,
+        "Shortest wait to hatch": 849,
+        "Heaviest hatchling": 432,
+        "Shortest beak": 849,
         "Longest tail feathers": 849,
-        "Largest mapped range": 575,
-        "Fewest litters per year": 382,
-        "Fastest recorded chewing": 151,
-        "Shortest documented lifespan": 275,
-        "Closest to North Pole": 202,
-        "Smallest breeding range": 429,
-        "Shortest wait to hatch": 429,
-        "Heaviest hatchling": 431,
-        "Shortest beak": 525,
-        "Slowest recorded chewing": 173,
-        "Shortest recorded wild life": 193,
-        "Longest time on milk": 151,
-        "Latest female maturity": 779,
-        "Most litters per year": 259,
-        "Largest eyes": 286,
-        "Fewest young per birth": 206,
-        "Earliest male maturity": 216
+        "Largest mapped range": 570,
+        "Fewest litters per year": 371,
+        "Fastest recorded chewing": 142,
+        "Shortest documented lifespan": 293,
+        "Closest to North Pole": 203,
+        "Slowest recorded chewing": 169,
+        "Lightest hatchling": 417,
+        "Longest time on milk": 157,
+        "Latest female maturity": 790,
+        "Most litters per year": 258,
+        "Largest eyes": 297,
+        "Fewest young per birth": 213,
+        "Earliest male maturity": 222
       },
       "immediateRepeatedLineups": 0
     }
@@ -7021,480 +6489,374 @@
   "baseline": {
     "easy": {
       "labelCounts": {
-        "Slowest cruising flight": 214,
-        "Largest breeding range": 286,
-        "Longest recorded wild life": 524,
-        "Longest tail feathers": 190,
-        "Lightest adult": 1298,
-        "Most continents": 15,
-        "Widest prey-size range": 51,
-        "Latest male maturity": 56,
-        "Most threatened": 198,
-        "Largest measured brain": 67,
-        "Longest documented lifespan": 276,
-        "Longest pregnancy": 121,
-        "Shortest intestine": 8,
-        "Heaviest adult": 1404,
-        "Smallest mapped range": 48,
-        "Least popular breed": 358,
-        "Largest litter": 363,
-        "Shortest lifespan": 320,
-        "Lightest hatchling": 28,
-        "Longest wait to hatch": 234,
+        "Longest tail feathers": 289,
+        "Longest wait to hatch": 553,
+        "Lightest adult": 1855,
+        "Largest breeding range": 477,
+        "Shortest pregnancy": 154,
+        "Most threatened": 680,
+        "Most continents": 10,
+        "Heaviest adult": 1059,
+        "Oldest scientific description": 182,
+        "Longest documented lifespan": 694,
+        "Least threatened": 232,
+        "Shortest time on milk": 32,
+        "Lightest newborn": 320,
+        "Least popular breed": 362,
+        "Largest litter": 377,
+        "Shortest lifespan": 325,
+        "Most eggs per clutch": 69,
+        "Longest beak": 69,
+        "Most countries & territories": 40,
+        "Fewest litters per year": 45,
+        "Most popular breed": 363,
+        "Smallest litter": 348,
+        "Longest lifespan": 400,
+        "Earliest female maturity": 263,
+        "Longest time on milk": 39,
+        "Fewest species in its family": 16,
+        "Smallest eyes": 24,
+        "Largest mapped range": 38,
+        "Longest pregnancy": 151,
+        "Earliest male maturity": 54,
+        "Smallest mapped range": 57,
+        "Fewest young per birth": 57,
+        "Shortest documented lifespan": 510,
+        "Newest scientific description": 172,
+        "Shortest wait to hatch": 119,
+        "Shortest tail feathers": 383,
+        "Largest eyes": 47,
+        "Narrowest north–south range": 26,
+        "Closest to South Pole": 15,
+        "Farthest from South Pole": 26,
+        "Latest male maturity": 40,
+        "Latest female maturity": 234,
+        "Most young per birth": 49,
         "Smallest breeding range": 264,
-        "Heaviest newborn": 230,
-        "Least fat in milk": 45,
-        "Shortest pregnancy": 106,
-        "Most popular breed": 369,
-        "Smallest litter": 364,
-        "Longest lifespan": 407,
-        "Fastest measured swimming": 343,
-        "Newest scientific description": 231,
-        "Smallest prey in published diet": 57,
-        "Fewest litters per year": 52,
-        "Lightest newborn": 323,
-        "Slowest measured swimming": 168,
-        "Oldest scientific description": 218,
-        "Shortest recorded wild life": 305,
-        "Shortest documented lifespan": 206,
-        "Fewest species in its family": 13,
-        "Fattiest milk": 22,
-        "Earliest female maturity": 163,
-        "Least threatened": 113,
-        "Farthest from North Pole": 25,
-        "Sharpest measured vision": 20,
-        "Most litters per year": 55,
-        "Smallest eyes": 27,
-        "Closest to South Pole": 22,
-        "Shortest tail feathers": 141,
-        "Most sugar in milk": 11,
-        "Widest north–south range": 17,
-        "Most eggs per clutch": 20,
-        "Longest beak": 75,
-        "Narrowest north–south range": 13,
-        "Fastest cruising flight": 270,
-        "Least resting energy per gram": 16,
-        "Largest wingspan": 42,
-        "Longest gap between births": 7,
-        "Narrowest prey-size range": 41,
-        "Shortest wait to hatch": 98,
-        "Most young per birth": 50,
-        "Latest female maturity": 135,
-        "Shortest beak": 59,
-        "Smallest wingspan": 61,
-        "Fewest food groups": 6,
-        "Farthest from South Pole": 31,
-        "Heaviest hatchling": 45,
-        "Fewest countries & territories": 9,
-        "Most resting energy per gram": 8,
-        "Largest prey in published diet": 73,
-        "Least time asleep": 5,
-        "Largest eyes": 22,
-        "Fastest recorded chewing": 34,
-        "Least sharp measured vision": 15,
-        "Fewest young per birth": 47,
-        "Smallest measured brain": 63,
-        "Largest mapped range": 55,
-        "Most resting energy use": 10,
-        "Heaviest at weaning": 7,
-        "Slowest recorded chewing": 24,
-        "Lowest mountain ceiling": 6,
-        "Least sugar in milk": 7,
-        "Most adult teeth": 7,
-        "Fastest breathing at rest": 4,
-        "Longest ears": 1,
-        "Heaviest egg": 6,
-        "Fewest eggs per clutch": 21,
-        "Longest time on milk": 49,
-        "Highest mountain habitat": 5,
-        "Shortest time on milk": 24,
-        "Most countries & territories": 24,
-        "Shortest gap between births": 12,
-        "Earliest male maturity": 27,
-        "Lightest at weaning": 9,
+        "Heaviest newborn": 231,
+        "Most litters per year": 43,
+        "Farthest from North Pole": 22,
+        "Slowest recorded chewing": 29,
         "Closest to North Pole": 17,
-        "Fewest continents": 11,
-        "Shortest mammal tail": 14,
-        "Most species in its family": 10,
-        "Fewest adult teeth": 3,
-        "Lightest egg": 3,
-        "Most time asleep": 3,
-        "Longest intestine": 3,
-        "Most food groups": 6,
-        "Least resting energy use": 2,
-        "Shortest ears": 1,
-        "Longest mammal tail": 2,
-        "Slowest breathing at rest": 5,
-        "Fewest practice tries": 1
+        "Lightest at weaning": 11,
+        "Widest north–south range": 19,
+        "Fewest countries & territories": 19,
+        "Fewest food groups": 5,
+        "Fastest recorded chewing": 51,
+        "Longest gap between births": 3,
+        "Heaviest at weaning": 10,
+        "Most species in its family": 12,
+        "Most food groups": 8,
+        "Shortest gap between births": 1
       },
       "animalCounts": {
-        "apus_apus": 157,
-        "corvus_frugilegus": 210,
-        "haematopus_ostralegus": 112,
-        "anas_platyrhynchos": 466,
-        "zalophus_californianus": 61,
-        "ursus_maritimus": 400,
-        "megaptera_novaeangliae": 83,
-        "puma_concolor": 75,
-        "alligator_mississippiensis": 140,
-        "panthera_tigris": 295,
-        "python_molurus": 180,
-        "castor_canadensis": 64,
-        "erinaceus_europaeus": 36,
-        "didelphis_marsupialis": 51,
-        "panthera_leo": 129,
-        "dog_french_bulldog": 305,
-        "dog_yorkshire_terrier": 218,
-        "dog_german_shepherd": 353,
-        "dog_pomeranian": 367,
-        "falco_peregrinus": 236,
-        "bubo_virginianus": 18,
-        "cardinalis_cardinalis": 22,
-        "hirundo_rustica": 85,
-        "macaca_mulatta": 121,
-        "loxodonta_africana": 42,
-        "ursus_americanus": 53,
-        "balaenoptera_musculus": 104,
-        "dog_border_terrier": 214,
-        "triakis_semifasciata": 511,
-        "aptenodytes_patagonicus": 626,
-        "sphyrna_lewini": 511,
-        "phalacrocorax_carbo": 325,
-        "tursiops_truncatus": 162,
-        "orcinus_orca": 51,
-        "enhydra_lutris": 45,
-        "dog_english_cocker_spaniel": 27,
-        "dog_pug": 60,
-        "dog_bichon_frise": 27,
-        "dog_rottweiler": 127,
-        "procyon_lotor": 25,
-        "lemur_catta": 57,
-        "panthera_pardus": 78,
-        "dog_english_springer_spaniel": 187,
-        "equus_asinus": 48,
-        "giraffa_camelopardalis": 43,
-        "ursus_arctos": 88,
-        "cetorhinus_maximus": 340,
-        "somateria_mollissima": 88,
-        "dog_cavalier_king_charles_spaniel": 92,
-        "dog_golden_retriever": 179,
-        "dog_miniature_dachshund": 162,
-        "dog_beagle": 127,
+        "anas_platyrhynchos": 672,
+        "alauda_arvensis": 289,
+        "struthio_camelus": 622,
+        "aptenodytes_patagonicus": 289,
+        "panthera_tigris": 726,
+        "ursus_maritimus": 718,
         "panthera_onca": 49,
-        "crocodylus_acutus": 50,
-        "pan_troglodytes": 81,
-        "mesocricetus_auratus": 15,
-        "oryctolagus_cuniculus": 90,
-        "dog_boxer": 168,
-        "capra_hircus": 6,
-        "meles_meles": 16,
-        "sus_scrofa": 20,
-        "ornithorhynchus_anatinus": 29,
-        "suricata_suricatta": 29,
-        "alauda_arvensis": 293,
-        "struthio_camelus": 203,
-        "diomedea_exulans": 83,
-        "vulpes_vulpes": 112,
-        "dog_staffordshire_bull_terrier": 61,
-        "helarctos_malayanus": 17,
-        "gorilla_gorilla": 61,
-        "vanellus_vanellus": 130,
-        "columba_palumbus": 239,
-        "ceratotherium_simum": 28,
-        "acinonyx_jubatus": 98,
-        "pelecanus_occidentalis": 13,
-        "pongo_pygmaeus": 24,
-        "canis_lupus": 93,
-        "melursus_ursinus": 39,
-        "anser_anser": 100,
-        "phoca_vitulina": 74,
-        "tremarctos_ornatus": 51,
-        "larus_argentatus": 137,
-        "tupaia_glis": 57,
-        "hydrochoerus_hydrochaeris": 46,
-        "phascolarctos_cinereus": 46,
-        "cavia_porcellus": 20,
+        "megaptera_novaeangliae": 17,
+        "macropus_rufus": 150,
+        "equus_quagga": 183,
+        "pteropus_vampyrus": 115,
+        "crocodylus_acutus": 115,
+        "enhydra_lutris": 37,
+        "panthera_pardus": 53,
+        "tachyglossus_aculeatus": 26,
+        "dog_french_bulldog": 305,
+        "dog_yorkshire_terrier": 210,
+        "dog_german_shepherd": 353,
+        "dog_pomeranian": 358,
+        "columba_palumbus": 188,
+        "pelecanus_occidentalis": 69,
+        "phalacrocorax_carbo": 69,
+        "meles_meles": 15,
+        "dog_border_terrier": 213,
+        "dromaius_novaehollandiae": 477,
+        "python_molurus": 477,
+        "puma_concolor": 71,
+        "acinonyx_jubatus": 124,
+        "phoca_vitulina": 42,
+        "dog_english_cocker_spaniel": 26,
+        "dog_pug": 54,
+        "dog_bichon_frise": 26,
+        "dog_rottweiler": 128,
+        "alligator_mississippiensis": 173,
+        "gorilla_gorilla": 291,
+        "tremarctos_ornatus": 213,
+        "lemur_catta": 80,
+        "phascolarctos_cinereus": 66,
+        "mesocricetus_auratus": 12,
+        "dog_english_springer_spaniel": 190,
+        "macaca_mulatta": 89,
+        "ursus_americanus": 41,
+        "panthera_leo": 52,
+        "tupaia_glis": 55,
+        "spheniscus_demersus": 119,
+        "haliaeetus_leucocephalus": 119,
+        "dog_cavalier_king_charles_spaniel": 94,
+        "dog_golden_retriever": 180,
+        "dog_miniature_dachshund": 159,
+        "dog_beagle": 130,
+        "oryctolagus_cuniculus": 88,
+        "dog_boxer": 166,
+        "ornithorhynchus_anatinus": 15,
+        "suricata_suricatta": 48,
+        "pan_troglodytes": 108,
+        "rangifer_tarandus": 42,
+        "pongo_pygmaeus": 73,
+        "balaenoptera_musculus": 60,
+        "ailuropoda_melanoleuca": 151,
+        "bison_bison": 134,
+        "dog_staffordshire_bull_terrier": 59,
+        "tursiops_truncatus": 114,
+        "ceratotherium_simum": 48,
+        "corvus_frugilegus": 264,
+        "diomedea_exulans": 264,
+        "ursus_thibetanus": 18,
+        "ursus_arctos": 53,
+        "hydrochoerus_hydrochaeris": 98,
+        "melursus_ursinus": 70,
+        "equus_asinus": 61,
+        "didelphis_marsupialis": 16,
+        "helarctos_malayanus": 23,
+        "canis_lupus": 86,
         "dog_labrador_retriever": 97,
-        "aquila_chrysaetos": 14,
-        "sturnus_vulgaris": 10,
-        "corvus_corone": 14,
-        "ursus_thibetanus": 15,
-        "dog_shih_tzu": 61,
-        "bison_bison": 60,
-        "ailuropoda_melanoleuca": 50,
-        "macropus_rufus": 87,
-        "equus_quagga": 58,
-        "pteropus_vampyrus": 38,
-        "rattus_norvegicus": 33,
-        "camelus_dromedarius": 9,
-        "dromaius_novaehollandiae": 63,
-        "ardea_cinerea": 14,
-        "mus_musculus": 14,
-        "hippopotamus_amphibius": 24,
-        "myotis_lucifugus": 7,
-        "cervus_elaphus": 21,
+        "hippopotamus_amphibius": 26,
+        "cervus_elaphus": 39,
+        "sus_scrofa": 49,
+        "dog_shih_tzu": 64,
+        "giraffa_camelopardalis": 17,
+        "loxodonta_africana": 18,
+        "vulpes_vulpes": 13,
+        "castor_canadensis": 72,
+        "procyon_lotor": 17,
+        "cat_maine_coon": 22,
+        "cat_british_shorthair": 22,
+        "cat_persian": 22,
+        "cat_abyssinian": 22,
+        "myotis_lucifugus": 15,
+        "zalophus_californianus": 16,
+        "camelus_dromedarius": 19,
+        "erinaceus_europaeus": 20,
+        "dasypus_novemcinctus": 2,
+        "capra_hircus": 16,
+        "rattus_norvegicus": 9,
         "myrmecophaga_tridactyla": 4,
-        "cat_maine_coon": 19,
-        "cat_british_shorthair": 19,
-        "cat_persian": 19,
-        "cat_abyssinian": 19,
-        "rangifer_tarandus": 23,
-        "vombatus_ursinus": 2,
-        "tachyglossus_aculeatus": 14,
-        "spheniscus_demersus": 13,
-        "haliaeetus_leucocephalus": 13,
-        "larus_ridibundus": 5
+        "vombatus_ursinus": 4,
+        "mus_musculus": 7
       }
     },
     "normal": {
       "labelCounts": {
-        "Heaviest newborn": 662,
-        "Longest pregnancy": 142,
-        "Lightest adult": 1497,
-        "Largest prey in published diet": 244,
-        "Longest wait to hatch": 437,
-        "Shortest tail feathers": 553,
-        "Smallest breeding range": 844,
-        "Most litters per year": 88,
-        "Heaviest adult": 1394,
-        "Longest documented lifespan": 177,
-        "Lightest newborn": 833,
-        "Least resting energy use": 27,
-        "Shortest wait to hatch": 489,
-        "Largest breeding range": 317,
-        "Fattiest milk": 71,
-        "Narrowest prey-size range": 79,
-        "Latest female maturity": 302,
-        "Longest time on milk": 31,
-        "Shortest documented lifespan": 134,
-        "Most resting energy use": 14,
-        "Slowest recorded chewing": 16,
-        "Longest beak": 295,
-        "Least fat in milk": 306,
-        "Latest male maturity": 359,
-        "Fastest cruising flight": 247,
-        "Largest wingspan": 239,
-        "Smallest wingspan": 132,
-        "Shortest recorded wild life": 161,
-        "Widest prey-size range": 229,
-        "Shortest beak": 230,
-        "Smallest prey in published diet": 184,
-        "Longest recorded wild life": 109,
-        "Slowest cruising flight": 126,
-        "Longest tail feathers": 209,
-        "Shortest pregnancy": 77,
-        "Most young per birth": 28,
-        "Heaviest egg": 10,
-        "Least protein in milk": 12,
-        "Earliest female maturity": 112,
-        "Most sugar in milk": 64,
-        "Earliest male maturity": 164,
-        "Shortest time on milk": 30,
-        "Heaviest at weaning": 15,
-        "Fewest litters per year": 43,
-        "Heaviest hatchling": 35,
-        "Most eggs per clutch": 27,
-        "Lightest hatchling": 46,
-        "Fewest eggs per clutch": 36,
-        "Largest eyes": 5,
-        "Least sharp measured vision": 1,
-        "Shortest gap between births": 16,
-        "Fastest recorded chewing": 15,
-        "Longest gap between births": 33,
-        "Lightest at weaning": 20,
-        "Fewest young per birth": 17,
-        "Smallest mapped range": 2,
-        "Smallest eyes": 4,
-        "Largest mapped range": 2,
-        "Closest to North Pole": 3,
-        "Narrowest north–south range": 1,
-        "Sharpest measured vision": 3,
-        "Least sugar in milk": 2
+        "Heaviest adult": 1517,
+        "Narrowest north–south range": 3,
+        "Most litters per year": 119,
+        "Lightest newborn": 709,
+        "Shortest tail feathers": 643,
+        "Largest breeding range": 440,
+        "Shortest wait to hatch": 631,
+        "Lightest adult": 1269,
+        "Shortest time on milk": 94,
+        "Heaviest newborn": 789,
+        "Shortest documented lifespan": 568,
+        "Longest wait to hatch": 637,
+        "Longest documented lifespan": 790,
+        "Smallest breeding range": 1060,
+        "Earliest male maturity": 176,
+        "Earliest female maturity": 167,
+        "Longest beak": 532,
+        "Fewest young per birth": 26,
+        "Lightest at weaning": 31,
+        "Largest eyes": 2,
+        "Shortest beak": 313,
+        "Shortest pregnancy": 132,
+        "Latest female maturity": 141,
+        "Fewest litters per year": 138,
+        "Heaviest egg": 12,
+        "Shortest recorded wild life": 60,
+        "Latest male maturity": 246,
+        "Heaviest at weaning": 46,
+        "Lightest hatchling": 98,
+        "Fewest eggs per clutch": 98,
+        "Slowest recorded chewing": 94,
+        "Fastest recorded chewing": 78,
+        "Heaviest hatchling": 74,
+        "Most eggs per clutch": 74,
+        "Longest time on milk": 120,
+        "Longest pregnancy": 55,
+        "Smallest mapped range": 5,
+        "Largest mapped range": 6,
+        "Smallest eyes": 2,
+        "Longest gap between births": 1,
+        "Closest to North Pole": 2,
+        "Farthest from North Pole": 1,
+        "Widest north–south range": 1
       },
       "animalCounts": {
-        "vulpes_vulpes": 383,
-        "balaenoptera_musculus": 644,
-        "acinonyx_jubatus": 304,
-        "ursus_maritimus": 831,
-        "panthera_tigris": 323,
-        "orcinus_orca": 374,
-        "sturnus_vulgaris": 414,
-        "diomedea_exulans": 367,
-        "spheniscus_demersus": 449,
-        "pygoscelis_papua": 525,
-        "anas_platyrhynchos": 1034,
-        "haliaeetus_leucocephalus": 394,
-        "equus_quagga": 73,
-        "bison_bison": 56,
-        "panthera_pardus": 226,
-        "gorilla_gorilla": 62,
-        "canis_lupus": 426,
-        "struthio_camelus": 499,
-        "corvus_corone": 383,
-        "cardinalis_cardinalis": 117,
-        "alauda_arvensis": 675,
-        "ursus_americanus": 245,
-        "macaca_mulatta": 367,
-        "loxodonta_africana": 149,
-        "panthera_leo": 580,
-        "ursus_arctos": 299,
-        "megaptera_novaeangliae": 613,
-        "tursiops_truncatus": 658,
-        "phascolarctos_cinereus": 88,
-        "pan_troglodytes": 107,
-        "hydrochoerus_hydrochaeris": 126,
-        "corvus_frugilegus": 65,
-        "hirundo_rustica": 840,
-        "gallus_gallus": 24,
-        "lemur_catta": 21,
-        "haematopus_ostralegus": 363,
-        "dromaius_novaehollandiae": 101,
-        "equus_asinus": 374,
-        "melursus_ursinus": 25,
-        "anser_anser": 391,
-        "phalacrocorax_carbo": 269,
-        "mesocricetus_auratus": 40,
-        "falco_peregrinus": 545,
-        "columba_palumbus": 330,
-        "sterna_hirundo": 205,
-        "apus_apus": 268,
-        "giraffa_camelopardalis": 134,
-        "rangifer_tarandus": 78,
-        "zalophus_californianus": 172,
-        "procyon_lotor": 93,
-        "enhydra_lutris": 141,
-        "aptenodytes_patagonicus": 165,
-        "vanellus_vanellus": 266,
-        "meles_meles": 66,
-        "puma_concolor": 192,
-        "mus_musculus": 35,
-        "larus_argentatus": 94,
-        "castor_canadensis": 44,
-        "tremarctos_ornatus": 5,
-        "phoca_vitulina": 198,
-        "ardea_cinerea": 50,
-        "camelus_dromedarius": 33,
-        "rattus_norvegicus": 16,
-        "suricata_suricatta": 40,
-        "hippopotamus_amphibius": 31,
-        "macropus_rufus": 29,
-        "capra_hircus": 49,
-        "larus_ridibundus": 66,
-        "panthera_onca": 101,
-        "pelecanus_occidentalis": 63,
-        "ailuropoda_melanoleuca": 58,
-        "sus_scrofa": 15,
-        "tupaia_glis": 3,
-        "oryctolagus_cuniculus": 22,
-        "myotis_lucifugus": 8,
-        "aquila_chrysaetos": 31,
-        "dasypus_novemcinctus": 11,
-        "somateria_mollissima": 7,
-        "tachyglossus_aculeatus": 4,
-        "equus_caballus": 4,
-        "cavia_porcellus": 12,
-        "cervus_elaphus": 2,
-        "helarctos_malayanus": 2,
-        "ursus_thibetanus": 1,
-        "pongo_pygmaeus": 1,
-        "ceratotherium_simum": 1,
-        "erinaceus_europaeus": 1,
-        "ornithorhynchus_anatinus": 2,
-        "didelphis_marsupialis": 2
+        "panthera_tigris": 118,
+        "acinonyx_jubatus": 31,
+        "pan_troglodytes": 481,
+        "canis_lupus": 522,
+        "giraffa_camelopardalis": 18,
+        "panthera_leo": 232,
+        "anas_platyrhynchos": 950,
+        "diomedea_exulans": 677,
+        "cardinalis_cardinalis": 180,
+        "hirundo_rustica": 666,
+        "apus_apus": 94,
+        "struthio_camelus": 731,
+        "ursus_maritimus": 1171,
+        "equus_quagga": 314,
+        "phascolarctos_cinereus": 353,
+        "hydrochoerus_hydrochaeris": 613,
+        "haliaeetus_leucocephalus": 538,
+        "alauda_arvensis": 503,
+        "sterna_hirundo": 290,
+        "corvus_frugilegus": 137,
+        "phalacrocorax_carbo": 122,
+        "procyon_lotor": 61,
+        "camelus_dromedarius": 139,
+        "phoca_vitulina": 280,
+        "oryctolagus_cuniculus": 58,
+        "spheniscus_demersus": 672,
+        "pygoscelis_papua": 648,
+        "corvus_corone": 444,
+        "capra_hircus": 220,
+        "gorilla_gorilla": 295,
+        "ursus_arctos": 481,
+        "ailuropoda_melanoleuca": 336,
+        "bison_bison": 283,
+        "equus_asinus": 412,
+        "falco_peregrinus": 284,
+        "columba_palumbus": 249,
+        "castor_canadensis": 208,
+        "suricata_suricatta": 130,
+        "melursus_ursinus": 105,
+        "haematopus_ostralegus": 143,
+        "dromaius_novaehollandiae": 255,
+        "sturnus_vulgaris": 540,
+        "ursus_americanus": 315,
+        "gallus_gallus": 10,
+        "larus_argentatus": 48,
+        "rattus_norvegicus": 57,
+        "sus_scrofa": 75,
+        "aptenodytes_patagonicus": 197,
+        "dasypus_novemcinctus": 45,
+        "tursiops_truncatus": 357,
+        "macaca_mulatta": 257,
+        "meles_meles": 55,
+        "cervus_elaphus": 21,
+        "ardea_cinerea": 106,
+        "hippopotamus_amphibius": 186,
+        "anser_anser": 104,
+        "vanellus_vanellus": 232,
+        "panthera_pardus": 265,
+        "pelecanus_occidentalis": 172,
+        "macropus_rufus": 103,
+        "zalophus_californianus": 82,
+        "lemur_catta": 109,
+        "myotis_lucifugus": 50,
+        "panthera_onca": 22,
+        "mus_musculus": 53,
+        "equus_caballus": 10,
+        "helarctos_malayanus": 3,
+        "loxodonta_africana": 7,
+        "mesocricetus_auratus": 20,
+        "vombatus_ursinus": 1,
+        "pongo_pygmaeus": 8,
+        "somateria_mollissima": 8,
+        "tachyglossus_aculeatus": 11,
+        "didelphis_marsupialis": 1,
+        "ceratotherium_simum": 5,
+        "tremarctos_ornatus": 11,
+        "rangifer_tarandus": 8,
+        "vulpes_vulpes": 2
       }
     },
     "expert": {
       "labelCounts": {
-        "Lightest adult": 1654,
-        "Smallest breeding range": 760,
-        "Shortest wait to hatch": 760,
-        "Heaviest hatchling": 781,
-        "Shortest beak": 1009,
+        "Lightest newborn": 809,
+        "Earliest male maturity": 96,
+        "Largest eyes": 291,
+        "Shortest pregnancy": 721,
+        "Smallest mapped range": 951,
+        "Heaviest adult": 1390,
+        "Lightest adult": 1610,
+        "Smallest breeding range": 1500,
+        "Shortest wait to hatch": 1500,
+        "Heaviest hatchling": 750,
+        "Shortest beak": 1500,
         "Longest tail feathers": 1500,
-        "Smallest mapped range": 929,
-        "Latest female maturity": 933,
-        "Shortest gap between births": 300,
-        "Lightest newborn": 862,
-        "Longest pregnancy": 542,
-        "Longest gap between births": 372,
-        "Earliest female maturity": 217,
-        "Heaviest adult": 1346,
-        "Largest breeding range": 740,
-        "Lightest hatchling": 719,
-        "Longest recorded wild life": 500,
-        "Shortest pregnancy": 718,
-        "Heaviest newborn": 638,
-        "Shortest recorded wild life": 240,
-        "Longest beak": 491,
-        "Longest documented lifespan": 306,
-        "Largest eyes": 343,
-        "Earliest male maturity": 105,
-        "Most litters per year": 180,
-        "Latest male maturity": 192,
-        "Shortest documented lifespan": 60,
-        "Closest to North Pole": 25,
-        "Slowest recorded chewing": 35,
-        "Fewest litters per year": 140,
-        "Largest mapped range": 272,
-        "Fewest young per birth": 26,
-        "Shortest time on milk": 207,
-        "Longest time on milk": 80,
-        "Fastest recorded chewing": 18
+        "Shortest time on milk": 229,
+        "Heaviest newborn": 691,
+        "Earliest female maturity": 288,
+        "Most litters per year": 183,
+        "Lightest hatchling": 750,
+        "Longest pregnancy": 534,
+        "Longest gap between births": 386,
+        "Latest female maturity": 872,
+        "Largest mapped range": 276,
+        "Longest time on milk": 86,
+        "Longest documented lifespan": 286,
+        "Shortest gap between births": 297,
+        "Fewest litters per year": 147,
+        "Latest male maturity": 182,
+        "Shortest documented lifespan": 53,
+        "Slowest recorded chewing": 38,
+        "Fewest young per birth": 33,
+        "Closest to North Pole": 27,
+        "Fastest recorded chewing": 24
       },
       "animalCounts": {
-        "aquila_chrysaetos": 760,
-        "cardinalis_cardinalis": 760,
-        "hirundo_rustica": 760,
-        "diomedea_exulans": 760,
-        "phoebastria_immutabilis": 760,
+        "phascolarctos_cinereus": 618,
+        "tachyglossus_aculeatus": 391,
+        "hydrochoerus_hydrochaeris": 516,
+        "loxodonta_africana": 249,
+        "suricata_suricatta": 111,
+        "macaca_mulatta": 595,
+        "lemur_catta": 622,
+        "giraffa_camelopardalis": 363,
+        "aquila_chrysaetos": 1500,
+        "cardinalis_cardinalis": 1500,
+        "hirundo_rustica": 1500,
+        "pelecanus_occidentalis": 495,
+        "diomedea_exulans": 1500,
+        "phoebastria_immutabilis": 1500,
         "tyto_alba": 1500,
-        "apus_apus": 760,
-        "somateria_mollissima": 251,
-        "hydrochoerus_hydrochaeris": 537,
-        "macaca_mulatta": 632,
-        "phascolarctos_cinereus": 645,
-        "pongo_pygmaeus": 362,
-        "ceratotherium_simum": 839,
-        "melursus_ursinus": 393,
-        "vulpes_vulpes": 420,
-        "ailuropoda_melanoleuca": 595,
-        "pelecanus_occidentalis": 258,
-        "bison_bison": 423,
-        "acinonyx_jubatus": 412,
-        "canis_lupus": 509,
-        "gorilla_gorilla": 616,
-        "pan_troglodytes": 597,
-        "ursus_americanus": 418,
-        "panthera_leo": 294,
-        "spheniscus_demersus": 740,
-        "bubo_virginianus": 740,
-        "ardea_cinerea": 740,
-        "corvus_corone": 740,
-        "sturnus_vulgaris": 740,
-        "columba_palumbus": 740,
-        "haematopus_ostralegus": 740,
-        "camelus_dromedarius": 274,
-        "lemur_catta": 618,
-        "mus_musculus": 274,
-        "tachyglossus_aculeatus": 437,
-        "sus_scrofa": 327,
-        "larus_argentatus": 251,
-        "giraffa_camelopardalis": 378,
-        "macropus_rufus": 256,
-        "loxodonta_africana": 246,
-        "panthera_tigris": 83,
-        "castor_canadensis": 192,
-        "hippopotamus_amphibius": 365,
-        "panthera_onca": 51,
-        "procyon_lotor": 25,
-        "oryctolagus_cuniculus": 53,
-        "suricata_suricatta": 136,
-        "cervus_elaphus": 67,
-        "puma_concolor": 94,
-        "ursus_arctos": 102,
-        "tremarctos_ornatus": 26,
-        "mesocricetus_auratus": 26,
-        "panthera_pardus": 278
+        "apus_apus": 1500,
+        "ceratotherium_simum": 875,
+        "ailuropoda_melanoleuca": 568,
+        "panthera_pardus": 280,
+        "hippopotamus_amphibius": 382,
+        "canis_lupus": 497,
+        "pongo_pygmaeus": 380,
+        "vulpes_vulpes": 413,
+        "gorilla_gorilla": 644,
+        "larus_argentatus": 499,
+        "bison_bison": 449,
+        "acinonyx_jubatus": 416,
+        "pan_troglodytes": 603,
+        "ursus_americanus": 432,
+        "panthera_leo": 321,
+        "somateria_mollissima": 506,
+        "melursus_ursinus": 406,
+        "camelus_dromedarius": 246,
+        "mus_musculus": 246,
+        "sus_scrofa": 313,
+        "panthera_tigris": 111,
+        "macropus_rufus": 263,
+        "castor_canadensis": 212,
+        "cervus_elaphus": 66,
+        "puma_concolor": 100,
+        "ursus_arctos": 97,
+        "oryctolagus_cuniculus": 62,
+        "tremarctos_ornatus": 33,
+        "panthera_onca": 60,
+        "mesocricetus_auratus": 33,
+        "procyon_lotor": 27
       }
     }
   },
@@ -7502,10 +6864,10 @@
     {
       "date": "2026-10-05",
       "mode": "easy",
-      "boardId": "a5547bb2c7200cf6",
+      "boardId": "c88ecd2c4543f83d",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 1,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7513,10 +6875,10 @@
     {
       "date": "2026-10-05",
       "mode": "normal",
-      "boardId": "3f1131ae2e91b638",
+      "boardId": "53e4cbbdbdfec0a4",
       "group": "mammals",
-      "intuitive": 4,
-      "familiar": 6,
+      "intuitive": 3,
+      "familiar": 5,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7546,10 +6908,10 @@
     {
       "date": "2026-10-06",
       "mode": "normal",
-      "boardId": "f7cc01c8ab9f1079",
+      "boardId": "885fc4d61f6e7bb6",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7568,7 +6930,7 @@
     {
       "date": "2026-10-07",
       "mode": "easy",
-      "boardId": "153c57995732ee21",
+      "boardId": "4998de1965c04671",
       "group": "mammals",
       "intuitive": 3,
       "familiar": 4,
@@ -7579,10 +6941,10 @@
     {
       "date": "2026-10-07",
       "mode": "normal",
-      "boardId": "4e69817e79c7b3d5",
+      "boardId": "7b0abf305c941f8d",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7601,10 +6963,10 @@
     {
       "date": "2026-10-08",
       "mode": "easy",
-      "boardId": "d208a310f965f745",
+      "boardId": "07a9ea70bd3e7b85",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7612,10 +6974,10 @@
     {
       "date": "2026-10-08",
       "mode": "normal",
-      "boardId": "7090b7ab7ad22eab",
+      "boardId": "fc54b36938b3f6af",
       "group": "mammals",
       "intuitive": 3,
-      "familiar": 6,
+      "familiar": 5,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7623,10 +6985,10 @@
     {
       "date": "2026-10-08",
       "mode": "expert",
-      "boardId": "fair-expert-birds-12-20261005",
+      "boardId": "fair-expert-birds-4-20261005",
       "group": "birds",
       "intuitive": 4,
-      "familiar": 4,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7634,10 +6996,10 @@
     {
       "date": "2026-10-09",
       "mode": "easy",
-      "boardId": "0114b63cd9109a89",
+      "boardId": "77005fb262a049d7",
       "group": "mammals",
       "intuitive": 3,
-      "familiar": 4,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7645,10 +7007,10 @@
     {
       "date": "2026-10-09",
       "mode": "normal",
-      "boardId": "0d76ec7a95803b82",
+      "boardId": "d2340c0c5c714554",
       "group": "birds",
-      "intuitive": 4,
-      "familiar": 2,
+      "intuitive": 3,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7667,9 +7029,9 @@
     {
       "date": "2026-10-10",
       "mode": "easy",
-      "boardId": "a036bc1be767338e",
+      "boardId": "e5d7ce3b0d1a5be3",
       "group": "birds",
-      "intuitive": 4,
+      "intuitive": 3,
       "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
@@ -7678,7 +7040,7 @@
     {
       "date": "2026-10-10",
       "mode": "normal",
-      "boardId": "0a37ff9c3d8f6aa3",
+      "boardId": "30c6477e900609a1",
       "group": "mammals",
       "intuitive": 3,
       "familiar": 5,
@@ -7711,7 +7073,7 @@
     {
       "date": "2026-10-11",
       "mode": "normal",
-      "boardId": "7bd6f137c8d29b8a",
+      "boardId": "bd4438b0922cca71",
       "group": "birds",
       "intuitive": 3,
       "familiar": 2,
@@ -7733,10 +7095,10 @@
     {
       "date": "2026-10-12",
       "mode": "easy",
-      "boardId": "e17efc094da8889f",
+      "boardId": "96fbc7953bac69d3",
       "group": "mammals",
       "intuitive": 4,
-      "familiar": 4,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7766,10 +7128,10 @@
     {
       "date": "2026-10-13",
       "mode": "easy",
-      "boardId": "08a8b4569127b7c0",
+      "boardId": "e5d7ce3b0d1a5be3",
       "group": "birds",
-      "intuitive": 4,
-      "familiar": 1,
+      "intuitive": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7777,10 +7139,10 @@
     {
       "date": "2026-10-13",
       "mode": "normal",
-      "boardId": "447209ade149f710",
+      "boardId": "786c8f2321e2abd3",
       "group": "mammals",
-      "intuitive": 3,
-      "familiar": 5,
+      "intuitive": 4,
+      "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7788,10 +7150,10 @@
     {
       "date": "2026-10-13",
       "mode": "expert",
-      "boardId": "fair-expert-birds-8-20261005",
+      "boardId": "fair-expert-birds-2-20261005",
       "group": "birds",
       "intuitive": 4,
-      "familiar": 4,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7810,10 +7172,10 @@
     {
       "date": "2026-10-14",
       "mode": "normal",
-      "boardId": "7b0abf305c941f8d",
+      "boardId": "f196b0c3d86192a0",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 5,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7832,7 +7194,7 @@
     {
       "date": "2026-10-15",
       "mode": "easy",
-      "boardId": "68fd447ecf1007a2",
+      "boardId": "3d3fe20d9f5d3198",
       "group": "mixed",
       "intuitive": 3,
       "familiar": 3,
@@ -7843,9 +7205,9 @@
     {
       "date": "2026-10-15",
       "mode": "normal",
-      "boardId": "660bfa3c3fc9dc34",
+      "boardId": "65f21eb409a2ba1d",
       "group": "mammals",
-      "intuitive": 3,
+      "intuitive": 4,
       "familiar": 5,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
@@ -7876,7 +7238,7 @@
     {
       "date": "2026-10-16",
       "mode": "normal",
-      "boardId": "3dac56873708ddd9",
+      "boardId": "290fc22f80581806",
       "group": "mammals",
       "intuitive": 3,
       "familiar": 5,
@@ -7887,10 +7249,10 @@
     {
       "date": "2026-10-16",
       "mode": "expert",
-      "boardId": "fair-expert-birds-9-20261005",
+      "boardId": "fair-expert-birds-5-20261005",
       "group": "birds",
       "intuitive": 4,
-      "familiar": 4,
+      "familiar": 2,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7898,7 +7260,7 @@
     {
       "date": "2026-10-17",
       "mode": "easy",
-      "boardId": "fair-hibernation-easy-long-20261005",
+      "boardId": "6cffa7766f7ef3b6",
       "group": "mammals",
       "intuitive": 3,
       "familiar": 3,
@@ -7909,10 +7271,10 @@
     {
       "date": "2026-10-17",
       "mode": "normal",
-      "boardId": "e5c7819d44daecfa",
+      "boardId": "4111ae18694a1679",
       "group": "birds",
-      "intuitive": 4,
-      "familiar": 2,
+      "intuitive": 3,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7931,10 +7293,10 @@
     {
       "date": "2026-10-18",
       "mode": "easy",
-      "boardId": "a5547bb2c7200cf6",
+      "boardId": "c88ecd2c4543f83d",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 1,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7942,7 +7304,7 @@
     {
       "date": "2026-10-18",
       "mode": "normal",
-      "boardId": "8b2f9c447ed4f91e",
+      "boardId": "e45415193477cdc3",
       "group": "mammals",
       "intuitive": 4,
       "familiar": 5,
@@ -7964,10 +7326,10 @@
     {
       "date": "2026-10-19",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-599-20261006",
+      "boardId": "fair-pet-dog-easy-1862-20261006",
       "group": "pets",
       "intuitive": 4,
-      "familiar": 1,
+      "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7975,10 +7337,10 @@
     {
       "date": "2026-10-19",
       "mode": "normal",
-      "boardId": "4111ae18694a1679",
+      "boardId": "f7cc01c8ab9f1079",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7997,10 +7359,10 @@
     {
       "date": "2026-10-20",
       "mode": "easy",
-      "boardId": "1819298d1fb1ddfb",
+      "boardId": "4414b7b74a281b8a",
       "group": "mammals",
       "intuitive": 3,
-      "familiar": 4,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8008,10 +7370,10 @@
     {
       "date": "2026-10-20",
       "mode": "normal",
-      "boardId": "7b0abf305c941f8d",
+      "boardId": "c574293dc53c1b2c",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8030,9 +7392,9 @@
     {
       "date": "2026-10-21",
       "mode": "easy",
-      "boardId": "5f9a9ca208d7dff6",
+      "boardId": "e5d7ce3b0d1a5be3",
       "group": "birds",
-      "intuitive": 4,
+      "intuitive": 3,
       "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
@@ -8041,7 +7403,7 @@
     {
       "date": "2026-10-21",
       "mode": "normal",
-      "boardId": "29a4cc507df33381",
+      "boardId": "ca49dfbaa618ec0b",
       "group": "mammals",
       "intuitive": 4,
       "familiar": 6,
@@ -8063,10 +7425,10 @@
     {
       "date": "2026-10-22",
       "mode": "easy",
-      "boardId": "e4b879429106e1b3",
+      "boardId": "f69216329f193298",
       "group": "mammals",
       "intuitive": 4,
-      "familiar": 4,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8074,7 +7436,7 @@
     {
       "date": "2026-10-22",
       "mode": "normal",
-      "boardId": "772965831db18564",
+      "boardId": "06073849bb5f3770",
       "group": "birds",
       "intuitive": 3,
       "familiar": 3,
@@ -8096,10 +7458,10 @@
     {
       "date": "2026-10-23",
       "mode": "easy",
-      "boardId": "365821484a7c2bfc",
+      "boardId": "46c1304269081ee6",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8107,10 +7469,10 @@
     {
       "date": "2026-10-23",
       "mode": "normal",
-      "boardId": "29a4cc507df33381",
+      "boardId": "5ff199d3a9af50ba",
       "group": "mammals",
-      "intuitive": 4,
-      "familiar": 6,
+      "intuitive": 3,
+      "familiar": 5,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8140,10 +7502,10 @@
     {
       "date": "2026-10-24",
       "mode": "normal",
-      "boardId": "885fc4d61f6e7bb6",
+      "boardId": "fd7501feb9dea417",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 4,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8162,10 +7524,10 @@
     {
       "date": "2026-10-25",
       "mode": "easy",
-      "boardId": "15e57a2b534b8ac6",
+      "boardId": "9a1d29f869c12700",
       "group": "mammals",
-      "intuitive": 4,
-      "familiar": 3,
+      "intuitive": 3,
+      "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8173,7 +7535,7 @@
     {
       "date": "2026-10-25",
       "mode": "normal",
-      "boardId": "772965831db18564",
+      "boardId": "06073849bb5f3770",
       "group": "birds",
       "intuitive": 3,
       "familiar": 3,
@@ -8195,10 +7557,10 @@
     {
       "date": "2026-10-26",
       "mode": "easy",
-      "boardId": "b25c9844fadbea4f",
+      "boardId": "46c1304269081ee6",
       "group": "birds",
-      "intuitive": 4,
-      "familiar": 1,
+      "intuitive": 3,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8206,10 +7568,10 @@
     {
       "date": "2026-10-26",
       "mode": "normal",
-      "boardId": "bc33ea4cf7512e96",
+      "boardId": "26ee9007217f2d5d",
       "group": "mammals",
-      "intuitive": 3,
-      "familiar": 5,
+      "intuitive": 4,
+      "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8217,7 +7579,7 @@
     {
       "date": "2026-10-26",
       "mode": "expert",
-      "boardId": "fair-expert-birds-1-20261005",
+      "boardId": "fair-expert-birds-2-20261005",
       "group": "birds",
       "intuitive": 4,
       "familiar": 3,
@@ -8228,10 +7590,10 @@
     {
       "date": "2026-10-27",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-2459-20261006",
+      "boardId": "fair-pet-dog-easy-1595-20261006",
       "group": "pets",
       "intuitive": 4,
-      "familiar": 1,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8239,10 +7601,10 @@
     {
       "date": "2026-10-27",
       "mode": "normal",
-      "boardId": "e5c7819d44daecfa",
+      "boardId": "c574293dc53c1b2c",
       "group": "birds",
-      "intuitive": 4,
-      "familiar": 2,
+      "intuitive": 3,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8261,10 +7623,10 @@
     {
       "date": "2026-10-28",
       "mode": "easy",
-      "boardId": "c34b88e81f4c9f50",
+      "boardId": "3d3fe20d9f5d3198",
       "group": "mixed",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8272,7 +7634,7 @@
     {
       "date": "2026-10-28",
       "mode": "normal",
-      "boardId": "87544567394db1a8",
+      "boardId": "00d393e20aa3ec42",
       "group": "mammals",
       "intuitive": 4,
       "familiar": 6,
@@ -8283,10 +7645,10 @@
     {
       "date": "2026-10-28",
       "mode": "expert",
-      "boardId": "fair-expert-birds-5-20261005",
+      "boardId": "fair-expert-birds-4-20261005",
       "group": "birds",
       "intuitive": 4,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8305,7 +7667,7 @@
     {
       "date": "2026-10-29",
       "mode": "normal",
-      "boardId": "36a479ee3e0da502",
+      "boardId": "b5076fef161171d4",
       "group": "mammals",
       "intuitive": 4,
       "familiar": 6,
@@ -8316,10 +7678,10 @@
     {
       "date": "2026-10-29",
       "mode": "expert",
-      "boardId": "fair-expert-birds-6-20261005",
+      "boardId": "fair-expert-birds-3-20261005",
       "group": "birds",
       "intuitive": 4,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8327,7 +7689,7 @@
     {
       "date": "2026-10-30",
       "mode": "easy",
-      "boardId": "9aeac2ab821b7de8",
+      "boardId": "5bec0859f475f9a0",
       "group": "mammals",
       "intuitive": 3,
       "familiar": 4,
@@ -8338,10 +7700,10 @@
     {
       "date": "2026-10-30",
       "mode": "normal",
-      "boardId": "01c4a4d854dd7627",
+      "boardId": "7b0abf305c941f8d",
       "group": "birds",
-      "intuitive": 4,
-      "familiar": 3,
+      "intuitive": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8360,10 +7722,10 @@
     {
       "date": "2026-10-31",
       "mode": "easy",
-      "boardId": "d208a310f965f745",
+      "boardId": "07a9ea70bd3e7b85",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8371,9 +7733,9 @@
     {
       "date": "2026-10-31",
       "mode": "normal",
-      "boardId": "d4fc9765e54516bc",
+      "boardId": "e70f132904ae306c",
       "group": "mammals",
-      "intuitive": 3,
+      "intuitive": 4,
       "familiar": 5,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
@@ -8382,10 +7744,10 @@
     {
       "date": "2026-10-31",
       "mode": "expert",
-      "boardId": "fair-expert-birds-10-20261005",
+      "boardId": "fair-expert-birds-4-20261005",
       "group": "birds",
       "intuitive": 4,
-      "familiar": 4,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8404,10 +7766,10 @@
     {
       "date": "2026-11-01",
       "mode": "normal",
-      "boardId": "60e8b164f4217387",
+      "boardId": "f7cc01c8ab9f1079",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8426,9 +7788,9 @@
     {
       "date": "2026-11-02",
       "mode": "easy",
-      "boardId": "fair-mdd-mdd_country_count__low-easy-14-20261005",
+      "boardId": "4fddf10ae383dae9",
       "group": "mammals",
-      "intuitive": 4,
+      "intuitive": 3,
       "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
@@ -8437,10 +7799,10 @@
     {
       "date": "2026-11-02",
       "mode": "normal",
-      "boardId": "26fefcaa1ea2b147",
+      "boardId": "c574293dc53c1b2c",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8470,7 +7832,7 @@
     {
       "date": "2026-11-03",
       "mode": "normal",
-      "boardId": "982c5442e79d6aa0",
+      "boardId": "5026b63bcc741f8d",
       "group": "mammals",
       "intuitive": 3,
       "familiar": 6,
@@ -8481,7 +7843,7 @@
     {
       "date": "2026-11-03",
       "mode": "expert",
-      "boardId": "fair-expert-birds-5-20261005",
+      "boardId": "fair-expert-birds-6-20261005",
       "group": "birds",
       "intuitive": 4,
       "familiar": 2,
@@ -8492,10 +7854,10 @@
     {
       "date": "2026-11-04",
       "mode": "easy",
-      "boardId": "a385911cddd19646",
+      "boardId": "34e7517f0184b5be",
       "group": "mammals",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8503,10 +7865,10 @@
     {
       "date": "2026-11-04",
       "mode": "normal",
-      "boardId": "4111ae18694a1679",
+      "boardId": "7bd6f137c8d29b8a",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8525,9 +7887,9 @@
     {
       "date": "2026-11-05",
       "mode": "easy",
-      "boardId": "a036bc1be767338e",
+      "boardId": "e5d7ce3b0d1a5be3",
       "group": "birds",
-      "intuitive": 4,
+      "intuitive": 3,
       "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
@@ -8558,7 +7920,7 @@
     {
       "date": "2026-11-06",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-2691-20261006",
+      "boardId": "fair-pet-dog-easy-2643-20261006",
       "group": "pets",
       "intuitive": 4,
       "familiar": 1,
@@ -8569,10 +7931,10 @@
     {
       "date": "2026-11-06",
       "mode": "normal",
-      "boardId": "0ad12837a6a3c39d",
+      "boardId": "885fc4d61f6e7bb6",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8591,7 +7953,7 @@
     {
       "date": "2026-11-07",
       "mode": "easy",
-      "boardId": "b98d557f0671f0b4",
+      "boardId": "ccad8e305d2c1ada",
       "group": "mammals",
       "intuitive": 3,
       "familiar": 3,
@@ -8602,10 +7964,10 @@
     {
       "date": "2026-11-07",
       "mode": "normal",
-      "boardId": "c3be86aafb167e21",
+      "boardId": "d2340c0c5c714554",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8624,10 +7986,10 @@
     {
       "date": "2026-11-08",
       "mode": "easy",
-      "boardId": "5b084adaddd62bdd",
+      "boardId": "e5d7ce3b0d1a5be3",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 1,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8646,10 +8008,10 @@
     {
       "date": "2026-11-08",
       "mode": "expert",
-      "boardId": "fair-expert-birds-9-20261005",
+      "boardId": "fair-expert-birds-4-20261005",
       "group": "birds",
       "intuitive": 4,
-      "familiar": 4,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8657,10 +8019,10 @@
     {
       "date": "2026-11-09",
       "mode": "easy",
-      "boardId": "4f27cc37c16d7ddf",
+      "boardId": "0ae38285011a4542",
       "group": "mammals",
       "intuitive": 4,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8668,10 +8030,10 @@
     {
       "date": "2026-11-09",
       "mode": "normal",
-      "boardId": "d2340c0c5c714554",
+      "boardId": "9ffbdb67e6a6a458",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8690,10 +8052,10 @@
     {
       "date": "2026-11-10",
       "mode": "easy",
-      "boardId": "dfed539847fbe0b4",
+      "boardId": "07a9ea70bd3e7b85",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 1,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8701,10 +8063,10 @@
     {
       "date": "2026-11-10",
       "mode": "normal",
-      "boardId": "b6409d828d77154d",
+      "boardId": "76d988f6c05e3353",
       "group": "mammals",
-      "intuitive": 3,
-      "familiar": 6,
+      "intuitive": 4,
+      "familiar": 5,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8734,10 +8096,10 @@
     {
       "date": "2026-11-11",
       "mode": "normal",
-      "boardId": "3f9d082730a85fc6",
+      "boardId": "c6651476f6eef4ce",
       "group": "mammals",
       "intuitive": 4,
-      "familiar": 6,
+      "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8745,10 +8107,10 @@
     {
       "date": "2026-11-11",
       "mode": "expert",
-      "boardId": "fair-expert-birds-10-20261005",
+      "boardId": "fair-expert-birds-4-20261005",
       "group": "birds",
       "intuitive": 4,
-      "familiar": 4,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8756,10 +8118,10 @@
     {
       "date": "2026-11-12",
       "mode": "easy",
-      "boardId": "fair-ears-easy-short-20261005",
+      "boardId": "d7ab9b6e19838a6e",
       "group": "mammals",
-      "intuitive": 4,
-      "familiar": 4,
+      "intuitive": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8767,10 +8129,10 @@
     {
       "date": "2026-11-12",
       "mode": "normal",
-      "boardId": "2eec958c1ede9f52",
+      "boardId": "7bd6f137c8d29b8a",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 4,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8789,10 +8151,10 @@
     {
       "date": "2026-11-13",
       "mode": "easy",
-      "boardId": "d208a310f965f745",
+      "boardId": "07a9ea70bd3e7b85",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8800,10 +8162,10 @@
     {
       "date": "2026-11-13",
       "mode": "normal",
-      "boardId": "85784400bc7e15b6",
+      "boardId": "7a2fd5a8d011b9e2",
       "group": "mammals",
       "intuitive": 3,
-      "familiar": 5,
+      "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8833,10 +8195,10 @@
     {
       "date": "2026-11-14",
       "mode": "normal",
-      "boardId": "0ad12837a6a3c39d",
+      "boardId": "06073849bb5f3770",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8855,9 +8217,9 @@
     {
       "date": "2026-11-15",
       "mode": "easy",
-      "boardId": "fair-mdd-mdd_continent_count-easy-8-20261005",
+      "boardId": "26d4a90318e718e6",
       "group": "mammals",
-      "intuitive": 4,
+      "intuitive": 3,
       "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
@@ -8866,10 +8228,10 @@
     {
       "date": "2026-11-15",
       "mode": "normal",
-      "boardId": "f9195a87ffa13e87",
+      "boardId": "4111ae18694a1679",
       "group": "birds",
-      "intuitive": 4,
-      "familiar": 2,
+      "intuitive": 3,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8899,10 +8261,10 @@
     {
       "date": "2026-11-16",
       "mode": "normal",
-      "boardId": "264f9b65b30254bc",
+      "boardId": "beb63ac347903ab4",
       "group": "mammals",
       "intuitive": 4,
-      "familiar": 6,
+      "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8910,7 +8272,7 @@
     {
       "date": "2026-11-16",
       "mode": "expert",
-      "boardId": "fair-expert-birds-1-20261005",
+      "boardId": "fair-expert-birds-3-20261005",
       "group": "birds",
       "intuitive": 4,
       "familiar": 3,
@@ -8921,9 +8283,9 @@
     {
       "date": "2026-11-17",
       "mode": "easy",
-      "boardId": "2eb956a1ffa45c98",
+      "boardId": "a0cc8d87a9819f62",
       "group": "mammals",
-      "intuitive": 3,
+      "intuitive": 4,
       "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
@@ -8954,10 +8316,10 @@
     {
       "date": "2026-11-18",
       "mode": "easy",
-      "boardId": "07a9ea70bd3e7b85",
+      "boardId": "46c1304269081ee6",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8965,10 +8327,10 @@
     {
       "date": "2026-11-18",
       "mode": "normal",
-      "boardId": "9d6432159c3043a6",
+      "boardId": "078c08a004d34f69",
       "group": "mammals",
       "intuitive": 3,
-      "familiar": 5,
+      "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8998,10 +8360,10 @@
     {
       "date": "2026-11-19",
       "mode": "normal",
-      "boardId": "54e2dbdf8d7f7a17",
+      "boardId": "7b0abf305c941f8d",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9020,9 +8382,9 @@
     {
       "date": "2026-11-20",
       "mode": "easy",
-      "boardId": "82f1c3291cf46010",
+      "boardId": "be406c9ac8bb752e",
       "group": "mammals",
-      "intuitive": 4,
+      "intuitive": 3,
       "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
@@ -9031,9 +8393,9 @@
     {
       "date": "2026-11-20",
       "mode": "normal",
-      "boardId": "73e9db6d8dc2ac1a",
+      "boardId": "f7cc01c8ab9f1079",
       "group": "birds",
-      "intuitive": 4,
+      "intuitive": 3,
       "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
@@ -9053,10 +8415,10 @@
     {
       "date": "2026-11-21",
       "mode": "easy",
-      "boardId": "07a9ea70bd3e7b85",
+      "boardId": "c88ecd2c4543f83d",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9064,7 +8426,7 @@
     {
       "date": "2026-11-21",
       "mode": "normal",
-      "boardId": "fc8483fbf0f28b82",
+      "boardId": "e24675380ae6c7b0",
       "group": "mammals",
       "intuitive": 3,
       "familiar": 6,
@@ -9075,10 +8437,10 @@
     {
       "date": "2026-11-21",
       "mode": "expert",
-      "boardId": "fair-expert-birds-9-20261005",
+      "boardId": "fair-expert-birds-3-20261005",
       "group": "birds",
       "intuitive": 4,
-      "familiar": 4,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9086,10 +8448,10 @@
     {
       "date": "2026-11-22",
       "mode": "easy",
-      "boardId": "ff8621f7f8d39083",
+      "boardId": "b8f6e154153450c4",
       "group": "mammals",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9097,7 +8459,7 @@
     {
       "date": "2026-11-22",
       "mode": "normal",
-      "boardId": "70c48621eb3313b8",
+      "boardId": "bd4438b0922cca71",
       "group": "birds",
       "intuitive": 3,
       "familiar": 2,
@@ -9119,10 +8481,10 @@
     {
       "date": "2026-11-23",
       "mode": "easy",
-      "boardId": "3fd4eebf0c3a084f",
+      "boardId": "e5d7ce3b0d1a5be3",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 1,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9130,10 +8492,10 @@
     {
       "date": "2026-11-23",
       "mode": "normal",
-      "boardId": "75acab0bfa44d467",
+      "boardId": "fa788b06de6c764f",
       "group": "mammals",
       "intuitive": 3,
-      "familiar": 4,
+      "familiar": 5,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9163,10 +8525,10 @@
     {
       "date": "2026-11-24",
       "mode": "normal",
-      "boardId": "772965831db18564",
+      "boardId": "885fc4d61f6e7bb6",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9185,9 +8547,9 @@
     {
       "date": "2026-11-25",
       "mode": "easy",
-      "boardId": "661d52cbc5be4d45",
+      "boardId": "fair-mdd-mdd_country_count-easy-5-20261005",
       "group": "mammals",
-      "intuitive": 3,
+      "intuitive": 4,
       "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
@@ -9196,10 +8558,10 @@
     {
       "date": "2026-11-25",
       "mode": "normal",
-      "boardId": "c11d5beb4ff4c692",
+      "boardId": "fd7501feb9dea417",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9218,10 +8580,10 @@
     {
       "date": "2026-11-26",
       "mode": "easy",
-      "boardId": "c88ecd2c4543f83d",
+      "boardId": "07a9ea70bd3e7b85",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9229,10 +8591,10 @@
     {
       "date": "2026-11-26",
       "mode": "normal",
-      "boardId": "dd30632a89a61cb5",
+      "boardId": "2a35d3354207ce3f",
       "group": "mammals",
-      "intuitive": 3,
-      "familiar": 5,
+      "intuitive": 4,
+      "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9240,7 +8602,7 @@
     {
       "date": "2026-11-26",
       "mode": "expert",
-      "boardId": "fair-expert-birds-6-20261005",
+      "boardId": "fair-expert-birds-5-20261005",
       "group": "birds",
       "intuitive": 4,
       "familiar": 2,
@@ -9262,10 +8624,10 @@
     {
       "date": "2026-11-27",
       "mode": "normal",
-      "boardId": "60e8b164f4217387",
+      "boardId": "c11d5beb4ff4c692",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9284,7 +8646,7 @@
     {
       "date": "2026-11-28",
       "mode": "easy",
-      "boardId": "f4cbab3686a5151f",
+      "boardId": "8c76fb25161e88e2",
       "group": "mixed",
       "intuitive": 3,
       "familiar": 4,
@@ -9295,49 +8657,16 @@
     {
       "date": "2026-11-28",
       "mode": "normal",
-      "boardId": "fc226980ca9cc86d",
+      "boardId": "94d6a0e5a58e890e",
       "group": "mammals",
       "intuitive": 4,
-      "familiar": 5,
+      "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
     },
     {
       "date": "2026-11-28",
-      "mode": "expert",
-      "boardId": "fair-expert-birds-10-20261005",
-      "group": "birds",
-      "intuitive": 4,
-      "familiar": 4,
-      "minimumIntuitive": 4,
-      "minimumFamiliar": 2,
-      "eligible": true
-    },
-    {
-      "date": "2026-11-29",
-      "mode": "easy",
-      "boardId": "fair-pet-dog-easy-1456-20261006",
-      "group": "pets",
-      "intuitive": 4,
-      "familiar": 1,
-      "minimumIntuitive": 3,
-      "minimumFamiliar": 1,
-      "eligible": true
-    },
-    {
-      "date": "2026-11-29",
-      "mode": "normal",
-      "boardId": "1886e515964ec419",
-      "group": "mammals",
-      "intuitive": 3,
-      "familiar": 6,
-      "minimumIntuitive": 3,
-      "minimumFamiliar": 2,
-      "eligible": true
-    },
-    {
-      "date": "2026-11-29",
       "mode": "expert",
       "boardId": "fair-expert-birds-6-20261005",
       "group": "birds",
@@ -9348,9 +8677,42 @@
       "eligible": true
     },
     {
+      "date": "2026-11-29",
+      "mode": "easy",
+      "boardId": "fair-pet-dog-easy-1459-20261006",
+      "group": "pets",
+      "intuitive": 4,
+      "familiar": 1,
+      "minimumIntuitive": 3,
+      "minimumFamiliar": 1,
+      "eligible": true
+    },
+    {
+      "date": "2026-11-29",
+      "mode": "normal",
+      "boardId": "176d088e12a8306a",
+      "group": "mammals",
+      "intuitive": 3,
+      "familiar": 5,
+      "minimumIntuitive": 3,
+      "minimumFamiliar": 2,
+      "eligible": true
+    },
+    {
+      "date": "2026-11-29",
+      "mode": "expert",
+      "boardId": "fair-expert-birds-2-20261005",
+      "group": "birds",
+      "intuitive": 4,
+      "familiar": 3,
+      "minimumIntuitive": 4,
+      "minimumFamiliar": 2,
+      "eligible": true
+    },
+    {
       "date": "2026-11-30",
       "mode": "easy",
-      "boardId": "c1d853dacecf07c6",
+      "boardId": "e965283bcdd06a91",
       "group": "mammals",
       "intuitive": 4,
       "familiar": 3,
@@ -9361,9 +8723,9 @@
     {
       "date": "2026-11-30",
       "mode": "normal",
-      "boardId": "0d76ec7a95803b82",
+      "boardId": "7b0abf305c941f8d",
       "group": "birds",
-      "intuitive": 4,
+      "intuitive": 3,
       "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
@@ -9383,9 +8745,9 @@
     {
       "date": "2026-12-01",
       "mode": "easy",
-      "boardId": "4f28eb4ee2ff3e4f",
+      "boardId": "e5d7ce3b0d1a5be3",
       "group": "birds",
-      "intuitive": 4,
+      "intuitive": 3,
       "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
@@ -9394,10 +8756,10 @@
     {
       "date": "2026-12-01",
       "mode": "normal",
-      "boardId": "9515581d2275a17b",
+      "boardId": "edf6f1c3acefd4ff",
       "group": "mammals",
-      "intuitive": 4,
-      "familiar": 5,
+      "intuitive": 3,
+      "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9405,10 +8767,10 @@
     {
       "date": "2026-12-01",
       "mode": "expert",
-      "boardId": "fair-expert-birds-12-20261005",
+      "boardId": "fair-expert-birds-4-20261005",
       "group": "birds",
       "intuitive": 4,
-      "familiar": 4,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9427,10 +8789,10 @@
     {
       "date": "2026-12-02",
       "mode": "normal",
-      "boardId": "0ad12837a6a3c39d",
+      "boardId": "06073849bb5f3770",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9449,10 +8811,10 @@
     {
       "date": "2026-12-03",
       "mode": "easy",
-      "boardId": "ac9b2a57fbe9f2ae",
+      "boardId": "7588209e63bec996",
       "group": "mammals",
-      "intuitive": 3,
-      "familiar": 4,
+      "intuitive": 4,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9460,7 +8822,7 @@
     {
       "date": "2026-12-03",
       "mode": "normal",
-      "boardId": "9ace60997c18d1d8",
+      "boardId": "bd4438b0922cca71",
       "group": "birds",
       "intuitive": 3,
       "familiar": 2,
@@ -9482,10 +8844,10 @@
     {
       "date": "2026-12-04",
       "mode": "easy",
-      "boardId": "438c2ffae88d4a28",
+      "boardId": "e5d7ce3b0d1a5be3",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9493,7 +8855,7 @@
     {
       "date": "2026-12-04",
       "mode": "normal",
-      "boardId": "093f0a1239bd5922",
+      "boardId": "d450a257d2db00f8",
       "group": "mammals",
       "intuitive": 3,
       "familiar": 6,
@@ -9504,10 +8866,10 @@
     {
       "date": "2026-12-04",
       "mode": "expert",
-      "boardId": "fair-expert-birds-9-20261005",
+      "boardId": "fair-expert-birds-4-20261005",
       "group": "birds",
       "intuitive": 4,
-      "familiar": 4,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9515,10 +8877,10 @@
     {
       "date": "2026-12-05",
       "mode": "easy",
-      "boardId": "f9512bc7104149d6",
+      "boardId": "8a3418cbaa681b19",
       "group": "mammals",
-      "intuitive": 3,
-      "familiar": 1,
+      "intuitive": 4,
+      "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9526,7 +8888,7 @@
     {
       "date": "2026-12-05",
       "mode": "normal",
-      "boardId": "06073849bb5f3770",
+      "boardId": "772965831db18564",
       "group": "birds",
       "intuitive": 3,
       "familiar": 3,
@@ -9548,10 +8910,10 @@
     {
       "date": "2026-12-06",
       "mode": "easy",
-      "boardId": "5f33d7bdf7e726cd",
+      "boardId": "c88ecd2c4543f83d",
       "group": "birds",
-      "intuitive": 4,
-      "familiar": 1,
+      "intuitive": 3,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9559,7 +8921,7 @@
     {
       "date": "2026-12-06",
       "mode": "normal",
-      "boardId": "3a605b3a9742e4f1",
+      "boardId": "a3d4df1afe7a3a48",
       "group": "mammals",
       "intuitive": 4,
       "familiar": 5,
@@ -9581,7 +8943,7 @@
     {
       "date": "2026-12-07",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-2340-20261006",
+      "boardId": "fair-pet-dog-easy-2372-20261006",
       "group": "pets",
       "intuitive": 4,
       "familiar": 1,
@@ -9592,7 +8954,7 @@
     {
       "date": "2026-12-07",
       "mode": "normal",
-      "boardId": "029c83d0f868dbaf",
+      "boardId": "06073849bb5f3770",
       "group": "birds",
       "intuitive": 3,
       "familiar": 3,
@@ -9614,7 +8976,7 @@
     {
       "date": "2026-12-08",
       "mode": "easy",
-      "boardId": "1733803d508d7362",
+      "boardId": "5277d0057f2e0f60",
       "group": "mammals",
       "intuitive": 3,
       "familiar": 3,
@@ -9625,10 +8987,10 @@
     {
       "date": "2026-12-08",
       "mode": "normal",
-      "boardId": "7b0abf305c941f8d",
+      "boardId": "f196b0c3d86192a0",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 5,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9647,10 +9009,10 @@
     {
       "date": "2026-12-09",
       "mode": "easy",
-      "boardId": "67e2eef6f0cca708",
+      "boardId": "07a9ea70bd3e7b85",
       "group": "birds",
-      "intuitive": 4,
-      "familiar": 3,
+      "intuitive": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9658,7 +9020,7 @@
     {
       "date": "2026-12-09",
       "mode": "normal",
-      "boardId": "0f32dd6fb4350be7",
+      "boardId": "ced766c3d807f99e",
       "group": "mammals",
       "intuitive": 4,
       "familiar": 5,
@@ -9680,10 +9042,10 @@
     {
       "date": "2026-12-10",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-1754-20261006",
+      "boardId": "fair-pet-dog-easy-1456-20261006",
       "group": "pets",
       "intuitive": 4,
-      "familiar": 2,
+      "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9691,10 +9053,10 @@
     {
       "date": "2026-12-10",
       "mode": "normal",
-      "boardId": "0ad12837a6a3c39d",
+      "boardId": "06073849bb5f3770",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9713,7 +9075,7 @@
     {
       "date": "2026-12-11",
       "mode": "easy",
-      "boardId": "f4cbab3686a5151f",
+      "boardId": "8c76fb25161e88e2",
       "group": "mixed",
       "intuitive": 3,
       "familiar": 4,
@@ -9724,10 +9086,10 @@
     {
       "date": "2026-12-11",
       "mode": "normal",
-      "boardId": "eb66a36671ea1909",
+      "boardId": "29d86c7a7c862151",
       "group": "mammals",
       "intuitive": 3,
-      "familiar": 6,
+      "familiar": 5,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9735,10 +9097,10 @@
     {
       "date": "2026-12-11",
       "mode": "expert",
-      "boardId": "fair-expert-birds-3-20261005",
+      "boardId": "fair-expert-birds-6-20261005",
       "group": "birds",
       "intuitive": 4,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9746,7 +9108,7 @@
     {
       "date": "2026-12-12",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-1024-20261006",
+      "boardId": "fair-pet-dog-easy-1033-20261006",
       "group": "pets",
       "intuitive": 4,
       "familiar": 2,
@@ -9757,7 +9119,7 @@
     {
       "date": "2026-12-12",
       "mode": "normal",
-      "boardId": "b70ba4db03dd309c",
+      "boardId": "8a7346dfcc96e93c",
       "group": "mammals",
       "intuitive": 3,
       "familiar": 6,
@@ -9779,10 +9141,10 @@
     {
       "date": "2026-12-13",
       "mode": "easy",
-      "boardId": "78c0200e5812972c",
+      "boardId": "794898690d7b0d5c",
       "group": "mammals",
-      "intuitive": 3,
-      "familiar": 4,
+      "intuitive": 4,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9790,10 +9152,10 @@
     {
       "date": "2026-12-13",
       "mode": "normal",
-      "boardId": "0ad12837a6a3c39d",
+      "boardId": "06073849bb5f3770",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9812,10 +9174,10 @@
     {
       "date": "2026-12-14",
       "mode": "easy",
-      "boardId": "e5d7ce3b0d1a5be3",
+      "boardId": "c88ecd2c4543f83d",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9823,7 +9185,7 @@
     {
       "date": "2026-12-14",
       "mode": "normal",
-      "boardId": "84d67e585544b2dd",
+      "boardId": "fd6c75af0ba7ab03",
       "group": "mammals",
       "intuitive": 3,
       "familiar": 6,
@@ -9834,10 +9196,10 @@
     {
       "date": "2026-12-14",
       "mode": "expert",
-      "boardId": "fair-expert-birds-5-20261005",
+      "boardId": "fair-expert-birds-1-20261005",
       "group": "birds",
       "intuitive": 4,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9856,10 +9218,10 @@
     {
       "date": "2026-12-15",
       "mode": "normal",
-      "boardId": "f9195a87ffa13e87",
+      "boardId": "2eec958c1ede9f52",
       "group": "birds",
-      "intuitive": 4,
-      "familiar": 2,
+      "intuitive": 3,
+      "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9878,7 +9240,7 @@
     {
       "date": "2026-12-16",
       "mode": "easy",
-      "boardId": "640aa010b7c372cd",
+      "boardId": "0672bc77c77616cd",
       "group": "mammals",
       "intuitive": 4,
       "familiar": 4,
@@ -9889,9 +9251,9 @@
     {
       "date": "2026-12-16",
       "mode": "normal",
-      "boardId": "87a2bdea02824d3f",
+      "boardId": "f7cc01c8ab9f1079",
       "group": "birds",
-      "intuitive": 4,
+      "intuitive": 3,
       "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
@@ -9922,9 +9284,9 @@
     {
       "date": "2026-12-17",
       "mode": "normal",
-      "boardId": "1089508ccd3b6970",
+      "boardId": "5a226d7d636e7aa6",
       "group": "mammals",
-      "intuitive": 3,
+      "intuitive": 4,
       "familiar": 5,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
@@ -9933,7 +9295,7 @@
     {
       "date": "2026-12-17",
       "mode": "expert",
-      "boardId": "fair-expert-birds-1-20261005",
+      "boardId": "fair-expert-birds-3-20261005",
       "group": "birds",
       "intuitive": 4,
       "familiar": 3,
@@ -9944,7 +9306,7 @@
     {
       "date": "2026-12-18",
       "mode": "easy",
-      "boardId": "006a2dec355e73bf",
+      "boardId": "5b6820b1bf55460b",
       "group": "mammals",
       "intuitive": 4,
       "familiar": 4,
@@ -9955,10 +9317,10 @@
     {
       "date": "2026-12-18",
       "mode": "normal",
-      "boardId": "70c48621eb3313b8",
+      "boardId": "2eec958c1ede9f52",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9977,9 +9339,9 @@
     {
       "date": "2026-12-19",
       "mode": "easy",
-      "boardId": "08ed4617f4a9ea3f",
+      "boardId": "07a9ea70bd3e7b85",
       "group": "birds",
-      "intuitive": 4,
+      "intuitive": 3,
       "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
@@ -9988,10 +9350,10 @@
     {
       "date": "2026-12-19",
       "mode": "normal",
-      "boardId": "175f10b732b4cb08",
+      "boardId": "740d89a08663e2e4",
       "group": "mammals",
       "intuitive": 3,
-      "familiar": 5,
+      "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -10021,10 +9383,10 @@
     {
       "date": "2026-12-20",
       "mode": "normal",
-      "boardId": "e5c7819d44daecfa",
+      "boardId": "d2340c0c5c714554",
       "group": "birds",
-      "intuitive": 4,
-      "familiar": 2,
+      "intuitive": 3,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -10043,10 +9405,10 @@
     {
       "date": "2026-12-21",
       "mode": "easy",
-      "boardId": "c1b42114659060ed",
+      "boardId": "9fc8bdd785ebdf48",
       "group": "mammals",
       "intuitive": 4,
-      "familiar": 4,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -10054,10 +9416,10 @@
     {
       "date": "2026-12-21",
       "mode": "normal",
-      "boardId": "4e69817e79c7b3d5",
+      "boardId": "7b0abf305c941f8d",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -10076,10 +9438,10 @@
     {
       "date": "2026-12-22",
       "mode": "easy",
-      "boardId": "61fd9912cced38bf",
+      "boardId": "c88ecd2c4543f83d",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 1,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -10087,10 +9449,10 @@
     {
       "date": "2026-12-22",
       "mode": "normal",
-      "boardId": "aa5369501a44443b",
+      "boardId": "962313ca7b3e0e09",
       "group": "mammals",
       "intuitive": 4,
-      "familiar": 5,
+      "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -10098,10 +9460,10 @@
     {
       "date": "2026-12-22",
       "mode": "expert",
-      "boardId": "fair-expert-birds-11-20261005",
+      "boardId": "fair-expert-birds-6-20261005",
       "group": "birds",
       "intuitive": 4,
-      "familiar": 4,
+      "familiar": 2,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -10109,9 +9471,9 @@
     {
       "date": "2026-12-23",
       "mode": "easy",
-      "boardId": "5dedd151c3821aba",
+      "boardId": "3a747bed430fb802",
       "group": "mammals",
-      "intuitive": 3,
+      "intuitive": 4,
       "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
@@ -10120,7 +9482,7 @@
     {
       "date": "2026-12-23",
       "mode": "normal",
-      "boardId": "029c83d0f868dbaf",
+      "boardId": "4111ae18694a1679",
       "group": "birds",
       "intuitive": 3,
       "familiar": 3,
@@ -10142,10 +9504,10 @@
     {
       "date": "2026-12-24",
       "mode": "easy",
-      "boardId": "9e8e6dfbaa9d28f2",
+      "boardId": "e5d7ce3b0d1a5be3",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 1,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -10153,7 +9515,7 @@
     {
       "date": "2026-12-24",
       "mode": "normal",
-      "boardId": "9a55ebc9702c5147",
+      "boardId": "d659f46cd1358c91",
       "group": "mammals",
       "intuitive": 4,
       "familiar": 4,
@@ -10186,10 +9548,10 @@
     {
       "date": "2026-12-25",
       "mode": "normal",
-      "boardId": "7fb1b8da5a12047f",
+      "boardId": "fe66fed8e41fe1cc",
       "group": "mammals",
       "intuitive": 4,
-      "familiar": 5,
+      "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -10197,7 +9559,7 @@
     {
       "date": "2026-12-25",
       "mode": "expert",
-      "boardId": "fair-expert-birds-3-20261005",
+      "boardId": "fair-expert-birds-1-20261005",
       "group": "birds",
       "intuitive": 4,
       "familiar": 3,
@@ -10208,7 +9570,7 @@
     {
       "date": "2026-12-26",
       "mode": "easy",
-      "boardId": "2344cc9711a941ac",
+      "boardId": "a21fbac931f08b53",
       "group": "mammals",
       "intuitive": 3,
       "familiar": 4,
@@ -10219,10 +9581,10 @@
     {
       "date": "2026-12-26",
       "mode": "normal",
-      "boardId": "da2486eaffe99949",
+      "boardId": "772965831db18564",
       "group": "birds",
-      "intuitive": 4,
-      "familiar": 2,
+      "intuitive": 3,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -10230,9 +9592,9 @@
     {
       "date": "2026-12-26",
       "mode": "expert",
-      "boardId": "a0f760d2291411c2",
+      "boardId": "93e75cebcd8db528",
       "group": "mammals",
-      "intuitive": 5,
+      "intuitive": 4,
       "familiar": 7,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
@@ -10241,10 +9603,10 @@
     {
       "date": "2026-12-27",
       "mode": "easy",
-      "boardId": "ef0cf8e2ef929885",
+      "boardId": "c88ecd2c4543f83d",
       "group": "birds",
-      "intuitive": 4,
-      "familiar": 1,
+      "intuitive": 3,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -10252,7 +9614,7 @@
     {
       "date": "2026-12-27",
       "mode": "normal",
-      "boardId": "babf76363705fe08",
+      "boardId": "bcd80be5b7ae7d50",
       "group": "mammals",
       "intuitive": 3,
       "familiar": 6,
@@ -10263,10 +9625,10 @@
     {
       "date": "2026-12-27",
       "mode": "expert",
-      "boardId": "fair-expert-birds-8-20261005",
+      "boardId": "fair-expert-birds-2-20261005",
       "group": "birds",
       "intuitive": 4,
-      "familiar": 4,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -10285,7 +9647,7 @@
     {
       "date": "2026-12-28",
       "mode": "normal",
-      "boardId": "885fc4d61f6e7bb6",
+      "boardId": "9ffbdb67e6a6a458",
       "group": "birds",
       "intuitive": 3,
       "familiar": 4,
@@ -10307,10 +9669,10 @@
     {
       "date": "2026-12-29",
       "mode": "easy",
-      "boardId": "4a471c13e4b7c56f",
+      "boardId": "a889fe38638a6b29",
       "group": "mammals",
-      "intuitive": 3,
-      "familiar": 4,
+      "intuitive": 4,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -10318,10 +9680,10 @@
     {
       "date": "2026-12-29",
       "mode": "normal",
-      "boardId": "0d76ec7a95803b82",
+      "boardId": "fd7501feb9dea417",
       "group": "birds",
-      "intuitive": 4,
-      "familiar": 2,
+      "intuitive": 3,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -10362,10 +9724,10 @@
     {
       "date": "2026-12-30",
       "mode": "expert",
-      "boardId": "fair-expert-birds-9-20261005",
+      "boardId": "fair-expert-birds-6-20261005",
       "group": "birds",
       "intuitive": 4,
-      "familiar": 4,
+      "familiar": 2,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -10373,10 +9735,10 @@
     {
       "date": "2026-12-31",
       "mode": "easy",
-      "boardId": "fair-ears-easy-long-20261005",
+      "boardId": "5f4ea9339f0e7aba",
       "group": "mammals",
-      "intuitive": 4,
-      "familiar": 4,
+      "intuitive": 3,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -10384,10 +9746,10 @@
     {
       "date": "2026-12-31",
       "mode": "normal",
-      "boardId": "7bd6f137c8d29b8a",
+      "boardId": "772965831db18564",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -10406,10 +9768,10 @@
     {
       "date": "2027-01-01",
       "mode": "easy",
-      "boardId": "c88ecd2c4543f83d",
+      "boardId": "07a9ea70bd3e7b85",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -10417,7 +9779,7 @@
     {
       "date": "2027-01-01",
       "mode": "normal",
-      "boardId": "024faf49d154b464",
+      "boardId": "3db69f039ace8ebd",
       "group": "mammals",
       "intuitive": 4,
       "familiar": 6,
@@ -10439,7 +9801,7 @@
     {
       "date": "2027-01-02",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-2460-20261006",
+      "boardId": "fair-pet-dog-easy-2643-20261006",
       "group": "pets",
       "intuitive": 4,
       "familiar": 1,
@@ -10450,7 +9812,7 @@
     {
       "date": "2027-01-02",
       "mode": "normal",
-      "boardId": "029c83d0f868dbaf",
+      "boardId": "06073849bb5f3770",
       "group": "birds",
       "intuitive": 3,
       "familiar": 3,

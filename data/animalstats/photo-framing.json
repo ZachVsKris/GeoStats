@@ -1,0 +1,1087 @@
+{
+  "panthera_leo": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "panthera_tigris": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "acinonyx_jubatus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 0
+  },
+  "canis_lupus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "vulpes_vulpes": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "ursus_arctos": {
+    "fit": "cover",
+    "x": 100,
+    "y": 50
+  },
+  "ursus_americanus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "ailuropoda_melanoleuca": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "hippopotamus_amphibius": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "equus_quagga": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "bison_bison": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "equus_asinus": {
+    "fit": "cover",
+    "x": 0,
+    "y": 50
+  },
+  "gorilla_gorilla": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "pongo_pygmaeus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "macaca_mulatta": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "phascolarctos_cinereus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "macropus_rufus": {
+    "fit": "cover",
+    "x": 100,
+    "y": 50
+  },
+  "enhydra_lutris": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "castor_canadensis": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "orcinus_orca": {
+    "fit": "cover",
+    "x": 50,
+    "y": 0
+  },
+  "tursiops_truncatus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "megaptera_novaeangliae": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "balaenoptera_musculus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "aquila_chrysaetos": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "haliaeetus_leucocephalus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "anas_platyrhynchos": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "falco_peregrinus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 0
+  },
+  "columba_livia": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "gallus_gallus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "pavo_cristatus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "corvus_corax": {
+    "fit": "cover",
+    "x": 100,
+    "y": 50
+  },
+  "cardinalis_cardinalis": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "pelecanus_occidentalis": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "ramphastos_toco": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "phoenicopterus_roseus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "diomedea_exulans": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "phoebastria_immutabilis": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "cacatua_galerita": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "ara_macao": {
+    "fit": "cover",
+    "x": 0,
+    "y": 50
+  },
+  "aptenodytes_forsteri": {
+    "fit": "cover",
+    "x": 100,
+    "y": 50
+  },
+  "aptenodytes_patagonicus": {
+    "fit": "contain",
+    "x": 100,
+    "y": 50
+  },
+  "eudyptula_minor": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "pygoscelis_adeliae": {
+    "fit": "contain",
+    "x": 100,
+    "y": 50
+  },
+  "pygoscelis_papua": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "spheniscus_demersus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "tyto_alba": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "bubo_virginianus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "dromaius_novaehollandiae": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "struthio_camelus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "giraffa_camelopardalis": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "loxodonta_africana": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "ursus_maritimus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "hydrochoerus_hydrochaeris": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "panthera_pardus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "pan_troglodytes": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "ceratotherium_simum": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "alligator_mississippiensis": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "crocodylus_niloticus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "crocodylus_acutus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "gavialis_gangeticus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "osteolaemus_tetraspis": {
+    "fit": "cover",
+    "x": 0,
+    "y": 50
+  },
+  "boa_constrictor": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "eunectes_murinus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "python_regius": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "crotalus_atrox": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "agkistrodon_contortrix": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "eublepharis_macularius": {
+    "fit": "cover",
+    "x": 100,
+    "y": 50
+  },
+  "sphenodon_punctatus": {
+    "fit": "cover",
+    "x": 0,
+    "y": 50
+  },
+  "chelonia_mydas": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "chlamydosaurus_kingii": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "caretta_caretta": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "dermochelys_coriacea": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "trachemys_scripta": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "macrochelys_temminckii": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "anaxyrus_americanus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "rhinella_marina": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "lithobates_catesbeianus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "xenopus_laevis": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "hyla_versicolor": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "dendrobates_auratus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "litoria_caerulea": {
+    "fit": "cover",
+    "x": 0,
+    "y": 50
+  },
+  "dendrobates_leucomelas": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "pyxicephalus_adspersus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "conraua_goliath": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "ambystoma_maculatum": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "salamandra_salamandra": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "cryptobranchus_alleganiensis": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "andrias_japonicus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "carcharodon_carcharias": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "proteus_anguinus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "galeocerdo_cuvier": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "rhincodon_typus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "carcharhinus_leucas": {
+    "fit": "cover",
+    "x": 0,
+    "y": 50
+  },
+  "triakis_semifasciata": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "negaprion_brevirostris": {
+    "fit": "cover",
+    "x": 0,
+    "y": 50
+  },
+  "carcharias_taurus": {
+    "fit": "cover",
+    "x": 100,
+    "y": 50
+  },
+  "cetorhinus_maximus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "manta_birostris": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "myliobatis_californica": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "dasyatis_americana": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "cyprinus_carpio": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "carassius_auratus": {
+    "fit": "cover",
+    "x": 100,
+    "y": 50
+  },
+  "salmo_salar": {
+    "fit": "cover",
+    "x": 100,
+    "y": 50
+  },
+  "pylodictis_olivaris": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "arctica_islandica": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "homarus_americanus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "panopea_generosa": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "mercenaria_mercenaria": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "crassostrea_gigas": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "mytilus_edulis": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "crassostrea_virginica": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "apis_mellifera": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "strongylocentrotus_franciscanus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "cygnus_olor": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "hirundo_rustica": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "python_molurus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "elaphe_guttata": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "gopherus_agassizii": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "chelonoidis_nigra": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "ambystoma_mexicanum": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "ambystoma_tigrinum": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "sphyrna_lewini": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "gadus_morhua": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "isurus_oxyrinchus": {
+    "fit": "cover",
+    "x": 100,
+    "y": 50
+  },
+  "thunnus_alalunga": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "drosophila_melanogaster": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "helarctos_malayanus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "melursus_ursinus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "ursus_thibetanus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "tremarctos_ornatus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "apus_apus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "anser_anser": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "ardea_cinerea": {
+    "fit": "contain",
+    "x": 0,
+    "y": 50
+  },
+  "phalacrocorax_carbo": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "larus_argentatus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "corvus_corone": {
+    "fit": "cover",
+    "x": 50,
+    "y": 0
+  },
+  "erithacus_rubecula": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "sturnus_vulgaris": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "ornithorhynchus_anatinus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "erinaceus_europaeus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "didelphis_marsupialis": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "tupaia_glis": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "cavia_porcellus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "columba_palumbus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "alauda_arvensis": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "corvus_frugilegus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "somateria_mollissima": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "vanellus_vanellus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "haematopus_ostralegus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "sterna_hirundo": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "larus_ridibundus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "oryctolagus_cuniculus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "camelus_dromedarius": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "lemur_catta": {
+    "fit": "cover",
+    "x": 100,
+    "y": 50
+  },
+  "procyon_lotor": {
+    "fit": "cover",
+    "x": 100,
+    "y": 50
+  },
+  "meles_meles": {
+    "fit": "cover",
+    "x": 0,
+    "y": 50
+  },
+  "zalophus_californianus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "phoca_vitulina": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "tachyglossus_aculeatus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "rangifer_tarandus": {
+    "fit": "cover",
+    "x": 0,
+    "y": 50
+  },
+  "suricata_suricatta": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "mesocricetus_auratus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "myotis_lucifugus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "myrmecophaga_tridactyla": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "pteropus_vampyrus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "dasypus_novemcinctus": {
+    "fit": "cover",
+    "x": 100,
+    "y": 50
+  },
+  "capra_hircus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "prionace_glauca": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "panthera_onca": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "equus_caballus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "mus_musculus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "puma_concolor": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "cervus_elaphus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "vombatus_ursinus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "rattus_norvegicus": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "sus_scrofa": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "dog_labrador_retriever": {
+    "fit": "cover",
+    "x": 0,
+    "y": 50
+  },
+  "dog_english_cocker_spaniel": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "dog_staffordshire_bull_terrier": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "dog_chihuahua": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "dog_shih_tzu": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "dog_french_bulldog": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "dog_border_collie": {
+    "fit": "cover",
+    "x": 0,
+    "y": 50
+  },
+  "dog_yorkshire_terrier": {
+    "fit": "cover",
+    "x": 50,
+    "y": 0
+  },
+  "dog_english_springer_spaniel": {
+    "fit": "cover",
+    "x": 0,
+    "y": 50
+  },
+  "dog_german_shepherd": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "dog_pug": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "dog_west_highland_white_terrier": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "dog_cavalier_king_charles_spaniel": {
+    "fit": "cover",
+    "x": 0,
+    "y": 50
+  },
+  "dog_golden_retriever": {
+    "fit": "cover",
+    "x": 100,
+    "y": 50
+  },
+  "dog_bichon_frise": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "dog_miniature_dachshund": {
+    "fit": "cover",
+    "x": 0,
+    "y": 50
+  },
+  "dog_border_terrier": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "dog_miniature_schnauzer": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "dog_beagle": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "dog_boxer": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "dog_pomeranian": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "dog_rottweiler": {
+    "fit": "cover",
+    "x": 0,
+    "y": 50
+  },
+  "dog_whippet": {
+    "fit": "cover",
+    "x": 0,
+    "y": 50
+  },
+  "dog_greyhound": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "dog_toy_poodle": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "dog_maltese": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "cat_maine_coon": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "cat_ragdoll": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "cat_british_shorthair": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "cat_persian": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "cat_birman": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "cat_abyssinian": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "cat_siberian": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "cat_norwegian_forest": {
+    "fit": "cover",
+    "x": 0,
+    "y": 50
+  },
+  "cat_russian_blue": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "cat_exotic_shorthair": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "cat_somali": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "cat_bengal": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "cat_siamese": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "cat_burmese": {
+    "fit": "cover",
+    "x": 50,
+    "y": 50
+  },
+  "cat_sphynx": {
+    "fit": "cover",
+    "x": 50,
+    "y": 0
+  }
+}

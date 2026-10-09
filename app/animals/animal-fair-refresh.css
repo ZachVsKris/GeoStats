@@ -249,3 +249,43 @@
 .countyFair .traitPodium:nth-child(4) .podiumBadge, .countyFair .traitPodium:nth-child(4) .podiumBadge::after { background: #3769c7; }
 .countyFair .traitPodium:nth-child(5) .podiumBadge, .countyFair .traitPodium:nth-child(5) .podiumBadge::after { background: #9751bc; }
 .countyFair .traitPodium:nth-child(6) .podiumBadge, .countyFair .traitPodium:nth-child(6) .podiumBadge::after { background: #c8447a; }
+
+/* Static cards use one square photo format and a consistent name line. */
+.realAnimalPage .activePlay .country > span { width: 100%; display: flex; justify-content: center; }
+.realAnimalPage .activePlay .country .animalRealPhoto {
+  width: min(100%, 174px); height: auto; aspect-ratio: 1; object-fit: contain;
+  padding: 0; background: #f2f2ef; border: 1px solid #deded8; border-radius: 8px;
+}
+.realAnimalPage .activePlay .country strong { width: 100%; min-height: 2.4em; display: grid; align-content: center; }
+.realAnimalPage .activePlay .choice .animalRealPhoto { width: 64px; height: 64px; padding: 0; object-fit: contain; }
+@media (min-width: 901px) {
+  .realAnimalPage .activePlay.normalRound .country .animalRealPhoto { width: min(100%, 124px); }
+  .realAnimalPage .activePlay.expertRound .country .animalRealPhoto { width: min(100%, 92px); height: auto; }
+  .realAnimalPage .activePlay.expertRound .country strong { min-height: 1.2em; }
+}
+@media (min-width: 621px) and (max-width: 900px) {
+  .realAnimalPage .activePlay .country .animalRealPhoto { width: min(100%, 110px); }
+}
+@media (max-width: 620px) {
+  .realAnimalPage .activePlay.easyRound .bankPanel .countries { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(2, auto); }
+  .realAnimalPage .activePlay.easyRound .country .animalRealPhoto { width: min(100%, 98px); }
+  .realAnimalPage .activePlay.normalRound .country .animalRealPhoto { width: min(100%, 76px); }
+  .realAnimalPage .activePlay.expertRound .country .animalRealPhoto { width: min(100%, 64px); }
+  .realAnimalPage .activePlay .country { gap: 3px; }
+  .realAnimalPage .activePlay .country strong { font-size: 12px !important; }
+  .realAnimalPage .activePlay .choice .animalRealPhoto { width: 42px; height: 42px; }
+}
+@media (max-width: 620px) and (max-height: 740px) {
+  .realAnimalPage .activePlay.easyRound .country .animalRealPhoto { width: 78px; }
+  .realAnimalPage .shell.activePlay.expertRound .country .animalRealPhoto { width: 56px; height: auto; }
+}
+.animalViewPhotos { padding: 2px 0; border: 0; background: transparent; color: var(--accent); font-size: 12px; text-decoration: underline; cursor: pointer; }
+.animalPhotoGallery { width: min(900px, calc(100vw - 24px)); }
+.animalPhotoGalleryGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.animalPhotoGallery figure { margin: 0; min-width: 0; }
+.animalPhotoGallery figure > img { display: block; width: 100%; aspect-ratio: 1; object-fit: contain; background: #f2f2ef; border: 1px solid #deded8; border-radius: 10px; }
+.animalPhotoGallery figcaption { display: grid; gap: 5px; padding: 8px 0; }
+.animalPhotoGallery figcaption strong { font-size: 18px; }
+.animalPhotoGallery figcaption small { color: var(--muted); font-size: 11px; }
+.animalPhotoGallery figcaption a { color: var(--accent); font-size: 12px; }
+@media (max-width: 620px) { .animalPhotoGalleryGrid { grid-template-columns: 1fr; } }

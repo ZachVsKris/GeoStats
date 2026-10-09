@@ -35,6 +35,8 @@ jobs:
             -r scripts/requirements-geography.txt
       - name: Verify v16.3.4 catalog recovery, semantic rules, mobile results, generator, and importers
         run: npm run test-v16-3-4
+      - name: Verify tapered scoring
+        run: node scripts/test-tapered-scoring.cjs
       - name: Type-check application
         run: npm run typecheck
       - name: Run source-policy fixtures

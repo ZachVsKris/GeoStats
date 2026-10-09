@@ -1037,7 +1037,7 @@
   "cat_abyssinian": {
     "fit": "cover",
     "x": 50,
-    "y": 50
+    "y": 0
   },
   "cat_siberian": {
     "fit": "cover",
@@ -1052,7 +1052,7 @@
   "cat_russian_blue": {
     "fit": "cover",
     "x": 50,
-    "y": 50
+    "y": 0
   },
   "cat_exotic_shorthair": {
     "fit": "cover",

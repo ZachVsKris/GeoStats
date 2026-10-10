@@ -691,7 +691,18 @@ export function buildCategoryCatalog(rows: PlayableCategoryRow[], options: Build
   const { byId, byIndicator } = staticMatchMaps();
   const catalog = new Map<string, Category>();
 
-  for (const row of rows) {
+  for (const sourceRow of rows) {
+    // Clarify the grain-area indicator without changing its data or rankings.
+    const row: PlayableCategoryRow = sourceRow.id === "worldbank-catalog:ag-lnd-crel-ha" ? {
+      ...sourceRow,
+      title: "Most land used to grow grain crops",
+      short_title: "Land used to grow grain crops",
+      description: "Total area harvested for grain crops such as wheat, rice, corn and barley, measured in hectares. Some countries report planted or cultivated area instead.",
+      plain_language_description: "Total area harvested for grain crops such as wheat, rice, corn and barley, measured in hectares. Some countries report planted or cultivated area instead.",
+      unit: "hectares",
+      unit_explanation: "Area measured in hectares; one hectare equals 10,000 square meters.",
+      metadata: { ...sourceRow.metadata, boardDescription: "Area harvested for grain crops such as wheat, rice, corn and barley", unitExplanation: "Area measured in hectares; one hectare equals 10,000 square meters." },
+    } : sourceRow;
     const source = resolvedSourceId(row);
     if (!source) {
       if (playableOnly && (row.computed_playable_v16_2 ?? row.computed_playable_v16) === true) throw new Error(`Catalog contract drift: unknown source for ${row.id}.`);

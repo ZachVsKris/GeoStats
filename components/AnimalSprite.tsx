@@ -370,15 +370,44 @@ function Marine({ p }: { p: Profile }) {
   </>;
 }
 
+function Fish({p,clipId}:{p:Profile;clipId:string}) {
+ const f=p.feature, gar=f==="gar", deep=["tang","goldfish","clownfish"].includes(f??""), flat=f==="flatfish", tuna=["tuna","yellowfin"].includes(f??"");
+ const body=gar?"M33 102 Q87 83 147 91 L190 99 190 107 144 117 Q85 123 33 110 Z":flat?"M40 102 Q100 49 175 93 Q189 105 170 122 Q95 154 40 107 Z":deep?"M43 103 Q77 57 126 66 Q161 70 176 100 Q167 135 126 137 Q71 143 43 110 Z":"M37 104 Q87 70 141 82 Q165 87 182 102 Q157 128 109 129 Q69 128 37 110 Z";
+ return <>
+  <g className="cartoonWag" style={{transformOrigin:"44px 106px"}}><path fill={f==="tang"?"#f7ca4e":p.color} d={tuna?"M48 103 L15 66 25 103 15 141 48 111 Z":"M50 98 Q24 82 14 81 L22 107 13 130 Q31 130 50 115 Z"}/></g>
+  <path fill={p.color} d="M69 88 Q76 64 110 64 L128 83 Z M72 123 L98 143 118 125 Z"/>
+  <path fill={p.color} d={body}/><clipPath id={clipId}><path d={body}/></clipPath>
+  <g clipPath={`url(#${clipId})`} stroke="none"><path fill={p.belly} d="M34 111 Q111 123 183 106 L185 145 33 147 Z"/>
+   {f==="perch"&&Array.from({length:6},(_,i)=><path key={i} fill="#556d47" d={`M${57+i*16} 76 l-5 31 7 10 4-38 Z`}/>)}
+   {f==="clownfish"&&[58,102,148].map(x=><path key={x} fill="#fff4d6" stroke="#694d3b" d={`M${x} 60 q-10 40 0 85 l12 0 q-11-42 1-85 Z`}/>)}
+   {f==="tang"&&<path fill="#29436b" d="M54 101 Q84 58 130 79 L169 96 145 101 128 94 123 118 105 108 117 87 Q85 85 65 112 Z"/>}
+   {["salmon","trout","cod","gar"].includes(f??"")&&Array.from({length:16},(_,i)=><circle key={i} cx={56+(i%8)*12} cy={88+Math.floor(i/8)*11} r={f==="trout"?2.1:1.5} fill={f==="trout"&&i%3===0?"#b35a3d":"#6c7257"}/>)}
+  </g>
+  {f==="yellowfin"&&Array.from({length:5},(_,i)=><path key={i} fill="#f7cc4b" d={`M${38+i*7} 94 l6-8 3 6 Z`}/>)}
+  <path className="cartoonWing" style={{transformOrigin:"130px 111px"}} fill={p.color} d="M128 105 Q116 116 108 132 Q128 132 140 110 Z"/>
+  <path fill="none" d="M149 92 q-10 13 0 25"/><Eye x={gar?161:160} y={flat?92:99} size={5}/><path fill="none" d="M172 110 q6 1 11-5"/>
+  {["carp","catfish"].includes(f??"")&&<path fill="none" strokeWidth="1.4" d="M178 108 q13 8 12 18 M175 111 q3 13-6 19"/>}
+ </>;
+}
+function Ray({p}:{p:Profile}) {
+ const manta=p.feature==="manta";
+ return <><path className="cartoonWag" style={{transformOrigin:"72px 107px"}} fill="none" strokeWidth="3" d="M77 107 Q48 112 22 143"/>
+ <path className="cartoonWing" style={{transformOrigin:"101px 105px"}} fill={p.color} d={manta?"M84 94 Q66 72 41 47 Q99 58 134 97 L139 109 Q134 142 69 144 Q87 123 84 94 Z":"M60 104 Q91 60 139 92 L166 106 Q126 149 74 126 Z"}/>
+ <path fill={p.color} d="M89 99 Q120 84 150 101 Q161 107 150 118 Q123 134 88 115 Z"/>
+ {manta&&<path fill={p.color} d="M141 98 q22-20 28-11 q-4 10-12 17 M144 118 q25 9 20 18 q-11-4-19-12"/>}<Eye x={146} y={102} size={4}/><path fill="none" strokeWidth="1.4" d="M142 115q7 3 13-2"/></>;
+}
+
 function Shark({ p, clipId }: { p: Profile; clipId: string }) {
   const hammer = p.feature === "hammerhead", whale = p.feature === "whaleshark", basking = p.feature === "baskingshark", leopard = p.feature === "leopardshark";
-  const body = whale ? "M35 103 Q70 73 145 75 Q178 75 188 94 L188 113 Q172 133 117 125 Q62 124 35 103 Z" : basking ? "M36 104 Q69 80 135 79 Q164 76 181 95 L190 102 182 121 Q130 136 36 104 Z" : "M35 105 Q61 78 128 81 Q158 78 187 104 Q176 120 129 123 Q74 126 35 105 Z";
+  const tiger = p.feature === "tigershark", blue = p.feature === "blueshark", lemon = p.feature === "lemonshark";
+  const body = blue ? "M35 105 Q77 83 137 86 L191 100 Q177 115 132 121 Q75 123 35 105 Z" : whale ? "M35 103 Q70 73 145 75 Q178 75 188 94 L188 113 Q172 133 117 125 Q62 124 35 103 Z" : basking ? "M36 104 Q69 80 135 79 Q164 76 181 95 L190 102 182 121 Q130 136 36 104 Z" : "M35 105 Q61 78 128 81 Q158 78 187 104 Q176 120 129 123 Q74 126 35 105 Z";
   return <>
     <g className="cartoonWag" style={{transformOrigin:"40px 105px"}}><path fill={p.color} d="M47 102 Q27 91 18 54 L12 89 25 108 14 132 31 121 47 111 Z"/></g>
     <path fill={p.color} d={hammer ? "M77 90 Q80 51 98 49 L111 87 Z" : "M78 86 Q86 54 99 54 L116 86 Z"}/>
     <path fill={p.color} d={body}/><clipPath id={clipId}><path d={body}/></clipPath>
     <path fill={p.belly} stroke="none" d="M51 108 Q120 127 181 106 L181 117 Q131 137 51 108 Z"/>
-    <g clipPath={`url(#${clipId})`} stroke="none">{whale ? <>{Array.from({length:24},(_,i)=><circle key={i} cx={58+(i%8)*15} cy={86+Math.floor(i/8)*10} r="2.3" fill="#eae9cf"/>)}<path fill="none" stroke="#dadfc3" strokeWidth="1.3" d="M55 93h116 M62 103h113"/></> : leopard ? <>{Array.from({length:8},(_,i)=><path key={i} fill="#766b59" d={`M${57+i*15} 82 q-6 12 0 17 q9 0 9-14 Z`}/>)}{Array.from({length:7},(_,i)=><ellipse key={i} cx={65+i*15} cy="105" rx="3.4" ry="2.5" fill="#766b59"/>)}</> : null}</g>
+    <g clipPath={`url(#${clipId})`} stroke="none">{tiger && Array.from({length:9},(_,i)=><path key={`tiger${i}`} fill="#586f69" d={`M${53+i*12} 80 l-4 17 5 5 3-20 Z`}/>)}{whale ? <>{Array.from({length:24},(_,i)=><circle key={i} cx={58+(i%8)*15} cy={86+Math.floor(i/8)*10} r="2.3" fill="#eae9cf"/>)}<path fill="none" stroke="#dadfc3" strokeWidth="1.3" d="M55 93h116 M62 103h113"/></> : leopard ? <>{Array.from({length:8},(_,i)=><path key={i} fill="#766b59" d={`M${57+i*15} 82 q-6 12 0 17 q9 0 9-14 Z`}/>)}{Array.from({length:7},(_,i)=><ellipse key={i} cx={65+i*15} cy="105" rx="3.4" ry="2.5" fill="#766b59"/>)}</> : null}</g>
+    {lemon&&<path fill={p.color} d="M53 93 l12-27 13 21 Z"/>}
     <path className="cartoonWing" style={{transformOrigin:"113px 109px"}} fill={p.color} d="M104 104 Q87 120 75 143 Q96 143 129 115 Z"/>
     {[0,1,2,3,4].map(i=><path key={i} fill="none" strokeWidth="1.4" d={`M${128-i*5} ${basking?87:94} q-4 ${basking?14:7} 0 ${basking?29:16}`}/>)}
     {hammer ? <g className="cartoonHead" style={{transformOrigin:"159px 103px"}}><path fill={p.color} d="M145 92 L167 81 Q190 73 194 85 L193 94 175 104 184 120 Q184 132 173 133 L151 121 145 106 Z"/><Eye x={183} y={85} size={5}/><Eye x={175} y={123} size={5}/><path fill="none" strokeWidth="1.3" d="M167 103q10 5 19-1"/></g> : <g className="cartoonHead" style={{transformOrigin:"165px 102px"}}><Eye x={whale?171:162} y={whale?94:98} size={6}/><path fill="none" strokeWidth="1.5" d={whale?"M176 115q7 1 12-3":basking?"M169 108q13 14 19-6":"M167 112q10 3 19-5"}/></g>}
@@ -500,11 +529,13 @@ function IntroducedMammal({p}: {p: Profile}) {
 
 export const AnimalSprite = memo(function AnimalSprite({ animal, className = "" }: { animal: Animal; className?: string }) {
   const clipId = `coat${useId().replaceAll(":", "")}`, p = cartoonProfile(animal.id);
+  if (animal.taxonomicGroup === "fish" && p.kind === "quadruped") {p.kind="fish";p.feature="fish";p.color="#9daf90";p.belly="#f0e3bf";}
+  if (animal.taxonomicGroup === "shark" && p.kind === "quadruped") p.kind="shark";
   if (animal.extinctionStatus === "extinct") return <img src={`/animalstats/extinct/${animal.scientificName.split(" ")[0].toLowerCase()}.svg`} className={`animalSprite fairCartoon extinctCartoon ${className}`} alt={`${animal.commonName} · cartoon reconstruction`} draggable={false} />;
   return <svg viewBox="0 0 200 160" className={`animalSprite fairCartoon ${className}`} role="img" aria-label={animal.commonName} data-animal-id={animal.id} data-art-version="fair-cartoon-v2" data-normalized-size="142" data-anatomy={p.feature}>
     <ellipse className="cartoonGround" cx="100" cy="149" rx="65" ry="5" fill="#60482c" opacity=".12" />
     <g stroke={INK} strokeWidth="2.3" strokeLinejoin="round" strokeLinecap="round">
-      {p.feature?.startsWith("introduced:") ? <IntroducedMammal p={p}/> : p.feature?.startsWith("pet:") ? <Pet p={p} clipId={clipId}/> : p.feature === "guineapig" ? <GuineaPig clipId={clipId} /> : ["seal","sealion"].includes(p.feature ?? "") ? <Pinniped p={p}/> : ["littlebat","flyingfox"].includes(p.feature ?? "") ? <Bat p={p}/> : ["echidna","anteater","armadillo"].includes(p.feature ?? "") ? <SmallSpecialist p={p}/> : ["meerkat","seaotter"].includes(p.feature ?? "") ? <UprightMammal p={p}/> : p.kind === "bird" || p.kind === "penguin" ? <Bird p={p} /> : p.kind === "marine" ? <Marine p={p} /> : p.kind === "shark" ? <Shark p={p} clipId={clipId}/> : p.kind === "primate" ? <Primate p={p} /> : ["reptile", "snake", "turtle"].includes(p.kind) ? <Reptile p={p} /> : p.feature === "kangaroo" ? <Kangaroo p={p} /> : <Mammal p={p} clipId={clipId} />}
+      {p.feature?.startsWith("introduced:") ? <IntroducedMammal p={p}/> : p.feature?.startsWith("pet:") ? <Pet p={p} clipId={clipId}/> : p.feature === "guineapig" ? <GuineaPig clipId={clipId} /> : ["seal","sealion"].includes(p.feature ?? "") ? <Pinniped p={p}/> : ["littlebat","flyingfox"].includes(p.feature ?? "") ? <Bat p={p}/> : ["echidna","anteater","armadillo"].includes(p.feature ?? "") ? <SmallSpecialist p={p}/> : ["meerkat","seaotter"].includes(p.feature ?? "") ? <UprightMammal p={p}/> : p.kind === "bird" || p.kind === "penguin" ? <Bird p={p} /> : p.kind === "marine" ? <Marine p={p} /> : p.kind === "fish" ? <Fish p={p} clipId={clipId}/> : p.kind === "ray" ? <Ray p={p}/> : p.kind === "shark" ? <Shark p={p} clipId={clipId}/> : p.kind === "primate" ? <Primate p={p} /> : ["reptile", "snake", "turtle"].includes(p.kind) ? <Reptile p={p} /> : p.feature === "kangaroo" ? <Kangaroo p={p} /> : <Mammal p={p} clipId={clipId} />}
     </g>
   </svg>;
 });

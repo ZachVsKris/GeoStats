@@ -6,6 +6,8 @@ type Kind =
   | "primate"
   | "marine"
   | "shark"
+  | "fish"
+  | "ray"
   | "reptile"
   | "snake"
   | "turtle";
@@ -36,6 +38,15 @@ const base: Profile = {
   tail: 1,
 };
 const profiles: Record<string, Partial<Profile>> = {
+  carcharodon_carcharias: {kind:"shark",color:"#788d99",belly:"#f4efdf",feature:"greatwhite"},
+  carcharhinus_leucas: {kind:"shark",color:"#aaa69c",belly:"#eee8d7",feature:"bullshark"},
+  galeocerdo_cuvier: {kind:"shark",color:"#9daaa1",belly:"#f4ecd8",feature:"tigershark"},
+  prionace_glauca: {kind:"shark",color:"#548ba9",belly:"#f1efdf",feature:"blueshark"},
+  negaprion_brevirostris: {kind:"shark",color:"#b2ad7f",belly:"#f0ecd1",feature:"lemonshark"},
+  carcharias_taurus: {kind:"shark",color:"#b2a28b",belly:"#eee5cf",feature:"sandtiger"},
+  manta_birostris: {kind:"ray",color:"#535e70",belly:"#e7e4d9",feature:"manta"},
+  myliobatis_californica: {kind:"ray",color:"#756958",belly:"#e7deca",feature:"batray"},
+  dasyatis_americana: {kind:"ray",color:"#a99370",belly:"#eee4cd",feature:"stingray"},
   syncerus_caffer: {color:"#61564b",belly:"#a99a85",feature:"introduced:buffalo"},
   aepyceros_melampus: {color:"#c58248",belly:"#f3e3c5",feature:"introduced:impala"},
   orycteropus_afer: {color:"#b28d76",belly:"#e0c1a8",feature:"introduced:aardvark"},
@@ -522,5 +533,19 @@ for (const p of Object.values(profiles))
     p.leg = 0.2;
     p.height = 0.73;
   }
+
+const fishDesigns: Record<string, [string,string,string]> = {
+ cyprinus_carpio:["#bd9764","#efddb6","carp"],carassius_auratus:["#ef9239","#ffe3a5","goldfish"],
+ salmo_salar:["#9aaea7","#f4eedb","salmon"],gadus_morhua:["#a89970","#f0e5c9","cod"],
+ thunnus_alalunga:["#648eaa","#e9f0e2","tuna"],thunnus_albacares:["#568ca4","#ebedd9","yellowfin"],
+ thunnus_thynnus:["#507589","#e9eee3","tuna"],pylodictis_olivaris:["#a18f65","#ecddbb","catfish"],
+ perca_fluviatilis:["#9bb15e","#f3e1a2","perch"],perca_flavescens:["#d3b956","#f8e6ad","perch"],
+ salmo_trutta:["#a49760","#f0dfb6","trout"],paracanthurus_hepatus:["#3587d1","#88bce9","tang"],
+ atractosteus_spatula:["#99a16e","#efdfb3","gar"],hippoglossus_hippoglossus:["#998a6f","#cbbb96","flatfish"],
+ amphiprion_ocellaris:["#ee893b","#f8c389","clownfish"],pterois_volitans:["#b37758","#f4dbc0","lionfish"],
+ micropterus_salmoides:["#7c9b68","#efdfbb","bass"]
+};
+for(const [id,[color,belly,feature]] of Object.entries(fishDesigns))profiles[id]={kind:"fish",color,belly,feature};
+
 export const cartoonSpecies = Object.keys(profiles);
 export function cartoonProfile(id: string): Profile { return { ...base, ...profiles[id] }; }

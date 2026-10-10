@@ -274,6 +274,7 @@ function validateIndexedAnimalBoard(board: BoardCandidate, index: ReturnType<typ
       const larger = Math.max(first.valueNumeric, second.valueNumeric);
       const smaller = Math.min(first.valueNumeric, second.valueNumeric);
       if (trait.separationMethod === "distinct_ordinal" ? larger === smaller : larger / smaller < 1.05 - 1e-12) reasons.push(trait.separationMethod === "distinct_ordinal" ? `trait ${id}: ranks ${i + 1}-${i + 2} share the same category` : `trait ${id}: ranks ${i + 1}-${i + 2} separated by less than 5%`);
+      if (id.startsWith("marine_description_year") && larger - smaller < (board.mode === "easy" ? 4 : board.mode === "normal" ? 3 : 2)) reasons.push(`trait ${id}: description dates are too close`);
       const firstMin = first.valueMin ?? first.valueNumeric;
       const firstMax = first.valueMax ?? first.valueNumeric;
       const secondMin = second.valueMin ?? second.valueNumeric;

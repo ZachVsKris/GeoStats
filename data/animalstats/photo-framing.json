@@ -470,8 +470,8 @@
     "y": 50
   },
   "negaprion_brevirostris": {
-    "fit": "cover",
-    "x": 0,
+    "fit": "contain",
+    "x": 50,
     "y": 50
   },
   "carcharias_taurus": {

@@ -180,5 +180,47 @@
     "reviewPhotoId": 172440134,
     "reviewSourceUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/172440134/medium.jpg",
     "reviewDecision": "approved: exact taxon, clear licensed photograph, species-specific cartoon reviewed"
+  },
+  {
+    "animalId": "galeocerdo_cuvier",
+    "assetUrl": "/animalstats/galeocerdo_cuvier.jpg",
+    "originalUrl": "https://www.inaturalist.org/photos/19051907",
+    "creator": "Kris-Mikael Krister",
+    "license": "CC BY",
+    "attribution": "(c) Kris-Mikael Krister, some rights reserved (CC BY)",
+    "approved": true,
+    "reviewScientificName": "Galeocerdo cuvier",
+    "reviewTaxonId": 52299,
+    "reviewPhotoId": 19051907,
+    "reviewSourceUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/19051907/medium.jpg",
+    "reviewDecision": "Exact active species; inspected full-body photograph with identifiable silhouette; licensed attribution retained."
+  },
+  {
+    "animalId": "prionace_glauca",
+    "assetUrl": "/animalstats/prionace_glauca.jpg",
+    "originalUrl": "https://www.inaturalist.org/photos/358688436",
+    "creator": "Patrick Doll",
+    "license": "CC BY-SA",
+    "attribution": "(c) Patrick Doll, some rights reserved (CC BY-SA)",
+    "approved": true,
+    "reviewScientificName": "Prionace glauca",
+    "reviewTaxonId": 110361,
+    "reviewPhotoId": 358688436,
+    "reviewSourceUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/358688436/medium.jpg",
+    "reviewDecision": "Exact active species; inspected full-body photograph with identifiable silhouette; licensed attribution retained."
+  },
+  {
+    "animalId": "negaprion_brevirostris",
+    "assetUrl": "/animalstats/negaprion_brevirostris.jpg",
+    "originalUrl": "https://www.inaturalist.org/photos/70552759",
+    "creator": "Albert kok",
+    "license": "CC BY-SA",
+    "attribution": "(c) Albert kok, some rights reserved (CC BY-SA)",
+    "approved": true,
+    "reviewScientificName": "Negaprion brevirostris",
+    "reviewTaxonId": 106650,
+    "reviewPhotoId": 70552759,
+    "reviewSourceUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/70552759/medium.jpg",
+    "reviewDecision": "Exact active species; inspected full-body photograph with identifiable silhouette; licensed attribution retained."
   }
 ]

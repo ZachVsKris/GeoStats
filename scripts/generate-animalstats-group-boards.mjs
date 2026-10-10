@@ -13,52 +13,72 @@ try {
  const errors=validateAnimalDataset(d);if(errors.length)throw new Error(errors.join("\n"));
  const pub=publishedAnimalTraitIds(d),validate=createAnimalBoardValidator(d),vm=new Map(d.values.filter(v=>v.confidence==='approved').map(v=>[v.animalId+':'+v.traitId,v]));
  const portraits=new Set(d.photos.filter(p=>p.approved).map(p=>p.animalId));
- const groups={reptiles:['lizard','snake','turtle','crocodilian','reptile'],amphibians:['frog','salamander'],fish:['fish','shark','ray'],invertebrates:['insect','bivalve','crustacean','echinoderm'],mammals:null,mixed:null,marine:null};
+ const groups={birds:['bird'],insects:['insect'],dogs:['dog-breed'],cats:['cat-breed'],reptiles:['lizard','snake','turtle','crocodilian','reptile'],amphibians:['frog','salamander','amphibian'],fish:['fish','shark','ray'],invertebrates:['insect','bivalve','crustacean','echinoderm','cephalopod','gastropod','mollusc','cnidarian','arachnid','chelicerate','annelid','sponge'],mammals:null,mixed:null,marine:null};
  const marineIds=new Set(JSON.parse(fs.readFileSync('data/animalstats/research/marine-admission.json')).marineAnimalIds);
  for(const a of d.animals)if(a.taxonomicGroup==='marine-mammal')marineIds.add(a.id);
- const existing=JSON.parse(fs.readFileSync('data/animalstats/group-boards.json')).boards;
+ const existing=['group-boards','group-boards-2'].flatMap(name=>fs.existsSync(`data/animalstats/${name}.json`)?JSON.parse(fs.readFileSync(`data/animalstats/${name}.json`)).boards:[]);
  const out=existing.filter(b=>b.traitIds.every(t=>pub.has(t))&&validate(b).valid&&animalBoardComposition(d,b).eligible),seen=new Set(out.map(b=>b.id));
  function* combos(a,n,s=0,p=[]){if(!n){yield p;return;}for(let i=s;i<=a.length-n;i++)yield*combos(a,n-1,i+1,[...p,a[i]]);}
+ const report={policy:'intuitive-majority-distinct-winners-v6',notes:['No publication cap or per-lineup variant cap. Runtime budget is resumable and does not determine eligibility.','Clear distinct measured values replace blanket 5% gaps. Uncertainty overlap, source compatibility, unique winners and at least half intuitive remain required.'],groups:[]};
+ const seconds=Number(process.env.ANIMAL_GENERATION_SECONDS??5);
+ if(!Number.isFinite(seconds)||seconds<=0)throw new Error('ANIMAL_GENERATION_SECONDS must be positive');
+ const boardKey=b=>b.mode+'|'+[...b.animalIds].sort().join(',')+'|'+[...b.traitIds].sort().join(',');
+ const contents=new Set(out.map(boardKey));
+ const availableTraits=d.traits.filter(t=>pub.has(t.id)&&!t.id.startsWith('adult_shoulder_height'));
  for(const [group,types] of Object.entries(groups)) {
-  const animals=d.animals.filter(a=>a.active&&a.familiarityTier!=='edge'&&portraits.has(a.id)&&(group==='mixed'?a.entityType!=='breed':group==='marine'?marineIds.has(a.id):types?types.includes(a.taxonomicGroup):animalMajorGroup(a)==='mammals'&&a.entityType!=='breed'));
-  if(animals.length<4) continue;
-  for(const mode of ['easy','normal']) {
-   const start=out.length,existingModeCount=out.filter(b=>b.title===group&&b.mode===mode).length,n=mode==='easy'?4:6;
-   if(existingModeCount>=1000)continue;const maximumNew=Math.min(500,1000-existingModeCount);
-   if(animals.length<n)continue;
-   // Reproducible sampled lineups avoid both combinatorial blow-up and always
-   // placing the alphabetically first animals in every newly generated board.
-   let seed=parseInt(createHash('sha256').update(group+mode).digest('hex').slice(0,8),16);
+  const animals=d.animals.filter(a=>a.active&&(a.extinctionStatus??'living')==='living'&&a.familiarityTier!=='edge'&&portraits.has(a.id)&&(group==='mixed'?a.entityType!=='breed':group==='marine'?marineIds.has(a.id):types?types.includes(a.taxonomicGroup):animalMajorGroup(a)==='mammals'&&a.entityType!=='breed'));
+  for(const mode of ['easy','normal','expert']) {
+   const start=out.length,n=mode==='easy'?4:mode==='normal'?6:8,k=mode==='expert'?6:4,minimumIntuitive=Math.ceil(k/2);
+   const row={group,mode,portraitAnimals:animals.length,animalsWithEnoughMetrics:0,attempts:0,added:0,rejections:{}};report.groups.push(row);
+   const reject=reason=>{row.rejections[reason]=(row.rejections[reason]??0)+1;};
+   // Trait-guided pools make sparse marine/invertebrate facts reachable, instead
+   // of repeatedly drawing incompatible animals from the entire catalog.
+   const usable=animals.filter(a=>new Set(availableTraits.filter(t=>vm.has(a.id+':'+t.id)).map(t=>t.metricKey)).size>=k);
+   row.animalsWithEnoughMetrics=usable.length;
+   if(usable.length<n){reject('not enough illustrated animals with '+k+' distinct metrics');continue;}
+   const pools=availableTraits.map(t=>usable.filter(a=>vm.has(a.id+':'+t.id))).filter(pool=>pool.length>=n);
+   if(!pools.length){reject('no shared trait pool');continue;}
+   let seed=parseInt(createHash('sha256').update(group+mode+existing.length).digest('hex').slice(0,8),16);
    const random=()=>{seed^=seed<<13;seed^=seed>>>17;seed^=seed<<5;return(seed>>>0)/4294967296;};
-   const lineups=new Set();let attempts=0;
-   while(out.length-start<maximumNew&&attempts++<4000){
-    const shuffled=[...animals];for(let i=shuffled.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]];}
-    const aa=shuffled.slice(0,n).sort((a,b)=>a.id.localeCompare(b.id)),ids=aa.map(a=>a.id),lineup=ids.join(',');
-    if((group==='mixed'&&new Set(aa.map(animalMajorGroup)).size<2)||(group==='marine'&&(!aa.some(a=>animalMajorGroup(a)==='fish')||!aa.some(a=>animalMajorGroup(a)!=='fish'))))continue;
-    if(lineups.has(lineup)||aa.filter(a=>a.taxonomicGroup==='bat').length>1)continue;lineups.add(lineup);
-    const shell={animalIds:ids,traitIds:[],mode};if(animalBoardComposition(d,shell).familiar<(n===4?1:2))continue;
-    const tt=d.traits.filter(t=>{
-     if(!pub.has(t.id)||t.id.startsWith('adult_shoulder_height')||!ids.every(id=>vm.has(id+':'+t.id)))return false;
+   const shuffle=items=>{const list=[...items];for(let i=list.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[list[i],list[j]]=[list[j],list[i]];}return list;};
+   const lineups=new Set(),deadline=Date.now()+seconds*1000;
+   while(Date.now()<deadline){
+    row.attempts++;
+    const pool=row.attempts%4===0?usable:pools[Math.floor(random()*pools.length)];
+    const aa=shuffle(pool).slice(0,n).sort((a,b)=>a.id.localeCompare(b.id)),ids=aa.map(a=>a.id),lineup=ids.join(',');
+    if((group==='mixed'&&new Set(aa.map(animalMajorGroup)).size<2)||(group==='marine'&&(!aa.some(a=>animalMajorGroup(a)==='fish')||!aa.some(a=>animalMajorGroup(a)!=='fish')))){reject('group composition');continue;}
+    if(lineups.has(lineup)){reject('sampled lineup already explored');continue;}lineups.add(lineup);
+    if(aa.filter(a=>a.taxonomicGroup==='bat').length>1){reject('bat dominance');continue;}
+    const shell={animalIds:ids,traitIds:[],mode};if(animalBoardComposition(d,shell).familiar<(n===4?1:2)){reject('no familiar anchor');continue;}
+    const tt=shuffle(availableTraits.filter(t=>{
+     if(!ids.every(id=>vm.has(id+':'+t.id)))return false;
      const vv=ids.map(id=>vm.get(id+':'+t.id)).sort((a,b)=>a.valueNumeric-b.valueNumeric);
      if(new Set(vv.map(v=>v.sex)).size>1||new Set(vv.map(v=>v.lifeStage)).size>1)return false;
-     return vv.every((v,i)=>!i||((v.valueMin??v.valueNumeric)>(vv[i-1].valueMax??vv[i-1].valueNumeric)&&(t.separationMethod!=='positive_ratio_5_percent'||v.valueNumeric/vv[i-1].valueNumeric>=1.05)));
-    });
-    // Rotate available facts too; fixed catalog order otherwise fills each
-    // lineup's variant budget before newly sourced measurements are considered.
-    for(let i=tt.length-1;i>0;i--){const j=Math.floor(random()*(i+1));[tt[i],tt[j]]=[tt[j],tt[i]];}
-    let added=0;const already=out.filter(b=>b.title===group&&b.mode===mode&&[...b.animalIds].sort().join(',')===lineup).length;if(already>=4)continue;
-    for(const traits of combos(tt,4)){
-     if(traits.filter(t=>t.categoryKind==='intuitive').length<3||new Set(traits.map(t=>t.metricKey)).size!==4||traits.filter(t=>t.gameplayFamily==='environment').length>2)continue;
+     return vv.every((v,i)=>!i||(v.valueMin??v.valueNumeric)>(vv[i-1].valueMax??vv[i-1].valueNumeric));
+    }));
+    if(new Set(tt.map(t=>t.metricKey)).size<k){reject('not enough compatible distinct metrics');continue;}
+    if(tt.filter(t=>t.categoryKind==='intuitive').length<minimumIntuitive){reject('less than half intuitive');continue;}
+    for(const traits of combos(tt,k)){
+     if(Date.now()>=deadline)break;
+     if(traits.filter(t=>t.categoryKind==='intuitive').length<minimumIntuitive||new Set(traits.map(t=>t.metricKey)).size!==k)continue;
      const winners=traits.map(t=>[...ids].sort((a,b)=>(vm.get(a+':'+t.id).valueNumeric-vm.get(b+':'+t.id).valueNumeric)*(t.direction==='higher_wins'?-1:1))[0]);
-     if(new Set(winners).size!==4)continue;
-     const b={id:'groups-'+group+'-'+mode+'-'+createHash('sha256').update(lineup+'|'+traits.map(t=>t.id).join(',')).digest('hex').slice(0,12),title:group,collection:'living',boardType:group==='mixed'?'mixed':'themed',mode,animalIds:ids,traitIds:traits.map(t=>t.id),editorial:{policy:'intuitive-majority-distinct-winners-v5',intuitiveMinimum:3}};
-     if(seen.has(b.id))continue;
-     if(validate(b).valid&&animalBoardComposition(d,b).eligible){out.push(b);seen.add(b.id);added++;}
-     if(added+already>=4||out.length-start>=maximumNew)break;
+     if(new Set(winners).size!==k){reject('category winners compete for same animal');continue;}
+     const traitIds=traits.map(t=>t.id).sort();
+     const b={id:'groups-'+group+'-'+mode+'-'+createHash('sha256').update(lineup+'|'+traitIds.join(',')).digest('hex').slice(0,12),title:group,collection:'living',boardType:group==='mixed'?'mixed':'themed',mode,animalIds:ids,traitIds,editorial:{policy:report.policy,intuitiveMinimum:minimumIntuitive}};
+     if(seen.has(b.id)||contents.has(boardKey(b)))continue;
+     const result=validate(b);
+     if(result.valid&&animalBoardComposition(d,b).eligible){out.push(b);seen.add(b.id);contents.add(boardKey(b));break;}
+     else for(const reason of result.rejectionReasons)reject(reason.replace(/trait [^:]+:/,'trait:'));
     }
    }
-   console.log(group,mode,'added',out.length-start,'sampled lineups',lineups.size);
+   row.added=out.length-start;
+   console.log(group,mode,'added',row.added,'attempts',row.attempts);
   }
  }
- fs.writeFileSync('data/animalstats/group-boards.json',JSON.stringify({boards:out})+'\n');
+ report.totalBoards=out.length;
+ report.notes.push('Each sampled lineup contributes one new board per pass to prioritize animal diversity; later passes can add further variants.');
+ fs.writeFileSync('data/animalstats/research/generation-rejections.json',JSON.stringify(report,null,2)+'\n');
+ const middle=Math.ceil(out.length/2);
+ fs.writeFileSync('data/animalstats/group-boards.json',JSON.stringify({boards:out.slice(0,middle)})+'\n');
+ fs.writeFileSync('data/animalstats/group-boards-2.json',JSON.stringify({boards:out.slice(middle)})+'\n');
 } finally {fs.rmSync(dir,{recursive:true,force:true});}

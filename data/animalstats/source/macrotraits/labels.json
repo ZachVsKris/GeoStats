@@ -1,0 +1,1298 @@
+[
+  {
+    "Trait.ID":1,
+    "Modality.ID":1,
+    "Trait":"Biome",
+    "Modality":"Polar"
+  },
+  {
+    "Trait.ID":1,
+    "Modality.ID":2,
+    "Trait":"Biome",
+    "Modality":"Temperate"
+  },
+  {
+    "Trait.ID":1,
+    "Modality.ID":3,
+    "Trait":"Biome",
+    "Modality":"Tropical"
+  },
+  {
+    "Trait.ID":1,
+    "Modality.ID":4,
+    "Trait":"Biome",
+    "Modality":"Deep"
+  },
+  {
+    "Trait.ID":1,
+    "Modality.ID":5,
+    "Trait":"Biome",
+    "Modality":"HV-CS"
+  },
+  {
+    "Trait.ID":2,
+    "Modality.ID":1,
+    "Trait":"Salinity",
+    "Modality":"Oligohaline"
+  },
+  {
+    "Trait.ID":2,
+    "Modality.ID":2,
+    "Trait":"Salinity",
+    "Modality":"Mesohaline"
+  },
+  {
+    "Trait.ID":2,
+    "Modality.ID":3,
+    "Trait":"Salinity",
+    "Modality":"Polyhaline"
+  },
+  {
+    "Trait.ID":2,
+    "Modality.ID":4,
+    "Trait":"Salinity",
+    "Modality":"Euhaline"
+  },
+  {
+    "Trait.ID":2,
+    "Modality.ID":5,
+    "Trait":"Salinity",
+    "Modality":"Hyperhaline"
+  },
+  {
+    "Trait.ID":3,
+    "Modality.ID":1,
+    "Trait":"Water depth",
+    "Modality":"Extralittoral"
+  },
+  {
+    "Trait.ID":3,
+    "Modality.ID":2,
+    "Trait":"Water depth",
+    "Modality":"Supralittoral"
+  },
+  {
+    "Trait.ID":3,
+    "Modality.ID":3,
+    "Trait":"Water depth",
+    "Modality":"Mediolittoral"
+  },
+  {
+    "Trait.ID":3,
+    "Modality.ID":4,
+    "Trait":"Water depth",
+    "Modality":"Shore"
+  },
+  {
+    "Trait.ID":3,
+    "Modality.ID":5,
+    "Trait":"Water depth",
+    "Modality":"Shelf"
+  },
+  {
+    "Trait.ID":3,
+    "Modality.ID":6,
+    "Trait":"Water depth",
+    "Modality":"Slope"
+  },
+  {
+    "Trait.ID":3,
+    "Modality.ID":7,
+    "Trait":"Water depth",
+    "Modality":"Abyss"
+  },
+  {
+    "Trait.ID":4,
+    "Modality.ID":1,
+    "Trait":"Sea floor affinity",
+    "Modality":"Mainly hyperbenthic"
+  },
+  {
+    "Trait.ID":4,
+    "Modality.ID":2,
+    "Trait":"Sea floor affinity",
+    "Modality":"Occasionally hyperbenthic"
+  },
+  {
+    "Trait.ID":4,
+    "Modality.ID":3,
+    "Trait":"Sea floor affinity",
+    "Modality":"Epibenthic"
+  },
+  {
+    "Trait.ID":4,
+    "Modality.ID":4,
+    "Trait":"Sea floor affinity",
+    "Modality":"Occasionally endobenthic"
+  },
+  {
+    "Trait.ID":4,
+    "Modality.ID":5,
+    "Trait":"Sea floor affinity",
+    "Modality":"Mainly endobenthic"
+  },
+  {
+    "Trait.ID":5,
+    "Modality.ID":1,
+    "Trait":"Substratum",
+    "Modality":"Mud-Sandy mud"
+  },
+  {
+    "Trait.ID":5,
+    "Modality.ID":2,
+    "Trait":"Substratum",
+    "Modality":"Muddy sand"
+  },
+  {
+    "Trait.ID":5,
+    "Modality.ID":3,
+    "Trait":"Substratum",
+    "Modality":"Sand"
+  },
+  {
+    "Trait.ID":5,
+    "Modality.ID":4,
+    "Trait":"Substratum",
+    "Modality":"Mixed gravel"
+  },
+  {
+    "Trait.ID":5,
+    "Modality.ID":5,
+    "Trait":"Substratum",
+    "Modality":"Gravel"
+  },
+  {
+    "Trait.ID":5,
+    "Modality.ID":6,
+    "Trait":"Substratum",
+    "Modality":"Mixed soft-hard"
+  },
+  {
+    "Trait.ID":5,
+    "Modality.ID":7,
+    "Trait":"Substratum",
+    "Modality":"Hard"
+  },
+  {
+    "Trait.ID":6,
+    "Modality.ID":1,
+    "Trait":"Substratum depth occupancy",
+    "Modality":"0"
+  },
+  {
+    "Trait.ID":6,
+    "Modality.ID":2,
+    "Trait":"Substratum depth occupancy",
+    "Modality":"0-5"
+  },
+  {
+    "Trait.ID":6,
+    "Modality.ID":3,
+    "Trait":"Substratum depth occupancy",
+    "Modality":"5-15"
+  },
+  {
+    "Trait.ID":6,
+    "Modality.ID":4,
+    "Trait":"Substratum depth occupancy",
+    "Modality":"15-30"
+  },
+  {
+    "Trait.ID":6,
+    "Modality.ID":5,
+    "Trait":"Substratum depth occupancy",
+    "Modality":">30"
+  },
+  {
+    "Trait.ID":6,
+    "Modality.ID":6,
+    "Trait":"Substratum depth occupancy",
+    "Modality":"Crevice\/Den"
+  },
+  {
+    "Trait.ID":7,
+    "Modality.ID":1,
+    "Trait":"Epi-bioconstruction occupancy",
+    "Modality":"None"
+  },
+  {
+    "Trait.ID":7,
+    "Modality.ID":2,
+    "Trait":"Epi-bioconstruction occupancy",
+    "Modality":"Terrestrial plant\/Helophyte"
+  },
+  {
+    "Trait.ID":7,
+    "Modality.ID":3,
+    "Trait":"Epi-bioconstruction occupancy",
+    "Modality":"Mangrove"
+  },
+  {
+    "Trait.ID":7,
+    "Modality.ID":4,
+    "Trait":"Epi-bioconstruction occupancy",
+    "Modality":"Wrack"
+  },
+  {
+    "Trait.ID":7,
+    "Modality.ID":5,
+    "Trait":"Epi-bioconstruction occupancy",
+    "Modality":"Seagrass"
+  },
+  {
+    "Trait.ID":7,
+    "Modality.ID":6,
+    "Trait":"Epi-bioconstruction occupancy",
+    "Modality":"Kelp"
+  },
+  {
+    "Trait.ID":7,
+    "Modality.ID":7,
+    "Trait":"Epi-bioconstruction occupancy",
+    "Modality":"Other seaweed"
+  },
+  {
+    "Trait.ID":7,
+    "Modality.ID":8,
+    "Trait":"Epi-bioconstruction occupancy",
+    "Modality":"Coral\/Sponge"
+  },
+  {
+    "Trait.ID":7,
+    "Modality.ID":9,
+    "Trait":"Epi-bioconstruction occupancy",
+    "Modality":"Maerl"
+  },
+  {
+    "Trait.ID":7,
+    "Modality.ID":10,
+    "Trait":"Epi-bioconstruction occupancy",
+    "Modality":"Shell"
+  },
+  {
+    "Trait.ID":8,
+    "Modality.ID":1,
+    "Trait":"Life span",
+    "Modality":"<6m"
+  },
+  {
+    "Trait.ID":8,
+    "Modality.ID":2,
+    "Trait":"Life span",
+    "Modality":"6m-1y"
+  },
+  {
+    "Trait.ID":8,
+    "Modality.ID":3,
+    "Trait":"Life span",
+    "Modality":"1-3y"
+  },
+  {
+    "Trait.ID":8,
+    "Modality.ID":4,
+    "Trait":"Life span",
+    "Modality":"3-10y"
+  },
+  {
+    "Trait.ID":8,
+    "Modality.ID":5,
+    "Trait":"Life span",
+    "Modality":"10-20y"
+  },
+  {
+    "Trait.ID":8,
+    "Modality.ID":6,
+    "Trait":"Life span",
+    "Modality":"20-50y"
+  },
+  {
+    "Trait.ID":8,
+    "Modality.ID":7,
+    "Trait":"Life span",
+    "Modality":"50-100y"
+  },
+  {
+    "Trait.ID":8,
+    "Modality.ID":8,
+    "Trait":"Life span",
+    "Modality":">100y"
+  },
+  {
+    "Trait.ID":9,
+    "Modality.ID":1,
+    "Trait":"Age at maturity",
+    "Modality":"<6m"
+  },
+  {
+    "Trait.ID":9,
+    "Modality.ID":2,
+    "Trait":"Age at maturity",
+    "Modality":"6m-1y"
+  },
+  {
+    "Trait.ID":9,
+    "Modality.ID":3,
+    "Trait":"Age at maturity",
+    "Modality":"1-3y"
+  },
+  {
+    "Trait.ID":9,
+    "Modality.ID":4,
+    "Trait":"Age at maturity",
+    "Modality":"3-5y"
+  },
+  {
+    "Trait.ID":9,
+    "Modality.ID":5,
+    "Trait":"Age at maturity",
+    "Modality":"5-7y"
+  },
+  {
+    "Trait.ID":9,
+    "Modality.ID":6,
+    "Trait":"Age at maturity",
+    "Modality":">7y"
+  },
+  {
+    "Trait.ID":10,
+    "Modality.ID":1,
+    "Trait":"Voltinism",
+    "Modality":"Semivoltine"
+  },
+  {
+    "Trait.ID":10,
+    "Modality.ID":2,
+    "Trait":"Voltinism",
+    "Modality":"Univoltine"
+  },
+  {
+    "Trait.ID":10,
+    "Modality.ID":3,
+    "Trait":"Voltinism",
+    "Modality":"Bivoltine"
+  },
+  {
+    "Trait.ID":10,
+    "Modality.ID":4,
+    "Trait":"Voltinism",
+    "Modality":"Multivoltine"
+  },
+  {
+    "Trait.ID":11,
+    "Modality.ID":1,
+    "Trait":"Sexuality",
+    "Modality":"Gonochorism"
+  },
+  {
+    "Trait.ID":11,
+    "Modality.ID":2,
+    "Trait":"Sexuality",
+    "Modality":"Homogamy"
+  },
+  {
+    "Trait.ID":11,
+    "Modality.ID":3,
+    "Trait":"Sexuality",
+    "Modality":"Protandry"
+  },
+  {
+    "Trait.ID":11,
+    "Modality.ID":4,
+    "Trait":"Sexuality",
+    "Modality":"Protogyny"
+  },
+  {
+    "Trait.ID":12,
+    "Modality.ID":1,
+    "Trait":"Reproductive frequency",
+    "Modality":"Sexual seasonal"
+  },
+  {
+    "Trait.ID":12,
+    "Modality.ID":2,
+    "Trait":"Reproductive frequency",
+    "Modality":"Sexual continuous"
+  },
+  {
+    "Trait.ID":12,
+    "Modality.ID":3,
+    "Trait":"Reproductive frequency",
+    "Modality":"Asexual seasonal"
+  },
+  {
+    "Trait.ID":12,
+    "Modality.ID":4,
+    "Trait":"Reproductive frequency",
+    "Modality":"Asexual continuous"
+  },
+  {
+    "Trait.ID":13,
+    "Modality.ID":1,
+    "Trait":"Fertilisation",
+    "Modality":"Broadcasting"
+  },
+  {
+    "Trait.ID":13,
+    "Modality.ID":2,
+    "Trait":"Fertilisation",
+    "Modality":"Spermcasting"
+  },
+  {
+    "Trait.ID":13,
+    "Modality.ID":3,
+    "Trait":"Fertilisation",
+    "Modality":"Pairing"
+  },
+  {
+    "Trait.ID":14,
+    "Modality.ID":1,
+    "Trait":"Annual fecundity",
+    "Modality":"<10e2"
+  },
+  {
+    "Trait.ID":14,
+    "Modality.ID":2,
+    "Trait":"Annual fecundity",
+    "Modality":"10e2-10e3"
+  },
+  {
+    "Trait.ID":14,
+    "Modality.ID":3,
+    "Trait":"Annual fecundity",
+    "Modality":"10e3-10e4"
+  },
+  {
+    "Trait.ID":14,
+    "Modality.ID":4,
+    "Trait":"Annual fecundity",
+    "Modality":"10e4-10e5"
+  },
+  {
+    "Trait.ID":14,
+    "Modality.ID":5,
+    "Trait":"Annual fecundity",
+    "Modality":"10e5-10e6"
+  },
+  {
+    "Trait.ID":14,
+    "Modality.ID":6,
+    "Trait":"Annual fecundity",
+    "Modality":">10e6"
+  },
+  {
+    "Trait.ID":15,
+    "Modality.ID":1,
+    "Trait":"Offspring type",
+    "Modality":"Egg"
+  },
+  {
+    "Trait.ID":15,
+    "Modality.ID":2,
+    "Trait":"Offspring type",
+    "Modality":"Larva"
+  },
+  {
+    "Trait.ID":15,
+    "Modality.ID":3,
+    "Trait":"Offspring type",
+    "Modality":"Juvenile"
+  },
+  {
+    "Trait.ID":16,
+    "Modality.ID":1,
+    "Trait":"Offspring size",
+    "Modality":"<0.1"
+  },
+  {
+    "Trait.ID":16,
+    "Modality.ID":2,
+    "Trait":"Offspring size",
+    "Modality":"0.1-0.5"
+  },
+  {
+    "Trait.ID":16,
+    "Modality.ID":3,
+    "Trait":"Offspring size",
+    "Modality":"0.5-1.5"
+  },
+  {
+    "Trait.ID":16,
+    "Modality.ID":4,
+    "Trait":"Offspring size",
+    "Modality":"1.5-5.0"
+  },
+  {
+    "Trait.ID":16,
+    "Modality.ID":5,
+    "Trait":"Offspring size",
+    "Modality":">5.0"
+  },
+  {
+    "Trait.ID":17,
+    "Modality.ID":1,
+    "Trait":"Offspring protection",
+    "Modality":"None"
+  },
+  {
+    "Trait.ID":17,
+    "Modality.ID":2,
+    "Trait":"Offspring protection",
+    "Modality":"Gel"
+  },
+  {
+    "Trait.ID":17,
+    "Modality.ID":3,
+    "Trait":"Offspring protection",
+    "Modality":"Capsule"
+  },
+  {
+    "Trait.ID":17,
+    "Modality.ID":4,
+    "Trait":"Offspring protection",
+    "Modality":"Burying"
+  },
+  {
+    "Trait.ID":17,
+    "Modality.ID":5,
+    "Trait":"Offspring protection",
+    "Modality":"Bearing\/Brooding"
+  },
+  {
+    "Trait.ID":18,
+    "Modality.ID":1,
+    "Trait":"Offspring development",
+    "Modality":"Planktotrophic"
+  },
+  {
+    "Trait.ID":18,
+    "Modality.ID":2,
+    "Trait":"Offspring development",
+    "Modality":"Lecithotrophic"
+  },
+  {
+    "Trait.ID":18,
+    "Modality.ID":3,
+    "Trait":"Offspring development",
+    "Modality":"Mixed planktotrophic"
+  },
+  {
+    "Trait.ID":18,
+    "Modality.ID":4,
+    "Trait":"Offspring development",
+    "Modality":"Mixed lecithotrophic"
+  },
+  {
+    "Trait.ID":18,
+    "Modality.ID":5,
+    "Trait":"Offspring development",
+    "Modality":"Internal"
+  },
+  {
+    "Trait.ID":19,
+    "Modality.ID":1,
+    "Trait":"Offspring benthic stage duration",
+    "Modality":"Null"
+  },
+  {
+    "Trait.ID":19,
+    "Modality.ID":2,
+    "Trait":"Offspring benthic stage duration",
+    "Modality":"<15"
+  },
+  {
+    "Trait.ID":19,
+    "Modality.ID":3,
+    "Trait":"Offspring benthic stage duration",
+    "Modality":"15-30"
+  },
+  {
+    "Trait.ID":19,
+    "Modality.ID":4,
+    "Trait":"Offspring benthic stage duration",
+    "Modality":"30-60"
+  },
+  {
+    "Trait.ID":19,
+    "Modality.ID":5,
+    "Trait":"Offspring benthic stage duration",
+    "Modality":"60-180"
+  },
+  {
+    "Trait.ID":19,
+    "Modality.ID":6,
+    "Trait":"Offspring benthic stage duration",
+    "Modality":">180"
+  },
+  {
+    "Trait.ID":20,
+    "Modality.ID":1,
+    "Trait":"Offspring pelagic stage duration",
+    "Modality":"Null"
+  },
+  {
+    "Trait.ID":20,
+    "Modality.ID":2,
+    "Trait":"Offspring pelagic stage duration",
+    "Modality":"<15"
+  },
+  {
+    "Trait.ID":20,
+    "Modality.ID":3,
+    "Trait":"Offspring pelagic stage duration",
+    "Modality":"15-30"
+  },
+  {
+    "Trait.ID":20,
+    "Modality.ID":4,
+    "Trait":"Offspring pelagic stage duration",
+    "Modality":"30-60"
+  },
+  {
+    "Trait.ID":20,
+    "Modality.ID":5,
+    "Trait":"Offspring pelagic stage duration",
+    "Modality":"60-180"
+  },
+  {
+    "Trait.ID":20,
+    "Modality.ID":6,
+    "Trait":"Offspring pelagic stage duration",
+    "Modality":">180"
+  },
+  {
+    "Trait.ID":21,
+    "Modality.ID":1,
+    "Trait":"Offspring settlement size",
+    "Modality":"<0.5"
+  },
+  {
+    "Trait.ID":21,
+    "Modality.ID":2,
+    "Trait":"Offspring settlement size",
+    "Modality":"0.5-1.5"
+  },
+  {
+    "Trait.ID":21,
+    "Modality.ID":3,
+    "Trait":"Offspring settlement size",
+    "Modality":"1.5-5"
+  },
+  {
+    "Trait.ID":21,
+    "Modality.ID":4,
+    "Trait":"Offspring settlement size",
+    "Modality":"5-10"
+  },
+  {
+    "Trait.ID":21,
+    "Modality.ID":5,
+    "Trait":"Offspring settlement size",
+    "Modality":"10-20"
+  },
+  {
+    "Trait.ID":21,
+    "Modality.ID":6,
+    "Trait":"Offspring settlement size",
+    "Modality":">20"
+  },
+  {
+    "Trait.ID":22,
+    "Modality.ID":1,
+    "Trait":"Body resistance",
+    "Modality":"Gelatinous"
+  },
+  {
+    "Trait.ID":22,
+    "Modality.ID":2,
+    "Trait":"Body resistance",
+    "Modality":"Brittle"
+  },
+  {
+    "Trait.ID":22,
+    "Modality.ID":3,
+    "Trait":"Body resistance",
+    "Modality":"Intermediate"
+  },
+  {
+    "Trait.ID":22,
+    "Modality.ID":4,
+    "Trait":"Body resistance",
+    "Modality":"Firm\/Hard"
+  },
+  {
+    "Trait.ID":22,
+    "Modality.ID":5,
+    "Trait":"Body resistance",
+    "Modality":"Stony"
+  },
+  {
+    "Trait.ID":23,
+    "Modality.ID":1,
+    "Trait":"Body mass",
+    "Modality":"<0.001"
+  },
+  {
+    "Trait.ID":23,
+    "Modality.ID":2,
+    "Trait":"Body mass",
+    "Modality":"0.001-0.010"
+  },
+  {
+    "Trait.ID":23,
+    "Modality.ID":3,
+    "Trait":"Body mass",
+    "Modality":"0.010-0.100"
+  },
+  {
+    "Trait.ID":23,
+    "Modality.ID":4,
+    "Trait":"Body mass",
+    "Modality":"0.100-1.000"
+  },
+  {
+    "Trait.ID":23,
+    "Modality.ID":5,
+    "Trait":"Body mass",
+    "Modality":"1.000-10.000"
+  },
+  {
+    "Trait.ID":23,
+    "Modality.ID":6,
+    "Trait":"Body mass",
+    "Modality":">10.000"
+  },
+  {
+    "Trait.ID":24,
+    "Modality.ID":1,
+    "Trait":"Body length",
+    "Modality":"<1"
+  },
+  {
+    "Trait.ID":24,
+    "Modality.ID":2,
+    "Trait":"Body length",
+    "Modality":"1-3"
+  },
+  {
+    "Trait.ID":24,
+    "Modality.ID":3,
+    "Trait":"Body length",
+    "Modality":"3-10"
+  },
+  {
+    "Trait.ID":24,
+    "Modality.ID":4,
+    "Trait":"Body length",
+    "Modality":"10-20"
+  },
+  {
+    "Trait.ID":24,
+    "Modality.ID":5,
+    "Trait":"Body length",
+    "Modality":"20-50"
+  },
+  {
+    "Trait.ID":24,
+    "Modality.ID":6,
+    "Trait":"Body length",
+    "Modality":">50"
+  },
+  {
+    "Trait.ID":25,
+    "Modality.ID":1,
+    "Trait":"Motility",
+    "Modality":"Sessile"
+  },
+  {
+    "Trait.ID":25,
+    "Modality.ID":2,
+    "Trait":"Motility",
+    "Modality":"Tubicolous"
+  },
+  {
+    "Trait.ID":25,
+    "Modality.ID":3,
+    "Trait":"Motility",
+    "Modality":"Crawler"
+  },
+  {
+    "Trait.ID":25,
+    "Modality.ID":4,
+    "Trait":"Motility",
+    "Modality":"Walker"
+  },
+  {
+    "Trait.ID":25,
+    "Modality.ID":5,
+    "Trait":"Motility",
+    "Modality":"Swimmer"
+  },
+  {
+    "Trait.ID":26,
+    "Modality.ID":1,
+    "Trait":"Mobility",
+    "Modality":"Immobile"
+  },
+  {
+    "Trait.ID":26,
+    "Modality.ID":2,
+    "Trait":"Mobility",
+    "Modality":"Limited"
+  },
+  {
+    "Trait.ID":26,
+    "Modality.ID":3,
+    "Trait":"Mobility",
+    "Modality":"Slow"
+  },
+  {
+    "Trait.ID":26,
+    "Modality.ID":4,
+    "Trait":"Mobility",
+    "Modality":"Fast"
+  },
+  {
+    "Trait.ID":26,
+    "Modality.ID":5,
+    "Trait":"Mobility",
+    "Modality":"Very fast"
+  },
+  {
+    "Trait.ID":27,
+    "Modality.ID":1,
+    "Trait":"Rafting",
+    "Modality":"Not reported\/Unlikely"
+  },
+  {
+    "Trait.ID":27,
+    "Modality.ID":2,
+    "Trait":"Rafting",
+    "Modality":"Likely\/Occasional"
+  },
+  {
+    "Trait.ID":27,
+    "Modality.ID":3,
+    "Trait":"Rafting",
+    "Modality":"Frequent"
+  },
+  {
+    "Trait.ID":28,
+    "Modality.ID":1,
+    "Trait":"Degree of attachment",
+    "Modality":"Null"
+  },
+  {
+    "Trait.ID":28,
+    "Modality.ID":2,
+    "Trait":"Degree of attachment",
+    "Modality":"Slight"
+  },
+  {
+    "Trait.ID":28,
+    "Modality.ID":3,
+    "Trait":"Degree of attachment",
+    "Modality":"Strong"
+  },
+  {
+    "Trait.ID":29,
+    "Modality.ID":1,
+    "Trait":"Sociality",
+    "Modality":"Solitary"
+  },
+  {
+    "Trait.ID":29,
+    "Modality.ID":2,
+    "Trait":"Sociality",
+    "Modality":"Aggregated"
+  },
+  {
+    "Trait.ID":29,
+    "Modality.ID":3,
+    "Trait":"Sociality",
+    "Modality":"Colonial"
+  },
+  {
+    "Trait.ID":30,
+    "Modality.ID":1,
+    "Trait":"Epi-bioconstruction type",
+    "Modality":"None"
+  },
+  {
+    "Trait.ID":30,
+    "Modality.ID":2,
+    "Trait":"Epi-bioconstruction type",
+    "Modality":"Mat"
+  },
+  {
+    "Trait.ID":30,
+    "Modality.ID":3,
+    "Trait":"Epi-bioconstruction type",
+    "Modality":"Mound"
+  },
+  {
+    "Trait.ID":30,
+    "Modality.ID":4,
+    "Trait":"Epi-bioconstruction type",
+    "Modality":"Shell"
+  },
+  {
+    "Trait.ID":30,
+    "Modality.ID":5,
+    "Trait":"Epi-bioconstruction type",
+    "Modality":"Tube\/Tubular protrusion"
+  },
+  {
+    "Trait.ID":30,
+    "Modality.ID":6,
+    "Trait":"Epi-bioconstruction type",
+    "Modality":"Stalk\/Feather"
+  },
+  {
+    "Trait.ID":30,
+    "Modality.ID":7,
+    "Trait":"Epi-bioconstruction type",
+    "Modality":"Protuberance\/Lobe"
+  },
+  {
+    "Trait.ID":30,
+    "Modality.ID":8,
+    "Trait":"Epi-bioconstruction type",
+    "Modality":"Arborescence"
+  },
+  {
+    "Trait.ID":31,
+    "Modality.ID":1,
+    "Trait":"Epi-bioconstruction extension",
+    "Modality":"None"
+  },
+  {
+    "Trait.ID":31,
+    "Modality.ID":2,
+    "Trait":"Epi-bioconstruction extension",
+    "Modality":"Simple"
+  },
+  {
+    "Trait.ID":31,
+    "Modality.ID":3,
+    "Trait":"Epi-bioconstruction extension",
+    "Modality":"Horizontally flattened"
+  },
+  {
+    "Trait.ID":31,
+    "Modality.ID":4,
+    "Trait":"Epi-bioconstruction extension",
+    "Modality":"Horizontally erect"
+  },
+  {
+    "Trait.ID":31,
+    "Modality.ID":5,
+    "Trait":"Epi-bioconstruction extension",
+    "Modality":"Vertically complex"
+  },
+  {
+    "Trait.ID":31,
+    "Modality.ID":6,
+    "Trait":"Epi-bioconstruction extension",
+    "Modality":"Vertically highly complex"
+  },
+  {
+    "Trait.ID":32,
+    "Modality.ID":1,
+    "Trait":"Epi-bioconstruction size",
+    "Modality":"None"
+  },
+  {
+    "Trait.ID":32,
+    "Modality.ID":2,
+    "Trait":"Epi-bioconstruction size",
+    "Modality":"<1"
+  },
+  {
+    "Trait.ID":32,
+    "Modality.ID":3,
+    "Trait":"Epi-bioconstruction size",
+    "Modality":"1-3"
+  },
+  {
+    "Trait.ID":32,
+    "Modality.ID":4,
+    "Trait":"Epi-bioconstruction size",
+    "Modality":"3-10"
+  },
+  {
+    "Trait.ID":32,
+    "Modality.ID":5,
+    "Trait":"Epi-bioconstruction size",
+    "Modality":"10-20"
+  },
+  {
+    "Trait.ID":32,
+    "Modality.ID":6,
+    "Trait":"Epi-bioconstruction size",
+    "Modality":"20-50"
+  },
+  {
+    "Trait.ID":32,
+    "Modality.ID":7,
+    "Trait":"Epi-bioconstruction size",
+    "Modality":">50"
+  },
+  {
+    "Trait.ID":33,
+    "Modality.ID":1,
+    "Trait":"Endo-bioconstruction type",
+    "Modality":"None\/Surficial"
+  },
+  {
+    "Trait.ID":33,
+    "Modality.ID":2,
+    "Trait":"Endo-bioconstruction type",
+    "Modality":"Rugosities\/Pit"
+  },
+  {
+    "Trait.ID":33,
+    "Modality.ID":3,
+    "Trait":"Endo-bioconstruction type",
+    "Modality":"Chimney\/Funnel"
+  },
+  {
+    "Trait.ID":33,
+    "Modality.ID":4,
+    "Trait":"Endo-bioconstruction type",
+    "Modality":"Tube"
+  },
+  {
+    "Trait.ID":33,
+    "Modality.ID":5,
+    "Trait":"Endo-bioconstruction type",
+    "Modality":"IJ-shaped burrow"
+  },
+  {
+    "Trait.ID":33,
+    "Modality.ID":6,
+    "Trait":"Endo-bioconstruction type",
+    "Modality":"UY-shaped burrow"
+  },
+  {
+    "Trait.ID":33,
+    "Modality.ID":7,
+    "Trait":"Endo-bioconstruction type",
+    "Modality":"Branched burrow"
+  },
+  {
+    "Trait.ID":33,
+    "Modality.ID":8,
+    "Trait":"Endo-bioconstruction type",
+    "Modality":"Anastomosed burrow"
+  },
+  {
+    "Trait.ID":34,
+    "Modality.ID":1,
+    "Trait":"Endo-bioconstruction depth",
+    "Modality":"None\/Surficial"
+  },
+  {
+    "Trait.ID":34,
+    "Modality.ID":2,
+    "Trait":"Endo-bioconstruction depth",
+    "Modality":"0-5"
+  },
+  {
+    "Trait.ID":34,
+    "Modality.ID":3,
+    "Trait":"Endo-bioconstruction depth",
+    "Modality":"5-15"
+  },
+  {
+    "Trait.ID":34,
+    "Modality.ID":4,
+    "Trait":"Endo-bioconstruction depth",
+    "Modality":"15-30"
+  },
+  {
+    "Trait.ID":34,
+    "Modality.ID":5,
+    "Trait":"Endo-bioconstruction depth",
+    "Modality":">30"
+  },
+  {
+    "Trait.ID":35,
+    "Modality.ID":1,
+    "Trait":"Endo-bioconstruction width",
+    "Modality":"None\/Surficial"
+  },
+  {
+    "Trait.ID":35,
+    "Modality.ID":2,
+    "Trait":"Endo-bioconstruction width",
+    "Modality":"0-5"
+  },
+  {
+    "Trait.ID":35,
+    "Modality.ID":3,
+    "Trait":"Endo-bioconstruction width",
+    "Modality":"5-10"
+  },
+  {
+    "Trait.ID":35,
+    "Modality.ID":4,
+    "Trait":"Endo-bioconstruction width",
+    "Modality":">10"
+  },
+  {
+    "Trait.ID":36,
+    "Modality.ID":1,
+    "Trait":"Ventilation\/Pumping",
+    "Modality":"Null"
+  },
+  {
+    "Trait.ID":36,
+    "Modality.ID":2,
+    "Trait":"Ventilation\/Pumping",
+    "Modality":"Potential\/Low"
+  },
+  {
+    "Trait.ID":36,
+    "Modality.ID":3,
+    "Trait":"Ventilation\/Pumping",
+    "Modality":"High"
+  },
+  {
+    "Trait.ID":36,
+    "Modality.ID":4,
+    "Trait":"Ventilation\/Pumping",
+    "Modality":"Very high"
+  },
+  {
+    "Trait.ID":37,
+    "Modality.ID":1,
+    "Trait":"Sediment biomixing type",
+    "Modality":"None"
+  },
+  {
+    "Trait.ID":37,
+    "Modality.ID":2,
+    "Trait":"Sediment biomixing type",
+    "Modality":"Diffusion"
+  },
+  {
+    "Trait.ID":37,
+    "Modality.ID":3,
+    "Trait":"Sediment biomixing type",
+    "Modality":"Upward conveying"
+  },
+  {
+    "Trait.ID":37,
+    "Modality.ID":4,
+    "Trait":"Sediment biomixing type",
+    "Modality":"Downward conveying"
+  },
+  {
+    "Trait.ID":37,
+    "Modality.ID":5,
+    "Trait":"Sediment biomixing type",
+    "Modality":"Regeneration"
+  },
+  {
+    "Trait.ID":38,
+    "Modality.ID":1,
+    "Trait":"Bioerosion",
+    "Modality":"None"
+  },
+  {
+    "Trait.ID":38,
+    "Modality.ID":2,
+    "Trait":"Bioerosion",
+    "Modality":"Scraping"
+  },
+  {
+    "Trait.ID":38,
+    "Modality.ID":3,
+    "Trait":"Bioerosion",
+    "Modality":"Scarring\/Perforating"
+  },
+  {
+    "Trait.ID":38,
+    "Modality.ID":4,
+    "Trait":"Bioerosion",
+    "Modality":"Boring"
+  },
+  {
+    "Trait.ID":39,
+    "Modality.ID":1,
+    "Trait":"Biostabilisation",
+    "Modality":"Null"
+  },
+  {
+    "Trait.ID":39,
+    "Modality.ID":2,
+    "Trait":"Biostabilisation",
+    "Modality":"Low"
+  },
+  {
+    "Trait.ID":39,
+    "Modality.ID":3,
+    "Trait":"Biostabilisation",
+    "Modality":"High"
+  },
+  {
+    "Trait.ID":40,
+    "Modality.ID":1,
+    "Trait":"Feeding type",
+    "Modality":"De"
+  },
+  {
+    "Trait.ID":40,
+    "Modality.ID":2,
+    "Trait":"Feeding type",
+    "Modality":"Su"
+  },
+  {
+    "Trait.ID":40,
+    "Modality.ID":3,
+    "Trait":"Feeding type",
+    "Modality":"HeGr"
+  },
+  {
+    "Trait.ID":40,
+    "Modality.ID":4,
+    "Trait":"Feeding type",
+    "Modality":"CaSc"
+  },
+  {
+    "Trait.ID":40,
+    "Modality.ID":5,
+    "Trait":"Feeding type",
+    "Modality":"Pa"
+  },
+  {
+    "Trait.ID":40,
+    "Modality.ID":6,
+    "Trait":"Feeding type",
+    "Modality":"Sy"
+  },
+  {
+    "Trait.ID":41,
+    "Modality.ID":1,
+    "Trait":"Foraging depth",
+    "Modality":"0"
+  },
+  {
+    "Trait.ID":41,
+    "Modality.ID":2,
+    "Trait":"Foraging depth",
+    "Modality":"0-5"
+  },
+  {
+    "Trait.ID":41,
+    "Modality.ID":3,
+    "Trait":"Foraging depth",
+    "Modality":"5-15"
+  },
+  {
+    "Trait.ID":41,
+    "Modality.ID":4,
+    "Trait":"Foraging depth",
+    "Modality":">15"
+  }
+]

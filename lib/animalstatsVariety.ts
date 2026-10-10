@@ -16,15 +16,15 @@ export function animalBoardGroup(data: AnimalDataset, board: BoardCandidate) {
   if (groups.every((group) => ["frog", "salamander"].includes(group))) return "amphibians";
   if (groups.every((group) => ["fish", "shark", "ray"].includes(group))) return "fish";
   if (groups.every((group) => group === "insect")) return "insects";
-  if (groups.every((group) => ["insect", "bivalve", "gastropod", "cephalopod", "mollusc", "crustacean", "echinoderm", "arachnid", "cnidarian"].includes(group))) return "invertebrates";
+  if (groups.every((group) => ["insect", "bivalve", "gastropod", "cephalopod", "mollusc", "crustacean", "echinoderm", "arachnid", "cnidarian", "chelicerate", "annelid", "sponge"].includes(group))) return "invertebrates";
   return "mixed";
 }
 
-/** Default play favors at least three simple prizes out of four, or four out of six.
+/** Default play requires at least half intuitive prizes.
  * Older shared challenges remain directly addressable. */
 export function animalBoardIsHighlyIntuitive(data: AnimalDataset, board: BoardCandidate) {
   const traits = new Map(data.traits.map(trait => [trait.id, trait]));
-  const required = board.traitIds.length === 6 ? 4 : 3;
+  const required = Math.ceil(board.traitIds.length / 2);
   return board.traitIds.filter(id => traits.get(id)?.categoryKind === "intuitive").length >= required;
 }
 

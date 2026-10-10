@@ -33,7 +33,7 @@ export function animalBoardComposition(data: AnimalDataset, board: BoardCandidat
   const traits = new Map(data.traits.map(t => [t.id, t]));
   const intuitive = board.traitIds.filter(id => traits.get(id)?.categoryKind === "intuitive").length;
   const familiar = board.animalIds.filter(id => common.has(id)).length;
-  const minimumIntuitive = board.traitIds.length === 6 ? 4 : 3;
+  const minimumIntuitive = Math.ceil(board.traitIds.length / 2);
   const minimumFamiliar = board.animalIds.length >= 6 ? 2 : 1;
   return { intuitive, familiar, minimumIntuitive, minimumFamiliar,
     eligible: intuitive >= minimumIntuitive && familiar >= minimumFamiliar };

@@ -214,7 +214,8 @@ function validateIndexedAnimalBoard(board: BoardCandidate, index: ReturnType<typ
   if (relatedTraits.some((concept) => board.traitIds.filter((id) => concept.includes(id)).length > 1)) reasons.push("closely related traits on the same board");
   if (board.animalIds.length !== config.countryCount || !unique(board.animalIds)) reasons.push("wrong or duplicate animal count");
   if (board.traitIds.length !== config.categoryCount || !unique(board.traitIds)) reasons.push("wrong or duplicate trait count");
-  const balanced = board.editorial?.policy === "intuitive-majority-distinct-winners-v5";
+  const expanded = board.editorial?.policy === "intuitive-majority-distinct-winners-v6";
+  const balanced = expanded || board.editorial?.policy === "intuitive-majority-distinct-winners-v5";
   const categories = board.traitIds.map((id) => traitMap.get(id));
   if (balanced) {
     const lifeHistoryKeys = new Set(["pregnancy", "offspring", "incubation", "weaning", "maturity", "reproduction", "breeding", "egg-size"]);
@@ -226,7 +227,7 @@ function validateIndexedAnimalBoard(board: BoardCandidate, index: ReturnType<typ
       categories.every(trait => trait?.categoryKind === "intuitive") &&
       lifeHistory.length === 2 && new Set(lifeHistory.map(trait => trait?.metricKey)).size === 2 &&
       lifeHistory.every(trait => ["pregnancy", "offspring"].includes(trait?.metricKey ?? ""));
-    if (lifeHistory.length > (board.mode === "expert" ? 3 : simplePregnancyAndLitter ? 2 : 1)) reasons.push("too many life-history prizes on one board");
+    if (!expanded && lifeHistory.length > (board.mode === "expert" ? 3 : simplePregnancyAndLitter ? 2 : 1)) reasons.push("too many life-history prizes on one board");
     if (categories.some((trait) => /^(bird_beak_width|bird_beak_depth|bird_tarsus_length|bird_hand_wing_index)(?:__low)?$/.test(trait?.id ?? ""))) reasons.push("obscure bird anatomy is excluded");
     if (categories.some((trait) => !trait?.prototypeCategory || (!trait.counterTraitId && !trait.oneSided) || !trait.metricKey) || categories.filter((trait) => trait?.categoryKind === "intuitive").length < Math.ceil(board.traitIds.length / 2)) reasons.push("board must have at least half intuitive categories");
     if (board.editorial?.intuitiveMinimum !== undefined && (!Number.isInteger(board.editorial.intuitiveMinimum) || board.editorial.intuitiveMinimum < Math.ceil(board.traitIds.length / 2) || board.editorial.intuitiveMinimum > board.traitIds.length || categories.filter(trait => trait?.categoryKind === "intuitive").length < board.editorial.intuitiveMinimum)) reasons.push("board does not meet its stricter intuitive-category minimum");
@@ -273,7 +274,7 @@ function validateIndexedAnimalBoard(board: BoardCandidate, index: ReturnType<typ
       const second = ranked[i + 1].value;
       const larger = Math.max(first.valueNumeric, second.valueNumeric);
       const smaller = Math.min(first.valueNumeric, second.valueNumeric);
-      if (trait.separationMethod === "distinct_ordinal" ? larger === smaller : larger / smaller < 1.05 - 1e-12) reasons.push(trait.separationMethod === "distinct_ordinal" ? `trait ${id}: ranks ${i + 1}-${i + 2} share the same category` : `trait ${id}: ranks ${i + 1}-${i + 2} separated by less than 5%`);
+      if (expanded ? larger === smaller : trait.separationMethod === "distinct_ordinal" ? larger === smaller : larger / smaller < 1.05 - 1e-12) reasons.push(trait.separationMethod === "distinct_ordinal" ? `trait ${id}: ranks ${i + 1}-${i + 2} share the same category` : `trait ${id}: ranks ${i + 1}-${i + 2} separated by less than 5%`);
       if (id.startsWith("marine_description_year") && larger - smaller < (board.mode === "easy" ? 4 : board.mode === "normal" ? 3 : 2)) reasons.push(`trait ${id}: description dates are too close`);
       const firstMin = first.valueMin ?? first.valueNumeric;
       const firstMax = first.valueMax ?? first.valueNumeric;

@@ -1,53 +1,53 @@
 {
   "generatedAt": "2026-10-10",
-  "defaultBoards": 12341,
+  "defaultBoards": 39832,
   "livingCatalogAnimals": 396,
-  "livingRoundAnimals": 186,
-  "candidateBoards": 14189,
-  "playableLabels": 139,
-  "playableTraitIds": 161,
+  "livingRoundAnimals": 190,
+  "candidateBoards": 41615,
+  "playableLabels": 141,
+  "playableTraitIds": 167,
   "counts": {
     "mammals": {
-      "easy": 1998,
-      "normal": 2145,
-      "expert": 93,
-      "total": 4236
+      "easy": 2636,
+      "normal": 3434,
+      "expert": 100,
+      "total": 6170
     },
     "dog-breeds": {
-      "easy": 211,
-      "normal": 82,
-      "expert": 0,
-      "total": 293
+      "easy": 1252,
+      "normal": 2039,
+      "expert": 51,
+      "total": 3342
     },
     "cat-breeds": {
-      "easy": 2,
+      "easy": 7,
       "normal": 0,
       "expert": 0,
-      "total": 2
+      "total": 7
     },
     "birds": {
-      "easy": 76,
-      "normal": 64,
-      "expert": 7,
-      "total": 147
+      "easy": 815,
+      "normal": 3207,
+      "expert": 122,
+      "total": 4144
     },
     "reptiles": {
-      "easy": 1000,
-      "normal": 1000,
-      "expert": 0,
-      "total": 2000
+      "easy": 3417,
+      "normal": 4916,
+      "expert": 81,
+      "total": 8414
     },
     "amphibians": {
-      "easy": 1000,
-      "normal": 969,
+      "easy": 1744,
+      "normal": 2435,
       "expert": 0,
-      "total": 1969
+      "total": 4179
     },
     "fish": {
-      "easy": 294,
-      "normal": 0,
+      "easy": 696,
+      "normal": 526,
       "expert": 0,
-      "total": 294
+      "total": 1222
     },
     "insects": {
       "easy": 0,
@@ -62,10 +62,10 @@
       "total": 0
     },
     "mixed": {
-      "easy": 1190,
-      "normal": 1000,
-      "expert": 0,
-      "total": 2190
+      "easy": 4951,
+      "normal": 6160,
+      "expert": 33,
+      "total": 11144
     },
     "extinct-dinosaurs": {
       "easy": 800,

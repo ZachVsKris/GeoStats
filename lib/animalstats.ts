@@ -233,6 +233,7 @@ function validateIndexedAnimalBoard(board: BoardCandidate, index: ReturnType<typ
     if (new Set(categories.map((trait) => trait?.metricKey)).size !== categories.length) reasons.push("repeated metric or opposite categories on the same board");
   }
   const families = board.traitIds.map((id) => traitMap.get(id)?.gameplayFamily);
+  if (families.filter((family) => family === "environment").length > 2) reasons.push("at most two habitat-climate prizes per board");
   if (families.filter((family) => family === "prey-size").length > 1) reasons.push("only one prey-size prize per board");
   if (families.filter((family) => family === "milk-composition").length > 1) reasons.push("only one milk-composition prize per board");
   if (families.filter((family) => family === "range-geography" || family === "range").length > 1) reasons.push("only one mapped-range prize per board");

@@ -1,0 +1,154 @@
+{
+  "sourceSha256": "e3ddb66e32e973a79932859ba53013e8f60d957c6ec01c6eb573e3ea3018d630",
+  "newAnimals": [
+    "Bubalus bubalis",
+    "Syncerus caffer",
+    "Odocoileus virginianus",
+    "Cervus nippon",
+    "Capreolus capreolus",
+    "Oryx gazella",
+    "Gazella gazella",
+    "Alcelaphus buselaphus",
+    "Connochaetes taurinus",
+    "Aepyceros melampus",
+    "Lama glama",
+    "Vicugna pacos",
+    "Orycteropus afer",
+    "Choloepus didactylus",
+    "Sciurus carolinensis",
+    "Marmota monax",
+    "Lynx canadensis",
+    "Lynx rufus",
+    "Lutra lutra",
+    "Lontra canadensis",
+    "Ailurus fulgens",
+    "Potos flavus",
+    "Mephitis mephitis",
+    "Taxidea taxus",
+    "Vulpes zerda",
+    "Lycaon pictus",
+    "Hyaena hyaena",
+    "Crocuta crocuta",
+    "Vulpes lagopus",
+    "Tapirus terrestris",
+    "Okapia johnstoni",
+    "Diceros bicornis",
+    "Trichechus manatus",
+    "Dugong dugon",
+    "Monodon monoceros",
+    "Delphinapterus leucas",
+    "Physeter macrocephalus",
+    "Papio hamadryas",
+    "Mandrillus sphinx"
+  ],
+  "held": [
+    {
+      "species": "Cervus canadensis",
+      "reason": "no exact source taxon"
+    },
+    {
+      "species": "Manis pentadactyla",
+      "reason": "source quality low"
+    },
+    {
+      "species": "Bradypus variegatus",
+      "reason": "no exact source taxon"
+    },
+    {
+      "species": "Erethizon dorsatum",
+      "reason": "no exact source taxon"
+    },
+    {
+      "species": "Mirounga angustirostris",
+      "reason": "source quality low"
+    }
+  ],
+  "coverage": {
+    "adult_body_mass": {
+      "before": 154,
+      "added": 39,
+      "after": 193
+    },
+    "maximum_documented_lifespan": {
+      "before": 108,
+      "added": 36,
+      "after": 144
+    },
+    "wild_recorded_lifespan": {
+      "before": 54,
+      "added": 4,
+      "after": 58
+    },
+    "gestation": {
+      "before": 62,
+      "added": 39,
+      "after": 101
+    },
+    "litter_size": {
+      "before": 63,
+      "added": 39,
+      "after": 102
+    },
+    "female_maturity": {
+      "before": 132,
+      "added": 45,
+      "after": 177
+    },
+    "male_maturity": {
+      "before": 116,
+      "added": 41,
+      "after": 157
+    },
+    "weaning_age": {
+      "before": 40,
+      "added": 37,
+      "after": 77
+    },
+    "birth_weight": {
+      "before": 57,
+      "added": 43,
+      "after": 100
+    },
+    "weaning_mass": {
+      "before": 29,
+      "added": 20,
+      "after": 49
+    },
+    "litters_per_year": {
+      "before": 50,
+      "added": 40,
+      "after": 90
+    },
+    "interbirth_interval": {
+      "before": 49,
+      "added": 35,
+      "after": 84
+    }
+  },
+  "rangeOnlyAnimals": [
+    {
+      "species": "Alces alces",
+      "source": "TetrapodTraits 2.0.1 range/ecology; no weak AnAge records admitted"
+    },
+    {
+      "species": "Odobenus rosmarus",
+      "source": "TetrapodTraits 2.0.1 range/ecology; no weak AnAge records admitted"
+    },
+    {
+      "species": "Manis pentadactyla",
+      "source": "TetrapodTraits 2.0.1 range/ecology; no weak AnAge records admitted"
+    },
+    {
+      "species": "Mirounga angustirostris",
+      "source": "TetrapodTraits 2.0.1 range/ecology; no weak AnAge records admitted"
+    },
+    {
+      "species": "Bradypus variegatus",
+      "source": "TetrapodTraits 2.0.1 range/ecology; no weak AnAge records admitted"
+    },
+    {
+      "species": "Erethizon dorsatum",
+      "source": "TetrapodTraits 2.0.1 range/ecology; no weak AnAge records admitted"
+    }
+  ]
+}

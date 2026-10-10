@@ -1083,5 +1083,30 @@
     "fit": "cover",
     "x": 50,
     "y": 0
+  },
+  "aepyceros_melampus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "orycteropus_afer": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "syncerus_caffer": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "sciurus_carolinensis": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "lontra_canadensis": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
   }
 }

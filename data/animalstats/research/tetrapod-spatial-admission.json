@@ -1,0 +1,31 @@
+{
+  "sourceVersion": "2.0.1",
+  "sourceSpecies": 33281,
+  "sha256": "1f9aab1093477dce3bccb12ef008c25a37c868b38aa36e6d5cd378e9019e5f0e",
+  "admitted": {
+    "RangeSize_km2": 180,
+    "AnnuMeanTemp": 180,
+    "AnnuPrecip": 180,
+    "Elevation": 180,
+    "DietBreadth": 180,
+    "MajorHabitatSum": 180,
+    "AssessedStatus": 179
+  },
+  "held": {},
+  "excludedFields": [
+    "Imputed body mass and length",
+    "Mixed litter statistics",
+    "Inferred developmental mode",
+    "Inferred IUCN threat status",
+    "Longevity without wild/captive context",
+    "Human pressure model estimates"
+  ],
+  "rules": [
+    "Exact species only",
+    "No taxonomic substitution",
+    "No extinct or domestic breed extrapolation",
+    "Environmental averages describe mapped habitat, not animal physiology",
+    "Bird ranges are breeding ranges",
+    "Counter categories share each measurement"
+  ]
+}

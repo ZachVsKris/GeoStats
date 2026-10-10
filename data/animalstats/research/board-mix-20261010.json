@@ -1,15 +1,17 @@
 {
   "generatedAt": "2026-10-10",
-  "defaultBoards": 3976,
-  "candidateBoards": 5824,
-  "playableLabels": 124,
-  "playableTraitIds": 143,
+  "defaultBoards": 8736,
+  "livingCatalogAnimals": 317,
+  "livingRoundAnimals": 173,
+  "candidateBoards": 10584,
+  "playableLabels": 134,
+  "playableTraitIds": 155,
   "counts": {
     "mammals": {
-      "easy": 998,
-      "normal": 1145,
+      "easy": 1994,
+      "normal": 2145,
       "expert": 93,
-      "total": 2236
+      "total": 4232
     },
     "dog-breeds": {
       "easy": 211,
@@ -30,16 +32,16 @@
       "total": 147
     },
     "reptiles": {
-      "easy": 36,
-      "normal": 4,
+      "easy": 678,
+      "normal": 726,
       "expert": 0,
-      "total": 40
+      "total": 1404
     },
     "amphibians": {
-      "easy": 0,
-      "normal": 0,
+      "easy": 814,
+      "normal": 586,
       "expert": 0,
-      "total": 0
+      "total": 1400
     },
     "fish": {
       "easy": 38,

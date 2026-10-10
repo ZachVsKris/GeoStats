@@ -36,4 +36,11 @@ for tid,_,_,unit,metric,basis in metrics:
   value,r,reference=max(rr,key=lambda x:x[0]);aid=allanimals[code];citation=f"{reference.get('Author')}. {reference.get('Year')}. {reference['Title']} {reference.get('Source')or''}";notes=f"FishBase species {code}; POPCHAR record {r['Autoctr']}; reference {r['PopCharRefNo']}. {citation} Locality: {r.get('Locality')}; sex: {r.get('Sex')}. {r.get('Comments')or''}";notes=re.sub('<[^>]+>','',notes)
   for suffix in ['', '__low']:d['values'].append({'animalId':aid,'traitId':tid+suffix,'valueNumeric':round(value,5),'unit':unit,'sex':r.get('Sex')or'not specified','lifeStage':'record specimen','measurementBasis':basis,'sourceId':src,'observationType':'compiled','confidence':'approved','notes':notes,'recordOrigin':'wild catch','uncertaintyStatus':'not-reported'})
   accepted.append({'animalId':aid,'metric':metric,'value':round(value,5),'row':r['Autoctr'],'reference':r['PopCharRefNo'],'citation':citation})
+
+previousPath=R/'data/animalstats/fish-records.json'
+if previousPath.exists():
+ previous=json.loads(previousPath.read_text());d['photos']=previous.get('photos',[])
+ priorAnimals={x['id']:x for x in previous.get('animals',[])}
+ for animal in d['animals']:
+  if animal['id'] in priorAnimals:animal['familiarityTier']=priorAnimals[animal['id']]['familiarityTier']
 (R/'data/animalstats/fish-records.json').write_text(json.dumps(d)+'\n');(R/'data/animalstats/research/fish-records-admission.json').write_text(json.dumps({'sourceRows':len(raw),'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'selectedSpecies':len(allanimals),'newAnimals':len(d['animals']),'acceptedRecords':accepted,'rejectedRecords':rejected,'coverage':dict(collections.Counter(x['metric']for x in accepted)),'rules':['No modeled Key Facts or length-weight calculations','Exact species only','No TL/SL/FL conversions','No doubtful records','Only cited IGFA total-weight records','Preserve original references, sex and locality','New species await portraits before entering rounds']},indent=2)+'\n');print('Record coverage',dict(collections.Counter(x['metric']for x in accepted)))

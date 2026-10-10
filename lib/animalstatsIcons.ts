@@ -15,6 +15,9 @@ export function animalTraitIcon(trait: Trait): string {
   if (/clutch|incubation/.test(text)) return "🥚";
   if (/height|length|size|span/.test(text)) return "📏";
   if (/speed|locomotion|travel/.test(text)) return "💨";
+  if (/climate-temperature/.test(text)) return "🌡️";
+  if (/climate-rainfall/.test(text)) return "🌧️";
+  if (/habitat-elevation/.test(text)) return "⛰️";
   if (/range|geograph|habitat/.test(text)) return "🌍";
   if (/diet|food|prey/.test(text)) return "🍽️";
   if (/gestation|reproduc|clutch|litter|egg|maturity/.test(text)) return "🍼";

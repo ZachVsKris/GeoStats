@@ -36,6 +36,11 @@ const base: Profile = {
   tail: 1,
 };
 const profiles: Record<string, Partial<Profile>> = {
+  syncerus_caffer: {color:"#61564b",belly:"#a99a85",feature:"introduced:buffalo"},
+  aepyceros_melampus: {color:"#c58248",belly:"#f3e3c5",feature:"introduced:impala"},
+  orycteropus_afer: {color:"#b28d76",belly:"#e0c1a8",feature:"introduced:aardvark"},
+  sciurus_carolinensis: {color:"#929187",belly:"#f4eee0",feature:"introduced:squirrel"},
+  lontra_canadensis: {color:"#766049",belly:"#cdbb99",feature:"introduced:otter"},
   dog_labrador_retriever: {color:"#e0c58e",belly:"#f8e5b9",feature:"pet:dog_labrador_retriever"},
   dog_english_cocker_spaniel: {color:"#a17b56",belly:"#f5e6cb",feature:"pet:dog_english_cocker_spaniel"},
   dog_staffordshire_bull_terrier: {color:"#a17b56",belly:"#f5e6cb",feature:"pet:dog_staffordshire_bull_terrier"},

@@ -1,0 +1,89 @@
+{
+  "source": "AnthropInsect 2.0",
+  "reviewedAt": "2026-10-10",
+  "approvedGameValues": 0,
+  "examples": [
+    {
+      "species": "Apis mellifera",
+      "lifespanDays": 1095,
+      "fecundityMax": 2000,
+      "status": "held",
+      "reason": "Original species and field references must establish life stage, time period, temperature and observation method. Bulk workbook definitions alone do not establish comparability. Honey bee fecundity 2000 is especially suspect under a lifetime-eggs definition; cricket lifespan 730 days requires original-source verification.",
+      "referenceLeads": [
+        [],
+        []
+      ]
+    },
+    {
+      "species": "Gryllus bimaculatus",
+      "lifespanDays": 730,
+      "fecundityMax": 310,
+      "status": "held",
+      "reason": "Original species and field references must establish life stage, time period, temperature and observation method. Bulk workbook definitions alone do not establish comparability. Honey bee fecundity 2000 is especially suspect under a lifetime-eggs definition; cricket lifespan 730 days requires original-source verification.",
+      "referenceLeads": [
+        [
+          {
+            "row": 791,
+            "id": 468,
+            "species": "Gryllus bimaculatus/Gymnogryllus leucostictus",
+            "traits": "LS/Vol/Fec/Els/PC/BS",
+            "citation": "Estimated based on genus Gryllus. Orthoptera Species File",
+            "sisterSpecies": "Yes",
+            "details": null
+          }
+        ],
+        [
+          {
+            "row": 553,
+            "id": 320,
+            "species": "Gryllus bimaculatus",
+            "traits": "LS",
+            "citation": "Martin K Ventura, Valerie J Stull, Susan M Paskewitz. Maintaining Laboratory Cultures of Gryllus bimaculatus, a Versatile Orthopteran Model for Insect Agriculture and Invertebrate Physiology, DOI: 10.3791/63277 : https://app.jove.com/t/63277/maintaining-laboratory-cultures-gryllus-bimaculatus-versatile?trialstart=1",
+            "sisterSpecies": "No",
+            "details": "Data from reared population"
+          },
+          {
+            "row": 791,
+            "id": 468,
+            "species": "Gryllus bimaculatus/Gymnogryllus leucostictus",
+            "traits": "LS/Vol/Fec/Els/PC/BS",
+            "citation": "Estimated based on genus Gryllus. Orthoptera Species File",
+            "sisterSpecies": "Yes",
+            "details": null
+          }
+        ]
+      ]
+    },
+    {
+      "species": "Tenebrio molitor",
+      "lifespanDays": 630,
+      "fecundityMax": 1000,
+      "status": "held",
+      "reason": "Original species and field references must establish life stage, time period, temperature and observation method. Bulk workbook definitions alone do not establish comparability. Honey bee fecundity 2000 is especially suspect under a lifetime-eggs definition; cricket lifespan 730 days requires original-source verification.",
+      "referenceLeads": [
+        [
+          {
+            "row": 192,
+            "id": 185,
+            "species": "Tenebrio molitor",
+            "traits": "FEC/BSA/LS",
+            "citation": "Ribeiro et al., 2018_a review of the scientific literature for optimal conditions for mass rearing Tenebrio molitor",
+            "sisterSpecies": "No",
+            "details": null
+          }
+        ],
+        [
+          {
+            "row": 192,
+            "id": 185,
+            "species": "Tenebrio molitor",
+            "traits": "FEC/BSA/LS",
+            "citation": "Ribeiro et al., 2018_a review of the scientific literature for optimal conditions for mass rearing Tenebrio molitor",
+            "sisterSpecies": "No",
+            "details": null
+          }
+        ]
+      ]
+    }
+  ]
+}

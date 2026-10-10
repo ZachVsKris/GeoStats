@@ -2,6 +2,7 @@ import { publishedAnimalTraitIds } from "../../lib/animalstatsCoverage";
 import { animalPreviewEnabled } from "../../lib/animalstatsPreview";
 import { notFound } from "next/navigation";
 import AnimalStatsGame from "../../components/AnimalStatsGame";
+import { packAnimalBoards } from "../../lib/animalstatsBoardTransport";
 import { animalDataset as dataset } from "../../lib/animalstatsCatalog";
 import { animalPhotos as realPhotos } from "../../lib/animalstatsCatalog";
 import reviews from "../../data/animalstats/reviews.json";
@@ -48,5 +49,5 @@ export default async function AnimalStatsPage({ searchParams }: { searchParams: 
   const shared = requested.board ? boards.find(board => board.id === requested.board) : undefined;
   const releaseBoards = shared && !defaultBoards.includes(shared) ? [...defaultBoards, shared] : defaultBoards;
   if (!boards.length) notFound();
-  return <AnimalStatsGame initialMode={requested.mode === "normal" || requested.mode === "expert" ? requested.mode : "easy"} initialBoardId={shared?.id} unavailableBoard={Boolean(requested.board && !shared)} data={clientData} boards={orderAnimalPilotBoards(releaseBoards, newYorkDate(), data).map(({id, mode, boardType, animalIds, traitIds, biogeographicRegions, collection}) => ({id, mode, boardType, animalIds, traitIds, biogeographicRegions, collection}))} approvedBoardIds={approvedAnimalBoards(data, boards, reviews as AnimalBoardReview[]).map((board) => board.id!)} date={newYorkDate()} />;
+  return <AnimalStatsGame initialMode={requested.mode === "normal" || requested.mode === "expert" ? requested.mode : "easy"} initialBoardId={shared?.id} unavailableBoard={Boolean(requested.board && !shared)} data={clientData} boardCatalog={packAnimalBoards(orderAnimalPilotBoards(releaseBoards, newYorkDate(), data))} approvedBoardIds={approvedAnimalBoards(data, boards, reviews as AnimalBoardReview[]).map((board) => board.id!)} date={newYorkDate()} />;
 }

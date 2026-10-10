@@ -1,0 +1,18 @@
+{
+  "release": "FishBase 26.06",
+  "retrievedAt": "2026-10-10",
+  "tables": [
+    {
+      "path": "eggs.parquet",
+      "url": "https://s3.us-west-2.amazonaws.com/us-west-2.opendata.source.coop/cboettig/fishbase/fb/v26.06/parquet/eggs.parquet",
+      "sha256": "fad904e2583db4ca99e2ed9aeca65ca66f5215f670c7ce30424e4492c0952824"
+    },
+    {
+      "path": "spawning.parquet",
+      "url": "https://s3.us-west-2.amazonaws.com/us-west-2.opendata.source.coop/cboettig/fishbase/fb/v26.06/parquet/spawning.parquet",
+      "sha256": "b5b9d3517cdadc0a363ae7ab8c4764bd45b8ec39882af712c2d4913a5fc50d83"
+    }
+  ],
+  "references": 56,
+  "license": "CC BY-NC 4.0"
+}

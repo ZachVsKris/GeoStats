@@ -41,9 +41,9 @@ function rotationIndex(data: AnimalDataset, pool: BoardCandidate[]) {
   pool.forEach((board, index) => {
     if (hasEligible && !eligible[index]) return;
     const group = animalBoardGroup(data, board);
-    groups.set(group, [...(groups.get(group) ?? []), index]);
+    const groupIndexes = groups.get(group) ?? []; groupIndexes.push(index); groups.set(group, groupIndexes);
     const categories = byLabel.get(group) ?? new Map<string, number[]>();
-    board.traitIds.forEach(id => { const label = labels.get(id)!; categories.set(label, [...(categories.get(label) ?? []), index]); });
+    board.traitIds.forEach(id => { const label = labels.get(id)!; const indexes = categories.get(label) ?? []; indexes.push(index); categories.set(label, indexes); });
     byLabel.set(group, categories);
   });
   const result = { groups, labels, byLabel }; cache.set(pool, result); return result;

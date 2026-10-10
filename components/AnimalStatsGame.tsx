@@ -1,6 +1,7 @@
 "use client";
 
 import AnimalPortrait from "./AnimalPortrait";
+import { unpackAnimalBoards, type AnimalBoardTransport } from "../lib/animalstatsBoardTransport";
 import AnimalPhotoCredits from "./AnimalPhotoCredits";
 import { animalTraitIcon } from "../lib/animalstatsIcons";
 import AnimalCategoryLabel from "./AnimalCategoryLabel";
@@ -26,7 +27,7 @@ import "../app/animals/animalstats.css";
 import "../app/animals/animal-sanctuary.css";
 import "../app/animals/animal-fair-refresh.css";
 
-type Props = { initialBoardId?: string; initialMode?: DailyDifficulty; unavailableBoard?: boolean; data: AnimalDataset; boards: BoardCandidate[]; approvedBoardIds: string[]; date: string };
+type Props = { initialBoardId?: string; initialMode?: DailyDifficulty; unavailableBoard?: boolean; data: AnimalDataset; boardCatalog: AnimalBoardTransport; approvedBoardIds: string[]; date: string };
 type Assignment = Record<string, string>;
 
 function challengeUrl(boardId: string) {
@@ -43,7 +44,8 @@ function observationLinks(notes: string) {
 
 const formatValue = formatAnimalValue;
 
-export default function AnimalStatsGame({ data, boards, approvedBoardIds, date, initialBoardId, initialMode = "easy", unavailableBoard = false }: Props) {
+export default function AnimalStatsGame({ data, boardCatalog, approvedBoardIds, date, initialBoardId, initialMode = "easy", unavailableBoard = false }: Props) {
+  const boards = useMemo(() => unpackAnimalBoards(boardCatalog), [boardCatalog]);
   const sound = useGameSound();
   const [presentation, setPresentation] = useState<"cute" | "real">("cute");
   useEffect(() => { try { if (localStorage.getItem("animalstats-presentation-v1") === "real") setPresentation("real"); } catch {} }, []);

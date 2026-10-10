@@ -8,8 +8,8 @@ try {
  const {createAnimalBoardValidator,validateAnimalDataset}=await import(pathToFileURL(`${dir}/animalstats.mjs`));
  const {publishedAnimalTraitIds,animalMajorGroup}=await import(pathToFileURL(`${dir}/animalstatsCoverage.mjs`));
  const {animalBoardComposition}=await import(pathToFileURL(`${dir}/animalstatsComposition.mjs`));
- const parts=['pilot','existing-coverage','fish-records','tetrapod-spatial','marine'].map(n=>JSON.parse(fs.readFileSync(`data/animalstats/${n}.json`)));
- const d=Object.fromEntries(['animals','traits','values','sources','photos'].map(k=>[k,parts.flatMap(p=>p[k].filter(row=>k!=='photos'||p===parts.at(-1)||!parts.at(-1).photos.some(photo=>photo.animalId===row.animalId)))]));
+ const parts=['pilot','existing-coverage','fish-records','tetrapod-spatial','marine','aquatic-eggs'].map(n=>JSON.parse(fs.readFileSync(`data/animalstats/${n}.json`)));
+ const d=Object.fromEntries(['animals','traits','values','sources','photos'].map(k=>[k,parts.flatMap(p=>p[k].filter(row=>k!=='photos'||p===parts[4]||!parts[4].photos.some(photo=>photo.animalId===row.animalId)))]));
  const errors=validateAnimalDataset(d);if(errors.length)throw new Error(errors.join("\n"));
  const pub=publishedAnimalTraitIds(d),validate=createAnimalBoardValidator(d),vm=new Map(d.values.filter(v=>v.confidence==='approved').map(v=>[v.animalId+':'+v.traitId,v]));
  const portraits=new Set(d.photos.filter(p=>p.approved).map(p=>p.animalId));
@@ -25,7 +25,7 @@ try {
  const boardKey=b=>b.mode+'|'+[...b.animalIds].sort().join(',')+'|'+[...b.traitIds].sort().join(',');
  const contents=new Set(out.map(boardKey));
  const availableTraits=d.traits.filter(t=>pub.has(t.id)&&!t.id.startsWith('adult_shoulder_height'));
- for(const [group,types] of Object.entries(process.argv.includes('--validate-only')?{}:groups)) {
+ for(const [group,types] of Object.entries(process.argv.includes('--validate-only')?{}:groups).filter(([name])=>!process.env.ANIMAL_GENERATION_GROUPS||process.env.ANIMAL_GENERATION_GROUPS.split(',').includes(name))) {
   const animals=d.animals.filter(a=>a.active&&(a.extinctionStatus??'living')==='living'&&a.familiarityTier!=='edge'&&portraits.has(a.id)&&(group==='mixed'?a.entityType!=='breed':group==='marine'?marineIds.has(a.id):types?types.includes(a.taxonomicGroup):animalMajorGroup(a)==='mammals'&&a.entityType!=='breed'));
   for(const mode of ['easy','normal','expert']) {
    const start=out.length,n=mode==='easy'?4:mode==='normal'?6:8,k=mode==='expert'?6:4,minimumIntuitive=Math.ceil(k/2);

@@ -5,6 +5,165 @@
     "At least 3% between every adjacent numeric rank; exact ties remain blocked. Uncertainty overlap, source compatibility, unique winners and at least half intuitive remain required.",
     "Each sampled lineup contributes one new board per pass to prioritize animal diversity; later passes can add further variants."
   ],
-  "groups": [],
-  "totalBoards": 15101
+  "groups": [
+    {
+      "group": "insects",
+      "mode": "easy",
+      "portraitAnimals": 2,
+      "animalsWithEnoughMetrics": 0,
+      "attempts": 0,
+      "added": 0,
+      "rejections": {
+        "not enough illustrated animals with 4 distinct metrics": 1
+      }
+    },
+    {
+      "group": "insects",
+      "mode": "normal",
+      "portraitAnimals": 2,
+      "animalsWithEnoughMetrics": 0,
+      "attempts": 0,
+      "added": 0,
+      "rejections": {
+        "not enough illustrated animals with 4 distinct metrics": 1
+      }
+    },
+    {
+      "group": "insects",
+      "mode": "expert",
+      "portraitAnimals": 2,
+      "animalsWithEnoughMetrics": 0,
+      "attempts": 0,
+      "added": 0,
+      "rejections": {
+        "not enough illustrated animals with 6 distinct metrics": 1
+      }
+    },
+    {
+      "group": "fish",
+      "mode": "easy",
+      "portraitAnimals": 25,
+      "animalsWithEnoughMetrics": 21,
+      "attempts": 8541671,
+      "added": 373,
+      "rejections": {
+        "not enough compatible distinct metrics": 4992,
+        "category winners compete for same animal": 32648,
+        "traits have nearly identical or reversed rankings": 994,
+        "no familiar anchor": 126,
+        "trait: description dates are too close": 61,
+        "sampled lineup already explored": 8535686
+      }
+    },
+    {
+      "group": "fish",
+      "mode": "normal",
+      "portraitAnimals": 25,
+      "animalsWithEnoughMetrics": 21,
+      "attempts": 2311086,
+      "added": 273,
+      "rejections": {
+        "not enough compatible distinct metrics": 52209,
+        "category winners compete for same animal": 3980,
+        "no familiar anchor": 1596,
+        "sampled lineup already explored": 2256822,
+        "too few animals compete across traits": 20,
+        "traits have nearly identical or reversed rankings": 29
+      }
+    },
+    {
+      "group": "fish",
+      "mode": "expert",
+      "portraitAnimals": 25,
+      "animalsWithEnoughMetrics": 18,
+      "attempts": 2355860,
+      "added": 0,
+      "rejections": {
+        "not enough compatible distinct metrics": 43747,
+        "sampled lineup already explored": 2312102,
+        "no familiar anchor": 11
+      }
+    },
+    {
+      "group": "invertebrates",
+      "mode": "easy",
+      "portraitAnimals": 10,
+      "animalsWithEnoughMetrics": 1,
+      "attempts": 0,
+      "added": 0,
+      "rejections": {
+        "not enough illustrated animals with 4 distinct metrics": 1
+      }
+    },
+    {
+      "group": "invertebrates",
+      "mode": "normal",
+      "portraitAnimals": 10,
+      "animalsWithEnoughMetrics": 1,
+      "attempts": 0,
+      "added": 0,
+      "rejections": {
+        "not enough illustrated animals with 4 distinct metrics": 1
+      }
+    },
+    {
+      "group": "invertebrates",
+      "mode": "expert",
+      "portraitAnimals": 10,
+      "animalsWithEnoughMetrics": 0,
+      "attempts": 0,
+      "added": 0,
+      "rejections": {
+        "not enough illustrated animals with 6 distinct metrics": 1
+      }
+    },
+    {
+      "group": "marine",
+      "mode": "easy",
+      "portraitAnimals": 33,
+      "animalsWithEnoughMetrics": 27,
+      "attempts": 2141466,
+      "added": 1169,
+      "rejections": {
+        "group composition": 1359500,
+        "not enough compatible distinct metrics": 12840,
+        "category winners compete for same animal": 77607,
+        "traits have nearly identical or reversed rankings": 2591,
+        "trait: description dates are too close": 625,
+        "sampled lineup already explored": 766566
+      }
+    },
+    {
+      "group": "marine",
+      "mode": "normal",
+      "portraitAnimals": 33,
+      "animalsWithEnoughMetrics": 27,
+      "attempts": 136795,
+      "added": 1409,
+      "rejections": {
+        "not enough compatible distinct metrics": 57055,
+        "group composition": 69014,
+        "category winners compete for same animal": 19443,
+        "trait: description dates are too close": 150,
+        "too few animals compete across traits": 118,
+        "traits have nearly identical or reversed rankings": 228,
+        "sampled lineup already explored": 8818,
+        "no familiar anchor": 24
+      }
+    },
+    {
+      "group": "marine",
+      "mode": "expert",
+      "portraitAnimals": 33,
+      "animalsWithEnoughMetrics": 24,
+      "attempts": 124100,
+      "added": 0,
+      "rejections": {
+        "group composition": 52122,
+        "not enough compatible distinct metrics": 67374,
+        "sampled lineup already explored": 4604
+      }
+    }
+  ],
+  "totalBoards": 51100
 }

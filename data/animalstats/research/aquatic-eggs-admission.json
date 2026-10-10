@@ -1,0 +1,692 @@
+{
+  "sourceFiles": [
+    {
+      "table": "spawning",
+      "sha256": "b5b9d3517cdadc0a363ae7ab8c4764bd45b8ec39882af712c2d4913a5fc50d83"
+    },
+    {
+      "table": "eggs",
+      "sha256": "fad904e2583db4ca99e2ed9aeca65ca66f5215f670c7ce30424e4492c0952824"
+    }
+  ],
+  "accepted": [
+    {
+      "animalId": "oreochromis_niloticus",
+      "field": "FecundityMax",
+      "value": 1500,
+      "reference": 6459,
+      "citation": "Ukkatawewat, S.. 1984. The taxonomic characters and biology of some important freshwater fishes in Thailand. Manuscript. National Inland Fisheries Institute, Department of Fisheries, Ministry of Agriculture, Bangkok, Thailand, 55 p."
+    },
+    {
+      "animalId": "engraulis_encrasicolus",
+      "field": "FecundityMax",
+      "value": 20000,
+      "reference": 35388,
+      "citation": "Muus, B.J. and J.G. Nielsen. 1999. Sea fish. Scandinavian Fishing Year Book, Hedehusene, Denmark. 340 p."
+    },
+    {
+      "animalId": "gadus_morhua",
+      "field": "FecundityMax",
+      "value": 9100000,
+      "reference": 28047,
+      "citation": "Christiansen, J.S., S.E. Fevolden, O.V. Karamushlo and L.I. Karamushko. 1997. Reproductive traits of marine fish in relation to their mode of oviposition and zoogeographic distribution. ICES CM 1997/CC. 14 p."
+    },
+    {
+      "animalId": "chanos_chanos",
+      "field": "FecundityMax",
+      "value": 1100000,
+      "reference": 137,
+      "citation": "Lopez, N.A., M.V.E. Vicaldo, M.G. Trio and J.F. Fadriquela. 1986. The Philippine national bangus (Chanos chanos) breeding program. p. 75-78. In J.L. Maclean, L.B. Dizon and L.V. Hosillos (eds.) The First Asian Fisheries Forum. Asian Fisheries Society, Manila, Philippines. 727 p."
+    },
+    {
+      "animalId": "euthynnus_alletteratus",
+      "field": "FecundityMax",
+      "value": 2200000,
+      "reference": 28173,
+      "citation": "Diouf, T.. 1980. P\u00eache et biologie de trois Scombridae exploit\u00e9s au S\u00e9n\u00e9gal: Euthynnus alletteratus, Sarda sarda et Scomberomorus tritor. These de Doctorat 3\u00e8me cycle, Universit\u00e9 de Bretagne Occidentale, France. 159 p."
+    },
+    {
+      "animalId": "katsuwonus_pelamis",
+      "field": "FecundityMax",
+      "value": 2000000,
+      "reference": 168,
+      "citation": "Collette, B.B. and C.E. Nauen. 1983. FAO Species Catalogue. Vol. 2. Scombrids of the world. An annotated and illustrated catalogue of tunas, mackerels, bonitos and related species known to date. Rome: FAO. FAO Fish. Synop. 125(2):137 p."
+    },
+    {
+      "animalId": "scomber_scombrus",
+      "field": "FecundityMax",
+      "value": 1980000,
+      "reference": 43491,
+      "citation": "Morse, W.W.. 1980. Spawning and fecundity of Atlantic mackerel, Scomber scombrus, in the Middle Atlantic Bight. Fish. Bull. 78(1):103-108."
+    },
+    {
+      "animalId": "scomberomorus_cavalla",
+      "field": "FecundityMax",
+      "value": 12206888,
+      "reference": 8861,
+      "citation": "Funicane, J.H., L.A. Collins, H.A. Brusher and C.H. Saloman. 1986. Reproductive biology of king mackerel, Scomberomorus cavalla, from the southeastern United States. Fish. Bull. 84(4):841-850."
+    },
+    {
+      "animalId": "scomberomorus_maculatus",
+      "field": "FecundityMax",
+      "value": 2113000,
+      "reference": 8860,
+      "citation": "Finucane, J.H.. 1986. Reproduction of spanish mackerel, Scomberomorus maculatus, from the southeastern United States. Northeast Gulf Sci. 8(2): 97-106."
+    },
+    {
+      "animalId": "thunnus_alalunga",
+      "field": "FecundityMax",
+      "value": 3000000,
+      "reference": 35388,
+      "citation": "Muus, B.J. and J.G. Nielsen. 1999. Sea fish. Scandinavian Fishing Year Book, Hedehusene, Denmark. 340 p."
+    },
+    {
+      "animalId": "thunnus_albacares",
+      "field": "FecundityMax",
+      "value": 6600000,
+      "reference": 57670,
+      "citation": "Wild, A.. 1994. A review of the biology and fisheries for yellowfin tuna, Thunnus albacares, in the eastern Pacific Ocean. p. 52-107. In R.S. Shomura, J. Majkowski and S. Langi (eds.). Interactions of Pacific tuna fisheries. FAO Fisheries Technical Paper 336(2):439p."
+    },
+    {
+      "animalId": "xiphias_gladius",
+      "field": "FecundityMax",
+      "value": 5000000,
+      "reference": 43,
+      "citation": "Nakamura, I.. 1985. FAO species catalogue. Vol. 5. Billfishes of the world. An annotated and illustrated catalogue of marlins, sailfishes, spearfishes and swordfishes known to date. FAO Fish. Synop. 125(5):65p. Rome: FAO."
+    },
+    {
+      "animalId": "salmo_trutta",
+      "field": "FecundityMax",
+      "value": 10000,
+      "reference": 173,
+      "citation": "Muus, B.J. and P. Dahlstr\u00f6m. 1974. Collins guide to the sea fishes of Britain and North-Western Europe. Collins, London, UK. 244 p."
+    },
+    {
+      "animalId": "oncorhynchus_mykiss",
+      "field": "FecundityMax",
+      "value": 12749,
+      "reference": 27547,
+      "citation": "Morrow, J.E.. 1980. The freshwater fishes of Alaska. University of. B.C. Animal Resources Ecology Library. 248p."
+    },
+    {
+      "animalId": "oncorhynchus_nerka",
+      "field": "FecundityMax",
+      "value": 4300,
+      "reference": 27547,
+      "citation": "Morrow, J.E.. 1980. The freshwater fishes of Alaska. University of. B.C. Animal Resources Ecology Library. 248p."
+    },
+    {
+      "animalId": "oncorhynchus_tshawytscha",
+      "field": "FecundityMax",
+      "value": 8500,
+      "reference": 12193,
+      "citation": "Hugg, D.O.. 1996. MAPFISH georeferenced mapping database. Freshwater and estuarine fishes of North America. Life Science Software. Dennis O. and Steven Hugg, 1278 Turkey Point Road, Edgewater, Maryland, USA."
+    },
+    {
+      "animalId": "salvelinus_fontinalis",
+      "field": "FecundityMax",
+      "value": 5000,
+      "reference": 1998,
+      "citation": "Scott, W.B. and E.J. Crossman. 1973. Freshwater fishes of Canada. Bull. Fish. Res. Board Can. 184: xi+1-966."
+    },
+    {
+      "animalId": "salvelinus_namaycush",
+      "field": "FecundityMax",
+      "value": 17000,
+      "reference": 28805,
+      "citation": "Martin, N.V.. 1957. Reproduction of lake trout in Algonquin Park, Ontario. Trans. Am. Fish. Soc. 86:231-244."
+    },
+    {
+      "animalId": "esox_lucius",
+      "field": "FecundityMax",
+      "value": 600000,
+      "reference": 27547,
+      "citation": "Morrow, J.E.. 1980. The freshwater fishes of Alaska. University of. B.C. Animal Resources Ecology Library. 248p."
+    },
+    {
+      "animalId": "carassius_auratus",
+      "field": "FecundityMax",
+      "value": 400000,
+      "reference": 10145,
+      "citation": "Slastenenko, E.P.. 1958. The freshwater fishes of Canada. Toronto (Ontario, Canada): Kiev Printers. 385 p."
+    },
+    {
+      "animalId": "silurus_glanis",
+      "field": "FecundityMax",
+      "value": 340461,
+      "reference": 75230,
+      "citation": "Alp, A., C. Kara and H.M. B\u00fcy\u00fck\u00e7apar. 2004. Reproductive biology in a native European catfish, Silurus glanis L., 1758, population in Menzelet Reservoir. Turk. J.  Vet. Anim. Sci. 28:613-622."
+    },
+    {
+      "animalId": "conger_conger",
+      "field": "FecundityMax",
+      "value": 8000000,
+      "reference": 6521,
+      "citation": "Bauchot, M.-L. and L. Saldanha. 1986. Congridae (including Heterocongridae). p. 567-574. In P.J.P. Whitehead, M.-L. Bauchot, J.-C. Hureau, J. Nielsen and E. Tortonese (eds.) Fishes of the north-eastern Atlantic and the Mediterranean. volume 2. UNESCO, Paris."
+    },
+    {
+      "animalId": "perca_fluviatilis",
+      "field": "FecundityMax",
+      "value": 28488,
+      "reference": 74637,
+      "citation": "Papageorgiou, N.. 1977. Fecundity and reproduction of perch (Perca fluviatilis L.) in Lake Agios Vasilios, Greece. Freshw. Biol. 7:559-565."
+    },
+    {
+      "animalId": "perca_flavescens",
+      "field": "FecundityMax",
+      "value": 61465,
+      "reference": 1998,
+      "citation": "Scott, W.B. and E.J. Crossman. 1973. Freshwater fishes of Canada. Bull. Fish. Res. Board Can. 184: xi+1-966."
+    },
+    {
+      "animalId": "sander_lucioperca",
+      "field": "FecundityMax",
+      "value": 2024152,
+      "reference": 54822,
+      "citation": "Kosior, M. and T. Wandzel. 2001. Comparison of fecundity of pikeperch (Stizostedion lucioperca (L.)) in three lagoons in the southern Baltic Sea. Bull. Sea Fish. Inst. Gdynia 3(154):3-27."
+    },
+    {
+      "animalId": "mugil_cephalus",
+      "field": "FecundityMax",
+      "value": 7000000,
+      "reference": 48660,
+      "citation": "Keith, P., E. Vigneux and P. Bosc. 1999. Atlas des poissons et des crustac\u00e9s d'eau douce de La R\u00e9union. Mus\u00e9um national d\u2019Histoire naturelle, Paris. Patrimoines Naturels 39:136p."
+    },
+    {
+      "animalId": "lepisosteus_osseus",
+      "field": "FecundityMax",
+      "value": 77156,
+      "reference": 38413,
+      "citation": "Holloway, A.D.. 1954. Notes on the life history and management of the shortnose and longnose gars in Florida waters. J. Wildl. Manage. 18(4):438-449."
+    },
+    {
+      "animalId": "megalops_atlanticus",
+      "field": "FecundityMax",
+      "value": 12000000,
+      "reference": 10863,
+      "citation": "Garc\u00eda, C.B. and O.D. Solano. 1995. Tarpon atlanticus in Colombia: a big fish in trouble. Naga, ICLARM Q. 18(3):47-49."
+    },
+    {
+      "animalId": "pleuronectes_platessa",
+      "field": "FecundityMax",
+      "value": 500000,
+      "reference": 35388,
+      "citation": "Muus, B.J. and J.G. Nielsen. 1999. Sea fish. Scandinavian Fishing Year Book, Hedehusene, Denmark. 340 p."
+    },
+    {
+      "animalId": "sardina_pilchardus",
+      "field": "FecundityMax",
+      "value": 490000,
+      "reference": 74552,
+      "citation": "Macer, C.T.. 1974. Some observations on the fecundity of the pilchard (Sardino pilchardus Walbaum) off the south-west coast of England. ICES: C.M. J(9):11p."
+    },
+    {
+      "animalId": "hippoglossus_hippoglossus",
+      "field": "FecundityMax",
+      "value": 3500000,
+      "reference": 35388,
+      "citation": "Muus, B.J. and J.G. Nielsen. 1999. Sea fish. Scandinavian Fishing Year Book, Hedehusene, Denmark. 340 p."
+    },
+    {
+      "animalId": "cyprinus_carpio",
+      "field": "FecundityMax",
+      "value": 2208000,
+      "reference": 10852,
+      "citation": "Swee, U.B. and H.R. McCrimmon. 1966. Reproductive biology of the carp, Cyprinus carpio L., in Lake St. Lawrence, Ontario. Trans. Am. Fish. Soc. 95(4):372-380."
+    },
+    {
+      "animalId": "coryphaena_hippurus",
+      "field": "FecundityMax",
+      "value": 1548457,
+      "reference": 34159,
+      "citation": "Perez, R.N., A.M. Roman and G.A. Rivera. 1992. Investigations of the reproductive dynamics and preliminary evaluation of landings data of the dolphinfish Coryphaena hippurus, L. Final Report for Dingell-Johnson Project F26-1. Puerto Rico Dept. of Natural Resources Fishery Research Laboratory, Mayaguez, PR. 95 p."
+    },
+    {
+      "animalId": "acipenser_sturio",
+      "field": "FecundityMax",
+      "value": 2500000,
+      "reference": 27368,
+      "citation": "Gerstmeier, R. and T. Romig. 1998. Die S\u00fc\u00dfwasserfische Europas: f\u00fcr Naturfreunde und Angler. Franckh-Kosmos Verlag, Stuttgart, Germany. 368 p."
+    },
+    {
+      "animalId": "gasterosteus_aculeatus",
+      "field": "FecundityMax",
+      "value": 1300,
+      "reference": 27547,
+      "citation": "Morrow, J.E.. 1980. The freshwater fishes of Alaska. University of. B.C. Animal Resources Ecology Library. 248p."
+    },
+    {
+      "animalId": "acipenser_transmontanus",
+      "field": "FecundityMax",
+      "value": 4000000,
+      "reference": 10091,
+      "citation": "Migdalski, E.C.. 1962. Angler's guide to the fresh water sport fishes of North America. Ronald Press, N.Y. 431 p."
+    },
+    {
+      "animalId": "esox_masquinongy",
+      "field": "FecundityMax",
+      "value": 3000000,
+      "reference": 12193,
+      "citation": "Hugg, D.O.. 1996. MAPFISH georeferenced mapping database. Freshwater and estuarine fishes of North America. Life Science Software. Dennis O. and Steven Hugg, 1278 Turkey Point Road, Edgewater, Maryland, USA."
+    },
+    {
+      "animalId": "pylodictis_olivaris",
+      "field": "FecundityMax",
+      "value": 11300,
+      "reference": 3987,
+      "citation": "Minckley, W.L. and J.E. Deacon. 1959. Biology of the flathead catfish in Kansas. Trans. Am. Fish. Soc. 88(4):344-355."
+    },
+    {
+      "animalId": "poecilia_reticulata",
+      "field": "FecundityMax",
+      "value": 40,
+      "reference": 1672,
+      "citation": "Riehl, R. and H.A. Baensch. 1991. Aquarien Atlas. Band. 1. Melle: Mergus, Verlag f\u00fcr Natur-und Heimtierkunde, Germany. 992 p."
+    },
+    {
+      "animalId": "micropterus_dolomieu",
+      "field": "FecundityMax",
+      "value": 14000,
+      "reference": 1998,
+      "citation": "Scott, W.B. and E.J. Crossman. 1973. Freshwater fishes of Canada. Bull. Fish. Res. Board Can. 184: xi+1-966."
+    },
+    {
+      "animalId": "micropterus_salmoides",
+      "field": "FecundityMax",
+      "value": 25000,
+      "reference": 40476,
+      "citation": "Keith, P. and J. Allardi (coords.). 2001. Atlas des poissons d'eau douce de France. Mus\u00e9um national d\u2019Histoire naturelle, Paris. Patrimoines naturels, 47:1-387."
+    },
+    {
+      "animalId": "sander_vitreus",
+      "field": "FecundityMax",
+      "value": 612000,
+      "reference": 1998,
+      "citation": "Scott, W.B. and E.J. Crossman. 1973. Freshwater fishes of Canada. Bull. Fish. Res. Board Can. 184: xi+1-966."
+    },
+    {
+      "animalId": "hippocampus_kuda",
+      "field": "FecundityMax",
+      "value": 1405,
+      "reference": 53714,
+      "citation": "Ky, T.S. and T.K.L. Doan. 1994. Reproduction of the seahorse (Hippocampus kuda) inhabiting in Cuabe estuary. Tuy\u00e9n T\u00e2p Nghi\u00ean C\u00fau Bi\u00e9n V :111-120."
+    },
+    {
+      "animalId": "clupea_harengus",
+      "field": "FecundityMax",
+      "value": 131100,
+      "reference": 50971,
+      "citation": "Krasovskaya, N.. 2002. Spawning of Baltic herring in the Vistula lagoon: effects of environmental conditions and stock parameters. Bull. Sea Fish. Inst. Gdynia 1(155):3-24."
+    },
+    {
+      "animalId": "oreochromis_niloticus",
+      "field": "Eggdiammax",
+      "value": 4.3,
+      "reference": 3,
+      "citation": "Philippart, J.-C. and J.-C. Ruwet. 1982. Ecology and distribution of tilapias. p. 15-60. In R.S.V. Pullin and R.H. Lowe-McConnell (eds.) The biology and culture of tilapias. ICLARM Conf. Proc. 7."
+    },
+    {
+      "animalId": "clupea_harengus",
+      "field": "Eggdiammax",
+      "value": 1.7,
+      "reference": 87580,
+      "citation": "Baxter, I.G.. 1958. Fecundities of winter-spring and summer-autumn herring spawners. ICES Herring Committee 42:1-12."
+    },
+    {
+      "animalId": "anguilla_anguilla",
+      "field": "Eggdiammax",
+      "value": 1.38,
+      "reference": 37,
+      "citation": "Russell, F.S.. 1976. The eggs and planktonic stages of British marine fishes. Academic Press, London, UK. 524 p."
+    },
+    {
+      "animalId": "engraulis_encrasicolus",
+      "field": "Eggdiammax",
+      "value": 1.9,
+      "reference": 37,
+      "citation": "Russell, F.S.. 1976. The eggs and planktonic stages of British marine fishes. Academic Press, London, UK. 524 p."
+    },
+    {
+      "animalId": "gadus_morhua",
+      "field": "Eggdiammax",
+      "value": 2.0,
+      "reference": 5922,
+      "citation": "M\u00fcller, A. and O. Bagge. 1984. The occurrence of cod eggs and the size of fish eggs in Bornholm Basin. ICES C.M. 1984/J:17. International Council for the Exploration of the Seas, Copenhagen. 12 p."
+    },
+    {
+      "animalId": "istiophorus_platypterus",
+      "field": "Eggdiammax",
+      "value": 1.304,
+      "reference": 43,
+      "citation": "Nakamura, I.. 1985. FAO species catalogue. Vol. 5. Billfishes of the world. An annotated and illustrated catalogue of marlins, sailfishes, spearfishes and swordfishes known to date. FAO Fish. Synop. 125(5):65p. Rome: FAO."
+    },
+    {
+      "animalId": "chanos_chanos",
+      "field": "Eggdiammax",
+      "value": 1.25,
+      "reference": 9814,
+      "citation": "Bagarinao, T.. 1994. Systematics, distribution, genetics and life history of milkfish, Chanos chanos. Environ. Biol. Fishes 39(1):23-41."
+    },
+    {
+      "animalId": "katsuwonus_pelamis",
+      "field": "Eggdiammax",
+      "value": 1.0,
+      "reference": 6390,
+      "citation": "Kailola, P.J., M.J. Williams, P.C. Stewart, R.E. Reichelt, A. McNee and C. Grieve. 1993. Australian fisheries resources. Bureau of Resource Sciences, Canberra, Australia. 422 p."
+    },
+    {
+      "animalId": "scomber_scombrus",
+      "field": "Eggdiammax",
+      "value": 1.4,
+      "reference": 173,
+      "citation": "Muus, B.J. and P. Dahlstr\u00f6m. 1974. Collins guide to the sea fishes of Britain and North-Western Europe. Collins, London, UK. 244 p."
+    },
+    {
+      "animalId": "thunnus_albacares",
+      "field": "Eggdiammax",
+      "value": 0.83,
+      "reference": 116321,
+      "citation": "CMFRI. 2012. Annual report 2011-2012. Central Marine Fisheries Research Institute, Cochin. 274 p."
+    },
+    {
+      "animalId": "xiphias_gladius",
+      "field": "Eggdiammax",
+      "value": 1.8,
+      "reference": 9742,
+      "citation": "Palko, B.J., G.L. Beardsley and W.J. Richards. 1981. Synopsis of the biology of the swordfish, Xiphias gladius Linnaeus. NOAA Technical Report NMFS Circular 441/FAO Fisheries Synopsis No. 127."
+    },
+    {
+      "animalId": "salmo_salar",
+      "field": "Eggdiammax",
+      "value": 6.6,
+      "reference": 91197,
+      "citation": "Thorpe, J.E., M.S. Miles and D.S. Keay. 1984. Developmental rate, fecundity and egg size in Atlantic salmon, Salmo salar L. Aquaculture 43:289-305."
+    },
+    {
+      "animalId": "salmo_trutta",
+      "field": "Eggdiammax",
+      "value": 5.0,
+      "reference": 6390,
+      "citation": "Kailola, P.J., M.J. Williams, P.C. Stewart, R.E. Reichelt, A. McNee and C. Grieve. 1993. Australian fisheries resources. Bureau of Resource Sciences, Canberra, Australia. 422 p."
+    },
+    {
+      "animalId": "oncorhynchus_mykiss",
+      "field": "Eggdiammax",
+      "value": 5.0,
+      "reference": 6390,
+      "citation": "Kailola, P.J., M.J. Williams, P.C. Stewart, R.E. Reichelt, A. McNee and C. Grieve. 1993. Australian fisheries resources. Bureau of Resource Sciences, Canberra, Australia. 422 p."
+    },
+    {
+      "animalId": "oncorhynchus_nerka",
+      "field": "Eggdiammax",
+      "value": 5.0,
+      "reference": 27547,
+      "citation": "Morrow, J.E.. 1980. The freshwater fishes of Alaska. University of. B.C. Animal Resources Ecology Library. 248p."
+    },
+    {
+      "animalId": "oncorhynchus_tshawytscha",
+      "field": "Eggdiammax",
+      "value": 7.0,
+      "reference": 27547,
+      "citation": "Morrow, J.E.. 1980. The freshwater fishes of Alaska. University of. B.C. Animal Resources Ecology Library. 248p."
+    },
+    {
+      "animalId": "oncorhynchus_kisutch",
+      "field": "Eggdiammax",
+      "value": 6.0,
+      "reference": 27547,
+      "citation": "Morrow, J.E.. 1980. The freshwater fishes of Alaska. University of. B.C. Animal Resources Ecology Library. 248p."
+    },
+    {
+      "animalId": "salvelinus_fontinalis",
+      "field": "Eggdiammax",
+      "value": 5.0,
+      "reference": 27547,
+      "citation": "Morrow, J.E.. 1980. The freshwater fishes of Alaska. University of. B.C. Animal Resources Ecology Library. 248p."
+    },
+    {
+      "animalId": "salvelinus_namaycush",
+      "field": "Eggdiammax",
+      "value": 6.0,
+      "reference": 27547,
+      "citation": "Morrow, J.E.. 1980. The freshwater fishes of Alaska. University of. B.C. Animal Resources Ecology Library. 248p."
+    },
+    {
+      "animalId": "esox_lucius",
+      "field": "Eggdiammax",
+      "value": 3.0,
+      "reference": 27547,
+      "citation": "Morrow, J.E.. 1980. The freshwater fishes of Alaska. University of. B.C. Animal Resources Ecology Library. 248p."
+    },
+    {
+      "animalId": "carassius_auratus",
+      "field": "Eggdiammax",
+      "value": 1.7,
+      "reference": 39166,
+      "citation": "Okada, Y.. 1960. Studies on the freshwater fishes of Japan. Prefectural University of Mie Tsu, Mie Prefecture, Japan. 860 p."
+    },
+    {
+      "animalId": "silurus_glanis",
+      "field": "Eggdiammax",
+      "value": 3.73,
+      "reference": 75230,
+      "citation": "Alp, A., C. Kara and H.M. B\u00fcy\u00fck\u00e7apar. 2004. Reproductive biology in a native European catfish, Silurus glanis L., 1758, population in Menzelet Reservoir. Turk. J.  Vet. Anim. Sci. 28:613-622."
+    },
+    {
+      "animalId": "lates_calcarifer",
+      "field": "Eggdiammax",
+      "value": 0.68,
+      "reference": 43081,
+      "citation": "Jeyaseelan, M.J.P.. 1998. Manual of fish eggs and larvae from Asian mangrove waters. United Nations Educational, Scientific and Cultural Organization. Paris. 193 p."
+    },
+    {
+      "animalId": "lates_niloticus",
+      "field": "Eggdiammax",
+      "value": 0.92,
+      "reference": 3647,
+      "citation": "Hopson, A.J.. 1967. Annual Report, 1966-67. Federal Fisheries Services, Lake Chad Research Station, Malamfatori."
+    },
+    {
+      "animalId": "perca_fluviatilis",
+      "field": "Eggdiammax",
+      "value": 2.5,
+      "reference": 41678,
+      "citation": "Pinder, A.C.. 2001. Keys to larval and juvenile stages of coarse fishes from fresh waters in the British Isles. Freshwater Biological Association. The Ferry House, Far Sawrey, Ambleside, Cumbria, UK. Scientific Publication No. 60. 136 p."
+    },
+    {
+      "animalId": "sander_lucioperca",
+      "field": "Eggdiammax",
+      "value": 1.4,
+      "reference": 88075,
+      "citation": "Lappalainen, J., H. D\u00f6rner and K. Wysujack. 2003. Reproduction biology of pikeperch (Sander lucioperca (L.)) - a review. Ecol. Freshwat. Fish:12:95-106."
+    },
+    {
+      "animalId": "pomatomus_saltatrix",
+      "field": "Eggdiammax",
+      "value": 1.2,
+      "reference": 6845,
+      "citation": "Wilk, S.J.. 1977. Biological and fisheries data on bluefish, Pomatomus saltatrix (Linnaeus). Tech. Ser. Rep. 11, Sandy Hook Lab., NMFS Northeast Fish. Sci. Cent., Highlands NJ 07732. 56 p."
+    },
+    {
+      "animalId": "seriola_lalandi",
+      "field": "Eggdiammax",
+      "value": 1.8,
+      "reference": 27865,
+      "citation": "Smith, A.K.. 1987. Genetic variation and dispersal of the yellowtail kingfish, Seriola lalandi, from New South Wales waters. University of New South Wales. M.S. thesis."
+    },
+    {
+      "animalId": "mugil_cephalus",
+      "field": "Eggdiammax",
+      "value": 0.95,
+      "reference": 139,
+      "citation": "Chaudhuri, H., J.V. Juario, J.H. Primavera, R. Samson and R. Mateo. 1978. Observations on artificial fertilization of eggs and the embryonic and larval development of milkfish, Chanos chanos (Forssk\u00e5l). Aquaculture 13:95-113."
+    },
+    {
+      "animalId": "lepisosteus_osseus",
+      "field": "Eggdiammax",
+      "value": 5.0,
+      "reference": 4639,
+      "citation": "Jones, P.W., F.D. Martin and J.D. Hardy Jr.. 1978. Development of fishes of the Mid-Atlantic Bight. An atlas of eggs, larval and juvenile stages. Vol. 1. Acipenseridae through Ictaluridae. U.S. Fish Wildl. Ser. Biol. Serv. Program FWS/OBS-78/12. 336 p."
+    },
+    {
+      "animalId": "paralichthys_dentatus",
+      "field": "Eggdiammax",
+      "value": 1.13,
+      "reference": 39017,
+      "citation": "Colton, J.B. Jr. and R.R. Marak. 1969. Guide for identifying the common planktonic fish eggs and larvae of continental shelf waters, Cape Sable to Bloc Island. U.S. Bur. Commer. Fish. Biol. Lab. Ref. 69-9. 43 p."
+    },
+    {
+      "animalId": "pleuronectes_platessa",
+      "field": "Eggdiammax",
+      "value": 2.17,
+      "reference": 37,
+      "citation": "Russell, F.S.. 1976. The eggs and planktonic stages of British marine fishes. Academic Press, London, UK. 524 p."
+    },
+    {
+      "animalId": "sardina_pilchardus",
+      "field": "Eggdiammax",
+      "value": 1.9,
+      "reference": 37,
+      "citation": "Russell, F.S.. 1976. The eggs and planktonic stages of British marine fishes. Academic Press, London, UK. 524 p."
+    },
+    {
+      "animalId": "hippoglossus_hippoglossus",
+      "field": "Eggdiammax",
+      "value": 3.8,
+      "reference": 37,
+      "citation": "Russell, F.S.. 1976. The eggs and planktonic stages of British marine fishes. Academic Press, London, UK. 524 p."
+    },
+    {
+      "animalId": "lutjanus_campechanus",
+      "field": "Eggdiammax",
+      "value": 0.8,
+      "reference": 55,
+      "citation": "Allen, G.R.. 1985. FAO Species Catalogue. Vol. 6. Snappers of the world. An annotated and illustrated catalogue of lutjanid species known to date. FAO Fish. Synop. 125(6):208 p. Rome: FAO."
+    },
+    {
+      "animalId": "cyprinus_carpio",
+      "field": "Eggdiammax",
+      "value": 2.0,
+      "reference": 185,
+      "citation": "Alikunhi, K.H.. 1966. Synopsis of biological data on common carp Cyprinus carpio (Linnaeus), 1758 (Asia and the Far East). FAO Fish. Synop. 31(2):39p."
+    },
+    {
+      "animalId": "coryphaena_hippurus",
+      "field": "Eggdiammax",
+      "value": 1.7,
+      "reference": 515,
+      "citation": "Beardsley, G.L.. 1967. Age, growth, and reproduction of the dolphin, Coryphaena hippurus, in the Straits of Florida. Copeia 1967(2):441-451."
+    },
+    {
+      "animalId": "gasterosteus_aculeatus",
+      "field": "Eggdiammax",
+      "value": 1.9,
+      "reference": 27547,
+      "citation": "Morrow, J.E.. 1980. The freshwater fishes of Alaska. University of. B.C. Animal Resources Ecology Library. 248p."
+    },
+    {
+      "animalId": "sander_vitreus",
+      "field": "Eggdiammax",
+      "value": 2.0,
+      "reference": 1998,
+      "citation": "Scott, W.B. and E.J. Crossman. 1973. Freshwater fishes of Canada. Bull. Fish. Res. Board Can. 184: xi+1-966."
+    }
+  ],
+  "held": [
+    {
+      "species": "Oreochromis niloticus",
+      "field": "FecundityMax",
+      "reason": "incompatible fecundity basis",
+      "reference": 85170
+    },
+    {
+      "species": "Clupea harengus",
+      "field": "FecundityMax",
+      "reason": "derived, estimated, doubtful or unverifiable record",
+      "reference": 2809
+    },
+    {
+      "species": "Gadus morhua",
+      "field": "FecundityMax",
+      "reason": "derived, estimated, doubtful or unverifiable record",
+      "reference": 88171
+    },
+    {
+      "species": "Scomber scombrus",
+      "field": "FecundityMax",
+      "reason": "incompatible fecundity basis",
+      "reference": 35388
+    },
+    {
+      "species": "Scomber scombrus",
+      "field": "FecundityMax",
+      "reason": "no original citation",
+      "reference": 74584
+    },
+    {
+      "species": "Thunnus alalunga",
+      "field": "FecundityMax",
+      "reason": "incompatible fecundity basis",
+      "reference": 6390
+    },
+    {
+      "species": "Xiphias gladius",
+      "field": "FecundityMax",
+      "reason": "derived, estimated, doubtful or unverifiable record",
+      "reference": 83312
+    },
+    {
+      "species": "Salmo salar",
+      "field": "FecundityMax",
+      "reason": "incompatible fecundity basis",
+      "reference": 173
+    },
+    {
+      "species": "Lates calcarifer",
+      "field": "FecundityMax",
+      "reason": "derived, estimated, doubtful or unverifiable record",
+      "reference": 28134
+    },
+    {
+      "species": "Mugil cephalus",
+      "field": "FecundityMax",
+      "reason": "derived, estimated, doubtful or unverifiable record",
+      "reference": 28723
+    },
+    {
+      "species": "Mugil cephalus",
+      "field": "FecundityMax",
+      "reason": "derived, estimated, doubtful or unverifiable record",
+      "reference": 28723
+    },
+    {
+      "species": "Lutjanus campechanus",
+      "field": "FecundityMax",
+      "reason": "derived, estimated, doubtful or unverifiable record",
+      "reference": 43582
+    },
+    {
+      "species": "Cyprinus carpio",
+      "field": "FecundityMax",
+      "reason": "incompatible fecundity basis",
+      "reference": 2825
+    },
+    {
+      "species": "Clupea harengus",
+      "field": "FecundityMax",
+      "reason": "incompatible fecundity basis",
+      "reference": 74531
+    }
+  ],
+  "coverage": {
+    "FecundityMax": 44,
+    "Eggdiammax": 39
+  },
+  "rules": [
+    "Only exact existing bony-fish species",
+    "Cited records only; no derived curves or estimated values",
+    "Reject annual, batch, lifetime and mean fecundity summaries",
+    "Do not import SeaLifeBase egg records until oocyte versus encapsulated egg size is checked",
+    "Maximum eligible record per species; not typical size or universal world record"
+  ]
+}

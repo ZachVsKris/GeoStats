@@ -25,13 +25,18 @@ const COMMON_TYPES = new Set([
   "cyprinus_carpio", "carassius_auratus", "salmo_salar", "gadus_morhua",
   "thunnus_alalunga", "homarus_americanus", "apis_mellifera", "drosophila_melanogaster",
 ]);
+const commonCache = new WeakMap<AnimalDataset, Set<string>>();
+const traitKindsCache = new WeakMap<AnimalDataset, Map<string, string | undefined>>();
 export function commonAnimalIds(data: AnimalDataset) {
-  return new Set(data.animals.filter(a => a.familiarityTier === "core" || COMMON_TYPES.has(a.id)).map(a => a.id));
+  const existing = commonCache.get(data); if (existing) return existing;
+  const common = new Set(data.animals.filter(a => a.familiarityTier === "core" || COMMON_TYPES.has(a.id)).map(a => a.id));
+  commonCache.set(data, common); return common;
 }
 export function animalBoardComposition(data: AnimalDataset, board: BoardCandidate) {
   const common = commonAnimalIds(data);
-  const traits = new Map(data.traits.map(t => [t.id, t]));
-  const intuitive = board.traitIds.filter(id => traits.get(id)?.categoryKind === "intuitive").length;
+  let traits = traitKindsCache.get(data);
+  if (!traits) { traits = new Map(data.traits.map(t => [t.id, t.categoryKind])); traitKindsCache.set(data, traits); }
+  const intuitive = board.traitIds.filter(id => traits.get(id) === "intuitive").length;
   const familiar = board.animalIds.filter(id => common.has(id)).length;
   const minimumIntuitive = Math.ceil(board.traitIds.length / 2);
   const minimumFamiliar = board.animalIds.length >= 6 ? 2 : 1;

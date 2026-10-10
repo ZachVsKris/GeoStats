@@ -1,0 +1,132 @@
+{
+  "policy": "3%-numeric-no-ties",
+  "algorithm": "Backtracking with intersections of shared trait masks and pairwise compatibility. Runtime budget is explicit; timed-out searches do not establish impossibility.",
+  "groups": [
+    {
+      "group": "birds",
+      "animals": 38,
+      "states": 51015,
+      "compatibleEightAnimalLineups": 31707,
+      "added": 9937,
+      "exhaustive": false,
+      "rejections": {
+        "fewer than six possible independent winners": 17375,
+        "traits have nearly identical or reversed rankings": 2522,
+        "too few animals compete across traits": 17
+      }
+    },
+    {
+      "group": "dogs",
+      "animals": 24,
+      "states": 11853,
+      "compatibleEightAnimalLineups": 1227,
+      "added": 76,
+      "exhaustive": true,
+      "rejections": {
+        "fewer than six possible independent winners": 947,
+        "traits have nearly identical or reversed rankings": 2,
+        "familiar anchors": 11
+      }
+    },
+    {
+      "group": "cats",
+      "animals": 0,
+      "states": 0,
+      "compatibleEightAnimalLineups": 0,
+      "added": 0,
+      "exhaustive": true,
+      "rejections": {
+        "fewer than eight animals with six metrics": 1
+      }
+    },
+    {
+      "group": "reptiles",
+      "animals": 19,
+      "states": 3445,
+      "compatibleEightAnimalLineups": 690,
+      "added": 445,
+      "exhaustive": true,
+      "rejections": {
+        "fewer than six possible independent winners": 210,
+        "too few animals compete across traits": 1
+      }
+    },
+    {
+      "group": "amphibians",
+      "animals": 15,
+      "states": 57,
+      "compatibleEightAnimalLineups": 0,
+      "added": 0,
+      "exhaustive": true,
+      "rejections": {}
+    },
+    {
+      "group": "fish",
+      "animals": 16,
+      "states": 12,
+      "compatibleEightAnimalLineups": 0,
+      "added": 0,
+      "exhaustive": true,
+      "rejections": {}
+    },
+    {
+      "group": "insects",
+      "animals": 0,
+      "states": 0,
+      "compatibleEightAnimalLineups": 0,
+      "added": 0,
+      "exhaustive": true,
+      "rejections": {
+        "fewer than eight animals with six metrics": 1
+      }
+    },
+    {
+      "group": "invertebrates",
+      "animals": 0,
+      "states": 0,
+      "compatibleEightAnimalLineups": 0,
+      "added": 0,
+      "exhaustive": true,
+      "rejections": {
+        "fewer than eight animals with six metrics": 1
+      }
+    },
+    {
+      "group": "mammals",
+      "animals": 92,
+      "states": 29697,
+      "compatibleEightAnimalLineups": 26502,
+      "added": 8650,
+      "exhaustive": false,
+      "rejections": {
+        "fewer than six possible independent winners": 14981,
+        "traits have nearly identical or reversed rankings": 3651,
+        "only one mapped-range prize per board": 18370
+      }
+    },
+    {
+      "group": "mixed",
+      "animals": 156,
+      "states": 247400,
+      "compatibleEightAnimalLineups": 20106,
+      "added": 13667,
+      "exhaustive": false,
+      "rejections": {
+        "fewer than six possible independent winners": 3939,
+        "familiar anchors": 68,
+        "traits have nearly identical or reversed rankings": 1800,
+        "group composition": 100085,
+        "too few animals compete across traits": 5
+      }
+    },
+    {
+      "group": "marine",
+      "animals": 23,
+      "states": 37,
+      "compatibleEightAnimalLineups": 0,
+      "added": 0,
+      "exhaustive": true,
+      "rejections": {}
+    }
+  ]
+}

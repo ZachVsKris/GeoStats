@@ -1,0 +1,24 @@
+{
+  "policy": "3%-numeric-no-ties",
+  "algorithm": "Backtracking with intersections of shared trait masks and pairwise compatibility. Runtime budget is explicit; timed-out searches do not establish impossibility.",
+  "groups": [
+    {
+      "group": "fish",
+      "animals": 18,
+      "states": 6,
+      "compatibleEightAnimalLineups": 0,
+      "added": 0,
+      "exhaustive": true,
+      "rejections": {}
+    },
+    {
+      "group": "marine",
+      "animals": 24,
+      "states": 24,
+      "compatibleEightAnimalLineups": 0,
+      "added": 0,
+      "exhaustive": true,
+      "rejections": {}
+    }
+  ]
+}

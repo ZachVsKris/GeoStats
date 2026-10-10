@@ -2,11 +2,11 @@ import { publishedAnimalTraitIds } from "../../lib/animalstatsCoverage";
 import { animalPreviewEnabled } from "../../lib/animalstatsPreview";
 import { notFound } from "next/navigation";
 import AnimalStatsGame from "../../components/AnimalStatsGame";
-import dataset from "../../data/animalstats/pilot.json";
-import realPhotos from "../../data/animalstats/photos.json";
+import { animalDataset as dataset } from "../../lib/animalstatsCatalog";
+import { animalPhotos as realPhotos } from "../../lib/animalstatsCatalog";
 import reviews from "../../data/animalstats/reviews.json";
 import { approvedAnimalBoards, type AnimalBoardReview } from "../../lib/animalstatsReview";
-import candidates from "../../data/animalstats/candidates.json";
+import { animalCandidates as candidates } from "../../lib/animalstatsCatalog";
 import { createAnimalBoardValidator, type AnimalDataset, type BoardCandidate } from "../../lib/animalstats";
 import { orderAnimalPilotBoards } from "../../lib/animalstatsDaily";
 import { animalBoardComposition } from "../../lib/animalstatsComposition";
@@ -28,7 +28,7 @@ function getCatalog() {
   const pairedIds = new Set(pairedTraits.map((trait) => trait.id));
   // The game needs numbers, not thousands of repeated citation paragraphs.
   // Complete observations are fetched when someone opens Data & Source.
-  const clientData = { ...data, photos: realPhotos.filter(photo => photo.approved && photo.assetUrl.startsWith("/animalstats/") && !photo.assetUrl.endsWith(".svg")), traits: pairedTraits, values: data.values.filter((row) => pairedIds.has(row.traitId)).map(row => ({
+  const clientData = { ...data, photos: realPhotos.filter(photo => photo.approved && photo.assetUrl.startsWith("/animalstats/") && (!photo.assetUrl.endsWith(".svg") || photo.assetUrl.startsWith("/animalstats/extinct/"))), traits: pairedTraits, values: data.values.filter((row) => pairedIds.has(row.traitId)).map(row => ({
     animalId: row.animalId, traitId: row.traitId, valueNumeric: row.valueNumeric,
     unit: row.unit, sourceId: row.sourceId, confidence: row.confidence,
     observationType: row.observationType, sex: row.sex, lifeStage: row.lifeStage,
@@ -48,5 +48,5 @@ export default async function AnimalStatsPage({ searchParams }: { searchParams: 
   const shared = requested.board ? boards.find(board => board.id === requested.board) : undefined;
   const releaseBoards = shared && !defaultBoards.includes(shared) ? [...defaultBoards, shared] : defaultBoards;
   if (!boards.length) notFound();
-  return <AnimalStatsGame initialMode={requested.mode === "normal" || requested.mode === "expert" ? requested.mode : "easy"} initialBoardId={shared?.id} unavailableBoard={Boolean(requested.board && !shared)} data={clientData} boards={orderAnimalPilotBoards(releaseBoards, newYorkDate(), data).map(({id, mode, boardType, animalIds, traitIds, biogeographicRegions}) => ({id, mode, boardType, animalIds, traitIds, biogeographicRegions}))} approvedBoardIds={approvedAnimalBoards(data, boards, reviews as AnimalBoardReview[]).map((board) => board.id!)} date={newYorkDate()} />;
+  return <AnimalStatsGame initialMode={requested.mode === "normal" || requested.mode === "expert" ? requested.mode : "easy"} initialBoardId={shared?.id} unavailableBoard={Boolean(requested.board && !shared)} data={clientData} boards={orderAnimalPilotBoards(releaseBoards, newYorkDate(), data).map(({id, mode, boardType, animalIds, traitIds, biogeographicRegions, collection}) => ({id, mode, boardType, animalIds, traitIds, biogeographicRegions, collection}))} approvedBoardIds={approvedAnimalBoards(data, boards, reviews as AnimalBoardReview[]).map((board) => board.id!)} date={newYorkDate()} />;
 }

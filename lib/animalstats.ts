@@ -9,6 +9,7 @@ export type Animal = {
   scientificName: string;
   taxonomicGroup: string;
   parentTaxon?: string;
+  extinctionStatus?: "living" | "extinct";
   entityType?: "species" | "breed";
   breedName?: string;
   familiarityTier: "core" | "familiar" | "edge";
@@ -90,6 +91,7 @@ export type BoardCandidate = {
   id?: string;
   title?: string;
   mode: DailyDifficulty;
+  collection?: "living" | "extinct-special";
   boardType: BoardType;
   animalIds: string[];
   traitIds: string[];
@@ -158,7 +160,7 @@ export function validateAnimalDataset(data: AnimalDataset): string[] {
       reasons.push(`value ${value.animalId}:${value.traitId}: unknown animal, trait, or source`);
     if (trait?.separationMethod === "distinct_ordinal") {
       const conservation = trait.unit === "IUCN category" && Number.isInteger(value.valueNumeric) && value.valueNumeric >= 1 && value.valueNumeric <= 7;
-      const descriptionDate = trait.metricKey === "scientific-history" && trait.unit === "years since description (2026)" && Number.isInteger(value.valueNumeric) && value.valueNumeric > 0 && value.valueNumeric < 2026;
+      const descriptionDate = ["scientific-history", "extinct-scientific-history"].includes(trait.metricKey ?? "") && trait.unit === "years since description (2026)" && Number.isInteger(value.valueNumeric) && value.valueNumeric > 0 && value.valueNumeric < 2026;
       const akcRating = trait.canonicalSourceId === "akc-breed-ratings-20261009" && trait.unit === "AKC rating / 5" && data.animals.some(a => a.id === value.animalId && a.entityType === "breed") && Number.isInteger(value.valueNumeric) && value.valueNumeric >= 1 && value.valueNumeric <= 5;
       if (!conservation && !descriptionDate && !akcRating) reasons.push(`value ${value.animalId}:${value.traitId}: invalid ordered category or calendar date`);
     }
@@ -203,6 +205,10 @@ function validateIndexedAnimalBoard(board: BoardCandidate, index: ReturnType<typ
   const reasons = [...index.datasetReasons];
   const { animalMap, traitMap, sourceMap, photoMap, valueMap } = index;
   const config = ROUND_CONFIGS[board.mode];
+  const statuses = board.animalIds.map(id => animalMap.get(id)?.extinctionStatus ?? "living");
+  if (new Set(statuses).size > 1) reasons.push("living and extinct animals cannot share a board");
+  const expectedStatus = board.collection === "extinct-special" ? "extinct" : "living";
+  if (statuses.some(status => status !== expectedStatus)) reasons.push("animal extinction status does not match board collection");
   const winners: Record<string, string> = {};
   const relatedTraits: string[][] = [["amphibian_min_maturity", "earliest_female_maturity", "female_maturity", "male_maturity", "raw_early_female_maturity", "raw_female_maturity"], ["amphibian_max_events", "clutches_per_year", "interbirth_interval", "litters_per_year", "raw_clutch_frequency", "raw_litter_frequency"], ["bird_hand_wing_index", "bird_kipps_distance", "bird_secondary_length", "bird_wing_length"], ["adult_body_mass", "amphibian_max_mass", "bird_mass", "raw_adult_mass", "smallest_adult_mass"], ["amphibian_max_clutch", "clutch_size", "egg_clutch_size", "litter_size", "raw_clutch_size", "raw_litter_size", "shark_litter_size", "fewest_shark_pups"], ["maximum_documented_lifespan", "wild_recorded_lifespan", "shortest_wild_lifespan"], ["gestation", "raw_gestation", "raw_short_gestation", "shortest_gestation"], ["earliest_weaning", "raw_weaning_age", "weaning_age"], ["birth_weight", "hatching_mass", "lightest_newborn", "raw_birth_mass", "raw_hatching_mass"], ["raw_weaning_mass", "weaning_mass"], ["incubation", "raw_incubation"], ["raw_egg_length", "raw_egg_mass", "raw_egg_width"]];
   if (relatedTraits.some((concept) => board.traitIds.filter((id) => concept.includes(id)).length > 1)) reasons.push("closely related traits on the same board");

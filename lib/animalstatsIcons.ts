@@ -3,6 +3,9 @@ import type { Trait } from "./animalstats";
 /** Editorial icons identify the measurement, never the winning animal. */
 export function animalTraitIcon(trait: Trait): string {
   const text = `${trait.metricKey ?? ""} ${trait.gameplayFamily ?? ""} ${trait.id}`;
+  if (/extinct_femur/.test(text)) return "🦴";
+  if (/fossil-time/.test(text)) return "⏳";
+  if (/fossil-discovery/.test(text)) return "⛏️";
   if (/lifespan|longevity/.test(text)) return "⏳";
   if (/cognition|cylinder/.test(text)) return "🧩";
   if (/ear-length|adult_ear/.test(text)) return "👂";

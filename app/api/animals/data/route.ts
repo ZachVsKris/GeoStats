@@ -1,11 +1,11 @@
 import { publishedAnimalTraitIds, auditAnimalCoverage, ANIMAL_COVERAGE_MINIMUMS } from "../../../../lib/animalstatsCoverage";
 import type { AnimalDataset, BoardCandidate } from "../../../../lib/animalstats";
-import photos from "../../../../data/animalstats/photos.json";
+import { animalPhotos as photos } from "../../../../lib/animalstatsCatalog";
 import { NextResponse } from "next/server";
 import { animalPreviewEnabled } from "../../../../lib/animalstatsPreview";
 import { createSupabaseServerClient } from "../../../../lib/supabase/server";
-import catalog from "../../../../data/animalstats/pilot.json";
-import candidates from "../../../../data/animalstats/candidates.json";
+import { animalDataset as catalog } from "../../../../lib/animalstatsCatalog";
+import { animalCandidates as candidates } from "../../../../lib/animalstatsCatalog";
 
 const published = publishedAnimalTraitIds(catalog as AnimalDataset);
 const playable = new Set((candidates.boards as BoardCandidate[]).filter(b => b.traitIds.every(id => published.has(id))).flatMap(b => b.traitIds));

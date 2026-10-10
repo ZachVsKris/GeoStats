@@ -1,0 +1,1258 @@
+{
+  "accepted_species": 42,
+  "metrics": 4,
+  "labels": 8,
+  "records": [
+    {
+      "id": "extinct_amargasaurus_cazaui",
+      "genus": "Amargasaurus",
+      "clade": "Sauropodomorpha",
+      "subclade": "Diplodocoidea",
+      "specimen_rows": [
+        21
+      ],
+      "pbdb": {
+        "oid": "txn:53962",
+        "rnk": "species",
+        "nam": "Amargasaurus cazaui",
+        "att": "Salgado and Bonaparte 1991",
+        "par": "txn:53960",
+        "rid": "ref:5970",
+        "ext": "0",
+        "noc": 2,
+        "fea": 125.77,
+        "fla": 121.4,
+        "lea": 125.77,
+        "lla": 121.4,
+        "tei": "Barremian"
+      },
+      "specimen_source": "Salgado & Bonaparte 1991"
+    },
+    {
+      "id": "extinct_apatosaurus_louisae",
+      "genus": "Apatosaurus",
+      "clade": "Sauropodomorpha",
+      "subclade": "Diplodocoidea",
+      "specimen_rows": [
+        34
+      ],
+      "pbdb": {
+        "oid": "txn:57752",
+        "rnk": "species",
+        "nam": "Apatosaurus louisae",
+        "att": "(Holland 1915)",
+        "par": "txn:38665",
+        "rid": "ref:14351",
+        "ext": "0",
+        "noc": 5,
+        "fea": 154.8,
+        "fla": 145.06,
+        "lea": 149.2,
+        "lla": 143.1,
+        "tei": "Kimmeridgian",
+        "tli": "Tithonian"
+      },
+      "specimen_source": "CM 3018 (MTC; NC); Gilmore 1936"
+    },
+    {
+      "id": "extinct_brachiosaurus_altithorax",
+      "genus": "Brachiosaurus",
+      "clade": "Sauropodomorpha",
+      "subclade": "Titanosauriformes",
+      "specimen_rows": [
+        59
+      ],
+      "pbdb": {
+        "oid": "txn:54864",
+        "rnk": "species",
+        "nam": "Brachiosaurus altithorax",
+        "att": "(Riggs 1903)",
+        "par": "txn:38677",
+        "rid": "ref:17263",
+        "ext": "0",
+        "noc": 2,
+        "fea": 154.8,
+        "fla": 143.1,
+        "lea": 154.8,
+        "lla": 143.1,
+        "tei": "Kimmeridgian",
+        "tli": "Tithonian"
+      },
+      "specimen_source": "FMNH P 25107 (MTC); Riggs 1903; Mazzetta et al. 2004"
+    },
+    {
+      "id": "extinct_camarasaurus_grandis",
+      "genus": "Camarasaurus",
+      "clade": "Sauropodomorpha",
+      "subclade": "Macronaria",
+      "specimen_rows": [
+        62
+      ],
+      "pbdb": {
+        "oid": "txn:52961",
+        "vid": "var:67181",
+        "rnk": "species",
+        "nam": "Camarasaurus grandis",
+        "att": "(Marsh 1877)",
+        "par": "txn:38697",
+        "rid": "ref:7811",
+        "ext": "0",
+        "noc": 13,
+        "fea": 154.8,
+        "fla": 145.06,
+        "lea": 149.2,
+        "lla": 143.1,
+        "tei": "Kimmeridgian",
+        "tli": "Tithonian"
+      },
+      "specimen_source": "McIntosh et al. 1996b; GMNH 101; 13.7 metres long"
+    },
+    {
+      "id": "extinct_diplodocus_longus",
+      "genus": "Diplodocus",
+      "clade": "Sauropodomorpha",
+      "subclade": "Diplodocoidea",
+      "specimen_rows": [
+        87
+      ],
+      "pbdb": {
+        "oid": "txn:52920",
+        "rnk": "species",
+        "nam": "Diplodocus longus",
+        "att": "Marsh 1878",
+        "par": "txn:38669",
+        "rid": "ref:7803",
+        "ext": "0",
+        "noc": 5,
+        "fea": 154.8,
+        "fla": 145.06,
+        "lea": 149.2,
+        "lla": 143.1,
+        "tei": "Kimmeridgian",
+        "tli": "Tithonian"
+      },
+      "specimen_source": "McIntosh 2005; USNM 10865; YPM 1920 may be a larger individual (FL=1645; TL = 1090; Marsh 1878)"
+    },
+    {
+      "id": "extinct_mamenchisaurus_constructus",
+      "genus": "Mamenchisaurus",
+      "clade": "Sauropodomorpha",
+      "subclade": "Eusauropoda",
+      "specimen_rows": [
+        150
+      ],
+      "pbdb": {
+        "oid": "txn:56460",
+        "rnk": "species",
+        "nam": "Mamenchisaurus constructus",
+        "att": "Young 1954",
+        "par": "txn:38670",
+        "rid": "ref:24276",
+        "ext": "0",
+        "noc": 3,
+        "fea": 161.5,
+        "fla": 143.1,
+        "lea": 154.8,
+        "lla": 143.1,
+        "tei": "Oxfordian",
+        "tli": "Tithonian"
+      },
+      "specimen_source": "IVPP V946 (CS and cast by NC); Young 1958; IVPP V946 (most complete specimen, second largest)"
+    },
+    {
+      "id": "extinct_acrocanthosaurus_atokensis",
+      "genus": "Acrocanthosaurus",
+      "clade": "Theropoda",
+      "subclade": "Allosauroidea",
+      "specimen_rows": [
+        243
+      ],
+      "pbdb": {
+        "oid": "txn:55482",
+        "rnk": "species",
+        "nam": "Acrocanthosaurus atokensis",
+        "att": "Stovall and Langston 1950",
+        "par": "txn:38597",
+        "rid": "ref:7059",
+        "ext": "0",
+        "noc": 9,
+        "fea": 121.4,
+        "fla": 113.2,
+        "lea": 110.1,
+        "lla": 93.9,
+        "tei": "Aptian",
+        "tli": "Cenomanian"
+      },
+      "specimen_source": "Currie & Carpenter 2000; NCSM 14345"
+    },
+    {
+      "id": "extinct_albertosaurus_sarcophagus",
+      "genus": "Albertosaurus",
+      "clade": "Theropoda",
+      "subclade": "Tyrannosauroidea",
+      "specimen_rows": [
+        248
+      ],
+      "pbdb": {
+        "oid": "txn:56319",
+        "rnk": "species",
+        "nam": "Albertosaurus sarcophagus",
+        "att": "Osborn 1905",
+        "par": "txn:38607",
+        "rid": "ref:9259",
+        "ext": "0",
+        "noc": 17,
+        "fea": 83.6,
+        "fla": 72.2,
+        "lea": 72.2,
+        "lla": 66,
+        "tei": "Campanian",
+        "tli": "Maastrichtian"
+      },
+      "specimen_source": "ROM 807; Carr et al. 2005, supplemental data; Erickson et al. 2004 gives a list of femoral lengths and mass estimates using the equation of Anderson et al. (2004) for other specimens"
+    },
+    {
+      "id": "extinct_allosaurus_fragilis",
+      "genus": "Allosaurus",
+      "clade": "Theropoda",
+      "subclade": "Allosauroidea",
+      "specimen_rows": [
+        253,
+        254
+      ],
+      "pbdb": {
+        "oid": "txn:52962",
+        "rnk": "species",
+        "nam": "Allosaurus fragilis",
+        "att": "(Marsh 1877)",
+        "par": "txn:38590",
+        "rid": "ref:7811",
+        "ext": "0",
+        "noc": 29,
+        "fea": 154.8,
+        "fla": 145.06,
+        "lea": 149.2,
+        "lla": 143.1,
+        "tei": "Kimmeridgian",
+        "tli": "Tithonian"
+      },
+      "specimen_source": "AMNH 680 (MTC)"
+    },
+    {
+      "id": "extinct_carnotaurus_sastrei",
+      "genus": "Carnotaurus",
+      "clade": "Theropoda",
+      "subclade": "Ceratosauria",
+      "specimen_rows": [
+        302
+      ],
+      "pbdb": {
+        "oid": "txn:54526",
+        "rnk": "species",
+        "nam": "Carnotaurus sastrei",
+        "att": "Bonaparte 1985",
+        "par": "txn:54533",
+        "rid": "ref:13927",
+        "ext": "0",
+        "noc": 1,
+        "fea": 72.2,
+        "fla": 66,
+        "lea": 72.2,
+        "lla": 66,
+        "tei": "Maastrichtian"
+      },
+      "specimen_source": "MACN CH 894 (RBJB, JNC); Bonaparte et al., 1990; Britt, 1993"
+    },
+    {
+      "id": "extinct_ceratosaurus_nasicornis",
+      "genus": "Ceratosaurus",
+      "clade": "Theropoda",
+      "subclade": "Ceratosauria",
+      "specimen_rows": [
+        307,
+        308
+      ],
+      "pbdb": {
+        "oid": "txn:54165",
+        "rnk": "species",
+        "nam": "Ceratosaurus nasicornis",
+        "att": "(Marsh 1884)",
+        "par": "txn:38600",
+        "rid": "ref:12248",
+        "ext": "0",
+        "noc": 6,
+        "fea": 154.8,
+        "fla": 149.2,
+        "lea": 149.2,
+        "lla": 143.1,
+        "tei": "Kimmeridgian",
+        "tli": "Tithonian"
+      },
+      "specimen_source": "UMNH VP 5278 (RBJB); Madsen & Welles 2000"
+    },
+    {
+      "id": "extinct_coelophysis_bauri",
+      "genus": "Coelophysis",
+      "clade": "Theropoda",
+      "subclade": "basal_theropod",
+      "specimen_rows": [
+        316,
+        317
+      ],
+      "pbdb": {
+        "oid": "txn:54212",
+        "vid": "var:55477",
+        "rnk": "species",
+        "nam": "Coelophysis bauri",
+        "att": "(Cope 1887)",
+        "par": "txn:38520",
+        "rid": "ref:9090",
+        "ext": "0",
+        "noc": 6,
+        "fea": 227.3,
+        "fla": 205.7,
+        "lea": 205.7,
+        "lla": 201.4,
+        "tei": "Norian",
+        "tli": "Rhaetian"
+      },
+      "specimen_source": "AMNH 2704 (MTC); 'C. longicollis'"
+    },
+    {
+      "id": "extinct_compsognathus_longipes",
+      "genus": "Compsognathus",
+      "clade": "Theropoda",
+      "subclade": "basal_coelurosaur",
+      "specimen_rows": [
+        322
+      ],
+      "pbdb": {
+        "oid": "txn:53007",
+        "rnk": "species",
+        "nam": "Compsognathus longipes",
+        "att": "Wagner 1861",
+        "par": "txn:38538",
+        "rid": "ref:26303",
+        "ext": "0",
+        "noc": 3,
+        "fea": 154.8,
+        "fla": 149.2,
+        "lea": 149.2,
+        "lla": 145.06,
+        "tei": "Kimmeridgian",
+        "tli": "Tithonian"
+      },
+      "specimen_source": "BSP ASI 563 (MTC); Ostrom 1978"
+    },
+    {
+      "id": "extinct_daspletosaurus_torosus",
+      "genus": "Daspletosaurus",
+      "clade": "Theropoda",
+      "subclade": "Tyrannosauroidea",
+      "specimen_rows": [
+        335,
+        337,
+        338
+      ],
+      "pbdb": {
+        "oid": "txn:57258",
+        "rnk": "species",
+        "nam": "Daspletosaurus torosus",
+        "att": "(Russell 1970)",
+        "par": "txn:38608",
+        "rid": "ref:4205",
+        "ext": "0",
+        "noc": 5,
+        "fea": 83.6,
+        "fla": 72.2,
+        "lea": 83.6,
+        "lla": 72.2,
+        "tei": "Campanian"
+      },
+      "specimen_source": "Russell 1970; and MTC; AMNH 5438"
+    },
+    {
+      "id": "extinct_deinonychus_antirrhopus",
+      "genus": "Deinonychus",
+      "clade": "Theropoda",
+      "subclade": "Dromaeosauridae",
+      "specimen_rows": [
+        340
+      ],
+      "pbdb": {
+        "oid": "txn:54555",
+        "rnk": "species",
+        "nam": "Deinonychus antirrhopus",
+        "att": "(Ostrom 1969)",
+        "par": "txn:38562",
+        "rid": "ref:13935",
+        "ext": "0",
+        "noc": 35,
+        "fea": 121.4,
+        "fla": 113.2,
+        "lea": 110.1,
+        "lla": 93.9,
+        "tei": "Aptian",
+        "tli": "Cenomanian"
+      },
+      "specimen_source": "MCZ 4371 (MTC); Ostrom 1969, 1976"
+    },
+    {
+      "id": "extinct_dilophosaurus_wetherilli",
+      "genus": "Dilophosaurus",
+      "clade": "Theropoda",
+      "subclade": "basal_theropod",
+      "specimen_rows": [
+        347,
+        348
+      ],
+      "pbdb": {
+        "oid": "txn:55479",
+        "vid": "var:57251",
+        "rnk": "species",
+        "nam": "Dilophosaurus wetherilli",
+        "att": "(Welles 1954)",
+        "par": "txn:38522",
+        "rid": "ref:13844",
+        "ext": "0",
+        "noc": 10,
+        "fea": 201.4,
+        "fla": 192.9,
+        "lea": 192.9,
+        "lla": 184.2,
+        "tei": "Hettangian",
+        "tli": "Pliensbachian"
+      },
+      "specimen_source": "UCMP 77270 (RBJB)"
+    },
+    {
+      "id": "extinct_eoraptor_lunensis",
+      "genus": "Eoraptor",
+      "clade": "Theropoda",
+      "subclade": "basal_theropod",
+      "specimen_rows": [
+        369
+      ],
+      "pbdb": {
+        "oid": "txn:57454",
+        "rnk": "species",
+        "nam": "Eoraptor lunensis",
+        "att": "Sereno et al. 1993",
+        "par": "txn:57453",
+        "rid": "ref:6971",
+        "ext": "0",
+        "noc": 1,
+        "fea": 233.6,
+        "fla": 227.3,
+        "lea": 233.6,
+        "lla": 227.3,
+        "tei": "Carnian"
+      },
+      "specimen_source": "PVSJ 512 (MTC); Martinez et al. 2011"
+    },
+    {
+      "id": "extinct_gallimimus_bullatus",
+      "genus": "Gallimimus",
+      "clade": "Theropoda",
+      "subclade": "Ornithomimosauria",
+      "specimen_rows": [
+        381,
+        382,
+        383,
+        384
+      ],
+      "pbdb": {
+        "oid": "txn:57265",
+        "rnk": "species",
+        "nam": "Gallimimus bullatus",
+        "att": "(Osm\u00f3lska et al. 1972)",
+        "par": "txn:38547",
+        "rid": "ref:9906",
+        "ext": "0",
+        "noc": 14,
+        "fea": 72.2,
+        "fla": 66,
+        "lea": 72.2,
+        "lla": 66,
+        "tei": "Maastrichtian"
+      },
+      "specimen_source": "ROM 21704 (cast of Zpal specimen) (MTC); Osm\u00f3lska et al. 1972"
+    },
+    {
+      "id": "extinct_giganotosaurus_carolinii",
+      "genus": "Giganotosaurus",
+      "clade": "Theropoda",
+      "subclade": "Allosauroidea",
+      "specimen_rows": [
+        392
+      ],
+      "pbdb": {
+        "oid": "txn:54541",
+        "rnk": "species",
+        "nam": "Giganotosaurus carolinii",
+        "att": "Coria and Salgado 1995",
+        "par": "txn:54540",
+        "rid": "ref:7848",
+        "ext": "0",
+        "noc": 3,
+        "fea": 113.2,
+        "fla": 110.1,
+        "lea": 110.1,
+        "lla": 106.3,
+        "tei": "Albian"
+      },
+      "specimen_source": "MUCPv-Ch 1 (MTC, RBJB)"
+    },
+    {
+      "id": "extinct_herrerasaurus_ischigualastensis",
+      "genus": "Herrerasaurus",
+      "clade": "Theropoda",
+      "subclade": "basal_theropod",
+      "specimen_rows": [
+        407,
+        408
+      ],
+      "pbdb": {
+        "oid": "txn:55000",
+        "rnk": "species",
+        "nam": "Herrerasaurus ischigualastensis",
+        "att": "Reig 1963",
+        "par": "txn:38511",
+        "rid": "ref:11823",
+        "ext": "0",
+        "noc": 10,
+        "fea": 237,
+        "fla": 227.3,
+        "lea": 233.6,
+        "lla": 227.3,
+        "tei": "Carnian"
+      },
+      "specimen_source": "PVL 2566 (MTC); Novas 1993"
+    },
+    {
+      "id": "extinct_microraptor_gui",
+      "genus": "Microraptor",
+      "clade": "Theropoda",
+      "subclade": "Dromaeosauridae",
+      "specimen_rows": [
+        484
+      ],
+      "pbdb": {
+        "oid": "txn:68246",
+        "rnk": "species",
+        "nam": "Microraptor gui",
+        "att": "Xu et al. 2003",
+        "par": "txn:68238",
+        "rid": "ref:14924",
+        "ext": "0",
+        "noc": 1,
+        "fea": 121.4,
+        "fla": 113.2,
+        "lea": 121.4,
+        "lla": 113.2,
+        "tei": "Aptian"
+      },
+      "specimen_source": "IVPP V13352 (JNC); Xu et al. 2003; femoral anteroposterior shaft diameter measured from figure"
+    },
+    {
+      "id": "extinct_ornithomimus_edmontonicus",
+      "genus": "Ornithomimus",
+      "clade": "Theropoda",
+      "subclade": "Ornithomimosauria",
+      "specimen_rows": [
+        510,
+        511
+      ],
+      "pbdb": {
+        "oid": "txn:63438",
+        "rnk": "species",
+        "nam": "Ornithomimus edmontonicus",
+        "att": "Sternberg 1933",
+        "par": "txn:38544",
+        "rid": "ref:12105",
+        "ext": "0",
+        "noc": 7,
+        "fea": 83.6,
+        "fla": 72.2,
+        "lea": 72.2,
+        "lla": 66,
+        "tei": "Campanian",
+        "tli": "Maastrichtian"
+      },
+      "specimen_source": "MTC measurements: AMNH 5884"
+    },
+    {
+      "id": "extinct_sinosauropteryx_prima",
+      "genus": "Sinosauropteryx",
+      "clade": "Theropoda",
+      "subclade": "basal_coelurosaur",
+      "specimen_rows": [
+        572
+      ],
+      "pbdb": {
+        "oid": "txn:54549",
+        "rnk": "species",
+        "nam": "Sinosauropteryx prima",
+        "att": "(Ji and Ji 1996)",
+        "par": "txn:54548",
+        "rid": "ref:19389",
+        "ext": "0",
+        "noc": 2,
+        "fea": 125.77,
+        "fla": 119.57,
+        "lea": 125.77,
+        "lla": 119.57,
+        "tei": "Barremian",
+        "tli": "Aptian"
+      },
+      "specimen_source": "Chen et al. 1998; Currie & Chen, 2001; NIGP 127587"
+    },
+    {
+      "id": "extinct_struthiomimus_altus",
+      "genus": "Struthiomimus",
+      "clade": "Theropoda",
+      "subclade": "Ornithomimosauria",
+      "specimen_rows": [
+        587,
+        588,
+        589
+      ],
+      "pbdb": {
+        "oid": "txn:57268",
+        "vid": "var:57266",
+        "rnk": "species",
+        "nam": "Struthiomimus altus",
+        "att": "(Lambe 1902)",
+        "par": "txn:38545",
+        "rid": "ref:25127",
+        "ext": "0",
+        "noc": 13,
+        "fea": 83.6,
+        "fla": 72.2,
+        "lea": 83.6,
+        "lla": 72.2,
+        "tei": "Campanian"
+      },
+      "specimen_source": "BHI 1266 (PJC)"
+    },
+    {
+      "id": "extinct_suchomimus_tenerensis",
+      "genus": "Suchomimus",
+      "clade": "Theropoda",
+      "subclade": "Megalosauroidea",
+      "specimen_rows": [
+        590
+      ],
+      "pbdb": {
+        "oid": "txn:53368",
+        "rnk": "species",
+        "nam": "Suchomimus tenerensis",
+        "att": "(Sereno et al. 1998)",
+        "par": "txn:53367",
+        "rid": "ref:8375",
+        "ext": "0",
+        "noc": 2,
+        "fea": 121.4,
+        "fla": 100.5,
+        "lea": 121.4,
+        "lla": 100.5,
+        "tei": "Aptian",
+        "tli": "Albian"
+      },
+      "specimen_source": "MNN GDF 500 (RBJB); Benson & Xu 2008"
+    },
+    {
+      "id": "extinct_tarbosaurus_bataar",
+      "genus": "Tarbosaurus",
+      "clade": "Theropoda",
+      "subclade": "Tyrannosauroidea",
+      "specimen_rows": [
+        596,
+        597,
+        598
+      ],
+      "pbdb": {
+        "oid": "txn:63705",
+        "vid": "var:57254",
+        "rnk": "species",
+        "nam": "Tarbosaurus bataar",
+        "att": "(Maleev 1955)",
+        "par": "txn:53224",
+        "rid": "ref:59137",
+        "ext": "0",
+        "noc": 28,
+        "fea": 89.8,
+        "fla": 83.6,
+        "lea": 72.2,
+        "lla": 66,
+        "tei": "Coniacian",
+        "tli": "Maastrichtian"
+      },
+      "specimen_source": "Paul, 1988"
+    },
+    {
+      "id": "extinct_tyrannosaurus_rex",
+      "genus": "Tyrannosaurus",
+      "clade": "Theropoda",
+      "subclade": "Tyrannosauroidea",
+      "specimen_rows": [
+        613,
+        614
+      ],
+      "pbdb": {
+        "oid": "txn:54833",
+        "rnk": "species",
+        "nam": "Tyrannosaurus rex",
+        "att": "Osborn 1905",
+        "par": "txn:38613",
+        "rid": "ref:9259",
+        "ext": "0",
+        "noc": 70,
+        "fea": 83.6,
+        "fla": 72.2,
+        "lea": 72.2,
+        "lla": 66,
+        "tei": "Campanian",
+        "tli": "Maastrichtian"
+      },
+      "specimen_source": "Scotty' (RSMP 2523.8); P. Currie pers. comm.; Erickson et al. 2004 gives a list of femoral lengths and mass estimates using the equation of Anderson et al. (2004) for other specimens"
+    },
+    {
+      "id": "extinct_velociraptor_mongoliensis",
+      "genus": "Velociraptor",
+      "clade": "Theropoda",
+      "subclade": "Dromaeosauridae",
+      "specimen_rows": [
+        625,
+        626,
+        627
+      ],
+      "pbdb": {
+        "oid": "txn:54554",
+        "rnk": "species",
+        "nam": "Velociraptor mongoliensis",
+        "att": "Osborn 1924",
+        "par": "txn:38564",
+        "rid": "ref:13096",
+        "ext": "0",
+        "noc": 12,
+        "fea": 89.8,
+        "fla": 83.6,
+        "lea": 83.6,
+        "lla": 66,
+        "tei": "Coniacian",
+        "tli": "Maastrichtian"
+      },
+      "specimen_source": "MPD-C 100/25 (fighting dinosaurs) (NC); Skull length=220"
+    },
+    {
+      "id": "extinct_ankylosaurus_magniventris",
+      "genus": "Ankylosaurus",
+      "clade": "Ornithischia",
+      "subclade": "Ankylosauria",
+      "specimen_rows": [
+        689
+      ],
+      "pbdb": {
+        "oid": "txn:52793",
+        "rnk": "species",
+        "nam": "Ankylosaurus magniventris",
+        "att": "Brown 1908",
+        "par": "txn:38837",
+        "rid": "ref:4210",
+        "ext": "0",
+        "noc": 15,
+        "fea": 72.2,
+        "fla": 66,
+        "lea": 72.2,
+        "lla": 66,
+        "tei": "Maastrichtian"
+      },
+      "specimen_source": "AMNH 5214 (DCE/MTC)"
+    },
+    {
+      "id": "extinct_centrosaurus_apertus",
+      "genus": "Centrosaurus",
+      "clade": "Ornithischia",
+      "subclade": "Ceratopsidae",
+      "specimen_rows": [
+        712
+      ],
+      "pbdb": {
+        "oid": "txn:63911",
+        "rnk": "species",
+        "nam": "Centrosaurus apertus",
+        "att": "(Lambe 1905)",
+        "par": "txn:38854",
+        "rid": "ref:13668",
+        "ext": "0",
+        "noc": 42,
+        "fea": 83.6,
+        "fla": 72.2,
+        "lea": 83.6,
+        "lla": 72.2,
+        "tei": "Campanian"
+      },
+      "specimen_source": "YPM 2015 (NEC)"
+    },
+    {
+      "id": "extinct_chasmosaurus_belli",
+      "genus": "Chasmosaurus",
+      "clade": "Ornithischia",
+      "subclade": "Ceratopsidae",
+      "specimen_rows": [
+        718
+      ],
+      "pbdb": {
+        "oid": "txn:63914",
+        "vid": "var:66019",
+        "rnk": "species",
+        "nam": "Chasmosaurus belli",
+        "att": "(Lambe 1902)",
+        "par": "txn:38855",
+        "rid": "ref:25127",
+        "ext": "0",
+        "noc": 7,
+        "fea": 83.6,
+        "fla": 72.2,
+        "lea": 83.6,
+        "lla": 72.2,
+        "tei": "Campanian"
+      },
+      "specimen_source": "ROM 839 (NEC/MTC)"
+    },
+    {
+      "id": "extinct_corythosaurus_casuarius",
+      "genus": "Corythosaurus",
+      "clade": "Ornithischia",
+      "subclade": "Hadrosauroidea",
+      "specimen_rows": [
+        724
+      ],
+      "pbdb": {
+        "oid": "txn:56403",
+        "rnk": "species",
+        "nam": "Corythosaurus casuarius",
+        "att": "Brown 1914",
+        "par": "txn:38760",
+        "rid": "ref:9646",
+        "ext": "0",
+        "noc": 17,
+        "fea": 83.6,
+        "fla": 72.2,
+        "lea": 83.6,
+        "lla": 72.2,
+        "tei": "Campanian"
+      },
+      "specimen_source": "AMNH 5240 (MTC); Brown 1916"
+    },
+    {
+      "id": "extinct_edmontosaurus_regalis",
+      "genus": "Edmontosaurus",
+      "clade": "Ornithischia",
+      "subclade": "Hadrosauroidea",
+      "specimen_rows": [
+        744
+      ],
+      "pbdb": {
+        "oid": "txn:63254",
+        "rnk": "species",
+        "nam": "Edmontosaurus regalis",
+        "att": "Lambe 1917",
+        "par": "txn:38761",
+        "rid": "ref:17549",
+        "ext": "0",
+        "noc": 10,
+        "fea": 83.6,
+        "fla": 66,
+        "lea": 72.2,
+        "lla": 66,
+        "tei": "Campanian",
+        "tli": "Maastrichtian"
+      },
+      "specimen_source": "CMN 2289 (NEC)"
+    },
+    {
+      "id": "extinct_euoplocephalus_tutus",
+      "genus": "Euoplocephalus",
+      "clade": "Ornithischia",
+      "subclade": "Ankylosauria",
+      "specimen_rows": [
+        752
+      ],
+      "pbdb": {
+        "oid": "txn:52912",
+        "vid": "var:63917",
+        "rnk": "species",
+        "nam": "Euoplocephalus tutus",
+        "att": "(Lambe 1902)",
+        "par": "txn:38838",
+        "rid": "ref:25127",
+        "ext": "0",
+        "noc": 6,
+        "fea": 83.6,
+        "fla": 72.2,
+        "lea": 83.6,
+        "lla": 72.2,
+        "tei": "Campanian"
+      },
+      "specimen_source": "AMNH 5404 (NEC/MTC/DCE)"
+    },
+    {
+      "id": "extinct_iguanodon_bernissartensis",
+      "genus": "Iguanodon",
+      "clade": "Ornithischia",
+      "subclade": "Iguanodontia",
+      "specimen_rows": [
+        791
+      ],
+      "pbdb": {
+        "oid": "txn:58905",
+        "rnk": "species",
+        "nam": "Iguanodon bernissartensis",
+        "att": "Boulenger 1881",
+        "par": "txn:38749",
+        "rid": "ref:19188",
+        "ext": "0",
+        "noc": 23,
+        "fea": 145.06,
+        "fla": 141,
+        "lea": 121.4,
+        "lla": 119.57,
+        "tei": "Tithonian",
+        "tli": "Aptian"
+      },
+      "specimen_source": "IRSNB R51 (NEC)"
+    },
+    {
+      "id": "extinct_maiasaura_peeblesorum",
+      "genus": "Maiasaura",
+      "clade": "Ornithischia",
+      "subclade": "Hadrosauroidea",
+      "specimen_rows": [
+        821
+      ],
+      "pbdb": {
+        "oid": "txn:55574",
+        "rnk": "species",
+        "nam": "Maiasaura peeblesorum",
+        "att": "Horner and Makela 1979",
+        "par": "txn:38765",
+        "rid": "ref:7402",
+        "ext": "0",
+        "noc": 5,
+        "fea": 83.6,
+        "fla": 72.2,
+        "lea": 83.6,
+        "lla": 72.2,
+        "tei": "Campanian"
+      },
+      "specimen_source": "ROM 44770 (NEC); Taquet & Russell 1999"
+    },
+    {
+      "id": "extinct_nodosaurus_textilis",
+      "genus": "Nodosaurus",
+      "clade": "Ornithischia",
+      "subclade": "Ankylosauria",
+      "specimen_rows": [
+        841
+      ],
+      "pbdb": {
+        "oid": "txn:52780",
+        "rnk": "species",
+        "nam": "Nodosaurus textilis",
+        "att": "Marsh 1889",
+        "par": "txn:38823",
+        "rid": "ref:7835",
+        "ext": "0",
+        "noc": 1,
+        "fea": 100.5,
+        "fla": 93.9,
+        "lea": 100.5,
+        "lla": 93.9,
+        "tei": "Cenomanian"
+      },
+      "specimen_source": "YPM 1815 (MTC)"
+    },
+    {
+      "id": "extinct_parasaurolophus_walkeri",
+      "genus": "Parasaurolophus",
+      "clade": "Ornithischia",
+      "subclade": "Hadrosauroidea",
+      "specimen_rows": [
+        859
+      ],
+      "pbdb": {
+        "oid": "txn:63256",
+        "rnk": "species",
+        "nam": "Parasaurolophus walkeri",
+        "att": "Parks 1922",
+        "par": "txn:38766",
+        "rid": "ref:12350",
+        "ext": "0",
+        "noc": 2,
+        "fea": 83.6,
+        "fla": 72.2,
+        "lea": 83.6,
+        "lla": 72.2,
+        "tei": "Campanian"
+      },
+      "specimen_source": "ROM 768 (NEC/MTC); Evans 2010"
+    },
+    {
+      "id": "extinct_protoceratops_andrewsi",
+      "genus": "Protoceratops",
+      "clade": "Ornithischia",
+      "subclade": "Ceratopsia",
+      "specimen_rows": [
+        878
+      ],
+      "pbdb": {
+        "oid": "txn:52824",
+        "rnk": "species",
+        "nam": "Protoceratops andrewsi",
+        "att": "Granger and Gregory 1923",
+        "par": "txn:38848",
+        "rid": "ref:14566",
+        "ext": "0",
+        "noc": 19,
+        "fea": 85.7,
+        "fla": 72.2,
+        "lea": 83.6,
+        "lla": 72.2,
+        "tei": "Santonian",
+        "tli": "Campanian"
+      },
+      "specimen_source": "AMNH 6424 (MTC/DCE)"
+    },
+    {
+      "id": "extinct_saurolophus_angustirostris",
+      "genus": "Saurolophus",
+      "clade": "Ornithischia",
+      "subclade": "Hadrosauroidea",
+      "specimen_rows": [
+        892
+      ],
+      "pbdb": {
+        "oid": "txn:64295",
+        "rnk": "species",
+        "nam": "Saurolophus angustirostris",
+        "att": "Rozhdestvensky 1952",
+        "par": "txn:38768",
+        "rid": "ref:24890",
+        "ext": "0",
+        "noc": 12,
+        "fea": 72.2,
+        "fla": 66,
+        "lea": 72.2,
+        "lla": 66,
+        "tei": "Maastrichtian"
+      },
+      "specimen_source": "Maryanska and Osmolska 1984"
+    },
+    {
+      "id": "extinct_stegosaurus_ungulatus",
+      "genus": "Stegosaurus",
+      "clade": "Ornithischia",
+      "subclade": "Stegosauria",
+      "specimen_rows": [
+        913
+      ],
+      "pbdb": {
+        "oid": "txn:52985",
+        "rnk": "species",
+        "nam": "Stegosaurus ungulatus",
+        "att": "(Marsh 1879)",
+        "par": "txn:38814",
+        "rid": "ref:7814",
+        "ext": "0",
+        "noc": 5,
+        "fea": 154.8,
+        "fla": 149.2,
+        "lea": 149.2,
+        "lla": 143.1,
+        "tei": "Kimmeridgian",
+        "tli": "Tithonian"
+      },
+      "specimen_source": "YPM 1853 (MTC)"
+    },
+    {
+      "id": "extinct_triceratops_prorsus",
+      "genus": "Triceratops",
+      "clade": "Ornithischia",
+      "subclade": "Ceratopsidae",
+      "specimen_rows": [
+        937
+      ],
+      "pbdb": {
+        "oid": "txn:63770",
+        "rnk": "species",
+        "nam": "Triceratops prorsus",
+        "att": "(Marsh 1890)",
+        "par": "txn:38862",
+        "rid": "ref:12250",
+        "ext": "0",
+        "noc": 17,
+        "fea": 72.2,
+        "fla": 66,
+        "lea": 72.2,
+        "lla": 66,
+        "tei": "Maastrichtian"
+      },
+      "specimen_source": "USNM 4842 (MTC)"
+    }
+  ],
+  "rejected_rows": [
+    {
+      "name": "Apatosaurus_minimus",
+      "row": 2,
+      "reason": "no femur length"
+    },
+    {
+      "name": "Apatosaurus_excelsus",
+      "row": 33,
+      "reason": "ambiguous or absent exact taxonomy join"
+    },
+    {
+      "name": "Apatosaurus_ajax",
+      "row": 35,
+      "reason": "notes indicate estimation or mixed specimens"
+    },
+    {
+      "name": "Apatosaurus_yahnahpin",
+      "row": 36,
+      "reason": "no femur length"
+    },
+    {
+      "name": "Apatosaurus_parvus",
+      "row": 37,
+      "reason": "ambiguous or absent exact taxonomy join"
+    },
+    {
+      "name": "Camarasaurus_lewisi",
+      "row": 61,
+      "reason": "no femur length"
+    },
+    {
+      "name": "Camarasaurus_lentus",
+      "row": 63,
+      "reason": "juvenile or bonebed"
+    },
+    {
+      "name": "Camarasaurus_supremus",
+      "row": 64,
+      "reason": "no femur length"
+    },
+    {
+      "name": "Diplodocus_hayi",
+      "row": 88,
+      "reason": "ambiguous or absent exact taxonomy join"
+    },
+    {
+      "name": "Diplodocus_carnegiei",
+      "row": 89,
+      "reason": "ambiguous or absent exact taxonomy join"
+    },
+    {
+      "name": "Diplodocus_lacustris",
+      "row": 90,
+      "reason": "no femur length"
+    },
+    {
+      "name": "Diplodocus_hallorum",
+      "row": 91,
+      "reason": "no femur length"
+    },
+    {
+      "name": "Plateosaurus_engelhardti",
+      "row": 184,
+      "reason": "juvenile or bonebed"
+    },
+    {
+      "name": "Baryonyx_walkeri",
+      "row": 288,
+      "reason": "juvenile or bonebed"
+    },
+    {
+      "name": "Coelophysis_kayentakatae",
+      "row": 318,
+      "reason": "ambiguous or absent exact taxonomy join"
+    },
+    {
+      "name": "Coelophysis_rhodesiensis",
+      "row": 319,
+      "reason": "ambiguous or absent exact taxonomy join"
+    },
+    {
+      "name": "Compsognathus_corallestris",
+      "row": 321,
+      "reason": "contested taxon or specimen referral"
+    },
+    {
+      "name": "Daspletosaurus_torosus",
+      "row": 336,
+      "reason": "no femur length"
+    },
+    {
+      "name": "Deinonychus_antirrhopus",
+      "row": 341,
+      "reason": "no femur length"
+    },
+    {
+      "name": "Dilophosaurus_sinensis",
+      "row": 346,
+      "reason": "contested taxon or specimen referral"
+    },
+    {
+      "name": "Utahraptor_ostrommaysi",
+      "row": 620,
+      "reason": "juvenile or bonebed"
+    },
+    {
+      "name": "Velociraptor_mongoliensis",
+      "row": 624,
+      "reason": "no femur length"
+    },
+    {
+      "name": "Centrosaurus_brinkmani",
+      "row": 713,
+      "reason": "no femur length"
+    },
+    {
+      "name": "Iguanodon_seeleyi",
+      "row": 792,
+      "reason": "no femur length"
+    },
+    {
+      "name": "Kentrosaurus_aethiopicus",
+      "row": 799,
+      "reason": "juvenile or bonebed"
+    },
+    {
+      "name": "Ouranosaurus_nigeriensis",
+      "row": 850,
+      "reason": "juvenile or bonebed"
+    },
+    {
+      "name": "Pachycephalosaurus_wyomingensis",
+      "row": 851,
+      "reason": "missing original reference"
+    },
+    {
+      "name": "Parasaurolophus_cyrtoctristatus",
+      "row": 858,
+      "reason": "ambiguous or absent exact taxonomy join"
+    },
+    {
+      "name": "Stegosaurus_mjosi",
+      "row": 911,
+      "reason": "ambiguous or absent exact taxonomy join"
+    },
+    {
+      "name": "Torosaurus_latus",
+      "row": 935,
+      "reason": "no femur length"
+    }
+  ],
+  "policy": "Extinct-only boards; no modeled mass/speed/lifespan; exact species joins; bounds retained; three intuitive metrics and one specialist metric."
+}

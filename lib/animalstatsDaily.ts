@@ -15,8 +15,9 @@ export function orderAnimalPilotBoards(boards: BoardCandidate[], date: string, d
   const modes: DailyDifficulty[] = ["easy", "normal", "expert"];
   const usedGroups = new Set<string>();
   return modes.flatMap((mode, modeIndex) => {
-    const pool = boards.filter(board => board.mode === mode);
-    if (!pool.length) return [];
+    const pool = boards.filter(board => board.mode === mode && board.collection !== "extinct-special");
+    const specials = boards.filter(board => board.mode === mode && board.collection === "extinct-special");
+    if (!pool.length) return specials;
     let selected: BoardCandidate;
     if (data) {
       const composed = pool.filter(board => animalBoardComposition(data, board).eligible);
@@ -27,6 +28,6 @@ export function orderAnimalPilotBoards(boards: BoardCandidate[], date: string, d
       selected = preferred[randomAnimalBoardIndex(data, preferred, previous, seededRandom(day * 997 + modeIndex * 104729))];
       usedGroups.add(animalBoardGroup(data, selected));
     } else selected = pool[((day % pool.length) + pool.length) % pool.length];
-    return [selected, ...pool.filter(board => board !== selected)];
+    return [selected, ...pool.filter(board => board !== selected), ...specials];
   });
 }

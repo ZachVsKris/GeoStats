@@ -401,3 +401,10 @@
  .realAnimalPage .shell.activePlay.normalRound .bankPanel .countries,
  .realAnimalPage .shell.activePlay.expertRound .bankPanel .countries { grid-template-rows: repeat(2, minmax(0, 1fr)); }
 }
+
+.animalCollectionSelect { max-width: 148px; height: 28px; border: 1px solid #bdc7b7; border-radius: 6px; background: #fffdf4; color: #3c573d; font-family: inherit; font-size: 12px; font-weight: 600; padding: 2px 5px; margin-right: 12px; }
+.countyFair .penAnimal > .extinctCartoon { animation: extinctFairIdle 3.6s ease-in-out infinite; animation-delay: var(--animal-delay); transform-origin: 50% 90%; }
+@keyframes extinctFairIdle { 0%,100% { transform: translateY(0) rotate(-.5deg); } 50% { transform: translateY(-2px) rotate(.5deg); } }
+.animalPage[data-motion="paused"] .extinctCartoon { animation: none; }
+@media (prefers-reduced-motion: reduce) { .countyFair .penAnimal > .extinctCartoon { animation: none; } }
+@media(max-width:750px) { .animalCollectionSelect { max-width:128px; margin-right:5px; font-size:11px; height:24px; } }

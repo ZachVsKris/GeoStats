@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { animalPreviewEnabled } from "../../../lib/animalstatsPreview";
 import audit from "../../../data/animalstats/audit.json";
-import data from "../../../data/animalstats/pilot.json";
+import { animalDataset as data } from "../../../lib/animalstatsCatalog";
 import "../animalstats.css";
 export const dynamic = "force-dynamic";
 export const metadata = { title: "AnimalStats comparison review", robots: { index: false, follow: false }, alternates: { canonical: "/animals/review" } };

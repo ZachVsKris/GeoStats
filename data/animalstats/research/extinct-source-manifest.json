@@ -1,0 +1,30 @@
+{
+  "pbdb": {
+    "url": "https://paleobiodb.org/data1.2/taxa/list.json?base_name=Dinosauria&rank=species&show=attr,app&limit=all",
+    "sha256": "7ab44b724c4293659069cea2995cd02cbbadda88bac32a939d4a86c4371b9898",
+    "records": 7040,
+    "retrievedAt": "2026-10-10"
+  },
+  "rules": [
+    "Exact species joins only",
+    "Exclude juveniles and multi-individual bonebeds",
+    "No allometric mass calculations",
+    "Fossil occurrence counts are database sampling, never population"
+  ],
+  "benson_original": {
+    "url": "https://journals.plos.org/plosbiology/article/file?id=10.1371/journal.pbio.1001853.s011&type=supplementary",
+    "sha256": "4a9b6e33b6b48199974698350f76345c130054af900c74e59f93e6fc0f10b2f1",
+    "rows": 975,
+    "fields": 27,
+    "used_fields": [
+      "Taxon",
+      "Femur length - FL",
+      "Data sources",
+      "Age/notes",
+      "Juvenile",
+      "Bonebed",
+      "Institution",
+      "Specimen"
+    ]
+  }
+}

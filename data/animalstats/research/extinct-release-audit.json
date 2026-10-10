@@ -1,0 +1,31 @@
+{
+  "species": 42,
+  "boards": 1210,
+  "boardsByMode": {
+    "easy": 800,
+    "normal": 410,
+    "expert": 0
+  },
+  "labels": [
+    "extinct_fossil_age",
+    "extinct_description",
+    "extinct_occurrences__low",
+    "extinct_femur__low",
+    "extinct_description__low",
+    "extinct_occurrences",
+    "extinct_femur",
+    "extinct_fossil_age__low"
+  ],
+  "livingBoards": 4536,
+  "firstBoard": "extinct-dinosaur-easy-1706f7ced652",
+  "checks": [
+    "dataset provenance and coverage",
+    "every board valid",
+    "perfect assignment reaches 400",
+    "mixed and mislabelled boards rejected",
+    "duplicate choices rejected",
+    "living opening rotation preserved"
+  ],
+  "uniqueLineups": 481,
+  "rotatingSpecies": 42
+}

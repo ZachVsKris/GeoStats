@@ -28,7 +28,7 @@ export function auditAnimalCoverage(data: AnimalDataset) {
     const scope = animalComparisonScope(trait);
     const ids = new Set(data.values.filter(v => {
       const a = animals.get(v.animalId);
-      return v.traitId === trait.id && a?.active && a.familiarityTier !== "edge" && v.confidence === "approved" && v.observationType !== "imputed" && Number.isFinite(v.valueNumeric) && v.valueNumeric > 0 && v.sourceId === trait.canonicalSourceId && v.unit === trait.unit && v.measurementBasis === trait.measurementBasis && (!trait.eligibilityGroups.length || trait.eligibilityGroups.includes(a.taxonomicGroup));
+      return v.traitId === trait.id && (a?.extinctionStatus ?? "living") === (trait.id.startsWith("extinct_") ? "extinct" : "living") && a?.active && a.familiarityTier !== "edge" && v.confidence === "approved" && v.observationType !== "imputed" && Number.isFinite(v.valueNumeric) && v.valueNumeric > 0 && v.sourceId === trait.canonicalSourceId && v.unit === trait.unit && v.measurementBasis === trait.measurementBasis && (!trait.eligibilityGroups.length || trait.eligibilityGroups.includes(a.taxonomicGroup));
     }).map(v => v.animalId));
     const majorGroups = [...new Set([...ids].map(id => animalMajorGroup(animals.get(id)!)))];
     const minimum = ANIMAL_COVERAGE_MINIMUMS[scope.kind];

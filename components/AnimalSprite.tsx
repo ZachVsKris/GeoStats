@@ -475,6 +475,7 @@ function Pet({ p, clipId }: { p: Profile; clipId: string }) {
 
 export const AnimalSprite = memo(function AnimalSprite({ animal, className = "" }: { animal: Animal; className?: string }) {
   const clipId = `coat${useId().replaceAll(":", "")}`, p = cartoonProfile(animal.id);
+  if (animal.extinctionStatus === "extinct") return <img src={`/animalstats/extinct/${animal.scientificName.split(" ")[0].toLowerCase()}.svg`} className={`animalSprite fairCartoon extinctCartoon ${className}`} alt={`${animal.commonName} · cartoon reconstruction`} draggable={false} />;
   return <svg viewBox="0 0 200 160" className={`animalSprite fairCartoon ${className}`} role="img" aria-label={animal.commonName} data-animal-id={animal.id} data-art-version="fair-cartoon-v2" data-normalized-size="142" data-anatomy={p.feature}>
     <ellipse className="cartoonGround" cx="100" cy="149" rx="65" ry="5" fill="#60482c" opacity=".12" />
     <g stroke={INK} strokeWidth="2.3" strokeLinejoin="round" strokeLinecap="round">

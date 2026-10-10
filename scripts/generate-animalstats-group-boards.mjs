@@ -19,13 +19,13 @@ try {
  const existing=['group-boards','group-boards-2'].flatMap(name=>fs.existsSync(`data/animalstats/${name}.json`)?JSON.parse(fs.readFileSync(`data/animalstats/${name}.json`)).boards:[]);
  const out=existing.filter(b=>b.traitIds.every(t=>pub.has(t))&&validate(b).valid&&animalBoardComposition(d,b).eligible),seen=new Set(out.map(b=>b.id));
  function* combos(a,n,s=0,p=[]){if(!n){yield p;return;}for(let i=s;i<=a.length-n;i++)yield*combos(a,n-1,i+1,[...p,a[i]]);}
- const report={policy:'intuitive-majority-distinct-winners-v6',notes:['No publication cap or per-lineup variant cap. Runtime budget is resumable and does not determine eligibility.','Clear distinct measured values replace blanket 5% gaps. Uncertainty overlap, source compatibility, unique winners and at least half intuitive remain required.'],groups:[]};
+ const report={policy:'intuitive-majority-distinct-winners-v6',notes:['No publication cap or per-lineup variant cap. Runtime budget is resumable and does not determine eligibility.','At least 3% between every adjacent numeric rank; exact ties remain blocked. Uncertainty overlap, source compatibility, unique winners and at least half intuitive remain required.'],groups:[]};
  const seconds=Number(process.env.ANIMAL_GENERATION_SECONDS??5);
  if(!Number.isFinite(seconds)||seconds<=0)throw new Error('ANIMAL_GENERATION_SECONDS must be positive');
  const boardKey=b=>b.mode+'|'+[...b.animalIds].sort().join(',')+'|'+[...b.traitIds].sort().join(',');
  const contents=new Set(out.map(boardKey));
  const availableTraits=d.traits.filter(t=>pub.has(t.id)&&!t.id.startsWith('adult_shoulder_height'));
- for(const [group,types] of Object.entries(groups)) {
+ for(const [group,types] of Object.entries(process.argv.includes('--validate-only')?{}:groups)) {
   const animals=d.animals.filter(a=>a.active&&(a.extinctionStatus??'living')==='living'&&a.familiarityTier!=='edge'&&portraits.has(a.id)&&(group==='mixed'?a.entityType!=='breed':group==='marine'?marineIds.has(a.id):types?types.includes(a.taxonomicGroup):animalMajorGroup(a)==='mammals'&&a.entityType!=='breed'));
   for(const mode of ['easy','normal','expert']) {
    const start=out.length,n=mode==='easy'?4:mode==='normal'?6:8,k=mode==='expert'?6:4,minimumIntuitive=Math.ceil(k/2);
@@ -54,7 +54,7 @@ try {
      if(!ids.every(id=>vm.has(id+':'+t.id)))return false;
      const vv=ids.map(id=>vm.get(id+':'+t.id)).sort((a,b)=>a.valueNumeric-b.valueNumeric);
      if(new Set(vv.map(v=>v.sex)).size>1||new Set(vv.map(v=>v.lifeStage)).size>1)return false;
-     return vv.every((v,i)=>!i||(v.valueMin??v.valueNumeric)>(vv[i-1].valueMax??vv[i-1].valueNumeric));
+     return vv.every((v,i)=>!i||((v.valueMin??v.valueNumeric)>(vv[i-1].valueMax??vv[i-1].valueNumeric)&&(t.separationMethod==='distinct_ordinal'||v.valueNumeric/vv[i-1].valueNumeric>=1.03-1e-12)));
     }));
     if(new Set(tt.map(t=>t.metricKey)).size<k){reject('not enough compatible distinct metrics');continue;}
     if(tt.filter(t=>t.categoryKind==='intuitive').length<minimumIntuitive){reject('less than half intuitive');continue;}

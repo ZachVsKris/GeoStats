@@ -1,0 +1,50 @@
+{
+  "reviewedAt": "2026-10-09",
+  "notCountedAsPlayable": true,
+  "sources": [
+    {
+      "name": "TOFF",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6890663/",
+      "traits": 228,
+      "species": 174,
+      "interest": [
+        "size",
+        "offspring",
+        "lifespan",
+        "behavior"
+      ],
+      "gate": "Retain reported values with compatible environmental conditions, life stage and sex; audit exact roster matches and sample coverage."
+    },
+    {
+      "name": "STOREFISH 2.0",
+      "url": "https://doi.org/10.1093/database/baaa095",
+      "traits": 50,
+      "species": 80,
+      "interest": [
+        "egg size",
+        "offspring",
+        "hatching size",
+        "parental care"
+      ],
+      "gate": "Read original referenced values; automated secondary extraction averages ranges and selects first value, so do not blindly import secondary numbers."
+    },
+    {
+      "name": "TetrapodTraits v2.0.1",
+      "url": "https://zenodo.org/records/18926700",
+      "species": 33281,
+      "interest": [
+        "size",
+        "diet diversity",
+        "range"
+      ],
+      "gate": "Reject imputed values. Preserve individual source citations; heterogeneous definitions cannot be combined as one universal measurement."
+    },
+    {
+      "name": "Aquatic trait database systematic review",
+      "url": "https://www.nature.com/articles/s41598-023-50146-9",
+      "datasets": 37,
+      "traits": 1127,
+      "gate": "Discovery index only; retrieve and assess each primary dataset before promotion."
+    }
+  ]
+}

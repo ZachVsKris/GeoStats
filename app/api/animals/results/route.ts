@@ -1,3 +1,4 @@
+import { ROUND_CONFIGS, type DailyDifficulty } from "../../../../lib/gameRules";
 import { publishedAnimalTraitIds } from "../../../../lib/animalstatsCoverage";
 import { createHash } from "node:crypto";
 import { NextResponse } from "next/server";
@@ -18,14 +19,14 @@ const boards = (candidates.boards as BoardCandidate[]).filter(b => b.traitIds.ev
 const headers = { "Cache-Control": "private, no-store" };
 const columns = "game_id,board_id,challenge_date,difficulty,play_kind,score,optimal_choices,average_placement,ranks,completed_at";
 type StoredResult = { game_id:string;board_id:string;challenge_date:string;difficulty:string;play_kind:string;score:number;optimal_choices:number;average_placement:number;ranks:number[];completed_at:string };
-function result(row: StoredResult) { return { id:row.game_id,boardId:row.board_id,date:row.challenge_date,mode:row.difficulty,kind:row.play_kind,score:row.score,optimalChoices:row.optimal_choices,averagePlacement:Number(row.average_placement),ranks:row.ranks,completedAt:row.completed_at }; }
+function result(row: StoredResult) { return { id:row.game_id,boardId:row.board_id,date:row.challenge_date,mode:row.difficulty,kind:row.play_kind,score:ROUND_CONFIGS[row.difficulty as DailyDifficulty].pointsByRank.reduce((sum, points, index) => sum + points * row.ranks.filter(rank => rank === index + 1).length, 0),optimalChoices:row.optimal_choices,averagePlacement:Number(row.average_placement),ranks:row.ranks,completedAt:row.completed_at }; }
 export async function GET() {
  if (!animalPreviewEnabled()) return new NextResponse("Not found", { status:404 });
  const client = await createSupabaseServerClient();
  if (!client) return NextResponse.json({ signedIn:false }, { headers });
  const { data:{user}, error:authError } = await client.auth.getUser();
  if (authError || !user) return NextResponse.json({ signedIn:false }, { headers });
- const { data:rows, error } = await readAllPages((from, to) => client.from("animal_game_results").select(columns).eq("user_id",user.id).eq("rules_version","animalstats-v1").order("challenge_date",{ascending:false}).order("completed_at",{ascending:false}).range(from,to));
+ const { data:rows, error } = await readAllPages((from, to) => client.from("animal_game_results").select(columns).eq("user_id",user.id).in("rules_version",["animalstats-v1","animalstats-v2-nonlinear"]).order("challenge_date",{ascending:false}).order("completed_at",{ascending:false}).range(from,to));
  if (error) return NextResponse.json({ signedIn:true,error:"Account history is temporarily unavailable." }, { status:503,headers });
  return NextResponse.json({ signedIn:true,results:(rows ?? []).map((row) => result(row as StoredResult)) }, { headers });
 }
@@ -49,7 +50,7 @@ export async function POST(request: Request) {
  const scored=scoreAnimalAssignments(data,board,body.assignments);
  if(!scored)return NextResponse.json({error:"Complete the board with valid, unique animals."},{status:400,headers});
  const id=`${body.kind}:${date}:${board.id}`;
- const entry={user_id:user.id,game_id:id,board_id:board.id,challenge_date:date,difficulty:board.mode,play_kind:body.kind,score:scored.score,optimal_choices:scored.optimalChoices,average_placement:scored.averagePlacement,ranks:scored.ranks,assignments:body.assignments,dataset_fingerprint:createHash("sha256").update(animalBoardDataFingerprint(data,board)).digest("hex"),rules_version:"animalstats-v1"};
+ const entry={user_id:user.id,game_id:id,board_id:board.id,challenge_date:date,difficulty:board.mode,play_kind:body.kind,score:scored.score,optimal_choices:scored.optimalChoices,average_placement:scored.averagePlacement,ranks:scored.ranks,assignments:body.assignments,dataset_fingerprint:createHash("sha256").update(animalBoardDataFingerprint(data,board)).digest("hex"),rules_version:"animalstats-v2-nonlinear"};
  const {error}=await admin.from("animal_game_results").upsert(entry,{onConflict:"user_id,game_id",ignoreDuplicates:true});
  if(error)return NextResponse.json({error:"Your account result could not be saved."},{status:503,headers});
  const {data:saved,error:readError}=await client.from("animal_game_results").select(columns).eq("user_id",user.id).eq("game_id",id).single();

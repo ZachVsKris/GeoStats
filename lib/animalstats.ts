@@ -159,7 +159,8 @@ export function validateAnimalDataset(data: AnimalDataset): string[] {
     if (trait?.separationMethod === "distinct_ordinal") {
       const conservation = trait.unit === "IUCN category" && Number.isInteger(value.valueNumeric) && value.valueNumeric >= 1 && value.valueNumeric <= 7;
       const descriptionDate = trait.metricKey === "scientific-history" && trait.unit === "years since description (2026)" && Number.isInteger(value.valueNumeric) && value.valueNumeric > 0 && value.valueNumeric < 2026;
-      if (!conservation && !descriptionDate) reasons.push(`value ${value.animalId}:${value.traitId}: invalid ordered category or calendar date`);
+      const akcRating = trait.canonicalSourceId === "akc-breed-ratings-20261009" && trait.unit === "AKC rating / 5" && data.animals.some(a => a.id === value.animalId && a.entityType === "breed") && Number.isInteger(value.valueNumeric) && value.valueNumeric >= 1 && value.valueNumeric <= 5;
+      if (!conservation && !descriptionDate && !akcRating) reasons.push(`value ${value.animalId}:${value.traitId}: invalid ordered category or calendar date`);
     }
     if (trait && value.unit !== trait.unit) reasons.push(`value ${value.animalId}:${value.traitId}: unit mismatch`);
     if (!Number.isFinite(value.valueNumeric) || value.valueNumeric <= 0)

@@ -1,0 +1,1010 @@
+[
+  {
+    "animalId": "dog_labrador_retriever",
+    "column": "barking_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/labrador-retriever/",
+    "pageSha256": "8a1dcd240a740f1df771aec32f244e560de5a62cbea81e66af2934660ecc4f0c"
+  },
+  {
+    "animalId": "dog_english_cocker_spaniel",
+    "column": "barking_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/english-cocker-spaniel/",
+    "pageSha256": "42d8e44afbf0d9326f706cc4ded6829a9a8975b5c9f1b31bce0c997d0fd0c4a9"
+  },
+  {
+    "animalId": "dog_staffordshire_bull_terrier",
+    "column": "barking_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/staffordshire-bull-terrier/",
+    "pageSha256": "e001204349b7de2269a43a614b3f5d2d8aa2ee35fef61eed94d8713acacb549e"
+  },
+  {
+    "animalId": "dog_chihuahua",
+    "column": "barking_level",
+    "score": 5,
+    "sourceUrl": "https://www.akc.org/dog-breeds/chihuahua/",
+    "pageSha256": "b6e536d156ddc33c239365557997454b6978bccd36696c1202ae9c8699622f6c"
+  },
+  {
+    "animalId": "dog_shih_tzu",
+    "column": "barking_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/shih-tzu/",
+    "pageSha256": "2b18f11e9aa0d76b89651f3cb1621a196d21d01c03fb4e0d449d33cef1a4bc61"
+  },
+  {
+    "animalId": "dog_french_bulldog",
+    "column": "barking_level",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/french-bulldog/",
+    "pageSha256": "e0829f8b46ef14b76778b463d9c45d29e4ec647a5afb6a5e2bb3d7b5a973a0e1"
+  },
+  {
+    "animalId": "dog_border_collie",
+    "column": "barking_level",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/border-collie/",
+    "pageSha256": "eb8e88449d3032d6bebeeefa159ec782a1f6589dc8661b0d5359dd6c8c35d7aa"
+  },
+  {
+    "animalId": "dog_yorkshire_terrier",
+    "column": "barking_level",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/yorkshire-terrier/",
+    "pageSha256": "4788f4eae377045069f2ee56d9ca49b4bec4fb702c1194b661ccbd746fb8f46d"
+  },
+  {
+    "animalId": "dog_english_springer_spaniel",
+    "column": "barking_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/english-springer-spaniel/",
+    "pageSha256": "405f96f3777c8c3b168971fb741adbddc2a65b3b6f9317c6ce8b8507d7d97bb5"
+  },
+  {
+    "animalId": "dog_german_shepherd",
+    "column": "barking_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/german-shepherd-dog/",
+    "pageSha256": "c45890cd048e39731d3e9b1696628b4f7095f1cb2fb3d2bcb2723188f2f87e81"
+  },
+  {
+    "animalId": "dog_pug",
+    "column": "barking_level",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/pug/",
+    "pageSha256": "472be6222f13f77416999a11233bcf9145439c651af85617d167050861413ae6"
+  },
+  {
+    "animalId": "dog_west_highland_white_terrier",
+    "column": "barking_level",
+    "score": 5,
+    "sourceUrl": "https://www.akc.org/dog-breeds/west-highland-white-terrier/",
+    "pageSha256": "5bd1e39824525ebf75c55297346ec6d86c3108655022e896c5e8630579652f65"
+  },
+  {
+    "animalId": "dog_cavalier_king_charles_spaniel",
+    "column": "barking_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/cavalier-king-charles-spaniel/",
+    "pageSha256": "bbbe525bf6a5eee12322ba4faf6529a30dbf7c348fddebb4ef580b6bddc94eae"
+  },
+  {
+    "animalId": "dog_golden_retriever",
+    "column": "barking_level",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/golden-retriever/",
+    "pageSha256": "c5a7023aa2d8845e6b82b3aed6fc30f6fde790c536d72643ba1ec678db428e53"
+  },
+  {
+    "animalId": "dog_bichon_frise",
+    "column": "barking_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/bichon-frise/",
+    "pageSha256": "60284e133ef7eefbed234098f875f467bf6ec4a73ffd759e93ae04fd469f4faa"
+  },
+  {
+    "animalId": "dog_border_terrier",
+    "column": "barking_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/border-terrier/",
+    "pageSha256": "7ae7e56032180eae3aa1c5d2a65eb69088253ab47836b89bd367f976ea5dba5a"
+  },
+  {
+    "animalId": "dog_miniature_schnauzer",
+    "column": "barking_level",
+    "score": 5,
+    "sourceUrl": "https://www.akc.org/dog-breeds/miniature-schnauzer/",
+    "pageSha256": "1c77ca6285920a9219dcc3b90da5eebcc6930bc9346a8c928c547fa67844abfa"
+  },
+  {
+    "animalId": "dog_beagle",
+    "column": "barking_level",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/beagle/",
+    "pageSha256": "6a5ceb0a48ede3f4dfb9418abe9673178f24f26530a4043b7d52c400b2b35688"
+  },
+  {
+    "animalId": "dog_boxer",
+    "column": "barking_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/boxer/",
+    "pageSha256": "3d6bdbee228c8b963f4cfd36b3617e9c4cb9bd07dc6d37828a6e09938ff24aba"
+  },
+  {
+    "animalId": "dog_pomeranian",
+    "column": "barking_level",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/pomeranian/",
+    "pageSha256": "f170c6d4820412d3a6872f33c4437da4e43192ab56a9f7f90ba4c0707214e33b"
+  },
+  {
+    "animalId": "dog_rottweiler",
+    "column": "barking_level",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/rottweiler/",
+    "pageSha256": "ff85ce448a63d2c0ea48e97eaa73f79d2aede55172f758aaf7395feb51206433"
+  },
+  {
+    "animalId": "dog_whippet",
+    "column": "barking_level",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/whippet/",
+    "pageSha256": "9dd5d894a54d635ca9984762a4d5cc9c88a8396edfc71bb4d132d1b6ee1d7934"
+  },
+  {
+    "animalId": "dog_greyhound",
+    "column": "barking_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/greyhound/",
+    "pageSha256": "c936072fed78dd4c4a26e809848196243a4e1b6eb472e55fdc1a901954980bb6"
+  },
+  {
+    "animalId": "dog_maltese",
+    "column": "barking_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/maltese/",
+    "pageSha256": "7ff9898d8fb818a9180113c0482499bf189c24f2c3b5a8d61346f12b88e13152"
+  },
+  {
+    "animalId": "dog_labrador_retriever",
+    "column": "coat_grooming_frequency",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/labrador-retriever/",
+    "pageSha256": "8a1dcd240a740f1df771aec32f244e560de5a62cbea81e66af2934660ecc4f0c"
+  },
+  {
+    "animalId": "dog_english_cocker_spaniel",
+    "column": "coat_grooming_frequency",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/english-cocker-spaniel/",
+    "pageSha256": "42d8e44afbf0d9326f706cc4ded6829a9a8975b5c9f1b31bce0c997d0fd0c4a9"
+  },
+  {
+    "animalId": "dog_staffordshire_bull_terrier",
+    "column": "coat_grooming_frequency",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/staffordshire-bull-terrier/",
+    "pageSha256": "e001204349b7de2269a43a614b3f5d2d8aa2ee35fef61eed94d8713acacb549e"
+  },
+  {
+    "animalId": "dog_chihuahua",
+    "column": "coat_grooming_frequency",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/chihuahua/",
+    "pageSha256": "b6e536d156ddc33c239365557997454b6978bccd36696c1202ae9c8699622f6c"
+  },
+  {
+    "animalId": "dog_shih_tzu",
+    "column": "coat_grooming_frequency",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/shih-tzu/",
+    "pageSha256": "2b18f11e9aa0d76b89651f3cb1621a196d21d01c03fb4e0d449d33cef1a4bc61"
+  },
+  {
+    "animalId": "dog_french_bulldog",
+    "column": "coat_grooming_frequency",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/french-bulldog/",
+    "pageSha256": "e0829f8b46ef14b76778b463d9c45d29e4ec647a5afb6a5e2bb3d7b5a973a0e1"
+  },
+  {
+    "animalId": "dog_border_collie",
+    "column": "coat_grooming_frequency",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/border-collie/",
+    "pageSha256": "eb8e88449d3032d6bebeeefa159ec782a1f6589dc8661b0d5359dd6c8c35d7aa"
+  },
+  {
+    "animalId": "dog_yorkshire_terrier",
+    "column": "coat_grooming_frequency",
+    "score": 5,
+    "sourceUrl": "https://www.akc.org/dog-breeds/yorkshire-terrier/",
+    "pageSha256": "4788f4eae377045069f2ee56d9ca49b4bec4fb702c1194b661ccbd746fb8f46d"
+  },
+  {
+    "animalId": "dog_english_springer_spaniel",
+    "column": "coat_grooming_frequency",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/english-springer-spaniel/",
+    "pageSha256": "405f96f3777c8c3b168971fb741adbddc2a65b3b6f9317c6ce8b8507d7d97bb5"
+  },
+  {
+    "animalId": "dog_german_shepherd",
+    "column": "coat_grooming_frequency",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/german-shepherd-dog/",
+    "pageSha256": "c45890cd048e39731d3e9b1696628b4f7095f1cb2fb3d2bcb2723188f2f87e81"
+  },
+  {
+    "animalId": "dog_pug",
+    "column": "coat_grooming_frequency",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/pug/",
+    "pageSha256": "472be6222f13f77416999a11233bcf9145439c651af85617d167050861413ae6"
+  },
+  {
+    "animalId": "dog_west_highland_white_terrier",
+    "column": "coat_grooming_frequency",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/west-highland-white-terrier/",
+    "pageSha256": "5bd1e39824525ebf75c55297346ec6d86c3108655022e896c5e8630579652f65"
+  },
+  {
+    "animalId": "dog_cavalier_king_charles_spaniel",
+    "column": "coat_grooming_frequency",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/cavalier-king-charles-spaniel/",
+    "pageSha256": "bbbe525bf6a5eee12322ba4faf6529a30dbf7c348fddebb4ef580b6bddc94eae"
+  },
+  {
+    "animalId": "dog_golden_retriever",
+    "column": "coat_grooming_frequency",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/golden-retriever/",
+    "pageSha256": "c5a7023aa2d8845e6b82b3aed6fc30f6fde790c536d72643ba1ec678db428e53"
+  },
+  {
+    "animalId": "dog_bichon_frise",
+    "column": "coat_grooming_frequency",
+    "score": 5,
+    "sourceUrl": "https://www.akc.org/dog-breeds/bichon-frise/",
+    "pageSha256": "60284e133ef7eefbed234098f875f467bf6ec4a73ffd759e93ae04fd469f4faa"
+  },
+  {
+    "animalId": "dog_border_terrier",
+    "column": "coat_grooming_frequency",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/border-terrier/",
+    "pageSha256": "7ae7e56032180eae3aa1c5d2a65eb69088253ab47836b89bd367f976ea5dba5a"
+  },
+  {
+    "animalId": "dog_miniature_schnauzer",
+    "column": "coat_grooming_frequency",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/miniature-schnauzer/",
+    "pageSha256": "1c77ca6285920a9219dcc3b90da5eebcc6930bc9346a8c928c547fa67844abfa"
+  },
+  {
+    "animalId": "dog_beagle",
+    "column": "coat_grooming_frequency",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/beagle/",
+    "pageSha256": "6a5ceb0a48ede3f4dfb9418abe9673178f24f26530a4043b7d52c400b2b35688"
+  },
+  {
+    "animalId": "dog_boxer",
+    "column": "coat_grooming_frequency",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/boxer/",
+    "pageSha256": "3d6bdbee228c8b963f4cfd36b3617e9c4cb9bd07dc6d37828a6e09938ff24aba"
+  },
+  {
+    "animalId": "dog_pomeranian",
+    "column": "coat_grooming_frequency",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/pomeranian/",
+    "pageSha256": "f170c6d4820412d3a6872f33c4437da4e43192ab56a9f7f90ba4c0707214e33b"
+  },
+  {
+    "animalId": "dog_rottweiler",
+    "column": "coat_grooming_frequency",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/rottweiler/",
+    "pageSha256": "ff85ce448a63d2c0ea48e97eaa73f79d2aede55172f758aaf7395feb51206433"
+  },
+  {
+    "animalId": "dog_whippet",
+    "column": "coat_grooming_frequency",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/whippet/",
+    "pageSha256": "9dd5d894a54d635ca9984762a4d5cc9c88a8396edfc71bb4d132d1b6ee1d7934"
+  },
+  {
+    "animalId": "dog_greyhound",
+    "column": "coat_grooming_frequency",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/greyhound/",
+    "pageSha256": "c936072fed78dd4c4a26e809848196243a4e1b6eb472e55fdc1a901954980bb6"
+  },
+  {
+    "animalId": "dog_maltese",
+    "column": "coat_grooming_frequency",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/maltese/",
+    "pageSha256": "7ff9898d8fb818a9180113c0482499bf189c24f2c3b5a8d61346f12b88e13152"
+  },
+  {
+    "animalId": "dog_labrador_retriever",
+    "column": "shedding_level",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/labrador-retriever/",
+    "pageSha256": "8a1dcd240a740f1df771aec32f244e560de5a62cbea81e66af2934660ecc4f0c"
+  },
+  {
+    "animalId": "dog_english_cocker_spaniel",
+    "column": "shedding_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/english-cocker-spaniel/",
+    "pageSha256": "42d8e44afbf0d9326f706cc4ded6829a9a8975b5c9f1b31bce0c997d0fd0c4a9"
+  },
+  {
+    "animalId": "dog_staffordshire_bull_terrier",
+    "column": "shedding_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/staffordshire-bull-terrier/",
+    "pageSha256": "e001204349b7de2269a43a614b3f5d2d8aa2ee35fef61eed94d8713acacb549e"
+  },
+  {
+    "animalId": "dog_chihuahua",
+    "column": "shedding_level",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/chihuahua/",
+    "pageSha256": "b6e536d156ddc33c239365557997454b6978bccd36696c1202ae9c8699622f6c"
+  },
+  {
+    "animalId": "dog_shih_tzu",
+    "column": "shedding_level",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/shih-tzu/",
+    "pageSha256": "2b18f11e9aa0d76b89651f3cb1621a196d21d01c03fb4e0d449d33cef1a4bc61"
+  },
+  {
+    "animalId": "dog_french_bulldog",
+    "column": "shedding_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/french-bulldog/",
+    "pageSha256": "e0829f8b46ef14b76778b463d9c45d29e4ec647a5afb6a5e2bb3d7b5a973a0e1"
+  },
+  {
+    "animalId": "dog_border_collie",
+    "column": "shedding_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/border-collie/",
+    "pageSha256": "eb8e88449d3032d6bebeeefa159ec782a1f6589dc8661b0d5359dd6c8c35d7aa"
+  },
+  {
+    "animalId": "dog_yorkshire_terrier",
+    "column": "shedding_level",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/yorkshire-terrier/",
+    "pageSha256": "4788f4eae377045069f2ee56d9ca49b4bec4fb702c1194b661ccbd746fb8f46d"
+  },
+  {
+    "animalId": "dog_english_springer_spaniel",
+    "column": "shedding_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/english-springer-spaniel/",
+    "pageSha256": "405f96f3777c8c3b168971fb741adbddc2a65b3b6f9317c6ce8b8507d7d97bb5"
+  },
+  {
+    "animalId": "dog_german_shepherd",
+    "column": "shedding_level",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/german-shepherd-dog/",
+    "pageSha256": "c45890cd048e39731d3e9b1696628b4f7095f1cb2fb3d2bcb2723188f2f87e81"
+  },
+  {
+    "animalId": "dog_pug",
+    "column": "shedding_level",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/pug/",
+    "pageSha256": "472be6222f13f77416999a11233bcf9145439c651af85617d167050861413ae6"
+  },
+  {
+    "animalId": "dog_west_highland_white_terrier",
+    "column": "shedding_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/west-highland-white-terrier/",
+    "pageSha256": "5bd1e39824525ebf75c55297346ec6d86c3108655022e896c5e8630579652f65"
+  },
+  {
+    "animalId": "dog_cavalier_king_charles_spaniel",
+    "column": "shedding_level",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/cavalier-king-charles-spaniel/",
+    "pageSha256": "bbbe525bf6a5eee12322ba4faf6529a30dbf7c348fddebb4ef580b6bddc94eae"
+  },
+  {
+    "animalId": "dog_golden_retriever",
+    "column": "shedding_level",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/golden-retriever/",
+    "pageSha256": "c5a7023aa2d8845e6b82b3aed6fc30f6fde790c536d72643ba1ec678db428e53"
+  },
+  {
+    "animalId": "dog_bichon_frise",
+    "column": "shedding_level",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/bichon-frise/",
+    "pageSha256": "60284e133ef7eefbed234098f875f467bf6ec4a73ffd759e93ae04fd469f4faa"
+  },
+  {
+    "animalId": "dog_border_terrier",
+    "column": "shedding_level",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/border-terrier/",
+    "pageSha256": "7ae7e56032180eae3aa1c5d2a65eb69088253ab47836b89bd367f976ea5dba5a"
+  },
+  {
+    "animalId": "dog_miniature_schnauzer",
+    "column": "shedding_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/miniature-schnauzer/",
+    "pageSha256": "1c77ca6285920a9219dcc3b90da5eebcc6930bc9346a8c928c547fa67844abfa"
+  },
+  {
+    "animalId": "dog_beagle",
+    "column": "shedding_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/beagle/",
+    "pageSha256": "6a5ceb0a48ede3f4dfb9418abe9673178f24f26530a4043b7d52c400b2b35688"
+  },
+  {
+    "animalId": "dog_boxer",
+    "column": "shedding_level",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/boxer/",
+    "pageSha256": "3d6bdbee228c8b963f4cfd36b3617e9c4cb9bd07dc6d37828a6e09938ff24aba"
+  },
+  {
+    "animalId": "dog_pomeranian",
+    "column": "shedding_level",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/pomeranian/",
+    "pageSha256": "f170c6d4820412d3a6872f33c4437da4e43192ab56a9f7f90ba4c0707214e33b"
+  },
+  {
+    "animalId": "dog_rottweiler",
+    "column": "shedding_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/rottweiler/",
+    "pageSha256": "ff85ce448a63d2c0ea48e97eaa73f79d2aede55172f758aaf7395feb51206433"
+  },
+  {
+    "animalId": "dog_whippet",
+    "column": "shedding_level",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/whippet/",
+    "pageSha256": "9dd5d894a54d635ca9984762a4d5cc9c88a8396edfc71bb4d132d1b6ee1d7934"
+  },
+  {
+    "animalId": "dog_greyhound",
+    "column": "shedding_level",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/greyhound/",
+    "pageSha256": "c936072fed78dd4c4a26e809848196243a4e1b6eb472e55fdc1a901954980bb6"
+  },
+  {
+    "animalId": "dog_maltese",
+    "column": "shedding_level",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/maltese/",
+    "pageSha256": "7ff9898d8fb818a9180113c0482499bf189c24f2c3b5a8d61346f12b88e13152"
+  },
+  {
+    "animalId": "dog_labrador_retriever",
+    "column": "openness_to_strangers",
+    "score": 5,
+    "sourceUrl": "https://www.akc.org/dog-breeds/labrador-retriever/",
+    "pageSha256": "8a1dcd240a740f1df771aec32f244e560de5a62cbea81e66af2934660ecc4f0c"
+  },
+  {
+    "animalId": "dog_english_cocker_spaniel",
+    "column": "openness_to_strangers",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/english-cocker-spaniel/",
+    "pageSha256": "42d8e44afbf0d9326f706cc4ded6829a9a8975b5c9f1b31bce0c997d0fd0c4a9"
+  },
+  {
+    "animalId": "dog_staffordshire_bull_terrier",
+    "column": "openness_to_strangers",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/staffordshire-bull-terrier/",
+    "pageSha256": "e001204349b7de2269a43a614b3f5d2d8aa2ee35fef61eed94d8713acacb549e"
+  },
+  {
+    "animalId": "dog_chihuahua",
+    "column": "openness_to_strangers",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/chihuahua/",
+    "pageSha256": "b6e536d156ddc33c239365557997454b6978bccd36696c1202ae9c8699622f6c"
+  },
+  {
+    "animalId": "dog_shih_tzu",
+    "column": "openness_to_strangers",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/shih-tzu/",
+    "pageSha256": "2b18f11e9aa0d76b89651f3cb1621a196d21d01c03fb4e0d449d33cef1a4bc61"
+  },
+  {
+    "animalId": "dog_french_bulldog",
+    "column": "openness_to_strangers",
+    "score": 5,
+    "sourceUrl": "https://www.akc.org/dog-breeds/french-bulldog/",
+    "pageSha256": "e0829f8b46ef14b76778b463d9c45d29e4ec647a5afb6a5e2bb3d7b5a973a0e1"
+  },
+  {
+    "animalId": "dog_border_collie",
+    "column": "openness_to_strangers",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/border-collie/",
+    "pageSha256": "eb8e88449d3032d6bebeeefa159ec782a1f6589dc8661b0d5359dd6c8c35d7aa"
+  },
+  {
+    "animalId": "dog_yorkshire_terrier",
+    "column": "openness_to_strangers",
+    "score": 5,
+    "sourceUrl": "https://www.akc.org/dog-breeds/yorkshire-terrier/",
+    "pageSha256": "4788f4eae377045069f2ee56d9ca49b4bec4fb702c1194b661ccbd746fb8f46d"
+  },
+  {
+    "animalId": "dog_english_springer_spaniel",
+    "column": "openness_to_strangers",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/english-springer-spaniel/",
+    "pageSha256": "405f96f3777c8c3b168971fb741adbddc2a65b3b6f9317c6ce8b8507d7d97bb5"
+  },
+  {
+    "animalId": "dog_german_shepherd",
+    "column": "openness_to_strangers",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/german-shepherd-dog/",
+    "pageSha256": "c45890cd048e39731d3e9b1696628b4f7095f1cb2fb3d2bcb2723188f2f87e81"
+  },
+  {
+    "animalId": "dog_pug",
+    "column": "openness_to_strangers",
+    "score": 5,
+    "sourceUrl": "https://www.akc.org/dog-breeds/pug/",
+    "pageSha256": "472be6222f13f77416999a11233bcf9145439c651af85617d167050861413ae6"
+  },
+  {
+    "animalId": "dog_west_highland_white_terrier",
+    "column": "openness_to_strangers",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/west-highland-white-terrier/",
+    "pageSha256": "5bd1e39824525ebf75c55297346ec6d86c3108655022e896c5e8630579652f65"
+  },
+  {
+    "animalId": "dog_cavalier_king_charles_spaniel",
+    "column": "openness_to_strangers",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/cavalier-king-charles-spaniel/",
+    "pageSha256": "bbbe525bf6a5eee12322ba4faf6529a30dbf7c348fddebb4ef580b6bddc94eae"
+  },
+  {
+    "animalId": "dog_golden_retriever",
+    "column": "openness_to_strangers",
+    "score": 5,
+    "sourceUrl": "https://www.akc.org/dog-breeds/golden-retriever/",
+    "pageSha256": "c5a7023aa2d8845e6b82b3aed6fc30f6fde790c536d72643ba1ec678db428e53"
+  },
+  {
+    "animalId": "dog_bichon_frise",
+    "column": "openness_to_strangers",
+    "score": 5,
+    "sourceUrl": "https://www.akc.org/dog-breeds/bichon-frise/",
+    "pageSha256": "60284e133ef7eefbed234098f875f467bf6ec4a73ffd759e93ae04fd469f4faa"
+  },
+  {
+    "animalId": "dog_border_terrier",
+    "column": "openness_to_strangers",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/border-terrier/",
+    "pageSha256": "7ae7e56032180eae3aa1c5d2a65eb69088253ab47836b89bd367f976ea5dba5a"
+  },
+  {
+    "animalId": "dog_miniature_schnauzer",
+    "column": "openness_to_strangers",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/miniature-schnauzer/",
+    "pageSha256": "1c77ca6285920a9219dcc3b90da5eebcc6930bc9346a8c928c547fa67844abfa"
+  },
+  {
+    "animalId": "dog_beagle",
+    "column": "openness_to_strangers",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/beagle/",
+    "pageSha256": "6a5ceb0a48ede3f4dfb9418abe9673178f24f26530a4043b7d52c400b2b35688"
+  },
+  {
+    "animalId": "dog_boxer",
+    "column": "openness_to_strangers",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/boxer/",
+    "pageSha256": "3d6bdbee228c8b963f4cfd36b3617e9c4cb9bd07dc6d37828a6e09938ff24aba"
+  },
+  {
+    "animalId": "dog_pomeranian",
+    "column": "openness_to_strangers",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/pomeranian/",
+    "pageSha256": "f170c6d4820412d3a6872f33c4437da4e43192ab56a9f7f90ba4c0707214e33b"
+  },
+  {
+    "animalId": "dog_rottweiler",
+    "column": "openness_to_strangers",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/rottweiler/",
+    "pageSha256": "ff85ce448a63d2c0ea48e97eaa73f79d2aede55172f758aaf7395feb51206433"
+  },
+  {
+    "animalId": "dog_whippet",
+    "column": "openness_to_strangers",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/whippet/",
+    "pageSha256": "9dd5d894a54d635ca9984762a4d5cc9c88a8396edfc71bb4d132d1b6ee1d7934"
+  },
+  {
+    "animalId": "dog_greyhound",
+    "column": "openness_to_strangers",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/greyhound/",
+    "pageSha256": "c936072fed78dd4c4a26e809848196243a4e1b6eb472e55fdc1a901954980bb6"
+  },
+  {
+    "animalId": "dog_maltese",
+    "column": "openness_to_strangers",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/maltese/",
+    "pageSha256": "7ff9898d8fb818a9180113c0482499bf189c24f2c3b5a8d61346f12b88e13152"
+  },
+  {
+    "animalId": "dog_labrador_retriever",
+    "column": "watchdogprotective_nature",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/labrador-retriever/",
+    "pageSha256": "8a1dcd240a740f1df771aec32f244e560de5a62cbea81e66af2934660ecc4f0c"
+  },
+  {
+    "animalId": "dog_english_cocker_spaniel",
+    "column": "watchdogprotective_nature",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/english-cocker-spaniel/",
+    "pageSha256": "42d8e44afbf0d9326f706cc4ded6829a9a8975b5c9f1b31bce0c997d0fd0c4a9"
+  },
+  {
+    "animalId": "dog_staffordshire_bull_terrier",
+    "column": "watchdogprotective_nature",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/staffordshire-bull-terrier/",
+    "pageSha256": "e001204349b7de2269a43a614b3f5d2d8aa2ee35fef61eed94d8713acacb549e"
+  },
+  {
+    "animalId": "dog_chihuahua",
+    "column": "watchdogprotective_nature",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/chihuahua/",
+    "pageSha256": "b6e536d156ddc33c239365557997454b6978bccd36696c1202ae9c8699622f6c"
+  },
+  {
+    "animalId": "dog_shih_tzu",
+    "column": "watchdogprotective_nature",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/shih-tzu/",
+    "pageSha256": "2b18f11e9aa0d76b89651f3cb1621a196d21d01c03fb4e0d449d33cef1a4bc61"
+  },
+  {
+    "animalId": "dog_french_bulldog",
+    "column": "watchdogprotective_nature",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/french-bulldog/",
+    "pageSha256": "e0829f8b46ef14b76778b463d9c45d29e4ec647a5afb6a5e2bb3d7b5a973a0e1"
+  },
+  {
+    "animalId": "dog_border_collie",
+    "column": "watchdogprotective_nature",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/border-collie/",
+    "pageSha256": "eb8e88449d3032d6bebeeefa159ec782a1f6589dc8661b0d5359dd6c8c35d7aa"
+  },
+  {
+    "animalId": "dog_yorkshire_terrier",
+    "column": "watchdogprotective_nature",
+    "score": 5,
+    "sourceUrl": "https://www.akc.org/dog-breeds/yorkshire-terrier/",
+    "pageSha256": "4788f4eae377045069f2ee56d9ca49b4bec4fb702c1194b661ccbd746fb8f46d"
+  },
+  {
+    "animalId": "dog_english_springer_spaniel",
+    "column": "watchdogprotective_nature",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/english-springer-spaniel/",
+    "pageSha256": "405f96f3777c8c3b168971fb741adbddc2a65b3b6f9317c6ce8b8507d7d97bb5"
+  },
+  {
+    "animalId": "dog_german_shepherd",
+    "column": "watchdogprotective_nature",
+    "score": 5,
+    "sourceUrl": "https://www.akc.org/dog-breeds/german-shepherd-dog/",
+    "pageSha256": "c45890cd048e39731d3e9b1696628b4f7095f1cb2fb3d2bcb2723188f2f87e81"
+  },
+  {
+    "animalId": "dog_pug",
+    "column": "watchdogprotective_nature",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/pug/",
+    "pageSha256": "472be6222f13f77416999a11233bcf9145439c651af85617d167050861413ae6"
+  },
+  {
+    "animalId": "dog_west_highland_white_terrier",
+    "column": "watchdogprotective_nature",
+    "score": 5,
+    "sourceUrl": "https://www.akc.org/dog-breeds/west-highland-white-terrier/",
+    "pageSha256": "5bd1e39824525ebf75c55297346ec6d86c3108655022e896c5e8630579652f65"
+  },
+  {
+    "animalId": "dog_cavalier_king_charles_spaniel",
+    "column": "watchdogprotective_nature",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/cavalier-king-charles-spaniel/",
+    "pageSha256": "bbbe525bf6a5eee12322ba4faf6529a30dbf7c348fddebb4ef580b6bddc94eae"
+  },
+  {
+    "animalId": "dog_golden_retriever",
+    "column": "watchdogprotective_nature",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/golden-retriever/",
+    "pageSha256": "c5a7023aa2d8845e6b82b3aed6fc30f6fde790c536d72643ba1ec678db428e53"
+  },
+  {
+    "animalId": "dog_bichon_frise",
+    "column": "watchdogprotective_nature",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/bichon-frise/",
+    "pageSha256": "60284e133ef7eefbed234098f875f467bf6ec4a73ffd759e93ae04fd469f4faa"
+  },
+  {
+    "animalId": "dog_border_terrier",
+    "column": "watchdogprotective_nature",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/border-terrier/",
+    "pageSha256": "7ae7e56032180eae3aa1c5d2a65eb69088253ab47836b89bd367f976ea5dba5a"
+  },
+  {
+    "animalId": "dog_miniature_schnauzer",
+    "column": "watchdogprotective_nature",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/miniature-schnauzer/",
+    "pageSha256": "1c77ca6285920a9219dcc3b90da5eebcc6930bc9346a8c928c547fa67844abfa"
+  },
+  {
+    "animalId": "dog_beagle",
+    "column": "watchdogprotective_nature",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/beagle/",
+    "pageSha256": "6a5ceb0a48ede3f4dfb9418abe9673178f24f26530a4043b7d52c400b2b35688"
+  },
+  {
+    "animalId": "dog_boxer",
+    "column": "watchdogprotective_nature",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/boxer/",
+    "pageSha256": "3d6bdbee228c8b963f4cfd36b3617e9c4cb9bd07dc6d37828a6e09938ff24aba"
+  },
+  {
+    "animalId": "dog_pomeranian",
+    "column": "watchdogprotective_nature",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/pomeranian/",
+    "pageSha256": "f170c6d4820412d3a6872f33c4437da4e43192ab56a9f7f90ba4c0707214e33b"
+  },
+  {
+    "animalId": "dog_rottweiler",
+    "column": "watchdogprotective_nature",
+    "score": 5,
+    "sourceUrl": "https://www.akc.org/dog-breeds/rottweiler/",
+    "pageSha256": "ff85ce448a63d2c0ea48e97eaa73f79d2aede55172f758aaf7395feb51206433"
+  },
+  {
+    "animalId": "dog_whippet",
+    "column": "watchdogprotective_nature",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/whippet/",
+    "pageSha256": "9dd5d894a54d635ca9984762a4d5cc9c88a8396edfc71bb4d132d1b6ee1d7934"
+  },
+  {
+    "animalId": "dog_greyhound",
+    "column": "watchdogprotective_nature",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/greyhound/",
+    "pageSha256": "c936072fed78dd4c4a26e809848196243a4e1b6eb472e55fdc1a901954980bb6"
+  },
+  {
+    "animalId": "dog_maltese",
+    "column": "watchdogprotective_nature",
+    "score": 4,
+    "sourceUrl": "https://www.akc.org/dog-breeds/maltese/",
+    "pageSha256": "7ff9898d8fb818a9180113c0482499bf189c24f2c3b5a8d61346f12b88e13152"
+  },
+  {
+    "animalId": "dog_labrador_retriever",
+    "column": "drooling_level",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/labrador-retriever/",
+    "pageSha256": "8a1dcd240a740f1df771aec32f244e560de5a62cbea81e66af2934660ecc4f0c"
+  },
+  {
+    "animalId": "dog_english_cocker_spaniel",
+    "column": "drooling_level",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/english-cocker-spaniel/",
+    "pageSha256": "42d8e44afbf0d9326f706cc4ded6829a9a8975b5c9f1b31bce0c997d0fd0c4a9"
+  },
+  {
+    "animalId": "dog_staffordshire_bull_terrier",
+    "column": "drooling_level",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/staffordshire-bull-terrier/",
+    "pageSha256": "e001204349b7de2269a43a614b3f5d2d8aa2ee35fef61eed94d8713acacb549e"
+  },
+  {
+    "animalId": "dog_chihuahua",
+    "column": "drooling_level",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/chihuahua/",
+    "pageSha256": "b6e536d156ddc33c239365557997454b6978bccd36696c1202ae9c8699622f6c"
+  },
+  {
+    "animalId": "dog_shih_tzu",
+    "column": "drooling_level",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/shih-tzu/",
+    "pageSha256": "2b18f11e9aa0d76b89651f3cb1621a196d21d01c03fb4e0d449d33cef1a4bc61"
+  },
+  {
+    "animalId": "dog_french_bulldog",
+    "column": "drooling_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/french-bulldog/",
+    "pageSha256": "e0829f8b46ef14b76778b463d9c45d29e4ec647a5afb6a5e2bb3d7b5a973a0e1"
+  },
+  {
+    "animalId": "dog_border_collie",
+    "column": "drooling_level",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/border-collie/",
+    "pageSha256": "eb8e88449d3032d6bebeeefa159ec782a1f6589dc8661b0d5359dd6c8c35d7aa"
+  },
+  {
+    "animalId": "dog_yorkshire_terrier",
+    "column": "drooling_level",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/yorkshire-terrier/",
+    "pageSha256": "4788f4eae377045069f2ee56d9ca49b4bec4fb702c1194b661ccbd746fb8f46d"
+  },
+  {
+    "animalId": "dog_english_springer_spaniel",
+    "column": "drooling_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/english-springer-spaniel/",
+    "pageSha256": "405f96f3777c8c3b168971fb741adbddc2a65b3b6f9317c6ce8b8507d7d97bb5"
+  },
+  {
+    "animalId": "dog_german_shepherd",
+    "column": "drooling_level",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/german-shepherd-dog/",
+    "pageSha256": "c45890cd048e39731d3e9b1696628b4f7095f1cb2fb3d2bcb2723188f2f87e81"
+  },
+  {
+    "animalId": "dog_pug",
+    "column": "drooling_level",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/pug/",
+    "pageSha256": "472be6222f13f77416999a11233bcf9145439c651af85617d167050861413ae6"
+  },
+  {
+    "animalId": "dog_west_highland_white_terrier",
+    "column": "drooling_level",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/west-highland-white-terrier/",
+    "pageSha256": "5bd1e39824525ebf75c55297346ec6d86c3108655022e896c5e8630579652f65"
+  },
+  {
+    "animalId": "dog_cavalier_king_charles_spaniel",
+    "column": "drooling_level",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/cavalier-king-charles-spaniel/",
+    "pageSha256": "bbbe525bf6a5eee12322ba4faf6529a30dbf7c348fddebb4ef580b6bddc94eae"
+  },
+  {
+    "animalId": "dog_golden_retriever",
+    "column": "drooling_level",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/golden-retriever/",
+    "pageSha256": "c5a7023aa2d8845e6b82b3aed6fc30f6fde790c536d72643ba1ec678db428e53"
+  },
+  {
+    "animalId": "dog_bichon_frise",
+    "column": "drooling_level",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/bichon-frise/",
+    "pageSha256": "60284e133ef7eefbed234098f875f467bf6ec4a73ffd759e93ae04fd469f4faa"
+  },
+  {
+    "animalId": "dog_border_terrier",
+    "column": "drooling_level",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/border-terrier/",
+    "pageSha256": "7ae7e56032180eae3aa1c5d2a65eb69088253ab47836b89bd367f976ea5dba5a"
+  },
+  {
+    "animalId": "dog_miniature_schnauzer",
+    "column": "drooling_level",
+    "score": 2,
+    "sourceUrl": "https://www.akc.org/dog-breeds/miniature-schnauzer/",
+    "pageSha256": "1c77ca6285920a9219dcc3b90da5eebcc6930bc9346a8c928c547fa67844abfa"
+  },
+  {
+    "animalId": "dog_beagle",
+    "column": "drooling_level",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/beagle/",
+    "pageSha256": "6a5ceb0a48ede3f4dfb9418abe9673178f24f26530a4043b7d52c400b2b35688"
+  },
+  {
+    "animalId": "dog_boxer",
+    "column": "drooling_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/boxer/",
+    "pageSha256": "3d6bdbee228c8b963f4cfd36b3617e9c4cb9bd07dc6d37828a6e09938ff24aba"
+  },
+  {
+    "animalId": "dog_pomeranian",
+    "column": "drooling_level",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/pomeranian/",
+    "pageSha256": "f170c6d4820412d3a6872f33c4437da4e43192ab56a9f7f90ba4c0707214e33b"
+  },
+  {
+    "animalId": "dog_rottweiler",
+    "column": "drooling_level",
+    "score": 3,
+    "sourceUrl": "https://www.akc.org/dog-breeds/rottweiler/",
+    "pageSha256": "ff85ce448a63d2c0ea48e97eaa73f79d2aede55172f758aaf7395feb51206433"
+  },
+  {
+    "animalId": "dog_whippet",
+    "column": "drooling_level",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/whippet/",
+    "pageSha256": "9dd5d894a54d635ca9984762a4d5cc9c88a8396edfc71bb4d132d1b6ee1d7934"
+  },
+  {
+    "animalId": "dog_greyhound",
+    "column": "drooling_level",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/greyhound/",
+    "pageSha256": "c936072fed78dd4c4a26e809848196243a4e1b6eb472e55fdc1a901954980bb6"
+  },
+  {
+    "animalId": "dog_maltese",
+    "column": "drooling_level",
+    "score": 1,
+    "sourceUrl": "https://www.akc.org/dog-breeds/maltese/",
+    "pageSha256": "7ff9898d8fb818a9180113c0482499bf189c24f2c3b5a8d61346f12b88e13152"
+  }
+]

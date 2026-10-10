@@ -1,0 +1,1338 @@
+{
+  "sourceUrl": "https://ndownloader.figshare.com/files/1080846",
+  "sha256": "e86ad65ffcbde7c762c6e7d1c8a3a124f0b5e68d5c7b755e4fb906c2b42d7e44",
+  "sourceRows": 12059,
+  "minimumResponses": 50,
+  "records": [
+    {
+      "animalId": "dog_labrador_retriever",
+      "sourceBreed": "Labrador Retriever",
+      "column": "trainability",
+      "n": 762,
+      "mean": 2.760381514811024
+    },
+    {
+      "animalId": "dog_english_cocker_spaniel",
+      "sourceBreed": "Cocker Spaniel (English)",
+      "column": "trainability",
+      "n": 72,
+      "mean": 2.5932539682527778
+    },
+    {
+      "animalId": "dog_chihuahua",
+      "sourceBreed": "Chihuahua",
+      "column": "trainability",
+      "n": 116,
+      "mean": 2.2379926108362067
+    },
+    {
+      "animalId": "dog_shih_tzu",
+      "sourceBreed": "Shih Tzu",
+      "column": "trainability",
+      "n": 69,
+      "mean": 2.363871635610145
+    },
+    {
+      "animalId": "dog_border_collie",
+      "sourceBreed": "Border Collie",
+      "column": "trainability",
+      "n": 311,
+      "mean": 3.0625095697453375
+    },
+    {
+      "animalId": "dog_yorkshire_terrier",
+      "sourceBreed": "Yorkshire Terrier",
+      "column": "trainability",
+      "n": 53,
+      "mean": 2.209007187781132
+    },
+    {
+      "animalId": "dog_english_springer_spaniel",
+      "sourceBreed": "English Springer Spaniel",
+      "column": "trainability",
+      "n": 103,
+      "mean": 2.9133148404990292
+    },
+    {
+      "animalId": "dog_german_shepherd",
+      "sourceBreed": "German Shepherd",
+      "column": "trainability",
+      "n": 530,
+      "mean": 2.877336028750755
+    },
+    {
+      "animalId": "dog_pug",
+      "sourceBreed": "Pug",
+      "column": "trainability",
+      "n": 62,
+      "mean": 2.2224462365612903
+    },
+    {
+      "animalId": "dog_golden_retriever",
+      "sourceBreed": "Golden Retriever",
+      "column": "trainability",
+      "n": 428,
+      "mean": 2.874374165554439
+    },
+    {
+      "animalId": "dog_bichon_frise",
+      "sourceBreed": "Bichon Frise",
+      "column": "trainability",
+      "n": 94,
+      "mean": 2.3542933130702126
+    },
+    {
+      "animalId": "dog_miniature_schnauzer",
+      "sourceBreed": "Miniature Schnauzer",
+      "column": "trainability",
+      "n": 62,
+      "mean": 2.4302995391709676
+    },
+    {
+      "animalId": "dog_beagle",
+      "sourceBreed": "Beagle",
+      "column": "trainability",
+      "n": 104,
+      "mean": 2.2118246337
+    },
+    {
+      "animalId": "dog_boxer",
+      "sourceBreed": "Boxer",
+      "column": "trainability",
+      "n": 140,
+      "mean": 2.6540391156457144
+    },
+    {
+      "animalId": "dog_pomeranian",
+      "sourceBreed": "Pomeranian",
+      "column": "trainability",
+      "n": 77,
+      "mean": 2.4299628942467533
+    },
+    {
+      "animalId": "dog_rottweiler",
+      "sourceBreed": "Rottweiler",
+      "column": "trainability",
+      "n": 328,
+      "mean": 2.9617269163765245
+    },
+    {
+      "animalId": "dog_whippet",
+      "sourceBreed": "Whippet",
+      "column": "trainability",
+      "n": 73,
+      "mean": 2.5496575342452052
+    },
+    {
+      "animalId": "dog_greyhound",
+      "sourceBreed": "Greyhound",
+      "column": "trainability",
+      "n": 82,
+      "mean": 2.2061556329853658
+    },
+    {
+      "animalId": "dog_maltese",
+      "sourceBreed": "Maltese",
+      "column": "trainability",
+      "n": 69,
+      "mean": 2.381383712905797
+    },
+    {
+      "animalId": "dog_labrador_retriever",
+      "sourceBreed": "Labrador Retriever",
+      "column": "chasing",
+      "n": 736,
+      "mean": 1.7626811594203804
+    },
+    {
+      "animalId": "dog_english_cocker_spaniel",
+      "sourceBreed": "Cocker Spaniel (English)",
+      "column": "chasing",
+      "n": 71,
+      "mean": 2.2546948356802816
+    },
+    {
+      "animalId": "dog_chihuahua",
+      "sourceBreed": "Chihuahua",
+      "column": "chasing",
+      "n": 110,
+      "mean": 1.6787878787890909
+    },
+    {
+      "animalId": "dog_shih_tzu",
+      "sourceBreed": "Shih Tzu",
+      "column": "chasing",
+      "n": 64,
+      "mean": 1.3515625
+    },
+    {
+      "animalId": "dog_border_collie",
+      "sourceBreed": "Border Collie",
+      "column": "chasing",
+      "n": 294,
+      "mean": 1.8041383219955782
+    },
+    {
+      "animalId": "dog_yorkshire_terrier",
+      "sourceBreed": "Yorkshire Terrier",
+      "column": "chasing",
+      "n": 50,
+      "mean": 2.031666666666
+    },
+    {
+      "animalId": "dog_english_springer_spaniel",
+      "sourceBreed": "English Springer Spaniel",
+      "column": "chasing",
+      "n": 99,
+      "mean": 2.303872053871717
+    },
+    {
+      "animalId": "dog_german_shepherd",
+      "sourceBreed": "German Shepherd",
+      "column": "chasing",
+      "n": 512,
+      "mean": 2.265787760416211
+    },
+    {
+      "animalId": "dog_pug",
+      "sourceBreed": "Pug",
+      "column": "chasing",
+      "n": 54,
+      "mean": 1.1311728395055556
+    },
+    {
+      "animalId": "dog_golden_retriever",
+      "sourceBreed": "Golden Retriever",
+      "column": "chasing",
+      "n": 411,
+      "mean": 1.7670316301703164
+    },
+    {
+      "animalId": "dog_bichon_frise",
+      "sourceBreed": "Bichon Frise",
+      "column": "chasing",
+      "n": 87,
+      "mean": 1.7595785440609195
+    },
+    {
+      "animalId": "dog_miniature_schnauzer",
+      "sourceBreed": "Miniature Schnauzer",
+      "column": "chasing",
+      "n": 62,
+      "mean": 2.560483870967742
+    },
+    {
+      "animalId": "dog_beagle",
+      "sourceBreed": "Beagle",
+      "column": "chasing",
+      "n": 99,
+      "mean": 2.0968013468010103
+    },
+    {
+      "animalId": "dog_boxer",
+      "sourceBreed": "Boxer",
+      "column": "chasing",
+      "n": 133,
+      "mean": 2.13032581453609
+    },
+    {
+      "animalId": "dog_pomeranian",
+      "sourceBreed": "Pomeranian",
+      "column": "chasing",
+      "n": 76,
+      "mean": 1.9747807017539474
+    },
+    {
+      "animalId": "dog_rottweiler",
+      "sourceBreed": "Rottweiler",
+      "column": "chasing",
+      "n": 306,
+      "mean": 2.0473856209150325
+    },
+    {
+      "animalId": "dog_whippet",
+      "sourceBreed": "Whippet",
+      "column": "chasing",
+      "n": 74,
+      "mean": 2.8997747747756755
+    },
+    {
+      "animalId": "dog_greyhound",
+      "sourceBreed": "Greyhound",
+      "column": "chasing",
+      "n": 87,
+      "mean": 2.183908045975862
+    },
+    {
+      "animalId": "dog_maltese",
+      "sourceBreed": "Maltese",
+      "column": "chasing",
+      "n": 59,
+      "mean": 1.8375706214694916
+    },
+    {
+      "animalId": "dog_labrador_retriever",
+      "sourceBreed": "Labrador Retriever",
+      "column": "strangerfear",
+      "n": 758,
+      "mean": 0.33311345646437995
+    },
+    {
+      "animalId": "dog_english_cocker_spaniel",
+      "sourceBreed": "Cocker Spaniel (English)",
+      "column": "strangerfear",
+      "n": 73,
+      "mean": 0.8116438356164384
+    },
+    {
+      "animalId": "dog_chihuahua",
+      "sourceBreed": "Chihuahua",
+      "column": "strangerfear",
+      "n": 113,
+      "mean": 1.4410029498522123
+    },
+    {
+      "animalId": "dog_shih_tzu",
+      "sourceBreed": "Shih Tzu",
+      "column": "strangerfear",
+      "n": 68,
+      "mean": 0.5808823529411765
+    },
+    {
+      "animalId": "dog_border_collie",
+      "sourceBreed": "Border Collie",
+      "column": "strangerfear",
+      "n": 307,
+      "mean": 0.7003257328993485
+    },
+    {
+      "animalId": "dog_yorkshire_terrier",
+      "sourceBreed": "Yorkshire Terrier",
+      "column": "strangerfear",
+      "n": 53,
+      "mean": 0.9150943396226415
+    },
+    {
+      "animalId": "dog_english_springer_spaniel",
+      "sourceBreed": "English Springer Spaniel",
+      "column": "strangerfear",
+      "n": 103,
+      "mean": 0.690129449838835
+    },
+    {
+      "animalId": "dog_german_shepherd",
+      "sourceBreed": "German Shepherd",
+      "column": "strangerfear",
+      "n": 520,
+      "mean": 0.5697115384615384
+    },
+    {
+      "animalId": "dog_pug",
+      "sourceBreed": "Pug",
+      "column": "strangerfear",
+      "n": 59,
+      "mean": 0.4703389830508475
+    },
+    {
+      "animalId": "dog_golden_retriever",
+      "sourceBreed": "Golden Retriever",
+      "column": "strangerfear",
+      "n": 418,
+      "mean": 0.2679425837318182
+    },
+    {
+      "animalId": "dog_bichon_frise",
+      "sourceBreed": "Bichon Frise",
+      "column": "strangerfear",
+      "n": 93,
+      "mean": 0.7894265232978495
+    },
+    {
+      "animalId": "dog_miniature_schnauzer",
+      "sourceBreed": "Miniature Schnauzer",
+      "column": "strangerfear",
+      "n": 61,
+      "mean": 0.739071038252459
+    },
+    {
+      "animalId": "dog_beagle",
+      "sourceBreed": "Beagle",
+      "column": "strangerfear",
+      "n": 104,
+      "mean": 0.6121794871798076
+    },
+    {
+      "animalId": "dog_boxer",
+      "sourceBreed": "Boxer",
+      "column": "strangerfear",
+      "n": 144,
+      "mean": 0.5665509259256944
+    },
+    {
+      "animalId": "dog_pomeranian",
+      "sourceBreed": "Pomeranian",
+      "column": "strangerfear",
+      "n": 82,
+      "mean": 0.7103658536585366
+    },
+    {
+      "animalId": "dog_rottweiler",
+      "sourceBreed": "Rottweiler",
+      "column": "strangerfear",
+      "n": 320,
+      "mean": 0.295833333333125
+    },
+    {
+      "animalId": "dog_whippet",
+      "sourceBreed": "Whippet",
+      "column": "strangerfear",
+      "n": 75,
+      "mean": 0.4633333333333333
+    },
+    {
+      "animalId": "dog_greyhound",
+      "sourceBreed": "Greyhound",
+      "column": "strangerfear",
+      "n": 90,
+      "mean": 0.675
+    },
+    {
+      "animalId": "dog_maltese",
+      "sourceBreed": "Maltese",
+      "column": "strangerfear",
+      "n": 70,
+      "mean": 0.9071428571428571
+    },
+    {
+      "animalId": "dog_labrador_retriever",
+      "sourceBreed": "Labrador Retriever",
+      "column": "nonsocialfear",
+      "n": 745,
+      "mean": 0.6076062639834899
+    },
+    {
+      "animalId": "dog_english_cocker_spaniel",
+      "sourceBreed": "Cocker Spaniel (English)",
+      "column": "nonsocialfear",
+      "n": 71,
+      "mean": 0.6826291079816902
+    },
+    {
+      "animalId": "dog_chihuahua",
+      "sourceBreed": "Chihuahua",
+      "column": "nonsocialfear",
+      "n": 114,
+      "mean": 1.1429824561385964
+    },
+    {
+      "animalId": "dog_shih_tzu",
+      "sourceBreed": "Shih Tzu",
+      "column": "nonsocialfear",
+      "n": 66,
+      "mean": 0.9186868686909091
+    },
+    {
+      "animalId": "dog_border_collie",
+      "sourceBreed": "Border Collie",
+      "column": "nonsocialfear",
+      "n": 306,
+      "mean": 0.9411764705888889
+    },
+    {
+      "animalId": "dog_yorkshire_terrier",
+      "sourceBreed": "Yorkshire Terrier",
+      "column": "nonsocialfear",
+      "n": 54,
+      "mean": 0.9790123456796296
+    },
+    {
+      "animalId": "dog_english_springer_spaniel",
+      "sourceBreed": "English Springer Spaniel",
+      "column": "nonsocialfear",
+      "n": 101,
+      "mean": 0.5343234323425743
+    },
+    {
+      "animalId": "dog_german_shepherd",
+      "sourceBreed": "German Shepherd",
+      "column": "nonsocialfear",
+      "n": 518,
+      "mean": 0.6383526383561776
+    },
+    {
+      "animalId": "dog_pug",
+      "sourceBreed": "Pug",
+      "column": "nonsocialfear",
+      "n": 61,
+      "mean": 0.6595628415344262
+    },
+    {
+      "animalId": "dog_golden_retriever",
+      "sourceBreed": "Golden Retriever",
+      "column": "nonsocialfear",
+      "n": 414,
+      "mean": 0.6795491143326087
+    },
+    {
+      "animalId": "dog_bichon_frise",
+      "sourceBreed": "Bichon Frise",
+      "column": "nonsocialfear",
+      "n": 91,
+      "mean": 0.9000000000032967
+    },
+    {
+      "animalId": "dog_miniature_schnauzer",
+      "sourceBreed": "Miniature Schnauzer",
+      "column": "nonsocialfear",
+      "n": 64,
+      "mean": 0.7937499999984375
+    },
+    {
+      "animalId": "dog_beagle",
+      "sourceBreed": "Beagle",
+      "column": "nonsocialfear",
+      "n": 102,
+      "mean": 0.9516339869294118
+    },
+    {
+      "animalId": "dog_boxer",
+      "sourceBreed": "Boxer",
+      "column": "nonsocialfear",
+      "n": 141,
+      "mean": 0.7820330969269503
+    },
+    {
+      "animalId": "dog_pomeranian",
+      "sourceBreed": "Pomeranian",
+      "column": "nonsocialfear",
+      "n": 82,
+      "mean": 0.7520325203268292
+    },
+    {
+      "animalId": "dog_rottweiler",
+      "sourceBreed": "Rottweiler",
+      "column": "nonsocialfear",
+      "n": 320,
+      "mean": 0.4481250000040625
+    },
+    {
+      "animalId": "dog_whippet",
+      "sourceBreed": "Whippet",
+      "column": "nonsocialfear",
+      "n": 75,
+      "mean": 0.7244444444466667
+    },
+    {
+      "animalId": "dog_greyhound",
+      "sourceBreed": "Greyhound",
+      "column": "nonsocialfear",
+      "n": 90,
+      "mean": 1.0381481481477777
+    },
+    {
+      "animalId": "dog_maltese",
+      "sourceBreed": "Maltese",
+      "column": "nonsocialfear",
+      "n": 67,
+      "mean": 0.9890547263716418
+    },
+    {
+      "animalId": "dog_labrador_retriever",
+      "sourceBreed": "Labrador Retriever",
+      "column": "sepprobs",
+      "n": 754,
+      "mean": 0.4205901856765252
+    },
+    {
+      "animalId": "dog_english_cocker_spaniel",
+      "sourceBreed": "Cocker Spaniel (English)",
+      "column": "sepprobs",
+      "n": 74,
+      "mean": 0.7625482625486486
+    },
+    {
+      "animalId": "dog_chihuahua",
+      "sourceBreed": "Chihuahua",
+      "column": "sepprobs",
+      "n": 118,
+      "mean": 0.7425847457627118
+    },
+    {
+      "animalId": "dog_shih_tzu",
+      "sourceBreed": "Shih Tzu",
+      "column": "sepprobs",
+      "n": 67,
+      "mean": 0.6540511727074627
+    },
+    {
+      "animalId": "dog_border_collie",
+      "sourceBreed": "Border Collie",
+      "column": "sepprobs",
+      "n": 312,
+      "mean": 0.413862179486859
+    },
+    {
+      "animalId": "dog_yorkshire_terrier",
+      "sourceBreed": "Yorkshire Terrier",
+      "column": "sepprobs",
+      "n": 52,
+      "mean": 0.8601190476192307
+    },
+    {
+      "animalId": "dog_english_springer_spaniel",
+      "sourceBreed": "English Springer Spaniel",
+      "column": "sepprobs",
+      "n": 102,
+      "mean": 0.5996148459382353
+    },
+    {
+      "animalId": "dog_german_shepherd",
+      "sourceBreed": "German Shepherd",
+      "column": "sepprobs",
+      "n": 527,
+      "mean": 0.470972259871537
+    },
+    {
+      "animalId": "dog_pug",
+      "sourceBreed": "Pug",
+      "column": "sepprobs",
+      "n": 62,
+      "mean": 0.6578341013822581
+    },
+    {
+      "animalId": "dog_golden_retriever",
+      "sourceBreed": "Golden Retriever",
+      "column": "sepprobs",
+      "n": 418,
+      "mean": 0.3109193438138756
+    },
+    {
+      "animalId": "dog_bichon_frise",
+      "sourceBreed": "Bichon Frise",
+      "column": "sepprobs",
+      "n": 95,
+      "mean": 0.6895989974936843
+    },
+    {
+      "animalId": "dog_miniature_schnauzer",
+      "sourceBreed": "Miniature Schnauzer",
+      "column": "sepprobs",
+      "n": 64,
+      "mean": 0.6715959821421875
+    },
+    {
+      "animalId": "dog_beagle",
+      "sourceBreed": "Beagle",
+      "column": "sepprobs",
+      "n": 107,
+      "mean": 0.812416555406542
+    },
+    {
+      "animalId": "dog_boxer",
+      "sourceBreed": "Boxer",
+      "column": "sepprobs",
+      "n": 140,
+      "mean": 0.5760629251707143
+    },
+    {
+      "animalId": "dog_pomeranian",
+      "sourceBreed": "Pomeranian",
+      "column": "sepprobs",
+      "n": 84,
+      "mean": 0.6488095238095238
+    },
+    {
+      "animalId": "dog_rottweiler",
+      "sourceBreed": "Rottweiler",
+      "column": "sepprobs",
+      "n": 325,
+      "mean": 0.32536630036584613
+    },
+    {
+      "animalId": "dog_whippet",
+      "sourceBreed": "Whippet",
+      "column": "sepprobs",
+      "n": 75,
+      "mean": 0.6707936507933333
+    },
+    {
+      "animalId": "dog_greyhound",
+      "sourceBreed": "Greyhound",
+      "column": "sepprobs",
+      "n": 89,
+      "mean": 0.6021268057797753
+    },
+    {
+      "animalId": "dog_maltese",
+      "sourceBreed": "Maltese",
+      "column": "sepprobs",
+      "n": 71,
+      "mean": 0.8619215291760564
+    },
+    {
+      "animalId": "dog_labrador_retriever",
+      "sourceBreed": "Labrador Retriever",
+      "column": "touchsens",
+      "n": 746,
+      "mean": 0.5423369079532172
+    },
+    {
+      "animalId": "dog_english_cocker_spaniel",
+      "sourceBreed": "Cocker Spaniel (English)",
+      "column": "touchsens",
+      "n": 72,
+      "mean": 0.7650462962958333
+    },
+    {
+      "animalId": "dog_chihuahua",
+      "sourceBreed": "Chihuahua",
+      "column": "touchsens",
+      "n": 117,
+      "mean": 1.2264957264957266
+    },
+    {
+      "animalId": "dog_shih_tzu",
+      "sourceBreed": "Shih Tzu",
+      "column": "touchsens",
+      "n": 67,
+      "mean": 0.8159203980089552
+    },
+    {
+      "animalId": "dog_border_collie",
+      "sourceBreed": "Border Collie",
+      "column": "touchsens",
+      "n": 304,
+      "mean": 0.7198464912279605
+    },
+    {
+      "animalId": "dog_yorkshire_terrier",
+      "sourceBreed": "Yorkshire Terrier",
+      "column": "touchsens",
+      "n": 52,
+      "mean": 0.891025641025
+    },
+    {
+      "animalId": "dog_english_springer_spaniel",
+      "sourceBreed": "English Springer Spaniel",
+      "column": "touchsens",
+      "n": 103,
+      "mean": 0.5687702265368932
+    },
+    {
+      "animalId": "dog_german_shepherd",
+      "sourceBreed": "German Shepherd",
+      "column": "touchsens",
+      "n": 517,
+      "mean": 0.5644745325589942
+    },
+    {
+      "animalId": "dog_pug",
+      "sourceBreed": "Pug",
+      "column": "touchsens",
+      "n": 60,
+      "mean": 0.9375
+    },
+    {
+      "animalId": "dog_golden_retriever",
+      "sourceBreed": "Golden Retriever",
+      "column": "touchsens",
+      "n": 419,
+      "mean": 0.41268894192482103
+    },
+    {
+      "animalId": "dog_bichon_frise",
+      "sourceBreed": "Bichon Frise",
+      "column": "touchsens",
+      "n": 92,
+      "mean": 0.7599637681152174
+    },
+    {
+      "animalId": "dog_miniature_schnauzer",
+      "sourceBreed": "Miniature Schnauzer",
+      "column": "touchsens",
+      "n": 63,
+      "mean": 0.6283068783063492
+    },
+    {
+      "animalId": "dog_beagle",
+      "sourceBreed": "Beagle",
+      "column": "touchsens",
+      "n": 106,
+      "mean": 0.9261006289311321
+    },
+    {
+      "animalId": "dog_boxer",
+      "sourceBreed": "Boxer",
+      "column": "touchsens",
+      "n": 141,
+      "mean": 0.42730496453900707
+    },
+    {
+      "animalId": "dog_pomeranian",
+      "sourceBreed": "Pomeranian",
+      "column": "touchsens",
+      "n": 83,
+      "mean": 0.6606425702819277
+    },
+    {
+      "animalId": "dog_rottweiler",
+      "sourceBreed": "Rottweiler",
+      "column": "touchsens",
+      "n": 323,
+      "mean": 0.4476264189891641
+    },
+    {
+      "animalId": "dog_whippet",
+      "sourceBreed": "Whippet",
+      "column": "touchsens",
+      "n": 72,
+      "mean": 0.8530092592597223
+    },
+    {
+      "animalId": "dog_greyhound",
+      "sourceBreed": "Greyhound",
+      "column": "touchsens",
+      "n": 89,
+      "mean": 0.7237827715370786
+    },
+    {
+      "animalId": "dog_maltese",
+      "sourceBreed": "Maltese",
+      "column": "touchsens",
+      "n": 65,
+      "mean": 0.9615384615384616
+    },
+    {
+      "animalId": "dog_labrador_retriever",
+      "sourceBreed": "Labrador Retriever",
+      "column": "excitability",
+      "n": 756,
+      "mean": 2.0766313932982805
+    },
+    {
+      "animalId": "dog_english_cocker_spaniel",
+      "sourceBreed": "Cocker Spaniel (English)",
+      "column": "excitability",
+      "n": 72,
+      "mean": 2.0796296296291668
+    },
+    {
+      "animalId": "dog_chihuahua",
+      "sourceBreed": "Chihuahua",
+      "column": "excitability",
+      "n": 116,
+      "mean": 2.209195402296552
+    },
+    {
+      "animalId": "dog_shih_tzu",
+      "sourceBreed": "Shih Tzu",
+      "column": "excitability",
+      "n": 69,
+      "mean": 1.901449275362319
+    },
+    {
+      "animalId": "dog_border_collie",
+      "sourceBreed": "Border Collie",
+      "column": "excitability",
+      "n": 310,
+      "mean": 2.0421505376358065
+    },
+    {
+      "animalId": "dog_yorkshire_terrier",
+      "sourceBreed": "Yorkshire Terrier",
+      "column": "excitability",
+      "n": 53,
+      "mean": 2.2000000000037736
+    },
+    {
+      "animalId": "dog_english_springer_spaniel",
+      "sourceBreed": "English Springer Spaniel",
+      "column": "excitability",
+      "n": 101,
+      "mean": 2.1118811881148516
+    },
+    {
+      "animalId": "dog_german_shepherd",
+      "sourceBreed": "German Shepherd",
+      "column": "excitability",
+      "n": 526,
+      "mean": 2.0429657794661598
+    },
+    {
+      "animalId": "dog_pug",
+      "sourceBreed": "Pug",
+      "column": "excitability",
+      "n": 62,
+      "mean": 2.2408602150596773
+    },
+    {
+      "animalId": "dog_golden_retriever",
+      "sourceBreed": "Golden Retriever",
+      "column": "excitability",
+      "n": 427,
+      "mean": 1.9371584699459017
+    },
+    {
+      "animalId": "dog_bichon_frise",
+      "sourceBreed": "Bichon Frise",
+      "column": "excitability",
+      "n": 94,
+      "mean": 2.2914893617031913
+    },
+    {
+      "animalId": "dog_miniature_schnauzer",
+      "sourceBreed": "Miniature Schnauzer",
+      "column": "excitability",
+      "n": 64,
+      "mean": 2.487500000003125
+    },
+    {
+      "animalId": "dog_beagle",
+      "sourceBreed": "Beagle",
+      "column": "excitability",
+      "n": 102,
+      "mean": 2.1683006535921567
+    },
+    {
+      "animalId": "dog_boxer",
+      "sourceBreed": "Boxer",
+      "column": "excitability",
+      "n": 142,
+      "mean": 2.3469483568084506
+    },
+    {
+      "animalId": "dog_pomeranian",
+      "sourceBreed": "Pomeranian",
+      "column": "excitability",
+      "n": 83,
+      "mean": 2.256626506024096
+    },
+    {
+      "animalId": "dog_rottweiler",
+      "sourceBreed": "Rottweiler",
+      "column": "excitability",
+      "n": 326,
+      "mean": 1.8685071574628835
+    },
+    {
+      "animalId": "dog_whippet",
+      "sourceBreed": "Whippet",
+      "column": "excitability",
+      "n": 74,
+      "mean": 1.9346846846824324
+    },
+    {
+      "animalId": "dog_greyhound",
+      "sourceBreed": "Greyhound",
+      "column": "excitability",
+      "n": 91,
+      "mean": 1.916849816854945
+    },
+    {
+      "animalId": "dog_maltese",
+      "sourceBreed": "Maltese",
+      "column": "excitability",
+      "n": 69,
+      "mean": 2.3367149758449277
+    },
+    {
+      "animalId": "dog_labrador_retriever",
+      "sourceBreed": "Labrador Retriever",
+      "column": "attachatten",
+      "n": 762,
+      "mean": 1.8715660542439632
+    },
+    {
+      "animalId": "dog_english_cocker_spaniel",
+      "sourceBreed": "Cocker Spaniel (English)",
+      "column": "attachatten",
+      "n": 72,
+      "mean": 2.335648148148611
+    },
+    {
+      "animalId": "dog_chihuahua",
+      "sourceBreed": "Chihuahua",
+      "column": "attachatten",
+      "n": 118,
+      "mean": 2.23079096045
+    },
+    {
+      "animalId": "dog_shih_tzu",
+      "sourceBreed": "Shih Tzu",
+      "column": "attachatten",
+      "n": 69,
+      "mean": 1.968115942026087
+    },
+    {
+      "animalId": "dog_border_collie",
+      "sourceBreed": "Border Collie",
+      "column": "attachatten",
+      "n": 312,
+      "mean": 1.9754273504307693
+    },
+    {
+      "animalId": "dog_yorkshire_terrier",
+      "sourceBreed": "Yorkshire Terrier",
+      "column": "attachatten",
+      "n": 53,
+      "mean": 2.2415094339660375
+    },
+    {
+      "animalId": "dog_english_springer_spaniel",
+      "sourceBreed": "English Springer Spaniel",
+      "column": "attachatten",
+      "n": 103,
+      "mean": 2.1359223300970873
+    },
+    {
+      "animalId": "dog_german_shepherd",
+      "sourceBreed": "German Shepherd",
+      "column": "attachatten",
+      "n": 530,
+      "mean": 1.973962264151698
+    },
+    {
+      "animalId": "dog_pug",
+      "sourceBreed": "Pug",
+      "column": "attachatten",
+      "n": 61,
+      "mean": 2.1803278688540986
+    },
+    {
+      "animalId": "dog_golden_retriever",
+      "sourceBreed": "Golden Retriever",
+      "column": "attachatten",
+      "n": 426,
+      "mean": 1.9321596244157277
+    },
+    {
+      "animalId": "dog_bichon_frise",
+      "sourceBreed": "Bichon Frise",
+      "column": "attachatten",
+      "n": 93,
+      "mean": 2.1465949820774193
+    },
+    {
+      "animalId": "dog_miniature_schnauzer",
+      "sourceBreed": "Miniature Schnauzer",
+      "column": "attachatten",
+      "n": 62,
+      "mean": 2.302688172045161
+    },
+    {
+      "animalId": "dog_beagle",
+      "sourceBreed": "Beagle",
+      "column": "attachatten",
+      "n": 105,
+      "mean": 1.840952380952381
+    },
+    {
+      "animalId": "dog_boxer",
+      "sourceBreed": "Boxer",
+      "column": "attachatten",
+      "n": 140,
+      "mean": 1.9778571428592857
+    },
+    {
+      "animalId": "dog_pomeranian",
+      "sourceBreed": "Pomeranian",
+      "column": "attachatten",
+      "n": 82,
+      "mean": 2.1000000000012196
+    },
+    {
+      "animalId": "dog_rottweiler",
+      "sourceBreed": "Rottweiler",
+      "column": "attachatten",
+      "n": 323,
+      "mean": 2.0656346749219816
+    },
+    {
+      "animalId": "dog_whippet",
+      "sourceBreed": "Whippet",
+      "column": "attachatten",
+      "n": 75,
+      "mean": 1.8906666666666667
+    },
+    {
+      "animalId": "dog_greyhound",
+      "sourceBreed": "Greyhound",
+      "column": "attachatten",
+      "n": 92,
+      "mean": 1.5086956521782608
+    },
+    {
+      "animalId": "dog_maltese",
+      "sourceBreed": "Maltese",
+      "column": "attachatten",
+      "n": 69,
+      "mean": 2.206763285023188
+    },
+    {
+      "animalId": "dog_labrador_retriever",
+      "sourceBreed": "Labrador Retriever",
+      "column": "energy",
+      "n": 764,
+      "mean": 2.018979057591623
+    },
+    {
+      "animalId": "dog_english_cocker_spaniel",
+      "sourceBreed": "Cocker Spaniel (English)",
+      "column": "energy",
+      "n": 74,
+      "mean": 1.9594594594594594
+    },
+    {
+      "animalId": "dog_chihuahua",
+      "sourceBreed": "Chihuahua",
+      "column": "energy",
+      "n": 119,
+      "mean": 1.903361344537815
+    },
+    {
+      "animalId": "dog_shih_tzu",
+      "sourceBreed": "Shih Tzu",
+      "column": "energy",
+      "n": 69,
+      "mean": 1.8695652173913044
+    },
+    {
+      "animalId": "dog_border_collie",
+      "sourceBreed": "Border Collie",
+      "column": "energy",
+      "n": 313,
+      "mean": 2.2619808306709266
+    },
+    {
+      "animalId": "dog_yorkshire_terrier",
+      "sourceBreed": "Yorkshire Terrier",
+      "column": "energy",
+      "n": 53,
+      "mean": 2.0377358490566038
+    },
+    {
+      "animalId": "dog_english_springer_spaniel",
+      "sourceBreed": "English Springer Spaniel",
+      "column": "energy",
+      "n": 103,
+      "mean": 1.9563106796116505
+    },
+    {
+      "animalId": "dog_german_shepherd",
+      "sourceBreed": "German Shepherd",
+      "column": "energy",
+      "n": 532,
+      "mean": 2.1043233082706765
+    },
+    {
+      "animalId": "dog_pug",
+      "sourceBreed": "Pug",
+      "column": "energy",
+      "n": 62,
+      "mean": 1.8387096774193548
+    },
+    {
+      "animalId": "dog_golden_retriever",
+      "sourceBreed": "Golden Retriever",
+      "column": "energy",
+      "n": 428,
+      "mean": 1.9240654205607477
+    },
+    {
+      "animalId": "dog_bichon_frise",
+      "sourceBreed": "Bichon Frise",
+      "column": "energy",
+      "n": 95,
+      "mean": 1.931578947368421
+    },
+    {
+      "animalId": "dog_miniature_schnauzer",
+      "sourceBreed": "Miniature Schnauzer",
+      "column": "energy",
+      "n": 65,
+      "mean": 2.076923076923077
+    },
+    {
+      "animalId": "dog_beagle",
+      "sourceBreed": "Beagle",
+      "column": "energy",
+      "n": 107,
+      "mean": 1.8224299065420562
+    },
+    {
+      "animalId": "dog_boxer",
+      "sourceBreed": "Boxer",
+      "column": "energy",
+      "n": 142,
+      "mean": 2.3309859154929575
+    },
+    {
+      "animalId": "dog_pomeranian",
+      "sourceBreed": "Pomeranian",
+      "column": "energy",
+      "n": 84,
+      "mean": 2.0952380952380953
+    },
+    {
+      "animalId": "dog_rottweiler",
+      "sourceBreed": "Rottweiler",
+      "column": "energy",
+      "n": 327,
+      "mean": 1.9847094801223242
+    },
+    {
+      "animalId": "dog_whippet",
+      "sourceBreed": "Whippet",
+      "column": "energy",
+      "n": 75,
+      "mean": 1.4933333333333334
+    },
+    {
+      "animalId": "dog_greyhound",
+      "sourceBreed": "Greyhound",
+      "column": "energy",
+      "n": 93,
+      "mean": 1.2473118279569892
+    },
+    {
+      "animalId": "dog_maltese",
+      "sourceBreed": "Maltese",
+      "column": "energy",
+      "n": 71,
+      "mean": 2.1267605633802815
+    },
+    {
+      "animalId": "dog_labrador_retriever",
+      "sourceBreed": "Labrador Retriever",
+      "column": "dogfear",
+      "n": 736,
+      "mean": 0.5698596014490489
+    },
+    {
+      "animalId": "dog_english_cocker_spaniel",
+      "sourceBreed": "Cocker Spaniel (English)",
+      "column": "dogfear",
+      "n": 71,
+      "mean": 0.8720657277014084
+    },
+    {
+      "animalId": "dog_chihuahua",
+      "sourceBreed": "Chihuahua",
+      "column": "dogfear",
+      "n": 104,
+      "mean": 1.3942307692317308
+    },
+    {
+      "animalId": "dog_shih_tzu",
+      "sourceBreed": "Shih Tzu",
+      "column": "dogfear",
+      "n": 65,
+      "mean": 1.02564102564
+    },
+    {
+      "animalId": "dog_border_collie",
+      "sourceBreed": "Border Collie",
+      "column": "dogfear",
+      "n": 304,
+      "mean": 0.8379934210523027
+    },
+    {
+      "animalId": "dog_yorkshire_terrier",
+      "sourceBreed": "Yorkshire Terrier",
+      "column": "dogfear",
+      "n": 52,
+      "mean": 0.9775641025634615
+    },
+    {
+      "animalId": "dog_english_springer_spaniel",
+      "sourceBreed": "English Springer Spaniel",
+      "column": "dogfear",
+      "n": 99,
+      "mean": 0.9553872053868687
+    },
+    {
+      "animalId": "dog_german_shepherd",
+      "sourceBreed": "German Shepherd",
+      "column": "dogfear",
+      "n": 500,
+      "mean": 0.7011666666658
+    },
+    {
+      "animalId": "dog_pug",
+      "sourceBreed": "Pug",
+      "column": "dogfear",
+      "n": 60,
+      "mean": 0.7236111111133333
+    },
+    {
+      "animalId": "dog_golden_retriever",
+      "sourceBreed": "Golden Retriever",
+      "column": "dogfear",
+      "n": 407,
+      "mean": 0.5909090909085996
+    },
+    {
+      "animalId": "dog_bichon_frise",
+      "sourceBreed": "Bichon Frise",
+      "column": "dogfear",
+      "n": 91,
+      "mean": 0.9267399267373626
+    },
+    {
+      "animalId": "dog_miniature_schnauzer",
+      "sourceBreed": "Miniature Schnauzer",
+      "column": "dogfear",
+      "n": 56,
+      "mean": 0.9002976190464286
+    },
+    {
+      "animalId": "dog_beagle",
+      "sourceBreed": "Beagle",
+      "column": "dogfear",
+      "n": 100,
+      "mean": 0.992500000001
+    },
+    {
+      "animalId": "dog_boxer",
+      "sourceBreed": "Boxer",
+      "column": "dogfear",
+      "n": 134,
+      "mean": 0.5634328358208955
+    },
+    {
+      "animalId": "dog_pomeranian",
+      "sourceBreed": "Pomeranian",
+      "column": "dogfear",
+      "n": 77,
+      "mean": 0.8668831168831169
+    },
+    {
+      "animalId": "dog_rottweiler",
+      "sourceBreed": "Rottweiler",
+      "column": "dogfear",
+      "n": 313,
+      "mean": 0.3658146964859425
+    },
+    {
+      "animalId": "dog_whippet",
+      "sourceBreed": "Whippet",
+      "column": "dogfear",
+      "n": 75,
+      "mean": 0.778888888888
+    },
+    {
+      "animalId": "dog_greyhound",
+      "sourceBreed": "Greyhound",
+      "column": "dogfear",
+      "n": 89,
+      "mean": 0.668539325841573
+    },
+    {
+      "animalId": "dog_maltese",
+      "sourceBreed": "Maltese",
+      "column": "dogfear",
+      "n": 67,
+      "mean": 1.1492537313432836
+    }
+  ]
+}

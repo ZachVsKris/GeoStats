@@ -1,0 +1,475 @@
+[
+  {
+    "animalId": "panthera_leo",
+    "rowNumbers": [
+      1097,
+      1101
+    ],
+    "reportedValues": [
+      183.516,
+      250.0
+    ],
+    "median": 216.75799999999998
+  },
+  {
+    "animalId": "panthera_tigris",
+    "rowNumbers": [
+      1119,
+      1123
+    ],
+    "reportedValues": [
+      182.479,
+      280.0
+    ],
+    "median": 231.23950000000002
+  },
+  {
+    "animalId": "panthera_pardus",
+    "rowNumbers": [
+      1110,
+      1114
+    ],
+    "reportedValues": [
+      137.771,
+      191.0
+    ],
+    "median": 164.38549999999998
+  },
+  {
+    "animalId": "acinonyx_jubatus",
+    "rowNumbers": [
+      1084,
+      1089
+    ],
+    "reportedValues": [
+      148.043,
+      150.0
+    ],
+    "median": 149.0215
+  },
+  {
+    "animalId": "canis_lupus",
+    "rowNumbers": [
+      1031,
+      1037,
+      1038,
+      1039
+    ],
+    "reportedValues": [
+      105.5,
+      124.0,
+      130.0,
+      160.0
+    ],
+    "median": 127.0
+  },
+  {
+    "animalId": "vulpes_vulpes",
+    "rowNumbers": [
+      1070,
+      1075,
+      1076
+    ],
+    "reportedValues": [
+      62.712,
+      63.0,
+      90.0
+    ],
+    "median": 63.0
+  },
+  {
+    "animalId": "ursus_maritimus",
+    "rowNumbers": [
+      1260,
+      1264
+    ],
+    "reportedValues": [
+      199.255,
+      250.0
+    ],
+    "median": 224.6275
+  },
+  {
+    "animalId": "ursus_arctos",
+    "rowNumbers": [
+      1247,
+      1252,
+      1253,
+      1254
+    ],
+    "reportedValues": [
+      148.407,
+      213.0,
+      244.0,
+      280.0
+    ],
+    "median": 228.5
+  },
+  {
+    "animalId": "ursus_americanus",
+    "rowNumbers": [
+      1226,
+      1231
+    ],
+    "reportedValues": [
+      138.087,
+      180.0
+    ],
+    "median": 159.0435
+  },
+  {
+    "animalId": "ailuropoda_melanoleuca",
+    "rowNumbers": [
+      1170,
+      1174
+    ],
+    "reportedValues": [
+      134.598,
+      150.0
+    ],
+    "median": 142.299
+  },
+  {
+    "animalId": "loxodonta_africana",
+    "rowNumbers": [
+      1611
+    ],
+    "reportedValues": [
+      750.0
+    ],
+    "median": 750.0
+  },
+  {
+    "animalId": "giraffa_camelopardalis",
+    "rowNumbers": [
+      1010,
+      1014
+    ],
+    "reportedValues": [
+      417.703,
+      472.4
+    ],
+    "median": 445.0515
+  },
+  {
+    "animalId": "hippopotamus_amphibius",
+    "rowNumbers": [
+      1024
+    ],
+    "reportedValues": [
+      505.0
+    ],
+    "median": 505.0
+  },
+  {
+    "animalId": "ceratotherium_simum",
+    "rowNumbers": [
+      1540,
+      1544
+    ],
+    "reportedValues": [
+      258.681,
+      420.0
+    ],
+    "median": 339.3405
+  },
+  {
+    "animalId": "bison_bison",
+    "rowNumbers": [
+      995,
+      996,
+      1002,
+      1003
+    ],
+    "reportedValues": [
+      284.924,
+      290.0,
+      350.0
+    ],
+    "median": 290.0
+  },
+  {
+    "animalId": "equus_quagga",
+    "rowNumbers": [
+      1502
+    ],
+    "reportedValues": [
+      257.0
+    ],
+    "median": 257.0
+  },
+  {
+    "animalId": "equus_asinus",
+    "rowNumbers": [
+      1473
+    ],
+    "reportedValues": [
+      200.0
+    ],
+    "median": 200.0
+  },
+  {
+    "animalId": "gorilla_gorilla",
+    "rowNumbers": [
+      1565,
+      1570
+    ],
+    "reportedValues": [
+      159.444,
+      175.0
+    ],
+    "median": 167.22199999999998
+  },
+  {
+    "animalId": "pan_troglodytes",
+    "rowNumbers": [
+      1578,
+      1583
+    ],
+    "reportedValues": [
+      79.609,
+      94.0
+    ],
+    "median": 86.80449999999999
+  },
+  {
+    "animalId": "pongo_pygmaeus",
+    "rowNumbers": [
+      1593,
+      1598
+    ],
+    "reportedValues": [
+      89.0,
+      150.0
+    ],
+    "median": 119.5
+  },
+  {
+    "animalId": "macaca_mulatta",
+    "rowNumbers": [
+      1549,
+      1553
+    ],
+    "reportedValues": [
+      55.5,
+      76.4
+    ],
+    "median": 65.95
+  },
+  {
+    "animalId": "phascolarctos_cinereus",
+    "rowNumbers": [
+      1436
+    ],
+    "reportedValues": [
+      85.0
+    ],
+    "median": 85.0
+  },
+  {
+    "animalId": "macropus_rufus",
+    "rowNumbers": [
+      1425
+    ],
+    "reportedValues": [
+      160.0
+    ],
+    "median": 160.0
+  },
+  {
+    "animalId": "castor_canadensis",
+    "rowNumbers": [
+      1637,
+      1641
+    ],
+    "reportedValues": [
+      75.474,
+      80.0
+    ],
+    "median": 77.737
+  },
+  {
+    "animalId": "enhydra_lutris",
+    "rowNumbers": [
+      1131,
+      1132,
+      1138,
+      1139,
+      1160,
+      1161
+    ],
+    "reportedValues": [
+      26.0,
+      29.75,
+      29.8,
+      40.0,
+      120.0,
+      143.571
+    ],
+    "median": 34.9
+  },
+  {
+    "animalId": "tursiops_truncatus",
+    "rowNumbers": [
+      1318,
+      1323,
+      1324
+    ],
+    "reportedValues": [
+      325.791,
+      400.0
+    ],
+    "median": 362.89549999999997
+  },
+  {
+    "animalId": "orcinus_orca",
+    "rowNumbers": [
+      1304,
+      1308
+    ],
+    "reportedValues": [
+      865.264,
+      980.0
+    ],
+    "median": 922.6320000000001
+  },
+  {
+    "animalId": "balaenoptera_musculus",
+    "rowNumbers": [
+      1273,
+      1276
+    ],
+    "reportedValues": [
+      3048.0,
+      3050.0
+    ],
+    "median": 3049.0
+  },
+  {
+    "animalId": "megaptera_novaeangliae",
+    "rowNumbers": [
+      1290,
+      1293
+    ],
+    "reportedValues": [
+      1285.621,
+      1520.0
+    ],
+    "median": 1402.8105
+  },
+  {
+    "animalId": "helarctos_malayanus",
+    "rowNumbers": [
+      1178,
+      1181
+    ],
+    "reportedValues": [
+      122.079,
+      140.0
+    ],
+    "median": 131.0395
+  },
+  {
+    "animalId": "melursus_ursinus",
+    "rowNumbers": [
+      1184,
+      1188
+    ],
+    "reportedValues": [
+      159.523,
+      180.0
+    ],
+    "median": 169.7615
+  },
+  {
+    "animalId": "tremarctos_ornatus",
+    "rowNumbers": [
+      1192,
+      1195
+    ],
+    "reportedValues": [
+      176.658,
+      180.0
+    ],
+    "median": 178.329
+  },
+  {
+    "animalId": "ursus_thibetanus",
+    "rowNumbers": [
+      1267,
+      1271
+    ],
+    "reportedValues": [
+      150.57,
+      180.0
+    ],
+    "median": 165.285
+  },
+  {
+    "animalId": "ornithorhynchus_anatinus",
+    "rowNumbers": [
+      1457
+    ],
+    "reportedValues": [
+      41.918
+    ],
+    "median": 41.918
+  },
+  {
+    "animalId": "erinaceus_europaeus",
+    "rowNumbers": [
+      1444,
+      1447
+    ],
+    "reportedValues": [
+      23.717,
+      30.0
+    ],
+    "median": 26.8585
+  },
+  {
+    "animalId": "didelphis_marsupialis",
+    "rowNumbers": [
+      1377,
+      1380,
+      1410,
+      1411,
+      1414,
+      1415
+    ],
+    "reportedValues": [
+      31.0,
+      32.4,
+      39.0,
+      40.27,
+      42.5,
+      43.0
+    ],
+    "median": 39.635000000000005
+  },
+  {
+    "animalId": "tupaia_glis",
+    "rowNumbers": [
+      1665,
+      1669
+    ],
+    "reportedValues": [
+      18.5,
+      23.0
+    ],
+    "median": 20.75
+  },
+  {
+    "animalId": "cavia_porcellus",
+    "rowNumbers": [
+      1652,
+      1653,
+      1654,
+      1655
+    ],
+    "reportedValues": [
+      40.0
+    ],
+    "median": 40.0
+  }
+]

@@ -1,5 +1,5 @@
 {
-  "auditedAt": "2026-10-09T18:34:09.074Z",
+  "auditedAt": "2026-10-09T23:59:40.901Z",
   "policy": {
     "intuitiveMinimum": "3 of 4 or 4 of 6",
     "commonAnimalMinimum": "1 of 4 or 2 of 6/8",
@@ -8,23 +8,23 @@
   },
   "summary": {
     "catalogAnimals": 217,
-    "catalogObservations": 7319,
-    "candidateBoards": 4040,
-    "structurallyValidBoards": 4040,
-    "publicationEligibleBoards": 2258,
+    "catalogObservations": 8149,
+    "candidateBoards": 4349,
+    "structurallyValidBoards": 4349,
+    "publicationEligibleBoards": 2567,
     "excludedCoverageBoards": 1782,
-    "defaultBoards": 2192,
-    "defaultDistinctPrizeLabels": 66,
-    "defaultTraitDirections": 83,
-    "defaultAnimals": 117,
+    "defaultBoards": 2501,
+    "defaultDistinctPrizeLabels": 104,
+    "defaultTraitDirections": 122,
+    "defaultAnimals": 126,
     "legacyOnlyBoards": 66,
     "invalidBoards": 0,
     "excludedShoulderHeightBoards": 0,
     "missingArt": [],
     "datasetErrors": [],
     "counterpartFailures": [],
-    "comparisonsWithoutReportedBounds": 44942,
-    "uniqueObservationsWithoutReportedBounds": 2159
+    "comparisonsWithoutReportedBounds": 50292,
+    "uniqueObservationsWithoutReportedBounds": 2864
   },
   "rejections": [],
   "legacyComposition": [
@@ -3444,8 +3444,8 @@
       "group": "carnivore",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 385,
-      "approvedRankingRows": 46
+      "defaultBoards": 387,
+      "approvedRankingRows": 48
     },
     {
       "id": "panthera_tigris",
@@ -3453,8 +3453,8 @@
       "group": "carnivore",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 323,
-      "approvedRankingRows": 50
+      "defaultBoards": 329,
+      "approvedRankingRows": 52
     },
     {
       "id": "panthera_pardus",
@@ -3463,7 +3463,7 @@
       "commonAnchor": true,
       "illustrated": true,
       "defaultBoards": 248,
-      "approvedRankingRows": 50
+      "approvedRankingRows": 52
     },
     {
       "id": "acinonyx_jubatus",
@@ -3471,8 +3471,8 @@
       "group": "carnivore",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 280,
-      "approvedRankingRows": 48
+      "defaultBoards": 287,
+      "approvedRankingRows": 50
     },
     {
       "id": "canis_lupus",
@@ -3481,7 +3481,7 @@
       "commonAnchor": true,
       "illustrated": true,
       "defaultBoards": 385,
-      "approvedRankingRows": 48
+      "approvedRankingRows": 50
     },
     {
       "id": "vulpes_vulpes",
@@ -3489,8 +3489,8 @@
       "group": "carnivore",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 224,
-      "approvedRankingRows": 46
+      "defaultBoards": 226,
+      "approvedRankingRows": 48
     },
     {
       "id": "ursus_maritimus",
@@ -3498,8 +3498,8 @@
       "group": "bear",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 158,
-      "approvedRankingRows": 42
+      "defaultBoards": 168,
+      "approvedRankingRows": 44
     },
     {
       "id": "ursus_arctos",
@@ -3507,8 +3507,8 @@
       "group": "bear",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 400,
-      "approvedRankingRows": 48
+      "defaultBoards": 402,
+      "approvedRankingRows": 50
     },
     {
       "id": "ursus_americanus",
@@ -3516,8 +3516,8 @@
       "group": "bear",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 326,
-      "approvedRankingRows": 50
+      "defaultBoards": 328,
+      "approvedRankingRows": 52
     },
     {
       "id": "ailuropoda_melanoleuca",
@@ -3526,7 +3526,7 @@
       "commonAnchor": true,
       "illustrated": true,
       "defaultBoards": 449,
-      "approvedRankingRows": 44
+      "approvedRankingRows": 46
     },
     {
       "id": "loxodonta_africana",
@@ -3534,8 +3534,8 @@
       "group": "large-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 235,
-      "approvedRankingRows": 50
+      "defaultBoards": 242,
+      "approvedRankingRows": 52
     },
     {
       "id": "giraffa_camelopardalis",
@@ -3543,8 +3543,8 @@
       "group": "large-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 355,
-      "approvedRankingRows": 40
+      "defaultBoards": 357,
+      "approvedRankingRows": 42
     },
     {
       "id": "hippopotamus_amphibius",
@@ -3552,8 +3552,8 @@
       "group": "large-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 278,
-      "approvedRankingRows": 50
+      "defaultBoards": 287,
+      "approvedRankingRows": 52
     },
     {
       "id": "ceratotherium_simum",
@@ -3561,8 +3561,8 @@
       "group": "large-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 226,
-      "approvedRankingRows": 40
+      "defaultBoards": 227,
+      "approvedRankingRows": 42
     },
     {
       "id": "bison_bison",
@@ -3570,8 +3570,8 @@
       "group": "large-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 475,
-      "approvedRankingRows": 42
+      "defaultBoards": 487,
+      "approvedRankingRows": 44
     },
     {
       "id": "equus_quagga",
@@ -3579,8 +3579,8 @@
       "group": "large-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 59,
-      "approvedRankingRows": 32
+      "defaultBoards": 62,
+      "approvedRankingRows": 34
     },
     {
       "id": "equus_asinus",
@@ -3589,7 +3589,7 @@
       "commonAnchor": true,
       "illustrated": true,
       "defaultBoards": 86,
-      "approvedRankingRows": 24
+      "approvedRankingRows": 26
     },
     {
       "id": "gorilla_gorilla",
@@ -3597,8 +3597,8 @@
       "group": "primate",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 407,
-      "approvedRankingRows": 46
+      "defaultBoards": 422,
+      "approvedRankingRows": 48
     },
     {
       "id": "pan_troglodytes",
@@ -3606,8 +3606,8 @@
       "group": "primate",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 477,
-      "approvedRankingRows": 52
+      "defaultBoards": 481,
+      "approvedRankingRows": 54
     },
     {
       "id": "pongo_pygmaeus",
@@ -3615,8 +3615,8 @@
       "group": "primate",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 279,
-      "approvedRankingRows": 48
+      "defaultBoards": 283,
+      "approvedRankingRows": 50
     },
     {
       "id": "macaca_mulatta",
@@ -3624,8 +3624,8 @@
       "group": "primate",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 440,
-      "approvedRankingRows": 48
+      "defaultBoards": 449,
+      "approvedRankingRows": 50
     },
     {
       "id": "phascolarctos_cinereus",
@@ -3633,8 +3633,8 @@
       "group": "marsupial",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 527,
-      "approvedRankingRows": 50
+      "defaultBoards": 530,
+      "approvedRankingRows": 52
     },
     {
       "id": "macropus_rufus",
@@ -3642,8 +3642,8 @@
       "group": "marsupial",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 275,
-      "approvedRankingRows": 42
+      "defaultBoards": 277,
+      "approvedRankingRows": 44
     },
     {
       "id": "hydrochoerus_hydrochaeris",
@@ -3660,8 +3660,8 @@
       "group": "rodent",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 326,
-      "approvedRankingRows": 44
+      "defaultBoards": 336,
+      "approvedRankingRows": 46
     },
     {
       "id": "enhydra_lutris",
@@ -3669,8 +3669,8 @@
       "group": "marine-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 13,
-      "approvedRankingRows": 40
+      "defaultBoards": 15,
+      "approvedRankingRows": 42
     },
     {
       "id": "tursiops_truncatus",
@@ -3678,8 +3678,8 @@
       "group": "marine-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 27,
-      "approvedRankingRows": 28
+      "defaultBoards": 29,
+      "approvedRankingRows": 30
     },
     {
       "id": "orcinus_orca",
@@ -3687,8 +3687,8 @@
       "group": "marine-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 0,
-      "approvedRankingRows": 26
+      "defaultBoards": 3,
+      "approvedRankingRows": 28
     },
     {
       "id": "balaenoptera_musculus",
@@ -3696,8 +3696,8 @@
       "group": "marine-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 6,
-      "approvedRankingRows": 36
+      "defaultBoards": 11,
+      "approvedRankingRows": 38
     },
     {
       "id": "megaptera_novaeangliae",
@@ -3705,8 +3705,8 @@
       "group": "marine-mammal",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 2,
-      "approvedRankingRows": 32
+      "defaultBoards": 4,
+      "approvedRankingRows": 34
     },
     {
       "id": "aquila_chrysaetos",
@@ -3714,8 +3714,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 6,
-      "approvedRankingRows": 28
+      "defaultBoards": 10,
+      "approvedRankingRows": 33
     },
     {
       "id": "haliaeetus_leucocephalus",
@@ -3723,8 +3723,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 6,
-      "approvedRankingRows": 25
+      "defaultBoards": 10,
+      "approvedRankingRows": 29
     },
     {
       "id": "anas_platyrhynchos",
@@ -3732,8 +3732,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 10,
-      "approvedRankingRows": 26
+      "defaultBoards": 14,
+      "approvedRankingRows": 31
     },
     {
       "id": "cygnus_olor",
@@ -3742,7 +3742,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 26
+      "approvedRankingRows": 31
     },
     {
       "id": "columba_livia",
@@ -3751,7 +3751,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 28
+      "approvedRankingRows": 33
     },
     {
       "id": "falco_peregrinus",
@@ -3759,8 +3759,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 4,
-      "approvedRankingRows": 26
+      "defaultBoards": 6,
+      "approvedRankingRows": 31
     },
     {
       "id": "gallus_gallus",
@@ -3769,7 +3769,7 @@
       "commonAnchor": false,
       "illustrated": true,
       "defaultBoards": 1,
-      "approvedRankingRows": 23
+      "approvedRankingRows": 24
     },
     {
       "id": "pavo_cristatus",
@@ -3778,7 +3778,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 27
+      "approvedRankingRows": 31
     },
     {
       "id": "cardinalis_cardinalis",
@@ -3786,8 +3786,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 10,
-      "approvedRankingRows": 25
+      "defaultBoards": 11,
+      "approvedRankingRows": 29
     },
     {
       "id": "corvus_corax",
@@ -3796,7 +3796,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 26
+      "approvedRankingRows": 31
     },
     {
       "id": "hirundo_rustica",
@@ -3804,8 +3804,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 15,
-      "approvedRankingRows": 26
+      "defaultBoards": 19,
+      "approvedRankingRows": 31
     },
     {
       "id": "pelecanus_occidentalis",
@@ -3813,8 +3813,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 5,
-      "approvedRankingRows": 25
+      "defaultBoards": 11,
+      "approvedRankingRows": 29
     },
     {
       "id": "phoenicopterus_roseus",
@@ -3823,7 +3823,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 25
+      "approvedRankingRows": 29
     },
     {
       "id": "ramphastos_toco",
@@ -3832,7 +3832,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 21
+      "approvedRankingRows": 23
     },
     {
       "id": "diomedea_exulans",
@@ -3840,8 +3840,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 13,
-      "approvedRankingRows": 23
+      "defaultBoards": 18,
+      "approvedRankingRows": 26
     },
     {
       "id": "phoebastria_immutabilis",
@@ -3850,7 +3850,7 @@
       "commonAnchor": false,
       "illustrated": true,
       "defaultBoards": 6,
-      "approvedRankingRows": 25
+      "approvedRankingRows": 29
     },
     {
       "id": "cacatua_galerita",
@@ -3859,7 +3859,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 25
+      "approvedRankingRows": 29
     },
     {
       "id": "ara_macao",
@@ -3868,7 +3868,7 @@
       "commonAnchor": true,
       "illustrated": true,
       "defaultBoards": 0,
-      "approvedRankingRows": 19
+      "approvedRankingRows": 20
     },
     {
       "id": "aptenodytes_forsteri",
@@ -3877,7 +3877,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 17
+      "approvedRankingRows": 20
     },
     {
       "id": "aptenodytes_patagonicus",
@@ -3885,8 +3885,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 2,
-      "approvedRankingRows": 21
+      "defaultBoards": 6,
+      "approvedRankingRows": 24
     },
     {
       "id": "eudyptula_minor",
@@ -3895,7 +3895,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 21
+      "approvedRankingRows": 25
     },
     {
       "id": "pygoscelis_adeliae",
@@ -3904,7 +3904,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 17
+      "approvedRankingRows": 20
     },
     {
       "id": "pygoscelis_papua",
@@ -3912,8 +3912,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 3,
-      "approvedRankingRows": 25
+      "defaultBoards": 5,
+      "approvedRankingRows": 28
     },
     {
       "id": "spheniscus_demersus",
@@ -3921,8 +3921,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 6,
-      "approvedRankingRows": 23
+      "defaultBoards": 17,
+      "approvedRankingRows": 26
     },
     {
       "id": "bubo_virginianus",
@@ -3930,8 +3930,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 0,
-      "approvedRankingRows": 25
+      "defaultBoards": 8,
+      "approvedRankingRows": 29
     },
     {
       "id": "tyto_alba",
@@ -3939,8 +3939,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 6,
-      "approvedRankingRows": 26
+      "defaultBoards": 12,
+      "approvedRankingRows": 31
     },
     {
       "id": "dromaius_novaehollandiae",
@@ -3949,7 +3949,7 @@
       "commonAnchor": true,
       "illustrated": true,
       "defaultBoards": 7,
-      "approvedRankingRows": 23
+      "approvedRankingRows": 24
     },
     {
       "id": "struthio_camelus",
@@ -3958,7 +3958,7 @@
       "commonAnchor": true,
       "illustrated": true,
       "defaultBoards": 11,
-      "approvedRankingRows": 23
+      "approvedRankingRows": 24
     },
     {
       "id": "alligator_mississippiensis",
@@ -3967,7 +3967,7 @@
       "commonAnchor": true,
       "illustrated": true,
       "defaultBoards": 2,
-      "approvedRankingRows": 19
+      "approvedRankingRows": 20
     },
     {
       "id": "crocodylus_niloticus",
@@ -3976,7 +3976,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 17
+      "approvedRankingRows": 18
     },
     {
       "id": "crocodylus_acutus",
@@ -3985,7 +3985,7 @@
       "commonAnchor": true,
       "illustrated": true,
       "defaultBoards": 2,
-      "approvedRankingRows": 15
+      "approvedRankingRows": 16
     },
     {
       "id": "gavialis_gangeticus",
@@ -3994,7 +3994,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 19
+      "approvedRankingRows": 20
     },
     {
       "id": "osteolaemus_tetraspis",
@@ -4003,7 +4003,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 17
+      "approvedRankingRows": 18
     },
     {
       "id": "boa_constrictor",
@@ -4030,7 +4030,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 19
+      "approvedRankingRows": 20
     },
     {
       "id": "python_molurus",
@@ -4039,7 +4039,7 @@
       "commonAnchor": true,
       "illustrated": true,
       "defaultBoards": 2,
-      "approvedRankingRows": 19
+      "approvedRankingRows": 20
     },
     {
       "id": "elaphe_guttata",
@@ -4075,7 +4075,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 19
+      "approvedRankingRows": 20
     },
     {
       "id": "sphenodon_punctatus",
@@ -4093,7 +4093,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 15
+      "approvedRankingRows": 16
     },
     {
       "id": "chelonia_mydas",
@@ -4102,7 +4102,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 17
+      "approvedRankingRows": 18
     },
     {
       "id": "caretta_caretta",
@@ -4111,7 +4111,7 @@
       "commonAnchor": true,
       "illustrated": true,
       "defaultBoards": 0,
-      "approvedRankingRows": 17
+      "approvedRankingRows": 18
     },
     {
       "id": "dermochelys_coriacea",
@@ -4120,7 +4120,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 15
+      "approvedRankingRows": 16
     },
     {
       "id": "macrochelys_temminckii",
@@ -4129,7 +4129,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 17
+      "approvedRankingRows": 18
     },
     {
       "id": "trachemys_scripta",
@@ -4138,7 +4138,7 @@
       "commonAnchor": true,
       "illustrated": true,
       "defaultBoards": 0,
-      "approvedRankingRows": 17
+      "approvedRankingRows": 18
     },
     {
       "id": "gopherus_agassizii",
@@ -4147,7 +4147,7 @@
       "commonAnchor": true,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 17
+      "approvedRankingRows": 18
     },
     {
       "id": "chelonoidis_nigra",
@@ -4587,8 +4587,8 @@
       "group": "bear",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 113,
-      "approvedRankingRows": 40
+      "defaultBoards": 120,
+      "approvedRankingRows": 42
     },
     {
       "id": "melursus_ursinus",
@@ -4596,8 +4596,8 @@
       "group": "bear",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 274,
-      "approvedRankingRows": 44
+      "defaultBoards": 276,
+      "approvedRankingRows": 46
     },
     {
       "id": "tremarctos_ornatus",
@@ -4605,8 +4605,8 @@
       "group": "bear",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 232,
-      "approvedRankingRows": 44
+      "defaultBoards": 241,
+      "approvedRankingRows": 46
     },
     {
       "id": "ursus_thibetanus",
@@ -4615,7 +4615,7 @@
       "commonAnchor": false,
       "illustrated": true,
       "defaultBoards": 116,
-      "approvedRankingRows": 42
+      "approvedRankingRows": 44
     },
     {
       "id": "apus_apus",
@@ -4623,8 +4623,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 7,
-      "approvedRankingRows": 22
+      "defaultBoards": 15,
+      "approvedRankingRows": 26
     },
     {
       "id": "anser_anser",
@@ -4632,8 +4632,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 3,
-      "approvedRankingRows": 24
+      "defaultBoards": 11,
+      "approvedRankingRows": 28
     },
     {
       "id": "ardea_cinerea",
@@ -4641,8 +4641,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 2,
-      "approvedRankingRows": 22
+      "defaultBoards": 9,
+      "approvedRankingRows": 26
     },
     {
       "id": "phalacrocorax_carbo",
@@ -4650,8 +4650,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 5,
-      "approvedRankingRows": 22
+      "defaultBoards": 16,
+      "approvedRankingRows": 27
     },
     {
       "id": "larus_argentatus",
@@ -4659,8 +4659,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 4,
-      "approvedRankingRows": 22
+      "defaultBoards": 14,
+      "approvedRankingRows": 27
     },
     {
       "id": "corvus_corone",
@@ -4668,8 +4668,8 @@
       "group": "bird",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 5,
-      "approvedRankingRows": 22
+      "defaultBoards": 16,
+      "approvedRankingRows": 26
     },
     {
       "id": "erithacus_rubecula",
@@ -4678,7 +4678,7 @@
       "commonAnchor": false,
       "illustrated": false,
       "defaultBoards": 0,
-      "approvedRankingRows": 20
+      "approvedRankingRows": 24
     },
     {
       "id": "sturnus_vulgaris",
@@ -4686,8 +4686,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 3,
-      "approvedRankingRows": 22
+      "defaultBoards": 7,
+      "approvedRankingRows": 27
     },
     {
       "id": "ornithorhynchus_anatinus",
@@ -4695,8 +4695,8 @@
       "group": "monotreme",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 67,
-      "approvedRankingRows": 24
+      "defaultBoards": 72,
+      "approvedRankingRows": 26
     },
     {
       "id": "erinaceus_europaeus",
@@ -4704,8 +4704,8 @@
       "group": "insectivore",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 105,
-      "approvedRankingRows": 28
+      "defaultBoards": 107,
+      "approvedRankingRows": 30
     },
     {
       "id": "didelphis_marsupialis",
@@ -4713,8 +4713,8 @@
       "group": "marsupial",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 139,
-      "approvedRankingRows": 38
+      "defaultBoards": 142,
+      "approvedRankingRows": 40
     },
     {
       "id": "tupaia_glis",
@@ -4722,8 +4722,8 @@
       "group": "treeshrew",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 105,
-      "approvedRankingRows": 32
+      "defaultBoards": 109,
+      "approvedRankingRows": 34
     },
     {
       "id": "cavia_porcellus",
@@ -4731,8 +4731,8 @@
       "group": "rodent",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 16,
-      "approvedRankingRows": 20
+      "defaultBoards": 18,
+      "approvedRankingRows": 22
     },
     {
       "id": "columba_palumbus",
@@ -4740,8 +4740,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 6,
-      "approvedRankingRows": 22
+      "defaultBoards": 11,
+      "approvedRankingRows": 26
     },
     {
       "id": "corvus_frugilegus",
@@ -4750,7 +4750,7 @@
       "commonAnchor": false,
       "illustrated": true,
       "defaultBoards": 4,
-      "approvedRankingRows": 20
+      "approvedRankingRows": 24
     },
     {
       "id": "alauda_arvensis",
@@ -4758,8 +4758,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 5,
-      "approvedRankingRows": 20
+      "defaultBoards": 7,
+      "approvedRankingRows": 25
     },
     {
       "id": "somateria_mollissima",
@@ -4767,8 +4767,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 3,
-      "approvedRankingRows": 22
+      "defaultBoards": 11,
+      "approvedRankingRows": 27
     },
     {
       "id": "vanellus_vanellus",
@@ -4776,8 +4776,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 4,
-      "approvedRankingRows": 22
+      "defaultBoards": 9,
+      "approvedRankingRows": 27
     },
     {
       "id": "haematopus_ostralegus",
@@ -4785,8 +4785,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 2,
-      "approvedRankingRows": 22
+      "defaultBoards": 13,
+      "approvedRankingRows": 26
     },
     {
       "id": "sterna_hirundo",
@@ -4794,8 +4794,8 @@
       "group": "bird",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 4,
-      "approvedRankingRows": 22
+      "defaultBoards": 13,
+      "approvedRankingRows": 27
     },
     {
       "id": "larus_ridibundus",
@@ -5028,8 +5028,8 @@
       "group": "dog-breed",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 6,
-      "approvedRankingRows": 8
+      "defaultBoards": 79,
+      "approvedRankingRows": 40
     },
     {
       "id": "dog_english_cocker_spaniel",
@@ -5037,8 +5037,8 @@
       "group": "dog-breed",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 2,
-      "approvedRankingRows": 8
+      "defaultBoards": 60,
+      "approvedRankingRows": 40
     },
     {
       "id": "dog_staffordshire_bull_terrier",
@@ -5047,7 +5047,7 @@
       "commonAnchor": false,
       "illustrated": true,
       "defaultBoards": 4,
-      "approvedRankingRows": 8
+      "approvedRankingRows": 20
     },
     {
       "id": "dog_chihuahua",
@@ -5055,8 +5055,8 @@
       "group": "dog-breed",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 0,
-      "approvedRankingRows": 8
+      "defaultBoards": 122,
+      "approvedRankingRows": 40
     },
     {
       "id": "dog_shih_tzu",
@@ -5064,8 +5064,8 @@
       "group": "dog-breed",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 4,
-      "approvedRankingRows": 8
+      "defaultBoards": 57,
+      "approvedRankingRows": 40
     },
     {
       "id": "dog_french_bulldog",
@@ -5073,8 +5073,8 @@
       "group": "dog-breed",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 20,
-      "approvedRankingRows": 8
+      "defaultBoards": 32,
+      "approvedRankingRows": 20
     },
     {
       "id": "dog_border_collie",
@@ -5082,8 +5082,8 @@
       "group": "dog-breed",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 0,
-      "approvedRankingRows": 8
+      "defaultBoards": 92,
+      "approvedRankingRows": 40
     },
     {
       "id": "dog_yorkshire_terrier",
@@ -5091,8 +5091,8 @@
       "group": "dog-breed",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 16,
-      "approvedRankingRows": 8
+      "defaultBoards": 52,
+      "approvedRankingRows": 40
     },
     {
       "id": "dog_english_springer_spaniel",
@@ -5100,8 +5100,8 @@
       "group": "dog-breed",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 12,
-      "approvedRankingRows": 8
+      "defaultBoards": 77,
+      "approvedRankingRows": 40
     },
     {
       "id": "dog_german_shepherd",
@@ -5109,8 +5109,8 @@
       "group": "dog-breed",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 24,
-      "approvedRankingRows": 8
+      "defaultBoards": 87,
+      "approvedRankingRows": 40
     },
     {
       "id": "dog_pug",
@@ -5118,8 +5118,8 @@
       "group": "dog-breed",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 4,
-      "approvedRankingRows": 8
+      "defaultBoards": 54,
+      "approvedRankingRows": 40
     },
     {
       "id": "dog_west_highland_white_terrier",
@@ -5127,8 +5127,8 @@
       "group": "dog-breed",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 0,
-      "approvedRankingRows": 8
+      "defaultBoards": 5,
+      "approvedRankingRows": 20
     },
     {
       "id": "dog_cavalier_king_charles_spaniel",
@@ -5137,7 +5137,7 @@
       "commonAnchor": false,
       "illustrated": true,
       "defaultBoards": 6,
-      "approvedRankingRows": 8
+      "approvedRankingRows": 20
     },
     {
       "id": "dog_golden_retriever",
@@ -5145,8 +5145,8 @@
       "group": "dog-breed",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 12,
-      "approvedRankingRows": 8
+      "defaultBoards": 76,
+      "approvedRankingRows": 40
     },
     {
       "id": "dog_bichon_frise",
@@ -5154,8 +5154,8 @@
       "group": "dog-breed",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 2,
-      "approvedRankingRows": 8
+      "defaultBoards": 48,
+      "approvedRankingRows": 40
     },
     {
       "id": "dog_miniature_dachshund",
@@ -5172,8 +5172,8 @@
       "group": "dog-breed",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 14,
-      "approvedRankingRows": 8
+      "defaultBoards": 16,
+      "approvedRankingRows": 20
     },
     {
       "id": "dog_miniature_schnauzer",
@@ -5181,8 +5181,8 @@
       "group": "dog-breed",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 0,
-      "approvedRankingRows": 8
+      "defaultBoards": 79,
+      "approvedRankingRows": 40
     },
     {
       "id": "dog_beagle",
@@ -5190,8 +5190,8 @@
       "group": "dog-breed",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 8,
-      "approvedRankingRows": 8
+      "defaultBoards": 66,
+      "approvedRankingRows": 40
     },
     {
       "id": "dog_boxer",
@@ -5199,8 +5199,8 @@
       "group": "dog-breed",
       "commonAnchor": true,
       "illustrated": true,
-      "defaultBoards": 12,
-      "approvedRankingRows": 8
+      "defaultBoards": 53,
+      "approvedRankingRows": 40
     },
     {
       "id": "dog_pomeranian",
@@ -5208,8 +5208,8 @@
       "group": "dog-breed",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 26,
-      "approvedRankingRows": 8
+      "defaultBoards": 80,
+      "approvedRankingRows": 40
     },
     {
       "id": "dog_rottweiler",
@@ -5217,8 +5217,8 @@
       "group": "dog-breed",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 8,
-      "approvedRankingRows": 8
+      "defaultBoards": 46,
+      "approvedRankingRows": 40
     },
     {
       "id": "dog_whippet",
@@ -5226,8 +5226,8 @@
       "group": "dog-breed",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 0,
-      "approvedRankingRows": 8
+      "defaultBoards": 46,
+      "approvedRankingRows": 40
     },
     {
       "id": "dog_greyhound",
@@ -5235,8 +5235,8 @@
       "group": "dog-breed",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 0,
-      "approvedRankingRows": 6
+      "defaultBoards": 43,
+      "approvedRankingRows": 38
     },
     {
       "id": "dog_toy_poodle",
@@ -5253,8 +5253,8 @@
       "group": "dog-breed",
       "commonAnchor": false,
       "illustrated": true,
-      "defaultBoards": 0,
-      "approvedRankingRows": 6
+      "defaultBoards": 44,
+      "approvedRankingRows": 38
     },
     {
       "id": "cat_maine_coon",
@@ -5398,7 +5398,7 @@
       "label": "Lightest newborn",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 801,
+      "boards": 810,
       "coverage": 57
     },
     {
@@ -5406,7 +5406,7 @@
       "label": "Lightest adult",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 940,
+      "boards": 951,
       "coverage": 154
     },
     {
@@ -5414,7 +5414,7 @@
       "label": "Farthest from South Pole",
       "intuitive": true,
       "source": "pantheria-range-maps",
-      "boards": 90,
+      "boards": 91,
       "coverage": 45
     },
     {
@@ -5422,7 +5422,7 @@
       "label": "Longest documented lifespan",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 466,
+      "boards": 470,
       "coverage": 93
     },
     {
@@ -5430,7 +5430,7 @@
       "label": "Heaviest newborn",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 647,
+      "boards": 650,
       "coverage": 57
     },
     {
@@ -5446,7 +5446,7 @@
       "label": "Shortest pregnancy",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 455,
+      "boards": 461,
       "coverage": 62
     },
     {
@@ -5462,7 +5462,7 @@
       "label": "Longest pregnancy",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 386,
+      "boards": 396,
       "coverage": 62
     },
     {
@@ -5470,7 +5470,7 @@
       "label": "Shortest documented lifespan",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 385,
+      "boards": 389,
       "coverage": 93
     },
     {
@@ -5486,7 +5486,7 @@
       "label": "Heaviest adult",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 898,
+      "boards": 910,
       "coverage": 154
     },
     {
@@ -5494,7 +5494,7 @@
       "label": "Earliest female maturity",
       "intuitive": false,
       "source": "anage-15",
-      "boards": 72,
+      "boards": 73,
       "coverage": 132
     },
     {
@@ -5502,7 +5502,7 @@
       "label": "Smallest mapped range",
       "intuitive": true,
       "source": "pantheria-range-maps",
-      "boards": 489,
+      "boards": 490,
       "coverage": 45
     },
     {
@@ -5510,7 +5510,7 @@
       "label": "Most threatened",
       "intuitive": true,
       "source": "iucn-gbif-20260728",
-      "boards": 42,
+      "boards": 44,
       "coverage": 153
     },
     {
@@ -5526,7 +5526,7 @@
       "label": "Fewest litters per year",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 105,
+      "boards": 106,
       "coverage": 50
     },
     {
@@ -5534,7 +5534,7 @@
       "label": "Most food groups",
       "intuitive": true,
       "source": "reuter-2023-observed-food-groups",
-      "boards": 30,
+      "boards": 31,
       "coverage": 45
     },
     {
@@ -5550,7 +5550,7 @@
       "label": "Latest female maturity",
       "intuitive": false,
       "source": "anage-15",
-      "boards": 120,
+      "boards": 124,
       "coverage": 132
     },
     {
@@ -5566,7 +5566,7 @@
       "label": "Narrowest north–south range",
       "intuitive": true,
       "source": "pantheria-range-maps",
-      "boards": 118,
+      "boards": 120,
       "coverage": 45
     },
     {
@@ -5574,7 +5574,7 @@
       "label": "Fewest young per birth",
       "intuitive": true,
       "source": "anage-15",
-      "boards": 72,
+      "boards": 73,
       "coverage": 63
     },
     {
@@ -5582,7 +5582,7 @@
       "label": "Oldest scientific description",
       "intuitive": false,
       "source": "gbif-authorship-20261004",
-      "boards": 31,
+      "boards": 33,
       "coverage": 166
     },
     {
@@ -5590,7 +5590,7 @@
       "label": "Largest mapped range",
       "intuitive": true,
       "source": "pantheria-range-maps",
-      "boards": 484,
+      "boards": 487,
       "coverage": 45
     },
     {
@@ -5606,7 +5606,7 @@
       "label": "Latest male maturity",
       "intuitive": false,
       "source": "anage-15",
-      "boards": 185,
+      "boards": 188,
       "coverage": 116
     },
     {
@@ -5614,7 +5614,7 @@
       "label": "Fastest recorded chewing",
       "intuitive": true,
       "source": "gerstner-gerstein-2008",
-      "boards": 121,
+      "boards": 122,
       "coverage": 33
     },
     {
@@ -5654,7 +5654,7 @@
       "label": "Newest scientific description",
       "intuitive": false,
       "source": "gbif-authorship-20261004",
-      "boards": 24,
+      "boards": 31,
       "coverage": 166
     },
     {
@@ -5694,7 +5694,7 @@
       "label": "Earliest male maturity",
       "intuitive": false,
       "source": "anage-15",
-      "boards": 130,
+      "boards": 131,
       "coverage": 116
     },
     {
@@ -5702,7 +5702,7 @@
       "label": "Lightest newborn",
       "intuitive": true,
       "source": "amniote-raw-2015",
-      "boards": 110,
+      "boards": 115,
       "coverage": 35
     },
     {
@@ -5710,7 +5710,7 @@
       "label": "Heaviest newborn",
       "intuitive": true,
       "source": "amniote-raw-2015",
-      "boards": 105,
+      "boards": 107,
       "coverage": 35
     },
     {
@@ -5718,7 +5718,7 @@
       "label": "Longest pregnancy",
       "intuitive": true,
       "source": "amniote-raw-2015",
-      "boards": 25,
+      "boards": 26,
       "coverage": 35
     },
     {
@@ -5734,7 +5734,7 @@
       "label": "Longest gap between births",
       "intuitive": false,
       "source": "anage-15",
-      "boards": 47,
+      "boards": 48,
       "coverage": 49
     },
     {
@@ -5750,7 +5750,7 @@
       "label": "Heaviest egg",
       "intuitive": false,
       "source": "amniote-raw-2015",
-      "boards": 1,
+      "boards": 2,
       "coverage": 58
     },
     {
@@ -5758,7 +5758,7 @@
       "label": "Largest breeding range",
       "intuitive": true,
       "source": "avonet-7",
-      "boards": 10,
+      "boards": 26,
       "coverage": 44
     },
     {
@@ -5766,7 +5766,7 @@
       "label": "Shortest recorded wild life",
       "intuitive": true,
       "source": "euring-2023",
-      "boards": 2,
+      "boards": 4,
       "coverage": 23
     },
     {
@@ -5774,7 +5774,7 @@
       "label": "Longest beak",
       "intuitive": false,
       "source": "avonet-7",
-      "boards": 7,
+      "boards": 19,
       "coverage": 44
     },
     {
@@ -5782,7 +5782,7 @@
       "label": "Smallest breeding range",
       "intuitive": true,
       "source": "avonet-7",
-      "boards": 17,
+      "boards": 28,
       "coverage": 44
     },
     {
@@ -5790,7 +5790,7 @@
       "label": "Longest wait to hatch",
       "intuitive": true,
       "source": "amniote-raw-2015",
-      "boards": 8,
+      "boards": 9,
       "coverage": 58
     },
     {
@@ -5798,7 +5798,7 @@
       "label": "Shortest tail feathers",
       "intuitive": false,
       "source": "avonet-7",
-      "boards": 9,
+      "boards": 12,
       "coverage": 44
     },
     {
@@ -5806,7 +5806,7 @@
       "label": "Shortest wait to hatch",
       "intuitive": true,
       "source": "amniote-raw-2015",
-      "boards": 14,
+      "boards": 15,
       "coverage": 58
     },
     {
@@ -5814,7 +5814,7 @@
       "label": "Heaviest adult",
       "intuitive": true,
       "source": "avonet-7",
-      "boards": 6,
+      "boards": 15,
       "coverage": 44
     },
     {
@@ -5822,7 +5822,7 @@
       "label": "Shortest beak",
       "intuitive": false,
       "source": "avonet-7",
-      "boards": 9,
+      "boards": 13,
       "coverage": 44
     },
     {
@@ -5830,7 +5830,7 @@
       "label": "Lightest adult",
       "intuitive": true,
       "source": "avonet-7",
-      "boards": 8,
+      "boards": 17,
       "coverage": 44
     },
     {
@@ -5838,7 +5838,7 @@
       "label": "Longest time on milk",
       "intuitive": false,
       "source": "amniote-raw-2015",
-      "boards": 21,
+      "boards": 22,
       "coverage": 35
     },
     {
@@ -5854,7 +5854,7 @@
       "label": "Heaviest hatchling",
       "intuitive": true,
       "source": "amniote-raw-2015",
-      "boards": 4,
+      "boards": 6,
       "coverage": 40
     },
     {
@@ -5862,7 +5862,7 @@
       "label": "Most eggs per clutch",
       "intuitive": true,
       "source": "amniote-raw-2015",
-      "boards": 2,
+      "boards": 3,
       "coverage": 59
     },
     {
@@ -5870,7 +5870,7 @@
       "label": "Lightest hatchling",
       "intuitive": true,
       "source": "amniote-raw-2015",
-      "boards": 4,
+      "boards": 7,
       "coverage": 40
     },
     {
@@ -5886,7 +5886,7 @@
       "label": "Longest tail feathers",
       "intuitive": false,
       "source": "avonet-7",
-      "boards": 7,
+      "boards": 12,
       "coverage": 44
     },
     {
@@ -5894,7 +5894,7 @@
       "label": "Most countries & territories",
       "intuitive": true,
       "source": "asm-mdd-v25-counts",
-      "boards": 13,
+      "boards": 16,
       "coverage": 49
     },
     {
@@ -5902,7 +5902,7 @@
       "label": "Fewest countries & territories",
       "intuitive": true,
       "source": "asm-mdd-v25-counts",
-      "boards": 12,
+      "boards": 15,
       "coverage": 49
     },
     {
@@ -5926,7 +5926,7 @@
       "label": "Most species in its family",
       "intuitive": false,
       "source": "asm-mdd-v25-counts",
-      "boards": 18,
+      "boards": 20,
       "coverage": 54
     },
     {
@@ -5942,7 +5942,7 @@
       "label": "Heaviest adult",
       "intuitive": true,
       "source": "vetcompass-2019-breeds",
-      "boards": 31,
+      "boards": 108,
       "coverage": 26
     },
     {
@@ -5950,7 +5950,7 @@
       "label": "Least popular breed",
       "intuitive": true,
       "source": "vetcompass-2019-breeds",
-      "boards": 24,
+      "boards": 98,
       "coverage": 26
     },
     {
@@ -5958,7 +5958,7 @@
       "label": "Largest litter",
       "intuitive": true,
       "source": "borge-2011-dog-litters",
-      "boards": 24,
+      "boards": 35,
       "coverage": 24
     },
     {
@@ -5966,7 +5966,7 @@
       "label": "Shortest lifespan",
       "intuitive": true,
       "source": "mcmillan-2024-dog-survival",
-      "boards": 20,
+      "boards": 26,
       "coverage": 25
     },
     {
@@ -5974,7 +5974,7 @@
       "label": "Most popular breed",
       "intuitive": true,
       "source": "vetcompass-2019-breeds",
-      "boards": 24,
+      "boards": 120,
       "coverage": 26
     },
     {
@@ -5982,7 +5982,7 @@
       "label": "Smallest litter",
       "intuitive": true,
       "source": "borge-2011-dog-litters",
-      "boards": 24,
+      "boards": 53,
       "coverage": 24
     },
     {
@@ -5990,7 +5990,7 @@
       "label": "Longest lifespan",
       "intuitive": true,
       "source": "mcmillan-2024-dog-survival",
-      "boards": 28,
+      "boards": 32,
       "coverage": 25
     },
     {
@@ -5998,7 +5998,7 @@
       "label": "Lightest adult",
       "intuitive": true,
       "source": "vetcompass-2019-breeds",
-      "boards": 17,
+      "boards": 78,
       "coverage": 26
     },
     {
@@ -6056,336 +6056,769 @@
       "source": "oneill-2015-cat-longevity",
       "boards": 1,
       "coverage": 9
+    },
+    {
+      "id": "pet_dog_survey_nonsocialfear__low",
+      "label": "Least easily startled",
+      "intuitive": true,
+      "source": "cbarq-owner-survey-2013",
+      "boards": 29,
+      "coverage": 19
+    },
+    {
+      "id": "pet_dog_survey_chasing__low",
+      "label": "Least likely to chase",
+      "intuitive": true,
+      "source": "cbarq-owner-survey-2013",
+      "boards": 29,
+      "coverage": 19
+    },
+    {
+      "id": "pet_dog_akc_recognition_age",
+      "label": "Longest recognized by AKC",
+      "intuitive": false,
+      "source": "akc-breed-ratings-20261009",
+      "boards": 30,
+      "coverage": 24
+    },
+    {
+      "id": "pet_dog_survey_nonsocialfear",
+      "label": "Most easily startled",
+      "intuitive": true,
+      "source": "cbarq-owner-survey-2013",
+      "boards": 20,
+      "coverage": 19
+    },
+    {
+      "id": "pet_dog_akc_recognition_age__low",
+      "label": "Most recently recognized by AKC",
+      "intuitive": false,
+      "source": "akc-breed-ratings-20261009",
+      "boards": 54,
+      "coverage": 24
+    },
+    {
+      "id": "pet_dog_survey_touchsens",
+      "label": "Most sensitive to handling",
+      "intuitive": true,
+      "source": "cbarq-owner-survey-2013",
+      "boards": 36,
+      "coverage": 19
+    },
+    {
+      "id": "pet_dog_survey_strangerfear__low",
+      "label": "Least wary of strangers",
+      "intuitive": true,
+      "source": "cbarq-owner-survey-2013",
+      "boards": 26,
+      "coverage": 19
+    },
+    {
+      "id": "pet_dog_survey_sepprobs",
+      "label": "Most upset when left alone",
+      "intuitive": true,
+      "source": "cbarq-owner-survey-2013",
+      "boards": 33,
+      "coverage": 19
+    },
+    {
+      "id": "pet_dog_survey_touchsens__low",
+      "label": "Least sensitive to handling",
+      "intuitive": true,
+      "source": "cbarq-owner-survey-2013",
+      "boards": 42,
+      "coverage": 19
+    },
+    {
+      "id": "pet_dog_survey_chasing",
+      "label": "Most likely to chase",
+      "intuitive": true,
+      "source": "cbarq-owner-survey-2013",
+      "boards": 32,
+      "coverage": 19
+    },
+    {
+      "id": "pet_dog_akc_barking_level__low",
+      "label": "Quietest",
+      "intuitive": true,
+      "source": "akc-breed-ratings-20261009",
+      "boards": 8,
+      "coverage": 24
+    },
+    {
+      "id": "pet_dog_survey_energy",
+      "label": "Most energetic in owner survey",
+      "intuitive": true,
+      "source": "cbarq-owner-survey-2013",
+      "boards": 9,
+      "coverage": 19
+    },
+    {
+      "id": "pet_dog_survey_sepprobs__low",
+      "label": "Least upset when left alone",
+      "intuitive": true,
+      "source": "cbarq-owner-survey-2013",
+      "boards": 33,
+      "coverage": 19
+    },
+    {
+      "id": "pet_dog_survey_dogfear",
+      "label": "Most wary of other dogs",
+      "intuitive": true,
+      "source": "cbarq-owner-survey-2013",
+      "boards": 27,
+      "coverage": 19
+    },
+    {
+      "id": "pet_dog_survey_dogfear__low",
+      "label": "Least wary of other dogs",
+      "intuitive": true,
+      "source": "cbarq-owner-survey-2013",
+      "boards": 21,
+      "coverage": 19
+    },
+    {
+      "id": "pet_dog_akc_coat_grooming_frequency__low",
+      "label": "Least grooming needed",
+      "intuitive": true,
+      "source": "akc-breed-ratings-20261009",
+      "boards": 12,
+      "coverage": 24
+    },
+    {
+      "id": "pet_dog_akc_shedding_level__low",
+      "label": "Least shedding",
+      "intuitive": true,
+      "source": "akc-breed-ratings-20261009",
+      "boards": 8,
+      "coverage": 24
+    },
+    {
+      "id": "pet_dog_survey_strangerfear",
+      "label": "Most wary of strangers",
+      "intuitive": true,
+      "source": "cbarq-owner-survey-2013",
+      "boards": 36,
+      "coverage": 19
+    },
+    {
+      "id": "pet_dog_akc_coat_grooming_frequency",
+      "label": "Most grooming needed",
+      "intuitive": true,
+      "source": "akc-breed-ratings-20261009",
+      "boards": 14,
+      "coverage": 24
+    },
+    {
+      "id": "pet_dog_survey_trainability__low",
+      "label": "Hardest to train in owner survey",
+      "intuitive": true,
+      "source": "cbarq-owner-survey-2013",
+      "boards": 14,
+      "coverage": 19
+    },
+    {
+      "id": "pet_dog_survey_attachatten",
+      "label": "Most attention-seeking",
+      "intuitive": true,
+      "source": "cbarq-owner-survey-2013",
+      "boards": 10,
+      "coverage": 19
+    },
+    {
+      "id": "pet_dog_survey_trainability",
+      "label": "Easiest to train in owner survey",
+      "intuitive": true,
+      "source": "cbarq-owner-survey-2013",
+      "boards": 16,
+      "coverage": 19
+    },
+    {
+      "id": "pet_dog_akc_shedding_level",
+      "label": "Most shedding",
+      "intuitive": true,
+      "source": "akc-breed-ratings-20261009",
+      "boards": 8,
+      "coverage": 24
+    },
+    {
+      "id": "pet_dog_survey_excitability",
+      "label": "Most excitable",
+      "intuitive": true,
+      "source": "cbarq-owner-survey-2013",
+      "boards": 8,
+      "coverage": 19
+    },
+    {
+      "id": "pet_dog_survey_energy__low",
+      "label": "Least energetic in owner survey",
+      "intuitive": true,
+      "source": "cbarq-owner-survey-2013",
+      "boards": 8,
+      "coverage": 19
+    },
+    {
+      "id": "pet_dog_survey_attachatten__low",
+      "label": "Least attention-seeking",
+      "intuitive": true,
+      "source": "cbarq-owner-survey-2013",
+      "boards": 9,
+      "coverage": 19
+    },
+    {
+      "id": "pet_dog_akc_barking_level",
+      "label": "Most vocal",
+      "intuitive": true,
+      "source": "akc-breed-ratings-20261009",
+      "boards": 8,
+      "coverage": 24
+    },
+    {
+      "id": "pet_dog_akc_watchdogprotective_nature",
+      "label": "Most watchful",
+      "intuitive": true,
+      "source": "akc-breed-ratings-20261009",
+      "boards": 9,
+      "coverage": 24
+    },
+    {
+      "id": "pet_dog_akc_watchdogprotective_nature__low",
+      "label": "Least watchful",
+      "intuitive": true,
+      "source": "akc-breed-ratings-20261009",
+      "boards": 8,
+      "coverage": 24
+    },
+    {
+      "id": "pet_dog_akc_openness_to_strangers",
+      "label": "Most welcoming to strangers",
+      "intuitive": true,
+      "source": "akc-breed-ratings-20261009",
+      "boards": 9,
+      "coverage": 24
+    },
+    {
+      "id": "pet_dog_akc_openness_to_strangers__low",
+      "label": "Least welcoming to strangers",
+      "intuitive": true,
+      "source": "akc-breed-ratings-20261009",
+      "boards": 8,
+      "coverage": 24
+    },
+    {
+      "id": "pet_dog_survey_excitability__low",
+      "label": "Least excitable",
+      "intuitive": true,
+      "source": "cbarq-owner-survey-2013",
+      "boards": 8,
+      "coverage": 19
+    },
+    {
+      "id": "raw_fledging_age__low",
+      "label": "Shortest wait to leave the nest",
+      "intuitive": true,
+      "source": "amniote-raw-2015",
+      "boards": 16,
+      "coverage": 38
+    },
+    {
+      "id": "raw_fledging_age",
+      "label": "Longest wait to leave the nest",
+      "intuitive": true,
+      "source": "amniote-raw-2015",
+      "boards": 16,
+      "coverage": 38
+    },
+    {
+      "id": "ringing_longevity",
+      "label": "Longest recorded wild life",
+      "intuitive": true,
+      "source": "euring-2023",
+      "boards": 2,
+      "coverage": 23
+    },
+    {
+      "id": "incubation",
+      "label": "Longest wait to hatch",
+      "intuitive": true,
+      "source": "anage-15",
+      "boards": 1,
+      "coverage": 25
+    },
+    {
+      "id": "raw_egg_mass__low",
+      "label": "Lightest egg",
+      "intuitive": false,
+      "source": "amniote-raw-2015",
+      "boards": 1,
+      "coverage": 58
+    },
+    {
+      "id": "mammal_head_body_length",
+      "label": "Longest mammal body",
+      "intuitive": true,
+      "source": "amniote-raw-2015",
+      "boards": 16,
+      "coverage": 38
+    },
+    {
+      "id": "mammal_head_body_length__low",
+      "label": "Shortest mammal body",
+      "intuitive": true,
+      "source": "amniote-raw-2015",
+      "boards": 16,
+      "coverage": 38
     }
   ],
   "simulations": {
     "easy": {
       "draws": 3000,
-      "uniqueBoards": 477,
+      "uniqueBoards": 627,
       "groups": {
         "mammals": 752,
         "birds": 761,
         "pets": 744,
         "mixed": 743
       },
-      "availableAnimals": 98,
-      "seenAnimals": 98,
-      "availableLabels": 60,
-      "seenLabels": 60,
+      "availableAnimals": 119,
+      "seenAnimals": 119,
+      "availableLabels": 102,
+      "seenLabels": 102,
       "unseenAnimals": [],
       "unseenLabels": [],
       "animalCounts": {
-        "panthera_leo": 98,
-        "macropus_rufus": 279,
-        "hippopotamus_amphibius": 72,
-        "macaca_mulatta": 96,
-        "spheniscus_demersus": 197,
-        "haliaeetus_leucocephalus": 197,
-        "anas_platyrhynchos": 547,
-        "columba_palumbus": 411,
-        "ursus_americanus": 106,
-        "sus_scrofa": 41,
-        "bison_bison": 86,
-        "melursus_ursinus": 62,
-        "dog_shih_tzu": 75,
-        "dog_english_springer_spaniel": 142,
-        "dog_border_terrier": 171,
-        "dog_boxer": 121,
-        "equus_quagga": 253,
-        "pteropus_vampyrus": 237,
-        "crocodylus_acutus": 233,
-        "dog_labrador_retriever": 87,
-        "dog_french_bulldog": 200,
-        "dog_german_shepherd": 249,
-        "dog_pomeranian": 226,
-        "dromaius_novaehollandiae": 289,
-        "ursus_maritimus": 341,
-        "panthera_tigris": 568,
-        "python_molurus": 289,
-        "pan_troglodytes": 125,
-        "panthera_pardus": 88,
-        "ursus_thibetanus": 56,
-        "ailuropoda_melanoleuca": 94,
-        "dog_cavalier_king_charles_spaniel": 91,
-        "dog_miniature_dachshund": 151,
-        "dog_rottweiler": 170,
-        "struthio_camelus": 564,
-        "pelecanus_occidentalis": 214,
-        "phalacrocorax_carbo": 214,
-        "dog_golden_retriever": 150,
-        "alligator_mississippiensis": 221,
-        "gorilla_gorilla": 290,
-        "tremarctos_ornatus": 281,
-        "dog_english_cocker_spaniel": 94,
-        "dog_pug": 138,
-        "dog_bichon_frise": 94,
-        "dog_beagle": 99,
-        "vombatus_ursinus": 24,
-        "meles_meles": 15,
-        "phascolarctos_cinereus": 109,
-        "myotis_lucifugus": 17,
-        "alauda_arvensis": 180,
-        "aptenodytes_patagonicus": 180,
-        "pongo_pygmaeus": 68,
-        "loxodonta_africana": 69,
-        "cat_maine_coon": 128,
-        "cat_british_shorthair": 128,
-        "cat_persian": 128,
-        "cat_abyssinian": 128,
-        "panthera_onca": 46,
-        "megaptera_novaeangliae": 11,
-        "corvus_frugilegus": 170,
-        "diomedea_exulans": 170,
-        "acinonyx_jubatus": 95,
-        "mus_musculus": 11,
-        "vulpes_vulpes": 72,
-        "dog_staffordshire_bull_terrier": 63,
-        "giraffa_camelopardalis": 63,
-        "castor_canadensis": 59,
-        "ceratotherium_simum": 42,
-        "dog_yorkshire_terrier": 143,
-        "canis_lupus": 85,
-        "ursus_arctos": 91,
-        "hydrochoerus_hydrochaeris": 80,
-        "oryctolagus_cuniculus": 72,
-        "ornithorhynchus_anatinus": 24,
-        "suricata_suricatta": 37,
-        "erinaceus_europaeus": 26,
-        "enhydra_lutris": 27,
-        "camelus_dromedarius": 34,
-        "equus_asinus": 32,
+        "pongo_pygmaeus": 74,
+        "vulpes_vulpes": 73,
+        "ceratotherium_simum": 40,
+        "gorilla_gorilla": 305,
+        "spheniscus_demersus": 145,
+        "haliaeetus_leucocephalus": 128,
+        "anas_platyrhynchos": 200,
+        "columba_palumbus": 175,
+        "bison_bison": 97,
+        "ailuropoda_melanoleuca": 98,
+        "melursus_ursinus": 58,
+        "giraffa_camelopardalis": 77,
+        "dog_yorkshire_terrier": 119,
+        "dog_golden_retriever": 155,
+        "dog_greyhound": 132,
+        "dog_chihuahua": 228,
+        "macropus_rufus": 292,
+        "equus_quagga": 260,
+        "pteropus_vampyrus": 244,
+        "crocodylus_acutus": 242,
+        "dog_labrador_retriever": 156,
+        "dog_border_collie": 179,
+        "dog_bichon_frise": 126,
+        "dog_beagle": 169,
+        "dromaius_novaehollandiae": 287,
+        "ursus_maritimus": 347,
+        "panthera_tigris": 564,
+        "python_molurus": 287,
+        "loxodonta_africana": 67,
+        "hippopotamus_amphibius": 79,
+        "ursus_americanus": 94,
+        "pan_troglodytes": 118,
+        "dog_english_springer_spaniel": 137,
+        "dog_shih_tzu": 85,
+        "dog_rottweiler": 96,
+        "alauda_arvensis": 48,
+        "struthio_camelus": 148,
+        "aptenodytes_patagonicus": 101,
+        "dog_english_cocker_spaniel": 107,
+        "dog_french_bulldog": 72,
+        "dog_pomeranian": 131,
+        "haematopus_ostralegus": 247,
+        "pelecanus_occidentalis": 118,
+        "somateria_mollissima": 131,
+        "ardea_cinerea": 155,
+        "dog_pug": 141,
+        "dog_border_terrier": 36,
+        "vombatus_ursinus": 26,
+        "phascolarctos_cinereus": 99,
+        "phalacrocorax_carbo": 274,
+        "larus_argentatus": 117,
+        "hirundo_rustica": 49,
+        "tremarctos_ornatus": 282,
+        "ursus_thibetanus": 39,
+        "dog_boxer": 122,
+        "dog_miniature_schnauzer": 179,
+        "hydrochoerus_hydrochaeris": 74,
+        "ursus_arctos": 93,
+        "panthera_onca": 48,
+        "megaptera_novaeangliae": 16,
+        "acinonyx_jubatus": 94,
+        "mus_musculus": 9,
+        "sus_scrofa": 44,
+        "helarctos_malayanus": 42,
+        "tyto_alba": 68,
+        "bubo_virginianus": 68,
+        "tupaia_glis": 61,
+        "panthera_leo": 65,
+        "vanellus_vanellus": 40,
+        "anser_anser": 177,
+        "dog_whippet": 88,
+        "lemur_catta": 92,
+        "macaca_mulatta": 112,
+        "cat_maine_coon": 54,
+        "cat_british_shorthair": 54,
+        "cat_persian": 54,
+        "cat_abyssinian": 54,
+        "castor_canadensis": 78,
+        "dog_cavalier_king_charles_spaniel": 27,
+        "alligator_mississippiensis": 214,
+        "aquila_chrysaetos": 96,
+        "apus_apus": 229,
+        "sterna_hirundo": 96,
+        "didelphis_marsupialis": 77,
+        "cavia_porcellus": 13,
+        "corvus_frugilegus": 64,
+        "diomedea_exulans": 64,
+        "erinaceus_europaeus": 34,
+        "equus_asinus": 22,
+        "canis_lupus": 68,
+        "enhydra_lutris": 32,
+        "panthera_pardus": 79,
+        "tachyglossus_aculeatus": 29,
+        "falco_peregrinus": 53,
+        "corvus_corone": 53,
+        "myrmecophaga_tridactyla": 8,
+        "cervus_elaphus": 37,
+        "suricata_suricatta": 40,
+        "dog_west_highland_white_terrier": 40,
+        "dog_miniature_dachshund": 34,
+        "dasypus_novemcinctus": 10,
+        "dog_maltese": 66,
+        "procyon_lotor": 26,
+        "rangifer_tarandus": 26,
+        "mesocricetus_auratus": 22,
+        "dog_german_shepherd": 122,
+        "oryctolagus_cuniculus": 66,
+        "ornithorhynchus_anatinus": 28,
+        "dog_staffordshire_bull_terrier": 13,
+        "meles_meles": 17,
+        "myotis_lucifugus": 14,
+        "rattus_norvegicus": 17,
         "puma_concolor": 36,
-        "mesocricetus_auratus": 34,
-        "tachyglossus_aculeatus": 27,
-        "rangifer_tarandus": 23,
-        "phoca_vitulina": 6,
-        "didelphis_marsupialis": 56,
-        "zalophus_californianus": 16,
-        "cervus_elaphus": 45,
-        "lemur_catta": 99,
-        "procyon_lotor": 30,
-        "tupaia_glis": 55,
-        "helarctos_malayanus": 47,
-        "myrmecophaga_tridactyla": 14,
-        "capra_hircus": 17,
-        "cavia_porcellus": 16,
-        "tursiops_truncatus": 12,
-        "dasypus_novemcinctus": 13,
-        "balaenoptera_musculus": 9,
-        "rattus_norvegicus": 11
+        "camelus_dromedarius": 32,
+        "tursiops_truncatus": 14,
+        "phoca_vitulina": 9,
+        "zalophus_californianus": 12,
+        "balaenoptera_musculus": 13,
+        "capra_hircus": 8
       },
       "labelCounts": {
-        "Lightest newborn": 272,
-        "Heaviest adult": 1132,
-        "Latest male maturity": 25,
-        "Largest mapped range": 80,
-        "Shortest wait to hatch": 197,
-        "Shortest tail feathers": 367,
-        "Largest breeding range": 591,
-        "Closest to South Pole": 52,
-        "Fewest food groups": 43,
-        "Lightest adult": 1652,
-        "Most popular breed": 421,
-        "Largest litter": 357,
-        "Longest lifespan": 378,
-        "Oldest scientific description": 242,
-        "Longest documented lifespan": 624,
-        "Least threatened": 313,
-        "Least popular breed": 323,
-        "Shortest lifespan": 366,
-        "Latest female maturity": 162,
-        "Most threatened": 521,
-        "Shortest documented lifespan": 414,
-        "Shortest gap between births": 22,
-        "Smallest litter": 387,
-        "Most eggs per clutch": 214,
-        "Longest beak": 214,
-        "Newest scientific description": 264,
-        "Earliest female maturity": 185,
-        "Longest pregnancy": 113,
-        "Longest tail feathers": 180,
-        "Longest wait to hatch": 350,
-        "Most food groups": 52,
-        "Heaviest at weaning": 24,
-        "Heaviest newborn": 207,
-        "Lightest at weaning": 26,
-        "Shortest pregnancy": 121,
-        "Most countries & territories": 25,
-        "Smallest breeding range": 170,
-        "Largest eyes": 36,
-        "Most litters per year": 44,
-        "Earliest male maturity": 37,
-        "Farthest from South Pole": 56,
-        "Shortest time on milk": 27,
-        "Widest north–south range": 58,
-        "Most young per birth": 52,
-        "Fewest countries & territories": 23,
-        "Farthest from North Pole": 49,
-        "Fewest litters per year": 39,
-        "Smallest eyes": 41,
-        "Fewest continents": 18,
-        "Longest time on milk": 34,
-        "Smallest mapped range": 88,
-        "Most species in its family": 27,
-        "Closest to North Pole": 49,
-        "Slowest recorded chewing": 62,
+        "Latest male maturity": 42,
+        "Smallest mapped range": 95,
+        "Lightest adult": 1252,
+        "Fewest food groups": 52,
+        "Shortest wait to hatch": 60,
+        "Shortest tail feathers": 136,
+        "Largest breeding range": 323,
+        "Heaviest adult": 944,
+        "Lightest newborn": 257,
+        "Shortest gap between births": 16,
+        "Largest mapped range": 71,
+        "Most vocal": 19,
+        "Least popular breed": 218,
+        "Most upset when left alone": 92,
+        "Least easily startled": 56,
+        "Oldest scientific description": 246,
+        "Longest documented lifespan": 615,
+        "Least threatened": 317,
+        "Least wary of other dogs": 30,
+        "Easiest to train in owner survey": 59,
+        "Longest recognized by AKC": 91,
+        "Smallest litter": 126,
+        "Latest female maturity": 170,
+        "Most threatened": 526,
+        "Shortest documented lifespan": 416,
         "Fastest recorded chewing": 59,
-        "Fewest young per birth": 35,
-        "Narrowest north–south range": 30,
-        "Most continents": 12,
-        "Longest gap between births": 13,
-        "Fewest species in its family": 25
+        "Longest gap between births": 16,
+        "Least sensitive to handling": 66,
+        "Most recently recognized by AKC": 109,
+        "Longest lifespan": 82,
+        "Most wary of strangers": 98,
+        "Longest tail feathers": 117,
+        "Longest wait to hatch": 191,
+        "Hardest to train in owner survey": 53,
+        "Newest scientific description": 334,
+        "Most popular breed": 299,
+        "Longest wait to leave the nest": 261,
+        "Lightest hatchling": 94,
+        "Shortest beak": 95,
+        "Shortest lifespan": 91,
+        "Earliest female maturity": 158,
+        "Narrowest north–south range": 42,
+        "Shortest pregnancy": 114,
+        "Shortest wait to leave the nest": 292,
+        "Heaviest hatchling": 66,
+        "Smallest breeding range": 232,
+        "Least energetic in owner survey": 44,
+        "Most shedding": 35,
+        "Most grooming needed": 57,
+        "Most continents": 26,
+        "Most welcoming to strangers": 32,
+        "Largest eyes": 53,
+        "Heaviest newborn": 208,
+        "Most litters per year": 43,
+        "Closest to North Pole": 53,
+        "Shortest time on milk": 31,
+        "Lightest at weaning": 22,
+        "Most excitable": 33,
+        "Most young per birth": 51,
+        "Farthest from South Pole": 56,
+        "Most sensitive to handling": 53,
+        "Least wary of strangers": 58,
+        "Most eggs per clutch": 58,
+        "Longest beak": 213,
+        "Least grooming needed": 64,
+        "Least shedding": 44,
+        "Largest litter": 108,
+        "Closest to South Pole": 41,
+        "Longest pregnancy": 111,
+        "Shortest recorded wild life": 101,
+        "Longest time on milk": 24,
+        "Farthest from North Pole": 51,
+        "Most food groups": 47,
+        "Fewest countries & territories": 21,
+        "Least upset when left alone": 77,
+        "Most easily startled": 53,
+        "Fewest species in its family": 28,
+        "Most attention-seeking": 43,
+        "Widest north–south range": 52,
+        "Fewest young per birth": 38,
+        "Longest mammal body": 22,
+        "Least watchful": 49,
+        "Fewest litters per year": 60,
+        "Longest recorded wild life": 75,
+        "Most countries & territories": 32,
+        "Smallest eyes": 34,
+        "Most species in its family": 23,
+        "Most likely to chase": 59,
+        "Earliest male maturity": 29,
+        "Heaviest egg": 62,
+        "Slowest recorded chewing": 52,
+        "Least attention-seeking": 36,
+        "Least excitable": 33,
+        "Most energetic in owner survey": 44,
+        "Least likely to chase": 66,
+        "Most watchful": 38,
+        "Most wary of other dogs": 46,
+        "Quietest": 30,
+        "Fewest continents": 8,
+        "Shortest mammal body": 18,
+        "Least welcoming to strangers": 39,
+        "Heaviest at weaning": 18
       },
       "immediateRepeatedLineups": 0
     },
     "normal": {
       "draws": 3000,
-      "uniqueBoards": 609,
+      "uniqueBoards": 603,
       "groups": {
-        "birds": 1500,
-        "mammals": 1500
+        "pets": 997,
+        "birds": 997,
+        "mammals": 1006
       },
-      "availableAnimals": 85,
-      "seenAnimals": 85,
-      "availableLabels": 47,
-      "seenLabels": 47,
+      "availableAnimals": 111,
+      "seenAnimals": 111,
+      "availableLabels": 78,
+      "seenLabels": 78,
       "unseenAnimals": [],
       "unseenLabels": [],
       "animalCounts": {
-        "haematopus_ostralegus": 142,
-        "dromaius_novaehollandiae": 295,
-        "struthio_camelus": 445,
-        "hirundo_rustica": 1073,
-        "sturnus_vulgaris": 183,
-        "diomedea_exulans": 652,
-        "myotis_lucifugus": 22,
-        "lemur_catta": 269,
-        "ursus_maritimus": 196,
-        "gorilla_gorilla": 213,
-        "suricata_suricatta": 175,
-        "phascolarctos_cinereus": 490,
-        "vanellus_vanellus": 739,
-        "pelecanus_occidentalis": 452,
-        "spheniscus_demersus": 590,
-        "anas_platyrhynchos": 742,
-        "ursus_americanus": 224,
-        "hydrochoerus_hydrochaeris": 397,
-        "vulpes_vulpes": 190,
-        "castor_canadensis": 206,
-        "panthera_tigris": 233,
-        "bison_bison": 296,
-        "gallus_gallus": 80,
-        "larus_argentatus": 143,
-        "columba_palumbus": 343,
-        "cardinalis_cardinalis": 286,
-        "panthera_pardus": 187,
-        "panthera_leo": 195,
-        "rattus_norvegicus": 82,
-        "tremarctos_ornatus": 180,
-        "ardea_cinerea": 120,
-        "melursus_ursinus": 124,
-        "hippopotamus_amphibius": 160,
-        "corvus_corone": 323,
-        "somateria_mollissima": 89,
-        "haliaeetus_leucocephalus": 277,
-        "falco_peregrinus": 422,
-        "sterna_hirundo": 225,
-        "oryctolagus_cuniculus": 207,
-        "cervus_elaphus": 90,
-        "panthera_onca": 181,
-        "macaca_mulatta": 260,
-        "didelphis_marsupialis": 132,
-        "dasypus_novemcinctus": 118,
-        "pan_troglodytes": 382,
-        "procyon_lotor": 106,
-        "pygoscelis_papua": 127,
-        "ursus_arctos": 265,
-        "canis_lupus": 256,
-        "vombatus_ursinus": 62,
-        "ailuropoda_melanoleuca": 266,
-        "puma_concolor": 38,
-        "sus_scrofa": 130,
-        "ursus_thibetanus": 133,
-        "macropus_rufus": 212,
-        "loxodonta_africana": 245,
-        "anser_anser": 351,
-        "phalacrocorax_carbo": 330,
-        "alauda_arvensis": 235,
-        "ceratotherium_simum": 101,
-        "acinonyx_jubatus": 241,
-        "giraffa_camelopardalis": 256,
-        "mus_musculus": 56,
-        "camelus_dromedarius": 142,
-        "capra_hircus": 100,
-        "tachyglossus_aculeatus": 95,
-        "rangifer_tarandus": 91,
-        "apus_apus": 60,
-        "pongo_pygmaeus": 190,
-        "corvus_frugilegus": 176,
-        "tursiops_truncatus": 36,
-        "aptenodytes_patagonicus": 100,
-        "equus_asinus": 51,
-        "zalophus_californianus": 72,
-        "myrmecophaga_tridactyla": 85,
-        "mesocricetus_auratus": 132,
-        "equus_quagga": 81,
-        "erinaceus_europaeus": 67,
-        "tupaia_glis": 53,
-        "meles_meles": 46,
-        "equus_caballus": 28,
-        "helarctos_malayanus": 67,
-        "phoca_vitulina": 41,
-        "cavia_porcellus": 23,
-        "ornithorhynchus_anatinus": 24
+        "dog_english_springer_spaniel": 389,
+        "dog_border_collie": 440,
+        "dog_boxer": 218,
+        "dog_bichon_frise": 191,
+        "dog_pomeranian": 314,
+        "dog_chihuahua": 532,
+        "corvus_corone": 338,
+        "somateria_mollissima": 182,
+        "cardinalis_cardinalis": 145,
+        "haliaeetus_leucocephalus": 116,
+        "falco_peregrinus": 174,
+        "sterna_hirundo": 181,
+        "hydrochoerus_hydrochaeris": 220,
+        "mesocricetus_auratus": 78,
+        "oryctolagus_cuniculus": 116,
+        "camelus_dromedarius": 79,
+        "ursus_americanus": 174,
+        "castor_canadensis": 163,
+        "dog_yorkshire_terrier": 131,
+        "dog_english_cocker_spaniel": 464,
+        "dog_miniature_schnauzer": 346,
+        "dog_labrador_retriever": 427,
+        "vanellus_vanellus": 366,
+        "hirundo_rustica": 478,
+        "pelecanus_occidentalis": 255,
+        "spheniscus_demersus": 437,
+        "diomedea_exulans": 414,
+        "anas_platyrhynchos": 326,
+        "dog_whippet": 226,
+        "dog_maltese": 329,
+        "pygoscelis_papua": 83,
+        "tyto_alba": 79,
+        "sturnus_vulgaris": 124,
+        "ardea_cinerea": 190,
+        "columba_palumbus": 223,
+        "phascolarctos_cinereus": 283,
+        "lemur_catta": 143,
+        "loxodonta_africana": 179,
+        "pan_troglodytes": 221,
+        "acinonyx_jubatus": 217,
+        "dog_golden_retriever": 295,
+        "dog_greyhound": 162,
+        "dog_german_shepherd": 439,
+        "dog_shih_tzu": 342,
+        "ursus_maritimus": 197,
+        "tremarctos_ornatus": 109,
+        "enhydra_lutris": 14,
+        "gorilla_gorilla": 215,
+        "bison_bison": 207,
+        "struthio_camelus": 181,
+        "dromaius_novaehollandiae": 146,
+        "larus_argentatus": 170,
+        "corvus_frugilegus": 74,
+        "phalacrocorax_carbo": 225,
+        "haematopus_ostralegus": 190,
+        "anser_anser": 232,
+        "dog_beagle": 233,
+        "vulpes_vulpes": 107,
+        "giraffa_camelopardalis": 176,
+        "macaca_mulatta": 218,
+        "pongo_pygmaeus": 123,
+        "dog_rottweiler": 245,
+        "ailuropoda_melanoleuca": 133,
+        "ursus_arctos": 144,
+        "helarctos_malayanus": 70,
+        "ursus_thibetanus": 67,
+        "bubo_virginianus": 104,
+        "hippopotamus_amphibius": 120,
+        "zalophus_californianus": 51,
+        "equus_caballus": 17,
+        "capra_hircus": 53,
+        "suricata_suricatta": 122,
+        "tachyglossus_aculeatus": 55,
+        "aptenodytes_patagonicus": 167,
+        "apus_apus": 162,
+        "rangifer_tarandus": 63,
+        "cervus_elaphus": 36,
+        "myrmecophaga_tridactyla": 44,
+        "alauda_arvensis": 145,
+        "orcinus_orca": 30,
+        "panthera_tigris": 174,
+        "macropus_rufus": 138,
+        "dog_pug": 259,
+        "ceratotherium_simum": 82,
+        "melursus_ursinus": 86,
+        "didelphis_marsupialis": 51,
+        "megaptera_novaeangliae": 51,
+        "balaenoptera_musculus": 87,
+        "panthera_leo": 116,
+        "sus_scrofa": 74,
+        "puma_concolor": 16,
+        "panthera_onca": 90,
+        "dasypus_novemcinctus": 55,
+        "panthera_pardus": 109,
+        "gallus_gallus": 38,
+        "rattus_norvegicus": 52,
+        "tupaia_glis": 33,
+        "canis_lupus": 151,
+        "aquila_chrysaetos": 37,
+        "phoca_vitulina": 23,
+        "erinaceus_europaeus": 39,
+        "equus_quagga": 57,
+        "mus_musculus": 33,
+        "meles_meles": 21,
+        "tursiops_truncatus": 23,
+        "equus_asinus": 47,
+        "myotis_lucifugus": 18,
+        "procyon_lotor": 64,
+        "ornithorhynchus_anatinus": 53,
+        "vombatus_ursinus": 33,
+        "cavia_porcellus": 16
       },
       "labelCounts": {
-        "Shortest wait to hatch": 447,
-        "Lightest adult": 1000,
-        "Smallest breeding range": 975,
-        "Longest beak": 633,
-        "Longest pregnancy": 225,
-        "Fastest recorded chewing": 113,
-        "Lightest newborn": 679,
-        "Heaviest adult": 1374,
-        "Heaviest hatchling": 229,
-        "Most eggs per clutch": 229,
-        "Farthest from North Pole": 79,
-        "Latest male maturity": 121,
-        "Shortest tail feathers": 423,
-        "Heaviest newborn": 617,
-        "Fewest young per birth": 58,
-        "Shortest beak": 268,
-        "Longest wait to hatch": 314,
-        "Widest north–south range": 139,
-        "Largest breeding range": 525,
-        "Longest documented lifespan": 376,
-        "Most litters per year": 72,
-        "Closest to South Pole": 60,
-        "Shortest documented lifespan": 255,
-        "Largest mapped range": 195,
-        "Longest time on milk": 78,
-        "Lightest hatchling": 223,
-        "Fewest eggs per clutch": 223,
-        "Latest female maturity": 106,
-        "Farthest from South Pole": 60,
-        "Lightest at weaning": 47,
-        "Heaviest egg": 176,
-        "Shortest recorded wild life": 287,
-        "Narrowest north–south range": 103,
-        "Earliest female maturity": 73,
-        "Heaviest at weaning": 48,
-        "Largest eyes": 125,
-        "Smallest mapped range": 212,
-        "Shortest time on milk": 63,
-        "Shortest pregnancy": 231,
-        "Slowest recorded chewing": 88,
-        "Earliest male maturity": 88,
-        "Fewest litters per year": 55,
-        "Shortest gap between births": 43,
-        "Closest to North Pole": 97,
-        "Most young per birth": 55,
-        "Longest gap between births": 46,
-        "Smallest eyes": 67
+        "Least sensitive to handling": 248,
+        "Largest litter": 92,
+        "Least popular breed": 337,
+        "Lightest adult": 1007,
+        "Shortest tail feathers": 216,
+        "Largest breeding range": 508,
+        "Shortest wait to hatch": 165,
+        "Heaviest adult": 1261,
+        "Longest documented lifespan": 216,
+        "Most litters per year": 46,
+        "Heaviest newborn": 409,
+        "Least wary of strangers": 154,
+        "Most recently recognized by AKC": 193,
+        "Most sensitive to handling": 156,
+        "Longest beak": 342,
+        "Smallest breeding range": 489,
+        "Heaviest hatchling": 109,
+        "Most eggs per clutch": 109,
+        "Most wary of other dogs": 110,
+        "Most likely to chase": 97,
+        "Shortest wait to leave the nest": 224,
+        "Smallest eyes": 44,
+        "Smallest mapped range": 120,
+        "Most popular breed": 559,
+        "Least upset when left alone": 146,
+        "Shortest mammal body": 86,
+        "Earliest female maturity": 43,
+        "Lightest newborn": 447,
+        "Longest wait to hatch": 151,
+        "Most upset when left alone": 146,
+        "Longest wait to leave the nest": 168,
+        "Lightest hatchling": 132,
+        "Shortest gap between births": 20,
+        "Largest eyes": 67,
+        "Least attention-seeking": 71,
+        "Widest north–south range": 73,
+        "Latest male maturity": 91,
+        "Shortest beak": 140,
+        "Least wary of other dogs": 113,
+        "Farthest from North Pole": 36,
+        "Shortest pregnancy": 153,
+        "Fastest recorded chewing": 79,
+        "Fewest eggs per clutch": 81,
+        "Most easily startled": 87,
+        "Smallest litter": 118,
+        "Longest pregnancy": 193,
+        "Hardest to train in owner survey": 54,
+        "Closest to North Pole": 48,
+        "Earliest male maturity": 64,
+        "Shortest recorded wild life": 120,
+        "Longest mammal body": 82,
+        "Slowest recorded chewing": 61,
+        "Largest mapped range": 124,
+        "Longest tail feathers": 69,
+        "Longest gap between births": 49,
+        "Longest recognized by AKC": 168,
+        "Easiest to train in owner survey": 72,
+        "Least easily startled": 189,
+        "Shortest time on milk": 39,
+        "Narrowest north–south range": 63,
+        "Newest scientific description": 31,
+        "Heaviest egg": 75,
+        "Closest to South Pole": 32,
+        "Most countries & territories": 27,
+        "Most wary of strangers": 102,
+        "Least likely to chase": 122,
+        "Fewest litters per year": 25,
+        "Longest time on milk": 44,
+        "Shortest documented lifespan": 135,
+        "Lightest egg": 83,
+        "Latest female maturity": 76,
+        "Most young per birth": 26,
+        "Lightest at weaning": 25,
+        "Fewest young per birth": 25,
+        "Most species in its family": 33,
+        "Heaviest at weaning": 27,
+        "Farthest from South Pole": 34,
+        "Fewest countries & territories": 24
       },
       "immediateRepeatedLineups": 0
     },
@@ -6491,33 +6924,39 @@
       "labelCounts": {
         "Longest tail feathers": 289,
         "Longest wait to hatch": 553,
-        "Lightest adult": 1855,
+        "Lightest adult": 1794,
         "Largest breeding range": 477,
         "Shortest pregnancy": 154,
         "Most threatened": 680,
         "Most continents": 10,
-        "Heaviest adult": 1059,
+        "Heaviest adult": 842,
         "Oldest scientific description": 182,
         "Longest documented lifespan": 694,
         "Least threatened": 232,
         "Shortest time on milk": 32,
         "Lightest newborn": 320,
-        "Least popular breed": 362,
-        "Largest litter": 377,
-        "Shortest lifespan": 325,
+        "Hardest to train in owner survey": 43,
+        "Most recently recognized by AKC": 135,
+        "Most popular breed": 255,
+        "Most attention-seeking": 40,
         "Most eggs per clutch": 69,
         "Longest beak": 69,
         "Most countries & territories": 40,
         "Fewest litters per year": 45,
-        "Most popular breed": 363,
-        "Smallest litter": 348,
-        "Longest lifespan": 400,
+        "Least sensitive to handling": 45,
+        "Least likely to chase": 75,
         "Earliest female maturity": 263,
         "Longest time on milk": 39,
+        "Least popular breed": 233,
+        "Largest litter": 112,
+        "Longest lifespan": 112,
         "Fewest species in its family": 16,
         "Smallest eyes": 24,
         "Largest mapped range": 38,
         "Longest pregnancy": 151,
+        "Most upset when left alone": 69,
+        "Shortest lifespan": 103,
+        "Most likely to chase": 78,
         "Earliest male maturity": 54,
         "Smallest mapped range": 57,
         "Fewest young per birth": 57,
@@ -6525,26 +6964,52 @@
         "Newest scientific description": 172,
         "Shortest wait to hatch": 119,
         "Shortest tail feathers": 383,
+        "Least energetic in owner survey": 23,
+        "Most wary of other dogs": 45,
         "Largest eyes": 47,
         "Narrowest north–south range": 26,
+        "Most vocal": 27,
+        "Most grooming needed": 45,
+        "Most sensitive to handling": 77,
         "Closest to South Pole": 15,
         "Farthest from South Pole": 26,
+        "Least excitable": 31,
+        "Most wary of strangers": 96,
+        "Least shedding": 33,
+        "Least grooming needed": 46,
         "Latest male maturity": 40,
+        "Smallest litter": 154,
         "Latest female maturity": 234,
         "Most young per birth": 49,
         "Smallest breeding range": 264,
+        "Longest recognized by AKC": 57,
+        "Easiest to train in owner survey": 38,
         "Heaviest newborn": 231,
+        "Most shedding": 24,
+        "Most watchful": 25,
+        "Least wary of other dogs": 41,
+        "Least attention-seeking": 31,
+        "Least upset when left alone": 61,
         "Most litters per year": 43,
+        "Least wary of strangers": 56,
+        "Most excitable": 30,
+        "Least easily startled": 50,
         "Farthest from North Pole": 22,
         "Slowest recorded chewing": 29,
         "Closest to North Pole": 17,
         "Lightest at weaning": 11,
         "Widest north–south range": 19,
         "Fewest countries & territories": 19,
+        "Most energetic in owner survey": 23,
+        "Least watchful": 22,
         "Fewest food groups": 5,
+        "Most easily startled": 40,
+        "Quietest": 28,
         "Fastest recorded chewing": 51,
+        "Least welcoming to strangers": 24,
         "Longest gap between births": 3,
         "Heaviest at weaning": 10,
+        "Most welcoming to strangers": 26,
         "Most species in its family": 12,
         "Most food groups": 8,
         "Shortest gap between births": 1
@@ -6565,52 +7030,58 @@
         "enhydra_lutris": 37,
         "panthera_pardus": 53,
         "tachyglossus_aculeatus": 26,
-        "dog_french_bulldog": 305,
-        "dog_yorkshire_terrier": 210,
-        "dog_german_shepherd": 353,
-        "dog_pomeranian": 358,
+        "dog_english_cocker_spaniel": 72,
+        "dog_labrador_retriever": 171,
+        "dog_bichon_frise": 119,
+        "dog_border_collie": 191,
         "columba_palumbus": 188,
         "pelecanus_occidentalis": 69,
         "phalacrocorax_carbo": 69,
         "meles_meles": 15,
-        "dog_border_terrier": 213,
+        "dog_german_shepherd": 158,
+        "dog_pomeranian": 205,
+        "dog_beagle": 202,
         "dromaius_novaehollandiae": 477,
         "python_molurus": 477,
         "puma_concolor": 71,
         "acinonyx_jubatus": 124,
         "phoca_vitulina": 42,
-        "dog_english_cocker_spaniel": 26,
-        "dog_pug": 54,
-        "dog_bichon_frise": 26,
-        "dog_rottweiler": 128,
+        "dog_yorkshire_terrier": 146,
+        "dog_miniature_dachshund": 38,
         "alligator_mississippiensis": 173,
         "gorilla_gorilla": 291,
         "tremarctos_ornatus": 213,
         "lemur_catta": 80,
         "phascolarctos_cinereus": 66,
         "mesocricetus_auratus": 12,
-        "dog_english_springer_spaniel": 190,
+        "dog_english_springer_spaniel": 165,
+        "dog_chihuahua": 227,
+        "dog_shih_tzu": 87,
+        "dog_rottweiler": 93,
         "macaca_mulatta": 89,
         "ursus_americanus": 41,
         "panthera_leo": 52,
         "tupaia_glis": 55,
         "spheniscus_demersus": 119,
         "haliaeetus_leucocephalus": 119,
-        "dog_cavalier_king_charles_spaniel": 94,
-        "dog_golden_retriever": 180,
-        "dog_miniature_dachshund": 159,
-        "dog_beagle": 130,
+        "dog_whippet": 78,
+        "dog_pug": 113,
+        "dog_boxer": 97,
+        "dog_miniature_schnauzer": 158,
         "oryctolagus_cuniculus": 88,
-        "dog_boxer": 166,
+        "dog_greyhound": 108,
         "ornithorhynchus_anatinus": 15,
         "suricata_suricatta": 48,
         "pan_troglodytes": 108,
+        "dog_french_bulldog": 121,
+        "dog_golden_retriever": 172,
         "rangifer_tarandus": 42,
+        "dog_maltese": 44,
         "pongo_pygmaeus": 73,
         "balaenoptera_musculus": 60,
         "ailuropoda_melanoleuca": 151,
         "bison_bison": 134,
-        "dog_staffordshire_bull_terrier": 59,
+        "dog_border_terrier": 46,
         "tursiops_truncatus": 114,
         "ceratotherium_simum": 48,
         "corvus_frugilegus": 264,
@@ -6623,22 +7094,23 @@
         "didelphis_marsupialis": 16,
         "helarctos_malayanus": 23,
         "canis_lupus": 86,
-        "dog_labrador_retriever": 97,
         "hippopotamus_amphibius": 26,
         "cervus_elaphus": 39,
         "sus_scrofa": 49,
-        "dog_shih_tzu": 64,
         "giraffa_camelopardalis": 17,
         "loxodonta_africana": 18,
         "vulpes_vulpes": 13,
         "castor_canadensis": 72,
         "procyon_lotor": 17,
-        "cat_maine_coon": 22,
-        "cat_british_shorthair": 22,
-        "cat_persian": 22,
-        "cat_abyssinian": 22,
+        "dog_west_highland_white_terrier": 14,
+        "dog_staffordshire_bull_terrier": 13,
         "myotis_lucifugus": 15,
+        "dog_cavalier_king_charles_spaniel": 22,
         "zalophus_californianus": 16,
+        "cat_maine_coon": 10,
+        "cat_british_shorthair": 10,
+        "cat_persian": 10,
+        "cat_abyssinian": 10,
         "camelus_dromedarius": 19,
         "erinaceus_europaeus": 20,
         "dasypus_novemcinctus": 2,
@@ -6651,212 +7123,263 @@
     },
     "normal": {
       "labelCounts": {
-        "Heaviest adult": 1517,
-        "Narrowest north–south range": 3,
-        "Most litters per year": 119,
-        "Lightest newborn": 709,
-        "Shortest tail feathers": 643,
-        "Largest breeding range": 440,
-        "Shortest wait to hatch": 631,
-        "Lightest adult": 1269,
-        "Shortest time on milk": 94,
-        "Heaviest newborn": 789,
-        "Shortest documented lifespan": 568,
-        "Longest wait to hatch": 637,
-        "Longest documented lifespan": 790,
-        "Smallest breeding range": 1060,
-        "Earliest male maturity": 176,
-        "Earliest female maturity": 167,
-        "Longest beak": 532,
-        "Fewest young per birth": 26,
-        "Lightest at weaning": 31,
-        "Largest eyes": 2,
-        "Shortest beak": 313,
-        "Shortest pregnancy": 132,
-        "Latest female maturity": 141,
-        "Fewest litters per year": 138,
-        "Heaviest egg": 12,
-        "Shortest recorded wild life": 60,
-        "Latest male maturity": 246,
-        "Heaviest at weaning": 46,
-        "Lightest hatchling": 98,
-        "Fewest eggs per clutch": 98,
-        "Slowest recorded chewing": 94,
-        "Fastest recorded chewing": 78,
-        "Heaviest hatchling": 74,
-        "Most eggs per clutch": 74,
-        "Longest time on milk": 120,
-        "Longest pregnancy": 55,
-        "Smallest mapped range": 5,
-        "Largest mapped range": 6,
-        "Smallest eyes": 2,
-        "Longest gap between births": 1,
-        "Closest to North Pole": 2,
-        "Farthest from North Pole": 1,
-        "Widest north–south range": 1
+        "Heaviest adult": 1421,
+        "Narrowest north–south range": 22,
+        "Most litters per year": 72,
+        "Lightest newborn": 462,
+        "Shortest tail feathers": 404,
+        "Largest breeding range": 290,
+        "Shortest wait to hatch": 383,
+        "Lightest adult": 1130,
+        "Least wary of strangers": 118,
+        "Most recently recognized by AKC": 241,
+        "Most sensitive to handling": 183,
+        "Least popular breed": 402,
+        "Earliest female maturity": 76,
+        "Longest documented lifespan": 429,
+        "Longest recognized by AKC": 132,
+        "Least sensitive to handling": 287,
+        "Most popular breed": 492,
+        "Longest beak": 389,
+        "Smallest breeding range": 719,
+        "Longest wait to hatch": 408,
+        "Least upset when left alone": 150,
+        "Longest pregnancy": 73,
+        "Slowest recorded chewing": 60,
+        "Least wary of other dogs": 128,
+        "Largest mapped range": 86,
+        "Shortest documented lifespan": 296,
+        "Shortest pregnancy": 141,
+        "Most upset when left alone": 116,
+        "Longest time on milk": 72,
+        "Widest north–south range": 28,
+        "Heaviest newborn": 487,
+        "Most wary of strangers": 96,
+        "Shortest beak": 196,
+        "Shortest recorded wild life": 65,
+        "Latest male maturity": 154,
+        "Heaviest at weaning": 24,
+        "Fastest recorded chewing": 71,
+        "Latest female maturity": 63,
+        "Least easily startled": 163,
+        "Smallest litter": 126,
+        "Longest gap between births": 6,
+        "Most likely to chase": 108,
+        "Largest litter": 37,
+        "Most wary of other dogs": 165,
+        "Fewest litters per year": 66,
+        "Heaviest egg": 20,
+        "Least likely to chase": 111,
+        "Earliest male maturity": 95,
+        "Most easily startled": 90,
+        "Shortest time on milk": 64,
+        "Smallest mapped range": 62,
+        "Heaviest hatchling": 67,
+        "Most eggs per clutch": 67,
+        "Lightest at weaning": 20,
+        "Lightest hatchling": 86,
+        "Fewest eggs per clutch": 86,
+        "Hardest to train in owner survey": 44,
+        "Least attention-seeking": 8,
+        "Easiest to train in owner survey": 41,
+        "Largest eyes": 28,
+        "Fewest young per birth": 14,
+        "Farthest from South Pole": 6,
+        "Closest to North Pole": 16,
+        "Smallest eyes": 16,
+        "Closest to South Pole": 8,
+        "Farthest from North Pole": 5,
+        "Shortest gap between births": 5,
+        "Most young per birth": 4
       },
       "animalCounts": {
-        "panthera_tigris": 118,
-        "acinonyx_jubatus": 31,
-        "pan_troglodytes": 481,
-        "canis_lupus": 522,
-        "giraffa_camelopardalis": 18,
-        "panthera_leo": 232,
-        "anas_platyrhynchos": 950,
-        "diomedea_exulans": 677,
-        "cardinalis_cardinalis": 180,
-        "hirundo_rustica": 666,
-        "apus_apus": 94,
-        "struthio_camelus": 731,
-        "ursus_maritimus": 1171,
-        "equus_quagga": 314,
-        "phascolarctos_cinereus": 353,
-        "hydrochoerus_hydrochaeris": 613,
-        "haliaeetus_leucocephalus": 538,
-        "alauda_arvensis": 503,
-        "sterna_hirundo": 290,
-        "corvus_frugilegus": 137,
-        "phalacrocorax_carbo": 122,
-        "procyon_lotor": 61,
-        "camelus_dromedarius": 139,
-        "phoca_vitulina": 280,
-        "oryctolagus_cuniculus": 58,
-        "spheniscus_demersus": 672,
-        "pygoscelis_papua": 648,
-        "corvus_corone": 444,
-        "capra_hircus": 220,
-        "gorilla_gorilla": 295,
-        "ursus_arctos": 481,
-        "ailuropoda_melanoleuca": 336,
-        "bison_bison": 283,
-        "equus_asinus": 412,
-        "falco_peregrinus": 284,
-        "columba_palumbus": 249,
-        "castor_canadensis": 208,
-        "suricata_suricatta": 130,
-        "melursus_ursinus": 105,
-        "haematopus_ostralegus": 143,
-        "dromaius_novaehollandiae": 255,
-        "sturnus_vulgaris": 540,
-        "ursus_americanus": 315,
-        "gallus_gallus": 10,
-        "larus_argentatus": 48,
-        "rattus_norvegicus": 57,
-        "sus_scrofa": 75,
-        "aptenodytes_patagonicus": 197,
-        "dasypus_novemcinctus": 45,
-        "tursiops_truncatus": 357,
-        "macaca_mulatta": 257,
-        "meles_meles": 55,
-        "cervus_elaphus": 21,
-        "ardea_cinerea": 106,
-        "hippopotamus_amphibius": 186,
-        "anser_anser": 104,
-        "vanellus_vanellus": 232,
-        "panthera_pardus": 265,
-        "pelecanus_occidentalis": 172,
-        "macropus_rufus": 103,
-        "zalophus_californianus": 82,
-        "lemur_catta": 109,
-        "myotis_lucifugus": 50,
-        "panthera_onca": 22,
-        "mus_musculus": 53,
-        "equus_caballus": 10,
-        "helarctos_malayanus": 3,
-        "loxodonta_africana": 7,
-        "mesocricetus_auratus": 20,
-        "vombatus_ursinus": 1,
-        "pongo_pygmaeus": 8,
-        "somateria_mollissima": 8,
-        "tachyglossus_aculeatus": 11,
-        "didelphis_marsupialis": 1,
-        "ceratotherium_simum": 5,
-        "tremarctos_ornatus": 11,
-        "rangifer_tarandus": 8,
-        "vulpes_vulpes": 2
+        "panthera_tigris": 86,
+        "acinonyx_jubatus": 86,
+        "pan_troglodytes": 312,
+        "canis_lupus": 274,
+        "giraffa_camelopardalis": 72,
+        "panthera_leo": 166,
+        "anas_platyrhynchos": 584,
+        "diomedea_exulans": 475,
+        "cardinalis_cardinalis": 150,
+        "hirundo_rustica": 495,
+        "apus_apus": 55,
+        "struthio_camelus": 492,
+        "dog_yorkshire_terrier": 103,
+        "dog_english_cocker_spaniel": 402,
+        "dog_boxer": 256,
+        "dog_miniature_schnauzer": 408,
+        "dog_labrador_retriever": 384,
+        "dog_border_collie": 476,
+        "ailuropoda_melanoleuca": 188,
+        "bison_bison": 189,
+        "equus_asinus": 178,
+        "ursus_maritimus": 509,
+        "ursus_arctos": 250,
+        "dog_shih_tzu": 385,
+        "dog_pug": 222,
+        "dog_english_springer_spaniel": 344,
+        "dromaius_novaehollandiae": 218,
+        "larus_argentatus": 47,
+        "corvus_frugilegus": 109,
+        "ardea_cinerea": 95,
+        "dog_golden_retriever": 346,
+        "dog_greyhound": 113,
+        "dog_german_shepherd": 484,
+        "panthera_pardus": 130,
+        "macaca_mulatta": 197,
+        "lemur_catta": 102,
+        "dog_rottweiler": 235,
+        "dog_chihuahua": 663,
+        "dog_maltese": 336,
+        "hydrochoerus_hydrochaeris": 361,
+        "ursus_americanus": 222,
+        "sus_scrofa": 73,
+        "castor_canadensis": 136,
+        "rangifer_tarandus": 33,
+        "haliaeetus_leucocephalus": 311,
+        "alauda_arvensis": 298,
+        "falco_peregrinus": 184,
+        "columba_palumbus": 148,
+        "sterna_hirundo": 186,
+        "pygoscelis_papua": 334,
+        "dog_whippet": 299,
+        "vulpes_vulpes": 33,
+        "haematopus_ostralegus": 128,
+        "sturnus_vulgaris": 300,
+        "dog_beagle": 131,
+        "anser_anser": 94,
+        "vanellus_vanellus": 218,
+        "capra_hircus": 133,
+        "gorilla_gorilla": 175,
+        "phoca_vitulina": 127,
+        "phascolarctos_cinereus": 269,
+        "macropus_rufus": 119,
+        "equus_quagga": 160,
+        "phalacrocorax_carbo": 116,
+        "dog_pomeranian": 219,
+        "dog_bichon_frise": 206,
+        "ceratotherium_simum": 40,
+        "oryctolagus_cuniculus": 99,
+        "spheniscus_demersus": 452,
+        "myotis_lucifugus": 23,
+        "suricata_suricatta": 93,
+        "corvus_corone": 284,
+        "pongo_pygmaeus": 55,
+        "somateria_mollissima": 25,
+        "melursus_ursinus": 68,
+        "vombatus_ursinus": 13,
+        "myrmecophaga_tridactyla": 14,
+        "loxodonta_africana": 52,
+        "tremarctos_ornatus": 53,
+        "hippopotamus_amphibius": 129,
+        "pelecanus_occidentalis": 153,
+        "aptenodytes_patagonicus": 92,
+        "meles_meles": 29,
+        "zalophus_californianus": 66,
+        "tursiops_truncatus": 166,
+        "camelus_dromedarius": 85,
+        "cervus_elaphus": 18,
+        "erinaceus_europaeus": 8,
+        "ornithorhynchus_anatinus": 6,
+        "procyon_lotor": 55,
+        "rattus_norvegicus": 49,
+        "ursus_thibetanus": 7,
+        "didelphis_marsupialis": 19,
+        "mesocricetus_auratus": 31,
+        "mus_musculus": 35,
+        "panthera_onca": 31,
+        "tachyglossus_aculeatus": 25,
+        "dasypus_novemcinctus": 42,
+        "equus_caballus": 11,
+        "gallus_gallus": 11,
+        "helarctos_malayanus": 15,
+        "cavia_porcellus": 9,
+        "puma_concolor": 2,
+        "tupaia_glis": 6
       }
     },
     "expert": {
       "labelCounts": {
-        "Lightest newborn": 809,
-        "Earliest male maturity": 96,
-        "Largest eyes": 291,
-        "Shortest pregnancy": 721,
-        "Smallest mapped range": 951,
-        "Heaviest adult": 1390,
-        "Lightest adult": 1610,
+        "Latest female maturity": 910,
+        "Smallest mapped range": 987,
+        "Lightest adult": 1599,
+        "Longest gap between births": 392,
+        "Longest pregnancy": 515,
+        "Lightest newborn": 818,
         "Smallest breeding range": 1500,
         "Shortest wait to hatch": 1500,
-        "Heaviest hatchling": 750,
+        "Heaviest hatchling": 723,
         "Shortest beak": 1500,
         "Longest tail feathers": 1500,
-        "Shortest time on milk": 229,
-        "Heaviest newborn": 691,
-        "Earliest female maturity": 288,
-        "Most litters per year": 183,
-        "Lightest hatchling": 750,
-        "Longest pregnancy": 534,
-        "Longest gap between births": 386,
-        "Latest female maturity": 872,
-        "Largest mapped range": 276,
-        "Longest time on milk": 86,
-        "Longest documented lifespan": 286,
-        "Shortest gap between births": 297,
-        "Fewest litters per year": 147,
-        "Latest male maturity": 182,
-        "Shortest documented lifespan": 53,
-        "Slowest recorded chewing": 38,
-        "Fewest young per birth": 33,
-        "Closest to North Pole": 27,
-        "Fastest recorded chewing": 24
+        "Heaviest newborn": 682,
+        "Shortest gap between births": 298,
+        "Longest time on milk": 65,
+        "Heaviest adult": 1401,
+        "Most litters per year": 193,
+        "Shortest pregnancy": 718,
+        "Shortest time on milk": 257,
+        "Fewest litters per year": 160,
+        "Lightest hatchling": 777,
+        "Earliest female maturity": 235,
+        "Slowest recorded chewing": 41,
+        "Fewest young per birth": 26,
+        "Largest mapped range": 260,
+        "Longest documented lifespan": 269,
+        "Largest eyes": 298,
+        "Earliest male maturity": 112,
+        "Fastest recorded chewing": 19,
+        "Latest male maturity": 183,
+        "Shortest documented lifespan": 43,
+        "Closest to North Pole": 19
       },
       "animalCounts": {
-        "phascolarctos_cinereus": 618,
-        "tachyglossus_aculeatus": 391,
-        "hydrochoerus_hydrochaeris": 516,
-        "loxodonta_africana": 249,
-        "suricata_suricatta": 111,
-        "macaca_mulatta": 595,
-        "lemur_catta": 622,
-        "giraffa_camelopardalis": 363,
+        "bison_bison": 437,
+        "canis_lupus": 547,
+        "melursus_ursinus": 403,
+        "pan_troglodytes": 603,
+        "ursus_americanus": 434,
+        "hydrochoerus_hydrochaeris": 515,
+        "ailuropoda_melanoleuca": 610,
+        "ceratotherium_simum": 892,
         "aquila_chrysaetos": 1500,
         "cardinalis_cardinalis": 1500,
         "hirundo_rustica": 1500,
-        "pelecanus_occidentalis": 495,
+        "pelecanus_occidentalis": 488,
         "diomedea_exulans": 1500,
         "phoebastria_immutabilis": 1500,
         "tyto_alba": 1500,
         "apus_apus": 1500,
-        "ceratotherium_simum": 875,
-        "ailuropoda_melanoleuca": 568,
-        "panthera_pardus": 280,
-        "hippopotamus_amphibius": 382,
-        "canis_lupus": 497,
-        "pongo_pygmaeus": 380,
-        "vulpes_vulpes": 413,
-        "gorilla_gorilla": 644,
-        "larus_argentatus": 499,
-        "bison_bison": 449,
-        "acinonyx_jubatus": 416,
-        "pan_troglodytes": 603,
-        "ursus_americanus": 432,
-        "panthera_leo": 321,
-        "somateria_mollissima": 506,
-        "melursus_ursinus": 406,
-        "camelus_dromedarius": 246,
-        "mus_musculus": 246,
-        "sus_scrofa": 313,
-        "panthera_tigris": 111,
-        "macropus_rufus": 263,
-        "castor_canadensis": 212,
-        "cervus_elaphus": 66,
-        "puma_concolor": 100,
-        "ursus_arctos": 97,
-        "oryctolagus_cuniculus": 62,
-        "tremarctos_ornatus": 33,
-        "panthera_onca": 60,
-        "mesocricetus_auratus": 33,
-        "procyon_lotor": 27
+        "gorilla_gorilla": 656,
+        "giraffa_camelopardalis": 381,
+        "macropus_rufus": 261,
+        "larus_argentatus": 533,
+        "panthera_pardus": 297,
+        "hippopotamus_amphibius": 406,
+        "pongo_pygmaeus": 404,
+        "vulpes_vulpes": 442,
+        "phascolarctos_cinereus": 597,
+        "acinonyx_jubatus": 400,
+        "panthera_leo": 310,
+        "somateria_mollissima": 479,
+        "lemur_catta": 581,
+        "oryctolagus_cuniculus": 60,
+        "macaca_mulatta": 602,
+        "tremarctos_ornatus": 26,
+        "panthera_onca": 45,
+        "castor_canadensis": 199,
+        "mesocricetus_auratus": 26,
+        "sus_scrofa": 284,
+        "camelus_dromedarius": 234,
+        "mus_musculus": 234,
+        "tachyglossus_aculeatus": 381,
+        "loxodonta_africana": 256,
+        "panthera_tigris": 102,
+        "suricata_suricatta": 123,
+        "cervus_elaphus": 59,
+        "puma_concolor": 83,
+        "ursus_arctos": 91,
+        "procyon_lotor": 19
       }
     }
   },
@@ -6864,10 +7387,10 @@
     {
       "date": "2026-10-05",
       "mode": "easy",
-      "boardId": "c88ecd2c4543f83d",
+      "boardId": "fair-expand-d9f5e2543247ed35",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -6875,10 +7398,10 @@
     {
       "date": "2026-10-05",
       "mode": "normal",
-      "boardId": "53e4cbbdbdfec0a4",
+      "boardId": "698f7b99708096fa",
       "group": "mammals",
       "intuitive": 3,
-      "familiar": 5,
+      "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -6897,10 +7420,10 @@
     {
       "date": "2026-10-06",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-2372-20261006",
+      "boardId": "fair-pet-cat-easy-3324-20261006",
       "group": "pets",
       "intuitive": 4,
-      "familiar": 1,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -6908,10 +7431,10 @@
     {
       "date": "2026-10-06",
       "mode": "normal",
-      "boardId": "885fc4d61f6e7bb6",
+      "boardId": "7bd6f137c8d29b8a",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 4,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -6930,10 +7453,10 @@
     {
       "date": "2026-10-07",
       "mode": "easy",
-      "boardId": "4998de1965c04671",
+      "boardId": "48e5b1860fd6f668",
       "group": "mammals",
-      "intuitive": 3,
-      "familiar": 4,
+      "intuitive": 4,
+      "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -6941,9 +7464,9 @@
     {
       "date": "2026-10-07",
       "mode": "normal",
-      "boardId": "7b0abf305c941f8d",
-      "group": "birds",
-      "intuitive": 3,
+      "boardId": "fair-expand-7d9af6a692e0c291",
+      "group": "pets",
+      "intuitive": 4,
       "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
@@ -6952,10 +7475,10 @@
     {
       "date": "2026-10-07",
       "mode": "expert",
-      "boardId": "bad47656f253a6e0",
-      "group": "mammals",
-      "intuitive": 5,
-      "familiar": 8,
+      "boardId": "fair-expert-birds-4-20261005",
+      "group": "birds",
+      "intuitive": 4,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -6974,10 +7497,10 @@
     {
       "date": "2026-10-08",
       "mode": "normal",
-      "boardId": "fc54b36938b3f6af",
+      "boardId": "ff681e9019d1f06a",
       "group": "mammals",
       "intuitive": 3,
-      "familiar": 5,
+      "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -6996,10 +7519,10 @@
     {
       "date": "2026-10-09",
       "mode": "easy",
-      "boardId": "77005fb262a049d7",
+      "boardId": "44b3beb54795cf69",
       "group": "mammals",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7007,10 +7530,10 @@
     {
       "date": "2026-10-09",
       "mode": "normal",
-      "boardId": "d2340c0c5c714554",
-      "group": "birds",
-      "intuitive": 3,
-      "familiar": 3,
+      "boardId": "fair-expand-0e1d839220d7a76d",
+      "group": "pets",
+      "intuitive": 4,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7018,10 +7541,10 @@
     {
       "date": "2026-10-09",
       "mode": "expert",
-      "boardId": "b30230a90759235c",
-      "group": "mammals",
+      "boardId": "fair-expert-birds-1-20261005",
+      "group": "birds",
       "intuitive": 4,
-      "familiar": 8,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7029,10 +7552,10 @@
     {
       "date": "2026-10-10",
       "mode": "easy",
-      "boardId": "e5d7ce3b0d1a5be3",
+      "boardId": "fair-expand-d9e5b2fec5720cde",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7040,9 +7563,9 @@
     {
       "date": "2026-10-10",
       "mode": "normal",
-      "boardId": "30c6477e900609a1",
+      "boardId": "5a226d7d636e7aa6",
       "group": "mammals",
-      "intuitive": 3,
+      "intuitive": 4,
       "familiar": 5,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
@@ -7062,10 +7585,10 @@
     {
       "date": "2026-10-11",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-2371-20261006",
+      "boardId": "fair-expand-8a28913d6b172deb",
       "group": "pets",
       "intuitive": 4,
-      "familiar": 1,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7073,9 +7596,9 @@
     {
       "date": "2026-10-11",
       "mode": "normal",
-      "boardId": "bd4438b0922cca71",
+      "boardId": "fair-expand-7d2b28debec54106",
       "group": "birds",
-      "intuitive": 3,
+      "intuitive": 4,
       "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
@@ -7095,7 +7618,7 @@
     {
       "date": "2026-10-12",
       "mode": "easy",
-      "boardId": "96fbc7953bac69d3",
+      "boardId": "7588209e63bec996",
       "group": "mammals",
       "intuitive": 4,
       "familiar": 3,
@@ -7106,8 +7629,8 @@
     {
       "date": "2026-10-12",
       "mode": "normal",
-      "boardId": "7bd6f137c8d29b8a",
-      "group": "birds",
+      "boardId": "fair-expand-85d5f218c5a5ead1",
+      "group": "pets",
       "intuitive": 3,
       "familiar": 2,
       "minimumIntuitive": 3,
@@ -7117,10 +7640,10 @@
     {
       "date": "2026-10-12",
       "mode": "expert",
-      "boardId": "2907dd00dec5554f",
-      "group": "mammals",
+      "boardId": "fair-expert-birds-4-20261005",
+      "group": "birds",
       "intuitive": 4,
-      "familiar": 7,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7128,7 +7651,7 @@
     {
       "date": "2026-10-13",
       "mode": "easy",
-      "boardId": "e5d7ce3b0d1a5be3",
+      "boardId": "fair-expand-37cb4a4f2e886076",
       "group": "birds",
       "intuitive": 3,
       "familiar": 2,
@@ -7139,10 +7662,10 @@
     {
       "date": "2026-10-13",
       "mode": "normal",
-      "boardId": "786c8f2321e2abd3",
+      "boardId": "fair-expand-5156e46ba6f9bd82",
       "group": "mammals",
-      "intuitive": 4,
-      "familiar": 6,
+      "intuitive": 3,
+      "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7161,10 +7684,10 @@
     {
       "date": "2026-10-14",
       "mode": "easy",
-      "boardId": "fair-pet-cat-easy-3313-20261006",
+      "boardId": "fair-expand-fc714953c8acf06a",
       "group": "pets",
       "intuitive": 4,
-      "familiar": 3,
+      "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7172,10 +7695,10 @@
     {
       "date": "2026-10-14",
       "mode": "normal",
-      "boardId": "f196b0c3d86192a0",
+      "boardId": "772965831db18564",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 5,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7205,10 +7728,10 @@
     {
       "date": "2026-10-15",
       "mode": "normal",
-      "boardId": "65f21eb409a2ba1d",
-      "group": "mammals",
+      "boardId": "fair-expand-54c2c025df26cff6",
+      "group": "pets",
       "intuitive": 4,
-      "familiar": 5,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7216,10 +7739,10 @@
     {
       "date": "2026-10-15",
       "mode": "expert",
-      "boardId": "fair-expert-birds-3-20261005",
-      "group": "birds",
-      "intuitive": 4,
-      "familiar": 3,
+      "boardId": "fdcb371a13e42e67",
+      "group": "mammals",
+      "intuitive": 5,
+      "familiar": 6,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7227,10 +7750,10 @@
     {
       "date": "2026-10-16",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-2691-20261006",
+      "boardId": "fair-pet-cat-easy-3324-20261006",
       "group": "pets",
       "intuitive": 4,
-      "familiar": 1,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7238,10 +7761,10 @@
     {
       "date": "2026-10-16",
       "mode": "normal",
-      "boardId": "290fc22f80581806",
+      "boardId": "fair-expand-23efd27dba50f499",
       "group": "mammals",
       "intuitive": 3,
-      "familiar": 5,
+      "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7271,8 +7794,8 @@
     {
       "date": "2026-10-17",
       "mode": "normal",
-      "boardId": "4111ae18694a1679",
-      "group": "birds",
+      "boardId": "fair-expand-316f98b24adcd264",
+      "group": "pets",
       "intuitive": 3,
       "familiar": 3,
       "minimumIntuitive": 3,
@@ -7282,10 +7805,10 @@
     {
       "date": "2026-10-17",
       "mode": "expert",
-      "boardId": "261d8ea199f14d7c",
-      "group": "mammals",
-      "intuitive": 6,
-      "familiar": 7,
+      "boardId": "fair-expert-birds-1-20261005",
+      "group": "birds",
+      "intuitive": 4,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7293,10 +7816,10 @@
     {
       "date": "2026-10-18",
       "mode": "easy",
-      "boardId": "c88ecd2c4543f83d",
+      "boardId": "fair-expand-d9e5b2fec5720cde",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7304,7 +7827,7 @@
     {
       "date": "2026-10-18",
       "mode": "normal",
-      "boardId": "e45415193477cdc3",
+      "boardId": "a2c3f1ee591d9b34",
       "group": "mammals",
       "intuitive": 4,
       "familiar": 5,
@@ -7326,10 +7849,10 @@
     {
       "date": "2026-10-19",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-1862-20261006",
+      "boardId": "fair-pet-dog-easy-836-20261006",
       "group": "pets",
       "intuitive": 4,
-      "familiar": 4,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7337,10 +7860,10 @@
     {
       "date": "2026-10-19",
       "mode": "normal",
-      "boardId": "f7cc01c8ab9f1079",
+      "boardId": "fair-expand-d4fbb25a29a070af",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 5,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7359,7 +7882,7 @@
     {
       "date": "2026-10-20",
       "mode": "easy",
-      "boardId": "4414b7b74a281b8a",
+      "boardId": "1030e2df6404eb8a",
       "group": "mammals",
       "intuitive": 3,
       "familiar": 3,
@@ -7370,10 +7893,10 @@
     {
       "date": "2026-10-20",
       "mode": "normal",
-      "boardId": "c574293dc53c1b2c",
-      "group": "birds",
-      "intuitive": 3,
-      "familiar": 3,
+      "boardId": "fair-expand-a47d7c2260ac2efc",
+      "group": "pets",
+      "intuitive": 4,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7381,10 +7904,10 @@
     {
       "date": "2026-10-20",
       "mode": "expert",
-      "boardId": "6b177c7059e5117c",
-      "group": "mammals",
-      "intuitive": 5,
-      "familiar": 7,
+      "boardId": "fair-expert-birds-6-20261005",
+      "group": "birds",
+      "intuitive": 4,
+      "familiar": 2,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7392,10 +7915,10 @@
     {
       "date": "2026-10-21",
       "mode": "easy",
-      "boardId": "e5d7ce3b0d1a5be3",
+      "boardId": "46c1304269081ee6",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7436,10 +7959,10 @@
     {
       "date": "2026-10-22",
       "mode": "normal",
-      "boardId": "06073849bb5f3770",
-      "group": "birds",
-      "intuitive": 3,
-      "familiar": 3,
+      "boardId": "fair-expand-93d4cde20eb33db3",
+      "group": "pets",
+      "intuitive": 4,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7447,10 +7970,10 @@
     {
       "date": "2026-10-22",
       "mode": "expert",
-      "boardId": "38e2e11d6408bdfe",
-      "group": "mammals",
+      "boardId": "fair-expert-birds-2-20261005",
+      "group": "birds",
       "intuitive": 4,
-      "familiar": 8,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7458,10 +7981,10 @@
     {
       "date": "2026-10-23",
       "mode": "easy",
-      "boardId": "46c1304269081ee6",
+      "boardId": "fair-expand-de243b0dc328d737",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7469,10 +7992,10 @@
     {
       "date": "2026-10-23",
       "mode": "normal",
-      "boardId": "5ff199d3a9af50ba",
+      "boardId": "01d3ab3e9f8436a5",
       "group": "mammals",
-      "intuitive": 3,
-      "familiar": 5,
+      "intuitive": 4,
+      "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7491,7 +8014,7 @@
     {
       "date": "2026-10-24",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-1033-20261006",
+      "boardId": "fair-expand-a87eb55d4e7b9c62",
       "group": "pets",
       "intuitive": 4,
       "familiar": 2,
@@ -7502,10 +8025,10 @@
     {
       "date": "2026-10-24",
       "mode": "normal",
-      "boardId": "fd7501feb9dea417",
+      "boardId": "7b0abf305c941f8d",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7524,10 +8047,10 @@
     {
       "date": "2026-10-25",
       "mode": "easy",
-      "boardId": "9a1d29f869c12700",
+      "boardId": "99f89adc6db00061",
       "group": "mammals",
       "intuitive": 3,
-      "familiar": 4,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7535,10 +8058,10 @@
     {
       "date": "2026-10-25",
       "mode": "normal",
-      "boardId": "06073849bb5f3770",
-      "group": "birds",
+      "boardId": "fair-expand-0e9b7273481b186a",
+      "group": "pets",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7546,10 +8069,10 @@
     {
       "date": "2026-10-25",
       "mode": "expert",
-      "boardId": "6b177c7059e5117c",
-      "group": "mammals",
-      "intuitive": 5,
-      "familiar": 7,
+      "boardId": "fair-expert-birds-3-20261005",
+      "group": "birds",
+      "intuitive": 4,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7557,10 +8080,10 @@
     {
       "date": "2026-10-26",
       "mode": "easy",
-      "boardId": "46c1304269081ee6",
+      "boardId": "fair-expand-6e19db9fdd1c6425",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7568,7 +8091,7 @@
     {
       "date": "2026-10-26",
       "mode": "normal",
-      "boardId": "26ee9007217f2d5d",
+      "boardId": "c4857aba3cb6a77c",
       "group": "mammals",
       "intuitive": 4,
       "familiar": 4,
@@ -7590,7 +8113,7 @@
     {
       "date": "2026-10-27",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-1595-20261006",
+      "boardId": "fair-expand-7f5063163153285d",
       "group": "pets",
       "intuitive": 4,
       "familiar": 2,
@@ -7601,10 +8124,10 @@
     {
       "date": "2026-10-27",
       "mode": "normal",
-      "boardId": "c574293dc53c1b2c",
+      "boardId": "7b0abf305c941f8d",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7634,10 +8157,10 @@
     {
       "date": "2026-10-28",
       "mode": "normal",
-      "boardId": "00d393e20aa3ec42",
-      "group": "mammals",
+      "boardId": "fair-expand-6a2dbe702ebb10e5",
+      "group": "pets",
       "intuitive": 4,
-      "familiar": 6,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7645,10 +8168,10 @@
     {
       "date": "2026-10-28",
       "mode": "expert",
-      "boardId": "fair-expert-birds-4-20261005",
-      "group": "birds",
+      "boardId": "527f273684d37e22",
+      "group": "mammals",
       "intuitive": 4,
-      "familiar": 3,
+      "familiar": 7,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7656,7 +8179,7 @@
     {
       "date": "2026-10-29",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-1738-20261006",
+      "boardId": "fair-pet-cat-easy-3324-20261006",
       "group": "pets",
       "intuitive": 4,
       "familiar": 3,
@@ -7667,9 +8190,9 @@
     {
       "date": "2026-10-29",
       "mode": "normal",
-      "boardId": "b5076fef161171d4",
+      "boardId": "052ef30fc20b2f6b",
       "group": "mammals",
-      "intuitive": 4,
+      "intuitive": 3,
       "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
@@ -7689,10 +8212,10 @@
     {
       "date": "2026-10-30",
       "mode": "easy",
-      "boardId": "5bec0859f475f9a0",
+      "boardId": "bfba86229c1bc396",
       "group": "mammals",
-      "intuitive": 3,
-      "familiar": 4,
+      "intuitive": 4,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7700,9 +8223,9 @@
     {
       "date": "2026-10-30",
       "mode": "normal",
-      "boardId": "7b0abf305c941f8d",
-      "group": "birds",
-      "intuitive": 3,
+      "boardId": "fair-expand-98052a607ff10d13",
+      "group": "pets",
+      "intuitive": 4,
       "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
@@ -7711,10 +8234,10 @@
     {
       "date": "2026-10-30",
       "mode": "expert",
-      "boardId": "38e2e11d6408bdfe",
-      "group": "mammals",
+      "boardId": "fair-expert-birds-6-20261005",
+      "group": "birds",
       "intuitive": 4,
-      "familiar": 8,
+      "familiar": 2,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7722,10 +8245,10 @@
     {
       "date": "2026-10-31",
       "mode": "easy",
-      "boardId": "07a9ea70bd3e7b85",
+      "boardId": "fair-expand-a1fdbd3f520cd56a",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7733,10 +8256,10 @@
     {
       "date": "2026-10-31",
       "mode": "normal",
-      "boardId": "e70f132904ae306c",
+      "boardId": "782932332b8efcbf",
       "group": "mammals",
-      "intuitive": 4,
-      "familiar": 5,
+      "intuitive": 3,
+      "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7755,10 +8278,10 @@
     {
       "date": "2026-11-01",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-333-20261006",
+      "boardId": "fair-expand-54eb1330b49744bf",
       "group": "pets",
-      "intuitive": 4,
-      "familiar": 1,
+      "intuitive": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7766,10 +8289,10 @@
     {
       "date": "2026-11-01",
       "mode": "normal",
-      "boardId": "f7cc01c8ab9f1079",
+      "boardId": "fair-expand-c77a93a4b7937478",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7799,10 +8322,10 @@
     {
       "date": "2026-11-02",
       "mode": "normal",
-      "boardId": "c574293dc53c1b2c",
+      "boardId": "bd4438b0922cca71",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7821,10 +8344,10 @@
     {
       "date": "2026-11-03",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-333-20261006",
+      "boardId": "fair-expand-da38e72980d78660",
       "group": "pets",
-      "intuitive": 4,
-      "familiar": 1,
+      "intuitive": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7832,7 +8355,7 @@
     {
       "date": "2026-11-03",
       "mode": "normal",
-      "boardId": "5026b63bcc741f8d",
+      "boardId": "c1bda19c47d7c870",
       "group": "mammals",
       "intuitive": 3,
       "familiar": 6,
@@ -7854,7 +8377,7 @@
     {
       "date": "2026-11-04",
       "mode": "easy",
-      "boardId": "34e7517f0184b5be",
+      "boardId": "37e1b83e00a0ae08",
       "group": "mammals",
       "intuitive": 3,
       "familiar": 3,
@@ -7865,9 +8388,9 @@
     {
       "date": "2026-11-04",
       "mode": "normal",
-      "boardId": "7bd6f137c8d29b8a",
-      "group": "birds",
-      "intuitive": 3,
+      "boardId": "fair-expand-35d147817e2ba937",
+      "group": "pets",
+      "intuitive": 4,
       "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
@@ -7876,10 +8399,10 @@
     {
       "date": "2026-11-04",
       "mode": "expert",
-      "boardId": "d002462050bcc91d",
-      "group": "mammals",
+      "boardId": "fair-expert-birds-2-20261005",
+      "group": "birds",
       "intuitive": 4,
-      "familiar": 8,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7887,10 +8410,10 @@
     {
       "date": "2026-11-05",
       "mode": "easy",
-      "boardId": "e5d7ce3b0d1a5be3",
+      "boardId": "fair-expand-64ed8dd4a65eb9e9",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7898,10 +8421,10 @@
     {
       "date": "2026-11-05",
       "mode": "normal",
-      "boardId": "45c12c0fbd080ad7",
+      "boardId": "8b1b4669fa12da75",
       "group": "mammals",
-      "intuitive": 4,
-      "familiar": 4,
+      "intuitive": 3,
+      "familiar": 5,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7920,9 +8443,9 @@
     {
       "date": "2026-11-06",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-2643-20261006",
+      "boardId": "fair-expand-cfd945294d5e98a9",
       "group": "pets",
-      "intuitive": 4,
+      "intuitive": 3,
       "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
@@ -7931,10 +8454,10 @@
     {
       "date": "2026-11-06",
       "mode": "normal",
-      "boardId": "885fc4d61f6e7bb6",
+      "boardId": "fair-expand-c77a93a4b7937478",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 4,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7953,10 +8476,10 @@
     {
       "date": "2026-11-07",
       "mode": "easy",
-      "boardId": "ccad8e305d2c1ada",
+      "boardId": "a889fe38638a6b29",
       "group": "mammals",
-      "intuitive": 3,
-      "familiar": 3,
+      "intuitive": 4,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -7964,9 +8487,9 @@
     {
       "date": "2026-11-07",
       "mode": "normal",
-      "boardId": "d2340c0c5c714554",
-      "group": "birds",
-      "intuitive": 3,
+      "boardId": "fair-expand-d3550114732c440c",
+      "group": "pets",
+      "intuitive": 4,
       "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
@@ -7975,10 +8498,10 @@
     {
       "date": "2026-11-07",
       "mode": "expert",
-      "boardId": "c4696c097dc60c94",
-      "group": "mammals",
+      "boardId": "fair-expert-birds-5-20261005",
+      "group": "birds",
       "intuitive": 4,
-      "familiar": 7,
+      "familiar": 2,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -7986,10 +8509,10 @@
     {
       "date": "2026-11-08",
       "mode": "easy",
-      "boardId": "e5d7ce3b0d1a5be3",
+      "boardId": "fair-expand-01ec3d10b3a150f1",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8019,10 +8542,10 @@
     {
       "date": "2026-11-09",
       "mode": "easy",
-      "boardId": "0ae38285011a4542",
+      "boardId": "425f6484ae1e3abb",
       "group": "mammals",
-      "intuitive": 4,
-      "familiar": 2,
+      "intuitive": 3,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8030,10 +8553,10 @@
     {
       "date": "2026-11-09",
       "mode": "normal",
-      "boardId": "9ffbdb67e6a6a458",
-      "group": "birds",
-      "intuitive": 3,
-      "familiar": 4,
+      "boardId": "fair-expand-98052a607ff10d13",
+      "group": "pets",
+      "intuitive": 4,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8041,10 +8564,10 @@
     {
       "date": "2026-11-09",
       "mode": "expert",
-      "boardId": "2096cc6d8a762d7e",
-      "group": "mammals",
-      "intuitive": 5,
-      "familiar": 7,
+      "boardId": "fair-expert-birds-5-20261005",
+      "group": "birds",
+      "intuitive": 4,
+      "familiar": 2,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8052,10 +8575,10 @@
     {
       "date": "2026-11-10",
       "mode": "easy",
-      "boardId": "07a9ea70bd3e7b85",
+      "boardId": "fair-expand-d9e5b2fec5720cde",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8063,10 +8586,10 @@
     {
       "date": "2026-11-10",
       "mode": "normal",
-      "boardId": "76d988f6c05e3353",
+      "boardId": "4fcc9c831604ef55",
       "group": "mammals",
       "intuitive": 4,
-      "familiar": 5,
+      "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8096,10 +8619,10 @@
     {
       "date": "2026-11-11",
       "mode": "normal",
-      "boardId": "c6651476f6eef4ce",
+      "boardId": "fair-expand-23efd27dba50f499",
       "group": "mammals",
-      "intuitive": 4,
-      "familiar": 4,
+      "intuitive": 3,
+      "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8118,10 +8641,10 @@
     {
       "date": "2026-11-12",
       "mode": "easy",
-      "boardId": "d7ab9b6e19838a6e",
+      "boardId": "fc2672d6a19cbeb5",
       "group": "mammals",
-      "intuitive": 3,
-      "familiar": 2,
+      "intuitive": 4,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8129,10 +8652,10 @@
     {
       "date": "2026-11-12",
       "mode": "normal",
-      "boardId": "7bd6f137c8d29b8a",
-      "group": "birds",
+      "boardId": "fair-expand-ca76045d2ab34920",
+      "group": "pets",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8140,10 +8663,10 @@
     {
       "date": "2026-11-12",
       "mode": "expert",
-      "boardId": "4d6b20f416ad7acb",
-      "group": "mammals",
-      "intuitive": 5,
-      "familiar": 7,
+      "boardId": "fair-expert-birds-1-20261005",
+      "group": "birds",
+      "intuitive": 4,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8151,10 +8674,10 @@
     {
       "date": "2026-11-13",
       "mode": "easy",
-      "boardId": "07a9ea70bd3e7b85",
+      "boardId": "46c1304269081ee6",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8184,7 +8707,7 @@
     {
       "date": "2026-11-14",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-2866-20261006",
+      "boardId": "fair-expand-d1fe1c1209019085",
       "group": "pets",
       "intuitive": 4,
       "familiar": 3,
@@ -8195,10 +8718,10 @@
     {
       "date": "2026-11-14",
       "mode": "normal",
-      "boardId": "06073849bb5f3770",
+      "boardId": "fair-expand-6d4e2e0e4e725850",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 5,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8217,10 +8740,10 @@
     {
       "date": "2026-11-15",
       "mode": "easy",
-      "boardId": "26d4a90318e718e6",
+      "boardId": "5277d0057f2e0f60",
       "group": "mammals",
       "intuitive": 3,
-      "familiar": 4,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8228,7 +8751,7 @@
     {
       "date": "2026-11-15",
       "mode": "normal",
-      "boardId": "4111ae18694a1679",
+      "boardId": "772965831db18564",
       "group": "birds",
       "intuitive": 3,
       "familiar": 3,
@@ -8250,7 +8773,7 @@
     {
       "date": "2026-11-16",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-3110-20261006",
+      "boardId": "fair-expand-50420ad347b4ab0e",
       "group": "pets",
       "intuitive": 4,
       "familiar": 2,
@@ -8261,10 +8784,10 @@
     {
       "date": "2026-11-16",
       "mode": "normal",
-      "boardId": "beb63ac347903ab4",
+      "boardId": "8a7346dfcc96e93c",
       "group": "mammals",
-      "intuitive": 4,
-      "familiar": 4,
+      "intuitive": 3,
+      "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8283,10 +8806,10 @@
     {
       "date": "2026-11-17",
       "mode": "easy",
-      "boardId": "a0cc8d87a9819f62",
+      "boardId": "be60f01d2ed2e9fe",
       "group": "mammals",
       "intuitive": 4,
-      "familiar": 3,
+      "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8294,10 +8817,10 @@
     {
       "date": "2026-11-17",
       "mode": "normal",
-      "boardId": "06073849bb5f3770",
-      "group": "birds",
+      "boardId": "fair-expand-8e5a6c0d35f366f9",
+      "group": "pets",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8305,10 +8828,10 @@
     {
       "date": "2026-11-17",
       "mode": "expert",
-      "boardId": "f07ec44ea58d958e",
-      "group": "mammals",
+      "boardId": "fair-expert-birds-3-20261005",
+      "group": "birds",
       "intuitive": 4,
-      "familiar": 6,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8316,10 +8839,10 @@
     {
       "date": "2026-11-18",
       "mode": "easy",
-      "boardId": "46c1304269081ee6",
+      "boardId": "fair-expand-6e19db9fdd1c6425",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8327,9 +8850,9 @@
     {
       "date": "2026-11-18",
       "mode": "normal",
-      "boardId": "078c08a004d34f69",
+      "boardId": "c5c23ef39a41e73f",
       "group": "mammals",
-      "intuitive": 3,
+      "intuitive": 4,
       "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
@@ -8349,10 +8872,10 @@
     {
       "date": "2026-11-19",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-1024-20261006",
+      "boardId": "fair-expand-95d5ce9f2c8fc355",
       "group": "pets",
       "intuitive": 4,
-      "familiar": 2,
+      "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8382,9 +8905,9 @@
     {
       "date": "2026-11-20",
       "mode": "easy",
-      "boardId": "be406c9ac8bb752e",
+      "boardId": "ddef513837429709",
       "group": "mammals",
-      "intuitive": 3,
+      "intuitive": 4,
       "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
@@ -8393,9 +8916,9 @@
     {
       "date": "2026-11-20",
       "mode": "normal",
-      "boardId": "f7cc01c8ab9f1079",
-      "group": "birds",
-      "intuitive": 3,
+      "boardId": "fair-expand-fed330c8903720a3",
+      "group": "pets",
+      "intuitive": 4,
       "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
@@ -8404,10 +8927,10 @@
     {
       "date": "2026-11-20",
       "mode": "expert",
-      "boardId": "4d6b20f416ad7acb",
-      "group": "mammals",
-      "intuitive": 5,
-      "familiar": 7,
+      "boardId": "fair-expert-birds-4-20261005",
+      "group": "birds",
+      "intuitive": 4,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8415,10 +8938,10 @@
     {
       "date": "2026-11-21",
       "mode": "easy",
-      "boardId": "c88ecd2c4543f83d",
+      "boardId": "fair-expand-e9fdfd0c9f536f7f",
       "group": "birds",
-      "intuitive": 3,
-      "familiar": 3,
+      "intuitive": 4,
+      "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8426,9 +8949,9 @@
     {
       "date": "2026-11-21",
       "mode": "normal",
-      "boardId": "e24675380ae6c7b0",
+      "boardId": "401b93f0403e1d17",
       "group": "mammals",
-      "intuitive": 3,
+      "intuitive": 4,
       "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
@@ -8448,10 +8971,10 @@
     {
       "date": "2026-11-22",
       "mode": "easy",
-      "boardId": "b8f6e154153450c4",
+      "boardId": "0ba065c39039d08a",
       "group": "mammals",
-      "intuitive": 3,
-      "familiar": 4,
+      "intuitive": 4,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8459,9 +8982,9 @@
     {
       "date": "2026-11-22",
       "mode": "normal",
-      "boardId": "bd4438b0922cca71",
-      "group": "birds",
-      "intuitive": 3,
+      "boardId": "fair-expand-b2ee053498cdf8ea",
+      "group": "pets",
+      "intuitive": 4,
       "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
@@ -8470,10 +8993,10 @@
     {
       "date": "2026-11-22",
       "mode": "expert",
-      "boardId": "893681fae7656aae",
-      "group": "mammals",
-      "intuitive": 5,
-      "familiar": 7,
+      "boardId": "fair-expert-birds-6-20261005",
+      "group": "birds",
+      "intuitive": 4,
+      "familiar": 2,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8492,7 +9015,7 @@
     {
       "date": "2026-11-23",
       "mode": "normal",
-      "boardId": "fa788b06de6c764f",
+      "boardId": "3c65bcbff1b3beeb",
       "group": "mammals",
       "intuitive": 3,
       "familiar": 5,
@@ -8514,9 +9037,9 @@
     {
       "date": "2026-11-24",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-1588-20261006",
+      "boardId": "fair-expand-6190db8d69c129d8",
       "group": "pets",
-      "intuitive": 4,
+      "intuitive": 3,
       "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
@@ -8525,10 +9048,10 @@
     {
       "date": "2026-11-24",
       "mode": "normal",
-      "boardId": "885fc4d61f6e7bb6",
+      "boardId": "60e8b164f4217387",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 4,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8547,7 +9070,7 @@
     {
       "date": "2026-11-25",
       "mode": "easy",
-      "boardId": "fair-mdd-mdd_country_count-easy-5-20261005",
+      "boardId": "3d579657ccae7bc0",
       "group": "mammals",
       "intuitive": 4,
       "familiar": 4,
@@ -8558,10 +9081,10 @@
     {
       "date": "2026-11-25",
       "mode": "normal",
-      "boardId": "fd7501feb9dea417",
-      "group": "birds",
+      "boardId": "fair-expand-fb2fcb000be2f36a",
+      "group": "pets",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8569,10 +9092,10 @@
     {
       "date": "2026-11-25",
       "mode": "expert",
-      "boardId": "d2ec0e8df5aa90e9",
-      "group": "mammals",
-      "intuitive": 6,
-      "familiar": 7,
+      "boardId": "fair-expert-birds-2-20261005",
+      "group": "birds",
+      "intuitive": 4,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8580,10 +9103,10 @@
     {
       "date": "2026-11-26",
       "mode": "easy",
-      "boardId": "07a9ea70bd3e7b85",
+      "boardId": "fair-expand-e9fdfd0c9f536f7f",
       "group": "birds",
-      "intuitive": 3,
-      "familiar": 2,
+      "intuitive": 4,
+      "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8591,10 +9114,10 @@
     {
       "date": "2026-11-26",
       "mode": "normal",
-      "boardId": "2a35d3354207ce3f",
+      "boardId": "20acf9be7b20a7bb",
       "group": "mammals",
-      "intuitive": 4,
-      "familiar": 6,
+      "intuitive": 3,
+      "familiar": 5,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8613,10 +9136,10 @@
     {
       "date": "2026-11-27",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-2372-20261006",
+      "boardId": "fair-expand-c2b456f1c067f9b6",
       "group": "pets",
       "intuitive": 4,
-      "familiar": 1,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8624,10 +9147,10 @@
     {
       "date": "2026-11-27",
       "mode": "normal",
-      "boardId": "c11d5beb4ff4c692",
+      "boardId": "4111ae18694a1679",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8657,10 +9180,10 @@
     {
       "date": "2026-11-28",
       "mode": "normal",
-      "boardId": "94d6a0e5a58e890e",
-      "group": "mammals",
+      "boardId": "fair-expand-e829c3e7ebb9e324",
+      "group": "pets",
       "intuitive": 4,
-      "familiar": 4,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8668,10 +9191,10 @@
     {
       "date": "2026-11-28",
       "mode": "expert",
-      "boardId": "fair-expert-birds-6-20261005",
-      "group": "birds",
+      "boardId": "3c5a175f28323b71",
+      "group": "mammals",
       "intuitive": 4,
-      "familiar": 2,
+      "familiar": 8,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8679,10 +9202,10 @@
     {
       "date": "2026-11-29",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-1459-20261006",
+      "boardId": "fair-expand-c64daec402fedc0e",
       "group": "pets",
       "intuitive": 4,
-      "familiar": 1,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8690,7 +9213,7 @@
     {
       "date": "2026-11-29",
       "mode": "normal",
-      "boardId": "176d088e12a8306a",
+      "boardId": "e6f3e65579648074",
       "group": "mammals",
       "intuitive": 3,
       "familiar": 5,
@@ -8712,7 +9235,7 @@
     {
       "date": "2026-11-30",
       "mode": "easy",
-      "boardId": "e965283bcdd06a91",
+      "boardId": "1ff2b62e18f3344e",
       "group": "mammals",
       "intuitive": 4,
       "familiar": 3,
@@ -8723,10 +9246,10 @@
     {
       "date": "2026-11-30",
       "mode": "normal",
-      "boardId": "7b0abf305c941f8d",
-      "group": "birds",
-      "intuitive": 3,
-      "familiar": 2,
+      "boardId": "fair-expand-9e6817ba63be23f3",
+      "group": "pets",
+      "intuitive": 4,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8734,10 +9257,10 @@
     {
       "date": "2026-11-30",
       "mode": "expert",
-      "boardId": "3c5a175f28323b71",
-      "group": "mammals",
+      "boardId": "fair-expert-birds-3-20261005",
+      "group": "birds",
       "intuitive": 4,
-      "familiar": 8,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8745,10 +9268,10 @@
     {
       "date": "2026-12-01",
       "mode": "easy",
-      "boardId": "e5d7ce3b0d1a5be3",
+      "boardId": "c88ecd2c4543f83d",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8756,10 +9279,10 @@
     {
       "date": "2026-12-01",
       "mode": "normal",
-      "boardId": "edf6f1c3acefd4ff",
+      "boardId": "fec8e2b3cbf5f4a6",
       "group": "mammals",
-      "intuitive": 3,
-      "familiar": 6,
+      "intuitive": 4,
+      "familiar": 5,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8778,7 +9301,7 @@
     {
       "date": "2026-12-02",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-599-20261006",
+      "boardId": "fair-expand-a4f5a3bec40f5cdf",
       "group": "pets",
       "intuitive": 4,
       "familiar": 1,
@@ -8789,10 +9312,10 @@
     {
       "date": "2026-12-02",
       "mode": "normal",
-      "boardId": "06073849bb5f3770",
+      "boardId": "2eec958c1ede9f52",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8811,10 +9334,10 @@
     {
       "date": "2026-12-03",
       "mode": "easy",
-      "boardId": "7588209e63bec996",
+      "boardId": "712709672d798e6f",
       "group": "mammals",
-      "intuitive": 4,
-      "familiar": 3,
+      "intuitive": 3,
+      "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8822,10 +9345,10 @@
     {
       "date": "2026-12-03",
       "mode": "normal",
-      "boardId": "bd4438b0922cca71",
-      "group": "birds",
-      "intuitive": 3,
-      "familiar": 2,
+      "boardId": "fair-expand-b0c0a39f9ebaf7af",
+      "group": "pets",
+      "intuitive": 4,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8833,10 +9356,10 @@
     {
       "date": "2026-12-03",
       "mode": "expert",
-      "boardId": "da07fc8f34454cfd",
-      "group": "mammals",
+      "boardId": "fair-expert-birds-1-20261005",
+      "group": "birds",
       "intuitive": 4,
-      "familiar": 7,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8844,10 +9367,10 @@
     {
       "date": "2026-12-04",
       "mode": "easy",
-      "boardId": "e5d7ce3b0d1a5be3",
+      "boardId": "c88ecd2c4543f83d",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8855,7 +9378,7 @@
     {
       "date": "2026-12-04",
       "mode": "normal",
-      "boardId": "d450a257d2db00f8",
+      "boardId": "e4edff2ec305b55f",
       "group": "mammals",
       "intuitive": 3,
       "familiar": 6,
@@ -8888,8 +9411,8 @@
     {
       "date": "2026-12-05",
       "mode": "normal",
-      "boardId": "772965831db18564",
-      "group": "birds",
+      "boardId": "fair-expand-603049cd60891372",
+      "group": "pets",
       "intuitive": 3,
       "familiar": 3,
       "minimumIntuitive": 3,
@@ -8899,10 +9422,10 @@
     {
       "date": "2026-12-05",
       "mode": "expert",
-      "boardId": "b779ccd1e715fbef",
-      "group": "mammals",
-      "intuitive": 5,
-      "familiar": 7,
+      "boardId": "fair-expert-birds-1-20261005",
+      "group": "birds",
+      "intuitive": 4,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8910,10 +9433,10 @@
     {
       "date": "2026-12-06",
       "mode": "easy",
-      "boardId": "c88ecd2c4543f83d",
+      "boardId": "fair-expand-d9e5b2fec5720cde",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -8921,10 +9444,10 @@
     {
       "date": "2026-12-06",
       "mode": "normal",
-      "boardId": "a3d4df1afe7a3a48",
+      "boardId": "94700e1d83d4e639",
       "group": "mammals",
-      "intuitive": 4,
-      "familiar": 5,
+      "intuitive": 3,
+      "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8943,7 +9466,7 @@
     {
       "date": "2026-12-07",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-2372-20261006",
+      "boardId": "fair-pet-dog-easy-349-20261006",
       "group": "pets",
       "intuitive": 4,
       "familiar": 1,
@@ -8954,10 +9477,10 @@
     {
       "date": "2026-12-07",
       "mode": "normal",
-      "boardId": "06073849bb5f3770",
+      "boardId": "fair-expand-21bff5256bd6a790",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8976,7 +9499,7 @@
     {
       "date": "2026-12-08",
       "mode": "easy",
-      "boardId": "5277d0057f2e0f60",
+      "boardId": "66a885eb50c01ca6",
       "group": "mammals",
       "intuitive": 3,
       "familiar": 3,
@@ -8987,10 +9510,10 @@
     {
       "date": "2026-12-08",
       "mode": "normal",
-      "boardId": "f196b0c3d86192a0",
-      "group": "birds",
+      "boardId": "fair-expand-84b2fdc6505e79f0",
+      "group": "pets",
       "intuitive": 3,
-      "familiar": 5,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -8998,10 +9521,10 @@
     {
       "date": "2026-12-08",
       "mode": "expert",
-      "boardId": "b779ccd1e715fbef",
-      "group": "mammals",
-      "intuitive": 5,
-      "familiar": 7,
+      "boardId": "fair-expert-birds-1-20261005",
+      "group": "birds",
+      "intuitive": 4,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9009,10 +9532,10 @@
     {
       "date": "2026-12-09",
       "mode": "easy",
-      "boardId": "07a9ea70bd3e7b85",
+      "boardId": "fair-expand-d9e5b2fec5720cde",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9020,10 +9543,10 @@
     {
       "date": "2026-12-09",
       "mode": "normal",
-      "boardId": "ced766c3d807f99e",
+      "boardId": "11305c7ab3ac51ef",
       "group": "mammals",
       "intuitive": 4,
-      "familiar": 5,
+      "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9042,7 +9565,7 @@
     {
       "date": "2026-12-10",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-1456-20261006",
+      "boardId": "fair-pet-dog-easy-2644-20261006",
       "group": "pets",
       "intuitive": 4,
       "familiar": 1,
@@ -9053,7 +9576,7 @@
     {
       "date": "2026-12-10",
       "mode": "normal",
-      "boardId": "06073849bb5f3770",
+      "boardId": "fair-expand-d4de262c16722923",
       "group": "birds",
       "intuitive": 3,
       "familiar": 3,
@@ -9086,10 +9609,10 @@
     {
       "date": "2026-12-11",
       "mode": "normal",
-      "boardId": "29d86c7a7c862151",
-      "group": "mammals",
-      "intuitive": 3,
-      "familiar": 5,
+      "boardId": "fair-expand-6a2dbe702ebb10e5",
+      "group": "pets",
+      "intuitive": 4,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9097,10 +9620,10 @@
     {
       "date": "2026-12-11",
       "mode": "expert",
-      "boardId": "fair-expert-birds-6-20261005",
-      "group": "birds",
-      "intuitive": 4,
-      "familiar": 2,
+      "boardId": "d0efa121872eecbc",
+      "group": "mammals",
+      "intuitive": 5,
+      "familiar": 7,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9108,7 +9631,7 @@
     {
       "date": "2026-12-12",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-1033-20261006",
+      "boardId": "fair-expand-d6bcb54390895865",
       "group": "pets",
       "intuitive": 4,
       "familiar": 2,
@@ -9119,10 +9642,10 @@
     {
       "date": "2026-12-12",
       "mode": "normal",
-      "boardId": "8a7346dfcc96e93c",
+      "boardId": "705bfcdcdc963be9",
       "group": "mammals",
-      "intuitive": 3,
-      "familiar": 6,
+      "intuitive": 4,
+      "familiar": 5,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9141,10 +9664,10 @@
     {
       "date": "2026-12-13",
       "mode": "easy",
-      "boardId": "794898690d7b0d5c",
+      "boardId": "efee34cb93503dc4",
       "group": "mammals",
-      "intuitive": 4,
-      "familiar": 3,
+      "intuitive": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9152,10 +9675,10 @@
     {
       "date": "2026-12-13",
       "mode": "normal",
-      "boardId": "06073849bb5f3770",
-      "group": "birds",
-      "intuitive": 3,
-      "familiar": 3,
+      "boardId": "fair-expand-93d4cde20eb33db3",
+      "group": "pets",
+      "intuitive": 4,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9163,10 +9686,10 @@
     {
       "date": "2026-12-13",
       "mode": "expert",
-      "boardId": "933a21582b9b0235",
-      "group": "mammals",
+      "boardId": "fair-expert-birds-4-20261005",
+      "group": "birds",
       "intuitive": 4,
-      "familiar": 6,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9174,10 +9697,10 @@
     {
       "date": "2026-12-14",
       "mode": "easy",
-      "boardId": "c88ecd2c4543f83d",
+      "boardId": "fair-expand-e9fdfd0c9f536f7f",
       "group": "birds",
-      "intuitive": 3,
-      "familiar": 3,
+      "intuitive": 4,
+      "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9185,9 +9708,9 @@
     {
       "date": "2026-12-14",
       "mode": "normal",
-      "boardId": "fd6c75af0ba7ab03",
+      "boardId": "1a8d1d147e27d58e",
       "group": "mammals",
-      "intuitive": 3,
+      "intuitive": 4,
       "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
@@ -9207,10 +9730,10 @@
     {
       "date": "2026-12-15",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-1882-20261006",
+      "boardId": "fair-expand-e0357e6f41a8e70b",
       "group": "pets",
       "intuitive": 4,
-      "familiar": 3,
+      "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9218,10 +9741,10 @@
     {
       "date": "2026-12-15",
       "mode": "normal",
-      "boardId": "2eec958c1ede9f52",
+      "boardId": "bd4438b0922cca71",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 4,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9251,7 +9774,7 @@
     {
       "date": "2026-12-16",
       "mode": "normal",
-      "boardId": "f7cc01c8ab9f1079",
+      "boardId": "fair-expand-edcadf2cf493947f",
       "group": "birds",
       "intuitive": 3,
       "familiar": 2,
@@ -9273,10 +9796,10 @@
     {
       "date": "2026-12-17",
       "mode": "easy",
-      "boardId": "fair-pet-cat-easy-3324-20261006",
+      "boardId": "fair-expand-2612db62e918a131",
       "group": "pets",
       "intuitive": 4,
-      "familiar": 3,
+      "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9284,10 +9807,10 @@
     {
       "date": "2026-12-17",
       "mode": "normal",
-      "boardId": "5a226d7d636e7aa6",
+      "boardId": "c990a2fb70450188",
       "group": "mammals",
       "intuitive": 4,
-      "familiar": 5,
+      "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9306,10 +9829,10 @@
     {
       "date": "2026-12-18",
       "mode": "easy",
-      "boardId": "5b6820b1bf55460b",
+      "boardId": "3e2c95b7d6090bcc",
       "group": "mammals",
       "intuitive": 4,
-      "familiar": 4,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9317,10 +9840,10 @@
     {
       "date": "2026-12-18",
       "mode": "normal",
-      "boardId": "2eec958c1ede9f52",
-      "group": "birds",
+      "boardId": "fair-expand-603049cd60891372",
+      "group": "pets",
       "intuitive": 3,
-      "familiar": 4,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9328,10 +9851,10 @@
     {
       "date": "2026-12-18",
       "mode": "expert",
-      "boardId": "823d02c26b01755b",
-      "group": "mammals",
+      "boardId": "fair-expert-birds-4-20261005",
+      "group": "birds",
       "intuitive": 4,
-      "familiar": 8,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9350,9 +9873,9 @@
     {
       "date": "2026-12-19",
       "mode": "normal",
-      "boardId": "740d89a08663e2e4",
+      "boardId": "a45c6d6a5b8ee470",
       "group": "mammals",
-      "intuitive": 3,
+      "intuitive": 4,
       "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
@@ -9372,10 +9895,10 @@
     {
       "date": "2026-12-20",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-1862-20261006",
+      "boardId": "fair-expand-e4d5a651a9f11871",
       "group": "pets",
-      "intuitive": 4,
-      "familiar": 4,
+      "intuitive": 3,
+      "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9383,7 +9906,7 @@
     {
       "date": "2026-12-20",
       "mode": "normal",
-      "boardId": "d2340c0c5c714554",
+      "boardId": "60e8b164f4217387",
       "group": "birds",
       "intuitive": 3,
       "familiar": 3,
@@ -9416,10 +9939,10 @@
     {
       "date": "2026-12-21",
       "mode": "normal",
-      "boardId": "7b0abf305c941f8d",
-      "group": "birds",
+      "boardId": "fair-expand-84b2fdc6505e79f0",
+      "group": "pets",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9427,10 +9950,10 @@
     {
       "date": "2026-12-21",
       "mode": "expert",
-      "boardId": "d2ec0e8df5aa90e9",
-      "group": "mammals",
-      "intuitive": 6,
-      "familiar": 7,
+      "boardId": "fair-expert-birds-4-20261005",
+      "group": "birds",
+      "intuitive": 4,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9438,10 +9961,10 @@
     {
       "date": "2026-12-22",
       "mode": "easy",
-      "boardId": "c88ecd2c4543f83d",
+      "boardId": "fair-expand-a7e3210d6eb65517",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9449,9 +9972,9 @@
     {
       "date": "2026-12-22",
       "mode": "normal",
-      "boardId": "962313ca7b3e0e09",
+      "boardId": "782932332b8efcbf",
       "group": "mammals",
-      "intuitive": 4,
+      "intuitive": 3,
       "familiar": 6,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
@@ -9471,10 +9994,10 @@
     {
       "date": "2026-12-23",
       "mode": "easy",
-      "boardId": "3a747bed430fb802",
+      "boardId": "d641eb2e1e786349",
       "group": "mammals",
       "intuitive": 4,
-      "familiar": 4,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9482,10 +10005,10 @@
     {
       "date": "2026-12-23",
       "mode": "normal",
-      "boardId": "4111ae18694a1679",
-      "group": "birds",
-      "intuitive": 3,
-      "familiar": 3,
+      "boardId": "fair-expand-fb10a416d90d933d",
+      "group": "pets",
+      "intuitive": 4,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9493,10 +10016,10 @@
     {
       "date": "2026-12-23",
       "mode": "expert",
-      "boardId": "df3ec9cc8dfa1469",
-      "group": "mammals",
-      "intuitive": 5,
-      "familiar": 7,
+      "boardId": "fair-expert-birds-1-20261005",
+      "group": "birds",
+      "intuitive": 4,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9504,7 +10027,7 @@
     {
       "date": "2026-12-24",
       "mode": "easy",
-      "boardId": "e5d7ce3b0d1a5be3",
+      "boardId": "fair-expand-d6f5402366244c19",
       "group": "birds",
       "intuitive": 3,
       "familiar": 2,
@@ -9515,7 +10038,7 @@
     {
       "date": "2026-12-24",
       "mode": "normal",
-      "boardId": "d659f46cd1358c91",
+      "boardId": "88dd19824a735603",
       "group": "mammals",
       "intuitive": 4,
       "familiar": 4,
@@ -9537,10 +10060,10 @@
     {
       "date": "2026-12-25",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-2643-20261006",
+      "boardId": "fair-expand-3419a61716fe173f",
       "group": "pets",
       "intuitive": 4,
-      "familiar": 1,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9548,10 +10071,10 @@
     {
       "date": "2026-12-25",
       "mode": "normal",
-      "boardId": "fe66fed8e41fe1cc",
+      "boardId": "089ca5428c9e0dec",
       "group": "mammals",
       "intuitive": 4,
-      "familiar": 6,
+      "familiar": 5,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9581,10 +10104,10 @@
     {
       "date": "2026-12-26",
       "mode": "normal",
-      "boardId": "772965831db18564",
-      "group": "birds",
+      "boardId": "fair-expand-b30ab07dc5bf56e0",
+      "group": "pets",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9592,10 +10115,10 @@
     {
       "date": "2026-12-26",
       "mode": "expert",
-      "boardId": "93e75cebcd8db528",
-      "group": "mammals",
+      "boardId": "fair-expert-birds-1-20261005",
+      "group": "birds",
       "intuitive": 4,
-      "familiar": 7,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9603,10 +10126,10 @@
     {
       "date": "2026-12-27",
       "mode": "easy",
-      "boardId": "c88ecd2c4543f83d",
+      "boardId": "fair-expand-e9fdfd0c9f536f7f",
       "group": "birds",
-      "intuitive": 3,
-      "familiar": 3,
+      "intuitive": 4,
+      "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9636,10 +10159,10 @@
     {
       "date": "2026-12-28",
       "mode": "easy",
-      "boardId": "fair-pet-cat-easy-3313-20261006",
+      "boardId": "fair-expand-fc714953c8acf06a",
       "group": "pets",
       "intuitive": 4,
-      "familiar": 3,
+      "familiar": 1,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9647,10 +10170,10 @@
     {
       "date": "2026-12-28",
       "mode": "normal",
-      "boardId": "9ffbdb67e6a6a458",
+      "boardId": "06073849bb5f3770",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 4,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9669,10 +10192,10 @@
     {
       "date": "2026-12-29",
       "mode": "easy",
-      "boardId": "a889fe38638a6b29",
+      "boardId": "1e1e6a69a8810fb1",
       "group": "mammals",
-      "intuitive": 4,
-      "familiar": 2,
+      "intuitive": 3,
+      "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9680,10 +10203,10 @@
     {
       "date": "2026-12-29",
       "mode": "normal",
-      "boardId": "fd7501feb9dea417",
+      "boardId": "f7cc01c8ab9f1079",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9702,7 +10225,7 @@
     {
       "date": "2026-12-30",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-340-20261006",
+      "boardId": "fair-expand-97e79af0897b3128",
       "group": "pets",
       "intuitive": 4,
       "familiar": 1,
@@ -9713,10 +10236,10 @@
     {
       "date": "2026-12-30",
       "mode": "normal",
-      "boardId": "94ee06ac7189ff0e",
+      "boardId": "fad3e859a97bd514",
       "group": "mammals",
-      "intuitive": 3,
-      "familiar": 6,
+      "intuitive": 4,
+      "familiar": 5,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9735,9 +10258,9 @@
     {
       "date": "2026-12-31",
       "mode": "easy",
-      "boardId": "5f4ea9339f0e7aba",
+      "boardId": "fair-mdd-mdd_country_count__low-easy-8-20261005",
       "group": "mammals",
-      "intuitive": 3,
+      "intuitive": 4,
       "familiar": 3,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
@@ -9746,10 +10269,10 @@
     {
       "date": "2026-12-31",
       "mode": "normal",
-      "boardId": "772965831db18564",
-      "group": "birds",
+      "boardId": "fair-expand-0e9b7273481b186a",
+      "group": "pets",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9757,10 +10280,10 @@
     {
       "date": "2026-12-31",
       "mode": "expert",
-      "boardId": "893681fae7656aae",
-      "group": "mammals",
-      "intuitive": 5,
-      "familiar": 7,
+      "boardId": "fair-expert-birds-4-20261005",
+      "group": "birds",
+      "intuitive": 4,
+      "familiar": 3,
       "minimumIntuitive": 4,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9768,10 +10291,10 @@
     {
       "date": "2027-01-01",
       "mode": "easy",
-      "boardId": "07a9ea70bd3e7b85",
+      "boardId": "fair-expand-d9f5e2543247ed35",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 2,
+      "familiar": 4,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9779,10 +10302,10 @@
     {
       "date": "2027-01-01",
       "mode": "normal",
-      "boardId": "3db69f039ace8ebd",
+      "boardId": "7a60a1aaf8c949a2",
       "group": "mammals",
-      "intuitive": 4,
-      "familiar": 6,
+      "intuitive": 3,
+      "familiar": 5,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true
@@ -9801,10 +10324,10 @@
     {
       "date": "2027-01-02",
       "mode": "easy",
-      "boardId": "fair-pet-dog-easy-2643-20261006",
+      "boardId": "fair-pet-dog-easy-3115-20261006",
       "group": "pets",
       "intuitive": 4,
-      "familiar": 1,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 1,
       "eligible": true
@@ -9812,10 +10335,10 @@
     {
       "date": "2027-01-02",
       "mode": "normal",
-      "boardId": "06073849bb5f3770",
+      "boardId": "fair-expand-21bff5256bd6a790",
       "group": "birds",
       "intuitive": 3,
-      "familiar": 3,
+      "familiar": 2,
       "minimumIntuitive": 3,
       "minimumFamiliar": 2,
       "eligible": true

@@ -714,7 +714,7 @@
     },
     {
       "traitId": "raw_fledging_age",
-      "label": "Time until fledging",
+      "label": "Longest wait to leave the nest",
       "scope": "bird",
       "kind": "scoped",
       "count": 38,
@@ -2753,6 +2753,456 @@
       "scope": "Dog breeds",
       "kind": "breed",
       "count": 25,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_survey_trainability",
+      "label": "Easiest to train in owner survey",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 19,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_survey_trainability__low",
+      "label": "Hardest to train in owner survey",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 19,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_survey_chasing",
+      "label": "Most likely to chase",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 19,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_survey_chasing__low",
+      "label": "Least likely to chase",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 19,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_survey_strangerfear",
+      "label": "Most wary of strangers",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 19,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_survey_strangerfear__low",
+      "label": "Least wary of strangers",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 19,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_survey_nonsocialfear",
+      "label": "Most easily startled",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 19,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_survey_nonsocialfear__low",
+      "label": "Least easily startled",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 19,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_survey_sepprobs",
+      "label": "Most upset when left alone",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 19,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_survey_sepprobs__low",
+      "label": "Least upset when left alone",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 19,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_survey_touchsens",
+      "label": "Most sensitive to handling",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 19,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_survey_touchsens__low",
+      "label": "Least sensitive to handling",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 19,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_survey_excitability",
+      "label": "Most excitable",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 19,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_survey_excitability__low",
+      "label": "Least excitable",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 19,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_survey_attachatten",
+      "label": "Most attention-seeking",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 19,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_survey_attachatten__low",
+      "label": "Least attention-seeking",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 19,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_survey_energy",
+      "label": "Most energetic in owner survey",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 19,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_survey_energy__low",
+      "label": "Least energetic in owner survey",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 19,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_survey_dogfear",
+      "label": "Most wary of other dogs",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 19,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_survey_dogfear__low",
+      "label": "Least wary of other dogs",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 19,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "raw_fledging_age__low",
+      "label": "Shortest wait to leave the nest",
+      "scope": "bird",
+      "kind": "scoped",
+      "count": 38,
+      "minimum": 20,
+      "majorGroups": [
+        "bird"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "mammal_head_body_length",
+      "label": "Longest mammal body",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 38,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "monotreme",
+        "insectivore",
+        "treeshrew"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "mammal_head_body_length__low",
+      "label": "Shortest mammal body",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 38,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "monotreme",
+        "insectivore",
+        "treeshrew"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_akc_barking_level",
+      "label": "Most vocal",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 24,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_akc_barking_level__low",
+      "label": "Quietest",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 24,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_akc_coat_grooming_frequency",
+      "label": "Most grooming needed",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 24,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_akc_coat_grooming_frequency__low",
+      "label": "Least grooming needed",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 24,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_akc_shedding_level",
+      "label": "Most shedding",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 24,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_akc_shedding_level__low",
+      "label": "Least shedding",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 24,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_akc_openness_to_strangers",
+      "label": "Most welcoming to strangers",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 24,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_akc_openness_to_strangers__low",
+      "label": "Least welcoming to strangers",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 24,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_akc_watchdogprotective_nature",
+      "label": "Most watchful",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 24,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_akc_watchdogprotective_nature__low",
+      "label": "Least watchful",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 24,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_akc_drooling_level",
+      "label": "Most drooling",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 24,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_akc_drooling_level__low",
+      "label": "Least drooling",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 24,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_akc_recognition_age",
+      "label": "Longest recognized by AKC",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 24,
+      "minimum": 8,
+      "majorGroups": [
+        "mammals"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "pet_dog_akc_recognition_age__low",
+      "label": "Most recently recognized by AKC",
+      "scope": "Dog breeds",
+      "kind": "breed",
+      "count": 24,
       "minimum": 8,
       "majorGroups": [
         "mammals"

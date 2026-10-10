@@ -1,9 +1,9 @@
 {
   "generatedAt": "2026-10-10",
-  "defaultBoards": 3938,
-  "candidateBoards": 5786,
-  "playableLabels": 120,
-  "playableTraitIds": 137,
+  "defaultBoards": 3976,
+  "candidateBoards": 5824,
+  "playableLabels": 124,
+  "playableTraitIds": 143,
   "counts": {
     "mammals": {
       "easy": 998,
@@ -42,10 +42,10 @@
       "total": 0
     },
     "fish": {
-      "easy": 0,
+      "easy": 38,
       "normal": 0,
       "expert": 0,
-      "total": 0
+      "total": 38
     },
     "insects": {
       "easy": 0,

@@ -1,0 +1,3755 @@
+{
+  "sourceRows": 20307,
+  "sha256": "763d8c2c32b33646c6ccf9aa78a68f26529f778881e180de15cc9560369554d6",
+  "selectedSpecies": 72,
+  "newAnimals": 55,
+  "acceptedRecords": [
+    {
+      "animalId": "oreochromis_niloticus",
+      "metric": "length",
+      "value": 64.0,
+      "row": 34,
+      "reference": 2,
+      "citation": "Trewavas, E.. 1983. Tilapiine fishes of the genera <i>Sarotherodon</i>, <i>Oreochromis</i> and <i>Danakilia</i>. British Mus. Nat. Hist., London, UK. 583 p."
+    },
+    {
+      "animalId": "epinephelus_itajara",
+      "metric": "length",
+      "value": 250.0,
+      "row": 5378,
+      "reference": 5222,
+      "citation": "Heemstra, P.C. and J.E. Randall. 1993. FAO Species Catalogue. Vol. 16. Groupers of the world (family Serranidae, subfamily Epinephelinae). An annotated and illustrated catalogue of the grouper, rockcod, hind, coral grouper and lyretail species known to date. Rome: FAO. FAO Fish. Synop. 125(16):382 p."
+    },
+    {
+      "animalId": "anguilla_anguilla",
+      "metric": "length",
+      "value": 200.0,
+      "row": 2995,
+      "reference": 47532,
+      "citation": "Iranian Fisheries Company and Iranian Fisheries Research Organization. 2000. Fishes of the Caspian Sea (Iranian waters). Poster. Tehran, Iran."
+    },
+    {
+      "animalId": "engraulis_encrasicolus",
+      "metric": "length",
+      "value": 19.0,
+      "row": 168,
+      "reference": 6104,
+      "citation": "Stergiou, K.I.. 1991. Biology, ecology and dynamics of <i>Cepola macrophthalma</i> (L., 1758) (Pisces: Cepolidae) in the Euboikos and Pagassitikos Gulfs). Ph.D. thesis, Aristotle Univ. Thessaloniki, Greece. 222 p. (in Hellenic, English abstract)."
+    },
+    {
+      "animalId": "gadus_morhua",
+      "metric": "length",
+      "value": 200.0,
+      "row": 17362,
+      "reference": 93252,
+      "citation": "Murdy, E.O. and J.A. Musick. 2013. Field guide to fishes of the Chesapeake Bay. JHU Press, 360 p."
+    },
+    {
+      "animalId": "istiophorus_platypterus",
+      "metric": "length",
+      "value": 320.0,
+      "row": 2933,
+      "reference": 47533,
+      "citation": "Iranian Fisheries Company and Iranian Fisheries Research Organization. 2000. Persian Gulf and Oman sea fishes. Poster. Iran."
+    },
+    {
+      "animalId": "chanos_chanos",
+      "metric": "length",
+      "value": 180.0,
+      "row": 2923,
+      "reference": 47533,
+      "citation": "Iranian Fisheries Company and Iranian Fisheries Research Organization. 2000. Persian Gulf and Oman sea fishes. Poster. Iran."
+    },
+    {
+      "animalId": "scomber_scombrus",
+      "metric": "length",
+      "value": 48.0,
+      "row": 17806,
+      "reference": 110404,
+      "citation": "Villamora, B., P. Abaunzaa and A. Celso Fari\u00f1a. 2004. Growth variability of mackerel (Scomber scombrus) off north and northwest Spain and a comparative review of the growth patterns in the northeast Atlantic. Fish. Res. 69:107-121."
+    },
+    {
+      "animalId": "salmo_salar",
+      "metric": "length",
+      "value": 147.0,
+      "row": 9851,
+      "reference": 92381,
+      "citation": "Kangur, M., T. Paaver and T. Drevs. 2003. Salmon, <i>Salmo salar</i> L. p. 91-97.  In  E. Ojaveer, E. Pihu and T. Saat (eds). Fishes of Estonia. Estonian Academy Publishers, Tallinn. 416 p."
+    },
+    {
+      "animalId": "salmo_trutta",
+      "metric": "length",
+      "value": 60.0,
+      "row": 9778,
+      "reference": 91879,
+      "citation": "Pedicillo, G., A. Carosi, L. Ghetti and M. Lorenzoni. 2010. Population size structure indices and growth standards for <i>Salmo (trutta) trutta</i> Linnaeus, 1758 in Central Italy. Knowl. Managt. Aquatic Ecosyst. 399:2-14."
+    },
+    {
+      "animalId": "oncorhynchus_mykiss",
+      "metric": "length",
+      "value": 123.2,
+      "row": 19769,
+      "reference": 120611,
+      "citation": "Eakins, R.J.. 2019. Rainbow trout (steelhead). Ontario Freshwater Fishes Life History Database. Version 4.85. Online database. (http://www.ontariofishes.ca; http://www.ontariofishes.ca/home.htm), accessed\u00a026 June 2019."
+    },
+    {
+      "animalId": "oncorhynchus_kisutch",
+      "metric": "length",
+      "value": 98.0,
+      "row": 430,
+      "reference": 2939,
+      "citation": "Palomares, M.L.D.. 1991. La consommation de nourriture chez les poissons: \u00e9tude comparative, mise au point d'un mod\u00e8le pr\u00e9dictif et application \u00e0 l'\u00e9tude des r\u00e9seaux trophiques. Th\u00e8se de Doctorat, Institut National Polytechnique de Toulouse, 211 p."
+    },
+    {
+      "animalId": "esox_lucius",
+      "metric": "length",
+      "value": 150.0,
+      "row": 3017,
+      "reference": 47532,
+      "citation": "Iranian Fisheries Company and Iranian Fisheries Research Organization. 2000. Fishes of the Caspian Sea (Iranian waters). Poster. Tehran, Iran."
+    },
+    {
+      "animalId": "carassius_auratus",
+      "metric": "length",
+      "value": 45.3,
+      "row": 22487,
+      "reference": 126870,
+      "citation": "Baek, S.-H., S.-H. Park and J.-H. Kim. 2020. Estimation of standard length-weight relationships of 10 freshwater fish in the South Korea for application of relative weight index. Korean Journal of Ichthyology 32(2):55-62."
+    },
+    {
+      "animalId": "silurus_glanis",
+      "metric": "length",
+      "value": 300.0,
+      "row": 3016,
+      "reference": 47532,
+      "citation": "Iranian Fisheries Company and Iranian Fisheries Research Organization. 2000. Fishes of the Caspian Sea (Iranian waters). Poster. Tehran, Iran."
+    },
+    {
+      "animalId": "ictalurus_punctatus",
+      "metric": "length",
+      "value": 132.0,
+      "row": 19759,
+      "reference": 120600,
+      "citation": "Eakins, R.J.. 2019. Channel catfish. Ontario Freshwater Fishes Life History Database. Version 4.85. Online database. (http://www.ontariofishes.ca; http://www.ontariofishes.ca/home.htm), accessed\u00a025 June 2019."
+    },
+    {
+      "animalId": "conger_conger",
+      "metric": "length",
+      "value": 200.0,
+      "row": 477,
+      "reference": 32635,
+      "citation": "Fannon, E., E. Fahy and R. O'Reilly. 1990. Maturation in female conger eel, <i>Conger conger</i> (L.). J. Fish Biol. 36(2):275-276."
+    },
+    {
+      "animalId": "lates_calcarifer",
+      "metric": "length",
+      "value": 200.0,
+      "row": 521,
+      "reference": 7050,
+      "citation": "Kottelat, M., A.J. Whitten, S.N. Kartikasari and S. Wirjoatmodjo. 1993. Freshwater fishes of Western Indonesia and Sulawesi. Periplus Editions, Hong Kong. 221 p."
+    },
+    {
+      "animalId": "perca_fluviatilis",
+      "metric": "length",
+      "value": 51.0,
+      "row": 3021,
+      "reference": 47532,
+      "citation": "Iranian Fisheries Company and Iranian Fisheries Research Organization. 2000. Fishes of the Caspian Sea (Iranian waters). Poster. Tehran, Iran."
+    },
+    {
+      "animalId": "sander_lucioperca",
+      "metric": "length",
+      "value": 130.0,
+      "row": 3022,
+      "reference": 47532,
+      "citation": "Iranian Fisheries Company and Iranian Fisheries Research Organization. 2000. Fishes of the Caspian Sea (Iranian waters). Poster. Tehran, Iran."
+    },
+    {
+      "animalId": "hippoglossus_stenolepis",
+      "metric": "length",
+      "value": 239.0,
+      "row": 5691,
+      "reference": 56370,
+      "citation": "Fadeev, N.S.. 1971. Biology and fisheries of the Pacific Ocean flatfishes. Vladivostok, Dal'izdat, 100 p."
+    },
+    {
+      "animalId": "carcharias_taurus",
+      "metric": "length",
+      "value": 320.0,
+      "row": 703,
+      "reference": 3678,
+      "citation": "Torres, F.S.B. Jr.. 1991. Tabular data on marine fishes from Southern Africa, Part I. Length-weight relationships. Fishbyte 9(1):50-53."
+    },
+    {
+      "animalId": "carcharodon_carcharias",
+      "metric": "length",
+      "value": 792.0,
+      "row": 709,
+      "reference": 5951,
+      "citation": "Scott, W.B. and M.G. Scott. 1988. Atlantic fishes of Canada. Can. Bull. Fish. Aquat. Sci. 219:731 p."
+    },
+    {
+      "animalId": "isurus_oxyrinchus",
+      "metric": "length",
+      "value": 585.0,
+      "row": 9586,
+      "reference": 87851,
+      "citation": "Kabasakal, H. and A. De Madalena. 2011. A huge shortfin mako shark <i>Isurus oxyrinchus</i> Rafinesque, 1810 (Chondrichthyes: Lamnidae) from the waters of Marmaris, Turkey. Annales Ser. Hist. Nat. 21:21-24."
+    },
+    {
+      "animalId": "mugil_cephalus",
+      "metric": "length",
+      "value": 100.0,
+      "row": 16161,
+      "reference": 95541,
+      "citation": "FAO EastMed Project. 2013. Species identification plates, Arabic/Egyptian/English version 2013. FAO EastMed Project"
+    },
+    {
+      "animalId": "carcharhinus_leucas",
+      "metric": "length",
+      "value": 320.0,
+      "row": 746,
+      "reference": 3678,
+      "citation": "Torres, F.S.B. Jr.. 1991. Tabular data on marine fishes from Southern Africa, Part I. Length-weight relationships. Fishbyte 9(1):50-53."
+    },
+    {
+      "animalId": "galeocerdo_cuvier",
+      "metric": "length",
+      "value": 750.0,
+      "row": 3047,
+      "reference": 47613,
+      "citation": "Assadi, H. and P.R. Dehghani. 1997. Atlas of the Persian Gulf and the Sea of Oman fishes. Iranian Fisheries Research and Training Organization, Iran."
+    },
+    {
+      "animalId": "negaprion_brevirostris",
+      "metric": "length",
+      "value": 340.0,
+      "row": 16366,
+      "reference": 96339,
+      "citation": "Love, M.S., C.W. Mecklenburg, T.A. Mecklenburg and L.K. Thorsteinson. 2005. Resource inventory of marine and estuarine fishes of the West Coast and Alaska: A checklist of North Pacific and Arctic Ocean species from Baja California to the Alaska-Yukon border. U.S. Department of the Interior, U.S. Geological Survey, Biological Resources Division, Seattle, Washington, 98104."
+    },
+    {
+      "animalId": "prionace_glauca",
+      "metric": "length",
+      "value": 390.0,
+      "row": 5350,
+      "reference": 54997,
+      "citation": "Azevedo, V.G.. 2005. <i>Prionace glauca</i> (Linnaeus, 1758). p. 132-138. In M.C. Cergole, A.O. \u00c1vila-da-Silva and C.L.D.B. Rossi-Wongtchowski (eds.) An\u00e1lise das principais pescarias commerciais da regi\u00e3o sudeste-sul do Brasil: din\u00e2mica populacional das esp\u00e9cies em explota\u00e7ao. S\u00e3o Paulo: Instituto Oceanogr\u00e1fico."
+    },
+    {
+      "animalId": "sphyrna_lewini",
+      "metric": "length",
+      "value": 430.0,
+      "row": 18338,
+      "reference": 116211,
+      "citation": "CMFRI. 2016. Annual report 2016-17. Central Marine Fisheries Research Institute, Kochi, 345 p."
+    },
+    {
+      "animalId": "atractosteus_spatula",
+      "metric": "length",
+      "value": 260.0,
+      "row": 24455,
+      "reference": 137696,
+      "citation": "Andrews, A.H., D.J. Daugherty, M. Wertnik, C. Welte, N.G. Smith, D.L. Buckmeier and D. Riecke. 2024. Alligator gar as a centenarian species: extending lifespan estimates using bomb radiocarbon and laser ablation-accelerator mass spectrometry. Marine and Freshwater Research 75(8):MF24024."
+    },
+    {
+      "animalId": "lepisosteus_osseus",
+      "metric": "length",
+      "value": 180.0,
+      "row": 16765,
+      "reference": 27549,
+      "citation": "Murdy, E.O., R.S. Birdsong and J.A. Musick. 1997. Fishes of Chesapeake Bay. Smithsonian Institution Press Washington and London. 324 p."
+    },
+    {
+      "animalId": "sphyraena_barracuda",
+      "metric": "length",
+      "value": 200.0,
+      "row": 13752,
+      "reference": 7251,
+      "citation": "Robins, C.R. and G.C. Ray. 1986. A field guide to Atlantic coast fishes of North America. Houghton Mifflin Company, Boston, U.S.A. 354 p."
+    },
+    {
+      "animalId": "sardina_pilchardus",
+      "metric": "length",
+      "value": 27.0,
+      "row": 15676,
+      "reference": 92243,
+      "citation": "Silva, A., P. Carrera, J. Mass\u00e9, A. D. Uriarte, M. B. Santos, P. B. Oliveira, E. Soares, C. Porteiro and Y. Stratoudakis. 2008. Geographic variability of sardine growth across the northeastern Atlantic and the Mediterranean Sea. Fish. Res. 90:56-69."
+    },
+    {
+      "animalId": "hippoglossus_hippoglossus",
+      "metric": "length",
+      "value": 250.0,
+      "row": 23084,
+      "reference": 117245,
+      "citation": "Coad, B.W. and J.D. Reist. 2018. Marine fishes of Arctic Canada. Toronto (ON, Canada): University of Toronto Press. xiii+618 p."
+    },
+    {
+      "animalId": "lutjanus_campechanus",
+      "metric": "length",
+      "value": 104.0,
+      "row": 9086,
+      "reference": 43644,
+      "citation": "Wilson, C.A. and D.L. Nieland. 2001. Age and growth of red snapper, <i>Lutjanus campechanus</i>, from the northern Gulf of Mexico off Louisiana. Fish. Bull. 99:653-664."
+    },
+    {
+      "animalId": "cyprinus_carpio",
+      "metric": "length",
+      "value": 120.0,
+      "row": 24656,
+      "reference": 27549,
+      "citation": "Murdy, E.O., R.S. Birdsong and J.A. Musick. 1997. Fishes of Chesapeake Bay. Smithsonian Institution Press Washington and London. 324 p."
+    },
+    {
+      "animalId": "coryphaena_hippurus",
+      "metric": "length",
+      "value": 200.0,
+      "row": 2911,
+      "reference": 47533,
+      "citation": "Iranian Fisheries Company and Iranian Fisheries Research Organization. 2000. Persian Gulf and Oman sea fishes. Poster. Iran."
+    },
+    {
+      "animalId": "mola_mola",
+      "metric": "length",
+      "value": 333.0,
+      "row": 14132,
+      "reference": 26340,
+      "citation": "Claro, R.. 1994. Caracter\u00edsticas generales de la ictiofauna. p. 55-70. In R. Claro (ed.) Ecolog\u00eda de los peces marinos de Cuba. Instituto de Oceanolog\u00eda Academia de Ciencias de Cuba and Centro de Investigaciones de Quintana Roo."
+    },
+    {
+      "animalId": "acipenser_sturio",
+      "metric": "length",
+      "value": 600.0,
+      "row": 7285,
+      "reference": 59043,
+      "citation": "Kottelat, M. and J. Freyhof. 2007. Handbook of European freshwater fishes. Publications Kottelat, Cornol and Freyhof, Berlin. 646 pp."
+    },
+    {
+      "animalId": "gasterosteus_aculeatus",
+      "metric": "length",
+      "value": 10.0,
+      "row": 3182,
+      "reference": 47532,
+      "citation": "Iranian Fisheries Company and Iranian Fisheries Research Organization. 2000. Fishes of the Caspian Sea (Iranian waters). Poster. Tehran, Iran."
+    },
+    {
+      "animalId": "triakis_semifasciata",
+      "metric": "length",
+      "value": 210.0,
+      "row": 16362,
+      "reference": 96339,
+      "citation": "Love, M.S., C.W. Mecklenburg, T.A. Mecklenburg and L.K. Thorsteinson. 2005. Resource inventory of marine and estuarine fishes of the West Coast and Alaska: A checklist of North Pacific and Arctic Ocean species from Baja California to the Alaska-Yukon border. U.S. Department of the Interior, U.S. Geological Survey, Biological Resources Division, Seattle, Washington, 98104."
+    },
+    {
+      "animalId": "acipenser_transmontanus",
+      "metric": "length",
+      "value": 610.0,
+      "row": 4727,
+      "reference": 52332,
+      "citation": "Rochard, E., P. Williot, G. Castelnau and M. Lepage. 1991. Elements de syst\u00e9matique et de biologie des populations sauvages d'esturgeons. p. 475-507. In P. Williot (ed.) Acipenser, Actes du Premier colloque international sur l'esturgeon, Bordeaux, 3-6 Octobre 1989. CEMAGREF Publ."
+    },
+    {
+      "animalId": "pylodictis_olivaris",
+      "metric": "length",
+      "value": 131.2,
+      "row": 19409,
+      "reference": 119033,
+      "citation": "Massie, D.L., G.D. Smith, T.F. Bonvechio, A.J. Bunch, D.O. Lucchesi and T. Wagner. 2018. Spatial variability and macro-scale drivers of growth for native and introduced flathead catfish populations. Trans. Am. Fish. Soc. 147(3):554-565."
+    },
+    {
+      "animalId": "micropterus_salmoides",
+      "metric": "length",
+      "value": 97.0,
+      "row": 19774,
+      "reference": 120614,
+      "citation": "Eakins, R.J.. 2019. Lagremouth bass. Ontario Freshwater Fishes Life History Database. Version 4.85. Online database. (http://www.ontariofishes.ca; http://www.ontariofishes.ca/home.htm), accessed\u00a026 June 2019."
+    },
+    {
+      "animalId": "sander_vitreus",
+      "metric": "length",
+      "value": 106.6,
+      "row": 19766,
+      "reference": 120608,
+      "citation": "Eakins, R.J.. 2019. Walleye (yellow pickerel). Ontario Freshwater Fishes Life History Database. Version 4.85. Online database. (http://www.ontariofishes.ca; http://www.ontariofishes.ca/home.htm), accessed\u00a025 June 2019."
+    },
+    {
+      "animalId": "pterois_volitans",
+      "metric": "length",
+      "value": 45.0,
+      "row": 9484,
+      "reference": 85278,
+      "citation": "Whitfield, P.E., J.A. Hare, A.W. David, S.L. Harter, R.C. Mu\u00f1oz and C.M. Addison. 2007. Abundance estimates of the Indo-Pacific lionfish <i>Pterois volitans</i>/<i>miles</i> complex in the Western North Atlantic. Biological Invasions 9:53-64."
+    },
+    {
+      "animalId": "hippocampus_kuda",
+      "metric": "length",
+      "value": 30.0,
+      "row": 10662,
+      "reference": 1602,
+      "citation": "Myers, R.F.. 1991. Micronesian reef fishes. Second Ed. Coral Graphics, Barrigada, Guam. 298 p."
+    },
+    {
+      "animalId": "paracanthurus_hepatus",
+      "metric": "length",
+      "value": 31.0,
+      "row": 13728,
+      "reference": 2334,
+      "citation": "Randall, J.E., G.R. Allen and R.C. Steene. 1990. Fishes of the Great Barrier Reef and Coral Sea. University of Hawaii Press, Honolulu, Hawaii. 506 p."
+    },
+    {
+      "animalId": "amphiprion_ocellaris",
+      "metric": "length",
+      "value": 11.0,
+      "row": 13212,
+      "reference": 9710,
+      "citation": "Lieske, E. and R. Myers. 1994. Collins Pocket Guide. Coral reef fishes. Indo-Pacific & Caribbean including the Red Sea. Haper Collins Publishers, 400 p."
+    },
+    {
+      "animalId": "clupea_harengus",
+      "metric": "length",
+      "value": 51.0,
+      "row": 4057,
+      "reference": 52104,
+      "citation": "Ojaveer, E.. 2003. Baltic herring, <i>Clupea harengus membras</i> L.. p. 58-79. In E. Ojaveer, E. Pihu and T. Saat (eds.) Fishes of Estonia. Estonian Academy Publishers, Tallinn. 416 p."
+    },
+    {
+      "animalId": "epinephelus_itajara",
+      "metric": "lifespan",
+      "value": 38.0,
+      "row": 7975,
+      "reference": 72458,
+      "citation": "Jarzhombek, A.A.. 2007. Compilation of studies on the growth of Acanthopterygii. Russian Federal Research Institute of Fisheries and Oceanography (VNIRO). 86 p."
+    },
+    {
+      "animalId": "clupea_harengus",
+      "metric": "lifespan",
+      "value": 25.0,
+      "row": 92,
+      "reference": 2809,
+      "citation": "Jennings, S. and R.J.H. Beverton. 1991. Intraspecific variation in the life history tactics of Atlantic herring (<i>Clupea harengus</i> L.) stocks. ICES J. Mar. Sci. 48:117-125."
+    },
+    {
+      "animalId": "anguilla_anguilla",
+      "metric": "lifespan",
+      "value": 20.0,
+      "row": 121,
+      "reference": 6114,
+      "citation": "Koli, L.. 1990. Suomen kalat. [Fishes of Finland]. Werner S\u00f6derstr\u00f6m Osakeyhti\u00f6. Helsinki. 357 p. (in Finnish)."
+    },
+    {
+      "animalId": "engraulis_encrasicolus",
+      "metric": "lifespan",
+      "value": 5.0,
+      "row": 9779,
+      "reference": 91174,
+      "citation": "Sinov\u010di\u0107, G. and B. Zorica. 2006. Reproductive cycle and minimal length at sexual maturity of <i>Engraulis encrasicolus</i> (L.) in the Zrmanja River estuary (Adriatic Sea, Croatia). Estua. Coast. Shelf. Sci. 69:439-448."
+    },
+    {
+      "animalId": "gadus_morhua",
+      "metric": "lifespan",
+      "value": 25.0,
+      "row": 20538,
+      "reference": 173,
+      "citation": "Muus, B.J. and P. Dahlstr\u00f6m. 1974. Collins guide to the sea fishes of Britain and North-Western Europe. Collins, London, UK. 244 p."
+    },
+    {
+      "animalId": "istiophorus_platypterus",
+      "metric": "lifespan",
+      "value": 13.0,
+      "row": 5206,
+      "reference": 53612,
+      "citation": "Chiang, W.-C., C.-L. Sun, S.-Z. Yeh and W.-C. Su. 2004. Age growth of sailfish (<i>Istiophorus platypterus</i> in waters off eastern Taiwan. Fish. Bull. 102(2):251-263."
+    },
+    {
+      "animalId": "katsuwonus_pelamis",
+      "metric": "lifespan",
+      "value": 12.0,
+      "row": 20541,
+      "reference": 168,
+      "citation": "Collette, B.B. and C.E. Nauen. 1983. FAO Species Catalogue. Vol. 2. Scombrids of the world. An annotated and illustrated catalogue of tunas, mackerels, bonitos and related species known to date. Rome: FAO. FAO Fish. Synop. 125(2):137 p."
+    },
+    {
+      "animalId": "scomber_scombrus",
+      "metric": "lifespan",
+      "value": 21.0,
+      "row": 17508,
+      "reference": 51864,
+      "citation": "Clarke, M.W., C.J. Kelly, P.L. Conolly and J.P. Molloy. 2003. A life history approach to the assessment and management of deepwater fisheries in the Northeast Atlantic. J. Northwest Atl. Fish. Sci. 31:401-411."
+    },
+    {
+      "animalId": "thunnus_albacares",
+      "metric": "lifespan",
+      "value": 18.0,
+      "row": 24456,
+      "reference": 137697,
+      "citation": "Andrews, A.H., A. Pacicco, R. Allman, B.J. Falterman, E.T. Lang and W. Golet. 2020. Age validation of yellowfin (<i>Thunnus albacares</i>) and bigeye (<i>Thunnus obesus</i>) tuna of the northwestern Atlantic Ocean. Canadian Journal of Fisheries and Aquatic Sciences 77(4):637-643."
+    },
+    {
+      "animalId": "thunnus_thynnus",
+      "metric": "lifespan",
+      "value": 18.0,
+      "row": 17607,
+      "reference": 108971,
+      "citation": "Lee, D.W., E.D. Prince and M.E. Crow. 1983. Interpretation of growth bands on vertebrae and otoliths of Atlantic bluefin tuna, <i>Thunnus thynnus</i>. NOAA Tech. Rep. NMFS 8:61-69."
+    },
+    {
+      "animalId": "makaira_nigricans",
+      "metric": "lifespan",
+      "value": 20.0,
+      "row": 19874,
+      "reference": 120707,
+      "citation": "Andrews, A.H., Humphreys Jr. and J.D. Sampaga. 2018. Blue marlin (<i>Makaira nigricans</i> longevity estimates confirmed with bomb radiocarbon dating. Can. J. Fish. Aquat, Sci. 75:17-25."
+    },
+    {
+      "animalId": "xiphias_gladius",
+      "metric": "lifespan",
+      "value": 19.0,
+      "row": 16559,
+      "reference": 97124,
+      "citation": "Young, J.W. and A. Drake. 2004. Age and growth of broadbill swordfish (<i>Xiphias gladius</i>) from Australian waters. p.76. In Handbook and Abstracts, Third International Symposium on Fish Otolith Research and Application: Innovation and Implementation, 11-16 July 2004, Jupiter\u2019s Hotel and Casino, Townsville, Queensland, Australia."
+    },
+    {
+      "animalId": "salmo_salar",
+      "metric": "lifespan",
+      "value": 14.0,
+      "row": 409,
+      "reference": 3672,
+      "citation": "Carlander, K.D.. 1969. Handbook of freshwater fishery biology, Volume 1. The Iowa State University Press, Ames. Iowa. 752 p."
+    },
+    {
+      "animalId": "salmo_trutta",
+      "metric": "lifespan",
+      "value": 18.0,
+      "row": 17197,
+      "reference": 27549,
+      "citation": "Murdy, E.O., R.S. Birdsong and J.A. Musick. 1997. Fishes of Chesapeake Bay. Smithsonian Institution Press Washington and London. 324 p."
+    },
+    {
+      "animalId": "oncorhynchus_mykiss",
+      "metric": "lifespan",
+      "value": 11.0,
+      "row": 418,
+      "reference": 3672,
+      "citation": "Carlander, K.D.. 1969. Handbook of freshwater fishery biology, Volume 1. The Iowa State University Press, Ames. Iowa. 752 p."
+    },
+    {
+      "animalId": "oncorhynchus_nerka",
+      "metric": "lifespan",
+      "value": 8.0,
+      "row": 20545,
+      "reference": 72462,
+      "citation": "Altman, P.L. and D.S. Dittmer. 1962. Growth, including reproduction and morphological development. Federation of American Societies for Experimental Biology."
+    },
+    {
+      "animalId": "oncorhynchus_tshawytscha",
+      "metric": "lifespan",
+      "value": 9.0,
+      "row": 20546,
+      "reference": 12193,
+      "citation": "Hugg, D.O.. 1996. MAPFISH georeferenced mapping database. Freshwater and estuarine fishes of North America. Life Science Software. Dennis O. and Steven Hugg, 1278 Turkey Point Road, Edgewater, Maryland, USA."
+    },
+    {
+      "animalId": "oncorhynchus_kisutch",
+      "metric": "lifespan",
+      "value": 5.0,
+      "row": 20547,
+      "reference": 36794,
+      "citation": "Drummond Sedgwick, S.. 1982. The salmon handbook: the life and cultivation of fishes of the salmon family. Andre Deutsch Ltd., London, UK, 247 p."
+    },
+    {
+      "animalId": "salvelinus_fontinalis",
+      "metric": "lifespan",
+      "value": 24.0,
+      "row": 20548,
+      "reference": 72501,
+      "citation": "Reimers, N.. 1979. A history of a stunted brook trout population in an Alpine lake: a lifespan of 24 years. Calif. Fish Game 65(4):196-215."
+    },
+    {
+      "animalId": "salvelinus_namaycush",
+      "metric": "lifespan",
+      "value": 50.0,
+      "row": 20550,
+      "reference": 3494,
+      "citation": "Power, G.. 1978. Fish population structure in Arctic lakes. J. Fish. Res. Board Can. 35:53-59."
+    },
+    {
+      "animalId": "esox_lucius",
+      "metric": "lifespan",
+      "value": 30.0,
+      "row": 20552,
+      "reference": 556,
+      "citation": "Muus, B.J. and P. Dahlstr\u00f6m. 1968. S\u00fc\u00dfwasserfische. BLV Verlagsgesellschaft, M\u00fcnchen. 224 p."
+    },
+    {
+      "animalId": "carassius_auratus",
+      "metric": "lifespan",
+      "value": 41.0,
+      "row": 20555,
+      "reference": 72468,
+      "citation": "Bobick, J.E. and M. Peffer. 1993. Science and technology desk reference. Gale Research Inc."
+    },
+    {
+      "animalId": "ictalurus_punctatus",
+      "metric": "lifespan",
+      "value": 27.0,
+      "row": 19759,
+      "reference": 120600,
+      "citation": "Eakins, R.J.. 2019. Channel catfish. Ontario Freshwater Fishes Life History Database. Version 4.85. Online database. (http://www.ontariofishes.ca; http://www.ontariofishes.ca/home.htm), accessed\u00a025 June 2019."
+    },
+    {
+      "animalId": "conger_conger",
+      "metric": "lifespan",
+      "value": 11.0,
+      "row": 475,
+      "reference": 4892,
+      "citation": "Flores-Hernandez, D.. 1990. Les p\u00eacheries de congre (<i>Conger conger</i> L.) dans le Mor Braz, Bretagne Sud. (El\u00e9ments de la biologie et de gestion de la ressource). Th\u00e8se de doctorat. Fac. des Sciences de Luminy, Universit\u00e9 d'Aix-Marseille II. 150 p."
+    },
+    {
+      "animalId": "lates_calcarifer",
+      "metric": "lifespan",
+      "value": 35.0,
+      "row": 20731,
+      "reference": 125591,
+      "citation": "Campbell, A., J. Robins and M. O'Neill. 2017. Assessment of the barramundi (<i>Lates calcarifer</i>) fishery in the Southern Gulf of Carpentaria, Queensland, Australia. piSeas Pty Ltd. Department of Agriculture and Fisheries, Queensland Government."
+    },
+    {
+      "animalId": "perca_fluviatilis",
+      "metric": "lifespan",
+      "value": 22.0,
+      "row": 526,
+      "reference": 796,
+      "citation": "Beverton, R.J.H. and S.J. Holt. 1959. A review of the lifespans and mortality rates of fish in nature, and their relation to growth and other physiological characteristics. p. 142-180. In G.E.W. Wolstenholme and M. O'Connor (eds.) CIBA Foundation colloquia on ageing: the lifespan of animals. volume 5. J & A Churchill Ltd, London."
+    },
+    {
+      "animalId": "sander_lucioperca",
+      "metric": "lifespan",
+      "value": 17.0,
+      "row": 7912,
+      "reference": 59043,
+      "citation": "Kottelat, M. and J. Freyhof. 2007. Handbook of European freshwater fishes. Publications Kottelat, Cornol and Freyhof, Berlin. 646 pp."
+    },
+    {
+      "animalId": "hippoglossus_stenolepis",
+      "metric": "lifespan",
+      "value": 55.0,
+      "row": 10342,
+      "reference": 55701,
+      "citation": "Munk, K.M.. 2001. Maximum ages of groundfishes in waters off Alaska and British Columbia and consideration of age determination. Alaska Fish. Res. Bull. 8(1):12-21."
+    },
+    {
+      "animalId": "carcharias_taurus",
+      "metric": "lifespan",
+      "value": 17.0,
+      "row": 16462,
+      "reference": 96984,
+      "citation": "Goldman, K.J., S. Branstetter and J.A. Musick. 2005. A re-examination of the age and growth of sand tiger sharks, <i>Carcharias taurus</i>, in the western North Atlantic. American Elasmobranch Society 2005 Annual Meeting Tampa, Florida. Presentation Abstracts."
+    },
+    {
+      "animalId": "carcharodon_carcharias",
+      "metric": "lifespan",
+      "value": 36.0,
+      "row": 712,
+      "reference": 31395,
+      "citation": "Smith, S.W., D.W. Au and C. Show. 1998. Intrinsic rebound potential of 26 species of Pacific sharks. Mar. Freshwat. Res. 49:663-678."
+    },
+    {
+      "animalId": "isurus_oxyrinchus",
+      "metric": "lifespan",
+      "value": 32.0,
+      "row": 9449,
+      "reference": 86588,
+      "citation": "Natanson, L.J., N.E. Kohler, D. Ardizzone, G.M. Cailliet, S.P. Wintner and H.F. Mollet. 2006. Validated age and growth estimates for the shortfin mako, <i>Isurus oxyrinchus</i>, in the North Atlantic Ocean. Environ. Biol. Fishes 77:367-383."
+    },
+    {
+      "animalId": "mugil_cephalus",
+      "metric": "lifespan",
+      "value": 16.0,
+      "row": 20569,
+      "reference": 28725,
+      "citation": "Thomson, J.M.. 1963. Synopsis of the biological data on the grey mullet <i>Mugil cephalus</i> Linnaeus 1758. CSIRO Division of Fisheries and Oceanography, Fisheries Synopsis 1. 65 p."
+    },
+    {
+      "animalId": "carcharhinus_leucas",
+      "metric": "lifespan",
+      "value": 28.0,
+      "row": 750,
+      "reference": 34089,
+      "citation": "Hoenig, J.M.. 1983. Empirical use of longevity data to estimate mortality rates. Fish. Bull. 82(1):898-905."
+    },
+    {
+      "animalId": "negaprion_brevirostris",
+      "metric": "lifespan",
+      "value": 25.0,
+      "row": 793,
+      "reference": 31395,
+      "citation": "Smith, S.W., D.W. Au and C. Show. 1998. Intrinsic rebound potential of 26 species of Pacific sharks. Mar. Freshwat. Res. 49:663-678."
+    },
+    {
+      "animalId": "prionace_glauca",
+      "metric": "lifespan",
+      "value": 22.8,
+      "row": 5363,
+      "reference": 55027,
+      "citation": "Manning, M.J.. 2005. Age and growth of blue shark (<i>Prionace glauca</i>) from New Zealand Exclusive Economic Zone. New Zealand Fisheries Fisheries Assessment Report 2005/26, 52 p."
+    },
+    {
+      "animalId": "sphyrna_lewini",
+      "metric": "lifespan",
+      "value": 41.6,
+      "row": 18337,
+      "reference": 116211,
+      "citation": "CMFRI. 2016. Annual report 2016-17. Central Marine Fisheries Research Institute, Kochi, 345 p."
+    },
+    {
+      "animalId": "atractosteus_spatula",
+      "metric": "lifespan",
+      "value": 95.0,
+      "row": 24455,
+      "reference": 137696,
+      "citation": "Andrews, A.H., D.J. Daugherty, M. Wertnik, C. Welte, N.G. Smith, D.L. Buckmeier and D. Riecke. 2024. Alligator gar as a centenarian species: extending lifespan estimates using bomb radiocarbon and laser ablation-accelerator mass spectrometry. Marine and Freshwater Research 75(8):MF24024."
+    },
+    {
+      "animalId": "lepisosteus_osseus",
+      "metric": "lifespan",
+      "value": 36.0,
+      "row": 20570,
+      "reference": 12193,
+      "citation": "Hugg, D.O.. 1996. MAPFISH georeferenced mapping database. Freshwater and estuarine fishes of North America. Life Science Software. Dennis O. and Steven Hugg, 1278 Turkey Point Road, Edgewater, Maryland, USA."
+    },
+    {
+      "animalId": "sphyraena_barracuda",
+      "metric": "lifespan",
+      "value": 18.4,
+      "row": 23146,
+      "reference": 128046,
+      "citation": "Kadison, E., E.K. D'alessandro, G.O. Davis and P.B. Hood. 2010. Age, growth, and reproductive patterns of the great barracuda, <i>Sphyraena barracuda</i>, from the Florida Keys. Bulletin of Marine Science 86(4):773-784."
+    },
+    {
+      "animalId": "paralichthys_dentatus",
+      "metric": "lifespan",
+      "value": 9.0,
+      "row": 4860,
+      "reference": 52682,
+      "citation": "Terwilliger, M.R. and T.A. Munroe. 1999. Age, growth, longevity, and mortality of blackcheek tonguefish, <i>Symphurus plagiusa</i> (Cynoglossidae: Pleuronectiformes), in Chesapeake Bay, Virginia. Fish. Bull. 97:340-361."
+    },
+    {
+      "animalId": "pleuronectes_platessa",
+      "metric": "lifespan",
+      "value": 50.0,
+      "row": 20573,
+      "reference": 173,
+      "citation": "Muus, B.J. and P. Dahlstr\u00f6m. 1974. Collins guide to the sea fishes of Britain and North-Western Europe. Collins, London, UK. 244 p."
+    },
+    {
+      "animalId": "sardina_pilchardus",
+      "metric": "lifespan",
+      "value": 15.0,
+      "row": 20574,
+      "reference": 35388,
+      "citation": "Muus, B.J. and J.G. Nielsen. 1999. Sea fish. Scandinavian Fishing Year Book, Hedehusene, Denmark. 340 p."
+    },
+    {
+      "animalId": "hippoglossus_hippoglossus",
+      "metric": "lifespan",
+      "value": 50.0,
+      "row": 20575,
+      "reference": 173,
+      "citation": "Muus, B.J. and P. Dahlstr\u00f6m. 1974. Collins guide to the sea fishes of Britain and North-Western Europe. Collins, London, UK. 244 p."
+    },
+    {
+      "animalId": "lutjanus_campechanus",
+      "metric": "lifespan",
+      "value": 57.0,
+      "row": 3381,
+      "reference": 48779,
+      "citation": "Allman, R.J., G.R. Fitzhugh and W.A. Fable. 2002. Report of red snapper otolith aging: 2002 data summary. NMFS Southeast Fisheries Science Center, Panama City Laboratory Contribution Series 02-02. 5 pp., tables and figs."
+    },
+    {
+      "animalId": "cyprinus_carpio",
+      "metric": "lifespan",
+      "value": 50.0,
+      "row": 7372,
+      "reference": 59043,
+      "citation": "Kottelat, M. and J. Freyhof. 2007. Handbook of European freshwater fishes. Publications Kottelat, Cornol and Freyhof, Berlin. 646 pp."
+    },
+    {
+      "animalId": "coryphaena_hippurus",
+      "metric": "lifespan",
+      "value": 4.0,
+      "row": 1148,
+      "reference": 515,
+      "citation": "Beardsley, G.L.. 1967. Age, growth, and reproduction of the dolphin, <i>Coryphaena hippurus</i>, in the Straits of Florida. Copeia 1967(2):441-451."
+    },
+    {
+      "animalId": "rhincodon_typus",
+      "metric": "lifespan",
+      "value": 80.4,
+      "row": 20586,
+      "reference": 116781,
+      "citation": "Hsu, H.H., S.J. Joung, R.E. Hueter and K.M. Liu. 2014. Age and growth of the whale shark (<i>Rhincodon typus</i>) in the north-western Pacific. Mar. Freshwat. Res. 65:1145-1154."
+    },
+    {
+      "animalId": "cetorhinus_maximus",
+      "metric": "lifespan",
+      "value": 50.0,
+      "row": 17506,
+      "reference": 108892,
+      "citation": "McFarlane, G.A., R.P. McPhie and J.R. King. 2010. Distribution and life history parameters of elasmobranch species in British Columbia waters. Can. Tech. Rep. Fish. Aquat. Sci. 2908: ix + 143 p."
+    },
+    {
+      "animalId": "gasterosteus_aculeatus",
+      "metric": "lifespan",
+      "value": 8.0,
+      "row": 20587,
+      "reference": 72489,
+      "citation": "Reimchen, T.E.. 1992. Extended longevity in a large-bodied stickleback, <i>Gasterosteus</i>, population. Canadian Field Naturalist 106:129-131."
+    },
+    {
+      "animalId": "triakis_semifasciata",
+      "metric": "lifespan",
+      "value": 30.0,
+      "row": 1324,
+      "reference": 39247,
+      "citation": "Cailliet, G.M., A.H. Andrews, E.J. Burton, D.L. Watters, D.E. Kline and L.A. Ferry-Graham. 2001. Age determination and validation studies of marine fishes: do deep-dwellers live longer?. Exp. Geront. 36:739-764."
+    },
+    {
+      "animalId": "acipenser_transmontanus",
+      "metric": "lifespan",
+      "value": 104.0,
+      "row": 1343,
+      "reference": 39247,
+      "citation": "Cailliet, G.M., A.H. Andrews, E.J. Burton, D.L. Watters, D.E. Kline and L.A. Ferry-Graham. 2001. Age determination and validation studies of marine fishes: do deep-dwellers live longer?. Exp. Geront. 36:739-764."
+    },
+    {
+      "animalId": "esox_masquinongy",
+      "metric": "lifespan",
+      "value": 30.0,
+      "row": 1356,
+      "reference": 26373,
+      "citation": "Crossman, E.J.. 1996. Taxonomy and distribution. p. 1-11. In J.F. Craig (ed.) Pike biology and exploration. Chapman and Hall, London. 298 p."
+    },
+    {
+      "animalId": "pylodictis_olivaris",
+      "metric": "lifespan",
+      "value": 34.0,
+      "row": 19891,
+      "reference": 120747,
+      "citation": "Marshall, M.D., M.J. Maceina and M.P. Holley. 2009. Age and growth variability between sexes of three Catfish Species in Lake Wilson, Alabama. North American Journal of Fisheries Management 29:1283-1286."
+    },
+    {
+      "animalId": "micropterus_dolomieu",
+      "metric": "lifespan",
+      "value": 26.0,
+      "row": 20606,
+      "reference": 46974,
+      "citation": "Quinn, S.. 2001. How long do fish live?. In-Fisherman 26(5):15."
+    },
+    {
+      "animalId": "micropterus_salmoides",
+      "metric": "lifespan",
+      "value": 23.0,
+      "row": 19774,
+      "reference": 120614,
+      "citation": "Eakins, R.J.. 2019. Lagremouth bass. Ontario Freshwater Fishes Life History Database. Version 4.85. Online database. (http://www.ontariofishes.ca; http://www.ontariofishes.ca/home.htm), accessed\u00a026 June 2019."
+    },
+    {
+      "animalId": "sander_vitreus",
+      "metric": "lifespan",
+      "value": 29.0,
+      "row": 20627,
+      "reference": 12193,
+      "citation": "Hugg, D.O.. 1996. MAPFISH georeferenced mapping database. Freshwater and estuarine fishes of North America. Life Science Software. Dennis O. and Steven Hugg, 1278 Turkey Point Road, Edgewater, Maryland, USA."
+    },
+    {
+      "animalId": "pterois_volitans",
+      "metric": "lifespan",
+      "value": 10.0,
+      "row": 20632,
+      "reference": 72479,
+      "citation": "Hinton. 1962. Horned shark, gar, mormyriad, characin, carp, armored catfish, arowana, upside down catfish. Not given."
+    },
+    {
+      "animalId": "hippocampus_kuda",
+      "metric": "lifespan",
+      "value": 2.0,
+      "row": 22368,
+      "reference": 126760,
+      "citation": "Vaitheeswaran, T., N. Jayakumar and V.K. Venkataramani. 2012. Age and growth of seahorse <i>Hippocampus kuda</i> (Bleeker, 1852) (Family: Syngnathidae) from Thoothkudi, southeast coast of India. Tamilnadu J. Vet. Anim. Sci. 8(4):203-208."
+    }
+  ],
+  "rejectedRecords": [
+    {
+      "row": 38,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 4998,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 5160,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 6810,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 8686,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 24298,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 21132,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 24551,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 62,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 7975,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 3217,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 123,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 6589,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 169,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9782,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19539,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 16740,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 187,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 188,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 189,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 24548,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 238,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 239,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 285,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 288,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 289,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 291,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 294,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 24357,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 305,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 16211,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 366,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 2917,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 19874,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 377,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 381,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 406,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 407,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 408,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 410,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 411,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 412,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 6601,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 414,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 415,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 416,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17198,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 417,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 6608,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 23584,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 9783,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9774,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 16803,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 19762,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 419,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 420,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17200,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 6607,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 9259,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 19769,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 24380,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 6627,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 5685,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 5686,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 6600,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 19770,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 430,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 6617,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 19763,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17195,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 6625,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 19764,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 6602,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 19761,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 438,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 439,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 6638,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 9736,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9735,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 454,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 6708,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 23732,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 466,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 6739,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 7725,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 11318,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 20226,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 20225,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 20222,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 16970,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 6758,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 19759,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 19926,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 469,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 6590,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 19757,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 477,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 9333,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 520,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 6782,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 16878,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 24567,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 522,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 9253,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 8844,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 8845,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 6793,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 5691,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 5692,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 713,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 9470,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 714,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 717,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 5463,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 6822,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 24455,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 24643,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 16765,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 6823,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 8829,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 966,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 21118,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 23084,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 9086,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 1071,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 1074,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 1075,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 1077,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 16781,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 10442,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 10443,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 1079,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 6661,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 7372,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 7407,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 8673,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 8819,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 9243,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 16818,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 17967,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 24293,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 19773,
+      "metric": "mass",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19992,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 24558,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 1146,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 1148,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 5251,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 5252,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 24356,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 24355,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 24257,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 1253,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 6574,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 7285,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 3370,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 6606,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 9281,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 1257,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 1259,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 4727,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 1356,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 16813,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 6753,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 23774,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 6820,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 6798,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 9257,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 19774,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 6800,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 9282,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 9283,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 19766,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 1682,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 6604,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 8856,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 8857,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 9280,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 4057,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 9851,
+      "metric": "mass",
+      "reason": "not a cited IGFA total-weight record"
+    },
+    {
+      "row": 7922,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 18838,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 3217,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9794,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 122,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 8791,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17752,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17753,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 164,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 167,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 169,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9782,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 8520,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 180,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 5204,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 5205,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 10225,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 6320,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 3808,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 238,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 239,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 240,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 241,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 2957,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 17304,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 18556,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 10,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 285,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 286,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 287,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 288,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 289,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 290,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 3449,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 20264,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 15604,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17325,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 291,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 293,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 294,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 295,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 2975,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 6191,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 15190,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 15184,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 15179,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 24357,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 24456,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 305,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 306,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 17609,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17606,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 16211,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17465,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17610,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 366,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 378,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 379,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 380,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 381,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17157,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 406,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 407,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 17196,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 7796,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 414,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 415,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 416,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 417,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 7798,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 7818,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 9777,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9769,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9770,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9783,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9774,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19762,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 420,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 6332,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 7793,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 6333,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 5685,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 5686,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 7147,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 19770,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19763,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 6334,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 7846,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19764,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 7847,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19761,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9738,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 7726,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 9736,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9737,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9735,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 456,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 457,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9195,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 7369,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 467,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 7725,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 11318,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 20226,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 20225,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 20222,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 7723,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 18792,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 18793,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 18791,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19887,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19888,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19926,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 469,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19756,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19755,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 474,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9333,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 16698,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 23820,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 5765,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 7061,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 7064,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 7907,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 7912,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 5677,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 4477,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 4476,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 711,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 713,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 9470,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 714,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 9469,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 9467,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9449,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 9450,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17586,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17585,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 717,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 4923,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 718,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 6299,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 5463,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 7856,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 748,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 751,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 6316,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 779,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 780,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 781,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 797,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 17551,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17552,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17565,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 805,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 806,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 807,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 20030,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 20029,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 926,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 6186,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 23106,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 23146,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 966,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 7966,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 981,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 982,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 1066,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 1067,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 1077,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 1082,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 7372,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 9702,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9703,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9714,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9701,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9704,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9715,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9716,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 18829,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 19773,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 1146,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 1148,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 1149,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 5251,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 5252,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 14379,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 20066,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 24356,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 24355,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 6253,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 1253,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 3201,
+      "metric": "length",
+      "reason": "large shark record requires original measurement verification"
+    },
+    {
+      "row": 3202,
+      "metric": "length",
+      "reason": "large shark record requires original measurement verification"
+    },
+    {
+      "row": 3370,
+      "metric": "length",
+      "reason": "large shark record requires original measurement verification"
+    },
+    {
+      "row": 8026,
+      "metric": "length",
+      "reason": "large shark record requires original measurement verification"
+    },
+    {
+      "row": 16335,
+      "metric": "length",
+      "reason": "large shark record requires original measurement verification"
+    },
+    {
+      "row": 18537,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 18536,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 18968,
+      "metric": "length",
+      "reason": "large shark record requires original measurement verification"
+    },
+    {
+      "row": 7077,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 1256,
+      "metric": "length",
+      "reason": "large shark record requires original measurement verification"
+    },
+    {
+      "row": 1257,
+      "metric": "length",
+      "reason": "large shark record requires original measurement verification"
+    },
+    {
+      "row": 6972,
+      "metric": "length",
+      "reason": "large shark record requires original measurement verification"
+    },
+    {
+      "row": 1258,
+      "metric": "length",
+      "reason": "large shark record requires original measurement verification"
+    },
+    {
+      "row": 16755,
+      "metric": "length",
+      "reason": "large shark record requires original measurement verification"
+    },
+    {
+      "row": 1259,
+      "metric": "length",
+      "reason": "large shark record requires original measurement verification"
+    },
+    {
+      "row": 16340,
+      "metric": "length",
+      "reason": "large shark record requires original measurement verification"
+    },
+    {
+      "row": 19675,
+      "metric": "length",
+      "reason": "large shark record requires original measurement verification"
+    },
+    {
+      "row": 17390,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 7876,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 7874,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 19643,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 1323,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 1356,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 19406,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19407,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 6340,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 7868,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 7867,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 7900,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 6146,
+      "metric": "length",
+      "reason": "wrong length type or doubtful quality"
+    },
+    {
+      "row": 10032,
+      "metric": "length",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 4998,
+      "metric": "lifespan",
+      "reason": "doubtful or modeled age"
+    },
+    {
+      "row": 8395,
+      "metric": "lifespan",
+      "reason": "doubtful or modeled age"
+    },
+    {
+      "row": 71,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 73,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 76,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 82,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 83,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 85,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 86,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 87,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 88,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 89,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 90,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 8501,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 3217,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9794,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 20535,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 8791,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17752,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17753,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 162,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 163,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 164,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 166,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 167,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 169,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9782,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 174,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 8520,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 5204,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 5205,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 7121,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 241,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17304,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 288,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 290,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 3449,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 20264,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 15604,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17325,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 307,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17609,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17606,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 16211,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17465,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17610,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 378,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 379,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 380,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 381,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9008,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9009,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 16558,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 404,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 405,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 413,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 414,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 415,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 416,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 417,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9777,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9769,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9770,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9771,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9783,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9774,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19762,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 420,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 5685,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 5686,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19770,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19763,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 7846,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19764,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 7847,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19761,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9799,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9798,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9738,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9736,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9737,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9773,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9735,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 457,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 466,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 7725,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 11318,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 16537,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 468,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 18792,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 18793,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 18791,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19887,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19888,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19926,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 469,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19756,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19755,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 474,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9333,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 7063,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 7062,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 7061,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 7064,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 6396,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 5677,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 4477,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 4476,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9467,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9450,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9471,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17586,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17585,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 717,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 22578,
+      "metric": "lifespan",
+      "reason": "doubtful or modeled age"
+    },
+    {
+      "row": 744,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 745,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 748,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 751,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 779,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 781,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17551,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17552,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17565,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 805,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 806,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 20030,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 20029,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 978,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 982,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 1065,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 1066,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 1077,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 1078,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9702,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9703,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9714,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9701,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9704,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9708,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9715,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19773,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 1146,
+      "metric": "lifespan",
+      "reason": "doubtful or modeled age"
+    },
+    {
+      "row": 14379,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 18537,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 18536,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 7078,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 7077,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 17507,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 1281,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 1323,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 1342,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19406,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19407,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19883,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 7900,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19875,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 19876,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 4059,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 4060,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 10032,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9975,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 10086,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 10083,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 10088,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 10085,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 10087,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 10084,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 10089,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    },
+    {
+      "row": 9850,
+      "metric": "lifespan",
+      "reason": "estimated, doubtful, captive or converted record"
+    }
+  ],
+  "coverage": {
+    "length": 51,
+    "lifespan": 58
+  },
+  "rules": [
+    "No modeled Key Facts or length-weight calculations",
+    "Exact species only",
+    "No TL/SL/FL conversions",
+    "No doubtful records",
+    "Only cited IGFA total-weight records",
+    "Preserve original references, sex and locality",
+    "New species await portraits before entering rounds"
+  ]
+}

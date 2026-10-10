@@ -7,6 +7,7 @@ import concurrent.futures
 import hashlib
 import json
 import urllib.request
+import zipfile
 from pathlib import Path
 
 import libarchive
@@ -21,6 +22,19 @@ JOBS = [('biotic.csv', 'https://api.mba.ac.uk/biotic'),
         ('mammal-synthesis-metadata.json', 'https://datadryad.org/api/v2/datasets/doi%3A10.5061%2Fdryad.05qfttfdq'),
         ('mammal-synthesis-version.json', 'https://datadryad.org/api/v2/versions/435342'),
         ('mammal-synthesis-files.json', 'https://datadryad.org/api/v2/versions/435342/files')]
+JOBS += [
+    ('combine-metadata.json', 'https://api.figshare.com/v2/articles/13028255'),
+    ('combine/trait_data_reported.csv', 'https://ndownloader.figshare.com/files/27703263'),
+    ('combine/trait_data_sources.csv', 'https://ndownloader.figshare.com/files/27703260'),
+    ('combine/trait_databases.csv', 'https://ndownloader.figshare.com/files/24886955'),
+    ('combine/taxonomy_crosswalk.csv', 'https://ndownloader.figshare.com/files/24886949'),
+    ('tetrapod-metadata.json', 'https://zenodo.org/api/records/18926700'),
+    ('tetrapod/TetrapodTraits_v2.0.1.csv', 'https://zenodo.org/api/records/18926700/files/TetrapodTraits_v2.0.1.csv/content'),
+    ('toff-10253219-metadata.json', 'https://api.figshare.com/v2/articles/10253219'),
+    ('toff-10253291-metadata.json', 'https://api.figshare.com/v2/articles/10253291'),
+    ('toff/Thesaurus_TOFF_20240531.xlsx', 'https://ndownloader.figshare.com/files/46759141'),
+    ('toff/TOFF_Data_Release_7-1.zip', 'https://ndownloader.figshare.com/files/24062585'),
+]
 for directory, db, names in [
         ('fishbase', 'fb', 'diet ecology eggs fooditems larvae maturity morphdat morphmet popgrowth reproduc spawning speed swimming species refrens'),
         ('sealifebase', 'slb', 'diet ecology eggs fooditems larvae maturity morphdat popgrowth reproduc spawning species refrens')]:
@@ -35,6 +49,10 @@ if audit.exists():
             expected[table['raw']['file']] = table['raw']['sha256']
         if source.get('raw'):
             expected[source['raw']['file']] = source['raw']['sha256']
+build_report = ROOT / 'data/animalstats/research/bulk-research-build.json'
+if build_report.exists():
+    for table in json.loads(build_report.read_text())['sources']:
+        expected[table['input']['path']] = table['input']['sha256']
 
 
 def fetch(job):
@@ -79,4 +97,24 @@ with libarchive.file_reader(str(archive_path)) as archive:
         else:
             dest.parent.mkdir(parents=True, exist_ok=True)
             dest.write_bytes(b''.join(entry.get_blocks()))
+
+for metadata_name, directory in [('combine-metadata.json', 'combine'), ('tetrapod-metadata.json', 'tetrapod'),
+                                  ('toff-10253219-metadata.json', 'toff'), ('toff-10253291-metadata.json', 'toff')]:
+    metadata = json.loads((OUT / metadata_name).read_text())
+    for entry in metadata['files']:
+        path = OUT / directory / entry.get('name', entry.get('key'))
+        if not path.exists():
+            continue
+        md5 = entry.get('computed_md5', entry.get('checksum', '').replace('md5:', ''))
+        if md5 and hashlib.md5(path.read_bytes()).hexdigest() != md5:
+            raise SystemExit(f'Publisher checksum mismatch: {path}')
+with zipfile.ZipFile(OUT / 'toff/TOFF_Data_Release_7-1.zip') as archive:
+    extract_root = OUT / 'toff'
+    for name in archive.namelist():
+        dest = extract_root / name
+        if not dest.resolve().is_relative_to(extract_root.resolve()):
+            raise SystemExit('TOFF archive member escaped destination')
+        if not name.endswith('/'):
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            dest.write_bytes(archive.read(name))
 print(f'Acquired {len(results)} bulk data/metadata files; run audit-animalstats-bulk-intake.py next.')

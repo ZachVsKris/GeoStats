@@ -105,3 +105,8 @@ data/animalstats/source/ranges/*.zip
 
 # Unmodified taxonomic source archive; pin checksums and selected data separately.
 data/animalstats/source/mdd/*.zip
+
+# Bulk source archives and generated research database; scripts/hash audits persist.
+data/animalstats/source/bulk-intake-20261010/
+data/animalstats/research/bulk-research.sqlite
+data/animalstats/research/bulk-research.building.sqlite

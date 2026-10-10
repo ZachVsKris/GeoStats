@@ -1,0 +1,3523 @@
+[
+  {
+    "animalId": "panthera_leo",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1097,
+        "numeratorG": "1291.71",
+        "denominatorG": "158623.93",
+        "ratio": 0.8143222778555543,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1098,
+        "numeratorG": "1300",
+        "denominatorG": "175000",
+        "ratio": 0.7428571428571429,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1099,
+        "numeratorG": "1377.45",
+        "denominatorG": "139500",
+        "ratio": 0.9874193548387097,
+        "citation": "Ernest et al., 2003"
+      },
+      {
+        "rowNumber": 1100,
+        "numeratorG": "1300",
+        "denominatorG": "175000",
+        "ratio": 0.7428571428571429,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 0.8143222778555543
+  },
+  {
+    "animalId": "panthera_tigris",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1119,
+        "numeratorG": "1313.5",
+        "denominatorG": "161914.66",
+        "ratio": 0.8112298169912471,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1120,
+        "numeratorG": "1190",
+        "denominatorG": "119700",
+        "ratio": 0.9941520467836257,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1121,
+        "numeratorG": "1248.59",
+        "denominatorG": "119700",
+        "ratio": 1.0430994152046782,
+        "citation": "Ernest et al., 2003"
+      },
+      {
+        "rowNumber": 1122,
+        "numeratorG": "1190",
+        "denominatorG": "119700",
+        "ratio": 0.9941520467836257,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 0.9941520467836257
+  },
+  {
+    "animalId": "panthera_pardus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1110,
+        "numeratorG": "553.39",
+        "denominatorG": "52399.99",
+        "ratio": 1.0560879878030511,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1111,
+        "numeratorG": "550",
+        "denominatorG": "53750",
+        "ratio": 1.0232558139534884,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1112,
+        "numeratorG": "363.49",
+        "denominatorG": "42325",
+        "ratio": 0.858806851742469,
+        "citation": "Ernest et al., 2003"
+      },
+      {
+        "rowNumber": 1113,
+        "numeratorG": "550",
+        "denominatorG": "53750",
+        "ratio": 1.0232558139534884,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 1.0232558139534884
+  },
+  {
+    "animalId": "acinonyx_jubatus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1084,
+        "numeratorG": "441.66",
+        "denominatorG": "50577.92",
+        "ratio": 0.8732268942653237,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1086,
+        "numeratorG": "489",
+        "denominatorG": "53500",
+        "ratio": 0.914018691588785,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1087,
+        "numeratorG": "403.96",
+        "denominatorG": "58750",
+        "ratio": 0.6875914893617021,
+        "citation": "Ernest et al., 2003"
+      },
+      {
+        "rowNumber": 1088,
+        "numeratorG": "489",
+        "denominatorG": "53500",
+        "ratio": 0.914018691588785,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 0.8732268942653237
+  },
+  {
+    "animalId": "canis_lupus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1031,
+        "numeratorG": "412.31",
+        "denominatorG": "31756.51",
+        "ratio": 1.2983479607803252,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1033,
+        "numeratorG": "450",
+        "denominatorG": "26625",
+        "ratio": 1.6901408450704225,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1034,
+        "numeratorG": "418.6",
+        "denominatorG": "34875",
+        "ratio": 1.2002867383512545,
+        "citation": "Ernest et al., 2003"
+      },
+      {
+        "rowNumber": 1036,
+        "numeratorG": "450",
+        "denominatorG": "26625",
+        "ratio": 1.6901408450704225,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 1.2983479607803252
+  },
+  {
+    "animalId": "vulpes_vulpes",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1070,
+        "numeratorG": "100.49",
+        "denominatorG": "4820.36",
+        "ratio": 2.0846990681193938,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1072,
+        "numeratorG": "100",
+        "denominatorG": "4131.7",
+        "ratio": 2.4203112520270107,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1073,
+        "numeratorG": "101.25",
+        "denominatorG": "5662.5",
+        "ratio": 1.7880794701986755,
+        "citation": "Ernest et al., 2003"
+      },
+      {
+        "rowNumber": 1074,
+        "numeratorG": "100",
+        "denominatorG": "4131.7",
+        "ratio": 2.4203112520270107,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 2.0846990681193938
+  },
+  {
+    "animalId": "ursus_maritimus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1260,
+        "numeratorG": "670.48",
+        "denominatorG": "371703.81",
+        "ratio": 0.18038017958438468,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1262,
+        "numeratorG": "665",
+        "denominatorG": "475000",
+        "ratio": 0.14,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1263,
+        "numeratorG": "634.25",
+        "denominatorG": "286366.67",
+        "ratio": 0.22148178068348529,
+        "citation": "Ernest et al., 2003"
+      }
+    ],
+    "median": 0.18038017958438468
+  },
+  {
+    "animalId": "ursus_arctos",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1247,
+        "numeratorG": "499.99",
+        "denominatorG": "196287.5",
+        "ratio": 0.2547233012800102,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1249,
+        "numeratorG": "510",
+        "denominatorG": "277500",
+        "ratio": 0.1837837837837838,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1250,
+        "numeratorG": "494.82",
+        "denominatorG": "203500",
+        "ratio": 0.24315479115479116,
+        "citation": "Ernest et al., 2003"
+      },
+      {
+        "rowNumber": 1251,
+        "numeratorG": "510",
+        "denominatorG": "277500",
+        "ratio": 0.1837837837837838,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 0.24315479115479116
+  },
+  {
+    "animalId": "ursus_americanus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1226,
+        "numeratorG": "293.99",
+        "denominatorG": "110500",
+        "ratio": 0.26605429864253394,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1228,
+        "numeratorG": "277.5",
+        "denominatorG": "154250",
+        "ratio": 0.17990275526742303,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1229,
+        "numeratorG": "294.47",
+        "denominatorG": "110560",
+        "ratio": 0.26634406657018816,
+        "citation": "Ernest et al., 2003"
+      },
+      {
+        "rowNumber": 1230,
+        "numeratorG": "277.5",
+        "denominatorG": "154250",
+        "ratio": 0.17990275526742303,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 0.26605429864253394
+  },
+  {
+    "animalId": "ailuropoda_melanoleuca",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1170,
+        "numeratorG": "104.39",
+        "denominatorG": "117999.99",
+        "ratio": 0.08846610919204315,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1172,
+        "numeratorG": "110",
+        "denominatorG": "117500",
+        "ratio": 0.09361702127659574,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1173,
+        "numeratorG": "109.29",
+        "denominatorG": "111600",
+        "ratio": 0.09793010752688172,
+        "citation": "Ernest et al., 2003"
+      }
+    ],
+    "median": 0.09361702127659574
+  },
+  {
+    "animalId": "loxodonta_africana",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1606,
+        "numeratorG": "105000",
+        "denominatorG": "3.82E+06",
+        "ratio": 2.74869109947644,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1608,
+        "numeratorG": "105000",
+        "denominatorG": "4.80E+06",
+        "ratio": 2.1875,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1609,
+        "numeratorG": "99006.25",
+        "denominatorG": "3507000",
+        "ratio": 2.8231037924151696,
+        "citation": "Ernest et al., 2003"
+      },
+      {
+        "rowNumber": 1610,
+        "numeratorG": "105000",
+        "denominatorG": "4.80E+06",
+        "ratio": 2.1875,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 2.74869109947644
+  },
+  {
+    "animalId": "giraffa_camelopardalis",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1010,
+        "numeratorG": "55244.9",
+        "denominatorG": "964654.73",
+        "ratio": 5.726909150178531,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1011,
+        "numeratorG": "58500",
+        "denominatorG": "800000",
+        "ratio": 7.3125,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1012,
+        "numeratorG": "59770.59",
+        "denominatorG": "800000",
+        "ratio": 7.47132375,
+        "citation": "Ernest et al., 2003"
+      },
+      {
+        "rowNumber": 1013,
+        "numeratorG": "58500",
+        "denominatorG": "800000",
+        "ratio": 7.3125,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 7.3125
+  },
+  {
+    "animalId": "hippopotamus_amphibius",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1020,
+        "numeratorG": "40199.99",
+        "denominatorG": "1.54E+06",
+        "ratio": 2.6103889610389612,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1021,
+        "numeratorG": "40000",
+        "denominatorG": "3.75E+06",
+        "ratio": 1.0666666666666667,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1022,
+        "numeratorG": "39746.67",
+        "denominatorG": "1.26E+06",
+        "ratio": 3.154497619047619,
+        "citation": "Ernest et al., 2003"
+      },
+      {
+        "rowNumber": 1023,
+        "numeratorG": "40000",
+        "denominatorG": "3.75E+06",
+        "ratio": 1.0666666666666667,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 2.6103889610389612
+  },
+  {
+    "animalId": "ceratotherium_simum",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1540,
+        "numeratorG": "48500",
+        "denominatorG": "2.29E+06",
+        "ratio": 2.1179039301310043,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1542,
+        "numeratorG": "52500",
+        "denominatorG": "2.18E+06",
+        "ratio": 2.408256880733945,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1543,
+        "numeratorG": "51166.67",
+        "denominatorG": "2.23E+06",
+        "ratio": 2.2944695067264576,
+        "citation": "Ernest et al., 2003"
+      }
+    ],
+    "median": 2.2944695067264576
+  },
+  {
+    "animalId": "bison_bison",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 995,
+        "numeratorG": "20000",
+        "denominatorG": "624577.07",
+        "ratio": 3.2021668678935016,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 996,
+        "numeratorG": "23358.61",
+        "denominatorG": "675876.7",
+        "ratio": 3.45604605100309,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 997,
+        "numeratorG": "20000",
+        "denominatorG": "630000",
+        "ratio": 3.1746031746031744,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 998,
+        "numeratorG": "23375",
+        "denominatorG": "610000",
+        "ratio": 3.831967213114754,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 999,
+        "numeratorG": "20000",
+        "denominatorG": "497666.67",
+        "ratio": 4.018754159284969,
+        "citation": "Ernest et al., 2003"
+      },
+      {
+        "rowNumber": 1000,
+        "numeratorG": "23000.08",
+        "denominatorG": "500000",
+        "ratio": 4.600016,
+        "citation": "Ernest et al., 2003"
+      },
+      {
+        "rowNumber": 1001,
+        "numeratorG": "20000",
+        "denominatorG": "630000",
+        "ratio": 3.1746031746031744,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 3.6440066320589217
+  },
+  {
+    "animalId": "equus_asinus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1469,
+        "numeratorG": "29249.99",
+        "denominatorG": "164998.49",
+        "ratio": 17.72742889950084,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1470,
+        "numeratorG": "30000",
+        "denominatorG": "164998",
+        "ratio": 18.182038570164487,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1471,
+        "numeratorG": "29166.67",
+        "denominatorG": "250000",
+        "ratio": 11.666668,
+        "citation": "Ernest et al., 2003"
+      },
+      {
+        "rowNumber": 1472,
+        "numeratorG": "30000",
+        "denominatorG": "164998",
+        "ratio": 18.182038570164487,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 17.72742889950084
+  },
+  {
+    "animalId": "gorilla_gorilla",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1565,
+        "numeratorG": "2095.89",
+        "denominatorG": "112588.99",
+        "ratio": 1.8615408131825322,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1567,
+        "numeratorG": "2061.4",
+        "denominatorG": "139842",
+        "ratio": 1.4740921897570114,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1568,
+        "numeratorG": "2077.5",
+        "denominatorG": "101386.11",
+        "ratio": 2.0490972579971753,
+        "citation": "Ernest et al., 2003"
+      },
+      {
+        "rowNumber": 1569,
+        "numeratorG": "2061.4",
+        "denominatorG": "139842",
+        "ratio": 1.4740921897570114,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 1.8615408131825322
+  },
+  {
+    "animalId": "pan_troglodytes",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1578,
+        "numeratorG": "1745.02",
+        "denominatorG": "45000",
+        "ratio": 3.877822222222222,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1580,
+        "numeratorG": "1821",
+        "denominatorG": "44983.5",
+        "ratio": 4.0481509886958555,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1581,
+        "numeratorG": "1669.92",
+        "denominatorG": "37618.18",
+        "ratio": 4.439130229054143,
+        "citation": "Ernest et al., 2003"
+      },
+      {
+        "rowNumber": 1582,
+        "numeratorG": "1821",
+        "denominatorG": "44983.5",
+        "ratio": 4.0481509886958555,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 4.0481509886958555
+  },
+  {
+    "animalId": "pongo_pygmaeus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1593,
+        "numeratorG": "1644.2",
+        "denominatorG": "53408.29",
+        "ratio": 3.078548292783761,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1595,
+        "numeratorG": "1736.5",
+        "denominatorG": "64475",
+        "ratio": 2.6932919736331913,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1596,
+        "numeratorG": "1671.93",
+        "denominatorG": "37115.6",
+        "ratio": 4.504655724277662,
+        "citation": "Ernest et al., 2003"
+      },
+      {
+        "rowNumber": 1597,
+        "numeratorG": "1736.5",
+        "denominatorG": "64475",
+        "ratio": 2.6932919736331913,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 3.078548292783761
+  },
+  {
+    "animalId": "macaca_mulatta",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1549,
+        "numeratorG": "471.47",
+        "denominatorG": "6455.19",
+        "ratio": 7.30373544388314,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1550,
+        "numeratorG": "464",
+        "denominatorG": "8235",
+        "ratio": 5.634486945962355,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1551,
+        "numeratorG": "476.2",
+        "denominatorG": "5413.4",
+        "ratio": 8.796689695939707,
+        "citation": "Ernest et al., 2003"
+      },
+      {
+        "rowNumber": 1552,
+        "numeratorG": "464",
+        "denominatorG": "8235",
+        "ratio": 5.634486945962355,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 7.30373544388314
+  },
+  {
+    "animalId": "phascolarctos_cinereus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1433,
+        "numeratorG": "0.36",
+        "denominatorG": "6528.74",
+        "ratio": 0.005514080818044523,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1434,
+        "numeratorG": "0.36",
+        "denominatorG": "9300",
+        "ratio": 0.003870967741935484,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1435,
+        "numeratorG": "0.36",
+        "denominatorG": "9300",
+        "ratio": 0.003870967741935484,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 0.004692524279990003
+  },
+  {
+    "animalId": "macropus_rufus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1421,
+        "numeratorG": "0.81",
+        "denominatorG": "38968.39",
+        "ratio": 0.0020786078152061197,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1423,
+        "numeratorG": "0.784",
+        "denominatorG": "55000",
+        "ratio": 0.0014254545454545455,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1424,
+        "numeratorG": "0.784",
+        "denominatorG": "55000",
+        "ratio": 0.0014254545454545455,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 0.0017520311803303325
+  },
+  {
+    "animalId": "castor_canadensis",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1637,
+        "numeratorG": "415.17",
+        "denominatorG": "18124.41",
+        "ratio": 2.290667668630317,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1638,
+        "numeratorG": "430",
+        "denominatorG": "20250",
+        "ratio": 2.123456790123457,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1639,
+        "numeratorG": "455.43",
+        "denominatorG": "19606.67",
+        "ratio": 2.3228319750370665,
+        "citation": "Ernest et al., 2003"
+      },
+      {
+        "rowNumber": 1640,
+        "numeratorG": "430",
+        "denominatorG": "20250",
+        "ratio": 2.123456790123457,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 2.290667668630317
+  },
+  {
+    "animalId": "enhydra_lutris",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1132,
+        "numeratorG": "1894.37",
+        "denominatorG": "27410.93",
+        "ratio": 6.911002289962434,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1135,
+        "numeratorG": "1868",
+        "denominatorG": "25850",
+        "ratio": 7.226305609284332,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1137,
+        "numeratorG": "1909.17",
+        "denominatorG": "21800",
+        "ratio": 8.757660550458716,
+        "citation": "Ernest et al., 2003"
+      }
+    ],
+    "median": 7.226305609284332
+  },
+  {
+    "animalId": "tursiops_truncatus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1318,
+        "numeratorG": "24369.6",
+        "denominatorG": "281040.55",
+        "ratio": 8.671204208787664,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1320,
+        "numeratorG": "19350",
+        "denominatorG": "200000",
+        "ratio": 9.675,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1321,
+        "numeratorG": "18920",
+        "denominatorG": "173333.33",
+        "ratio": 10.915384825295863,
+        "citation": "Ernest et al., 2003"
+      },
+      {
+        "rowNumber": 1322,
+        "numeratorG": "19350",
+        "denominatorG": "200000",
+        "ratio": 9.675,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 9.675
+  },
+  {
+    "animalId": "orcinus_orca",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1304,
+        "numeratorG": "158745.07",
+        "denominatorG": "5.63E+06",
+        "ratio": 2.819628241563055,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1306,
+        "numeratorG": "180000",
+        "denominatorG": "3.99E+06",
+        "ratio": 4.511278195488722,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1307,
+        "numeratorG": "159333.33",
+        "denominatorG": "4300000",
+        "ratio": 3.705426279069767,
+        "citation": "Ernest et al., 2003"
+      }
+    ],
+    "median": 3.705426279069767
+  },
+  {
+    "animalId": "balaenoptera_musculus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1273,
+        "numeratorG": "2.74E+06",
+        "denominatorG": "1.54E+08",
+        "ratio": 1.7792207792207793,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1274,
+        "numeratorG": "2.00E+06",
+        "denominatorG": "1.36E+08",
+        "ratio": 1.4705882352941178,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1275,
+        "numeratorG": "2250000",
+        "denominatorG": "149000000",
+        "ratio": 1.5100671140939597,
+        "citation": "Ernest et al., 2003"
+      }
+    ],
+    "median": 1.5100671140939597
+  },
+  {
+    "animalId": "megaptera_novaeangliae",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1290,
+        "numeratorG": "1.30E+06",
+        "denominatorG": "3.00E+07",
+        "ratio": 4.333333333333333,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1291,
+        "numeratorG": "1.35E+06",
+        "denominatorG": "3.00E+07",
+        "ratio": 4.5,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1292,
+        "numeratorG": "1325000",
+        "denominatorG": "30000000",
+        "ratio": 4.416666666666667,
+        "citation": "Ernest et al., 2003"
+      }
+    ],
+    "median": 4.416666666666667
+  },
+  {
+    "animalId": "aquila_chrysaetos",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 9,
+        "numeratorG": "110.6",
+        "denominatorG": "4800",
+        "ratio": 2.3041666666666667,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 11,
+        "numeratorG": "97.5",
+        "denominatorG": "4193",
+        "ratio": 2.325304078225614,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 2.3147353724461404
+  },
+  {
+    "animalId": "anas_platyrhynchos",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 56,
+        "numeratorG": "32.8",
+        "denominatorG": "1048.1",
+        "ratio": 3.129472378589829,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 59,
+        "numeratorG": "28.6",
+        "denominatorG": "1119",
+        "ratio": 2.5558534405719393,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 2.842662909580884
+  },
+  {
+    "animalId": "cygnus_olor",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 117,
+        "numeratorG": "225",
+        "denominatorG": "8300",
+        "ratio": 2.710843373493976,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 120,
+        "numeratorG": "218",
+        "denominatorG": "10750",
+        "ratio": 2.027906976744186,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 2.369375175119081
+  },
+  {
+    "animalId": "columba_livia",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 301,
+        "numeratorG": "15.2",
+        "denominatorG": "358.7",
+        "ratio": 4.237524393643714,
+        "citation": "de Magalhaes and Costa, 2009"
+      }
+    ],
+    "median": 4.237524393643714
+  },
+  {
+    "animalId": "falco_peregrinus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 336,
+        "numeratorG": "37.5",
+        "denominatorG": "840",
+        "ratio": 4.464285714285714,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 337,
+        "numeratorG": "33.5",
+        "denominatorG": "781.5",
+        "ratio": 4.286628278950736,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 4.375456996618225
+  },
+  {
+    "animalId": "gallus_gallus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 362,
+        "numeratorG": "17",
+        "denominatorG": "761.5",
+        "ratio": 2.2324359816152333,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 2.2324359816152333
+  },
+  {
+    "animalId": "pavo_cristatus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 401,
+        "numeratorG": "120",
+        "denominatorG": "4200",
+        "ratio": 2.857142857142857,
+        "citation": "de Magalhaes and Costa, 2009"
+      }
+    ],
+    "median": 2.857142857142857
+  },
+  {
+    "animalId": "cardinalis_cardinalis",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 465,
+        "numeratorG": "3.5",
+        "denominatorG": "42.6",
+        "ratio": 8.215962441314554,
+        "citation": "de Magalhaes and Costa, 2009"
+      }
+    ],
+    "median": 8.215962441314554
+  },
+  {
+    "animalId": "corvus_corax",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 481,
+        "numeratorG": "25",
+        "denominatorG": "1041.2",
+        "ratio": 2.4010756819054935,
+        "citation": "de Magalhaes and Costa, 2009"
+      }
+    ],
+    "median": 2.4010756819054935
+  },
+  {
+    "animalId": "hirundo_rustica",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 536,
+        "numeratorG": "2.3",
+        "denominatorG": "18.3",
+        "ratio": 12.568306010928959,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 537,
+        "numeratorG": "1.12",
+        "denominatorG": "17.56666667",
+        "ratio": 6.37571157374275,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 9.472008792335854
+  },
+  {
+    "animalId": "pelecanus_occidentalis",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 615,
+        "numeratorG": "63.5",
+        "denominatorG": "3115.8",
+        "ratio": 2.037999871622055,
+        "citation": "de Magalhaes and Costa, 2009"
+      }
+    ],
+    "median": 2.037999871622055
+  },
+  {
+    "animalId": "phoenicopterus_roseus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 640,
+        "numeratorG": "85",
+        "denominatorG": "3052",
+        "ratio": 2.7850589777195283,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 2.7850589777195283
+  },
+  {
+    "animalId": "phoebastria_immutabilis",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 731,
+        "numeratorG": "167.2",
+        "denominatorG": "3150",
+        "ratio": 5.307936507936508,
+        "citation": "de Magalhaes and Costa, 2009"
+      }
+    ],
+    "median": 5.307936507936508
+  },
+  {
+    "animalId": "spheniscus_demersus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 897,
+        "numeratorG": "60",
+        "denominatorG": "3233.333333",
+        "ratio": 1.8556701032840897,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 1.8556701032840897
+  },
+  {
+    "animalId": "bubo_virginianus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 909,
+        "numeratorG": "34.7",
+        "denominatorG": "1191.2",
+        "ratio": 2.9130288784419074,
+        "citation": "de Magalhaes and Costa, 2009"
+      }
+    ],
+    "median": 2.9130288784419074
+  },
+  {
+    "animalId": "tyto_alba",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 928,
+        "numeratorG": "15",
+        "denominatorG": "580",
+        "ratio": 2.586206896551724,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 930,
+        "numeratorG": "14.7",
+        "denominatorG": "337",
+        "ratio": 4.362017804154303,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 3.4741123503530136
+  },
+  {
+    "animalId": "eublepharis_macularius",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 2037,
+        "numeratorG": "1.87",
+        "denominatorG": "34.96",
+        "ratio": 5.348970251716247,
+        "citation": "Meiri, S., Brown, J.H., and R.M. Sibly, 2011"
+      }
+    ],
+    "median": 5.348970251716247
+  },
+  {
+    "animalId": "chlamydosaurus_kingii",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1915,
+        "numeratorG": "1.64",
+        "denominatorG": "263.25",
+        "ratio": 0.6229819563152896,
+        "citation": "Meiri, S., Brown, J.H., and R.M. Sibly, 2011"
+      }
+    ],
+    "median": 0.6229819563152896
+  },
+  {
+    "animalId": "helarctos_malayanus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1178,
+        "numeratorG": "324.99",
+        "denominatorG": "57075.78",
+        "ratio": 0.5694008912361777,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1179,
+        "numeratorG": "325",
+        "denominatorG": "46000",
+        "ratio": 0.7065217391304348,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1180,
+        "numeratorG": "275",
+        "denominatorG": "46000",
+        "ratio": 0.5978260869565217,
+        "citation": "Ernest et al., 2003"
+      }
+    ],
+    "median": 0.5978260869565217
+  },
+  {
+    "animalId": "melursus_ursinus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1186,
+        "numeratorG": "400",
+        "denominatorG": "100000",
+        "ratio": 0.4,
+        "citation": "de Magalhaes and Costa, 2009"
+      }
+    ],
+    "median": 0.4
+  },
+  {
+    "animalId": "tremarctos_ornatus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1192,
+        "numeratorG": "320",
+        "denominatorG": "123176.97",
+        "ratio": 0.2597888225371999,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1193,
+        "numeratorG": "320",
+        "denominatorG": "109250",
+        "ratio": 0.2929061784897025,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1194,
+        "numeratorG": "320",
+        "denominatorG": "61000",
+        "ratio": 0.5245901639344263,
+        "citation": "Ernest et al., 2003"
+      }
+    ],
+    "median": 0.2929061784897025
+  },
+  {
+    "animalId": "ursus_thibetanus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1267,
+        "numeratorG": "357.5",
+        "denominatorG": "99714.19",
+        "ratio": 0.3585246994434794,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1269,
+        "numeratorG": "463",
+        "denominatorG": "103750",
+        "ratio": 0.44626506024096385,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1270,
+        "numeratorG": "351.67",
+        "denominatorG": "76666.67",
+        "ratio": 0.4586999800565226,
+        "citation": "Ernest et al., 2003"
+      }
+    ],
+    "median": 0.44626506024096385
+  },
+  {
+    "animalId": "apus_apus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 167,
+        "numeratorG": "2.9",
+        "denominatorG": "42",
+        "ratio": 6.904761904761905,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 6.904761904761905
+  },
+  {
+    "animalId": "anser_anser",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 98,
+        "numeratorG": "88.5",
+        "denominatorG": "3308.5",
+        "ratio": 2.6749282152032645,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 2.6749282152032645
+  },
+  {
+    "animalId": "ardea_cinerea",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 604,
+        "numeratorG": "45",
+        "denominatorG": "1433",
+        "ratio": 3.14026517794836,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 3.14026517794836
+  },
+  {
+    "animalId": "phalacrocorax_carbo",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 984,
+        "numeratorG": "48.5",
+        "denominatorG": "3628.8",
+        "ratio": 1.3365299823633157,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 986,
+        "numeratorG": "33.5",
+        "denominatorG": "2193",
+        "ratio": 1.5275877792977657,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 1.4320588808305406
+  },
+  {
+    "animalId": "larus_argentatus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 247,
+        "numeratorG": "67.5",
+        "denominatorG": "1094",
+        "ratio": 6.170018281535649,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 248,
+        "numeratorG": "57",
+        "denominatorG": "1135",
+        "ratio": 5.022026431718062,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 5.596022356626856
+  },
+  {
+    "animalId": "corvus_corone",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 502,
+        "numeratorG": "13.6",
+        "denominatorG": "552",
+        "ratio": 2.463768115942029,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 2.463768115942029
+  },
+  {
+    "animalId": "sturnus_vulgaris",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 574,
+        "numeratorG": "6.4",
+        "denominatorG": "74",
+        "ratio": 8.64864864864865,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 575,
+        "numeratorG": "4.66",
+        "denominatorG": "74.85",
+        "ratio": 6.225784903139613,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 7.4372167758941305
+  },
+  {
+    "animalId": "erinaceus_europaeus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1444,
+        "numeratorG": "15.54",
+        "denominatorG": "777.95",
+        "ratio": 1.9975576836557618,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1445,
+        "numeratorG": "14.7",
+        "denominatorG": "750",
+        "ratio": 1.96,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1446,
+        "numeratorG": "15.7",
+        "denominatorG": "771",
+        "ratio": 2.0363164721141374,
+        "citation": "Ernest et al., 2003"
+      }
+    ],
+    "median": 1.9975576836557618
+  },
+  {
+    "animalId": "didelphis_marsupialis",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1377,
+        "numeratorG": "0.16",
+        "denominatorG": "1134.75",
+        "ratio": 0.014100022031284423,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1379,
+        "numeratorG": "0.2",
+        "denominatorG": "1530",
+        "ratio": 0.013071895424836602,
+        "citation": "de Magalhaes and Costa, 2009"
+      }
+    ],
+    "median": 0.013585958728060513
+  },
+  {
+    "animalId": "tupaia_glis",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1665,
+        "numeratorG": "12.6",
+        "denominatorG": "132.43",
+        "ratio": 9.514460469682096,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1666,
+        "numeratorG": "12.94",
+        "denominatorG": "200",
+        "ratio": 6.47,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1667,
+        "numeratorG": "12.94",
+        "denominatorG": "159",
+        "ratio": 8.138364779874214,
+        "citation": "Ernest et al., 2003"
+      },
+      {
+        "rowNumber": 1668,
+        "numeratorG": "12.94",
+        "denominatorG": "200",
+        "ratio": 6.47,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 8.138364779874214
+  },
+  {
+    "animalId": "cavia_porcellus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1645,
+        "numeratorG": "58.38",
+        "denominatorG": "524.38",
+        "ratio": 11.133147717304245,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1646,
+        "numeratorG": "79.91",
+        "denominatorG": "727.99",
+        "ratio": 10.976799131856207,
+        "citation": "Jones, K., Bielby, J., Cardillo, M. et al., 2009"
+      },
+      {
+        "rowNumber": 1647,
+        "numeratorG": "59.66",
+        "denominatorG": "341",
+        "ratio": 17.49560117302053,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1648,
+        "numeratorG": "85",
+        "denominatorG": "728",
+        "ratio": 11.675824175824175,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 1649,
+        "numeratorG": "59.66",
+        "denominatorG": "341",
+        "ratio": 17.49560117302053,
+        "citation": "Ernest et al., 2003"
+      },
+      {
+        "rowNumber": 1650,
+        "numeratorG": "85.14",
+        "denominatorG": "728",
+        "ratio": 11.695054945054945,
+        "citation": "Ernest et al., 2003"
+      },
+      {
+        "rowNumber": 1651,
+        "numeratorG": "85",
+        "denominatorG": "728",
+        "ratio": 11.675824175824175,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 11.675824175824175
+  },
+  {
+    "animalId": "columba_palumbus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 324,
+        "numeratorG": "16.8",
+        "denominatorG": "489",
+        "ratio": 3.4355828220858897,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 3.4355828220858897
+  },
+  {
+    "animalId": "somateria_mollissima",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 142,
+        "numeratorG": "76.4",
+        "denominatorG": "2130",
+        "ratio": 3.586854460093897,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 145,
+        "numeratorG": "69",
+        "denominatorG": "2424",
+        "ratio": 2.8465346534653464,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 3.216694556779622
+  },
+  {
+    "animalId": "vanellus_vanellus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 214,
+        "numeratorG": "17.4",
+        "denominatorG": "213.6666667",
+        "ratio": 8.143525739759198,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 8.143525739759198
+  },
+  {
+    "animalId": "haematopus_ostralegus",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 230,
+        "numeratorG": "31.1",
+        "denominatorG": "580",
+        "ratio": 5.362068965517241,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 5.362068965517241
+  },
+  {
+    "animalId": "sterna_hirundo",
+    "trait": "newborn_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 277,
+        "numeratorG": "1.25",
+        "denominatorG": "120",
+        "ratio": 1.0416666666666667,
+        "citation": "de Magalhaes and Costa, 2009"
+      },
+      {
+        "rowNumber": 278,
+        "numeratorG": "14.3",
+        "denominatorG": "123.3333333",
+        "ratio": 11.594594597728268,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 6.318130632197467
+  },
+  {
+    "animalId": "aquila_chrysaetos",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 8,
+        "numeratorG": "142",
+        "denominatorG": "4383",
+        "ratio": 3.2397900981063197,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 10,
+        "numeratorG": "142",
+        "denominatorG": "5273",
+        "ratio": 2.6929641570263607,
+        "citation": "Ricklefs, 2010b"
+      },
+      {
+        "rowNumber": 11,
+        "numeratorG": "145",
+        "denominatorG": "4193",
+        "ratio": 3.458144526591939,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 3.2397900981063197
+  },
+  {
+    "animalId": "haliaeetus_leucocephalus",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 32,
+        "numeratorG": "117",
+        "denominatorG": "4740",
+        "ratio": 2.4683544303797467,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 34,
+        "numeratorG": "117",
+        "denominatorG": "5000",
+        "ratio": 2.34,
+        "citation": "Ricklefs, 2010b"
+      },
+      {
+        "rowNumber": 35,
+        "numeratorG": "117",
+        "denominatorG": "4683.5",
+        "ratio": 2.4981317390840183,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 2.4683544303797467
+  },
+  {
+    "animalId": "anas_platyrhynchos",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 55,
+        "numeratorG": "54",
+        "denominatorG": "1154.333333",
+        "ratio": 4.678024835309854,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 57,
+        "numeratorG": "60",
+        "denominatorG": "1200",
+        "ratio": 5.0,
+        "citation": "Ricklefs, 2010b"
+      },
+      {
+        "rowNumber": 59,
+        "numeratorG": "46",
+        "denominatorG": "1119",
+        "ratio": 4.110813226094727,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 60,
+        "numeratorG": "52.2",
+        "denominatorG": "1301",
+        "ratio": 4.012298232129131,
+        "citation": "Dyke and Kaiser, 2010"
+      },
+      {
+        "rowNumber": 63,
+        "numeratorG": "50",
+        "denominatorG": "1114",
+        "ratio": 4.488330341113106,
+        "citation": "Werner and Griebeler, 2012"
+      },
+      {
+        "rowNumber": 64,
+        "numeratorG": "49.9",
+        "denominatorG": "1123",
+        "ratio": 4.443455031166518,
+        "citation": "Werner and Griebeler, 2013"
+      },
+      {
+        "rowNumber": 83,
+        "numeratorG": "51.7",
+        "denominatorG": "1153",
+        "ratio": 4.483954900260191,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 84,
+        "numeratorG": "51.7",
+        "denominatorG": "1153",
+        "ratio": 4.483954900260191,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 85,
+        "numeratorG": "51.7",
+        "denominatorG": "1153",
+        "ratio": 4.483954900260191,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 86,
+        "numeratorG": "51.7",
+        "denominatorG": "1153",
+        "ratio": 4.483954900260191,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 87,
+        "numeratorG": "51.7",
+        "denominatorG": "1153",
+        "ratio": 4.483954900260191,
+        "citation": "Krist, 2011"
+      }
+    ],
+    "median": 4.483954900260191
+  },
+  {
+    "animalId": "cygnus_olor",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 116,
+        "numeratorG": "340",
+        "denominatorG": "10940",
+        "ratio": 3.1078610603290677,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 118,
+        "numeratorG": "340",
+        "denominatorG": "11000",
+        "ratio": 3.090909090909091,
+        "citation": "Ricklefs, 2010b"
+      },
+      {
+        "rowNumber": 120,
+        "numeratorG": "345",
+        "denominatorG": "10750",
+        "ratio": 3.2093023255813953,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 123,
+        "numeratorG": "353",
+        "denominatorG": "10230",
+        "ratio": 3.450635386119257,
+        "citation": "Werner and Griebeler, 2012"
+      },
+      {
+        "rowNumber": 124,
+        "numeratorG": "353",
+        "denominatorG": "9670",
+        "ratio": 3.6504653567735263,
+        "citation": "Werner and Griebeler, 2013"
+      },
+      {
+        "rowNumber": 133,
+        "numeratorG": "345",
+        "denominatorG": "9962.5",
+        "ratio": 3.4629861982434127,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 134,
+        "numeratorG": "345",
+        "denominatorG": "9962.5",
+        "ratio": 3.4629861982434127,
+        "citation": "Krist, 2011"
+      }
+    ],
+    "median": 3.329968855850326
+  },
+  {
+    "animalId": "columba_livia",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 300,
+        "numeratorG": "17.8",
+        "denominatorG": "299.3333333",
+        "ratio": 5.946547884849282,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 302,
+        "numeratorG": "17",
+        "denominatorG": "282",
+        "ratio": 6.028368794326241,
+        "citation": "Ricklefs, 2010b"
+      },
+      {
+        "rowNumber": 304,
+        "numeratorG": "17.8",
+        "denominatorG": "280.5",
+        "ratio": 6.3458110516934045,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 305,
+        "numeratorG": "14.6",
+        "denominatorG": "340",
+        "ratio": 4.294117647058823,
+        "citation": "Dyke and Kaiser, 2010"
+      },
+      {
+        "rowNumber": 319,
+        "numeratorG": "18",
+        "denominatorG": "294.5",
+        "ratio": 6.112054329371817,
+        "citation": "Krist, 2011"
+      }
+    ],
+    "median": 6.028368794326241
+  },
+  {
+    "animalId": "falco_peregrinus",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 335,
+        "numeratorG": "48",
+        "denominatorG": "722.4",
+        "ratio": 6.644518272425249,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 337,
+        "numeratorG": "47.8",
+        "denominatorG": "781.5",
+        "ratio": 6.1164427383237365,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 338,
+        "numeratorG": "46.4",
+        "denominatorG": "1201",
+        "ratio": 3.8634471273938384,
+        "citation": "Dyke and Kaiser, 2010"
+      },
+      {
+        "rowNumber": 351,
+        "numeratorG": "46.4",
+        "denominatorG": "840",
+        "ratio": 5.523809523809524,
+        "citation": "Krist, 2011"
+      }
+    ],
+    "median": 5.82012613106663
+  },
+  {
+    "animalId": "gallus_gallus",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 360,
+        "numeratorG": "36",
+        "denominatorG": "2050",
+        "ratio": 1.7560975609756098,
+        "citation": "Ricklefs, 2010b"
+      },
+      {
+        "rowNumber": 362,
+        "numeratorG": "31.1",
+        "denominatorG": "761.5",
+        "ratio": 4.084044648719632,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 363,
+        "numeratorG": "29.6",
+        "denominatorG": "767.5",
+        "ratio": 3.8566775244299674,
+        "citation": "Werner and Griebeler, 2013"
+      }
+    ],
+    "median": 3.8566775244299674
+  },
+  {
+    "animalId": "pavo_cristatus",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 402,
+        "numeratorG": "90",
+        "denominatorG": "3500",
+        "ratio": 2.5714285714285716,
+        "citation": "Ricklefs, 2010b"
+      },
+      {
+        "rowNumber": 404,
+        "numeratorG": "100.5",
+        "denominatorG": "4187.5",
+        "ratio": 2.4,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 405,
+        "numeratorG": "103.5",
+        "denominatorG": "3375",
+        "ratio": 3.066666666666667,
+        "citation": "Werner and Griebeler, 2013"
+      }
+    ],
+    "median": 2.5714285714285716
+  },
+  {
+    "animalId": "cardinalis_cardinalis",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 464,
+        "numeratorG": "4.58",
+        "denominatorG": "42.08333333",
+        "ratio": 10.883168317693716,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 466,
+        "numeratorG": "4.4",
+        "denominatorG": "44.65",
+        "ratio": 9.854423292273237,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 10.368795804983478
+  },
+  {
+    "animalId": "corvus_corax",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 480,
+        "numeratorG": "28.8",
+        "denominatorG": "1200.55",
+        "ratio": 2.398900503935696,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 484,
+        "numeratorG": "16.7",
+        "denominatorG": "391.5",
+        "ratio": 4.265644955300128,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 485,
+        "numeratorG": "29.5",
+        "denominatorG": "1234",
+        "ratio": 2.3905996758508916,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 2.398900503935696
+  },
+  {
+    "animalId": "hirundo_rustica",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 535,
+        "numeratorG": "1.9",
+        "denominatorG": "19.1",
+        "ratio": 9.947643979057592,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 537,
+        "numeratorG": "1.9",
+        "denominatorG": "17.56666667",
+        "ratio": 10.815939276885022,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 552,
+        "numeratorG": "1.9",
+        "denominatorG": "19",
+        "ratio": 10.0,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 553,
+        "numeratorG": "1.9",
+        "denominatorG": "19",
+        "ratio": 10.0,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 554,
+        "numeratorG": "1.9",
+        "denominatorG": "19",
+        "ratio": 10.0,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 555,
+        "numeratorG": "1.9",
+        "denominatorG": "19",
+        "ratio": 10.0,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 556,
+        "numeratorG": "1.9",
+        "denominatorG": "19",
+        "ratio": 10.0,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 557,
+        "numeratorG": "1.9",
+        "denominatorG": "19",
+        "ratio": 10.0,
+        "citation": "Krist, 2011"
+      }
+    ],
+    "median": 10.0
+  },
+  {
+    "animalId": "pelecanus_occidentalis",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 614,
+        "numeratorG": "91",
+        "denominatorG": "3057",
+        "ratio": 2.976774615636245,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 616,
+        "numeratorG": "92.1",
+        "denominatorG": "3500",
+        "ratio": 2.6314285714285712,
+        "citation": "Ricklefs, 2010b"
+      },
+      {
+        "rowNumber": 617,
+        "numeratorG": "101",
+        "denominatorG": "3392",
+        "ratio": 2.9775943396226414,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 618,
+        "numeratorG": "112",
+        "denominatorG": "3174",
+        "ratio": 3.5286704473850032,
+        "citation": "Dyke and Kaiser, 2010"
+      },
+      {
+        "rowNumber": 631,
+        "numeratorG": "105.5",
+        "denominatorG": "4550",
+        "ratio": 2.318681318681319,
+        "citation": "Krist, 2011"
+      }
+    ],
+    "median": 2.976774615636245
+  },
+  {
+    "animalId": "phoenicopterus_roseus",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 637,
+        "numeratorG": "142",
+        "denominatorG": "3052",
+        "ratio": 4.652686762778506,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 640,
+        "numeratorG": "142",
+        "denominatorG": "3052",
+        "ratio": 4.652686762778506,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 641,
+        "numeratorG": "142.7",
+        "denominatorG": "2530",
+        "ratio": 5.640316205533596,
+        "citation": "Dyke and Kaiser, 2010"
+      }
+    ],
+    "median": 5.146501484156051
+  },
+  {
+    "animalId": "ramphastos_toco",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 653,
+        "numeratorG": "17.3",
+        "denominatorG": "339",
+        "ratio": 5.103244837758112,
+        "citation": "Ricklefs, 2010b"
+      }
+    ],
+    "median": 5.103244837758112
+  },
+  {
+    "animalId": "diomedea_exulans",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 658,
+        "numeratorG": "484",
+        "denominatorG": "8190",
+        "ratio": 5.90964590964591,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 660,
+        "numeratorG": "458",
+        "denominatorG": "8734.666667",
+        "ratio": 5.243474278535969,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 661,
+        "numeratorG": "445",
+        "denominatorG": "6950",
+        "ratio": 6.402877697841727,
+        "citation": "Dyke and Kaiser, 2010"
+      },
+      {
+        "rowNumber": 665,
+        "numeratorG": "476",
+        "denominatorG": "9600",
+        "ratio": 4.958333333333333,
+        "citation": "Werner and Griebeler, 2012"
+      },
+      {
+        "rowNumber": 725,
+        "numeratorG": "469.7",
+        "denominatorG": "7618.5",
+        "ratio": 6.165255627748245,
+        "citation": "Krist, 2011"
+      }
+    ],
+    "median": 5.90964590964591
+  },
+  {
+    "animalId": "phoebastria_immutabilis",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 730,
+        "numeratorG": "288",
+        "denominatorG": "3150",
+        "ratio": 9.142857142857142,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 732,
+        "numeratorG": "279",
+        "denominatorG": "3058.333333",
+        "ratio": 9.122615804809005,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 733,
+        "numeratorG": "279",
+        "denominatorG": "2750",
+        "ratio": 10.145454545454545,
+        "citation": "Dyke and Kaiser, 2010"
+      },
+      {
+        "rowNumber": 737,
+        "numeratorG": "266",
+        "denominatorG": "2900",
+        "ratio": 9.172413793103448,
+        "citation": "Werner and Griebeler, 2012"
+      }
+    ],
+    "median": 9.157635467980295
+  },
+  {
+    "animalId": "cacatua_galerita",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 754,
+        "numeratorG": "28",
+        "denominatorG": "789.75",
+        "ratio": 3.54542576764799,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 757,
+        "numeratorG": "27.3",
+        "denominatorG": "450",
+        "ratio": 6.066666666666666,
+        "citation": "Ricklefs, 2010b"
+      },
+      {
+        "rowNumber": 758,
+        "numeratorG": "15.9",
+        "denominatorG": "450",
+        "ratio": 3.533333333333333,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 759,
+        "numeratorG": "28",
+        "denominatorG": "892",
+        "ratio": 3.1390134529147984,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 3.5393795504906613
+  },
+  {
+    "animalId": "ara_macao",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 794,
+        "numeratorG": "29.3",
+        "denominatorG": "900",
+        "ratio": 3.2555555555555555,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 3.2555555555555555
+  },
+  {
+    "animalId": "aptenodytes_forsteri",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 800,
+        "numeratorG": "425",
+        "denominatorG": "33850",
+        "ratio": 1.255539143279173,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 801,
+        "numeratorG": "445",
+        "denominatorG": "27500",
+        "ratio": 1.6181818181818182,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 1.4368604807304957
+  },
+  {
+    "animalId": "aptenodytes_patagonicus",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 829,
+        "numeratorG": "306",
+        "denominatorG": "12150",
+        "ratio": 2.5185185185185186,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 831,
+        "numeratorG": "300",
+        "denominatorG": "16000",
+        "ratio": 1.875,
+        "citation": "Ricklefs, 2010b"
+      },
+      {
+        "rowNumber": 832,
+        "numeratorG": "310",
+        "denominatorG": "12800",
+        "ratio": 2.421875,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 2.421875
+  },
+  {
+    "animalId": "eudyptula_minor",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 843,
+        "numeratorG": "52",
+        "denominatorG": "1166.966667",
+        "ratio": 4.455997028062499,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 844,
+        "numeratorG": "52",
+        "denominatorG": "1100",
+        "ratio": 4.7272727272727275,
+        "citation": "Ricklefs, 2010b"
+      },
+      {
+        "rowNumber": 845,
+        "numeratorG": "52",
+        "denominatorG": "1100",
+        "ratio": 4.7272727272727275,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 846,
+        "numeratorG": "55",
+        "denominatorG": "1500",
+        "ratio": 3.6666666666666665,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 4.455997028062499
+  },
+  {
+    "animalId": "pygoscelis_adeliae",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 851,
+        "numeratorG": "124",
+        "denominatorG": "5030",
+        "ratio": 2.4652087475149105,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 852,
+        "numeratorG": "117",
+        "denominatorG": "4300",
+        "ratio": 2.7209302325581395,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 2.593069490036525
+  },
+  {
+    "animalId": "pygoscelis_papua",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 861,
+        "numeratorG": "136",
+        "denominatorG": "5710",
+        "ratio": 2.3817863397548162,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 862,
+        "numeratorG": "138",
+        "denominatorG": "6500",
+        "ratio": 2.123076923076923,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 891,
+        "numeratorG": "138.3",
+        "denominatorG": "5950",
+        "ratio": 2.32436974789916,
+        "citation": "Krist, 2011"
+      }
+    ],
+    "median": 2.32436974789916
+  },
+  {
+    "animalId": "spheniscus_demersus",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 895,
+        "numeratorG": "103",
+        "denominatorG": "3400",
+        "ratio": 3.0294117647058822,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 896,
+        "numeratorG": "103",
+        "denominatorG": "2900",
+        "ratio": 3.5517241379310347,
+        "citation": "Ricklefs, 2010b"
+      },
+      {
+        "rowNumber": 897,
+        "numeratorG": "103",
+        "denominatorG": "3233.333333",
+        "ratio": 3.1855670106376874,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 898,
+        "numeratorG": "103",
+        "denominatorG": "2960",
+        "ratio": 3.47972972972973,
+        "citation": "Dyke and Kaiser, 2010"
+      },
+      {
+        "rowNumber": 901,
+        "numeratorG": "107",
+        "denominatorG": "3400",
+        "ratio": 3.1470588235294117,
+        "citation": "Krist, 2011"
+      }
+    ],
+    "median": 3.1855670106376874
+  },
+  {
+    "animalId": "bubo_virginianus",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 908,
+        "numeratorG": "69",
+        "denominatorG": "1505",
+        "ratio": 4.584717607973422,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 911,
+        "numeratorG": "63.4",
+        "denominatorG": "1543.5",
+        "ratio": 4.1075477810171686,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 4.346132694495296
+  },
+  {
+    "animalId": "tyto_alba",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 927,
+        "numeratorG": "20.7",
+        "denominatorG": "353",
+        "ratio": 5.864022662889519,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 929,
+        "numeratorG": "18.7",
+        "denominatorG": "381.6",
+        "ratio": 4.90041928721174,
+        "citation": "Ricklefs, 2010b"
+      },
+      {
+        "rowNumber": 930,
+        "numeratorG": "21",
+        "denominatorG": "337",
+        "ratio": 6.231454005934718,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 5.864022662889519
+  },
+  {
+    "animalId": "dromaius_novaehollandiae",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 179,
+        "numeratorG": "581.2",
+        "denominatorG": "35500",
+        "ratio": 1.6371830985915494,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 181,
+        "numeratorG": "578",
+        "denominatorG": "40500",
+        "ratio": 1.4271604938271605,
+        "citation": "Ricklefs, 2010b"
+      },
+      {
+        "rowNumber": 182,
+        "numeratorG": "610",
+        "denominatorG": "38925",
+        "ratio": 1.567116249197174,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 183,
+        "numeratorG": "550",
+        "denominatorG": "43080",
+        "ratio": 1.27669452181987,
+        "citation": "Dyke and Kaiser, 2010"
+      },
+      {
+        "rowNumber": 184,
+        "numeratorG": "550",
+        "denominatorG": "35400",
+        "ratio": 1.5536723163841808,
+        "citation": "Werner and Griebeler, 2012"
+      },
+      {
+        "rowNumber": 185,
+        "numeratorG": "550",
+        "denominatorG": "35400",
+        "ratio": 1.5536723163841808,
+        "citation": "Werner and Griebeler, 2013"
+      }
+    ],
+    "median": 1.5536723163841808
+  },
+  {
+    "animalId": "struthio_camelus",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 947,
+        "numeratorG": "1500",
+        "denominatorG": "107500",
+        "ratio": 1.3953488372093024,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 949,
+        "numeratorG": "1517",
+        "denominatorG": "90000",
+        "ratio": 1.6855555555555555,
+        "citation": "Ricklefs, 2010b"
+      },
+      {
+        "rowNumber": 951,
+        "numeratorG": "1600",
+        "denominatorG": "99500",
+        "ratio": 1.6080402010050252,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 952,
+        "numeratorG": "1480",
+        "denominatorG": "63000",
+        "ratio": 2.3492063492063493,
+        "citation": "Dyke and Kaiser, 2010"
+      },
+      {
+        "rowNumber": 953,
+        "numeratorG": "1500",
+        "denominatorG": "91750",
+        "ratio": 1.6348773841961852,
+        "citation": "Werner and Griebeler, 2013"
+      }
+    ],
+    "median": 1.6348773841961852
+  },
+  {
+    "animalId": "alligator_mississippiensis",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1701,
+        "numeratorG": "76.6",
+        "denominatorG": "47800",
+        "ratio": 0.1602510460251046,
+        "citation": "Werner and Griebeler, 2013"
+      },
+      {
+        "rowNumber": 1702,
+        "numeratorG": "76.6",
+        "denominatorG": "47800",
+        "ratio": 0.1602510460251046,
+        "citation": "Thorbjarnarson,  1996"
+      }
+    ],
+    "median": 0.1602510460251046
+  },
+  {
+    "animalId": "crocodylus_niloticus",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1799,
+        "numeratorG": "107.1",
+        "denominatorG": "94200",
+        "ratio": 0.11369426751592357,
+        "citation": "Werner and Griebeler, 2013"
+      },
+      {
+        "rowNumber": 1800,
+        "numeratorG": "107.1",
+        "denominatorG": "94200",
+        "ratio": 0.11369426751592357,
+        "citation": "Thorbjarnarson,  1996"
+      }
+    ],
+    "median": 0.11369426751592357
+  },
+  {
+    "animalId": "crocodylus_acutus",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1763,
+        "numeratorG": "112.8",
+        "denominatorG": "76700",
+        "ratio": 0.1470664928292047,
+        "citation": "Werner and Griebeler, 2013"
+      },
+      {
+        "rowNumber": 1764,
+        "numeratorG": "112.8",
+        "denominatorG": "76700",
+        "ratio": 0.1470664928292047,
+        "citation": "Thorbjarnarson,  1996"
+      }
+    ],
+    "median": 0.1470664928292047
+  },
+  {
+    "animalId": "gavialis_gangeticus",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1866,
+        "numeratorG": "161.4",
+        "denominatorG": "147000",
+        "ratio": 0.10979591836734694,
+        "citation": "Werner and Griebeler, 2013"
+      }
+    ],
+    "median": 0.10979591836734694
+  },
+  {
+    "animalId": "osteolaemus_tetraspis",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 1830,
+        "numeratorG": "55",
+        "denominatorG": "18800",
+        "ratio": 0.2925531914893617,
+        "citation": "Werner and Griebeler, 2013"
+      },
+      {
+        "rowNumber": 1831,
+        "numeratorG": "55",
+        "denominatorG": "18800",
+        "ratio": 0.2925531914893617,
+        "citation": "Thorbjarnarson,  1996"
+      }
+    ],
+    "median": 0.2925531914893617
+  },
+  {
+    "animalId": "eublepharis_macularius",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 2035,
+        "numeratorG": "3.46",
+        "denominatorG": "35.53",
+        "ratio": 9.738249366732338,
+        "citation": "Kratochvil and Frynta, 2006a"
+      }
+    ],
+    "median": 9.738249366732338
+  },
+  {
+    "animalId": "caretta_caretta",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 2250,
+        "numeratorG": "41.2",
+        "denominatorG": "116300",
+        "ratio": 0.0354256233877902,
+        "citation": "Iverson, J., Balgooyen, C., Byrd, K. et al., 1993"
+      },
+      {
+        "rowNumber": 2251,
+        "numeratorG": "31.27",
+        "denominatorG": "68500",
+        "ratio": 0.04564963503649635,
+        "citation": "Iverson, J., Balgooyen, C., Byrd, K. et al., 1993"
+      }
+    ],
+    "median": 0.040537629212143274
+  },
+  {
+    "animalId": "dermochelys_coriacea",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 2475,
+        "numeratorG": "73.19",
+        "denominatorG": "372500",
+        "ratio": 0.019648322147651005,
+        "citation": "Iverson, J., Balgooyen, C., Byrd, K. et al., 1993"
+      }
+    ],
+    "median": 0.019648322147651005
+  },
+  {
+    "animalId": "trachemys_scripta",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 2583,
+        "numeratorG": "10.52",
+        "denominatorG": "1895",
+        "ratio": 0.5551451187335092,
+        "citation": "Iverson, J., Balgooyen, C., Byrd, K. et al., 1993"
+      },
+      {
+        "rowNumber": 2584,
+        "numeratorG": "10.99",
+        "denominatorG": "1950",
+        "ratio": 0.5635897435897436,
+        "citation": "Iverson, J., Balgooyen, C., Byrd, K. et al., 1993"
+      },
+      {
+        "rowNumber": 2585,
+        "numeratorG": "11.78",
+        "denominatorG": "1813",
+        "ratio": 0.6497517926089355,
+        "citation": "Iverson, J., Balgooyen, C., Byrd, K. et al., 1993"
+      },
+      {
+        "rowNumber": 2586,
+        "numeratorG": "20.66",
+        "denominatorG": "4000",
+        "ratio": 0.5165,
+        "citation": "Iverson, J., Balgooyen, C., Byrd, K. et al., 1993"
+      }
+    ],
+    "median": 0.5593674311616263
+  },
+  {
+    "animalId": "gopherus_agassizii",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 2648,
+        "numeratorG": "32.9",
+        "denominatorG": "1400",
+        "ratio": 2.35,
+        "citation": "Werner and Griebeler, 2013"
+      },
+      {
+        "rowNumber": 2655,
+        "numeratorG": "38.9",
+        "denominatorG": "2290",
+        "ratio": 1.6986899563318778,
+        "citation": "Iverson, J., Balgooyen, C., Byrd, K. et al., 1993"
+      },
+      {
+        "rowNumber": 2656,
+        "numeratorG": "40.9",
+        "denominatorG": "2784",
+        "ratio": 1.4691091954022988,
+        "citation": "Iverson, J., Balgooyen, C., Byrd, K. et al., 1993"
+      }
+    ],
+    "median": 1.6986899563318778
+  },
+  {
+    "animalId": "apus_apus",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 165,
+        "numeratorG": "3.5",
+        "denominatorG": "40.1",
+        "ratio": 8.728179551122194,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 167,
+        "numeratorG": "3.55",
+        "denominatorG": "42",
+        "ratio": 8.452380952380953,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 168,
+        "numeratorG": "3.6",
+        "denominatorG": "38",
+        "ratio": 9.473684210526315,
+        "citation": "Dyke and Kaiser, 2010"
+      },
+      {
+        "rowNumber": 172,
+        "numeratorG": "3.6",
+        "denominatorG": "40",
+        "ratio": 9.0,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 173,
+        "numeratorG": "3.6",
+        "denominatorG": "40",
+        "ratio": 9.0,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 174,
+        "numeratorG": "3.6",
+        "denominatorG": "40",
+        "ratio": 9.0,
+        "citation": "Krist, 2011"
+      }
+    ],
+    "median": 8.864089775561098
+  },
+  {
+    "animalId": "anser_anser",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 94,
+        "numeratorG": "160",
+        "denominatorG": "3463",
+        "ratio": 4.620271440947156,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 96,
+        "numeratorG": "173",
+        "denominatorG": "3250",
+        "ratio": 5.323076923076923,
+        "citation": "Ricklefs, 2010b"
+      },
+      {
+        "rowNumber": 98,
+        "numeratorG": "156.5",
+        "denominatorG": "3308.5",
+        "ratio": 4.730240290161705,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 100,
+        "numeratorG": "165",
+        "denominatorG": "3200",
+        "ratio": 5.15625,
+        "citation": "Werner and Griebeler, 2012"
+      },
+      {
+        "rowNumber": 101,
+        "numeratorG": "165",
+        "denominatorG": "3108",
+        "ratio": 5.308880308880309,
+        "citation": "Werner and Griebeler, 2013"
+      }
+    ],
+    "median": 5.15625
+  },
+  {
+    "animalId": "ardea_cinerea",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 601,
+        "numeratorG": "61",
+        "denominatorG": "1433",
+        "ratio": 4.256803907885555,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 603,
+        "numeratorG": "49.6",
+        "denominatorG": "1500",
+        "ratio": 3.3066666666666666,
+        "citation": "Ricklefs, 2010b"
+      },
+      {
+        "rowNumber": 604,
+        "numeratorG": "60",
+        "denominatorG": "1433",
+        "ratio": 4.1870202372644805,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 605,
+        "numeratorG": "60.3",
+        "denominatorG": "1547",
+        "ratio": 3.8978668390433096,
+        "citation": "Dyke and Kaiser, 2010"
+      }
+    ],
+    "median": 4.042443538153895
+  },
+  {
+    "animalId": "phalacrocorax_carbo",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 983,
+        "numeratorG": "58",
+        "denominatorG": "2200",
+        "ratio": 2.6363636363636362,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 985,
+        "numeratorG": "58",
+        "denominatorG": "2200",
+        "ratio": 2.6363636363636362,
+        "citation": "Ricklefs, 2010b"
+      },
+      {
+        "rowNumber": 986,
+        "numeratorG": "53",
+        "denominatorG": "2193",
+        "ratio": 2.4167806657546738,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 987,
+        "numeratorG": "58",
+        "denominatorG": "1936",
+        "ratio": 2.9958677685950414,
+        "citation": "Dyke and Kaiser, 2010"
+      }
+    ],
+    "median": 2.6363636363636362
+  },
+  {
+    "animalId": "larus_argentatus",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 246,
+        "numeratorG": "87.5",
+        "denominatorG": "895",
+        "ratio": 9.776536312849162,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 248,
+        "numeratorG": "91.5",
+        "denominatorG": "1135",
+        "ratio": 8.061674008810572,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 265,
+        "numeratorG": "92.2",
+        "denominatorG": "1085",
+        "ratio": 8.497695852534562,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 266,
+        "numeratorG": "92.2",
+        "denominatorG": "1085",
+        "ratio": 8.497695852534562,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 267,
+        "numeratorG": "92.2",
+        "denominatorG": "1085",
+        "ratio": 8.497695852534562,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 268,
+        "numeratorG": "92.2",
+        "denominatorG": "1085",
+        "ratio": 8.497695852534562,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 269,
+        "numeratorG": "92.2",
+        "denominatorG": "1085",
+        "ratio": 8.497695852534562,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 270,
+        "numeratorG": "92.2",
+        "denominatorG": "1085",
+        "ratio": 8.497695852534562,
+        "citation": "Krist, 2011"
+      }
+    ],
+    "median": 8.497695852534562
+  },
+  {
+    "animalId": "corvus_corone",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 499,
+        "numeratorG": "19.8",
+        "denominatorG": "544.5",
+        "ratio": 3.6363636363636362,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 502,
+        "numeratorG": "19.3",
+        "denominatorG": "552",
+        "ratio": 3.496376811594203,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 509,
+        "numeratorG": "18.9",
+        "denominatorG": "515.5",
+        "ratio": 3.666343355965082,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 510,
+        "numeratorG": "18.9",
+        "denominatorG": "515.5",
+        "ratio": 3.666343355965082,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 511,
+        "numeratorG": "18.9",
+        "denominatorG": "515.5",
+        "ratio": 3.666343355965082,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 512,
+        "numeratorG": "18.9",
+        "denominatorG": "515.5",
+        "ratio": 3.666343355965082,
+        "citation": "Krist, 2011"
+      }
+    ],
+    "median": 3.6363636363636362
+  },
+  {
+    "animalId": "erithacus_rubecula",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 561,
+        "numeratorG": "2.4",
+        "denominatorG": "17.55",
+        "ratio": 13.675213675213675,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 563,
+        "numeratorG": "2.45",
+        "denominatorG": "17.45",
+        "ratio": 14.040114613180519,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 13.857664144197097
+  },
+  {
+    "animalId": "sturnus_vulgaris",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 573,
+        "numeratorG": "7",
+        "denominatorG": "80.5",
+        "ratio": 8.695652173913043,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 575,
+        "numeratorG": "7",
+        "denominatorG": "74.85",
+        "ratio": 9.352037408149632,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 589,
+        "numeratorG": "7",
+        "denominatorG": "74.5",
+        "ratio": 9.395973154362416,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 590,
+        "numeratorG": "7",
+        "denominatorG": "74.5",
+        "ratio": 9.395973154362416,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 591,
+        "numeratorG": "7",
+        "denominatorG": "74.5",
+        "ratio": 9.395973154362416,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 592,
+        "numeratorG": "7",
+        "denominatorG": "74.5",
+        "ratio": 9.395973154362416,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 593,
+        "numeratorG": "7",
+        "denominatorG": "74.5",
+        "ratio": 9.395973154362416,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 594,
+        "numeratorG": "7",
+        "denominatorG": "74.5",
+        "ratio": 9.395973154362416,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 595,
+        "numeratorG": "7",
+        "denominatorG": "74.5",
+        "ratio": 9.395973154362416,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 596,
+        "numeratorG": "7",
+        "denominatorG": "74.5",
+        "ratio": 9.395973154362416,
+        "citation": "Krist, 2011"
+      }
+    ],
+    "median": 9.352037408149632
+  },
+  {
+    "animalId": "columba_palumbus",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 322,
+        "numeratorG": "18.9",
+        "denominatorG": "501",
+        "ratio": 3.772455089820359,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 324,
+        "numeratorG": "18.5",
+        "denominatorG": "489",
+        "ratio": 3.783231083844581,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 328,
+        "numeratorG": "18.5",
+        "denominatorG": "502.5",
+        "ratio": 3.681592039800995,
+        "citation": "Krist, 2011"
+      }
+    ],
+    "median": 3.772455089820359
+  },
+  {
+    "animalId": "corvus_frugilegus",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 519,
+        "numeratorG": "16",
+        "denominatorG": "453.5",
+        "ratio": 3.528114663726571,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 522,
+        "numeratorG": "16",
+        "denominatorG": "446.5",
+        "ratio": 3.5834266517357225,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 3.5557706577311468
+  },
+  {
+    "animalId": "alauda_arvensis",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 451,
+        "numeratorG": "3.35",
+        "denominatorG": "36.4",
+        "ratio": 9.203296703296704,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 453,
+        "numeratorG": "3.35",
+        "denominatorG": "37.5",
+        "ratio": 8.933333333333334,
+        "citation": "Bennett, 1986"
+      }
+    ],
+    "median": 9.068315018315019
+  },
+  {
+    "animalId": "somateria_mollissima",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 141,
+        "numeratorG": "110",
+        "denominatorG": "2076.333333",
+        "ratio": 5.297800610900273,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 143,
+        "numeratorG": "100",
+        "denominatorG": "2050",
+        "ratio": 4.878048780487805,
+        "citation": "Ricklefs, 2010b"
+      },
+      {
+        "rowNumber": 145,
+        "numeratorG": "110",
+        "denominatorG": "2424",
+        "ratio": 4.537953795379538,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 148,
+        "numeratorG": "111",
+        "denominatorG": "2130",
+        "ratio": 5.211267605633803,
+        "citation": "Werner and Griebeler, 2012"
+      },
+      {
+        "rowNumber": 149,
+        "numeratorG": "111",
+        "denominatorG": "1915",
+        "ratio": 5.796344647519582,
+        "citation": "Werner and Griebeler, 2013"
+      },
+      {
+        "rowNumber": 159,
+        "numeratorG": "108.3",
+        "denominatorG": "2211.5",
+        "ratio": 4.897128645715577,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 160,
+        "numeratorG": "108.3",
+        "denominatorG": "2211.5",
+        "ratio": 4.897128645715577,
+        "citation": "Krist, 2011"
+      }
+    ],
+    "median": 5.05419812567469
+  },
+  {
+    "animalId": "vanellus_vanellus",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 212,
+        "numeratorG": "25.5",
+        "denominatorG": "218.5",
+        "ratio": 11.670480549199084,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 214,
+        "numeratorG": "26",
+        "denominatorG": "213.6666667",
+        "ratio": 12.168486737571218,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 218,
+        "numeratorG": "26",
+        "denominatorG": "217.5",
+        "ratio": 11.954022988505747,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 219,
+        "numeratorG": "26",
+        "denominatorG": "217.5",
+        "ratio": 11.954022988505747,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 220,
+        "numeratorG": "26",
+        "denominatorG": "217.5",
+        "ratio": 11.954022988505747,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 221,
+        "numeratorG": "26",
+        "denominatorG": "217.5",
+        "ratio": 11.954022988505747,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 222,
+        "numeratorG": "26",
+        "denominatorG": "217.5",
+        "ratio": 11.954022988505747,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 223,
+        "numeratorG": "26",
+        "denominatorG": "217.5",
+        "ratio": 11.954022988505747,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 224,
+        "numeratorG": "26",
+        "denominatorG": "217.5",
+        "ratio": 11.954022988505747,
+        "citation": "Krist, 2011"
+      }
+    ],
+    "median": 11.954022988505747
+  },
+  {
+    "animalId": "haematopus_ostralegus",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 228,
+        "numeratorG": "46.7",
+        "denominatorG": "518",
+        "ratio": 9.015444015444016,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 230,
+        "numeratorG": "46.5",
+        "denominatorG": "580",
+        "ratio": 8.017241379310345,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 231,
+        "numeratorG": "41.5",
+        "denominatorG": "526",
+        "ratio": 7.889733840304182,
+        "citation": "Dyke and Kaiser, 2010"
+      },
+      {
+        "rowNumber": 238,
+        "numeratorG": "47",
+        "denominatorG": "542",
+        "ratio": 8.671586715867159,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 239,
+        "numeratorG": "47",
+        "denominatorG": "542",
+        "ratio": 8.671586715867159,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 240,
+        "numeratorG": "47",
+        "denominatorG": "542",
+        "ratio": 8.671586715867159,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 241,
+        "numeratorG": "47",
+        "denominatorG": "542",
+        "ratio": 8.671586715867159,
+        "citation": "Krist, 2011"
+      }
+    ],
+    "median": 8.344414047588753
+  },
+  {
+    "animalId": "sterna_hirundo",
+    "trait": "egg_relative_mass",
+    "rawRows": [
+      {
+        "rowNumber": 276,
+        "numeratorG": "21",
+        "denominatorG": "125",
+        "ratio": 16.8,
+        "citation": "Szekely, Lislevand, and Figuerola, 2007"
+      },
+      {
+        "rowNumber": 278,
+        "numeratorG": "21.3",
+        "denominatorG": "123.3333333",
+        "ratio": 17.27027027493791,
+        "citation": "Bennett, 1986"
+      },
+      {
+        "rowNumber": 293,
+        "numeratorG": "21.2",
+        "denominatorG": "124.5",
+        "ratio": 17.028112449799195,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 294,
+        "numeratorG": "21.2",
+        "denominatorG": "124.5",
+        "ratio": 17.028112449799195,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 295,
+        "numeratorG": "21.2",
+        "denominatorG": "124.5",
+        "ratio": 17.028112449799195,
+        "citation": "Krist, 2011"
+      },
+      {
+        "rowNumber": 296,
+        "numeratorG": "21.2",
+        "denominatorG": "124.5",
+        "ratio": 17.028112449799195,
+        "citation": "Krist, 2011"
+      }
+    ],
+    "median": 17.028112449799195
+  }
+]

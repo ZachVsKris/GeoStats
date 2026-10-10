@@ -1,14 +1,22 @@
 {
-  "approvedBoards": 309,
+  "approvedBoards": 496,
   "byMode": {
-    "easy": 195,
-    "normal": 114,
-    "expert": 0
+    "easy": 305,
+    "normal": 189,
+    "expert": 2
   },
   "newPlayableDirections": [
     [
+      "raw_clutch_frequency",
+      8
+    ],
+    [
       "raw_fledging_age",
-      16
+      25
+    ],
+    [
+      "raw_clutch_frequency__low",
+      8
     ],
     [
       "pet_dog_survey_trainability",
@@ -92,15 +100,15 @@
     ],
     [
       "raw_fledging_age__low",
-      16
+      25
     ],
     [
       "mammal_head_body_length",
-      16
+      18
     ],
     [
       "mammal_head_body_length__low",
-      16
+      17
     ],
     [
       "pet_dog_akc_barking_level",
@@ -149,6 +157,30 @@
     [
       "pet_dog_akc_recognition_age__low",
       54
+    ],
+    [
+      "newborn_relative_mass",
+      47
+    ],
+    [
+      "newborn_relative_mass__low",
+      49
+    ],
+    [
+      "egg_relative_mass",
+      26
+    ],
+    [
+      "egg_relative_mass__low",
+      25
+    ],
+    [
+      "mapped_equator_outer_distance",
+      30
+    ],
+    [
+      "mapped_equator_outer_distance__low",
+      29
     ]
   ],
   "heldDirections": [

@@ -3208,6 +3208,98 @@
         "mammals"
       ],
       "eligible": true
+    },
+    {
+      "traitId": "newborn_relative_mass",
+      "label": "Biggest newborn for adult size",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 66,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles",
+        "insectivore",
+        "treeshrew"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "newborn_relative_mass__low",
+      "label": "Smallest newborn for adult size",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 66,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "bird",
+        "reptiles",
+        "insectivore",
+        "treeshrew"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "egg_relative_mass",
+      "label": "Biggest egg for adult size",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 53,
+      "minimum": 20,
+      "majorGroups": [
+        "bird",
+        "reptiles"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "egg_relative_mass__low",
+      "label": "Smallest egg for adult size",
+      "scope": "Defined animal groups",
+      "kind": "scoped",
+      "count": 53,
+      "minimum": 20,
+      "majorGroups": [
+        "bird",
+        "reptiles"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "mapped_equator_outer_distance",
+      "label": "Range reaches farthest from equator",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 45,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "monotreme",
+        "insectivore",
+        "treeshrew",
+        "lagomorph",
+        "bat"
+      ],
+      "eligible": true
+    },
+    {
+      "traitId": "mapped_equator_outer_distance__low",
+      "label": "Range stays closest to equator",
+      "scope": "Mammals",
+      "kind": "scoped",
+      "count": 45,
+      "minimum": 20,
+      "majorGroups": [
+        "mammals",
+        "monotreme",
+        "insectivore",
+        "treeshrew",
+        "lagomorph",
+        "bat"
+      ],
+      "eligible": true
     }
   ]
 }

@@ -8,11 +8,11 @@ try{
  const {cartoonSpecies}=await import(pathToFileURL(join(temp,'animalstatsCartoons.mjs')));
  const data=JSON.parse(await readFile(join(root,'data/animalstats/pilot.json'),'utf8')),candidates=JSON.parse(await readFile(join(root,'data/animalstats/candidates.json'),'utf8')),validate=createAnimalBoardValidator(data),published=publishedAnimalTraitIds(data);
  candidates.boards=candidates.boards.filter(b=>!b.id.startsWith('fair-expand-'));const seen=new Set(candidates.boards.map(b=>b.mode+'|'+b.animalIds.slice().sort()+'|'+b.traitIds.slice().sort()));
- const values=new Map(data.values.filter(v=>v.confidence==='approved').map(v=>[v.animalId+':'+v.traitId,v]));const targets=data.traits.filter(t=>published.has(t.id)&&(/pet_dog_(survey|akc)_/.test(t.id)||/^(raw_fledging_age|mammal_head_body_length)/.test(t.id)));const counts=new Map(targets.map(t=>[t.id,0])),boards=[];
- for(const kind of ['dog-breed','bird','wild-mammal'])for(const mode of ['easy','normal','expert']){
+ const values=new Map(data.values.filter(v=>v.confidence==='approved').map(v=>[v.animalId+':'+v.traitId,v]));const targets=data.traits.filter(t=>published.has(t.id)&&(/pet_dog_(survey|akc)_/.test(t.id)||/^(raw_fledging_age|mammal_head_body_length|newborn_relative_mass|egg_relative_mass|mapped_equator_outer_distance|raw_clutch_frequency)/.test(t.id)));const counts=new Map(targets.map(t=>[t.id,0])),boards=[];
+ for(const kind of ['dog-breed','bird','wild-mammal','mixed-expansion'])for(const mode of ['easy','normal','expert']){
  const n=mode==='easy'?4:mode==='normal'?6:8,k=mode==='expert'?6:4; const modeCounts=new Map();
- const animals=data.animals.filter(a=>a.active&&cartoonSpecies.includes(a.id)&&data.photos.some(p=>p.animalId===a.id&&p.approved)&&(kind==='wild-mammal'?values.has(a.id+':mammal_head_body_length'):a.taxonomicGroup===kind)).map(a=>a.id);
- const poolTargets=targets.filter(t=>kind==='dog-breed'?t.id.startsWith('pet_dog_'):kind==='bird'?t.id.startsWith('raw_fledging_age'):t.id.startsWith('mammal_head_body_length'));
+ const animals=data.animals.filter(a=>a.active&&cartoonSpecies.includes(a.id)&&data.photos.some(p=>p.animalId===a.id&&p.approved)&&(kind==='mixed-expansion'?a.entityType!=='breed':kind==='wild-mammal'?values.has(a.id+':mammal_head_body_length'):a.taxonomicGroup===kind)).map(a=>a.id);
+ const poolTargets=targets.filter(t=>kind==='dog-breed'?t.id.startsWith('pet_dog_'):kind==='bird'?/^(raw_fledging_age|egg_relative_mass|newborn_relative_mass|raw_clutch_frequency)/.test(t.id):kind==='wild-mammal'?/^(mammal_head_body_length|newborn_relative_mass|mapped_equator_outer_distance)/.test(t.id):/^(newborn_relative_mass|egg_relative_mass|mapped_equator_outer_distance|raw_clutch_frequency)/.test(t.id));
  if(!poolTargets.length)continue;
  for(let attempt=0;attempt<18000&&poolTargets.some(t=>(modeCounts.get(t.id)??0)<8);attempt++){
  const animalIds=shuffle(animals).slice(0,n);if(animalIds.length<n)continue;

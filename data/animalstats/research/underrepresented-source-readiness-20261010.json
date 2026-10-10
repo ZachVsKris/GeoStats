@@ -1,0 +1,538 @@
+{
+  "date": "2026-10-10",
+  "policy": "Research fields are not approved values or playable categories. Coverage rules remain broad 50 across three true classes, scoped 20, breeds 8.",
+  "approvedNewValues": 0,
+  "sources": [
+    {
+      "id": "repttraits",
+      "url": "https://doi.org/10.6084/m9.figshare.24572683.v4",
+      "license": "CC BY 4.0",
+      "rawRows": 12060,
+      "sourceSpecies": 12060,
+      "sha256": "74eb6fd0e2626c75bdbeacb50a08b1762eee42e2b3cfda4a0f1134b84971718a",
+      "fields": [
+        {
+          "field": "Maximum Longevity (years)",
+          "interest": "high: lifespan",
+          "numericRows": 1621,
+          "sourceSpecies": 1621,
+          "currentRosterSpecies": 20,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        },
+        {
+          "field": "Maximum body mass (g)",
+          "interest": "high: weight; allometric values excluded",
+          "numericRows": 10469,
+          "sourceSpecies": 10469,
+          "currentRosterSpecies": 20,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        },
+        {
+          "field": "Maximum total length (\"TL\", mm)",
+          "interest": "high: length; do not mix with SVL/SCL",
+          "numericRows": 3400,
+          "sourceSpecies": 3400,
+          "currentRosterSpecies": 11,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        },
+        {
+          "field": "Hatchling/neonate mass (g)",
+          "interest": "high: newborn size",
+          "numericRows": 340,
+          "sourceSpecies": 340,
+          "currentRosterSpecies": 13,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        },
+        {
+          "field": "Mean number of offspring per litter or number of eggs per clutch",
+          "interest": "high: offspring per event",
+          "numericRows": 5786,
+          "sourceSpecies": 5786,
+          "currentRosterSpecies": 19,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        },
+        {
+          "field": "Largest clutch size",
+          "interest": "high: maximum eggs; preserve statistic",
+          "numericRows": 3805,
+          "sourceSpecies": 3805,
+          "currentRosterSpecies": 11,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        },
+        {
+          "field": "Number of litters or clutches produced per year",
+          "interest": "high: breeding frequency; midpoint summaries held",
+          "numericRows": 757,
+          "sourceSpecies": 757,
+          "currentRosterSpecies": 13,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        },
+        {
+          "field": "Egg length (mm)",
+          "interest": "moderate: egg size",
+          "numericRows": 146,
+          "sourceSpecies": 146,
+          "currentRosterSpecies": 6,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        }
+      ],
+      "holds": [
+        "Join every trait cell to its reference worksheet.",
+        "Mass values can be allometric: Slavenko et al. and other methods require classification.",
+        "Mixed SVL, total length and shell length are not comparable.",
+        "Longevity context and clutch/litter means need verification."
+      ],
+      "approvedGameValues": 0
+    },
+    {
+      "id": "amphibio",
+      "url": "https://doi.org/10.6084/m9.figshare.4644424.v5",
+      "license": "CC BY",
+      "rawRows": 6776,
+      "sourceSpecies": 6776,
+      "sha256": "15185ffec078423ff7b99d1f16d4daa351a5a8861dd27e5574d05f9a58bc4626",
+      "fields": [
+        {
+          "field": "Body_mass_g",
+          "interest": "high: intuitive life-history candidate",
+          "numericRows": 591,
+          "sourceSpecies": 591,
+          "currentRosterSpecies": 14,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        },
+        {
+          "field": "Body_size_mm",
+          "interest": "high: intuitive life-history candidate",
+          "numericRows": 5227,
+          "sourceSpecies": 5227,
+          "currentRosterSpecies": 17,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        },
+        {
+          "field": "Longevity_max_y",
+          "interest": "high: intuitive life-history candidate",
+          "numericRows": 359,
+          "sourceSpecies": 359,
+          "currentRosterSpecies": 17,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        },
+        {
+          "field": "Litter_size_max_n",
+          "interest": "high: intuitive life-history candidate",
+          "numericRows": 1623,
+          "sourceSpecies": 1623,
+          "currentRosterSpecies": 16,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        },
+        {
+          "field": "Reproductive_output_y",
+          "interest": "high: intuitive life-history candidate",
+          "numericRows": 4432,
+          "sourceSpecies": 4432,
+          "currentRosterSpecies": 17,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        },
+        {
+          "field": "Age_at_maturity_min_y",
+          "interest": "moderate: maturity",
+          "numericRows": 384,
+          "sourceSpecies": 384,
+          "currentRosterSpecies": 14,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        },
+        {
+          "field": "Offspring_size_max_mm",
+          "interest": "hold: mixed offspring/egg definition",
+          "numericRows": 1330,
+          "sourceSpecies": 1330,
+          "currentRosterSpecies": 15,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        }
+      ],
+      "holds": [
+        "Frog body size is SVL; salamander/caecilian size is total length.",
+        "Source references are attached to species, not individual trait cells.",
+        "Reject estimates; preserve age, source statistic and reproductive mode."
+      ],
+      "approvedGameValues": 0
+    },
+    {
+      "id": "fishbase-species",
+      "url": "https://fishbase.org/",
+      "license": "Upstream terms and record-level citations must be preserved",
+      "rawRows": 36763,
+      "sourceSpecies": 36763,
+      "sha256": "87c99bc57f368c6102ea4042e7e6c8019c7405d5a352ead840f06244609ab101",
+      "fields": [
+        {
+          "field": "Length",
+          "interest": "high: length, same length type",
+          "numericRows": 33626,
+          "sourceSpecies": 33626,
+          "currentRosterSpecies": 18,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        },
+        {
+          "field": "Weight",
+          "interest": "high: reported maximum weight",
+          "numericRows": 3136,
+          "sourceSpecies": 3136,
+          "currentRosterSpecies": 17,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        },
+        {
+          "field": "LongevityWild",
+          "interest": "high: wild lifespan",
+          "numericRows": 1502,
+          "sourceSpecies": 1502,
+          "currentRosterSpecies": 15,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        },
+        {
+          "field": "DepthRangeDeep",
+          "interest": "moderate: habitat depth, not dive ability",
+          "numericRows": 15633,
+          "sourceSpecies": 15633,
+          "currentRosterSpecies": 17,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        }
+      ],
+      "holds": [
+        "Join species IDs and reference IDs before exact-species promotion.",
+        "Exclude modeled and calculated values; summary fields do not prove direct observation.",
+        "Fecundity basis differs across records."
+      ],
+      "approvedGameValues": 0
+    },
+    {
+      "id": "fishbase-spawning",
+      "url": "https://fishbase.org/",
+      "license": "Upstream terms and record-level citations must be preserved",
+      "rawRows": 6096,
+      "sourceSpecies": 3052,
+      "sha256": "b5b9d3517cdadc0a363ae7ab8c4764bd45b8ec39882af712c2d4913a5fc50d83",
+      "fields": [
+        {
+          "field": "FecundityMax",
+          "interest": "high: egg count, preserve per-event versus seasonal basis",
+          "numericRows": 1211,
+          "sourceSpecies": 875,
+          "currentRosterSpecies": 17,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        }
+      ],
+      "holds": [
+        "Join species IDs and reference IDs before exact-species promotion.",
+        "Exclude modeled and calculated values; summary fields do not prove direct observation.",
+        "Fecundity basis differs across records."
+      ],
+      "approvedGameValues": 0
+    },
+    {
+      "id": "fishbase-eggs",
+      "url": "https://fishbase.org/",
+      "license": "Upstream terms and record-level citations must be preserved",
+      "rawRows": 7323,
+      "sourceSpecies": 7309,
+      "sha256": "fad904e2583db4ca99e2ed9aeca65ca66f5215f670c7ce30424e4492c0952824",
+      "fields": [
+        {
+          "field": "Eggdiammax",
+          "interest": "moderate: egg diameter",
+          "numericRows": 706,
+          "sourceSpecies": 701,
+          "currentRosterSpecies": 4,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        }
+      ],
+      "holds": [
+        "Join species IDs and reference IDs before exact-species promotion.",
+        "Exclude modeled and calculated values; summary fields do not prove direct observation.",
+        "Fecundity basis differs across records."
+      ],
+      "approvedGameValues": 0
+    },
+    {
+      "id": "sealifebase-species",
+      "url": "https://www.sealifebase.ca/",
+      "license": "Upstream terms and record-level citations must be preserved",
+      "rawRows": 102727,
+      "sourceSpecies": 102727,
+      "sha256": "ed34c481f06e7b81af0fdca8f38309b13184b83afc87ed357710f5ff3e369df6",
+      "fields": [
+        {
+          "field": "Length",
+          "interest": "high: length, same length type",
+          "numericRows": 13558,
+          "sourceSpecies": 13558,
+          "currentRosterSpecies": 33,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        },
+        {
+          "field": "Weight",
+          "interest": "high: reported maximum weight",
+          "numericRows": 617,
+          "sourceSpecies": 617,
+          "currentRosterSpecies": 26,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        },
+        {
+          "field": "LongevityWild",
+          "interest": "high: wild lifespan",
+          "numericRows": 274,
+          "sourceSpecies": 274,
+          "currentRosterSpecies": 4,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        },
+        {
+          "field": "DepthRangeDeep",
+          "interest": "moderate: habitat depth, not dive ability",
+          "numericRows": 29781,
+          "sourceSpecies": 29781,
+          "currentRosterSpecies": 17,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        }
+      ],
+      "holds": [
+        "Join species IDs and reference IDs before exact-species promotion.",
+        "Exclude modeled and calculated values; summary fields do not prove direct observation.",
+        "Fecundity basis differs across records."
+      ],
+      "approvedGameValues": 0
+    },
+    {
+      "id": "sealifebase-spawning",
+      "url": "https://www.sealifebase.ca/",
+      "license": "Upstream terms and record-level citations must be preserved",
+      "rawRows": 943,
+      "sourceSpecies": 592,
+      "sha256": "51897356018628efd806588a59aa19f5480afaffe7db002cf1b3259e02c30c64",
+      "fields": [
+        {
+          "field": "FecundityMax",
+          "interest": "high: egg count, preserve per-event versus seasonal basis",
+          "numericRows": 0,
+          "sourceSpecies": 0,
+          "currentRosterSpecies": 0,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        }
+      ],
+      "holds": [
+        "Join species IDs and reference IDs before exact-species promotion.",
+        "Exclude modeled and calculated values; summary fields do not prove direct observation.",
+        "Fecundity basis differs across records."
+      ],
+      "approvedGameValues": 0
+    },
+    {
+      "id": "sealifebase-eggs",
+      "url": "https://www.sealifebase.ca/",
+      "license": "Upstream terms and record-level citations must be preserved",
+      "rawRows": 174,
+      "sourceSpecies": 174,
+      "sha256": "1c00af65832cf38bd020260711c95f9e20dbc44f6483071f8b3e6ed80b853f9e",
+      "fields": [
+        {
+          "field": "Eggdiammax",
+          "interest": "moderate: egg diameter",
+          "numericRows": 84,
+          "sourceSpecies": 84,
+          "currentRosterSpecies": 2,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        }
+      ],
+      "holds": [
+        "Join species IDs and reference IDs before exact-species promotion.",
+        "Exclude modeled and calculated values; summary fields do not prove direct observation.",
+        "Fecundity basis differs across records."
+      ],
+      "approvedGameValues": 0
+    },
+    {
+      "id": "nw-european-arthropods",
+      "url": "https://doi.org/10.5281/zenodo.13379714",
+      "license": "Dataset paper specifies CC BY-NC 4.0; reconcile source metadata before use",
+      "rawRows": 9685,
+      "sourceSpecies": 4881,
+      "sha256": "43516aa859e919734d0195a94ea197eb20cb50145c829af3db2ab4b075937dda",
+      "fields": [
+        {
+          "field": "Size_max",
+          "interest": "high: intuitive; verify original source",
+          "numericRows": 2642,
+          "sourceSpecies": 2619,
+          "currentRosterSpecies": 0,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        },
+        {
+          "field": "Fecundity_max",
+          "interest": "high: intuitive; verify original source",
+          "numericRows": 216,
+          "sourceSpecies": 216,
+          "currentRosterSpecies": 0,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        },
+        {
+          "field": "Development_total",
+          "interest": "high: intuitive; verify original source",
+          "numericRows": 183,
+          "sourceSpecies": 183,
+          "currentRosterSpecies": 0,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        },
+        {
+          "field": "Longevity",
+          "interest": "high: intuitive; verify original source",
+          "numericRows": 184,
+          "sourceSpecies": 183,
+          "currentRosterSpecies": 0,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        },
+        {
+          "field": "Mobility_distance",
+          "interest": "high: actual distance only; reject ordinal scores",
+          "numericRows": 75,
+          "sourceSpecies": 60,
+          "currentRosterSpecies": 0,
+          "decision": "hold",
+          "opposites": [
+            "most / largest / longest",
+            "least / smallest / shortest"
+          ]
+        }
+      ],
+      "holds": [
+        "Literature and expert estimates are mixed: review Source for every record.",
+        "Adult lifespan differs from total lifespan.",
+        "Development depends on temperature; retain assay conditions.",
+        "Regional coverage must be stated; do not imply global completeness.",
+        "Do not execute downloaded R code."
+      ],
+      "approvedGameValues": 0
+    }
+  ]
+}

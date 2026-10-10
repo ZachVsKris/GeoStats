@@ -14,6 +14,9 @@ export function animalBoardGroup(data: AnimalDataset, board: BoardCandidate) {
   if (groups.every((group) => MAMMALS.has(group))) return "mammals";
   if (groups.every((group) => REPTILES.has(group))) return "reptiles";
   if (groups.every((group) => ["frog", "salamander"].includes(group))) return "amphibians";
+  if (groups.every((group) => ["fish", "shark", "ray"].includes(group))) return "fish";
+  if (groups.every((group) => group === "insect")) return "insects";
+  if (groups.every((group) => ["insect", "bivalve", "gastropod", "cephalopod", "mollusc", "crustacean", "echinoderm", "arachnid", "cnidarian"].includes(group))) return "invertebrates";
   return "mixed";
 }
 

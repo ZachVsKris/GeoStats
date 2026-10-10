@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-10-10",
+  "defaultBoards": 3938,
+  "candidateBoards": 5786,
+  "playableLabels": 120,
+  "playableTraitIds": 137,
+  "counts": {
+    "mammals": {
+      "easy": 998,
+      "normal": 1145,
+      "expert": 93,
+      "total": 2236
+    },
+    "dog-breeds": {
+      "easy": 211,
+      "normal": 82,
+      "expert": 0,
+      "total": 293
+    },
+    "cat-breeds": {
+      "easy": 2,
+      "normal": 0,
+      "expert": 0,
+      "total": 2
+    },
+    "birds": {
+      "easy": 76,
+      "normal": 64,
+      "expert": 7,
+      "total": 147
+    },
+    "reptiles": {
+      "easy": 36,
+      "normal": 4,
+      "expert": 0,
+      "total": 40
+    },
+    "amphibians": {
+      "easy": 0,
+      "normal": 0,
+      "expert": 0,
+      "total": 0
+    },
+    "fish": {
+      "easy": 0,
+      "normal": 0,
+      "expert": 0,
+      "total": 0
+    },
+    "insects": {
+      "easy": 0,
+      "normal": 0,
+      "expert": 0,
+      "total": 0
+    },
+    "invertebrates": {
+      "easy": 0,
+      "normal": 0,
+      "expert": 0,
+      "total": 0
+    },
+    "mixed": {
+      "easy": 10,
+      "normal": 0,
+      "expert": 0,
+      "total": 10
+    },
+    "extinct-dinosaurs": {
+      "easy": 800,
+      "normal": 410,
+      "expert": 0,
+      "total": 1210
+    }
+  }
+}

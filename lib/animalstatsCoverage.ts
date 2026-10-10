@@ -15,7 +15,7 @@ export function animalComparisonScope(trait: Trait): { kind: "broad" | "scoped" 
 }
 export function animalMajorGroup(animal: Animal) {
   const group = animal.taxonomicGroup;
-  if (["bear", "carnivore", "large-mammal", "primate", "marsupial", "rodent", "marine-mammal", "mammal"].includes(group) || animal.entityType === "breed") return "mammals";
+  if (["bear", "carnivore", "large-mammal", "primate", "marsupial", "rodent", "marine-mammal", "mammal", "monotreme", "insectivore", "treeshrew", "lagomorph", "bat"].includes(group) || animal.entityType === "breed") return "mammals";
   if (["lizard", "snake", "turtle", "crocodilian", "reptile"].includes(group)) return "reptiles";
   if (["frog", "salamander", "amphibian"].includes(group)) return "amphibians";
   if (["fish", "shark", "ray"].includes(group)) return "fish";

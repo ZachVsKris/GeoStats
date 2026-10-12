@@ -72,6 +72,8 @@ for db in ['fishbase','sealifebase']:
    field,refField=('DepthRangeDeep','DepthRangeRef') if key=='habitat-depth' else ('Weight','MaxWeightRef')
    value=r.get(field);ref=refs.get(r.get(refField));reason=None
    if not isinstance(value,(int,float)) or value<=0:continue
+   if key=='habitat-depth' and (a['taxonomicGroup']=='marine-mammal' or name=='Enhydra lutris'):
+    held.append({'species':name,'field':field,'reason':'Water-column depth versus seabed/occurrence bathymetry requires original-source review'});continue
    if not ref or not ref.get('Title'):reason='missing original reference'
    elif r.get('TaxIssue'):reason='unresolved taxonomy'
    elif key=='mass' and not re.search(r'IGFA|International Game Fish Association',ref.get('Author') or '',re.I):reason='not an IGFA weighed catch record'

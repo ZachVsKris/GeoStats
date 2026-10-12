@@ -11,7 +11,7 @@ export function animalComparisonScope(trait: Trait): { kind: "broad" | "scoped" 
   if (trait.id.startsWith("pet_cat_")) return { kind: "breed", label: "Cat breeds" };
   const base = trait.id.replace(/__low$/, "");
   if (mammalTraits.has(base) || mammalSources.has(trait.canonicalSourceId)) return {kind:"scoped", label:"Mammals"};
-  if (base === "aquatic_length_upper" || base === "habitat_depth_ceiling" || base === "field_max_dive") return {kind:"scoped", label:"Aquatic animals"};
+  if (base === "aquatic_length_upper" || base === "habitat_depth_ceiling" || base === "field_max_dive" || base === "field_swim_speed") return {kind:"scoped", label:"Aquatic animals"};
   if (trait.eligibilityGroups.length) return {kind:"scoped", label: trait.eligibilityGroups.length === 1 ? trait.eligibilityGroups[0].replaceAll("-", " ") : "Defined animal groups"};
   return {kind:"broad", label:"Across animal groups"};
 }

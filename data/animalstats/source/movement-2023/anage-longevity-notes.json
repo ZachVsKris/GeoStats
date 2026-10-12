@@ -1,0 +1,762 @@
+{
+  "retrievedAt": "2026-10-12",
+  "records": [
+    {
+      "animalId": "acipenser_sturio",
+      "scientificName": "Acipenser sturio",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Acipenser_sturio",
+      "htmlSha256": "b37849cd6c7adbbb765e72bb8c799b633064e9bc91a5c56ec32b744b3a0d5b4f"
+    },
+    {
+      "animalId": "acipenser_transmontanus",
+      "scientificName": "Acipenser transmontanus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Acipenser_transmontanus",
+      "htmlSha256": "f83d07fe7a724a9fef2482e8c7c700e8702781cd81f7d44ccea93f96b3e42fe4"
+    },
+    {
+      "animalId": "aepyceros_melampus",
+      "scientificName": "Aepyceros melampus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Aepyceros_melampus",
+      "htmlSha256": "cff02215eafad5eff954399f99fca75082aa8238800ccbd18c9b9654d61cbac3"
+    },
+    {
+      "animalId": "ailurus_fulgens",
+      "scientificName": "Ailurus fulgens",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Ailurus_fulgens",
+      "htmlSha256": "007c16ad30cc926f5093e7f14b7b9b34fa091516943ba620f28468d1b30655b9"
+    },
+    {
+      "animalId": "alcelaphus_buselaphus",
+      "scientificName": "Alcelaphus buselaphus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Alcelaphus_buselaphus",
+      "htmlSha256": "56080397422b68833b1f5ad143eb05cfaabe1b9e9c4e3285e6d0e8535a2f296c"
+    },
+    {
+      "animalId": "anguilla_anguilla",
+      "scientificName": "Anguilla anguilla",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Anguilla_anguilla",
+      "htmlSha256": "2967ab51061379ad3b1e7be5ec73297aa7884d69dd65442f72d0da4285d99c24"
+    },
+    {
+      "animalId": "anguilla_rostrata",
+      "scientificName": "Anguilla rostrata",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Anguilla_rostrata",
+      "htmlSha256": "6fe9f917d20941e38ac8ae941238428071bdc73a14c1ea9c239945ef00352216"
+    },
+    {
+      "animalId": "balaenoptera_physalus",
+      "scientificName": "Balaenoptera physalus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Balaenoptera_physalus",
+      "htmlSha256": "9d559ecd2425c899541d8524d474ffeda6f3f546dc301b3fbe3a67cad78bff2d"
+    },
+    {
+      "animalId": "bubalus_bubalis",
+      "scientificName": "Bubalus bubalis",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Bubalus_bubalis",
+      "htmlSha256": "c15c05735cc99f56fdb15d44c6a040baf9395e0c86d97bb78043970213875ed0"
+    },
+    {
+      "animalId": "capreolus_capreolus",
+      "scientificName": "Capreolus capreolus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Capreolus_capreolus",
+      "htmlSha256": "4245b3ac5d4fb04d6d3aac83586aebbb083864ce950a5523f601b0001393c705"
+    },
+    {
+      "animalId": "carcharhinus_amblyrhynchos",
+      "scientificName": "Carcharhinus amblyrhynchos",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Carcharhinus_amblyrhynchos",
+      "htmlSha256": "532fd46ebf71755f1de00fdcc998a443348d7bf85505aa68a841a0e1192e4874"
+    },
+    {
+      "animalId": "centropomus_undecimalis",
+      "scientificName": "Centropomus undecimalis",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Centropomus_undecimalis",
+      "htmlSha256": "3e832417d397c6681f9d49cb0cb30c3c40fe43794e28a68637d17e959e7d3d55"
+    },
+    {
+      "animalId": "cervus_nippon",
+      "scientificName": "Cervus nippon",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Cervus_nippon",
+      "htmlSha256": "a4c723dce54ea01ef2d66acdeae6d46aa43f5d3990d043237f64c9cd5e833f29"
+    },
+    {
+      "animalId": "chanos_chanos",
+      "scientificName": "Chanos chanos",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Chanos_chanos",
+      "htmlSha256": "7551940a47dfdfde3706ed0d99efef7f9762fe28f2bf5d3f8e9b98e098c0632c"
+    },
+    {
+      "animalId": "chelodina_longicollis",
+      "scientificName": "Chelodina longicollis",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Chelodina_longicollis",
+      "htmlSha256": "e8f95889f9fdc3b14692027f35950c430af901388309e603e8e71a46bf800be4"
+    },
+    {
+      "animalId": "chelydra_serpentina",
+      "scientificName": "Chelydra serpentina",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Chelydra_serpentina",
+      "htmlSha256": "b3a8123f764beb5a4ed043197f4f763dbeecb09b8bfdd41a8a2d52d05b7dcfee"
+    },
+    {
+      "animalId": "choloepus_didactylus",
+      "scientificName": "Choloepus didactylus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Choloepus_didactylus",
+      "htmlSha256": "a3e7c0e00c87a3115567e088efa901a35d48e5202f3f157a10a8edfd917a9303"
+    },
+    {
+      "animalId": "chrysemys_picta",
+      "scientificName": "Chrysemys picta",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Chrysemys_picta",
+      "htmlSha256": "3af5bd96ab2556b05d3ac84df5400e29cc38f2ea1be2e7f6dbfef894de2109bc"
+    },
+    {
+      "animalId": "clupea_harengus",
+      "scientificName": "Clupea harengus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Clupea_harengus",
+      "htmlSha256": "9e08dca7c494fd2eda95e6bdddbd434548287a8c155ed6f8c4604e531c9fc118"
+    },
+    {
+      "animalId": "connochaetes_taurinus",
+      "scientificName": "Connochaetes taurinus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Connochaetes_taurinus",
+      "htmlSha256": "7ad1c470d5b9a3990e9f081446db241c3dad6db04af949219a1ff1890d1fb0e7"
+    },
+    {
+      "animalId": "coryphaena_hippurus",
+      "scientificName": "Coryphaena hippurus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Coryphaena_hippurus",
+      "htmlSha256": "019073e920a6bdafaa606cc6da528e4fa0a89f44683665507d9314cb6e5e76f0"
+    },
+    {
+      "animalId": "crocuta_crocuta",
+      "scientificName": "Crocuta crocuta",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Crocuta_crocuta",
+      "htmlSha256": "258bb972c9da78816f475e49a4f659d74b96c4047f7053219942f32128eab6a0"
+    },
+    {
+      "animalId": "cuniculus_paca",
+      "scientificName": "Cuniculus paca",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Cuniculus_paca",
+      "htmlSha256": "e9bcf9a5ecb602bf01083800bb98928c702c3199b0323145b8448ce7d97e7c4b"
+    },
+    {
+      "animalId": "dasyatis_pastinaca",
+      "scientificName": "Dasyatis pastinaca",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Dasyatis_pastinaca",
+      "htmlSha256": "931e33ac0963b1be10c788743055993fea1e0d604c55d46b00c86c8eb6262853"
+    },
+    {
+      "animalId": "dasyprocta_punctata",
+      "scientificName": "Dasyprocta punctata",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Dasyprocta_punctata",
+      "htmlSha256": "ed2a7e848f078a47a73356546b1a34a69ecec2527da2699471abe55198563eca"
+    },
+    {
+      "animalId": "delphinapterus_leucas",
+      "scientificName": "Delphinapterus leucas",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Delphinapterus_leucas",
+      "htmlSha256": "8ae9fb73ea942be91bcda6a861f4730ecf92d648c01a3b869e096868e518dc92"
+    },
+    {
+      "animalId": "diceros_bicornis",
+      "scientificName": "Diceros bicornis",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Diceros_bicornis",
+      "htmlSha256": "b368a3d6a8789400e95c60e49f3a5ee9034c93cff1f43542f0c9d926a9a77605"
+    },
+    {
+      "animalId": "dipodomys_deserti",
+      "scientificName": "Dipodomys deserti",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Dipodomys_deserti",
+      "htmlSha256": "039e6ebd604803ff458a39f8d4cddf86d8705def35af0cafc9aa651a2bdd2ac9"
+    },
+    {
+      "animalId": "dipodomys_merriami",
+      "scientificName": "Dipodomys merriami",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Dipodomys_merriami",
+      "htmlSha256": "84c42163746138a8713691b956f85d7297ad0571f4080b803149ae58ad7b6d35"
+    },
+    {
+      "animalId": "dugong_dugon",
+      "scientificName": "Dugong dugon",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Dugong_dugon",
+      "htmlSha256": "739b9a089f5341b69f82833cc8e943e3a7709f81c576832b1932a4d8134575a9"
+    },
+    {
+      "animalId": "emydoidea_blandingii",
+      "scientificName": "Emydoidea blandingii",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Emydoidea_blandingii",
+      "htmlSha256": "fb1f514fdc4c26e158ebda61c8d3c43d1451d021cf89271815e014efae3387e0"
+    },
+    {
+      "animalId": "engraulis_encrasicolus",
+      "scientificName": "Engraulis encrasicolus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Engraulis_encrasicolus",
+      "htmlSha256": "7112e6d2872ae68b5a92269624c9b2a553b22997a9eb90690dcda9a9f38658c1"
+    },
+    {
+      "animalId": "esox_lucius",
+      "scientificName": "Esox lucius",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Esox_lucius",
+      "htmlSha256": "27921f9dffed92d0871a6757690ef8b0ef3a81b5724859743a399df977b9e445"
+    },
+    {
+      "animalId": "esox_masquinongy",
+      "scientificName": "Esox masquinongy",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Esox_masquinongy",
+      "htmlSha256": "ad1df29b6226c00e58962367fda0a064144cd9342289dca9ebceccee3fde7156"
+    },
+    {
+      "animalId": "gasterosteus_aculeatus",
+      "scientificName": "Gasterosteus aculeatus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Gasterosteus_aculeatus",
+      "htmlSha256": "c46be64f55401a281d2d851f8689e1f00db2aed43de455cc4a63c7ff3da2f38b"
+    },
+    {
+      "animalId": "gazella_gazella",
+      "scientificName": "Gazella gazella",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Gazella_gazella",
+      "htmlSha256": "8cf0eb61a460ec51186ef765e3fe5ba838b76e02dad7d1be77b90a9448fed726"
+    },
+    {
+      "animalId": "halichoerus_grypus",
+      "scientificName": "Halichoerus grypus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Halichoerus_grypus",
+      "htmlSha256": "9cfa029125782b7423af493eed56cd702b7de62648a56c0edf13663b28bbac8e"
+    },
+    {
+      "animalId": "hippoglossus_hippoglossus",
+      "scientificName": "Hippoglossus hippoglossus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Hippoglossus_hippoglossus",
+      "htmlSha256": "5eeb6a3cf55133107717f2393b6096f57b573c58857bc618de4f8dadd5fe05f2"
+    },
+    {
+      "animalId": "hippoglossus_stenolepis",
+      "scientificName": "Hippoglossus stenolepis",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Hippoglossus_stenolepis",
+      "htmlSha256": "0352e2208eb897d0782df1523252856c50c8ac420b6fb4ef97c86efa974296d3"
+    },
+    {
+      "animalId": "hyaena_hyaena",
+      "scientificName": "Hyaena hyaena",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Hyaena_hyaena",
+      "htmlSha256": "73f15f7e52af2412f3d62cccfca3f91e1534cfd2f80a56e8a54c192ea108d87c"
+    },
+    {
+      "animalId": "ictalurus_punctatus",
+      "scientificName": "Ictalurus punctatus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Ictalurus_punctatus",
+      "htmlSha256": "969c618c2f7318f23041e94dd92f7648db6483f9883732870c7a0a99b2155fec"
+    },
+    {
+      "animalId": "istiophorus_platypterus",
+      "scientificName": "Istiophorus platypterus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Istiophorus_platypterus",
+      "htmlSha256": "d0815405550e20215aff65629a5783b29ba10e9c6f04818a1ddec933e12ee033"
+    },
+    {
+      "animalId": "katsuwonus_pelamis",
+      "scientificName": "Katsuwonus pelamis",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Katsuwonus_pelamis",
+      "htmlSha256": "d3d8b165e86e32213752f517f44295872366585dd62766af94defe6332ce2301"
+    },
+    {
+      "animalId": "kinosternon_subrubrum",
+      "scientificName": "Kinosternon subrubrum",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Kinosternon_subrubrum",
+      "htmlSha256": "f7a36ad21bb66a42c029d31eb91f51cddf1a07546ca4cba08e17c9a4162e9786"
+    },
+    {
+      "animalId": "lama_glama",
+      "scientificName": "Lama glama",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Lama_glama",
+      "htmlSha256": "613db63238da853320984fe8144cfe8f1e6324ef10ded1b94a54305f5ac7908e"
+    },
+    {
+      "animalId": "lates_niloticus",
+      "scientificName": "Lates niloticus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Lates_niloticus",
+      "htmlSha256": "a060bcd7dbb4a0b252631624324c08c9de785c96d640cd0c6e7caf72d4489630"
+    },
+    {
+      "animalId": "leopardus_pardalis",
+      "scientificName": "Leopardus pardalis",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Leopardus_pardalis",
+      "htmlSha256": "0855edd097163c59fc2b5e76e73395d18b07d12e60d66c471075031fcad03883"
+    },
+    {
+      "animalId": "lepidochelys_kempii",
+      "scientificName": "Lepidochelys kempii",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Lepidochelys_kempii",
+      "htmlSha256": "5dcdb914ddc5974c9dfac0a2cc6e3f8445a32333cd9a89b8923e09f3965cde33"
+    },
+    {
+      "animalId": "lepisosteus_osseus",
+      "scientificName": "Lepisosteus osseus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Lepisosteus_osseus",
+      "htmlSha256": "6eb76b50d0983420c050dafdd6ed49942ea008c7d9d52d1ee100fe5f1b3f79a3"
+    },
+    {
+      "animalId": "lithobates_pipiens",
+      "scientificName": "Lithobates pipiens",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Lithobates_pipiens",
+      "htmlSha256": "91e59103e750768ae7476b4a776a6e5d018a22064d8d8a7572f43bb2bf8a92b8"
+    },
+    {
+      "animalId": "lontra_canadensis",
+      "scientificName": "Lontra canadensis",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Lontra_canadensis",
+      "htmlSha256": "ec905364e040296e9b319922672645993397734cceac133c5c1c1548a611b5aa"
+    },
+    {
+      "animalId": "lutjanus_campechanus",
+      "scientificName": "Lutjanus campechanus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Lutjanus_campechanus",
+      "htmlSha256": "e185f29e85d865a79bcb4c53c9920a2e7516471e094521ff555809e7ccde83cd"
+    },
+    {
+      "animalId": "lutra_lutra",
+      "scientificName": "Lutra lutra",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Lutra_lutra",
+      "htmlSha256": "1f4dc4dc2680e0bfe41aa9b36fecbcb05b86337b3eb3cec2fc128b7a2e61fb14"
+    },
+    {
+      "animalId": "lycaon_pictus",
+      "scientificName": "Lycaon pictus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Lycaon_pictus",
+      "htmlSha256": "45fc3b7f33566a1dd7a2c2b7bee11c6f7cd7bf832fb416d95cac3c79fd1dc31b"
+    },
+    {
+      "animalId": "lynx_canadensis",
+      "scientificName": "Lynx canadensis",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Lynx_canadensis",
+      "htmlSha256": "3b53f4f32b1cd227c078ec50233afe459d4abab32cb7c2b08c20d9acc73ab321"
+    },
+    {
+      "animalId": "lynx_rufus",
+      "scientificName": "Lynx rufus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Lynx_rufus",
+      "htmlSha256": "a6ec16658ebaf43d08afc89dddd83c9dae117a7b6b8c9d1df3a0718ee3653514"
+    },
+    {
+      "animalId": "makaira_nigricans",
+      "scientificName": "Makaira nigricans",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Makaira_nigricans",
+      "htmlSha256": "57ffa11a8a1c94e07d791325fab83a5dd4181978446880dd318f546a0ab5f72b"
+    },
+    {
+      "animalId": "mandrillus_sphinx",
+      "scientificName": "Mandrillus sphinx",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Mandrillus_sphinx",
+      "htmlSha256": "36a8a567b682960c6b67a59783c518f8f277d93ddc083873b8e78d2e59decd92"
+    },
+    {
+      "animalId": "marmota_monax",
+      "scientificName": "Marmota monax",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Marmota_monax",
+      "htmlSha256": "4dd2685f56b24c273d56becbffd153007a1530180709a6d1f78d7e5f4d7f4f64"
+    },
+    {
+      "animalId": "megalops_atlanticus",
+      "scientificName": "Megalops atlanticus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Megalops_atlanticus",
+      "htmlSha256": "45c45e01e14c70b607905fe87538072a7e0a67f9c6007c0ac377a9d711bdc60c"
+    },
+    {
+      "animalId": "mephitis_mephitis",
+      "scientificName": "Mephitis mephitis",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Mephitis_mephitis",
+      "htmlSha256": "358ff561f35eae29e68bdc5d37a5044f81bb23cd16d9004acb4d2956249cfff8"
+    },
+    {
+      "animalId": "micropterus_dolomieu",
+      "scientificName": "Micropterus dolomieu",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Micropterus_dolomieu",
+      "htmlSha256": "8f47c8c135b220c4b6d0751c48fd51c96d1d3e905d378d1a1c7d319ff8435791"
+    },
+    {
+      "animalId": "micropterus_salmoides",
+      "scientificName": "Micropterus salmoides",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Micropterus_salmoides",
+      "htmlSha256": "1468efb0cc37d594d2bebc760cfbfe8c9d7554036525ce14ab463da4ea4cfc83"
+    },
+    {
+      "animalId": "monodon_monoceros",
+      "scientificName": "Monodon monoceros",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Monodon_monoceros",
+      "htmlSha256": "928d899ba7ac20b285c0628ca60126844b08c4e021940bedccb424e582939249"
+    },
+    {
+      "animalId": "mugil_cephalus",
+      "scientificName": "Mugil cephalus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Mugil_cephalus",
+      "htmlSha256": "789c586ef75cec9831f46af293584769b85b0a43aaabcdd1c82d70bc5a727a58"
+    },
+    {
+      "animalId": "mustelus_mustelus",
+      "scientificName": "Mustelus mustelus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Mustelus_mustelus",
+      "htmlSha256": "731c666b3792892b08ba21b3f6561cc1a492152d87d1cd442b67fbcbb32a7a7b"
+    },
+    {
+      "animalId": "myotis_lucifugus",
+      "scientificName": "Myotis lucifugus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Myotis_lucifugus",
+      "htmlSha256": "8d5f54a9d929e3c6703359390d20f76b28b4ff7b9df1c537096e0d1fca33d90b"
+    },
+    {
+      "animalId": "nasua_narica",
+      "scientificName": "Nasua narica",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Nasua_narica",
+      "htmlSha256": "8e086101df0eaa13b39221bbc04c9320bd3084e5356bbede5f59738e58d23866"
+    },
+    {
+      "animalId": "neophoca_cinerea",
+      "scientificName": "Neophoca cinerea",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Neophoca_cinerea",
+      "htmlSha256": "b5b93b3fa4ef44ed0fedbe0722976b6a70cab5575aab5a3536ba5cdae8de555a"
+    },
+    {
+      "animalId": "neophocaena_phocaenoides",
+      "scientificName": "Neophocaena phocaenoides",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Neophocaena_phocaenoides",
+      "htmlSha256": "e610638bfa2d95aa2f3ed79a0390096ea52e5c33b12d0bd0d8b8b1a45114f67e"
+    },
+    {
+      "animalId": "nyctalus_noctula",
+      "scientificName": "Nyctalus noctula",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Nyctalus_noctula",
+      "htmlSha256": "7dd2ee6c13ff3068f42c0f15789092b8fce653e24608dc60bc4b24b9dc529c56"
+    },
+    {
+      "animalId": "octodon_degus",
+      "scientificName": "Octodon degus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Octodon_degus",
+      "htmlSha256": "0eeb85f123796b010814dea426c7b4f44dda8fb2bcfabbc0937dac4303471de1"
+    },
+    {
+      "animalId": "odocoileus_virginianus",
+      "scientificName": "Odocoileus virginianus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Odocoileus_virginianus",
+      "htmlSha256": "ad23220e4b1a996825368a1c9dab2adb01202a8bbae7d50e5856b44ffae7c9fb"
+    },
+    {
+      "animalId": "okapia_johnstoni",
+      "scientificName": "Okapia johnstoni",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Okapia_johnstoni",
+      "htmlSha256": "7e0dcb59968fb3501dd940d5cafd8e9493d7e75a8ad7f79cf1be92c5c953cc07"
+    },
+    {
+      "animalId": "oncorhynchus_kisutch",
+      "scientificName": "Oncorhynchus kisutch",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Oncorhynchus_kisutch",
+      "htmlSha256": "9ae3c77c0d65f554dd0f448e75cdde2589eb566c4f9d34a8f5e78e01c79b0d6c"
+    },
+    {
+      "animalId": "oncorhynchus_mykiss",
+      "scientificName": "Oncorhynchus mykiss",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Oncorhynchus_mykiss",
+      "htmlSha256": "7dc5954867e34ddcf5a14853b9ece02ebe266190af09ec6dc80da0a8178f03f9"
+    },
+    {
+      "animalId": "oncorhynchus_nerka",
+      "scientificName": "Oncorhynchus nerka",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Oncorhynchus_nerka",
+      "htmlSha256": "8490bf9160b9105206ddaefb1153e896304b344efb35edb7e0a769c8f719b17c"
+    },
+    {
+      "animalId": "oncorhynchus_tshawytscha",
+      "scientificName": "Oncorhynchus tshawytscha",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Oncorhynchus_tshawytscha",
+      "htmlSha256": "dfef333ddc9873af10cf1ef5e1b3fabe71fd5908eadb3540c4d582da367c7541"
+    },
+    {
+      "animalId": "oreochromis_niloticus",
+      "scientificName": "Oreochromis niloticus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Oreochromis_niloticus",
+      "htmlSha256": "d4d721e284a0244aeb0d0c8f2eedcc4e24a9e7e9254a8f24a78c882168588637"
+    },
+    {
+      "animalId": "orycteropus_afer",
+      "scientificName": "Orycteropus afer",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Orycteropus_afer",
+      "htmlSha256": "805d4bd7ac49f0b9cf2c6a976f58ec5bcc354d1b4d9228bdf43f3c4f908c9b51"
+    },
+    {
+      "animalId": "oryx_gazella",
+      "scientificName": "Oryx gazella",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Oryx_gazella",
+      "htmlSha256": "04bded09a5bcbf6bf2bd8ddd157212726fda01d370874809dfcc6904f32acd03"
+    },
+    {
+      "animalId": "papio_hamadryas",
+      "scientificName": "Papio hamadryas",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Papio_hamadryas",
+      "htmlSha256": "c7783027dbfd266418601eb8c97c2ad949d2db4bdb3f79b1493ba4814adfdb00"
+    },
+    {
+      "animalId": "pelophylax_lessonae",
+      "scientificName": "Pelophylax lessonae",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Pelophylax_lessonae",
+      "htmlSha256": "961d5569b598a0def5c0b9025cc4c51138328fbe94bbc9b632c3925263639f9a"
+    },
+    {
+      "animalId": "pelophylax_ridibundus",
+      "scientificName": "Pelophylax ridibundus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Pelophylax_ridibundus",
+      "htmlSha256": "73bce4c23d73d1b6b822416a7d7b0ef33dcfa3ff9ff16939600ed7a71b2d313e"
+    },
+    {
+      "animalId": "perca_flavescens",
+      "scientificName": "Perca flavescens",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Perca_flavescens",
+      "htmlSha256": "a0e1c6e20c9b4baa07910c58a7c6328fedfe5ec13e95c52e1e40b33b32aa24ba"
+    },
+    {
+      "animalId": "perca_fluviatilis",
+      "scientificName": "Perca fluviatilis",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Perca_fluviatilis",
+      "htmlSha256": "76cc4ae9f52a9c238c71d09185a8b661a45888c8b15cfed7670553eda40f4b3e"
+    },
+    {
+      "animalId": "perognathus_longimembris",
+      "scientificName": "Perognathus longimembris",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Perognathus_longimembris",
+      "htmlSha256": "5c0728d93c2f3af45c722312203d9da68e6b9db883824d4f56766480d5f61e9d"
+    },
+    {
+      "animalId": "phocoena_phocoena",
+      "scientificName": "Phocoena phocoena",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Phocoena_phocoena",
+      "htmlSha256": "1dd78c70888ca0fc1550a52dc059f3dd1e83e05dcd7c4730df907d6200d51832"
+    },
+    {
+      "animalId": "physeter_macrocephalus",
+      "scientificName": "Physeter macrocephalus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Physeter_macrocephalus",
+      "htmlSha256": "dee4130186372586a26796232a0e0517074ca3ce4d3f45d81c15e3a97750ebb0"
+    },
+    {
+      "animalId": "pipistrellus_kuhlii",
+      "scientificName": "Pipistrellus kuhlii",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Pipistrellus_kuhlii",
+      "htmlSha256": "ee0cd6543d1d0d85f513cd6525044ddc8c601b16703caf21f57d92489428ae3a"
+    },
+    {
+      "animalId": "pipistrellus_nathusii",
+      "scientificName": "Pipistrellus nathusii",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Pipistrellus_nathusii",
+      "htmlSha256": "7bd179dac18bec0e750df44d2bb7ccbfc76d90ebc92484b6640177cf88915622"
+    },
+    {
+      "animalId": "poecilia_reticulata",
+      "scientificName": "Poecilia reticulata",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Poecilia_reticulata",
+      "htmlSha256": "29a74ba54c3dd1384209d4462f4d8fd7709fc72487eac1e38a891d7b42d7883a"
+    },
+    {
+      "animalId": "pomatomus_saltatrix",
+      "scientificName": "Pomatomus saltatrix",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Pomatomus_saltatrix",
+      "htmlSha256": "540061d5553760ca3531f9fcf3b1a448a4ea166087934d260d523b9696585cb5"
+    },
+    {
+      "animalId": "potos_flavus",
+      "scientificName": "Potos flavus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Potos_flavus",
+      "htmlSha256": "b106d60af6e488439b0009e158fe6c5d2626e128c63a24367658be83595ae2b7"
+    },
+    {
+      "animalId": "proechimys_semispinosus",
+      "scientificName": "Proechimys semispinosus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Proechimys_semispinosus",
+      "htmlSha256": "989b7af94132ee2e6fee307d0fa6841b686078356cbda915d5b298bd9fff39ff"
+    },
+    {
+      "animalId": "pterois_volitans",
+      "scientificName": "Pterois volitans",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Pterois_volitans",
+      "htmlSha256": "5cf864a7aa8bdc3ea097608695652f66f80c27acda913413f98f2bc3dbdb4f20"
+    },
+    {
+      "animalId": "rachycentron_canadum",
+      "scientificName": "Rachycentron canadum",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Rachycentron_canadum",
+      "htmlSha256": "3745df8c1d571304169e20944961306a5c71c351ec7f6ac86315a6bc055f065b"
+    },
+    {
+      "animalId": "raja_clavata",
+      "scientificName": "Raja clavata",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Raja_clavata",
+      "htmlSha256": "82d96039f25563ad0ad870e711a9eae7c07bc23ff1c262888a9d521a3401e548"
+    },
+    {
+      "animalId": "rana_arvalis",
+      "scientificName": "Rana arvalis",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Rana_arvalis",
+      "htmlSha256": "b6566d6aed046c1a344ce6e27e1b873e2a50a930851da12fbd86015b702f16f0"
+    },
+    {
+      "animalId": "salamandra_atra",
+      "scientificName": "Salamandra atra",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Salamandra_atra",
+      "htmlSha256": "0b03729595299350f3e9c0a11fc1ae1ffd3a7b8d81a38c1358be9f9b77c86e55"
+    },
+    {
+      "animalId": "salvelinus_fontinalis",
+      "scientificName": "Salvelinus fontinalis",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Salvelinus_fontinalis",
+      "htmlSha256": "b9f60a5c1afa39537f2f87f269db1e3c788a0579a8936057a13791acd24dded9"
+    },
+    {
+      "animalId": "salvelinus_namaycush",
+      "scientificName": "Salvelinus namaycush",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Salvelinus_namaycush",
+      "htmlSha256": "be9b5ea2a4864970348006a0df37fba93a8e6bc5d0f58003aef0c9e45df543bd"
+    },
+    {
+      "animalId": "sander_lucioperca",
+      "scientificName": "Sander lucioperca",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Sander_lucioperca",
+      "htmlSha256": "9b3081dbccf7a1bfc0d7ff2febc9f5c3f660ab60abb5a099540e34b31d38e41f"
+    },
+    {
+      "animalId": "sander_vitreus",
+      "scientificName": "Sander vitreus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Sander_vitreus",
+      "htmlSha256": "8420022e04a06d9128ff054c07cec70dd7debb6c97de3b20c646f66867190ea9"
+    },
+    {
+      "animalId": "sarda_sarda",
+      "scientificName": "Sarda sarda",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Sarda_sarda",
+      "htmlSha256": "2dffa8b33ac684be6b50dae83ca604f2be6bcef2042542fde0205240c3204576"
+    },
+    {
+      "animalId": "sardina_pilchardus",
+      "scientificName": "Sardina pilchardus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Sardina_pilchardus",
+      "htmlSha256": "cf96333be0598ddbdfdc4e25aa445436df196f8fdd6edf55659feb0915f0bb0c"
+    },
+    {
+      "animalId": "sciaenops_ocellatus",
+      "scientificName": "Sciaenops ocellatus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Sciaenops_ocellatus",
+      "htmlSha256": "bac219191e1bb82b1bd09e099736a01451736ac5886eca7f8a4317454d79b072"
+    },
+    {
+      "animalId": "sciurus_carolinensis",
+      "scientificName": "Sciurus carolinensis",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Sciurus_carolinensis",
+      "htmlSha256": "3d6a842837e1030f7e052099705112cc7c888e3a25f333ae564f078d976f6b32"
+    },
+    {
+      "animalId": "sciurus_granatensis",
+      "scientificName": "Sciurus granatensis",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Sciurus_granatensis",
+      "htmlSha256": "b05b0470fcfce20b7d484c60e997f2692674ffa7fbbc8392cf5f85a8799f7dec"
+    },
+    {
+      "animalId": "scomber_scombrus",
+      "scientificName": "Scomber scombrus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Scomber_scombrus",
+      "htmlSha256": "e383278665fe82c9429057c58bfe30d0f618186eb674bf92d7314bb2eb14f4d4"
+    },
+    {
+      "animalId": "scomberomorus_cavalla",
+      "scientificName": "Scomberomorus cavalla",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Scomberomorus_cavalla",
+      "htmlSha256": "1861e102a820a4d35e7562fc9a1169f24263db4c44bac8a79c372fd601b7087d"
+    },
+    {
+      "animalId": "scomberomorus_maculatus",
+      "scientificName": "Scomberomorus maculatus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Scomberomorus_maculatus",
+      "htmlSha256": "bbaacddcd9e159db37c212fb2e402fb1f83096a3c11d63c8a68142df2d9a6e79"
+    },
+    {
+      "animalId": "silurus_glanis",
+      "scientificName": "Silurus glanis",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Silurus_glanis",
+      "htmlSha256": "3d9aff85c4f1bc44fa37d1a6059fcb943d89e7907f87a87ec133951b227c6c35"
+    },
+    {
+      "animalId": "squalus_acanthias",
+      "scientificName": "Squalus acanthias",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Squalus_acanthias",
+      "htmlSha256": "865a155153dc4affb2c6330bebb6bb8a804674c9b83c8e188aca1b4cec5410bd"
+    },
+    {
+      "animalId": "syncerus_caffer",
+      "scientificName": "Syncerus caffer",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Syncerus_caffer",
+      "htmlSha256": "159017a13ddb63efdd96b01a688537fcc4d305f620bf9fffb365c0b4283ff6ff"
+    },
+    {
+      "animalId": "tamandua_mexicana",
+      "scientificName": "Tamandua mexicana",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Tamandua_mexicana",
+      "htmlSha256": "a340957c9fdf94a129e59355e4aaf75e9cdd1eba681ab4d2787461f1fc1471d1"
+    },
+    {
+      "animalId": "tapirus_terrestris",
+      "scientificName": "Tapirus terrestris",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Tapirus_terrestris",
+      "htmlSha256": "67fc6e4619bc75b6695225856f3c97bd2b1b978edcc43f84857aad37e0e91060"
+    },
+    {
+      "animalId": "taxidea_taxus",
+      "scientificName": "Taxidea taxus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Taxidea_taxus",
+      "htmlSha256": "b84648c7cfd2a99b67e55610f64f7a7b6b38f9470cb3a682905869a7cbf65489"
+    },
+    {
+      "animalId": "terrapene_carolina",
+      "scientificName": "Terrapene carolina",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Terrapene_carolina",
+      "htmlSha256": "1be6edd31c6ab0795baaaff7f3491099ae0a4a3b05530ea205fc547d22986b70"
+    },
+    {
+      "animalId": "thunnus_albacares",
+      "scientificName": "Thunnus albacares",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Thunnus_albacares",
+      "htmlSha256": "a6181a60328fb0f7f6a67f447c99cedc477a1c75f5becd5cb40f7f3456a0603c"
+    },
+    {
+      "animalId": "thunnus_thynnus",
+      "scientificName": "Thunnus thynnus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Thunnus_thynnus",
+      "htmlSha256": "ff6d3d17d75e9bb50a8ea4ae827d1eb2fb437af41a69fb241d3564356b285ec6"
+    },
+    {
+      "animalId": "triaenodon_obesus",
+      "scientificName": "Triaenodon obesus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Triaenodon_obesus",
+      "htmlSha256": "2ac06ae15afc66b2c79b20ac76e388bec97c76e86e7815e66043eec838ac3556"
+    },
+    {
+      "animalId": "trichechus_manatus",
+      "scientificName": "Trichechus manatus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Trichechus_manatus",
+      "htmlSha256": "6d1afa5fde77df753837115e67dc580b2c721e2c35a13334183baac1ca51b8f0"
+    },
+    {
+      "animalId": "vicugna_pacos",
+      "scientificName": "Vicugna pacos",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Vicugna_pacos",
+      "htmlSha256": "c851d84b2c121972c87a15212a6c77111c3d4ab9c85e902ec61c2e97f62d7da8"
+    },
+    {
+      "animalId": "vulpes_lagopus",
+      "scientificName": "Vulpes lagopus",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Vulpes_lagopus",
+      "htmlSha256": "5b2d6923f8567c1382faf3995a0940f6da0ebbe4eb07b82b6fee1e5ac88ac3b5"
+    },
+    {
+      "animalId": "vulpes_zerda",
+      "scientificName": "Vulpes zerda",
+      "url": "https://genomics.senescence.info/species/entry.php?species=Vulpes_zerda",
+      "htmlSha256": "88782a8f647806fae69e2af566a59348b4ecc6517ea57672243fb1250fa15cf9"
+    }
+  ],
+  "policy": "Source HTML checked for longevity semantics; hashes retained, account prose is not republished. Decisions in longevity-review-decisions.json."
+}

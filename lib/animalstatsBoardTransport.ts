@@ -28,3 +28,25 @@ export function unpackAnimalBoards(packed: AnimalBoardTransport): BoardCandidate
     biogeographicRegions: regions ?? undefined,
   }));
 }
+
+/** Keep every category, difficulty and reviewed Daily reachable before the full
+ * catalog arrives. Prefix order is retained when the rest is appended. */
+export function openingAnimalBoards(boards: BoardCandidate[], approvedIds: string[], sharedId?: string): BoardCandidate[] {
+  const required = new Set([...approvedIds, ...(sharedId ? [sharedId] : [])]);
+  const categories = new Set<string>();
+  const poolCounts = new Map<string, number>();
+  return boards.filter(board => {
+    const pool = `${board.mode}:${board.collection ?? "living"}`;
+    const count = poolCounts.get(pool) ?? 0;
+    poolCounts.set(pool, count + 1);
+    const addsCategory = board.traitIds.some(id => !categories.has(id));
+    const include = count < 32 || addsCategory || required.has(board.id ?? "");
+    if (include) for (const id of board.traitIds) categories.add(id);
+    return include;
+  });
+}
+
+export function appendAnimalBoards(prefix: BoardCandidate[], remaining: BoardCandidate[]): BoardCandidate[] {
+  const ids = new Set(prefix.map(board => board.id));
+  return [...prefix, ...remaining.filter(board => !ids.has(board.id))];
+}

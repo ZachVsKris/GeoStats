@@ -1,0 +1,2088 @@
+{
+  "source": "Dyer et al. 2023 empirical table, Zenodo 7554842",
+  "archiveSha256": "8224f0998dcf01c744b002121cf145134266f662f682184c881e048a443df4b2",
+  "addedAnimals": [
+    "cuniculus_paca",
+    "dasyprocta_punctata",
+    "leopardus_pardalis",
+    "mazama_temama",
+    "nasua_narica",
+    "proechimys_semispinosus",
+    "sciurus_granatensis",
+    "tamandua_mexicana",
+    "octodon_degus",
+    "dipodomys_merriami",
+    "perognathus_longimembris",
+    "halichoerus_grypus",
+    "dipodomys_deserti",
+    "callorhinus_ursinus",
+    "neophoca_cinerea",
+    "mirounga_leonina",
+    "phocoena_phocoena",
+    "neophocaena_phocaenoides",
+    "phocarctos_hookeri",
+    "erignathus_barbatus",
+    "leptonychotes_weddellii",
+    "balaenoptera_physalus",
+    "zalophus_wollebaeki",
+    "pteropus_rufus",
+    "nyctalus_noctula",
+    "pipistrellus_kuhlii",
+    "pipistrellus_nathusii"
+  ],
+  "addedValues": 166,
+  "addedDistinctMeasurements": 83,
+  "traitCoverage": {
+    "field_travel_speed": 33,
+    "field_swim_speed": 46,
+    "field_flight_speed": 28
+  },
+  "held": [
+    {
+      "name": "Amazon mouse sp.",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pecari tajacu",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Perognathus formosus",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Homo sapiens",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Carabus nemoralis",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pseudophonus rufipes",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pterostichus melanarius",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pterostichus niger",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Eudorcas thomsonii",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Eciton hamatum",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Leptogenys attenuata",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Leptogenys nitida",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Atta colombica",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Messor pergandei",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pogonomyrmex barbatus",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pogonomyrmex desertorum",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pogonomyrmex occidentalis",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Podarcis muralis",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Anolis angusticeps",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Anolis carolinensis",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Anolis evermanni",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Anolis grahami",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Anolis gundlachi",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Anolis lineatopus",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Anolis sagrei",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Anolis valencienni",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Aspidoscelis sexlineata",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Aspidoscelis tigris",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Tiliqua rugosa",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Varanus rosenbergi",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Anolis bonairensis",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Cnemidophorus murinus",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Aspidoscelis hyperythra",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Aspidoscelis tigris",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Heliobolus lugubris",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Meroles squamulosus",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Meroles suborbitalis",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Nucras tessellata",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pedioplanis lineoocellata",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pedioplanis namaquensis",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Holcosus festivus",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Holcosus festivus",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Amblyrhynchus cristatus",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Varanus gouldii",
+      "mode": "running",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Carcharhinus longimanus",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Lamna ditropis",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Chrysoblephus laticeps",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Somniosus microcephalus",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Carcharhinus plumbeus",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Acipenser sinensis",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Oncorhynchus clarkii",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Oncorhynchus keta",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Molva molva",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Thunnus orientalis",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Paralichthys olivaceus",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Epinephelus striatus",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Sebastis cheni",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Carcharhinus brevipinna",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Carcharhinus obscurus",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Carcharhinus plumbeus",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Carcharhinus\u00a0albimarginatus",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Furgaleus macki",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Hemitriakis falcata",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Heterodontus portusjacksoni",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Mustelus  antarcticus",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Nebrius ferrugineus",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Negaprion acutidens",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Parascyllium variolatum",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Triaenedon obesus",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Carcharhinus obscurus",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Arctocephalus gazella",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Leucocarbo verrucosus",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Alca torda",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Cerorhinca monocerata",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Uria aalge",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Uria lomvia",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Phalacrocorax georgianus",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pygoscelis antarctica",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Phalacrocorax aristotelis",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Eudyptes chrysolophus",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Spheniscus humboldti",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Spheniscus humboldti",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Spheniscus magellanicus",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Spheniscus magellanicus",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Phoca sibirica",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Loligo reynaudii",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Loligo reynaudii",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Loligo reynaudii",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Arctocephalus galapagoensis",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Onisimus litoralis",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Anonyx sarsi",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Wecomedon nobilis",
+      "mode": "swimming",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Agelaius phoeniceus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Anas acuta",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Ardea alba",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Ardea herodias",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Branta canadensis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Corvus brachyrhynchos",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Egretta caerulea",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Egretta thula",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Egretta tricolor",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Falco sparverius",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Hydroprogne caspia",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Leucophaeus atricilla",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Mareca americana",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Mareca rubripes",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Mareca strepera",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pluvialis squatarola",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Quiscalus mexicanus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Quiscalus quiscula",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Sterna maxima",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Sephanoides sephanoides",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Phaethornis superciliosus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Melospiza melodia",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Melozone fusca",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Passerella iliaca",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Selasphorus sasin",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Zonotrichia atricapilla",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Zonotrichia leucophrys",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Urania fulgens",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Neoscapteriscus borellii",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Accipiter nisus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Anas acuta",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Anas crecca",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Anas penelope",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Anser albifrons",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Anser fabalis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Anthus trivialis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Arenaria interpres",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Aythya ferina",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Aythya fuligula",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Aythya marila",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Botaurus stellaris",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Branta bernicla",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Branta canadensis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Branta leucopsis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Bucephala clangula",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Buteo buteo",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Buteo lagopus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Calidris alpina",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Calidris canutus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Charadrius hiaticula",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Chroicocephalus ridibundus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Circus aeruginosus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Circus cyaneus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Clangula hyemalis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Coloeus monedula",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Columba oenas",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Cygnus columbianus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Cygnus cygnus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Delichon urbicum",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Falco tinnunculus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Fringilla coelebs",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Fringilla montifringilla",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Gallinago gallinago",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Garrulus glandarius",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Gavia adamsii",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Gavia arctica",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Gavia stellata",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Grus grus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Haliaeetus albicilla",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Hydroprogne caspia",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Larus canus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Larus fuscus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Larus glaucoides",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Larus hyperboreus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Larus marinus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Larus minutus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Limosa lapponica",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Linaria cannabina",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Melanitta fusca",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Melanitta nigra",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Mergus merganser",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Mergus serrator",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Milvus milvus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Motacilla alba",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Nucifraga caryocatactes",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Numenius arquata",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Numenius phaeopus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pandion haliaetus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Periparus ater",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pernis apivorus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Phalaropus fulicarius",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Phalaropus lobatus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Philomachus pugnax",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pluvialis dominica",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pluvialis squatarola",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Polysticta stelleri",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Porzana porzana",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pyrrhula pyrrhula",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Riparia riparia",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Rissa tridactyla",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Somateria spectabilis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Spinus spinus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Stercorarius longicaudus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Stercorarius parasiticus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Stercorarius pomarinus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Sterna paradisaea",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Tadorna tadorna",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Tringa glareola",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Tringa nebularia",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Turdus iliacus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Turdus philomelos",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Turdus pilaris",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Turdus viscivorus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Accipiter nisus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Anser albifrons",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Branta leucopsis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Calidris alpina",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Cyanistes caeruleus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Cygnus columbianus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Falco tinnunculus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Gavia stellata",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Oceanites oceanicus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pandion haliaetus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Passer domesticus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Calidris alba",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Calidris canutus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Limosa lapponica",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pluvialis squatarola",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Tringa totanus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Anser caerulescens",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Branta canadensis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Branta canadensis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Anas crecca",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Burhinus oedicnemus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Calidris minuta",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Charadrius hiaticula",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Charadrius morinellus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Chlamydotis undulata",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Chloris chloris",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Circus aeruginosus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Coracias garrulus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Cuculus canorus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Cyanistes caeruleus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Cygnus cygnus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Delichon urbicum",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Falco columbarius",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Fringilla coelebs",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Galerida cristata",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Motacilla alba",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Oenanthe oenanthe",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pelecanus onocrotalus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Prunella modularis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Psittacula krameri",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pterocles senegallus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Scolopax rusticola",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Sitta europaea",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Treron waalia",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Tringa nebularia",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Tringa stagnatilis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Xenus cinereus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Coloeus monedula",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Adelpha iphiclus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Agraulis vanillae",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Anartia fatima",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Aphrissa boisduvallii",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Aphrissa statira",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Archaeoprepona demophon",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Battus polydamas",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Calpodes ethlius",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Cissia sp.",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Coea acheronta",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Cyclosemia anastomosis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Danaus eresimus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Danaus gilippus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Dione juno",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Dryadula phaetusa",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Dryas iulia",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Eueides lybia",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Eunica alcmena",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Eunica sp.",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Eurema proterpia",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Eurytides dolicaon",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Glutophrissa drusilla",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Hamadryas feronia",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Hamadryas ipthime",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Heliconius charithonia",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Heliconius cydno",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Heliconius eleuchia",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Heliconius erato",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Heliconius hecale",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Heliconius melpomene",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Heliconius sapho",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Heliconius sara",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Heliopetes sp.",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Itaballia demophile",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Itaballia pandosia",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Junonia evarete",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Laparus doris",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Marpesia chiron",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Marpesia petreus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Mechanitis lysimnia",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Melete polyhymnia",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Melinaea mneme",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Melinaea parallelis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Melinaea scylax",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Mimoides ilus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Morpho amathonte",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Olyras insignis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Papilio anchisiades",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Papilio thoas",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Parides arcas",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Parides sesostris",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Philaethria dido",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Phoebis argante",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Phoebis philea",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Phoebis sennae",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Protesilaus protesilaus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pyrrhogyra crameri",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pyrrhogyra neaerea",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pyrrhogyra otolais",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Rhabdodryas trite",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Siproeta stelenes",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Typhedanus undulatus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Daption capense",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Macronectes giganteus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Oceanites oceanicus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pachyptila desolata",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Thalassarche melanophris",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Ajaia ajaja",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Ardea alba",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Ardea herodias",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Ardea herodias occidentalis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Cathartes aura",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Colaptes auratus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Coragyps atratus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Egretta caerulea",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Eudocimus albus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Falco sparverius",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Larus marinus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Morus bassanus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pandion haliaetus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Phalacrocorax aristotelis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Phalacrocorax auritus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Tachycineta bicolor",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Alca torda",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Fratercula arctica",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Fulmarus glacialis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Leucophaeus atricilla",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Rissa tridactyla",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Rynchops niger",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Stercorarius parasiticus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Stercorarius skua",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Sterna maxima",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Uria aalge",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Accipiter brevipes",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Accipiter nisus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Anthus pratensis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Anthus trivialis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Apus pallidus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Aquila nipalensis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Aquila pomarina",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Ardea alba",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Ardea purpurea",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Ardeola ralloides",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Buteo buteo",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Carduelis carduelis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Chlidonias leucopterus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Chloris chloris",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Ciconia ciconia",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Ciconia nigra",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Circus aeruginosus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Circus macrourus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Circus pygargus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Coloeus monedula",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Delichon urbicum",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Falco eleonorae",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Falco naumanni",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Falco subbuteo",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Falco vespertinus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Fringilla coelebs",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Fringilla montifringilla",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Garrulus glandarius",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Grus grus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Hieraaetus pennatus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Larus fuscus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Lullula arborea",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Merops apiaster",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Milvus migrans",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Motacilla alba",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Motacilla flava",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Neophron perenopterus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Nycticorax nycticorax",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Oenanthe oenanthe",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pandion haliaetus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Parus major",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pelecanus onocrotalus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Pernis apivorus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Philomachus pugnax",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Phoenicopterus ruber",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Platalea leucorodia",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Plegadis falcinellus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Prunella modularis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Ptyonoprogne rupestris",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Riparia riparia",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Spinus spinus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Tachymarptis melba",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Turdus philomelos",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Turdus pilaris",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Turdus viscivorus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Fregata magnificens",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Clangula hyemalis",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Fringilla coelebs",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Fringilla montifringilla",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Gavia immer",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Gavia immer",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    },
+    {
+      "name": "Grus grus",
+      "mode": "flying",
+      "reason": "No exact reviewed catalog taxon; no synonym or genus transfer"
+    }
+  ],
+  "policy": [
+    "Exact species joins only",
+    "Field study means only; no laboratory, median or fitted records",
+    "Original citations and descriptive disagreement envelopes retained",
+    "Body masses from this source are never imported"
+  ]
+}

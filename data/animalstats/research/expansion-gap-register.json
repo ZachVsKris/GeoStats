@@ -34,7 +34,7 @@
         "sponges"
       ],
       "requirement": "Bulk sources with explicit comparable measurements and sufficiently broad samples; accurate portraits and cartoons.",
-      "progress": "529-species pelagic dataset downloaded with field metadata; flagged and inferred records held out of gameplay."
+      "progress": "529-species pelagic dataset downloaded with field metadata; flagged and inferred records held out of gameplay. Added 269 explicitly mantle-coded cephalopod length candidates with original references; kept research-only pending primary-table and taxonomy review."
     },
     {
       "area": "Expert mode breadth",
@@ -49,7 +49,8 @@
     },
     {
       "area": "Living mammal fact breadth",
-      "requirement": "Remain a priority even as underrepresented groups grow. New metric families rather than extra bat variants or only board recombinations."
+      "requirement": "Remain a priority even as underrepresented groups grow. New metric families rather than extra bat variants or only board recombinations.",
+      "progress": "Added 27 exact MDD-matched mammal taxa and 83 empirical movement measurements across existing/new animals. Expanded existing AnAge observations; 15 questionable maximum-age claims held after source-account review. AnimalTraits weighed-brain and historical organ records are research-only pending specimen-stage, sex and preservation checks."
     },
     {
       "area": "Catalog to playable coverage",
@@ -64,5 +65,9 @@
     "Broad generic comparisons require 50 species across 3 major groups; scoped species comparisons require 20; breeds require 8",
     "At least half intuitive prizes on every board",
     "No living/extinct mixed boards"
-  ]
+  ],
+  "latestPlayableLabels": 198,
+  "latestValidatedBoards": 61090,
+  "catalogAnimalsLiving": 868,
+  "livingRoundAnimals": 259
 }

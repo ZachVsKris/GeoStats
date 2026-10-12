@@ -1,12 +1,13 @@
 "use client";
 
+import { unpackAnimalData, type AnimalDataTransport } from "../lib/animalstatsDataTransport";
 import AnimalPortrait from "./AnimalPortrait";
-import { unpackAnimalBoards, type AnimalBoardTransport } from "../lib/animalstatsBoardTransport";
+import { appendAnimalBoards, unpackAnimalBoards, type AnimalBoardTransport } from "../lib/animalstatsBoardTransport";
 import AnimalPhotoCredits from "./AnimalPhotoCredits";
 import { animalTraitIcon } from "../lib/animalstatsIcons";
 import AnimalCategoryLabel from "./AnimalCategoryLabel";
 
-import { useCallback, useEffect, useMemo, useRef, useState, type PointerEvent, type CSSProperties } from "react";
+import { startTransition, useCallback, useEffect, useMemo, useRef, useState, type PointerEvent, type CSSProperties } from "react";
 import { animalRegionLabel } from "../lib/animalstatsRegions";
 import { randomAnimalBoardIndex } from "../lib/animalstatsVariety";
 import { CATLogo } from "./CATBrand";
@@ -27,7 +28,7 @@ import "../app/animals/animalstats.css";
 import "../app/animals/animal-sanctuary.css";
 import "../app/animals/animal-fair-refresh.css";
 
-type Props = { initialBoardId?: string; initialMode?: DailyDifficulty; unavailableBoard?: boolean; data: AnimalDataset; boardCatalog: AnimalBoardTransport; approvedBoardIds: string[]; date: string };
+type Props = { initialBoardId?: string; initialMode?: DailyDifficulty; unavailableBoard?: boolean; data: AnimalDataTransport; boardCatalog: AnimalBoardTransport; approvedBoardIds: string[]; date: string };
 type Assignment = Record<string, string>;
 
 function challengeUrl(boardId: string) {
@@ -44,8 +45,27 @@ function observationLinks(notes: string) {
 
 const formatValue = formatAnimalValue;
 
-export default function AnimalStatsGame({ data, boardCatalog, approvedBoardIds, date, initialBoardId, initialMode = "easy", unavailableBoard = false }: Props) {
-  const boards = useMemo(() => unpackAnimalBoards(boardCatalog), [boardCatalog]);
+export default function AnimalStatsGame({ data: packedData, boardCatalog, approvedBoardIds, date, initialBoardId, initialMode = "easy", unavailableBoard = false }: Props) {
+  const data = useMemo(() => unpackAnimalData(packedData), [packedData]);
+  const [boards, setBoards] = useState(() => unpackAnimalBoards(boardCatalog));
+  useEffect(() => {
+    const controller = new AbortController();
+    let retry: ReturnType<typeof setTimeout> | undefined;
+    async function load(attempt = 0) {
+      try {
+        const response = await fetch("/api/animals/boards", { signal: controller.signal });
+        if (!response.ok) throw new Error("Board catalog unavailable");
+        const catalog: AnimalBoardTransport = await response.json();
+        if (catalog.version !== 1 || !Array.isArray(catalog.rows)) throw new Error("Unknown board catalog");
+        const remaining = unpackAnimalBoards(catalog);
+        startTransition(() => setBoards(current => appendAnimalBoards(current, remaining)));
+      } catch {
+        if (!controller.signal.aborted && attempt < 2) retry = setTimeout(() => void load(attempt + 1), 2000 * (attempt + 1));
+      }
+    }
+    void load();
+    return () => { controller.abort(); if (retry) clearTimeout(retry); };
+  }, []);
   const sound = useGameSound();
   const [presentation, setPresentation] = useState<"cute" | "real">("cute");
   useEffect(() => { try { if (localStorage.getItem("animalstats-presentation-v1") === "real") setPresentation("real"); } catch {} }, []);

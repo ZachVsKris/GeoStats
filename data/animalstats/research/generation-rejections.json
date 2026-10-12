@@ -7,43 +7,99 @@
   ],
   "groups": [
     {
-      "group": "insects",
+      "group": "fish",
       "mode": "easy",
-      "portraitAnimals": 28,
-      "animalsWithEnoughMetrics": 26,
-      "attempts": 8698168,
-      "added": 2,
+      "portraitAnimals": 25,
+      "animalsWithEnoughMetrics": 24,
+      "attempts": 8648,
+      "added": 402,
       "rejections": {
-        "not enough compatible distinct metrics": 14747,
-        "category winners compete for same animal": 1993,
-        "only one mapped-range prize per board": 52,
-        "traits have nearly identical or reversed rankings": 70,
-        "no familiar anchor": 70,
-        "sampled lineup already explored": 8683218
+        "not enough compatible distinct metrics": 3729,
+        "category winners compete for same animal": 38773,
+        "no familiar anchor": 154,
+        "traits have nearly identical or reversed rankings": 1407,
+        "sampled lineup already explored": 3766
       }
     },
     {
-      "group": "insects",
+      "group": "fish",
       "mode": "normal",
-      "portraitAnimals": 28,
-      "animalsWithEnoughMetrics": 26,
-      "attempts": 991956,
-      "added": 0,
+      "portraitAnimals": 25,
+      "animalsWithEnoughMetrics": 24,
+      "attempts": 14126,
+      "added": 108,
       "rejections": {
-        "not enough compatible distinct metrics": 152624,
-        "no familiar anchor": 821,
-        "sampled lineup already explored": 838511
+        "not enough compatible distinct metrics": 10123,
+        "no familiar anchor": 620,
+        "sampled lineup already explored": 3171,
+        "category winners compete for same animal": 2577,
+        "traits have nearly identical or reversed rankings": 74,
+        "too few animals compete across traits": 14
       }
     },
     {
-      "group": "insects",
+      "group": "fish",
       "mode": "expert",
-      "portraitAnimals": 28,
-      "animalsWithEnoughMetrics": 0,
-      "attempts": 0,
+      "portraitAnimals": 25,
+      "animalsWithEnoughMetrics": 22,
+      "attempts": 23380,
       "added": 0,
       "rejections": {
-        "not enough illustrated animals with 6 distinct metrics": 1
+        "not enough compatible distinct metrics": 16834,
+        "sampled lineup already explored": 6454,
+        "no familiar anchor": 92
+      }
+    },
+    {
+      "group": "mammals",
+      "mode": "easy",
+      "portraitAnimals": 68,
+      "animalsWithEnoughMetrics": 68,
+      "attempts": 205,
+      "added": 164,
+      "rejections": {
+        "category winners compete for same animal": 91941,
+        "only one mapped-range prize per board": 1117,
+        "traits have nearly identical or reversed rankings": 1202,
+        "not enough compatible distinct metrics": 5,
+        "trait: tupaia_glis ineligible": 86,
+        "sampled lineup already explored": 3,
+        "trait: erinaceus_europaeus ineligible": 114,
+        "trait: oryctolagus_cuniculus ineligible": 115,
+        "trait: tachyglossus_aculeatus ineligible": 170
+      }
+    },
+    {
+      "group": "mammals",
+      "mode": "normal",
+      "portraitAnimals": 68,
+      "animalsWithEnoughMetrics": 68,
+      "attempts": 261,
+      "added": 211,
+      "rejections": {
+        "category winners compete for same animal": 12665,
+        "not enough compatible distinct metrics": 24,
+        "traits have nearly identical or reversed rankings": 196,
+        "only one mapped-range prize per board": 728,
+        "too few animals compete across traits": 67,
+        "trait: erinaceus_europaeus ineligible": 1
+      }
+    },
+    {
+      "group": "mammals",
+      "mode": "expert",
+      "portraitAnimals": 68,
+      "animalsWithEnoughMetrics": 68,
+      "attempts": 144,
+      "added": 12,
+      "rejections": {
+        "not enough compatible distinct metrics": 108,
+        "category winners compete for same animal": 17253,
+        "only one mapped-range prize per board": 123,
+        "bat dominance": 2,
+        "trait: erinaceus_europaeus ineligible": 12,
+        "trait: oryctolagus_cuniculus ineligible": 12,
+        "trait: tachyglossus_aculeatus ineligible": 12
       }
     },
     {
@@ -51,16 +107,15 @@
       "mode": "easy",
       "portraitAnimals": 260,
       "animalsWithEnoughMetrics": 238,
-      "attempts": 17937,
-      "added": 5,
+      "attempts": 2150,
+      "added": 202,
       "rejections": {
-        "not enough compatible distinct metrics": 5430,
-        "group composition": 9823,
-        "category winners compete for same animal": 546922,
-        "no familiar anchor": 188,
-        "sampled lineup already explored": 12,
-        "traits have nearly identical or reversed rankings": 6,
-        "bat dominance": 1
+        "group composition": 1149,
+        "not enough compatible distinct metrics": 671,
+        "category winners compete for same animal": 16734,
+        "no familiar anchor": 29,
+        "traits have nearly identical or reversed rankings": 480,
+        "sampled lineup already explored": 1
       }
     },
     {
@@ -68,33 +123,77 @@
       "mode": "normal",
       "portraitAnimals": 260,
       "animalsWithEnoughMetrics": 238,
-      "attempts": 70691,
-      "added": 0,
+      "attempts": 6718,
+      "added": 328,
       "rejections": {
-        "group composition": 37642,
-        "not enough compatible distinct metrics": 27697,
-        "category winners compete for same animal": 143175,
-        "no familiar anchor": 1262,
-        "bat dominance": 26,
-        "sampled lineup already explored": 20
+        "not enough compatible distinct metrics": 2695,
+        "group composition": 3534,
+        "category winners compete for same animal": 2159,
+        "too few animals compete across traits": 31,
+        "no familiar anchor": 129,
+        "traits have nearly identical or reversed rankings": 60,
+        "bat dominance": 2
       }
     },
     {
       "group": "mixed",
       "mode": "expert",
       "portraitAnimals": 260,
-      "animalsWithEnoughMetrics": 179,
-      "attempts": 122166,
+      "animalsWithEnoughMetrics": 183,
+      "attempts": 5488,
       "added": 0,
       "rejections": {
-        "group composition": 60340,
-        "not enough compatible distinct metrics": 61409,
-        "no familiar anchor": 287,
-        "bat dominance": 95,
-        "category winners compete for same animal": 300,
-        "sampled lineup already explored": 30
+        "group composition": 2702,
+        "not enough compatible distinct metrics": 2763,
+        "no familiar anchor": 16,
+        "bat dominance": 7
+      }
+    },
+    {
+      "group": "marine",
+      "mode": "easy",
+      "portraitAnimals": 54,
+      "animalsWithEnoughMetrics": 44,
+      "attempts": 10316,
+      "added": 89,
+      "rejections": {
+        "group composition": 6252,
+        "not enough compatible distinct metrics": 3545,
+        "category winners compete for same animal": 7494,
+        "no familiar anchor": 104,
+        "traits have nearly identical or reversed rankings": 237,
+        "sampled lineup already explored": 144
+      }
+    },
+    {
+      "group": "marine",
+      "mode": "normal",
+      "portraitAnimals": 54,
+      "animalsWithEnoughMetrics": 44,
+      "attempts": 14142,
+      "added": 31,
+      "rejections": {
+        "no familiar anchor": 296,
+        "group composition": 6488,
+        "not enough compatible distinct metrics": 7192,
+        "category winners compete for same animal": 511,
+        "sampled lineup already explored": 114,
+        "traits have nearly identical or reversed rankings": 6
+      }
+    },
+    {
+      "group": "marine",
+      "mode": "expert",
+      "portraitAnimals": 54,
+      "animalsWithEnoughMetrics": 27,
+      "attempts": 10876,
+      "added": 0,
+      "rejections": {
+        "group composition": 4206,
+        "not enough compatible distinct metrics": 6621,
+        "sampled lineup already explored": 49
       }
     }
   ],
-  "totalBoards": 41068
+  "totalBoards": 42615
 }

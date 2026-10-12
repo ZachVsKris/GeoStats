@@ -1,1 +1,282 @@
-{"reviewedAt":"2026-10-05","policy":"Hold uncertain maximum ages; retain numerical research records, exclude from approved play and rankings. Keyword matches alone are not exclusions. Empirical ring counts and known-age captive records are eligible.","decisions":[{"animalId":"proteus_anguinus","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Proteus_anguinus"},{"animalId":"homarus_americanus","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Homarus_americanus"},{"animalId":"strongylocentrotus_franciscanus","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Strongylocentrotus_franciscanus"},{"animalId":"orcinus_orca","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Orcinus_orca"},{"animalId":"rhincodon_typus","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Rhincodon_typus"},{"animalId":"balaenoptera_musculus","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Balaenoptera_musculus"},{"animalId":"carcharodon_carcharias","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Carcharodon_carcharias"},{"animalId":"caretta_caretta","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Caretta_caretta"},{"animalId":"gopherus_agassizii","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Gopherus_agassizii"},{"animalId":"cryptobranchus_alleganiensis","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Cryptobranchus_alleganiensis"},{"animalId":"isurus_oxyrinchus","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Isurus_oxyrinchus"},{"animalId":"diomedea_exulans","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Diomedea_exulans"},{"animalId":"equus_caballus","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Equus_caballus"},{"animalId":"chelonoidis_nigra","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Chelonoidis_nigra"},{"animalId":"phoenicopterus_roseus","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Phoenicopterus_roseus"},{"animalId":"myrmecophaga_tridactyla","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Myrmecophaga_tridactyla"},{"animalId":"giraffa_camelopardalis","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Giraffa_camelopardalis"},{"animalId":"ceratotherium_simum","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Ceratotherium_simum"},{"animalId":"pongo_pygmaeus","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Pongo_pygmaeus"},{"animalId":"loxodonta_africana","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Loxodonta_africana"},{"animalId":"drosophila_melanogaster","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Drosophila_melanogaster"},{"animalId":"corvus_corax","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Corvus_corax"},{"animalId":"salamandra_salamandra","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Salamandra_salamandra"},{"animalId":"sphenodon_punctatus","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Sphenodon_punctatus"},{"animalId":"vombatus_ursinus","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Vombatus_ursinus"},{"animalId":"vulpes_vulpes","decision":"hold","reason":"The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.","sourceUrl":"https://genomics.senescence.info/species/entry.php?species=Vulpes_vulpes"}]}
+{
+  "reviewedAt": "2026-10-12",
+  "policy": "Hold uncertain maximum ages; retain numerical research records, exclude from approved play and rankings. Keyword matches alone are not exclusions. Empirical ring counts and known-age captive records are eligible.",
+  "decisions": [
+    {
+      "animalId": "proteus_anguinus",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Proteus_anguinus"
+    },
+    {
+      "animalId": "homarus_americanus",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Homarus_americanus"
+    },
+    {
+      "animalId": "strongylocentrotus_franciscanus",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Strongylocentrotus_franciscanus"
+    },
+    {
+      "animalId": "orcinus_orca",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Orcinus_orca"
+    },
+    {
+      "animalId": "rhincodon_typus",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Rhincodon_typus"
+    },
+    {
+      "animalId": "balaenoptera_musculus",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Balaenoptera_musculus"
+    },
+    {
+      "animalId": "carcharodon_carcharias",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Carcharodon_carcharias"
+    },
+    {
+      "animalId": "caretta_caretta",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Caretta_caretta"
+    },
+    {
+      "animalId": "gopherus_agassizii",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Gopherus_agassizii"
+    },
+    {
+      "animalId": "cryptobranchus_alleganiensis",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Cryptobranchus_alleganiensis"
+    },
+    {
+      "animalId": "isurus_oxyrinchus",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Isurus_oxyrinchus"
+    },
+    {
+      "animalId": "diomedea_exulans",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Diomedea_exulans"
+    },
+    {
+      "animalId": "equus_caballus",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Equus_caballus"
+    },
+    {
+      "animalId": "chelonoidis_nigra",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Chelonoidis_nigra"
+    },
+    {
+      "animalId": "phoenicopterus_roseus",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Phoenicopterus_roseus"
+    },
+    {
+      "animalId": "myrmecophaga_tridactyla",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Myrmecophaga_tridactyla"
+    },
+    {
+      "animalId": "giraffa_camelopardalis",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Giraffa_camelopardalis"
+    },
+    {
+      "animalId": "ceratotherium_simum",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Ceratotherium_simum"
+    },
+    {
+      "animalId": "pongo_pygmaeus",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Pongo_pygmaeus"
+    },
+    {
+      "animalId": "loxodonta_africana",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Loxodonta_africana"
+    },
+    {
+      "animalId": "drosophila_melanogaster",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Drosophila_melanogaster"
+    },
+    {
+      "animalId": "corvus_corax",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Corvus_corax"
+    },
+    {
+      "animalId": "salamandra_salamandra",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Salamandra_salamandra"
+    },
+    {
+      "animalId": "sphenodon_punctatus",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Sphenodon_punctatus"
+    },
+    {
+      "animalId": "vombatus_ursinus",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Vombatus_ursinus"
+    },
+    {
+      "animalId": "vulpes_vulpes",
+      "decision": "hold",
+      "reason": "The current maximum needs empirical record verification: source notes describe an estimated, projected, anecdotal, or uncertain-age maximum. No replacement value is inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Vulpes_vulpes"
+    },
+    {
+      "animalId": "acipenser_sturio",
+      "decision": "hold",
+      "reviewedAt": "2026-10-12",
+      "reason": "AnAge observations describe the 100-year claim as anecdotal. Held across every source part; no replacement inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Acipenser_sturio",
+      "sourceHtmlSha256": "b37849cd6c7adbbb765e72bb8c799b633064e9bc91a5c56ec32b744b3a0d5b4f"
+    },
+    {
+      "animalId": "balaenoptera_physalus",
+      "decision": "hold",
+      "reviewedAt": "2026-10-12",
+      "reason": "The 114-year maximum is explicitly an estimate; the source says detailed longevity studies are absent. Held across every source part; no replacement inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Balaenoptera_physalus",
+      "sourceHtmlSha256": "9d559ecd2425c899541d8524d474ffeda6f3f546dc301b3fbe3a67cad78bff2d"
+    },
+    {
+      "animalId": "delphinapterus_leucas",
+      "decision": "hold",
+      "reviewedAt": "2026-10-12",
+      "reason": "The 40-year claim is described as an estimated wild age, conflicting with the captive-origin field in the pinned table. Held across every source part; no replacement inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Delphinapterus_leucas",
+      "sourceHtmlSha256": "8ae9fb73ea942be91bcda6a861f4730ecf92d648c01a3b869e096868e518dc92"
+    },
+    {
+      "animalId": "dugong_dugon",
+      "decision": "hold",
+      "reviewedAt": "2026-10-12",
+      "reason": "The 73-year maximum is an estimate of wild longevity, conflicting with the captive-origin field in the pinned table. Held across every source part; no replacement inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Dugong_dugon",
+      "sourceHtmlSha256": "739b9a089f5341b69f82833cc8e943e3a7709f81c576832b1932a4d8134575a9"
+    },
+    {
+      "animalId": "engraulis_encrasicolus",
+      "decision": "hold",
+      "reviewedAt": "2026-10-12",
+      "reason": "The source account describes unverified longevity estimates; the pinned maximum has not been traced to a measured record. Held across every source part; no replacement inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Engraulis_encrasicolus",
+      "sourceHtmlSha256": "7112e6d2872ae68b5a92269624c9b2a553b22997a9eb90690dcda9a9f38658c1"
+    },
+    {
+      "animalId": "hippoglossus_hippoglossus",
+      "decision": "hold",
+      "reviewedAt": "2026-10-12",
+      "reason": "The 90-year claim is explicitly an unverified estimate. Held across every source part; no replacement inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Hippoglossus_hippoglossus",
+      "sourceHtmlSha256": "5eeb6a3cf55133107717f2393b6096f57b573c58857bc618de4f8dadd5fe05f2"
+    },
+    {
+      "animalId": "lepidochelys_kempii",
+      "decision": "hold",
+      "reviewedAt": "2026-10-12",
+      "reason": "The oldest captured turtle age is estimated, rather than a known-age lifespan record. Held across every source part; no replacement inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Lepidochelys_kempii",
+      "sourceHtmlSha256": "5dcdb914ddc5974c9dfac0a2cc6e3f8445a32333cd9a89b8923e09f3965cde33"
+    },
+    {
+      "animalId": "lycaon_pictus",
+      "decision": "hold",
+      "reviewedAt": "2026-10-12",
+      "reason": "The 17-year estimate conflicts with the documented 15.1-year captive record; no replacement is inferred. Held across every source part; no replacement inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Lycaon_pictus",
+      "sourceHtmlSha256": "45fc3b7f33566a1dd7a2c2b7bee11c6f7cd7bf832fb416d95cac3c79fd1dc31b"
+    },
+    {
+      "animalId": "megalops_atlanticus",
+      "decision": "hold",
+      "reviewedAt": "2026-10-12",
+      "reason": "The source account describes unverified longevity estimates; the pinned maximum needs direct record verification. Held across every source part; no replacement inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Megalops_atlanticus",
+      "sourceHtmlSha256": "45c45e01e14c70b607905fe87538072a7e0a67f9c6007c0ac377a9d711bdc60c"
+    },
+    {
+      "animalId": "monodon_monoceros",
+      "decision": "hold",
+      "reviewedAt": "2026-10-12",
+      "reason": "The source account explicitly describes the 50-year age as estimated. Held across every source part; no replacement inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Monodon_monoceros",
+      "sourceHtmlSha256": "928d899ba7ac20b285c0628ca60126844b08c4e021940bedccb424e582939249"
+    },
+    {
+      "animalId": "raja_clavata",
+      "decision": "hold",
+      "reviewedAt": "2026-10-12",
+      "reason": "The account describes unverified estimates; the pinned lower maximum is not yet independently verified. Held across every source part; no replacement inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Raja_clavata",
+      "sourceHtmlSha256": "82d96039f25563ad0ad870e711a9eae7c07bc23ff1c262888a9d521a3401e548"
+    },
+    {
+      "animalId": "scomberomorus_cavalla",
+      "decision": "hold",
+      "reviewedAt": "2026-10-12",
+      "reason": "The account describes unverified estimates; the pinned lower maximum is not yet independently verified. Held across every source part; no replacement inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Scomberomorus_cavalla",
+      "sourceHtmlSha256": "1861e102a820a4d35e7562fc9a1169f24263db4c44bac8a79c372fd601b7087d"
+    },
+    {
+      "animalId": "squalus_acanthias",
+      "decision": "hold",
+      "reviewedAt": "2026-10-12",
+      "reason": "The source says exact longevity is unknown; the 50\u201375-year interval is estimated. Held across every source part; no replacement inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Squalus_acanthias",
+      "sourceHtmlSha256": "865a155153dc4affb2c6330bebb6bb8a804674c9b83c8e188aca1b4cec5410bd"
+    },
+    {
+      "animalId": "tamandua_mexicana",
+      "decision": "hold",
+      "reviewedAt": "2026-10-12",
+      "reason": "The age of the 16-year specimen was estimated, not known from birth. Held across every source part; no replacement inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Tamandua_mexicana",
+      "sourceHtmlSha256": "a340957c9fdf94a129e59355e4aaf75e9cdd1eba681ab4d2787461f1fc1471d1"
+    },
+    {
+      "animalId": "terrapene_carolina",
+      "decision": "hold",
+      "reviewedAt": "2026-10-12",
+      "reason": "The 138-year claim is explicitly anecdotal. Held across every source part; no replacement inferred.",
+      "sourceUrl": "https://genomics.senescence.info/species/entry.php?species=Terrapene_carolina",
+      "sourceHtmlSha256": "1be6edd31c6ab0795baaaff7f3491099ae0a4a3b05530ea205fc547d22986b70"
+    }
+  ]
+}

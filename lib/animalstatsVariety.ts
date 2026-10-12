@@ -1,7 +1,7 @@
 import { animalBoardComposition } from "./animalstatsComposition";
 import type { AnimalDataset, BoardCandidate } from "./animalstats";
 
-const MAMMALS = new Set(["carnivore", "bear", "large-mammal", "primate", "marsupial", "rodent", "marine-mammal", "monotreme", "insectivore", "treeshrew", "lagomorph", "bat"]);
+const MAMMALS = new Set(["mammal", "carnivore", "bear", "large-mammal", "primate", "marsupial", "rodent", "marine-mammal", "monotreme", "insectivore", "treeshrew", "lagomorph", "bat"]);
 const REPTILES = new Set(["crocodilian", "snake", "lizard", "reptile", "turtle"]);
 const groupMaps = new WeakMap<AnimalDataset, Map<string, string>>();
 export function animalBoardGroup(data: AnimalDataset, board: BoardCandidate) {
@@ -10,12 +10,15 @@ export function animalBoardGroup(data: AnimalDataset, board: BoardCandidate) {
   const groups = board.animalIds.map((id) => map.get(id) ?? "unknown");
   if (groups.every(group => group === "extinct-mammal")) return "extinct-mammals";
   if (groups.every(group => group === "dinosaur")) return "extinct-dinosaurs";
+  // Audited mixed sea-life specials get their own route into rotation rather
+  // than disappearing among thousands of terrestrial mixed boards.
+  if (board.id?.startsWith("groups-marine-")) return "marine";
   if (groups.every((group) => ["dog-breed", "cat-breed"].includes(group))) return "pets";
   if (groups.every((group) => group === "bird")) return "birds";
   if (groups.every((group) => group === "bear")) return "bears";
   if (groups.every((group) => MAMMALS.has(group))) return "mammals";
   if (groups.every((group) => REPTILES.has(group))) return "reptiles";
-  if (groups.every((group) => ["frog", "salamander"].includes(group))) return "amphibians";
+  if (groups.every((group) => ["frog", "salamander", "amphibian"].includes(group))) return "amphibians";
   if (groups.every((group) => ["fish", "shark", "ray"].includes(group))) return "fish";
   if (groups.every((group) => group === "insect")) return "insects";
   if (groups.every((group) => ["insect", "bivalve", "gastropod", "cephalopod", "mollusc", "crustacean", "echinoderm", "arachnid", "cnidarian", "chelicerate", "annelid", "sponge"].includes(group))) return "invertebrates";
@@ -30,7 +33,7 @@ export function animalBoardIsHighlyIntuitive(data: AnimalDataset, board: BoardCa
   return board.traitIds.filter(id => traits.get(id)?.categoryKind === "intuitive").length >= required;
 }
 
-type RotationIndex = { groups: Map<string, number[]>; labels: Map<string, string>; byLabel: Map<string, Map<string, number[]>> };
+type RotationIndex = { groups: Map<string, number[]>; labels: Map<string, string>; byLabel: Map<string, Map<string, number[]>>; lineups: string[] };
 const rotationCache = new WeakMap<AnimalDataset, WeakMap<BoardCandidate[], RotationIndex>>();
 function rotationIndex(data: AnimalDataset, pool: BoardCandidate[]) {
   let cache = rotationCache.get(data);
@@ -48,7 +51,7 @@ function rotationIndex(data: AnimalDataset, pool: BoardCandidate[]) {
     board.traitIds.forEach(id => { const label = labels.get(id)!; const indexes = categories.get(label) ?? []; indexes.push(index); categories.set(label, indexes); });
     byLabel.set(group, categories);
   });
-  const result = { groups, labels, byLabel }; cache.set(pool, result); return result;
+  const result = { groups, labels, byLabel, lineups: pool.map(board => board.animalIds.slice().sort().join(",")) }; cache.set(pool, result); return result;
 }
 function weightedChoice<T>(items: T[], weight: (item: T) => number, random: () => number): T {
   const weights = items.map(weight), total = weights.reduce((a,b) => a+b, 0);
@@ -62,11 +65,11 @@ function weightedChoice<T>(items: T[], weight: (item: T) => number, random: () =
  * A rare measurement never overrides source/composition eligibility. */
 export function randomAnimalBoardIndex(data: AnimalDataset, pool: BoardCandidate[], current?: BoardCandidate, random = Math.random, recent: BoardCandidate[] = []) {
   if (!pool.length) return 0;
-  const { groups: grouped, labels, byLabel } = rotationIndex(data, pool);
+  const { groups: grouped, labels, byLabel, lineups } = rotationIndex(data, pool);
   const currentGroup = current ? animalBoardGroup(data, current) : undefined;
   const alternatives = [...grouped.keys()].filter(g => g !== currentGroup);
-  // Expert has a smaller verified bird pool. Keep mammals more frequent and
-  // soften group switching so four bird lineups cannot dominate every other round.
+  // Expert has fewer viable non-bird groups. Keep mammals frequent without
+  // requiring an alternation when the available groups are limited.
   const expert = (current?.mode ?? pool[0]?.mode) === "expert";
   const groups = expert ? [...grouped.keys()] : alternatives.length ? alternatives : [...grouped.keys()];
   const group = weightedChoice(groups, name => expert
@@ -80,12 +83,12 @@ export function randomAnimalBoardIndex(data: AnimalDataset, pool: BoardCandidate
   }
   const lineup = current?.animalIds.slice().sort().join(",");
   const originalCategories = byLabel.get(group)!;
-  const freshCategories = new Map([...originalCategories].map(([label, indexes]) => [label, indexes.filter(index => pool[index].animalIds.slice().sort().join(",") !== lineup)] as const).filter(([,indexes]) => indexes.length));
+  const freshCategories = new Map([...originalCategories].map(([label, indexes]) => [label, indexes.filter(index => lineups[index] !== lineup)] as const).filter(([,indexes]) => indexes.length));
   const categories = freshCategories.size ? freshCategories : originalCategories;
   // Some common animals have only one well-supported lineup. Give animals an
   // independent route into rotation instead of requiring their rare prize first.
   const groupAnimals = new Map<string, Set<number>>();
-  for (const indexes of categories.values()) for (const index of indexes) {
+  for (const index of new Set([...categories.values()].flat())) {
     for (const id of pool[index].animalIds) {
       const indexesForAnimal = groupAnimals.get(id) ?? new Set<number>();
       indexesForAnimal.add(index); groupAnimals.set(id, indexesForAnimal);
@@ -96,10 +99,12 @@ export function randomAnimalBoardIndex(data: AnimalDataset, pool: BoardCandidate
   const availableCategories = anchor ? [...categories.keys()].filter(label => categories.get(label)!.some(index => groupAnimals.get(anchor)!.has(index))) : [...categories.keys()];
   const category = weightedChoice(availableCategories, label => 1 / (1 + (labelCounts.get(label) ?? 0)) ** 2, random);
   let choices = anchor ? categories.get(category)!.filter(index => groupAnimals.get(anchor)!.has(index)) : categories.get(category)!;
-  const fresh = choices.filter(index => pool[index].animalIds.slice().sort().join(",") !== lineup);
+  const fresh = choices.filter(index => lineups[index] !== lineup);
   if (fresh.length) choices = fresh;
   const animalBoards = new Map<string, number[]>();
-  choices.forEach(index => pool[index].animalIds.forEach(id => animalBoards.set(id, [...(animalBoards.get(id) ?? []), index])));
+  choices.forEach(index => pool[index].animalIds.forEach(id => {
+    const indexes = animalBoards.get(id) ?? []; indexes.push(index); animalBoards.set(id, indexes);
+  }));
   const targetAnimal = weightedChoice([...animalBoards.keys()], id => 1 / (1 + (animalCounts.get(id) ?? 0)) ** 2, random);
   choices = animalBoards.get(targetAnimal)!;
   const recentIds = new Set(history.map(b => b.id));

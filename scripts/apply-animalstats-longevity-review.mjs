@@ -5,17 +5,22 @@ import {join} from 'node:path';
 import {tmpdir} from 'node:os';
 import {pathToFileURL} from 'node:url';
 const root=process.cwd(),ts=createRequire(join(root,'package.json'))('typescript');
-const data=JSON.parse(await readFile('data/animalstats/pilot.json','utf8'));
+const names=['pilot','existing-coverage','fish-records','tetrapod-spatial','marine','aquatic-eggs','underrepresented','insect-ladybirds'];
+const parts=await Promise.all(names.map(async name=>({name,data:JSON.parse(await readFile(`data/animalstats/${name}.json`,'utf8'))})));
+const data=Object.fromEntries(['animals','traits','values','sources','photos'].map(key=>[key,parts.flatMap(part=>part.data[key])]));
 const review=JSON.parse(await readFile('data/animalstats/research/longevity-review-decisions.json','utf8'));
 const holds=new Map(review.decisions.filter(r=>r.decision==='hold').map(r=>[r.animalId,r]));
 let held=0;
-for(const v of data.values) if(v.sourceId==='anage-15'&&holds.has(v.animalId)&&/lifespan|longevity/.test(v.traitId)) {
+for(const {name,data:part} of parts) {
+ const before=JSON.stringify(part);
+ for(const v of part.values) if(v.sourceId==='anage-15'&&holds.has(v.animalId)&&/lifespan|longevity/.test(v.traitId)) {
  v.confidence='review';
- const note='Longevity review 2026-10-05: '+holds.get(v.animalId).reason;
+ const note='Longevity review '+review.reviewedAt+': '+holds.get(v.animalId).reason;
  if(!v.notes.includes(note))v.notes+='; '+note;
  held++;
 }
-await writeFile('data/animalstats/pilot.json',JSON.stringify(data,null,2)+'\n');
+ if(JSON.stringify(part)!==before)await writeFile(`data/animalstats/${name}.json`,JSON.stringify(part,null,2)+'\n');
+}
 const temp=await mkdtemp(join(tmpdir(),'animal-longevity-'));
 try {
  for(const file of ['categorySemantics','gameRules','animalstats']) {

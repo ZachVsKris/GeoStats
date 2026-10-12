@@ -7,11 +7,11 @@ import assert from 'node:assert/strict';
 const root=dirname(dirname(fileURLToPath(import.meta.url)));
 const require=createRequire(join(root,'package.json'));
 const {chromium}=require('playwright');
-const server=spawn(process.execPath,[require.resolve('next/dist/bin/next'),'dev','--webpack','--hostname','127.0.0.1','--port','3012'],{cwd:root,env:{...process.env,ANIMALSTATS_PREVIEW_ENABLED:'true'},stdio:['ignore','pipe','pipe']});
+const server=spawn(process.execPath,[require.resolve('next/dist/bin/next'),...(process.env.ANIMAL_VERIFY_PRODUCTION==='1'?['start']:['dev','--webpack']),'--hostname','127.0.0.1','--port','3012'],{cwd:root,env:{...process.env,ANIMALSTATS_PREVIEW_ENABLED:'true'},stdio:['ignore','pipe','pipe']});
 let browser,logs=''; server.stderr.on('data',x=>logs+=x);
 try {
  await new Promise((resolve,reject)=>{const timer=setTimeout(()=>reject(Error('Server timeout '+logs)),60000);server.stdout.on('data',x=>{logs+=x;if(logs.includes('Ready in')){clearTimeout(timer);resolve();}});server.on('exit',()=>reject(Error(logs)));});
- browser=await chromium.launch(); const page=await browser.newPage({viewport:{width:1440,height:900}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
+ browser=await chromium.launch(); const page=await browser.newPage({viewport:{width:1440,height:900}});page.setDefaultNavigationTimeout(120000);const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto('http://localhost:3012/animals',{waitUntil:'networkidle'});await page.getByRole('switch',{name:'Static animal images'}).click();
  for(const mode of ['easy','normal','expert']) {
   await page.goto(`http://localhost:3012/animals?mode=${mode}`,{waitUntil:'networkidle'});

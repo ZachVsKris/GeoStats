@@ -7,84 +7,39 @@
   ],
   "groups": [
     {
-      "group": "fish",
+      "group": "insects",
       "mode": "easy",
-      "portraitAnimals": 25,
-      "animalsWithEnoughMetrics": 24,
-      "attempts": 11903566,
-      "added": 140,
-      "rejections": {
-        "not enough compatible distinct metrics": 9160,
-        "category winners compete for same animal": 92889,
-        "traits have nearly identical or reversed rankings": 579,
-        "no familiar anchor": 330,
-        "sampled lineup already explored": 11892940
-      }
-    },
-    {
-      "group": "fish",
-      "mode": "normal",
-      "portraitAnimals": 25,
-      "animalsWithEnoughMetrics": 24,
-      "attempts": 1578583,
-      "added": 37,
-      "rejections": {
-        "not enough compatible distinct metrics": 125086,
-        "no familiar anchor": 6301,
-        "category winners compete for same animal": 9943,
-        "sampled lineup already explored": 1446713,
-        "traits have nearly identical or reversed rankings": 183,
-        "too few animals compete across traits": 3
-      }
-    },
-    {
-      "group": "fish",
-      "mode": "expert",
-      "portraitAnimals": 25,
-      "animalsWithEnoughMetrics": 19,
-      "attempts": 3253222,
-      "added": 0,
-      "rejections": {
-        "not enough compatible distinct metrics": 75493,
-        "sampled lineup already explored": 3177640,
-        "no familiar anchor": 89
-      }
-    },
-    {
-      "group": "invertebrates",
-      "mode": "easy",
-      "portraitAnimals": 49,
-      "animalsWithEnoughMetrics": 33,
-      "attempts": 10458451,
-      "added": 0,
-      "rejections": {
-        "no familiar anchor": 7315,
-        "not enough compatible distinct metrics": 33335,
-        "category winners compete for same animal": 3936,
-        "sampled lineup already explored": 10417531,
-        "traits have nearly identical or reversed rankings": 150
-      }
-    },
-    {
-      "group": "invertebrates",
-      "mode": "normal",
-      "portraitAnimals": 49,
-      "animalsWithEnoughMetrics": 33,
-      "attempts": 1533836,
+      "portraitAnimals": 28,
+      "animalsWithEnoughMetrics": 26,
+      "attempts": 8698168,
       "added": 2,
       "rejections": {
-        "no familiar anchor": 114916,
-        "not enough compatible distinct metrics": 225631,
-        "sampled lineup already explored": 1193277,
-        "category winners compete for same animal": 132,
-        "too few animals compete across traits": 3
+        "not enough compatible distinct metrics": 14747,
+        "category winners compete for same animal": 1993,
+        "only one mapped-range prize per board": 52,
+        "traits have nearly identical or reversed rankings": 70,
+        "no familiar anchor": 70,
+        "sampled lineup already explored": 8683218
       }
     },
     {
-      "group": "invertebrates",
+      "group": "insects",
+      "mode": "normal",
+      "portraitAnimals": 28,
+      "animalsWithEnoughMetrics": 26,
+      "attempts": 991956,
+      "added": 0,
+      "rejections": {
+        "not enough compatible distinct metrics": 152624,
+        "no familiar anchor": 821,
+        "sampled lineup already explored": 838511
+      }
+    },
+    {
+      "group": "insects",
       "mode": "expert",
-      "portraitAnimals": 49,
-      "animalsWithEnoughMetrics": 1,
+      "portraitAnimals": 28,
+      "animalsWithEnoughMetrics": 0,
       "attempts": 0,
       "added": 0,
       "rejections": {
@@ -92,50 +47,54 @@
       }
     },
     {
-      "group": "marine",
+      "group": "mixed",
       "mode": "easy",
-      "portraitAnimals": 54,
-      "animalsWithEnoughMetrics": 44,
-      "attempts": 2648863,
-      "added": 17,
+      "portraitAnimals": 260,
+      "animalsWithEnoughMetrics": 238,
+      "attempts": 17937,
+      "added": 5,
       "rejections": {
-        "group composition": 1631794,
-        "not enough compatible distinct metrics": 110216,
-        "category winners compete for same animal": 94139,
-        "no familiar anchor": 3141,
-        "traits have nearly identical or reversed rankings": 12,
-        "sampled lineup already explored": 901606
+        "not enough compatible distinct metrics": 5430,
+        "group composition": 9823,
+        "category winners compete for same animal": 546922,
+        "no familiar anchor": 188,
+        "sampled lineup already explored": 12,
+        "traits have nearly identical or reversed rankings": 6,
+        "bat dominance": 1
       }
     },
     {
-      "group": "marine",
+      "group": "mixed",
       "mode": "normal",
-      "portraitAnimals": 54,
-      "animalsWithEnoughMetrics": 44,
-      "attempts": 351572,
+      "portraitAnimals": 260,
+      "animalsWithEnoughMetrics": 238,
+      "attempts": 70691,
       "added": 0,
       "rejections": {
-        "not enough compatible distinct metrics": 155505,
-        "group composition": 167518,
-        "no familiar anchor": 7765,
-        "category winners compete for same animal": 20048,
-        "sampled lineup already explored": 19710
+        "group composition": 37642,
+        "not enough compatible distinct metrics": 27697,
+        "category winners compete for same animal": 143175,
+        "no familiar anchor": 1262,
+        "bat dominance": 26,
+        "sampled lineup already explored": 20
       }
     },
     {
-      "group": "marine",
+      "group": "mixed",
       "mode": "expert",
-      "portraitAnimals": 54,
-      "animalsWithEnoughMetrics": 26,
-      "attempts": 214324,
+      "portraitAnimals": 260,
+      "animalsWithEnoughMetrics": 179,
+      "attempts": 122166,
       "added": 0,
       "rejections": {
-        "not enough compatible distinct metrics": 110664,
-        "group composition": 85772,
-        "sampled lineup already explored": 17887,
-        "no familiar anchor": 1
+        "group composition": 60340,
+        "not enough compatible distinct metrics": 61409,
+        "no familiar anchor": 287,
+        "bat dominance": 95,
+        "category winners compete for same animal": 300,
+        "sampled lineup already explored": 30
       }
     }
   ],
-  "totalBoards": 41061
+  "totalBoards": 41068
 }

@@ -8,6 +8,8 @@ export function animalBoardGroup(data: AnimalDataset, board: BoardCandidate) {
   let map = groupMaps.get(data);
   if (!map) { map = new Map(data.animals.map(animal => [animal.id, animal.taxonomicGroup])); groupMaps.set(data, map); }
   const groups = board.animalIds.map((id) => map.get(id) ?? "unknown");
+  if (groups.every(group => group === "extinct-mammal")) return "extinct-mammals";
+  if (groups.every(group => group === "dinosaur")) return "extinct-dinosaurs";
   if (groups.every((group) => ["dog-breed", "cat-breed"].includes(group))) return "pets";
   if (groups.every((group) => group === "bird")) return "birds";
   if (groups.every((group) => group === "bear")) return "bears";

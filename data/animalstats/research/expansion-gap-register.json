@@ -9,7 +9,8 @@
         "saber-toothed cats",
         "giant ground sloths"
       ],
-      "requirement": "Separate extinct-special boards; measured comparable fossil facts and reconstruction disclosure."
+      "requirement": "Separate extinct-special boards; measured comparable fossil facts and reconstruction disclosure.",
+      "progress": "30 exact-species extinct mammals now imported with documented fossil histories and reviewed reconstruction art. Biology measurements remain pending."
     },
     {
       "area": "Common insects",
@@ -19,7 +20,8 @@
         "ladybugs",
         "butterflies"
       ],
-      "requirement": "Exact species, broadly intuitive measured facts. Never substitute wingspan for body length or copy values between relatives."
+      "requirement": "Exact species, broadly intuitive measured facts. Never substitute wingspan for body length or copy values between relatives.",
+      "progress": "48 UK ladybird species and 212 distinct source measurements imported; 11 adult portraits reviewed. Bees, ants and butterflies still pending."
     },
     {
       "area": "Marine invertebrates",
@@ -31,7 +33,8 @@
         "corals",
         "sponges"
       ],
-      "requirement": "Bulk sources with explicit comparable measurements and sufficiently broad samples; accurate portraits and cartoons."
+      "requirement": "Bulk sources with explicit comparable measurements and sufficiently broad samples; accurate portraits and cartoons.",
+      "progress": "529-species pelagic dataset downloaded with field metadata; flagged and inferred records held out of gameplay."
     },
     {
       "area": "Expert mode breadth",

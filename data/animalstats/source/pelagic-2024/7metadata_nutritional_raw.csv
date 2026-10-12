@@ -1,0 +1,51 @@
+column,description,data_type,values,conversion_to_wet_weight
+class,Species class name,annotation,class,NA
+order,Species order name,annotation,order,NA
+family,Species family name,annotation,family,NA
+genus,Species genus name,annotation,genus,NA
+sci_name,Species scientific name (Genus species),annotation,genus + species,NA
+common_name,Species common name,annotation,NA,NA
+tax_level,Level of taxonomic identification,categorical,"class, order, family, genus, species",NA
+qual_found,"Status of literature search:  yes = usable data found;  water_proxy = data in dry weight, conversion to wet weight used species-specific water content proxy from the literature (see notes);  not_whole = data for a part of the body, not entire organism (not usable; see notes);  no_water = data in dry weight, water content not provided and proxy cannot be used;  no = no data found",categorical,"yes, water_proxy, not_whole, no_water, no",NA
+lipid_ww_percent,"Lipid content; % of wet weight (ww), converted from dry weight (dw) or ash-free dry weight (afdw) if ww unavailable",continuous,percent (%),NA
+protein_ww_percent,"Protein content; % of ww, converted from dw or afdw if ww unavailable",continuous,%,NA
+energy_ww_kj_g,"Energy density; per gram ww, converted from dw or afdw if ww unavailable",continuous,kj/g,NA
+energy_method,Indicates analysis method for energy density,categorical,"bomb calorimetry, proximate composition",NA
+lipid_ww,"Lipid content, reported as % of wet weight",continuous,%,NA
+lipid_dw,"Lipid content, reported as % of dry weight",continuous,%,(lipid_dw / 100) * (100 - water) = lipid_ww_percent
+lipid_afdw,"Lipid content, reported as % of ash-free dry weight",continuous,%,((lipid_afdw / 100) * (100 - ash_dw)) / (100 - water) * 100 = lipid_ww_percent
+protein_ww,"Protein content, reported as % of wet weight",continuous,%,NA
+protein_dw,"Protein content, reported as % of dry weight",continuous,%,(protein_dw / 100) * (100 - water) = protein_ww_percent
+protein_afdw,"Protein content, reported as % of ash-free dry weight",continuous,%,((protein_afdw / 100) * (100 - ash_dw)) / (100 - water) * 100 = protein_ww_percent
+energy_ww,"Energy density, reported per g of wet weight",continuous,kj/g,NA
+energy_dw,"Energy density, reported per g of dry weight",continuous,kj/g,(energy_dw / 100) * (100 - water) = energy_ww_kj_g
+energy_afdw,"Energy density, reported per g of ash-free dry weight",continuous,kj/g,((energy_afdw / 100) * (100 - ash_dw)) / (100 - water) * 100 = energy_ww_kj_g
+n,sample size for nutritional analysis,continuous,NA,NA
+water,water content; % of wet weight,continuous,%,NA
+ash_ww,ash content; % of wet weight,continuous,%,NA
+ash_dw,ash content; % of dry weight,continuous,%,NA
+life_stage,Lifestage of species analyzed,categorical,"adult, juvenile, NA (unknown)",NA
+age,Age of species analyzed,continuous,years,NA
+sex,Sex of species analyzed,categorical,"female, male, NA (unknown)",NA
+ww_mean_g,"Mean wet weight of organism analyzed; if not provided, calculated as average of min and max weight",continuous,g,NA
+ww_min_g,Minimum wet weight of organism analyzed,continuous,g,NA
+ww_max_g,Maximum wet weight of organism analyzed,continuous,g,NA
+length_mean_cm,"Mean length of organism analyzed; if not provided, calculated as average of min and max length",continuous,cm,NA
+length_min_cm,Minimum length of organism analyzed,continuous,cm,NA
+length_max_cm,Maximum length of organism analyzed,continuous,cm,NA
+length_type,"Length measurement type; TL = total length, SL = standard length (fish), FL = fork length (fish), ML = mantle length (cephalopods), CL = carapace length (crustaceans), PL = pen length (cephalopods)",categorical,"TL, SL, FL, ML, CL, PL",NA
+year_start,Start year of collection,continuous,year(s),NA
+year_end,End year of collection,continuous,year(s),NA
+start_month,Start month of collection,continuous,month(s),NA
+end_month,End month of collection,continuous,month(s),NA
+start_day,Start day of collection,continuous,day(s),NA
+end_day,End day of collection,continuous,day(s),NA
+lat,Latitude of collection (often estimated or mean),continuous,Decimal degrees,NA
+long,Longitude of collection (often estimated or mean),continuous,Decimal degrees,NA
+longhurst_province,Longhurst biogeochemical region of collection; https://en.wikipedia.org/wiki/Longhurst_code,categorical,NA,NA
+specific_location,Specific location details of collection,categorical,NA,NA
+ocean_basin,Ocean basin of collection,categorical,NA,NA
+publication_year,Publicaiton year of reference,continuous,year(s),NA
+reference,Literature reference,reference,NA,NA
+url,Website for reference,url,NA,NA
+notes,Notes,annotation,NA,NA

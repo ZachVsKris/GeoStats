@@ -578,7 +578,28 @@ function Amphibian({ animal }: { animal: Animal }) {
     {(toad||poison)&&[0,1,2,3,4,5].map(i=><ellipse key={i} fill={poison?"#364342":"#887759"} stroke="none" cx={52+i%3*43} cy={80+Math.floor(i/3)*23} rx={poison?7:3} ry={poison?5:2}/>)}
   </g>;
 }
+function Ladybird({ animal }: { animal: Animal }) {
+  const dark = /exochomus|chilocorus/.test(animal.scientificName.toLowerCase());
+  const yellow = /tytthaspis|psyllobora/.test(animal.scientificName.toLowerCase());
+  const striped = /myzia|aphidecta/.test(animal.scientificName.toLowerCase());
+  const spotCount = dark ? (animal.id === "chilocorus_renipustulatus" ? 2 : 4) : Number(animal.commonName.match(/\d+/)?.[0] ?? 12);
+  const pairs = Math.floor(spotCount / 2);
+  return <g data-anatomy="ladybird-six-legs-domed-wing-cases">
+    {[-1, 1].map(side => <g key={side} fill="none" stroke="#51433a" strokeWidth="3.5">{[0,1,2].map(i => <path key={i} d={`M${100+side*20} ${76+i*14} L${100+side*41} ${70+i*21} l${side*10} 12`}/>)}</g>)}
+    <ellipse cx="100" cy="92" rx="43" ry="42" fill={dark ? "#3c3a36" : yellow ? "#e9c84e" : striped ? "#bb8f64" : "#dc6748"}/>
+    <path d="M100 54 V132" stroke="#60463b" strokeWidth="2"/>
+    {striped ? [-1,1].map(side => <g key={side} stroke="#fae0a3" strokeWidth="4" fill="none"><path d={`M${100+side*15} 65 Q${100+side*32} 90 ${100+side*22} 116`}/><path d={`M${100+side*30} 77 L${100+side*35} 103`}/></g>) : <>{Array.from({length:pairs},(_,i)=>[-1,1].map(side=><ellipse key={`${i}:${side}`} cx={100+side*(pairs>3?18+(i%2)*10:22)} cy={pairs>3?68+i*11:78+i*23} rx={dark?9:spotCount>10?4.5:7} ry={dark?10:spotCount>10?5:7} fill={dark?"#e77c46":"#4b4039"} stroke="none"/>))}{spotCount%2===1&&<circle cx="100" cy="77" r="5" fill="#4b4039" stroke="none"/>}</>}
+    <path d="M72 63 Q71 43 100 43 Q129 43 128 63 Q100 75 72 63Z" fill="#45403b"/>
+    <path d="M77 54 Q81 44 88 48 L87 59Z M123 54 Q119 44 112 48 L113 59Z" fill="#fff1cd" stroke="none"/>
+    <ellipse cx="100" cy="39" rx="17" ry="13" fill="#45403b"/>
+    <path d="M91 30 L82 18 M109 30 L118 18" fill="none" stroke="#51433a"/>
+    <Eye x={92} y={37} size={6}/><Eye x={108} y={37} size={6}/>
+    <path d="M95 47 Q100 51 105 47" fill="none" strokeWidth="1.5"/>
+    <path d="M71 81 Q73 66 86 63" fill="none" stroke="#fff8e4" strokeWidth="4" opacity=".45"/>
+  </g>;
+}
 function Insect({ animal }: { animal: Animal }) {
+  if (/ladybird|ladybug/i.test(animal.commonName)) return <Ladybird animal={animal}/>;
   const dragonfly = /cordulia|orthetrum|platycnemis|pyrrhosoma|platysticta/i.test(animal.scientificName);
   const cricket = /tettigonia|meconema/i.test(animal.scientificName);
   const fly = /helophilus|platycheirus|rhingia|scaeva|syrphus|eristalis/i.test(animal.scientificName);

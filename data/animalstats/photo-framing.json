@@ -1483,5 +1483,60 @@
     "fit": "contain",
     "x": 50,
     "y": 50
+  },
+  "adalia_bipunctata": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "coccinella_septempunctata": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "exochomus_quadripustulatus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "chilocorus_renipustulatus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "tytthaspis_sedecimpunctata": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "coccinella_undecimpunctata": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "aphidecta_obliterata": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "hippodamia_variegata": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "chilocorus_bipustulatus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "myzia_oblongoguttata": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "henosepilachna_argus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
   }
 }

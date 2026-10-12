@@ -1,10 +1,10 @@
 {
-  "species": 42,
-  "boards": 1210,
+  "species": 72,
+  "boards": 14998,
   "boardsByMode": {
-    "easy": 800,
-    "normal": 410,
-    "expert": 0
+    "easy": 11004,
+    "normal": 3992,
+    "expert": 2
   },
   "labels": [
     "extinct_fossil_age",
@@ -14,9 +14,27 @@
     "extinct_description__low",
     "extinct_occurrences",
     "extinct_femur",
-    "extinct_fossil_age__low"
+    "extinct_fossil_age__low",
+    "extinct_family_recorded_species",
+    "extinct_discovery_latitude__low",
+    "extinct_discovery_sites",
+    "extinct_family_recorded_species__low",
+    "extinct_discovery_sites__low",
+    "extinct_discovery_spread",
+    "extinct_discovery_latitude",
+    "extinct_discovery_spread__low",
+    "extinct_mammal_description__low",
+    "extinct_mammal_fossil_layer",
+    "extinct_mammal_latitude__low",
+    "extinct_mammal_sites",
+    "extinct_mammal_spread__low",
+    "extinct_mammal_latitude",
+    "extinct_mammal_sites__low",
+    "extinct_mammal_spread",
+    "extinct_mammal_description",
+    "extinct_mammal_fossil_layer__low"
   ],
-  "livingBoards": 4536,
+  "livingBoards": 2737,
   "firstBoard": "extinct-dinosaur-easy-1706f7ced652",
   "checks": [
     "dataset provenance and coverage",
@@ -25,7 +43,5 @@
     "mixed and mislabelled boards rejected",
     "duplicate choices rejected",
     "living opening rotation preserved"
-  ],
-  "uniqueLineups": 481,
-  "rotatingSpecies": 42
+  ]
 }

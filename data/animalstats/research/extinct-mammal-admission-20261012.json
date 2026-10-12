@@ -1,0 +1,838 @@
+{
+  "accepted": [
+    {
+      "animalId": "fossil_mammal_mammuthus_primigenius",
+      "name": "Mammuthus primigenius",
+      "metrics": {
+        "mammal_sites": 77,
+        "mammal_latitude": 140.11431132467533,
+        "mammal_spread": 54.20106899999999,
+        "mammal_description": 227,
+        "mammal_fossil_layer": 7.246
+      },
+      "taxon": {
+        "oid": "txn:46027",
+        "vid": "var:47880",
+        "rnk": "species",
+        "nam": "Mammuthus primigenius",
+        "att": "(Blumenbach 1799)",
+        "par": "txn:43266",
+        "rid": "ref:92266",
+        "ext": "0",
+        "noc": 77,
+        "fea": 7.246,
+        "fla": 2.58,
+        "lea": 0.0117,
+        "lla": 0,
+        "tei": "Messinian",
+        "tli": "Holocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_mammuthus_columbi",
+      "name": "Mammuthus columbi",
+      "metrics": {
+        "mammal_sites": 154,
+        "mammal_latitude": 125.49559852597403,
+        "mammal_spread": 41.54334,
+        "mammal_description": 169,
+        "mammal_fossil_layer": 4.7
+      },
+      "taxon": {
+        "oid": "txn:46017",
+        "vid": "var:47873",
+        "rnk": "species",
+        "nam": "Mammuthus columbi",
+        "att": "(Falconer 1857)",
+        "par": "txn:43266",
+        "rid": "ref:26727",
+        "ext": "0",
+        "noc": 157,
+        "fea": 4.7,
+        "fla": 1.4,
+        "lea": 0.129,
+        "lla": 0,
+        "tei": "Zanclean",
+        "tli": "Holocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_mammuthus_trogontherii",
+      "name": "Mammuthus trogontherii",
+      "metrics": {
+        "mammal_sites": 45,
+        "mammal_latitude": 135.4876904,
+        "mammal_spread": 32.284442999999996,
+        "mammal_description": 141,
+        "mammal_fossil_layer": 2.58
+      },
+      "taxon": {
+        "oid": "txn:159796",
+        "vid": "var:395360",
+        "rnk": "species",
+        "nam": "Mammuthus trogontherii",
+        "att": "(Pohlig 1885)",
+        "par": "txn:43266",
+        "rid": "ref:31358",
+        "ext": "0",
+        "noc": 46,
+        "fea": 2.58,
+        "fla": 0.774,
+        "lea": 0.129,
+        "lla": 0.0117,
+        "tei": "Gelasian",
+        "tli": "Late Pleistocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_mammuthus_meridionalis",
+      "name": "Mammuthus meridionalis",
+      "metrics": {
+        "mammal_sites": 127,
+        "mammal_latitude": 133.8267624015748,
+        "mammal_spread": 21.974167,
+        "mammal_description": 201,
+        "mammal_fossil_layer": 7.246
+      },
+      "taxon": {
+        "oid": "txn:46026",
+        "vid": "var:47879",
+        "rnk": "species",
+        "nam": "Mammuthus meridionalis",
+        "att": "(Nesti 1825)",
+        "par": "txn:43266",
+        "rid": "ref:2702",
+        "ext": "0",
+        "noc": 128,
+        "fea": 7.246,
+        "fla": 2.58,
+        "lea": 0.774,
+        "lla": 0,
+        "tei": "Messinian",
+        "tli": "Holocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_mammuthus_exilis",
+      "name": "Mammuthus exilis",
+      "metrics": {
+        "mammal_sites": 2,
+        "mammal_latitude": 124.01986099999999,
+        "mammal_spread": 0.02861400000000458,
+        "mammal_description": 56,
+        "mammal_fossil_layer": 0.21
+      },
+      "taxon": {
+        "oid": "txn:46019",
+        "vid": "var:47874",
+        "rnk": "species",
+        "nam": "Mammuthus exilis",
+        "att": "(Maglio 1970)",
+        "par": "txn:43266",
+        "rid": "ref:3107",
+        "ext": "0",
+        "noc": 2,
+        "fea": 0.21,
+        "fla": 0.014,
+        "lea": 0.129,
+        "lla": 0.0117,
+        "tei": "Chibanian",
+        "tli": "Late Pleistocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_mammuthus_creticus",
+      "name": "Mammuthus creticus",
+      "metrics": {
+        "mammal_sites": 2,
+        "mammal_latitude": 125.413052,
+        "mammal_spread": 0.34609999999999985,
+        "mammal_description": 119,
+        "mammal_fossil_layer": 2.58
+      },
+      "taxon": {
+        "oid": "txn:159787",
+        "vid": "var:388882",
+        "rnk": "species",
+        "nam": "Mammuthus creticus",
+        "att": "(Bate 1907)",
+        "par": "txn:43266",
+        "rid": "ref:69893",
+        "ext": "0",
+        "noc": 2,
+        "fea": 2.58,
+        "fla": 0.129,
+        "lea": 2.58,
+        "lla": 0.0117,
+        "tei": "Gelasian",
+        "tli": "Late Pleistocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_mammut_americanum",
+      "name": "Mammut americanum",
+      "metrics": {
+        "mammal_sites": 374,
+        "mammal_latitude": 130.08581123262033,
+        "mammal_spread": 50.576666,
+        "mammal_description": 234,
+        "mammal_fossil_layer": 23.04
+      },
+      "taxon": {
+        "oid": "txn:46016",
+        "vid": "var:47865",
+        "rnk": "species",
+        "nam": "Mammut americanum",
+        "att": "(Kerr 1792)",
+        "par": "txn:43274",
+        "rid": "ref:2328",
+        "ext": "0",
+        "noc": 377,
+        "fea": 23.04,
+        "fla": 5.333,
+        "lea": 0.0117,
+        "lla": 0,
+        "tei": "Aquitanian",
+        "tli": "Holocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_mammut_borsoni",
+      "name": "Mammut borsoni",
+      "metrics": {
+        "mammal_sites": 63,
+        "mammal_latitude": 134.97475344444445,
+        "mammal_spread": 14.676943999999999,
+        "mammal_description": 192,
+        "mammal_fossil_layer": 11.63
+      },
+      "taxon": {
+        "oid": "txn:95512",
+        "vid": "var:370727",
+        "rnk": "species",
+        "nam": "Mammut borsoni",
+        "att": "(Hays 1834)",
+        "par": "txn:43274",
+        "rid": "ref:65737",
+        "ext": "0",
+        "noc": 63,
+        "fea": 11.63,
+        "fla": 7.246,
+        "lea": 3.55,
+        "lla": 1.8,
+        "tei": "Tortonian",
+        "tli": "Gelasian"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_mammut_pacificus",
+      "name": "Mammut pacificus",
+      "metrics": {
+        "mammal_sites": 40,
+        "mammal_latitude": 126.155277075,
+        "mammal_spread": 12.473903,
+        "mammal_description": 7,
+        "mammal_fossil_layer": 4.7
+      },
+      "taxon": {
+        "oid": "txn:384021",
+        "rnk": "species",
+        "nam": "Mammut pacificus",
+        "att": "Dooley et al. 2019",
+        "par": "txn:43274",
+        "rid": "ref:35474",
+        "ext": "0",
+        "noc": 40,
+        "fea": 4.7,
+        "fla": 1.4,
+        "lea": 0.129,
+        "lla": 0.0117,
+        "tei": "Zanclean",
+        "tli": "Late Pleistocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_smilodon_fatalis",
+      "name": "Smilodon fatalis",
+      "metrics": {
+        "mammal_sites": 39,
+        "mammal_latitude": 121.04881907692308,
+        "mammal_spread": 80.821946,
+        "mammal_description": 158,
+        "mammal_fossil_layer": 2.58
+      },
+      "taxon": {
+        "oid": "txn:46515",
+        "vid": "var:51613",
+        "rnk": "species",
+        "nam": "Smilodon fatalis",
+        "att": "(Leidy 1868)",
+        "par": "txn:41079",
+        "rid": "ref:63667",
+        "ext": "0",
+        "noc": 39,
+        "fea": 2.58,
+        "fla": 0.21,
+        "lea": 0.129,
+        "lla": 0,
+        "tei": "Gelasian",
+        "tli": "Holocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_smilodon_populator",
+      "name": "Smilodon populator",
+      "metrics": {
+        "mammal_sites": 41,
+        "mammal_latitude": 70.45520363414634,
+        "mammal_spread": 61.969721,
+        "mammal_description": 184,
+        "mammal_fossil_layer": 2.58
+      },
+      "taxon": {
+        "oid": "txn:51618",
+        "rnk": "species",
+        "nam": "Smilodon populator",
+        "att": "Lund 1842",
+        "par": "txn:41079",
+        "rid": "ref:2018",
+        "ext": "0",
+        "noc": 41,
+        "fea": 2.58,
+        "fla": 0.774,
+        "lea": 0.0117,
+        "lla": 0,
+        "tei": "Gelasian",
+        "tli": "Holocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_smilodon_gracilis",
+      "name": "Smilodon gracilis",
+      "metrics": {
+        "mammal_sites": 24,
+        "mammal_latitude": 120.25148270833333,
+        "mammal_spread": 30.353334,
+        "mammal_description": 146,
+        "mammal_fossil_layer": 4.7
+      },
+      "taxon": {
+        "oid": "txn:51615",
+        "rnk": "species",
+        "nam": "Smilodon gracilis",
+        "att": "(Cope 1880)",
+        "par": "txn:41079",
+        "rid": "ref:3568",
+        "ext": "0",
+        "noc": 25,
+        "fea": 4.7,
+        "fla": 1.8,
+        "lea": 0.129,
+        "lla": 0.0117,
+        "tei": "Zanclean",
+        "tli": "Late Pleistocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_homotherium_latidens",
+      "name": "Homotherium latidens",
+      "metrics": {
+        "mammal_sites": 28,
+        "mammal_latitude": 132.44392125000002,
+        "mammal_spread": 39.753894,
+        "mammal_description": 180,
+        "mammal_fossil_layer": 2.58
+      },
+      "taxon": {
+        "oid": "txn:364964",
+        "vid": "var:470072",
+        "rnk": "species",
+        "nam": "Homotherium latidens",
+        "att": "(Owen 1846)",
+        "par": "txn:41056",
+        "rid": "ref:84278",
+        "ext": "0",
+        "noc": 28,
+        "fea": 2.58,
+        "fla": 1.8,
+        "lea": 0.129,
+        "lla": 0.0117,
+        "tei": "Gelasian",
+        "tli": "Late Pleistocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_coelodonta_antiquitatis",
+      "name": "Coelodonta antiquitatis",
+      "metrics": {
+        "mammal_sites": 27,
+        "mammal_latitude": 140.51102822222222,
+        "mammal_spread": 28.524723,
+        "mammal_description": 227,
+        "mammal_fossil_layer": 7.246
+      },
+      "taxon": {
+        "oid": "txn:54846",
+        "vid": "var:54847",
+        "rnk": "species",
+        "nam": "Coelodonta antiquitatis",
+        "att": "(Blumenbach 1799)",
+        "par": "txn:43197",
+        "rid": "ref:9223",
+        "ext": "0",
+        "noc": 27,
+        "fea": 7.246,
+        "fla": 0.774,
+        "lea": 0.129,
+        "lla": 0,
+        "tei": "Messinian",
+        "tli": "Holocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_coelodonta_thibetana",
+      "name": "Coelodonta thibetana",
+      "metrics": {
+        "mammal_sites": 1,
+        "mammal_latitude": 121.565277,
+        "mammal_spread": 0,
+        "mammal_description": 15,
+        "mammal_fossil_layer": 4.16
+      },
+      "taxon": {
+        "oid": "txn:197762",
+        "rnk": "species",
+        "nam": "Coelodonta thibetana",
+        "att": "Deng et al. 2011",
+        "par": "txn:43197",
+        "rid": "ref:37384",
+        "ext": "0",
+        "noc": 1,
+        "fea": 4.16,
+        "fla": 3.55,
+        "lea": 4.16,
+        "lla": 3.55,
+        "tei": "Zanclean",
+        "tli": "Piacenzian"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_megaloceros_giganteus",
+      "name": "Megaloceros giganteus",
+      "metrics": {
+        "mammal_sites": 15,
+        "mammal_latitude": 135.64184466666666,
+        "mammal_spread": 15.183613000000001,
+        "mammal_description": 227,
+        "mammal_fossil_layer": 7.246
+      },
+      "taxon": {
+        "oid": "txn:149393",
+        "vid": "var:149394",
+        "rnk": "species",
+        "nam": "Megaloceros giganteus",
+        "att": "(Blumenbach 1799)",
+        "par": "txn:42678",
+        "rid": "ref:30255",
+        "ext": "0",
+        "noc": 15,
+        "fea": 7.246,
+        "fla": 0.774,
+        "lea": 0.129,
+        "lla": 0.0117,
+        "tei": "Messinian",
+        "tli": "Late Pleistocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_megatherium_americanum",
+      "name": "Megatherium americanum",
+      "metrics": {
+        "mammal_sites": 37,
+        "mammal_latitude": 63.11608116216216,
+        "mammal_spread": 70.10889,
+        "mammal_description": 230,
+        "mammal_fossil_layer": 8
+      },
+      "taxon": {
+        "oid": "txn:83805",
+        "rnk": "species",
+        "nam": "Megatherium americanum",
+        "att": "Cuvier 1796",
+        "par": "txn:43616",
+        "rid": "ref:17632",
+        "ext": "0",
+        "noc": 37,
+        "fea": 8,
+        "fla": 5,
+        "lea": 0.0117,
+        "lla": 0,
+        "tei": "Tortonian",
+        "tli": "Holocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_eremotherium_laurillardi",
+      "name": "Eremotherium laurillardi",
+      "metrics": {
+        "mammal_sites": 96,
+        "mammal_latitude": 95.62622533333334,
+        "mammal_spread": 66.384998,
+        "mammal_description": 184,
+        "mammal_fossil_layer": 2.58
+      },
+      "taxon": {
+        "oid": "txn:48051",
+        "vid": "var:46312",
+        "rnk": "species",
+        "nam": "Eremotherium laurillardi",
+        "att": "(Lund 1842)",
+        "par": "txn:43611",
+        "rid": "ref:1612",
+        "ext": "0",
+        "noc": 97,
+        "fea": 2.58,
+        "fla": 0.21,
+        "lea": 0.0117,
+        "lla": 0,
+        "tei": "Gelasian",
+        "tli": "Holocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_eremotherium_eomigrans",
+      "name": "Eremotherium eomigrans",
+      "metrics": {
+        "mammal_sites": 9,
+        "mammal_latitude": 118.96833322222221,
+        "mammal_spread": 2.7583309999999983,
+        "mammal_description": 27,
+        "mammal_fossil_layer": 4.7
+      },
+      "taxon": {
+        "oid": "txn:46311",
+        "rnk": "species",
+        "nam": "Eremotherium eomigrans",
+        "att": "De Iuliis and Cartelle 1999",
+        "par": "txn:43611",
+        "rid": "ref:1357",
+        "ext": "0",
+        "noc": 9,
+        "fea": 4.7,
+        "fla": 1.8,
+        "lea": 1.4,
+        "lla": 0.21,
+        "tei": "Zanclean",
+        "tli": "Chibanian"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_paramylodon_harlani",
+      "name": "Paramylodon harlani",
+      "metrics": {
+        "mammal_sites": 87,
+        "mammal_latitude": 124.17778768965518,
+        "mammal_spread": 42.183330999999995,
+        "mammal_description": 186,
+        "mammal_fossil_layer": 4.7
+      },
+      "taxon": {
+        "oid": "txn:48020",
+        "vid": "var:49881",
+        "rnk": "species",
+        "nam": "Paramylodon harlani",
+        "att": "(Owen 1840)",
+        "par": "txn:43642",
+        "rid": "ref:6221",
+        "ext": "0",
+        "noc": 88,
+        "fea": 4.7,
+        "fla": 1.8,
+        "lea": 0.129,
+        "lla": 0,
+        "tei": "Zanclean",
+        "tli": "Holocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_mylodon_darwini",
+      "name": "Mylodon darwini",
+      "metrics": {
+        "mammal_sites": 19,
+        "mammal_latitude": 56.278845,
+        "mammal_spread": 27.512499,
+        "mammal_description": 187,
+        "mammal_fossil_layer": 27.3
+      },
+      "taxon": {
+        "oid": "txn:379362",
+        "rnk": "species",
+        "nam": "Mylodon darwini",
+        "att": "Owen 1839",
+        "par": "txn:43636",
+        "rid": "ref:67447",
+        "ext": "0",
+        "noc": 20,
+        "fea": 27.3,
+        "fla": 23.04,
+        "lea": 0.129,
+        "lla": 0.0117,
+        "tei": "Chattian",
+        "tli": "Late Pleistocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_thylacoleo_carnifex",
+      "name": "Thylacoleo carnifex",
+      "metrics": {
+        "mammal_sites": 26,
+        "mammal_latitude": 54.677162384615386,
+        "mammal_spread": 14.869997999999999,
+        "mammal_description": 167,
+        "mammal_fossil_layer": 5.333
+      },
+      "taxon": {
+        "oid": "txn:166623",
+        "rnk": "species",
+        "nam": "Thylacoleo carnifex",
+        "att": "Owen 1859",
+        "par": "txn:40139",
+        "rid": "ref:32565",
+        "ext": "0",
+        "noc": 26,
+        "fea": 5.333,
+        "fla": 2.58,
+        "lea": 0.129,
+        "lla": 0,
+        "tei": "Zanclean",
+        "tli": "Holocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_diprotodon_optatum",
+      "name": "Diprotodon optatum",
+      "metrics": {
+        "mammal_sites": 23,
+        "mammal_latitude": 59.44164234782609,
+        "mammal_spread": 19.829998,
+        "mammal_description": 188,
+        "mammal_fossil_layer": 5.333
+      },
+      "taxon": {
+        "oid": "txn:248227",
+        "rnk": "species",
+        "nam": "Diprotodon optatum",
+        "att": "Owen 1838",
+        "par": "txn:40187",
+        "rid": "ref:27362",
+        "ext": "0",
+        "noc": 26,
+        "fea": 5.333,
+        "fla": 0.774,
+        "lea": 0.129,
+        "lla": 0,
+        "tei": "Zanclean",
+        "tli": "Holocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_glyptodon_clavipes",
+      "name": "Glyptodon clavipes",
+      "metrics": {
+        "mammal_sites": 33,
+        "mammal_latitude": 64.70170072727272,
+        "mammal_spread": 57.941665,
+        "mammal_description": 187,
+        "mammal_fossil_layer": 27.3
+      },
+      "taxon": {
+        "oid": "txn:83804",
+        "rnk": "species",
+        "nam": "Glyptodon clavipes",
+        "att": "Owen 1839",
+        "par": "txn:43576",
+        "rid": "ref:17632",
+        "ext": "0",
+        "noc": 33,
+        "fea": 27.3,
+        "fla": 23.04,
+        "lea": 0.129,
+        "lla": 0,
+        "tei": "Chattian",
+        "tli": "Holocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_glyptodon_reticulatus",
+      "name": "Glyptodon reticulatus",
+      "metrics": {
+        "mammal_sites": 51,
+        "mammal_latitude": 58.29071513725491,
+        "mammal_spread": 18.252499,
+        "mammal_description": 181,
+        "mammal_fossil_layer": 2.58
+      },
+      "taxon": {
+        "oid": "txn:161174",
+        "rnk": "species",
+        "nam": "Glyptodon reticulatus",
+        "att": "Owen 1845",
+        "par": "txn:43576",
+        "rid": "ref:31501",
+        "ext": "0",
+        "noc": 51,
+        "fea": 2.58,
+        "fla": 0.774,
+        "lea": 0.129,
+        "lla": 0,
+        "tei": "Gelasian",
+        "tli": "Holocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_doedicurus_clavicaudatus",
+      "name": "Doedicurus clavicaudatus",
+      "metrics": {
+        "mammal_sites": 9,
+        "mammal_latitude": 55.132994333333336,
+        "mammal_spread": 11.524166000000001,
+        "mammal_description": 179,
+        "mammal_fossil_layer": 0.4
+      },
+      "taxon": {
+        "oid": "txn:247968",
+        "vid": "var:364444",
+        "rnk": "species",
+        "nam": "Doedicurus clavicaudatus",
+        "att": "(Owen 1847)",
+        "par": "txn:43572",
+        "rid": "ref:15092",
+        "ext": "0",
+        "noc": 9,
+        "fea": 0.4,
+        "fla": 0.0117,
+        "lea": 0.129,
+        "lla": 0,
+        "tei": "Chibanian",
+        "tli": "Holocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_castoroides_ohioensis",
+      "name": "Castoroides ohioensis",
+      "metrics": {
+        "mammal_sites": 86,
+        "mammal_latitude": 131.2848309767442,
+        "mammal_spread": 41.029996999999995,
+        "mammal_description": 188,
+        "mammal_fossil_layer": 2.58
+      },
+      "taxon": {
+        "oid": "txn:44962",
+        "rnk": "species",
+        "nam": "Castoroides ohioensis",
+        "att": "Foster 1838",
+        "par": "txn:41540",
+        "rid": "ref:74662",
+        "ext": "0",
+        "noc": 86,
+        "fea": 2.58,
+        "fla": 0.21,
+        "lea": 0.129,
+        "lla": 0.0117,
+        "tei": "Gelasian",
+        "tli": "Late Pleistocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_castoroides_dilophidus",
+      "name": "Castoroides dilophidus",
+      "metrics": {
+        "mammal_sites": 43,
+        "mammal_latitude": 119.16734253488372,
+        "mammal_spread": 7.1830560000000006,
+        "mammal_description": 57,
+        "mammal_fossil_layer": 9.4
+      },
+      "taxon": {
+        "oid": "txn:400636",
+        "vid": "var:400637",
+        "rnk": "species",
+        "nam": "Castoroides dilophidus",
+        "att": "(Martin 1969)",
+        "par": "txn:41540",
+        "rid": "ref:71777",
+        "ext": "0",
+        "noc": 43,
+        "fea": 9.4,
+        "fla": 4.7,
+        "lea": 0.129,
+        "lla": 0.0117,
+        "tei": "Tortonian",
+        "tli": "Late Pleistocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_arctodus_simus",
+      "name": "Arctodus simus",
+      "metrics": {
+        "mammal_sites": 32,
+        "mammal_latitude": 130.58176065625,
+        "mammal_spread": 41.75000300000001,
+        "mammal_description": 147,
+        "mammal_fossil_layer": 4.7
+      },
+      "taxon": {
+        "oid": "txn:44309",
+        "vid": "var:44277",
+        "rnk": "species",
+        "nam": "Arctodus simus",
+        "att": "(Cope 1879)",
+        "par": "txn:41308",
+        "rid": "ref:50710",
+        "ext": "0",
+        "noc": 32,
+        "fea": 4.7,
+        "fla": 1.4,
+        "lea": 0.129,
+        "lla": 0,
+        "tei": "Zanclean",
+        "tli": "Holocene"
+      }
+    },
+    {
+      "animalId": "fossil_mammal_arctodus_pristinus",
+      "name": "Arctodus pristinus",
+      "metrics": {
+        "mammal_sites": 25,
+        "mammal_latitude": 120.12034524,
+        "mammal_spread": 19.900002,
+        "mammal_description": 172,
+        "mammal_fossil_layer": 4.7
+      },
+      "taxon": {
+        "oid": "txn:44276",
+        "rnk": "species",
+        "nam": "Arctodus pristinus",
+        "att": "Leidy 1854",
+        "par": "txn:41308",
+        "rid": "ref:63672",
+        "ext": "0",
+        "noc": 27,
+        "fea": 4.7,
+        "fla": 1.8,
+        "lea": 0.129,
+        "lla": 0.0117,
+        "tei": "Zanclean",
+        "tli": "Late Pleistocene"
+      }
+    }
+  ],
+  "held": [
+    {
+      "name": "Homotherium serum",
+      "reason": "No unique unflagged extinct accepted species with exact-species occurrences"
+    }
+  ],
+  "policy": "Exact extinct species and fossil histories; no inferred animal biology"
+}

@@ -1,0 +1,97 @@
+column,trait_type,description,data_type,values
+class,,Species class name,annotation,class
+order,,Species order name,annotation,order
+family,,Species family name,annotation,family
+genus,,Species genus name,annotation,genus
+sci_name,,Species scientific name,annotation,genus + species
+alt_names,,Alternate scientific names used presently or histroically,annotation,genus + species
+tax_level,,Level of taxonomic identification,categorical,"class, order, family, genus, species"
+life_stage,,Taxon life stage,categorical,"adult, juvenile, larva"
+trait_note,,Trait confidence notes for assessing trait_confidence_cat.,annotation,NA
+trait_confidence,,"Trait confidence, resource available and quantity of trait variables found.",categorical,"high, medium, low"
+depth_min,habitat,Minimum depth limit recorded for this species.,continuous,depth (m)
+depth_max,habitat,Maximum depth limit recorded for this species.,continuous,depth (m)
+temp_min,habitat,Minimum temperature limit recorded for this species,continuous,temperature (˚C)
+temp_max,habitat,Maximum temperature limit recorded for this species,continuous,temperature (˚C)
+temp_mean,habitat,Average temperature recorded for this species,continuous,temperature (˚C)
+vert_habitat,habitat,Primary vertical habitat association,categorical,"benthic, demersal, epipelagic, mesopelagic, bathypelagic"
+vert_habitat_2,habitat,Secondary vertical habitat association,categorical,"benthic, demersal, epipelagic, mesopelagic, bathypelagic"
+vert_habitat_3,habitat,Tertiary vertical habitat associaiton,categorical,"benthic, demersal, epipelagic, mesopelagic, bathypelagic"
+vert_ordinal,habitat,Ordinal (numeric) version of primary vertical habitat association,ordinal,"1 = benthic, 2 = demersal, 3 = epipelagic, 4 = mesopelagic, 5 = bathypelagic"
+vert_benthic,habitat,Benthic association,binomial,"1 = yes, 0 = no"
+vert_demersal,habitat,Demersal association,binomial,"1 = yes, 0 = no"
+vert_epipelagic,habitat,Epipelagic association,binomial,"1 = yes, 0 = no"
+vert_mesopelagic,habitat,Mesopelagic association,binomial,"1 = yes, 0 = no"
+vert_bathypelagic,habitat,Bathypelagic association,binomial,"1 = yes, 0 = no"
+horz_habitat,habitat,Primary horizontal habitat association.,categorical,"intertidal, reef-associated, coastal, continental shelf, continental slope, oceanic, freshwater"
+horz_habitat_2,habitat,Secondary horizontal habitat association,categorical,"intertidal, reef-associated, coastal, continental shelf, continental slope, oceanic, freshwater"
+horz_habitat_3,habitat,Tertiary horizontal habitat association,categorical,"intertidal, reef-associated, coastal, continental shelf, continental slope, oceanic, freshwater"
+horz_ordinal,habitat,Ordinal (numeric) version of primary horizontal habitat association,ordinal,"1 = intertidal, 2 = reef-associated, 3 = coastal, 4 = continental shelf, 5 = continental slope, 6 = oceanic, 7 = freshwater"
+horz_intertidal,habitat,Intertidal association,binomial,"1 = yes, 0 = no"
+horz_reef,habitat,Reef association,binomial,"1 = yes, 0 = no"
+horz_coastal,habitat,Coastal association,binomial,"1 = yes, 0 = no"
+horz_continental_shelf,habitat,Continental shelf association,binomial,"1 = yes, 0 = no"
+horz_continental_slope,habitat,Continental slope and rise association,binomial,"1 = yes, 0 = no"
+horz_oceanic,habitat,Oceanic/pelagic association,binomial,"1 = yes, 0 = no"
+habitat_note,habitat,Notes about habitat association/species distribution,annotation,NA
+habitat_note2,habitat,Additional information or quote about habitat association/species distribution,annotation,NA
+habitat_ref,habitat,Reference for the habitat information,"reference, url",NA
+habitat_url,habitat,Link to reference source,url,NA
+habitat_ref2,habitat,Reference for the habitat information,"reference, url",NA
+habitat_url2,habitat,Link to reference source,url,NA
+habitat_ref3,habitat,Reference for the habitat information,"reference, url",NA
+habitat_url3,habitat,Link to reference source,url,NA
+habitat_ref4,habitat,Reference for the habitat information,"reference, url",NA
+habitat_url4,habitat,Link to reference source,url,NA
+DemersPelag,habitat,FishBase covariate describing habitat association. Use cautiously,categorical,"bathypelagic, benthic, demersal, host, mesopelagic, pelagic, reef-associated"
+diel_migrant,behavioral,Diel/diurnal vertical migration behaviour. 1 = yes; 0 = no,binomial,"1 = yes, 0 = no"
+diel_note,behavioral,Notes about diel migration behavior,annotation,NA
+diel_note2,behavioral,Additional information or quote on species diel migration.,annotation,NA
+diel_ref,behavioral,Reference for diel migrantion information,reference,NA
+diel_url,behavioral,Link to reference source,url,NA
+diel_ref2,behavioral,Reference for diel migrantion information,reference,NA
+diel_url2,behavioral,Link to reference source,url,NA
+diel_ref3,behavioral,Reference for diel migrantion information,reference,NA
+diel_url3,behavioral,Link to reference source,url,NA
+refuge,behavioral,"Use of physical refuge. 1 = yes, associates reef, benthic or floating structure; 0 = no, water column only and never associates with a structure.",binomial,"1 = yes, 0 = no"
+refuge_note,behavioral,Notes about refuge use behavior,annotation,NA
+refuge_ref,behavioral,Reference for refuge use information,reference,NA
+refuge_url,behavioral,Link to reference source,url,NA
+refuge_ref2,behavioral,Reference for refuge use information,reference,NA
+refuge_url2,behavioral,Link to reference source,url,NA
+refuge_ref3,behavioral,Reference for refuge use information,reference,NA
+refuge_url3,behavioral,Link to reference source,url,NA
+refuge_ref4,behavioral,Reference for refuge use information,reference,NA
+refuge_url4,behavioral,Link to reference source,url,NA
+season_migrant,behavioral,"Seasonal migration behavior. 1 = yes, species undergo seasonal migratory patterns or reproductive behaviour that changes abundance seasonally; 0 = no, non-migrant, has a stable abundance year-round.",binomial,"1 = yes, 0 = no"
+season_note,behavioral,Notes about seasonal migration behavior,annotation,NA
+season_ref,behavioral,Reference for seasonal migration information,reference,NA
+season_url,behavioral,Link to reference source,url,NA
+season_ref2,behavioral,Reference for seasonal migration information,reference,NA
+season_url2,behavioral,Link to reference source,url,NA
+season_ref3,behavioral,Reference for seasonal migration information,reference,NA
+season_url3,behavioral,Link to reference source,url,NA
+AnaCat,behavioral,FishBase covariate describing migrational life history strategies. Use cautiously.,categorical,"anadromous, catadromous, oceanodromous, amphidromous, non-migratory"
+gregarious_original,behavioral,Description of aggregation behaviour.,annotation,"E.g.: aggregate, colonial, congregate, planktonic, pairing"
+gregarious,behavioral,Primary aggregation trait (categorical).,categorical,"solitary, shoaling, schooling"
+gregarious_2,behavioral,Secondary aggregation trait.,categorical,"solitary, shoaling, schooling"
+gregarious_3,behavioral,Tertiary aggregation trait.,categorical,"solitary, shoaling, schooling"
+gregarious_ordinal,behavioral,Ordinal version of the primary aggregation trait,ordinal,"1) solitary, 2) shoaling, 3) schooling"
+gregarious_solitary,behavioral,Solitary aggregation,binomial,"1 = yes, 0 = no"
+gregarious_shoaling,behavioral,Shoaling aggregation,binomial,"1 = yes, 0 = no"
+gregarious_schooling,behavioral,Schooling aggregation,binomial,"1 = yes, 0 = no"
+gregarious_note,behavioral,Notes about aggregation behaviour,annotation,NA
+gregarious_ref,behavioral,Reference for aggregtion behaviour,reference,NA
+gregarious_url,behavioral,Link to reference source,url,NA
+gregarious_ref2,behavioral,Reference for aggregtion behaviour,reference,NA
+gregarious_url2,behavioral,Link to reference source,url,NA
+gregarious_ref3,behavioral,Reference for aggregtion behaviour,reference,NA
+gregarious_url3,behavioral,Link to reference source,url,NA
+addl_ref,,Additional sources for trait data,reference,NA
+addl_url,,Additional link to reference source,url,NA
+addl_ref2,,Additional sources for trait data,reference,NA
+addl_url2,,Additional link to reference source,url,NA
+addl_ref3,,Additional sources for trait data,reference,NA
+addl_url3,,Additional link to reference source,url,NA
+addl_ref4,,Additional sources for trait data,reference,NA
+addl_url4,,Additional link to reference source,url,NA

@@ -8,7 +8,7 @@ try {
  const {createAnimalBoardValidator,validateAnimalDataset}=await import(pathToFileURL(`${dir}/animalstats.mjs`));
  const {publishedAnimalTraitIds,animalMajorGroup}=await import(pathToFileURL(`${dir}/animalstatsCoverage.mjs`));
  const {animalBoardComposition}=await import(pathToFileURL(`${dir}/animalstatsComposition.mjs`));
- const parts=['pilot','existing-coverage','fish-records','tetrapod-spatial','marine','aquatic-eggs','underrepresented'].map(n=>JSON.parse(fs.readFileSync(`data/animalstats/${n}.json`)));
+ const parts=['pilot','existing-coverage','fish-records','tetrapod-spatial','marine','aquatic-eggs','underrepresented','insect-ladybirds'].map(n=>JSON.parse(fs.readFileSync(`data/animalstats/${n}.json`)));
  const d=Object.fromEntries(['animals','traits','values','sources','photos'].map(k=>[k,parts.flatMap(p=>p[k].filter(row=>k!=='photos'||p===parts[4]||!parts[4].photos.some(photo=>photo.animalId===row.animalId)))]));
  const errors=validateAnimalDataset(d);if(errors.length)throw new Error(errors.join("\n"));
  const pub=publishedAnimalTraitIds(d),validate=createAnimalBoardValidator(d),vm=new Map(d.values.filter(v=>v.confidence==='approved').map(v=>[v.animalId+':'+v.traitId,v]));
@@ -20,7 +20,7 @@ try {
  const existing=['group-boards','group-boards-2'].flatMap(name=>fs.existsSync(`data/animalstats/${name}.json`)?JSON.parse(fs.readFileSync(`data/animalstats/${name}.json`)).boards:[]);
  const out=existing.filter(b=>b.traitIds.every(t=>pub.has(t))&&validate(b).valid&&animalBoardComposition(d,b).eligible),seen=new Set(out.map(b=>b.id));
  function* combos(a,n,s=0,p=[]){if(!n){yield p;return;}for(let i=s;i<=a.length-n;i++)yield*combos(a,n-1,i+1,[...p,a[i]]);}
- const expansionCells=new Set(parts[6].values.map(v=>v.animalId+':'+v.traitId));
+ const expansionCells=new Set(parts.slice(6).flatMap(part=>part.values).map(v=>v.animalId+':'+v.traitId));
  const report={policy:'intuitive-majority-distinct-winners-v6',notes:['No publication cap or per-lineup variant cap. Runtime budget is resumable and does not determine eligibility.','At least 3% between every adjacent numeric rank; exact ties remain blocked. Uncertainty overlap, source compatibility, unique winners and at least half intuitive remain required.'],groups:[]};
  const seconds=Number(process.env.ANIMAL_GENERATION_SECONDS??5);
  if(!Number.isFinite(seconds)||seconds<=0)throw new Error('ANIMAL_GENERATION_SECONDS must be positive');

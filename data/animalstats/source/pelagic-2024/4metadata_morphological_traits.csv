@@ -1,0 +1,80 @@
+column,description,data_type,"values; NA = searched but no data found, -9999 = not searched"
+class,Species class name,annotation,class
+order,Species order name,annotation,order
+family,Species family name,annotation,family
+genus,Species genus name,annotation,genus
+sci_name,Species scientific name,annotation,genus + species
+alt_names,Alternate scientific names used presently or histroically,annotation,genus + species
+tax_level,Level of taxonomic identification,categorical,"class, order, family, genus, species"
+life_stage,Taxon life stage,categorical,"adult, juvenile, larva"
+body_shape,Body shape,categorical,"eel-like, elongated, fusiform, globiform, compressiform, depressiform"
+body_shape_ordinal,Ordinal (numeric) version of body shape category,ordinal,"1 = eel-like, 2 = elongated, 3 = fusiform, 4 = compressiform, 5 = depressiform, 6 = globiform"
+shape_eel_like,Eel-like shape,binomial,"1 = yes, 0 = no"
+shape_elongated,Elongated shape,binomial,"1 = yes, 0 = no"
+shape_fusiform,Fusiform shape,binomial,"1 = yes, 0 = no"
+shape_globiform,Globiform shape,binomial,"1 = yes, 0 = no"
+shape_compressiform,Compressiform shape,binomial,"1 = yes, 0 = no"
+shape_depressiform,Depressiform shape,binomial,"1 = yes, 0 = no"
+l_min_TL,Minimum length for the specific lifestage. Length types in l_min and l_min_type are converted to total length (TL) using morphometric ratios (Pelagic Forage Species Morphometric Ratios Database; doi:),continuous,Total length (cm)
+l_max_TL,Maximum length for the specific lifestage. Length types in l_max and l_max_type are converted to total length (TL) using morphometric ratios (Pelagic Forage Species Morphometric Ratios Database; doi:),continuous,Total length (cm)
+l_min,Minimum length for the specific lifestage,continuous,length (cm)
+l_min_type,Type of length measurement,categorical,Measurement Definitions Table (Table #)
+l_max,Maximum length for the specific lifestage,continuous,length (cm)
+l_max_type,Type of length measurement,categorical,Measurement Definitions Table (Table #)
+l_note,Notes about body length,annotation,NA
+l_ref,Reference for length information,reference,NA
+l_url,Link to reference source,url,NA
+l_ref2,Reference for length information,reference,NA
+l_url2,Link to reference source,url,NA
+l_ref3,Reference for length information,reference,NA
+l_url3,Link to reference source,url,NA
+l_ref4,Reference for length information,reference,NA
+l_url4,Link to reference source,url,NA
+phys_defense,Physical defenses (spines or exoskeleton) present,binomial,"1 = yes, 0 = no"
+defense_spines_num,Number (or mean number) of spines. Does not include soft rays.,continuous,number of spines
+defense_spines,Defensive spines present,binomial,"1 = yes, 0 = no"
+exoskeleton,"Presence of exoskeleton, carapace or armouring.",binomial,"1 = yes, 0 = no"
+exoskeleton_note,"Notes about exoskeleton, carapace, armouring",annotation,NA
+transparent,Transparency present.,binomial,"1 = yes, 0 = no"
+col_disrupt,Disruptive colouration present.,binomial,"1 = yes, 0 = no"
+col_disrupt_type,Type of disruptive colouration.,"annotation, reference","E.g: spots, bars/stripes, eye spot, pattern, none."
+silver,Silvering present.,binomial,"1 = yes, 0 = no"
+countershade,Countershading present.,binomial,"1 = yes, 0 = no"
+countershade_silver_note,Notes about countershading or silvering,,
+countershade_ref,Reference for countershading,reference,NA
+countershade_url,Link to reference source,url,NA
+silver_ref,Reference for silvering,reference,NA
+silver_url,Link to reference source,url,NA
+photophore_num,"Number of photophores. ""present"" = number unknown. Use maximum number of photophores if species has a range.","continuous, annotation","number, range, ""present"""
+photophore,Photophores present. Binomial version photophore_num,binomial,"1 = yes, 0 = no"
+photophore_note,Notes about photophores,,
+photophore_ref,Reference for number of photophores,reference,NA
+photophore_url,Link to literature article or database,url,NA
+photophore_ref2,Reference for number of photophores,reference,NA
+photophore_url2,Link to reference source,url,NA
+addl_ref,Additional references for trait data,reference,NA
+addl_url,Additional link to reference source,url,NA
+addl_ref2,Additional references for trait data,reference,NA
+addl_url2,Additional link to reference source,url,NA
+addl_ref3,Additional references for trait data,reference,NA
+addl_url3,Additional link to reference source,url,NA
+addl_ref4,Additional references for trait data,reference,NA
+addl_url4,Additional link to reference source,url,NA
+TL_BH,Mean total length:body height ratio,continuous,ratio (unitless)
+SL_BH,Mean standard length:body height ratio,continuous,ratio (unitless)
+TL_TH,Mean total length:total height ratio,continuous,ratio (unitless)
+SL_TH,Mean standard length:total height ratio,continuous,ratio (unitless)
+SL_TL,Mean standard length:total length ratio,continuous,ratio (unitless)
+eye_TL,Mean eye diameter:total length ratio,continuous,ratio (unitless)
+sd_TL_BH,Standard deviation for mean total length:body height ratio,continuous,NA
+sd_SL_BH,Standard deviation for mean standard length:body height ratio,continuous,NA
+sd_TL_TH,Standard deviation for mean total length:total height ratio,continuous,NA
+sd_SL_TH,Standard deviation for mean standard length:total height ratio,continuous,NA
+sd_SL_TL,Standard deviation for mean standard length:total length ratio,continuous,NA
+sd_eye_TL,Standard deviation for mean eye diameter:total length ratio,continuous,NA
+n_TL_BH,Sample size for mean total length:body height ratio,continuous,NA
+n_SL_BH,Sample size for mean standard length:body height ratio,continuous,NA
+n_TL_TH,Sample size for mean total length:total height ratio,continuous,NA
+n_SL_TH,Sample size for mean standard length:total height ratio,continuous,NA
+n_SL_TL,Sample size for mean standard length:total length ratio,continuous,NA
+n_eye_TL,Sample size for mean eye diameter:total length ratio,continuous,NA

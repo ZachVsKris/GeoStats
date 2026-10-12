@@ -1,0 +1,60 @@
+column,trait_type,description,data_type,"values; NA = searched but no data found, -9999 = not searched"
+class,,Species class name,annotation,class
+order,,Species order name,annotation,order
+family,,Species family name,annotation,family
+genus,,Species genus name,annotation,genus
+sci_name,,Species scientific name,annotation,genus + species
+tax_level,,Level of taxonomic identification,categorical,"class, order, family, genus, species"
+life_stage,,Taxon life stage,categorical,"adult, juvenile, larva"
+depth_min,habitat,Minimum depth limit recorded for this species.,continuous,depth (m)
+depth_max,habitat,Maximum depth limit recorded for this species.,continuous,depth (m)
+temp_min,habitat,Minimum temperature limit recorded for this species,continuous,temperature (˚C)
+temp_max,habitat,Maximum temperature limit recorded for this species,continuous,temperature (˚C)
+temp_mean,habitat,Average temperature recorded for this species,continuous,temperature (˚C)
+vert_habitat,habitat,Primary vertical habitat association,categorical,"benthic, demersal, epipelagic, mesopelagic, bathypelagic"
+vert_benthic,habitat,Benthic association,binomial,"1 = yes, 0 = no"
+vert_demersal,habitat,Demersal association,binomial,"1 = yes, 0 = no"
+vert_epipelagic,habitat,Epipelagic association,binomial,"1 = yes, 0 = no"
+vert_mesopelagic,habitat,Mesopelagic association,binomial,"1 = yes, 0 = no"
+vert_bathypelagic,habitat,Bathypelagic association,binomial,"1 = yes, 0 = no"
+horz_habitat,habitat,Primary horizontal habitat association.,categorical,"intertidal, reef-associated, coastal, continental shelf, continental slope, oceanic, freshwater"
+horz_intertidal,habitat,Intertidal association,binomial,"1 = yes, 0 = no"
+horz_reef,habitat,Reef association,binomial,"1 = yes, 0 = no"
+horz_coastal,habitat,Coastal association,binomial,"1 = yes, 0 = no"
+horz_continental_shelf,habitat,Continental shelf association,binomial,"1 = yes, 0 = no"
+horz_continental_slope,habitat,Continental slope and rise association,binomial,"1 = yes, 0 = no"
+horz_oceanic,habitat,Oceanic/pelagic association,binomial,"1 = yes, 0 = no"
+diel_migrant,behavioral,Diel/diurnal vertical migration behaviour. 1 = yes; 0 = no,binomial,"1 = yes, 0 = no"
+refuge,behavioral,"Use of physical refuge. 1 = yes, associates reef, benthic or floating structure; 0 = no, water column only and never associates with a structure.",binomial,"1 = yes, 0 = no"
+season_migrant,behavioral,"Seasonal migration behavior. 1 = yes, species undergo seasonal migratory patterns or reproductive behaviour that changes abundance seasonally; 0 = no, non-migrant, has a stable abundance year-round.",binomial,"1 = yes, 0 = no"
+body_shape,morphological,Body shape,categorical,"eel-like, elongated, fusiform, globiform, compressiform, depressiform"
+l_min_TL,morphological,Minimum length for the specific lifestage. Length types in l_min and l_min_type are converted to total length (TL) using morphometric ratios (Pelagic Forage Species Morphometric Ratios Database; doi:),continuous,Total length (cm)
+l_max_TL,morphological,Maximum length for the specific lifestage. Length types in l_max and l_max_type are converted to total length (TL) using morphometric ratios (Pelagic Forage Species Morphometric Ratios Database; doi:),continuous,Total length (cm)
+phys_defense,morphological,Presence of spines or exoskeleton,binomial,"1 = yes, 0 = no"
+defense_spines,morphological,Defensive spines present,binomial,"1 = yes, 0 = no"
+exoskeleton,morphological,"Presence of exoskeleton, carapace or armouring.",binomial,"1 = yes, 0 = no"
+transparent,morphological,Transparency present.,binomial,"1 = yes, 0 = no"
+col_disrupt,morphological,Disruptive colouration present.,binomial,"1 = yes, 0 = no"
+silver,morphological,Silvering present.,binomial,"1 = yes, 0 = no"
+countershade,morphological,Countershading present.,binomial,"1 = yes, 0 = no"
+photophore,morphological,Photophores present. Binomial version photophore_num,binomial,"1 = yes, 0 = no"
+gregarious,behavioral,Primary aggregation trait (categorical).,categorical,"solitary, shoaling, schooling"
+gregarious_solitary,behavioral,Solitary aggregation,binomial,"1 = yes, 0 = no"
+gregarious_shoaling,behavioral,Shoaling aggregation,binomial,"1 = yes, 0 = no"
+gregarious_schooling,behavioral,Schooling aggregation,binomial,"1 = yes, 0 = no"
+trophic_level,population status,Trophic Level. FishBase covariate.,continuous,0-5
+IUCN_status,population status,IUCN Redlist status. DD = Data Deficient; LC = Least Concern; NT = Near Threatened; VU= Vulnerable; EN = Endangered; CR = Critically Endangered; EW =  Extinct In The Wild; EX = Extinct; NE = Not Evaluated.,categorical,"DD, LC, NT, VU, EN, CR, EW, EX, NE"
+commercial,population status,Does the specie have commercial value?,binomial,"1 = yes, 0 = no"
+recreational,population status,Does the specie have recreational value?,binomial,"1 = yes, 0 = no"
+lipid,nutritional,Mean lipid content from all global data; % of wet weight (ww).,continuous,percent (%)
+protein,nutritional,Mean protein content from all global data; % of ww.,continuous,percent (%)
+energy,nutritional,Mean energy density from all global data; per gram ww.,continuous,kj/g
+lipid_pacific,nutritional,Mean lipid content from Pacific Ocean data; % of ww.,continuous,percent (%)
+protein_pacific,nutritional,Mean protein content from Pacific Ocean data; % of ww.,continuous,percent (%)
+energy_pacific,nutritional,Mean energy density from Pacific Ocean data; per gram ww.,continuous,kj/g
+TL_BH,morphological,Mean total length:body height ratio.,continuous,ratio (unitless)
+SL_BH,morphological,Mean standard length:total height ratio.,continuous,ratio (unitless)
+TL_TH,morphological,Mean total length:body height ratio.,continuous,ratio (unitless)
+SL_TH,morphological,Mean standard length:body height ratio.,continuous,ratio (unitless)
+SL_TL,morphological,Mean standard length:total length ratio.,continuous,ratio (unitless)
+eye_TL,morphological,Mean eye diameter:total length ratio.,continuous,ratio (unitless)

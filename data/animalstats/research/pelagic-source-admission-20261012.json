@@ -1,0 +1,102 @@
+{
+  "source": "Gleiber et al. 2024 Pelagic Species Trait Database v2",
+  "dataset": "https://doi.org/10.5683/SP3/0YFJED",
+  "paper": "https://doi.org/10.1038/s41597-023-02689-9",
+  "retrievedAt": "2026-10-12",
+  "sourceSpecies": 529,
+  "disposition": "Research-only until per-field biological comparability and original citations are audited. None of these newly staged records are used in playable boards.",
+  "warnings": [
+    "Converted total lengths use image ratios and taxonomic proxies; retain original measurement type instead.",
+    "Temperature fields can originate in FishBase estimate/TempPref rather than measured thermal tolerance.",
+    "Nutritional summaries combine ages and populations; use only explicit compatible stage, specimen part and measured units.",
+    "Photophore numeric entries need individual verification: larval averages and one unrelated Permian lungfish reference were found.",
+    "Database zeros and absence indicators are not numerical comparative measurements."
+  ],
+  "heldAdultNutritionRecordCount": 93,
+  "heldExamples": [
+    {
+      "sci_name": "Aequorea victoria",
+      "life_stage": "adult",
+      "reference": "Aral, M. N., Ford, J. A. & Whyte, J. N. C. Biochemical composition of fed and starved Aequorea victoria (Murbach et Shearer, 1902) (Hydromedusa). Journal of Experimental Marine Biology and Ecology 127, 289\u2013299 (1989).",
+      "url": "10.1016/0022-0981(89)90080-4",
+      "notes": "ED converted from 0.49 Cal. mg-1 dw = .49 kcal/g * 4.18 kJ/kcal = 2.0482 kJ/g. Lat, long estimated based on location"
+    },
+    {
+      "sci_name": "Ammodytes hexapterus",
+      "life_stage": "adult",
+      "reference": "Robards, M. D., Anthony, J. A., Rose, G. A. & Piatt, J. F. Changes in proximate composition and somatic energy content for Pacific sand lance (Ammodytes hexapterus) from Kachemak Bay, Alaska relative to maturity and season. Journal of Experimental Marine Biology and Ecology 242, 245\u2013258 (1999).",
+      "url": "10.1016/S0022-0981(99)00102-1",
+      "notes": "mass estimated from dry mass and moisture"
+    },
+    {
+      "sci_name": "Ammodytes hexapterus",
+      "life_stage": "adult",
+      "reference": "Robards, M. D., Anthony, J. A., Rose, G. A. & Piatt, J. F. Changes in proximate composition and somatic energy content for Pacific sand lance (Ammodytes hexapterus) from Kachemak Bay, Alaska relative to maturity and season. Journal of Experimental Marine Biology and Ecology 242, 245\u2013258 (1999).",
+      "url": "10.1016/S0022-0981(99)00102-1",
+      "notes": "mass estimated from dry mass and moisture"
+    },
+    {
+      "sci_name": "Ammodytes hexapterus",
+      "life_stage": "adult",
+      "reference": "Robards, M. D., Anthony, J. A., Rose, G. A. & Piatt, J. F. Changes in proximate composition and somatic energy content for Pacific sand lance (Ammodytes hexapterus) from Kachemak Bay, Alaska relative to maturity and season. Journal of Experimental Marine Biology and Ecology 242, 245\u2013258 (1999).",
+      "url": "10.1016/S0022-0981(99)00102-1",
+      "notes": "mass estimated from dry mass and moisture"
+    },
+    {
+      "sci_name": "Ammodytes hexapterus",
+      "life_stage": "adult",
+      "reference": "Robards, M. D., Anthony, J. A., Rose, G. A. & Piatt, J. F. Changes in proximate composition and somatic energy content for Pacific sand lance (Ammodytes hexapterus) from Kachemak Bay, Alaska relative to maturity and season. Journal of Experimental Marine Biology and Ecology 242, 245\u2013258 (1999).",
+      "url": "10.1016/S0022-0981(99)00102-1",
+      "notes": "mass estimated from dry mass and moisture"
+    },
+    {
+      "sci_name": "Ammodytes hexapterus",
+      "life_stage": "adult",
+      "reference": "Robards, M. D., Anthony, J. A., Rose, G. A. & Piatt, J. F. Changes in proximate composition and somatic energy content for Pacific sand lance (Ammodytes hexapterus) from Kachemak Bay, Alaska relative to maturity and season. Journal of Experimental Marine Biology and Ecology 242, 245\u2013258 (1999).",
+      "url": "10.1016/S0022-0981(99)00102-1",
+      "notes": "mass estimated from dry mass and moisture"
+    },
+    {
+      "sci_name": "Ammodytes hexapterus",
+      "life_stage": "adult",
+      "reference": "Robards, M. D., Anthony, J. A., Rose, G. A. & Piatt, J. F. Changes in proximate composition and somatic energy content for Pacific sand lance (Ammodytes hexapterus) from Kachemak Bay, Alaska relative to maturity and season. Journal of Experimental Marine Biology and Ecology 242, 245\u2013258 (1999).",
+      "url": "10.1016/S0022-0981(99)00102-1",
+      "notes": "mass estimated from dry mass and moisture"
+    },
+    {
+      "sci_name": "Ammodytes hexapterus",
+      "life_stage": "adult",
+      "reference": "Robards, M. D., Anthony, J. A., Rose, G. A. & Piatt, J. F. Changes in proximate composition and somatic energy content for Pacific sand lance (Ammodytes hexapterus) from Kachemak Bay, Alaska relative to maturity and season. Journal of Experimental Marine Biology and Ecology 242, 245\u2013258 (1999).",
+      "url": "10.1016/S0022-0981(99)00102-1",
+      "notes": "mass estimated from dry mass and moisture"
+    },
+    {
+      "sci_name": "Ammodytes hexapterus",
+      "life_stage": "adult",
+      "reference": "Robards, M. D., Anthony, J. A., Rose, G. A. & Piatt, J. F. Changes in proximate composition and somatic energy content for Pacific sand lance (Ammodytes hexapterus) from Kachemak Bay, Alaska relative to maturity and season. Journal of Experimental Marine Biology and Ecology 242, 245\u2013258 (1999).",
+      "url": "10.1016/S0022-0981(99)00102-1",
+      "notes": "mass estimated from dry mass and moisture"
+    },
+    {
+      "sci_name": "Ammodytes hexapterus",
+      "life_stage": "adult",
+      "reference": "Robards, M. D., Anthony, J. A., Rose, G. A. & Piatt, J. F. Changes in proximate composition and somatic energy content for Pacific sand lance (Ammodytes hexapterus) from Kachemak Bay, Alaska relative to maturity and season. Journal of Experimental Marine Biology and Ecology 242, 245\u2013258 (1999).",
+      "url": "10.1016/S0022-0981(99)00102-1",
+      "notes": "mass estimated from dry mass and moisture"
+    },
+    {
+      "sci_name": "Ammodytes hexapterus",
+      "life_stage": "adult",
+      "reference": "Robards, M. D., Anthony, J. A., Rose, G. A. & Piatt, J. F. Changes in proximate composition and somatic energy content for Pacific sand lance (Ammodytes hexapterus) from Kachemak Bay, Alaska relative to maturity and season. Journal of Experimental Marine Biology and Ecology 242, 245\u2013258 (1999).",
+      "url": "10.1016/S0022-0981(99)00102-1",
+      "notes": "mass estimated from dry mass and moisture"
+    },
+    {
+      "sci_name": "Ammodytes hexapterus",
+      "life_stage": "adult",
+      "reference": "Robards, M. D., Anthony, J. A., Rose, G. A. & Piatt, J. F. Changes in proximate composition and somatic energy content for Pacific sand lance (Ammodytes hexapterus) from Kachemak Bay, Alaska relative to maturity and season. Journal of Experimental Marine Biology and Ecology 242, 245\u2013258 (1999).",
+      "url": "10.1016/S0022-0981(99)00102-1",
+      "notes": "mass estimated from dry mass and moisture"
+    }
+  ]
+}

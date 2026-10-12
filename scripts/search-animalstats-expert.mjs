@@ -8,7 +8,7 @@ try {
  const {createAnimalBoardValidator,validateAnimalDataset}=await import(pathToFileURL(`${temp}/animalstats.mjs`));
  const {publishedAnimalTraitIds,animalMajorGroup}=await import(pathToFileURL(`${temp}/animalstatsCoverage.mjs`));
  const {animalBoardComposition}=await import(pathToFileURL(`${temp}/animalstatsComposition.mjs`));
- const parts=['pilot','existing-coverage','fish-records','tetrapod-spatial','marine','aquatic-eggs','underrepresented'].map(n=>JSON.parse(fs.readFileSync(`data/animalstats/${n}.json`)));
+ const parts=['pilot','existing-coverage','fish-records','tetrapod-spatial','marine','aquatic-eggs','underrepresented','insect-ladybirds'].map(n=>JSON.parse(fs.readFileSync(`data/animalstats/${n}.json`)));
  const marine=parts[4],data=Object.fromEntries(['animals','traits','values','sources','photos'].map(k=>[k,parts.flatMap(p=>p[k].filter(r=>k!=='photos'||p===marine||!marine.photos.some(photo=>photo.animalId===r.animalId)))]));
  const errors=validateAnimalDataset(data);if(errors.length)throw Error(errors.join('\n'));
  const validate=createAnimalBoardValidator(data),published=publishedAnimalTraitIds(data),photos=new Set(data.photos.filter(p=>p.approved).map(p=>p.animalId));

@@ -1,0 +1,11 @@
+{
+  "status": "Excluded from gameplay",
+  "reason": "PBDB taxon first-appearance interval endpoints can be very broad and contain questionable species identifications. Live review exposed Woolly mammoth at 7.25 Ma and Darwin ground sloth at 27.3 Ma; these are misleading as species fossil debut comparisons.",
+  "action": "Removed the mammal fossil-age traits and regenerated mammal boards without them. No proxy ages or replacement estimates.",
+  "remainingFacts": [
+    "Distinct exact-species fossil collection sites",
+    "Present-day fossil discovery coordinates",
+    "Scientific naming year",
+    "Distinct occurrence reference IDs"
+  ]
+}

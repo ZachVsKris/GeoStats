@@ -8,7 +8,7 @@
         "mammal_latitude": 140.11431132467533,
         "mammal_spread": 54.20106899999999,
         "mammal_description": 227,
-        "mammal_fossil_layer": 7.246
+        "mammal_references": 57
       },
       "taxon": {
         "oid": "txn:46027",
@@ -36,7 +36,7 @@
         "mammal_latitude": 125.49559852597403,
         "mammal_spread": 41.54334,
         "mammal_description": 169,
-        "mammal_fossil_layer": 4.7
+        "mammal_references": 101
       },
       "taxon": {
         "oid": "txn:46017",
@@ -64,7 +64,7 @@
         "mammal_latitude": 135.4876904,
         "mammal_spread": 32.284442999999996,
         "mammal_description": 141,
-        "mammal_fossil_layer": 2.58
+        "mammal_references": 27
       },
       "taxon": {
         "oid": "txn:159796",
@@ -92,7 +92,7 @@
         "mammal_latitude": 133.8267624015748,
         "mammal_spread": 21.974167,
         "mammal_description": 201,
-        "mammal_fossil_layer": 7.246
+        "mammal_references": 64
       },
       "taxon": {
         "oid": "txn:46026",
@@ -120,7 +120,7 @@
         "mammal_latitude": 124.01986099999999,
         "mammal_spread": 0.02861400000000458,
         "mammal_description": 56,
-        "mammal_fossil_layer": 0.21
+        "mammal_references": 2
       },
       "taxon": {
         "oid": "txn:46019",
@@ -148,7 +148,7 @@
         "mammal_latitude": 125.413052,
         "mammal_spread": 0.34609999999999985,
         "mammal_description": 119,
-        "mammal_fossil_layer": 2.58
+        "mammal_references": 2
       },
       "taxon": {
         "oid": "txn:159787",
@@ -176,7 +176,7 @@
         "mammal_latitude": 130.08581123262033,
         "mammal_spread": 50.576666,
         "mammal_description": 234,
-        "mammal_fossil_layer": 23.04
+        "mammal_references": 109
       },
       "taxon": {
         "oid": "txn:46016",
@@ -204,7 +204,7 @@
         "mammal_latitude": 134.97475344444445,
         "mammal_spread": 14.676943999999999,
         "mammal_description": 192,
-        "mammal_fossil_layer": 11.63
+        "mammal_references": 17
       },
       "taxon": {
         "oid": "txn:95512",
@@ -232,7 +232,7 @@
         "mammal_latitude": 126.155277075,
         "mammal_spread": 12.473903,
         "mammal_description": 7,
-        "mammal_fossil_layer": 4.7
+        "mammal_references": 2
       },
       "taxon": {
         "oid": "txn:384021",
@@ -259,7 +259,7 @@
         "mammal_latitude": 121.04881907692308,
         "mammal_spread": 80.821946,
         "mammal_description": 158,
-        "mammal_fossil_layer": 2.58
+        "mammal_references": 30
       },
       "taxon": {
         "oid": "txn:46515",
@@ -287,7 +287,7 @@
         "mammal_latitude": 70.45520363414634,
         "mammal_spread": 61.969721,
         "mammal_description": 184,
-        "mammal_fossil_layer": 2.58
+        "mammal_references": 36
       },
       "taxon": {
         "oid": "txn:51618",
@@ -314,7 +314,7 @@
         "mammal_latitude": 120.25148270833333,
         "mammal_spread": 30.353334,
         "mammal_description": 146,
-        "mammal_fossil_layer": 4.7
+        "mammal_references": 15
       },
       "taxon": {
         "oid": "txn:51615",
@@ -341,7 +341,7 @@
         "mammal_latitude": 132.44392125000002,
         "mammal_spread": 39.753894,
         "mammal_description": 180,
-        "mammal_fossil_layer": 2.58
+        "mammal_references": 23
       },
       "taxon": {
         "oid": "txn:364964",
@@ -369,7 +369,7 @@
         "mammal_latitude": 140.51102822222222,
         "mammal_spread": 28.524723,
         "mammal_description": 227,
-        "mammal_fossil_layer": 7.246
+        "mammal_references": 17
       },
       "taxon": {
         "oid": "txn:54846",
@@ -397,7 +397,7 @@
         "mammal_latitude": 121.565277,
         "mammal_spread": 0,
         "mammal_description": 15,
-        "mammal_fossil_layer": 4.16
+        "mammal_references": 1
       },
       "taxon": {
         "oid": "txn:197762",
@@ -424,7 +424,7 @@
         "mammal_latitude": 135.64184466666666,
         "mammal_spread": 15.183613000000001,
         "mammal_description": 227,
-        "mammal_fossil_layer": 7.246
+        "mammal_references": 10
       },
       "taxon": {
         "oid": "txn:149393",
@@ -452,7 +452,7 @@
         "mammal_latitude": 63.11608116216216,
         "mammal_spread": 70.10889,
         "mammal_description": 230,
-        "mammal_fossil_layer": 8
+        "mammal_references": 30
       },
       "taxon": {
         "oid": "txn:83805",
@@ -479,7 +479,7 @@
         "mammal_latitude": 95.62622533333334,
         "mammal_spread": 66.384998,
         "mammal_description": 184,
-        "mammal_fossil_layer": 2.58
+        "mammal_references": 53
       },
       "taxon": {
         "oid": "txn:48051",
@@ -507,7 +507,7 @@
         "mammal_latitude": 118.96833322222221,
         "mammal_spread": 2.7583309999999983,
         "mammal_description": 27,
-        "mammal_fossil_layer": 4.7
+        "mammal_references": 2
       },
       "taxon": {
         "oid": "txn:46311",
@@ -534,7 +534,7 @@
         "mammal_latitude": 124.17778768965518,
         "mammal_spread": 42.183330999999995,
         "mammal_description": 186,
-        "mammal_fossil_layer": 4.7
+        "mammal_references": 51
       },
       "taxon": {
         "oid": "txn:48020",
@@ -562,7 +562,7 @@
         "mammal_latitude": 56.278845,
         "mammal_spread": 27.512499,
         "mammal_description": 187,
-        "mammal_fossil_layer": 27.3
+        "mammal_references": 10
       },
       "taxon": {
         "oid": "txn:379362",
@@ -589,7 +589,7 @@
         "mammal_latitude": 54.677162384615386,
         "mammal_spread": 14.869997999999999,
         "mammal_description": 167,
-        "mammal_fossil_layer": 5.333
+        "mammal_references": 20
       },
       "taxon": {
         "oid": "txn:166623",
@@ -616,7 +616,7 @@
         "mammal_latitude": 59.44164234782609,
         "mammal_spread": 19.829998,
         "mammal_description": 188,
-        "mammal_fossil_layer": 5.333
+        "mammal_references": 18
       },
       "taxon": {
         "oid": "txn:248227",
@@ -643,7 +643,7 @@
         "mammal_latitude": 64.70170072727272,
         "mammal_spread": 57.941665,
         "mammal_description": 187,
-        "mammal_fossil_layer": 27.3
+        "mammal_references": 25
       },
       "taxon": {
         "oid": "txn:83804",
@@ -670,7 +670,7 @@
         "mammal_latitude": 58.29071513725491,
         "mammal_spread": 18.252499,
         "mammal_description": 181,
-        "mammal_fossil_layer": 2.58
+        "mammal_references": 23
       },
       "taxon": {
         "oid": "txn:161174",
@@ -697,7 +697,7 @@
         "mammal_latitude": 55.132994333333336,
         "mammal_spread": 11.524166000000001,
         "mammal_description": 179,
-        "mammal_fossil_layer": 0.4
+        "mammal_references": 9
       },
       "taxon": {
         "oid": "txn:247968",
@@ -725,7 +725,7 @@
         "mammal_latitude": 131.2848309767442,
         "mammal_spread": 41.029996999999995,
         "mammal_description": 188,
-        "mammal_fossil_layer": 2.58
+        "mammal_references": 36
       },
       "taxon": {
         "oid": "txn:44962",
@@ -752,7 +752,7 @@
         "mammal_latitude": 119.16734253488372,
         "mammal_spread": 7.1830560000000006,
         "mammal_description": 57,
-        "mammal_fossil_layer": 9.4
+        "mammal_references": 4
       },
       "taxon": {
         "oid": "txn:400636",
@@ -780,7 +780,7 @@
         "mammal_latitude": 130.58176065625,
         "mammal_spread": 41.75000300000001,
         "mammal_description": 147,
-        "mammal_fossil_layer": 4.7
+        "mammal_references": 31
       },
       "taxon": {
         "oid": "txn:44309",
@@ -808,7 +808,7 @@
         "mammal_latitude": 120.12034524,
         "mammal_spread": 19.900002,
         "mammal_description": 172,
-        "mammal_fossil_layer": 4.7
+        "mammal_references": 15
       },
       "taxon": {
         "oid": "txn:44276",

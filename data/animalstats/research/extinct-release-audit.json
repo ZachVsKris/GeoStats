@@ -1,9 +1,9 @@
 {
   "species": 72,
-  "boards": 14998,
+  "boards": 15738,
   "boardsByMode": {
-    "easy": 11004,
-    "normal": 3992,
+    "easy": 9889,
+    "normal": 5847,
     "expert": 2
   },
   "labels": [
@@ -23,16 +23,16 @@
     "extinct_discovery_spread",
     "extinct_discovery_latitude",
     "extinct_discovery_spread__low",
-    "extinct_mammal_description__low",
-    "extinct_mammal_fossil_layer",
-    "extinct_mammal_latitude__low",
-    "extinct_mammal_sites",
-    "extinct_mammal_spread__low",
-    "extinct_mammal_latitude",
-    "extinct_mammal_sites__low",
-    "extinct_mammal_spread",
     "extinct_mammal_description",
-    "extinct_mammal_fossil_layer__low"
+    "extinct_mammal_latitude__low",
+    "extinct_mammal_references__low",
+    "extinct_mammal_sites",
+    "extinct_mammal_references",
+    "extinct_mammal_spread__low",
+    "extinct_mammal_sites__low",
+    "extinct_mammal_description__low",
+    "extinct_mammal_latitude",
+    "extinct_mammal_spread"
   ],
   "livingBoards": 2737,
   "firstBoard": "extinct-dinosaur-easy-1706f7ced652",

@@ -4,11 +4,11 @@
     "candidates": 2737,
     "group-boards": 20534,
     "group-boards-2": 20534,
-    "extinct": 14998
+    "extinct": 15738
   },
-  "totalValidatedBoards": 58803,
+  "totalValidatedBoards": 59543,
   "rejectedDuringThisAudit": 0,
-  "checkedAdjacentRanks": 1472786,
+  "checkedAdjacentRanks": 1496506,
   "scoringCases": 41,
   "newCatalogAnimals": 397,
   "newDistinctSourceMeasurements": 1816,

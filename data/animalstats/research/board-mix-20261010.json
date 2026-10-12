@@ -1,9 +1,9 @@
 {
   "generatedAt": "2026-10-12",
-  "defaultBoards": 58803,
+  "defaultBoards": 59543,
   "livingCatalogAnimals": 841,
   "livingRoundAnimals": 257,
-  "candidateBoards": 58803,
+  "candidateBoards": 59543,
   "playableLabels": 195,
   "playableTraitIds": 253,
   "counts": {
@@ -74,10 +74,10 @@
       "total": 9097
     },
     "extinct-mammals": {
-      "easy": 4742,
-      "normal": 1159,
+      "easy": 3627,
+      "normal": 3014,
       "expert": 0,
-      "total": 5901
+      "total": 6641
     }
   }
 }

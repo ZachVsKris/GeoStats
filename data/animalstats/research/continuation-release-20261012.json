@@ -3,11 +3,12 @@
   "newLadybirdCatalogSpecies": 48,
   "distinctNewSourceMeasurements": 361,
   "approvedAdultLadybirdPhotos": 11,
-  "newExtinctMammalBoards": 5901,
+  "newExtinctMammalBoards": 6641,
   "researchOnlyMarineSpecies": 529,
   "notes": [
     "Extinct animals remain separate from living rounds.",
     "Species catalog additions are not all playable; complete sourced rankings and reviewed illustrations remain required.",
-    "Sea invertebrate and Expert gaps remain unfinished."
+    "Sea invertebrate and Expert gaps remain unfinished.",
+    "Broad PBDB taxon first-appearance ages removed after live source audit; mammal fossil ages are held for independent verification."
   ]
 }

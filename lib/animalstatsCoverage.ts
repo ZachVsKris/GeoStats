@@ -5,6 +5,8 @@ export const ANIMAL_COVERAGE_MINIMUMS = { broad: 50, scoped: 20, breed: 8 } as c
 const mammalTraits = new Set(["gestation", "shortest_gestation", "litter_size", "female_maturity", "male_maturity", "weaning_age", "earliest_weaning", "birth_weight", "lightest_newborn", "litters_per_year", "interbirth_interval", "weaning_mass", "mammal_tail_length_upper", "adult_intestine_length", "resting_breathing_frequency", "measured_eye_length", "behavioral_visual_acuity", "recorded_chewing_rate", "milk_fat_concentration", "milk_sugar_concentration", "milk_protein_concentration", "diet_food_group_count", "maximum_hibernation_bout", "measured_adult_ear_length"]);
 const mammalSources = new Set(["pantheria-range-maps", "asm-mdd-v25-counts", "tucker-rogers-2014-diet"]);
 export function animalComparisonScope(trait: Trait): { kind: "broad" | "scoped" | "breed"; label: string } {
+  if (trait.canonicalSourceId === "uk-ladybird-traits-2025") return { kind: "scoped", label: "UK ladybirds" };
+  if (trait.canonicalSourceId === "pbdb-extinct-mammals-20261012") return { kind: "scoped", label: "Extinct mammals" };
   if (trait.id.startsWith("pet_dog_")) return { kind: "breed", label: "Dog breeds" };
   if (trait.id.startsWith("pet_cat_")) return { kind: "breed", label: "Cat breeds" };
   const base = trait.id.replace(/__low$/, "");

@@ -46,7 +46,7 @@ try {
   for(const mode of ['easy','normal','expert']) {
    console.log('Cute',viewport.width,viewport.height,mode);
    await page.goto(`http://localhost:3012/animals?mode=${mode}`,{waitUntil:'networkidle'});
-   await page.locator('.country').last().waitFor();await page.getByRole('switch',{name:'Static animal photos'}).click();
+   await page.locator('.country').last().waitFor();await page.getByRole('switch',{name:'Static animal images'}).click();
    const count=await page.locator('.traitPodium').count();
    for(let i=0;i<count;i++){await page.locator('.penAnimal').nth(i).click();await page.locator('.traitPodium').nth(i).click();}
    const result=await page.evaluate(()=>({height:document.documentElement.scrollHeight,bad:[...document.querySelectorAll('.penAnimal,.animalNameTag,.traitPodium,.animalTraitName,.podiumNameTag,.animalSubmit > button')].map(n=>({name:n.className,r:n.getBoundingClientRect().toJSON(),scroll:n.scrollHeight,client:n.clientHeight})).filter(x=>x.r.bottom>innerHeight+1||x.r.top<0||x.r.right>innerWidth+1||x.scroll>x.client+2)}));

@@ -1,0 +1,65 @@
+{
+  "updatedAt": "2026-10-12",
+  "status": "expansion incomplete; these gaps remain explicit",
+  "remainingGaps": [
+    {
+      "area": "Familiar extinct mammals",
+      "missingExamples": [
+        "mammoths",
+        "saber-toothed cats",
+        "giant ground sloths"
+      ],
+      "requirement": "Separate extinct-special boards; measured comparable fossil facts and reconstruction disclosure."
+    },
+    {
+      "area": "Common insects",
+      "missingExamples": [
+        "bees",
+        "ants",
+        "ladybugs",
+        "butterflies"
+      ],
+      "requirement": "Exact species, broadly intuitive measured facts. Never substitute wingspan for body length or copy values between relatives."
+    },
+    {
+      "area": "Marine invertebrates",
+      "missingExamples": [
+        "octopuses",
+        "squids",
+        "jellyfish",
+        "starfish",
+        "corals",
+        "sponges"
+      ],
+      "requirement": "Bulk sources with explicit comparable measurements and sufficiently broad samples; accurate portraits and cartoons."
+    },
+    {
+      "area": "Expert mode breadth",
+      "missingExamples": [
+        "cat breeds",
+        "fish",
+        "amphibians",
+        "insects",
+        "other invertebrates"
+      ],
+      "requirement": "Six compatible distinct metrics for eight illustrated animals, unique winners, no ties, at least 3% between every rank and at least half intuitive."
+    },
+    {
+      "area": "Living mammal fact breadth",
+      "requirement": "Remain a priority even as underrepresented groups grow. New metric families rather than extra bat variants or only board recombinations."
+    },
+    {
+      "area": "Catalog to playable coverage",
+      "requirement": "Many newly cataloged animals still lack approved images or enough shared measured facts for complete boards; do not count them as playable animals."
+    }
+  ],
+  "nonNegotiableQuality": [
+    "No ties at lower placements",
+    "At least 3% separation for all numerical adjacent placements, including dates",
+    "No guessed biological values or cross-species substitution",
+    "Exact species/breed and measurement-stage compatibility",
+    "Broad generic comparisons require 50 species across 3 major groups; scoped species comparisons require 20; breeds require 8",
+    "At least half intuitive prizes on every board",
+    "No living/extinct mixed boards"
+  ]
+}

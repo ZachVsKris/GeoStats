@@ -470,6 +470,7 @@ function Pet({ p, clipId }: { p: Profile; clipId: string }) {
     <path fill={p.color} d={body}/><clipPath id={clipId}><path d={body}/></clipPath>
     <g clipPath={`url(#${clipId})`} stroke="none">
       {p.pattern === "patches" && <><path fill="#39413b" d={`M66 ${top-8} Q112 ${top-9} 125 ${top+22} L84 ${top+32} Q58 ${top+20} 66 ${top-8} Z`}/><path fill={p.belly} d={`M113 ${top-1} Q136 ${top+9} 131 ${bottom} L111 ${bottom} Z`}/></>}
+      {p.pattern === "spots" && name === "egyptian_mau" && [0,1,2,3,4,5,6,7,8].map(i=><ellipse key={i} fill="#5c625e" cx={55+i%5*15} cy={top+10+Math.floor(i/5)*15} rx="3" ry="2.5"/>)}
       {p.pattern === "stripes" && [0,1,2,3,4].map(i=><path key={i} fill="#6b5642" d={`M${55+i*14} ${top-3} q-9 14 1 25 l5-4 q-6-14 1-21 Z`}/>)}
       {p.pattern === "rosettes" && [0,1,2,3,4,5,6,7].map(i=><ellipse key={i} fill="none" stroke="#765335" strokeWidth="3" cx={59+i%4*17} cy={top+10+Math.floor(i/4)*17} rx="5" ry="4"/>)}
       {name === "yorkshire_terrier" && <path fill="#737b7a" d={`M49 ${top} h71 v38 H52 Z`}/>}
@@ -527,15 +528,105 @@ function IntroducedMammal({p}: {p: Profile}) {
   </>;
 }
 
+function Crustacean({ animal }: { animal: Animal }) {
+  const crab=/crab/i.test(animal.commonName), shrimp=/shrimp|prawn/i.test(animal.commonName);
+  const claws=/homarus|nephrops|procambarus|astacus|pacifastacus|cherax/i.test(animal.scientificName);
+  const blue=/blue|callinectes sapidus/i.test(animal.commonName+animal.scientificName), color=blue?"#7ca8b7":shrimp?"#c89587":"#b98561";
+  if(crab)return <g data-anatomy="eight-walking-legs-two-claws">
+    {[-1,1].map(side=><g key={side} fill="none" stroke={color} strokeWidth="7">{[0,1,2,3].map(i=><path key={i} d={`M${100+side*29} ${83+i*9} L${100+side*(51+i*4)} ${66+i*15} L${100+side*(66-i*2)} ${86+i*17}`}/>)}</g>)}
+    <path fill={color} d="M69 86 L47 58 L35 62 L56 98 M133 86 L151 56 L165 61 L146 99"/>
+    <path fill={color} d="M48 63 Q24 58 25 35 L38 48 L34 24 Q60 30 56 50 Z M151 60 Q168 59 180 41 L161 45 L176 25 Q149 26 143 47 Z"/>
+    <path fill={color} d="M52 84 L61 72 L65 60 Q99 47 134 60 L139 72 L149 84 L143 119 Q101 142 60 119 Z"/>
+    <path fill="none" stroke="#e0b695" d="M68 79 Q100 64 130 80 M74 113 Q100 122 129 112"/>
+    <path fill="none" strokeWidth="5" d="M80 64 L79 49 M120 64 L121 49"/><Eye x={79} y={46} size={7}/><Eye x={121} y={46} size={7}/>
+  </g>;
+  return <g data-anatomy="ten-attached-legs-segmented-tail">
+    {[-1,1].map(side=><g key={side} fill="none" stroke={color} strokeWidth="3.5">{[0,1,2,3].map(i=><path key={i} d={`M${100+side*14} ${63+i*10} L${100+side*34} ${63+i*12} L${100+side*43} ${77+i*13}`}/>)}</g>)}
+    {claws?<><path fill={color} d="M85 57 L64 42 L53 48 L75 73 M115 57 L140 43 L149 51 L124 74"/><path fill={color} d="M63 48 Q35 47 33 25 L47 37 L41 15 Q65 18 70 35 Z M139 48 Q164 47 168 25 L152 36 L157 16 Q134 20 132 36 Z"/></>:<path fill="none" stroke={color} strokeWidth="3.5" d="M86 57 L60 36 L49 39 M114 57 L142 38 L152 39"/>}
+    <path fill={color} d="M86 84 Q72 103 80 134 Q100 148 121 132 Q126 100 114 84 Z"/>
+    {[0,1,2,3].map(i=><path key={i} fill="none" stroke="#936751" d={`M80 ${96+i*10} Q100 ${103+i*10} 122 ${96+i*10}`}/>)}
+    <path fill={color} d="M82 127 L64 143 L88 148 L101 139 L113 148 L137 142 L120 128 Z"/>
+    <ellipse cx="100" cy="70" rx="24" ry="31" fill={color}/>
+    <path fill="none" d="M92 51 Q63 29 41 9 M108 51 Q133 29 157 9" strokeWidth={shrimp?1.5:2.5}/>
+    <path fill="none" strokeWidth="3" d="M88 47 L84 35 M112 47 L116 35"/><Eye x={84} y={33} size={6}/><Eye x={116} y={33} size={6}/>
+    <path fill="#deb799" d="M95 47 L100 31 L105 47 Z"/>
+  </g>;
+}
+function Amphibian({ animal }: { animal: Animal }) {
+  const newt = animal.taxonomicGroup === "salamander", axolotl = animal.id === "ambystoma_mexicanum", toad = /toad|bufo|anaxyrus|rhinella/i.test(animal.commonName+animal.scientificName);
+  const poison = /dendrobates|phyllobates/i.test(animal.scientificName), redEye = animal.id === "agalychnis_callidryas";
+  const color = axolotl ? "#f0c7bd" : /phyllobates|leucomelas/.test(animal.id) ? "#e5bc43" : animal.id === "dendrobates_tinctorius" ? "#688bca" : redEye ? "#7ebf56" : newt ? "#665b47" : toad ? "#a69673" : "#8ea75a";
+  if(newt)return <g data-anatomy="four-attached-legs-and-tail">
+    <path fill={color} d="M65 107 Q37 106 13 68 Q11 105 50 126 L91 120 Z"/>
+    {[65,113].map(x=><g key={x}><path fill={color} d={`M${x} 102 l-12 18 -10 2 6 5 14-4 14-14 Z`}/><path fill={color} d={`M${x} 118 l8 16 15 4 -5 5 -17-5 -12-15 Z`}/></g>)}
+    <path fill={color} d="M48 107 Q52 86 97 92 Q128 90 143 105 L137 123 Q96 137 51 121 Z"/>
+    {axolotl&&[-1,1].map(side=><g key={side} stroke="#dba098" fill="none" strokeWidth="4">{[0,1,2].map(i=><path key={i} d={`M${143+side*13} ${89+i*9} Q${143+side*(26+i*5)} ${76+i*8} ${143+side*(30+i*4)} ${71+i*7} m-8 9 l-5-10 m6 9 l8-5`}/>)}</g>)}
+    <ellipse cx="143" cy="109" rx={axolotl?30:25} ry={axolotl?22:17} fill={color}/>
+    <Eye x={134} y={103} size={axolotl?7:5}/><Eye x={156} y={103} size={axolotl?7:5}/><path fill="none" strokeWidth="1.6" d="M134 119 Q145 126 157 118"/>
+    {animal.id==='notophthalmus_viridescens'&&[68,83,98,113].map(x=><circle key={x} cx={x} cy="104" r="3" fill="#df725c"/>)}
+    {animal.id==='salamandra_salamandra'&&[60,80,100,117].map(x=><ellipse key={x} cx={x} cy="104" rx="6" ry="4" fill="#e4c54e"/>)}
+  </g>;
+  return <g data-anatomy="four-attached-legs-no-tail">
+    <path fill={color} d="M62 89 Q18 83 24 117 Q23 131 58 133 L67 118 M128 90 Q167 85 174 112 Q181 133 143 135 L125 119"/>
+    <path fill={color} d="M43 124 l-18 11 -10 0 5 5 18-1 18-7 M148 127 l23 10 11-2 -5 7 -20 0 -20-10"/>
+    <ellipse fill={color} cx="98" cy="101" rx="53" ry="34"/>
+    <ellipse fill="#e7ddb8" stroke="none" cx="98" cy="111" rx="35" ry="21"/>
+    <path fill={color} d="M70 110 Q72 135 60 137 L48 137 L49 143 L74 143 Q86 123 80 109 M117 110 Q115 135 128 137 L143 137 L140 143 L115 143 Q104 125 108 110"/>
+    <path fill={color} d="M48 81 Q44 45 68 44 Q87 41 91 57 Q106 50 115 58 Q119 38 141 44 Q163 49 153 81 Q150 99 101 99 Q52 99 48 81 Z"/>
+    {redEye?<><ellipse cx="69" cy="60" rx="14" ry="16" fill="#d96751"/><ellipse cx="138" cy="60" rx="14" ry="16" fill="#d96751"/><ellipse cx="69" cy="60" rx="4" ry="12" fill={INK}/><ellipse cx="138" cy="60" rx="4" ry="12" fill={INK}/></>:<><Eye x={69} y={60} size={13}/><Eye x={137} y={60} size={13}/></>}
+    <path fill="none" strokeWidth="1.6" d="M69 86 Q101 104 135 85"/>
+    {(toad||poison)&&[0,1,2,3,4,5].map(i=><ellipse key={i} fill={poison?"#364342":"#887759"} stroke="none" cx={52+i%3*43} cy={80+Math.floor(i/3)*23} rx={poison?7:3} ry={poison?5:2}/>)}
+  </g>;
+}
+function Insect({ animal }: { animal: Animal }) {
+  const dragonfly = /cordulia|orthetrum|platycnemis|pyrrhosoma|platysticta/i.test(animal.scientificName);
+  const cricket = /tettigonia|meconema/i.test(animal.scientificName);
+  const fly = /helophilus|platycheirus|rhingia|scaeva|syrphus|eristalis/i.test(animal.scientificName);
+  const beetle = /beetle|weevil|borer/i.test(animal.commonName);
+  const green = /green|tettigonia|meconema|palomena|aromia/i.test(animal.commonName + animal.scientificName);
+  const color = animal.id === "platycnemis_pennipes" ? "#9ac9d1" : green ? "#83a349" : dragonfly ? "#607d63" : fly ? "#dfb14c" : beetle ? "#58685b" : "#bd8457";
+  const headY = dragonfly ? 42 : 52, thoraxY = dragonfly ? 68 : 76;
+  return <g data-anatomy="six-attached-legs-three-body-segments">
+    {[-1,1].map(side => <g key={side} fill="none" stroke="#5b5544" strokeWidth="3.5">
+      {[0,1,2].map(i => <path key={i} d={`M${100+side*13} ${thoraxY+i*8} L${100+side*(cricket&&i===2?43:33)} ${thoraxY-8+i*16} L${100+side*(cricket&&i===2?56:46)} ${thoraxY+8+i*22}`} />)}
+    </g>)}
+    {dragonfly && [-1,1].map(side=><g key={side} fill="#ecf4ed" fillOpacity=".9" stroke="#95aa9d" strokeWidth="1.6"><path d={`M100 67 Q${100+side*72} 27 ${100+side*70} 51 Q${100+side*62} 76 100 75 Z`}/><path d={`M100 77 Q${100+side*75} 61 ${100+side*67} 87 Q${100+side*44} 97 100 86 Z`}/></g>)}
+    {fly && [-1,1].map(side=><path key={side} fill="#edf3ee" fillOpacity=".9" stroke="#9eb1ad" d={`M100 77 Q${100+side*66} 57 ${100+side*50} 94 Q${100+side*25} 110 100 83 Z`}/>)}
+    <ellipse cx="100" cy={dragonfly?109:108} rx={dragonfly?9:cricket?16:24} ry={dragonfly?32:cricket?30:27} fill={color}/>
+    {dragonfly ? [0,1,2,3,4,5].map(i=><path key={i} stroke="#8c683f" strokeWidth="1.4" d={`M92 ${89+i*8} h16`}/>) : fly ? [0,1,2].map(i=><path key={i} stroke="#454c41" strokeWidth="7" d={`M81 ${95+i*12} Q100 ${103+i*12} 119 ${95+i*12}`}/>) : beetle ? <path d="M100 85 V133" stroke="#293c31"/> : cricket ? <><path fill={color} d="M87 85 Q82 121 101 138 Q118 111 113 83 Z"/><path fill="none" stroke="#6b8d40" d="M101 88 V132 M101 102 l-11 7 M101 114 l10 7"/></> : <><path fill="#e3ad72" d="M79 87 L100 119 L121 87 Q104 78 79 87 Z"/><path fill="none" stroke="#86613f" d="M77 100 L100 125 L123 100"/></>}
+    <ellipse cx="100" cy={thoraxY} rx={dragonfly?14:cricket?17:21} ry="15" fill={color}/>
+    <path fill="none" stroke="#5b5544" d={`M92 ${headY-8} Q75 ${headY-29} ${cricket?57:80} ${cricket?12:headY-29} M108 ${headY-8} Q125 ${headY-29} ${cricket?143:120} ${cricket?12:headY-29}`}/>
+    <ellipse cx="100" cy={headY} rx={dragonfly?23:18} ry="15" fill={color}/>
+    <Eye x={dragonfly?87:92} y={headY-1} size={dragonfly?10:7}/><Eye x={dragonfly?113:108} y={headY-1} size={dragonfly?10:7}/>
+    <path d={`M94 ${headY+9} Q100 ${headY+13} 106 ${headY+9}`} fill="none" strokeWidth="1.5"/>
+  </g>;
+}
+function Bivalve({ animal }: { animal: Animal }) {
+  const mussel=/mussel|mytilus|modiolus|perna/i.test(animal.commonName+animal.scientificName);
+  const scallop=/scallop|pecten|argopecten|aequipecten|chlamys/i.test(animal.commonName+animal.scientificName);
+  const razor=/geoduck|razor|panopea|ensis|solen/i.test(animal.commonName+animal.scientificName);
+  const shell=mussel?"M43 118 Q30 78 69 37 Q111 16 150 47 Q179 79 147 120 Q107 149 43 118 Z":razor?"M33 63 Q92 44 163 67 L162 118 Q93 137 34 117 Z":scallop?"M44 129 L57 112 Q10 76 44 48 Q74 9 105 31 Q145 7 168 47 Q191 81 147 112 L155 131 L118 129 Q101 119 81 129 Z":"M30 113 Q19 51 89 33 Q145 19 171 76 Q187 127 124 137 Q70 146 30 113 Z";
+  return <g data-anatomy="hinged-shell-no-legs">
+    {razor&&<path fill="#d6b9a2" d="M154 96 Q186 82 187 53 Q188 44 181 47 L173 87 L153 108 Z"/>}
+    <path fill={mussel?"#596e86":scallop?"#df9b76":"#c5b796"} d={shell}/>
+    {scallop?[0,1,2,3,4,5,6].map(i=><path key={i} fill="none" stroke="#b97858" strokeWidth="2" d={`M100 123 Q${32+i*22} 89 ${38+i*22} 47`}/>):[0,1,2,3].map(i=><path key={i} fill="none" stroke={mussel?"#364c65":"#a29576"} strokeWidth="1.5" d={razor?`M42 ${74+i*11} Q105 ${61+i*12} 154 ${79+i*11}`:`M${40+i*7} ${107-i*6} Q${22+i*9} ${53+i*6} ${94+i*10} ${43+i*8} Q${159-i*3} ${43+i*9} ${158-i*9} ${95-i*3}`}/>)}
+    <path fill="none" stroke="#fff0da" strokeWidth="4" opacity=".65" d={mussel?"M58 71 Q71 43 106 41":"M52 74 Q69 48 98 48"}/>
+  </g>;
+}
 export const AnimalSprite = memo(function AnimalSprite({ animal, className = "" }: { animal: Animal; className?: string }) {
   const clipId = `coat${useId().replaceAll(":", "")}`, p = cartoonProfile(animal.id);
   if (animal.taxonomicGroup === "fish" && p.kind === "quadruped") {p.kind="fish";p.feature="fish";p.color="#9daf90";p.belly="#f0e3bf";}
   if (animal.taxonomicGroup === "shark" && p.kind === "quadruped") p.kind="shark";
+  if (animal.taxonomicGroup === "ray" && p.kind === "quadruped") p.kind="ray";
+  if (animal.taxonomicGroup === "bird" && p.kind === "quadruped") p.kind="bird";
+  if (animal.taxonomicGroup === "snake" && p.kind === "quadruped") p.kind="snake";
+  if (animal.taxonomicGroup === "turtle" && p.kind === "quadruped") p.kind="turtle";
+  if (["lizard","crocodilian","reptile"].includes(animal.taxonomicGroup) && p.kind === "quadruped") {p.kind="reptile";p.color="#7c9658";p.feature=animal.taxonomicGroup === "crocodilian"?"crocodile":"lizard";}
   if (animal.extinctionStatus === "extinct") return <img src={`/animalstats/extinct/${animal.scientificName.split(" ")[0].toLowerCase()}.svg`} className={`animalSprite fairCartoon extinctCartoon ${className}`} alt={`${animal.commonName} · cartoon reconstruction`} draggable={false} />;
-  return <svg viewBox="0 0 200 160" className={`animalSprite fairCartoon ${className}`} role="img" aria-label={animal.commonName} data-animal-id={animal.id} data-art-version="fair-cartoon-v2" data-normalized-size="142" data-anatomy={p.feature}>
+  return <svg viewBox="0 0 200 160" className={`animalSprite fairCartoon ${className}`} role="img" aria-label={animal.commonName} data-animal-id={animal.id} data-art-version="fair-cartoon-v2" data-normalized-size="142" data-anatomy={["crustacean","frog","salamander","amphibian","insect","bivalve"].includes(animal.taxonomicGroup) ? animal.taxonomicGroup : p.feature}>
     <ellipse className="cartoonGround" cx="100" cy="149" rx="65" ry="5" fill="#60482c" opacity=".12" />
     <g stroke={INK} strokeWidth="2.3" strokeLinejoin="round" strokeLinecap="round">
-      {p.feature?.startsWith("introduced:") ? <IntroducedMammal p={p}/> : p.feature?.startsWith("pet:") ? <Pet p={p} clipId={clipId}/> : p.feature === "guineapig" ? <GuineaPig clipId={clipId} /> : ["seal","sealion"].includes(p.feature ?? "") ? <Pinniped p={p}/> : ["littlebat","flyingfox"].includes(p.feature ?? "") ? <Bat p={p}/> : ["echidna","anteater","armadillo"].includes(p.feature ?? "") ? <SmallSpecialist p={p}/> : ["meerkat","seaotter"].includes(p.feature ?? "") ? <UprightMammal p={p}/> : p.kind === "bird" || p.kind === "penguin" ? <Bird p={p} /> : p.kind === "marine" ? <Marine p={p} /> : p.kind === "fish" ? <Fish p={p} clipId={clipId}/> : p.kind === "ray" ? <Ray p={p}/> : p.kind === "shark" ? <Shark p={p} clipId={clipId}/> : p.kind === "primate" ? <Primate p={p} /> : ["reptile", "snake", "turtle"].includes(p.kind) ? <Reptile p={p} /> : p.feature === "kangaroo" ? <Kangaroo p={p} /> : <Mammal p={p} clipId={clipId} />}
+      {animal.taxonomicGroup === "crustacean" ? <Crustacean animal={animal}/> : ["frog","salamander","amphibian"].includes(animal.taxonomicGroup) ? <Amphibian animal={animal}/> : animal.taxonomicGroup === "insect" ? <Insect animal={animal}/> : animal.taxonomicGroup === "bivalve" ? <Bivalve animal={animal}/> : p.feature?.startsWith("introduced:") ? <IntroducedMammal p={p}/> : p.feature?.startsWith("pet:") ? <Pet p={p} clipId={clipId}/> : p.feature === "guineapig" ? <GuineaPig clipId={clipId} /> : ["seal","sealion"].includes(p.feature ?? "") ? <Pinniped p={p}/> : ["littlebat","flyingfox"].includes(p.feature ?? "") ? <Bat p={p}/> : ["echidna","anteater","armadillo"].includes(p.feature ?? "") ? <SmallSpecialist p={p}/> : ["meerkat","seaotter"].includes(p.feature ?? "") ? <UprightMammal p={p}/> : p.kind === "bird" || p.kind === "penguin" ? <Bird p={p} /> : p.kind === "marine" ? <Marine p={p} /> : p.kind === "fish" ? <Fish p={p} clipId={clipId}/> : p.kind === "ray" ? <Ray p={p}/> : p.kind === "shark" ? <Shark p={p} clipId={clipId}/> : p.kind === "primate" ? <Primate p={p} /> : ["reptile", "snake", "turtle"].includes(p.kind) ? <Reptile p={p} /> : p.feature === "kangaroo" ? <Kangaroo p={p} /> : <Mammal p={p} clipId={clipId} />}
     </g>
   </svg>;
 });

@@ -1,0 +1,5162 @@
+[
+  {
+    "predator": "Epinephelus itajara",
+    "database": "fb",
+    "rowId": 172,
+    "predatorStage": "adults",
+    "prey": [
+      "Hypanus americanus"
+    ],
+    "originalFoodname": "Dasyatis americana",
+    "preyStage": "juv./adults",
+    "locality": "incl. U.S. Virgin Is.",
+    "recordContext": "Locality: incl. U.S. Virgin Is.",
+    "referenceId": 33,
+    "citation": {
+      "Author": "Randall, J.E.",
+      "Year": 1967,
+      "Title": "Food habits of reef fishes of the West Indies.",
+      "Source": "Stud. Trop. Oceanogr. Miami 5:665-847."
+    }
+  },
+  {
+    "predator": "Istiophorus platypterus",
+    "database": "fb",
+    "rowId": 54944,
+    "predatorStage": "adults",
+    "prey": [
+      "Decapterus russelli"
+    ],
+    "originalFoodname": "Decapterus russelli",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Cochin Fisheries Harbour, 2005-2008.",
+    "referenceId": 95151,
+    "citation": {
+      "Author": "Ganga, U., M.N.K. Elayathu, D. Prakasan, C.P. Rajool Shanis, K.V. Akhilesh and T.B. Retheesh",
+      "Year": 2012,
+      "Title": "Resource dynamics of the Indo-Pacific sailfish <i>Istiophorus platypterus</i> (Shaw, 1792) from the south-eastern Arabian Sea.",
+      "Source": "Indian J. Fish. 59(3):61-64."
+    }
+  },
+  {
+    "predator": "Katsuwonus pelamis",
+    "database": "fb",
+    "rowId": 953,
+    "predatorStage": "adults",
+    "prey": [
+      "Katsuwonus pelamis"
+    ],
+    "originalFoodname": "Katsuwonus pelamis",
+    "preyStage": "n.a./others",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 6390,
+    "citation": {
+      "Author": "Kailola, P.J., M.J. Williams, P.C. Stewart, R.E. Reichelt, A. McNee and C. Grieve",
+      "Year": 1993,
+      "Title": "Australian fisheries resources.",
+      "Source": "Bureau of Resource Sciences, Canberra, Australia. 422 p."
+    }
+  },
+  {
+    "predator": "Sarda sarda",
+    "database": "fb",
+    "rowId": 999,
+    "predatorStage": "adults",
+    "prey": [
+      "Gymnammodytes cicerelus"
+    ],
+    "originalFoodname": "Gymnammodytes cicerelus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 238,
+    "citation": {
+      "Author": "Yoshida, H.O.",
+      "Year": 1980,
+      "Title": "Synopsis of biological data on bonitos of the genus <i>Sarda</i>.",
+      "Source": "NOAA Tech. Rep. NMFS Circ. 432. FAO Fish. Synop. No. 118. 50 p."
+    }
+  },
+  {
+    "predator": "Sarda sarda",
+    "database": "fb",
+    "rowId": 1002,
+    "predatorStage": "adults",
+    "prey": [
+      "Trachurus mediterraneus"
+    ],
+    "originalFoodname": "Trachurus mediterraneus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 238,
+    "citation": {
+      "Author": "Yoshida, H.O.",
+      "Year": 1980,
+      "Title": "Synopsis of biological data on bonitos of the genus <i>Sarda</i>.",
+      "Source": "NOAA Tech. Rep. NMFS Circ. 432. FAO Fish. Synop. No. 118. 50 p."
+    }
+  },
+  {
+    "predator": "Sarda sarda",
+    "database": "fb",
+    "rowId": 1003,
+    "predatorStage": "adults",
+    "prey": [
+      "Trachurus trachurus"
+    ],
+    "originalFoodname": "Trachurus trachurus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated. Also Ref. 41934.",
+    "referenceId": 238,
+    "citation": {
+      "Author": "Yoshida, H.O.",
+      "Year": 1980,
+      "Title": "Synopsis of biological data on bonitos of the genus <i>Sarda</i>.",
+      "Source": "NOAA Tech. Rep. NMFS Circ. 432. FAO Fish. Synop. No. 118. 50 p."
+    }
+  },
+  {
+    "predator": "Sarda sarda",
+    "database": "fb",
+    "rowId": 1004,
+    "predatorStage": "adults",
+    "prey": [
+      "Boops boops"
+    ],
+    "originalFoodname": "Boops boops",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 238,
+    "citation": {
+      "Author": "Yoshida, H.O.",
+      "Year": 1980,
+      "Title": "Synopsis of biological data on bonitos of the genus <i>Sarda</i>.",
+      "Source": "NOAA Tech. Rep. NMFS Circ. 432. FAO Fish. Synop. No. 118. 50 p."
+    }
+  },
+  {
+    "predator": "Sarda sarda",
+    "database": "fb",
+    "rowId": 1005,
+    "predatorStage": "adults",
+    "prey": [
+      "Spicara smaris"
+    ],
+    "originalFoodname": "Spicara smaris",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 238,
+    "citation": {
+      "Author": "Yoshida, H.O.",
+      "Year": 1980,
+      "Title": "Synopsis of biological data on bonitos of the genus <i>Sarda</i>.",
+      "Source": "NOAA Tech. Rep. NMFS Circ. 432. FAO Fish. Synop. No. 118. 50 p."
+    }
+  },
+  {
+    "predator": "Sarda sarda",
+    "database": "fb",
+    "rowId": 1006,
+    "predatorStage": "adults",
+    "prey": [
+      "Sardina pilchardus"
+    ],
+    "originalFoodname": "Sardina pilchardus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated. Also Ref. 41934.",
+    "referenceId": 238,
+    "citation": {
+      "Author": "Yoshida, H.O.",
+      "Year": 1980,
+      "Title": "Synopsis of biological data on bonitos of the genus <i>Sarda</i>.",
+      "Source": "NOAA Tech. Rep. NMFS Circ. 432. FAO Fish. Synop. No. 118. 50 p."
+    }
+  },
+  {
+    "predator": "Sarda sarda",
+    "database": "fb",
+    "rowId": 1008,
+    "predatorStage": "adults",
+    "prey": [
+      "Sprattus sprattus"
+    ],
+    "originalFoodname": "Sprattus sprattus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 238,
+    "citation": {
+      "Author": "Yoshida, H.O.",
+      "Year": 1980,
+      "Title": "Synopsis of biological data on bonitos of the genus <i>Sarda</i>.",
+      "Source": "NOAA Tech. Rep. NMFS Circ. 432. FAO Fish. Synop. No. 118. 50 p."
+    }
+  },
+  {
+    "predator": "Sarda sarda",
+    "database": "fb",
+    "rowId": 1011,
+    "predatorStage": "adults",
+    "prey": [
+      "Engraulis encrasicolus"
+    ],
+    "originalFoodname": "Engraulis encrasicolus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 238,
+    "citation": {
+      "Author": "Yoshida, H.O.",
+      "Year": 1980,
+      "Title": "Synopsis of biological data on bonitos of the genus <i>Sarda</i>.",
+      "Source": "NOAA Tech. Rep. NMFS Circ. 432. FAO Fish. Synop. No. 118. 50 p."
+    }
+  },
+  {
+    "predator": "Sarda sarda",
+    "database": "fb",
+    "rowId": 1014,
+    "predatorStage": "adults",
+    "prey": [
+      "Mullus barbatus"
+    ],
+    "originalFoodname": "Mullus barbatus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 238,
+    "citation": {
+      "Author": "Yoshida, H.O.",
+      "Year": 1980,
+      "Title": "Synopsis of biological data on bonitos of the genus <i>Sarda</i>.",
+      "Source": "NOAA Tech. Rep. NMFS Circ. 432. FAO Fish. Synop. No. 118. 50 p."
+    }
+  },
+  {
+    "predator": "Sarda sarda",
+    "database": "fb",
+    "rowId": 1016,
+    "predatorStage": "adults",
+    "prey": [
+      "Leiostomus xanthurus"
+    ],
+    "originalFoodname": "Leiostomus xanthurus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 238,
+    "citation": {
+      "Author": "Yoshida, H.O.",
+      "Year": 1980,
+      "Title": "Synopsis of biological data on bonitos of the genus <i>Sarda</i>.",
+      "Source": "NOAA Tech. Rep. NMFS Circ. 432. FAO Fish. Synop. No. 118. 50 p."
+    }
+  },
+  {
+    "predator": "Sarda sarda",
+    "database": "fb",
+    "rowId": 1018,
+    "predatorStage": "adults",
+    "prey": [
+      "Scomber japonicus"
+    ],
+    "originalFoodname": "Scomber japonicus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 238,
+    "citation": {
+      "Author": "Yoshida, H.O.",
+      "Year": 1980,
+      "Title": "Synopsis of biological data on bonitos of the genus <i>Sarda</i>.",
+      "Source": "NOAA Tech. Rep. NMFS Circ. 432. FAO Fish. Synop. No. 118. 50 p."
+    }
+  },
+  {
+    "predator": "Sarda sarda",
+    "database": "fb",
+    "rowId": 1019,
+    "predatorStage": "adults",
+    "prey": [
+      "Scomber scombrus"
+    ],
+    "originalFoodname": "Scomber scombrus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 238,
+    "citation": {
+      "Author": "Yoshida, H.O.",
+      "Year": 1980,
+      "Title": "Synopsis of biological data on bonitos of the genus <i>Sarda</i>.",
+      "Source": "NOAA Tech. Rep. NMFS Circ. 432. FAO Fish. Synop. No. 118. 50 p."
+    }
+  },
+  {
+    "predator": "Sarda sarda",
+    "database": "fb",
+    "rowId": 1015,
+    "predatorStage": "adults",
+    "prey": [
+      "Pomatomus saltatrix"
+    ],
+    "originalFoodname": "Pomatomus saltator",
+    "preyStage": "recruits/juv.",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 238,
+    "citation": {
+      "Author": "Yoshida, H.O.",
+      "Year": 1980,
+      "Title": "Synopsis of biological data on bonitos of the genus <i>Sarda</i>.",
+      "Source": "NOAA Tech. Rep. NMFS Circ. 432. FAO Fish. Synop. No. 118. 50 p."
+    }
+  },
+  {
+    "predator": "Sarda sarda",
+    "database": "fb",
+    "rowId": 1017,
+    "predatorStage": "adults",
+    "prey": [
+      "Sarda sarda"
+    ],
+    "originalFoodname": "Sarda sarda",
+    "preyStage": "recruits/juv.",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 238,
+    "citation": {
+      "Author": "Yoshida, H.O.",
+      "Year": 1980,
+      "Title": "Synopsis of biological data on bonitos of the genus <i>Sarda</i>.",
+      "Source": "NOAA Tech. Rep. NMFS Circ. 432. FAO Fish. Synop. No. 118. 50 p."
+    }
+  },
+  {
+    "predator": "Scomber scombrus",
+    "database": "fb",
+    "rowId": 1033,
+    "predatorStage": "adults",
+    "prey": [
+      "Ammodytes marinus"
+    ],
+    "originalFoodname": "Ammodytes marinus",
+    "preyStage": "juv./adults",
+    "locality": "Also northwestern Europe.",
+    "recordContext": "Locality: Also northwestern Europe.",
+    "referenceId": 173,
+    "citation": {
+      "Author": "Muus, B.J. and P. Dahlstr\u00f6m",
+      "Year": 1974,
+      "Title": "Collins guide to the sea fishes of Britain and North-Western Europe.",
+      "Source": "Collins, London, UK. 244 p."
+    }
+  },
+  {
+    "predator": "Scomber scombrus",
+    "database": "fb",
+    "rowId": 26781,
+    "predatorStage": "adults",
+    "prey": [
+      "Clupea harengus"
+    ],
+    "originalFoodname": "Clupea harengus",
+    "preyStage": "recruits/juv.",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 35388,
+    "citation": {
+      "Author": "Muus, B.J. and J.G. Nielsen",
+      "Year": 1999,
+      "Title": "Sea fish.",
+      "Source": "Scandinavian Fishing Year Book, Hedehusene, Denmark. 340 p."
+    }
+  },
+  {
+    "predator": "Scomber scombrus",
+    "database": "fb",
+    "rowId": 26782,
+    "predatorStage": "adults",
+    "prey": [
+      "Sprattus sprattus"
+    ],
+    "originalFoodname": "Sprattus sprattus",
+    "preyStage": "recruits/juv.",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 35388,
+    "citation": {
+      "Author": "Muus, B.J. and J.G. Nielsen",
+      "Year": 1999,
+      "Title": "Sea fish.",
+      "Source": "Scandinavian Fishing Year Book, Hedehusene, Denmark. 340 p."
+    }
+  },
+  {
+    "predator": "Scomber scombrus",
+    "database": "fb",
+    "rowId": 26780,
+    "predatorStage": "adults",
+    "prey": [
+      "Gadus morhua"
+    ],
+    "originalFoodname": "Gadus morhua",
+    "preyStage": "recruits/juv.",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 35388,
+    "citation": {
+      "Author": "Muus, B.J. and J.G. Nielsen",
+      "Year": 1999,
+      "Title": "Sea fish.",
+      "Source": "Scandinavian Fishing Year Book, Hedehusene, Denmark. 340 p."
+    }
+  },
+  {
+    "predator": "Scomberomorus maculatus",
+    "database": "fb",
+    "rowId": 1088,
+    "predatorStage": "adults",
+    "prey": [
+      "Alosa pseudoharengus"
+    ],
+    "originalFoodname": "Alosa pseudoharengus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 168,
+    "citation": {
+      "Author": "Collette, B.B. and C.E. Nauen",
+      "Year": 1983,
+      "Title": "FAO Species Catalogue. Vol. 2. Scombrids of the world. An annotated and illustrated catalogue of tunas, mackerels, bonitos and related species known to date.",
+      "Source": "Rome: FAO. FAO Fish. Synop. 125(2):137 p."
+    }
+  },
+  {
+    "predator": "Squalus acanthias",
+    "database": "fb",
+    "rowId": 1171,
+    "predatorStage": "adults",
+    "prey": [
+      "Engraulis encrasicolus"
+    ],
+    "originalFoodname": "Engraulis encrasicolus",
+    "preyStage": "juv./adults",
+    "locality": "west coast of southern Africa.",
+    "recordContext": "Locality: west coast of southern Africa",
+    "referenceId": 12473,
+    "citation": {
+      "Author": "Ebert, D.A., L.J.V. Compagno and P.D. Cowley",
+      "Year": 1992,
+      "Title": "A preliminary investigation of the feeding ecology of squaloid sharks off the west coast of southern Africa.",
+      "Source": "S. Afr. J. mar Sci. 12:601-609."
+    }
+  },
+  {
+    "predator": "Squalus acanthias",
+    "database": "fb",
+    "rowId": 43159,
+    "predatorStage": "adults",
+    "prey": [
+      "Gadus chalcogrammus"
+    ],
+    "originalFoodname": "Theragra chalcogramma",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 56373,
+    "citation": {
+      "Author": "Melnikov, I.V.",
+      "Year": 1997,
+      "Title": "Pelagic predatory fishes - consumers of Pacific salmons: distribution within Russian EEZ and adjacent waters, abundance and some biological features.",
+      "Source": "Izv. TINRO 122:213-228."
+    }
+  },
+  {
+    "predator": "Squalus acanthias",
+    "database": "fb",
+    "rowId": 43158,
+    "predatorStage": "adults",
+    "prey": [
+      "Cololabis saira"
+    ],
+    "originalFoodname": "Cololabis saira",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 56373,
+    "citation": {
+      "Author": "Melnikov, I.V.",
+      "Year": 1997,
+      "Title": "Pelagic predatory fishes - consumers of Pacific salmons: distribution within Russian EEZ and adjacent waters, abundance and some biological features.",
+      "Source": "Izv. TINRO 122:213-228."
+    }
+  },
+  {
+    "predator": "Squalus acanthias",
+    "database": "fb",
+    "rowId": 59273,
+    "predatorStage": "adults",
+    "prey": [
+      "Pleurobrachia pileus"
+    ],
+    "originalFoodname": "Pleurobrachia pileus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 3734,
+    "citation": {
+      "Author": "Tiroba, G.",
+      "Year": 1990,
+      "Title": "A preliminary account of the population dynamics of <i>Stolephorus devisi</i> (Engraulidae) at Munda baitground, Solomon Islands.",
+      "Source": "Fishbyte 8(1):26-27."
+    }
+  },
+  {
+    "predator": "Thunnus alalunga",
+    "database": "fb",
+    "rowId": 26778,
+    "predatorStage": "adults",
+    "prey": [
+      "Scomber japonicus"
+    ],
+    "originalFoodname": "Scomber japonicus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 35388,
+    "citation": {
+      "Author": "Muus, B.J. and J.G. Nielsen",
+      "Year": 1999,
+      "Title": "Sea fish.",
+      "Source": "Scandinavian Fishing Year Book, Hedehusene, Denmark. 340 p."
+    }
+  },
+  {
+    "predator": "Thunnus albacares",
+    "database": "fb",
+    "rowId": 534,
+    "predatorStage": "adults",
+    "prey": [
+      "Thunnus albacares"
+    ],
+    "originalFoodname": "Thunnus albacares",
+    "preyStage": "recruits/juv.",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 6390,
+    "citation": {
+      "Author": "Kailola, P.J., M.J. Williams, P.C. Stewart, R.E. Reichelt, A. McNee and C. Grieve",
+      "Year": 1993,
+      "Title": "Australian fisheries resources.",
+      "Source": "Bureau of Resource Sciences, Canberra, Australia. 422 p."
+    }
+  },
+  {
+    "predator": "Makaira nigricans",
+    "database": "fb",
+    "rowId": 1398,
+    "predatorStage": "adults",
+    "prey": [
+      "Thunnus obesus"
+    ],
+    "originalFoodname": "Thunnus obesus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 43,
+    "citation": {
+      "Author": "Nakamura, I.",
+      "Year": 1985,
+      "Title": "FAO species catalogue. Vol. 5. Billfishes of the world. An annotated and illustrated catalogue of marlins, sailfishes, spearfishes and swordfishes known to date.",
+      "Source": "FAO Fish. Synop. 125(5):65p. Rome: FAO."
+    }
+  },
+  {
+    "predator": "Xiphias gladius",
+    "database": "fb",
+    "rowId": 58751,
+    "predatorStage": "adults",
+    "prey": [
+      "Octopoteuthis rugosa"
+    ],
+    "originalFoodname": "Octopoteuthis rugosa",
+    "preyStage": "juv./adults",
+    "locality": "Central east Atlantic.",
+    "recordContext": null,
+    "referenceId": 13790,
+    "citation": {
+      "Author": "Hernandez-Garcia, V.",
+      "Year": 1995,
+      "Title": "The diet of the swordfish <i>Xiphias gladius</i> Linnaeus, 1758, in the central east Atlantic, with emphasis on the role of cephalopods.",
+      "Source": "Fish. Bull. 93:403-411."
+    }
+  },
+  {
+    "predator": "Salmo salar",
+    "database": "fb",
+    "rowId": 1709,
+    "predatorStage": "adults",
+    "prey": [
+      "Micromesistius poutassou"
+    ],
+    "originalFoodname": "Micromesistius poutassou",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated: No. of fish examined=154 adult salmon.",
+    "referenceId": 6258,
+    "citation": {
+      "Author": "Maitland, P.S. and R.N. Campbell",
+      "Year": 1992,
+      "Title": "Freshwater fishes of the British Isles.",
+      "Source": "HarperCollins Publishers, London.368 p."
+    }
+  },
+  {
+    "predator": "Salmo trutta",
+    "database": "fb",
+    "rowId": 1732,
+    "predatorStage": "adults",
+    "prey": [
+      "Gasterosteus aculeatus"
+    ],
+    "originalFoodname": "Gasterosteus aculeatus aculeatus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated. Also in Tryde\u00e5 stream, Ramsasa (Ref. 42648).",
+    "referenceId": 173,
+    "citation": {
+      "Author": "Muus, B.J. and P. Dahlstr\u00f6m",
+      "Year": 1974,
+      "Title": "Collins guide to the sea fishes of Britain and North-Western Europe.",
+      "Source": "Collins, London, UK. 244 p."
+    }
+  },
+  {
+    "predator": "Salmo trutta",
+    "database": "fb",
+    "rowId": 1735,
+    "predatorStage": "adults",
+    "prey": [
+      "Petromyzon marinus"
+    ],
+    "originalFoodname": "Petromyzon marinus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 5650,
+    "citation": {
+      "Author": "Cochran, P.A., A.A. Leisten and M.A. Sneen",
+      "Year": 1992,
+      "Title": "Cases of predation and parasitism on lampreys in Wisconsin.",
+      "Source": "J. Freshwat. Ecol. 7(4):435-436."
+    }
+  },
+  {
+    "predator": "Oncorhynchus mykiss",
+    "database": "fb",
+    "rowId": 54778,
+    "predatorStage": "adults",
+    "prey": [
+      "Galaxias zebratus"
+    ],
+    "originalFoodname": "Galaxias zebratus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "<i>Galaxias zebratus</i> was identified as prey for <i>Oncorhynchus mykiss</i> in the Upper Berg River, South Africa (Ref. 93597).  ",
+    "referenceId": 93597,
+    "citation": {
+      "Author": "Woodford, D.J. and N.D. Impson",
+      "Year": 2004,
+      "Title": "A preliminary assessment of the impact of alien rainbow trout (<i>Oncorhynchus mykiss</i>) on indigenous fishes of the upper Berg River, Western Cape province, South Africa.",
+      "Source": "Afr. J. Aquat. Sci. 29(1):107-111."
+    }
+  },
+  {
+    "predator": "Oncorhynchus mykiss",
+    "database": "fb",
+    "rowId": 1743,
+    "predatorStage": "adults",
+    "prey": [
+      "Ichthyomyzon fossor"
+    ],
+    "originalFoodname": "Ichthyomyzon fossor",
+    "preyStage": "juv./adults",
+    "locality": "Wisconsin.",
+    "recordContext": "Locality: Wisconsin.",
+    "referenceId": 5650,
+    "citation": {
+      "Author": "Cochran, P.A., A.A. Leisten and M.A. Sneen",
+      "Year": 1992,
+      "Title": "Cases of predation and parasitism on lampreys in Wisconsin.",
+      "Source": "J. Freshwat. Ecol. 7(4):435-436."
+    }
+  },
+  {
+    "predator": "Salvelinus namaycush",
+    "database": "fb",
+    "rowId": 1894,
+    "predatorStage": "adults",
+    "prey": [
+      "Catostomus catostomus"
+    ],
+    "originalFoodname": "Catostomus catostomus catostomus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 1998,
+    "citation": {
+      "Author": "Scott, W.B. and E.J. Crossman",
+      "Year": 1973,
+      "Title": "Freshwater fishes of Canada.",
+      "Source": "Bull. Fish. Res. Board Can. 184: xi+1-966."
+    }
+  },
+  {
+    "predator": "Salvelinus namaycush",
+    "database": "fb",
+    "rowId": 60898,
+    "predatorStage": "adults",
+    "prey": [
+      "Alosa pseudoharengus"
+    ],
+    "originalFoodname": "Alosa pseudoharengus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Michigan",
+    "referenceId": 120394,
+    "citation": {
+      "Author": "Michigan Department of Natural Resources",
+      "Year": 2019,
+      "Title": "Lake trout.",
+      "Source": "https://www.michigan.gov/dnr/0,8817,7-350-79135_79218_79614_82519---,00.html. Accessed 4/2019."
+    }
+  },
+  {
+    "predator": "Salvelinus namaycush",
+    "database": "fb",
+    "rowId": 1899,
+    "predatorStage": "adults",
+    "prey": [
+      "Notropis atherinoides"
+    ],
+    "originalFoodname": "Notropis atherinoides",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 1998,
+    "citation": {
+      "Author": "Scott, W.B. and E.J. Crossman",
+      "Year": 1973,
+      "Title": "Freshwater fishes of Canada.",
+      "Source": "Bull. Fish. Res. Board Can. 184: xi+1-966."
+    }
+  },
+  {
+    "predator": "Salvelinus namaycush",
+    "database": "fb",
+    "rowId": 1900,
+    "predatorStage": "adults",
+    "prey": [
+      "Pungitius pungitius"
+    ],
+    "originalFoodname": "Pungitius pungitius pungitius",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 1998,
+    "citation": {
+      "Author": "Scott, W.B. and E.J. Crossman",
+      "Year": 1973,
+      "Title": "Freshwater fishes of Canada.",
+      "Source": "Bull. Fish. Res. Board Can. 184: xi+1-966."
+    }
+  },
+  {
+    "predator": "Salvelinus namaycush",
+    "database": "fb",
+    "rowId": 60899,
+    "predatorStage": "adults",
+    "prey": [
+      "Osmerus mordax"
+    ],
+    "originalFoodname": "Osmerus mordax",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Michigan",
+    "referenceId": 120394,
+    "citation": {
+      "Author": "Michigan Department of Natural Resources",
+      "Year": 2019,
+      "Title": "Lake trout.",
+      "Source": "https://www.michigan.gov/dnr/0,8817,7-350-79135_79218_79614_82519---,00.html. Accessed 4/2019."
+    }
+  },
+  {
+    "predator": "Salvelinus namaycush",
+    "database": "fb",
+    "rowId": 1901,
+    "predatorStage": "adults",
+    "prey": [
+      "Percopsis omiscomaycus"
+    ],
+    "originalFoodname": "Percopsis omiscomaycus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 1998,
+    "citation": {
+      "Author": "Scott, W.B. and E.J. Crossman",
+      "Year": 1973,
+      "Title": "Freshwater fishes of Canada.",
+      "Source": "Bull. Fish. Res. Board Can. 184: xi+1-966."
+    }
+  },
+  {
+    "predator": "Salvelinus namaycush",
+    "database": "fb",
+    "rowId": 1902,
+    "predatorStage": "adults",
+    "prey": [
+      "Salvelinus namaycush"
+    ],
+    "originalFoodname": "Salvelinus namaycush",
+    "preyStage": "recruits/juv.",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 1998,
+    "citation": {
+      "Author": "Scott, W.B. and E.J. Crossman",
+      "Year": 1973,
+      "Title": "Freshwater fishes of Canada.",
+      "Source": "Bull. Fish. Res. Board Can. 184: xi+1-966."
+    }
+  },
+  {
+    "predator": "Esox lucius",
+    "database": "fb",
+    "rowId": 34475,
+    "predatorStage": "adults",
+    "prey": [
+      "Salariopsis fluviatilis"
+    ],
+    "originalFoodname": "Salaria fluviatilis",
+    "preyStage": "juv./adults",
+    "locality": "Ruidera Lakes.",
+    "recordContext": "Locality: Ruidera Lakes.",
+    "referenceId": 27858,
+    "citation": {
+      "Author": "Elvira, B., G.G. Nicola and A. Almodovar",
+      "Year": 1996,
+      "Title": "Pike and red swamp crayfish: a new case on predator-prey relationship between aliens in central Spain.",
+      "Source": "J. Fish Biol. 48(3):437-446."
+    }
+  },
+  {
+    "predator": "Esox lucius",
+    "database": "fb",
+    "rowId": 34473,
+    "predatorStage": "adults",
+    "prey": [
+      "Lepomis gibbosus"
+    ],
+    "originalFoodname": "Lepomis gibbosus",
+    "preyStage": "juv./adults",
+    "locality": "Ruidera Lakes.",
+    "recordContext": "Locality: Ruidera Lakes.",
+    "referenceId": 27858,
+    "citation": {
+      "Author": "Elvira, B., G.G. Nicola and A. Almodovar",
+      "Year": 1996,
+      "Title": "Pike and red swamp crayfish: a new case on predator-prey relationship between aliens in central Spain.",
+      "Source": "J. Fish Biol. 48(3):437-446."
+    }
+  },
+  {
+    "predator": "Esox lucius",
+    "database": "fb",
+    "rowId": 34474,
+    "predatorStage": "adults",
+    "prey": [
+      "Micropterus salmoides"
+    ],
+    "originalFoodname": "Micropterus salmoides",
+    "preyStage": "juv./adults",
+    "locality": "Ruidera Lakes.",
+    "recordContext": "Locality: Ruidera Lakes.",
+    "referenceId": 27858,
+    "citation": {
+      "Author": "Elvira, B., G.G. Nicola and A. Almodovar",
+      "Year": 1996,
+      "Title": "Pike and red swamp crayfish: a new case on predator-prey relationship between aliens in central Spain.",
+      "Source": "J. Fish Biol. 48(3):437-446."
+    }
+  },
+  {
+    "predator": "Esox lucius",
+    "database": "fb",
+    "rowId": 33899,
+    "predatorStage": "adults",
+    "prey": [
+      "Blicca bjoerkna"
+    ],
+    "originalFoodname": "Abramis bjoerkna",
+    "preyStage": "juv./adults",
+    "locality": "Kizlyar Bay, northern Caspian Sea.",
+    "recordContext": "Locality: Kizlyar Bay, northern Caspian Sea.",
+    "referenceId": 31654,
+    "citation": {
+      "Author": "Stolyarov, I.A. and K.S. Abusheva",
+      "Year": 1997,
+      "Title": "Pike <i>Esox lucius</i> of Kizlyar Bay of the northern Caspian Sea.",
+      "Source": "J. Ichthyol. 37(3):268-271."
+    }
+  },
+  {
+    "predator": "Esox lucius",
+    "database": "fb",
+    "rowId": 49848,
+    "predatorStage": "adults",
+    "prey": [
+      "Esox lucius"
+    ],
+    "originalFoodname": "Esox lucius",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Arctic lakes\r\nPredator stage:  large individuals",
+    "referenceId": 59043,
+    "citation": {
+      "Author": "Kottelat, M. and J. Freyhof",
+      "Year": 2007,
+      "Title": "Handbook of European freshwater fishes.",
+      "Source": "Publications Kottelat, Cornol and Freyhof, Berlin. 646 pp."
+    }
+  },
+  {
+    "predator": "Esox lucius",
+    "database": "fb",
+    "rowId": 2062,
+    "predatorStage": "adults",
+    "prey": [
+      "Lota lota"
+    ],
+    "originalFoodname": "Lota lota",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 27547,
+    "citation": {
+      "Author": "Morrow, J.E.",
+      "Year": 1980,
+      "Title": "The freshwater fishes of Alaska.",
+      "Source": "University of. B.C. Animal Resources Ecology Library. 248p."
+    }
+  },
+  {
+    "predator": "Esox lucius",
+    "database": "fb",
+    "rowId": 2069,
+    "predatorStage": "adults",
+    "prey": [
+      "Dallia pectoralis"
+    ],
+    "originalFoodname": "Dallia pectoralis",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 27547,
+    "citation": {
+      "Author": "Morrow, J.E.",
+      "Year": 1980,
+      "Title": "The freshwater fishes of Alaska.",
+      "Source": "University of. B.C. Animal Resources Ecology Library. 248p."
+    }
+  },
+  {
+    "predator": "Esox lucius",
+    "database": "fb",
+    "rowId": 2059,
+    "predatorStage": "adults",
+    "prey": [
+      "Esox lucius"
+    ],
+    "originalFoodname": "Esox lucius",
+    "preyStage": "recruits/juv.",
+    "locality": null,
+    "recordContext": "Locality: Not stated. Also Ref. 27858.",
+    "referenceId": 27547,
+    "citation": {
+      "Author": "Morrow, J.E.",
+      "Year": 1980,
+      "Title": "The freshwater fishes of Alaska.",
+      "Source": "University of. B.C. Animal Resources Ecology Library. 248p."
+    }
+  },
+  {
+    "predator": "Esox lucius",
+    "database": "fb",
+    "rowId": 57508,
+    "predatorStage": "adults",
+    "prey": [
+      "Procambarus clarkii"
+    ],
+    "originalFoodname": "Procambarus  clarkii",
+    "preyStage": "juv./adults",
+    "locality": "Ruidera Lakes.",
+    "recordContext": null,
+    "referenceId": 27858,
+    "citation": {
+      "Author": "Elvira, B., G.G. Nicola and A. Almodovar",
+      "Year": 1996,
+      "Title": "Pike and red swamp crayfish: a new case on predator-prey relationship between aliens in central Spain.",
+      "Source": "J. Fish Biol. 48(3):437-446."
+    }
+  },
+  {
+    "predator": "Lates calcarifer",
+    "database": "fb",
+    "rowId": 57192,
+    "predatorStage": "adults",
+    "prey": [
+      "Penaeus semisulcatus"
+    ],
+    "originalFoodname": "Penaeus  semisulcatus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 8933,
+    "citation": {
+      "Author": "Teichert-Coddington, D.R. and R.O. Smitherman",
+      "Year": 1988,
+      "Title": "Lack of response by <i>Tilapia nilotica</i> to mass selection for rapid early growth.",
+      "Source": "Trans. Am. Fish. Soc. 117(3):297-300."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 2655,
+    "predatorStage": "adults",
+    "prey": [
+      "Alosa aestivalis"
+    ],
+    "originalFoodname": "Alosa aestivalis",
+    "preyStage": "juv./adults",
+    "locality": "lower Hudson River estuary, New York.",
+    "recordContext": "Locality: lower Hudson River estuary, New York.",
+    "referenceId": 6877,
+    "citation": {
+      "Author": "Juanes, F., R.E. Marks, K.A. McKown and D.O. Conover",
+      "Year": 1993,
+      "Title": "Predation by age-0 bluefish on age-0 anadromous fishes in the Hudson River estuary.",
+      "Source": "Trans. Am. Fish. Soc. 122(3):348-356."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 2657,
+    "predatorStage": "adults",
+    "prey": [
+      "Alosa sapidissima"
+    ],
+    "originalFoodname": "Alosa sapidissima",
+    "preyStage": "juv./adults",
+    "locality": "lower Hudson River estuary, New York.",
+    "recordContext": "Locality: lower Hudson River estuary, New York.",
+    "referenceId": 6877,
+    "citation": {
+      "Author": "Juanes, F., R.E. Marks, K.A. McKown and D.O. Conover",
+      "Year": 1993,
+      "Title": "Predation by age-0 bluefish on age-0 anadromous fishes in the Hudson River estuary.",
+      "Source": "Trans. Am. Fish. Soc. 122(3):348-356."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 1457,
+    "predatorStage": "adults",
+    "prey": [
+      "Clupea harengus"
+    ],
+    "originalFoodname": "Clupea harengus",
+    "preyStage": "juv./adults",
+    "locality": "East Coast continental shelf and Georges Bank.",
+    "recordContext": "Date:  Georges Bank,  6 Sep 1994-27 Oct 1995; Cape Hatteras to Montauk Point, 5 Sep-27 Oct 1995.  Method:  Stomach content anaysis.",
+    "referenceId": 35884,
+    "citation": {
+      "Author": "Buckel, J.A., M.J. Fogarty and D.O. Conover",
+      "Year": 1999,
+      "Title": "Foraging habits of bluefish, <i>Pomatomus saltatrix</i>, on the U.S. east coast continental shelf.",
+      "Source": "Fish. Bull. 97:758-775."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 1456,
+    "predatorStage": "adults",
+    "prey": [
+      "Sardinops sagax"
+    ],
+    "originalFoodname": "Sardinops sagax",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 6390,
+    "citation": {
+      "Author": "Kailola, P.J., M.J. Williams, P.C. Stewart, R.E. Reichelt, A. McNee and C. Grieve",
+      "Year": 1993,
+      "Title": "Australian fisheries resources.",
+      "Source": "Bureau of Resource Sciences, Canberra, Australia. 422 p."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 27844,
+    "predatorStage": "adults",
+    "prey": [
+      "Conger oceanicus"
+    ],
+    "originalFoodname": "Conger oceanicus",
+    "preyStage": "juv./adults",
+    "locality": "East Coast continental shelf and Georges Bank.",
+    "recordContext": "Locality:  Cape Hatteras to Montauk Point.  Date:  5 Sep-27 Oct 1995.  Method:  Stomach content analysis.",
+    "referenceId": 35884,
+    "citation": {
+      "Author": "Buckel, J.A., M.J. Fogarty and D.O. Conover",
+      "Year": 1999,
+      "Title": "Foraging habits of bluefish, <i>Pomatomus saltatrix</i>, on the U.S. east coast continental shelf.",
+      "Source": "Fish. Bull. 97:758-775."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 62724,
+    "predatorStage": "adults",
+    "prey": [
+      "Anchoa hepsetus"
+    ],
+    "originalFoodname": "Anchoa hepsetus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Date:  Cape Hatteras to Montauk Point,  6 Sep 1994-27 Oct 1995; Georges Bank, 5 Sep-27 Oct 1995.  Method:  Stomach content anaysis.",
+    "referenceId": 35884,
+    "citation": {
+      "Author": "Buckel, J.A., M.J. Fogarty and D.O. Conover",
+      "Year": 1999,
+      "Title": "Foraging habits of bluefish, <i>Pomatomus saltatrix</i>, on the U.S. east coast continental shelf.",
+      "Source": "Fish. Bull. 97:758-775."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 1458,
+    "predatorStage": "adults",
+    "prey": [
+      "Anchoa mitchilli"
+    ],
+    "originalFoodname": "Anchoa mitchilli",
+    "preyStage": "juv./adults",
+    "locality": "lower Hudson River estuary, New York.",
+    "recordContext": "Locality: lower Hudson River estuary, New York.",
+    "referenceId": 6877,
+    "citation": {
+      "Author": "Juanes, F., R.E. Marks, K.A. McKown and D.O. Conover",
+      "Year": 1993,
+      "Title": "Predation by age-0 bluefish on age-0 anadromous fishes in the Hudson River estuary.",
+      "Source": "Trans. Am. Fish. Soc. 122(3):348-356."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 62742,
+    "predatorStage": "adults",
+    "prey": [
+      "Gadus morhua"
+    ],
+    "originalFoodname": "Gadus morhua",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Georges Bank.  Date:  6 Sep-28 Oct 1994.  Method:  Stomach content analysis.",
+    "referenceId": 35884,
+    "citation": {
+      "Author": "Buckel, J.A., M.J. Fogarty and D.O. Conover",
+      "Year": 1999,
+      "Title": "Foraging habits of bluefish, <i>Pomatomus saltatrix</i>, on the U.S. east coast continental shelf.",
+      "Source": "Fish. Bull. 97:758-775."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 27847,
+    "predatorStage": "adults",
+    "prey": [
+      "Melanogrammus aeglefinus"
+    ],
+    "originalFoodname": "Melanogrammus aeglefinus",
+    "preyStage": "juv./adults",
+    "locality": "East Coast continental shelf and Georges Bank.",
+    "recordContext": "Locality:  Georges Bank.  Date:  6 Sep 1994-27 Oct 1995.  Method:  Stomach content analysis.",
+    "referenceId": 35884,
+    "citation": {
+      "Author": "Buckel, J.A., M.J. Fogarty and D.O. Conover",
+      "Year": 1999,
+      "Title": "Foraging habits of bluefish, <i>Pomatomus saltatrix</i>, on the U.S. east coast continental shelf.",
+      "Source": "Fish. Bull. 97:758-775."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 1461,
+    "predatorStage": "adults",
+    "prey": [
+      "Microgadus tomcod"
+    ],
+    "originalFoodname": "Microgadus tomcod",
+    "preyStage": "juv./adults",
+    "locality": "lower Hudson River estuary, New York.",
+    "recordContext": "Locality: lower Hudson River estuary, New York.",
+    "referenceId": 6877,
+    "citation": {
+      "Author": "Juanes, F., R.E. Marks, K.A. McKown and D.O. Conover",
+      "Year": 1993,
+      "Title": "Predation by age-0 bluefish on age-0 anadromous fishes in the Hudson River estuary.",
+      "Source": "Trans. Am. Fish. Soc. 122(3):348-356."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 1463,
+    "predatorStage": "adults",
+    "prey": [
+      "Leiognathus equula"
+    ],
+    "originalFoodname": "Leiognathus equulus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 7328,
+    "citation": {
+      "Author": "Cabanban, A.S.",
+      "Year": 1991,
+      "Title": "The dynamics of Leiognathidae in tropical demersal ichthyofaunal community.",
+      "Source": "James Cook University of North Queensland, Australia. 262 p. Ph.D. dissertation."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 1464,
+    "predatorStage": "adults",
+    "prey": [
+      "Deveximentum insidiator"
+    ],
+    "originalFoodname": "Secutor insidiator",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 7328,
+    "citation": {
+      "Author": "Cabanban, A.S.",
+      "Year": 1991,
+      "Title": "The dynamics of Leiognathidae in tropical demersal ichthyofaunal community.",
+      "Source": "James Cook University of North Queensland, Australia. 262 p. Ph.D. dissertation."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 27846,
+    "predatorStage": "adults",
+    "prey": [
+      "Enchelyopus cimbrius"
+    ],
+    "originalFoodname": "Enchelyopus cimbrius",
+    "preyStage": "juv./adults",
+    "locality": "East Coast continental shelf and Georges Bank.",
+    "recordContext": "Locality:  Georges Bank.  Date:  6 Sep-28 Oct 1994.  Method:  Stomach content analysis.",
+    "referenceId": 35884,
+    "citation": {
+      "Author": "Buckel, J.A., M.J. Fogarty and D.O. Conover",
+      "Year": 1999,
+      "Title": "Foraging habits of bluefish, <i>Pomatomus saltatrix</i>, on the U.S. east coast continental shelf.",
+      "Source": "Fish. Bull. 97:758-775."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 62725,
+    "predatorStage": "adults",
+    "prey": [
+      "Merluccius bilinearis"
+    ],
+    "originalFoodname": "Merluccius bilinearis",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Georges Bank.  Date:  6 Sep 1994-27 Oct 1995.  Method:  Stomach content analysis.",
+    "referenceId": 35884,
+    "citation": {
+      "Author": "Buckel, J.A., M.J. Fogarty and D.O. Conover",
+      "Year": 1999,
+      "Title": "Foraging habits of bluefish, <i>Pomatomus saltatrix</i>, on the U.S. east coast continental shelf.",
+      "Source": "Fish. Bull. 97:758-775."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 27851,
+    "predatorStage": "adults",
+    "prey": [
+      "Stephanolepis hispida"
+    ],
+    "originalFoodname": "Stephanolepis hispidus",
+    "preyStage": "juv./adults",
+    "locality": "East Coast continental shelf and Georges Bank.",
+    "recordContext": "Locality:  Cape Hatteras to Montauk Point.  Date:  5 Sep-27 Oct 1995.  Method:  Stomach content analysis.  Name cited in literature is <i>Monacanthus hispidus</i>.",
+    "referenceId": 35884,
+    "citation": {
+      "Author": "Buckel, J.A., M.J. Fogarty and D.O. Conover",
+      "Year": 1999,
+      "Title": "Foraging habits of bluefish, <i>Pomatomus saltatrix</i>, on the U.S. east coast continental shelf.",
+      "Source": "Fish. Bull. 97:758-775."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 1465,
+    "predatorStage": "adults",
+    "prey": [
+      "Morone americana"
+    ],
+    "originalFoodname": "Morone americana",
+    "preyStage": "juv./adults",
+    "locality": "lower Hudson River estuary, New York.",
+    "recordContext": "Locality: lower Hudson River estuary, New York",
+    "referenceId": 6877,
+    "citation": {
+      "Author": "Juanes, F., R.E. Marks, K.A. McKown and D.O. Conover",
+      "Year": 1993,
+      "Title": "Predation by age-0 bluefish on age-0 anadromous fishes in the Hudson River estuary.",
+      "Source": "Trans. Am. Fish. Soc. 122(3):348-356."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 1466,
+    "predatorStage": "adults",
+    "prey": [
+      "Morone saxatilis"
+    ],
+    "originalFoodname": "Morone saxatilis",
+    "preyStage": "juv./adults",
+    "locality": "lower Hudson River estuary, New York.",
+    "recordContext": "Locality: lower Hudson River estuary, New York",
+    "referenceId": 6877,
+    "citation": {
+      "Author": "Juanes, F., R.E. Marks, K.A. McKown and D.O. Conover",
+      "Year": 1993,
+      "Title": "Predation by age-0 bluefish on age-0 anadromous fishes in the Hudson River estuary.",
+      "Source": "Trans. Am. Fish. Soc. 122(3):348-356."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 1467,
+    "predatorStage": "adults",
+    "prey": [
+      "Mugil cephalus"
+    ],
+    "originalFoodname": "Mugil cephalus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 6390,
+    "citation": {
+      "Author": "Kailola, P.J., M.J. Williams, P.C. Stewart, R.E. Reichelt, A. McNee and C. Grieve",
+      "Year": 1993,
+      "Title": "Australian fisheries resources.",
+      "Source": "Bureau of Resource Sciences, Canberra, Australia. 422 p."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 27845,
+    "predatorStage": "adults",
+    "prey": [
+      "Lepophidium profundorum"
+    ],
+    "originalFoodname": "Lepophidium profundorum",
+    "preyStage": "juv./adults",
+    "locality": "East Coast continental shelf and Georges Bank.",
+    "recordContext": "Locality:  Cape Hatteras to Montauk Point.  Date:  5 Sep-27 Oct 1995.  Method:  Stomach content analysis.  Name cited in literature is <i>Lepophidium cervinum</i>.",
+    "referenceId": 35884,
+    "citation": {
+      "Author": "Buckel, J.A., M.J. Fogarty and D.O. Conover",
+      "Year": 1999,
+      "Title": "Foraging habits of bluefish, <i>Pomatomus saltatrix</i>, on the U.S. east coast continental shelf.",
+      "Source": "Fish. Bull. 97:758-775."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 27852,
+    "predatorStage": "adults",
+    "prey": [
+      "Urophycis chuss"
+    ],
+    "originalFoodname": "Urophycis chuss",
+    "preyStage": "juv./adults",
+    "locality": "East Coast continental shelf and Georges Bank.",
+    "recordContext": "Date:  Georges Bank,  6 Sep-28 Oct 1994; Cape Hatteras to Montauk Point, 5 Sep-27 Oct 1995.  Method:  Stomach content analysis.",
+    "referenceId": 35884,
+    "citation": {
+      "Author": "Buckel, J.A., M.J. Fogarty and D.O. Conover",
+      "Year": 1999,
+      "Title": "Foraging habits of bluefish, <i>Pomatomus saltatrix</i>, on the U.S. east coast continental shelf.",
+      "Source": "Fish. Bull. 97:758-775."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 27861,
+    "predatorStage": "adults",
+    "prey": [
+      "Urophycis tenuis"
+    ],
+    "originalFoodname": "Urophycis tenuis",
+    "preyStage": "juv./adults",
+    "locality": "East Coast continental shelf and Georges Bank.",
+    "recordContext": "Locality:  Georges Bank.  Date:  6 Sep-28 Oct 1994.  Method:  Stomach content analysis.",
+    "referenceId": 35884,
+    "citation": {
+      "Author": "Buckel, J.A., M.J. Fogarty and D.O. Conover",
+      "Year": 1999,
+      "Title": "Foraging habits of bluefish, <i>Pomatomus saltatrix</i>, on the U.S. east coast continental shelf.",
+      "Source": "Fish. Bull. 97:758-775."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 1468,
+    "predatorStage": "adults",
+    "prey": [
+      "Pomatomus saltatrix"
+    ],
+    "originalFoodname": "Pomatomus saltatrix",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 6390,
+    "citation": {
+      "Author": "Kailola, P.J., M.J. Williams, P.C. Stewart, R.E. Reichelt, A. McNee and C. Grieve",
+      "Year": 1993,
+      "Title": "Australian fisheries resources.",
+      "Source": "Bureau of Resource Sciences, Canberra, Australia. 422 p."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 27860,
+    "predatorStage": "adults",
+    "prey": [
+      "Cynoscion regalis"
+    ],
+    "originalFoodname": "Cynoscion regalis",
+    "preyStage": "juv./adults",
+    "locality": "East Coast continental shelf and Georges Bank.",
+    "recordContext": "Locality:  Cape Hatteras to Montauk Point.  Date:  6 Sep 1994-27 Oct 1995.  Method:  Stomach content analysis.",
+    "referenceId": 35884,
+    "citation": {
+      "Author": "Buckel, J.A., M.J. Fogarty and D.O. Conover",
+      "Year": 1999,
+      "Title": "Foraging habits of bluefish, <i>Pomatomus saltatrix</i>, on the U.S. east coast continental shelf.",
+      "Source": "Fish. Bull. 97:758-775."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 62744,
+    "predatorStage": "adults",
+    "prey": [
+      "Scomber scombrus"
+    ],
+    "originalFoodname": "Scomber scombrus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Cape Hatteras to Montauk Point.  Date:  6 Sep-28 Oct 1994.  Method:  Stomach content analysis.",
+    "referenceId": 35884,
+    "citation": {
+      "Author": "Buckel, J.A., M.J. Fogarty and D.O. Conover",
+      "Year": 1999,
+      "Title": "Foraging habits of bluefish, <i>Pomatomus saltatrix</i>, on the U.S. east coast continental shelf.",
+      "Source": "Fish. Bull. 97:758-775."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 27862,
+    "predatorStage": "adults",
+    "prey": [
+      "Scophthalmus aquosus"
+    ],
+    "originalFoodname": "Scophthalmus aquosus",
+    "preyStage": "juv./adults",
+    "locality": "East Coast continental shelf and Georges Bank.",
+    "recordContext": "Locality:  Georges Bank.  Date:  6 Sep 1994-27 Oct 1995.  Method:  Stomach content analysis.",
+    "referenceId": 35884,
+    "citation": {
+      "Author": "Buckel, J.A., M.J. Fogarty and D.O. Conover",
+      "Year": 1999,
+      "Title": "Foraging habits of bluefish, <i>Pomatomus saltatrix</i>, on the U.S. east coast continental shelf.",
+      "Source": "Fish. Bull. 97:758-775."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 62721,
+    "predatorStage": "adults",
+    "prey": [
+      "Peprilus triacanthus"
+    ],
+    "originalFoodname": "Peprilus triacanthus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Cape Hatteras, North Carolina to Georges Bank.  Date:  6 Sep 1994-27 Oct 1995.  Method:  Stomach content anlysis.",
+    "referenceId": 35884,
+    "citation": {
+      "Author": "Buckel, J.A., M.J. Fogarty and D.O. Conover",
+      "Year": 1999,
+      "Title": "Foraging habits of bluefish, <i>Pomatomus saltatrix</i>, on the U.S. east coast continental shelf.",
+      "Source": "Fish. Bull. 97:758-775."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 27848,
+    "predatorStage": "adults",
+    "prey": [
+      "Syngnathus fuscus"
+    ],
+    "originalFoodname": "Syngnathus fuscus",
+    "preyStage": "juv./adults",
+    "locality": "East Coast continental shelf and Georges Bank.",
+    "recordContext": "Locality:  Georges Bank.  Date:  6 Sep-28 Oct 1994.  Method:  Stomach content anlysis.",
+    "referenceId": 35884,
+    "citation": {
+      "Author": "Buckel, J.A., M.J. Fogarty and D.O. Conover",
+      "Year": 1999,
+      "Title": "Foraging habits of bluefish, <i>Pomatomus saltatrix</i>, on the U.S. east coast continental shelf.",
+      "Source": "Fish. Bull. 97:758-775."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 27849,
+    "predatorStage": "adults",
+    "prey": [
+      "Sphoeroides maculatus"
+    ],
+    "originalFoodname": "Sphoeroides maculatus",
+    "preyStage": "juv./adults",
+    "locality": "East Coast continental shelf and Georges Bank.",
+    "recordContext": "Locality:  Cape Hatteras to Montauk Point.  Date:  5 Sep-27 Oct 1995.  Method:  Stomach content analysis.",
+    "referenceId": 35884,
+    "citation": {
+      "Author": "Buckel, J.A., M.J. Fogarty and D.O. Conover",
+      "Year": 1999,
+      "Title": "Foraging habits of bluefish, <i>Pomatomus saltatrix</i>, on the U.S. east coast continental shelf.",
+      "Source": "Fish. Bull. 97:758-775."
+    }
+  },
+  {
+    "predator": "Pomatomus saltatrix",
+    "database": "fb",
+    "rowId": 27850,
+    "predatorStage": "adults",
+    "prey": [
+      "Zoarces americanus"
+    ],
+    "originalFoodname": "Zoarces americanus",
+    "preyStage": "juv./adults",
+    "locality": "East Coast continental shelf and Georges Bank.",
+    "recordContext": "Date:  Cape Hatteras to Montauk Point,  6 Sep 1994-27 Oct 1995; Georges Bank, 5 Sep-27 Oct 1995.  Method:  Stomach content anaysis.  Name cited in literature is <i>Macrozoarces americanus</i>.",
+    "referenceId": 35884,
+    "citation": {
+      "Author": "Buckel, J.A., M.J. Fogarty and D.O. Conover",
+      "Year": 1999,
+      "Title": "Foraging habits of bluefish, <i>Pomatomus saltatrix</i>, on the U.S. east coast continental shelf.",
+      "Source": "Fish. Bull. 97:758-775."
+    }
+  },
+  {
+    "predator": "Carcharodon carcharias",
+    "database": "fb",
+    "rowId": 3666,
+    "predatorStage": "adults",
+    "prey": [
+      "Prionace glauca"
+    ],
+    "originalFoodname": "Prionace glauca",
+    "preyStage": "juv./adults",
+    "locality": "Off Malta.",
+    "recordContext": "Locality: Off Malta. April, 1987. Also Ref. 36856.",
+    "referenceId": 28608,
+    "citation": {
+      "Author": "Fergusson, I.K.",
+      "Year": 1996,
+      "Title": "Distribution and autecology of the white shark in the eastern North Atlantic Ocean and the Mediterranean Sea.",
+      "Source": "p. 321-345. In A.P. Klimley and D.G. Ainley (eds.) Great White Sharks. The Biology of <i>Carcharodon carcharias</i>. Academic Press, San Diego."
+    }
+  },
+  {
+    "predator": "Carcharodon carcharias",
+    "database": "fb",
+    "rowId": 3668,
+    "predatorStage": "adults",
+    "prey": [
+      "Isurus oxyrinchus"
+    ],
+    "originalFoodname": "Isurus oxyrinchus",
+    "preyStage": "juv./adults",
+    "locality": "Cape Bon.",
+    "recordContext": "Locality: Cape Bon, May 1956.",
+    "referenceId": 28608,
+    "citation": {
+      "Author": "Fergusson, I.K.",
+      "Year": 1996,
+      "Title": "Distribution and autecology of the white shark in the eastern North Atlantic Ocean and the Mediterranean Sea.",
+      "Source": "p. 321-345. In A.P. Klimley and D.G. Ainley (eds.) Great White Sharks. The Biology of <i>Carcharodon carcharias</i>. Academic Press, San Diego."
+    }
+  },
+  {
+    "predator": "Carcharodon carcharias",
+    "database": "fb",
+    "rowId": 59305,
+    "predatorStage": "adults",
+    "prey": [
+      "Zalophus californianus"
+    ],
+    "originalFoodname": "Zalophus californianus",
+    "preyStage": "juv./adults",
+    "locality": "Northeast Pacific.",
+    "recordContext": null,
+    "referenceId": 32140,
+    "citation": {
+      "Author": "Long, D.J.",
+      "Year": 1991,
+      "Title": "Apparent predation by a white shark <i>Carcharodon carcharias</i> on a pygmy sperm whale <i>Kogia breviceps</i>.",
+      "Source": "Fish. Bull. 89:538-540."
+    }
+  },
+  {
+    "predator": "Carcharodon carcharias",
+    "database": "fb",
+    "rowId": 59307,
+    "predatorStage": "adults",
+    "prey": [
+      "Eumetopias jubatus"
+    ],
+    "originalFoodname": "Eumetopias  jubatus",
+    "preyStage": "juv./adults",
+    "locality": "Northeast Pacific.",
+    "recordContext": null,
+    "referenceId": 32140,
+    "citation": {
+      "Author": "Long, D.J.",
+      "Year": 1991,
+      "Title": "Apparent predation by a white shark <i>Carcharodon carcharias</i> on a pygmy sperm whale <i>Kogia breviceps</i>.",
+      "Source": "Fish. Bull. 89:538-540."
+    }
+  },
+  {
+    "predator": "Carcharodon carcharias",
+    "database": "fb",
+    "rowId": 59311,
+    "predatorStage": "adults",
+    "prey": [
+      "Zalophus japonicus"
+    ],
+    "originalFoodname": "Zalophus  japonicus",
+    "preyStage": "juv./adults",
+    "locality": "Northeast Pacific.",
+    "recordContext": null,
+    "referenceId": 32140,
+    "citation": {
+      "Author": "Long, D.J.",
+      "Year": 1991,
+      "Title": "Apparent predation by a white shark <i>Carcharodon carcharias</i> on a pygmy sperm whale <i>Kogia breviceps</i>.",
+      "Source": "Fish. Bull. 89:538-540."
+    }
+  },
+  {
+    "predator": "Carcharodon carcharias",
+    "database": "fb",
+    "rowId": 59313,
+    "predatorStage": "adults",
+    "prey": [
+      "Zalophus wollebaeki"
+    ],
+    "originalFoodname": "Zalophus  wollebaeki",
+    "preyStage": "juv./adults",
+    "locality": "Northeast Pacific.",
+    "recordContext": null,
+    "referenceId": 32140,
+    "citation": {
+      "Author": "Long, D.J.",
+      "Year": 1991,
+      "Title": "Apparent predation by a white shark <i>Carcharodon carcharias</i> on a pygmy sperm whale <i>Kogia breviceps</i>.",
+      "Source": "Fish. Bull. 89:538-540."
+    }
+  },
+  {
+    "predator": "Isurus oxyrinchus",
+    "database": "fb",
+    "rowId": 3708,
+    "predatorStage": "adults",
+    "prey": [
+      "Carcharhinus obscurus"
+    ],
+    "originalFoodname": "Carcharhinus obscurus",
+    "preyStage": "adults",
+    "locality": "Off Natal.",
+    "recordContext": "Locality: Off Natal. August 1988. Predator, measuring 2.9 m TL, was captured in shark nets.",
+    "referenceId": 6188,
+    "citation": {
+      "Author": "Ebert, D.A.",
+      "Year": 1991,
+      "Title": "Observations on the predatory behavior of the sevengill shark <i>Notorhynchus cepedianus</i>.",
+      "Source": "S. Afr. J. Mar. Sci. 11:455-465."
+    }
+  },
+  {
+    "predator": "Negaprion brevirostris",
+    "database": "fb",
+    "rowId": 4055,
+    "predatorStage": "adults",
+    "prey": [
+      "Negaprion brevirostris"
+    ],
+    "originalFoodname": "Negaprion brevirostris",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 568,
+    "citation": {
+      "Author": "Wetherbee, B.M., S.H. Gruber and E. Cortes",
+      "Year": 1990,
+      "Title": "Diet, feeding habits, digestion, and consumption in sharks, with special reference to the lemon shark, <i>Negaprion brevirostris</i>.",
+      "Source": "p. 29-47. In H.L. Pratt, Jr., S.H. Gruber and T. Taniuchi (eds.) Elasmobranchs as living resources: advances in the biology, ecology, systematics, and the status of the fisheries. NOAA Tech. Rep. NMFS 90. 517 p."
+    }
+  },
+  {
+    "predator": "Prionace glauca",
+    "database": "fb",
+    "rowId": 43157,
+    "predatorStage": "adults",
+    "prey": [
+      "Oncorhynchus kisutch"
+    ],
+    "originalFoodname": "Oncorhynchus kisutch",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 56373,
+    "citation": {
+      "Author": "Melnikov, I.V.",
+      "Year": 1997,
+      "Title": "Pelagic predatory fishes - consumers of Pacific salmons: distribution within Russian EEZ and adjacent waters, abundance and some biological features.",
+      "Source": "Izv. TINRO 122:213-228."
+    }
+  },
+  {
+    "predator": "Sphyrna lewini",
+    "database": "fb",
+    "rowId": 61155,
+    "predatorStage": "adults",
+    "prey": [
+      "Auxis rochei"
+    ],
+    "originalFoodname": "Auxis rochei",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Puerto Madero, south-eastern Gulf of Tehuantepec.  Date: Jun to Jul 2011.  Method: stomach content analysis.",
+    "referenceId": 121211,
+    "citation": {
+      "Author": "Flores-Mart\u00ednez, I.A., Y.E. Torres-Rojas, F. Galv\u00e1n-Maga\u00f1a and J. Ramos-Miranda",
+      "Year": 2017,
+      "Title": "Diet comparison between silky sharks (<i>Carcharhinus falciformis</i>) and scalloped hammerhead sharks (<i>Sphyrna lewini</i>) off the south-west coast of Mexico.",
+      "Source": "Journal of the Marine Biological Association of the United Kingdom 97(2):337-345."
+    }
+  },
+  {
+    "predator": "Sphyrna lewini",
+    "database": "fb",
+    "rowId": 61156,
+    "predatorStage": "adults",
+    "prey": [
+      "Euthynnus lineatus"
+    ],
+    "originalFoodname": "Euthynnus lineatus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Puerto Madero, south-eastern Gulf of Tehuantepec.  Date: Jun to Jul 2011.  Method: stomach content analysis.",
+    "referenceId": 121211,
+    "citation": {
+      "Author": "Flores-Mart\u00ednez, I.A., Y.E. Torres-Rojas, F. Galv\u00e1n-Maga\u00f1a and J. Ramos-Miranda",
+      "Year": 2017,
+      "Title": "Diet comparison between silky sharks (<i>Carcharhinus falciformis</i>) and scalloped hammerhead sharks (<i>Sphyrna lewini</i>) off the south-west coast of Mexico.",
+      "Source": "Journal of the Marine Biological Association of the United Kingdom 97(2):337-345."
+    }
+  },
+  {
+    "predator": "Seriola dumerili",
+    "database": "fb",
+    "rowId": 28437,
+    "predatorStage": "adults",
+    "prey": [
+      "Merluccius merluccius"
+    ],
+    "originalFoodname": "Merluccius merluccius",
+    "preyStage": "juv./adults",
+    "locality": "Catalan Sea.",
+    "recordContext": "Locality: Catalan Sea. 1989-1991. No. of fish examined: 385.",
+    "referenceId": 41958,
+    "citation": {
+      "Author": "Matallanas, J., M. Casadevall, M. Carrass\u00f3n, J. Boix and V. Fern\u00e1ndez",
+      "Year": 1995,
+      "Title": "The food of <i>Seriola dumerili</i> (Pisces: Carangidae) in the Catalan Sea (western Mediterranean).",
+      "Source": "J. Mar. Biol. Ass. U.K. 75(1):257-260."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 58785,
+    "predatorStage": "adults",
+    "prey": [
+      "Pterygioteuthis giardi"
+    ],
+    "originalFoodname": "Pterygioteuthis giardi",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": null,
+    "referenceId": 12370,
+    "citation": {
+      "Author": "Gibbs, R.H. Jr. and B.B. Collette",
+      "Year": 1959,
+      "Title": "On the identification, distribution, and biology of the dolphins, <i>Coryphaena hippurus</i> and <i>C. equiselis</i>.",
+      "Source": "Bull. Mar. Sci. Gulf Caribb. 9(2):117-152."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 59236,
+    "predatorStage": "adults",
+    "prey": [
+      "Tremoctopus violaceus"
+    ],
+    "originalFoodname": "Tremoctopus violaceus",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": null,
+    "referenceId": 12370,
+    "citation": {
+      "Author": "Gibbs, R.H. Jr. and B.B. Collette",
+      "Year": 1959,
+      "Title": "On the identification, distribution, and biology of the dolphins, <i>Coryphaena hippurus</i> and <i>C. equiselis</i>.",
+      "Source": "Bull. Mar. Sci. Gulf Caribb. 9(2):117-152."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 6030,
+    "predatorStage": "adults",
+    "prey": [
+      "Ammodytes americanus"
+    ],
+    "originalFoodname": "Ammodytes americanus",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 12370,
+    "citation": {
+      "Author": "Gibbs, R.H. Jr. and B.B. Collette",
+      "Year": 1959,
+      "Title": "On the identification, distribution, and biology of the dolphins, <i>Coryphaena hippurus</i> and <i>C. equiselis</i>.",
+      "Source": "Bull. Mar. Sci. Gulf Caribb. 9(2):117-152."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 6033,
+    "predatorStage": "adults",
+    "prey": [
+      "Canthidermis maculata"
+    ],
+    "originalFoodname": "Canthidermis maculatus",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 12370,
+    "citation": {
+      "Author": "Gibbs, R.H. Jr. and B.B. Collette",
+      "Year": 1959,
+      "Title": "On the identification, distribution, and biology of the dolphins, <i>Coryphaena hippurus</i> and <i>C. equiselis</i>.",
+      "Source": "Bull. Mar. Sci. Gulf Caribb. 9(2):117-152."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 6034,
+    "predatorStage": "adults",
+    "prey": [
+      "Xanthichthys ringens"
+    ],
+    "originalFoodname": "Xanthichthys ringens",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 12370,
+    "citation": {
+      "Author": "Gibbs, R.H. Jr. and B.B. Collette",
+      "Year": 1959,
+      "Title": "On the identification, distribution, and biology of the dolphins, <i>Coryphaena hippurus</i> and <i>C. equiselis</i>.",
+      "Source": "Bull. Mar. Sci. Gulf Caribb. 9(2):117-152."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 6035,
+    "predatorStage": "adults",
+    "prey": [
+      "Caranx crysos"
+    ],
+    "originalFoodname": "Caranx crysos",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 12370,
+    "citation": {
+      "Author": "Gibbs, R.H. Jr. and B.B. Collette",
+      "Year": 1959,
+      "Title": "On the identification, distribution, and biology of the dolphins, <i>Coryphaena hippurus</i> and <i>C. equiselis</i>.",
+      "Source": "Bull. Mar. Sci. Gulf Caribb. 9(2):117-152."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 6036,
+    "predatorStage": "adults",
+    "prey": [
+      "Caranx latus"
+    ],
+    "originalFoodname": "Caranx latus",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 12370,
+    "citation": {
+      "Author": "Gibbs, R.H. Jr. and B.B. Collette",
+      "Year": 1959,
+      "Title": "On the identification, distribution, and biology of the dolphins, <i>Coryphaena hippurus</i> and <i>C. equiselis</i>.",
+      "Source": "Bull. Mar. Sci. Gulf Caribb. 9(2):117-152."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 6037,
+    "predatorStage": "adults",
+    "prey": [
+      "Caranx ruber"
+    ],
+    "originalFoodname": "Caranx ruber",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 12370,
+    "citation": {
+      "Author": "Gibbs, R.H. Jr. and B.B. Collette",
+      "Year": 1959,
+      "Title": "On the identification, distribution, and biology of the dolphins, <i>Coryphaena hippurus</i> and <i>C. equiselis</i>.",
+      "Source": "Bull. Mar. Sci. Gulf Caribb. 9(2):117-152."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 6038,
+    "predatorStage": "adults",
+    "prey": [
+      "Decapterus punctatus"
+    ],
+    "originalFoodname": "Decapterus punctatus",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 12370,
+    "citation": {
+      "Author": "Gibbs, R.H. Jr. and B.B. Collette",
+      "Year": 1959,
+      "Title": "On the identification, distribution, and biology of the dolphins, <i>Coryphaena hippurus</i> and <i>C. equiselis</i>.",
+      "Source": "Bull. Mar. Sci. Gulf Caribb. 9(2):117-152."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 6039,
+    "predatorStage": "adults",
+    "prey": [
+      "Naucrates ductor"
+    ],
+    "originalFoodname": "Naucrates ductor",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 26,
+    "citation": {
+      "Author": "Palko, B.J., G.L. Beardsley and W.J. Richards",
+      "Year": 1982,
+      "Title": "Synopsis of the biological data on dolphin-fishes, <i>Coryphaena hippurus</i> Linnaeus and <i>Coryphaena equiselis</i> Linnaeus.",
+      "Source": "FAO Fish. Synop. (130); NOAA Tech. Rep. NMFS Circ. (443)."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 6040,
+    "predatorStage": "adults",
+    "prey": [
+      "Selar crumenophthalmus"
+    ],
+    "originalFoodname": "Selar crumenophthalmus",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 12370,
+    "citation": {
+      "Author": "Gibbs, R.H. Jr. and B.B. Collette",
+      "Year": 1959,
+      "Title": "On the identification, distribution, and biology of the dolphins, <i>Coryphaena hippurus</i> and <i>C. equiselis</i>.",
+      "Source": "Bull. Mar. Sci. Gulf Caribb. 9(2):117-152."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 6041,
+    "predatorStage": "adults",
+    "prey": [
+      "Trachurus trachurus"
+    ],
+    "originalFoodname": "Trachurus trachurus",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 26,
+    "citation": {
+      "Author": "Palko, B.J., G.L. Beardsley and W.J. Richards",
+      "Year": 1982,
+      "Title": "Synopsis of the biological data on dolphin-fishes, <i>Coryphaena hippurus</i> Linnaeus and <i>Coryphaena equiselis</i> Linnaeus.",
+      "Source": "FAO Fish. Synop. (130); NOAA Tech. Rep. NMFS Circ. (443)."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 6042,
+    "predatorStage": "adults",
+    "prey": [
+      "Sardinella aurita"
+    ],
+    "originalFoodname": "Sardinella aurita",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 26,
+    "citation": {
+      "Author": "Palko, B.J., G.L. Beardsley and W.J. Richards",
+      "Year": 1982,
+      "Title": "Synopsis of the biological data on dolphin-fishes, <i>Coryphaena hippurus</i> Linnaeus and <i>Coryphaena equiselis</i> Linnaeus.",
+      "Source": "FAO Fish. Synop. (130); NOAA Tech. Rep. NMFS Circ. (443)."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 6043,
+    "predatorStage": "adults",
+    "prey": [
+      "Coryphaena hippurus"
+    ],
+    "originalFoodname": "Coryphaena hippurus",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 12370,
+    "citation": {
+      "Author": "Gibbs, R.H. Jr. and B.B. Collette",
+      "Year": 1959,
+      "Title": "On the identification, distribution, and biology of the dolphins, <i>Coryphaena hippurus</i> and <i>C. equiselis</i>.",
+      "Source": "Bull. Mar. Sci. Gulf Caribb. 9(2):117-152."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 6046,
+    "predatorStage": "adults",
+    "prey": [
+      "Engraulis encrasicolus"
+    ],
+    "originalFoodname": "Engraulis encrasicolus",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 26,
+    "citation": {
+      "Author": "Palko, B.J., G.L. Beardsley and W.J. Richards",
+      "Year": 1982,
+      "Title": "Synopsis of the biological data on dolphin-fishes, <i>Coryphaena hippurus</i> Linnaeus and <i>Coryphaena equiselis</i> Linnaeus.",
+      "Source": "FAO Fish. Synop. (130); NOAA Tech. Rep. NMFS Circ. (443)."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 6048,
+    "predatorStage": "adults",
+    "prey": [
+      "Gempylus serpens"
+    ],
+    "originalFoodname": "Gempylus serpens",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 12370,
+    "citation": {
+      "Author": "Gibbs, R.H. Jr. and B.B. Collette",
+      "Year": 1959,
+      "Title": "On the identification, distribution, and biology of the dolphins, <i>Coryphaena hippurus</i> and <i>C. equiselis</i>.",
+      "Source": "Bull. Mar. Sci. Gulf Caribb. 9(2):117-152."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 6049,
+    "predatorStage": "adults",
+    "prey": [
+      "Nealotus tripes"
+    ],
+    "originalFoodname": "Nealotus tripes",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 12370,
+    "citation": {
+      "Author": "Gibbs, R.H. Jr. and B.B. Collette",
+      "Year": 1959,
+      "Title": "On the identification, distribution, and biology of the dolphins, <i>Coryphaena hippurus</i> and <i>C. equiselis</i>.",
+      "Source": "Bull. Mar. Sci. Gulf Caribb. 9(2):117-152."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 6050,
+    "predatorStage": "adults",
+    "prey": [
+      "Holocentrus adscensionis"
+    ],
+    "originalFoodname": "Holocentrus ascensionis",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 12370,
+    "citation": {
+      "Author": "Gibbs, R.H. Jr. and B.B. Collette",
+      "Year": 1959,
+      "Title": "On the identification, distribution, and biology of the dolphins, <i>Coryphaena hippurus</i> and <i>C. equiselis</i>.",
+      "Source": "Bull. Mar. Sci. Gulf Caribb. 9(2):117-152."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 5427,
+    "predatorStage": "adults",
+    "prey": [
+      "Sargocentron bullisi"
+    ],
+    "originalFoodname": "Holocentrus bullisi",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 12370,
+    "citation": {
+      "Author": "Gibbs, R.H. Jr. and B.B. Collette",
+      "Year": 1959,
+      "Title": "On the identification, distribution, and biology of the dolphins, <i>Coryphaena hippurus</i> and <i>C. equiselis</i>.",
+      "Source": "Bull. Mar. Sci. Gulf Caribb. 9(2):117-152."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 5430,
+    "predatorStage": "adults",
+    "prey": [
+      "Monacanthus tuckeri"
+    ],
+    "originalFoodname": "Monacanthus tuckeri",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 12370,
+    "citation": {
+      "Author": "Gibbs, R.H. Jr. and B.B. Collette",
+      "Year": 1959,
+      "Title": "On the identification, distribution, and biology of the dolphins, <i>Coryphaena hippurus</i> and <i>C. equiselis</i>.",
+      "Source": "Bull. Mar. Sci. Gulf Caribb. 9(2):117-152."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 5431,
+    "predatorStage": "adults",
+    "prey": [
+      "Lactophrys triqueter"
+    ],
+    "originalFoodname": "Lactophrys triqueter",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 12370,
+    "citation": {
+      "Author": "Gibbs, R.H. Jr. and B.B. Collette",
+      "Year": 1959,
+      "Title": "On the identification, distribution, and biology of the dolphins, <i>Coryphaena hippurus</i> and <i>C. equiselis</i>.",
+      "Source": "Bull. Mar. Sci. Gulf Caribb. 9(2):117-152."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 5432,
+    "predatorStage": "adults",
+    "prey": [
+      "Scomberesox saurus"
+    ],
+    "originalFoodname": "Scomberesox saurus saurus",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 12370,
+    "citation": {
+      "Author": "Gibbs, R.H. Jr. and B.B. Collette",
+      "Year": 1959,
+      "Title": "On the identification, distribution, and biology of the dolphins, <i>Coryphaena hippurus</i> and <i>C. equiselis</i>.",
+      "Source": "Bull. Mar. Sci. Gulf Caribb. 9(2):117-152."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 5434,
+    "predatorStage": "adults",
+    "prey": [
+      "Euthynnus alletteratus"
+    ],
+    "originalFoodname": "Euthynnus alletteratus",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 12370,
+    "citation": {
+      "Author": "Gibbs, R.H. Jr. and B.B. Collette",
+      "Year": 1959,
+      "Title": "On the identification, distribution, and biology of the dolphins, <i>Coryphaena hippurus</i> and <i>C. equiselis</i>.",
+      "Source": "Bull. Mar. Sci. Gulf Caribb. 9(2):117-152."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 5435,
+    "predatorStage": "adults",
+    "prey": [
+      "Hippocampus erectus"
+    ],
+    "originalFoodname": "Hippocampus erectus",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 12370,
+    "citation": {
+      "Author": "Gibbs, R.H. Jr. and B.B. Collette",
+      "Year": 1959,
+      "Title": "On the identification, distribution, and biology of the dolphins, <i>Coryphaena hippurus</i> and <i>C. equiselis</i>.",
+      "Source": "Bull. Mar. Sci. Gulf Caribb. 9(2):117-152."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 5436,
+    "predatorStage": "adults",
+    "prey": [
+      "Sphoeroides spengleri"
+    ],
+    "originalFoodname": "Sphoeroides spengleri",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 12370,
+    "citation": {
+      "Author": "Gibbs, R.H. Jr. and B.B. Collette",
+      "Year": 1959,
+      "Title": "On the identification, distribution, and biology of the dolphins, <i>Coryphaena hippurus</i> and <i>C. equiselis</i>.",
+      "Source": "Bull. Mar. Sci. Gulf Caribb. 9(2):117-152."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 5438,
+    "predatorStage": "adults",
+    "prey": [
+      "Xiphias gladius"
+    ],
+    "originalFoodname": "Xiphias gladius",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": "Locality: Gulf Stream",
+    "referenceId": 12370,
+    "citation": {
+      "Author": "Gibbs, R.H. Jr. and B.B. Collette",
+      "Year": 1959,
+      "Title": "On the identification, distribution, and biology of the dolphins, <i>Coryphaena hippurus</i> and <i>C. equiselis</i>.",
+      "Source": "Bull. Mar. Sci. Gulf Caribb. 9(2):117-152."
+    }
+  },
+  {
+    "predator": "Coryphaena hippurus",
+    "database": "fb",
+    "rowId": 57612,
+    "predatorStage": "adults",
+    "prey": [
+      "Portunus sayi"
+    ],
+    "originalFoodname": "Portunus  sayi",
+    "preyStage": "juv./adults",
+    "locality": "Gulf Stream.",
+    "recordContext": null,
+    "referenceId": 8946,
+    "citation": {
+      "Author": "Rishi, K.K.",
+      "Year": 1973,
+      "Title": "Somatic karyotypes of three teleosts.",
+      "Source": "Genen. Phaenen. 16:101-107."
+    }
+  },
+  {
+    "predator": "Raja clavata",
+    "database": "fb",
+    "rowId": 6524,
+    "predatorStage": "adults",
+    "prey": [
+      "Paracallionymus costatus"
+    ],
+    "originalFoodname": "Paracallionymus costatus",
+    "preyStage": "juv./adults",
+    "locality": "Between Walvis Bay and Cape Agulhas, southern Africa.",
+    "recordContext": "Locality: Between Walvis Bay and Cape Agulhas, southern Africa.",
+    "referenceId": 7458,
+    "citation": {
+      "Author": "Ebert, D.A., P.D. Cowley and L.J.V. Compagno",
+      "Year": 1991,
+      "Title": "A preliminary investigation of the feeding ecology of skates (Batoidea: Rajidae) off the west coast of southern Africa.",
+      "Source": "S. Afr. J. Mar. Sci. 10:71-81."
+    }
+  },
+  {
+    "predator": "Raja clavata",
+    "database": "fb",
+    "rowId": 6525,
+    "predatorStage": "adults",
+    "prey": [
+      "Etrumeus whiteheadi"
+    ],
+    "originalFoodname": "Etrumeus whiteheadi",
+    "preyStage": "juv./adults",
+    "locality": "Between Walvis Bay and Cape Agulhas, southern Africa.",
+    "recordContext": "Locality: Between Walvis Bay and Cape Agulhas, southern Africa.",
+    "referenceId": 7458,
+    "citation": {
+      "Author": "Ebert, D.A., P.D. Cowley and L.J.V. Compagno",
+      "Year": 1991,
+      "Title": "A preliminary investigation of the feeding ecology of skates (Batoidea: Rajidae) off the west coast of southern Africa.",
+      "Source": "S. Afr. J. Mar. Sci. 10:71-81."
+    }
+  },
+  {
+    "predator": "Raja clavata",
+    "database": "fb",
+    "rowId": 6526,
+    "predatorStage": "adults",
+    "prey": [
+      "Sardinops sagax"
+    ],
+    "originalFoodname": "Sardinops sagax",
+    "preyStage": "juv./adults",
+    "locality": "Between Walvis Bay and Cape Agulhas, southern Africa.",
+    "recordContext": "Locality: Between Walvis Bay and Cape Agulhas, southern Africa.",
+    "referenceId": 7458,
+    "citation": {
+      "Author": "Ebert, D.A., P.D. Cowley and L.J.V. Compagno",
+      "Year": 1991,
+      "Title": "A preliminary investigation of the feeding ecology of skates (Batoidea: Rajidae) off the west coast of southern Africa.",
+      "Source": "S. Afr. J. Mar. Sci. 10:71-81."
+    }
+  },
+  {
+    "predator": "Raja clavata",
+    "database": "fb",
+    "rowId": 32205,
+    "predatorStage": "adults",
+    "prey": [
+      "Sprattus sprattus"
+    ],
+    "originalFoodname": "Sprattus sprattus",
+    "preyStage": "juv./adults",
+    "locality": "North Sea.",
+    "recordContext": "Predator size: 70-100 cm. Locality: North Sea. Also Ref. 41849.",
+    "referenceId": 37666,
+    "citation": {
+      "Author": "Daan, N., B. Johnson, J.R. Larsen and H. Sparholt",
+      "Year": 1993,
+      "Title": "Analysis of the ray (<i>Raja</i> spec.) samples collected during the 1991 International Stomach Sampling Project.",
+      "Source": "ICES C.M. 1993/G:15. 17 p."
+    }
+  },
+  {
+    "predator": "Raja clavata",
+    "database": "fb",
+    "rowId": 6527,
+    "predatorStage": "adults",
+    "prey": [
+      "Engraulis encrasicolus"
+    ],
+    "originalFoodname": "Engraulis encrasicolus",
+    "preyStage": "juv./adults",
+    "locality": "Between Walvis Bay and Cape Agulhas, southern Africa.",
+    "recordContext": "Locality: Between Walvis Bay and Cape Agulhas, southern Africa.",
+    "referenceId": 7458,
+    "citation": {
+      "Author": "Ebert, D.A., P.D. Cowley and L.J.V. Compagno",
+      "Year": 1991,
+      "Title": "A preliminary investigation of the feeding ecology of skates (Batoidea: Rajidae) off the west coast of southern Africa.",
+      "Source": "S. Afr. J. Mar. Sci. 10:71-81."
+    }
+  },
+  {
+    "predator": "Raja clavata",
+    "database": "fb",
+    "rowId": 32203,
+    "predatorStage": "adults",
+    "prey": [
+      "Merlangius merlangus"
+    ],
+    "originalFoodname": "Merlangius merlangus",
+    "preyStage": "juv./adults",
+    "locality": "North Sea.",
+    "recordContext": "Predator size: 80 cm. Locality: North Sea.",
+    "referenceId": 37666,
+    "citation": {
+      "Author": "Daan, N., B. Johnson, J.R. Larsen and H. Sparholt",
+      "Year": 1993,
+      "Title": "Analysis of the ray (<i>Raja</i> spec.) samples collected during the 1991 International Stomach Sampling Project.",
+      "Source": "ICES C.M. 1993/G:15. 17 p."
+    }
+  },
+  {
+    "predator": "Raja clavata",
+    "database": "fb",
+    "rowId": 6528,
+    "predatorStage": "adults",
+    "prey": [
+      "Thyrsites atun"
+    ],
+    "originalFoodname": "Thyrsites atun",
+    "preyStage": "juv./adults",
+    "locality": "Between Walvis Bay and Cape Agulhas, southern Africa.",
+    "recordContext": "Locality: Between Walvis Bay and Cape Agulhas, southern Africa.",
+    "referenceId": 7458,
+    "citation": {
+      "Author": "Ebert, D.A., P.D. Cowley and L.J.V. Compagno",
+      "Year": 1991,
+      "Title": "A preliminary investigation of the feeding ecology of skates (Batoidea: Rajidae) off the west coast of southern Africa.",
+      "Source": "S. Afr. J. Mar. Sci. 10:71-81."
+    }
+  },
+  {
+    "predator": "Raja clavata",
+    "database": "fb",
+    "rowId": 6529,
+    "predatorStage": "adults",
+    "prey": [
+      "Sufflogobius bibarbatus"
+    ],
+    "originalFoodname": "Sufflogobius bibarbatus",
+    "preyStage": "juv./adults",
+    "locality": "Between Walvis Bay and Cape Agulhas, southern Africa.",
+    "recordContext": "Locality: Between Walvis Bay and Cape Agulhas, southern Africa.",
+    "referenceId": 7458,
+    "citation": {
+      "Author": "Ebert, D.A., P.D. Cowley and L.J.V. Compagno",
+      "Year": 1991,
+      "Title": "A preliminary investigation of the feeding ecology of skates (Batoidea: Rajidae) off the west coast of southern Africa.",
+      "Source": "S. Afr. J. Mar. Sci. 10:71-81."
+    }
+  },
+  {
+    "predator": "Raja clavata",
+    "database": "fb",
+    "rowId": 6530,
+    "predatorStage": "adults",
+    "prey": [
+      "Helicolenus dactylopterus"
+    ],
+    "originalFoodname": "Helicolenus dactylopterus",
+    "preyStage": "juv./adults",
+    "locality": "Between Walvis Bay and Cape Agulhas, southern Africa.",
+    "recordContext": "Locality: Between Walvis Bay and Cape Agulhas, southern Africa.",
+    "referenceId": 7458,
+    "citation": {
+      "Author": "Ebert, D.A., P.D. Cowley and L.J.V. Compagno",
+      "Year": 1991,
+      "Title": "A preliminary investigation of the feeding ecology of skates (Batoidea: Rajidae) off the west coast of southern Africa.",
+      "Source": "S. Afr. J. Mar. Sci. 10:71-81."
+    }
+  },
+  {
+    "predator": "Raja clavata",
+    "database": "fb",
+    "rowId": 6531,
+    "predatorStage": "adults",
+    "prey": [
+      "Lepidopus caudatus"
+    ],
+    "originalFoodname": "Lepidopus caudatus",
+    "preyStage": "juv./adults",
+    "locality": "Between Walvis Bay and Cape Agulhas, southern Africa.",
+    "recordContext": "Locality: Between Walvis Bay and Cape Agulhas, southern Africa.",
+    "referenceId": 7458,
+    "citation": {
+      "Author": "Ebert, D.A., P.D. Cowley and L.J.V. Compagno",
+      "Year": 1991,
+      "Title": "A preliminary investigation of the feeding ecology of skates (Batoidea: Rajidae) off the west coast of southern Africa.",
+      "Source": "S. Afr. J. Mar. Sci. 10:71-81."
+    }
+  },
+  {
+    "predator": "Raja clavata",
+    "database": "fb",
+    "rowId": 50147,
+    "predatorStage": "adults",
+    "prey": [
+      "Raja clavata"
+    ],
+    "originalFoodname": "Raja clavata",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 28070,
+    "citation": {
+      "Author": "Ellis, J.R., M.G. Pawson and S.E. Shackley",
+      "Year": 1996,
+      "Title": "The comparative feeding ecology of six species of shark and four species of ray (Elasmobranchii) in the north-east Atlantic.",
+      "Source": "J. Mar. Biol. Ass. U.K. 76(1):89-106."
+    }
+  },
+  {
+    "predator": "Gasterosteus aculeatus",
+    "database": "fb",
+    "rowId": 7222,
+    "predatorStage": "adults",
+    "prey": [
+      "Ammodytes hexapterus"
+    ],
+    "originalFoodname": "Ammodytes hexapterus",
+    "preyStage": "recruits/juv.",
+    "locality": "Southern Strait of Georgia, British Columbia.",
+    "recordContext": "Locality: Southern Strait of Georgia. Fish size: 2.5-8.7 cm TL; recorded during spring and  autumn.",
+    "referenceId": 6885,
+    "citation": {
+      "Author": "Hart, J.L.",
+      "Year": 1973,
+      "Title": "Pacific fishes of Canada.",
+      "Source": "Bull. Fish. Res. Board Can. 180:740 p."
+    }
+  },
+  {
+    "predator": "Gasterosteus aculeatus",
+    "database": "fb",
+    "rowId": 7223,
+    "predatorStage": "adults",
+    "prey": [
+      "Bathymaster signatus"
+    ],
+    "originalFoodname": "Bathymaster signatus",
+    "preyStage": "recruits/juv.",
+    "locality": "Southern Strait of Georgia, British Columbia.",
+    "recordContext": "Locality: Southern Strait of Georgia. Fish size: 2.5-8.7 cm TL; recorded during spring and  autumn.",
+    "referenceId": 6885,
+    "citation": {
+      "Author": "Hart, J.L.",
+      "Year": 1973,
+      "Title": "Pacific fishes of Canada.",
+      "Source": "Bull. Fish. Res. Board Can. 180:740 p."
+    }
+  },
+  {
+    "predator": "Gasterosteus aculeatus",
+    "database": "fb",
+    "rowId": 7224,
+    "predatorStage": "adults",
+    "prey": [
+      "Clupea pallasii"
+    ],
+    "originalFoodname": "Clupea pallasii",
+    "preyStage": "recruits/juv.",
+    "locality": "Southern Strait of Georgia, British Columbia.",
+    "recordContext": "Locality: Southern Strait of Georgia. Fish size: 2.5-8.7 cm TL; recorded during spring and  autumn.",
+    "referenceId": 6885,
+    "citation": {
+      "Author": "Hart, J.L.",
+      "Year": 1973,
+      "Title": "Pacific fishes of Canada.",
+      "Source": "Bull. Fish. Res. Board Can. 180:740 p."
+    }
+  },
+  {
+    "predator": "Micropterus salmoides",
+    "database": "fb",
+    "rowId": 8806,
+    "predatorStage": "adults",
+    "prey": [
+      "Micropterus salmoides"
+    ],
+    "originalFoodname": "Micropterus salmoides",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Also Ref. 42429.",
+    "referenceId": 30578,
+    "citation": {
+      "Author": "Billard, R.",
+      "Year": 1997,
+      "Title": "Les poissons d'eau douce des rivi\u00e8res de France. Identification, inventaire et r\u00e9partition des 83 esp\u00e8ces.",
+      "Source": "Lausanne, Delachaux & Niestl\u00e9, 192p."
+    }
+  },
+  {
+    "predator": "Rachycentron canadum",
+    "database": "fb",
+    "rowId": 27189,
+    "predatorStage": "adults",
+    "prey": [
+      "Trinectes maculatus"
+    ],
+    "originalFoodname": "Trinectes maculatus",
+    "preyStage": "juv./adults",
+    "locality": "Chesapeake  Bay.",
+    "recordContext": "Locality: Chesapeake  Bay, June-July 1997. No. of fish examined: 78, FL: 37-141 cm.",
+    "referenceId": 43165,
+    "citation": {
+      "Author": "Arendt, M.D., J.E. Olney and J.A. Lucy",
+      "Year": 2001,
+      "Title": "Stomach content analysis of cobia, <i>Rachycentron canadum</i>, from lower Chesapeake Bay.",
+      "Source": "Fish. Bull. 99(4):665-670."
+    }
+  },
+  {
+    "predator": "Rachycentron canadum",
+    "database": "fb",
+    "rowId": 27175,
+    "predatorStage": "adults",
+    "prey": [
+      "Opsanus tau"
+    ],
+    "originalFoodname": "Opsanus tau",
+    "preyStage": "juv./adults",
+    "locality": "Chesapeake  Bay.",
+    "recordContext": "Locality: Chesapeake  Bay, June-July 1997. No. of fish examined: 78, FL: 37-141 cm.",
+    "referenceId": 43165,
+    "citation": {
+      "Author": "Arendt, M.D., J.E. Olney and J.A. Lucy",
+      "Year": 2001,
+      "Title": "Stomach content analysis of cobia, <i>Rachycentron canadum</i>, from lower Chesapeake Bay.",
+      "Source": "Fish. Bull. 99(4):665-670."
+    }
+  },
+  {
+    "predator": "Rachycentron canadum",
+    "database": "fb",
+    "rowId": 27173,
+    "predatorStage": "adults",
+    "prey": [
+      "Brevoortia tyrannus"
+    ],
+    "originalFoodname": "Brevoortia tyrannus",
+    "preyStage": "juv./adults",
+    "locality": "Chesapeake  Bay.",
+    "recordContext": "Locality: Chesapeake  Bay, June-July 1997. No. of fish examined: 78, FL: 37-141 cm.",
+    "referenceId": 43165,
+    "citation": {
+      "Author": "Arendt, M.D., J.E. Olney and J.A. Lucy",
+      "Year": 2001,
+      "Title": "Stomach content analysis of cobia, <i>Rachycentron canadum</i>, from lower Chesapeake Bay.",
+      "Source": "Fish. Bull. 99(4):665-670."
+    }
+  },
+  {
+    "predator": "Rachycentron canadum",
+    "database": "fb",
+    "rowId": 27172,
+    "predatorStage": "adults",
+    "prey": [
+      "Opisthonema oglinum"
+    ],
+    "originalFoodname": "Opisthonema oglinum",
+    "preyStage": "juv./adults",
+    "locality": "Chesapeake  Bay.",
+    "recordContext": "Locality: Chesapeake  Bay, June-July 1997. No. of fish examined: 78, FL: 37-141 cm.",
+    "referenceId": 43165,
+    "citation": {
+      "Author": "Arendt, M.D., J.E. Olney and J.A. Lucy",
+      "Year": 2001,
+      "Title": "Stomach content analysis of cobia, <i>Rachycentron canadum</i>, from lower Chesapeake Bay.",
+      "Source": "Fish. Bull. 99(4):665-670."
+    }
+  },
+  {
+    "predator": "Rachycentron canadum",
+    "database": "fb",
+    "rowId": 27191,
+    "predatorStage": "adults",
+    "prey": [
+      "Chilomycterus schoepfii"
+    ],
+    "originalFoodname": "Cyclichthys schoepfi",
+    "preyStage": "juv./adults",
+    "locality": "Chesapeake  Bay.",
+    "recordContext": "Locality: Chesapeake  Bay, June-July 1997. No. of fish examined: 78, FL: 37-141 cm.",
+    "referenceId": 43165,
+    "citation": {
+      "Author": "Arendt, M.D., J.E. Olney and J.A. Lucy",
+      "Year": 2001,
+      "Title": "Stomach content analysis of cobia, <i>Rachycentron canadum</i>, from lower Chesapeake Bay.",
+      "Source": "Fish. Bull. 99(4):665-670."
+    }
+  },
+  {
+    "predator": "Rachycentron canadum",
+    "database": "fb",
+    "rowId": 27171,
+    "predatorStage": "adults",
+    "prey": [
+      "Rhinoptera bonasus"
+    ],
+    "originalFoodname": "Rhinoptera bonasus",
+    "preyStage": "juv./adults",
+    "locality": "Chesapeake  Bay.",
+    "recordContext": "Locality: Chesapeake  Bay, June-July 1997. No. of fish examined: 78, FL: 37-141 cm.",
+    "referenceId": 43165,
+    "citation": {
+      "Author": "Arendt, M.D., J.E. Olney and J.A. Lucy",
+      "Year": 2001,
+      "Title": "Stomach content analysis of cobia, <i>Rachycentron canadum</i>, from lower Chesapeake Bay.",
+      "Source": "Fish. Bull. 99(4):665-670."
+    }
+  },
+  {
+    "predator": "Rachycentron canadum",
+    "database": "fb",
+    "rowId": 27176,
+    "predatorStage": "adults",
+    "prey": [
+      "Ophidion marginatum"
+    ],
+    "originalFoodname": "Ophidion marginatum",
+    "preyStage": "juv./adults",
+    "locality": "Chesapeake  Bay.",
+    "recordContext": "Locality: Chesapeake  Bay, June-July 1997. No. of fish examined: 78, FL: 37-141 cm.",
+    "referenceId": 43165,
+    "citation": {
+      "Author": "Arendt, M.D., J.E. Olney and J.A. Lucy",
+      "Year": 2001,
+      "Title": "Stomach content analysis of cobia, <i>Rachycentron canadum</i>, from lower Chesapeake Bay.",
+      "Source": "Fish. Bull. 99(4):665-670."
+    }
+  },
+  {
+    "predator": "Rachycentron canadum",
+    "database": "fb",
+    "rowId": 27186,
+    "predatorStage": "adults",
+    "prey": [
+      "Paralichthys dentatus"
+    ],
+    "originalFoodname": "Paralichthys dentatus",
+    "preyStage": "juv./adults",
+    "locality": "Chesapeake  Bay.",
+    "recordContext": "Locality: Chesapeake  Bay, June-July 1997. No. of fish examined: 78, FL: 37-141 cm.",
+    "referenceId": 43165,
+    "citation": {
+      "Author": "Arendt, M.D., J.E. Olney and J.A. Lucy",
+      "Year": 2001,
+      "Title": "Stomach content analysis of cobia, <i>Rachycentron canadum</i>, from lower Chesapeake Bay.",
+      "Source": "Fish. Bull. 99(4):665-670."
+    }
+  },
+  {
+    "predator": "Rachycentron canadum",
+    "database": "fb",
+    "rowId": 27182,
+    "predatorStage": "adults",
+    "prey": [
+      "Pomatomus saltatrix"
+    ],
+    "originalFoodname": "Pomatomus saltatrix",
+    "preyStage": "juv./adults",
+    "locality": "Chesapeake  Bay.",
+    "recordContext": "Locality: Chesapeake  Bay, June-July 1997. No. of fish examined: 78, FL: 37-141 cm.",
+    "referenceId": 43165,
+    "citation": {
+      "Author": "Arendt, M.D., J.E. Olney and J.A. Lucy",
+      "Year": 2001,
+      "Title": "Stomach content analysis of cobia, <i>Rachycentron canadum</i>, from lower Chesapeake Bay.",
+      "Source": "Fish. Bull. 99(4):665-670."
+    }
+  },
+  {
+    "predator": "Rachycentron canadum",
+    "database": "fb",
+    "rowId": 27183,
+    "predatorStage": "adults",
+    "prey": [
+      "Micropogonias undulatus"
+    ],
+    "originalFoodname": "Micropogonias undulatus",
+    "preyStage": "juv./adults",
+    "locality": "Chesapeake  Bay.",
+    "recordContext": "Locality: Chesapeake  Bay, June-July 1997. No. of fish examined: 78, FL: 37-141 cm.",
+    "referenceId": 43165,
+    "citation": {
+      "Author": "Arendt, M.D., J.E. Olney and J.A. Lucy",
+      "Year": 2001,
+      "Title": "Stomach content analysis of cobia, <i>Rachycentron canadum</i>, from lower Chesapeake Bay.",
+      "Source": "Fish. Bull. 99(4):665-670."
+    }
+  },
+  {
+    "predator": "Rachycentron canadum",
+    "database": "fb",
+    "rowId": 27187,
+    "predatorStage": "adults",
+    "prey": [
+      "Scophthalmus aquosus"
+    ],
+    "originalFoodname": "Scophthalmus aquosus",
+    "preyStage": "juv./adults",
+    "locality": "Chesapeake  Bay.",
+    "recordContext": "Locality: Chesapeake  Bay, June-July 1997. No. of fish examined: 78, FL: 37-141 cm.",
+    "referenceId": 43165,
+    "citation": {
+      "Author": "Arendt, M.D., J.E. Olney and J.A. Lucy",
+      "Year": 2001,
+      "Title": "Stomach content analysis of cobia, <i>Rachycentron canadum</i>, from lower Chesapeake Bay.",
+      "Source": "Fish. Bull. 99(4):665-670."
+    }
+  },
+  {
+    "predator": "Rachycentron canadum",
+    "database": "fb",
+    "rowId": 27180,
+    "predatorStage": "adults",
+    "prey": [
+      "Hippocampus erectus"
+    ],
+    "originalFoodname": "Hippocampus erectus",
+    "preyStage": "juv./adults",
+    "locality": "Chesapeake  Bay.",
+    "recordContext": "Locality: Chesapeake  Bay, June-July 1997. No. of fish examined: 78, FL: 37-141 cm.",
+    "referenceId": 43165,
+    "citation": {
+      "Author": "Arendt, M.D., J.E. Olney and J.A. Lucy",
+      "Year": 2001,
+      "Title": "Stomach content analysis of cobia, <i>Rachycentron canadum</i>, from lower Chesapeake Bay.",
+      "Source": "Fish. Bull. 99(4):665-670."
+    }
+  },
+  {
+    "predator": "Rachycentron canadum",
+    "database": "fb",
+    "rowId": 57573,
+    "predatorStage": "adults",
+    "prey": [
+      "Cancer irroratus"
+    ],
+    "originalFoodname": "Cancer irroratus",
+    "preyStage": "juv./adults",
+    "locality": "Chesapeake  Bay.",
+    "recordContext": null,
+    "referenceId": 43165,
+    "citation": {
+      "Author": "Arendt, M.D., J.E. Olney and J.A. Lucy",
+      "Year": 2001,
+      "Title": "Stomach content analysis of cobia, <i>Rachycentron canadum</i>, from lower Chesapeake Bay.",
+      "Source": "Fish. Bull. 99(4):665-670."
+    }
+  },
+  {
+    "predator": "Rachycentron canadum",
+    "database": "fb",
+    "rowId": 57605,
+    "predatorStage": "adults",
+    "prey": [
+      "Ovalipes ocellatus"
+    ],
+    "originalFoodname": "Ovalipes  ocellatus",
+    "preyStage": "juv./adults",
+    "locality": "Chesapeake  Bay.",
+    "recordContext": null,
+    "referenceId": 43165,
+    "citation": {
+      "Author": "Arendt, M.D., J.E. Olney and J.A. Lucy",
+      "Year": 2001,
+      "Title": "Stomach content analysis of cobia, <i>Rachycentron canadum</i>, from lower Chesapeake Bay.",
+      "Source": "Fish. Bull. 99(4):665-670."
+    }
+  },
+  {
+    "predator": "Rachycentron canadum",
+    "database": "fb",
+    "rowId": 58453,
+    "predatorStage": "adults",
+    "prey": [
+      "Mytilus edulis"
+    ],
+    "originalFoodname": "Mytilus edulis",
+    "preyStage": "juv./adults",
+    "locality": "Chesapeake Bay.",
+    "recordContext": null,
+    "referenceId": 43165,
+    "citation": {
+      "Author": "Arendt, M.D., J.E. Olney and J.A. Lucy",
+      "Year": 2001,
+      "Title": "Stomach content analysis of cobia, <i>Rachycentron canadum</i>, from lower Chesapeake Bay.",
+      "Source": "Fish. Bull. 99(4):665-670."
+    }
+  },
+  {
+    "predator": "Rachycentron canadum",
+    "database": "fb",
+    "rowId": 58462,
+    "predatorStage": "adults",
+    "prey": [
+      "Mytilus edulis"
+    ],
+    "originalFoodname": "Mytilus edulis",
+    "preyStage": "juv./adults",
+    "locality": "Chesapeake Bay.",
+    "recordContext": null,
+    "referenceId": 43165,
+    "citation": {
+      "Author": "Arendt, M.D., J.E. Olney and J.A. Lucy",
+      "Year": 2001,
+      "Title": "Stomach content analysis of cobia, <i>Rachycentron canadum</i>, from lower Chesapeake Bay.",
+      "Source": "Fish. Bull. 99(4):665-670."
+    }
+  },
+  {
+    "predator": "Gadus morhua",
+    "database": "fb",
+    "rowId": 14827,
+    "predatorStage": "adults",
+    "prey": [
+      "Clupea harengus"
+    ],
+    "originalFoodname": "Clupea harengus",
+    "preyStage": "recruits/juv.",
+    "locality": "Kiel Bight.",
+    "recordContext": "Locality: Kiel Bight.",
+    "referenceId": 1750,
+    "citation": {
+      "Author": "Weber, W. and U. Damm",
+      "Year": 1991,
+      "Title": "Investigations on cod stomachs in the western Baltic 1981-1989.",
+      "Source": "ICES C.M. 1991/J:23. 17 p. International Council for the Exploration of the Sea, Copenhagen."
+    }
+  },
+  {
+    "predator": "Gadus morhua",
+    "database": "fb",
+    "rowId": 14828,
+    "predatorStage": "adults",
+    "prey": [
+      "Sprattus sprattus"
+    ],
+    "originalFoodname": "Sprattus sprattus",
+    "preyStage": "recruits/juv.",
+    "locality": "Kiel Bight.",
+    "recordContext": "Locality: Kiel Bight. Prey includes adults.",
+    "referenceId": 1750,
+    "citation": {
+      "Author": "Weber, W. and U. Damm",
+      "Year": 1991,
+      "Title": "Investigations on cod stomachs in the western Baltic 1981-1989.",
+      "Source": "ICES C.M. 1991/J:23. 17 p. International Council for the Exploration of the Sea, Copenhagen."
+    }
+  },
+  {
+    "predator": "Gadus morhua",
+    "database": "fb",
+    "rowId": 14829,
+    "predatorStage": "adults",
+    "prey": [
+      "Gadus morhua"
+    ],
+    "originalFoodname": "Gadus morhua",
+    "preyStage": "recruits/juv.",
+    "locality": "Kiel Bight.",
+    "recordContext": "Locality: Kiel Bight.",
+    "referenceId": 1750,
+    "citation": {
+      "Author": "Weber, W. and U. Damm",
+      "Year": 1991,
+      "Title": "Investigations on cod stomachs in the western Baltic 1981-1989.",
+      "Source": "ICES C.M. 1991/J:23. 17 p. International Council for the Exploration of the Sea, Copenhagen."
+    }
+  },
+  {
+    "predator": "Gadus morhua",
+    "database": "fb",
+    "rowId": 14830,
+    "predatorStage": "adults",
+    "prey": [
+      "Limanda limanda"
+    ],
+    "originalFoodname": "Limanda limanda",
+    "preyStage": "recruits/juv.",
+    "locality": null,
+    "recordContext": "Locality: Not stated.",
+    "referenceId": 6020,
+    "citation": {
+      "Author": "Temming, A.",
+      "Year": 1989,
+      "Title": "Long-term changes in stock abundance of the common dab (<i>Limanda limanda</i>) in the Baltic proper.",
+      "Source": "p. 39-50. In O. Bagge and O. Rechlin (eds.) Baltic Sea fishery resources. A symposium held in Rostock, 29 February-3 March 1988. Rapp. P. V. Reun. Ciem. 190."
+    }
+  },
+  {
+    "predator": "Gadus morhua",
+    "database": "fb",
+    "rowId": 14832,
+    "predatorStage": "adults",
+    "prey": [
+      "Clupea harengus"
+    ],
+    "originalFoodname": "Clupea harengus",
+    "preyStage": "recruits/juv.",
+    "locality": "Baltic Sea.",
+    "recordContext": "Locality: Baltic Sea. Preys includes adults.",
+    "referenceId": 5966,
+    "citation": {
+      "Author": "Weber, W. and R. Froese",
+      "Year": 1993,
+      "Title": "Synopsis of biological data on cod <i>Gadus morhua</i> L. in the Baltic Sea using the FishBase data format.",
+      "Source": "ICES C.M. 1993/J:29. International Council for the Exploration of the Sea, Copenhagen."
+    }
+  },
+  {
+    "predator": "Gadus morhua",
+    "database": "fb",
+    "rowId": 14833,
+    "predatorStage": "adults",
+    "prey": [
+      "Sprattus sprattus"
+    ],
+    "originalFoodname": "Sprattus sprattus",
+    "preyStage": "recruits/juv.",
+    "locality": "Baltic Sea.",
+    "recordContext": "Locality: Baltic Sea. Preys includes adults.",
+    "referenceId": 5966,
+    "citation": {
+      "Author": "Weber, W. and R. Froese",
+      "Year": 1993,
+      "Title": "Synopsis of biological data on cod <i>Gadus morhua</i> L. in the Baltic Sea using the FishBase data format.",
+      "Source": "ICES C.M. 1993/J:29. International Council for the Exploration of the Sea, Copenhagen."
+    }
+  },
+  {
+    "predator": "Limulus polyphemus",
+    "database": "slb",
+    "rowId": 26044,
+    "predatorStage": "adults",
+    "prey": [
+      "Mulinia lateralis"
+    ],
+    "originalFoodname": "Mulinia lateralis",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Delaware Bay, New Jersey, USA.  Date: May- Aug, 1978 & May-Aug, 1979.",
+    "referenceId": 121595,
+    "citation": {
+      "Author": "Botton, M.L.",
+      "Year": 1984,
+      "Title": "Diet and food preferences of the adult horseshoe crab <i>Limulus polyphemus</i> in Delaware Bay, New Jersey, USA.",
+      "Source": "Marine Biology 81(2):199-207."
+    }
+  },
+  {
+    "predator": "Limulus polyphemus",
+    "database": "slb",
+    "rowId": 26045,
+    "predatorStage": "adults",
+    "prey": [
+      "Mya arenaria"
+    ],
+    "originalFoodname": "Mya arenaria",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Delaware Bay, New Jersey, USA.  Date: May- Aug, 1978 & May-Aug, 1979.",
+    "referenceId": 121595,
+    "citation": {
+      "Author": "Botton, M.L.",
+      "Year": 1984,
+      "Title": "Diet and food preferences of the adult horseshoe crab <i>Limulus polyphemus</i> in Delaware Bay, New Jersey, USA.",
+      "Source": "Marine Biology 81(2):199-207."
+    }
+  },
+  {
+    "predator": "Limulus polyphemus",
+    "database": "slb",
+    "rowId": 26046,
+    "predatorStage": "adults",
+    "prey": [
+      "Mytilus edulis"
+    ],
+    "originalFoodname": "Mytilus edulis",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Delaware Bay, New Jersey, USA.  Date: May- Aug, 1978 & May-Aug, 1979.",
+    "referenceId": 121595,
+    "citation": {
+      "Author": "Botton, M.L.",
+      "Year": 1984,
+      "Title": "Diet and food preferences of the adult horseshoe crab <i>Limulus polyphemus</i> in Delaware Bay, New Jersey, USA.",
+      "Source": "Marine Biology 81(2):199-207."
+    }
+  },
+  {
+    "predator": "Limulus polyphemus",
+    "database": "slb",
+    "rowId": 26042,
+    "predatorStage": "adults",
+    "prey": [
+      "Gemma gemma"
+    ],
+    "originalFoodname": "Gemma gemma",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Delaware Bay, New Jersey, USA.  Date: May- Aug, 1978 & May-Aug, 1979.",
+    "referenceId": 121595,
+    "citation": {
+      "Author": "Botton, M.L.",
+      "Year": 1984,
+      "Title": "Diet and food preferences of the adult horseshoe crab <i>Limulus polyphemus</i> in Delaware Bay, New Jersey, USA.",
+      "Source": "Marine Biology 81(2):199-207."
+    }
+  },
+  {
+    "predator": "Palinurus elephas",
+    "database": "slb",
+    "rowId": 7783,
+    "predatorStage": "adults",
+    "prey": [
+      "Atelecyclus rotundatus"
+    ],
+    "originalFoodname": "Atelecyclus rotundatus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Columbretes Islands.",
+    "referenceId": 85352,
+    "citation": {
+      "Author": "Go\u00f1i, R., A. Quetglas and O. Re\u00f1ones",
+      "Year": 2001,
+      "Title": "Diet of the spiny lobster <i>Palinurus elephas</i> (Decapoda: Palinuridea) from the Columbretes Islands Marine Reserve (north-western Mediterranean).",
+      "Source": "J. Mar. Biol. Ass. U.K. 81:347-348."
+    }
+  },
+  {
+    "predator": "Palinurus elephas",
+    "database": "slb",
+    "rowId": 7784,
+    "predatorStage": "adults",
+    "prey": [
+      "Dardanus arrosor"
+    ],
+    "originalFoodname": "Dardanus arrosor",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Columbretes Islands.",
+    "referenceId": 85352,
+    "citation": {
+      "Author": "Go\u00f1i, R., A. Quetglas and O. Re\u00f1ones",
+      "Year": 2001,
+      "Title": "Diet of the spiny lobster <i>Palinurus elephas</i> (Decapoda: Palinuridea) from the Columbretes Islands Marine Reserve (north-western Mediterranean).",
+      "Source": "J. Mar. Biol. Ass. U.K. 81:347-348."
+    }
+  },
+  {
+    "predator": "Palinurus elephas",
+    "database": "slb",
+    "rowId": 7785,
+    "predatorStage": "adults",
+    "prey": [
+      "Eurynome spinosa"
+    ],
+    "originalFoodname": "Eurynome spinosa",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Columbretes Islands.",
+    "referenceId": 85352,
+    "citation": {
+      "Author": "Go\u00f1i, R., A. Quetglas and O. Re\u00f1ones",
+      "Year": 2001,
+      "Title": "Diet of the spiny lobster <i>Palinurus elephas</i> (Decapoda: Palinuridea) from the Columbretes Islands Marine Reserve (north-western Mediterranean).",
+      "Source": "J. Mar. Biol. Ass. U.K. 81:347-348."
+    }
+  },
+  {
+    "predator": "Palinurus elephas",
+    "database": "slb",
+    "rowId": 7786,
+    "predatorStage": "adults",
+    "prey": [
+      "Galathea intermedia"
+    ],
+    "originalFoodname": "Galathea intermedia",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Columbretes Islands.",
+    "referenceId": 85352,
+    "citation": {
+      "Author": "Go\u00f1i, R., A. Quetglas and O. Re\u00f1ones",
+      "Year": 2001,
+      "Title": "Diet of the spiny lobster <i>Palinurus elephas</i> (Decapoda: Palinuridea) from the Columbretes Islands Marine Reserve (north-western Mediterranean).",
+      "Source": "J. Mar. Biol. Ass. U.K. 81:347-348."
+    }
+  },
+  {
+    "predator": "Palinurus elephas",
+    "database": "slb",
+    "rowId": 7789,
+    "predatorStage": "adults",
+    "prey": [
+      "Upogebia deltaura"
+    ],
+    "originalFoodname": "Upogebia deltaura",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Columbretes Islands.",
+    "referenceId": 85352,
+    "citation": {
+      "Author": "Go\u00f1i, R., A. Quetglas and O. Re\u00f1ones",
+      "Year": 2001,
+      "Title": "Diet of the spiny lobster <i>Palinurus elephas</i> (Decapoda: Palinuridea) from the Columbretes Islands Marine Reserve (north-western Mediterranean).",
+      "Source": "J. Mar. Biol. Ass. U.K. 81:347-348."
+    }
+  },
+  {
+    "predator": "Palinurus elephas",
+    "database": "slb",
+    "rowId": 7811,
+    "predatorStage": "adults",
+    "prey": [
+      "Anomia ephippium"
+    ],
+    "originalFoodname": "Anomia ephippium",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Columbretes Islands.",
+    "referenceId": 85352,
+    "citation": {
+      "Author": "Go\u00f1i, R., A. Quetglas and O. Re\u00f1ones",
+      "Year": 2001,
+      "Title": "Diet of the spiny lobster <i>Palinurus elephas</i> (Decapoda: Palinuridea) from the Columbretes Islands Marine Reserve (north-western Mediterranean).",
+      "Source": "J. Mar. Biol. Ass. U.K. 81:347-348."
+    }
+  },
+  {
+    "predator": "Palinurus elephas",
+    "database": "slb",
+    "rowId": 7813,
+    "predatorStage": "adults",
+    "prey": [
+      "Hiatella arctica"
+    ],
+    "originalFoodname": "Hiatella arctica",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Columbretes Islands.",
+    "referenceId": 85352,
+    "citation": {
+      "Author": "Go\u00f1i, R., A. Quetglas and O. Re\u00f1ones",
+      "Year": 2001,
+      "Title": "Diet of the spiny lobster <i>Palinurus elephas</i> (Decapoda: Palinuridea) from the Columbretes Islands Marine Reserve (north-western Mediterranean).",
+      "Source": "J. Mar. Biol. Ass. U.K. 81:347-348."
+    }
+  },
+  {
+    "predator": "Palinurus elephas",
+    "database": "slb",
+    "rowId": 7814,
+    "predatorStage": "adults",
+    "prey": [
+      "Lima inflata"
+    ],
+    "originalFoodname": "Lima inflata",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Columbretes Islands.",
+    "referenceId": 85352,
+    "citation": {
+      "Author": "Go\u00f1i, R., A. Quetglas and O. Re\u00f1ones",
+      "Year": 2001,
+      "Title": "Diet of the spiny lobster <i>Palinurus elephas</i> (Decapoda: Palinuridea) from the Columbretes Islands Marine Reserve (north-western Mediterranean).",
+      "Source": "J. Mar. Biol. Ass. U.K. 81:347-348."
+    }
+  },
+  {
+    "predator": "Palinurus elephas",
+    "database": "slb",
+    "rowId": 7815,
+    "predatorStage": "adults",
+    "prey": [
+      "Lima lima"
+    ],
+    "originalFoodname": "Lima lima",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Columbretes Islands.",
+    "referenceId": 85352,
+    "citation": {
+      "Author": "Go\u00f1i, R., A. Quetglas and O. Re\u00f1ones",
+      "Year": 2001,
+      "Title": "Diet of the spiny lobster <i>Palinurus elephas</i> (Decapoda: Palinuridea) from the Columbretes Islands Marine Reserve (north-western Mediterranean).",
+      "Source": "J. Mar. Biol. Ass. U.K. 81:347-348."
+    }
+  },
+  {
+    "predator": "Palinurus elephas",
+    "database": "slb",
+    "rowId": 7812,
+    "predatorStage": "adults",
+    "prey": [
+      "Talochlamys multistriata"
+    ],
+    "originalFoodname": "Chlamys multistriata",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Columbretes Islands.",
+    "referenceId": 85352,
+    "citation": {
+      "Author": "Go\u00f1i, R., A. Quetglas and O. Re\u00f1ones",
+      "Year": 2001,
+      "Title": "Diet of the spiny lobster <i>Palinurus elephas</i> (Decapoda: Palinuridea) from the Columbretes Islands Marine Reserve (north-western Mediterranean).",
+      "Source": "J. Mar. Biol. Ass. U.K. 81:347-348."
+    }
+  },
+  {
+    "predator": "Palinurus elephas",
+    "database": "slb",
+    "rowId": 7824,
+    "predatorStage": "adults",
+    "prey": [
+      "Acanthochitona communis"
+    ],
+    "originalFoodname": "Acanthochitona communis",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Columbretes Islands.",
+    "referenceId": 85352,
+    "citation": {
+      "Author": "Go\u00f1i, R., A. Quetglas and O. Re\u00f1ones",
+      "Year": 2001,
+      "Title": "Diet of the spiny lobster <i>Palinurus elephas</i> (Decapoda: Palinuridea) from the Columbretes Islands Marine Reserve (north-western Mediterranean).",
+      "Source": "J. Mar. Biol. Ass. U.K. 81:347-348."
+    }
+  },
+  {
+    "predator": "Palinurus elephas",
+    "database": "slb",
+    "rowId": 7801,
+    "predatorStage": "adults",
+    "prey": [
+      "Haliotis tuberculata"
+    ],
+    "originalFoodname": "Haliotis tuberculata",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "As <i>Haliotis lamellosa</i>.  Locality: Columbretes Islands.",
+    "referenceId": 85352,
+    "citation": {
+      "Author": "Go\u00f1i, R., A. Quetglas and O. Re\u00f1ones",
+      "Year": 2001,
+      "Title": "Diet of the spiny lobster <i>Palinurus elephas</i> (Decapoda: Palinuridea) from the Columbretes Islands Marine Reserve (north-western Mediterranean).",
+      "Source": "J. Mar. Biol. Ass. U.K. 81:347-348."
+    }
+  },
+  {
+    "predator": "Palinurus elephas",
+    "database": "slb",
+    "rowId": 7803,
+    "predatorStage": "adults",
+    "prey": [
+      "Raphitoma linearis"
+    ],
+    "originalFoodname": "Raphitoma linearis",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Columbretes Islands.",
+    "referenceId": 85352,
+    "citation": {
+      "Author": "Go\u00f1i, R., A. Quetglas and O. Re\u00f1ones",
+      "Year": 2001,
+      "Title": "Diet of the spiny lobster <i>Palinurus elephas</i> (Decapoda: Palinuridea) from the Columbretes Islands Marine Reserve (north-western Mediterranean).",
+      "Source": "J. Mar. Biol. Ass. U.K. 81:347-348."
+    }
+  },
+  {
+    "predator": "Palinurus elephas",
+    "database": "slb",
+    "rowId": 7827,
+    "predatorStage": "adults",
+    "prey": [
+      "Gryphus vitreus"
+    ],
+    "originalFoodname": "Gryphus vitreus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Columbretes Islands.",
+    "referenceId": 85352,
+    "citation": {
+      "Author": "Go\u00f1i, R., A. Quetglas and O. Re\u00f1ones",
+      "Year": 2001,
+      "Title": "Diet of the spiny lobster <i>Palinurus elephas</i> (Decapoda: Palinuridea) from the Columbretes Islands Marine Reserve (north-western Mediterranean).",
+      "Source": "J. Mar. Biol. Ass. U.K. 81:347-348."
+    }
+  },
+  {
+    "predator": "Panulirus echinatus",
+    "database": "slb",
+    "rowId": 18632,
+    "predatorStage": "adults",
+    "prey": [
+      "Caulerpa racemosa"
+    ],
+    "originalFoodname": "Caulerpa racemosa",
+    "preyStage": "n.a./others",
+    "locality": null,
+    "recordContext": "Locality: S\u00e3o Pedro and S\u00e3o Paulo; October 2002 and March, July, and August 2003.",
+    "referenceId": 101626,
+    "citation": {
+      "Author": "G\u00f3es, C.A. and J.E. Lins-Oliveira",
+      "Year": 2009,
+      "Title": "Natural diet of the spiny lobster, <i>Panulirus echinatus</i> Smith, 1869 (Crustacea: Decapoda: Palinuridae), from S\u00e3o Pedro and S\u00e3o Paulo Archipelago, Brazil.",
+      "Source": "Brazilian Journal of Biology 69(1):143-148."
+    }
+  },
+  {
+    "predator": "Penaeus kerathurus",
+    "database": "slb",
+    "rowId": 24692,
+    "predatorStage": "adults",
+    "prey": [
+      "Thyone fusus"
+    ],
+    "originalFoodname": "Thyone fusus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality: Pinios estuary, NW Aegean Sea.",
+    "referenceId": 118301,
+    "citation": {
+      "Author": "Karani, I., M.S. Kitsos, N. Chartosia and A. Koukouras",
+      "Year": 2005,
+      "Title": "Diet composition of the penaeid shrimp, <i>Melicertus kerathurus</i> (Forsk\u00e5l, 1775) (Decapoda, Penaeidae) in the Aegean Sea.",
+      "Source": "Crustaceana 78(4):385-396."
+    }
+  },
+  {
+    "predator": "Aurelia aurita",
+    "database": "slb",
+    "rowId": 172,
+    "predatorStage": "adults",
+    "prey": [
+      "Brachionus plicatilis"
+    ],
+    "originalFoodname": "Brachionus plicatilis",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 3058,
+    "citation": {
+      "Author": "Olesen, N.J., K. Frandsen and H.U. Riig\u00e5rd",
+      "Year": 1994,
+      "Title": "Population dynamics, growth and energetics of jellyfish <i>Aurelia aurita</i> in a shallow fjord.",
+      "Source": "Mar. Ecol. Prog. Ser. 105:9-18."
+    }
+  },
+  {
+    "predator": "Callinectes sapidus",
+    "database": "slb",
+    "rowId": 28316,
+    "predatorStage": "adults",
+    "prey": [
+      "Callinectes sapidus"
+    ],
+    "originalFoodname": "Callinectes sapidus",
+    "preyStage": "n.a./others",
+    "locality": null,
+    "recordContext": "Locality:  Sf\u00e2ntu Gheroghe branch, Danube Delta.  Date:  Dec 2022.  Gear type:  net.  Prey stage:  recruits/juv.",
+    "referenceId": 137615,
+    "citation": {
+      "Author": "Nastase, A., S. Hont, M. Iani and M. Paraschiv",
+      "Year": 2023,
+      "Title": "First record of <i>Callinectes sapidus</i> (Blue Crab) (Rathbun, 1896) (Crustacea: Decapoda: Portunidae) in Romanian sea coasts of Danube Delta.",
+      "Source": "Sci. Ann. \"Danube Delta\" Inst. 28(2023):169-174."
+    }
+  },
+  {
+    "predator": "Acanthaster planci",
+    "database": "slb",
+    "rowId": 6669,
+    "predatorStage": "adults",
+    "prey": [
+      "Pavona cactus"
+    ],
+    "originalFoodname": "Pavona cactus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 83568,
+    "citation": {
+      "Author": "Pratchett, M.S.",
+      "Year": 2007,
+      "Title": "Feeding preferences of <i>Acanthaster planci</i> (Echinodermata: Asteroidea) under controlled conditions of food availability.",
+      "Source": "Pacific Science 61(1):113-120."
+    }
+  },
+  {
+    "predator": "Acanthaster planci",
+    "database": "slb",
+    "rowId": 6675,
+    "predatorStage": "adults",
+    "prey": [
+      "Echinopora horrida"
+    ],
+    "originalFoodname": "Echinopora horrida",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 83568,
+    "citation": {
+      "Author": "Pratchett, M.S.",
+      "Year": 2007,
+      "Title": "Feeding preferences of <i>Acanthaster planci</i> (Echinodermata: Asteroidea) under controlled conditions of food availability.",
+      "Source": "Pacific Science 61(1):113-120."
+    }
+  },
+  {
+    "predator": "Acanthaster planci",
+    "database": "slb",
+    "rowId": 6672,
+    "predatorStage": "adults",
+    "prey": [
+      "Favites abdita"
+    ],
+    "originalFoodname": "Favites abdita",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 83568,
+    "citation": {
+      "Author": "Pratchett, M.S.",
+      "Year": 2007,
+      "Title": "Feeding preferences of <i>Acanthaster planci</i> (Echinodermata: Asteroidea) under controlled conditions of food availability.",
+      "Source": "Pacific Science 61(1):113-120."
+    }
+  },
+  {
+    "predator": "Acanthaster planci",
+    "database": "slb",
+    "rowId": 6668,
+    "predatorStage": "adults",
+    "prey": [
+      "Goniastrea retiformis"
+    ],
+    "originalFoodname": "Goniastrea retiformis",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 83568,
+    "citation": {
+      "Author": "Pratchett, M.S.",
+      "Year": 2007,
+      "Title": "Feeding preferences of <i>Acanthaster planci</i> (Echinodermata: Asteroidea) under controlled conditions of food availability.",
+      "Source": "Pacific Science 61(1):113-120."
+    }
+  },
+  {
+    "predator": "Acanthaster planci",
+    "database": "slb",
+    "rowId": 6666,
+    "predatorStage": "adults",
+    "prey": [
+      "Fungia fungites"
+    ],
+    "originalFoodname": "Fungia fungites",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 83568,
+    "citation": {
+      "Author": "Pratchett, M.S.",
+      "Year": 2007,
+      "Title": "Feeding preferences of <i>Acanthaster planci</i> (Echinodermata: Asteroidea) under controlled conditions of food availability.",
+      "Source": "Pacific Science 61(1):113-120."
+    }
+  },
+  {
+    "predator": "Acanthaster planci",
+    "database": "slb",
+    "rowId": 6674,
+    "predatorStage": "adults",
+    "prey": [
+      "Lobophyllia recta"
+    ],
+    "originalFoodname": "Symphyllia recta",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 83568,
+    "citation": {
+      "Author": "Pratchett, M.S.",
+      "Year": 2007,
+      "Title": "Feeding preferences of <i>Acanthaster planci</i> (Echinodermata: Asteroidea) under controlled conditions of food availability.",
+      "Source": "Pacific Science 61(1):113-120."
+    }
+  },
+  {
+    "predator": "Acanthaster planci",
+    "database": "slb",
+    "rowId": 6664,
+    "predatorStage": "adults",
+    "prey": [
+      "Pocillopora damicornis"
+    ],
+    "originalFoodname": "Pocillopora damicornis",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 83568,
+    "citation": {
+      "Author": "Pratchett, M.S.",
+      "Year": 2007,
+      "Title": "Feeding preferences of <i>Acanthaster planci</i> (Echinodermata: Asteroidea) under controlled conditions of food availability.",
+      "Source": "Pacific Science 61(1):113-120."
+    }
+  },
+  {
+    "predator": "Acanthaster planci",
+    "database": "slb",
+    "rowId": 6665,
+    "predatorStage": "adults",
+    "prey": [
+      "Goniopora lobata"
+    ],
+    "originalFoodname": "Goniopora lobata",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 83568,
+    "citation": {
+      "Author": "Pratchett, M.S.",
+      "Year": 2007,
+      "Title": "Feeding preferences of <i>Acanthaster planci</i> (Echinodermata: Asteroidea) under controlled conditions of food availability.",
+      "Source": "Pacific Science 61(1):113-120."
+    }
+  },
+  {
+    "predator": "Acanthaster planci",
+    "database": "slb",
+    "rowId": 6673,
+    "predatorStage": "adults",
+    "prey": [
+      "Porites lobata"
+    ],
+    "originalFoodname": "Porites lobata",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 83568,
+    "citation": {
+      "Author": "Pratchett, M.S.",
+      "Year": 2007,
+      "Title": "Feeding preferences of <i>Acanthaster planci</i> (Echinodermata: Asteroidea) under controlled conditions of food availability.",
+      "Source": "Pacific Science 61(1):113-120."
+    }
+  },
+  {
+    "predator": "Octopus vulgaris",
+    "database": "slb",
+    "rowId": 7842,
+    "predatorStage": "adults",
+    "prey": [
+      "Palinurus elephas"
+    ],
+    "originalFoodname": "Palinurus elephas",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 85313,
+    "citation": {
+      "Author": "D\u00edaz, D., M. Zabala, C. Linares, B. Hereu and P. Abell\u00f3",
+      "Year": 2005,
+      "Title": "Increased population of juvenile European spiny lobster (<i>Palinurus elephas</i>) in a marine protected area.",
+      "Source": "New Zealand Journal of Marine and Freshwater Research 36:447-453."
+    }
+  },
+  {
+    "predator": "Orcinus orca",
+    "database": "slb",
+    "rowId": 28178,
+    "predatorStage": "adults",
+    "prey": [
+      "Kogia breviceps"
+    ],
+    "originalFoodname": "Kogia breviceps",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Monterey Bay, California.  Date:  2 Nov 2014.  Depth:  4613m.  Method type:  direct observation.",
+    "referenceId": 130791,
+    "citation": {
+      "Author": "McInnes, J.D., A.W. Trites, C.R. Mathieson, M.E. Dahlheim, J.E. Moore, P.A. Olson and K.M. Lester",
+      "Year": 2024,
+      "Title": "Evidence for an oceanic population of killer whales (<i>Orcinus orca</i>) in offshore waters of California and Oregon.",
+      "Source": "Aquat. Mamm. 50(2):93-106."
+    }
+  },
+  {
+    "predator": "Orcinus orca",
+    "database": "slb",
+    "rowId": 17740,
+    "predatorStage": "adults",
+    "prey": [
+      "Zalophus californianus"
+    ],
+    "originalFoodname": "Zalophus californianus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 97337,
+    "citation": {
+      "Author": "Barrett-Lennard, L.G.",
+      "Year": 2000,
+      "Title": "Population structure and mating patterns of killer whales (<i>Orcinus orca</i>) as revealed by DNA analysis.",
+      "Source": "Ph.D., The University of British Columbia, Vancouver, Canada, 108 p."
+    }
+  },
+  {
+    "predator": "Monodon monoceros",
+    "database": "slb",
+    "rowId": 25125,
+    "predatorStage": "adults",
+    "prey": [
+      "Boreogadus saida"
+    ],
+    "originalFoodname": "Boreogadus saida",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Allen Bay and Resolute Bay, Nunavut.  Date:  2010.",
+    "referenceId": 117965,
+    "citation": {
+      "Author": "Matley, J.K., A.T. Fisk and T.A. Dick",
+      "Year": 2015,
+      "Title": "Foraging ecology of ringed seals (<i>Pusa hispida</i>), beluga whales (<i>Delphinapterus leucas</i>) and narwhals (<i>Monodon monoceros</i>) in the Canadian High Arctic determined by stomach content and stable isotope analysis.",
+      "Source": "Polar Research 34(1):24295."
+    }
+  },
+  {
+    "predator": "Delphinapterus leucas",
+    "database": "slb",
+    "rowId": 25021,
+    "predatorStage": "adults",
+    "prey": [
+      "Boreogadus saida"
+    ],
+    "originalFoodname": "Boreogadus saida",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Ulukhaktok, Northwest Territories.  Date: July and August 2014.  # of stomachs: 12.",
+    "referenceId": 118988,
+    "citation": {
+      "Author": "Loseto, L.L., J.D. Brewster, S.K. Ostertag, K. Snow, MacPhee, S.A., D.G. McNicholl, E.S. Choy, C. Giraldo and C.A. Hornby",
+      "Year": 2018,
+      "Title": "Diet and feeding observations from an unusual beluga harvest in 2014 near Ulukhaktok, Northwest Territories, Canada.",
+      "Source": "Arctic Science 4:421-431."
+    }
+  },
+  {
+    "predator": "Delphinapterus leucas",
+    "database": "slb",
+    "rowId": 25024,
+    "predatorStage": "adults",
+    "prey": [
+      "Eumesogrammus praecisus"
+    ],
+    "originalFoodname": "Eumesogrammus praecisus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Ulukhaktok, Northwest Territories.  Date: July and August 2014.  # of stomachs: 12.",
+    "referenceId": 118988,
+    "citation": {
+      "Author": "Loseto, L.L., J.D. Brewster, S.K. Ostertag, K. Snow, MacPhee, S.A., D.G. McNicholl, E.S. Choy, C. Giraldo and C.A. Hornby",
+      "Year": 2018,
+      "Title": "Diet and feeding observations from an unusual beluga harvest in 2014 near Ulukhaktok, Northwest Territories, Canada.",
+      "Source": "Arctic Science 4:421-431."
+    }
+  },
+  {
+    "predator": "Zalophus californianus",
+    "database": "slb",
+    "rowId": 28305,
+    "predatorStage": "adults",
+    "prey": [
+      "Abraliopsis affinis"
+    ],
+    "originalFoodname": "Abraliopsis affinis",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Los Islotes, Gulf of California.  Date:  Jul 2015-Oct 2022.  Method type:  fecal content analysis.  Sampling done during breeding season, so assumption is samples came from adult females.",
+    "referenceId": 137902,
+    "citation": {
+      "Author": "Mejia-Guarnizo, B.N., A.O. Vargas, F.J. Garc\u00eda-Rodr\u00edguez, F.R. Elorriaga-Verplancken, F. Valenzuela-Qui\u00f1onez, T. Zenteno-Sav\u00edn, D.A. Murillo-Cisneros and C.J. Hernandez-Camacho",
+      "Year": 2025,
+      "Title": "Temporal dietary shifts in California sea lions at Los Islotes colony, Gulf of California.",
+      "Source": "Reg. Stud. Mar. Sci. 90:104479."
+    }
+  },
+  {
+    "predator": "Zalophus californianus",
+    "database": "slb",
+    "rowId": 28303,
+    "predatorStage": "adults",
+    "prey": [
+      "Mastigoteuthis dentata"
+    ],
+    "originalFoodname": "Mastigoteuthis dentata",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Los Islotes, Gulf of California.  Date:  Jul 2015-Oct 2022.  Method type:  fecal content analysis.  Sampling done during breeding season, so assumption is samples came from adult females.",
+    "referenceId": 137902,
+    "citation": {
+      "Author": "Mejia-Guarnizo, B.N., A.O. Vargas, F.J. Garc\u00eda-Rodr\u00edguez, F.R. Elorriaga-Verplancken, F. Valenzuela-Qui\u00f1onez, T. Zenteno-Sav\u00edn, D.A. Murillo-Cisneros and C.J. Hernandez-Camacho",
+      "Year": 2025,
+      "Title": "Temporal dietary shifts in California sea lions at Los Islotes colony, Gulf of California.",
+      "Source": "Reg. Stud. Mar. Sci. 90:104479."
+    }
+  },
+  {
+    "predator": "Zalophus californianus",
+    "database": "slb",
+    "rowId": 28304,
+    "predatorStage": "adults",
+    "prey": [
+      "Octopoteuthis sicula"
+    ],
+    "originalFoodname": "Octopoteuthis sicula",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Los Islotes, Gulf of California.  Date:  Jul 2015-Oct 2022.  Method type:  fecal content analysis.  Sampling done during breeding season, so assumption is samples came from adult females.",
+    "referenceId": 137902,
+    "citation": {
+      "Author": "Mejia-Guarnizo, B.N., A.O. Vargas, F.J. Garc\u00eda-Rodr\u00edguez, F.R. Elorriaga-Verplancken, F. Valenzuela-Qui\u00f1onez, T. Zenteno-Sav\u00edn, D.A. Murillo-Cisneros and C.J. Hernandez-Camacho",
+      "Year": 2025,
+      "Title": "Temporal dietary shifts in California sea lions at Los Islotes colony, Gulf of California.",
+      "Source": "Reg. Stud. Mar. Sci. 90:104479."
+    }
+  },
+  {
+    "predator": "Zalophus californianus",
+    "database": "slb",
+    "rowId": 28331,
+    "predatorStage": "adults",
+    "prey": [
+      "Sardinops sagax"
+    ],
+    "originalFoodname": "Sardinops sagax",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Los Islotes, Gulf of California.  Date:  Jul 2015-Oct 2022.  Method type:  fecal content analysis.  Sampling done during breeding season, so assumption is samples came from adult females.",
+    "referenceId": 137902,
+    "citation": {
+      "Author": "Mejia-Guarnizo, B.N., A.O. Vargas, F.J. Garc\u00eda-Rodr\u00edguez, F.R. Elorriaga-Verplancken, F. Valenzuela-Qui\u00f1onez, T. Zenteno-Sav\u00edn, D.A. Murillo-Cisneros and C.J. Hernandez-Camacho",
+      "Year": 2025,
+      "Title": "Temporal dietary shifts in California sea lions at Los Islotes colony, Gulf of California.",
+      "Source": "Reg. Stud. Mar. Sci. 90:104479."
+    }
+  },
+  {
+    "predator": "Zalophus californianus",
+    "database": "slb",
+    "rowId": 28297,
+    "predatorStage": "adults",
+    "prey": [
+      "Apogon retrosella"
+    ],
+    "originalFoodname": "Apogon retrosella",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Los Islotes, Gulf of California.  Date:  Jul 2015-Oct 2022.  Method type:  fecal content analysis.  Sampling done during breeding season, so assumption is samples came from adult females.",
+    "referenceId": 137902,
+    "citation": {
+      "Author": "Mejia-Guarnizo, B.N., A.O. Vargas, F.J. Garc\u00eda-Rodr\u00edguez, F.R. Elorriaga-Verplancken, F. Valenzuela-Qui\u00f1onez, T. Zenteno-Sav\u00edn, D.A. Murillo-Cisneros and C.J. Hernandez-Camacho",
+      "Year": 2025,
+      "Title": "Temporal dietary shifts in California sea lions at Los Islotes colony, Gulf of California.",
+      "Source": "Reg. Stud. Mar. Sci. 90:104479."
+    }
+  },
+  {
+    "predator": "Zalophus californianus",
+    "database": "slb",
+    "rowId": 28285,
+    "predatorStage": "adults",
+    "prey": [
+      "Aulopus bajacali"
+    ],
+    "originalFoodname": "Aulopus bajacali",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Los Islotes, Gulf of California.  Date:  Jul 2015-Oct 2022.  Method type:  fecal content analysis.  Sampling done during breeding season, so assumption is samples came from adult females.",
+    "referenceId": 137902,
+    "citation": {
+      "Author": "Mejia-Guarnizo, B.N., A.O. Vargas, F.J. Garc\u00eda-Rodr\u00edguez, F.R. Elorriaga-Verplancken, F. Valenzuela-Qui\u00f1onez, T. Zenteno-Sav\u00edn, D.A. Murillo-Cisneros and C.J. Hernandez-Camacho",
+      "Year": 2025,
+      "Title": "Temporal dietary shifts in California sea lions at Los Islotes colony, Gulf of California.",
+      "Source": "Reg. Stud. Mar. Sci. 90:104479."
+    }
+  },
+  {
+    "predator": "Zalophus californianus",
+    "database": "slb",
+    "rowId": 28295,
+    "predatorStage": "adults",
+    "prey": [
+      "Porichthys notatus"
+    ],
+    "originalFoodname": "Porichthys notatus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Los Islotes, Gulf of California.  Date:  Jul 2015-Oct 2022.  Method type:  fecal content analysis.  Sampling done during breeding season, so assumption is samples came from adult females.",
+    "referenceId": 137902,
+    "citation": {
+      "Author": "Mejia-Guarnizo, B.N., A.O. Vargas, F.J. Garc\u00eda-Rodr\u00edguez, F.R. Elorriaga-Verplancken, F. Valenzuela-Qui\u00f1onez, T. Zenteno-Sav\u00edn, D.A. Murillo-Cisneros and C.J. Hernandez-Camacho",
+      "Year": 2025,
+      "Title": "Temporal dietary shifts in California sea lions at Los Islotes colony, Gulf of California.",
+      "Source": "Reg. Stud. Mar. Sci. 90:104479."
+    }
+  },
+  {
+    "predator": "Zalophus californianus",
+    "database": "slb",
+    "rowId": 28281,
+    "predatorStage": "adults",
+    "prey": [
+      "Trachurus symmetricus"
+    ],
+    "originalFoodname": "Trachurus symmetricus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Los Islotes, Gulf of California.  Date:  Jul 2015-Oct 2022.  Method type:  fecal content analysis.  Sampling done during breeding season, so assumption is samples came from adult females.",
+    "referenceId": 137902,
+    "citation": {
+      "Author": "Mejia-Guarnizo, B.N., A.O. Vargas, F.J. Garc\u00eda-Rodr\u00edguez, F.R. Elorriaga-Verplancken, F. Valenzuela-Qui\u00f1onez, T. Zenteno-Sav\u00edn, D.A. Murillo-Cisneros and C.J. Hernandez-Camacho",
+      "Year": 2025,
+      "Title": "Temporal dietary shifts in California sea lions at Los Islotes colony, Gulf of California.",
+      "Source": "Reg. Stud. Mar. Sci. 90:104479."
+    }
+  },
+  {
+    "predator": "Zalophus californianus",
+    "database": "slb",
+    "rowId": 28330,
+    "predatorStage": "adults",
+    "prey": [
+      "Citharichthys stigmaeus"
+    ],
+    "originalFoodname": "Citharichthys stigmaeus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Los Islotes, Gulf of California.  Date:  Jul 2015-Oct 2022.  Method type:  fecal content analysis.  Sampling done during breeding season, so assumption is samples came from adult females.",
+    "referenceId": 137902,
+    "citation": {
+      "Author": "Mejia-Guarnizo, B.N., A.O. Vargas, F.J. Garc\u00eda-Rodr\u00edguez, F.R. Elorriaga-Verplancken, F. Valenzuela-Qui\u00f1onez, T. Zenteno-Sav\u00edn, D.A. Murillo-Cisneros and C.J. Hernandez-Camacho",
+      "Year": 2025,
+      "Title": "Temporal dietary shifts in California sea lions at Los Islotes colony, Gulf of California.",
+      "Source": "Reg. Stud. Mar. Sci. 90:104479."
+    }
+  },
+  {
+    "predator": "Zalophus californianus",
+    "database": "slb",
+    "rowId": 28329,
+    "predatorStage": "adults",
+    "prey": [
+      "Citharichthys xanthostigma"
+    ],
+    "originalFoodname": "Citharichthys xanthostigma",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Los Islotes, Gulf of California.  Date:  Jul 2015-Oct 2022.  Method type:  fecal content analysis.  Sampling done during breeding season, so assumption is samples came from adult females.",
+    "referenceId": 137902,
+    "citation": {
+      "Author": "Mejia-Guarnizo, B.N., A.O. Vargas, F.J. Garc\u00eda-Rodr\u00edguez, F.R. Elorriaga-Verplancken, F. Valenzuela-Qui\u00f1onez, T. Zenteno-Sav\u00edn, D.A. Murillo-Cisneros and C.J. Hernandez-Camacho",
+      "Year": 2025,
+      "Title": "Temporal dietary shifts in California sea lions at Los Islotes colony, Gulf of California.",
+      "Source": "Reg. Stud. Mar. Sci. 90:104479."
+    }
+  },
+  {
+    "predator": "Zalophus californianus",
+    "database": "slb",
+    "rowId": 28300,
+    "predatorStage": "adults",
+    "prey": [
+      "Engraulis mordax"
+    ],
+    "originalFoodname": "Engraulis mordax",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Los Islotes, Gulf of California.  Date:  Jul 2015-Oct 2022.  Method type:  fecal content analysis.  Sampling done during breeding season, so assumption is samples came from adult females.",
+    "referenceId": 137902,
+    "citation": {
+      "Author": "Mejia-Guarnizo, B.N., A.O. Vargas, F.J. Garc\u00eda-Rodr\u00edguez, F.R. Elorriaga-Verplancken, F. Valenzuela-Qui\u00f1onez, T. Zenteno-Sav\u00edn, D.A. Murillo-Cisneros and C.J. Hernandez-Camacho",
+      "Year": 2025,
+      "Title": "Temporal dietary shifts in California sea lions at Los Islotes colony, Gulf of California.",
+      "Source": "Reg. Stud. Mar. Sci. 90:104479."
+    }
+  },
+  {
+    "predator": "Zalophus californianus",
+    "database": "slb",
+    "rowId": 28278,
+    "predatorStage": "adults",
+    "prey": [
+      "Parapsettus panamensis"
+    ],
+    "originalFoodname": "Parapsettus panamensis",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Los Islotes, Gulf of California.  Date:  Jul 2015-Oct 2022.  Method type:  fecal content analysis.  Sampling done during breeding season, so assumption is samples came from adult females.",
+    "referenceId": 137902,
+    "citation": {
+      "Author": "Mejia-Guarnizo, B.N., A.O. Vargas, F.J. Garc\u00eda-Rodr\u00edguez, F.R. Elorriaga-Verplancken, F. Valenzuela-Qui\u00f1onez, T. Zenteno-Sav\u00edn, D.A. Murillo-Cisneros and C.J. Hernandez-Camacho",
+      "Year": 2025,
+      "Title": "Temporal dietary shifts in California sea lions at Los Islotes colony, Gulf of California.",
+      "Source": "Reg. Stud. Mar. Sci. 90:104479."
+    }
+  },
+  {
+    "predator": "Zalophus californianus",
+    "database": "slb",
+    "rowId": 28293,
+    "predatorStage": "adults",
+    "prey": [
+      "Merluccius productus"
+    ],
+    "originalFoodname": "Merluccius productus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Los Islotes, Gulf of California.  Date:  Jul 2015-Oct 2022.  Method type:  fecal content analysis.  Sampling done during breeding season, so assumption is samples came from adult females.",
+    "referenceId": 137902,
+    "citation": {
+      "Author": "Mejia-Guarnizo, B.N., A.O. Vargas, F.J. Garc\u00eda-Rodr\u00edguez, F.R. Elorriaga-Verplancken, F. Valenzuela-Qui\u00f1onez, T. Zenteno-Sav\u00edn, D.A. Murillo-Cisneros and C.J. Hernandez-Camacho",
+      "Year": 2025,
+      "Title": "Temporal dietary shifts in California sea lions at Los Islotes colony, Gulf of California.",
+      "Source": "Reg. Stud. Mar. Sci. 90:104479."
+    }
+  },
+  {
+    "predator": "Zalophus californianus",
+    "database": "slb",
+    "rowId": 28287,
+    "predatorStage": "adults",
+    "prey": [
+      "Physiculus nematopus"
+    ],
+    "originalFoodname": "Physiculus nematopus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Los Islotes, Gulf of California.  Date:  Jul 2015-Oct 2022.  Method type:  fecal content analysis.  Sampling done during breeding season, so assumption is samples came from adult females.",
+    "referenceId": 137902,
+    "citation": {
+      "Author": "Mejia-Guarnizo, B.N., A.O. Vargas, F.J. Garc\u00eda-Rodr\u00edguez, F.R. Elorriaga-Verplancken, F. Valenzuela-Qui\u00f1onez, T. Zenteno-Sav\u00edn, D.A. Murillo-Cisneros and C.J. Hernandez-Camacho",
+      "Year": 2025,
+      "Title": "Temporal dietary shifts in California sea lions at Los Islotes colony, Gulf of California.",
+      "Source": "Reg. Stud. Mar. Sci. 90:104479."
+    }
+  },
+  {
+    "predator": "Zalophus californianus",
+    "database": "slb",
+    "rowId": 28289,
+    "predatorStage": "adults",
+    "prey": [
+      "Mugil cephalus"
+    ],
+    "originalFoodname": "Mugil cephalus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Los Islotes, Gulf of California.  Date:  Jul 2015-Oct 2022.  Method type:  fecal content analysis.  Sampling done during breeding season, so assumption is samples came from adult females.",
+    "referenceId": 137902,
+    "citation": {
+      "Author": "Mejia-Guarnizo, B.N., A.O. Vargas, F.J. Garc\u00eda-Rodr\u00edguez, F.R. Elorriaga-Verplancken, F. Valenzuela-Qui\u00f1onez, T. Zenteno-Sav\u00edn, D.A. Murillo-Cisneros and C.J. Hernandez-Camacho",
+      "Year": 2025,
+      "Title": "Temporal dietary shifts in California sea lions at Los Islotes colony, Gulf of California.",
+      "Source": "Reg. Stud. Mar. Sci. 90:104479."
+    }
+  },
+  {
+    "predator": "Zalophus californianus",
+    "database": "slb",
+    "rowId": 28301,
+    "predatorStage": "adults",
+    "prey": [
+      "Benthosema panamense"
+    ],
+    "originalFoodname": "Benthosema panamense",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Los Islotes, Gulf of California.  Date:  Jul 2015-Oct 2022.  Method type:  fecal content analysis.  Sampling done during breeding season, so assumption is samples came from adult females.",
+    "referenceId": 137902,
+    "citation": {
+      "Author": "Mejia-Guarnizo, B.N., A.O. Vargas, F.J. Garc\u00eda-Rodr\u00edguez, F.R. Elorriaga-Verplancken, F. Valenzuela-Qui\u00f1onez, T. Zenteno-Sav\u00edn, D.A. Murillo-Cisneros and C.J. Hernandez-Camacho",
+      "Year": 2025,
+      "Title": "Temporal dietary shifts in California sea lions at Los Islotes colony, Gulf of California.",
+      "Source": "Reg. Stud. Mar. Sci. 90:104479."
+    }
+  },
+  {
+    "predator": "Zalophus californianus",
+    "database": "slb",
+    "rowId": 28286,
+    "predatorStage": "adults",
+    "prey": [
+      "Lepophidium prorates"
+    ],
+    "originalFoodname": "Lepophidium prorates",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Los Islotes, Gulf of California.  Date:  Jul 2015-Oct 2022.  Method type:  fecal content analysis.  Sampling done during breeding season, so assumption is samples came from adult females.",
+    "referenceId": 137902,
+    "citation": {
+      "Author": "Mejia-Guarnizo, B.N., A.O. Vargas, F.J. Garc\u00eda-Rodr\u00edguez, F.R. Elorriaga-Verplancken, F. Valenzuela-Qui\u00f1onez, T. Zenteno-Sav\u00edn, D.A. Murillo-Cisneros and C.J. Hernandez-Camacho",
+      "Year": 2025,
+      "Title": "Temporal dietary shifts in California sea lions at Los Islotes colony, Gulf of California.",
+      "Source": "Reg. Stud. Mar. Sci. 90:104479."
+    }
+  },
+  {
+    "predator": "Zalophus californianus",
+    "database": "slb",
+    "rowId": 28302,
+    "predatorStage": "adults",
+    "prey": [
+      "Ophidion scrippsae"
+    ],
+    "originalFoodname": "Ophidion scrippsae",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Los Islotes, Gulf of California.  Date:  Jul 2015-Oct 2022.  Method type:  fecal content analysis.  Sampling done during breeding season, so assumption is samples came from adult females.",
+    "referenceId": 137902,
+    "citation": {
+      "Author": "Mejia-Guarnizo, B.N., A.O. Vargas, F.J. Garc\u00eda-Rodr\u00edguez, F.R. Elorriaga-Verplancken, F. Valenzuela-Qui\u00f1onez, T. Zenteno-Sav\u00edn, D.A. Murillo-Cisneros and C.J. Hernandez-Camacho",
+      "Year": 2025,
+      "Title": "Temporal dietary shifts in California sea lions at Los Islotes colony, Gulf of California.",
+      "Source": "Reg. Stud. Mar. Sci. 90:104479."
+    }
+  },
+  {
+    "predator": "Zalophus californianus",
+    "database": "slb",
+    "rowId": 28276,
+    "predatorStage": "adults",
+    "prey": [
+      "Scomber japonicus"
+    ],
+    "originalFoodname": "Scomber japonicus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Los Islotes, Gulf of California.  Date:  Jul 2015-Oct 2022.  Method type:  fecal content analysis.  Sampling done during breeding season, so assumption is samples came from adult females.",
+    "referenceId": 137902,
+    "citation": {
+      "Author": "Mejia-Guarnizo, B.N., A.O. Vargas, F.J. Garc\u00eda-Rodr\u00edguez, F.R. Elorriaga-Verplancken, F. Valenzuela-Qui\u00f1onez, T. Zenteno-Sav\u00edn, D.A. Murillo-Cisneros and C.J. Hernandez-Camacho",
+      "Year": 2025,
+      "Title": "Temporal dietary shifts in California sea lions at Los Islotes colony, Gulf of California.",
+      "Source": "Reg. Stud. Mar. Sci. 90:104479."
+    }
+  },
+  {
+    "predator": "Zalophus californianus",
+    "database": "slb",
+    "rowId": 28279,
+    "predatorStage": "adults",
+    "prey": [
+      "Sebastes exsul"
+    ],
+    "originalFoodname": "Sebastes exsul",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Los Islotes, Gulf of California.  Date:  Jul 2015-Oct 2022.  Method type:  fecal content analysis.  Sampling done during breeding season, so assumption is samples came from adult females.",
+    "referenceId": 137902,
+    "citation": {
+      "Author": "Mejia-Guarnizo, B.N., A.O. Vargas, F.J. Garc\u00eda-Rodr\u00edguez, F.R. Elorriaga-Verplancken, F. Valenzuela-Qui\u00f1onez, T. Zenteno-Sav\u00edn, D.A. Murillo-Cisneros and C.J. Hernandez-Camacho",
+      "Year": 2025,
+      "Title": "Temporal dietary shifts in California sea lions at Los Islotes colony, Gulf of California.",
+      "Source": "Reg. Stud. Mar. Sci. 90:104479."
+    }
+  },
+  {
+    "predator": "Zalophus californianus",
+    "database": "slb",
+    "rowId": 28282,
+    "predatorStage": "adults",
+    "prey": [
+      "Paralabrax clathratus"
+    ],
+    "originalFoodname": "Paralabrax clathratus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Los Islotes, Gulf of California.  Date:  Jul 2015-Oct 2022.  Method type:  fecal content analysis.  Sampling done during breeding season, so assumption is samples came from adult females.",
+    "referenceId": 137902,
+    "citation": {
+      "Author": "Mejia-Guarnizo, B.N., A.O. Vargas, F.J. Garc\u00eda-Rodr\u00edguez, F.R. Elorriaga-Verplancken, F. Valenzuela-Qui\u00f1onez, T. Zenteno-Sav\u00edn, D.A. Murillo-Cisneros and C.J. Hernandez-Camacho",
+      "Year": 2025,
+      "Title": "Temporal dietary shifts in California sea lions at Los Islotes colony, Gulf of California.",
+      "Source": "Reg. Stud. Mar. Sci. 90:104479."
+    }
+  },
+  {
+    "predator": "Zalophus californianus",
+    "database": "slb",
+    "rowId": 28292,
+    "predatorStage": "adults",
+    "prey": [
+      "Serranus aequidens"
+    ],
+    "originalFoodname": "Serranus aequidens",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Los Islotes, Gulf of California.  Date:  Jul 2015-Oct 2022.  Method type:  fecal content analysis.  Sampling done during breeding season, so assumption is samples came from adult females.",
+    "referenceId": 137902,
+    "citation": {
+      "Author": "Mejia-Guarnizo, B.N., A.O. Vargas, F.J. Garc\u00eda-Rodr\u00edguez, F.R. Elorriaga-Verplancken, F. Valenzuela-Qui\u00f1onez, T. Zenteno-Sav\u00edn, D.A. Murillo-Cisneros and C.J. Hernandez-Camacho",
+      "Year": 2025,
+      "Title": "Temporal dietary shifts in California sea lions at Los Islotes colony, Gulf of California.",
+      "Source": "Reg. Stud. Mar. Sci. 90:104479."
+    }
+  },
+  {
+    "predator": "Ursus maritimus",
+    "database": "slb",
+    "rowId": 25607,
+    "predatorStage": "adults",
+    "prey": [
+      "Balaena mysticetus"
+    ],
+    "originalFoodname": "Balaena mysticetus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Chukchi and Bering seas.",
+    "referenceId": 120815,
+    "citation": {
+      "Author": "Rode, K.D., E.V. Regehr, D.C. Douglas, G. Durner, A.E. Derocher, G.W. Thiemann and S.M. Budge",
+      "Year": 2014,
+      "Title": "Variation in the response of an Arctic top predator experiencing habitat loss: feeding and reproductive ecology of two polar bear populations.",
+      "Source": "Global Change Biology 20(1):76-88."
+    }
+  },
+  {
+    "predator": "Ursus maritimus",
+    "database": "slb",
+    "rowId": 25606,
+    "predatorStage": "adults",
+    "prey": [
+      "Delphinapterus leucas"
+    ],
+    "originalFoodname": "Delphinapterus leucas",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Chukchi and Bering seas.",
+    "referenceId": 120815,
+    "citation": {
+      "Author": "Rode, K.D., E.V. Regehr, D.C. Douglas, G. Durner, A.E. Derocher, G.W. Thiemann and S.M. Budge",
+      "Year": 2014,
+      "Title": "Variation in the response of an Arctic top predator experiencing habitat loss: feeding and reproductive ecology of two polar bear populations.",
+      "Source": "Global Change Biology 20(1):76-88."
+    }
+  },
+  {
+    "predator": "Ursus maritimus",
+    "database": "slb",
+    "rowId": 25605,
+    "predatorStage": "adults",
+    "prey": [
+      "Erignathus barbatus"
+    ],
+    "originalFoodname": "Erignathus barbatus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Chukchi and Bering seas.",
+    "referenceId": 120815,
+    "citation": {
+      "Author": "Rode, K.D., E.V. Regehr, D.C. Douglas, G. Durner, A.E. Derocher, G.W. Thiemann and S.M. Budge",
+      "Year": 2014,
+      "Title": "Variation in the response of an Arctic top predator experiencing habitat loss: feeding and reproductive ecology of two polar bear populations.",
+      "Source": "Global Change Biology 20(1):76-88."
+    }
+  },
+  {
+    "predator": "Ursus maritimus",
+    "database": "slb",
+    "rowId": 25608,
+    "predatorStage": "adults",
+    "prey": [
+      "Pusa hispida"
+    ],
+    "originalFoodname": "Pusa hispida",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Locality:  Chukchi and Bering seas.",
+    "referenceId": 120815,
+    "citation": {
+      "Author": "Rode, K.D., E.V. Regehr, D.C. Douglas, G. Durner, A.E. Derocher, G.W. Thiemann and S.M. Budge",
+      "Year": 2014,
+      "Title": "Variation in the response of an Arctic top predator experiencing habitat loss: feeding and reproductive ecology of two polar bear populations.",
+      "Source": "Global Change Biology 20(1):76-88."
+    }
+  },
+  {
+    "predator": "Dermochelys coriacea",
+    "database": "slb",
+    "rowId": 24853,
+    "predatorStage": "adults",
+    "prey": [
+      "Linuche unguiculata"
+    ],
+    "originalFoodname": "Linuche unguiculata",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 118629,
+    "citation": {
+      "Author": "Hays, G.C., T.K. Doyle and J.D. Houghton",
+      "Year": 2018,
+      "Title": "A paradigm shift in the trophic importance of jellyfish?",
+      "Source": "Trends in Ecology & Evolution 2433."
+    }
+  },
+  {
+    "predator": "Architeuthis dux",
+    "database": "slb",
+    "rowId": 18432,
+    "predatorStage": "adults",
+    "prey": [
+      "Taonius pavo"
+    ],
+    "originalFoodname": "Taonius pavo",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 101088,
+    "citation": {
+      "Author": "Bolstad, K.S. and S. O'Shea",
+      "Year": 2004,
+      "Title": "Gut contents of a giant squid <i>Architeuthis dux</i> (Cephalopoda: Oegopsida) from New Zealand waters.",
+      "Source": "New Zealand Journal of Zoology 31(1):15-21."
+    }
+  },
+  {
+    "predator": "Architeuthis dux",
+    "database": "slb",
+    "rowId": 18414,
+    "predatorStage": "adults",
+    "prey": [
+      "Nototodarus sloanii"
+    ],
+    "originalFoodname": "Nototodarus sloanii",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 101088,
+    "citation": {
+      "Author": "Bolstad, K.S. and S. O'Shea",
+      "Year": 2004,
+      "Title": "Gut contents of a giant squid <i>Architeuthis dux</i> (Cephalopoda: Oegopsida) from New Zealand waters.",
+      "Source": "New Zealand Journal of Zoology 31(1):15-21."
+    }
+  },
+  {
+    "predator": "Architeuthis dux",
+    "database": "slb",
+    "rowId": 18430,
+    "predatorStage": "adults",
+    "prey": [
+      "Todarodes sagittatus"
+    ],
+    "originalFoodname": "Todarodes sagittatus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 101088,
+    "citation": {
+      "Author": "Bolstad, K.S. and S. O'Shea",
+      "Year": 2004,
+      "Title": "Gut contents of a giant squid <i>Architeuthis dux</i> (Cephalopoda: Oegopsida) from New Zealand waters.",
+      "Source": "New Zealand Journal of Zoology 31(1):15-21."
+    }
+  },
+  {
+    "predator": "Architeuthis dux",
+    "database": "slb",
+    "rowId": 18425,
+    "predatorStage": "adults",
+    "prey": [
+      "Moroteuthopsis ingens"
+    ],
+    "originalFoodname": "Onykia ingens",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 101088,
+    "citation": {
+      "Author": "Bolstad, K.S. and S. O'Shea",
+      "Year": 2004,
+      "Title": "Gut contents of a giant squid <i>Architeuthis dux</i> (Cephalopoda: Oegopsida) from New Zealand waters.",
+      "Source": "New Zealand Journal of Zoology 31(1):15-21."
+    }
+  },
+  {
+    "predator": "Architeuthis dux",
+    "database": "slb",
+    "rowId": 18426,
+    "predatorStage": "adults",
+    "prey": [
+      "Trachurus trachurus"
+    ],
+    "originalFoodname": "Trachurus trachurus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 101088,
+    "citation": {
+      "Author": "Bolstad, K.S. and S. O'Shea",
+      "Year": 2004,
+      "Title": "Gut contents of a giant squid <i>Architeuthis dux</i> (Cephalopoda: Oegopsida) from New Zealand waters.",
+      "Source": "New Zealand Journal of Zoology 31(1):15-21."
+    }
+  },
+  {
+    "predator": "Architeuthis dux",
+    "database": "slb",
+    "rowId": 18427,
+    "predatorStage": "adults",
+    "prey": [
+      "Micromesistius poutassou"
+    ],
+    "originalFoodname": "Micromesistius poutassou",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 101088,
+    "citation": {
+      "Author": "Bolstad, K.S. and S. O'Shea",
+      "Year": 2004,
+      "Title": "Gut contents of a giant squid <i>Architeuthis dux</i> (Cephalopoda: Oegopsida) from New Zealand waters.",
+      "Source": "New Zealand Journal of Zoology 31(1):15-21."
+    }
+  },
+  {
+    "predator": "Architeuthis dux",
+    "database": "slb",
+    "rowId": 18424,
+    "predatorStage": "adults",
+    "prey": [
+      "Hoplostethus atlanticus"
+    ],
+    "originalFoodname": "Hoplostethus atlanticus",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 101088,
+    "citation": {
+      "Author": "Bolstad, K.S. and S. O'Shea",
+      "Year": 2004,
+      "Title": "Gut contents of a giant squid <i>Architeuthis dux</i> (Cephalopoda: Oegopsida) from New Zealand waters.",
+      "Source": "New Zealand Journal of Zoology 31(1):15-21."
+    }
+  },
+  {
+    "predator": "Architeuthis dux",
+    "database": "slb",
+    "rowId": 18431,
+    "predatorStage": "adults",
+    "prey": [
+      "Eledone cirrhosa"
+    ],
+    "originalFoodname": "Eledone cirrhosa",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 101088,
+    "citation": {
+      "Author": "Bolstad, K.S. and S. O'Shea",
+      "Year": 2004,
+      "Title": "Gut contents of a giant squid <i>Architeuthis dux</i> (Cephalopoda: Oegopsida) from New Zealand waters.",
+      "Source": "New Zealand Journal of Zoology 31(1):15-21."
+    }
+  },
+  {
+    "predator": "Chionoecetes opilio",
+    "database": "slb",
+    "rowId": 25140,
+    "predatorStage": "adults",
+    "prey": [
+      "Chionoecetes opilio"
+    ],
+    "originalFoodname": "Chionoecetes opilio",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "Cannibalism of larger snow crabs on smaller conspecifics may occur only occasioanally because of habitat segragation (Ref. 119370).",
+    "referenceId": 119370,
+    "citation": {
+      "Author": "Hansen, H.S.B.",
+      "Year": 2015,
+      "Title": "Snow crab (<i>Chionoecetes opilio</i>) in the Barents Sea.  Diet, biology and management.",
+      "Source": "Norwegian College of Fishery Science."
+    }
+  },
+  {
+    "predator": "Cancer productus",
+    "database": "slb",
+    "rowId": 4872,
+    "predatorStage": "adults",
+    "prey": [
+      "Mya arenaria"
+    ],
+    "originalFoodname": "Mya arenaria",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 78493,
+    "citation": {
+      "Author": "Smith, T.E., R.C. Ydenberg and R.W. Elner",
+      "Year": 1999,
+      "Title": "Foraging behavior of an excavating predator, the red rock crab (<i>Cancer productus</i> Randall) on soft-shell clam (<i>Mya arenaria</i> L.).",
+      "Source": "Journla of Experimantal Marine Biology and Ecology 238:185-197."
+    }
+  },
+  {
+    "predator": "Metacarcinus magister",
+    "database": "slb",
+    "rowId": 22496,
+    "predatorStage": "adults",
+    "prey": [
+      "Metacarcinus magister"
+    ],
+    "originalFoodname": "Metacarcinus magister",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": "As <i>Cancer magister</i>.  Locality:  Washington.",
+    "referenceId": 112414,
+    "citation": {
+      "Author": "Stevens, B.G., D.A. Armstrong and R. Cusimano",
+      "Year": 1982,
+      "Title": "Feeding habits of the Dungeness crab <i>Cancer magister</i> as determined by the index of relative importance.",
+      "Source": "Marine Biology 72(2):135-145."
+    }
+  },
+  {
+    "predator": "Mytilus edulis",
+    "database": "slb",
+    "rowId": 16888,
+    "predatorStage": "adults",
+    "prey": [
+      "Phaeodactylum tricornutum"
+    ],
+    "originalFoodname": "Phaeodactylum tricornutum",
+    "preyStage": "n.a./others",
+    "locality": null,
+    "recordContext": "Locality:  Long Island Sound.",
+    "referenceId": 95805,
+    "citation": {
+      "Author": "Wang, W. and N.S. Fisher",
+      "Year": 1996,
+      "Title": "Assimilation of trace elements and carbon by the mussel <i>Mytilus edulis</i>:  effects of food composition.",
+      "Source": "Limnol. Oceanogr. 41(2):197-207."
+    }
+  },
+  {
+    "predator": "Mytilus edulis",
+    "database": "slb",
+    "rowId": 16892,
+    "predatorStage": "adults",
+    "prey": [
+      "Thalassiosira pseudonana"
+    ],
+    "originalFoodname": "Thalassiosira pseudonana",
+    "preyStage": "n.a./others",
+    "locality": null,
+    "recordContext": "Locality:  Long Island Sound.",
+    "referenceId": 95805,
+    "citation": {
+      "Author": "Wang, W. and N.S. Fisher",
+      "Year": 1996,
+      "Title": "Assimilation of trace elements and carbon by the mussel <i>Mytilus edulis</i>:  effects of food composition.",
+      "Source": "Limnol. Oceanogr. 41(2):197-207."
+    }
+  },
+  {
+    "predator": "Mytilus edulis",
+    "database": "slb",
+    "rowId": 16886,
+    "predatorStage": "adults",
+    "prey": [
+      "Alexandrium tamarense"
+    ],
+    "originalFoodname": "Alexandrium tamarense",
+    "preyStage": "n.a./others",
+    "locality": null,
+    "recordContext": "Locality:  Long Island Sound.",
+    "referenceId": 95805,
+    "citation": {
+      "Author": "Wang, W. and N.S. Fisher",
+      "Year": 1996,
+      "Title": "Assimilation of trace elements and carbon by the mussel <i>Mytilus edulis</i>:  effects of food composition.",
+      "Source": "Limnol. Oceanogr. 41(2):197-207."
+    }
+  },
+  {
+    "predator": "Mytilus edulis",
+    "database": "slb",
+    "rowId": 16890,
+    "predatorStage": "adults",
+    "prey": [
+      "Prorocentrum micans"
+    ],
+    "originalFoodname": "Prorocentrum micans",
+    "preyStage": "n.a./others",
+    "locality": null,
+    "recordContext": "Locality:  Long Island Sound.",
+    "referenceId": 95805,
+    "citation": {
+      "Author": "Wang, W. and N.S. Fisher",
+      "Year": 1996,
+      "Title": "Assimilation of trace elements and carbon by the mussel <i>Mytilus edulis</i>:  effects of food composition.",
+      "Source": "Limnol. Oceanogr. 41(2):197-207."
+    }
+  },
+  {
+    "predator": "Mytilus edulis",
+    "database": "slb",
+    "rowId": 16887,
+    "predatorStage": "adults",
+    "prey": [
+      "Chlorella vulgaris"
+    ],
+    "originalFoodname": "Chlorella vulgaris",
+    "preyStage": "n.a./others",
+    "locality": null,
+    "recordContext": "Locality:  Long Island Sound.  Species used in ref.:  <i>Chlorella autotrophica</i>.",
+    "referenceId": 95805,
+    "citation": {
+      "Author": "Wang, W. and N.S. Fisher",
+      "Year": 1996,
+      "Title": "Assimilation of trace elements and carbon by the mussel <i>Mytilus edulis</i>:  effects of food composition.",
+      "Source": "Limnol. Oceanogr. 41(2):197-207."
+    }
+  },
+  {
+    "predator": "Phalacrocorax carbo",
+    "database": "slb",
+    "rowId": 4490,
+    "predatorStage": "adults",
+    "prey": [
+      "Leuciscus leuciscus"
+    ],
+    "originalFoodname": "Leuciscus leuciscus",
+    "preyStage": "juv./adults",
+    "locality": "Danube region.",
+    "recordContext": null,
+    "referenceId": 41616,
+    "citation": {
+      "Author": "W\u00fcstemann, O. and B. Kammerad",
+      "Year": 1995,
+      "Title": "Der Hasel, <i>Leuciscus leuciscus</i>.",
+      "Source": "Westarp Wissenschaften, Magdeburg, Germany, 195 p."
+    }
+  },
+  {
+    "predator": "Pygoscelis adeliae",
+    "database": "slb",
+    "rowId": 4593,
+    "predatorStage": "adults",
+    "prey": [
+      "Chaenodraco wilsoni"
+    ],
+    "originalFoodname": "Chaenodraco wilsoni",
+    "preyStage": "recruits/juv.",
+    "locality": "Not stated.",
+    "recordContext": null,
+    "referenceId": 8933,
+    "citation": {
+      "Author": "Kailola, P.J., M.J. Williams, P.C. Stewart, R.E. Reichelt, A. McNee and C. Grieve",
+      "Year": 1993,
+      "Title": "Australian fisheries resources.",
+      "Source": "Bureau of Resource Sciences, Canberra, Australia. 422 p."
+    }
+  },
+  {
+    "predator": "Aptenodytes patagonicus",
+    "database": "slb",
+    "rowId": 8600,
+    "predatorStage": "adults",
+    "prey": [
+      "Filippovia knipovitchi"
+    ],
+    "originalFoodname": "Moroteuthis knipovitchi",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": ">2 mm LRL.",
+    "referenceId": 90024,
+    "citation": {
+      "Author": "Cherel, Y., V. Ridoux and P.G. Rodhouse",
+      "Year": 1996,
+      "Title": "Fish and squid in the diet of king penguin chicks, <i>Aptenodytes patagonicus</i>, during winter at sub-antarctic Crozet Islands.",
+      "Source": "Marine Biology 126: 559-570."
+    }
+  },
+  {
+    "predator": "Aptenodytes patagonicus",
+    "database": "slb",
+    "rowId": 8601,
+    "predatorStage": "adults",
+    "prey": [
+      "Filippovia knipovitchi"
+    ],
+    "originalFoodname": "Moroteuthis knipovitchi",
+    "preyStage": "recruits/juv.",
+    "locality": null,
+    "recordContext": "<2mm LRL.",
+    "referenceId": 90024,
+    "citation": {
+      "Author": "Cherel, Y., V. Ridoux and P.G. Rodhouse",
+      "Year": 1996,
+      "Title": "Fish and squid in the diet of king penguin chicks, <i>Aptenodytes patagonicus</i>, during winter at sub-antarctic Crozet Islands.",
+      "Source": "Marine Biology 126: 559-570."
+    }
+  },
+  {
+    "predator": "Aptenodytes patagonicus",
+    "database": "slb",
+    "rowId": 8598,
+    "predatorStage": "adults",
+    "prey": [
+      "Paradiplospinus gracilis"
+    ],
+    "originalFoodname": "Paradiplospinus gracilis",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 90024,
+    "citation": {
+      "Author": "Cherel, Y., V. Ridoux and P.G. Rodhouse",
+      "Year": 1996,
+      "Title": "Fish and squid in the diet of king penguin chicks, <i>Aptenodytes patagonicus</i>, during winter at sub-antarctic Crozet Islands.",
+      "Source": "Marine Biology 126: 559-570."
+    }
+  },
+  {
+    "predator": "Aptenodytes patagonicus",
+    "database": "slb",
+    "rowId": 8588,
+    "predatorStage": "adults",
+    "prey": [
+      "Gymnoscopelus fraseri"
+    ],
+    "originalFoodname": "Gymnoscopelus fraseri",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 90024,
+    "citation": {
+      "Author": "Cherel, Y., V. Ridoux and P.G. Rodhouse",
+      "Year": 1996,
+      "Title": "Fish and squid in the diet of king penguin chicks, <i>Aptenodytes patagonicus</i>, during winter at sub-antarctic Crozet Islands.",
+      "Source": "Marine Biology 126: 559-570."
+    }
+  },
+  {
+    "predator": "Aptenodytes patagonicus",
+    "database": "slb",
+    "rowId": 8589,
+    "predatorStage": "adults",
+    "prey": [
+      "Lampanyctus australis"
+    ],
+    "originalFoodname": "Lampanyctus australis",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 90024,
+    "citation": {
+      "Author": "Cherel, Y., V. Ridoux and P.G. Rodhouse",
+      "Year": 1996,
+      "Title": "Fish and squid in the diet of king penguin chicks, <i>Aptenodytes patagonicus</i>, during winter at sub-antarctic Crozet Islands.",
+      "Source": "Marine Biology 126: 559-570."
+    }
+  },
+  {
+    "predator": "Aptenodytes patagonicus",
+    "database": "slb",
+    "rowId": 8590,
+    "predatorStage": "adults",
+    "prey": [
+      "Protomyctophum andriashevi"
+    ],
+    "originalFoodname": "Protomyctophum andriashevi",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 90024,
+    "citation": {
+      "Author": "Cherel, Y., V. Ridoux and P.G. Rodhouse",
+      "Year": 1996,
+      "Title": "Fish and squid in the diet of king penguin chicks, <i>Aptenodytes patagonicus</i>, during winter at sub-antarctic Crozet Islands.",
+      "Source": "Marine Biology 126: 559-570."
+    }
+  },
+  {
+    "predator": "Aptenodytes patagonicus",
+    "database": "slb",
+    "rowId": 8592,
+    "predatorStage": "adults",
+    "prey": [
+      "Protomyctophum gemmatum"
+    ],
+    "originalFoodname": "Protomyctophum gemmatum",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 90024,
+    "citation": {
+      "Author": "Cherel, Y., V. Ridoux and P.G. Rodhouse",
+      "Year": 1996,
+      "Title": "Fish and squid in the diet of king penguin chicks, <i>Aptenodytes patagonicus</i>, during winter at sub-antarctic Crozet Islands.",
+      "Source": "Marine Biology 126: 559-570."
+    }
+  },
+  {
+    "predator": "Aptenodytes patagonicus",
+    "database": "slb",
+    "rowId": 8591,
+    "predatorStage": "adults",
+    "prey": [
+      "Protomyctophum normani"
+    ],
+    "originalFoodname": "Protomyctophum normani",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 90024,
+    "citation": {
+      "Author": "Cherel, Y., V. Ridoux and P.G. Rodhouse",
+      "Year": 1996,
+      "Title": "Fish and squid in the diet of king penguin chicks, <i>Aptenodytes patagonicus</i>, during winter at sub-antarctic Crozet Islands.",
+      "Source": "Marine Biology 126: 559-570."
+    }
+  },
+  {
+    "predator": "Aptenodytes patagonicus",
+    "database": "slb",
+    "rowId": 8596,
+    "predatorStage": "adults",
+    "prey": [
+      "Dissostichus eleginoides"
+    ],
+    "originalFoodname": "Dissostichus eleginoides",
+    "preyStage": "adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 90024,
+    "citation": {
+      "Author": "Cherel, Y., V. Ridoux and P.G. Rodhouse",
+      "Year": 1996,
+      "Title": "Fish and squid in the diet of king penguin chicks, <i>Aptenodytes patagonicus</i>, during winter at sub-antarctic Crozet Islands.",
+      "Source": "Marine Biology 126: 559-570."
+    }
+  },
+  {
+    "predator": "Diomedea exulans",
+    "database": "slb",
+    "rowId": 8964,
+    "predatorStage": "adults",
+    "prey": [
+      "Taonius pavo"
+    ],
+    "originalFoodname": "Taonius pavo",
+    "preyStage": "juv./adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 5261,
+    "citation": {
+      "Author": "Ridoux, V.",
+      "Year": 1994,
+      "Title": "The diets and dietary segregation of seabirds at the Subantarctic Crozet Islands.",
+      "Source": "Marine Ornithology 22(1):1-192."
+    }
+  },
+  {
+    "predator": "Carcinus aestuarii",
+    "database": "slb",
+    "rowId": 5469,
+    "predatorStage": "adults",
+    "prey": [
+      "Mytilus galloprovincialis"
+    ],
+    "originalFoodname": "Mytilus galloprovincialis",
+    "preyStage": "juv./adults",
+    "locality": "Keihin Canal of Tokyo Bay.",
+    "recordContext": null,
+    "referenceId": 8719,
+    "citation": {
+      "Author": "Chen, R.B., S. Watanabe and M. Yokota",
+      "Year": 2004,
+      "Title": "Feeding habits of an exotic species, the Mediterranean green crab <i>Carcinus aestuarii</i>, in Tokyo Bay.",
+      "Source": "Fisheries Science 70:430-435."
+    }
+  },
+  {
+    "predator": "Caiman crocodilus",
+    "database": "slb",
+    "rowId": 5951,
+    "predatorStage": "adults",
+    "prey": [
+      "Brycon hilarii"
+    ],
+    "originalFoodname": "Brycon hilarii",
+    "preyStage": "adults",
+    "locality": null,
+    "recordContext": "Large fish (100-600 g) were dominant food items.",
+    "referenceId": 80914,
+    "citation": {
+      "Author": "Schaller, G.B. and P.G. Crawshaw Jr.",
+      "Year": 1982,
+      "Title": "Fishing behavior of Paraguayan caiman (<i>Caiman crocodilus</i>).",
+      "Source": "Copeia 1982(1):66-72."
+    }
+  },
+  {
+    "predator": "Caiman crocodilus",
+    "database": "slb",
+    "rowId": 5953,
+    "predatorStage": "adults",
+    "prey": [
+      "Serrasalmus spilopleura"
+    ],
+    "originalFoodname": "Serrasalmus spilopleura",
+    "preyStage": "adults",
+    "locality": null,
+    "recordContext": "Large fish (100-600 g) were dominant food items.",
+    "referenceId": 80914,
+    "citation": {
+      "Author": "Schaller, G.B. and P.G. Crawshaw Jr.",
+      "Year": 1982,
+      "Title": "Fishing behavior of Paraguayan caiman (<i>Caiman crocodilus</i>).",
+      "Source": "Copeia 1982(1):66-72."
+    }
+  },
+  {
+    "predator": "Caiman crocodilus",
+    "database": "slb",
+    "rowId": 5950,
+    "predatorStage": "adults",
+    "prey": [
+      "Astronotus ocellatus"
+    ],
+    "originalFoodname": "Astronotus ocellatus",
+    "preyStage": "adults",
+    "locality": null,
+    "recordContext": "Large fish (100-600 g) were dominant food items.",
+    "referenceId": 80914,
+    "citation": {
+      "Author": "Schaller, G.B. and P.G. Crawshaw Jr.",
+      "Year": 1982,
+      "Title": "Fishing behavior of Paraguayan caiman (<i>Caiman crocodilus</i>).",
+      "Source": "Copeia 1982(1):66-72."
+    }
+  },
+  {
+    "predator": "Caiman crocodilus",
+    "database": "slb",
+    "rowId": 5956,
+    "predatorStage": "adults",
+    "prey": [
+      "Platydoras costatus"
+    ],
+    "originalFoodname": "Platydoras costatus",
+    "preyStage": "adults",
+    "locality": null,
+    "recordContext": "Smaller fish (<100g) were also common food items.",
+    "referenceId": 80914,
+    "citation": {
+      "Author": "Schaller, G.B. and P.G. Crawshaw Jr.",
+      "Year": 1982,
+      "Title": "Fishing behavior of Paraguayan caiman (<i>Caiman crocodilus</i>).",
+      "Source": "Copeia 1982(1):66-72."
+    }
+  },
+  {
+    "predator": "Caiman crocodilus",
+    "database": "slb",
+    "rowId": 5948,
+    "predatorStage": "adults",
+    "prey": [
+      "Hoplias malabaricus"
+    ],
+    "originalFoodname": "Hoplias malabaricus",
+    "preyStage": "adults",
+    "locality": null,
+    "recordContext": "Large fish (100-600 g) were dominant food items.",
+    "referenceId": 80914,
+    "citation": {
+      "Author": "Schaller, G.B. and P.G. Crawshaw Jr.",
+      "Year": 1982,
+      "Title": "Fishing behavior of Paraguayan caiman (<i>Caiman crocodilus</i>).",
+      "Source": "Copeia 1982(1):66-72."
+    }
+  },
+  {
+    "predator": "Caiman crocodilus",
+    "database": "slb",
+    "rowId": 5952,
+    "predatorStage": "adults",
+    "prey": [
+      "Hypostomus plecostomus"
+    ],
+    "originalFoodname": "Hypostomus plecostomus",
+    "preyStage": "adults",
+    "locality": null,
+    "recordContext": "Recorded as <i>Plecostomus plecostomus</i> in reference.  Large fish (100-600 g) were dominant food items.",
+    "referenceId": 80914,
+    "citation": {
+      "Author": "Schaller, G.B. and P.G. Crawshaw Jr.",
+      "Year": 1982,
+      "Title": "Fishing behavior of Paraguayan caiman (<i>Caiman crocodilus</i>).",
+      "Source": "Copeia 1982(1):66-72."
+    }
+  },
+  {
+    "predator": "Caiman crocodilus",
+    "database": "slb",
+    "rowId": 5960,
+    "predatorStage": "adults",
+    "prey": [
+      "Synbranchus marmoratus"
+    ],
+    "originalFoodname": "Synbranchus marmoratus",
+    "preyStage": "adults",
+    "locality": null,
+    "recordContext": "Reported as <i>Symbranchus marmoratus</i> in reference.",
+    "referenceId": 80914,
+    "citation": {
+      "Author": "Schaller, G.B. and P.G. Crawshaw Jr.",
+      "Year": 1982,
+      "Title": "Fishing behavior of Paraguayan caiman (<i>Caiman crocodilus</i>).",
+      "Source": "Copeia 1982(1):66-72."
+    }
+  },
+  {
+    "predator": "Caiman crocodilus",
+    "database": "slb",
+    "rowId": 5965,
+    "predatorStage": "adults",
+    "prey": [
+      "Caiman crocodilus"
+    ],
+    "originalFoodname": "Caiman crocodilus",
+    "preyStage": "adults",
+    "locality": null,
+    "recordContext": null,
+    "referenceId": 80914,
+    "citation": {
+      "Author": "Schaller, G.B. and P.G. Crawshaw Jr.",
+      "Year": 1982,
+      "Title": "Fishing behavior of Paraguayan caiman (<i>Caiman crocodilus</i>).",
+      "Source": "Copeia 1982(1):66-72."
+    }
+  }
+]

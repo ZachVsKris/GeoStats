@@ -7,7 +7,12 @@ def fetch(animal):
  taxa=[t for t in response.json()['results'] if t['name']==animal['scientificName'] and t.get('is_active') and not t.get('extinct')]
  if len(taxa)!=1:return None
  t=taxa[0];photo=t.get('default_photo') or {};license=allowed.get(photo.get('license_code'))
- if not license or photo.get('flags') or not photo.get('medium_url') or not photo.get('attribution_name'):return None
+ if not license:
+  response=requests.get('https://api.inaturalist.org/v1/observations',params={'taxon_id':t['id'],'photo_license':'cc0,cc-by,cc-by-sa','quality_grade':'research','per_page':5},timeout=40);response.raise_for_status()
+  photo=next((p for o in response.json()['results'] if o.get('taxon',{}).get('id')==t['id'] for p in o['photos'] if p.get('license_code') in allowed and not p.get('flags')),None)
+  if not photo:return None
+  license=allowed[photo['license_code']];photo=dict(photo,medium_url=photo['url'].replace('/square.','/medium.'),attribution_name=photo.get('attribution_name') or photo.get('attribution'))
+ if photo.get('flags') or not photo.get('medium_url') or not photo.get('attribution_name'):return None
  response=requests.get(photo['medium_url'],timeout=40);response.raise_for_status();target=R/'public/animalstats'/f"{animal['id']}.jpg";target.write_bytes(response.content)
  return {'animalId':animal['id'],'assetUrl':'/animalstats/'+target.name,'originalUrl':'https://www.inaturalist.org/photos/'+str(photo['id']),'creator':photo['attribution_name'],'license':license,'attribution':photo['attribution'],'approved':False,'reviewScientificName':animal['scientificName'],'reviewTaxonId':t['id'],'reviewPhotoId':photo['id'],'reviewSourceUrl':photo['medium_url']}
 with concurrent.futures.ThreadPoolExecutor(max_workers=3) as pool:

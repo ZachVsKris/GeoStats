@@ -1108,5 +1108,380 @@
     "fit": "contain",
     "x": 50,
     "y": 50
+  },
+  "mya_arenaria": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "cyrtodaria_siliqua": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "hiatella_arctica": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "modiolus_modiolus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "mya_truncata": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "geukensia_demissa": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "mytilus_trossulus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "yoldia_limatula": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "argopecten_irradians": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "chlamys_islandica": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "clinocardium_nuttallii": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "serripes_groenlandicus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "corbicula_fluminea": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "spisula_solidissima": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "helophilus_pendulus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "aromia_moschata": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "cordulia_aenea": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "meconema_thalassinum": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "otiorhynchus_sulcatus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "platycnemis_pennipes": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "tettigonia_viridissima": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "carabus_granulatus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "carabus_coriaceus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "dolycoris_baccarum": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "ceraleptus_lividus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "coriomeris_denticulatus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "nysius_huttoni": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "scaeva_pyrastri": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "rhingia_campestris": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "tresus_capax": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "macoma_balthica": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "siliqua_patula": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "cat_chartreux": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "cat_egyptian_mau": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "tivela_mactroides": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "tivela_stultorum": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "chelydra_serpentina": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "alligator_sinensis": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "crocodylus_porosus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "crocodylus_siamensis": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "crocodylus_palustris": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "furcifer_pardalis": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "heloderma_suspectum": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "naja_naja": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "malayopython_reticulatus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "ophiophagus_hannah": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "python_bivittatus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "varanus_prasinus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "caiman_yacare": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "caiman_latirostris": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "aldabrachelys_gigantea": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "crocodylus_rhombifer": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "centrochelys_sulcata": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "bombina_bombina": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "bombina_orientalis": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "bufo_bufo": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "ceratophrys_ornata": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "dendrobates_tinctorius": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "lithobates_pipiens": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "lithobates_sylvaticus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "pelophylax_lessonae": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "pelobates_fuscus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "pseudacris_crucifer": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "rana_temporaria": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "rana_dalmatina": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "rana_arvalis": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "hymenochirus_boettgeri": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "necturus_maculosus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "salamandra_atra": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "triturus_cristatus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "astacus_astacus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "pandalus_platyceros": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "carcinus_aestuarii": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "pandalus_borealis": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
+  },
+  "pacifastacus_leniusculus": {
+    "fit": "contain",
+    "x": 50,
+    "y": 50
   }
 }

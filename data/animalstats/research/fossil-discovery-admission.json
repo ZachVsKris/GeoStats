@@ -1,0 +1,464 @@
+[
+  {
+    "animalId": "extinct_amargasaurus_cazaui",
+    "metrics": {
+      "discovery_sites": 2,
+      "discovery_latitude": 50.5154,
+      "discovery_spread": 0.005241999999995528,
+      "family_recorded_species": 13
+    },
+    "family": "Dicraeosauridae",
+    "georeferencedSites": 2
+  },
+  {
+    "animalId": "extinct_apatosaurus_louisae",
+    "metrics": {
+      "discovery_sites": 5,
+      "discovery_latitude": 130.0066826,
+      "discovery_spread": 3.6053010000000043,
+      "family_recorded_species": 23
+    },
+    "family": "Diplodocidae",
+    "georeferencedSites": 5
+  },
+  {
+    "animalId": "extinct_brachiosaurus_altithorax",
+    "metrics": {
+      "discovery_sites": 2,
+      "discovery_latitude": 128.85343,
+      "discovery_spread": 0.43074399999999713,
+      "family_recorded_species": 14
+    },
+    "family": "Brachiosauridae",
+    "georeferencedSites": 2
+  },
+  {
+    "animalId": "extinct_camarasaurus_grandis",
+    "metrics": {
+      "discovery_sites": 10,
+      "discovery_latitude": 130.0594405,
+      "discovery_spread": 6.520233000000005,
+      "family_recorded_species": 15
+    },
+    "family": "Camarasauridae",
+    "georeferencedSites": 10
+  },
+  {
+    "animalId": "extinct_diplodocus_longus",
+    "metrics": {
+      "discovery_sites": 5,
+      "discovery_latitude": 129.6166326,
+      "discovery_spread": 3.4782749999999965,
+      "family_recorded_species": 23
+    },
+    "family": "Diplodocidae",
+    "georeferencedSites": 5
+  },
+  {
+    "animalId": "extinct_mamenchisaurus_constructus",
+    "metrics": {
+      "discovery_sites": 3,
+      "discovery_latitude": 121.834167,
+      "discovery_spread": 7.635798999999999,
+      "family_recorded_species": 37
+    },
+    "family": "Mamenchisauridae",
+    "georeferencedSites": 3
+  },
+  {
+    "animalId": "extinct_acrocanthosaurus_atokensis",
+    "metrics": {
+      "discovery_sites": 8,
+      "discovery_latitude": 127.265001625,
+      "discovery_spread": 12.230697999999997,
+      "family_recorded_species": 19
+    },
+    "family": "Carcharodontosauridae",
+    "georeferencedSites": 8
+  },
+  {
+    "animalId": "extinct_albertosaurus_sarcophagus",
+    "metrics": {
+      "discovery_sites": 17,
+      "discovery_latitude": 141.7854427647059,
+      "discovery_spread": 2.759810999999999,
+      "family_recorded_species": 47
+    },
+    "family": "Tyrannosauridae",
+    "georeferencedSites": 17
+  },
+  {
+    "animalId": "extinct_allosaurus_fragilis",
+    "metrics": {
+      "discovery_sites": 25,
+      "discovery_latitude": 130.37566256,
+      "discovery_spread": 5.256537999999999,
+      "family_recorded_species": 0
+    },
+    "family": null,
+    "georeferencedSites": 25
+  },
+  {
+    "animalId": "extinct_carnotaurus_sastrei",
+    "metrics": {
+      "discovery_sites": 1,
+      "discovery_latitude": 47.0,
+      "discovery_spread": 0,
+      "family_recorded_species": 39
+    },
+    "family": "Abelisauridae",
+    "georeferencedSites": 1
+  },
+  {
+    "animalId": "extinct_ceratosaurus_nasicornis",
+    "metrics": {
+      "discovery_sites": 6,
+      "discovery_latitude": 129.05233566666666,
+      "discovery_spread": 0.7844890000000007,
+      "family_recorded_species": 0
+    },
+    "family": null,
+    "georeferencedSites": 6
+  },
+  {
+    "animalId": "extinct_coelophysis_bauri",
+    "metrics": {
+      "discovery_sites": 4,
+      "discovery_latitude": 126.27039725,
+      "discovery_spread": 0.1340020000000024,
+      "family_recorded_species": 14
+    },
+    "family": "Coelophysidae",
+    "georeferencedSites": 4
+  },
+  {
+    "animalId": "extinct_compsognathus_longipes",
+    "metrics": {
+      "discovery_sites": 3,
+      "discovery_latitude": 136.16982133333335,
+      "discovery_spread": 5.3197019999999995,
+      "family_recorded_species": 10
+    },
+    "family": "Compsognathidae",
+    "georeferencedSites": 3
+  },
+  {
+    "animalId": "extinct_daspletosaurus_torosus",
+    "metrics": {
+      "discovery_sites": 5,
+      "discovery_latitude": 140.3794184,
+      "discovery_spread": 1.667828,
+      "family_recorded_species": 47
+    },
+    "family": "Tyrannosauridae",
+    "georeferencedSites": 5
+  },
+  {
+    "animalId": "extinct_deinonychus_antirrhopus",
+    "metrics": {
+      "discovery_sites": 35,
+      "discovery_latitude": 133.97340371428572,
+      "discovery_spread": 12.247501999999997,
+      "family_recorded_species": 65
+    },
+    "family": "Dromaeosauridae",
+    "georeferencedSites": 35
+  },
+  {
+    "animalId": "extinct_dilophosaurus_wetherilli",
+    "metrics": {
+      "discovery_sites": 10,
+      "discovery_latitude": 126.2328885,
+      "discovery_spread": 3.0202329999999975,
+      "family_recorded_species": 0
+    },
+    "family": null,
+    "georeferencedSites": 10
+  },
+  {
+    "animalId": "extinct_eoraptor_lunensis",
+    "metrics": {
+      "discovery_sites": 1,
+      "discovery_latitude": 58.89889,
+      "discovery_spread": 0,
+      "family_recorded_species": 0
+    },
+    "family": null,
+    "georeferencedSites": 1
+  },
+  {
+    "animalId": "extinct_gallimimus_bullatus",
+    "metrics": {
+      "discovery_sites": 14,
+      "discovery_latitude": 133.51586171428573,
+      "discovery_spread": 0.16173099999999607,
+      "family_recorded_species": 20
+    },
+    "family": "Ornithomimidae",
+    "georeferencedSites": 14
+  },
+  {
+    "animalId": "extinct_giganotosaurus_carolinii",
+    "metrics": {
+      "discovery_sites": 3,
+      "discovery_latitude": 50.551666000000004,
+      "discovery_spread": 0.4286120000000011,
+      "family_recorded_species": 19
+    },
+    "family": "Carcharodontosauridae",
+    "georeferencedSites": 3
+  },
+  {
+    "animalId": "extinct_herrerasaurus_ischigualastensis",
+    "metrics": {
+      "discovery_sites": 10,
+      "discovery_latitude": 60.3248878,
+      "discovery_spread": 1.884440999999999,
+      "family_recorded_species": 7
+    },
+    "family": "Herrerasauridae",
+    "georeferencedSites": 10
+  },
+  {
+    "animalId": "extinct_microraptor_gui",
+    "metrics": {
+      "discovery_sites": 1,
+      "discovery_latitude": 131.423901,
+      "discovery_spread": 0,
+      "family_recorded_species": 65
+    },
+    "family": "Dromaeosauridae",
+    "georeferencedSites": 1
+  },
+  {
+    "animalId": "extinct_ornithomimus_edmontonicus",
+    "metrics": {
+      "discovery_sites": 7,
+      "discovery_latitude": 139.142002,
+      "discovery_spread": 15.344299,
+      "family_recorded_species": 20
+    },
+    "family": "Ornithomimidae",
+    "georeferencedSites": 7
+  },
+  {
+    "animalId": "extinct_sinosauropteryx_prima",
+    "metrics": {
+      "discovery_sites": 2,
+      "discovery_latitude": 131.60139800000002,
+      "discovery_spread": 0.0,
+      "family_recorded_species": 3
+    },
+    "family": "Sinosauropterygidae",
+    "georeferencedSites": 2
+  },
+  {
+    "animalId": "extinct_struthiomimus_altus",
+    "metrics": {
+      "discovery_sites": 13,
+      "discovery_latitude": 137.26474546153847,
+      "discovery_spread": 14.745201999999999,
+      "family_recorded_species": 20
+    },
+    "family": "Ornithomimidae",
+    "georeferencedSites": 13
+  },
+  {
+    "animalId": "extinct_suchomimus_tenerensis",
+    "metrics": {
+      "discovery_sites": 2,
+      "discovery_latitude": 106.427223,
+      "discovery_spread": 0.021110000000000184,
+      "family_recorded_species": 22
+    },
+    "family": "Spinosauridae",
+    "georeferencedSites": 2
+  },
+  {
+    "animalId": "extinct_tarbosaurus_bataar",
+    "metrics": {
+      "discovery_sites": 27,
+      "discovery_latitude": 133.31378614814815,
+      "discovery_spread": 15.149445,
+      "family_recorded_species": 47
+    },
+    "family": "Tyrannosauridae",
+    "georeferencedSites": 27
+  },
+  {
+    "animalId": "extinct_tyrannosaurus_rex",
+    "metrics": {
+      "discovery_sites": 68,
+      "discovery_latitude": 135.17216885294118,
+      "discovery_spread": 20.933334000000002,
+      "family_recorded_species": 47
+    },
+    "family": "Tyrannosauridae",
+    "georeferencedSites": 68
+  },
+  {
+    "animalId": "extinct_velociraptor_mongoliensis",
+    "metrics": {
+      "discovery_sites": 11,
+      "discovery_latitude": 133.31390427272726,
+      "discovery_spread": 4.209999000000003,
+      "family_recorded_species": 65
+    },
+    "family": "Dromaeosauridae",
+    "georeferencedSites": 11
+  },
+  {
+    "animalId": "extinct_ankylosaurus_magniventris",
+    "metrics": {
+      "discovery_sites": 15,
+      "discovery_latitude": 135.13847373333334,
+      "discovery_spread": 10.309002,
+      "family_recorded_species": 46
+    },
+    "family": "Ankylosauridae",
+    "georeferencedSites": 15
+  },
+  {
+    "animalId": "extinct_centrosaurus_apertus",
+    "metrics": {
+      "discovery_sites": 41,
+      "discovery_latitude": 140.7165836585366,
+      "discovery_spread": 1.6017989999999998,
+      "family_recorded_species": 92
+    },
+    "family": "Ceratopsidae",
+    "georeferencedSites": 41
+  },
+  {
+    "animalId": "extinct_chasmosaurus_belli",
+    "metrics": {
+      "discovery_sites": 7,
+      "discovery_latitude": 140.72992314285716,
+      "discovery_spread": 0.4208289999999977,
+      "family_recorded_species": 92
+    },
+    "family": "Ceratopsidae",
+    "georeferencedSites": 7
+  },
+  {
+    "animalId": "extinct_corythosaurus_casuarius",
+    "metrics": {
+      "discovery_sites": 17,
+      "discovery_latitude": 140.62360747058824,
+      "discovery_spread": 2.3743319999999954,
+      "family_recorded_species": 127
+    },
+    "family": "Hadrosauridae",
+    "georeferencedSites": 17
+  },
+  {
+    "animalId": "extinct_edmontosaurus_regalis",
+    "metrics": {
+      "discovery_sites": 10,
+      "discovery_latitude": 140.46024169999998,
+      "discovery_spread": 13.162533000000003,
+      "family_recorded_species": 127
+    },
+    "family": "Hadrosauridae",
+    "georeferencedSites": 10
+  },
+  {
+    "animalId": "extinct_euoplocephalus_tutus",
+    "metrics": {
+      "discovery_sites": 6,
+      "discovery_latitude": 140.73236333333332,
+      "discovery_spread": 0.4258529999999965,
+      "family_recorded_species": 46
+    },
+    "family": "Ankylosauridae",
+    "georeferencedSites": 6
+  },
+  {
+    "animalId": "extinct_iguanodon_bernissartensis",
+    "metrics": {
+      "discovery_sites": 22,
+      "discovery_latitude": 137.0802127727273,
+      "discovery_spread": 11.831879,
+      "family_recorded_species": 0
+    },
+    "family": null,
+    "georeferencedSites": 22
+  },
+  {
+    "animalId": "extinct_maiasaura_peeblesorum",
+    "metrics": {
+      "discovery_sites": 5,
+      "discovery_latitude": 138.11672140000002,
+      "discovery_spread": 0.9203000000000046,
+      "family_recorded_species": 127
+    },
+    "family": "Hadrosauridae",
+    "georeferencedSites": 5
+  },
+  {
+    "animalId": "extinct_nodosaurus_textilis",
+    "metrics": {
+      "discovery_sites": 1,
+      "discovery_latitude": 132.893055,
+      "discovery_spread": 0,
+      "family_recorded_species": 47
+    },
+    "family": "Nodosauridae",
+    "georeferencedSites": 1
+  },
+  {
+    "animalId": "extinct_parasaurolophus_walkeri",
+    "metrics": {
+      "discovery_sites": 2,
+      "discovery_latitude": 140.74617,
+      "discovery_spread": 0.007912000000004582,
+      "family_recorded_species": 127
+    },
+    "family": "Hadrosauridae",
+    "georeferencedSites": 2
+  },
+  {
+    "animalId": "extinct_protoceratops_andrewsi",
+    "metrics": {
+      "discovery_sites": 17,
+      "discovery_latitude": 134.16022935294117,
+      "discovery_spread": 0.3180539999999965,
+      "family_recorded_species": 9
+    },
+    "family": "Protoceratopsidae",
+    "georeferencedSites": 17
+  },
+  {
+    "animalId": "extinct_saurolophus_angustirostris",
+    "metrics": {
+      "discovery_sites": 12,
+      "discovery_latitude": 133.57967191666665,
+      "discovery_spread": 0.4089429999999936,
+      "family_recorded_species": 127
+    },
+    "family": "Hadrosauridae",
+    "georeferencedSites": 12
+  },
+  {
+    "animalId": "extinct_stegosaurus_ungulatus",
+    "metrics": {
+      "discovery_sites": 5,
+      "discovery_latitude": 130.6188012,
+      "discovery_spread": 2.707619000000001,
+      "family_recorded_species": 33
+    },
+    "family": "Stegosauridae",
+    "georeferencedSites": 5
+  },
+  {
+    "animalId": "extinct_triceratops_prorsus",
+    "metrics": {
+      "discovery_sites": 17,
+      "discovery_latitude": 137.0361508235294,
+      "discovery_spread": 6.384193000000003,
+      "family_recorded_species": 92
+    },
+    "family": "Ceratopsidae",
+    "georeferencedSites": 17
+  }
+]

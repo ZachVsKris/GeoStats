@@ -28,10 +28,11 @@ try {
  const { AnimalSprite } = await import(pathToFileURL(componentPath));
  const { cartoonSpecies } = await import(pathToFileURL(profilePath));
  const data = JSON.parse(await readFile(join(root,'data/animalstats/pilot.json'),'utf8'));
+ const expanded=JSON.parse(await readFile(join(root,'data/animalstats/underrepresented.json'),'utf8'));data.animals.push(...expanded.animals);
  const selectedIds=process.argv.slice(2);
- const animals = data.animals.filter(a=>cartoonSpecies.includes(a.id)&&(!selectedIds.length||selectedIds.includes(a.id)));
+ const animals = data.animals.filter(a=>selectedIds.length ? selectedIds.includes(a.id) : cartoonSpecies.includes(a.id));
  assert.equal(animals.length,selectedIds.length||cartoonSpecies.length);
- const photos=JSON.parse(await readFile(join(root,'data/animalstats/photos.json'),'utf8'));
+ const photos=[...JSON.parse(await readFile(join(root,'data/animalstats/photos.json'),'utf8')),...expanded.photos];
  browser=await chromium.launch();const page=await browser.newPage({viewport:{width:1200,height:820}});
  for(let start=0;start<animals.length;start+=20){
  const cards=[];

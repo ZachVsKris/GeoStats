@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-10-10",
-  "defaultBoards": 55063,
-  "livingCatalogAnimals": 396,
-  "livingRoundAnimals": 190,
-  "candidateBoards": 56846,
-  "playableLabels": 144,
-  "playableTraitIds": 170,
+  "generatedAt": "2026-10-12",
+  "defaultBoards": 52895,
+  "livingCatalogAnimals": 793,
+  "livingRoundAnimals": 252,
+  "candidateBoards": 52895,
+  "playableLabels": 188,
+  "playableTraitIds": 237,
   "counts": {
     "mammals": {
-      "easy": 2301,
-      "normal": 2496,
-      "expert": 8743,
-      "total": 13540
+      "easy": 2180,
+      "normal": 2400,
+      "expert": 8007,
+      "total": 12587
     },
     "dog-breeds": {
       "easy": 429,
@@ -20,58 +20,58 @@
       "total": 612
     },
     "cat-breeds": {
-      "easy": 3,
-      "normal": 0,
+      "easy": 675,
+      "normal": 211,
       "expert": 0,
-      "total": 3
+      "total": 886
     },
     "birds": {
-      "easy": 337,
-      "normal": 484,
-      "expert": 9944,
-      "total": 10765
+      "easy": 330,
+      "normal": 480,
+      "expert": 9950,
+      "total": 10760
     },
     "reptiles": {
-      "easy": 1740,
-      "normal": 1484,
-      "expert": 445,
-      "total": 3669
+      "easy": 2338,
+      "normal": 1804,
+      "expert": 5,
+      "total": 4147
     },
     "amphibians": {
-      "easy": 1153,
-      "normal": 1165,
+      "easy": 2302,
+      "normal": 1432,
       "expert": 0,
-      "total": 2318
+      "total": 3734
     },
     "fish": {
       "easy": 1016,
-      "normal": 539,
+      "normal": 304,
       "expert": 0,
-      "total": 1555
+      "total": 1320
     },
     "insects": {
-      "easy": 0,
+      "easy": 88,
       "normal": 0,
       "expert": 0,
-      "total": 0
+      "total": 88
     },
     "invertebrates": {
-      "easy": 0,
-      "normal": 0,
+      "easy": 146,
+      "normal": 40,
       "expert": 0,
-      "total": 0
+      "total": 186
     },
     "mixed": {
-      "easy": 4178,
-      "normal": 3546,
-      "expert": 13667,
-      "total": 21391
+      "easy": 3084,
+      "normal": 2365,
+      "expert": 4029,
+      "total": 9478
     },
     "extinct-dinosaurs": {
-      "easy": 800,
-      "normal": 410,
-      "expert": 0,
-      "total": 1210
+      "easy": 6262,
+      "normal": 2833,
+      "expert": 2,
+      "total": 9097
     }
   }
 }

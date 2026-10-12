@@ -8,7 +8,7 @@ try {
  const {createAnimalBoardValidator,validateAnimalDataset}=await import(pathToFileURL(`${temp}/animalstats.mjs`));
  const {publishedAnimalTraitIds,animalMajorGroup}=await import(pathToFileURL(`${temp}/animalstatsCoverage.mjs`));
  const {animalBoardComposition}=await import(pathToFileURL(`${temp}/animalstatsComposition.mjs`));
- const parts=['pilot','existing-coverage','fish-records','tetrapod-spatial','marine','aquatic-eggs'].map(n=>JSON.parse(fs.readFileSync(`data/animalstats/${n}.json`)));
+ const parts=['pilot','existing-coverage','fish-records','tetrapod-spatial','marine','aquatic-eggs','underrepresented'].map(n=>JSON.parse(fs.readFileSync(`data/animalstats/${n}.json`)));
  const marine=parts[4],data=Object.fromEntries(['animals','traits','values','sources','photos'].map(k=>[k,parts.flatMap(p=>p[k].filter(r=>k!=='photos'||p===marine||!marine.photos.some(photo=>photo.animalId===r.animalId)))]));
  const errors=validateAnimalDataset(data);if(errors.length)throw Error(errors.join('\n'));
  const validate=createAnimalBoardValidator(data),published=publishedAnimalTraitIds(data),photos=new Set(data.photos.filter(p=>p.approved).map(p=>p.animalId));
@@ -22,6 +22,7 @@ try {
  const key=b=>b.mode+'|'+[...b.animalIds].sort().join(',')+'|'+[...b.traitIds].sort().join(',');
  const boards=['group-boards','group-boards-2'].flatMap(n=>JSON.parse(fs.readFileSync(`data/animalstats/${n}.json`)).boards),seen=new Set(boards.map(key));
  const marineIds=new Set(JSON.parse(fs.readFileSync('data/animalstats/research/marine-admission.json')).marineAnimalIds);
+ for(const id of JSON.parse(fs.readFileSync('data/animalstats/research/underrepresented-admission-20261010b.json')).marineAnimalIds)marineIds.add(id);
  for(const a of data.animals)if(a.taxonomicGroup==='marine-mammal')marineIds.add(a.id);
  const groups=['birds','dogs','cats','reptiles','amphibians','fish','insects','invertebrates','mammals','mixed','marine'];
  const seconds=Number(process.env.ANIMAL_EXPERT_SECONDS??12);if(!Number.isFinite(seconds)||seconds<=0)throw Error('ANIMAL_EXPERT_SECONDS must be positive');
@@ -38,7 +39,7 @@ try {
   for(let i=0;i<pool.length;i++)for(let j=0;j<i;j++){
    let mask=personal.get(pool[i].id)&personal.get(pool[j].id);
    traits.forEach((t,k)=>{if(!(mask&bit(k)))return;const a=values.get(pool[i].id+':'+t.id),b=values.get(pool[j].id+':'+t.id),lo=Math.min(a.valueNumeric,b.valueNumeric),hi=Math.max(a.valueNumeric,b.valueNumeric);
-    if(a.sex!==b.sex||a.lifeStage!==b.lifeStage||lo===hi||(t.separationMethod!=='distinct_ordinal'&&hi/lo<1.03-1e-12)||(t.id.startsWith('marine_description_year')&&hi-lo<2)||((a.valueMin??a.valueNumeric)<=(b.valueMax??b.valueNumeric)&&(b.valueMin??b.valueNumeric)<=(a.valueMax??a.valueNumeric)))mask&=~bit(k);
+    if(a.sex!==b.sex||a.lifeStage!==b.lifeStage||lo===hi||hi/lo<1.03-1e-12||(t.id.startsWith('marine_description_year')&&hi-lo<2)||((a.valueMin??a.valueNumeric)<=(b.valueMax??b.valueNumeric)&&(b.valueMin??b.valueNumeric)<=(a.valueMax??a.valueNumeric)))mask&=~bit(k);
    });pair[i][j]=pair[j][i]=mask;
   }
   const deadline=Date.now()+seconds*1000,reject=reason=>row.rejections[reason]=(row.rejections[reason]??0)+1;

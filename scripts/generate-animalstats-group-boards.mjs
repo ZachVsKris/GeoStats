@@ -8,17 +8,19 @@ try {
  const {createAnimalBoardValidator,validateAnimalDataset}=await import(pathToFileURL(`${dir}/animalstats.mjs`));
  const {publishedAnimalTraitIds,animalMajorGroup}=await import(pathToFileURL(`${dir}/animalstatsCoverage.mjs`));
  const {animalBoardComposition}=await import(pathToFileURL(`${dir}/animalstatsComposition.mjs`));
- const parts=['pilot','existing-coverage','fish-records','tetrapod-spatial','marine','aquatic-eggs'].map(n=>JSON.parse(fs.readFileSync(`data/animalstats/${n}.json`)));
+ const parts=['pilot','existing-coverage','fish-records','tetrapod-spatial','marine','aquatic-eggs','underrepresented'].map(n=>JSON.parse(fs.readFileSync(`data/animalstats/${n}.json`)));
  const d=Object.fromEntries(['animals','traits','values','sources','photos'].map(k=>[k,parts.flatMap(p=>p[k].filter(row=>k!=='photos'||p===parts[4]||!parts[4].photos.some(photo=>photo.animalId===row.animalId)))]));
  const errors=validateAnimalDataset(d);if(errors.length)throw new Error(errors.join("\n"));
  const pub=publishedAnimalTraitIds(d),validate=createAnimalBoardValidator(d),vm=new Map(d.values.filter(v=>v.confidence==='approved').map(v=>[v.animalId+':'+v.traitId,v]));
  const portraits=new Set(d.photos.filter(p=>p.approved).map(p=>p.animalId));
  const groups={birds:['bird'],insects:['insect'],dogs:['dog-breed'],cats:['cat-breed'],reptiles:['lizard','snake','turtle','crocodilian','reptile'],amphibians:['frog','salamander','amphibian'],fish:['fish','shark','ray'],invertebrates:['insect','bivalve','crustacean','echinoderm','cephalopod','gastropod','mollusc','cnidarian','arachnid','chelicerate','annelid','sponge'],mammals:null,mixed:null,marine:null};
  const marineIds=new Set(JSON.parse(fs.readFileSync('data/animalstats/research/marine-admission.json')).marineAnimalIds);
+ for(const id of JSON.parse(fs.readFileSync('data/animalstats/research/underrepresented-admission-20261010b.json')).marineAnimalIds)marineIds.add(id);
  for(const a of d.animals)if(a.taxonomicGroup==='marine-mammal')marineIds.add(a.id);
  const existing=['group-boards','group-boards-2'].flatMap(name=>fs.existsSync(`data/animalstats/${name}.json`)?JSON.parse(fs.readFileSync(`data/animalstats/${name}.json`)).boards:[]);
  const out=existing.filter(b=>b.traitIds.every(t=>pub.has(t))&&validate(b).valid&&animalBoardComposition(d,b).eligible),seen=new Set(out.map(b=>b.id));
  function* combos(a,n,s=0,p=[]){if(!n){yield p;return;}for(let i=s;i<=a.length-n;i++)yield*combos(a,n-1,i+1,[...p,a[i]]);}
+ const expansionCells=new Set(parts[6].values.map(v=>v.animalId+':'+v.traitId));
  const report={policy:'intuitive-majority-distinct-winners-v6',notes:['No publication cap or per-lineup variant cap. Runtime budget is resumable and does not determine eligibility.','At least 3% between every adjacent numeric rank; exact ties remain blocked. Uncertainty overlap, source compatibility, unique winners and at least half intuitive remain required.'],groups:[]};
  const seconds=Number(process.env.ANIMAL_GENERATION_SECONDS??5);
  if(!Number.isFinite(seconds)||seconds<=0)throw new Error('ANIMAL_GENERATION_SECONDS must be positive');
@@ -54,7 +56,7 @@ try {
      if(!ids.every(id=>vm.has(id+':'+t.id)))return false;
      const vv=ids.map(id=>vm.get(id+':'+t.id)).sort((a,b)=>a.valueNumeric-b.valueNumeric);
      if(new Set(vv.map(v=>v.sex)).size>1||new Set(vv.map(v=>v.lifeStage)).size>1)return false;
-     return vv.every((v,i)=>!i||((v.valueMin??v.valueNumeric)>(vv[i-1].valueMax??vv[i-1].valueNumeric)&&(t.separationMethod==='distinct_ordinal'||v.valueNumeric/vv[i-1].valueNumeric>=1.03-1e-12)));
+     return vv.every((v,i)=>!i||((v.valueMin??v.valueNumeric)>(vv[i-1].valueMax??vv[i-1].valueNumeric)&&v.valueNumeric/vv[i-1].valueNumeric>=1.03-1e-12));
     }));
     if(new Set(tt.map(t=>t.metricKey)).size<k){reject('not enough compatible distinct metrics');continue;}
     if(tt.filter(t=>t.categoryKind==='intuitive').length<minimumIntuitive){reject('less than half intuitive');continue;}
@@ -66,6 +68,7 @@ try {
      const traitIds=traits.map(t=>t.id).sort();
      const b={id:'groups-'+group+'-'+mode+'-'+createHash('sha256').update(lineup+'|'+traitIds.join(',')).digest('hex').slice(0,12),title:group,collection:'living',boardType:group==='mixed'?'mixed':'themed',mode,animalIds:ids,traitIds,editorial:{policy:report.policy,intuitiveMinimum:minimumIntuitive}};
      if(seen.has(b.id)||contents.has(boardKey(b)))continue;
+     if(process.env.ANIMAL_REQUIRE_EXPANSION==='1'&&!ids.some(id=>traits.some(t=>expansionCells.has(id+':'+t.id))))continue;
      const result=validate(b);
      if(result.valid&&animalBoardComposition(d,b).eligible){out.push(b);seen.add(b.id);contents.add(boardKey(b));break;}
      else for(const reason of result.rejectionReasons)reject(reason.replace(/trait [^:]+:/,'trait:'));

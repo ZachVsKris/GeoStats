@@ -408,3 +408,8 @@
 .animalPage[data-motion="paused"] .extinctCartoon { animation: none; }
 @media (prefers-reduced-motion: reduce) { .countyFair .penAnimal > .extinctCartoon { animation: none; } }
 @media(max-width:750px) { .animalCollectionSelect { max-width:128px; margin-right:5px; font-size:11px; height:24px; } }
+
+/* Three-line prize names must fit above a filled match on small phones. */
+@media (max-width: 400px) and (max-height: 680px) {
+ .realAnimalPage .shell.activePlay.expertRound .boardPanel .category strong { font-size: 12px !important; line-height: 1.08 !important; }
+}

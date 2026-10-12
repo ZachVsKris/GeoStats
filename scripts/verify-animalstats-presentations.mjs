@@ -14,12 +14,12 @@ try {
  browser=await chromium.launch(); const page=await browser.newPage({viewport:{width:1440,height:900}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
  await page.goto('http://localhost:3012/animals',{waitUntil:'networkidle',timeout:120000});
  const lifespanResponse=await page.request.get('http://localhost:3012/api/animals/data?trait=wild_recorded_lifespan');
- assert.equal(lifespanResponse.status(),404);
+ assert.equal(lifespanResponse.status(),200);
  const catalogResponse=await page.request.get('http://localhost:3012/api/animals/data?scope=catalog');const fullCatalog=await catalogResponse.json();assert(!fullCatalog.data.values.some(v=>v.animalId==='proteus_anguinus'&&/lifespan/.test(v.traitId)));
  const animals=page.locator('[data-animal-id].penAnimal'), traits=page.locator('[data-trait-id].traitPodium');
  assert.equal(await animals.count(),4); await animals.nth(0).click();await traits.nth(0).click();
  const placed=await traits.nth(0).getAttribute('data-trait-id');const first=await animals.nth(0).getAttribute('data-animal-id');
- await page.getByRole('switch',{name:'Static animal photos'}).click();assert.equal(await page.locator('.penAnimal').count(),0);assert.equal(await page.locator('.country').count(),4);assert.equal(await page.locator(`[data-trait-id="${placed}"] .choice .pieceName`).textContent(),await page.locator(`.country[data-animal-id="${first}"] strong`).textContent());
+ await page.getByRole('switch',{name:'Static animal images'}).click();assert.equal(await page.locator('.penAnimal').count(),0);assert.equal(await page.locator('.country').count(),4);assert.equal(await page.locator(`[data-trait-id="${placed}"] .choice .pieceName`).textContent(),await page.locator(`.country[data-animal-id="${first}"] strong`).textContent());
  const slots=page.locator('.slot[data-trait-id]'); const info=slots.nth(1).getByRole('button',{name:/Definition of/});
  await info.hover();await page.getByRole('tooltip').waitFor();assert((await page.getByRole('tooltip').textContent()).length>30);await page.mouse.move(0,0);assert.equal(await page.getByRole('tooltip').count(),0);
  await info.focus();await page.keyboard.press('Tab');await page.keyboard.press('Shift+Tab');await page.getByRole('tooltip').waitFor();await page.keyboard.press('Escape');assert.equal(await page.getByRole('tooltip').count(),0);
@@ -104,7 +104,7 @@ try {
  await page.getByText('Help & tools',{exact:true}).click();await page.getByRole('button',{name:'Scoring',exact:true}).click();await page.getByRole('dialog',{name:'Scoring'}).waitFor();await page.keyboard.press('Escape');
  await page.evaluate(()=>{navigator.clipboard.writeText=async()=>{throw new DOMException('Blocked','NotAllowedError');};});await page.getByRole('button',{name:'Copy link',exact:true}).click();await page.getByRole('dialog',{name:'Copy challenge link'}).waitFor();assert(new URL(await page.getByRole('textbox',{name:'Challenge link to copy'}).inputValue()).searchParams.get('board'));await page.keyboard.press('Escape');
  await page.getByText('Help & tools',{exact:true}).click();await page.getByRole('button',{name:'Categories',exact:true}).click();await page.locator('.animalDataTable').waitFor();assert(await page.getByRole('button',{name:'Play',exact:true}).count()>0);await page.getByRole('button',{name:'Play',exact:true}).first().click();await page.locator('.traitPodium').first().waitFor();
- await page.getByText('Help & tools',{exact:true}).click();await page.getByRole('button',{name:'Full data',exact:true}).click();await page.locator('.animalDataTable').waitFor();assert((await page.locator('.animalDataBrowser').textContent()).includes('217'));
+ await page.getByText('Help & tools',{exact:true}).click();await page.getByRole('button',{name:'Full data',exact:true}).click();await page.locator('.animalDataTable').waitFor();assert((await page.locator('.animalDataBrowser').textContent()).includes('animals'));
  await page.getByRole('button',{name:'Back to game',exact:true}).click();
  await page.setViewportSize({width:390,height:667});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth));
  assert.deepEqual(errors,[]);

@@ -1,0 +1,1291 @@
+{
+  "accepted": [
+    {
+      "name": "Cyrtodaria siliqua",
+      "field": "AnAge maximum longevity",
+      "value": 105.0,
+      "references": "1307"
+    },
+    {
+      "name": "Cyrtodaria siliqua",
+      "field": "shell length",
+      "value": 11.0,
+      "reference": 104337,
+      "citation": "Kilada, R.W., S.E. Campana and D. Roddick. 2009. Growth and sexual maturity of the northern propellerclam (<i>Cyrtodaria siliqua</i>) in Eastern Canada, with bomb radiocarbon age validation. Marine Biology 156(5):1029-1037."
+    },
+    {
+      "name": "Hiatella arctica",
+      "field": "AnAge maximum longevity",
+      "value": 15.0,
+      "references": "1307"
+    },
+    {
+      "name": "Hiatella arctica",
+      "field": "shell length",
+      "value": 5.0,
+      "reference": 95344,
+      "citation": "Harbo, R.M.. 1997. Shells and shellfish of the Pacific Northwest, a field guide. Harbour Publishing, Canada, 270p."
+    },
+    {
+      "name": "Panopea generosa",
+      "field": "AnAge maximum longevity",
+      "value": 168.0,
+      "references": "1307"
+    },
+    {
+      "name": "Panopea generosa",
+      "field": "shell length",
+      "value": 17.5,
+      "reference": 865,
+      "citation": "Gotshall, D.W.. 2005. Guide to marine invertebrates: Alaska to Baja California, 2nd ed. (revised). Sea Challengers. 117 p."
+    },
+    {
+      "name": "Mya arenaria",
+      "field": "AnAge maximum longevity",
+      "value": 28.0,
+      "references": "1307"
+    },
+    {
+      "name": "Mya truncata",
+      "field": "AnAge maximum longevity",
+      "value": 50.0,
+      "references": "1307"
+    },
+    {
+      "name": "Mya truncata",
+      "field": "shell length",
+      "value": 8.0,
+      "reference": 95344,
+      "citation": "Harbo, R.M.. 1997. Shells and shellfish of the Pacific Northwest, a field guide. Harbour Publishing, Canada, 270p."
+    },
+    {
+      "name": "Geukensia demissa",
+      "field": "AnAge maximum longevity",
+      "value": 24.0,
+      "references": "1307"
+    },
+    {
+      "name": "Modiolus modiolus",
+      "field": "AnAge maximum longevity",
+      "value": 48.0,
+      "references": "1307"
+    },
+    {
+      "name": "Mytilus californianus",
+      "field": "AnAge maximum longevity",
+      "value": 3.0,
+      "references": "1307"
+    },
+    {
+      "name": "Mytilus edulis",
+      "field": "AnAge maximum longevity",
+      "value": 24.0,
+      "references": "1307"
+    },
+    {
+      "name": "Mytilus edulis",
+      "field": "shell length",
+      "value": 11.0,
+      "reference": 95344,
+      "citation": "Harbo, R.M.. 1997. Shells and shellfish of the Pacific Northwest, a field guide. Harbour Publishing, Canada, 270p."
+    },
+    {
+      "name": "Mytilus galloprovincialis",
+      "field": "AnAge maximum longevity",
+      "value": 20.0,
+      "references": "1307"
+    },
+    {
+      "name": "Mytilus galloprovincialis",
+      "field": "shell length",
+      "value": 16.5,
+      "reference": 109255,
+      "citation": "Carpenter, K.E. and N. De Angelis (eds.). 2016. The living marine resources of the Eastern Central Atlantic. Vol. 2: Bivalves, gastropods, hagfishes, sharks, batoid fishes, and chimaeras. FAO Species Identification Guide for Fishery Purposes, Rome, FAO. pp. 665-1509."
+    },
+    {
+      "name": "Mytilus trossulus",
+      "field": "AnAge maximum longevity",
+      "value": 13.0,
+      "references": "1307"
+    },
+    {
+      "name": "Perna perna",
+      "field": "AnAge maximum longevity",
+      "value": 6.0,
+      "references": "1307"
+    },
+    {
+      "name": "Perna perna",
+      "field": "shell length",
+      "value": 17.0,
+      "reference": 271,
+      "citation": "Carpenter, K.E. (ed.). 2002. The living marine resources of the Western Central Atlantic. Volume 1: Introduction, molluscs, crustaceans, hagfishes, sharks, batoid fishes, and chimaeras. FAO Species Identification Guide for Fishery Purposes and American Society of Ichthyologists and Herpetologists Special Publication No. 5, Rome. 600p."
+    },
+    {
+      "name": "Nuculana pernula",
+      "field": "AnAge maximum longevity",
+      "value": 11.0,
+      "references": "1307"
+    },
+    {
+      "name": "Megayoldia thraciaeformis",
+      "field": "AnAge maximum longevity",
+      "value": 15.0,
+      "references": "1307"
+    },
+    {
+      "name": "Yoldia limatula",
+      "field": "AnAge maximum longevity",
+      "value": 4.0,
+      "references": "1307"
+    },
+    {
+      "name": "Crassostrea ariakensis",
+      "field": "AnAge maximum longevity",
+      "value": 5.0,
+      "references": "1307"
+    },
+    {
+      "name": "Crassostrea virginica",
+      "field": "AnAge maximum longevity",
+      "value": 5.0,
+      "references": "1307,1379"
+    },
+    {
+      "name": "Ostrea edulis",
+      "field": "AnAge maximum longevity",
+      "value": 16.0,
+      "references": "1307"
+    },
+    {
+      "name": "Argopecten irradians",
+      "field": "AnAge maximum longevity",
+      "value": 2.0,
+      "references": "1307"
+    },
+    {
+      "name": "Argopecten irradians",
+      "field": "shell length",
+      "value": 7.5,
+      "reference": 344,
+      "citation": "Leal, J.H.. 2003. Bivalves. p. 25-98. In Carpenter, K.E. (ed.). The living marine resources of the Western Central Atlantic. Volume 1: Introduction, molluscs, crustaceans, hagfishes, sharks, batoid fishes, and chimaeras. FAO Species Identification Guide for Fishery Purposes and American Society of Ichthyologists and Herpetologists Special Publication No. 5. 1600p."
+    },
+    {
+      "name": "Chlamys islandica",
+      "field": "AnAge maximum longevity",
+      "value": 35.0,
+      "references": "1307"
+    },
+    {
+      "name": "Chlamys islandica",
+      "field": "shell length",
+      "value": 11.0,
+      "reference": 78075,
+      "citation": "FAO. 2007. Seafood in Europe. FAO Seafood in Europe CD's 4."
+    },
+    {
+      "name": "Patinopecten caurinus",
+      "field": "AnAge maximum longevity",
+      "value": 19.0,
+      "references": "1307"
+    },
+    {
+      "name": "Patinopecten caurinus",
+      "field": "shell length",
+      "value": 28.0,
+      "reference": 95344,
+      "citation": "Harbo, R.M.. 1997. Shells and shellfish of the Pacific Northwest, a field guide. Harbour Publishing, Canada, 270p."
+    },
+    {
+      "name": "Placopecten magellanicus",
+      "field": "AnAge maximum longevity",
+      "value": 20.0,
+      "references": "1307"
+    },
+    {
+      "name": "Pinctada margaritifera",
+      "field": "AnAge maximum longevity",
+      "value": 5.0,
+      "references": "1307"
+    },
+    {
+      "name": "Pinctada margaritifera",
+      "field": "shell length",
+      "value": 9.8,
+      "reference": 2922,
+      "citation": "Oliver, P.G., A.M. Holmes, I.J. Killeen, J.M. Light and H. Wood. 2004. Annotated checklist of the marine Bivalvia of Rodrigues. Journal of Natural History 38:3229-3272."
+    },
+    {
+      "name": "Arctica islandica",
+      "field": "AnAge maximum longevity",
+      "value": 507.0,
+      "references": "2,14,593,829,893,1085,1086,1095,1098,1162,1163,1164,1165,1226,1365"
+    },
+    {
+      "name": "Arctica islandica",
+      "field": "shell length",
+      "value": 13.0,
+      "reference": 88171,
+      "citation": "Narberhaus, I., J. Krause and U. Bernitt (eds.). 2012. Threatened biodiversity in the German North and Baltic seas. Naturschutz und Biologische Vielfalt, Heft 117. Federal Agency for Nature Conservation, Bonn, Germany."
+    },
+    {
+      "name": "Astarte elliptica",
+      "field": "AnAge maximum longevity",
+      "value": 20.0,
+      "references": "1307"
+    },
+    {
+      "name": "Astarte elliptica",
+      "field": "shell length",
+      "value": 5.0,
+      "reference": 95344,
+      "citation": "Harbo, R.M.. 1997. Shells and shellfish of the Pacific Northwest, a field guide. Harbour Publishing, Canada, 270p."
+    },
+    {
+      "name": "Clinocardium nuttallii",
+      "field": "AnAge maximum longevity",
+      "value": 7.0,
+      "references": "1307"
+    },
+    {
+      "name": "Clinocardium nuttallii",
+      "field": "shell length",
+      "value": 14.0,
+      "reference": 95344,
+      "citation": "Harbo, R.M.. 1997. Shells and shellfish of the Pacific Northwest, a field guide. Harbour Publishing, Canada, 270p."
+    },
+    {
+      "name": "Serripes groenlandicus",
+      "field": "AnAge maximum longevity",
+      "value": 39.0,
+      "references": "1307"
+    },
+    {
+      "name": "Serripes groenlandicus",
+      "field": "shell length",
+      "value": 11.0,
+      "reference": 95344,
+      "citation": "Harbo, R.M.. 1997. Shells and shellfish of the Pacific Northwest, a field guide. Harbour Publishing, Canada, 270p."
+    },
+    {
+      "name": "Corbicula fluminea",
+      "field": "AnAge maximum longevity",
+      "value": 4.0,
+      "references": "1307"
+    },
+    {
+      "name": "Corbicula fluminea",
+      "field": "shell length",
+      "value": 4.0,
+      "reference": 7961,
+      "citation": "Williams, E.H. Jr., L. Bunkley-Williams, C.G. Lilyestrom and E.A.R. Ortiz-Corps. 2001. A review of recent introductions of aquatic invertebrates in Puerto Rico and implications for the management of nonindigenous species. Caribbean Journal of Science 37(3-4):246-251."
+    },
+    {
+      "name": "Mactromeris polynyma",
+      "field": "AnAge maximum longevity",
+      "value": 60.0,
+      "references": "1307"
+    },
+    {
+      "name": "Mactromeris polynyma",
+      "field": "shell length",
+      "value": 16.0,
+      "reference": 127351,
+      "citation": "Hubley, B. and S.G. Heaslip. 2018. Data review and assessment framework of the Arctic surfclam (<i>Mactromeris polynyma</i>) on Banquereau and Grand Bank. DFO Can. Sci. Advis. Sec. Res. Doc. 2017/069. v + 49p."
+    },
+    {
+      "name": "Spisula solidissima",
+      "field": "AnAge maximum longevity",
+      "value": 37.0,
+      "references": "1307"
+    },
+    {
+      "name": "Spisula solidissima",
+      "field": "shell length",
+      "value": 20.0,
+      "reference": 7726,
+      "citation": "Harvey-Clark, C.. 1997. Eastern tidepool and reef: north-central Atlantic marinelife guide. Hancock House Publishers, 64pp."
+    },
+    {
+      "name": "Tresus capax",
+      "field": "AnAge maximum longevity",
+      "value": 16.0,
+      "references": "1307"
+    },
+    {
+      "name": "Tresus capax",
+      "field": "shell length",
+      "value": 18.0,
+      "reference": 95344,
+      "citation": "Harbo, R.M.. 1997. Shells and shellfish of the Pacific Northwest, a field guide. Harbour Publishing, Canada, 270p."
+    },
+    {
+      "name": "Mesodesma arctatum",
+      "field": "AnAge maximum longevity",
+      "value": 24.0,
+      "references": "1307"
+    },
+    {
+      "name": "Siliqua patula",
+      "field": "AnAge maximum longevity",
+      "value": 9.0,
+      "references": "1307"
+    },
+    {
+      "name": "Siliqua patula",
+      "field": "shell length",
+      "value": 18.0,
+      "reference": 95344,
+      "citation": "Harbo, R.M.. 1997. Shells and shellfish of the Pacific Northwest, a field guide. Harbour Publishing, Canada, 270p."
+    },
+    {
+      "name": "Macoma balthica",
+      "field": "AnAge maximum longevity",
+      "value": 12.0,
+      "references": "1307"
+    },
+    {
+      "name": "Macoma balthica",
+      "field": "shell length",
+      "value": 3.8,
+      "reference": 95344,
+      "citation": "Harbo, R.M.. 1997. Shells and shellfish of the Pacific Northwest, a field guide. Harbour Publishing, Canada, 270p."
+    },
+    {
+      "name": "Macoma calcarea",
+      "field": "AnAge maximum longevity",
+      "value": 17.0,
+      "references": "1307"
+    },
+    {
+      "name": "Macoma calcarea",
+      "field": "shell length",
+      "value": 6.0,
+      "reference": 95344,
+      "citation": "Harbo, R.M.. 1997. Shells and shellfish of the Pacific Northwest, a field guide. Harbour Publishing, Canada, 270p."
+    },
+    {
+      "name": "Thyasira flexuosa",
+      "field": "AnAge maximum longevity",
+      "value": 3.2,
+      "references": "1307"
+    },
+    {
+      "name": "Thyasira flexuosa",
+      "field": "shell length",
+      "value": 1.2,
+      "reference": 95344,
+      "citation": "Harbo, R.M.. 1997. Shells and shellfish of the Pacific Northwest, a field guide. Harbour Publishing, Canada, 270p."
+    },
+    {
+      "name": "Gemma gemma",
+      "field": "AnAge maximum longevity",
+      "value": 6.0,
+      "references": "1307"
+    },
+    {
+      "name": "Mercenaria mercenaria",
+      "field": "AnAge maximum longevity",
+      "value": 106.0,
+      "references": "1307,1379"
+    },
+    {
+      "name": "Tivela mactroides",
+      "field": "AnAge maximum longevity",
+      "value": 2.0,
+      "references": "1307"
+    },
+    {
+      "name": "Tivela stultorum",
+      "field": "AnAge maximum longevity",
+      "value": 23.0,
+      "references": "1307"
+    },
+    {
+      "name": "Tivela stultorum",
+      "field": "shell length",
+      "value": 15.0,
+      "reference": 101635,
+      "citation": "Shaw, W.N. and T.J. Hassler. 1989. Species profiles: life histories and environmental requirements of coastal fishes and invertebrates (Pacific Southwest) -- Pismo Clam. U.S. Fish Wildl . Serv. Biol . Rep. 82(11.95). U.S. Army Corps of Engineers, TR EL-82-4. 12 pp."
+    },
+    {
+      "name": "Bengal",
+      "field": "kitten birth mass",
+      "value": 88.6,
+      "sample": 102,
+      "litters": 28
+    },
+    {
+      "name": "Birman",
+      "field": "kitten birth mass",
+      "value": 96.2,
+      "sample": 276,
+      "litters": 87
+    },
+    {
+      "name": "Chartreux",
+      "field": "kitten birth mass",
+      "value": 117.6,
+      "sample": 106,
+      "litters": 27
+    },
+    {
+      "name": "Egyptian Mau",
+      "field": "kitten birth mass",
+      "value": 92.3,
+      "sample": 114,
+      "litters": 28
+    },
+    {
+      "name": "Maine Coon",
+      "field": "kitten birth mass",
+      "value": 118.7,
+      "sample": 582,
+      "litters": 143
+    },
+    {
+      "name": "Norwegian Forest",
+      "field": "kitten birth mass",
+      "value": 107.4,
+      "sample": 506,
+      "litters": 120
+    },
+    {
+      "name": "Ragdoll",
+      "field": "kitten birth mass",
+      "value": 100.1,
+      "sample": 258,
+      "litters": 61
+    },
+    {
+      "name": "Siberian",
+      "field": "kitten birth mass",
+      "value": 100.7,
+      "sample": 427,
+      "litters": 106
+    },
+    {
+      "name": "Sphynx",
+      "field": "kitten birth mass",
+      "value": 90.8,
+      "sample": 80,
+      "litters": 25
+    },
+    {
+      "name": "Acanthocinus aedilis",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Zeegers_and_Heijerman_2008",
+      "eggRecord": "6693"
+    },
+    {
+      "name": "Aelia acuminata",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "3121"
+    },
+    {
+      "name": "Alydus calcaratus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "3195"
+    },
+    {
+      "name": "Amara apricaria",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Muilwijk_2015",
+      "eggRecord": "8747"
+    },
+    {
+      "name": "Amara lunicollis",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Muilwijk_2015",
+      "eggRecord": "8751"
+    },
+    {
+      "name": "Amara similata",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Muilwijk_2015",
+      "eggRecord": "8752"
+    },
+    {
+      "name": "Arma custos",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "3090"
+    },
+    {
+      "name": "Aromia moschata",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Zeegers_and_Heijerman_2008",
+      "eggRecord": "6686"
+    },
+    {
+      "name": "Blepharidopterus angulatus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_and_Hermes_2014",
+      "eggRecord": "9361"
+    },
+    {
+      "name": "Callidium violaceum",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Zeegers_and_Heijerman_2008",
+      "eggRecord": "6688"
+    },
+    {
+      "name": "Carabus coriaceus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Muilwijk_2015",
+      "eggRecord": "10043"
+    },
+    {
+      "name": "Carabus granulatus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Muilwijk_2015",
+      "eggRecord": "5489"
+    },
+    {
+      "name": "Carabus violaceus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Muilwijk_2015",
+      "eggRecord": "8766"
+    },
+    {
+      "name": "Ceraleptus lividus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "3187"
+    },
+    {
+      "name": "Chrysotoxum cautum",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Reemer_2009",
+      "eggRecord": "1955"
+    },
+    {
+      "name": "Cordulia aenea",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Harabis_and_Hronkova_(2020)",
+      "eggRecord": "8650"
+    },
+    {
+      "name": "Coreus marginatus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "3183"
+    },
+    {
+      "name": "Coriomeris denticulatus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "3191"
+    },
+    {
+      "name": "Dolycoris baccarum",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "3125"
+    },
+    {
+      "name": "Drymus brunneus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_and_Hermes_2016",
+      "eggRecord": "3174"
+    },
+    {
+      "name": "Emblethis denticollis",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_and_Hermes_2016",
+      "eggRecord": "3171"
+    },
+    {
+      "name": "Enoplops scapha",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "3181"
+    },
+    {
+      "name": "Gastrodes grossipes",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_and_Hermes_2016",
+      "eggRecord": "3142"
+    },
+    {
+      "name": "Gonocerus acuteangulatus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "3182"
+    },
+    {
+      "name": "Helophilus pendulus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Reemer_2009",
+      "eggRecord": "8819"
+    },
+    {
+      "name": "Kleidocerys resedae",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_and_Hermes_2016",
+      "eggRecord": "3143"
+    },
+    {
+      "name": "Leiopus nebulosus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Zeegers_and_Heijerman_2008",
+      "eggRecord": "6694"
+    },
+    {
+      "name": "Liorhyssus hyalinus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "3199"
+    },
+    {
+      "name": "Loricera pilicornis",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Muilwijk_2015",
+      "eggRecord": "5490"
+    },
+    {
+      "name": "Meconema thalassinum",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Haes_and_Harding_1997",
+      "eggRecord": "1635"
+    },
+    {
+      "name": "Megalonotus dilatatus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_and_Hermes_2016",
+      "eggRecord": "3164"
+    },
+    {
+      "name": "Melanostoma scalare",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Reemer_2009",
+      "eggRecord": "1965"
+    },
+    {
+      "name": "Meligramma triangulifera",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Reemer_2009",
+      "eggRecord": "8809"
+    },
+    {
+      "name": "Molorchus minor",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Zeegers_and_Heijerman_2008",
+      "eggRecord": "6685"
+    },
+    {
+      "name": "Myrmus miriformis",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "3204"
+    },
+    {
+      "name": "Neottiglossa pusilla",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "3112"
+    },
+    {
+      "name": "Nysius huttoni",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_and_Hermes_2016",
+      "eggRecord": "3382"
+    },
+    {
+      "name": "Orthetrum albistylum",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Harabis_and_Hronkova_(2020)",
+      "eggRecord": "7082"
+    },
+    {
+      "name": "Otiorhynchus sulcatus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Rheinheimer_and_Hassler_2010",
+      "eggRecord": "5291"
+    },
+    {
+      "name": "Pachybrachius fracticollis",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_and_Hermes_2016",
+      "eggRecord": "3175"
+    },
+    {
+      "name": "Palomena prasina",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "3114"
+    },
+    {
+      "name": "Pentatoma rufipes",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "3095"
+    },
+    {
+      "name": "Phymatodes testaceus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Zeegers_and_Heijerman_2008",
+      "eggRecord": "6689"
+    },
+    {
+      "name": "Picromerus bidens",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "3088"
+    },
+    {
+      "name": "Piezodorus lituratus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "3126"
+    },
+    {
+      "name": "Platycheirus albimanus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Reemer_2009",
+      "eggRecord": "1969"
+    },
+    {
+      "name": "Platycheirus clypeatus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Reemer_2009",
+      "eggRecord": "1968"
+    },
+    {
+      "name": "Platycheirus manicatus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Reemer_2009",
+      "eggRecord": "1972"
+    },
+    {
+      "name": "Platycheirus scambus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Reemer_2009",
+      "eggRecord": "8814"
+    },
+    {
+      "name": "Platycheirus scutatus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Reemer_2009",
+      "eggRecord": "1970"
+    },
+    {
+      "name": "Platycnemis pennipes",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Harabis_and_Hronkova_(2020)",
+      "eggRecord": "10775"
+    },
+    {
+      "name": "Poecilus cupreus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Muilwijk_2015",
+      "eggRecord": "5492"
+    },
+    {
+      "name": "Poecilus versicolor",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Muilwijk_2015",
+      "eggRecord": "5491"
+    },
+    {
+      "name": "Pterostichus diligens",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Muilwijk_2015",
+      "eggRecord": "8787"
+    },
+    {
+      "name": "Pterostichus oblongopunctatus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Muilwijk_2015",
+      "eggRecord": "5493"
+    },
+    {
+      "name": "Pterotmetus staphyliniformis",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_and_Hermes_2016",
+      "eggRecord": "3168"
+    },
+    {
+      "name": "Rhagium mordax",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Zeegers_and_Heijerman_2008",
+      "eggRecord": "6673"
+    },
+    {
+      "name": "Rhingia campestris",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Reemer_2009",
+      "eggRecord": "2367"
+    },
+    {
+      "name": "Rhopalus maculatus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "2934"
+    },
+    {
+      "name": "Rhopalus parumpunctatus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "3197"
+    },
+    {
+      "name": "Rhyparochromus pini",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_and_Hermes_2016",
+      "eggRecord": "3158"
+    },
+    {
+      "name": "Rhyparochromus vulgaris",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_and_Hermes_2016",
+      "eggRecord": "3167"
+    },
+    {
+      "name": "Saperda populnea",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Zeegers_and_Heijerman_2008",
+      "eggRecord": "6696"
+    },
+    {
+      "name": "Scaeva pyrastri",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Reemer_2009",
+      "eggRecord": "1952"
+    },
+    {
+      "name": "Sciocoris cursitans",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "3103"
+    },
+    {
+      "name": "Sphaerophoria scripta",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Reemer_2009",
+      "eggRecord": "1974"
+    },
+    {
+      "name": "Stenocorus meridianus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Zeegers_and_Heijerman_2008",
+      "eggRecord": "6674"
+    },
+    {
+      "name": "Stictopleurus abutilon",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "3201"
+    },
+    {
+      "name": "Stictopleurus punctatonervosus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "3202"
+    },
+    {
+      "name": "Syromastus rhombeus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "3184"
+    },
+    {
+      "name": "Syrphus ribesii",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Reemer_2009",
+      "eggRecord": "1947"
+    },
+    {
+      "name": "Syrphus vitripennis",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Reemer_2009",
+      "eggRecord": "1948"
+    },
+    {
+      "name": "Tettigonia viridissima",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Haes_and_Harding_1997",
+      "eggRecord": "1623"
+    },
+    {
+      "name": "Trapezonotus arenarius",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_and_Hermes_2016",
+      "eggRecord": "3169"
+    },
+    {
+      "name": "Troilus luridus",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "3091"
+    },
+    {
+      "name": "Zicrona caerulea",
+      "field": "cited adult body and egg measurements",
+      "originalBodySource": "Aukema_2016",
+      "eggRecord": "3466"
+    }
+  ],
+  "held": [
+    {
+      "name": "Crassostrea gigas",
+      "reason": "missing exact SeaLifeBase taxon or unresolved taxonomy"
+    },
+    {
+      "name": "Ensis directus",
+      "reason": "missing exact SeaLifeBase taxon or unresolved taxonomy"
+    },
+    {
+      "name": "Ophiophagus hannah",
+      "reason": "Source predates king cobra species-complex split; record locations need review before inheriting old measurements."
+    }
+  ],
+  "marineAnimalIds": [
+    "cyrtodaria_siliqua",
+    "hiatella_arctica",
+    "panopea_generosa",
+    "mya_arenaria",
+    "mya_truncata",
+    "geukensia_demissa",
+    "modiolus_modiolus",
+    "mytilus_californianus",
+    "mytilus_edulis",
+    "mytilus_galloprovincialis",
+    "mytilus_trossulus",
+    "perna_perna",
+    "nuculana_pernula",
+    "megayoldia_thraciaeformis",
+    "yoldia_limatula",
+    "crassostrea_ariakensis",
+    "crassostrea_virginica",
+    "ostrea_edulis",
+    "argopecten_irradians",
+    "chlamys_islandica",
+    "patinopecten_caurinus",
+    "placopecten_magellanicus",
+    "pinctada_margaritifera",
+    "arctica_islandica",
+    "astarte_elliptica",
+    "clinocardium_nuttallii",
+    "serripes_groenlandicus",
+    "mactromeris_polynyma",
+    "spisula_solidissima",
+    "tresus_capax",
+    "mesodesma_arctatum",
+    "siliqua_patula",
+    "macoma_balthica",
+    "macoma_calcarea",
+    "thyasira_flexuosa",
+    "gemma_gemma",
+    "mercenaria_mercenaria",
+    "tivela_mactroides",
+    "tivela_stultorum",
+    "acanthocybium_solandri",
+    "acipenser_sturio",
+    "acipenser_transmontanus",
+    "albula_vulpes",
+    "amphiprion_ocellaris",
+    "anguilla_anguilla",
+    "anguilla_rostrata",
+    "balistes_capriscus",
+    "carcharhinus_amblyrhynchos",
+    "carcharhinus_leucas",
+    "carcharhinus_melanopterus",
+    "carcharias_taurus",
+    "carcharodon_carcharias",
+    "centropomus_undecimalis",
+    "cetorhinus_maximus",
+    "chanos_chanos",
+    "clupea_harengus",
+    "coryphaena_hippurus",
+    "conger_conger",
+    "dasyatis_pastinaca",
+    "epinephelus_itajara",
+    "engraulis_encrasicolus",
+    "euthynnus_alletteratus",
+    "gadus_morhua",
+    "galeocerdo_cuvier",
+    "gasterosteus_aculeatus",
+    "hippocampus_kuda",
+    "hippoglossus_hippoglossus",
+    "hippoglossus_stenolepis",
+    "istiophorus_platypterus",
+    "isurus_oxyrinchus",
+    "katsuwonus_pelamis",
+    "lates_calcarifer",
+    "lutjanus_campechanus",
+    "makaira_nigricans",
+    "megalops_atlanticus",
+    "mola_mola",
+    "mugil_cephalus",
+    "mustelus_mustelus",
+    "myliobatis_californica",
+    "negaprion_brevirostris",
+    "oncorhynchus_kisutch",
+    "oncorhynchus_mykiss",
+    "oncorhynchus_nerka",
+    "oncorhynchus_tshawytscha",
+    "paracanthurus_hepatus",
+    "paralichthys_dentatus",
+    "pleuronectes_platessa",
+    "pomatomus_saltatrix",
+    "prionace_glauca",
+    "pterois_volitans",
+    "rachycentron_canadum",
+    "raja_clavata",
+    "rhincodon_typus",
+    "salmo_salar",
+    "salmo_trutta",
+    "salvelinus_fontinalis",
+    "sarda_sarda",
+    "sardina_pilchardus",
+    "sciaenops_ocellatus",
+    "scomber_scombrus",
+    "scomberomorus_cavalla",
+    "scomberomorus_maculatus",
+    "seriola_dumerili",
+    "seriola_lalandi",
+    "sphyraena_barracuda",
+    "sphyrna_lewini",
+    "sphyrna_mokarran",
+    "squalus_acanthias",
+    "thunnus_alalunga",
+    "thunnus_albacares",
+    "thunnus_thynnus",
+    "trachinotus_carolinus",
+    "triaenodon_obesus",
+    "triakis_semifasciata",
+    "xiphias_gladius",
+    "callinectes_amnicola",
+    "callinectes_arcuatus",
+    "callinectes_bellicosus",
+    "callinectes_bocourti",
+    "callinectes_danae",
+    "callinectes_exasperatus",
+    "callinectes_larvatus",
+    "callinectes_maracaiboensis",
+    "callinectes_marginatus",
+    "callinectes_ornatus",
+    "callinectes_pallidus",
+    "callinectes_rathbunae",
+    "callinectes_sapidus",
+    "callinectes_similis",
+    "callinectes_toxotes",
+    "cancer_anthonyi",
+    "cancer_bellianus",
+    "cancer_borealis",
+    "cancer_gracilis",
+    "cancer_irroratus",
+    "cancer_jordani",
+    "cancer_pagurus",
+    "cancer_plebejus",
+    "cancer_porteri",
+    "cancer_productus",
+    "carcinus_aestuarii",
+    "carcinus_maenas",
+    "chionoecetes_japonicus",
+    "chionoecetes_opilio",
+    "erimacrus_isenbeckii",
+    "euphausia_superba",
+    "homarus_americanus",
+    "homarus_gammarus",
+    "jasus_edwardsii",
+    "jasus_frontalis",
+    "jasus_lalandii",
+    "jasus_paulensis",
+    "macrobrachium_acanthurus",
+    "macrobrachium_carcinus",
+    "macrobrachium_equidens",
+    "macrobrachium_intermedium",
+    "macrobrachium_olfersii",
+    "macrobrachium_rosenbergii",
+    "macrobrachium_vollenhovenii",
+    "macrocheira_kaempferi",
+    "metacarcinus_edwardsii",
+    "metacarcinus_magister",
+    "metapenaeus_affinis",
+    "metapenaeus_alcocki",
+    "metapenaeus_anchistus",
+    "metapenaeus_bennettae",
+    "metapenaeus_brevicornis",
+    "metapenaeus_conjunctus",
+    "metapenaeus_dalli",
+    "metapenaeus_dobsoni",
+    "metapenaeus_eboracensis",
+    "metapenaeus_elegans",
+    "metapenaeus_endeavouri",
+    "metapenaeus_ensis",
+    "metapenaeus_insolitus",
+    "metapenaeus_intermedius",
+    "metapenaeus_joyneri",
+    "metapenaeus_kutchensis",
+    "metapenaeus_lysianassa",
+    "metapenaeus_macleayi",
+    "metapenaeus_monoceros",
+    "metapenaeus_moyebi",
+    "metapenaeus_stebbingi",
+    "metapenaeus_tenuipes",
+    "nephrops_norvegicus",
+    "palinurellus_gundlachi",
+    "palinurellus_wieneckii",
+    "palinurus_charlestoni",
+    "palinurus_delagoae",
+    "palinurus_elephas",
+    "palinurus_gilchristi",
+    "palinurus_mauritanicus",
+    "pandalus_borealis",
+    "pandalus_danae",
+    "pandalus_eous",
+    "pandalus_goniurus",
+    "pandalus_gurneyi",
+    "pandalus_hypsinotus",
+    "pandalus_japonicus",
+    "pandalus_jordani",
+    "pandalus_kessleri",
+    "pandalus_montagui",
+    "pandalus_platyceros",
+    "pandalus_stenolepis",
+    "pandalus_tridens",
+    "panulirus_argus",
+    "panulirus_cygnus",
+    "panulirus_echinatus",
+    "panulirus_femoristriga",
+    "panulirus_gracilis",
+    "panulirus_guttatus",
+    "panulirus_homarus",
+    "panulirus_inflatus",
+    "panulirus_interruptus",
+    "panulirus_japonicus",
+    "panulirus_laevicauda",
+    "panulirus_longipes",
+    "panulirus_marginatus",
+    "panulirus_ornatus",
+    "panulirus_pascuensis",
+    "panulirus_penicillatus",
+    "panulirus_polyphagus",
+    "panulirus_regius",
+    "panulirus_stimpsoni",
+    "panulirus_versicolor",
+    "paralithodes_brevipes",
+    "paralithodes_camtschaticus",
+    "paralithodes_platypus",
+    "penaeus_aztecus",
+    "penaeus_brasiliensis",
+    "penaeus_brevirostris",
+    "penaeus_californiensis",
+    "penaeus_canaliculatus",
+    "penaeus_chinensis",
+    "penaeus_duorarum",
+    "penaeus_esculentus",
+    "penaeus_indicus",
+    "penaeus_japonicus",
+    "penaeus_kerathurus",
+    "penaeus_latisulcatus",
+    "penaeus_longistylus",
+    "penaeus_merguiensis",
+    "penaeus_monodon",
+    "penaeus_notialis",
+    "penaeus_occidentalis",
+    "penaeus_paulensis",
+    "penaeus_penicillatus",
+    "penaeus_plebejus",
+    "penaeus_schmitti",
+    "penaeus_semisulcatus",
+    "penaeus_setiferus",
+    "penaeus_silasi",
+    "penaeus_stylirostris",
+    "penaeus_subtilis",
+    "penaeus_vannamei",
+    "portunus_anceps",
+    "portunus_armatus",
+    "portunus_haanii",
+    "portunus_hastatus",
+    "portunus_pelagicus",
+    "portunus_sanguinolentus",
+    "portunus_sebae",
+    "portunus_spinicarpus",
+    "portunus_spinimanus",
+    "portunus_trituberculatus",
+    "portunus_tuberculosus",
+    "portunus_xantusii",
+    "sagmariasus_verreauxi",
+    "scylla_olivacea",
+    "scylla_paramamosain",
+    "scylla_serrata",
+    "scylla_tranquebarica"
+  ],
+  "coverage": {
+    "wild_recorded_lifespan": 35,
+    "wild_recorded_lifespan__low": 35,
+    "bivalve_shell_length": 27,
+    "bivalve_shell_length__low": 27,
+    "marine_habitat_depth": 162,
+    "marine_habitat_depth__low": 162,
+    "marine_description_year": 180,
+    "marine_description_year__low": 180,
+    "pet_cat_birth_mass": 9,
+    "pet_cat_birth_mass__low": 9,
+    "pet_cat_litter_2022": 9,
+    "pet_cat_litter_2022__low": 9,
+    "insect_record_body_length": 76,
+    "insect_record_body_length__low": 76,
+    "insect_record_egg_length": 76,
+    "insect_record_egg_length__low": 76,
+    "insect_egg_elongation": 76,
+    "insect_egg_elongation__low": 76,
+    "insect_description_age": 76,
+    "insect_description_age__low": 76,
+    "rept_reported_total_length": 40,
+    "rept_reported_total_length__low": 40,
+    "rept_reported_hatchling_mass": 60,
+    "rept_reported_hatchling_mass__low": 60,
+    "rept_reported_clutch_max": 74,
+    "rept_reported_clutch_max__low": 74,
+    "rept_reported_egg_length": 28,
+    "rept_reported_egg_length__low": 28,
+    "rept_scientific_description_age": 115,
+    "rept_scientific_description_age__low": 115,
+    "amphibian_max_mass": 30,
+    "amphibian_max_mass__low": 30,
+    "frog_max_svl": 31,
+    "frog_max_svl__low": 31,
+    "amph_record_clutch": 47,
+    "amph_record_clutch__low": 47,
+    "amph_breeding_events": 51,
+    "amph_breeding_events__low": 51,
+    "amph_description_age": 53,
+    "amph_description_age__low": 53,
+    "amph_first_maturity": 42,
+    "amph_first_maturity__low": 42,
+    "maximum_documented_lifespan": 71,
+    "maximum_documented_lifespan__low": 71,
+    "adult_body_mass": 58,
+    "adult_body_mass__low": 58,
+    "anage_rept_female_maturity": 43,
+    "anage_rept_female_maturity__low": 43,
+    "anage_rept_incubation": 21,
+    "anage_rept_incubation__low": 21,
+    "pet_cat_survey_fetch": 12,
+    "pet_cat_survey_fetch__low": 12,
+    "pet_cat_survey_carry": 12,
+    "pet_cat_survey_carry__low": 12,
+    "pet_cat_survey_initiate_play": 12,
+    "pet_cat_survey_initiate_play__low": 12,
+    "pet_cat_survey_playfulness": 12,
+    "pet_cat_survey_playfulness__low": 12,
+    "pet_cat_survey_sociability": 12,
+    "pet_cat_survey_sociability__low": 12,
+    "pet_cat_survey_trainability": 12,
+    "pet_cat_survey_trainability__low": 12,
+    "pet_cat_survey_prey_interest": 12,
+    "pet_cat_survey_prey_interest__low": 12,
+    "aquatic_cited_total_length": 150,
+    "aquatic_cited_total_length__low": 150,
+    "crab_cited_shell_width": 37,
+    "crab_cited_shell_width__low": 37,
+    "aquatic_documented_food_species": 55,
+    "aquatic_documented_food_species__low": 55
+  }
+}

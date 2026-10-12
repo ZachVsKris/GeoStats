@@ -1,0 +1,76 @@
+{
+  "animals": [
+    {
+      "id": "astacus_astacus",
+      "scientificName": "Astacus astacus",
+      "commonName": "Noble crayfish",
+      "entityType": "species",
+      "taxonomicGroup": "crustacean",
+      "familiarityTier": "core",
+      "active": true
+    },
+    {
+      "id": "carcinus_aestuarii",
+      "scientificName": "Carcinus aestuarii",
+      "commonName": "Mediterranean shore crab",
+      "entityType": "species",
+      "taxonomicGroup": "crustacean",
+      "familiarityTier": "core",
+      "active": true
+    },
+    {
+      "id": "macrobrachium_rosenbergii",
+      "scientificName": "Macrobrachium rosenbergii",
+      "commonName": "Giant river prawn",
+      "entityType": "species",
+      "taxonomicGroup": "crustacean",
+      "familiarityTier": "core",
+      "active": true
+    },
+    {
+      "id": "pacifastacus_leniusculus",
+      "scientificName": "Pacifastacus leniusculus",
+      "commonName": "Signal crayfish",
+      "entityType": "species",
+      "taxonomicGroup": "crustacean",
+      "familiarityTier": "core",
+      "active": true
+    },
+    {
+      "id": "palinurus_elephas",
+      "scientificName": "Palinurus elephas",
+      "commonName": "Common spiny lobster",
+      "entityType": "species",
+      "taxonomicGroup": "crustacean",
+      "familiarityTier": "core",
+      "active": true
+    },
+    {
+      "id": "pandalus_borealis",
+      "scientificName": "Pandalus borealis",
+      "commonName": "Northern shrimp",
+      "entityType": "species",
+      "taxonomicGroup": "crustacean",
+      "familiarityTier": "core",
+      "active": true
+    },
+    {
+      "id": "pandalus_platyceros",
+      "scientificName": "Pandalus platyceros",
+      "commonName": "Spot shrimp",
+      "entityType": "species",
+      "taxonomicGroup": "crustacean",
+      "familiarityTier": "core",
+      "active": true
+    },
+    {
+      "id": "panulirus_interruptus",
+      "scientificName": "Panulirus interruptus",
+      "commonName": "Mexican spiny loster",
+      "entityType": "species",
+      "taxonomicGroup": "crustacean",
+      "familiarityTier": "core",
+      "active": true
+    }
+  ]
+}

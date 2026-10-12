@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-10-12",
+  "counts": {
+    "candidates": 2737,
+    "group-boards": 20531,
+    "group-boards-2": 20530,
+    "extinct": 9097
+  },
+  "totalValidatedBoards": 52895,
+  "rejectedDuringThisAudit": 0,
+  "checkedAdjacentRanks": 1392618,
+  "scoringCases": 39,
+  "newCatalogAnimals": 397,
+  "newDistinctSourceMeasurements": 1816,
+  "newMetricFamilies": 23,
+  "checks": [
+    "complete dataset references and counter pairs",
+    "coverage floors",
+    "source/sex/stage compatibility",
+    "unique winners and attainable perfect score",
+    "at least half intuitive and familiar anchors",
+    "every adjacent numerical rank at least 3% apart, including naming dates",
+    "living/extinct collections separate"
+  ]
+}

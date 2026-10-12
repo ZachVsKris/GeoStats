@@ -38,6 +38,8 @@ const base: Profile = {
   tail: 1,
 };
 const profiles: Record<string, Partial<Profile>> = {
+  cat_chartreux: {color:"#83939b",belly:"#bdc8cc",feature:"pet:cat_chartreux"},
+  cat_egyptian_mau: {color:"#b7bab2",belly:"#e5e5d8",feature:"pet:cat_egyptian_mau",pattern:"spots"},
   carcharodon_carcharias: {kind:"shark",color:"#788d99",belly:"#f4efdf",feature:"greatwhite"},
   carcharhinus_leucas: {kind:"shark",color:"#aaa69c",belly:"#eee8d7",feature:"bullshark"},
   galeocerdo_cuvier: {kind:"shark",color:"#9daaa1",belly:"#f4ecd8",feature:"tigershark"},

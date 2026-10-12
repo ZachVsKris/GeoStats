@@ -1,0 +1,2662 @@
+[
+  {
+    "name": "Acanthocinus aedilis",
+    "commonName": "Timberman",
+    "body": {
+      "name": "Acanthocinus aedilis",
+      "value": 20,
+      "source": "Zeegers_and_Heijerman_2008",
+      "file": "Coleoptera.xlsx",
+      "row": 23
+    },
+    "eggs": {
+      "ID": "6693",
+      "pl": "3",
+      "pw": "0.75",
+      "bib_author": "Duffy, Evelyn Arthur Joseph",
+      "bib_year": "1953",
+      "bib_title": "A monograph of the immature stages of British and imported timber beetles (Cerambycidae)",
+      "bib_journal": "",
+      "bib_pages": "",
+      "b": "duffy1953monograph",
+      "g": "Acanthocinus",
+      "s": "aedilis"
+    },
+    "taxonomy": {
+      "id": "10595482",
+      "taxonID": "10595482",
+      "scientificName": "Acanthocinus aedilis (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Coleoptera",
+      "family": "Cerambycidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Aelia acuminata",
+    "commonName": "Bishop's Mitre Shield Bug",
+    "body": {
+      "name": "Aelia acuminata",
+      "value": 9.3,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 276
+    },
+    "eggs": {
+      "ID": "3121",
+      "pl": "0.92",
+      "pw": "0.74",
+      "bib_author": "Puchkova, L V",
+      "bib_year": "1961",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). VI. Pentatomoidea, 2 Pentatomidae and Plataspidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "131--143",
+      "b": "Puchkova1961",
+      "g": "Aelia",
+      "s": "acuminata"
+    },
+    "taxonomy": {
+      "id": "2079123",
+      "taxonID": "2079123",
+      "scientificName": "Aelia acuminata (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Pentatomidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Alydus calcaratus",
+    "commonName": "ant bug",
+    "body": {
+      "name": "Alydus calcaratus",
+      "value": 12,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 278
+    },
+    "eggs": {
+      "ID": "3195",
+      "pl": "1.14",
+      "pw": "0.95",
+      "bib_author": "Puchkova, L V",
+      "bib_year": "1957",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). III. Coreidae (Supplement) IV. Macrocephalidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "44--58",
+      "b": "Puchkova1957",
+      "g": "Alydus",
+      "s": "calcaratus"
+    },
+    "taxonomy": {
+      "id": "2050173",
+      "taxonID": "2050173",
+      "scientificName": "Alydus calcaratus (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Alydidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Amara apricaria",
+    "commonName": "Dusky Sun Beetle",
+    "body": {
+      "name": "Amara apricaria",
+      "value": 9,
+      "source": "Muilwijk_2015",
+      "file": "Coleoptera.xlsx",
+      "row": 146
+    },
+    "eggs": {
+      "ID": "8747",
+      "pl": "1.43",
+      "pw": "0.84",
+      "bib_author": "Luff, M L",
+      "bib_year": "1981",
+      "bib_title": "Diagnostic characters of the eggs of some Carabidae (Coleoptera)",
+      "bib_journal": "Entomologica Scandinavica Supplement",
+      "bib_pages": "317--327",
+      "b": "Luff1981",
+      "g": "Amara",
+      "s": "apricaria"
+    },
+    "taxonomy": {
+      "id": "1035231",
+      "taxonID": "1035231",
+      "scientificName": "Amara apricaria (Paykull, 1790)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Coleoptera",
+      "family": "Carabidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Amara lunicollis",
+    "commonName": "Mesophile Sunshiner",
+    "body": {
+      "name": "Amara lunicollis",
+      "value": 9,
+      "source": "Muilwijk_2015",
+      "file": "Coleoptera.xlsx",
+      "row": 220
+    },
+    "eggs": {
+      "ID": "8751",
+      "pl": "1.38",
+      "pw": "0.83",
+      "bib_author": "Luff, M L",
+      "bib_year": "1981",
+      "bib_title": "Diagnostic characters of the eggs of some Carabidae (Coleoptera)",
+      "bib_journal": "Entomologica Scandinavica Supplement",
+      "bib_pages": "317--327",
+      "b": "Luff1981",
+      "g": "Amara",
+      "s": "lunicollis"
+    },
+    "taxonomy": {
+      "id": "1035167",
+      "taxonID": "1035167",
+      "scientificName": "Amara lunicollis Schiödte, 1837",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Coleoptera",
+      "family": "Carabidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Amara similata",
+    "commonName": "Narrow-dimpled Sunshiner",
+    "body": {
+      "name": "Amara similata",
+      "value": 10,
+      "source": "Muilwijk_2015",
+      "file": "Coleoptera.xlsx",
+      "row": 250
+    },
+    "eggs": {
+      "ID": "8752",
+      "pl": "1.3",
+      "pw": "0.85",
+      "bib_author": "Luff, M L",
+      "bib_year": "1981",
+      "bib_title": "Diagnostic characters of the eggs of some Carabidae (Coleoptera)",
+      "bib_journal": "Entomologica Scandinavica Supplement",
+      "bib_pages": "317--327",
+      "b": "Luff1981",
+      "g": "Amara",
+      "s": "similata"
+    },
+    "taxonomy": {
+      "id": "4472913",
+      "taxonID": "4472913",
+      "scientificName": "Amara similata (Gyllenhal, 1810)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Coleoptera",
+      "family": "Carabidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Arma custos",
+    "commonName": "Dock Leaf Bug",
+    "body": {
+      "name": "Arma custos",
+      "value": 13.5,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 281
+    },
+    "eggs": {
+      "ID": "3090",
+      "pl": "1.04",
+      "pw": "0.88",
+      "bib_author": "Puchkova, L V",
+      "bib_year": "1961",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). VI. Pentatomoidea, 2 Pentatomidae and Plataspidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "131--143",
+      "b": "Puchkova1961",
+      "g": "Arma",
+      "s": "custos"
+    },
+    "taxonomy": {
+      "id": "4485971",
+      "taxonID": "4485971",
+      "scientificName": "Arma custos (Fabricius, 1794)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Pentatomidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Aromia moschata",
+    "commonName": "Musk beetle",
+    "body": {
+      "name": "Aromia moschata",
+      "value": 34,
+      "source": "Zeegers_and_Heijerman_2008",
+      "file": "Coleoptera.xlsx",
+      "row": 385
+    },
+    "eggs": {
+      "ID": "6686",
+      "pl": "2.9",
+      "pw": "1.2",
+      "bib_author": "Duffy, Evelyn Arthur Joseph",
+      "bib_year": "1953",
+      "bib_title": "A monograph of the immature stages of British and imported timber beetles (Cerambycidae)",
+      "bib_journal": "",
+      "bib_pages": "",
+      "b": "duffy1953monograph",
+      "g": "Aromia",
+      "s": "moschata"
+    },
+    "taxonomy": {
+      "id": "5001643",
+      "taxonID": "5001643",
+      "scientificName": "Aromia moschata (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Coleoptera",
+      "family": "Cerambycidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Blepharidopterus angulatus",
+    "commonName": "Black-kneed Capsid",
+    "body": {
+      "name": "Blepharidopterus angulatus",
+      "value": 5.9,
+      "source": "Aukema_and_Hermes_2014",
+      "file": "Hemiptera.xlsx",
+      "row": 59
+    },
+    "eggs": {
+      "ID": "9361",
+      "pl": "1.02",
+      "pw": "0.35",
+      "bib_author": "Sanford, K H",
+      "bib_year": "1964",
+      "bib_title": "Eggs and oviposition sites of some predacious mirids on apple trees (Miridae: Hemiptera)",
+      "bib_journal": "The Canadian Entomologist",
+      "bib_pages": "1185--1189",
+      "b": "Sanford1964",
+      "g": "Blepharidopterus",
+      "s": "angulatus"
+    },
+    "taxonomy": {
+      "id": "2009595",
+      "taxonID": "2009595",
+      "scientificName": "Blepharidopterus angulatus (Fallen, 1807)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Miridae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Callidium violaceum",
+    "commonName": "Violet tanbark beetle",
+    "body": {
+      "name": "Callidium violaceum",
+      "value": 16,
+      "source": "Zeegers_and_Heijerman_2008",
+      "file": "Coleoptera.xlsx",
+      "row": 689
+    },
+    "eggs": {
+      "ID": "6688",
+      "pl": "1.6",
+      "pw": "0.45",
+      "bib_author": "Duffy, Evelyn Arthur Joseph",
+      "bib_year": "1953",
+      "bib_title": "A monograph of the immature stages of British and imported timber beetles (Cerambycidae)",
+      "bib_journal": "",
+      "bib_pages": "",
+      "b": "duffy1953monograph",
+      "g": "Callidium",
+      "s": "violaceum"
+    },
+    "taxonomy": {
+      "id": "1126665",
+      "taxonID": "1126665",
+      "scientificName": "Callidium violaceum (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Coleoptera",
+      "family": "Cerambycidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Carabus coriaceus",
+    "commonName": "Leather Beetle",
+    "body": {
+      "name": "Carabus coriaceus",
+      "value": 40,
+      "source": "Muilwijk_2015",
+      "file": "Coleoptera.xlsx",
+      "row": 737
+    },
+    "eggs": {
+      "ID": "10043",
+      "pl": "7.55",
+      "pw": "2.94",
+      "bib_author": "Kádár, Ferenc and Fazekas, P J and Sárospataki, Mikiós and Lővei, G L",
+      "bib_year": "2015",
+      "bib_title": "Seasonal dynamics, age structure and reproduction of four Carabus species (Coleoptera: Carabidae) living in forested landscapes in Hungary",
+      "bib_journal": "Acta Zoologica Academiae Scientiarum Hungaricae",
+      "bib_pages": "57--72",
+      "b": "kadar2015seasonal",
+      "g": "Carabus",
+      "s": "coriaceus"
+    },
+    "taxonomy": {
+      "id": "4470451",
+      "taxonID": "4470451",
+      "scientificName": "Carabus coriaceus Linnaeus, 1758",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Coleoptera",
+      "family": "Carabidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Carabus granulatus",
+    "commonName": "Granulated Ground Beetle",
+    "body": {
+      "name": "Carabus granulatus",
+      "value": 23,
+      "source": "Muilwijk_2015",
+      "file": "Coleoptera.xlsx",
+      "row": 745
+    },
+    "eggs": {
+      "ID": "5489",
+      "pl": "3.43",
+      "pw": "1.47",
+      "bib_author": "Kaupp, Andreas and Guggenheim, Richard and Nagel, Peter",
+      "bib_year": "2000",
+      "bib_title": "Egg-shell structure of Paussinae and other Carabidae, with notes on its phylogenetic relevance (Coleoptera)",
+      "bib_journal": "",
+      "bib_pages": "111--115",
+      "b": "Kaupp2000a",
+      "g": "Carabus",
+      "s": "granulatus"
+    },
+    "taxonomy": {
+      "id": "1036789",
+      "taxonID": "1036789",
+      "scientificName": "Carabus granulatus Linnaeus, 1758",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Coleoptera",
+      "family": "Carabidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Carabus violaceus",
+    "commonName": "Violet ground beetle",
+    "body": {
+      "name": "Carabus violaceus",
+      "value": 33,
+      "source": "Muilwijk_2015",
+      "file": "Coleoptera.xlsx",
+      "row": 773
+    },
+    "eggs": {
+      "ID": "8766",
+      "pl": "4.38",
+      "pw": "2.16",
+      "bib_author": "Luff, M L",
+      "bib_year": "1981",
+      "bib_title": "Diagnostic characters of the eggs of some Carabidae (Coleoptera)",
+      "bib_journal": "Entomologica Scandinavica Supplement",
+      "bib_pages": "317--327",
+      "b": "Luff1981",
+      "g": "Carabus",
+      "s": "violaceus"
+    },
+    "taxonomy": {
+      "id": "4470765",
+      "taxonID": "4470765",
+      "scientificName": "Carabus violaceus Linnaeus, 1758",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Coleoptera",
+      "family": "Carabidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Ceraleptus lividus",
+    "commonName": "Slender-horned Leatherbug",
+    "body": {
+      "name": "Ceraleptus lividus",
+      "value": 11.5,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 287
+    },
+    "eggs": {
+      "ID": "3187",
+      "pl": "1.15",
+      "pw": "0.73",
+      "bib_author": "Puchkova, L V",
+      "bib_year": "1957",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). III. Coreidae (Supplement) IV. Macrocephalidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "44--58",
+      "b": "Puchkova1957",
+      "g": "Ceraleptus",
+      "s": "lividus"
+    },
+    "taxonomy": {
+      "id": "4391506",
+      "taxonID": "4391506",
+      "scientificName": "Ceraleptus lividus Stein, 1858",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Coreidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Chrysotoxum cautum",
+    "commonName": "Large Meadow Fly",
+    "body": {
+      "name": "Chrysotoxum cautum",
+      "value": 15,
+      "source": "Reemer_2009",
+      "file": "Diptera.xlsx",
+      "row": 337
+    },
+    "eggs": {
+      "ID": "1955",
+      "pl": "0.885",
+      "pw": "0.387",
+      "bib_author": "Chandler, A E F",
+      "bib_year": "1968",
+      "bib_title": "A preliminary key to the eggs of some of the commoner aphidophagous Syrphidae (Diptera) occurring in Britain",
+      "bib_journal": "Transactions of the Royal Entomological Society of London",
+      "bib_pages": "199--217",
+      "b": "Chandler1968",
+      "g": "Chrysotoxum",
+      "s": "cautum"
+    },
+    "taxonomy": {
+      "id": "1535990",
+      "taxonID": "1535990",
+      "scientificName": "Chrysotoxum cautum (Harris, 1778)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Diptera",
+      "family": "Syrphidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Cordulia aenea",
+    "commonName": "Downy Emerald",
+    "body": {
+      "name": "Cordulia aenea",
+      "value": 55,
+      "source": "Harabis_and_Hronkova_(2020)",
+      "file": "Odonata.xlsx",
+      "row": 24
+    },
+    "eggs": {
+      "ID": "8650",
+      "pl": "0.73",
+      "pw": "0.32",
+      "bib_author": "May, M L",
+      "bib_year": "1995",
+      "bib_title": "Comparative notes on micropyle structure in “cordulegastroid” and “libelluloid” Anisoptera",
+      "bib_journal": "Odonatologica",
+      "bib_pages": "53--62",
+      "b": "May1995",
+      "g": "Cordulia",
+      "s": "aenea"
+    },
+    "taxonomy": {
+      "id": "1429717",
+      "taxonID": "1429717",
+      "scientificName": "Cordulia aenea (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Odonata",
+      "family": "Corduliidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Coreus marginatus",
+    "commonName": "Dock Bug",
+    "body": {
+      "name": "Coreus marginatus",
+      "value": 15,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 291
+    },
+    "eggs": {
+      "ID": "3183",
+      "pl": "1.72",
+      "pw": "1.09",
+      "bib_author": "Puchkova, L V",
+      "bib_year": "1957",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). III. Coreidae (Supplement) IV. Macrocephalidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "44--58",
+      "b": "Puchkova1957",
+      "g": "Coreus",
+      "s": "marginatus"
+    },
+    "taxonomy": {
+      "id": "4388646",
+      "taxonID": "4388646",
+      "scientificName": "Coreus marginatus (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Coreidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Coriomeris denticulatus",
+    "commonName": "Denticulate Leatherbug",
+    "body": {
+      "name": "Coriomeris denticulatus",
+      "value": 9.5,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 292
+    },
+    "eggs": {
+      "ID": "3191",
+      "pl": "1.34",
+      "pw": "0.63",
+      "bib_author": "Puchkova, L V",
+      "bib_year": "1957",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). III. Coreidae (Supplement) IV. Macrocephalidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "44--58",
+      "b": "Puchkova1957",
+      "g": "Coriomeris",
+      "s": "denticulatus"
+    },
+    "taxonomy": {
+      "id": "2050067",
+      "taxonID": "2050067",
+      "scientificName": "Coriomeris denticulatus (Scopoli, 1763)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Coreidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Dolycoris baccarum",
+    "commonName": "Sloe Bug",
+    "body": {
+      "name": "Dolycoris baccarum",
+      "value": 12,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 299
+    },
+    "eggs": {
+      "ID": "3125",
+      "pl": "1.04",
+      "pw": "0.79",
+      "bib_author": "Puchkova, L V",
+      "bib_year": "1961",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). VI. Pentatomoidea, 2 Pentatomidae and Plataspidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "131--143",
+      "b": "Puchkova1961",
+      "g": "Dolycoris",
+      "s": "baccarum"
+    },
+    "taxonomy": {
+      "id": "4485824",
+      "taxonID": "4485824",
+      "scientificName": "Dolycoris baccarum (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Pentatomidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Drymus brunneus",
+    "commonName": "brown groundbug",
+    "body": {
+      "name": "Drymus brunneus",
+      "value": 5.4,
+      "source": "Aukema_and_Hermes_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 197
+    },
+    "eggs": {
+      "ID": "3174",
+      "pl": "0.76",
+      "pw": "0.31",
+      "bib_author": "Putshkova, L V",
+      "bib_year": "1956",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). II. Lygaeidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "262--284",
+      "b": "Putshkova1956",
+      "g": "Drymus",
+      "s": "brunneus"
+    },
+    "taxonomy": {
+      "id": "4486546",
+      "taxonID": "4486546",
+      "scientificName": "Drymus brunneus (Sahlberg, 1848)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Lygaeidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Emblethis denticollis",
+    "commonName": "straw groundbug",
+    "body": {
+      "name": "Emblethis denticollis",
+      "value": 6.5,
+      "source": "Aukema_and_Hermes_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 201
+    },
+    "eggs": {
+      "ID": "3171",
+      "pl": "0.84",
+      "pw": "0.35",
+      "bib_author": "Putshkova, L V",
+      "bib_year": "1956",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). II. Lygaeidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "262--284",
+      "b": "Putshkova1956",
+      "g": "Emblethis",
+      "s": "denticollis"
+    },
+    "taxonomy": {
+      "id": "4486632",
+      "taxonID": "4486632",
+      "scientificName": "Emblethis denticollis Horvath, 1878",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Lygaeidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Enoplops scapha",
+    "commonName": "Boat Bug",
+    "body": {
+      "name": "Enoplops scapha",
+      "value": 13,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 305
+    },
+    "eggs": {
+      "ID": "3181",
+      "pl": "1.84",
+      "pw": "1.19",
+      "bib_author": "Puchkova, L V",
+      "bib_year": "1957",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). III. Coreidae (Supplement) IV. Macrocephalidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "44--58",
+      "b": "Puchkova1957",
+      "g": "Enoplops",
+      "s": "scapha"
+    },
+    "taxonomy": {
+      "id": "4388497",
+      "taxonID": "4388497",
+      "scientificName": "Enoplops scapha (Fabricius, 1794)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Coreidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Gastrodes grossipes",
+    "commonName": "Pinecone Bug",
+    "body": {
+      "name": "Gastrodes grossipes",
+      "value": 7.3,
+      "source": "Aukema_and_Hermes_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 208
+    },
+    "eggs": {
+      "ID": "3142",
+      "pl": "1.24",
+      "pw": "0.51",
+      "bib_author": "Putshkova, L V",
+      "bib_year": "1956",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). II. Lygaeidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "262--284",
+      "b": "Putshkova1956",
+      "g": "Gastrodes",
+      "s": "grossipes"
+    },
+    "taxonomy": {
+      "id": "11048070",
+      "taxonID": "11048070",
+      "scientificName": "Gastrodes grossipes (DeGeer, 1773)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Lygaeidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Gonocerus acuteangulatus",
+    "commonName": "Box Bug",
+    "body": {
+      "name": "Gonocerus acuteangulatus",
+      "value": 15,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 315
+    },
+    "eggs": {
+      "ID": "3182",
+      "pl": "1.77",
+      "pw": "1.18",
+      "bib_author": "Puchkova, L V",
+      "bib_year": "1957",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). III. Coreidae (Supplement) IV. Macrocephalidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "44--58",
+      "b": "Puchkova1957",
+      "g": "Gonocerus",
+      "s": "acuteangulatus"
+    },
+    "taxonomy": {
+      "id": "4390084",
+      "taxonID": "4390084",
+      "scientificName": "Gonocerus acuteangulatus (Goeze, 1778)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Coreidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Helophilus pendulus",
+    "commonName": "Sun Fly",
+    "body": {
+      "name": "Helophilus pendulus",
+      "value": 13,
+      "source": "Reemer_2009",
+      "file": "Diptera.xlsx",
+      "row": 375
+    },
+    "eggs": {
+      "ID": "8819",
+      "pl": "1.066",
+      "pw": "0.487",
+      "bib_author": "Kula, E",
+      "bib_year": "1989",
+      "bib_title": "Sculpture of exochorion in some eggs of Syrphidae (Diptera) (Pt. 2)",
+      "bib_journal": "Acta Universitatis Agriculturae et Silviculturae Mendelianae Brunensis",
+      "bib_pages": "99--126",
+      "b": "Kula1989",
+      "g": "Helophilus",
+      "s": "pendulus"
+    },
+    "taxonomy": {
+      "id": "5071352",
+      "taxonID": "5071352",
+      "scientificName": "Helophilus pendulus (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Diptera",
+      "family": "Syrphidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Kleidocerys resedae",
+    "commonName": "Birch Catkin Bug",
+    "body": {
+      "name": "Kleidocerys resedae",
+      "value": 6,
+      "source": "Aukema_and_Hermes_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 217
+    },
+    "eggs": {
+      "ID": "3143",
+      "pl": "0.95",
+      "pw": "0.28",
+      "bib_author": "Putshkova, L V",
+      "bib_year": "1956",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). II. Lygaeidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "262--284",
+      "b": "Putshkova1956",
+      "g": "Kleidocerys",
+      "s": "resedae"
+    },
+    "taxonomy": {
+      "id": "2007673",
+      "taxonID": "2007673",
+      "scientificName": "Kleidocerys resedae (Panzer, 1793)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Lygaeidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Leiopus nebulosus",
+    "commonName": "Black-clouded Longhorn Beetle",
+    "body": {
+      "name": "Leiopus nebulosus",
+      "value": 10,
+      "source": "Zeegers_and_Heijerman_2008",
+      "file": "Coleoptera.xlsx",
+      "row": 1390
+    },
+    "eggs": {
+      "ID": "6694",
+      "pl": "2",
+      "pw": "0.6",
+      "bib_author": "Duffy, Evelyn Arthur Joseph",
+      "bib_year": "1953",
+      "bib_title": "A monograph of the immature stages of British and imported timber beetles (Cerambycidae)",
+      "bib_journal": "",
+      "bib_pages": "",
+      "b": "duffy1953monograph",
+      "g": "Leiopus",
+      "s": "nebulosus"
+    },
+    "taxonomy": {
+      "id": "5819538",
+      "taxonID": "5819538",
+      "scientificName": "Leiopus nebulosus (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Coleoptera",
+      "family": "Cerambycidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Liorhyssus hyalinus",
+    "commonName": "Hyaline Grass Bug",
+    "body": {
+      "name": "Liorhyssus hyalinus",
+      "value": 7.1,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 322
+    },
+    "eggs": {
+      "ID": "3199",
+      "pl": "0.63",
+      "pw": "0.46",
+      "bib_author": "Puchkova, L V",
+      "bib_year": "1957",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). III. Coreidae (Supplement) IV. Macrocephalidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "44--58",
+      "b": "Puchkova1957",
+      "g": "Liorhyssus",
+      "s": "hyalinus"
+    },
+    "taxonomy": {
+      "id": "2050224",
+      "taxonID": "2050224",
+      "scientificName": "Liorhyssus hyalinus (Fabricius, 1794)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Rhopalidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Loricera pilicornis",
+    "commonName": "Hairy-horned Springtail-hunter",
+    "body": {
+      "name": "Loricera pilicornis",
+      "value": 8.5,
+      "source": "Muilwijk_2015",
+      "file": "Coleoptera.xlsx",
+      "row": 1450
+    },
+    "eggs": {
+      "ID": "5490",
+      "pl": "1.1",
+      "pw": "0.4",
+      "bib_author": "Kaupp, Andreas and Guggenheim, Richard and Nagel, Peter",
+      "bib_year": "2000",
+      "bib_title": "Egg-shell structure of Paussinae and other Carabidae, with notes on its phylogenetic relevance (Coleoptera)",
+      "bib_journal": "",
+      "bib_pages": "111--115",
+      "b": "Kaupp2000a",
+      "g": "Loricera",
+      "s": "pilicornis"
+    },
+    "taxonomy": {
+      "id": "1035290",
+      "taxonID": "1035290",
+      "scientificName": "Loricera pilicornis (Fabricius, 1775)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Coleoptera",
+      "family": "Carabidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Meconema thalassinum",
+    "commonName": "Oak Bush-cricket",
+    "body": {
+      "name": "Meconema thalassinum",
+      "value": 17,
+      "source": "Haes_and_Harding_1997",
+      "file": "Orthoptera.xlsx",
+      "row": 67
+    },
+    "eggs": {
+      "ID": "1635",
+      "pl": "3.6",
+      "pw": "1.1",
+      "bib_author": "Mazzini, Massimo",
+      "bib_year": "1976",
+      "bib_title": "Sulla fine struttura del micropilo negli insetti. IV. Le sculture corionidee come mezzo di identificazione delle uova degli Ortotteri Tettigonioidei",
+      "bib_journal": "Redia",
+      "bib_pages": "109--134",
+      "b": "Mazzini1976a",
+      "g": "Meconema",
+      "s": "thalassinum"
+    },
+    "taxonomy": {
+      "id": "1690432",
+      "taxonID": "1690432",
+      "scientificName": "Meconema thalassinum (De Geer, 1773)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Orthoptera",
+      "family": "Tettigoniidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Megalonotus dilatatus",
+    "commonName": "black groundbug",
+    "body": {
+      "name": "Megalonotus dilatatus",
+      "value": 7.4,
+      "source": "Aukema_and_Hermes_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 221
+    },
+    "eggs": {
+      "ID": "3164",
+      "pl": "0.96",
+      "pw": "0.38",
+      "bib_author": "Putshkova, L V",
+      "bib_year": "1956",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). II. Lygaeidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "262--284",
+      "b": "Putshkova1956",
+      "g": "Megalonotus",
+      "s": "dilatatus"
+    },
+    "taxonomy": {
+      "id": "4486501",
+      "taxonID": "4486501",
+      "scientificName": "Megalonotus dilatatus (Herrich-Schaeffer, 1840)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Lygaeidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Melanostoma scalare",
+    "commonName": "Ladder-backed Hover Fly",
+    "body": {
+      "name": "Melanostoma scalare",
+      "value": 9,
+      "source": "Reemer_2009",
+      "file": "Diptera.xlsx",
+      "row": 386
+    },
+    "eggs": {
+      "ID": "1965",
+      "pl": "1.056",
+      "pw": "0.44",
+      "bib_author": "Chandler, A E F",
+      "bib_year": "1968",
+      "bib_title": "A preliminary key to the eggs of some of the commoner aphidophagous Syrphidae (Diptera) occurring in Britain",
+      "bib_journal": "Transactions of the Royal Entomological Society of London",
+      "bib_pages": "199--217",
+      "b": "Chandler1968",
+      "g": "Melanostoma",
+      "s": "scalare"
+    },
+    "taxonomy": {
+      "id": "5766556",
+      "taxonID": "5766556",
+      "scientificName": "Melanostoma scalare (Fabricius, 1794)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Diptera",
+      "family": "Syrphidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Meligramma triangulifera",
+    "commonName": "Variable Roundtail",
+    "body": {
+      "name": "Meligramma triangulifera",
+      "value": 10,
+      "source": "Reemer_2009",
+      "file": "Diptera.xlsx",
+      "row": 387
+    },
+    "eggs": {
+      "ID": "8809",
+      "pl": "0.68",
+      "pw": "0.226",
+      "bib_author": "Kula, E",
+      "bib_year": "1989",
+      "bib_title": "Sculpture of exochorion in some eggs of Syrphidae (Diptera) (Pt. 2)",
+      "bib_journal": "Acta Universitatis Agriculturae et Silviculturae Mendelianae Brunensis",
+      "bib_pages": "99--126",
+      "b": "Kula1989",
+      "g": "Meligramma",
+      "s": "triangulifera"
+    },
+    "taxonomy": {
+      "id": "4516815",
+      "taxonID": "4516815",
+      "scientificName": "Meligramma triangulifera (Zetterstedt, 1843)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Diptera",
+      "family": "Syrphidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Molorchus minor",
+    "commonName": "spruce shortwing beetle",
+    "body": {
+      "name": "Molorchus minor",
+      "value": 16,
+      "source": "Zeegers_and_Heijerman_2008",
+      "file": "Coleoptera.xlsx",
+      "row": 1521
+    },
+    "eggs": {
+      "ID": "6685",
+      "pl": "1.1",
+      "pw": "0.3",
+      "bib_author": "Duffy, Evelyn Arthur Joseph",
+      "bib_year": "1953",
+      "bib_title": "A monograph of the immature stages of British and imported timber beetles (Cerambycidae)",
+      "bib_journal": "",
+      "bib_pages": "",
+      "b": "duffy1953monograph",
+      "g": "Molorchus",
+      "s": "minor"
+    },
+    "taxonomy": {
+      "id": "8571136",
+      "taxonID": "8571136",
+      "scientificName": "Molorchus minor (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Coleoptera",
+      "family": "Cerambycidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Myrmus miriformis",
+    "commonName": "short-winged rhopalid",
+    "body": {
+      "name": "Myrmus miriformis",
+      "value": 9,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 324
+    },
+    "eggs": {
+      "ID": "3204",
+      "pl": "1.17",
+      "pw": "0.53",
+      "bib_author": "Puchkova, L V",
+      "bib_year": "1957",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). III. Coreidae (Supplement) IV. Macrocephalidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "44--58",
+      "b": "Puchkova1957",
+      "g": "Myrmus",
+      "s": "miriformis"
+    },
+    "taxonomy": {
+      "id": "5733462",
+      "taxonID": "5733462",
+      "scientificName": "Myrmus miriformis (Fallén, 1807)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Rhopalidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Neottiglossa pusilla",
+    "commonName": "Small Grass Shieldbug",
+    "body": {
+      "name": "Neottiglossa pusilla",
+      "value": 6,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 325
+    },
+    "eggs": {
+      "ID": "3112",
+      "pl": "0.8",
+      "pw": "0.62",
+      "bib_author": "Puchkova, L V",
+      "bib_year": "1961",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). VI. Pentatomoidea, 2 Pentatomidae and Plataspidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "131--143",
+      "b": "Puchkova1961",
+      "g": "Neottiglossa",
+      "s": "pusilla"
+    },
+    "taxonomy": {
+      "id": "4485936",
+      "taxonID": "4485936",
+      "scientificName": "Neottiglossa pusilla (Gmelin, 1790)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Pentatomidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Nysius huttoni",
+    "commonName": "Wheat Bug",
+    "body": {
+      "name": "Nysius huttoni",
+      "value": 4.5,
+      "source": "Aukema_and_Hermes_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 230
+    },
+    "eggs": {
+      "ID": "3382",
+      "pl": "0.77",
+      "pw": "0.28",
+      "bib_author": "Eyles, A C",
+      "bib_year": "1960",
+      "bib_title": "Variation in the adult and immature stages of Nysius huttoni White (Heteroptera: Lygaeidae) with a note on the validity of the genus Brachynysius Usinger",
+      "bib_journal": "Transactions of the Royal Entomological Society of London",
+      "bib_pages": "53--72",
+      "b": "Eyles1960",
+      "g": "Nysius",
+      "s": "huttoni"
+    },
+    "taxonomy": {
+      "id": "4486365",
+      "taxonID": "4486365",
+      "scientificName": "Nysius huttoni White, 1878",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Lygaeidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Orthetrum albistylum",
+    "commonName": "White-tailed Skimmer",
+    "body": {
+      "name": "Orthetrum albistylum",
+      "value": 50,
+      "source": "Harabis_and_Hronkova_(2020)",
+      "file": "Odonata.xlsx",
+      "row": 50
+    },
+    "eggs": {
+      "ID": "7082",
+      "pl": "0.43",
+      "pw": "0.27",
+      "bib_author": "Kozo, M I Y",
+      "bib_year": "1987",
+      "bib_title": "Description of the eggs of common Plecoptera of western United States",
+      "bib_journal": "",
+      "bib_pages": "125--149",
+      "b": "kozoposition",
+      "g": "Orthetrum",
+      "s": "albistylum"
+    },
+    "taxonomy": {
+      "id": "1428595",
+      "taxonID": "1428595",
+      "scientificName": "Orthetrum albistylum (Selys, 1848)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Odonata",
+      "family": "Libellulidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Otiorhynchus sulcatus",
+    "commonName": "Black Vine Weevil",
+    "body": {
+      "name": "Otiorhynchus sulcatus",
+      "value": 10.5,
+      "source": "Rheinheimer_and_Hassler_2010",
+      "file": "Coleoptera.xlsx",
+      "row": 1722
+    },
+    "eggs": {
+      "ID": "5291",
+      "pl": "0.8",
+      "pw": "0.8",
+      "bib_author": "Edwards, Martin Gethin",
+      "bib_year": "2002",
+      "bib_title": "Digestive enzymes of vine weevil (otiorhynchus sulcatus) as potential targets for insect control strategies",
+      "bib_journal": "",
+      "bib_pages": "",
+      "b": "Edwards2002",
+      "g": "Otiorhynchus",
+      "s": "sulcatus"
+    },
+    "taxonomy": {
+      "id": "1195129",
+      "taxonID": "1195129",
+      "scientificName": "Otiorhynchus sulcatus (Fabricius, 1775)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Coleoptera",
+      "family": "Curculionidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Pachybrachius fracticollis",
+    "commonName": "wetland groundbug",
+    "body": {
+      "name": "Pachybrachius fracticollis",
+      "value": 6,
+      "source": "Aukema_and_Hermes_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 235
+    },
+    "eggs": {
+      "ID": "3175",
+      "pl": "0.8",
+      "pw": "0.33",
+      "bib_author": "Putshkova, L V",
+      "bib_year": "1956",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). II. Lygaeidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "262--284",
+      "b": "Putshkova1956",
+      "g": "Pachybrachius",
+      "s": "fracticollis"
+    },
+    "taxonomy": {
+      "id": "2007918",
+      "taxonID": "2007918",
+      "scientificName": "Pachybrachius fracticollis (Schilling, 1829)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Lygaeidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Palomena prasina",
+    "commonName": "Green Shield Bug",
+    "body": {
+      "name": "Palomena prasina",
+      "value": 14,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 328
+    },
+    "eggs": {
+      "ID": "3114",
+      "pl": "1.39",
+      "pw": "1.05",
+      "bib_author": "Puchkova, L V",
+      "bib_year": "1961",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). VI. Pentatomoidea, 2 Pentatomidae and Plataspidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "131--143",
+      "b": "Puchkova1961",
+      "g": "Palomena",
+      "s": "prasina"
+    },
+    "taxonomy": {
+      "id": "4485776",
+      "taxonID": "4485776",
+      "scientificName": "Palomena prasina (Linnaeus, 1761)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Pentatomidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Pentatoma rufipes",
+    "commonName": "Forest Bug",
+    "body": {
+      "name": "Pentatoma rufipes",
+      "value": 15,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 330
+    },
+    "eggs": {
+      "ID": "3095",
+      "pl": "1.26",
+      "pw": "1.14",
+      "bib_author": "Puchkova, L V",
+      "bib_year": "1961",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). VI. Pentatomoidea, 2 Pentatomidae and Plataspidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "131--143",
+      "b": "Puchkova1961",
+      "g": "Pentatoma",
+      "s": "rufipes"
+    },
+    "taxonomy": {
+      "id": "5758737",
+      "taxonID": "5758737",
+      "scientificName": "Pentatoma rufipes (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Pentatomidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Phymatodes testaceus",
+    "commonName": "Tanbark Borer",
+    "body": {
+      "name": "Phymatodes testaceus",
+      "value": 18,
+      "source": "Zeegers_and_Heijerman_2008",
+      "file": "Coleoptera.xlsx",
+      "row": 1857
+    },
+    "eggs": {
+      "ID": "6689",
+      "pl": "1",
+      "pw": "0.5",
+      "bib_author": "Duffy, Evelyn Arthur Joseph",
+      "bib_year": "1953",
+      "bib_title": "A monograph of the immature stages of British and imported timber beetles (Cerambycidae)",
+      "bib_journal": "",
+      "bib_pages": "",
+      "b": "duffy1953monograph",
+      "g": "Phymatodes",
+      "s": "testaceus"
+    },
+    "taxonomy": {
+      "id": "8961343",
+      "taxonID": "8961343",
+      "scientificName": "Phymatodes testaceus (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Coleoptera",
+      "family": "Cerambycidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Picromerus bidens",
+    "commonName": "Spiny Shield Bug",
+    "body": {
+      "name": "Picromerus bidens",
+      "value": 13,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 333
+    },
+    "eggs": {
+      "ID": "3088",
+      "pl": "1.14",
+      "pw": "0.9",
+      "bib_author": "Puchkova, L V",
+      "bib_year": "1961",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). VI. Pentatomoidea, 2 Pentatomidae and Plataspidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "131--143",
+      "b": "Puchkova1961",
+      "g": "Picromerus",
+      "s": "bidens"
+    },
+    "taxonomy": {
+      "id": "5160015",
+      "taxonID": "5160015",
+      "scientificName": "Picromerus bidens (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Pentatomidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Piezodorus lituratus",
+    "commonName": "Gorse Shield Bug",
+    "body": {
+      "name": "Piezodorus lituratus",
+      "value": 12,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 334
+    },
+    "eggs": {
+      "ID": "3126",
+      "pl": "1.22",
+      "pw": "0.96",
+      "bib_author": "Puchkova, L V",
+      "bib_year": "1961",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). VI. Pentatomoidea, 2 Pentatomidae and Plataspidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "131--143",
+      "b": "Puchkova1961",
+      "g": "Piezodorus",
+      "s": "lituratus"
+    },
+    "taxonomy": {
+      "id": "2078821",
+      "taxonID": "2078821",
+      "scientificName": "Piezodorus lituratus (Fabricius, 1794)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Pentatomidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Platycheirus albimanus",
+    "commonName": "Grey-spotted Sedgesitter",
+    "body": {
+      "name": "Platycheirus albimanus",
+      "value": 10,
+      "source": "Reemer_2009",
+      "file": "Diptera.xlsx",
+      "row": 414
+    },
+    "eggs": {
+      "ID": "1969",
+      "pl": "0.931",
+      "pw": "0.387",
+      "bib_author": "Chandler, A E F",
+      "bib_year": "1968",
+      "bib_title": "A preliminary key to the eggs of some of the commoner aphidophagous Syrphidae (Diptera) occurring in Britain",
+      "bib_journal": "Transactions of the Royal Entomological Society of London",
+      "bib_pages": "199--217",
+      "b": "Chandler1968",
+      "g": "Platycheirus",
+      "s": "albimanus"
+    },
+    "taxonomy": {
+      "id": "4516769",
+      "taxonID": "4516769",
+      "scientificName": "Platycheirus albimanus (Fabricius, 1781)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Diptera",
+      "family": "Syrphidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Platycheirus clypeatus",
+    "commonName": "Common Sedgesitter",
+    "body": {
+      "name": "Platycheirus clypeatus",
+      "value": 10,
+      "source": "Reemer_2009",
+      "file": "Diptera.xlsx",
+      "row": 416
+    },
+    "eggs": {
+      "ID": "1968",
+      "pl": "1.102",
+      "pw": "0.333",
+      "bib_author": "Chandler, A E F",
+      "bib_year": "1968",
+      "bib_title": "A preliminary key to the eggs of some of the commoner aphidophagous Syrphidae (Diptera) occurring in Britain",
+      "bib_journal": "Transactions of the Royal Entomological Society of London",
+      "bib_pages": "199--217",
+      "b": "Chandler1968",
+      "g": "Platycheirus",
+      "s": "clypeatus"
+    },
+    "taxonomy": {
+      "id": "1543183",
+      "taxonID": "1543183",
+      "scientificName": "Platycheirus clypeatus (Meigen, 1822)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Diptera",
+      "family": "Syrphidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Platycheirus manicatus",
+    "commonName": "Dull-backed Sedgesitter",
+    "body": {
+      "name": "Platycheirus manicatus",
+      "value": 10,
+      "source": "Reemer_2009",
+      "file": "Diptera.xlsx",
+      "row": 420
+    },
+    "eggs": {
+      "ID": "1972",
+      "pl": "1.088",
+      "pw": "0.427",
+      "bib_author": "Chandler, A E F",
+      "bib_year": "1968",
+      "bib_title": "A preliminary key to the eggs of some of the commoner aphidophagous Syrphidae (Diptera) occurring in Britain",
+      "bib_journal": "Transactions of the Royal Entomological Society of London",
+      "bib_pages": "199--217",
+      "b": "Chandler1968",
+      "g": "Platycheirus",
+      "s": "manicatus"
+    },
+    "taxonomy": {
+      "id": "1543197",
+      "taxonID": "1543197",
+      "scientificName": "Platycheirus manicatus (Meigen, 1822)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Diptera",
+      "family": "Syrphidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Platycheirus scambus",
+    "commonName": "Blackspine Sedgesitter",
+    "body": {
+      "name": "Platycheirus scambus",
+      "value": 9,
+      "source": "Reemer_2009",
+      "file": "Diptera.xlsx",
+      "row": 423
+    },
+    "eggs": {
+      "ID": "8814",
+      "pl": "0.96",
+      "pw": "0.333",
+      "bib_author": "Kula, E",
+      "bib_year": "1989",
+      "bib_title": "Sculpture of exochorion in some eggs of Syrphidae (Diptera) (Pt. 2)",
+      "bib_journal": "Acta Universitatis Agriculturae et Silviculturae Mendelianae Brunensis",
+      "bib_pages": "99--126",
+      "b": "Kula1989",
+      "g": "Platycheirus",
+      "s": "scambus"
+    },
+    "taxonomy": {
+      "id": "1543125",
+      "taxonID": "1543125",
+      "scientificName": "Platycheirus scambus (Staeger, 1843)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Diptera",
+      "family": "Syrphidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Platycheirus scutatus",
+    "commonName": "Many-tufted Sedgesitter",
+    "body": {
+      "name": "Platycheirus scutatus",
+      "value": 10,
+      "source": "Reemer_2009",
+      "file": "Diptera.xlsx",
+      "row": 424
+    },
+    "eggs": {
+      "ID": "1970",
+      "pl": "0.924",
+      "pw": "0.387",
+      "bib_author": "Chandler, A E F",
+      "bib_year": "1968",
+      "bib_title": "A preliminary key to the eggs of some of the commoner aphidophagous Syrphidae (Diptera) occurring in Britain",
+      "bib_journal": "Transactions of the Royal Entomological Society of London",
+      "bib_pages": "199--217",
+      "b": "Chandler1968",
+      "g": "Platycheirus",
+      "s": "scutatus"
+    },
+    "taxonomy": {
+      "id": "1543099",
+      "taxonID": "1543099",
+      "scientificName": "Platycheirus scutatus (Meigen, 1822)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Diptera",
+      "family": "Syrphidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Platycnemis pennipes",
+    "commonName": "Blue Featherleg",
+    "body": {
+      "name": "Platycnemis pennipes",
+      "value": 37,
+      "source": "Harabis_and_Hronkova_(2020)",
+      "file": "Odonata.xlsx",
+      "row": 54
+    },
+    "eggs": {
+      "ID": "10775",
+      "pl": "1",
+      "pw": "0.24",
+      "bib_author": "Seidel, Friedrich",
+      "bib_year": "1929",
+      "bib_title": "Untersuchungen über das Bildungsprinzip der Keimanlage im Ei der Libelle Platycnemis pennipes I–V",
+      "bib_journal": "Wilhelm Roux'Archiv für Entwicklungsmechanik der Organismen",
+      "bib_pages": "322--440",
+      "b": "seidel1929untersuchungen",
+      "g": "Platycnemis",
+      "s": "pennipes"
+    },
+    "taxonomy": {
+      "id": "1423859",
+      "taxonID": "1423859",
+      "scientificName": "Platycnemis pennipes (Pallas, 1771)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Odonata",
+      "family": "Platycnemiidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Poecilus cupreus",
+    "commonName": "Copper Greenclock Beetle",
+    "body": {
+      "name": "Poecilus cupreus",
+      "value": 13.5,
+      "source": "Muilwijk_2015",
+      "file": "Coleoptera.xlsx",
+      "row": 1892
+    },
+    "eggs": {
+      "ID": "5492",
+      "pl": "1.62",
+      "pw": "0.76",
+      "bib_author": "Kaupp, Andreas and Guggenheim, Richard and Nagel, Peter",
+      "bib_year": "2000",
+      "bib_title": "Egg-shell structure of Paussinae and other Carabidae, with notes on its phylogenetic relevance (Coleoptera)",
+      "bib_journal": "",
+      "bib_pages": "111--115",
+      "b": "Kaupp2000a",
+      "g": "Poecilus",
+      "s": "cupreus"
+    },
+    "taxonomy": {
+      "id": "5753697",
+      "taxonID": "5753697",
+      "scientificName": "Poecilus cupreus (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Coleoptera",
+      "family": "Carabidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Poecilus versicolor",
+    "commonName": "Rainbow Greenclock Beetle",
+    "body": {
+      "name": "Poecilus versicolor",
+      "value": 12.5,
+      "source": "Muilwijk_2015",
+      "file": "Coleoptera.xlsx",
+      "row": 1906
+    },
+    "eggs": {
+      "ID": "5491",
+      "pl": "1.43",
+      "pw": "0.64",
+      "bib_author": "Kaupp, Andreas and Guggenheim, Richard and Nagel, Peter",
+      "bib_year": "2000",
+      "bib_title": "Egg-shell structure of Paussinae and other Carabidae, with notes on its phylogenetic relevance (Coleoptera)",
+      "bib_journal": "",
+      "bib_pages": "111--115",
+      "b": "Kaupp2000a",
+      "g": "Poecilus",
+      "s": "versicolor"
+    },
+    "taxonomy": {
+      "id": "5753720",
+      "taxonID": "5753720",
+      "scientificName": "Poecilus versicolor (Sturm, 1824)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Coleoptera",
+      "family": "Carabidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Pterostichus diligens",
+    "commonName": "Smooth-chested Blackclock",
+    "body": {
+      "name": "Pterostichus diligens",
+      "value": 6.7,
+      "source": "Muilwijk_2015",
+      "file": "Coleoptera.xlsx",
+      "row": 1967
+    },
+    "eggs": {
+      "ID": "8787",
+      "pl": "0.97",
+      "pw": "0.42",
+      "bib_author": "Luff, M L",
+      "bib_year": "1981",
+      "bib_title": "Diagnostic characters of the eggs of some Carabidae (Coleoptera)",
+      "bib_journal": "Entomologica Scandinavica Supplement",
+      "bib_pages": "317--327",
+      "b": "Luff1981",
+      "g": "Pterostichus",
+      "s": "diligens"
+    },
+    "taxonomy": {
+      "id": "7873810",
+      "taxonID": "7873810",
+      "scientificName": "Pterostichus diligens (Sturm, 1824)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Coleoptera",
+      "family": "Carabidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Pterostichus oblongopunctatus",
+    "commonName": "Bronzed Blackclock",
+    "body": {
+      "name": "Pterostichus oblongopunctatus",
+      "value": 12.6,
+      "source": "Muilwijk_2015",
+      "file": "Coleoptera.xlsx",
+      "row": 2000
+    },
+    "eggs": {
+      "ID": "5493",
+      "pl": "1.62",
+      "pw": "0.93",
+      "bib_author": "Kaupp, Andreas and Guggenheim, Richard and Nagel, Peter",
+      "bib_year": "2000",
+      "bib_title": "Egg-shell structure of Paussinae and other Carabidae, with notes on its phylogenetic relevance (Coleoptera)",
+      "bib_journal": "",
+      "bib_pages": "111--115",
+      "b": "Kaupp2000a",
+      "g": "Pterostichus",
+      "s": "oblongopunctatus"
+    },
+    "taxonomy": {
+      "id": "7642452",
+      "taxonID": "7642452",
+      "scientificName": "Pterostichus oblongopunctatus (Fabricius, 1787)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Coleoptera",
+      "family": "Carabidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Pterotmetus staphyliniformis",
+    "commonName": "red-winged groundbug",
+    "body": {
+      "name": "Pterotmetus staphyliniformis",
+      "value": 5.5,
+      "source": "Aukema_and_Hermes_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 240
+    },
+    "eggs": {
+      "ID": "3168",
+      "pl": "1.03",
+      "pw": "0.42",
+      "bib_author": "Putshkova, L V",
+      "bib_year": "1956",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). II. Lygaeidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "262--284",
+      "b": "Putshkova1956",
+      "g": "Pterotmetus",
+      "s": "staphyliniformis"
+    },
+    "taxonomy": {
+      "id": "4486660",
+      "taxonID": "4486660",
+      "scientificName": "Pterotmetus staphyliniformis (Schilling, 1829)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Lygaeidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Rhagium mordax",
+    "commonName": "Blackspotted Longhorn Beetle",
+    "body": {
+      "name": "Rhagium mordax",
+      "value": 22,
+      "source": "Zeegers_and_Heijerman_2008",
+      "file": "Coleoptera.xlsx",
+      "row": 2050
+    },
+    "eggs": {
+      "ID": "6673",
+      "pl": "1.9",
+      "pw": "0.5",
+      "bib_author": "Duffy, Evelyn Arthur Joseph",
+      "bib_year": "1953",
+      "bib_title": "A monograph of the immature stages of British and imported timber beetles (Cerambycidae)",
+      "bib_journal": "",
+      "bib_pages": "",
+      "b": "duffy1953monograph",
+      "g": "Rhagium",
+      "s": "mordax"
+    },
+    "taxonomy": {
+      "id": "9128025",
+      "taxonID": "9128025",
+      "scientificName": "Rhagium mordax (Degeer, 1775)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Coleoptera",
+      "family": "Cerambycidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Rhingia campestris",
+    "commonName": "Heineken Fly",
+    "body": {
+      "name": "Rhingia campestris",
+      "value": 11,
+      "source": "Reemer_2009",
+      "file": "Diptera.xlsx",
+      "row": 429
+    },
+    "eggs": {
+      "ID": "2367",
+      "pl": "1.4",
+      "pw": "0.4",
+      "bib_author": "Hammer, Ole",
+      "bib_year": "1941",
+      "bib_title": "Biological and ecological investigations on flies associated with pasturing cattle and their excrement",
+      "bib_journal": "Videnskabelige Meddelelser Naturhistorisk Forening i København",
+      "bib_pages": "1--257",
+      "b": "Hammer1941",
+      "g": "Rhingia",
+      "s": "campestris"
+    },
+    "taxonomy": {
+      "id": "1537412",
+      "taxonID": "1537412",
+      "scientificName": "Rhingia campestris Meigen, 1822",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Diptera",
+      "family": "Syrphidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Rhopalus maculatus",
+    "commonName": "marsh rhopalid",
+    "body": {
+      "name": "Rhopalus maculatus",
+      "value": 8.5,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 340
+    },
+    "eggs": {
+      "ID": "2934",
+      "pl": "1.01",
+      "pw": "0.5",
+      "bib_author": "Vilimova, Jitka and Rohanova, Marketa",
+      "bib_year": "2010",
+      "bib_title": "The external morphology of eggs of three Rhopalidae species (Hemiptera: Heteroptera) with a review of the eggs of this family",
+      "bib_journal": "Acta Entomologica Musei Nationalis Pragae",
+      "bib_pages": "75--95",
+      "b": "Vilimova2010",
+      "g": "Rhopalus",
+      "s": "maculatus"
+    },
+    "taxonomy": {
+      "id": "4391866",
+      "taxonID": "4391866",
+      "scientificName": "Rhopalus maculatus (Fieber, 1837)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Rhopalidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Rhopalus parumpunctatus",
+    "commonName": "transparent rhopalid",
+    "body": {
+      "name": "Rhopalus parumpunctatus",
+      "value": 7.5,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 341
+    },
+    "eggs": {
+      "ID": "3197",
+      "pl": "0.96",
+      "pw": "0.52",
+      "bib_author": "Puchkova, L V",
+      "bib_year": "1957",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). III. Coreidae (Supplement) IV. Macrocephalidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "44--58",
+      "b": "Puchkova1957",
+      "g": "Rhopalus",
+      "s": "parumpunctatus"
+    },
+    "taxonomy": {
+      "id": "4391858",
+      "taxonID": "4391858",
+      "scientificName": "Rhopalus parumpunctatus Schilling, 1829",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Rhopalidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Rhyparochromus pini",
+    "commonName": "black-spotted groundbug",
+    "body": {
+      "name": "Rhyparochromus pini",
+      "value": 8.1,
+      "source": "Aukema_and_Hermes_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 243
+    },
+    "eggs": {
+      "ID": "3158",
+      "pl": "1.17",
+      "pw": "0.46",
+      "bib_author": "Putshkova, L V",
+      "bib_year": "1956",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). II. Lygaeidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "262--284",
+      "b": "Putshkova1956",
+      "g": "Rhyparochromus",
+      "s": "pini"
+    },
+    "taxonomy": {
+      "id": "5758859",
+      "taxonID": "5758859",
+      "scientificName": "Rhyparochromus pini (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Lygaeidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Rhyparochromus vulgaris",
+    "commonName": "bright-spotted groundbug",
+    "body": {
+      "name": "Rhyparochromus vulgaris",
+      "value": 8,
+      "source": "Aukema_and_Hermes_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 244
+    },
+    "eggs": {
+      "ID": "3167",
+      "pl": "1.25",
+      "pw": "0.45",
+      "bib_author": "Putshkova, L V",
+      "bib_year": "1956",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). II. Lygaeidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "262--284",
+      "b": "Putshkova1956",
+      "g": "Rhyparochromus",
+      "s": "vulgaris"
+    },
+    "taxonomy": {
+      "id": "5152523",
+      "taxonID": "5152523",
+      "scientificName": "Rhyparochromus vulgaris (Schilling, 1829)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Lygaeidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Saperda populnea",
+    "commonName": "small poplar borer",
+    "body": {
+      "name": "Saperda populnea",
+      "value": 15,
+      "source": "Zeegers_and_Heijerman_2008",
+      "file": "Coleoptera.xlsx",
+      "row": 2085
+    },
+    "eggs": {
+      "ID": "6696",
+      "pl": "2.8",
+      "pw": "0.8",
+      "bib_author": "Duffy, Evelyn Arthur Joseph",
+      "bib_year": "1953",
+      "bib_title": "A monograph of the immature stages of British and imported timber beetles (Cerambycidae)",
+      "bib_journal": "",
+      "bib_pages": "",
+      "b": "duffy1953monograph",
+      "g": "Saperda",
+      "s": "populnea"
+    },
+    "taxonomy": {
+      "id": "9013850",
+      "taxonID": "9013850",
+      "scientificName": "Saperda populnea (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Coleoptera",
+      "family": "Cerambycidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Scaeva pyrastri",
+    "commonName": "Eurasian Smoothwing",
+    "body": {
+      "name": "Scaeva pyrastri",
+      "value": 15,
+      "source": "Reemer_2009",
+      "file": "Diptera.xlsx",
+      "row": 430
+    },
+    "eggs": {
+      "ID": "1952",
+      "pl": "1.135",
+      "pw": "0.44",
+      "bib_author": "Chandler, A E F",
+      "bib_year": "1968",
+      "bib_title": "A preliminary key to the eggs of some of the commoner aphidophagous Syrphidae (Diptera) occurring in Britain",
+      "bib_journal": "Transactions of the Royal Entomological Society of London",
+      "bib_pages": "199--217",
+      "b": "Chandler1968",
+      "g": "Scaeva",
+      "s": "pyrastri"
+    },
+    "taxonomy": {
+      "id": "1537719",
+      "taxonID": "1537719",
+      "scientificName": "Scaeva pyrastri (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Diptera",
+      "family": "Syrphidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Sciocoris cursitans",
+    "commonName": "Sand-runner Shieldbug",
+    "body": {
+      "name": "Sciocoris cursitans",
+      "value": 6,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 344
+    },
+    "eggs": {
+      "ID": "3103",
+      "pl": "0.96",
+      "pw": "0.64",
+      "bib_author": "Puchkova, L V",
+      "bib_year": "1961",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). VI. Pentatomoidea, 2 Pentatomidae and Plataspidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "131--143",
+      "b": "Puchkova1961",
+      "g": "Sciocoris",
+      "s": "cursitans"
+    },
+    "taxonomy": {
+      "id": "2079253",
+      "taxonID": "2079253",
+      "scientificName": "Sciocoris cursitans (Fabricius, 1794)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Pentatomidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Sphaerophoria scripta",
+    "commonName": "Common Globetail",
+    "body": {
+      "name": "Sphaerophoria scripta",
+      "value": 12,
+      "source": "Reemer_2009",
+      "file": "Diptera.xlsx",
+      "row": 437
+    },
+    "eggs": {
+      "ID": "1974",
+      "pl": "0.88",
+      "pw": "0.373",
+      "bib_author": "Chandler, A E F",
+      "bib_year": "1968",
+      "bib_title": "A preliminary key to the eggs of some of the commoner aphidophagous Syrphidae (Diptera) occurring in Britain",
+      "bib_journal": "Transactions of the Royal Entomological Society of London",
+      "bib_pages": "199--217",
+      "b": "Chandler1968",
+      "g": "Sphaerophoria",
+      "s": "scripta"
+    },
+    "taxonomy": {
+      "id": "1539177",
+      "taxonID": "1539177",
+      "scientificName": "Sphaerophoria scripta (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Diptera",
+      "family": "Syrphidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Stenocorus meridianus",
+    "commonName": "variable longhorn beetle",
+    "body": {
+      "name": "Stenocorus meridianus",
+      "value": 27,
+      "source": "Zeegers_and_Heijerman_2008",
+      "file": "Coleoptera.xlsx",
+      "row": 2152
+    },
+    "eggs": {
+      "ID": "6674",
+      "pl": "3.4",
+      "pw": "1.75",
+      "bib_author": "Duffy, Evelyn Arthur Joseph",
+      "bib_year": "1953",
+      "bib_title": "A monograph of the immature stages of British and imported timber beetles (Cerambycidae)",
+      "bib_journal": "",
+      "bib_pages": "",
+      "b": "duffy1953monograph",
+      "g": "Stenocorus",
+      "s": "meridianus"
+    },
+    "taxonomy": {
+      "id": "8323161",
+      "taxonID": "8323161",
+      "scientificName": "Stenocorus meridianus (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Coleoptera",
+      "family": "Cerambycidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Stictopleurus abutilon",
+    "commonName": "knapweed rhopalid",
+    "body": {
+      "name": "Stictopleurus abutilon",
+      "value": 8.7,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 350
+    },
+    "eggs": {
+      "ID": "3201",
+      "pl": "1.27",
+      "pw": "0.41",
+      "bib_author": "Puchkova, L V",
+      "bib_year": "1957",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). III. Coreidae (Supplement) IV. Macrocephalidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "44--58",
+      "b": "Puchkova1957",
+      "g": "Stictopleurus",
+      "s": "abutilon"
+    },
+    "taxonomy": {
+      "id": "4391852",
+      "taxonID": "4391852",
+      "scientificName": "Stictopleurus abutilon (Rossi, 1790)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Rhopalidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Stictopleurus punctatonervosus",
+    "commonName": "banded rhopalid",
+    "body": {
+      "name": "Stictopleurus punctatonervosus",
+      "value": 8.5,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 351
+    },
+    "eggs": {
+      "ID": "3202",
+      "pl": "1.13",
+      "pw": "0.39",
+      "bib_author": "Puchkova, L V",
+      "bib_year": "1957",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). III. Coreidae (Supplement) IV. Macrocephalidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "44--58",
+      "b": "Puchkova1957",
+      "g": "Stictopleurus",
+      "s": "punctatonervosus"
+    },
+    "taxonomy": {
+      "id": "4391843",
+      "taxonID": "4391843",
+      "scientificName": "Stictopleurus punctatonervosus (Goeze, 1778)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Rhopalidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Syromastus rhombeus",
+    "commonName": "Rhombic Leatherbug",
+    "body": {
+      "name": "Syromastus rhombeus",
+      "value": 11.5,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 352
+    },
+    "eggs": {
+      "ID": "3184",
+      "pl": "1.31",
+      "pw": "0.78",
+      "bib_author": "Puchkova, L V",
+      "bib_year": "1957",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). III. Coreidae (Supplement) IV. Macrocephalidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "44--58",
+      "b": "Puchkova1957",
+      "g": "Syromastus",
+      "s": "rhombeus"
+    },
+    "taxonomy": {
+      "id": "4388663",
+      "taxonID": "4388663",
+      "scientificName": "Syromastus rhombeus (Linnaeus, 1767)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Coreidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Syrphus ribesii",
+    "commonName": "Common Flower Fly",
+    "body": {
+      "name": "Syrphus ribesii",
+      "value": 13,
+      "source": "Reemer_2009",
+      "file": "Diptera.xlsx",
+      "row": 442
+    },
+    "eggs": {
+      "ID": "1947",
+      "pl": "1.2",
+      "pw": "0.493",
+      "bib_author": "Chandler, A E F",
+      "bib_year": "1968",
+      "bib_title": "A preliminary key to the eggs of some of the commoner aphidophagous Syrphidae (Diptera) occurring in Britain",
+      "bib_journal": "Transactions of the Royal Entomological Society of London",
+      "bib_pages": "199--217",
+      "b": "Chandler1968",
+      "g": "Syrphus",
+      "s": "ribesii"
+    },
+    "taxonomy": {
+      "id": "1537266",
+      "taxonID": "1537266",
+      "scientificName": "Syrphus ribesii (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Diptera",
+      "family": "Syrphidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Syrphus vitripennis",
+    "commonName": "Black-thighed Flower Fly",
+    "body": {
+      "name": "Syrphus vitripennis",
+      "value": 13,
+      "source": "Reemer_2009",
+      "file": "Diptera.xlsx",
+      "row": 444
+    },
+    "eggs": {
+      "ID": "1948",
+      "pl": "0.957",
+      "pw": "0.427",
+      "bib_author": "Chandler, A E F",
+      "bib_year": "1968",
+      "bib_title": "A preliminary key to the eggs of some of the commoner aphidophagous Syrphidae (Diptera) occurring in Britain",
+      "bib_journal": "Transactions of the Royal Entomological Society of London",
+      "bib_pages": "199--217",
+      "b": "Chandler1968",
+      "g": "Syrphus",
+      "s": "vitripennis"
+    },
+    "taxonomy": {
+      "id": "1537212",
+      "taxonID": "1537212",
+      "scientificName": "Syrphus vitripennis Meigen, 1822",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Diptera",
+      "family": "Syrphidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Tettigonia viridissima",
+    "commonName": "Great Green Bush-cricket",
+    "body": {
+      "name": "Tettigonia viridissima",
+      "value": 54,
+      "source": "Haes_and_Harding_1997",
+      "file": "Orthoptera.xlsx",
+      "row": 68
+    },
+    "eggs": {
+      "ID": "1623",
+      "pl": "6",
+      "pw": "1.8",
+      "bib_author": "Mazzini, Massimo",
+      "bib_year": "1978",
+      "bib_title": "Amino acid analysis and morphology of the egg shell of Tettigonia viridissoima L. (Orthoptera: Tettigoniidae)",
+      "bib_journal": "International Journal of Insect Morphology and Embryology",
+      "bib_pages": "205--214",
+      "b": "Mazzini1978",
+      "g": "Tettigonia",
+      "s": "viridissima"
+    },
+    "taxonomy": {
+      "id": "1692898",
+      "taxonID": "1692898",
+      "scientificName": "Tettigonia viridissima (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Orthoptera",
+      "family": "Tettigoniidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Trapezonotus arenarius",
+    "commonName": "dune groundbug",
+    "body": {
+      "name": "Trapezonotus arenarius",
+      "value": 4.2,
+      "source": "Aukema_and_Hermes_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 256
+    },
+    "eggs": {
+      "ID": "3169",
+      "pl": "0.9",
+      "pw": "0.37",
+      "bib_author": "Putshkova, L V",
+      "bib_year": "1956",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). II. Lygaeidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "262--284",
+      "b": "Putshkova1956",
+      "g": "Trapezonotus",
+      "s": "arenarius"
+    },
+    "taxonomy": {
+      "id": "10950708",
+      "taxonID": "10950708",
+      "scientificName": "Trapezonotus arenarius (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Lygaeidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Troilus luridus",
+    "commonName": "Bronze Shield Bug",
+    "body": {
+      "name": "Troilus luridus",
+      "value": 13,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 356
+    },
+    "eggs": {
+      "ID": "3091",
+      "pl": "1.3",
+      "pw": "1.1",
+      "bib_author": "Puchkova, L V",
+      "bib_year": "1961",
+      "bib_title": "Eggs of the true bugs (Hemiptera-Heteroptera). VI. Pentatomoidea, 2 Pentatomidae and Plataspidae",
+      "bib_journal": "Entomologicheskoe Obozrenie",
+      "bib_pages": "131--143",
+      "b": "Puchkova1961",
+      "g": "Troilus",
+      "s": "luridus"
+    },
+    "taxonomy": {
+      "id": "4485973",
+      "taxonID": "4485973",
+      "scientificName": "Troilus luridus (Fabricius, 1775)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Pentatomidae",
+      "taxonRank": "species"
+    }
+  },
+  {
+    "name": "Zicrona caerulea",
+    "commonName": "Blue Shield Bug",
+    "body": {
+      "name": "Zicrona caerulea",
+      "value": 7.5,
+      "source": "Aukema_2016",
+      "file": "Hemiptera.xlsx",
+      "row": 357
+    },
+    "eggs": {
+      "ID": "3466",
+      "pl": "1",
+      "pw": "0.8",
+      "bib_author": "Yano, Toshiro",
+      "bib_year": "1951",
+      "bib_title": "The developmental stages of four species of the Japanese Pentatomidae (Hemiptera)",
+      "bib_journal": "Transactions of the Shikoku Entomological Society",
+      "bib_pages": "7--16",
+      "b": "Yano1951",
+      "g": "Zicrona",
+      "s": "caerulea"
+    },
+    "taxonomy": {
+      "id": "2078942",
+      "taxonID": "2078942",
+      "scientificName": "Zicrona caerulea (Linnaeus, 1758)",
+      "kingdom": "Animalia",
+      "phylum": "Arthropoda",
+      "class": "Insecta",
+      "order": "Hemiptera",
+      "family": "Pentatomidae",
+      "taxonRank": "species"
+    }
+  }
+]

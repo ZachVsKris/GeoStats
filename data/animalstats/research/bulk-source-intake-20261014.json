@@ -1,0 +1,178 @@
+{
+  "reviewDate": "2026-10-14",
+  "purpose": "Large-source intake for broad mammal and underrepresented marine coverage. These counts are not playable animals, categories or admitted measurements.",
+  "newPlayableLabels": 0,
+  "sources": [
+    {
+      "file": "marineSpeciesTraits.RData",
+      "url": "https://ndownloader.figshare.com/files/52089563",
+      "bytes": 17267764,
+      "sha256": "864992b24c6ec0f4de7f0b9330867119b510634d08e0c29989247fa78560e6cd",
+      "md5": "8a838cade726ad2836fc1704f5281e66",
+      "license": "CC BY 4.0",
+      "status": "research-only",
+      "admissionRequirements": "Filter Animalia; audit original references and units; exclude modelled distributions and vulnerability. Do not redistribute the complete WoRMS-derived database."
+    },
+    {
+      "file": "zooplankton-level1.csv",
+      "url": "https://raw.githubusercontent.com/Pelagic-Ecosystems/Zooplankton_trait_database/master/data_input/Trait_dataset_level1/trait_dataset_level1-2023-08-15.csv",
+      "bytes": 33807767,
+      "sha256": "53d2e0daf9c08f727e0de5b2bb8a6a0538eb9f27da65cc2191247e534c27b7cb",
+      "md5": "7f11b95e5ff07fb34c658462eaaa0f22",
+      "license": "CC BY-SA 4.0",
+      "status": "research-only",
+      "admissionRequirements": "Separate measured and derived records, life stages, temperatures and measurement types; review original citations before admission.",
+      "coverage": {
+        "records": 57605,
+        "distinctScientificNames": 4130,
+        "derivedFlagCounts": {
+          "FALSE": 40184,
+          "TRUE": 17421
+        },
+        "traitRecordCounts": {
+          "afdw": 8,
+          "afdwPDW": 162,
+          "ashPDW": 435,
+          "ashPWW": 33,
+          "ashTotal": 124,
+          "bioluminescence": 388,
+          "bodyLength": 6700,
+          "carbohydratePDW": 57,
+          "carbonPDW": 1511,
+          "carbonPWW": 430,
+          "carbonWeight": 4085,
+          "chitinPDW": 23,
+          "clearanceRate": 86,
+          "clearanceRate_15C": 688,
+          "clearanceRate_WSC": 81,
+          "clearanceRate_WSC_15C": 714,
+          "clutchSize": 75,
+          "developmentDuration": 58,
+          "dielVerticalMigration": 598,
+          "dryWeight": 3150,
+          "dryWeightPWW": 439,
+          "egestionRate": 3,
+          "egestionRate_WSC": 10,
+          "eggDiameter": 472,
+          "eggWeight": 339,
+          "energyContent": 116,
+          "energyDensityAFDW": 30,
+          "energyDensityDW": 87,
+          "energyDensityVolume": 126,
+          "energyDensityWW": 173,
+          "excretionRateN": 2005,
+          "excretionRateN_15C": 2006,
+          "excretionRateN_WSC": 5,
+          "excretionRateN_WSDW": 2004,
+          "excretionRateN_WSDW_15C": 2004,
+          "excretionRateN_WSProtein": 4,
+          "excretionRateP": 1034,
+          "excretionRateP_15C": 1033,
+          "excretionRateP_WSDW": 1031,
+          "excretionRateP_WSDW_15C": 1029,
+          "fecundity": 73,
+          "feedingMode": 1128,
+          "growthRate": 140,
+          "growthRatePLength": 10,
+          "growthRatePWeight": 5,
+          "growthRate_15C": 430,
+          "growthRate_WSC": 168,
+          "growthRate_WSC_15C": 405,
+          "habitatAssociation": 569,
+          "hibernation": 19,
+          "hibernationStage": 221,
+          "hydrogenPDW": 17,
+          "hydrogenTotal": 20,
+          "ingestionRate": 56,
+          "ingestionRatePC": 5,
+          "ingestionRate_15C": 255,
+          "ingestionRate_WSC": 53,
+          "ingestionRate_WSC_15C": 244,
+          "lifeSpan": 12,
+          "lipidPAFDW": 30,
+          "lipidPDW": 133,
+          "lipidPWW": 96,
+          "myelination": 862,
+          "nitrogenPDW": 1601,
+          "nitrogenTotal": 1377,
+          "phosphorusPDW": 729,
+          "phosphorusTotal": 634,
+          "proteinPAFDW": 29,
+          "proteinPDW": 92,
+          "proteinPWW": 97,
+          "ratioCN": 1155,
+          "ratioCP": 1029,
+          "ratioNP": 1257,
+          "ratioProteinLipid": 69,
+          "reproductionMode": 1146,
+          "respirationRate": 982,
+          "respirationRate_15C": 2056,
+          "respirationRate_WSC": 261,
+          "respirationRate_WSC_15C": 1362,
+          "respirationRate_WSDW": 1104,
+          "respirationRate_WSDW_15C": 1111,
+          "respirationRate_WSProtein": 5,
+          "respirationRate_WSWW": 165,
+          "respirationRate_WSWW_15C": 172,
+          "restingEggs": 2,
+          "trophicGroup": 1132,
+          "verticalDistribution": 1097,
+          "waterPWW": 112,
+          "wetWeight": 522
+        }
+      }
+    },
+    {
+      "file": "pantheria.zip",
+      "url": "https://zenodo.org/api/records/13313740/files/archive.zip/content",
+      "bytes": 2978326,
+      "sha256": "dd3c5eee96f55e47effccc6beeb5f1b71ed77878e2bbc8886e54ad9718decc6c",
+      "md5": "8c527874b05a5eb48a0cbccc056e42b6",
+      "license": "CC BY 4.0",
+      "status": "research-only",
+      "admissionRequirements": "EOL Darwin Core transformation; source methods permit extrapolated values. Requires original record-level provenance; not a blanket observed-data source.",
+      "archiveFiles": [
+        {
+          "name": "measurement_or_fact.tab",
+          "bytes": 142144854
+        },
+        {
+          "name": "__MACOSX/._measurement_or_fact.tab",
+          "bytes": 319
+        },
+        {
+          "name": "meta.xml",
+          "bytes": 6770
+        },
+        {
+          "name": "__MACOSX/._meta.xml",
+          "bytes": 263
+        },
+        {
+          "name": "occurrence.tab",
+          "bytes": 5842373
+        },
+        {
+          "name": "__MACOSX/._occurrence.tab",
+          "bytes": 268
+        },
+        {
+          "name": "reference.tab",
+          "bytes": 526339
+        },
+        {
+          "name": "__MACOSX/._reference.tab",
+          "bytes": 263
+        },
+        {
+          "name": "taxon.tab",
+          "bytes": 672526
+        },
+        {
+          "name": "__MACOSX/._taxon.tab",
+          "bytes": 319
+        }
+      ]
+    }
+  ]
+}

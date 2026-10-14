@@ -1,0 +1,47 @@
+{
+  "panthera_leo": {
+    "scientificName": "Panthera leo",
+    "assetUrl": "/animalstats/panthera_leo.jpg",
+    "sourceWidth": 500,
+    "sourceHeight": 375,
+    "crop": [
+      140,
+      65,
+      180,
+      230
+    ],
+    "reviewNote": "Adult male face and mane; excludes most torso and feet.",
+    "sourceSha256": "e70b03109b6c908c9e62bb8129b072102cd1ef4bf29cc0524c0b98a3dffff96a",
+    "reviewedAt": "2026-10-14"
+  },
+  "panthera_tigris": {
+    "scientificName": "Panthera tigris",
+    "assetUrl": "/animalstats/panthera_tigris.jpg",
+    "sourceWidth": 500,
+    "sourceHeight": 339,
+    "crop": [
+      65,
+      75,
+      125,
+      140
+    ],
+    "reviewNote": "Adult animal at left; excludes cub and most body.",
+    "sourceSha256": "d2a73416eb9681ed23940fd46a7885cb4bfbd9b225d6b5de4c9e27b8101e8582",
+    "reviewedAt": "2026-10-14"
+  },
+  "giraffa_camelopardalis": {
+    "scientificName": "Giraffa camelopardalis",
+    "assetUrl": "/animalstats/giraffa_camelopardalis.jpg",
+    "sourceWidth": 500,
+    "sourceHeight": 375,
+    "crop": [
+      298,
+      25,
+      90,
+      90
+    ],
+    "reviewNote": "Upper adult head and ossicones; excludes second animal and long neck.",
+    "sourceSha256": "4c471f419b32b663a787872a2e915f882f3131737fa35d0ef1f78a5190a71cb9",
+    "reviewedAt": "2026-10-14"
+  }
+}

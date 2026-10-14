@@ -283,7 +283,7 @@
 .animalPhotoGallery { width: min(900px, calc(100vw - 24px)); }
 .animalPhotoGalleryGrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .animalPhotoGallery figure { margin: 0; min-width: 0; }
-.animalPhotoGallery figure > img { display: block; width: 100%; aspect-ratio: 1; object-fit: contain; background: #f2f2ef; border: 1px solid #deded8; border-radius: 10px; }
+.animalPhotoGallery figure > .animalRealPhoto { display: block; width: 100%; aspect-ratio: 1; object-fit: contain; background: #f2f2ef; border: 1px solid #deded8; border-radius: 10px; }
 .animalPhotoGallery figcaption { display: grid; gap: 5px; padding: 8px 0; }
 .animalPhotoGallery figcaption strong { font-size: 18px; }
 .animalPhotoGallery figcaption small { color: var(--muted); font-size: 11px; }

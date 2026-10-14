@@ -1,0 +1,7575 @@
+{
+  "reviewDate": "2026-10-14",
+  "sourceRows": 57605,
+  "newAdmittedValues": 0,
+  "newPlayableLabels": 0,
+  "scope": "Screen only. DOI presence and isDerived=FALSE do not establish biological comparability or measurement quality.",
+  "excludedInScreen": {
+    "not-exact-species-rank": 4318,
+    "missing-primary-doi": 20322,
+    "derived-or-unspecified": 17421,
+    "not-finite-numeric": 5978
+  },
+  "comparisonCells": [
+    {
+      "trait": "bodyLength",
+      "unit": "mm",
+      "lifeStage": "female",
+      "sizeType": "total length",
+      "temperature": "NA",
+      "records": 221,
+      "distinctSpecies": 200,
+      "primaryDOIs": [
+        "10.1007/BF00349122",
+        "10.1007/s00227-006-0382-5",
+        "10.1007/s00227-006-0528-5",
+        "10.1080/00288330.1988.9516303",
+        "10.1098/rspb.2014.0739",
+        "10.1139/z86-232",
+        "10.3354/meps274099",
+        "10.3354/meps302159"
+      ],
+      "status": "manual-review-only",
+      "holds": []
+    },
+    {
+      "trait": "carbonWeight",
+      "unit": "mg",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1528,
+      "distinctSpecies": 162,
+      "primaryDOIs": [
+        "10.1016/0022-0981(86)90231-5",
+        "10.1086/703656",
+        "10.1594/PANGAEA.832240",
+        "10.1594/PANGAEA.832241",
+        "10.1594/PANGAEA.833777",
+        "10.1594/PANGAEA.833782",
+        "10.1594/PANGAEA.833792",
+        "10.1594/PANGAEA.833793",
+        "10.1594/PANGAEA.833807",
+        "10.1594/PANGAEA.833824",
+        "10.1594/PANGAEA.833895",
+        "10.1594/PANGAEA.833918",
+        "10.1594/PANGAEA.833920",
+        "10.1594/PANGAEA.833925",
+        "10.1594/PANGAEA.833931",
+        "10.1594/PANGAEA.833938",
+        "10.1594/PANGAEA.833962",
+        "10.1594/PANGAEA.833963",
+        "10.1594/PANGAEA.834207",
+        "10.1594/PANGAEA.834208",
+        "10.1594/PANGAEA.834267",
+        "10.1594/PANGAEA.834269",
+        "10.1594/PANGAEA.834272",
+        "10.1594/PANGAEA.834273",
+        "10.1594/PANGAEA.834276",
+        "10.1594/PANGAEA.834285",
+        "10.1594/PANGAEA.834301",
+        "10.1594/PANGAEA.834302",
+        "10.1594/PANGAEA.834306",
+        "10.1594/PANGAEA.834310",
+        "10.1594/PANGAEA.834312",
+        "10.1594/PANGAEA.834313",
+        "10.1594/PANGAEA.834316",
+        "10.1594/PANGAEA.834330",
+        "10.1594/PANGAEA.834393",
+        "10.1594/PANGAEA.834394",
+        "10.1594/PANGAEA.834425",
+        "10.1594/PANGAEA.834444",
+        "10.1594/PANGAEA.834448",
+        "10.1594/PANGAEA.834449",
+        "10.1594/PANGAEA.834453",
+        "10.1594/PANGAEA.834458",
+        "10.1594/PANGAEA.834460",
+        "10.1594/PANGAEA.834463",
+        "10.1594/PANGAEA.834469",
+        "10.1594/PANGAEA.834472",
+        "10.1594/PANGAEA.834481",
+        "10.1594/PANGAEA.834483",
+        "10.1594/PANGAEA.834496",
+        "10.1594/PANGAEA.834500",
+        "10.1594/PANGAEA.834501",
+        "10.1594/PANGAEA.834503",
+        "10.1594/PANGAEA.834504",
+        "10.1594/PANGAEA.834506",
+        "10.1594/PANGAEA.834509",
+        "10.1594/PANGAEA.834558",
+        "10.1594/PANGAEA.834560",
+        "10.1594/PANGAEA.834562",
+        "10.1594/PANGAEA.834563",
+        "10.1594/PANGAEA.834574",
+        "10.1594/PANGAEA.834598",
+        "10.1594/PANGAEA.834600",
+        "10.1594/PANGAEA.834602",
+        "10.1594/PANGAEA.834603",
+        "10.1594/PANGAEA.834604",
+        "10.1594/PANGAEA.834663",
+        "10.1594/PANGAEA.834671",
+        "10.1594/PANGAEA.834695",
+        "10.1594/PANGAEA.834709",
+        "10.1594/PANGAEA.834711",
+        "10.1594/PANGAEA.834713",
+        "10.1594/PANGAEA.834765",
+        "10.1594/PANGAEA.834766",
+        "10.1594/PANGAEA.834770",
+        "10.1594/PANGAEA.834796",
+        "10.1594/PANGAEA.834799",
+        "10.1594/PANGAEA.834867",
+        "10.1594/PANGAEA.835080",
+        "10.1594/PANGAEA.835085",
+        "10.1594/PANGAEA.835086",
+        "10.1594/PANGAEA.835103",
+        "10.1594/PANGAEA.835104",
+        "10.1594/PANGAEA.835110",
+        "10.1594/PANGAEA.835111",
+        "10.1594/PANGAEA.835112",
+        "10.1594/PANGAEA.835114",
+        "10.1594/PANGAEA.835337",
+        "10.1594/PANGAEA.835345",
+        "10.1594/PANGAEA.835355",
+        "10.1594/PANGAEA.835356",
+        "10.1594/PANGAEA.835358",
+        "10.1594/PANGAEA.835369",
+        "10.1594/PANGAEA.835370",
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "bodyLength",
+      "unit": "mm",
+      "lifeStage": "NA",
+      "sizeType": "total length",
+      "temperature": "NA",
+      "records": 129,
+      "distinctSpecies": 127,
+      "primaryDOIs": [
+        "10.1007/s00300-014-1496-8",
+        "10.1575/1912/954",
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "eggDiameter",
+      "unit": "um",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 224,
+      "distinctSpecies": 121,
+      "primaryDOIs": [
+        "10.1007/s00227-006-0528-5",
+        "10.1016/S0967-0637(00)00017-0",
+        "10.1029/91JC00906",
+        "10.1080/00288330.1988.9516303",
+        "10.1093/plankt/21.1.65",
+        "10.1093/plankt/21.4.637",
+        "10.1890/15-1261.1",
+        "10.3354/meps120285",
+        "10.3354/meps187179",
+        "10.3354/meps274099",
+        "10.3354/meps302159",
+        "10.5928/kaiyou1942.24.16"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "ashPDW",
+      "unit": "percent",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 141,
+      "distinctSpecies": 105,
+      "primaryDOIs": [
+        "10.1016/0022-0981(86)90231-5",
+        "10.1016/0022-0981(92)90027-8",
+        "10.14430/arctic2533",
+        "10.3354/meps122121",
+        "10.4319/lo.2013.58.5.1843"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "eggWeight",
+      "unit": "ug",
+      "lifeStage": "NA",
+      "sizeType": "carbon weight",
+      "temperature": "NA",
+      "records": 164,
+      "distinctSpecies": 97,
+      "primaryDOIs": [
+        "10.1016/S0967-0637(00)00017-0",
+        "10.1029/91JC00906",
+        "10.1890/15-1261.1",
+        "10.3354/meps120285",
+        "10.3354/meps274099",
+        "10.3354/meps302159"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "respirationRate_15C",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 887,
+      "distinctSpecies": 86,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.832241",
+        "10.1594/PANGAEA.833777",
+        "10.1594/PANGAEA.833782",
+        "10.1594/PANGAEA.833792",
+        "10.1594/PANGAEA.833793",
+        "10.1594/PANGAEA.833807",
+        "10.1594/PANGAEA.833824",
+        "10.1594/PANGAEA.833895",
+        "10.1594/PANGAEA.833918",
+        "10.1594/PANGAEA.833920",
+        "10.1594/PANGAEA.833925",
+        "10.1594/PANGAEA.833931",
+        "10.1594/PANGAEA.833938",
+        "10.1594/PANGAEA.833962",
+        "10.1594/PANGAEA.833963"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSC_15C",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 896,
+      "distinctSpecies": 86,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.832241",
+        "10.1594/PANGAEA.833777",
+        "10.1594/PANGAEA.833782",
+        "10.1594/PANGAEA.833792",
+        "10.1594/PANGAEA.833793",
+        "10.1594/PANGAEA.833807",
+        "10.1594/PANGAEA.833824",
+        "10.1594/PANGAEA.833895",
+        "10.1594/PANGAEA.833918",
+        "10.1594/PANGAEA.833920",
+        "10.1594/PANGAEA.833925",
+        "10.1594/PANGAEA.833931",
+        "10.1594/PANGAEA.833938",
+        "10.1594/PANGAEA.833962",
+        "10.1594/PANGAEA.833963"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "carbonPWW",
+      "unit": "percent",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 99,
+      "distinctSpecies": 69,
+      "primaryDOIs": [
+        "10.1007/BF00240522",
+        "10.1016/0022-0981(86)90231-5",
+        "10.1016/0022-0981(92)90027-8",
+        "10.1016/j.jembe.2006.12.010",
+        "10.1093/plankt/fbv037",
+        "10.1139/f91-169",
+        "10.3354/meps122121",
+        "10.3354/meps13663"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "bodyLength",
+      "unit": "mm",
+      "lifeStage": "female",
+      "sizeType": "prosome length",
+      "temperature": "NA",
+      "records": 109,
+      "distinctSpecies": 66,
+      "primaryDOIs": [
+        "10.1007/s00227-006-0528-5",
+        "10.1016/j.pocean.2014.04.026",
+        "10.1029/91JC00906",
+        "10.1098/rspb.2014.0739",
+        "10.1139/z86-232",
+        "10.3354/meps302159"
+      ],
+      "status": "manual-review-only",
+      "holds": []
+    },
+    {
+      "trait": "nitrogenPDW",
+      "unit": "percent",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 87,
+      "distinctSpecies": 65,
+      "primaryDOIs": [
+        "10.1016/0022-0981(86)90231-5",
+        "10.1016/0022-0981(92)90027-8",
+        "10.3354/meps122121",
+        "10.3354/meps13663"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "ratioCN",
+      "unit": "unitless",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 90,
+      "distinctSpecies": 58,
+      "primaryDOIs": [
+        "10.1007/BF00026483",
+        "10.1007/BF00240522",
+        "10.1007/BF00395990",
+        "10.1007/s00227-005-0226-8",
+        "10.1007/s00227-011-1785-5",
+        "10.1007/s00227-015-2716-7",
+        "10.1016/0022-0981(86)90231-5",
+        "10.1016/0022-0981(92)90027-8",
+        "10.1017/S0025315413000052",
+        "10.1038/s42003-020-0940-2",
+        "10.3354/meps10450",
+        "10.3354/meps122121",
+        "10.3354/meps13663",
+        "10.3800/pbr.12.104"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "afdwPDW",
+      "unit": "percent",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 67,
+      "distinctSpecies": 48,
+      "primaryDOIs": [
+        "10.1007/BF00240522",
+        "10.1007/BF00395990",
+        "10.1007/s00227-005-0226-8",
+        "10.1007/s00227-011-1785-5",
+        "10.1007/s00227-018-3386-z",
+        "10.1016/0022-0981(86)90231-5",
+        "10.1016/0022-0981(89)90080-4",
+        "10.1016/0022-0981(92)90027-8",
+        "10.1016/j.foodchem.2015.09.094",
+        "10.1016/j.jembe.2006.12.010",
+        "10.1080/00364827.1981.10414521",
+        "10.1134/S1063074009070074",
+        "10.3354/meps122121",
+        "10.3354/meps13663"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "carbonPDW",
+      "unit": "percent",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 60,
+      "distinctSpecies": 48,
+      "primaryDOIs": [
+        "10.1016/0022-0981(86)90231-5",
+        "10.1016/0022-0981(92)90027-8",
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "carbonWeight",
+      "unit": "mg",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 103,
+      "distinctSpecies": 46,
+      "primaryDOIs": [
+        "10.1007/s00227-007-0816-8",
+        "10.1086/675241",
+        "10.1086/703656",
+        "10.1093/plankt/fbv057",
+        "10.1594/PANGAEA.833895",
+        "10.1594/PANGAEA.833918",
+        "10.1594/PANGAEA.833963",
+        "10.1594/PANGAEA.834764",
+        "10.1594/PANGAEA.834767",
+        "10.1594/PANGAEA.834798",
+        "10.1594/PANGAEA.834854",
+        "10.1594/PANGAEA.834866",
+        "10.1594/PANGAEA.835105",
+        "10.1594/PANGAEA.835108",
+        "10.1594/PANGAEA.835224",
+        "10.1594/PANGAEA.835226",
+        "10.1594/PANGAEA.835229",
+        "10.1594/PANGAEA.835230",
+        "10.1594/PANGAEA.835335",
+        "10.1594/PANGAEA.835347",
+        "10.1594/PANGAEA.835371",
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": []
+    },
+    {
+      "trait": "growthRate_WSC_15C",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 373,
+      "distinctSpecies": 46,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.834207",
+        "10.1594/PANGAEA.834208",
+        "10.1594/PANGAEA.834267",
+        "10.1594/PANGAEA.834269",
+        "10.1594/PANGAEA.834272",
+        "10.1594/PANGAEA.834273",
+        "10.1594/PANGAEA.834276",
+        "10.1594/PANGAEA.834285",
+        "10.1594/PANGAEA.834301",
+        "10.1594/PANGAEA.834302",
+        "10.1594/PANGAEA.834306",
+        "10.1594/PANGAEA.834310",
+        "10.1594/PANGAEA.834312",
+        "10.1594/PANGAEA.834313",
+        "10.1594/PANGAEA.834316",
+        "10.1594/PANGAEA.834330",
+        "10.1594/PANGAEA.834393",
+        "10.1594/PANGAEA.834394",
+        "10.1594/PANGAEA.834425",
+        "10.1594/PANGAEA.834444",
+        "10.1594/PANGAEA.834448",
+        "10.1594/PANGAEA.834449",
+        "10.1594/PANGAEA.834453",
+        "10.1594/PANGAEA.834458",
+        "10.1594/PANGAEA.834460",
+        "10.1594/PANGAEA.834463",
+        "10.1594/PANGAEA.834469",
+        "10.1594/PANGAEA.834472",
+        "10.1594/PANGAEA.834481",
+        "10.1594/PANGAEA.834483",
+        "10.1594/PANGAEA.834496",
+        "10.1594/PANGAEA.834498",
+        "10.1594/PANGAEA.834500",
+        "10.1594/PANGAEA.834501",
+        "10.1594/PANGAEA.834503",
+        "10.1594/PANGAEA.834504",
+        "10.1594/PANGAEA.834506",
+        "10.1594/PANGAEA.834509",
+        "10.1594/PANGAEA.834558",
+        "10.1594/PANGAEA.834560",
+        "10.1594/PANGAEA.834562",
+        "10.1594/PANGAEA.834563",
+        "10.1594/PANGAEA.834574",
+        "10.1594/PANGAEA.834598",
+        "10.1594/PANGAEA.834600",
+        "10.1594/PANGAEA.834602",
+        "10.1594/PANGAEA.834603",
+        "10.1594/PANGAEA.834604",
+        "10.1594/PANGAEA.834663"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "growthRate_15C",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 400,
+      "distinctSpecies": 45,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.834207",
+        "10.1594/PANGAEA.834208",
+        "10.1594/PANGAEA.834267",
+        "10.1594/PANGAEA.834269",
+        "10.1594/PANGAEA.834272",
+        "10.1594/PANGAEA.834273",
+        "10.1594/PANGAEA.834276",
+        "10.1594/PANGAEA.834285",
+        "10.1594/PANGAEA.834301",
+        "10.1594/PANGAEA.834302",
+        "10.1594/PANGAEA.834306",
+        "10.1594/PANGAEA.834310",
+        "10.1594/PANGAEA.834312",
+        "10.1594/PANGAEA.834313",
+        "10.1594/PANGAEA.834316",
+        "10.1594/PANGAEA.834330",
+        "10.1594/PANGAEA.834393",
+        "10.1594/PANGAEA.834394",
+        "10.1594/PANGAEA.834425",
+        "10.1594/PANGAEA.834444",
+        "10.1594/PANGAEA.834448",
+        "10.1594/PANGAEA.834449",
+        "10.1594/PANGAEA.834453",
+        "10.1594/PANGAEA.834458",
+        "10.1594/PANGAEA.834460",
+        "10.1594/PANGAEA.834463",
+        "10.1594/PANGAEA.834469",
+        "10.1594/PANGAEA.834472",
+        "10.1594/PANGAEA.834481",
+        "10.1594/PANGAEA.834483",
+        "10.1594/PANGAEA.834496",
+        "10.1594/PANGAEA.834498",
+        "10.1594/PANGAEA.834500",
+        "10.1594/PANGAEA.834501",
+        "10.1594/PANGAEA.834503",
+        "10.1594/PANGAEA.834504",
+        "10.1594/PANGAEA.834506",
+        "10.1594/PANGAEA.834509",
+        "10.1594/PANGAEA.834558",
+        "10.1594/PANGAEA.834560",
+        "10.1594/PANGAEA.834562",
+        "10.1594/PANGAEA.834563",
+        "10.1594/PANGAEA.834574",
+        "10.1594/PANGAEA.834598",
+        "10.1594/PANGAEA.834600",
+        "10.1594/PANGAEA.834602",
+        "10.1594/PANGAEA.834603",
+        "10.1594/PANGAEA.834604",
+        "10.1594/PANGAEA.834663"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "bodyLength",
+      "unit": "mm",
+      "lifeStage": "NA",
+      "sizeType": "body width",
+      "temperature": "NA",
+      "records": 44,
+      "distinctSpecies": 44,
+      "primaryDOIs": [
+        "10.1575/1912/954"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "clearanceRate_15C",
+      "unit": "ml h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 427,
+      "distinctSpecies": 38,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.832240",
+        "10.1594/PANGAEA.834671",
+        "10.1594/PANGAEA.834695",
+        "10.1594/PANGAEA.834709",
+        "10.1594/PANGAEA.834711",
+        "10.1594/PANGAEA.834713",
+        "10.1594/PANGAEA.834765",
+        "10.1594/PANGAEA.834766",
+        "10.1594/PANGAEA.834770",
+        "10.1594/PANGAEA.834799",
+        "10.1594/PANGAEA.834867",
+        "10.1594/PANGAEA.835080",
+        "10.1594/PANGAEA.835085",
+        "10.1594/PANGAEA.835086",
+        "10.1594/PANGAEA.835087",
+        "10.1594/PANGAEA.835103",
+        "10.1594/PANGAEA.835104",
+        "10.1594/PANGAEA.835110",
+        "10.1594/PANGAEA.835111",
+        "10.1594/PANGAEA.835112",
+        "10.1594/PANGAEA.835114",
+        "10.1594/PANGAEA.835337",
+        "10.1594/PANGAEA.835345",
+        "10.1594/PANGAEA.835356",
+        "10.1594/PANGAEA.835358",
+        "10.1594/PANGAEA.835369",
+        "10.1594/PANGAEA.835370"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "clearanceRate_WSC_15C",
+      "unit": "ml mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 439,
+      "distinctSpecies": 38,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.832240",
+        "10.1594/PANGAEA.834671",
+        "10.1594/PANGAEA.834695",
+        "10.1594/PANGAEA.834709",
+        "10.1594/PANGAEA.834711",
+        "10.1594/PANGAEA.834713",
+        "10.1594/PANGAEA.834765",
+        "10.1594/PANGAEA.834766",
+        "10.1594/PANGAEA.834770",
+        "10.1594/PANGAEA.834799",
+        "10.1594/PANGAEA.834867",
+        "10.1594/PANGAEA.835080",
+        "10.1594/PANGAEA.835085",
+        "10.1594/PANGAEA.835086",
+        "10.1594/PANGAEA.835087",
+        "10.1594/PANGAEA.835103",
+        "10.1594/PANGAEA.835104",
+        "10.1594/PANGAEA.835110",
+        "10.1594/PANGAEA.835111",
+        "10.1594/PANGAEA.835112",
+        "10.1594/PANGAEA.835114",
+        "10.1594/PANGAEA.835337",
+        "10.1594/PANGAEA.835345",
+        "10.1594/PANGAEA.835356",
+        "10.1594/PANGAEA.835358",
+        "10.1594/PANGAEA.835369",
+        "10.1594/PANGAEA.835370"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "dryWeight",
+      "unit": "mg",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 93,
+      "distinctSpecies": 37,
+      "primaryDOIs": [
+        "10.1007/BF00349122",
+        "10.1007/s00227-004-1395-6",
+        "10.1016/S0967-0637(02)00012-2",
+        "10.1016/j.ecss.2007.06.009",
+        "10.1016/j.jembe.2013.06.012",
+        "10.1080/10236244.2014.952988",
+        "10.3354/meps285129",
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": []
+    },
+    {
+      "trait": "proteinPDW",
+      "unit": "percent",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 41,
+      "distinctSpecies": 37,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "lipidPDW",
+      "unit": "percent",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 40,
+      "distinctSpecies": 36,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "waterPWW",
+      "unit": "percent",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 38,
+      "distinctSpecies": 36,
+      "primaryDOIs": [
+        "10.1016/0022-0981(92)90027-8",
+        "10.14430/arctic2533",
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "carbonWeight",
+      "unit": "mg",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 43,
+      "distinctSpecies": 34,
+      "primaryDOIs": [
+        "10.1086/675241",
+        "10.3354/meps339215",
+        "10.4319/lo.2005.50.1.0291"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSC_15C",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 63,
+      "distinctSpecies": 34,
+      "primaryDOIs": [
+        "10.1007/s00227-007-0816-8",
+        "10.1093/plankt/fbv057",
+        "10.1594/PANGAEA.833895",
+        "10.1594/PANGAEA.833918",
+        "10.1594/PANGAEA.833963",
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": []
+    },
+    {
+      "trait": "energyDensityDW",
+      "unit": "J mg DW^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 42,
+      "distinctSpecies": 32,
+      "primaryDOIs": [
+        "10.1016/0022-0981(89)90080-4",
+        "10.1016/0022-0981(92)90027-8",
+        "10.1016/j.foodchem.2015.09.094",
+        "10.1016/j.jembe.2006.12.010",
+        "10.1080/00364827.1981.10414521",
+        "10.1134/S1063074009070074",
+        "10.14430/arctic2533",
+        "10.3354/meps10450",
+        "10.3354/meps13663"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "carbohydratePDW",
+      "unit": "percent",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 33,
+      "distinctSpecies": 31,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "wetWeight",
+      "unit": "mg",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 78,
+      "distinctSpecies": 31,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2006.12.010",
+        "10.1093/plankt/fbv037",
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "carbonWeight",
+      "unit": "mg",
+      "lifeStage": "adult",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 34,
+      "distinctSpecies": 30,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.833895",
+        "10.1594/PANGAEA.834704",
+        "10.1594/PANGAEA.835113",
+        "10.3354/meps120285"
+      ],
+      "status": "manual-review-only",
+      "holds": []
+    },
+    {
+      "trait": "respirationRate_WSC_15C",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 43,
+      "distinctSpecies": 30,
+      "primaryDOIs": [
+        "10.3354/meps285129",
+        "10.3354/meps339215",
+        "10.4319/lo.2005.50.1.0291"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "dryWeight",
+      "unit": "mg",
+      "lifeStage": "adult",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 31,
+      "distinctSpecies": 27,
+      "primaryDOIs": [
+        "10.1007/BF00392628",
+        "10.1016/S0967-0637(02)00012-2",
+        "10.1016/j.ecss.2007.06.009",
+        "10.1016/j.jembe.2013.06.012",
+        "10.3354/meps10661",
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": []
+    },
+    {
+      "trait": "ingestionRate_15C",
+      "unit": "ug C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 122,
+      "distinctSpecies": 27,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.834671",
+        "10.1594/PANGAEA.834695",
+        "10.1594/PANGAEA.834713",
+        "10.1594/PANGAEA.834765",
+        "10.1594/PANGAEA.834766",
+        "10.1594/PANGAEA.834770",
+        "10.1594/PANGAEA.834796",
+        "10.1594/PANGAEA.834799",
+        "10.1594/PANGAEA.835080",
+        "10.1594/PANGAEA.835086",
+        "10.1594/PANGAEA.835087",
+        "10.1594/PANGAEA.835103",
+        "10.1594/PANGAEA.835110",
+        "10.1594/PANGAEA.835111",
+        "10.1594/PANGAEA.835112",
+        "10.1594/PANGAEA.835114",
+        "10.1594/PANGAEA.835345",
+        "10.1594/PANGAEA.835355",
+        "10.1594/PANGAEA.835356",
+        "10.1594/PANGAEA.835358",
+        "10.1594/PANGAEA.835369",
+        "10.1594/PANGAEA.835370"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "ingestionRate_WSC_15C",
+      "unit": "ug C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 119,
+      "distinctSpecies": 27,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.834671",
+        "10.1594/PANGAEA.834695",
+        "10.1594/PANGAEA.834713",
+        "10.1594/PANGAEA.834765",
+        "10.1594/PANGAEA.834766",
+        "10.1594/PANGAEA.834770",
+        "10.1594/PANGAEA.834796",
+        "10.1594/PANGAEA.834799",
+        "10.1594/PANGAEA.835080",
+        "10.1594/PANGAEA.835086",
+        "10.1594/PANGAEA.835087",
+        "10.1594/PANGAEA.835103",
+        "10.1594/PANGAEA.835110",
+        "10.1594/PANGAEA.835111",
+        "10.1594/PANGAEA.835112",
+        "10.1594/PANGAEA.835114",
+        "10.1594/PANGAEA.835345",
+        "10.1594/PANGAEA.835355",
+        "10.1594/PANGAEA.835356",
+        "10.1594/PANGAEA.835358",
+        "10.1594/PANGAEA.835369",
+        "10.1594/PANGAEA.835370"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSC",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "5",
+      "records": 29,
+      "distinctSpecies": 27,
+      "primaryDOIs": [
+        "10.3354/meps168095"
+      ],
+      "status": "manual-review-only",
+      "holds": []
+    },
+    {
+      "trait": "nitrogenTotal",
+      "unit": "mg",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 29,
+      "distinctSpecies": 20,
+      "primaryDOIs": [
+        "10.1093/plankt/fbv037"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified"
+      ]
+    },
+    {
+      "trait": "respirationRate_15C",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 28,
+      "distinctSpecies": 20,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.833895",
+        "10.1594/PANGAEA.833918",
+        "10.1594/PANGAEA.833963"
+      ],
+      "status": "manual-review-only",
+      "holds": []
+    },
+    {
+      "trait": "bodyLength",
+      "unit": "mm",
+      "lifeStage": "NA",
+      "sizeType": "trunk length",
+      "temperature": "NA",
+      "records": 19,
+      "distinctSpecies": 19,
+      "primaryDOIs": [
+        "10.1575/1912/954"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "dryWeightPWW",
+      "unit": "percent",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 19,
+      "distinctSpecies": 19,
+      "primaryDOIs": [
+        "10.1016/0022-0981(92)90027-8",
+        "10.14430/arctic2533"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate_15C",
+      "unit": "ml h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 43,
+      "distinctSpecies": 17,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate_WSC_15C",
+      "unit": "ml mg C^-1 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 43,
+      "distinctSpecies": 17,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate_15C",
+      "unit": "ug C h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 33,
+      "distinctSpecies": 17,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate_WSC_15C",
+      "unit": "ug C mg C^-1 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 33,
+      "distinctSpecies": 17,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clutchSize",
+      "unit": "eggs clutch^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 15,
+      "distinctSpecies": 15,
+      "primaryDOIs": [
+        "10.1007/s00227-006-0528-5"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "bodyLength",
+      "unit": "mm",
+      "lifeStage": "asexual",
+      "sizeType": "total length",
+      "temperature": "NA",
+      "records": 14,
+      "distinctSpecies": 14,
+      "primaryDOIs": [
+        "10.1575/1912/954"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "bodyLength",
+      "unit": "mm",
+      "lifeStage": "sexual",
+      "sizeType": "total length",
+      "temperature": "NA",
+      "records": 14,
+      "distinctSpecies": 14,
+      "primaryDOIs": [
+        "10.1575/1912/954"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "adult",
+      "sizeType": "NA",
+      "temperature": "20",
+      "records": 13,
+      "distinctSpecies": 13,
+      "primaryDOIs": [
+        "10.1007/BF00392628"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "3",
+      "records": 17,
+      "distinctSpecies": 13,
+      "primaryDOIs": [
+        "10.1007/s00227-007-0816-8",
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "bodyLength",
+      "unit": "mm",
+      "lifeStage": "female",
+      "sizeType": "not given",
+      "temperature": "NA",
+      "records": 13,
+      "distinctSpecies": 12,
+      "primaryDOIs": [
+        "10.1098/rspb.2014.0739"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSC",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "10",
+      "records": 12,
+      "distinctSpecies": 12,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "10",
+      "records": 12,
+      "distinctSpecies": 12,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSWW",
+      "unit": "ul O2 mg WW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "10",
+      "records": 12,
+      "distinctSpecies": 12,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "phosphorusPDW",
+      "unit": "percent",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 12,
+      "distinctSpecies": 11,
+      "primaryDOIs": [
+        "10.1007/s10750-021-04758-9",
+        "10.3800/pbr.12.104"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "dryWeight",
+      "unit": "mg",
+      "lifeStage": "C5",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 12,
+      "distinctSpecies": 10,
+      "primaryDOIs": [
+        "10.1016/S0967-0637(02)00012-2",
+        "10.1016/j.jembe.2013.06.012",
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate_15C",
+      "unit": "ug C h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 36,
+      "distinctSpecies": 10,
+      "primaryDOIs": [
+        "10.1086/675241",
+        "10.1594/PANGAEA.834764",
+        "10.1594/PANGAEA.834767",
+        "10.1594/PANGAEA.834798",
+        "10.1594/PANGAEA.834854",
+        "10.1594/PANGAEA.834866",
+        "10.1594/PANGAEA.835108",
+        "10.1594/PANGAEA.835224",
+        "10.1594/PANGAEA.835226",
+        "10.1594/PANGAEA.835230",
+        "10.1594/PANGAEA.835335",
+        "10.1594/PANGAEA.835347",
+        "10.1594/PANGAEA.835371"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate_WSC_15C",
+      "unit": "ug C mg C^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 36,
+      "distinctSpecies": 10,
+      "primaryDOIs": [
+        "10.1086/675241",
+        "10.1594/PANGAEA.834764",
+        "10.1594/PANGAEA.834767",
+        "10.1594/PANGAEA.834798",
+        "10.1594/PANGAEA.834854",
+        "10.1594/PANGAEA.834866",
+        "10.1594/PANGAEA.835108",
+        "10.1594/PANGAEA.835224",
+        "10.1594/PANGAEA.835226",
+        "10.1594/PANGAEA.835230",
+        "10.1594/PANGAEA.835335",
+        "10.1594/PANGAEA.835347",
+        "10.1594/PANGAEA.835371"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "adult",
+      "sizeType": "NA",
+      "temperature": "28.5",
+      "records": 12,
+      "distinctSpecies": 10,
+      "primaryDOIs": [
+        "10.1007/BF00392628"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "carbonWeight",
+      "unit": "mg",
+      "lifeStage": "C5",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 24,
+      "distinctSpecies": 9,
+      "primaryDOIs": [
+        "10.1086/675241",
+        "10.1086/703656",
+        "10.1594/PANGAEA.833895",
+        "10.1594/PANGAEA.835224",
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate_15C",
+      "unit": "ml h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 31,
+      "distinctSpecies": 9,
+      "primaryDOIs": [
+        "10.1086/675241",
+        "10.1594/PANGAEA.834764",
+        "10.1594/PANGAEA.834767",
+        "10.1594/PANGAEA.834854",
+        "10.1594/PANGAEA.834866",
+        "10.1594/PANGAEA.835105",
+        "10.1594/PANGAEA.835108",
+        "10.1594/PANGAEA.835229",
+        "10.1594/PANGAEA.835230",
+        "10.1594/PANGAEA.835335",
+        "10.1594/PANGAEA.835347",
+        "10.1594/PANGAEA.835371"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate_WSC_15C",
+      "unit": "ml mg C^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 31,
+      "distinctSpecies": 9,
+      "primaryDOIs": [
+        "10.1086/675241",
+        "10.1594/PANGAEA.834764",
+        "10.1594/PANGAEA.834767",
+        "10.1594/PANGAEA.834854",
+        "10.1594/PANGAEA.834866",
+        "10.1594/PANGAEA.835105",
+        "10.1594/PANGAEA.835108",
+        "10.1594/PANGAEA.835229",
+        "10.1594/PANGAEA.835230",
+        "10.1594/PANGAEA.835335",
+        "10.1594/PANGAEA.835347",
+        "10.1594/PANGAEA.835371"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "dryWeight",
+      "unit": "mg",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 54,
+      "distinctSpecies": 9,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2006.12.010",
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "proteinPWW",
+      "unit": "percent",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 9,
+      "distinctSpecies": 9,
+      "primaryDOIs": [
+        "10.1016/0022-0981(92)90027-8",
+        "10.14430/arctic2533"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ratioCP",
+      "unit": "unitless",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 11,
+      "distinctSpecies": 9,
+      "primaryDOIs": [
+        "10.1007/s10750-021-04758-9",
+        "10.3800/pbr.12.104"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ratioNP",
+      "unit": "unitless",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 10,
+      "distinctSpecies": 9,
+      "primaryDOIs": [
+        "10.1007/s10750-021-04758-9",
+        "10.3800/pbr.12.104"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ratioProteinLipid",
+      "unit": "unitless",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 9,
+      "distinctSpecies": 9,
+      "primaryDOIs": [
+        "10.1016/0022-0981(92)90027-8",
+        "10.14430/arctic2533"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "17.8",
+      "records": 10,
+      "distinctSpecies": 9,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2013.06.012"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "carbonWeight",
+      "unit": "mg",
+      "lifeStage": "solitary",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 74,
+      "distinctSpecies": 8,
+      "primaryDOIs": [
+        "10.1086/703656",
+        "10.1594/PANGAEA.833792",
+        "10.1594/PANGAEA.833800",
+        "10.1594/PANGAEA.833918",
+        "10.1594/PANGAEA.834696",
+        "10.1594/PANGAEA.834805",
+        "10.1594/PANGAEA.835084",
+        "10.1594/PANGAEA.835348",
+        "10.1594/PANGAEA.835368"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 24,
+      "distinctSpecies": 8,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 23,
+      "distinctSpecies": 8,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "2",
+      "records": 10,
+      "distinctSpecies": 8,
+      "primaryDOIs": [
+        "10.1007/s00227-004-1395-6",
+        "10.1016/S0967-0637(02)00012-2",
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSC",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "1.5",
+      "records": 8,
+      "distinctSpecies": 8,
+      "primaryDOIs": [
+        "10.3354/meps168095"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate_15C",
+      "unit": "ml h^-1",
+      "lifeStage": "solitary",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 57,
+      "distinctSpecies": 7,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.834696",
+        "10.1594/PANGAEA.834805",
+        "10.1594/PANGAEA.835084",
+        "10.1594/PANGAEA.835348",
+        "10.1594/PANGAEA.835368"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "20",
+      "records": 15,
+      "distinctSpecies": 7,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "lipidPWW",
+      "unit": "percent",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 7,
+      "distinctSpecies": 7,
+      "primaryDOIs": [
+        "10.1016/0022-0981(92)90027-8",
+        "10.14430/arctic2533"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "adult",
+      "sizeType": "NA",
+      "temperature": "2",
+      "records": 7,
+      "distinctSpecies": 7,
+      "primaryDOIs": [
+        "10.1016/S0967-0637(02)00012-2",
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "17.7",
+      "records": 9,
+      "distinctSpecies": 7,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2013.06.012"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "17.9",
+      "records": 13,
+      "distinctSpecies": 7,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2013.06.012"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSC_15C",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "C5",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 17,
+      "distinctSpecies": 7,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.833895",
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ashPDW",
+      "unit": "percent",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 7,
+      "distinctSpecies": 6,
+      "primaryDOIs": [
+        "10.1007/BF00349122",
+        "10.4319/lo.2013.58.5.1843"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate_WSC_15C",
+      "unit": "ml mg C^-1 h^-1",
+      "lifeStage": "solitary",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 58,
+      "distinctSpecies": 6,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.834696",
+        "10.1594/PANGAEA.834805",
+        "10.1594/PANGAEA.835084",
+        "10.1594/PANGAEA.835348",
+        "10.1594/PANGAEA.835368"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "20",
+      "records": 13,
+      "distinctSpecies": 6,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "C5",
+      "sizeType": "NA",
+      "temperature": "2",
+      "records": 8,
+      "distinctSpecies": 6,
+      "primaryDOIs": [
+        "10.1016/S0967-0637(02)00012-2",
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "23",
+      "records": 9,
+      "distinctSpecies": 6,
+      "primaryDOIs": [
+        "10.1016/j.ecss.2007.06.009",
+        "10.1016/j.jembe.2013.06.012"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "13.5",
+      "records": 8,
+      "distinctSpecies": 6,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2013.06.012"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_15C",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "solitary",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 19,
+      "distinctSpecies": 6,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.833792",
+        "10.1594/PANGAEA.833800",
+        "10.1594/PANGAEA.833918"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSC",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "5.5",
+      "records": 6,
+      "distinctSpecies": 6,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSC",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "4.9",
+      "records": 9,
+      "distinctSpecies": 6,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSC_15C",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "solitary",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 19,
+      "distinctSpecies": 6,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.833792",
+        "10.1594/PANGAEA.833800",
+        "10.1594/PANGAEA.833918"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "5.5",
+      "records": 6,
+      "distinctSpecies": 6,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "4.9",
+      "records": 9,
+      "distinctSpecies": 6,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSWW",
+      "unit": "ul O2 mg WW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "5.5",
+      "records": 6,
+      "distinctSpecies": 6,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSWW",
+      "unit": "ul O2 mg WW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "4.9",
+      "records": 9,
+      "distinctSpecies": 6,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ashPWW",
+      "unit": "percent",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 5,
+      "distinctSpecies": 5,
+      "primaryDOIs": [
+        "10.14430/arctic2533"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate",
+      "unit": "ml h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "20",
+      "records": 13,
+      "distinctSpecies": 5,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate",
+      "unit": "ug C h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "20",
+      "records": 13,
+      "distinctSpecies": 5,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "C5",
+      "sizeType": "NA",
+      "temperature": "17.9",
+      "records": 6,
+      "distinctSpecies": 5,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2013.06.012"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "18.1",
+      "records": 5,
+      "distinctSpecies": 5,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2013.06.012",
+        "10.1093/plankt/fbv057"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_15C",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "adult",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 6,
+      "distinctSpecies": 5,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.833895"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSC_15C",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "adult",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 6,
+      "distinctSpecies": 5,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.833895"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "20",
+      "records": 9,
+      "distinctSpecies": 5,
+      "primaryDOIs": [
+        "10.1016/j.pocean.2007.01.005",
+        "10.1371/journal.pone.0077590"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "carbonWeight",
+      "unit": "mg",
+      "lifeStage": "male",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 4,
+      "distinctSpecies": 4,
+      "primaryDOIs": [
+        "10.1086/703656",
+        "10.1594/PANGAEA.833895"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "13",
+      "records": 4,
+      "distinctSpecies": 4,
+      "primaryDOIs": [
+        "10.1016/S0967-0637(02)00012-2",
+        "10.1016/j.jembe.2013.06.012",
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "13.7",
+      "records": 5,
+      "distinctSpecies": 4,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2013.06.012"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "13.9",
+      "records": 5,
+      "distinctSpecies": 4,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2013.06.012"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "13.4",
+      "records": 5,
+      "distinctSpecies": 4,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2013.06.012"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSC",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "25",
+      "records": 4,
+      "distinctSpecies": 4,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "6",
+      "records": 6,
+      "distinctSpecies": 4,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "25",
+      "records": 4,
+      "distinctSpecies": 4,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "19",
+      "records": 5,
+      "distinctSpecies": 4,
+      "primaryDOIs": [
+        "10.1371/journal.pone.0077590"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "14",
+      "records": 6,
+      "distinctSpecies": 4,
+      "primaryDOIs": [
+        "10.1016/j.pocean.2007.01.005",
+        "10.1371/journal.pone.0077590"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSWW",
+      "unit": "ul O2 mg WW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "6",
+      "records": 6,
+      "distinctSpecies": 4,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSWW",
+      "unit": "ul O2 mg WW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "25",
+      "records": 4,
+      "distinctSpecies": 4,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ashPDW",
+      "unit": "percent",
+      "lifeStage": "C5",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 3,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.4319/lo.2013.58.5.1843"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ashTotal",
+      "unit": "mg",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 8,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2006.12.010"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "bodyLength",
+      "unit": "mm",
+      "lifeStage": "C5",
+      "sizeType": "total length",
+      "temperature": "NA",
+      "records": 3,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.1080/00288330.1988.9516303"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "bodyLength",
+      "unit": "mm",
+      "lifeStage": "gonozooid",
+      "sizeType": "total length",
+      "temperature": "NA",
+      "records": 3,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.1575/1912/954"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate",
+      "unit": "ml h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "18",
+      "records": 4,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "eggDiameter",
+      "unit": "um",
+      "lifeStage": "NA",
+      "sizeType": "egg diameter (um)",
+      "temperature": "NA",
+      "records": 3,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.1007/BF00349122",
+        "10.1007/s00227-002-0858-x",
+        "10.1007/s002270000397"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "17",
+      "records": 5,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "10",
+      "records": 6,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "17",
+      "records": 5,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "10",
+      "records": 6,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "20",
+      "records": 4,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.1016/j.ecss.2007.06.009",
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 3,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.1016/S0967-0637(02)00012-2"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "-1.68",
+      "records": 3,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.1080/10236244.2014.952988"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "17.4",
+      "records": 3,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2013.06.012"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "17.8",
+      "records": 3,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.4319/lo.2005.50.1.0291"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "26",
+      "records": 3,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "24",
+      "records": 3,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_15C",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "male",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 3,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.833895"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSC",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "8",
+      "records": 5,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSC",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "7",
+      "records": 3,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSC_15C",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "male",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 3,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.833895"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "8",
+      "records": 5,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "7",
+      "records": 3,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "17",
+      "records": 3,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.1016/j.pocean.2007.01.005"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "13",
+      "records": 4,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.1016/j.pocean.2007.01.005",
+        "10.1371/journal.pone.0077590"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 6,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.1016/j.pocean.2007.01.005",
+        "10.1371/journal.pone.0077590"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "8",
+      "records": 3,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.1371/journal.pone.0077590"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSWW",
+      "unit": "ul O2 mg WW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "8",
+      "records": 5,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSWW",
+      "unit": "ul O2 mg WW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "7",
+      "records": 3,
+      "distinctSpecies": 3,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "bodyLength",
+      "unit": "mm",
+      "lifeStage": "nurse",
+      "sizeType": "total length",
+      "temperature": "NA",
+      "records": 2,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.1575/1912/954"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate",
+      "unit": "ml h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "8",
+      "records": 2,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "13",
+      "records": 5,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "8",
+      "records": 6,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "12",
+      "records": 5,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "28",
+      "records": 3,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "12.5",
+      "records": 6,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "13",
+      "records": 5,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "8",
+      "records": 6,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "12",
+      "records": 5,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "28",
+      "records": 3,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "12.5",
+      "records": 6,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate",
+      "unit": "ug C h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "18",
+      "records": 3,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate",
+      "unit": "ug C h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "17.5",
+      "records": 2,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate",
+      "unit": "ug C h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 5,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate",
+      "unit": "ug C h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "8",
+      "records": 2,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "C5",
+      "sizeType": "NA",
+      "temperature": "3",
+      "records": 5,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "C5",
+      "sizeType": "NA",
+      "temperature": "8",
+      "records": 2,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "0.1",
+      "records": 2,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "-1.32",
+      "records": 2,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.1080/10236244.2014.952988"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "11.3",
+      "records": 2,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "20.2",
+      "records": 2,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "4.7",
+      "records": 2,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "23.4",
+      "records": 5,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2013.06.012"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "18.4",
+      "records": 3,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2013.06.012"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "6",
+      "records": 2,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "5.8",
+      "records": 2,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "13.8",
+      "records": 2,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2013.06.012"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "23.2",
+      "records": 4,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2013.06.012"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "26.4",
+      "records": 2,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSC",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "5",
+      "records": 2,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSC",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "4",
+      "records": 2,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSC",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "10",
+      "records": 2,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.3354/meps168095"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "5",
+      "records": 2,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "4",
+      "records": 2,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "10",
+      "records": 5,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.1016/j.pocean.2007.01.005"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "17.5",
+      "records": 2,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.1371/journal.pone.0077590"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSWW",
+      "unit": "ul O2 mg WW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "5",
+      "records": 2,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSWW",
+      "unit": "ul O2 mg WW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "4",
+      "records": 2,
+      "distinctSpecies": 2,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "afdw",
+      "unit": "mg",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "afdw",
+      "unit": "mg",
+      "lifeStage": "female instar 15",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "afdw",
+      "unit": "mg",
+      "lifeStage": "female instar 16",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "afdw",
+      "unit": "mg",
+      "lifeStage": "female instar 17",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "afdw",
+      "unit": "mg",
+      "lifeStage": "female instar 18",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "afdw",
+      "unit": "mg",
+      "lifeStage": "female instar 19",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "afdw",
+      "unit": "mg",
+      "lifeStage": "male",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ashPDW",
+      "unit": "percent",
+      "lifeStage": "female instar 15",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ashPDW",
+      "unit": "percent",
+      "lifeStage": "female instar 16",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ashPDW",
+      "unit": "percent",
+      "lifeStage": "female instar 17",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ashPDW",
+      "unit": "percent",
+      "lifeStage": "female instar 18",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ashPDW",
+      "unit": "percent",
+      "lifeStage": "female instar 19",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ashPDW",
+      "unit": "percent",
+      "lifeStage": "male",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ashPDW",
+      "unit": "percent",
+      "lifeStage": "solitary",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.4319/lo.2013.58.5.1843"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "bodyLength",
+      "unit": "mm",
+      "lifeStage": "adult",
+      "sizeType": "total length",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1093/plankt/fbh063"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "bodyLength",
+      "unit": "mm",
+      "lifeStage": "female instar 10",
+      "sizeType": "total length",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/s002270000397"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "bodyLength",
+      "unit": "mm",
+      "lifeStage": "female instar 11",
+      "sizeType": "total length",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/s002270000397"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "bodyLength",
+      "unit": "mm",
+      "lifeStage": "female instar 12",
+      "sizeType": "total length",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/s002270000397"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "bodyLength",
+      "unit": "mm",
+      "lifeStage": "female instar 15",
+      "sizeType": "total length",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "bodyLength",
+      "unit": "mm",
+      "lifeStage": "female instar 16",
+      "sizeType": "total length",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "bodyLength",
+      "unit": "mm",
+      "lifeStage": "female instar 17",
+      "sizeType": "total length",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "bodyLength",
+      "unit": "mm",
+      "lifeStage": "female instar 18",
+      "sizeType": "total length",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "bodyLength",
+      "unit": "mm",
+      "lifeStage": "female instar 19",
+      "sizeType": "total length",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "bodyLength",
+      "unit": "mm",
+      "lifeStage": "female instar 9",
+      "sizeType": "total length",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/s002270000397"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "bodyLength",
+      "unit": "mm",
+      "lifeStage": "male",
+      "sizeType": "total length",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "bodyLength",
+      "unit": "mm",
+      "lifeStage": "nectophore",
+      "sizeType": "anterior nectophore length",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1575/1912/954"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "carbonWeight",
+      "unit": "mg",
+      "lifeStage": "C5-6 F",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/703656"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "carbonWeight",
+      "unit": "mg",
+      "lifeStage": "VII",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/703656"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "carbonWeight",
+      "unit": "mg",
+      "lifeStage": "gonozooid",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 46,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.834761",
+        "10.1594/PANGAEA.834768"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "carbonWeight",
+      "unit": "mg",
+      "lifeStage": "oozooid",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 31,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.834761"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "carbonWeight",
+      "unit": "mg",
+      "lifeStage": "phorozooids and gonozooids",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.834864"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "carbonWeight",
+      "unit": "mg",
+      "lifeStage": "trophozooid",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 43,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.835354"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate",
+      "unit": "ml h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "12",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate",
+      "unit": "ml h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "12.5",
+      "records": 3,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate",
+      "unit": "ml h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "13.9",
+      "records": 2,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate",
+      "unit": "ml h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "21",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate",
+      "unit": "ml h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "10",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate",
+      "unit": "ml h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "8.5",
+      "records": 2,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate",
+      "unit": "ml h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "17",
+      "records": 12,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate",
+      "unit": "ml h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate",
+      "unit": "ml h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "4.5",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate",
+      "unit": "ml h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "12",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate",
+      "unit": "ml h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "16",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate",
+      "unit": "ml h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "13",
+      "records": 3,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate",
+      "unit": "ml h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "11",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate",
+      "unit": "ml h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "19",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate",
+      "unit": "ml h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "7.5",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate",
+      "unit": "ml h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "18",
+      "records": 3,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate",
+      "unit": "ml h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "12.5",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate",
+      "unit": "ml h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "14",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate",
+      "unit": "ml h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "21",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate_15C",
+      "unit": "ml h^-1",
+      "lifeStage": "adult",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 4,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.834704",
+        "10.1594/PANGAEA.835113"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate_15C",
+      "unit": "ml h^-1",
+      "lifeStage": "gonozooid",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 26,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.834761",
+        "10.1594/PANGAEA.834768"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate_15C",
+      "unit": "ml h^-1",
+      "lifeStage": "oozooid",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 18,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.834761"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate_15C",
+      "unit": "ml h^-1",
+      "lifeStage": "phorozooids and gonozooids",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.834864"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate_15C",
+      "unit": "ml h^-1",
+      "lifeStage": "trophozooid",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 58,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.835354"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate_WSC_15C",
+      "unit": "ml mg C^-1 h^-1",
+      "lifeStage": "adult",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 4,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.834704",
+        "10.1594/PANGAEA.835113"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate_WSC_15C",
+      "unit": "ml mg C^-1 h^-1",
+      "lifeStage": "gonozooid",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 27,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.834761",
+        "10.1594/PANGAEA.834768"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate_WSC_15C",
+      "unit": "ml mg C^-1 h^-1",
+      "lifeStage": "oozooid",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 18,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.834761"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate_WSC_15C",
+      "unit": "ml mg C^-1 h^-1",
+      "lifeStage": "phorozooids and gonozooids",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.834864"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "clearanceRate_WSC_15C",
+      "unit": "ml mg C^-1 h^-1",
+      "lifeStage": "trophozooid",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 67,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.835354"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "developmentDuration",
+      "unit": "day",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "developmentDuration",
+      "unit": "day",
+      "lifeStage": "female instar 15",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "developmentDuration",
+      "unit": "day",
+      "lifeStage": "female instar 16",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "developmentDuration",
+      "unit": "day",
+      "lifeStage": "female instar 17",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "developmentDuration",
+      "unit": "day",
+      "lifeStage": "female instar 18",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "developmentDuration",
+      "unit": "day",
+      "lifeStage": "female instar 19",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "developmentDuration",
+      "unit": "day",
+      "lifeStage": "male",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 2,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "dryWeight",
+      "unit": "mg",
+      "lifeStage": "female instar 15",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "dryWeight",
+      "unit": "mg",
+      "lifeStage": "female instar 16",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "dryWeight",
+      "unit": "mg",
+      "lifeStage": "female instar 17",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "dryWeight",
+      "unit": "mg",
+      "lifeStage": "female instar 18",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "dryWeight",
+      "unit": "mg",
+      "lifeStage": "female instar 19",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "dryWeight",
+      "unit": "mg",
+      "lifeStage": "male",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "12.2",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "15.8",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "20.8",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "18",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "3",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "15.5",
+      "records": 4,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "10.3",
+      "records": 4,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "17.5",
+      "records": 4,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "20.2",
+      "records": 4,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "25",
+      "records": 5,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "30",
+      "records": 5,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "16",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "24",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "6.6",
+      "records": 2,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate",
+      "unit": "mg C h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "22",
+      "records": 2,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "12.2",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "15.8",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "20.8",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "18",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "3",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "15.5",
+      "records": 4,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "10.3",
+      "records": 4,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "17.5",
+      "records": 4,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "20.2",
+      "records": 4,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "25",
+      "records": 5,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "30",
+      "records": 5,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "16",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "24",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "6.6",
+      "records": 2,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "growthRate_WSC",
+      "unit": "mg C mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "22",
+      "records": 2,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate",
+      "unit": "ug C h^-1",
+      "lifeStage": "C5",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate",
+      "unit": "ug C h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 3,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate",
+      "unit": "ug C h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "12.5",
+      "records": 3,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate",
+      "unit": "ug C h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "13.9",
+      "records": 2,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate",
+      "unit": "ug C h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "21",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate",
+      "unit": "ug C h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "10",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate",
+      "unit": "ug C h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "8.5",
+      "records": 2,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate",
+      "unit": "ug C h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "19",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate",
+      "unit": "ug C h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "4.5",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate",
+      "unit": "ug C h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "12",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate",
+      "unit": "ug C h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "16",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate",
+      "unit": "ug C h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "13",
+      "records": 2,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate",
+      "unit": "ug C h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "17",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate",
+      "unit": "ug C h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "7.5",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate",
+      "unit": "ug C h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "18",
+      "records": 2,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate",
+      "unit": "ug C h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "12.5",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate",
+      "unit": "ug C h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "14",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate",
+      "unit": "ug C h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "21",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate_15C",
+      "unit": "ug C h^-1",
+      "lifeStage": "C5",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 2,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241",
+        "10.1594/PANGAEA.835224"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate_15C",
+      "unit": "ug C h^-1",
+      "lifeStage": "gonozooid",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 30,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.834761",
+        "10.1594/PANGAEA.834768"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate_15C",
+      "unit": "ug C h^-1",
+      "lifeStage": "oozooid",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 17,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.834761"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate_15C",
+      "unit": "ug C h^-1",
+      "lifeStage": "solitary",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.834696"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate_WSC_15C",
+      "unit": "ug C mg C^-1 h^-1",
+      "lifeStage": "C5",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 2,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1086/675241",
+        "10.1594/PANGAEA.835224"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate_WSC_15C",
+      "unit": "ug C mg C^-1 h^-1",
+      "lifeStage": "gonozooid",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 30,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.834761",
+        "10.1594/PANGAEA.834768"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate_WSC_15C",
+      "unit": "ug C mg C^-1 h^-1",
+      "lifeStage": "oozooid",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 18,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.834761"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "ingestionRate_WSC_15C",
+      "unit": "ug C mg C^-1 h^-1",
+      "lifeStage": "solitary",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.834696"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "C5",
+      "sizeType": "NA",
+      "temperature": "-0.2",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "C5",
+      "sizeType": "NA",
+      "temperature": "0.9",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "C5",
+      "sizeType": "NA",
+      "temperature": "-0.3",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "C5",
+      "sizeType": "NA",
+      "temperature": "6.3",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "C5",
+      "sizeType": "NA",
+      "temperature": "5",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "C5",
+      "sizeType": "NA",
+      "temperature": "7.3",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "C5",
+      "sizeType": "NA",
+      "temperature": "5.8",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "C5",
+      "sizeType": "NA",
+      "temperature": "23",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2013.06.012"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "adult",
+      "sizeType": "NA",
+      "temperature": "20.5",
+      "records": 2,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1016/j.ecss.2007.06.009"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "adult",
+      "sizeType": "NA",
+      "temperature": "7",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps10661"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "adult",
+      "sizeType": "NA",
+      "temperature": "17.5",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps10661"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "adult",
+      "sizeType": "NA",
+      "temperature": "13.4",
+      "records": 2,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2013.06.012"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "1.9",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "1.3",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "16",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "13.2",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2013.06.012"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "17.6",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2013.06.012"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "22",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "4.51",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps285129"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "6.63",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps285129"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "8.4",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps285129"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "10.42",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps285129"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "15.11",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps285129"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "18.29",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps285129"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "20.4",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps285129"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "24.92",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps285129"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "12.8",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2013.06.012"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "12",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "12.9",
+      "records": 3,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2013.06.012"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "23.1",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2013.06.012"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "24",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2013.06.012"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "25",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "14.8",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "9.6",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "22",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "-1",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "15.9",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "17.3",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "6",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "13.9",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.4319/lo.2005.50.1.0291"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "28.5",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "15.8",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "-1.4",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "8.2",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "13",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "26.9",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "19.7",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "15.1",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "4.511538462",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps285129"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "6.630769231",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps285129"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "8.4",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps285129"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "10.42153846",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps285129"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "15.10769231",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps285129"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "18.29230769",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps285129"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "20.4",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps285129"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "24.92307692",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps285129"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "27.4",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "8.6",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "14.3",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "-1.7",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "23.4",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1016/j.jembe.2013.06.012"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "7",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "23.5",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "unknown",
+      "sizeType": "NA",
+      "temperature": "27.6",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps339215"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_15C",
+      "unit": "ul O2 h^-1",
+      "lifeStage": "C5",
+      "sizeType": "NA",
+      "temperature": "15",
+      "records": 2,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1594/PANGAEA.833895"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSC",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "10.5",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSC",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "27",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSC",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "21",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSC",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "3",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSC",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "6",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSC",
+      "unit": "ul O2 mg C^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "14",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "C5",
+      "sizeType": "NA",
+      "temperature": "5.45",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1371/journal.pone.0077590"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "C5",
+      "sizeType": "NA",
+      "temperature": "8",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1371/journal.pone.0077590"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "C5",
+      "sizeType": "NA",
+      "temperature": "7.25",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1371/journal.pone.0077590"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "10.5",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "27",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "21",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "3",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "14",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "adult",
+      "sizeType": "NA",
+      "temperature": "17",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1016/j.pocean.2007.01.005"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "15.85",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1016/j.pocean.2007.01.005"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "6",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1016/j.pocean.2007.01.005"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "18",
+      "records": 4,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1016/j.pocean.2007.01.005"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "22",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1016/j.pocean.2007.01.005"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "11",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1016/j.pocean.2007.01.005"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "12",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1016/j.pocean.2007.01.005"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "21",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1016/j.pocean.2007.01.005"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "24",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1016/j.pocean.2007.01.005"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "23",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1016/j.pocean.2007.01.005"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "14.5",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1371/journal.pone.0077590"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "7",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1371/journal.pone.0077590"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "6.75",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1371/journal.pone.0077590"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "9",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1371/journal.pone.0077590"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "7.85",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1371/journal.pone.0077590"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "14.85",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1371/journal.pone.0077590"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "18.5",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1371/journal.pone.0077590"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "8.75",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1371/journal.pone.0077590"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "16.25",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1371/journal.pone.0077590"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSDW",
+      "unit": "ul O2 mg DW^-1 h^-1",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "19.25",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1371/journal.pone.0077590"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSWW",
+      "unit": "ul O2 mg WW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "10.5",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSWW",
+      "unit": "ul O2 mg WW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "27",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSWW",
+      "unit": "ul O2 mg WW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "21",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSWW",
+      "unit": "ul O2 mg WW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "3",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "respirationRate_WSWW",
+      "unit": "ul O2 mg WW^-1 h^-1",
+      "lifeStage": "NA",
+      "sizeType": "NA",
+      "temperature": "14",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.3354/meps122121"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "life stage unspecified",
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "waterPWW",
+      "unit": "percent",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 3,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "waterPWW",
+      "unit": "percent",
+      "lifeStage": "female instar 15",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "waterPWW",
+      "unit": "percent",
+      "lifeStage": "female instar 16",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "waterPWW",
+      "unit": "percent",
+      "lifeStage": "female instar 17",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "waterPWW",
+      "unit": "percent",
+      "lifeStage": "female instar 18",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "waterPWW",
+      "unit": "percent",
+      "lifeStage": "female instar 19",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "waterPWW",
+      "unit": "percent",
+      "lifeStage": "male",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "wetWeight",
+      "unit": "mg",
+      "lifeStage": "female",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "wetWeight",
+      "unit": "mg",
+      "lifeStage": "female instar 15",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "wetWeight",
+      "unit": "mg",
+      "lifeStage": "female instar 16",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "wetWeight",
+      "unit": "mg",
+      "lifeStage": "female instar 17",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "wetWeight",
+      "unit": "mg",
+      "lifeStage": "female instar 18",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "wetWeight",
+      "unit": "mg",
+      "lifeStage": "female instar 19",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    },
+    {
+      "trait": "wetWeight",
+      "unit": "mg",
+      "lifeStage": "male",
+      "sizeType": "NA",
+      "temperature": "NA",
+      "records": 1,
+      "distinctSpecies": 1,
+      "primaryDOIs": [
+        "10.1007/BF00349122"
+      ],
+      "status": "manual-review-only",
+      "holds": [
+        "below scoped publication floor"
+      ]
+    }
+  ],
+  "requiredReview": [
+    "Read original measurement methods and definitions.",
+    "Confirm accepted species identity and life stage.",
+    "Keep temperature-dependent assays and distinct length conventions separate.",
+    "Review repeat observations and uncertainty before choosing a species summary.",
+    "Review intuitive interest and familiar-animal coverage before admitting a category."
+  ]
+}

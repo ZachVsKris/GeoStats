@@ -3,8 +3,20 @@
 import type { Animal, AnimalPhoto } from "../lib/animalstats";
 import { AnimalSprite } from "./AnimalSprite";
 import frames from "../data/animalstats/photo-framing.json";
+import portraits from "../data/animalstats/gameplay-portraits.json";
 
-export default function AnimalPortrait({ animal, photo, presentation }: { animal: Animal; photo?: AnimalPhoto; presentation: "cute" | "real" }) {
+export default function AnimalPortrait({ animal, photo, presentation, gameplay = false }: { animal: Animal; photo?: AnimalPhoto; presentation: "cute" | "real"; gameplay?: boolean }) {
+  // Never display a relative's photo or an unreviewed asset passed by a caller.
+  if (photo && (photo.animalId !== animal.id || !photo.approved)) photo = undefined;
+  const portrait = (portraits as Record<string, { scientificName: string; assetUrl: string; sourceWidth: number; sourceHeight: number; crop: number[] }>)[animal.id];
+  if (gameplay && presentation === "real" && photo && portrait?.scientificName === animal.scientificName && portrait.assetUrl === photo.assetUrl) {
+    // A source-coordinate viewport crops without warping the animal. Use the
+    // same reviewed viewport in the bank, assigned pieces, gallery and drag ghost.
+    return <svg className="animalRealPhoto animalGameplayPortrait" viewBox={portrait.crop.join(" ")} preserveAspectRatio="xMidYMid meet" role="img" aria-label={animal.commonName} data-portrait-animal={animal.id}>
+      <title>{`${animal.commonName} · identification portrait · ${photo.attribution}`}</title>
+      <image href={photo.assetUrl} width={portrait.sourceWidth} height={portrait.sourceHeight} />
+    </svg>;
+  }
   const frame = (frames as Record<string, { fit: string; x: number; y: number }>)[animal.id];
   if (animal.extinctionStatus === "extinct" && presentation === "cute") return <AnimalSprite animal={animal} />;
   // Extinct Static assets are matched to the exact species, never the genus.

@@ -51,3 +51,23 @@ const relativeMarkup = renderToStaticMarkup(React.createElement(Portrait, { anim
 assert(!relativeMarkup.includes('extinct_smilodon_fatalis.jpg'));
 assert(relativeMarkup.includes('specimen image pending'));
 console.log(JSON.stringify({ reviewedExactSpecies: review.reviewedAssets.length, cuteStaticSeparation: true, relativePhotoSubstitutionBlocked: true, remainingStaticReplacements: review.remainingStaticAssets }));
+
+const portraits = JSON.parse(fs.readFileSync(path.join(root, 'data/animalstats/gameplay-portraits.json')));
+const living = JSON.parse(fs.readFileSync(path.join(root, 'data/animalstats/pilot.json')));
+for (const [id, crop] of Object.entries(portraits)) {
+  const animal = living.animals.find(a => a.id === id), photo = living.photos.find(p => p.animalId === id);
+  assert.equal(animal.scientificName, crop.scientificName);
+  assert.equal(photo.assetUrl, crop.assetUrl);
+  assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root, 'public', crop.assetUrl))).digest('hex'), crop.sourceSha256);
+  const [x,y,w,h] = crop.crop;
+  assert(x >= 0 && y >= 0 && w > 0 && h > 0 && x+w <= crop.sourceWidth && y+h <= crop.sourceHeight);
+  const playing = renderToStaticMarkup(React.createElement(Portrait, {animal,photo,presentation:'real',gameplay:true}));
+  const results = renderToStaticMarkup(React.createElement(Portrait, {animal,photo,presentation:'real'}));
+  assert(playing.includes('viewBox="'+crop.crop.join(' ')+'"') && playing.includes('preserveAspectRatio="xMidYMid meet"'));
+  assert(!results.includes('data-portrait-animal') && results.includes('<img'));
+  const wrong = renderToStaticMarkup(React.createElement(Portrait, {animal,photo:{...photo,animalId:'another_species'},presentation:'real',gameplay:true}));
+  assert(!wrong.includes(photo.assetUrl), 'Wrong-species photo must never render');
+  const unreviewed = renderToStaticMarkup(React.createElement(Portrait, {animal,photo:{...photo,approved:false},presentation:'real',gameplay:true}));
+  assert(!unreviewed.includes(photo.assetUrl), 'Unapproved photo must never render');
+}
+console.log(Object.keys(portraits).length+' exact-species gameplay viewports: source hashes, crop bounds, undistorted framing and full-image results passed.');

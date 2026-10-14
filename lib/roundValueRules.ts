@@ -2,9 +2,10 @@ import type { Category } from "./categories";
 import type { DailyDifficulty } from "./gameRules";
 import { displayedValueKey } from "./valueFormatting";
 
-type ValueObservation = { value: number };
+type ValueObservation = { value: number; year?: string | number };
 export type ValueDataset = {
   category: Category;
+  year?: string;
   byCountry: Map<string, ValueObservation>;
 };
 
@@ -45,6 +46,13 @@ export function candidateKeepsDisplayedValuesDistinct(
 const MINIMUM_RELATIVE_GAP: Record<DailyDifficulty, number> = { easy: 0.04, normal: 0.03, expert: 0.02 };
 const MINIMUM_TEMPORAL_YEARS: Record<DailyDifficulty, number> = { easy: 4, normal: 3, expert: 2 };
 
+// A wider numeric gap is required for older estimates, not for historical dates.
+function observationIsBefore2024(dataset: ValueDataset, countryId: string) {
+  const raw = dataset.byCountry.get(countryId)?.year ?? dataset.year ?? dataset.category.commonYear;
+  const match = /^(\d{4})(?:$|[-/])/.exec(String(raw ?? ""));
+  return Boolean(match && Number(match[1]) > 0 && Number(match[1]) < 2024);
+}
+
 function calendarDate(value: number) {
   if (!Number.isSafeInteger(value)) return null;
   const year = Math.trunc(value / 10000);
@@ -83,11 +91,24 @@ export function candidateKeepsValuesSeparated(
   candidateId: string,
   difficulty: DailyDifficulty,
 ) {
+  const bankIds = [...selectedCountryIds, candidateId];
   for (const dataset of datasets) {
+    const requiresOlderDataGap = dataset.category.measurementType !== "historical_date"
+      && bankIds.some((id) => observationIsBefore2024(dataset, id));
+    const minimumGap = requiresOlderDataGap ? 0.06 : MINIMUM_RELATIVE_GAP[difficulty];
+    // Adding an older observation also tightens gaps among countries already selected.
+    if (requiresOlderDataGap) {
+      const values = bankIds.map((id) => dataset.byCountry.get(id)?.value).sort((a, b) => (a ?? 0) - (b ?? 0));
+      for (let index = 1; index < values.length; index += 1) {
+        const lower = values[index - 1];
+        const higher = values[index];
+        if (lower === undefined || higher === undefined || (higher - lower) / Math.max(Math.abs(higher), Math.abs(lower), Number.MIN_VALUE) + 1e-12 < minimumGap) return false;
+      }
+    }
     const candidate = dataset.byCountry.get(candidateId)?.value;
     const candidateKey = countryDisplayKey(dataset, candidateId);
     if (candidate === undefined || candidateKey === undefined) return false;
-    for (const selectedId of selectedCountryIds) {
+    for (const selectedId of bankIds.slice(0, -1)) {
       const selected = dataset.byCountry.get(selectedId)?.value;
       const selectedKey = countryDisplayKey(dataset, selectedId);
       if (selected === undefined || selectedKey === undefined || selectedKey === candidateKey) return false;
@@ -99,7 +120,7 @@ export function candidateKeepsValuesSeparated(
       }
       const higher = Math.max(candidate, selected);
       const lower = Math.min(candidate, selected);
-      if ((higher - lower) / Math.max(Math.abs(higher), Math.abs(lower), Number.MIN_VALUE) + 1e-12 < MINIMUM_RELATIVE_GAP[difficulty]) return false;
+      if ((higher - lower) / Math.max(Math.abs(higher), Math.abs(lower), Number.MIN_VALUE) + 1e-12 < minimumGap) return false;
 
       const shownA = displayedNumber(candidateKey);
       const shownB = displayedNumber(selectedKey);

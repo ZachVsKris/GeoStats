@@ -66,7 +66,19 @@ if (!separated(2.1, 2.3, 'easy') || !separated(100, 97, 'expert', { decimals: 0 
 if (separated(100, 97.1, 'easy', { decimals: 1 }) || separated(100, 97.1, 'normal', { decimals: 1 })) {
   throw new Error('The minimum relative gap must depend on mode.');
 }
-const yearRank = { measurementType: 'historical_date', historicalValueFormat: 'year' };
+for (const mode of ['easy', 'normal', 'expert']) {
+  if (separated(100, 95, mode, { commonYear: 2023 }) || !separated(100, 94, mode, { commonYear: 2023 })) {
+    throw new Error('Older statistics need a 6% gap in every mode without excluding the category.');
+  }
+}
+if (!separated(100, 97, 'expert', { commonYear: 2024 })) throw new Error('2024 statistics retain mode-specific gaps.');
+const mixedYearDataset = { category: { unit: '', decimals: 1 }, byCountry: new Map([['A', { value: 100, year: '2024' }], ['B', { value: 95, year: '2023' }]]) };
+if (candidateKeepsValuesSeparated([mixedYearDataset], ['A'], 'B', 'expert')) throw new Error('An older observation in a mixed-year pair requires 6%.');
+const lateOldDataset = { category: { unit: '', decimals: 1 }, byCountry: new Map([['A', { value: 100, year: '2024' }], ['B', { value: 97, year: '2024' }], ['C', { value: 50, year: '2020' }]]) };
+if (candidateKeepsValuesSeparated([lateOldDataset], ['A', 'B'], 'C', 'expert')) throw new Error('Adding older data must enforce 6% across the whole category bank.');
+const fallbackYearDataset = { category: { unit: '', decimals: 1 }, year: '2020', byCountry: new Map([['A', { value: 100 }], ['B', { value: 95 }]]) };
+if (candidateKeepsValuesSeparated([fallbackYearDataset], ['A'], 'B', 'expert')) throw new Error('Dataset reference year must be honored.');
+const yearRank = { measurementType: 'historical_date', historicalValueFormat: 'year', commonYear: 2020 };
 const dateRank = { measurementType: 'historical_date', historicalValueFormat: 'date' };
 if (separated(1900, 1903, 'easy', yearRank) || !separated(1900, 1904, 'easy', yearRank)
   || separated(1900, 1902, 'normal', yearRank) || !separated(1900, 1903, 'normal', yearRank)

@@ -1,0 +1,152 @@
+{
+  "updatedAt": "2026-10-14",
+  "publishedBaseline": {
+    "commit": "9bf7ac6366c8f4c652b8bcc363068090679804ff",
+    "playableLabels": 198,
+    "validBoards": 59009,
+    "livingCatalogAnimals": 868,
+    "livingRoundAnimals": 259
+  },
+  "status": "unfinished; no task marked complete merely because a partial feature exists",
+  "tasks": [
+    {
+      "id": 1,
+      "task": "Expand useful categories",
+      "status": "unfinished",
+      "evidenceAndRemainingWork": "198 playable labels; 200 minimum and 500 aspiration remain unmet."
+    },
+    {
+      "id": 2,
+      "task": "Prioritize living mammals",
+      "status": "unfinished",
+      "evidenceAndRemainingWork": "868 living catalog species, 259 in rounds; mammal fact breadth remains incomplete."
+    },
+    {
+      "id": 3,
+      "task": "Expand sea life",
+      "status": "unfinished",
+      "evidenceAndRemainingWork": "269 cephalopod and 529 pelagic candidates remain research-only."
+    },
+    {
+      "id": 4,
+      "task": "Expand common insects and other invertebrates",
+      "status": "unfinished",
+      "evidenceAndRemainingWork": "Ladybirds added; recognizable bees, ants and butterflies remain gaps."
+    },
+    {
+      "id": 5,
+      "task": "Expand familiar-animal coverage",
+      "status": "unfinished",
+      "evidenceAndRemainingWork": "Systematic common-animal coverage and compatibility review still needed."
+    },
+    {
+      "id": 6,
+      "task": "Fill existing rankings",
+      "status": "unfinished",
+      "evidenceAndRemainingWork": "Existing AnAge coverage expanded; not every compatible animal has been admitted."
+    },
+    {
+      "id": 7,
+      "task": "Convert catalog entries into playable animals",
+      "status": "unfinished",
+      "evidenceAndRemainingWork": "609 living catalog animals currently do not appear in rounds."
+    },
+    {
+      "id": 8,
+      "task": "Improve Expert coverage",
+      "status": "unfinished",
+      "evidenceAndRemainingWork": "Zero cat-breed, fish, amphibian, insect, other-invertebrate, marine and extinct-mammal Expert boards. Reptiles 5; dinosaurs 2."
+    },
+    {
+      "id": 9,
+      "task": "Expand intuitive pet comparisons",
+      "status": "unfinished",
+      "evidenceAndRemainingWork": "Owner-intuitive breed metrics need broader sourced coverage."
+    },
+    {
+      "id": 10,
+      "task": "Expand extinct specials",
+      "status": "unfinished",
+      "evidenceAndRemainingWork": "30 extinct mammals; questionable fossil-age intervals remain withheld."
+    },
+    {
+      "id": 11,
+      "task": "Research missing broad buckets",
+      "status": "unfinished",
+      "evidenceAndRemainingWork": "Intelligence, senses, performance, migration, diet, reproduction, longevity, conservation and history need defensible bulk sources."
+    },
+    {
+      "id": 12,
+      "task": "Finish source-by-source accuracy audit",
+      "status": "unfinished",
+      "evidenceAndRemainingWork": "Automated validation is not biological verification. Longevity and marine depth holds remain enforced."
+    },
+    {
+      "id": 13,
+      "task": "Manually review category interest",
+      "status": "unfinished",
+      "evidenceAndRemainingWork": "Opposites stay together in review. Simplify specific anatomy labels and retire repetitive categories after review."
+    },
+    {
+      "id": 14,
+      "task": "Re-audit rotation",
+      "status": "unfinished",
+      "evidenceAndRemainingWork": "Marine rotation isolated and performance improved; broader empirical exposure/correlation audit outstanding."
+    },
+    {
+      "id": 15,
+      "task": "Expand reviewed Daily schedule",
+      "status": "unfinished",
+      "evidenceAndRemainingWork": "Only three explicitly reviewed Daily boards; substantial expansion required."
+    },
+    {
+      "id": 16,
+      "task": "Finish animal artwork",
+      "status": "unfinished",
+      "evidenceAndRemainingWork": "Every playable species needs distinguishing-feature and connected-anatomy review. No automatic approval from a renderer fallback."
+    },
+    {
+      "id": 17,
+      "task": "Finish Static-image consistency",
+      "status": "unfinished",
+      "evidenceAndRemainingWork": "Five species-matched extinct skeleton photos added in working draft; 67 replacements remain. Gameplay portraits and scale-reference crops require manual review."
+    },
+    {
+      "id": 18,
+      "task": "Complete GeoStats formatting parity",
+      "status": "unfinished",
+      "evidenceAndRemainingWork": "Shared results components exist; comprehensive side-by-side parity audit unfinished."
+    },
+    {
+      "id": 19,
+      "task": "Complete live functionality checks",
+      "status": "unfinished",
+      "evidenceAndRemainingWork": "Signed-in saving, cross-device stats, reporting and error recovery still require end-to-end evidence."
+    },
+    {
+      "id": 20,
+      "task": "Improve loading performance",
+      "status": "unfinished",
+      "evidenceAndRemainingWork": "Compact/progressive transports and verbatim source snapshots implemented; further live verification required."
+    },
+    {
+      "id": 21,
+      "task": "Maintain no-scroll rule",
+      "status": "unfinished",
+      "evidenceAndRemainingWork": "Earlier filled-board geometry checks passed; new artwork and portrait treatment require another check."
+    },
+    {
+      "id": 22,
+      "task": "Provide durable friend access",
+      "status": "unfinished",
+      "evidenceAndRemainingWork": "Temporary Vercel no-login links expire; no durable public-access solution completed."
+    },
+    {
+      "id": 23,
+      "task": "Plan final domain migration",
+      "status": "unfinished",
+      "evidenceAndRemainingWork": "Countries/Animals/Things architecture, link preservation and score continuity need a concrete migration plan."
+    }
+  ],
+  "newVisualRequirement": "Keep images during play where possible, with reviewed identification portraits that conceal directly measured anatomy; full-body images after submission. Do not distort features or reduce board counts without review."
+}

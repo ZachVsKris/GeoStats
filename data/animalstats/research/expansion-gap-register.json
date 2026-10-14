@@ -34,7 +34,7 @@
         "sponges"
       ],
       "requirement": "Bulk sources with explicit comparable measurements and sufficiently broad samples; accurate portraits and cartoons.",
-      "progress": "529-species pelagic dataset downloaded with field metadata; flagged and inferred records held out of gameplay. Added 269 explicitly mantle-coded cephalopod length candidates with original references; kept research-only pending primary-table and taxonomy review."
+      "progress": "529-species pelagic dataset downloaded with field metadata; flagged and inferred records held out of gameplay. Added 269 explicitly mantle-coded cephalopod length candidates with original references; kept research-only pending primary-table and taxonomy review. Marine-mammal habitat depths held pending water-column versus bathymetry interpretation; vetted fish and invertebrate depth records remain separate."
     },
     {
       "area": "Expert mode breadth",
@@ -67,7 +67,7 @@
     "No living/extinct mixed boards"
   ],
   "latestPlayableLabels": 198,
-  "latestValidatedBoards": 61090,
+  "latestValidatedBoards": 59009,
   "catalogAnimalsLiving": 868,
   "livingRoundAnimals": 259
 }

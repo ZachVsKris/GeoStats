@@ -2,13 +2,13 @@
   "generatedAt": "2026-10-12",
   "counts": {
     "candidates": 2737,
-    "group-boards": 21308,
-    "group-boards-2": 21307,
+    "group-boards": 20422,
+    "group-boards-2": 20112,
     "extinct": 15738
   },
-  "totalValidatedBoards": 61090,
+  "totalValidatedBoards": 59009,
   "rejectedDuringThisAudit": 0,
-  "checkedAdjacentRanks": 1520854,
+  "checkedAdjacentRanks": 1488346,
   "scoringCases": 41,
   "newCatalogAnimals": 397,
   "newDistinctSourceMeasurements": 1816,

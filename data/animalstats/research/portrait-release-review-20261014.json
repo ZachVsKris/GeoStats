@@ -1,0 +1,41 @@
+{
+  "commit": "9d15a5fab6349c731f093f4de822180e7a2eb883",
+  "deploymentId": "dpl_GJDeHETnP5u8V8nK6qn2prQR3axB",
+  "deploymentStatus": "READY",
+  "reviewedGameplayPortraits": [
+    "panthera_leo",
+    "panthera_tigris",
+    "giraffa_camelopardalis"
+  ],
+  "checks": {
+    "sourceAssetHashes": true,
+    "cropWithinSourceDimensions": true,
+    "exactSpeciesAndApprovedPhotoGuard": true,
+    "productionBuild": true,
+    "productionBoardSnapshotSeal": "exact-match",
+    "validatedBoards": 59009,
+    "adjacentComparisons": 1488346,
+    "desktopViewport": [
+      1363,
+      936
+    ],
+    "filledDesktopDocument": [
+      1363,
+      936
+    ],
+    "livePlacement": true,
+    "livePhotoGalleryUsesGameplayCrop": true,
+    "liveResultsRevealFullImages": true,
+    "fullResultImagesObserved": 12,
+    "gameplayCropsInResultsObserved": 0,
+    "liveAdultTigerCropExcludesCub": true
+  },
+  "remaining": [
+    "Phone viewport verification",
+    "Portraits for other animals",
+    "Species-specific cartoon visual review",
+    "Remaining extinct Static assets",
+    "Board-aware beak, ear, tail and wing image treatments"
+  ],
+  "newPlayableLabels": 0
+}

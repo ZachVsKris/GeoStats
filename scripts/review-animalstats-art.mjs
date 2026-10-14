@@ -19,11 +19,14 @@ try {
  const options = {module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2022,jsx:ts.JsxEmit.ReactJSX};
  const profilePath = join(temp,'profiles.mjs');
  const componentPath = join(temp,'sprite.mjs');
+ const cephalopodPath = join(temp,'cephalopod.mjs');
+ await writeFile(cephalopodPath,ts.transpileModule(await readFile(join(root,'components/AnimalCephalopod.tsx'),'utf8'),{compilerOptions:options}).outputText.replaceAll('"react/jsx-runtime"',JSON.stringify(require.resolve('react/jsx-runtime'))));
  await writeFile(profilePath,ts.transpileModule(await readFile(join(root,'lib/animalstatsCartoons.ts'),'utf8'),{compilerOptions:options}).outputText);
  const code = ts.transpileModule(await readFile(join(root,'components/AnimalSprite.tsx'),'utf8'),{compilerOptions:options}).outputText
   .replaceAll('"react/jsx-runtime"',JSON.stringify(require.resolve('react/jsx-runtime')))
   .replaceAll('"react"',JSON.stringify(require.resolve('react')))
-  .replaceAll('"../lib/animalstatsCartoons"',JSON.stringify(profilePath));
+  .replaceAll('"../lib/animalstatsCartoons"',JSON.stringify(profilePath))
+  .replaceAll('"./AnimalCephalopod"',JSON.stringify(cephalopodPath));
  await writeFile(componentPath,code);
  const { AnimalSprite } = await import(pathToFileURL(componentPath));
  const { cartoonSpecies } = await import(pathToFileURL(profilePath));

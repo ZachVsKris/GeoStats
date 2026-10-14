@@ -1,0 +1,29 @@
+{
+  "status": "draft artwork; not approval of new playable species",
+  "supportedSpecies": [
+    "Octopus vulgaris",
+    "Enteroctopus dofleini",
+    "Architeuthis dux",
+    "Dosidicus gigas",
+    "Loligo vulgaris",
+    "Doryteuthis opalescens",
+    "Doryteuthis pealeii",
+    "Sepia officinalis",
+    "Sepia apama"
+  ],
+  "anatomicalSources": [
+    "https://ocean.si.edu/ocean-life/invertebrates/octopuses-squids-and-relatives",
+    "https://naturalhistory.si.edu/explore/giant-squid"
+  ],
+  "automatedChecks": [
+    "eight connected arm paths",
+    "two distinct feeding tentacles for squid and cuttlefish",
+    "no nautilus or argonaut species assigned these designs"
+  ],
+  "remainingChecks": [
+    "manual visual comparison with each species",
+    "identification portrait and answer-clue review",
+    "approved exact-species Static assets",
+    "compatible vetted numerical facts and board admission"
+  ]
+}

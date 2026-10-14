@@ -19,7 +19,15 @@ function compile(file, dependencies = {}) {
   return compiled.exports;
 }
 const profiles = compile('lib/animalstatsCartoons.ts');
-const sprites = compile('components/AnimalSprite.tsx', { '../lib/animalstatsCartoons': profiles });
+const cephalopods = compile('components/AnimalCephalopod.tsx');
+const sprites = compile('components/AnimalSprite.tsx', { '../lib/animalstatsCartoons': profiles, './AnimalCephalopod': cephalopods });
+for (const scientificName of cephalopods.illustratedCephalopods) {
+  const animal = { id:scientificName.toLowerCase().replaceAll(' ','_'), scientificName, commonName:scientificName, taxonomicGroup:'cephalopod', active:true, familiarityTier:'core' };
+  const markup=renderToStaticMarkup(React.createElement(sprites.AnimalSprite,{animal}));
+  assert.equal((markup.match(/data-appendage="arm"/g)||[]).length,8);
+  assert.equal((markup.match(/data-appendage="feeding-tentacle"/g)||[]).length,/Octopus|Enteroctopus/.test(scientificName)?0:2);
+}
+assert(!cephalopods.illustratedCephalopods.has('Nautilus pompilius'));
 const Portrait = compile('components/AnimalPortrait.tsx', { './AnimalSprite': sprites }).default;
 const dataset = JSON.parse(fs.readFileSync(path.join(root, 'data/animalstats/extinct.json')));
 const review = JSON.parse(fs.readFileSync(path.join(root, 'data/animalstats/research/extinct-static-review-20261014.json')));

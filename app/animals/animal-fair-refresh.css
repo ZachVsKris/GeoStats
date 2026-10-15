@@ -413,3 +413,9 @@
 @media (max-width: 400px) and (max-height: 680px) {
  .realAnimalPage .shell.activePlay.expertRound .boardPanel .category strong { font-size: 12px !important; line-height: 1.08 !important; }
 }
+
+/* Observation prose must span the ranking row, rather than the narrow year column. */
+.sourceDataRow > .animalSourceObservation{grid-column:1 / -1;min-width:0;font-size:12px;line-height:1.5;text-align:left;color:var(--muted);overflow-wrap:anywhere}
+.sourceDataRow > .animalSourceObservation summary{cursor:pointer;width:fit-content}
+.sourceDataRow > .animalSourceObservation[open]{padding:8px 10px;background:var(--surface-3);border-radius:4px}
+.sourceDataRow > .animalSourceObservation p{margin:6px 0;max-width:none}

@@ -1,5 +1,5 @@
 {
-  "status": "candidate release; source transcription and board validation passed, deployment verification pending",
+  "status": "Published and verified in live catalog, rankings and detailed CSV export.",
   "reviewDate": "2026-10-14",
   "newCatalogAnimals": 28,
   "newPlayableAnimals": 0,
@@ -359,5 +359,15 @@
     "Climate/elevation comparisons withheld for newly selected aquatic mammals pending habitat interpretation.",
     "Source uncertainty preserved as not reported, not zero.",
     "No game-eligibility rules relaxed."
-  ]
+  ],
+  "commit": "380c764e96c9afbf0053f4255c128cdf9e110fdd",
+  "deploymentId": "dpl_CAMXmHUBCpkdBGNDSpyk4NbfJEbn",
+  "liveVerification": {
+    "catalogAnimalsIncludingExtinct": 968,
+    "pronghornMeasurements": 21,
+    "adultWeightRankingAnimals": 346,
+    "adultWeightCsvRows": 346,
+    "pronghornAdultMassGrams": 46100,
+    "originalNotesAndHagridPresent": true
+  }
 }

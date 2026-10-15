@@ -1,10 +1,10 @@
 {
   "updatedAt": "2026-10-14",
   "publishedBaseline": {
-    "commit": "0276321c467ee42df381513b351793635cdc5b71",
+    "commit": "380c764e96c9afbf0053f4255c128cdf9e110fdd",
     "playableLabels": 202,
     "validBoards": 59451,
-    "livingCatalogAnimals": 868,
+    "livingCatalogAnimals": 896,
     "livingRoundAnimals": 259
   },
   "status": "unfinished; no task marked complete merely because a partial feature exists",
@@ -163,7 +163,7 @@
     "newBoards": 442,
     "reviewedExtinctStaticPhotographs": 8,
     "remainingExtinctStaticPlaceholders": 64,
-    "status": "28-mammal ranking expansion validated locally; publication pending. No additional playable labels or boards."
+    "status": "28-mammal ranking expansion published and verified live. Source-observation layout follow-up under validation."
   },
   "latestWork": [
     "Full data/source view: retry after fetch failure and explicit saved-record metadata in CSV.",
@@ -174,10 +174,11 @@
     "Catalog payload reduced by 91% without removing eligible values or detailed per-category source access.",
     "Mammal vocalisation and cephalopod hatchling sources staged with explicit measurement/taxonomy holds; no research-only candidate counted as playable.",
     "Visual clue audit refreshed to 59,451 boards; 12,310 need direct-anatomy review.",
-    "28 familiar mammals with 521 original source measurements (1042 paired directional values) added to compatible existing AnAge, MDD and TetrapodTraits rankings; no new playable-animal/artwork approvals."
+    "28 familiar mammals with 521 original source measurements (1042 paired directional values) added to compatible existing AnAge, MDD and TetrapodTraits rankings; no new playable-animal/artwork approvals.",
+    "Live source review revealed narrow reference-column observation prose; follow-up places disclosure notes across the full row."
   ],
   "liveVerification": {
-    "deploymentId": "dpl_6sgpcFzgwiHsvfqfBh6XVPEKYv4T",
+    "deploymentId": "dpl_CAMXmHUBCpkdBGNDSpyk4NbfJEbn",
     "state": "READY",
     "categoryCount": 202,
     "fullFlightRankings": 28,
@@ -195,8 +196,8 @@
     "phoneVerified": false,
     "signedInVerification": false,
     "rankingFailureRetrySimulated": false,
-    "commit": "eae754e44fc73dbd510d6c6e38452937f173ca27",
-    "catalogAnimals": 940,
+    "commit": "380c764e96c9afbf0053f4255c128cdf9e110fdd",
+    "catalogAnimals": 968,
     "fullObservationNotesAfterCompactCatalog": true,
     "animalFirstClick": true,
     "prizeFirstClick": true,
@@ -218,6 +219,9 @@
     "desktopStaticDocument": [
       1363,
       936
-    ]
+    ],
+    "pronghornMeasurements": 21,
+    "adultWeightRankings": 346,
+    "adultWeightDownloadedCsvRows": 346
   }
 }

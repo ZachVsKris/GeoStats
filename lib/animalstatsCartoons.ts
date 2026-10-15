@@ -38,6 +38,9 @@ const base: Profile = {
   tail: 1,
 };
 const profiles: Record<string, Partial<Profile>> = {
+  antilocapra_americana: {color:"#c28a50",belly:"#fff1d8",feature:"pronghorn"},
+  caracal_caracal: {color:"#c5804d",belly:"#f8e5c5",feature:"caracal"},
+  setonix_brachyurus: {color:"#a59170",belly:"#d6c5a0",feature:"quokka"},
   cat_chartreux: {color:"#83939b",belly:"#bdc8cc",feature:"pet:cat_chartreux"},
   cat_egyptian_mau: {color:"#b7bab2",belly:"#e5e5d8",feature:"pet:cat_egyptian_mau",pattern:"spots"},
   carcharodon_carcharias: {kind:"shark",color:"#788d99",belly:"#f4efdf",feature:"greatwhite"},

@@ -1,7 +1,7 @@
 {
   "generatedAt": "2026-10-15",
   "policy": "Keep images. Test reviewed identification portraits during play and full images in results. Do not distort anatomy, silently replace exact species, or remove boards merely because pictures need work.",
-  "totalBoards": 59451,
+  "totalBoards": 68633,
   "boardsRequiringVisualReview": 12310,
   "directVisualTraitIds": 20,
   "categoryReview": [
@@ -9,7 +9,7 @@
       "traitId": "adult_body_mass",
       "label": "Heaviest adult",
       "counterTraitId": "adult_body_mass__low",
-      "boardOccurrences": 21981,
+      "boardOccurrences": 24936,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -17,7 +17,7 @@
       "traitId": "adult_body_mass__low",
       "label": "Lightest adult",
       "counterTraitId": "adult_body_mass",
-      "boardOccurrences": 9375,
+      "boardOccurrences": 12447,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -25,7 +25,7 @@
       "traitId": "maximum_documented_lifespan",
       "label": "Longest documented lifespan",
       "counterTraitId": "maximum_documented_lifespan__low",
-      "boardOccurrences": 2116,
+      "boardOccurrences": 3011,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -33,7 +33,7 @@
       "traitId": "maximum_documented_lifespan__low",
       "label": "Shortest documented lifespan",
       "counterTraitId": "maximum_documented_lifespan",
-      "boardOccurrences": 1413,
+      "boardOccurrences": 2159,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -41,7 +41,7 @@
       "traitId": "gestation",
       "label": "Longest pregnancy",
       "counterTraitId": "gestation__low",
-      "boardOccurrences": 6444,
+      "boardOccurrences": 7074,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -49,7 +49,7 @@
       "traitId": "gestation__low",
       "label": "Shortest pregnancy",
       "counterTraitId": "gestation",
-      "boardOccurrences": 1101,
+      "boardOccurrences": 1787,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -57,7 +57,7 @@
       "traitId": "litter_size",
       "label": "Most young per birth",
       "counterTraitId": "litter_size__low",
-      "boardOccurrences": 1051,
+      "boardOccurrences": 1136,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -65,7 +65,7 @@
       "traitId": "litter_size__low",
       "label": "Fewest young per birth",
       "counterTraitId": "litter_size",
-      "boardOccurrences": 512,
+      "boardOccurrences": 575,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -73,7 +73,7 @@
       "traitId": "female_maturity",
       "label": "Latest female maturity",
       "counterTraitId": "female_maturity__low",
-      "boardOccurrences": 4544,
+      "boardOccurrences": 5944,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -81,7 +81,7 @@
       "traitId": "female_maturity__low",
       "label": "Earliest female maturity",
       "counterTraitId": "female_maturity",
-      "boardOccurrences": 2129,
+      "boardOccurrences": 3480,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -89,7 +89,7 @@
       "traitId": "male_maturity",
       "label": "Latest male maturity",
       "counterTraitId": "male_maturity__low",
-      "boardOccurrences": 3509,
+      "boardOccurrences": 4356,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -97,7 +97,7 @@
       "traitId": "male_maturity__low",
       "label": "Earliest male maturity",
       "counterTraitId": "male_maturity",
-      "boardOccurrences": 2191,
+      "boardOccurrences": 3023,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -105,7 +105,7 @@
       "traitId": "weaning_age",
       "label": "Longest time on milk",
       "counterTraitId": "weaning_age__low",
-      "boardOccurrences": 1164,
+      "boardOccurrences": 1352,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -113,7 +113,7 @@
       "traitId": "weaning_age__low",
       "label": "Shortest time on milk",
       "counterTraitId": "weaning_age",
-      "boardOccurrences": 1071,
+      "boardOccurrences": 1300,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -121,7 +121,7 @@
       "traitId": "birth_weight",
       "label": "Heaviest newborn",
       "counterTraitId": "birth_weight__low",
-      "boardOccurrences": 1540,
+      "boardOccurrences": 2320,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -129,7 +129,7 @@
       "traitId": "birth_weight__low",
       "label": "Lightest newborn",
       "counterTraitId": "birth_weight",
-      "boardOccurrences": 8533,
+      "boardOccurrences": 9287,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -137,7 +137,7 @@
       "traitId": "litters_per_year",
       "label": "Most litters per year",
       "counterTraitId": "litters_per_year__low",
-      "boardOccurrences": 224,
+      "boardOccurrences": 290,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -145,7 +145,7 @@
       "traitId": "litters_per_year__low",
       "label": "Fewest litters per year",
       "counterTraitId": "litters_per_year",
-      "boardOccurrences": 156,
+      "boardOccurrences": 235,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -153,7 +153,7 @@
       "traitId": "interbirth_interval",
       "label": "Longest gap between births",
       "counterTraitId": "interbirth_interval__low",
-      "boardOccurrences": 303,
+      "boardOccurrences": 344,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -161,7 +161,7 @@
       "traitId": "interbirth_interval__low",
       "label": "Shortest gap between births",
       "counterTraitId": "interbirth_interval",
-      "boardOccurrences": 162,
+      "boardOccurrences": 197,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -313,7 +313,7 @@
       "traitId": "weaning_mass",
       "label": "Heaviest at weaning",
       "counterTraitId": "weaning_mass__low",
-      "boardOccurrences": 58,
+      "boardOccurrences": 83,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -321,7 +321,7 @@
       "traitId": "weaning_mass__low",
       "label": "Lightest at weaning",
       "counterTraitId": "weaning_mass",
-      "boardOccurrences": 82,
+      "boardOccurrences": 105,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -665,7 +665,7 @@
       "traitId": "mdd_country_count",
       "label": "Most countries & territories",
       "counterTraitId": "mdd_country_count__low",
-      "boardOccurrences": 1328,
+      "boardOccurrences": 1490,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -673,7 +673,7 @@
       "traitId": "mdd_country_count__low",
       "label": "Fewest countries & territories",
       "counterTraitId": "mdd_country_count",
-      "boardOccurrences": 1604,
+      "boardOccurrences": 1727,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -689,7 +689,7 @@
       "traitId": "mdd_continent_count__low",
       "label": "Fewest continents",
       "counterTraitId": "mdd_continent_count",
-      "boardOccurrences": 9,
+      "boardOccurrences": 11,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -697,7 +697,7 @@
       "traitId": "mdd_family_species_count",
       "label": "Most species in its family",
       "counterTraitId": "mdd_family_species_count__low",
-      "boardOccurrences": 825,
+      "boardOccurrences": 993,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -705,7 +705,7 @@
       "traitId": "mdd_family_species_count__low",
       "label": "Fewest species in its family",
       "counterTraitId": "mdd_family_species_count",
-      "boardOccurrences": 3041,
+      "boardOccurrences": 3258,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -1209,7 +1209,7 @@
       "traitId": "tt_range_area",
       "label": "Largest mapped range",
       "counterTraitId": "tt_range_area__low",
-      "boardOccurrences": 11856,
+      "boardOccurrences": 15601,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -1217,7 +1217,7 @@
       "traitId": "tt_range_area__low",
       "label": "Smallest mapped range",
       "counterTraitId": "tt_range_area",
-      "boardOccurrences": 8770,
+      "boardOccurrences": 11753,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -1225,7 +1225,7 @@
       "traitId": "tt_range_temperature",
       "label": "Lives in the warmest climates",
       "counterTraitId": "tt_range_temperature__low",
-      "boardOccurrences": 5,
+      "boardOccurrences": 8,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -1233,7 +1233,7 @@
       "traitId": "tt_range_temperature__low",
       "label": "Lives in the coldest climates",
       "counterTraitId": "tt_range_temperature",
-      "boardOccurrences": 4,
+      "boardOccurrences": 7,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -1241,7 +1241,7 @@
       "traitId": "tt_range_rainfall",
       "label": "Lives in the rainiest climates",
       "counterTraitId": "tt_range_rainfall__low",
-      "boardOccurrences": 13670,
+      "boardOccurrences": 16822,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -1249,7 +1249,7 @@
       "traitId": "tt_range_rainfall__low",
       "label": "Lives in the driest climates",
       "counterTraitId": "tt_range_rainfall",
-      "boardOccurrences": 10995,
+      "boardOccurrences": 13883,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -1257,7 +1257,7 @@
       "traitId": "tt_range_elevation",
       "label": "Lives at higher elevations",
       "counterTraitId": "tt_range_elevation__low",
-      "boardOccurrences": 13466,
+      "boardOccurrences": 16809,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -1265,7 +1265,7 @@
       "traitId": "tt_range_elevation__low",
       "label": "Lives at lower elevations",
       "counterTraitId": "tt_range_elevation",
-      "boardOccurrences": 8546,
+      "boardOccurrences": 11554,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -1273,7 +1273,7 @@
       "traitId": "tt_diet_breadth",
       "label": "Most varied diet",
       "counterTraitId": "tt_diet_breadth__low",
-      "boardOccurrences": 518,
+      "boardOccurrences": 652,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -1281,7 +1281,7 @@
       "traitId": "tt_diet_breadth__low",
       "label": "Least varied diet",
       "counterTraitId": "tt_diet_breadth",
-      "boardOccurrences": 439,
+      "boardOccurrences": 560,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -1289,7 +1289,7 @@
       "traitId": "tt_habitat_breadth",
       "label": "Uses the most habitat types",
       "counterTraitId": "tt_habitat_breadth__low",
-      "boardOccurrences": 1941,
+      "boardOccurrences": 2510,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -1297,7 +1297,7 @@
       "traitId": "tt_habitat_breadth__low",
       "label": "Uses the fewest habitat types",
       "counterTraitId": "tt_habitat_breadth",
-      "boardOccurrences": 1971,
+      "boardOccurrences": 2442,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -1305,7 +1305,7 @@
       "traitId": "tt_assessed_risk",
       "label": "Most endangered",
       "counterTraitId": "tt_assessed_risk__low",
-      "boardOccurrences": 71,
+      "boardOccurrences": 117,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },
@@ -1313,7 +1313,7 @@
       "traitId": "tt_assessed_risk__low",
       "label": "Least endangered",
       "counterTraitId": "tt_assessed_risk",
-      "boardOccurrences": 56,
+      "boardOccurrences": 94,
       "level": "identity-or-context",
       "treatment": "Keep recognizable animals in equal-size frames; remove people, rulers and other scale references from gameplay crops. Recognizing species size remains intended knowledge."
     },

@@ -43,5 +43,50 @@
     "reviewNote": "Upper adult head and ossicones; excludes second animal and long neck.",
     "sourceSha256": "4c471f419b32b663a787872a2e915f882f3131737fa35d0ef1f78a5190a71cb9",
     "reviewedAt": "2026-10-14"
+  },
+  "antilocapra_americana": {
+    "scientificName": "Antilocapra americana",
+    "assetUrl": "/animalstats/antilocapra_americana.jpg",
+    "sourceWidth": 500,
+    "sourceHeight": 333,
+    "crop": [
+      145,
+      2,
+      180,
+      210
+    ],
+    "reviewNote": "Male head with complete forked horns; excludes torso and legs.",
+    "sourceSha256": "46ab3458610b1a00883b43521245a21b6348e7ee6eadfd25cc5ed41db8e388c3",
+    "reviewedAt": "2026-10-15"
+  },
+  "caracal_caracal": {
+    "scientificName": "Caracal caracal",
+    "assetUrl": "/animalstats/caracal_caracal.jpg",
+    "sourceWidth": 500,
+    "sourceHeight": 375,
+    "crop": [
+      160,
+      65,
+      170,
+      190
+    ],
+    "reviewNote": "Adult face and complete black ear tufts; excludes most body and paws.",
+    "sourceSha256": "9cfcd6886b3b83d97beabdd3078b7bab11e3b294388804f0036168726e1d93a2",
+    "reviewedAt": "2026-10-15"
+  },
+  "setonix_brachyurus": {
+    "scientificName": "Setonix brachyurus",
+    "assetUrl": "/animalstats/setonix_brachyurus.jpg",
+    "sourceWidth": 500,
+    "sourceHeight": 375,
+    "crop": [
+      190,
+      65,
+      140,
+      155
+    ],
+    "reviewNote": "Rounded ears, broad short face and bare nose; excludes most torso, tail and food leaf.",
+    "sourceSha256": "9c72e273d3518a6d2ffd6f71f02af1149fec7613363e0a001c21761b436684ea",
+    "reviewedAt": "2026-10-15"
   }
 }

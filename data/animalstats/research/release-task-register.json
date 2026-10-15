@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-14",
+  "updatedAt": "2026-10-15",
   "publishedBaseline": {
     "commit": "380c764e96c9afbf0053f4255c128cdf9e110fdd",
     "playableLabels": 202,
@@ -19,7 +19,7 @@
       "id": 2,
       "task": "Prioritize living mammals",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Candidate catalog has 896 living animals, 259 in rounds. Added 28 familiar mammals and 521 source measurements across existing life-history, distribution, diet, habitat and conservation comparisons. Broader mammal fact families remain unfinished."
+      "evidenceAndRemainingWork": "Candidate catalog has 896 living animals, 259 in rounds. Added 28 familiar mammals and 521 source measurements across existing life-history, distribution, diet, habitat and conservation comparisons. Broader mammal fact families remain unfinished. Prepared admission of pronghorn, caracal and quokka to all three difficulties, with existing sourced facts, dedicated cartoons and licensed photos."
     },
     {
       "id": 3,
@@ -37,7 +37,7 @@
       "id": 5,
       "task": "Expand familiar-animal coverage",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Systematic common-animal coverage and compatibility review still needed."
+      "evidenceAndRemainingWork": "Systematic common-animal coverage and compatibility review still needed. Three familiar mammals now supported in 9,182 new valid mammal/mixed board combinations; broad missing-animal audit remains."
     },
     {
       "id": 6,
@@ -91,7 +91,7 @@
       "id": 14,
       "task": "Re-audit rotation",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Marine rotation isolated and performance improved; broader empirical exposure/correlation audit outstanding."
+      "evidenceAndRemainingWork": "Marine rotation isolated and performance improved; broader empirical exposure/correlation audit outstanding. 600 seeded living-round draws after this expansion expose all three introduced mammals in every difficulty without consecutive exact-board repeats; full source/group exposure audit remains unfinished."
     },
     {
       "id": 15,
@@ -103,13 +103,13 @@
       "id": 16,
       "task": "Finish animal artwork",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Cephalopod anatomy code exists but manual species recognition review remains pending. Broad cartoon audit incomplete."
+      "evidenceAndRemainingWork": "Cephalopod anatomy code exists but manual species recognition review remains pending. Broad cartoon audit incomplete. Pronghorn, caracal and quokka now have dedicated anatomy and manually inspected renders."
     },
     {
       "id": 17,
       "task": "Finish Static-image consistency",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Three living identification portraits exist. Eight extinct Static skeleton assets reviewed; 64 placeholders and broader framing work remain."
+      "evidenceAndRemainingWork": "Six reviewed living identification viewports, including all three introduced mammals, crop without stretching. Eight extinct skeleton assets reviewed; 64 placeholders and broader framing work remain."
     },
     {
       "id": 18,
@@ -127,13 +127,13 @@
       "id": 20,
       "task": "Improve loading performance",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Packed catalog route published: 1,270,887 bytes versus 14,130,528 previously, a 91% reduction. Live 940-animal catalog, filtering and per-category full observations verified."
+      "evidenceAndRemainingWork": "Packed catalog route published: 1,270,887 bytes versus 14,130,528 previously, a 91% reduction. Live 940-animal catalog, filtering and per-category full observations verified. Full catalog now has group/status filters and 50-row pagination; larger catalog payload is 1,318,568 bytes after photo metadata additions."
     },
     {
       "id": 21,
       "task": "Maintain no-scroll rule",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Live Scout Cute and Static play-screen desktop geometry 1363×936 with no document overflow; phone and other difficulties remain unverified in this pass."
+      "evidenceAndRemainingWork": "Live Scout Cute and Static play-screen desktop geometry 1363\u00d7936 with no document overflow; phone and other difficulties remain unverified in this pass."
     },
     {
       "id": 22,
@@ -223,5 +223,13 @@
     "pronghornMeasurements": 21,
     "adultWeightRankings": 346,
     "adultWeightDownloadedCsvRows": 346
+  },
+  "preparedRelease": {
+    "releaseId": "familiar-mammals-20261015",
+    "playableLabels": 202,
+    "validBoards": 68633,
+    "livingCatalogAnimals": 896,
+    "livingRoundAnimals": 262,
+    "status": "prepared and tested; publication tracked in GitHub/Vercel deployment metadata"
   }
 }

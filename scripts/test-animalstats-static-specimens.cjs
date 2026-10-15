@@ -20,7 +20,8 @@ function compile(file, dependencies = {}) {
 }
 const profiles = compile('lib/animalstatsCartoons.ts');
 const cephalopods = compile('components/AnimalCephalopod.tsx');
-const sprites = compile('components/AnimalSprite.tsx', { '../lib/animalstatsCartoons': profiles, './AnimalCephalopod': cephalopods });
+const familiarMammals = compile('components/AnimalFamiliarMammal.tsx');
+const sprites = compile('components/AnimalSprite.tsx', { '../lib/animalstatsCartoons': profiles, './AnimalCephalopod': cephalopods, './AnimalFamiliarMammal': familiarMammals });
 for (const scientificName of cephalopods.illustratedCephalopods) {
   const animal = { id:scientificName.toLowerCase().replaceAll(' ','_'), scientificName, commonName:scientificName, taxonomicGroup:'cephalopod', active:true, familiarityTier:'core' };
   const markup=renderToStaticMarkup(React.createElement(sprites.AnimalSprite,{animal}));
@@ -53,7 +54,8 @@ assert(relativeMarkup.includes('specimen image pending'));
 console.log(JSON.stringify({ reviewedExactSpecies: review.reviewedAssets.length, cuteStaticSeparation: true, relativePhotoSubstitutionBlocked: true, remainingStaticReplacements: review.remainingStaticAssets }));
 
 const portraits = JSON.parse(fs.readFileSync(path.join(root, 'data/animalstats/gameplay-portraits.json')));
-const living = JSON.parse(fs.readFileSync(path.join(root, 'data/animalstats/pilot.json')));
+const livingParts = ['pilot','existing-coverage'].map(name => JSON.parse(fs.readFileSync(path.join(root, 'data/animalstats', name+'.json'))));
+const living = {animals: livingParts.flatMap(part => part.animals), photos: livingParts.flatMap(part => part.photos)};
 for (const [id, crop] of Object.entries(portraits)) {
   const animal = living.animals.find(a => a.id === id), photo = living.photos.find(p => p.animalId === id);
   assert.equal(animal.scientificName, crop.scientificName);

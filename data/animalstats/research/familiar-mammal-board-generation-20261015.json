@@ -1,0 +1,151 @@
+{
+  "policy": "intuitive-majority-distinct-winners-v6",
+  "notes": [
+    "No publication cap or per-lineup variant cap. Runtime budget is resumable and does not determine eligibility.",
+    "At least 3% between every adjacent numeric rank; exact ties remain blocked. Uncertainty overlap, source compatibility, unique winners and at least half intuitive remain required.",
+    "Each sampled lineup contributes one new board per pass to prioritize animal diversity; later passes can add further variants.",
+    "Introduces only the three explicitly reviewed familiar mammals alongside existing round animals. No biological values or eligibility rules changed."
+  ],
+  "groups": [
+    {
+      "group": "mammals",
+      "mode": "easy",
+      "portraitAnimals": 71,
+      "animalsWithEnoughMetrics": 71,
+      "attempts": 772,
+      "added": 629,
+      "rejections": {
+        "category winners compete for same animal": 238233,
+        "traits have nearly identical or reversed rankings": 3314,
+        "only one mapped-range prize per board": 387,
+        "trait: tupaia_glis ineligible": 93,
+        "trait: tachyglossus_aculeatus ineligible": 87,
+        "trait: oryctolagus_cuniculus ineligible": 66,
+        "not enough compatible distinct metrics": 7,
+        "sampled lineup already explored": 5,
+        "trait: erinaceus_europaeus ineligible": 143
+      }
+    },
+    {
+      "group": "mammals",
+      "mode": "normal",
+      "portraitAnimals": 71,
+      "animalsWithEnoughMetrics": 71,
+      "attempts": 2951,
+      "added": 2335,
+      "rejections": {
+        "category winners compete for same animal": 103719,
+        "bat dominance": 15,
+        "not enough compatible distinct metrics": 274,
+        "traits have nearly identical or reversed rankings": 1052,
+        "only one mapped-range prize per board": 341,
+        "too few animals compete across traits": 286,
+        "trait: oryctolagus_cuniculus ineligible": 554,
+        "trait: erinaceus_europaeus ineligible": 228,
+        "trait: tupaia_glis ineligible": 566,
+        "trait: tachyglossus_aculeatus ineligible": 72
+      }
+    },
+    {
+      "group": "mammals",
+      "mode": "expert",
+      "portraitAnimals": 71,
+      "animalsWithEnoughMetrics": 71,
+      "attempts": 1258,
+      "added": 110,
+      "rejections": {
+        "not enough compatible distinct metrics": 946,
+        "category winners compete for same animal": 57551,
+        "only one mapped-range prize per board": 107,
+        "traits have nearly identical or reversed rankings": 10,
+        "bat dominance": 16,
+        "trait: tachyglossus_aculeatus ineligible": 6,
+        "trait: tupaia_glis ineligible": 2,
+        "trait: oryctolagus_cuniculus ineligible": 3
+      }
+    },
+    {
+      "group": "mixed",
+      "mode": "easy",
+      "portraitAnimals": 225,
+      "animalsWithEnoughMetrics": 225,
+      "attempts": 14059,
+      "added": 2573,
+      "rejections": {
+        "category winners compete for same animal": 148370,
+        "traits have nearly identical or reversed rankings": 5159,
+        "group composition": 5702,
+        "not enough compatible distinct metrics": 4377,
+        "sampled lineup already explored": 18,
+        "at most two habitat-climate prizes per board": 9
+      }
+    },
+    {
+      "group": "mixed",
+      "mode": "normal",
+      "portraitAnimals": 225,
+      "animalsWithEnoughMetrics": 225,
+      "attempts": 28131,
+      "added": 3530,
+      "rejections": {
+        "group composition": 10387,
+        "not enough compatible distinct metrics": 13899,
+        "category winners compete for same animal": 21798,
+        "traits have nearly identical or reversed rankings": 292,
+        "too few animals compete across traits": 290,
+        "no familiar anchor": 78,
+        "bat dominance": 11
+      }
+    },
+    {
+      "group": "mixed",
+      "mode": "expert",
+      "portraitAnimals": 225,
+      "animalsWithEnoughMetrics": 185,
+      "attempts": 32601,
+      "added": 5,
+      "rejections": {
+        "not enough compatible distinct metrics": 20665,
+        "group composition": 11897,
+        "bat dominance": 24,
+        "no familiar anchor": 7,
+        "category winners compete for same animal": 346
+      }
+    }
+  ],
+  "totalBoards": 52895,
+  "focusAnimalIds": [
+    "antilocapra_americana",
+    "caracal_caracal",
+    "setonix_brachyurus"
+  ],
+  "addedBoards": 9182,
+  "newAnimalBoardCounts": {
+    "antilocapra_americana": 3471,
+    "caracal_caracal": 3046,
+    "setonix_brachyurus": 3518
+  },
+  "newlyPlayableTraitIds": [],
+  "baselineValidBoards": 59451,
+  "resultValidBoards": 68633,
+  "newSourceMeasurements": 0,
+  "newPlayableLabels": 0,
+  "newRoundAnimals": 3,
+  "animalBoardsByMode": {
+    "antilocapra_americana": {
+      "easy": 1165,
+      "normal": 2262,
+      "expert": 44
+    },
+    "caracal_caracal": {
+      "easy": 1005,
+      "normal": 2006,
+      "expert": 35
+    },
+    "setonix_brachyurus": {
+      "easy": 1217,
+      "normal": 2243,
+      "expert": 58
+    }
+  }
+}

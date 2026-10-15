@@ -1,0 +1,52 @@
+[
+  {
+    "animalId": "antilocapra_americana",
+    "assetUrl": "/animalstats/antilocapra_americana.jpg",
+    "originalUrl": "https://www.inaturalist.org/photos/750455501",
+    "creator": "(c) CK2AZ, some rights reserved (CC BY)",
+    "license": "CC BY",
+    "attribution": "(c) CK2AZ, some rights reserved (CC BY)",
+    "approved": false,
+    "reviewScientificName": "Antilocapra americana",
+    "reviewTaxonId": 42429,
+    "reviewPhotoId": 750455501,
+    "reviewSourceUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/750455501/medium.jpg",
+    "reviewObservationUrl": "https://www.inaturalist.org/observations/408273876",
+    "reviewObservationId": 408273876,
+    "rejectionReason": "Animal too distant or soft to read at game size; replaced with a separately reviewed photo."
+  },
+  {
+    "animalId": "caracal_caracal",
+    "assetUrl": "/animalstats/caracal_caracal.jpg",
+    "originalUrl": "https://www.inaturalist.org/photos/679498149",
+    "creator": "(c) olliesaunders, some rights reserved (CC BY-SA)",
+    "license": "CC BY-SA",
+    "attribution": "(c) olliesaunders, some rights reserved (CC BY-SA)",
+    "approved": false,
+    "reviewScientificName": "Caracal caracal",
+    "reviewTaxonId": 42042,
+    "reviewPhotoId": 679498149,
+    "reviewSourceUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/679498149/medium.jpg",
+    "reviewObservationUrl": "https://www.inaturalist.org/observations/371881995",
+    "reviewObservationId": 371881995,
+    "rejectionReason": "Animal too distant or soft to read at game size; replaced with a separately reviewed photo."
+  },
+  {
+    "animalId": "setonix_brachyurus",
+    "assetUrl": "/animalstats/setonix_brachyurus.jpg",
+    "originalUrl": "https://www.inaturalist.org/photos/750291673",
+    "creator": "(c) Dragonette, some rights reserved (CC BY-SA)",
+    "license": "CC BY-SA",
+    "attribution": "(c) Dragonette, some rights reserved (CC BY-SA)",
+    "approved": true,
+    "reviewScientificName": "Setonix brachyurus",
+    "reviewTaxonId": 42955,
+    "reviewPhotoId": 750291673,
+    "reviewSourceUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/750291673/medium.jpg",
+    "reviewObservationUrl": "https://www.inaturalist.org/observations/408194760",
+    "reviewObservationId": 408194760,
+    "reviewedAt": "2026-10-15",
+    "reviewNote": "Exact active species or explicitly verified subspecies ancestor; visually inspected for recognizable animal, clear face and distinguishing features. No photo stretching or reconstructed anatomy.",
+    "sourceSha256": "9c72e273d3518a6d2ffd6f71f02af1149fec7613363e0a001c21761b436684ea"
+  }
+]

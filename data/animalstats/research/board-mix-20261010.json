@@ -1,17 +1,17 @@
 {
   "generatedAt": "2026-10-15",
-  "defaultBoards": 59451,
+  "defaultBoards": 68633,
   "livingCatalogAnimals": 896,
-  "livingRoundAnimals": 259,
-  "candidateBoards": 59451,
+  "livingRoundAnimals": 262,
+  "candidateBoards": 68633,
   "playableLabels": 202,
   "playableTraitIds": 260,
   "counts": {
     "mammals": {
-      "easy": 2343,
-      "normal": 2611,
-      "expert": 8019,
-      "total": 12973
+      "easy": 2972,
+      "normal": 4946,
+      "expert": 8129,
+      "total": 16047
     },
     "dog-breeds": {
       "easy": 429,
@@ -68,10 +68,10 @@
       "total": 763
     },
     "mixed": {
-      "easy": 1674,
-      "normal": 1587,
-      "expert": 4029,
-      "total": 7290
+      "easy": 4247,
+      "normal": 5117,
+      "expert": 4034,
+      "total": 13398
     },
     "extinct-dinosaurs": {
       "easy": 6262,

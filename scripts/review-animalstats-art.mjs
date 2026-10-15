@@ -20,22 +20,25 @@ try {
  const profilePath = join(temp,'profiles.mjs');
  const componentPath = join(temp,'sprite.mjs');
  const cephalopodPath = join(temp,'cephalopod.mjs');
+ const familiarMammalPath=join(temp,'familiar-mammal.mjs');
+ await writeFile(familiarMammalPath,ts.transpileModule(await readFile(join(root,'components/AnimalFamiliarMammal.tsx'),'utf8'),{compilerOptions:options}).outputText.replaceAll('"react/jsx-runtime"',JSON.stringify(require.resolve('react/jsx-runtime'))));
  await writeFile(cephalopodPath,ts.transpileModule(await readFile(join(root,'components/AnimalCephalopod.tsx'),'utf8'),{compilerOptions:options}).outputText.replaceAll('"react/jsx-runtime"',JSON.stringify(require.resolve('react/jsx-runtime'))));
  await writeFile(profilePath,ts.transpileModule(await readFile(join(root,'lib/animalstatsCartoons.ts'),'utf8'),{compilerOptions:options}).outputText);
  const code = ts.transpileModule(await readFile(join(root,'components/AnimalSprite.tsx'),'utf8'),{compilerOptions:options}).outputText
   .replaceAll('"react/jsx-runtime"',JSON.stringify(require.resolve('react/jsx-runtime')))
   .replaceAll('"react"',JSON.stringify(require.resolve('react')))
   .replaceAll('"../lib/animalstatsCartoons"',JSON.stringify(profilePath))
-  .replaceAll('"./AnimalCephalopod"',JSON.stringify(cephalopodPath));
+  .replaceAll('"./AnimalCephalopod"',JSON.stringify(cephalopodPath))
+  .replaceAll('"./AnimalFamiliarMammal"',JSON.stringify(familiarMammalPath));
  await writeFile(componentPath,code);
  const { AnimalSprite } = await import(pathToFileURL(componentPath));
  const { cartoonSpecies } = await import(pathToFileURL(profilePath));
  const data = JSON.parse(await readFile(join(root,'data/animalstats/pilot.json'),'utf8'));
- const expanded=JSON.parse(await readFile(join(root,'data/animalstats/underrepresented.json'),'utf8'));const ladybirds=JSON.parse(await readFile(join(root,'data/animalstats/insect-ladybirds.json'),'utf8'));data.animals.push(...expanded.animals,...ladybirds.animals);
+ const expanded=JSON.parse(await readFile(join(root,'data/animalstats/underrepresented.json'),'utf8'));const ladybirds=JSON.parse(await readFile(join(root,'data/animalstats/insect-ladybirds.json'),'utf8'));const coverage=JSON.parse(await readFile(join(root,'data/animalstats/existing-coverage.json'),'utf8'));data.animals.push(...expanded.animals,...ladybirds.animals,...coverage.animals);
  const selectedIds=process.argv.slice(2);
  const animals = data.animals.filter(a=>selectedIds.length ? selectedIds.includes(a.id) : cartoonSpecies.includes(a.id));
  assert.equal(animals.length,selectedIds.length||cartoonSpecies.length);
- const photos=[...JSON.parse(await readFile(join(root,'data/animalstats/photos.json'),'utf8')),...expanded.photos,...ladybirds.photos];
+ const photos=[...JSON.parse(await readFile(join(root,'data/animalstats/photos.json'),'utf8')),...expanded.photos,...ladybirds.photos,...coverage.photos];
  browser=await chromium.launch();const page=await browser.newPage({viewport:{width:1200,height:820}});
  for(let start=0;start<animals.length;start+=20){
  const cards=[];

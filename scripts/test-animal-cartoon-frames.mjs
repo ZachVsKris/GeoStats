@@ -20,17 +20,21 @@ try {
  const profilePath = join(temp,'profiles.mjs');
  const componentPath = join(temp,'sprite.mjs');
  const cephalopodPath = join(temp,'cephalopod.mjs');
+ const familiarMammalPath=join(temp,'familiar-mammal.mjs');
+ await writeFile(familiarMammalPath,ts.transpileModule(await readFile(join(root,'components/AnimalFamiliarMammal.tsx'),'utf8'),{compilerOptions:options}).outputText.replaceAll('"react/jsx-runtime"',JSON.stringify(require.resolve('react/jsx-runtime'))));
  await writeFile(cephalopodPath,ts.transpileModule(await readFile(join(root,'components/AnimalCephalopod.tsx'),'utf8'),{compilerOptions:options}).outputText.replaceAll('"react/jsx-runtime"',JSON.stringify(require.resolve('react/jsx-runtime'))));
  await writeFile(profilePath,ts.transpileModule(await readFile(join(root,'lib/animalstatsCartoons.ts'),'utf8'),{compilerOptions:options}).outputText);
  const code = ts.transpileModule(await readFile(join(root,'components/AnimalSprite.tsx'),'utf8'),{compilerOptions:options}).outputText
   .replaceAll('"react/jsx-runtime"',JSON.stringify(require.resolve('react/jsx-runtime')))
   .replaceAll('"react"',JSON.stringify(require.resolve('react')))
   .replaceAll('"../lib/animalstatsCartoons"',JSON.stringify(profilePath))
-  .replaceAll('"./AnimalCephalopod"',JSON.stringify(cephalopodPath));
+  .replaceAll('"./AnimalCephalopod"',JSON.stringify(cephalopodPath))
+  .replaceAll('"./AnimalFamiliarMammal"',JSON.stringify(familiarMammalPath));
  await writeFile(componentPath,code);
  const { AnimalSprite } = await import(pathToFileURL(componentPath));
  const { cartoonSpecies } = await import(pathToFileURL(profilePath));
- const data = JSON.parse(await readFile(join(root,'data/animalstats/pilot.json'),'utf8'));
+ const parts = await Promise.all(['pilot','existing-coverage'].map(async name => JSON.parse(await readFile(join(root,'data/animalstats',name+'.json'),'utf8'))));
+ const data = {animals: [...new Map(parts.flatMap(part => part.animals).map(animal => [animal.id,animal])).values()]};
  const animals = data.animals.filter(a=>cartoonSpecies.includes(a.id));
  assert.equal(animals.length,cartoonSpecies.length);
  const html = renderToStaticMarkup(React.createElement('div',null,animals.map(animal=>React.createElement(AnimalSprite,{key:animal.id,animal}))));

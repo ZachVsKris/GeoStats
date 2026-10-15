@@ -1,11 +1,11 @@
 {
   "updatedAt": "2026-10-15",
   "publishedBaseline": {
-    "commit": "380c764e96c9afbf0053f4255c128cdf9e110fdd",
+    "commit": "c882eb7168869a052cf42bca8fe58560009af963",
     "playableLabels": 202,
-    "validBoards": 59451,
+    "validBoards": 57419,
     "livingCatalogAnimals": 896,
-    "livingRoundAnimals": 259
+    "livingRoundAnimals": 262
   },
   "status": "unfinished; no task marked complete merely because a partial feature exists",
   "tasks": [
@@ -19,7 +19,7 @@
       "id": 2,
       "task": "Prioritize living mammals",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Candidate catalog has 896 living animals, 259 in rounds. Added 28 familiar mammals and 521 source measurements across existing life-history, distribution, diet, habitat and conservation comparisons. Broader mammal fact families remain unfinished. Prepared admission of pronghorn, caracal and quokka to all three difficulties, with existing sourced facts, dedicated cartoons and licensed photos."
+      "evidenceAndRemainingWork": "Candidate catalog has 896 living animals, 262 in rounds. Added 28 familiar mammals and 521 source measurements across existing life-history, distribution, diet, habitat and conservation comparisons. Broader mammal fact families remain unfinished. Published admission of pronghorn, caracal and quokka to all three difficulties, with existing sourced facts, dedicated cartoons and licensed photos."
     },
     {
       "id": 3,
@@ -121,7 +121,7 @@
       "id": 19,
       "task": "Complete live functionality checks",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Anonymous Scout placement in both click directions, removal, mode switch, result scoring, board rankings, detailed source loading and local save verified. Signed-in/cross-device, reporting, drag behavior and failure recovery still need end-to-end evidence."
+      "evidenceAndRemainingWork": "Anonymous Scout placement in both click directions, removal, mode switch, result scoring, board rankings, detailed source loading and local save verified. Signed-in/cross-device, reporting, drag behavior and failure recovery still need end-to-end evidence. Latest c882eb7 release: new Scout round earned 400/400 and new Expert round 600/600. New-animal removal and both click directions worked; switching Cute/Static retained choices. No phone, drag, sign-in, reporting or cross-device verification claimed."
     },
     {
       "id": 20,
@@ -133,7 +133,7 @@
       "id": 21,
       "task": "Maintain no-scroll rule",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Live Scout Cute and Static play-screen desktop geometry 1363\u00d7936 with no document overflow; phone and other difficulties remain unverified in this pass."
+      "evidenceAndRemainingWork": "Live Scout Cute and Static play-screen desktop geometry 1363\u00d7936 with no document overflow; phone and other difficulties remain unverified in this pass. Latest 1363\u00d7936 checks also cover Scout Static with an assignment, Expert Static before assignment, and a filled Expert Cute board, all without document overflow."
     },
     {
       "id": 22,
@@ -230,8 +230,16 @@
     "validBoards": 57419,
     "livingCatalogAnimals": 896,
     "livingRoundAnimals": 262,
-    "status": "prepared with aquatic-climate source hold; publication tracked in GitHub/Vercel metadata",
+    "status": "published and live checked",
     "heldAquaticClimateDirections": 84,
-    "retiredBoardCombinations": 11214
+    "retiredBoardCombinations": 11214,
+    "commit": "c882eb7168869a052cf42bca8fe58560009af963"
+  },
+  "previousPublishedBaseline": {
+    "commit": "380c764e96c9afbf0053f4255c128cdf9e110fdd",
+    "playableLabels": 202,
+    "validBoards": 59451,
+    "livingCatalogAnimals": 896,
+    "livingRoundAnimals": 259
   }
 }

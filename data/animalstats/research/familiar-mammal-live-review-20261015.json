@@ -1,0 +1,48 @@
+{
+  "releaseCommit": "c882eb7168869a052cf42bca8fe58560009af963",
+  "deploymentId": "dpl_7iA7kcU6jCF5AC7rzWJjjhp1x3V4",
+  "deploymentState": "READY",
+  "deploymentHost": "geo-secondcoming-1tfxm7kb4-zachington.vercel.app",
+  "counts": {
+    "commit": "c882eb7168869a052cf42bca8fe58560009af963",
+    "playableLabels": 202,
+    "validBoards": 57419,
+    "livingCatalogAnimals": 896,
+    "livingRoundAnimals": 262
+  },
+  "liveChecks": {
+    "scoutBoard": "familiar-20261015-mammals-easy-9156af6ccc8d",
+    "scoutScore": 400,
+    "expertBoard": "familiar-20261015-mammals-expert-f2bcbb72a30e",
+    "expertScore": 600,
+    "newAnimalRemoval": true,
+    "bothClickDirections": true,
+    "presentationSwitchPreservesAssignments": true,
+    "staticPortraitSpeciesAndViewports": true,
+    "anonymousDeviceSaveStatus": "Saved on this device",
+    "viewport": {
+      "width": 1363,
+      "height": 936
+    },
+    "noDocumentOverflow": [
+      "Scout Cute",
+      "Scout Static with one assignment",
+      "Expert Static before assignment",
+      "Expert Cute filled"
+    ]
+  },
+  "sourceChecks": {
+    "heldAquaticClimateDirections": 84,
+    "heldSpecies": 14,
+    "adjacentNumericalChecks": 1277408,
+    "newBoardsRetained": 6924,
+    "olderBoardsWithdrawn": 8956,
+    "allThreeNewAnimalsInAllDifficulties": true
+  },
+  "limitations": [
+    "Not a fresh verification of every biological claim",
+    "Phone and smaller desktop screens not checked in this pass",
+    "Drag, signed-in saving, cross-device persistence and report submission not checked",
+    "Extinct Static replacement and broad cartoon review remain unfinished"
+  ]
+}

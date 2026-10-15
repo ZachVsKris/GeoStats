@@ -419,3 +419,6 @@
 .sourceDataRow > .animalSourceObservation summary{cursor:pointer;width:fit-content}
 .sourceDataRow > .animalSourceObservation[open]{padding:8px 10px;background:var(--surface-3);border-radius:4px}
 .sourceDataRow > .animalSourceObservation p{margin:6px 0;max-width:none}
+
+.animalCatalogPagination{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px}
+.animalCatalogPagination span{font-size:13px;color:var(--muted);white-space:nowrap}

@@ -1,0 +1,225 @@
+{
+  "sourceVersion": "SeaLifeBase 26.06 frozen references",
+  "sourceUrl": "https://s3.us-west-2.amazonaws.com/us-west-2.opendata.source.coop/cboettig/fishbase/slb/v26.06/parquet/refrens.parquet",
+  "sourceSha256": "b92b4dcc1625e1c116331f3224ad3ee9e3e5c8b79bc25fe6db7a05d37fa6bfcb",
+  "license": "CC BY-NC 4.0; cite SeaLifeBase and each original publication",
+  "purpose": "Bibliographic resolution only; no biological values admitted. Selected references for the 37-species catalog longevity queue; not the complete database.",
+  "references": [
+    {
+      "RefNo": 2823,
+      "Author": "Robertsons, A.I.",
+      "Year": 1979,
+      "Title": "The relationship between annual production: biomass ratios and lifespans for marine macrobenthos.",
+      "Source": "Oecologia (Berl.) 38(2):193-202.",
+      "DOI": null,
+      "PaperURL": "http://www.jstor.org/stable/pdf/4215777.pdf?acceptTC=true"
+    },
+    {
+      "RefNo": 8702,
+      "Author": "Powell, E.N. and H. Cummins",
+      "Year": 1985,
+      "Title": "Are molluscan maximum life spans determined by long-term cycles in benthic communities?",
+      "Source": "Oecologia (Berlin) 67(2):177-182.",
+      "DOI": null,
+      "PaperURL": "http://www.jstor.org/stable/pdfplus/4217710.pdf"
+    },
+    {
+      "RefNo": 76525,
+      "Author": "Maigret, J.",
+      "Year": 1978,
+      "Title": "Contribution à l'étude des langoustes de la côte occidentale d'Afrique. <i>Panulirus regius</i> et <i>Palinurus mauritanicus</i>.",
+      "Source": "Université d'Aix-Marseille, Marseille, France. 264 p. Thèse Doct. D'Etat.",
+      "DOI": null,
+      "PaperURL": null
+    },
+    {
+      "RefNo": 81081,
+      "Author": "Sheehy, M.R.J., R.C.A. Bannister, J.F. Wickins and P.M.J. Shelton",
+      "Year": 1999,
+      "Title": "New perspective on the growth and longevity of the European lobster (<i>Homarus gammarus</i>).",
+      "Source": "Can. J. Fish. Aquat. Sci. 56(10):1904-1915.",
+      "DOI": "10.1139/f99-116",
+      "PaperURL": null
+    },
+    {
+      "RefNo": 85318,
+      "Author": "Marin, J.",
+      "Year": 1987,
+      "Title": "Exploitation, biologie et dynamique du stock de langouste Rouge de Corse, <i>Palinurus elephas</i> Fabricius.",
+      "Source": "L'Universite D'aix Marseille II, Docteur D'etat Science. 348 p.",
+      "DOI": null,
+      "PaperURL": null
+    },
+    {
+      "RefNo": 85497,
+      "Author": "Keunecke, K.A., F. Incao, F.N. Moreira, D.R . Silva Jr. and J.R. Verani",
+      "Year": 2008,
+      "Title": "Idade e crescimento de <i>Callinectes danae eC. Ornatus</i> (Crustacea, Decapoda) na Baia de Guanabara, Rio de Janeiro, Brasil.",
+      "Source": "Iheringia, Ser. Zool, Porto Alegre 98(2):231-235.",
+      "DOI": null,
+      "PaperURL": "http://www.scielo.br/pdf/isz/v98n2/a11v98n2.pdf"
+    },
+    {
+      "RefNo": 90469,
+      "Author": "Blicher, M.E., S. Rysgaard and M.K. Sejr",
+      "Year": 2007,
+      "Title": "Growth and production of sea urchin Strongylocentrotus droebachiensis in a high-Arctic fjord, and growth along a climatic gradient.",
+      "Source": "Mar. Ecol. Prog. Ser. 341:89-102.",
+      "DOI": null,
+      "PaperURL": "http://www.int-res.com/articles/meps2007/341/m341p089.pdf"
+    },
+    {
+      "RefNo": 99652,
+      "Author": "Walls, E.A., J. Berkson and S.A. Smith",
+      "Year": 2002,
+      "Title": "The horseshoe crab, <i>Limulus polyphemus</i>: 200 million years of existence, 100 years of study.",
+      "Source": "Reviews in Fisheries Science 10(1):39-73.",
+      "DOI": null,
+      "PaperURL": null
+    },
+    {
+      "RefNo": 101937,
+      "Author": "Urban, D. and D. Hart",
+      "Year": 1999,
+      "Title": "Biology of the tanner crab <i>Chionoecetes bairdi</i> in Alaska: a report to the Alaska Board of Fisheries.",
+      "Source": "Kodiak, Alaska: Alaska Dept. of Fish and Game, Division of Commercial Fisheries. Regional Information Report No. 4K99-22, 15 p.",
+      "DOI": null,
+      "PaperURL": "http://www.sf.adfg.state.ak.us/fedaidpdfs/RIR.4K.1999.22.pdf"
+    },
+    {
+      "RefNo": 104007,
+      "Author": "Sunada, J.S.",
+      "Year": 1984,
+      "Title": "Spot prawn (<i>Pandalus platyceros</i>) and ridgeback prawn (<i>Sicyonia ingentis</i>) fisheries in the Santa Barbara Channel.",
+      "Source": "CalCOFI 25:100-104.",
+      "DOI": null,
+      "PaperURL": null
+    },
+    {
+      "RefNo": 104779,
+      "Author": "Pauley, G.B., D.A. Armstrong and T.W. Heun",
+      "Year": 1986,
+      "Title": "Species profiles: life histories and environmental requirements of coastal fishes and invertebrates (Pacific Northwest) -- Dungeness crab.",
+      "Source": "U.S. Fish Wildl. Serv. Biol . Rep. 82(11.63). U. S. Army Corps of Engineers, TR EL-82-4. 20 pp.",
+      "DOI": null,
+      "PaperURL": "http://www.nwrc.usgs.gov/wdb/pub/species_profiles/82_11-063.pdf"
+    },
+    {
+      "RefNo": 104940,
+      "Author": "Sukumaran, K.K., V.D. Deshmukh, G.S. Rao, K. Alagaraja and T.V. Sathianandan",
+      "Year": 1993,
+      "Title": "Stock assessment of the penaeid prawn <i>Metapenaeus monoceros</i> Fabricius along the Indian coast.",
+      "Source": "Indian Journal of Fisheries 40(1&2):20-34.",
+      "DOI": null,
+      "PaperURL": "http://eprints.cmfri.org.in/248/1/Article_04.pdf"
+    },
+    {
+      "RefNo": 105839,
+      "Author": "Millikin, M.R. and A.B. Williams",
+      "Year": 1984,
+      "Title": "Synopsis of biological data on the blue crab, <i>Callinectes sapidus</i> Rathbun (No. 138).",
+      "Source": "National Oceanic and Atmospheric Administration, National Marine Fisheries Service.",
+      "DOI": null,
+      "PaperURL": null
+    },
+    {
+      "RefNo": 106917,
+      "Author": "Stevenson, D.K. and F. Pierce",
+      "Year": 1985,
+      "Title": "Life history characteristics of <i>Pandalus montagui</i> and Dichelopandalus leptocerus in Penobscot Bay, Maine.",
+      "Source": "Fishery Bulletin 83(3):219-233.",
+      "DOI": null,
+      "PaperURL": null
+    },
+    {
+      "RefNo": 108798,
+      "Author": "Eldred, B.R., Ingle, R.M., K.D. Woodburn, R.F. Hutton and H. Jones",
+      "Year": 1961,
+      "Title": "Biological observations on the commercial shrimp, <i>Penaeus duorarum</i> Burkenroad, in Florida waters.",
+      "Source": "Fla. Board Conserv. Mar. Lab. Prof. Pap. Ser. 3, 139p.",
+      "DOI": null,
+      "PaperURL": null
+    },
+    {
+      "RefNo": 109223,
+      "Author": "Lindner, M.J. and H.L. Cook",
+      "Year": 1965,
+      "Title": "Synopsis of biological data on the white shrimp <i>Penaeus setiferus</i> (Linnaeus) 1767.",
+      "Source": "FAO Fish. Rep. 4:1439-1469.",
+      "DOI": null,
+      "PaperURL": "http://www.fao.org/docrep/005/ac765t/AC765T13.htm"
+    },
+    {
+      "RefNo": 126834,
+      "Author": "Rowling, K., A. Hegarty and M. Ives",
+      "Year": 2010,
+      "Title": "School Prawn.",
+      "Source": "pp. 271-274. In Status of Fisheries Resources in NSW 2008/09. Industry & Investment NSW, Australia.",
+      "DOI": null,
+      "PaperURL": "https://www.dpi.nsw.gov.au/content/research/areas/fisheries-and-ecosystems/wild-fisheries/outputs/2010/1797/StatusOfFisheriesResourcesNSW2008-09.pdf"
+    },
+    {
+      "RefNo": 126990,
+      "Author": "Weymouth, F.W. and H.C. McMillin",
+      "Year": 1931,
+      "Title": "Relative growth and mortality of the Pacific razor clam (<i>Siliqua patula</i>, Dixon) and their bearing on the commercial fishery (No. 1099).",
+      "Source": "US Government Printing Office.",
+      "DOI": null,
+      "PaperURL": "https://books.google.com.ph/books?id=PYL2CYf2S3gC&printsec=frontcover"
+    },
+    {
+      "RefNo": 127352,
+      "Author": "DFO",
+      "Year": 2010,
+      "Title": "Assessment of the Arctic surfclam (<i>Mactromeris polynyma</i>) stock on Grand Bank.",
+      "Source": "DFO Can. Sci. Advis. Sec. Sci. Advis. Rep. 2010/063. 10 p.",
+      "DOI": null,
+      "PaperURL": "https://waves-vagues.dfo-mpo.gc.ca/library-bibliotheque/342396.pdf"
+    },
+    {
+      "RefNo": 128174,
+      "Author": "Prince, J., S. Creech, H. Madduppa and A. Hordyk",
+      "Year": 2020,
+      "Title": "Length based assessment of spawning potential ratio in data-poor fisheries for blue swimming crab (<i>Portunus</i> spp.) in Sri Lanka and Indonesia: Implications for sustainable management.",
+      "Source": "Regional Studies in Marine Science 36:101309.",
+      "DOI": "10.1016/j.rsma.2020.101309",
+      "PaperURL": null
+    },
+    {
+      "RefNo": 128184,
+      "Author": "Johnston, D., D. Yeoh, D. Harris and E. Fisher",
+      "Year": 2020,
+      "Title": "Blue Swimmer Crab (<i>Portunus armatus</i>) and Mud Crab (<i>Scylla serrata</i> and <i>Scylla olivacea</i>) Resources in the North Coast and Gascoyne Coast Bioregions, Western Australia.",
+      "Source": "Fisheries Research Report No. 306. Department of Primary Industries and Regional Development, Western Australia, 156 p.",
+      "DOI": null,
+      "PaperURL": "https://www.fish.wa.gov.au/Documents/research_reports/frr306.pdf"
+    },
+    {
+      "RefNo": 128193,
+      "Author": "Young, A.M. and J.A. Elliott",
+      "Year": 2020,
+      "Title": "Life history and population dynamics of green crabs (<i>Carcinus maenas</i>).",
+      "Source": "Fishes 5:1-44.",
+      "DOI": "10.3390/fishes5010004",
+      "PaperURL": "https://www.mdpi.com/2410-3888/5/1/4/pdf"
+    },
+    {
+      "RefNo": 129284,
+      "Author": "Ram, E.J. and A. Kalla",
+      "Year": 2019,
+      "Title": "<i>Pinctada margaritifera</i> farming in Fiji.",
+      "Source": "Journal of Aquaculture Research & Development 10:574.",
+      "DOI": null,
+      "PaperURL": null
+    },
+    {
+      "RefNo": 129472,
+      "Author": "Tewfik, A., E.A. Babcock and M. Phillips",
+      "Year": 2020,
+      "Title": "Spiny lobster fisheries status across time and a mosaic of spatial management regimes.",
+      "Source": "ICES Journal of Marine Science 77(3):1002-1016.",
+      "DOI": "10.1093/icesjms/fsaa008",
+      "PaperURL": null
+    }
+  ]
+}

@@ -11,6 +11,11 @@ const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('n
   const response=await compiled.routeModule.userland.GET();assert.equal(response.status,200);assert.equal(response.headers.get('x-animalstats-validation'),'build-audit','compiled production must match the exact audited source numbers');
   const payload=await response.json(),seal=JSON.parse(fs.readFileSync('data/animalstats/research/release-validation-seal.json','utf8'));
   assert.equal(payload.rows.length,seal.boardCount);assert.equal(payload.version,1);
-  console.log(JSON.stringify({productionSnapshotSeal:'exact-match',packagedSourceFiles:required.length,verifiedRoutePackages:5,productionBoards:payload.rows.length}));
+  const catalogRoute=require(path.join(process.cwd(),'.next/server/app/api/animals/data/route.js'));
+  const catalogResponse=await catalogRoute.routeModule.userland.GET(new Request('https://example.test/api/animals/data?scope=catalog'));
+  assert.equal(catalogResponse.status,200);const catalogText=await catalogResponse.text(),catalog=JSON.parse(catalogText);
+  assert.equal(catalog.origin,'release-snapshot');assert.equal(catalog.detailLevel,'ranking-snapshot');assert.equal(catalog.data.valueEncoding,1);
+  assert(catalog.data.values.length>10000);assert(catalog.data.values.every(row=>Array.isArray(row)&&row.length===11));
+  console.log(JSON.stringify({productionSnapshotSeal:'exact-match',packagedSourceFiles:required.length,verifiedRoutePackages:5,productionBoards:payload.rows.length,catalogValues:catalog.data.values.length,catalogResponseBytes:Buffer.byteLength(catalogText),fullObservationDetailsDeferred:true}));
  }finally{if(previous===undefined)delete process.env.ANIMALSTATS_PREVIEW_ENABLED;else process.env.ANIMALSTATS_PREVIEW_ENABLED=previous;}
 })().catch(error=>{console.error(error);process.exitCode=1;});

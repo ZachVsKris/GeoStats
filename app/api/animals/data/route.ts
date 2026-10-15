@@ -1,3 +1,4 @@
+import { packAnimalData } from "../../../../lib/animalstatsDataTransport";
 import { publishedAnimalTraitIds, auditAnimalCoverage, ANIMAL_COVERAGE_MINIMUMS } from "../../../../lib/animalstatsCoverage";
 import type { AnimalDataset, BoardCandidate } from "../../../../lib/animalstats";
 import { animalPhotos as photos } from "../../../../lib/animalstatsCatalog";
@@ -16,7 +17,7 @@ export async function GET(request: Request) {
   if (params.get("scope") === "catalog") {
     const traits = catalog.traits.filter(t => playable.has(t.id) && !t.id.startsWith("adult_shoulder_height"));
     const ids = new Set(traits.map(t => t.id));
-    return NextResponse.json({ data: { ...catalog, photos: photos.filter(p => p.approved), traits, values: catalog.values.filter(v => ids.has(v.traitId) && v.confidence === "approved" && v.observationType !== "imputed") }, origin: "release-snapshot" }, { headers: { "Cache-Control": "private, max-age=300" } });
+    return NextResponse.json({ data: packAnimalData({ ...catalog, photos: photos.filter(p => p.approved), traits, values: catalog.values.filter(v => ids.has(v.traitId) && v.confidence === "approved" && v.observationType !== "imputed") }), origin: "release-snapshot", detailLevel: "ranking-snapshot" }, { headers: { "Cache-Control": "private, max-age=300" } });
   }
   const traitId = params.get("trait");
   const trait = catalog.traits.find(t => t.id === traitId);

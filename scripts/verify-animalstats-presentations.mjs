@@ -15,7 +15,7 @@ try {
  await page.goto('http://localhost:3012/animals',{waitUntil:'networkidle',timeout:120000});
  const lifespanResponse=await page.request.get('http://localhost:3012/api/animals/data?trait=wild_recorded_lifespan');
  assert.equal(lifespanResponse.status(),200);
- const catalogResponse=await page.request.get('http://localhost:3012/api/animals/data?scope=catalog');const fullCatalog=await catalogResponse.json();assert(!fullCatalog.data.values.some(v=>v.animalId==='proteus_anguinus'&&/lifespan/.test(v.traitId)));
+ const catalogResponse=await page.request.get('http://localhost:3012/api/animals/data?scope=catalog');const fullCatalog=await catalogResponse.json();const catalogCells=fullCatalog.data.valueEncoding===1?fullCatalog.data.values.map(v=>({animalId:fullCatalog.data.animals[v[0]].id,traitId:fullCatalog.data.traits[v[1]].id})):fullCatalog.data.values;assert(!catalogCells.some(v=>v.animalId==='proteus_anguinus'&&/lifespan/.test(v.traitId)));
  const animals=page.locator('[data-animal-id].penAnimal'), traits=page.locator('[data-trait-id].traitPodium');
  assert.equal(await animals.count(),4); await animals.nth(0).click();await traits.nth(0).click();
  const placed=await traits.nth(0).getAttribute('data-trait-id');const first=await animals.nth(0).getAttribute('data-animal-id');

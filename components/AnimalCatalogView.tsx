@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { unpackAnimalData, type AnimalDataTransport } from "../lib/animalstatsDataTransport";
 import { useEffect, useState } from "react";
 import type { AnimalDataset, BoardCandidate } from "../lib/animalstats";
 
@@ -18,7 +19,9 @@ export default function AnimalCatalogView({ boards, initialTab, onPlay }: { boar
       if (!response.ok) throw new Error("Catalog unavailable");
       const payload = await response.json();
       if (payload.origin !== "release-snapshot" || !Array.isArray(payload.data?.values)) throw new Error("Catalog unavailable");
-      setData(payload.data);
+      // Full observation notes load per category when its source panel opens.
+      // Accept the previous response too during a rolling deployment.
+      setData(payload.data.valueEncoding === 1 ? unpackAnimalData(payload.data as AnimalDataTransport) : payload.data);
     }).catch(() => { if (!controller.signal.aborted) setError(true); }).finally(() => clearTimeout(timeout));
     return () => { clearTimeout(timeout); controller.abort(); };
   }, [attempt]);

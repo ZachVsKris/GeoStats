@@ -37,7 +37,7 @@
       "id": 5,
       "task": "Expand familiar-animal coverage",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Systematic common-animal coverage and compatibility review still needed. Three familiar mammals now supported in 9,182 new valid mammal/mixed board combinations; broad missing-animal audit remains."
+      "evidenceAndRemainingWork": "Pronghorn, caracal and quokka now supported in 6,924 remaining new valid mammal/mixed board combinations after the aquatic-climate hold; broad missing-animal audit remains."
     },
     {
       "id": 6,
@@ -79,7 +79,7 @@
       "id": 12,
       "task": "Finish source-by-source accuracy audit",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Two seal land-travel comparisons (four directional values) now held pending original scale-conversion review; the source-by-source biological audit remains unfinished."
+      "evidenceAndRemainingWork": "Two seal land-travel comparisons (four directional values) now held pending original scale-conversion review; the source-by-source biological audit remains unfinished. Held 84 marine-mammal climate/elevation directions across 14 species; 11,214 affected combinations removed from the expanded pool, including older boards. Original source values retained for review."
     },
     {
       "id": 13,
@@ -227,9 +227,11 @@
   "preparedRelease": {
     "releaseId": "familiar-mammals-20261015",
     "playableLabels": 202,
-    "validBoards": 68633,
+    "validBoards": 57419,
     "livingCatalogAnimals": 896,
     "livingRoundAnimals": 262,
-    "status": "prepared and tested; publication tracked in GitHub/Vercel deployment metadata"
+    "status": "prepared with aquatic-climate source hold; publication tracked in GitHub/Vercel metadata",
+    "heldAquaticClimateDirections": 84,
+    "retiredBoardCombinations": 11214
   }
 }

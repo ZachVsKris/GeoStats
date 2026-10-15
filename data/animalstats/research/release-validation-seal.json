@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "dataSha256": "71df0c90bc19fe39cd6ba39b5c377cec7160be8fa77fd6565ebb4f214a0552ab",
-  "boardsSha256": "8c31ac0398f8cc6f558756c1797321ddd17e0ad85d11ff99060b0be97f0e3c90",
-  "boardCount": 68633,
-  "checkedAdjacentRanks": 1655300
+  "dataSha256": "5c64a20fa3f84e892c23b48140fa7c13f290d45ee38029dc14770d6b70a502b0",
+  "boardsSha256": "abd6227209eec5ed18375bdf44110a200c87be71e7c0dfc92589939bee6a18fa",
+  "boardCount": 57419,
+  "checkedAdjacentRanks": 1277408
 }

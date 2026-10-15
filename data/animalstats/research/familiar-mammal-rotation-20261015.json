@@ -4,7 +4,7 @@
   "policy": "Unmodified production subject/category/animal rotation; latest 12 rounds supplied as history.",
   "modes": {
     "easy": {
-      "poolSize": 15820,
+      "poolSize": 14721,
       "groupCounts": {
         "bears": 12,
         "amphibians": 24,
@@ -19,14 +19,14 @@
         "insects": 15
       },
       "newAnimalAppearances": {
-        "antilocapra_americana": 2,
+        "antilocapra_americana": 1,
         "caracal_caracal": 1,
-        "setonix_brachyurus": 1
+        "setonix_brachyurus": 5
       },
       "consecutiveExactBoardRepeats": 0
     },
     "normal": {
-      "poolSize": 14881,
+      "poolSize": 12148,
       "groupCounts": {
         "fish": 27,
         "amphibians": 23,
@@ -39,14 +39,14 @@
         "mammals": 15
       },
       "newAnimalAppearances": {
-        "antilocapra_americana": 4,
-        "caracal_caracal": 2,
-        "setonix_brachyurus": 2
+        "antilocapra_americana": 5,
+        "caracal_caracal": 4,
+        "setonix_brachyurus": 5
       },
       "consecutiveExactBoardRepeats": 0
     },
     "expert": {
-      "poolSize": 22194,
+      "poolSize": 14812,
       "groupCounts": {
         "mixed": 37,
         "reptiles": 38,
@@ -55,9 +55,9 @@
         "mammals": 71
       },
       "newAnimalAppearances": {
-        "antilocapra_americana": 7,
-        "caracal_caracal": 7,
-        "setonix_brachyurus": 16
+        "antilocapra_americana": 5,
+        "caracal_caracal": 9,
+        "setonix_brachyurus": 11
       },
       "consecutiveExactBoardRepeats": 0
     }

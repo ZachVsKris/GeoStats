@@ -113,39 +113,50 @@
       }
     }
   ],
-  "totalBoards": 52895,
+  "totalBoards": 41681,
   "focusAnimalIds": [
     "antilocapra_americana",
     "caracal_caracal",
     "setonix_brachyurus"
   ],
-  "addedBoards": 9182,
+  "addedBoards": 6924,
   "newAnimalBoardCounts": {
-    "antilocapra_americana": 3471,
-    "caracal_caracal": 3046,
-    "setonix_brachyurus": 3518
+    "antilocapra_americana": 2661,
+    "caracal_caracal": 2273,
+    "setonix_brachyurus": 2658
   },
   "newlyPlayableTraitIds": [],
   "baselineValidBoards": 59451,
-  "resultValidBoards": 68633,
+  "resultValidBoards": 57419,
   "newSourceMeasurements": 0,
   "newPlayableLabels": 0,
   "newRoundAnimals": 3,
   "animalBoardsByMode": {
     "antilocapra_americana": {
-      "easy": 1165,
-      "normal": 2262,
-      "expert": 44
+      "easy": 1004,
+      "normal": 1632,
+      "expert": 25
     },
     "caracal_caracal": {
-      "easy": 1005,
-      "normal": 2006,
-      "expert": 35
+      "easy": 853,
+      "normal": 1401,
+      "expert": 19
     },
     "setonix_brachyurus": {
-      "easy": 1217,
-      "normal": 2243,
-      "expert": 58
+      "easy": 1048,
+      "normal": 1589,
+      "expert": 21
     }
-  }
+  },
+  "generatedBeforeAquaticClimateHold": 9182,
+  "newBoardsRemainingAfterSourceHold": 6924,
+  "sourceHoldDirectionalRecords": 84,
+  "sourceHoldRetiredBoards": 11214,
+  "netChangeFromPreviousPublishedCount": -2032,
+  "generatedAnimalBoardCounts": {
+    "antilocapra_americana": 3471,
+    "caracal_caracal": 3046,
+    "setonix_brachyurus": 3518
+  },
+  "olderBoardsWithdrawn": 8956
 }

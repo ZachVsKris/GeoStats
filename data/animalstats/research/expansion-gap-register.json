@@ -50,7 +50,7 @@
     {
       "area": "Living mammal fact breadth",
       "requirement": "Remain a priority even as underrepresented groups grow. New metric families rather than extra bat variants or only board recombinations.",
-      "progress": "Added 27 exact MDD-matched mammal taxa and 83 empirical movement measurements across existing/new animals. Expanded existing AnAge observations; 15 questionable maximum-age claims held after source-account review. AnimalTraits weighed-brain and historical organ records are research-only pending specimen-stage, sex and preservation checks."
+      "progress": "Added 27 exact MDD-matched mammal taxa and 83 empirical movement measurements across existing/new animals. Expanded existing AnAge observations; 15 questionable maximum-age claims held after source-account review. AnimalTraits weighed-brain and historical organ records are research-only pending specimen-stage, sex and preservation checks. Pronghorn, caracal and quokka admitted to all difficulties with reviewed cartoons/photos. Land-based climate/elevation observations for 14 marine mammals are held; rebuilding valid broader mammal Expert coverage remains a priority."
     },
     {
       "area": "Catalog to playable coverage",
@@ -67,7 +67,7 @@
     "No living/extinct mixed boards"
   ],
   "latestPlayableLabels": 202,
-  "latestValidatedBoards": 68633,
+  "latestValidatedBoards": 57419,
   "catalogAnimalsLiving": 896,
   "livingRoundAnimals": 262
 }

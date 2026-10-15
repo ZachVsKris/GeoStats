@@ -1,0 +1,852 @@
+{
+  "status": "held pending original range-layer and aquatic habitat interpretation",
+  "source": "TetrapodTraits 2.0.1; CHELSA v1.2 and EarthEnv",
+  "sourceUrl": "https://zenodo.org/records/18926700",
+  "policy": "Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation.",
+  "scope": "Marine mammals, including coastal pinnipeds and freshwater sirenians. This hold does not assert that the published numbers are erroneous; their use for these game comparisons is not established.",
+  "directionalRecords": 84,
+  "uniqueSpecies": 14,
+  "uniqueMeasurements": 42,
+  "records": [
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "enhydra_lutris",
+      "scientificName": "Enhydra lutris",
+      "traitId": "tt_range_temperature",
+      "valueNumeric": 276.812642,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Enhydra lutris; original field AnnuMeanTemp=36.62641629; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "enhydra_lutris",
+      "scientificName": "Enhydra lutris",
+      "traitId": "tt_range_temperature__low",
+      "valueNumeric": 276.812642,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Enhydra lutris; original field AnnuMeanTemp=36.62641629; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "tursiops_truncatus",
+      "scientificName": "Tursiops truncatus",
+      "traitId": "tt_range_temperature",
+      "valueNumeric": 295.732925,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Tursiops truncatus; original field AnnuMeanTemp=225.8292454; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "tursiops_truncatus",
+      "scientificName": "Tursiops truncatus",
+      "traitId": "tt_range_temperature__low",
+      "valueNumeric": 295.732925,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Tursiops truncatus; original field AnnuMeanTemp=225.8292454; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "orcinus_orca",
+      "scientificName": "Orcinus orca",
+      "traitId": "tt_range_temperature",
+      "valueNumeric": 289.869358,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Orcinus orca; original field AnnuMeanTemp=167.1935798; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "orcinus_orca",
+      "scientificName": "Orcinus orca",
+      "traitId": "tt_range_temperature__low",
+      "valueNumeric": 289.869358,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Orcinus orca; original field AnnuMeanTemp=167.1935798; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "balaenoptera_musculus",
+      "scientificName": "Balaenoptera musculus",
+      "traitId": "tt_range_temperature",
+      "valueNumeric": 293.930963,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Balaenoptera musculus; original field AnnuMeanTemp=207.8096304; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "balaenoptera_musculus",
+      "scientificName": "Balaenoptera musculus",
+      "traitId": "tt_range_temperature__low",
+      "valueNumeric": 293.930963,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Balaenoptera musculus; original field AnnuMeanTemp=207.8096304; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "megaptera_novaeangliae",
+      "scientificName": "Megaptera novaeangliae",
+      "traitId": "tt_range_temperature",
+      "valueNumeric": 291.362806,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Megaptera novaeangliae; original field AnnuMeanTemp=182.1280639; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "megaptera_novaeangliae",
+      "scientificName": "Megaptera novaeangliae",
+      "traitId": "tt_range_temperature__low",
+      "valueNumeric": 291.362806,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Megaptera novaeangliae; original field AnnuMeanTemp=182.1280639; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "phoca_vitulina",
+      "scientificName": "Phoca vitulina",
+      "traitId": "tt_range_temperature",
+      "valueNumeric": 275.985559,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Phoca vitulina; original field AnnuMeanTemp=28.35559063; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "phoca_vitulina",
+      "scientificName": "Phoca vitulina",
+      "traitId": "tt_range_temperature__low",
+      "valueNumeric": 275.985559,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Phoca vitulina; original field AnnuMeanTemp=28.35559063; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "zalophus_californianus",
+      "scientificName": "Zalophus californianus",
+      "traitId": "tt_range_temperature",
+      "valueNumeric": 288.510134,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Zalophus californianus; original field AnnuMeanTemp=153.6013442; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "zalophus_californianus",
+      "scientificName": "Zalophus californianus",
+      "traitId": "tt_range_temperature__low",
+      "valueNumeric": 288.510134,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Zalophus californianus; original field AnnuMeanTemp=153.6013442; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "trichechus_manatus",
+      "scientificName": "Trichechus manatus",
+      "traitId": "tt_range_temperature",
+      "valueNumeric": 298.51225,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Trichechus manatus; original field AnnuMeanTemp=253.6224997; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "trichechus_manatus",
+      "scientificName": "Trichechus manatus",
+      "traitId": "tt_range_temperature__low",
+      "valueNumeric": 298.51225,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Trichechus manatus; original field AnnuMeanTemp=253.6224997; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "dugong_dugon",
+      "scientificName": "Dugong dugon",
+      "traitId": "tt_range_temperature",
+      "valueNumeric": 298.626915,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Dugong dugon; original field AnnuMeanTemp=254.7691547; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "dugong_dugon",
+      "scientificName": "Dugong dugon",
+      "traitId": "tt_range_temperature__low",
+      "valueNumeric": 298.626915,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Dugong dugon; original field AnnuMeanTemp=254.7691547; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "monodon_monoceros",
+      "scientificName": "Monodon monoceros",
+      "traitId": "tt_range_temperature",
+      "valueNumeric": 261.055956,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Monodon monoceros; original field AnnuMeanTemp=-120.9404387; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "monodon_monoceros",
+      "scientificName": "Monodon monoceros",
+      "traitId": "tt_range_temperature__low",
+      "valueNumeric": 261.055956,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Monodon monoceros; original field AnnuMeanTemp=-120.9404387; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "delphinapterus_leucas",
+      "scientificName": "Delphinapterus leucas",
+      "traitId": "tt_range_temperature",
+      "valueNumeric": 264.304202,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Delphinapterus leucas; original field AnnuMeanTemp=-88.4579823; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "delphinapterus_leucas",
+      "scientificName": "Delphinapterus leucas",
+      "traitId": "tt_range_temperature__low",
+      "valueNumeric": 264.304202,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Delphinapterus leucas; original field AnnuMeanTemp=-88.4579823; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "physeter_macrocephalus",
+      "scientificName": "Physeter macrocephalus",
+      "traitId": "tt_range_temperature",
+      "valueNumeric": 291.356222,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Physeter macrocephalus; original field AnnuMeanTemp=182.0622234; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "physeter_macrocephalus",
+      "scientificName": "Physeter macrocephalus",
+      "traitId": "tt_range_temperature__low",
+      "valueNumeric": 291.356222,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Physeter macrocephalus; original field AnnuMeanTemp=182.0622234; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "odobenus_rosmarus",
+      "scientificName": "Odobenus rosmarus",
+      "traitId": "tt_range_temperature",
+      "valueNumeric": 263.503419,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Odobenus rosmarus; original field AnnuMeanTemp=-96.46580644; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "odobenus_rosmarus",
+      "scientificName": "Odobenus rosmarus",
+      "traitId": "tt_range_temperature__low",
+      "valueNumeric": 263.503419,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Odobenus rosmarus; original field AnnuMeanTemp=-96.46580644; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "mirounga_angustirostris",
+      "scientificName": "Mirounga angustirostris",
+      "traitId": "tt_range_temperature",
+      "valueNumeric": 281.170112,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Mirounga angustirostris; original field AnnuMeanTemp=80.20112471; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "mirounga_angustirostris",
+      "scientificName": "Mirounga angustirostris",
+      "traitId": "tt_range_temperature__low",
+      "valueNumeric": 281.170112,
+      "unit": "K",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Mirounga angustirostris; original field AnnuMeanTemp=80.20112471; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "enhydra_lutris",
+      "scientificName": "Enhydra lutris",
+      "traitId": "tt_range_rainfall",
+      "valueNumeric": 1342.706261,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Enhydra lutris; original field AnnuPrecip=1342.706261; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "enhydra_lutris",
+      "scientificName": "Enhydra lutris",
+      "traitId": "tt_range_rainfall__low",
+      "valueNumeric": 1342.706261,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Enhydra lutris; original field AnnuPrecip=1342.706261; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "tursiops_truncatus",
+      "scientificName": "Tursiops truncatus",
+      "traitId": "tt_range_rainfall",
+      "valueNumeric": 1447.840214,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Tursiops truncatus; original field AnnuPrecip=1447.840214; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "tursiops_truncatus",
+      "scientificName": "Tursiops truncatus",
+      "traitId": "tt_range_rainfall__low",
+      "valueNumeric": 1447.840214,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Tursiops truncatus; original field AnnuPrecip=1447.840214; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "orcinus_orca",
+      "scientificName": "Orcinus orca",
+      "traitId": "tt_range_rainfall",
+      "valueNumeric": 1315.557193,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Orcinus orca; original field AnnuPrecip=1315.557193; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "orcinus_orca",
+      "scientificName": "Orcinus orca",
+      "traitId": "tt_range_rainfall__low",
+      "valueNumeric": 1315.557193,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Orcinus orca; original field AnnuPrecip=1315.557193; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "balaenoptera_musculus",
+      "scientificName": "Balaenoptera musculus",
+      "traitId": "tt_range_rainfall",
+      "valueNumeric": 1206.604794,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Balaenoptera musculus; original field AnnuPrecip=1206.604794; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "balaenoptera_musculus",
+      "scientificName": "Balaenoptera musculus",
+      "traitId": "tt_range_rainfall__low",
+      "valueNumeric": 1206.604794,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Balaenoptera musculus; original field AnnuPrecip=1206.604794; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "megaptera_novaeangliae",
+      "scientificName": "Megaptera novaeangliae",
+      "traitId": "tt_range_rainfall",
+      "valueNumeric": 1399.695619,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Megaptera novaeangliae; original field AnnuPrecip=1399.695619; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "megaptera_novaeangliae",
+      "scientificName": "Megaptera novaeangliae",
+      "traitId": "tt_range_rainfall__low",
+      "valueNumeric": 1399.695619,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Megaptera novaeangliae; original field AnnuPrecip=1399.695619; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "phoca_vitulina",
+      "scientificName": "Phoca vitulina",
+      "traitId": "tt_range_rainfall",
+      "valueNumeric": 1062.896094,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Phoca vitulina; original field AnnuPrecip=1062.896094; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "phoca_vitulina",
+      "scientificName": "Phoca vitulina",
+      "traitId": "tt_range_rainfall__low",
+      "valueNumeric": 1062.896094,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Phoca vitulina; original field AnnuPrecip=1062.896094; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "zalophus_californianus",
+      "scientificName": "Zalophus californianus",
+      "traitId": "tt_range_rainfall",
+      "valueNumeric": 1502.063067,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Zalophus californianus; original field AnnuPrecip=1502.063067; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "zalophus_californianus",
+      "scientificName": "Zalophus californianus",
+      "traitId": "tt_range_rainfall__low",
+      "valueNumeric": 1502.063067,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Zalophus californianus; original field AnnuPrecip=1502.063067; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "trichechus_manatus",
+      "scientificName": "Trichechus manatus",
+      "traitId": "tt_range_rainfall",
+      "valueNumeric": 1493.634205,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Trichechus manatus; original field AnnuPrecip=1493.634205; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "trichechus_manatus",
+      "scientificName": "Trichechus manatus",
+      "traitId": "tt_range_rainfall__low",
+      "valueNumeric": 1493.634205,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Trichechus manatus; original field AnnuPrecip=1493.634205; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "dugong_dugon",
+      "scientificName": "Dugong dugon",
+      "traitId": "tt_range_rainfall",
+      "valueNumeric": 2406.002511,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Dugong dugon; original field AnnuPrecip=2406.002511; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "dugong_dugon",
+      "scientificName": "Dugong dugon",
+      "traitId": "tt_range_rainfall__low",
+      "valueNumeric": 2406.002511,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Dugong dugon; original field AnnuPrecip=2406.002511; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "monodon_monoceros",
+      "scientificName": "Monodon monoceros",
+      "traitId": "tt_range_rainfall",
+      "valueNumeric": 298.634461,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Monodon monoceros; original field AnnuPrecip=298.634461; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "monodon_monoceros",
+      "scientificName": "Monodon monoceros",
+      "traitId": "tt_range_rainfall__low",
+      "valueNumeric": 298.634461,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Monodon monoceros; original field AnnuPrecip=298.634461; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "delphinapterus_leucas",
+      "scientificName": "Delphinapterus leucas",
+      "traitId": "tt_range_rainfall",
+      "valueNumeric": 326.503486,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Delphinapterus leucas; original field AnnuPrecip=326.5034857; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "delphinapterus_leucas",
+      "scientificName": "Delphinapterus leucas",
+      "traitId": "tt_range_rainfall__low",
+      "valueNumeric": 326.503486,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Delphinapterus leucas; original field AnnuPrecip=326.5034857; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "physeter_macrocephalus",
+      "scientificName": "Physeter macrocephalus",
+      "traitId": "tt_range_rainfall",
+      "valueNumeric": 1387.693229,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Physeter macrocephalus; original field AnnuPrecip=1387.693229; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "physeter_macrocephalus",
+      "scientificName": "Physeter macrocephalus",
+      "traitId": "tt_range_rainfall__low",
+      "valueNumeric": 1387.693229,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Physeter macrocephalus; original field AnnuPrecip=1387.693229; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "odobenus_rosmarus",
+      "scientificName": "Odobenus rosmarus",
+      "traitId": "tt_range_rainfall",
+      "valueNumeric": 317.25622,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Odobenus rosmarus; original field AnnuPrecip=317.25622; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "odobenus_rosmarus",
+      "scientificName": "Odobenus rosmarus",
+      "traitId": "tt_range_rainfall__low",
+      "valueNumeric": 317.25622,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Odobenus rosmarus; original field AnnuPrecip=317.25622; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "mirounga_angustirostris",
+      "scientificName": "Mirounga angustirostris",
+      "traitId": "tt_range_rainfall",
+      "valueNumeric": 1733.304269,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Mirounga angustirostris; original field AnnuPrecip=1733.304269; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "mirounga_angustirostris",
+      "scientificName": "Mirounga angustirostris",
+      "traitId": "tt_range_rainfall__low",
+      "valueNumeric": 1733.304269,
+      "unit": "mm/year",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Mirounga angustirostris; original field AnnuPrecip=1733.304269; source: CHELSA v1.2. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "enhydra_lutris",
+      "scientificName": "Enhydra lutris",
+      "traitId": "tt_range_elevation",
+      "valueNumeric": 27.647396,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Enhydra lutris; original field Elevation=27.64739647; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "enhydra_lutris",
+      "scientificName": "Enhydra lutris",
+      "traitId": "tt_range_elevation__low",
+      "valueNumeric": 27.647396,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Enhydra lutris; original field Elevation=27.64739647; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "tursiops_truncatus",
+      "scientificName": "Tursiops truncatus",
+      "traitId": "tt_range_elevation",
+      "valueNumeric": 29.238446,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Tursiops truncatus; original field Elevation=29.23844576; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "tursiops_truncatus",
+      "scientificName": "Tursiops truncatus",
+      "traitId": "tt_range_elevation__low",
+      "valueNumeric": 29.238446,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Tursiops truncatus; original field Elevation=29.23844576; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "orcinus_orca",
+      "scientificName": "Orcinus orca",
+      "traitId": "tt_range_elevation",
+      "valueNumeric": 25.496094,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Orcinus orca; original field Elevation=25.49609406; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "orcinus_orca",
+      "scientificName": "Orcinus orca",
+      "traitId": "tt_range_elevation__low",
+      "valueNumeric": 25.496094,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Orcinus orca; original field Elevation=25.49609406; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "balaenoptera_musculus",
+      "scientificName": "Balaenoptera musculus",
+      "traitId": "tt_range_elevation",
+      "valueNumeric": 280.19692,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Balaenoptera musculus; original field Elevation=280.1969196; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "balaenoptera_musculus",
+      "scientificName": "Balaenoptera musculus",
+      "traitId": "tt_range_elevation__low",
+      "valueNumeric": 280.19692,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Balaenoptera musculus; original field Elevation=280.1969196; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "megaptera_novaeangliae",
+      "scientificName": "Megaptera novaeangliae",
+      "traitId": "tt_range_elevation",
+      "valueNumeric": 25.063472,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Megaptera novaeangliae; original field Elevation=25.06347235; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "megaptera_novaeangliae",
+      "scientificName": "Megaptera novaeangliae",
+      "traitId": "tt_range_elevation__low",
+      "valueNumeric": 25.063472,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Megaptera novaeangliae; original field Elevation=25.06347235; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "phoca_vitulina",
+      "scientificName": "Phoca vitulina",
+      "traitId": "tt_range_elevation",
+      "valueNumeric": 61.657961,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Phoca vitulina; original field Elevation=61.65796086; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "phoca_vitulina",
+      "scientificName": "Phoca vitulina",
+      "traitId": "tt_range_elevation__low",
+      "valueNumeric": 61.657961,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Phoca vitulina; original field Elevation=61.65796086; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "zalophus_californianus",
+      "scientificName": "Zalophus californianus",
+      "traitId": "tt_range_elevation",
+      "valueNumeric": 82.694136,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Zalophus californianus; original field Elevation=82.69413642; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "zalophus_californianus",
+      "scientificName": "Zalophus californianus",
+      "traitId": "tt_range_elevation__low",
+      "valueNumeric": 82.694136,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Zalophus californianus; original field Elevation=82.69413642; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "trichechus_manatus",
+      "scientificName": "Trichechus manatus",
+      "traitId": "tt_range_elevation",
+      "valueNumeric": 55.345068,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Trichechus manatus; original field Elevation=55.34506838; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "trichechus_manatus",
+      "scientificName": "Trichechus manatus",
+      "traitId": "tt_range_elevation__low",
+      "valueNumeric": 55.345068,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Trichechus manatus; original field Elevation=55.34506838; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "dugong_dugon",
+      "scientificName": "Dugong dugon",
+      "traitId": "tt_range_elevation",
+      "valueNumeric": 155.963211,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Dugong dugon; original field Elevation=155.963211; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "dugong_dugon",
+      "scientificName": "Dugong dugon",
+      "traitId": "tt_range_elevation__low",
+      "valueNumeric": 155.963211,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Dugong dugon; original field Elevation=155.963211; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "monodon_monoceros",
+      "scientificName": "Monodon monoceros",
+      "traitId": "tt_range_elevation",
+      "valueNumeric": 91.410183,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Monodon monoceros; original field Elevation=91.41018309; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "monodon_monoceros",
+      "scientificName": "Monodon monoceros",
+      "traitId": "tt_range_elevation__low",
+      "valueNumeric": 91.410183,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Monodon monoceros; original field Elevation=91.41018309; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "delphinapterus_leucas",
+      "scientificName": "Delphinapterus leucas",
+      "traitId": "tt_range_elevation",
+      "valueNumeric": 36.848329,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Delphinapterus leucas; original field Elevation=36.8483295; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "delphinapterus_leucas",
+      "scientificName": "Delphinapterus leucas",
+      "traitId": "tt_range_elevation__low",
+      "valueNumeric": 36.848329,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Delphinapterus leucas; original field Elevation=36.8483295; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "physeter_macrocephalus",
+      "scientificName": "Physeter macrocephalus",
+      "traitId": "tt_range_elevation",
+      "valueNumeric": 25.251822,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Physeter macrocephalus; original field Elevation=25.25182187; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "physeter_macrocephalus",
+      "scientificName": "Physeter macrocephalus",
+      "traitId": "tt_range_elevation__low",
+      "valueNumeric": 25.251822,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Physeter macrocephalus; original field Elevation=25.25182187; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "odobenus_rosmarus",
+      "scientificName": "Odobenus rosmarus",
+      "traitId": "tt_range_elevation",
+      "valueNumeric": 56.563986,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Odobenus rosmarus; original field Elevation=56.56398575; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "odobenus_rosmarus",
+      "scientificName": "Odobenus rosmarus",
+      "traitId": "tt_range_elevation__low",
+      "valueNumeric": 56.563986,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Odobenus rosmarus; original field Elevation=56.56398575; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "mirounga_angustirostris",
+      "scientificName": "Mirounga angustirostris",
+      "traitId": "tt_range_elevation",
+      "valueNumeric": 12.954877,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Mirounga angustirostris; original field Elevation=12.95487701; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    },
+    {
+      "file": "data/animalstats/tetrapod-spatial.json",
+      "animalId": "mirounga_angustirostris",
+      "scientificName": "Mirounga angustirostris",
+      "traitId": "tt_range_elevation__low",
+      "valueNumeric": 12.954877,
+      "unit": "m",
+      "confidence": "review",
+      "notes": "TetrapodTraits 2.0.1; exact species Mirounga angustirostris; original field Elevation=12.95487701; source: EarthEnv topographic layers. Cite Moura et al. 2024, PLOS Biology, doi:10.1371/journal.pbio.3002658 and Pyron et al. 2025, doi:10.21203/rs.3.rs-7556378/v1. Aquatic habitat interpretation hold: terrestrial CHELSA/EarthEnv range averages are not verified ocean climate or aquatic habitat elevation."
+    }
+  ]
+}

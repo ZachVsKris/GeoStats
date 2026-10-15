@@ -19,6 +19,7 @@ for tid,hi,lo,field,unit,key,kind,family,basis in metrics:
  for animal in base['animals']:
   row=rows.get(animal['scientificName'])
   if not row or '_' in row['Scientific.Name'] or not animal['active'] or animal.get('entityType')=='breed' or row['AssessedStatus'] in ['EX','EW']:continue
+  if animal['taxonomicGroup']=='marine-mammal' and field in ['AnnuMeanTemp','AnnuPrecip','Elevation']:held['aquatic habitat interpretation']+=1;continue
   if field=='MajorHabitatSum' and row['ImputedMajorHabitat']!='0':held['imputed habitat']+=1;continue
   try:value=risk[row[field]] if field=='AssessedStatus' else float(row[field])
   except (KeyError,ValueError):continue

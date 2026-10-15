@@ -1,0 +1,31 @@
+{
+  "primaryReviewUrl": "https://journals.biologists.com/jeb/article/221/18/jeb180117/19448/Terrestrial-locomotion-of-the-northern-elephant",
+  "originalStudyDoi": "10.1111/mms.12170",
+  "followUpDoi": "10.1242/jeb.180117",
+  "decision": "hold pending original absolute-scale conversion review",
+  "reason": "HOLD: author follow-up (Tennett et al. 2018, DOI 10.1242/jeb.180117) reports that wild harbor/gray seal kinematics in Garrett and Fish lacked an absolute scale and used relative measures. The compilation conversion to absolute km/h must be independently established before admission. https://journals.biologists.com/jeb/article/221/18/jeb180117/19448/Terrestrial-locomotion-of-the-northern-elephant",
+  "heldValues": [
+    {
+      "animalId": "halichoerus_grypus",
+      "traitId": "field_travel_speed",
+      "releasedValueKmH": 6.1999999992
+    },
+    {
+      "animalId": "halichoerus_grypus",
+      "traitId": "field_travel_speed__low",
+      "releasedValueKmH": 6.1999999992
+    },
+    {
+      "animalId": "phoca_vitulina",
+      "traitId": "field_travel_speed",
+      "releasedValueKmH": 6.0000000012
+    },
+    {
+      "animalId": "phoca_vitulina",
+      "traitId": "field_travel_speed__low",
+      "releasedValueKmH": 6.0000000012
+    }
+  ],
+  "existingBoardRemovalExpected": false,
+  "scope": "Land-travel entries only; swimming entries and other taxa are not withdrawn by this review."
+}

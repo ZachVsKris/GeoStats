@@ -2,7 +2,7 @@ import fs from "node:fs";
 import {spawnSync} from "node:child_process";
 // Candidate boards are derived artifacts. Rebuild their admission after a source
 // hold rather than publishing challenges that still depend on withdrawn facts.
-for (const script of [["scripts/audit-animalstats-expansion-release.mjs","--write"],["scripts/audit-animalstats-board-mix.mjs"],["scripts/test-animalstats-marine-depth-review.mjs"]]) {
+for (const script of [["scripts/audit-animalstats-expansion-release.mjs","--write"],["scripts/audit-animalstats-board-mix.mjs"],["scripts/test-animalstats-marine-depth-review.mjs"],["scripts/test-animalstats-movement-review.mjs"]]) {
   const result=spawnSync(process.execPath,script,{stdio:"inherit"});
   if(result.status!==0)process.exit(result.status??1);
 }

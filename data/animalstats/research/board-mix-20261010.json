@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-10-14",
-  "defaultBoards": 59009,
+  "generatedAt": "2026-10-15",
+  "defaultBoards": 59451,
   "livingCatalogAnimals": 868,
   "livingRoundAnimals": 259,
-  "candidateBoards": 59009,
-  "playableLabels": 198,
-  "playableTraitIds": 256,
+  "candidateBoards": 59451,
+  "playableLabels": 202,
+  "playableTraitIds": 260,
   "counts": {
     "mammals": {
       "easy": 2343,
@@ -26,10 +26,10 @@
       "total": 886
     },
     "birds": {
-      "easy": 330,
-      "normal": 480,
+      "easy": 632,
+      "normal": 617,
       "expert": 9950,
-      "total": 10760
+      "total": 11199
     },
     "reptiles": {
       "easy": 2338,
@@ -50,10 +50,10 @@
       "total": 1830
     },
     "insects": {
-      "easy": 90,
+      "easy": 93,
       "normal": 0,
       "expert": 0,
-      "total": 90
+      "total": 93
     },
     "invertebrates": {
       "easy": 146,

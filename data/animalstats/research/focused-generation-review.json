@@ -1,0 +1,194 @@
+{
+  "policy": "intuitive-majority-distinct-winners-v6",
+  "notes": [
+    "No publication cap or per-lineup variant cap. Runtime budget is resumable and does not determine eligibility.",
+    "At least 3% between every adjacent numeric rank; exact ties remain blocked. Uncertainty overlap, source compatibility, unique winners and at least half intuitive remain required.",
+    "Each sampled lineup contributes one new board per pass to prioritize animal diversity; later passes can add further variants.",
+    "Uses only animals already present in living rounds; no new artwork approvals or measurement admissions. No eligibility rules changed."
+  ],
+  "groups": [
+    {
+      "group": "birds",
+      "mode": "easy",
+      "portraitAnimals": 38,
+      "animalsWithEnoughMetrics": 38,
+      "attempts": 2947,
+      "added": 302,
+      "rejections": {
+        "no familiar anchor": 248,
+        "category winners compete for same animal": 39580,
+        "traits have nearly identical or reversed rankings": 1281,
+        "sampled lineup already explored": 369,
+        "not enough compatible distinct metrics": 8
+      }
+    },
+    {
+      "group": "birds",
+      "mode": "normal",
+      "portraitAnimals": 38,
+      "animalsWithEnoughMetrics": 38,
+      "attempts": 12628,
+      "added": 137,
+      "rejections": {
+        "no familiar anchor": 2185,
+        "not enough compatible distinct metrics": 1708,
+        "category winners compete for same animal": 1830,
+        "sampled lineup already explored": 841,
+        "traits have nearly identical or reversed rankings": 22,
+        "too few animals compete across traits": 6
+      }
+    },
+    {
+      "group": "birds",
+      "mode": "expert",
+      "portraitAnimals": 38,
+      "animalsWithEnoughMetrics": 38,
+      "attempts": 19206,
+      "added": 0,
+      "rejections": {
+        "not enough compatible distinct metrics": 17259,
+        "no familiar anchor": 1076,
+        "sampled lineup already explored": 472
+      }
+    },
+    {
+      "group": "insects",
+      "mode": "easy",
+      "portraitAnimals": 20,
+      "animalsWithEnoughMetrics": 20,
+      "attempts": 6645082,
+      "added": 2,
+      "rejections": {
+        "category winners compete for same animal": 81,
+        "only one mapped-range prize per board": 5,
+        "traits have nearly identical or reversed rankings": 2,
+        "sampled lineup already explored": 6640237,
+        "not enough compatible distinct metrics": 4691,
+        "no familiar anchor": 70
+      }
+    },
+    {
+      "group": "insects",
+      "mode": "normal",
+      "portraitAnimals": 20,
+      "animalsWithEnoughMetrics": 20,
+      "attempts": 0,
+      "added": 0,
+      "rejections": {
+        "no shared trait pool": 1
+      }
+    },
+    {
+      "group": "insects",
+      "mode": "expert",
+      "portraitAnimals": 20,
+      "animalsWithEnoughMetrics": 0,
+      "attempts": 0,
+      "added": 0,
+      "rejections": {
+        "not enough illustrated animals with 6 distinct metrics": 1
+      }
+    },
+    {
+      "group": "dogs",
+      "mode": "easy",
+      "portraitAnimals": 25,
+      "animalsWithEnoughMetrics": 25,
+      "attempts": 461596,
+      "added": 0,
+      "rejections": {
+        "not enough compatible distinct metrics": 4662,
+        "no familiar anchor": 2380,
+        "sampled lineup already explored": 448947
+      }
+    },
+    {
+      "group": "dogs",
+      "mode": "normal",
+      "portraitAnimals": 25,
+      "animalsWithEnoughMetrics": 25,
+      "attempts": 91368,
+      "added": 0,
+      "rejections": {
+        "not enough compatible distinct metrics": 27646,
+        "no familiar anchor": 16832,
+        "sampled lineup already explored": 41355
+      }
+    },
+    {
+      "group": "dogs",
+      "mode": "expert",
+      "portraitAnimals": 25,
+      "animalsWithEnoughMetrics": 24,
+      "attempts": 54212,
+      "added": 0,
+      "rejections": {
+        "not enough compatible distinct metrics": 30750,
+        "no familiar anchor": 5227,
+        "sampled lineup already explored": 18178
+      }
+    },
+    {
+      "group": "invertebrates",
+      "mode": "easy",
+      "portraitAnimals": 36,
+      "animalsWithEnoughMetrics": 36,
+      "attempts": 2775907,
+      "added": 1,
+      "rejections": {
+        "category winners compete for same animal": 110,
+        "only one mapped-range prize per board": 6,
+        "traits have nearly identical or reversed rankings": 3,
+        "not enough compatible distinct metrics": 52668,
+        "sampled lineup already explored": 2717002,
+        "no familiar anchor": 5985
+      }
+    },
+    {
+      "group": "invertebrates",
+      "mode": "normal",
+      "portraitAnimals": 36,
+      "animalsWithEnoughMetrics": 36,
+      "attempts": 0,
+      "added": 0,
+      "rejections": {
+        "no shared trait pool": 1
+      }
+    },
+    {
+      "group": "invertebrates",
+      "mode": "expert",
+      "portraitAnimals": 36,
+      "animalsWithEnoughMetrics": 1,
+      "attempts": 0,
+      "added": 0,
+      "rejections": {
+        "not enough illustrated animals with 6 distinct metrics": 1
+      }
+    }
+  ],
+  "totalBoards": 43713,
+  "focusTraitIds": [
+    "pet_dog_lifespan",
+    "pet_dog_lifespan__low",
+    "pet_dog_akc_drooling_level",
+    "pet_dog_akc_drooling_level__low",
+    "field_flight_speed",
+    "field_flight_speed__low",
+    "pet_cat_litter_2022",
+    "pet_cat_litter_2022__low",
+    "crab_cited_shell_width",
+    "crab_cited_shell_width__low",
+    "ladybird_diet",
+    "ladybird_habitats__low",
+    "ladybird_sightings__low",
+    "ladybird_spread"
+  ],
+  "addedBoards": 442,
+  "newlyPlayableTraitIds": [
+    "field_flight_speed",
+    "field_flight_speed__low",
+    "ladybird_sightings__low",
+    "ladybird_spread"
+  ]
+}

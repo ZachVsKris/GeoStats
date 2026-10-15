@@ -1,7 +1,7 @@
 {
   "updatedAt": "2026-10-14",
   "publishedBaseline": {
-    "commit": "9bf7ac6366c8f4c652b8bcc363068090679804ff",
+    "commit": "3bdb9b3ecabf04a0e6e150def12ba4128421f726",
     "playableLabels": 198,
     "validBoards": 59009,
     "livingCatalogAnimals": 868,
@@ -13,7 +13,7 @@
       "id": 1,
       "task": "Expand useful categories",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "198 playable labels; 200 minimum and 500 aspiration remain unmet."
+      "evidenceAndRemainingWork": "202 labels in the candidate release; the 200 minimum is met locally, but the 500 aspiration and broad mammal/sea-life expansion remain unfinished."
     },
     {
       "id": 2,
@@ -79,7 +79,7 @@
       "id": 12,
       "task": "Finish source-by-source accuracy audit",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Automated validation is not biological verification. Longevity and marine depth holds remain enforced."
+      "evidenceAndRemainingWork": "Two seal land-travel comparisons (four directional values) now held pending original scale-conversion review; the source-by-source biological audit remains unfinished."
     },
     {
       "id": 13,
@@ -103,19 +103,19 @@
       "id": 16,
       "task": "Finish animal artwork",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Every playable species needs distinguishing-feature and connected-anatomy review. No automatic approval from a renderer fallback."
+      "evidenceAndRemainingWork": "Cephalopod anatomy code exists but manual species recognition review remains pending. Broad cartoon audit incomplete."
     },
     {
       "id": 17,
       "task": "Finish Static-image consistency",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Five species-matched extinct skeleton photos added in working draft; 67 replacements remain. Gameplay portraits and scale-reference crops require manual review."
+      "evidenceAndRemainingWork": "Three living identification portraits exist. Eight extinct Static skeleton assets reviewed; 64 placeholders and broader framing work remain."
     },
     {
       "id": 18,
       "task": "Complete GeoStats formatting parity",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Shared results components exist; comprehensive side-by-side parity audit unfinished."
+      "evidenceAndRemainingWork": "Shared GeoStats results components retained. Ranking performance and source retry fixes pass local checks; exact full parity and live checks remain unfinished."
     },
     {
       "id": 19,
@@ -148,5 +148,28 @@
       "evidenceAndRemainingWork": "Countries/Animals/Things architecture, link preservation and score continuity need a concrete migration plan."
     }
   ],
-  "newVisualRequirement": "Keep images during play where possible, with reviewed identification portraits that conceal directly measured anatomy; full-body images after submission. Do not distort features or reduce board counts without review."
+  "newVisualRequirement": "Keep images during play where possible, with reviewed identification portraits that conceal directly measured anatomy; full-body images after submission. Do not distort features or reduce board counts without review.",
+  "candidateRelease": {
+    "playableLabels": 202,
+    "validBoards": 59451,
+    "livingCatalogAnimals": 868,
+    "livingRoundAnimals": 259,
+    "newlyPlayableTraitIds": [
+      "field_flight_speed",
+      "field_flight_speed__low",
+      "ladybird_sightings__low",
+      "ladybird_spread"
+    ],
+    "newBoards": 442,
+    "reviewedExtinctStaticPhotographs": 8,
+    "remainingExtinctStaticPlaceholders": 64,
+    "status": "local checks passed; publication and live verification pending"
+  },
+  "latestWork": [
+    "Full data/source view: retry after fetch failure and explicit saved-record metadata in CSV.",
+    "Ranking and catalog indexes avoid repeated full scans; catalog tie ranks preserved.",
+    "Three more exact-species extinct Static skeleton photographs reviewed.",
+    "Targeted generation made four vetted directions playable without relaxing composition, source, uncertainty or rank-gap rules.",
+    "Four land-travel values held pending absolute-scale conversion review; no existing playable boards removed."
+  ]
 }

@@ -15452,11 +15452,12 @@
       "measurementBasis": "Median of empirical field-study mean running travel speeds in Dyer et al. 2023. Only direct observation or telemetry, no lab trials, medians, or predicted speeds. Study sex and life stage are not standardized; full included study-mean envelope checked. Travel is not a maximum sprint, burst, or lifetime-distance record.",
       "sourceId": "travel-speed-2023",
       "observationType": "compiled",
-      "confidence": "approved",
-      "notes": "Empirical source row: Halichoerus grypus, 1.722222222 m/s; field direct_obs; reference 524: Garrett JN, Fish FE. Kinematics of terrestrial locomotion in harbor seals and gray seals: Importance of spinal flexion by amphibious phocids. Marine Mammal Science. 2014;31:459–478. ; DOI 10.1111/mms.12170. Study means summarized by their median. No fitted speed or body-mass prediction is used.",
+      "confidence": "review",
+      "notes": "Empirical source row: Halichoerus grypus, 1.722222222 m/s; field direct_obs; reference 524: Garrett JN, Fish FE. Kinematics of terrestrial locomotion in harbor seals and gray seals: Importance of spinal flexion by amphibious phocids. Marine Mammal Science. 2014;31:459–478. ; DOI 10.1111/mms.12170. Study means summarized by their median. No fitted speed or body-mass prediction is used. HOLD: author follow-up (Tennett et al. 2018, DOI 10.1242/jeb.180117) reports that wild harbor/gray seal kinematics in Garrett and Fish lacked an absolute scale and used relative measures. The compilation conversion to absolute km/h must be independently established before admission. https://journals.biologists.com/jeb/article/221/18/jeb180117/19448/Terrestrial-locomotion-of-the-northern-elephant",
       "recordOrigin": "wild",
       "uncertaintyStatus": "not-reported",
-      "uncertaintyKind": "not-reported"
+      "uncertaintyKind": "not-reported",
+      "sourceQuality": "absolute-scale-conversion-unresolved"
     },
     {
       "animalId": "halichoerus_grypus",
@@ -15468,11 +15469,12 @@
       "measurementBasis": "Median of empirical field-study mean running travel speeds in Dyer et al. 2023. Only direct observation or telemetry, no lab trials, medians, or predicted speeds. Study sex and life stage are not standardized; full included study-mean envelope checked. Travel is not a maximum sprint, burst, or lifetime-distance record.",
       "sourceId": "travel-speed-2023",
       "observationType": "compiled",
-      "confidence": "approved",
-      "notes": "Empirical source row: Halichoerus grypus, 1.722222222 m/s; field direct_obs; reference 524: Garrett JN, Fish FE. Kinematics of terrestrial locomotion in harbor seals and gray seals: Importance of spinal flexion by amphibious phocids. Marine Mammal Science. 2014;31:459–478. ; DOI 10.1111/mms.12170. Study means summarized by their median. No fitted speed or body-mass prediction is used.",
+      "confidence": "review",
+      "notes": "Empirical source row: Halichoerus grypus, 1.722222222 m/s; field direct_obs; reference 524: Garrett JN, Fish FE. Kinematics of terrestrial locomotion in harbor seals and gray seals: Importance of spinal flexion by amphibious phocids. Marine Mammal Science. 2014;31:459–478. ; DOI 10.1111/mms.12170. Study means summarized by their median. No fitted speed or body-mass prediction is used. HOLD: author follow-up (Tennett et al. 2018, DOI 10.1242/jeb.180117) reports that wild harbor/gray seal kinematics in Garrett and Fish lacked an absolute scale and used relative measures. The compilation conversion to absolute km/h must be independently established before admission. https://journals.biologists.com/jeb/article/221/18/jeb180117/19448/Terrestrial-locomotion-of-the-northern-elephant",
       "recordOrigin": "wild",
       "uncertaintyStatus": "not-reported",
-      "uncertaintyKind": "not-reported"
+      "uncertaintyKind": "not-reported",
+      "sourceQuality": "absolute-scale-conversion-unresolved"
     },
     {
       "animalId": "phoca_vitulina",
@@ -15484,11 +15486,12 @@
       "measurementBasis": "Median of empirical field-study mean running travel speeds in Dyer et al. 2023. Only direct observation or telemetry, no lab trials, medians, or predicted speeds. Study sex and life stage are not standardized; full included study-mean envelope checked. Travel is not a maximum sprint, burst, or lifetime-distance record.",
       "sourceId": "travel-speed-2023",
       "observationType": "compiled",
-      "confidence": "approved",
-      "notes": "Empirical source row: Phoca vitulina, 1.666666667 m/s; field direct_obs; reference 524: Garrett JN, Fish FE. Kinematics of terrestrial locomotion in harbor seals and gray seals: Importance of spinal flexion by amphibious phocids. Marine Mammal Science. 2014;31:459–478. ; DOI 10.1111/mms.12170. Study means summarized by their median. No fitted speed or body-mass prediction is used.",
+      "confidence": "review",
+      "notes": "Empirical source row: Phoca vitulina, 1.666666667 m/s; field direct_obs; reference 524: Garrett JN, Fish FE. Kinematics of terrestrial locomotion in harbor seals and gray seals: Importance of spinal flexion by amphibious phocids. Marine Mammal Science. 2014;31:459–478. ; DOI 10.1111/mms.12170. Study means summarized by their median. No fitted speed or body-mass prediction is used. HOLD: author follow-up (Tennett et al. 2018, DOI 10.1242/jeb.180117) reports that wild harbor/gray seal kinematics in Garrett and Fish lacked an absolute scale and used relative measures. The compilation conversion to absolute km/h must be independently established before admission. https://journals.biologists.com/jeb/article/221/18/jeb180117/19448/Terrestrial-locomotion-of-the-northern-elephant",
       "recordOrigin": "wild",
       "uncertaintyStatus": "not-reported",
-      "uncertaintyKind": "not-reported"
+      "uncertaintyKind": "not-reported",
+      "sourceQuality": "absolute-scale-conversion-unresolved"
     },
     {
       "animalId": "phoca_vitulina",
@@ -15500,11 +15503,12 @@
       "measurementBasis": "Median of empirical field-study mean running travel speeds in Dyer et al. 2023. Only direct observation or telemetry, no lab trials, medians, or predicted speeds. Study sex and life stage are not standardized; full included study-mean envelope checked. Travel is not a maximum sprint, burst, or lifetime-distance record.",
       "sourceId": "travel-speed-2023",
       "observationType": "compiled",
-      "confidence": "approved",
-      "notes": "Empirical source row: Phoca vitulina, 1.666666667 m/s; field direct_obs; reference 524: Garrett JN, Fish FE. Kinematics of terrestrial locomotion in harbor seals and gray seals: Importance of spinal flexion by amphibious phocids. Marine Mammal Science. 2014;31:459–478. ; DOI 10.1111/mms.12170. Study means summarized by their median. No fitted speed or body-mass prediction is used.",
+      "confidence": "review",
+      "notes": "Empirical source row: Phoca vitulina, 1.666666667 m/s; field direct_obs; reference 524: Garrett JN, Fish FE. Kinematics of terrestrial locomotion in harbor seals and gray seals: Importance of spinal flexion by amphibious phocids. Marine Mammal Science. 2014;31:459–478. ; DOI 10.1111/mms.12170. Study means summarized by their median. No fitted speed or body-mass prediction is used. HOLD: author follow-up (Tennett et al. 2018, DOI 10.1242/jeb.180117) reports that wild harbor/gray seal kinematics in Garrett and Fish lacked an absolute scale and used relative measures. The compilation conversion to absolute km/h must be independently established before admission. https://journals.biologists.com/jeb/article/221/18/jeb180117/19448/Terrestrial-locomotion-of-the-northern-elephant",
       "recordOrigin": "wild",
       "uncertaintyStatus": "not-reported",
-      "uncertaintyKind": "not-reported"
+      "uncertaintyKind": "not-reported",
+      "sourceQuality": "absolute-scale-conversion-unresolved"
     },
     {
       "animalId": "dipodomys_deserti",

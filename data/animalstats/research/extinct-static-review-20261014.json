@@ -79,8 +79,63 @@
       "originalAssetSha256": "1211f46b9dff127dc29fbaf4cfa4f2011673eea5b7262ddb9061151a7a37f0fb",
       "displaySourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ab/Megatherium_americanum_complete.JPG/960px-Megatherium_americanum_complete.JPG",
       "assetPresentation": "Source-provided resized photograph; no anatomy alteration."
+    },
+    {
+      "animalId": "fossil_mammal_mammut_americanum",
+      "scientificName": "Mammut americanum",
+      "imageKind": "mounted-skeleton",
+      "specimen": "AMNH 9951, American Museum of Natural History",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mastodon_AMNH_9951.jpg",
+      "license": "CC BY 4.0",
+      "reviewedAt": "2026-10-14",
+      "sourceIdentityChecked": true,
+      "visuallyReviewed": true,
+      "gameplayCropReviewed": false,
+      "remainingConcern": "Museum scenery and full-body anatomy remain visible; identification crop review still needed.",
+      "assetSha256": "d14fef1b726539b7bd64bd776afec1693e606fdcf11835b63a709e03abe85536",
+      "displaySourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Mastodon_AMNH_9951.jpg/960px-Mastodon_AMNH_9951.jpg",
+      "assetPresentation": "Source-provided resized photograph; no anatomy alteration."
+    },
+    {
+      "animalId": "fossil_mammal_coelodonta_antiquitatis",
+      "scientificName": "Coelodonta antiquitatis",
+      "imageKind": "mounted-skeleton",
+      "specimen": "Museum mounted skeleton; source identifies Coelodonta antiquitatis",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Skeleton_of_Coelodonta_antiquitatis.jpg",
+      "license": "CC BY-SA 2.5",
+      "reviewedAt": "2026-10-14",
+      "sourceIdentityChecked": true,
+      "visuallyReviewed": true,
+      "gameplayCropReviewed": false,
+      "remainingConcern": "Museum scenery and full-body anatomy remain visible; identification crop review still needed.",
+      "assetSha256": "05557cb03da44da1d12af232f98d6c278da500033155aa28fce36592dcc3251a",
+      "displaySourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Skeleton_of_Coelodonta_antiquitatis.jpg/960px-Skeleton_of_Coelodonta_antiquitatis.jpg",
+      "assetPresentation": "Source-provided resized photograph; no anatomy alteration."
+    },
+    {
+      "animalId": "fossil_mammal_thylacoleo_carnifex",
+      "scientificName": "Thylacoleo carnifex",
+      "imageKind": "mounted-skeleton",
+      "specimen": "Victoria Fossil Cave, Naracoorte Caves National Park",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Thylacoleo_skeleton_in_Naracoorte_Caves_(cropped).jpg",
+      "license": "Public domain",
+      "reviewedAt": "2026-10-14",
+      "sourceIdentityChecked": true,
+      "visuallyReviewed": true,
+      "gameplayCropReviewed": false,
+      "remainingConcern": "Museum scenery and full-body anatomy remain visible; identification crop review still needed.",
+      "assetSha256": "228af8cb33deb8bd3fedf9248b2d371ab757e8cee4cc7fb03aed7eb5120338a8",
+      "displaySourceUrl": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/27/Thylacoleo_skeleton_in_Naracoorte_Caves_%28cropped%29.jpg/960px-Thylacoleo_skeleton_in_Naracoorte_Caves_%28cropped%29.jpg",
+      "assetPresentation": "Source-provided resized photograph; no anatomy alteration."
     }
   ],
-  "remainingStaticAssets": 67,
-  "notComplete": true
+  "remainingStaticAssets": 64,
+  "notComplete": true,
+  "heldCandidates": [
+    {
+      "scientificName": "Diprotodon optatum",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Diprotodon_optatum_skeleton_2.jpg",
+      "reason": "Specimen caption says D. australis. Resolve synonym and specimen identity before assigning to D. optatum."
+    }
+  ]
 }

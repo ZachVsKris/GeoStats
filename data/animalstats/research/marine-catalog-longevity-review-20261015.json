@@ -1,0 +1,582 @@
+{
+  "source": "marineSpeciesTraits, Figshare 27620676 v3 (2025-02-02)",
+  "sourceSha256": "864992b24c6ec0f4de7f0b9330867119b510634d08e0c29989247fa78560e6cd",
+  "sourceUrl": "https://doi.org/10.6084/m9.figshare.27620676.v3",
+  "license": "CC BY 4.0; Assis and Fragkopoulou; underlying source attribution required",
+  "method": "Exact unmodified catalog scientific names, accepted Animalia species only. No synonym transfers, inferred lifespans or game-data mutations.",
+  "catalogTargets": 244,
+  "candidateSpecies": 37,
+  "candidateRows": 37,
+  "rowsWithReference": 36,
+  "newPlayableLabels": 0,
+  "newAdmittedValues": 0,
+  "candidates": [
+    {
+      "animalId": "callinectes_danae",
+      "scientificName": "Callinectes danae",
+      "commonName": "Dana swimcrab",
+      "group": "crustacean",
+      "aphiaId": "107378",
+      "sourceCells": {
+        "LongevityWild": 2.5,
+        "LongevityWildRef": "85497"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "callinectes_ornatus",
+      "scientificName": "Callinectes ornatus",
+      "commonName": "Shelling crab",
+      "group": "crustacean",
+      "aphiaId": "158053",
+      "sourceCells": {
+        "LongevityWild": 2.4000000953674316,
+        "LongevityWildRef": "85497"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "callinectes_sapidus",
+      "scientificName": "Callinectes sapidus",
+      "commonName": "Blue crab",
+      "group": "crustacean",
+      "aphiaId": "107379",
+      "sourceCells": {
+        "LongevityWild": 3.0,
+        "LongevityWildRef": "105839"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "carcinus_maenas",
+      "scientificName": "Carcinus maenas",
+      "commonName": "European green crab",
+      "group": "crustacean",
+      "aphiaId": "107381",
+      "sourceCells": {
+        "LongevityWild": 7.0,
+        "LongevityWildRef": "128193"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "chionoecetes_bairdi",
+      "scientificName": "Chionoecetes bairdi",
+      "commonName": "Tanner crab",
+      "group": "crustacean",
+      "aphiaId": "368558",
+      "sourceCells": {
+        "LongevityWild": 12.0,
+        "LongevityWildRef": "101937"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "clinocardium_nuttallii",
+      "scientificName": "Clinocardium nuttallii",
+      "commonName": "Nuttall cockle",
+      "group": "bivalve",
+      "aphiaId": "381980",
+      "sourceCells": {
+        "LongevityWild": 18.0,
+        "LongevityWildRef": "8702"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "crassostrea_virginica",
+      "scientificName": "Crassostrea virginica",
+      "commonName": "Eastern oyster",
+      "group": "bivalve",
+      "aphiaId": "140657",
+      "sourceCells": {
+        "LongevityWild": 2.0,
+        "LongevityWildRef": "2823"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "gemma_gemma",
+      "scientificName": "Gemma gemma",
+      "commonName": "Amethyst gemclam",
+      "group": "bivalve",
+      "aphiaId": "156803",
+      "sourceCells": {
+        "LongevityWild": 4.0,
+        "LongevityWildRef": "8702"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "homarus_gammarus",
+      "scientificName": "Homarus gammarus",
+      "commonName": "European lobster",
+      "group": "crustacean",
+      "aphiaId": "107253",
+      "sourceCells": {
+        "LongevityWild": 72.0,
+        "LongevityWildRef": "81081"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "limulus_polyphemus",
+      "scientificName": "Limulus polyphemus",
+      "commonName": "Atlantic horseshoe crab",
+      "group": "chelicerate",
+      "aphiaId": "150514",
+      "sourceCells": {
+        "LongevityWild": 20.0,
+        "LongevityWildRef": "99652"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "littorina_littorea",
+      "scientificName": "Littorina littorea",
+      "commonName": "Common periwinkle",
+      "group": "gastropod",
+      "aphiaId": "140262",
+      "sourceCells": {
+        "LongevityWild": 5.0,
+        "LongevityWildRef": "2823"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "macoma_balthica",
+      "scientificName": "Macoma balthica",
+      "commonName": "Baltic macoma",
+      "group": "bivalve",
+      "aphiaId": "141579",
+      "sourceCells": {
+        "LongevityWild": 10.0,
+        "LongevityWildRef": "2823"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient.",
+        "Duplicate accepted species rows; reconcile taxonomic identity before admission."
+      ]
+    },
+    {
+      "animalId": "mactromeris_polynyma",
+      "scientificName": "Mactromeris polynyma",
+      "commonName": "Arctic surfclam",
+      "group": "bivalve",
+      "aphiaId": "156863",
+      "sourceCells": {
+        "LongevityWild": 73.0,
+        "LongevityWildRef": "127352"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "mercenaria_mercenaria",
+      "scientificName": "Mercenaria mercenaria",
+      "commonName": "Hard clam",
+      "group": "bivalve",
+      "aphiaId": "141919",
+      "sourceCells": {
+        "LongevityWild": 9.0,
+        "LongevityWildRef": "2823"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "metacarcinus_magister",
+      "scientificName": "Metacarcinus magister",
+      "commonName": "Dungeness crab",
+      "group": "crustacean",
+      "aphiaId": "440388",
+      "sourceCells": {
+        "LongevityWild": 10.0,
+        "LongevityWildRef": "104779"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "metapenaeus_macleayi",
+      "scientificName": "Metapenaeus macleayi",
+      "commonName": "Eastern school shrimp",
+      "group": "crustacean",
+      "aphiaId": "377541",
+      "sourceCells": {
+        "LongevityWild": 1.5,
+        "LongevityWildRef": "126834"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "metapenaeus_monoceros",
+      "scientificName": "Metapenaeus monoceros",
+      "commonName": "Speckled shrimp",
+      "group": "crustacean",
+      "aphiaId": "107107",
+      "sourceCells": {
+        "LongevityWild": 2.5,
+        "LongevityWildRef": "104940"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "mya_arenaria",
+      "scientificName": "Mya arenaria",
+      "commonName": "Softshell",
+      "group": "bivalve",
+      "aphiaId": "140430",
+      "sourceCells": {
+        "LongevityWild": 8.0,
+        "LongevityWildRef": "2823"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "palinurus_elephas",
+      "scientificName": "Palinurus elephas",
+      "commonName": "Common spiny lobster",
+      "group": "crustacean",
+      "aphiaId": "107703",
+      "sourceCells": {
+        "LongevityWild": 15.0,
+        "LongevityWildRef": "85318"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "palinurus_mauritanicus",
+      "scientificName": "Palinurus mauritanicus",
+      "commonName": "Pink spiny lobster",
+      "group": "crustacean",
+      "aphiaId": "107704",
+      "sourceCells": {
+        "LongevityWild": 21.0,
+        "LongevityWildRef": "76525"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "pandalus_jordani",
+      "scientificName": "Pandalus jordani",
+      "commonName": "Ocean shrimp",
+      "group": "crustacean",
+      "aphiaId": "515469",
+      "sourceCells": {
+        "LongevityWild": 4.0,
+        "LongevityWildRef": null
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient.",
+        "Original longevity reference is missing."
+      ]
+    },
+    {
+      "animalId": "pandalus_montagui",
+      "scientificName": "Pandalus montagui",
+      "commonName": "Aesop shrimp",
+      "group": "crustacean",
+      "aphiaId": "107651",
+      "sourceCells": {
+        "LongevityWild": 4.0,
+        "LongevityWildRef": "106917"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "pandalus_platyceros",
+      "scientificName": "Pandalus platyceros",
+      "commonName": "Spot shrimp",
+      "group": "crustacean",
+      "aphiaId": "423632",
+      "sourceCells": {
+        "LongevityWild": 6.0,
+        "LongevityWildRef": "104007"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "panopea_generosa",
+      "scientificName": "Panopea generosa",
+      "commonName": "Pacific geoduck",
+      "group": "bivalve",
+      "aphiaId": "545994",
+      "sourceCells": {
+        "LongevityWild": 100.0,
+        "LongevityWildRef": "8702"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "panulirus_argus",
+      "scientificName": "Panulirus argus",
+      "commonName": "Caribbean spiny lobster",
+      "group": "crustacean",
+      "aphiaId": "382891",
+      "sourceCells": {
+        "LongevityWild": 15.0,
+        "LongevityWildRef": "129472"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "patinopecten_caurinus",
+      "scientificName": "Patinopecten caurinus",
+      "commonName": "Weathervane scallop",
+      "group": "bivalve",
+      "aphiaId": "393720",
+      "sourceCells": {
+        "LongevityWild": 15.0,
+        "LongevityWildRef": "8702"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "penaeus_duorarum",
+      "scientificName": "Penaeus duorarum",
+      "commonName": "Pink shrimp",
+      "group": "crustacean",
+      "aphiaId": "246391",
+      "sourceCells": {
+        "LongevityWild": 2.0,
+        "LongevityWildRef": "108798"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "penaeus_setiferus",
+      "scientificName": "Penaeus setiferus",
+      "commonName": "Northern white shrimp",
+      "group": "crustacean",
+      "aphiaId": "762818",
+      "sourceCells": {
+        "LongevityWild": 2.0,
+        "LongevityWildRef": "109223"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "pinctada_margaritifera",
+      "scientificName": "Pinctada margaritifera",
+      "commonName": "Pacific pearl-oyster",
+      "group": "bivalve",
+      "aphiaId": "207899",
+      "sourceCells": {
+        "LongevityWild": 15.0,
+        "LongevityWildRef": "129284"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "placopecten_magellanicus",
+      "scientificName": "Placopecten magellanicus",
+      "commonName": "Atlantic sea scallop",
+      "group": "bivalve",
+      "aphiaId": "156972",
+      "sourceCells": {
+        "LongevityWild": 12.0,
+        "LongevityWildRef": "8702"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "portunus_armatus",
+      "scientificName": "Portunus armatus",
+      "commonName": "Blue swimmer crab",
+      "group": "crustacean",
+      "aphiaId": "1061743",
+      "sourceCells": {
+        "LongevityWild": 3.0,
+        "LongevityWildRef": "128184"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "portunus_sanguinolentus",
+      "scientificName": "Portunus sanguinolentus",
+      "commonName": "Threespot swimming crab",
+      "group": "crustacean",
+      "aphiaId": "1061758",
+      "sourceCells": {
+        "LongevityWild": 3.0,
+        "LongevityWildRef": "128174"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "siliqua_patula",
+      "scientificName": "Siliqua patula",
+      "commonName": "Pacific razor",
+      "group": "bivalve",
+      "aphiaId": "536684",
+      "sourceCells": {
+        "LongevityWild": 19.0,
+        "LongevityWildRef": "126990"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "spisula_solidissima",
+      "scientificName": "Spisula solidissima",
+      "commonName": "Atlantic surfclam",
+      "group": "bivalve",
+      "aphiaId": "156996",
+      "sourceCells": {
+        "LongevityWild": 31.0,
+        "LongevityWildRef": "8702"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "strongylocentrotus_droebachiensis",
+      "scientificName": "Strongylocentrotus droebachiensis",
+      "commonName": "Green sea urchin",
+      "group": "echinoderm",
+      "aphiaId": "124321",
+      "sourceCells": {
+        "LongevityWild": 45.0,
+        "LongevityWildRef": "90469"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "tresus_capax",
+      "scientificName": "Tresus capax",
+      "commonName": "Fat gaper",
+      "group": "bivalve",
+      "aphiaId": "367776",
+      "sourceCells": {
+        "LongevityWild": 16.0,
+        "LongevityWildRef": "8702"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    },
+    {
+      "animalId": "yoldia_limatula",
+      "scientificName": "Yoldia limatula",
+      "commonName": "File yoldia",
+      "group": "bivalve",
+      "aphiaId": "157005",
+      "sourceCells": {
+        "LongevityWild": 4.0,
+        "LongevityWildRef": "8702"
+      },
+      "status": "research-only",
+      "holds": [
+        "Original reference, age-estimation method and wild/captive context have not been verified. The bulk field name alone is insufficient."
+      ]
+    }
+  ],
+  "crossChecks": [
+    {
+      "scientificName": "Metacarcinus magister",
+      "reference": "104779",
+      "referenceUrl": "https://www.sealifebase.org/references/FBRefSummary.php?ID=104779",
+      "citation": "Pauley, Armstrong and Heun (1986), Species profiles: life histories and environmental requirements of coastal fishes and invertebrates (Pacific Northwest) -- Dungeness crab. U.S. Fish Wildl. Serv. Biol. Rep. 82(11.63).",
+      "result": "SeaLifeBase summary agrees on a maximum reported age of 10 years. Original report and age-estimation method remain to be reviewed; not admitted."
+    }
+  ],
+  "coverageLimit": "This is a selected-cell review queue for animals already in the catalog, not a count of new categories or playable animals. Full marine database is not redistributed."
+}

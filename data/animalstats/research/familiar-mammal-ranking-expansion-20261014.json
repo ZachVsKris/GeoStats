@@ -1,0 +1,363 @@
+{
+  "status": "candidate release; source transcription and board validation passed, deployment verification pending",
+  "reviewDate": "2026-10-14",
+  "newCatalogAnimals": 28,
+  "newPlayableAnimals": 0,
+  "newPlayableLabels": 0,
+  "newBoards": 0,
+  "originalSourceMeasurements": 521,
+  "directionalValues": 1042,
+  "sourceMeasurements": {
+    "AnAge": 269,
+    "MDD": 72,
+    "TetrapodTraits": 180
+  },
+  "categoryScope": "Existing comparisons only. Opposite directions share measurements; no new categories counted.",
+  "livingCatalogAnimals": 896,
+  "livingRoundAnimals": 259,
+  "playableLabels": 202,
+  "validBoards": 59451,
+  "animals": [
+    {
+      "scientificName": "Antilocapra americana",
+      "commonName": "Pronghorn",
+      "directionalValues": 42,
+      "distinctMetricIds": 21,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Antidorcas marsupialis",
+      "commonName": "Springbok",
+      "directionalValues": 34,
+      "distinctMetricIds": 17,
+      "sourceIds": [
+        "anage-15",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Oreamnos americanus",
+      "commonName": "Mountain goat",
+      "directionalValues": 40,
+      "distinctMetricIds": 20,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Ovibos moschatus",
+      "commonName": "Muskox",
+      "directionalValues": 40,
+      "distinctMetricIds": 20,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Ovis canadensis",
+      "commonName": "Bighorn sheep",
+      "directionalValues": 42,
+      "distinctMetricIds": 21,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Cryptoprocta ferox",
+      "commonName": "Fossa",
+      "directionalValues": 36,
+      "distinctMetricIds": 18,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Caracal caracal",
+      "commonName": "Caracal",
+      "directionalValues": 38,
+      "distinctMetricIds": 19,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Leptailurus serval",
+      "commonName": "Serval",
+      "directionalValues": 38,
+      "distinctMetricIds": 19,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Proteles cristata",
+      "commonName": "Aardwolf",
+      "directionalValues": 28,
+      "distinctMetricIds": 14,
+      "sourceIds": [
+        "anage-15",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Gulo gulo",
+      "commonName": "Wolverine",
+      "directionalValues": 40,
+      "distinctMetricIds": 20,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Arctictis binturong",
+      "commonName": "Binturong",
+      "directionalValues": 42,
+      "distinctMetricIds": 21,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Mungos mungo",
+      "commonName": "Banded mongoose",
+      "directionalValues": 36,
+      "distinctMetricIds": 18,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Setonix brachyurus",
+      "commonName": "Quokka",
+      "directionalValues": 40,
+      "distinctMetricIds": 20,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Wallabia bicolor",
+      "commonName": "Swamp wallaby",
+      "directionalValues": 38,
+      "distinctMetricIds": 19,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Petaurus breviceps",
+      "commonName": "Sugar glider",
+      "directionalValues": 40,
+      "distinctMetricIds": 20,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Lepus europaeus",
+      "commonName": "European hare",
+      "directionalValues": 38,
+      "distinctMetricIds": 19,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Ochotona princeps",
+      "commonName": "American pika",
+      "directionalValues": 40,
+      "distinctMetricIds": 20,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Nasalis larvatus",
+      "commonName": "Proboscis monkey",
+      "directionalValues": 40,
+      "distinctMetricIds": 20,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Hylobates lar",
+      "commonName": "White-handed gibbon",
+      "directionalValues": 42,
+      "distinctMetricIds": 21,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Carlito syrichta",
+      "commonName": "Philippine tarsier",
+      "directionalValues": 18,
+      "distinctMetricIds": 9,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Chinchilla lanigera",
+      "commonName": "Long-tailed chinchilla",
+      "directionalValues": 30,
+      "distinctMetricIds": 15,
+      "sourceIds": [
+        "anage-15",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Muscardinus avellanarius",
+      "commonName": "Hazel dormouse",
+      "directionalValues": 40,
+      "distinctMetricIds": 20,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Cynomys ludovicianus",
+      "commonName": "Black-tailed prairie dog",
+      "directionalValues": 42,
+      "distinctMetricIds": 21,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Glaucomys volans",
+      "commonName": "Southern flying squirrel",
+      "directionalValues": 40,
+      "distinctMetricIds": 20,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Tamias striatus",
+      "commonName": "Eastern chipmunk",
+      "directionalValues": 40,
+      "distinctMetricIds": 20,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Trichechus inunguis",
+      "commonName": "Amazonian manatee",
+      "directionalValues": 34,
+      "distinctMetricIds": 17,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Eubalaena australis",
+      "commonName": "Southern right whale",
+      "directionalValues": 30,
+      "distinctMetricIds": 15,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    },
+    {
+      "scientificName": "Eubalaena glacialis",
+      "commonName": "North Atlantic right whale",
+      "directionalValues": 34,
+      "distinctMetricIds": 17,
+      "sourceIds": [
+        "anage-15",
+        "asm-mdd-v25-counts",
+        "tetrapodtraits-201-spatial"
+      ],
+      "roundAdmission": "pending reviewed artwork/photos and compatible boards"
+    }
+  ],
+  "qualityChecks": [
+    "Exact species names only; no source-species substitutions.",
+    "All AnAge entries high/acceptable source quality with original HAGRID and reference IDs.",
+    "Wild/captive longevity comparisons remain separate.",
+    "MDD flagged targets, absent exact names and uncertain countries excluded.",
+    "Climate/elevation comparisons withheld for newly selected aquatic mammals pending habitat interpretation.",
+    "Source uncertainty preserved as not reported, not zero.",
+    "No game-eligibility rules relaxed."
+  ]
+}

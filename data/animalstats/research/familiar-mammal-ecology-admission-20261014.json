@@ -1,0 +1,1500 @@
+{
+  "sourceVersion": "2.0.1",
+  "sourceSha256": "1f9aab1093477dce3bccb12ef008c25a37c868b38aa36e6d5cd378e9019e5f0e",
+  "sourceMeasurements": 180,
+  "directionalValues": 360,
+  "method": "Existing category definitions and unit conversions retained. Exact species only. No imputed animal attributes.",
+  "admitted": [
+    {
+      "animalId": "antilocapra_americana",
+      "scientificName": "Antilocapra americana",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "2007724.284",
+      "value": 2007724.284
+    },
+    {
+      "animalId": "antilocapra_americana",
+      "scientificName": "Antilocapra americana",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "98.9356357",
+      "value": 283.043564
+    },
+    {
+      "animalId": "antilocapra_americana",
+      "scientificName": "Antilocapra americana",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "389.0749981",
+      "value": 389.074998
+    },
+    {
+      "animalId": "antilocapra_americana",
+      "scientificName": "Antilocapra americana",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "1295.926777",
+      "value": 1295.926777
+    },
+    {
+      "animalId": "antilocapra_americana",
+      "scientificName": "Antilocapra americana",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "1",
+      "value": 1.0
+    },
+    {
+      "animalId": "antilocapra_americana",
+      "scientificName": "Antilocapra americana",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "3",
+      "value": 3.0
+    },
+    {
+      "animalId": "antilocapra_americana",
+      "scientificName": "Antilocapra americana",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "LC",
+      "value": 1
+    },
+    {
+      "animalId": "antidorcas_marsupialis",
+      "scientificName": "Antidorcas marsupialis",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "1950024.369",
+      "value": 1950024.369
+    },
+    {
+      "animalId": "antidorcas_marsupialis",
+      "scientificName": "Antidorcas marsupialis",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "196.5972858",
+      "value": 292.809729
+    },
+    {
+      "animalId": "antidorcas_marsupialis",
+      "scientificName": "Antidorcas marsupialis",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "333.8181903",
+      "value": 333.81819
+    },
+    {
+      "animalId": "antidorcas_marsupialis",
+      "scientificName": "Antidorcas marsupialis",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "1093.795364",
+      "value": 1093.795364
+    },
+    {
+      "animalId": "antidorcas_marsupialis",
+      "scientificName": "Antidorcas marsupialis",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "1",
+      "value": 1.0
+    },
+    {
+      "animalId": "antidorcas_marsupialis",
+      "scientificName": "Antidorcas marsupialis",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "4",
+      "value": 4.0
+    },
+    {
+      "animalId": "antidorcas_marsupialis",
+      "scientificName": "Antidorcas marsupialis",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "LC",
+      "value": 1
+    },
+    {
+      "animalId": "oreamnos_americanus",
+      "scientificName": "Oreamnos americanus",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "876672.9625",
+      "value": 876672.9625
+    },
+    {
+      "animalId": "oreamnos_americanus",
+      "scientificName": "Oreamnos americanus",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "8.499548626",
+      "value": 273.999955
+    },
+    {
+      "animalId": "oreamnos_americanus",
+      "scientificName": "Oreamnos americanus",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "991.4610767",
+      "value": 991.461077
+    },
+    {
+      "animalId": "oreamnos_americanus",
+      "scientificName": "Oreamnos americanus",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "1254.181268",
+      "value": 1254.181268
+    },
+    {
+      "animalId": "oreamnos_americanus",
+      "scientificName": "Oreamnos americanus",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "1",
+      "value": 1.0
+    },
+    {
+      "animalId": "oreamnos_americanus",
+      "scientificName": "Oreamnos americanus",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "4",
+      "value": 4.0
+    },
+    {
+      "animalId": "oreamnos_americanus",
+      "scientificName": "Oreamnos americanus",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "LC",
+      "value": 1
+    },
+    {
+      "animalId": "ovibos_moschatus",
+      "scientificName": "Ovibos moschatus",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "1683109.166",
+      "value": 1683109.166
+    },
+    {
+      "animalId": "ovibos_moschatus",
+      "scientificName": "Ovibos moschatus",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "-134.5981666",
+      "value": 259.690183
+    },
+    {
+      "animalId": "ovibos_moschatus",
+      "scientificName": "Ovibos moschatus",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "181.8202148",
+      "value": 181.820215
+    },
+    {
+      "animalId": "ovibos_moschatus",
+      "scientificName": "Ovibos moschatus",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "283.0612964",
+      "value": 283.061296
+    },
+    {
+      "animalId": "ovibos_moschatus",
+      "scientificName": "Ovibos moschatus",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "1",
+      "value": 1.0
+    },
+    {
+      "animalId": "ovibos_moschatus",
+      "scientificName": "Ovibos moschatus",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "1",
+      "value": 1.0
+    },
+    {
+      "animalId": "ovibos_moschatus",
+      "scientificName": "Ovibos moschatus",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "LC",
+      "value": 1
+    },
+    {
+      "animalId": "ovis_canadensis",
+      "scientificName": "Ovis canadensis",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "538053.3024",
+      "value": 538053.3024
+    },
+    {
+      "animalId": "ovis_canadensis",
+      "scientificName": "Ovis canadensis",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "105.7358854",
+      "value": 283.723589
+    },
+    {
+      "animalId": "ovis_canadensis",
+      "scientificName": "Ovis canadensis",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "355.589337",
+      "value": 355.589337
+    },
+    {
+      "animalId": "ovis_canadensis",
+      "scientificName": "Ovis canadensis",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "1426.754609",
+      "value": 1426.754609
+    },
+    {
+      "animalId": "ovis_canadensis",
+      "scientificName": "Ovis canadensis",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "1",
+      "value": 1.0
+    },
+    {
+      "animalId": "ovis_canadensis",
+      "scientificName": "Ovis canadensis",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "2",
+      "value": 2.0
+    },
+    {
+      "animalId": "ovis_canadensis",
+      "scientificName": "Ovis canadensis",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "LC",
+      "value": 1
+    },
+    {
+      "animalId": "cryptoprocta_ferox",
+      "scientificName": "Cryptoprocta ferox",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "738737.8918",
+      "value": 738737.8918
+    },
+    {
+      "animalId": "cryptoprocta_ferox",
+      "scientificName": "Cryptoprocta ferox",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "222.4711834",
+      "value": 295.397118
+    },
+    {
+      "animalId": "cryptoprocta_ferox",
+      "scientificName": "Cryptoprocta ferox",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "1435.565456",
+      "value": 1435.565456
+    },
+    {
+      "animalId": "cryptoprocta_ferox",
+      "scientificName": "Cryptoprocta ferox",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "584.0853975",
+      "value": 584.085397
+    },
+    {
+      "animalId": "cryptoprocta_ferox",
+      "scientificName": "Cryptoprocta ferox",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "2",
+      "value": 2.0
+    },
+    {
+      "animalId": "cryptoprocta_ferox",
+      "scientificName": "Cryptoprocta ferox",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "1",
+      "value": 1.0
+    },
+    {
+      "animalId": "cryptoprocta_ferox",
+      "scientificName": "Cryptoprocta ferox",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "VU",
+      "value": 3
+    },
+    {
+      "animalId": "caracal_caracal",
+      "scientificName": "Caracal caracal",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "17204761.7",
+      "value": 17204761.7
+    },
+    {
+      "animalId": "caracal_caracal",
+      "scientificName": "Caracal caracal",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "233.6967987",
+      "value": 296.51968
+    },
+    {
+      "animalId": "caracal_caracal",
+      "scientificName": "Caracal caracal",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "578.1861361",
+      "value": 578.186136
+    },
+    {
+      "animalId": "caracal_caracal",
+      "scientificName": "Caracal caracal",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "751.403642",
+      "value": 751.403642
+    },
+    {
+      "animalId": "caracal_caracal",
+      "scientificName": "Caracal caracal",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "1",
+      "value": 1.0
+    },
+    {
+      "animalId": "caracal_caracal",
+      "scientificName": "Caracal caracal",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "5",
+      "value": 5.0
+    },
+    {
+      "animalId": "caracal_caracal",
+      "scientificName": "Caracal caracal",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "LC",
+      "value": 1
+    },
+    {
+      "animalId": "leptailurus_serval",
+      "scientificName": "Leptailurus serval",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "12952404.33",
+      "value": 12952404.33
+    },
+    {
+      "animalId": "leptailurus_serval",
+      "scientificName": "Leptailurus serval",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "234.1843153",
+      "value": 296.568432
+    },
+    {
+      "animalId": "leptailurus_serval",
+      "scientificName": "Leptailurus serval",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "1013.80653",
+      "value": 1013.80653
+    },
+    {
+      "animalId": "leptailurus_serval",
+      "scientificName": "Leptailurus serval",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "766.4487335",
+      "value": 766.448734
+    },
+    {
+      "animalId": "leptailurus_serval",
+      "scientificName": "Leptailurus serval",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "1",
+      "value": 1.0
+    },
+    {
+      "animalId": "leptailurus_serval",
+      "scientificName": "Leptailurus serval",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "4",
+      "value": 4.0
+    },
+    {
+      "animalId": "leptailurus_serval",
+      "scientificName": "Leptailurus serval",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "LC",
+      "value": 1
+    },
+    {
+      "animalId": "proteles_cristata",
+      "scientificName": "Proteles cristata",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "6140165.422",
+      "value": 6140165.422
+    },
+    {
+      "animalId": "proteles_cristata",
+      "scientificName": "Proteles cristata",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "220.1736787",
+      "value": 295.167368
+    },
+    {
+      "animalId": "proteles_cristata",
+      "scientificName": "Proteles cristata",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "524.0107452",
+      "value": 524.010745
+    },
+    {
+      "animalId": "proteles_cristata",
+      "scientificName": "Proteles cristata",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "937.706805",
+      "value": 937.706805
+    },
+    {
+      "animalId": "proteles_cristata",
+      "scientificName": "Proteles cristata",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "1",
+      "value": 1.0
+    },
+    {
+      "animalId": "proteles_cristata",
+      "scientificName": "Proteles cristata",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "3",
+      "value": 3.0
+    },
+    {
+      "animalId": "proteles_cristata",
+      "scientificName": "Proteles cristata",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "LC",
+      "value": 1
+    },
+    {
+      "animalId": "gulo_gulo",
+      "scientificName": "Gulo gulo",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "24396694.26",
+      "value": 24396694.26
+    },
+    {
+      "animalId": "gulo_gulo",
+      "scientificName": "Gulo gulo",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "-48.55715857",
+      "value": 268.294284
+    },
+    {
+      "animalId": "gulo_gulo",
+      "scientificName": "Gulo gulo",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "442.5541613",
+      "value": 442.554161
+    },
+    {
+      "animalId": "gulo_gulo",
+      "scientificName": "Gulo gulo",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "456.1163447",
+      "value": 456.116345
+    },
+    {
+      "animalId": "gulo_gulo",
+      "scientificName": "Gulo gulo",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "7",
+      "value": 7.0
+    },
+    {
+      "animalId": "gulo_gulo",
+      "scientificName": "Gulo gulo",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "4",
+      "value": 4.0
+    },
+    {
+      "animalId": "gulo_gulo",
+      "scientificName": "Gulo gulo",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "LC",
+      "value": 1
+    },
+    {
+      "animalId": "arctictis_binturong",
+      "scientificName": "Arctictis binturong",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "3057184.045",
+      "value": 3057184.045
+    },
+    {
+      "animalId": "arctictis_binturong",
+      "scientificName": "Arctictis binturong",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "239.5536761",
+      "value": 297.105368
+    },
+    {
+      "animalId": "arctictis_binturong",
+      "scientificName": "Arctictis binturong",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "2430.189479",
+      "value": 2430.189479
+    },
+    {
+      "animalId": "arctictis_binturong",
+      "scientificName": "Arctictis binturong",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "464.1895084",
+      "value": 464.189508
+    },
+    {
+      "animalId": "arctictis_binturong",
+      "scientificName": "Arctictis binturong",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "3",
+      "value": 3.0
+    },
+    {
+      "animalId": "arctictis_binturong",
+      "scientificName": "Arctictis binturong",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "2",
+      "value": 2.0
+    },
+    {
+      "animalId": "arctictis_binturong",
+      "scientificName": "Arctictis binturong",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "VU",
+      "value": 3
+    },
+    {
+      "animalId": "mungos_mungo",
+      "scientificName": "Mungos mungo",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "10330989.07",
+      "value": 10330989.07
+    },
+    {
+      "animalId": "mungos_mungo",
+      "scientificName": "Mungos mungo",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "234.6849538",
+      "value": 296.618495
+    },
+    {
+      "animalId": "mungos_mungo",
+      "scientificName": "Mungos mungo",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "970.027006",
+      "value": 970.027006
+    },
+    {
+      "animalId": "mungos_mungo",
+      "scientificName": "Mungos mungo",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "786.1295323",
+      "value": 786.129532
+    },
+    {
+      "animalId": "mungos_mungo",
+      "scientificName": "Mungos mungo",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "2",
+      "value": 2.0
+    },
+    {
+      "animalId": "mungos_mungo",
+      "scientificName": "Mungos mungo",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "4",
+      "value": 4.0
+    },
+    {
+      "animalId": "mungos_mungo",
+      "scientificName": "Mungos mungo",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "LC",
+      "value": 1
+    },
+    {
+      "animalId": "setonix_brachyurus",
+      "scientificName": "Setonix brachyurus",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "18067.59187",
+      "value": 18067.59187
+    },
+    {
+      "animalId": "setonix_brachyurus",
+      "scientificName": "Setonix brachyurus",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "158.913334",
+      "value": 289.041333
+    },
+    {
+      "animalId": "setonix_brachyurus",
+      "scientificName": "Setonix brachyurus",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "909.475879",
+      "value": 909.475879
+    },
+    {
+      "animalId": "setonix_brachyurus",
+      "scientificName": "Setonix brachyurus",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "116.5458587",
+      "value": 116.545859
+    },
+    {
+      "animalId": "setonix_brachyurus",
+      "scientificName": "Setonix brachyurus",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "1",
+      "value": 1.0
+    },
+    {
+      "animalId": "setonix_brachyurus",
+      "scientificName": "Setonix brachyurus",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "3",
+      "value": 3.0
+    },
+    {
+      "animalId": "setonix_brachyurus",
+      "scientificName": "Setonix brachyurus",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "VU",
+      "value": 3
+    },
+    {
+      "animalId": "wallabia_bicolor",
+      "scientificName": "Wallabia bicolor",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "1213038.147",
+      "value": 1213038.147
+    },
+    {
+      "animalId": "wallabia_bicolor",
+      "scientificName": "Wallabia bicolor",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "185.9572536",
+      "value": 291.745725
+    },
+    {
+      "animalId": "wallabia_bicolor",
+      "scientificName": "Wallabia bicolor",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "782.4516701",
+      "value": 782.45167
+    },
+    {
+      "animalId": "wallabia_bicolor",
+      "scientificName": "Wallabia bicolor",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "316.253366",
+      "value": 316.253366
+    },
+    {
+      "animalId": "wallabia_bicolor",
+      "scientificName": "Wallabia bicolor",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "1",
+      "value": 1.0
+    },
+    {
+      "animalId": "wallabia_bicolor",
+      "scientificName": "Wallabia bicolor",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "3",
+      "value": 3.0
+    },
+    {
+      "animalId": "wallabia_bicolor",
+      "scientificName": "Wallabia bicolor",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "LC",
+      "value": 1
+    },
+    {
+      "animalId": "petaurus_breviceps",
+      "scientificName": "Petaurus breviceps",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "2761460.045",
+      "value": 2761460.045
+    },
+    {
+      "animalId": "petaurus_breviceps",
+      "scientificName": "Petaurus breviceps",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "216.4023688",
+      "value": 294.790237
+    },
+    {
+      "animalId": "petaurus_breviceps",
+      "scientificName": "Petaurus breviceps",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "1616.404136",
+      "value": 1616.404136
+    },
+    {
+      "animalId": "petaurus_breviceps",
+      "scientificName": "Petaurus breviceps",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "337.9946069",
+      "value": 337.994607
+    },
+    {
+      "animalId": "petaurus_breviceps",
+      "scientificName": "Petaurus breviceps",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "3",
+      "value": 3.0
+    },
+    {
+      "animalId": "petaurus_breviceps",
+      "scientificName": "Petaurus breviceps",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "3",
+      "value": 3.0
+    },
+    {
+      "animalId": "petaurus_breviceps",
+      "scientificName": "Petaurus breviceps",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "LC",
+      "value": 1
+    },
+    {
+      "animalId": "lepus_europaeus",
+      "scientificName": "Lepus europaeus",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "14676197.57",
+      "value": 14676197.57
+    },
+    {
+      "animalId": "lepus_europaeus",
+      "scientificName": "Lepus europaeus",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "90.16789397",
+      "value": 282.166789
+    },
+    {
+      "animalId": "lepus_europaeus",
+      "scientificName": "Lepus europaeus",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "640.7534608",
+      "value": 640.753461
+    },
+    {
+      "animalId": "lepus_europaeus",
+      "scientificName": "Lepus europaeus",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "432.193465",
+      "value": 432.193465
+    },
+    {
+      "animalId": "lepus_europaeus",
+      "scientificName": "Lepus europaeus",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "3",
+      "value": 3.0
+    },
+    {
+      "animalId": "lepus_europaeus",
+      "scientificName": "Lepus europaeus",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "3",
+      "value": 3.0
+    },
+    {
+      "animalId": "lepus_europaeus",
+      "scientificName": "Lepus europaeus",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "LC",
+      "value": 1
+    },
+    {
+      "animalId": "ochotona_princeps",
+      "scientificName": "Ochotona princeps",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "894650.307",
+      "value": 894650.307
+    },
+    {
+      "animalId": "ochotona_princeps",
+      "scientificName": "Ochotona princeps",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "49.24148306",
+      "value": 278.074148
+    },
+    {
+      "animalId": "ochotona_princeps",
+      "scientificName": "Ochotona princeps",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "620.9851772",
+      "value": 620.985177
+    },
+    {
+      "animalId": "ochotona_princeps",
+      "scientificName": "Ochotona princeps",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "1730.756015",
+      "value": 1730.756015
+    },
+    {
+      "animalId": "ochotona_princeps",
+      "scientificName": "Ochotona princeps",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "1",
+      "value": 1.0
+    },
+    {
+      "animalId": "ochotona_princeps",
+      "scientificName": "Ochotona princeps",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "1",
+      "value": 1.0
+    },
+    {
+      "animalId": "ochotona_princeps",
+      "scientificName": "Ochotona princeps",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "LC",
+      "value": 1
+    },
+    {
+      "animalId": "nasalis_larvatus",
+      "scientificName": "Nasalis larvatus",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "538835.7331",
+      "value": 538835.7331
+    },
+    {
+      "animalId": "nasalis_larvatus",
+      "scientificName": "Nasalis larvatus",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "257.3545829",
+      "value": 298.885458
+    },
+    {
+      "animalId": "nasalis_larvatus",
+      "scientificName": "Nasalis larvatus",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "3060.607065",
+      "value": 3060.607065
+    },
+    {
+      "animalId": "nasalis_larvatus",
+      "scientificName": "Nasalis larvatus",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "172.5621352",
+      "value": 172.562135
+    },
+    {
+      "animalId": "nasalis_larvatus",
+      "scientificName": "Nasalis larvatus",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "2",
+      "value": 2.0
+    },
+    {
+      "animalId": "nasalis_larvatus",
+      "scientificName": "Nasalis larvatus",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "1",
+      "value": 1.0
+    },
+    {
+      "animalId": "nasalis_larvatus",
+      "scientificName": "Nasalis larvatus",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "EN",
+      "value": 4
+    },
+    {
+      "animalId": "hylobates_lar",
+      "scientificName": "Hylobates lar",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "638113.1871",
+      "value": 638113.1871
+    },
+    {
+      "animalId": "hylobates_lar",
+      "scientificName": "Hylobates lar",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "251.6019839",
+      "value": 298.310198
+    },
+    {
+      "animalId": "hylobates_lar",
+      "scientificName": "Hylobates lar",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "1967.380042",
+      "value": 1967.380042
+    },
+    {
+      "animalId": "hylobates_lar",
+      "scientificName": "Hylobates lar",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "393.7487681",
+      "value": 393.748768
+    },
+    {
+      "animalId": "hylobates_lar",
+      "scientificName": "Hylobates lar",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "2",
+      "value": 2.0
+    },
+    {
+      "animalId": "hylobates_lar",
+      "scientificName": "Hylobates lar",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "1",
+      "value": 1.0
+    },
+    {
+      "animalId": "hylobates_lar",
+      "scientificName": "Hylobates lar",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "EN",
+      "value": 4
+    },
+    {
+      "animalId": "chinchilla_lanigera",
+      "scientificName": "Chinchilla lanigera",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "24493.81082",
+      "value": 24493.81082
+    },
+    {
+      "animalId": "chinchilla_lanigera",
+      "scientificName": "Chinchilla lanigera",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "138.2503934",
+      "value": 286.975039
+    },
+    {
+      "animalId": "chinchilla_lanigera",
+      "scientificName": "Chinchilla lanigera",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "124.6297937",
+      "value": 124.629794
+    },
+    {
+      "animalId": "chinchilla_lanigera",
+      "scientificName": "Chinchilla lanigera",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "1104.879438",
+      "value": 1104.879438
+    },
+    {
+      "animalId": "chinchilla_lanigera",
+      "scientificName": "Chinchilla lanigera",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "1",
+      "value": 1.0
+    },
+    {
+      "animalId": "chinchilla_lanigera",
+      "scientificName": "Chinchilla lanigera",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "2",
+      "value": 2.0
+    },
+    {
+      "animalId": "chinchilla_lanigera",
+      "scientificName": "Chinchilla lanigera",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "EN",
+      "value": 4
+    },
+    {
+      "animalId": "muscardinus_avellanarius",
+      "scientificName": "Muscardinus avellanarius",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "3613021.197",
+      "value": 3613021.197
+    },
+    {
+      "animalId": "muscardinus_avellanarius",
+      "scientificName": "Muscardinus avellanarius",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "89.33350999",
+      "value": 282.083351
+    },
+    {
+      "animalId": "muscardinus_avellanarius",
+      "scientificName": "Muscardinus avellanarius",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "738.4604423",
+      "value": 738.460442
+    },
+    {
+      "animalId": "muscardinus_avellanarius",
+      "scientificName": "Muscardinus avellanarius",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "328.715666",
+      "value": 328.715666
+    },
+    {
+      "animalId": "muscardinus_avellanarius",
+      "scientificName": "Muscardinus avellanarius",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "5",
+      "value": 5.0
+    },
+    {
+      "animalId": "muscardinus_avellanarius",
+      "scientificName": "Muscardinus avellanarius",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "1",
+      "value": 1.0
+    },
+    {
+      "animalId": "muscardinus_avellanarius",
+      "scientificName": "Muscardinus avellanarius",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "LC",
+      "value": 1
+    },
+    {
+      "animalId": "cynomys_ludovicianus",
+      "scientificName": "Cynomys ludovicianus",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "1820846.704",
+      "value": 1820846.704
+    },
+    {
+      "animalId": "cynomys_ludovicianus",
+      "scientificName": "Cynomys ludovicianus",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "117.3706899",
+      "value": 284.887069
+    },
+    {
+      "animalId": "cynomys_ludovicianus",
+      "scientificName": "Cynomys ludovicianus",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "458.0447678",
+      "value": 458.044768
+    },
+    {
+      "animalId": "cynomys_ludovicianus",
+      "scientificName": "Cynomys ludovicianus",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "1080.741256",
+      "value": 1080.741256
+    },
+    {
+      "animalId": "cynomys_ludovicianus",
+      "scientificName": "Cynomys ludovicianus",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "1",
+      "value": 1.0
+    },
+    {
+      "animalId": "cynomys_ludovicianus",
+      "scientificName": "Cynomys ludovicianus",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "4",
+      "value": 4.0
+    },
+    {
+      "animalId": "cynomys_ludovicianus",
+      "scientificName": "Cynomys ludovicianus",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "LC",
+      "value": 1
+    },
+    {
+      "animalId": "glaucomys_volans",
+      "scientificName": "Glaucomys volans",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "3848299.592",
+      "value": 3848299.592
+    },
+    {
+      "animalId": "glaucomys_volans",
+      "scientificName": "Glaucomys volans",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "137.6245501",
+      "value": 286.912455
+    },
+    {
+      "animalId": "glaucomys_volans",
+      "scientificName": "Glaucomys volans",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "1117.684479",
+      "value": 1117.684479
+    },
+    {
+      "animalId": "glaucomys_volans",
+      "scientificName": "Glaucomys volans",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "295.8806326",
+      "value": 295.880633
+    },
+    {
+      "animalId": "glaucomys_volans",
+      "scientificName": "Glaucomys volans",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "3",
+      "value": 3.0
+    },
+    {
+      "animalId": "glaucomys_volans",
+      "scientificName": "Glaucomys volans",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "1",
+      "value": 1.0
+    },
+    {
+      "animalId": "glaucomys_volans",
+      "scientificName": "Glaucomys volans",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "LC",
+      "value": 1
+    },
+    {
+      "animalId": "tamias_striatus",
+      "scientificName": "Tamias striatus",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "4197663.913",
+      "value": 4197663.913
+    },
+    {
+      "animalId": "tamias_striatus",
+      "scientificName": "Tamias striatus",
+      "traitId": "tt_range_temperature",
+      "sourceField": "AnnuMeanTemp",
+      "sourceValue": "88.88252035",
+      "value": 282.038252
+    },
+    {
+      "animalId": "tamias_striatus",
+      "scientificName": "Tamias striatus",
+      "traitId": "tt_range_rainfall",
+      "sourceField": "AnnuPrecip",
+      "sourceValue": "979.9124898",
+      "value": 979.91249
+    },
+    {
+      "animalId": "tamias_striatus",
+      "scientificName": "Tamias striatus",
+      "traitId": "tt_range_elevation",
+      "sourceField": "Elevation",
+      "sourceValue": "295.969011",
+      "value": 295.969011
+    },
+    {
+      "animalId": "tamias_striatus",
+      "scientificName": "Tamias striatus",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "4",
+      "value": 4.0
+    },
+    {
+      "animalId": "tamias_striatus",
+      "scientificName": "Tamias striatus",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "3",
+      "value": 3.0
+    },
+    {
+      "animalId": "tamias_striatus",
+      "scientificName": "Tamias striatus",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "LC",
+      "value": 1
+    },
+    {
+      "animalId": "trichechus_inunguis",
+      "scientificName": "Trichechus inunguis",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "1067724.163",
+      "value": 1067724.163
+    },
+    {
+      "animalId": "trichechus_inunguis",
+      "scientificName": "Trichechus inunguis",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "1",
+      "value": 1.0
+    },
+    {
+      "animalId": "trichechus_inunguis",
+      "scientificName": "Trichechus inunguis",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "4",
+      "value": 4.0
+    },
+    {
+      "animalId": "trichechus_inunguis",
+      "scientificName": "Trichechus inunguis",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "VU",
+      "value": 3
+    },
+    {
+      "animalId": "eubalaena_australis",
+      "scientificName": "Eubalaena australis",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "87327661.09",
+      "value": 87327661.09
+    },
+    {
+      "animalId": "eubalaena_australis",
+      "scientificName": "Eubalaena australis",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "1",
+      "value": 1.0
+    },
+    {
+      "animalId": "eubalaena_australis",
+      "scientificName": "Eubalaena australis",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "2",
+      "value": 2.0
+    },
+    {
+      "animalId": "eubalaena_australis",
+      "scientificName": "Eubalaena australis",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "LC",
+      "value": 1
+    },
+    {
+      "animalId": "eubalaena_glacialis",
+      "scientificName": "Eubalaena glacialis",
+      "traitId": "tt_range_area",
+      "sourceField": "RangeSize_km2",
+      "sourceValue": "16761527.69",
+      "value": 16761527.69
+    },
+    {
+      "animalId": "eubalaena_glacialis",
+      "scientificName": "Eubalaena glacialis",
+      "traitId": "tt_diet_breadth",
+      "sourceField": "DietBreadth",
+      "sourceValue": "1",
+      "value": 1.0
+    },
+    {
+      "animalId": "eubalaena_glacialis",
+      "scientificName": "Eubalaena glacialis",
+      "traitId": "tt_habitat_breadth",
+      "sourceField": "MajorHabitatSum",
+      "sourceValue": "2",
+      "value": 2.0
+    },
+    {
+      "animalId": "eubalaena_glacialis",
+      "scientificName": "Eubalaena glacialis",
+      "traitId": "tt_assessed_risk",
+      "sourceField": "AssessedStatus",
+      "sourceValue": "CR",
+      "value": 5
+    }
+  ],
+  "held": [
+    {
+      "scientificName": "Carlito syrichta",
+      "reason": "No exact original source name; no synonym transfer."
+    },
+    {
+      "scientificName": "Trichechus inunguis",
+      "traitId": "tt_range_temperature",
+      "reason": "Terrestrial climate/topography layers require separate aquatic habitat interpretation; not ocean temperature or diving depth."
+    },
+    {
+      "scientificName": "Trichechus inunguis",
+      "traitId": "tt_range_rainfall",
+      "reason": "Terrestrial climate/topography layers require separate aquatic habitat interpretation; not ocean temperature or diving depth."
+    },
+    {
+      "scientificName": "Trichechus inunguis",
+      "traitId": "tt_range_elevation",
+      "reason": "Terrestrial climate/topography layers require separate aquatic habitat interpretation; not ocean temperature or diving depth."
+    },
+    {
+      "scientificName": "Eubalaena australis",
+      "traitId": "tt_range_temperature",
+      "reason": "Terrestrial climate/topography layers require separate aquatic habitat interpretation; not ocean temperature or diving depth."
+    },
+    {
+      "scientificName": "Eubalaena australis",
+      "traitId": "tt_range_rainfall",
+      "reason": "Terrestrial climate/topography layers require separate aquatic habitat interpretation; not ocean temperature or diving depth."
+    },
+    {
+      "scientificName": "Eubalaena australis",
+      "traitId": "tt_range_elevation",
+      "reason": "Terrestrial climate/topography layers require separate aquatic habitat interpretation; not ocean temperature or diving depth."
+    },
+    {
+      "scientificName": "Eubalaena glacialis",
+      "traitId": "tt_range_temperature",
+      "reason": "Terrestrial climate/topography layers require separate aquatic habitat interpretation; not ocean temperature or diving depth."
+    },
+    {
+      "scientificName": "Eubalaena glacialis",
+      "traitId": "tt_range_rainfall",
+      "reason": "Terrestrial climate/topography layers require separate aquatic habitat interpretation; not ocean temperature or diving depth."
+    },
+    {
+      "scientificName": "Eubalaena glacialis",
+      "traitId": "tt_range_elevation",
+      "reason": "Terrestrial climate/topography layers require separate aquatic habitat interpretation; not ocean temperature or diving depth."
+    }
+  ]
+}

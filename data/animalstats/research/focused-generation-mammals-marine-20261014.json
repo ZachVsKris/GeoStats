@@ -1,0 +1,92 @@
+{
+  "policy": "intuitive-majority-distinct-winners-v6",
+  "notes": [
+    "No publication cap or per-lineup variant cap. Runtime budget is resumable and does not determine eligibility.",
+    "At least 3% between every adjacent numeric rank; exact ties remain blocked. Uncertainty overlap, source compatibility, unique winners and at least half intuitive remain required.",
+    "Each sampled lineup contributes one new board per pass to prioritize animal diversity; later passes can add further variants.",
+    "Uses only animals already present in living rounds; no new artwork approvals or measurement admissions. No eligibility rules changed."
+  ],
+  "groups": [
+    {
+      "group": "mammals",
+      "mode": "easy",
+      "portraitAnimals": 68,
+      "animalsWithEnoughMetrics": 68,
+      "attempts": 0,
+      "added": 0,
+      "rejections": {
+        "no shared trait pool": 1
+      }
+    },
+    {
+      "group": "mammals",
+      "mode": "normal",
+      "portraitAnimals": 68,
+      "animalsWithEnoughMetrics": 68,
+      "attempts": 0,
+      "added": 0,
+      "rejections": {
+        "no shared trait pool": 1
+      }
+    },
+    {
+      "group": "mammals",
+      "mode": "expert",
+      "portraitAnimals": 68,
+      "animalsWithEnoughMetrics": 68,
+      "attempts": 0,
+      "added": 0,
+      "rejections": {
+        "no shared trait pool": 1
+      }
+    },
+    {
+      "group": "marine",
+      "mode": "easy",
+      "portraitAnimals": 40,
+      "animalsWithEnoughMetrics": 40,
+      "attempts": 0,
+      "added": 0,
+      "rejections": {
+        "no shared trait pool": 1
+      }
+    },
+    {
+      "group": "marine",
+      "mode": "normal",
+      "portraitAnimals": 40,
+      "animalsWithEnoughMetrics": 40,
+      "attempts": 0,
+      "added": 0,
+      "rejections": {
+        "no shared trait pool": 1
+      }
+    },
+    {
+      "group": "marine",
+      "mode": "expert",
+      "portraitAnimals": 40,
+      "animalsWithEnoughMetrics": 26,
+      "attempts": 0,
+      "added": 0,
+      "rejections": {
+        "no shared trait pool": 1
+      }
+    }
+  ],
+  "totalBoards": 43713,
+  "focusTraitIds": [
+    "pet_dog_lifespan",
+    "pet_dog_lifespan__low",
+    "pet_dog_akc_drooling_level",
+    "pet_dog_akc_drooling_level__low",
+    "pet_cat_litter_2022",
+    "pet_cat_litter_2022__low",
+    "crab_cited_shell_width",
+    "crab_cited_shell_width__low",
+    "ladybird_diet",
+    "ladybird_habitats__low"
+  ],
+  "addedBoards": 0,
+  "newlyPlayableTraitIds": []
+}

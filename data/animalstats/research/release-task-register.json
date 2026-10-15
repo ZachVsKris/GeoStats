@@ -1,7 +1,7 @@
 {
   "updatedAt": "2026-10-14",
   "publishedBaseline": {
-    "commit": "eae754e44fc73dbd510d6c6e38452937f173ca27",
+    "commit": "0276321c467ee42df381513b351793635cdc5b71",
     "playableLabels": 202,
     "validBoards": 59451,
     "livingCatalogAnimals": 868,
@@ -19,7 +19,7 @@
       "id": 2,
       "task": "Prioritize living mammals",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "868 living catalog species, 259 in rounds; mammal fact breadth remains incomplete."
+      "evidenceAndRemainingWork": "Candidate catalog has 896 living animals, 259 in rounds. Added 28 familiar mammals and 521 source measurements across existing life-history, distribution, diet, habitat and conservation comparisons. Broader mammal fact families remain unfinished."
     },
     {
       "id": 3,
@@ -43,13 +43,13 @@
       "id": 6,
       "task": "Fill existing rankings",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Existing AnAge coverage expanded; not every compatible animal has been admitted."
+      "evidenceAndRemainingWork": "New 28-mammal selection checked against three pinned sources: 269 AnAge, 72 MDD and 180 TetrapodTraits measurements admitted to existing rankings. Absent names, flagged inventory targets and ambiguous aquatic climate/elevation records held. Other compatible sources still need coverage review."
     },
     {
       "id": 7,
       "task": "Convert catalog entries into playable animals",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "609 living catalog animals currently do not appear in rounds."
+      "evidenceAndRemainingWork": "637 of 896 living catalog animals do not appear in rounds; image and compatibility review remains essential."
     },
     {
       "id": 8,
@@ -152,7 +152,7 @@
   "candidateRelease": {
     "playableLabels": 202,
     "validBoards": 59451,
-    "livingCatalogAnimals": 868,
+    "livingCatalogAnimals": 896,
     "livingRoundAnimals": 259,
     "newlyPlayableTraitIds": [
       "field_flight_speed",
@@ -163,7 +163,7 @@
     "newBoards": 442,
     "reviewedExtinctStaticPhotographs": 8,
     "remainingExtinctStaticPlaceholders": 64,
-    "status": "202-label release and compact catalog published; live ranking details, desktop two-way click placement, removal, mode switching, performance ordering and local result saving verified."
+    "status": "28-mammal ranking expansion validated locally; publication pending. No additional playable labels or boards."
   },
   "latestWork": [
     "Full data/source view: retry after fetch failure and explicit saved-record metadata in CSV.",
@@ -173,7 +173,8 @@
     "Four land-travel values held pending absolute-scale conversion review; no existing playable boards removed.",
     "Catalog payload reduced by 91% without removing eligible values or detailed per-category source access.",
     "Mammal vocalisation and cephalopod hatchling sources staged with explicit measurement/taxonomy holds; no research-only candidate counted as playable.",
-    "Visual clue audit refreshed to 59,451 boards; 12,310 need direct-anatomy review."
+    "Visual clue audit refreshed to 59,451 boards; 12,310 need direct-anatomy review.",
+    "28 familiar mammals with 521 original source measurements (1042 paired directional values) added to compatible existing AnAge, MDD and TetrapodTraits rankings; no new playable-animal/artwork approvals."
   ],
   "liveVerification": {
     "deploymentId": "dpl_6sgpcFzgwiHsvfqfBh6XVPEKYv4T",

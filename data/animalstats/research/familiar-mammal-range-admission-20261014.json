@@ -1,0 +1,528 @@
+{
+  "source": "ASM Mammal Diversity Database v2.5",
+  "sourceSha256": "0d07a7e9409712fa86c1e3afadcf4c67bf4f9e16d5693a878e11ec1bf6860493",
+  "method": "Existing category definitions retained. Exact source-name joins only. No inferred continents, uncertain countries, or taxonomy transfers.",
+  "sourceMeasurements": 72,
+  "directionalValues": 144,
+  "admitted": [
+    {
+      "animalId": "antilocapra_americana",
+      "scientificName": "Antilocapra americana",
+      "traitId": "mdd_family_species_count",
+      "value": 1,
+      "originalRow": 6867
+    },
+    {
+      "animalId": "antilocapra_americana",
+      "scientificName": "Antilocapra americana",
+      "traitId": "mdd_country_count",
+      "value": 3,
+      "originalRow": 6867
+    },
+    {
+      "animalId": "antilocapra_americana",
+      "scientificName": "Antilocapra americana",
+      "traitId": "mdd_continent_count",
+      "value": 1,
+      "originalRow": 6867
+    },
+    {
+      "animalId": "oreamnos_americanus",
+      "scientificName": "Oreamnos americanus",
+      "traitId": "mdd_family_species_count",
+      "value": 153,
+      "originalRow": 6700
+    },
+    {
+      "animalId": "oreamnos_americanus",
+      "scientificName": "Oreamnos americanus",
+      "traitId": "mdd_country_count",
+      "value": 2,
+      "originalRow": 6700
+    },
+    {
+      "animalId": "oreamnos_americanus",
+      "scientificName": "Oreamnos americanus",
+      "traitId": "mdd_continent_count",
+      "value": 1,
+      "originalRow": 6700
+    },
+    {
+      "animalId": "ovibos_moschatus",
+      "scientificName": "Ovibos moschatus",
+      "traitId": "mdd_family_species_count",
+      "value": 153,
+      "originalRow": 6721
+    },
+    {
+      "animalId": "ovibos_moschatus",
+      "scientificName": "Ovibos moschatus",
+      "traitId": "mdd_country_count",
+      "value": 3,
+      "originalRow": 6721
+    },
+    {
+      "animalId": "ovibos_moschatus",
+      "scientificName": "Ovibos moschatus",
+      "traitId": "mdd_continent_count",
+      "value": 1,
+      "originalRow": 6721
+    },
+    {
+      "animalId": "ovis_canadensis",
+      "scientificName": "Ovis canadensis",
+      "traitId": "mdd_family_species_count",
+      "value": 153,
+      "originalRow": 6703
+    },
+    {
+      "animalId": "ovis_canadensis",
+      "scientificName": "Ovis canadensis",
+      "traitId": "mdd_country_count",
+      "value": 3,
+      "originalRow": 6703
+    },
+    {
+      "animalId": "ovis_canadensis",
+      "scientificName": "Ovis canadensis",
+      "traitId": "mdd_continent_count",
+      "value": 1,
+      "originalRow": 6703
+    },
+    {
+      "animalId": "cryptoprocta_ferox",
+      "scientificName": "Cryptoprocta ferox",
+      "traitId": "mdd_family_species_count",
+      "value": 7,
+      "originalRow": 6429
+    },
+    {
+      "animalId": "cryptoprocta_ferox",
+      "scientificName": "Cryptoprocta ferox",
+      "traitId": "mdd_country_count",
+      "value": 1,
+      "originalRow": 6429
+    },
+    {
+      "animalId": "cryptoprocta_ferox",
+      "scientificName": "Cryptoprocta ferox",
+      "traitId": "mdd_continent_count",
+      "value": 1,
+      "originalRow": 6429
+    },
+    {
+      "animalId": "caracal_caracal",
+      "scientificName": "Caracal caracal",
+      "traitId": "mdd_family_species_count",
+      "value": 46,
+      "originalRow": 6383
+    },
+    {
+      "animalId": "caracal_caracal",
+      "scientificName": "Caracal caracal",
+      "traitId": "mdd_country_count",
+      "value": 61,
+      "originalRow": 6383
+    },
+    {
+      "animalId": "caracal_caracal",
+      "scientificName": "Caracal caracal",
+      "traitId": "mdd_continent_count",
+      "value": 2,
+      "originalRow": 6383
+    },
+    {
+      "animalId": "leptailurus_serval",
+      "scientificName": "Leptailurus serval",
+      "traitId": "mdd_family_species_count",
+      "value": 46,
+      "originalRow": 6407
+    },
+    {
+      "animalId": "leptailurus_serval",
+      "scientificName": "Leptailurus serval",
+      "traitId": "mdd_country_count",
+      "value": 42,
+      "originalRow": 6407
+    },
+    {
+      "animalId": "leptailurus_serval",
+      "scientificName": "Leptailurus serval",
+      "traitId": "mdd_continent_count",
+      "value": 1,
+      "originalRow": 6407
+    },
+    {
+      "animalId": "gulo_gulo",
+      "scientificName": "Gulo gulo",
+      "traitId": "mdd_family_species_count",
+      "value": 70,
+      "originalRow": 6212
+    },
+    {
+      "animalId": "gulo_gulo",
+      "scientificName": "Gulo gulo",
+      "traitId": "mdd_country_count",
+      "value": 9,
+      "originalRow": 6212
+    },
+    {
+      "animalId": "gulo_gulo",
+      "scientificName": "Gulo gulo",
+      "traitId": "mdd_continent_count",
+      "value": 3,
+      "originalRow": 6212
+    },
+    {
+      "animalId": "arctictis_binturong",
+      "scientificName": "Arctictis binturong",
+      "traitId": "mdd_family_species_count",
+      "value": 36,
+      "originalRow": 6499
+    },
+    {
+      "animalId": "arctictis_binturong",
+      "scientificName": "Arctictis binturong",
+      "traitId": "mdd_country_count",
+      "value": 13,
+      "originalRow": 6499
+    },
+    {
+      "animalId": "arctictis_binturong",
+      "scientificName": "Arctictis binturong",
+      "traitId": "mdd_continent_count",
+      "value": 1,
+      "originalRow": 6499
+    },
+    {
+      "animalId": "mungos_mungo",
+      "scientificName": "Mungos mungo",
+      "traitId": "mdd_family_species_count",
+      "value": 35,
+      "originalRow": 6470
+    },
+    {
+      "animalId": "mungos_mungo",
+      "scientificName": "Mungos mungo",
+      "traitId": "mdd_country_count",
+      "value": 33,
+      "originalRow": 6470
+    },
+    {
+      "animalId": "mungos_mungo",
+      "scientificName": "Mungos mungo",
+      "traitId": "mdd_continent_count",
+      "value": 1,
+      "originalRow": 6470
+    },
+    {
+      "animalId": "setonix_brachyurus",
+      "scientificName": "Setonix brachyurus",
+      "traitId": "mdd_family_species_count",
+      "value": 64,
+      "originalRow": 348
+    },
+    {
+      "animalId": "setonix_brachyurus",
+      "scientificName": "Setonix brachyurus",
+      "traitId": "mdd_country_count",
+      "value": 1,
+      "originalRow": 348
+    },
+    {
+      "animalId": "wallabia_bicolor",
+      "scientificName": "Wallabia bicolor",
+      "traitId": "mdd_family_species_count",
+      "value": 64,
+      "originalRow": 349
+    },
+    {
+      "animalId": "wallabia_bicolor",
+      "scientificName": "Wallabia bicolor",
+      "traitId": "mdd_country_count",
+      "value": 1,
+      "originalRow": 349
+    },
+    {
+      "animalId": "petaurus_breviceps",
+      "scientificName": "Petaurus breviceps",
+      "traitId": "mdd_family_species_count",
+      "value": 16,
+      "originalRow": 378
+    },
+    {
+      "animalId": "petaurus_breviceps",
+      "scientificName": "Petaurus breviceps",
+      "traitId": "mdd_country_count",
+      "value": 1,
+      "originalRow": 378
+    },
+    {
+      "animalId": "lepus_europaeus",
+      "scientificName": "Lepus europaeus",
+      "traitId": "mdd_family_species_count",
+      "value": 78,
+      "originalRow": 1125
+    },
+    {
+      "animalId": "lepus_europaeus",
+      "scientificName": "Lepus europaeus",
+      "traitId": "mdd_country_count",
+      "value": 44,
+      "originalRow": 1125
+    },
+    {
+      "animalId": "lepus_europaeus",
+      "scientificName": "Lepus europaeus",
+      "traitId": "mdd_continent_count",
+      "value": 2,
+      "originalRow": 1125
+    },
+    {
+      "animalId": "ochotona_princeps",
+      "scientificName": "Ochotona princeps",
+      "traitId": "mdd_family_species_count",
+      "value": 36,
+      "originalRow": 1212
+    },
+    {
+      "animalId": "ochotona_princeps",
+      "scientificName": "Ochotona princeps",
+      "traitId": "mdd_country_count",
+      "value": 2,
+      "originalRow": 1212
+    },
+    {
+      "animalId": "ochotona_princeps",
+      "scientificName": "Ochotona princeps",
+      "traitId": "mdd_continent_count",
+      "value": 1,
+      "originalRow": 1212
+    },
+    {
+      "animalId": "nasalis_larvatus",
+      "scientificName": "Nasalis larvatus",
+      "traitId": "mdd_family_species_count",
+      "value": 166,
+      "originalRow": 703
+    },
+    {
+      "animalId": "nasalis_larvatus",
+      "scientificName": "Nasalis larvatus",
+      "traitId": "mdd_country_count",
+      "value": 3,
+      "originalRow": 703
+    },
+    {
+      "animalId": "nasalis_larvatus",
+      "scientificName": "Nasalis larvatus",
+      "traitId": "mdd_continent_count",
+      "value": 1,
+      "originalRow": 703
+    },
+    {
+      "animalId": "hylobates_lar",
+      "scientificName": "Hylobates lar",
+      "traitId": "mdd_family_species_count",
+      "value": 20,
+      "originalRow": 779
+    },
+    {
+      "animalId": "hylobates_lar",
+      "scientificName": "Hylobates lar",
+      "traitId": "mdd_country_count",
+      "value": 6,
+      "originalRow": 779
+    },
+    {
+      "animalId": "hylobates_lar",
+      "scientificName": "Hylobates lar",
+      "traitId": "mdd_continent_count",
+      "value": 1,
+      "originalRow": 779
+    },
+    {
+      "animalId": "carlito_syrichta",
+      "scientificName": "Carlito syrichta",
+      "traitId": "mdd_family_species_count",
+      "value": 14,
+      "originalRow": 956
+    },
+    {
+      "animalId": "carlito_syrichta",
+      "scientificName": "Carlito syrichta",
+      "traitId": "mdd_country_count",
+      "value": 1,
+      "originalRow": 956
+    },
+    {
+      "animalId": "carlito_syrichta",
+      "scientificName": "Carlito syrichta",
+      "traitId": "mdd_continent_count",
+      "value": 1,
+      "originalRow": 956
+    },
+    {
+      "animalId": "muscardinus_avellanarius",
+      "scientificName": "Muscardinus avellanarius",
+      "traitId": "mdd_family_species_count",
+      "value": 31,
+      "originalRow": 1583
+    },
+    {
+      "animalId": "muscardinus_avellanarius",
+      "scientificName": "Muscardinus avellanarius",
+      "traitId": "mdd_country_count",
+      "value": 35,
+      "originalRow": 1583
+    },
+    {
+      "animalId": "muscardinus_avellanarius",
+      "scientificName": "Muscardinus avellanarius",
+      "traitId": "mdd_continent_count",
+      "value": 2,
+      "originalRow": 1583
+    },
+    {
+      "animalId": "cynomys_ludovicianus",
+      "scientificName": "Cynomys ludovicianus",
+      "traitId": "mdd_family_species_count",
+      "value": 321,
+      "originalRow": 1800
+    },
+    {
+      "animalId": "cynomys_ludovicianus",
+      "scientificName": "Cynomys ludovicianus",
+      "traitId": "mdd_country_count",
+      "value": 3,
+      "originalRow": 1800
+    },
+    {
+      "animalId": "cynomys_ludovicianus",
+      "scientificName": "Cynomys ludovicianus",
+      "traitId": "mdd_continent_count",
+      "value": 1,
+      "originalRow": 1800
+    },
+    {
+      "animalId": "glaucomys_volans",
+      "scientificName": "Glaucomys volans",
+      "traitId": "mdd_family_species_count",
+      "value": 321,
+      "originalRow": 1672
+    },
+    {
+      "animalId": "glaucomys_volans",
+      "scientificName": "Glaucomys volans",
+      "traitId": "mdd_country_count",
+      "value": 5,
+      "originalRow": 1672
+    },
+    {
+      "animalId": "glaucomys_volans",
+      "scientificName": "Glaucomys volans",
+      "traitId": "mdd_continent_count",
+      "value": 1,
+      "originalRow": 1672
+    },
+    {
+      "animalId": "tamias_striatus",
+      "scientificName": "Tamias striatus",
+      "traitId": "mdd_family_species_count",
+      "value": 321,
+      "originalRow": 1902
+    },
+    {
+      "animalId": "tamias_striatus",
+      "scientificName": "Tamias striatus",
+      "traitId": "mdd_country_count",
+      "value": 2,
+      "originalRow": 1902
+    },
+    {
+      "animalId": "tamias_striatus",
+      "scientificName": "Tamias striatus",
+      "traitId": "mdd_continent_count",
+      "value": 1,
+      "originalRow": 1902
+    },
+    {
+      "animalId": "trichechus_inunguis",
+      "scientificName": "Trichechus inunguis",
+      "traitId": "mdd_family_species_count",
+      "value": 3,
+      "originalRow": 569
+    },
+    {
+      "animalId": "trichechus_inunguis",
+      "scientificName": "Trichechus inunguis",
+      "traitId": "mdd_country_count",
+      "value": 4,
+      "originalRow": 569
+    },
+    {
+      "animalId": "trichechus_inunguis",
+      "scientificName": "Trichechus inunguis",
+      "traitId": "mdd_continent_count",
+      "value": 1,
+      "originalRow": 569
+    },
+    {
+      "animalId": "eubalaena_australis",
+      "scientificName": "Eubalaena australis",
+      "traitId": "mdd_family_species_count",
+      "value": 4,
+      "originalRow": 6537
+    },
+    {
+      "animalId": "eubalaena_australis",
+      "scientificName": "Eubalaena australis",
+      "traitId": "mdd_country_count",
+      "value": 16,
+      "originalRow": 6537
+    },
+    {
+      "animalId": "eubalaena_australis",
+      "scientificName": "Eubalaena australis",
+      "traitId": "mdd_continent_count",
+      "value": 3,
+      "originalRow": 6537
+    },
+    {
+      "animalId": "eubalaena_glacialis",
+      "scientificName": "Eubalaena glacialis",
+      "traitId": "mdd_family_species_count",
+      "value": 4,
+      "originalRow": 6538
+    },
+    {
+      "animalId": "eubalaena_glacialis",
+      "scientificName": "Eubalaena glacialis",
+      "traitId": "mdd_country_count",
+      "value": 7,
+      "originalRow": 6538
+    },
+    {
+      "animalId": "eubalaena_glacialis",
+      "scientificName": "Eubalaena glacialis",
+      "traitId": "mdd_continent_count",
+      "value": 2,
+      "originalRow": 6538
+    }
+  ],
+  "held": [
+    {
+      "scientificName": "Antidorcas marsupialis",
+      "reason": "Extinct or flagged MDD target; no taxonomy transfer.",
+      "taxonomyNotes": "includes angolensis and hofmeyri, which were considered distinct by Groves & Grubb 2011; for additional information regarding the MDD's decision to not follow the Groves & Grubb 2011 Ungulate Taxonomy, see 'Subjective decisions' on the 'About' tab"
+    },
+    {
+      "scientificName": "Proteles cristata",
+      "reason": "No exact unmodified species name in MDD v2.5."
+    },
+    {
+      "scientificName": "Chinchilla lanigera",
+      "reason": "No exact unmodified species name in MDD v2.5."
+    }
+  ]
+}

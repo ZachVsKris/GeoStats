@@ -1,6 +1,35 @@
 {
   "sourceSha256": "e3ddb66e32e973a79932859ba53013e8f60d957c6ec01c6eb573e3ea3018d630",
-  "newAnimals": [],
+  "newAnimals": [
+    "Antilocapra americana",
+    "Antidorcas marsupialis",
+    "Oreamnos americanus",
+    "Ovibos moschatus",
+    "Ovis canadensis",
+    "Cryptoprocta ferox",
+    "Caracal caracal",
+    "Leptailurus serval",
+    "Proteles cristata",
+    "Gulo gulo",
+    "Arctictis binturong",
+    "Mungos mungo",
+    "Setonix brachyurus",
+    "Wallabia bicolor",
+    "Petaurus breviceps",
+    "Lepus europaeus",
+    "Ochotona princeps",
+    "Nasalis larvatus",
+    "Hylobates lar",
+    "Carlito syrichta",
+    "Chinchilla lanigera",
+    "Muscardinus avellanarius",
+    "Cynomys ludovicianus",
+    "Glaucomys volans",
+    "Tamias striatus",
+    "Trichechus inunguis",
+    "Eubalaena australis",
+    "Eubalaena glacialis"
+  ],
   "held": [
     {
       "species": "Cervus canadensis",
@@ -9,43 +38,43 @@
   ],
   "coverage": {
     "adult_body_mass": {
-      "added": 67
+      "added": 28
     },
     "maximum_documented_lifespan": {
-      "added": 19
+      "added": 26
     },
     "wild_recorded_lifespan": {
-      "added": 67
+      "added": 2
     },
     "gestation": {
-      "added": 16
+      "added": 28
     },
     "litter_size": {
-      "added": 18
+      "added": 28
     },
     "female_maturity": {
-      "added": 17
+      "added": 27
     },
     "male_maturity": {
-      "added": 12
+      "added": 18
     },
     "weaning_age": {
-      "added": 15
+      "added": 25
     },
     "birth_weight": {
-      "added": 16
+      "added": 28
     },
     "weaning_mass": {
-      "added": 8
+      "added": 13
     },
     "litters_per_year": {
-      "added": 16
+      "added": 25
     },
     "interbirth_interval": {
-      "added": 11
+      "added": 21
     }
   },
   "rangeOnlyAnimals": [],
-  "newSourceCells": 564,
-  "preservedExistingValues": 1002
+  "newSourceCells": 538,
+  "preservedExistingValues": 1566
 }

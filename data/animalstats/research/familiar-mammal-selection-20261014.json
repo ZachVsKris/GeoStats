@@ -1,0 +1,130 @@
+{
+  "reviewDate": "2026-10-14",
+  "source": "AnAge Build 15 frozen exact-species snapshot",
+  "selectionBasis": "Recognizable mammals and useful representatives missing from the catalog. No bat expansion in this batch. Source-name identity only; no taxonomic transfers.",
+  "animals": [
+    {
+      "scientificName": "Antilocapra americana",
+      "commonName": "Pronghorn"
+    },
+    {
+      "scientificName": "Antidorcas marsupialis",
+      "commonName": "Springbok"
+    },
+    {
+      "scientificName": "Oreamnos americanus",
+      "commonName": "Mountain goat"
+    },
+    {
+      "scientificName": "Ovibos moschatus",
+      "commonName": "Muskox"
+    },
+    {
+      "scientificName": "Ovis canadensis",
+      "commonName": "Bighorn sheep"
+    },
+    {
+      "scientificName": "Cryptoprocta ferox",
+      "commonName": "Fossa"
+    },
+    {
+      "scientificName": "Caracal caracal",
+      "commonName": "Caracal"
+    },
+    {
+      "scientificName": "Leptailurus serval",
+      "commonName": "Serval"
+    },
+    {
+      "scientificName": "Proteles cristata",
+      "commonName": "Aardwolf"
+    },
+    {
+      "scientificName": "Gulo gulo",
+      "commonName": "Wolverine"
+    },
+    {
+      "scientificName": "Arctictis binturong",
+      "commonName": "Binturong"
+    },
+    {
+      "scientificName": "Mungos mungo",
+      "commonName": "Banded mongoose"
+    },
+    {
+      "scientificName": "Setonix brachyurus",
+      "commonName": "Quokka"
+    },
+    {
+      "scientificName": "Wallabia bicolor",
+      "commonName": "Swamp wallaby"
+    },
+    {
+      "scientificName": "Petaurus breviceps",
+      "commonName": "Sugar glider"
+    },
+    {
+      "scientificName": "Lepus europaeus",
+      "commonName": "European hare"
+    },
+    {
+      "scientificName": "Ochotona princeps",
+      "commonName": "American pika"
+    },
+    {
+      "scientificName": "Nasalis larvatus",
+      "commonName": "Proboscis monkey"
+    },
+    {
+      "scientificName": "Hylobates lar",
+      "commonName": "White-handed gibbon"
+    },
+    {
+      "scientificName": "Carlito syrichta",
+      "commonName": "Philippine tarsier"
+    },
+    {
+      "scientificName": "Chinchilla lanigera",
+      "commonName": "Long-tailed chinchilla"
+    },
+    {
+      "scientificName": "Muscardinus avellanarius",
+      "commonName": "Hazel dormouse"
+    },
+    {
+      "scientificName": "Cynomys ludovicianus",
+      "commonName": "Black-tailed prairie dog"
+    },
+    {
+      "scientificName": "Glaucomys volans",
+      "commonName": "Southern flying squirrel"
+    },
+    {
+      "scientificName": "Tamias striatus",
+      "commonName": "Eastern chipmunk"
+    },
+    {
+      "scientificName": "Trichechus inunguis",
+      "commonName": "Amazonian manatee"
+    },
+    {
+      "scientificName": "Eubalaena australis",
+      "commonName": "Southern right whale"
+    },
+    {
+      "scientificName": "Eubalaena glacialis",
+      "commonName": "North Atlantic right whale"
+    }
+  ],
+  "roundAdmission": "Catalog and compatible rankings only; artwork, photographs and board eligibility need separate review.",
+  "holds": [
+    {
+      "scientificName": "Bos frontalis",
+      "reason": "Source common name Gaur requires review of domestic gayal versus wild gaur species scope."
+    },
+    {
+      "scientificName": "Ovis aries",
+      "reason": "Source common name combines domestic sheep and mouflon; population basis requires review before ordinary domestic-sheep labeling."
+    }
+  ]
+}

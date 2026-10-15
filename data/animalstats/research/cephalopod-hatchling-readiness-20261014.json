@@ -1,0 +1,3978 @@
+{
+  "status": "research-only; no game measurements admitted",
+  "doi": "10.1371/journal.pone.0165334",
+  "sourceUrl": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0165334&type=manuscript",
+  "sourceFile": "data/animalstats/source/cephalopod-hatchlings-2016.xml",
+  "sha256": "217f90b41577aeb21d9cfa9617983cedc543578c7a466ef87b2337ba843eefa2",
+  "license": "CC BY; Villanueva, Vidal, Fernández-Álvarez and Nabhitabhata (2016)",
+  "sourceRows": 110,
+  "correctedHatchlingRows": 11,
+  "declaredCorrectedSpecies": 10,
+  "correctionCountDiscrepancy": "Article methods say ten corrected species, but eleven Table 1 rows carry an asterisk. All eleven are held.",
+  "coordinateErrorRows": 1,
+  "newPlayableLabels": 0,
+  "newAdmittedValues": 0,
+  "methodReview": [
+    "Hatchlings were laboratory hatched, including identified wild-collected egg masses. Keep captive hatchling measurements separate from adult records.",
+    "Mantle length excludes arms and tentacles; never label as total body length or mix with nautilus shell diameter.",
+    "Ten source hatchling lengths use an estimated shrinkage correction and are ineligible as measured values.",
+    "Published hatchling means may pool several study means; preserve every original reference and inspect aggregation.",
+    "Adult lengths are published maxima, largely from FAO catalogs, not average adult lengths.",
+    "Latitude span is not occupied area, abundance, distance migrated or lifetime movement.",
+    "The relative hatchling-size index uses a mean hatchling divided by a maximum adult; keep this basis explicit.",
+    "Table 2 has only 15 species and differing endpoints (settlement versus first schooling); do not publish a universal development-duration ranking.",
+    "Original species spellings and coordinate mistakes are preserved for review; taxonomy corrections require explicit evidence."
+  ],
+  "candidates": [
+    {
+      "sourceName": "Euprymna berryi",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Euprymna berryi",
+        "mode": "P",
+        "hatchlingMm": "2.6 [48]",
+        "adultMantleMm": "50",
+        "relativeSizePercent": "5.3",
+        "latitude": "20°51'N, 41°38'N [49]",
+        "rangeKm": "2311"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref048",
+            "reference": "48Choe S. On the eggs, rearing, habits of the fry and growth of some cephalopods. Bulletin of Marine Science. 1966;16:330–48."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref049",
+            "reference": "49Reid A, Jereb P. Family Sepiolidae. In: Jereb P, Roper CFE, editors. Cephalopods of the world An annotated and illustrated catalogue of species known to date Vol 1: Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. Rome: FAO; 2005. p. 153–203."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Euprymna hyllebergi",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Euprymna hyllebergi",
+        "mode": "P",
+        "hatchlingMm": "2.2 [50]",
+        "adultMantleMm": "35",
+        "relativeSizePercent": "6.3",
+        "latitude": "00°17'N, 16°41'N [51]",
+        "rangeKm": "1824"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref050",
+            "reference": "50Nabhitabhata J, Nilaphat P, Promboon P, Jaroongpattananon C. Life cycle of cultured bobtail squid, Euprmna hyllerbergi Nateewathana, 1997. Phuket Mar Biol Cent Res Bull. 2005;66:351–65."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref051",
+            "reference": "51Aungtonya C, Nateewathana A, SecherTendal O, Nabhitabhata J. New records of the bobtail squid Euprymna hyllebergi Nateewathana, 1997 with designation of a neotype. Phuket Mar Biol Cent Res Bull 2011;70:15–27."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Euprymna scolopes",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Euprymna scolopes",
+        "mode": "P",
+        "hatchlingMm": "1.8 [52]",
+        "adultMantleMm": "30",
+        "relativeSizePercent": "5.8",
+        "latitude": "18°47'N, 25°47'N [53]",
+        "rangeKm": "779"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref052",
+            "reference": "52Hanlon RT, Claes MF, Ashcraft SE, Dunlap PV. Laboratory culture of the sepiolid squid Euprymna scolopes: a model system for bacteria—animal symbiosis. Biological Bulletin. 1997;192:364–74."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref053",
+            "reference": "53Singley CT. Euprymna scolopes. In: Boyle PR, editor. Cephalopod life cycles Volume 1 Species accounts: Academic Press London; 1983. p. 69–74."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Euprymna tasmanica",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Euprymna tasmanica",
+        "mode": "B",
+        "hatchlingMm": "5.0 [54]",
+        "adultMantleMm": "40",
+        "relativeSizePercent": "12.5",
+        "latitude": "43°42'S, 24°40'S [49]",
+        "rangeKm": "2116"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref054",
+            "reference": "54Moltschaniwskyj NA. pers comm."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref049",
+            "reference": "49Reid A, Jereb P. Family Sepiolidae. In: Jereb P, Roper CFE, editors. Cephalopods of the world An annotated and illustrated catalogue of species known to date Vol 1: Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. Rome: FAO; 2005. p. 153–203."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Idiosepius biserialis",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Idiosepius biserialis",
+        "mode": "P",
+        "hatchlingMm": "1.0 [55] (as I.thailandicus)",
+        "adultMantleMm": "10.5",
+        "relativeSizePercent": "9.5",
+        "latitude": "26°00'S, 33°25'N [56]",
+        "rangeKm": "6607"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref055",
+            "reference": "55Nabhitabhata J. Distinctive behaviour of Thai pygmy squid, Idiosepius thailandicius Chotiyaputta, Okutani & ChaitiaMVong, 1991. Phuket Marine Biological Center Special Publication. 1998;18(1):25–40."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref056",
+            "reference": "56Jv Byern, Söller R, Steiner G. Phylogenetic characterisation of the genus Idiosepius (Cephalopoda; Idiosepiidae). Aquatic Biology. 2012;17(1):19–27. doi: 10.3354/ab00445"
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Idiosepius paradoxus",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Idiosepius paradoxus",
+        "mode": "P",
+        "hatchlingMm": "1.2 [57]",
+        "adultMantleMm": "16",
+        "relativeSizePercent": "7.4",
+        "latitude": "21°51'N, 42°87'N [56, 58]",
+        "rangeKm": "2478"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref057",
+            "reference": "57Natsukari Y. Egg-laying behavior, embryonic development and hatched larva of the pygmy cuttlefish Idiosepius pygmaeus paradoxus Ortmann. Bulletin of the Faculty of Fisheries, Nagasaki University. 1970;30:15–29."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref056",
+            "reference": "56Jv Byern, Söller R, Steiner G. Phylogenetic characterisation of the genus Idiosepius (Cephalopoda; Idiosepiidae). Aquatic Biology. 2012;17(1):19–27. doi: 10.3354/ab00445"
+          },
+          {
+            "id": "pone.0165334.ref058",
+            "reference": "58Sato N, Awata S, Munehara H. Seasonal occurrence and sexual maturation of Japanese pygmy squid (Idiosepius paradoxus) at the northern limits of their distribution. Ices Journal of Marine Science. 2009;66(5):811–5. CCC:000266350100003."
+          }
+        ],
+        "range": []
+      },
+      "holds": [
+        "Invalid coordinate minutes in released table; do not silently repair or admit range."
+      ],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Idiosepius pygmaeus",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Idiosepius pygmaeus",
+        "mode": "P",
+        "hatchlingMm": "1.0 [59]",
+        "adultMantleMm": "20",
+        "relativeSizePercent": "5.0",
+        "latitude": "25°11'S, 13°32'N [60, 61]",
+        "rangeKm": "4306"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref059",
+            "reference": "59Nabhitabhata J, Nilaphat P, Reunreng A, Promboon P. Culture, growth and behaviour of sharp-tail Pygmy squid, Idiosepius pygmaeus Steenstrup, 1881. Rayong Coastal Fisheries Research and Development Center. 2004; (Contribution No. 27)."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref060",
+            "reference": "60Norman MD, Reid A. A guide to squid, cuttlefish and octopuses of Australasia. Victoria, Australia: CSIRO Publishing; 2000. 96 p."
+          },
+          {
+            "id": "pone.0165334.ref061",
+            "reference": "61Voss GL. Cephalopods of the Phillipine Islands. United States National Museum Bulletin. 1963;234:1–180."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Metasepia pffeferi",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Metasepia pffeferi",
+        "mode": "B",
+        "hatchlingMm": "4.0 [62]",
+        "adultMantleMm": "60",
+        "relativeSizePercent": "6.7",
+        "latitude": "04°04'S, 32°33'S [63]",
+        "rangeKm": "3166"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref062",
+            "reference": "62Grasse B. The biological characteristics, life cycle, and system design for the flamboyant and paintpot cuttlefish, Metasepia sp., cultured through multiple generations. Drum and Croaker. 2014;45:58–71."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref063",
+            "reference": "63Reid A, Jereb P, Roper CFE. Family Sepiidae. In P. Jereb & C.F.E. Roper, eds. Cephalopods of the world. An annotated and illustrated catalogue of species known to date. Volume 1. Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 1. Rome, FAO. 2005:pp. 57–152."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Metasepia tullbergi",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Metasepia tullbergi",
+        "mode": "B",
+        "hatchlingMm": "4.7 [64]",
+        "adultMantleMm": "70",
+        "relativeSizePercent": "6.7",
+        "latitude": "00°01'S, 38°58'N [63]",
+        "rangeKm": "4335"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref064",
+            "reference": "64Umezu Y, Tsuchiya K, Segawa S. Growth, maturation and metabolism of reared Metasepia tullbergi. Cephalopod International Advisory Council; Florianopolis, Brazil: Official Program; 2012. p. 28."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref063",
+            "reference": "63Reid A, Jereb P, Roper CFE. Family Sepiidae. In P. Jereb & C.F.E. Roper, eds. Cephalopods of the world. An annotated and illustrated catalogue of species known to date. Volume 1. Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 1. Rome, FAO. 2005:pp. 57–152."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Rossia macrosoma",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Rossia macrosoma",
+        "mode": "B",
+        "hatchlingMm": "5.5 [65]",
+        "adultMantleMm": "85",
+        "relativeSizePercent": "6.5",
+        "latitude": "12°36'N, 70°03'N [49]",
+        "rangeKm": "6387"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref065",
+            "reference": "65Boletzky SV, Boletzky MV. Observations on the embryonic and early post-embryonic development of Rossia macrosoma (Mollusca: Cephalopoda). Helgol Mar Res. 1973;20:135–61."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref049",
+            "reference": "49Reid A, Jereb P. Family Sepiolidae. In: Jereb P, Roper CFE, editors. Cephalopods of the world An annotated and illustrated catalogue of species known to date Vol 1: Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. Rome: FAO; 2005. p. 153–203."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Rossia mollicella",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Rossia mollicella",
+        "mode": "B",
+        "hatchlingMm": "7.8* [66]",
+        "adultMantleMm": "36",
+        "relativeSizePercent": "21.7",
+        "latitude": "30°57'N, 45°37'N [67]",
+        "rangeKm": "1630"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref066",
+            "reference": "66Okutani T, Sasaki T. Eggs of Rossia mollicella (Cephalopoda: Sepiolidae) deposited in a deep-sea sponge. J Mollus Stud. 2007;73(3):287–9."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref067",
+            "reference": "67Nesis KN. Cephalopods of the World. Burguess LA, editor. Neptune City: T.F.H. Publications; 1987. 351 p."
+          }
+        ],
+        "range": []
+      },
+      "holds": [
+        "Hatchling length is estimated using a pooled shrinkage correction; exclude from measured hatchling rankings."
+      ],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Rossia pacifica",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Rossia pacifica",
+        "mode": "B",
+        "hatchlingMm": "6.0 [68]",
+        "adultMantleMm": "90",
+        "relativeSizePercent": "6.7",
+        "latitude": "28°00'N, 65°57'N [49]",
+        "rangeKm": "4219"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref068",
+            "reference": "68Summers WC, Colvin L. On the cultivation of Rossia pacifica (Berry, 1911). Journal of Cephalopod Biology. 1989;1:21–32."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref049",
+            "reference": "49Reid A, Jereb P. Family Sepiolidae. In: Jereb P, Roper CFE, editors. Cephalopods of the world An annotated and illustrated catalogue of species known to date Vol 1: Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. Rome: FAO; 2005. p. 153–203."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Sepia apama",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Sepia apama",
+        "mode": "B",
+        "hatchlingMm": "12.1 [69]",
+        "adultMantleMm": "500",
+        "relativeSizePercent": "2.4",
+        "latitude": "22°55'S, 39°27'S [63]",
+        "rangeKm": "1839"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref069",
+            "reference": "69Cronin ER, Seymour RS. Respiration of the eggs of the giant cuttlefish Sepia apama. Marine Biology. 2000;136(5):863–70. doi: 10.1007/s002270000274"
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref063",
+            "reference": "63Reid A, Jereb P, Roper CFE. Family Sepiidae. In P. Jereb & C.F.E. Roper, eds. Cephalopods of the world. An annotated and illustrated catalogue of species known to date. Volume 1. Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 1. Rome, FAO. 2005:pp. 57–152."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Sepia bandensis",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Sepia bandensis",
+        "mode": "B",
+        "hatchlingMm": "8.0 [70]",
+        "adultMantleMm": "70",
+        "relativeSizePercent": "11.4",
+        "latitude": "08°48'S, 15°18'N [63]",
+        "rangeKm": "2681"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref070",
+            "reference": "70Warnke KM, Kaiser R, Hasselmann M. First observations of a snail-like body pattern in juvenile Sepia bandensis (Cephalopoda: Sepiidae). A note. Neues Jahrbuch Fur Geologie Und Palaontologie-Abhandlungen. 2012;266(1):51–7. doi: 10.1127/0077-7749/2012/0259 WOS:000309508800007."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref063",
+            "reference": "63Reid A, Jereb P, Roper CFE. Family Sepiidae. In P. Jereb & C.F.E. Roper, eds. Cephalopods of the world. An annotated and illustrated catalogue of species known to date. Volume 1. Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 1. Rome, FAO. 2005:pp. 57–152."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Sepia esculenta",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Sepia esculenta",
+        "mode": "B",
+        "hatchlingMm": "5.2 [48, 71]",
+        "adultMantleMm": "180",
+        "relativeSizePercent": "2.9",
+        "latitude": "06°48'N, 40°16'N [63]",
+        "rangeKm": "3723"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref048",
+            "reference": "48Choe S. On the eggs, rearing, habits of the fry and growth of some cephalopods. Bulletin of Marine Science. 1966;16:330–48."
+          },
+          {
+            "id": "pone.0165334.ref071",
+            "reference": "71Natsukari Y, Tashiro M. Neritic squid resources and cuttlefish resources in Japan. Marine Behaviour and Physiology. 1991;18(3):149–226. ISI:A1991FW46200001."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref063",
+            "reference": "63Reid A, Jereb P, Roper CFE. Family Sepiidae. In P. Jereb & C.F.E. Roper, eds. Cephalopods of the world. An annotated and illustrated catalogue of species known to date. Volume 1. Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 1. Rome, FAO. 2005:pp. 57–152."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Sepia latimanus",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Sepia latimanus",
+        "mode": "B",
+        "hatchlingMm": "14.1 [72–74]",
+        "adultMantleMm": "500",
+        "relativeSizePercent": "2.8",
+        "latitude": "25°04'S, 40°22'N [63]",
+        "rangeKm": "7325"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref072",
+            "reference": "72Okutani T. Studies on early life cycle of Decapodan Mollusca—VII. Eggs and newly hatched larvae of Sepia latimanus Quoy & Gaimard. Venus. 1978;37:245–8."
+          },
+          {
+            "id": "pone.0165334.ref074",
+            "reference": "74Watanabe K, Sakurai Y, Segawa S, Okutani T. Development of the ommastrephid squid Todarodes pacificus, from fertilized egg to rhynchoteuthion paralarva. Am Malacol Bull. 1996;13:73–88."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref063",
+            "reference": "63Reid A, Jereb P, Roper CFE. Family Sepiidae. In P. Jereb & C.F.E. Roper, eds. Cephalopods of the world. An annotated and illustrated catalogue of species known to date. Volume 1. Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 1. Rome, FAO. 2005:pp. 57–152."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Sepia lycidas",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Sepia lycidas",
+        "mode": "B",
+        "hatchlingMm": "8.7 [48] (as S. subaculeata)",
+        "adultMantleMm": "380",
+        "relativeSizePercent": "2.3",
+        "latitude": "07°50'S, 40°23'N [63]",
+        "rangeKm": "5363"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref048",
+            "reference": "48Choe S. On the eggs, rearing, habits of the fry and growth of some cephalopods. Bulletin of Marine Science. 1966;16:330–48."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref063",
+            "reference": "63Reid A, Jereb P, Roper CFE. Family Sepiidae. In P. Jereb & C.F.E. Roper, eds. Cephalopods of the world. An annotated and illustrated catalogue of species known to date. Volume 1. Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 1. Rome, FAO. 2005:pp. 57–152."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Sepia officinalis",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Sepia officinalis",
+        "mode": "B",
+        "hatchlingMm": "6.3 [75, 76]",
+        "adultMantleMm": "490",
+        "relativeSizePercent": "1.3",
+        "latitude": "15°04'N, 61°28'N [63]",
+        "rangeKm": "5160"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref075",
+            "reference": "75Boletzky SV. Sepia officinalis. In: Boyle PR, editor. Cephalopod life cycles Volume 1 Species accounts: Academic Press London; 1983. p. 31–52."
+          },
+          {
+            "id": "pone.0165334.ref076",
+            "reference": "76Forsythe JW, Derusha RH, Hanlon RT. Growth, reproduction and life span of Sepia officinalis (Cephalopoda, Mollusca) cultured through seven consecutive generations. Journal of Zoology. 1994;233:175–92. ISI:A1994NV72000001."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref063",
+            "reference": "63Reid A, Jereb P, Roper CFE. Family Sepiidae. In P. Jereb & C.F.E. Roper, eds. Cephalopods of the world. An annotated and illustrated catalogue of species known to date. Volume 1. Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 1. Rome, FAO. 2005:pp. 57–152."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Sepia orbignyana",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Sepia orbignyana",
+        "mode": "B",
+        "hatchlingMm": "6.0 [77]",
+        "adultMantleMm": "120",
+        "relativeSizePercent": "5.0",
+        "latitude": "17°49'S, 54°21'N [63]",
+        "rangeKm": "8024"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref077",
+            "reference": "77Boletzky SV. Preliminary observations on laboratory-reared Sepia orbignyana (Mollusca, Cephalopoda). Rapports et Procès-verbaux des Réunions Commission International pour l'Exploration Scientifique de la Mer Méditerranée. 1988;31:256."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref063",
+            "reference": "63Reid A, Jereb P, Roper CFE. Family Sepiidae. In P. Jereb & C.F.E. Roper, eds. Cephalopods of the world. An annotated and illustrated catalogue of species known to date. Volume 1. Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 1. Rome, FAO. 2005:pp. 57–152."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Sepiadarium kochii",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Sepiadarium kochii",
+        "mode": "B",
+        "hatchlingMm": "1.5 [78]",
+        "adultMantleMm": "30",
+        "relativeSizePercent": "5.0",
+        "latitude": "25°25'S, 36°05'N [79]",
+        "rangeKm": "6840"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref078",
+            "reference": "78Nabhitabhata J, Nilaphat P, Promboon P, Jaroongpattananon C, Nilaphat G, Reunreng A. Performance of simple large-scale cephalopod culture system in Thailand. Phuket marine biological Center Research Bulletin. 2005;66:337–50."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref079",
+            "reference": "79Reid A. 2005. Family Sepiadariidae. In P. Jereb & C.F.E. Roper, eds. Cephalopods of the world. An annotated and illustrated catalogue of species known to date. Volume 1. Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 1. Rome, FAO. pp. 204–207. 2005."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Sepiella inermis",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Sepiella inermis",
+        "mode": "P",
+        "hatchlingMm": "4.3 [80]",
+        "adultMantleMm": "125",
+        "relativeSizePercent": "3.4",
+        "latitude": "19°43'S, 29°30'N [63]",
+        "rangeKm": "5474"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref080",
+            "reference": "80Nabhitabhata J. Life cycle of three cultured generations of spineless cuttlefish, Sepiella inermis (Férussac and D´Orbigny, 1848). Phuket Marine Biological Center Special Publication. 1997;17(1):289–98."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref063",
+            "reference": "63Reid A, Jereb P, Roper CFE. Family Sepiidae. In P. Jereb & C.F.E. Roper, eds. Cephalopods of the world. An annotated and illustrated catalogue of species known to date. Volume 1. Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 1. Rome, FAO. 2005:pp. 57–152."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Sepiella japonica",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Sepiella japonica",
+        "mode": "P",
+        "hatchlingMm": "4.3 [48] (as S. maindroni), [81]",
+        "adultMantleMm": "180",
+        "relativeSizePercent": "2.4",
+        "latitude": "21°31'N, 40°18'N [63]",
+        "rangeKm": "2087"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref048",
+            "reference": "48Choe S. On the eggs, rearing, habits of the fry and growth of some cephalopods. Bulletin of Marine Science. 1966;16:330–48."
+          },
+          {
+            "id": "pone.0165334.ref081",
+            "reference": "81Zheng XD, Xiangzhi L, Zhaokai W, Ruihai Y, Chuanyuan T, Qi L. Studies on the life cycle of cultured spineless cuttlefish Sepiella japonica. Transactions of Oceanology and Limnology. 2010;3:24–8."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref063",
+            "reference": "63Reid A, Jereb P, Roper CFE. Family Sepiidae. In P. Jereb & C.F.E. Roper, eds. Cephalopods of the world. An annotated and illustrated catalogue of species known to date. Volume 1. Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 1. Rome, FAO. 2005:pp. 57–152."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Sepietta neglecta",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Sepietta neglecta",
+        "mode": "B",
+        "hatchlingMm": "2.5 [82]",
+        "adultMantleMm": "33",
+        "relativeSizePercent": "7.6",
+        "latitude": "25°16'N, 62°07'N [49]",
+        "rangeKm": "4099"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref082",
+            "reference": "82Boletzky SV, Boletzky MV, Frösch D, Gätzi V. Laboratory rearing of Sepiolinae (Mollusca, Cephalopoda). Mar Biol. 1971;8:82–7."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref049",
+            "reference": "49Reid A, Jereb P. Family Sepiolidae. In: Jereb P, Roper CFE, editors. Cephalopods of the world An annotated and illustrated catalogue of species known to date Vol 1: Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. Rome: FAO; 2005. p. 153–203."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Sepietta obscura",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Sepietta obscura",
+        "mode": "B",
+        "hatchlingMm": "2.2 [82]",
+        "adultMantleMm": "30",
+        "relativeSizePercent": "7.3",
+        "latitude": "32°00'N, 45°31'N [49]",
+        "rangeKm": "1501"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref082",
+            "reference": "82Boletzky SV, Boletzky MV, Frösch D, Gätzi V. Laboratory rearing of Sepiolinae (Mollusca, Cephalopoda). Mar Biol. 1971;8:82–7."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref049",
+            "reference": "49Reid A, Jereb P. Family Sepiolidae. In: Jereb P, Roper CFE, editors. Cephalopods of the world An annotated and illustrated catalogue of species known to date Vol 1: Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. Rome: FAO; 2005. p. 153–203."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Sepietta oweniana",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Sepietta oweniana",
+        "mode": "B",
+        "hatchlingMm": "4.0 [28]",
+        "adultMantleMm": "50",
+        "relativeSizePercent": "8.0",
+        "latitude": "14°37'N, 71°15'N [49]",
+        "rangeKm": "6296"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref028",
+            "reference": "28Bergstrom B, Summers WC. Sepietta oweniana. In: Boyle PR, editor. Cephalopod life cycles Volume 1 Species accounts: Academic Press London; 1983. p. 75–91."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref049",
+            "reference": "49Reid A, Jereb P. Family Sepiolidae. In: Jereb P, Roper CFE, editors. Cephalopods of the world An annotated and illustrated catalogue of species known to date Vol 1: Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. Rome: FAO; 2005. p. 153–203."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Sepiola affinis",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Sepiola affinis",
+        "mode": "B",
+        "hatchlingMm": "3.0 [83]",
+        "adultMantleMm": "25",
+        "relativeSizePercent": "12.0",
+        "latitude": "35°46'N, 45°33'N [49]",
+        "rangeKm": "1089"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref083",
+            "reference": "83Mauris E. Colour patterns and body postures related to prey capture in Sepiola affinis (Mollusca: Cephalopoda). Marine Behaviour and Physiology. 1989;14:189–200."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref049",
+            "reference": "49Reid A, Jereb P. Family Sepiolidae. In: Jereb P, Roper CFE, editors. Cephalopods of the world An annotated and illustrated catalogue of species known to date Vol 1: Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. Rome: FAO; 2005. p. 153–203."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Sepiola atlantica",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Sepiola atlantica",
+        "mode": "P",
+        "hatchlingMm": "1.7 [84, 85]",
+        "adultMantleMm": "21",
+        "relativeSizePercent": "8.1",
+        "latitude": "26°15'N, 65°50'N [49]",
+        "rangeKm": "4401"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref084",
+            "reference": "84Jones NJE, Richardson CA. Laboratory culture, growth, and the life cycle of the little cuttlefish Sepiola atlantica (Cephalopoda: Sepiolidae). Journal of Shellfish Research. 2010;29(1):241–6. CCC:000276267900031."
+          },
+          {
+            "id": "pone.0165334.ref085",
+            "reference": "85Rodrigues M, Garci ME, Troncoso JS, Guerra A. Spawning strategy in Atlantic bobtail squid Sepiola atlantica (Cephalopoda: Sepiolidae). Helgol Mar Res. 2011;65(1):43–9. ISI:000287329300005."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref049",
+            "reference": "49Reid A, Jereb P. Family Sepiolidae. In: Jereb P, Roper CFE, editors. Cephalopods of the world An annotated and illustrated catalogue of species known to date Vol 1: Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. Rome: FAO; 2005. p. 153–203."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Sepiola ligulata",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Sepiola ligulata",
+        "mode": "B",
+        "hatchlingMm": "2.3 [82]",
+        "adultMantleMm": "25",
+        "relativeSizePercent": "9.2",
+        "latitude": "35°17'N, 45°33'N [49]",
+        "rangeKm": "1142"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref082",
+            "reference": "82Boletzky SV, Boletzky MV, Frösch D, Gätzi V. Laboratory rearing of Sepiolinae (Mollusca, Cephalopoda). Mar Biol. 1971;8:82–7."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref049",
+            "reference": "49Reid A, Jereb P. Family Sepiolidae. In: Jereb P, Roper CFE, editors. Cephalopods of the world An annotated and illustrated catalogue of species known to date Vol 1: Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. Rome: FAO; 2005. p. 153–203."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Sepiola robusta",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Sepiola robusta",
+        "mode": "B",
+        "hatchlingMm": "2.2 [82, 86]",
+        "adultMantleMm": "28",
+        "relativeSizePercent": "7.9",
+        "latitude": "30°38'N, 45°39'N [49]",
+        "rangeKm": "1668"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref082",
+            "reference": "82Boletzky SV, Boletzky MV, Frösch D, Gätzi V. Laboratory rearing of Sepiolinae (Mollusca, Cephalopoda). Mar Biol. 1971;8:82–7."
+          },
+          {
+            "id": "pone.0165334.ref086",
+            "reference": "86Boletzky SV. Sepiola robusta. In: Boyle PR, editor. Cephalopod life cycles Volume 1 Species accounts: Academic Press London; 1983. p. 53–67."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref049",
+            "reference": "49Reid A, Jereb P. Family Sepiolidae. In: Jereb P, Roper CFE, editors. Cephalopods of the world An annotated and illustrated catalogue of species known to date Vol 1: Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. Rome: FAO; 2005. p. 153–203."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Sepiola rondeleti",
+      "group": "Sepioids",
+      "sourceCells": {
+        "species": "Sepiola rondeleti",
+        "mode": "B",
+        "hatchlingMm": "3.7 [82]",
+        "adultMantleMm": "60",
+        "relativeSizePercent": "6.2",
+        "latitude": "12°39'N, 62°21'N [49]",
+        "rangeKm": "5527"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref082",
+            "reference": "82Boletzky SV, Boletzky MV, Frösch D, Gätzi V. Laboratory rearing of Sepiolinae (Mollusca, Cephalopoda). Mar Biol. 1971;8:82–7."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref049",
+            "reference": "49Reid A, Jereb P. Family Sepiolidae. In: Jereb P, Roper CFE, editors. Cephalopods of the world An annotated and illustrated catalogue of species known to date Vol 1: Chambered nautiluses and sepioids (Nautilidae, Sepiidae, Sepiolidae, Sepiadariidae, Idiosepiidae and Spirulidae). FAO Species Catalogue for Fishery Purposes. Rome: FAO; 2005. p. 153–203."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Doryteuthis gahi",
+      "group": "Neritic squids",
+      "sourceCells": {
+        "species": "Doryteuthis gahi",
+        "mode": "P",
+        "hatchlingMm": "3.0 [87, 88]",
+        "adultMantleMm": "400",
+        "relativeSizePercent": "0.8",
+        "latitude": "57°04'S, 03°48'S [26]",
+        "rangeKm": "5923"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref087",
+            "reference": "87Guerra A, Rocha F, Gonzalez AF, Buckle LF. Embryonic stages of the Patagonian squid Loligo gahi (Mollusca: Cephalopoda). Veliger. 2001;44(2):109–15. ISI:000167997400001."
+          },
+          {
+            "id": "pone.0165334.ref088",
+            "reference": "88Arkhipkin AI, Laptihovsky VV, Middleton DAJ. Adaptations for cold water spawning in loliginid squid: Loligo gahi in Falkland waters. Journal of Molluscan Studies. 2000;65:551–64."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref026",
+            "reference": "26Jereb P, Roper CFE. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Rome: FAO Species catalogue for Fishery Purposes No. 4, Vol. 2. Myopsid and Oegopsid Squids.; 2010. 605 p."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Doryteuthis opalescens",
+      "group": "Neritic squids",
+      "sourceCells": {
+        "species": "Doryteuthis opalescens",
+        "mode": "P",
+        "hatchlingMm": "2.7 [89–91]",
+        "adultMantleMm": "305",
+        "relativeSizePercent": "0.9",
+        "latitude": "22°42'N, 57°48'N [26]",
+        "rangeKm": "3902"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref089",
+            "reference": "89McConathy DA, Hanlon RT, Hixon RF. Chromatophore arrangements of hatchling loliginid squids (Cephalopoda, Myopsida). Malacologia. 1980;19(2):279–88. ISI:A1980JP39900005."
+          },
+          {
+            "id": "pone.0165334.ref091",
+            "reference": "91Vidal EAG, DiMarco FP, Wormuth JH, Lee PG. Influence of temperature and food availability on survival, growth and yolk utilization in hatchling squid. Bull Mar Sci. 2002;71(2):915–31. ISI:000182787600025."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref026",
+            "reference": "26Jereb P, Roper CFE. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Rome: FAO Species catalogue for Fishery Purposes No. 4, Vol. 2. Myopsid and Oegopsid Squids.; 2010. 605 p."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Doryteuthis pealeii",
+      "group": "Neritic squids",
+      "sourceCells": {
+        "species": "Doryteuthis pealeii",
+        "mode": "P",
+        "hatchlingMm": "1.7 [20, 89, 92]",
+        "adultMantleMm": "465",
+        "relativeSizePercent": "0.4",
+        "latitude": "08°47'N, 46°47'N [26]",
+        "rangeKm": "4226"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref020",
+            "reference": "20Bartol IK, Krueger PS, Stewart WJ, Thompson JT. Pulsed jet dynamics of squid hatchlings at intermediate Reynolds numbers. J Exp Biol. 2009;212(10):1506–18. CCC:000265680000016."
+          },
+          {
+            "id": "pone.0165334.ref089",
+            "reference": "89McConathy DA, Hanlon RT, Hixon RF. Chromatophore arrangements of hatchling loliginid squids (Cephalopoda, Myopsida). Malacologia. 1980;19(2):279–88. ISI:A1980JP39900005."
+          },
+          {
+            "id": "pone.0165334.ref092",
+            "reference": "92Hanlon RT, Turk PE, Lee PG, Yang WT. Laboratory rearing of the squid Loligo pealei to the juvenile stage: growth comparisons with fishery data. Fish Bull. 1987;85:163–7."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref026",
+            "reference": "26Jereb P, Roper CFE. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Rome: FAO Species catalogue for Fishery Purposes No. 4, Vol. 2. Myopsid and Oegopsid Squids.; 2010. 605 p."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Doryteuthis plei",
+      "group": "Neritic squids",
+      "sourceCells": {
+        "species": "Doryteuthis plei",
+        "mode": "P",
+        "hatchlingMm": "1.5 [89]",
+        "adultMantleMm": "370",
+        "relativeSizePercent": "0.4",
+        "latitude": "35°00'S, 36°46'N [26]",
+        "rangeKm": "7979"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref089",
+            "reference": "89McConathy DA, Hanlon RT, Hixon RF. Chromatophore arrangements of hatchling loliginid squids (Cephalopoda, Myopsida). Malacologia. 1980;19(2):279–88. ISI:A1980JP39900005."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref026",
+            "reference": "26Jereb P, Roper CFE. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Rome: FAO Species catalogue for Fishery Purposes No. 4, Vol. 2. Myopsid and Oegopsid Squids.; 2010. 605 p."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Heteroligo bleekeri",
+      "group": "Neritic squids",
+      "sourceCells": {
+        "species": "Heteroligo bleekeri",
+        "mode": "P",
+        "hatchlingMm": "3.3 [71, 93, 94]",
+        "adultMantleMm": "380",
+        "relativeSizePercent": "0.9",
+        "latitude": "25°26'N, 45°41'N [26]",
+        "rangeKm": "2252"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref071",
+            "reference": "71Natsukari Y, Tashiro M. Neritic squid resources and cuttlefish resources in Japan. Marine Behaviour and Physiology. 1991;18(3):149–226. ISI:A1991FW46200001."
+          },
+          {
+            "id": "pone.0165334.ref093",
+            "reference": "93Baeg GH, Sakurai Y, Shimazaki K. Embryonic stages of Loligo bleekeri Keferstein (Mollusca: Cephalopoda). Veliger. 1992;35(3):234–41."
+          },
+          {
+            "id": "pone.0165334.ref094",
+            "reference": "94Ikeda YS I; Ito K; Sakurai Y; Matsumoto G. Rearing of squid hatchlings, Heterololigo bleekeri (Keferstein 1866) up to 2 months in a closed seawater system. Aquac Res. 2005;36:409–12."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref026",
+            "reference": "26Jereb P, Roper CFE. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Rome: FAO Species catalogue for Fishery Purposes No. 4, Vol. 2. Myopsid and Oegopsid Squids.; 2010. 605 p."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Loligo forbesii",
+      "group": "Neritic squids",
+      "sourceCells": {
+        "species": "Loligo forbesii",
+        "mode": "P",
+        "hatchlingMm": "4.2 [95, 96]",
+        "adultMantleMm": "937",
+        "relativeSizePercent": "0.4",
+        "latitude": "19°58'N, 62°15'N [26]",
+        "rangeKm": "4701"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref095",
+            "reference": "95Segawa S, Yang WT, Marthy HJ, Hanlon RT. Illustrated embryonic stages of the Eastern Atlantic squid Loligo forbesi. Veliger. 1988;30(3):230–43. ISI:A1988Q265400003."
+          },
+          {
+            "id": "pone.0165334.ref096",
+            "reference": "96Hanlon RT, Yang WT, Turk PE, Lee PG, Hixon RF. Laboratory culture and estimated life span of the Eastern Atlantic squid, Loligo forbesi Steenstrup, 1856 (Mollusca: Cephalopoda). Aquaculture and Fisheries Management. 1989;20:15–34."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref026",
+            "reference": "26Jereb P, Roper CFE. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Rome: FAO Species catalogue for Fishery Purposes No. 4, Vol. 2. Myopsid and Oegopsid Squids.; 2010. 605 p."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Loligo reynaudii",
+      "group": "Neritic squids",
+      "sourceCells": {
+        "species": "Loligo reynaudii",
+        "mode": "P",
+        "hatchlingMm": "2.4 [97–100]",
+        "adultMantleMm": "400",
+        "relativeSizePercent": "0.6",
+        "latitude": "36°58'S, 28°00'S [26, 101]",
+        "rangeKm": "997"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref097",
+            "reference": "97Vecchione M, Lipinski MR. Descriptions of the paralarvae of two loliginid squids in southern African waters. South African Journal of Marine Science. 1995;15:1–7."
+          },
+          {
+            "id": "pone.0165334.ref100",
+            "reference": "100Martins RS, Roberts MJ, Vidal ÉAG, Moloney CL. Effects of temperature on yolk utilization by chokka squid (Loligo reynaudii d'Orbigny, 1839) paralarvae. Journal of Experimental Marine Biology and Ecology. 2010;386(1–2):19–26."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref026",
+            "reference": "26Jereb P, Roper CFE. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Rome: FAO Species catalogue for Fishery Purposes No. 4, Vol. 2. Myopsid and Oegopsid Squids.; 2010. 605 p."
+          },
+          {
+            "id": "pone.0165334.ref101",
+            "reference": "101Villanueva R, Sanchez P. Cephalopods of the Benguela Current off Namibia—new additions and considerations on the genus Lycoteuthis. Journal of Natural History. 1993;27(1):15–46. ISI:A1993KQ57500002."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Loligo vulgaris",
+      "group": "Neritic squids",
+      "sourceCells": {
+        "species": "Loligo vulgaris",
+        "mode": "P",
+        "hatchlingMm": "3.3 [102–105]",
+        "adultMantleMm": "640",
+        "relativeSizePercent": "0.5",
+        "latitude": "19°10'S, 61°45'N [26]",
+        "rangeKm": "8998"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref102",
+            "reference": "102Turk PE, Hanlon RT, Bradford LA, Yang WT. Aspects of feeding, growth and survival of the European squid Loligo vulgaris Lamarck, 1799, reared through the early growth stages. Vie et Milieu. 1986;36:9–13."
+          },
+          {
+            "id": "pone.0165334.ref105",
+            "reference": "105Mladineo I, Valic D, Jozic M. Spawning and early development of Loligo vulgaris Lamarck,1798, under experimental conditions. Acta Adriatica. 2003;44:77–83."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref026",
+            "reference": "26Jereb P, Roper CFE. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Rome: FAO Species catalogue for Fishery Purposes No. 4, Vol. 2. Myopsid and Oegopsid Squids.; 2010. 605 p."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Lolligunculla diomedeae",
+      "group": "Neritic squids",
+      "sourceCells": {
+        "species": "Lolligunculla diomedeae",
+        "mode": "P",
+        "hatchlingMm": "1.3 [106]",
+        "adultMantleMm": "115",
+        "relativeSizePercent": "1.1",
+        "latitude": "31°37'N, 18°31'S [26, 107]",
+        "rangeKm": "5573"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref106",
+            "reference": "106Fernández-Álvarez F. personal observation."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref026",
+            "reference": "26Jereb P, Roper CFE. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Rome: FAO Species catalogue for Fishery Purposes No. 4, Vol. 2. Myopsid and Oegopsid Squids.; 2010. 605 p."
+          },
+          {
+            "id": "pone.0165334.ref107",
+            "reference": "107Cardoso F, Hochberg FG. Revision of the genus Lolliguncula Steenstrup, 1881 (Cephalopoda: Loliginidae) off the Pacific Coast of South America. Revista Peruana de Biología. 2013;20:129–36."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Loliolus japonica",
+      "group": "Neritic squids",
+      "sourceCells": {
+        "species": "Loliolus japonica",
+        "mode": "P",
+        "hatchlingMm": "2.3 [103]",
+        "adultMantleMm": "150",
+        "relativeSizePercent": "1.5",
+        "latitude": "06°02'N, 40°25'N [26]",
+        "rangeKm": "3824"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref103",
+            "reference": "103Hanlon RT, Boletzky SV, Okutani T, Perez-Gandaras G, Sanchez P, Sousa-Reis C, et al. Suborder Myopsida Orbigny, 1845. In: Sweeney MJ, Roper CFE, Mangold KM, Clarke MR, Boletzky SV, editors. \"Larval\" and juvenile cephalopods: A manual for their identification. 513. Washington, D.C.: Smithsonian Institution Press; 1992. p. 37–53."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref026",
+            "reference": "26Jereb P, Roper CFE. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Rome: FAO Species catalogue for Fishery Purposes No. 4, Vol. 2. Myopsid and Oegopsid Squids.; 2010. 605 p."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Loliolus sumatrensis",
+      "group": "Neritic squids",
+      "sourceCells": {
+        "species": "Loliolus sumatrensis",
+        "mode": "P",
+        "hatchlingMm": "1.5 [78]",
+        "adultMantleMm": "120",
+        "relativeSizePercent": "1.3",
+        "latitude": "09°08'S, 40°28'N [26]",
+        "rangeKm": "5515"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref078",
+            "reference": "78Nabhitabhata J, Nilaphat P, Promboon P, Jaroongpattananon C, Nilaphat G, Reunreng A. Performance of simple large-scale cephalopod culture system in Thailand. Phuket marine biological Center Research Bulletin. 2005;66:337–50."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref026",
+            "reference": "26Jereb P, Roper CFE. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Rome: FAO Species catalogue for Fishery Purposes No. 4, Vol. 2. Myopsid and Oegopsid Squids.; 2010. 605 p."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Uroteuthis duvaucelii",
+      "group": "Neritic squids",
+      "sourceCells": {
+        "species": "Uroteuthis duvaucelii",
+        "mode": "P",
+        "hatchlingMm": "1.1 [78]",
+        "adultMantleMm": "330",
+        "relativeSizePercent": "0.3",
+        "latitude": "25°51'S, 28°58'N [26]",
+        "rangeKm": "6095"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref078",
+            "reference": "78Nabhitabhata J, Nilaphat P, Promboon P, Jaroongpattananon C, Nilaphat G, Reunreng A. Performance of simple large-scale cephalopod culture system in Thailand. Phuket marine biological Center Research Bulletin. 2005;66:337–50."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref026",
+            "reference": "26Jereb P, Roper CFE. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Rome: FAO Species catalogue for Fishery Purposes No. 4, Vol. 2. Myopsid and Oegopsid Squids.; 2010. 605 p."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Uroteuthis edulis",
+      "group": "Neritic squids",
+      "sourceCells": {
+        "species": "Uroteuthis edulis",
+        "mode": "P",
+        "hatchlingMm": "2.0 [71]",
+        "adultMantleMm": "502",
+        "relativeSizePercent": "0.4",
+        "latitude": "25°48'S, 53°33'N [26]",
+        "rangeKm": "8823"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref071",
+            "reference": "71Natsukari Y, Tashiro M. Neritic squid resources and cuttlefish resources in Japan. Marine Behaviour and Physiology. 1991;18(3):149–226. ISI:A1991FW46200001."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref026",
+            "reference": "26Jereb P, Roper CFE. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Rome: FAO Species catalogue for Fishery Purposes No. 4, Vol. 2. Myopsid and Oegopsid Squids.; 2010. 605 p."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Sepioteuthis australis",
+      "group": "Neritic squids",
+      "sourceCells": {
+        "species": "Sepioteuthis australis",
+        "mode": "P",
+        "hatchlingMm": "6.8* [108, 109]",
+        "adultMantleMm": "394",
+        "relativeSizePercent": "1.7",
+        "latitude": "43°46'S, 20°13'S [26]",
+        "rangeKm": "2618"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref108",
+            "reference": "108Steer MA, Pecl GT, Moltschaniwskyj NA. Are bigger calamary Sepioteuthis australis hatchlings more likely to survive? A study based on statolith dimensions. Marine Ecology-Progress Series. 2003;261:175–82. ISI:000186704400014."
+          },
+          {
+            "id": "pone.0165334.ref109",
+            "reference": "109Steer MA, Moltschaniwskyj NA, Jordan AR. Embryonic development of southern calamary (Sepioteuthis australis) within the constraints of an aggregated egg mass. Marine and Freshwater Research. 2003;54:217–26."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref026",
+            "reference": "26Jereb P, Roper CFE. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Rome: FAO Species catalogue for Fishery Purposes No. 4, Vol. 2. Myopsid and Oegopsid Squids.; 2010. 605 p."
+          }
+        ],
+        "range": []
+      },
+      "holds": [
+        "Hatchling length is estimated using a pooled shrinkage correction; exclude from measured hatchling rankings."
+      ],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Sepioteuthis sepioidea",
+      "group": "Neritic squids",
+      "sourceCells": {
+        "species": "Sepioteuthis sepioidea",
+        "mode": "P",
+        "hatchlingMm": "5.0 [110]",
+        "adultMantleMm": "200",
+        "relativeSizePercent": "2.5",
+        "latitude": "13°08'S, 28°21'N [26]",
+        "rangeKm": "4613"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref110",
+            "reference": "110LaRoe ET. The culture and maintenance of the loliginid squids Sepioteuthis sepioidea and Doryteuthis plei. Mar Biol. 1971;9(1):9–25. doi: 10.1007/BF00348813"
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref026",
+            "reference": "26Jereb P, Roper CFE. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Rome: FAO Species catalogue for Fishery Purposes No. 4, Vol. 2. Myopsid and Oegopsid Squids.; 2010. 605 p."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Dosidicus gigas",
+      "group": "Oceanic squids",
+      "sourceCells": {
+        "species": "Dosidicus gigas",
+        "mode": "P",
+        "hatchlingMm": "1.1 [111, 112]",
+        "adultMantleMm": "1200",
+        "relativeSizePercent": "0.1",
+        "latitude": "55°40'S, 58°08'N [42]",
+        "rangeKm": "12650"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref111",
+            "reference": "111Yatsu A, Tafur R, Maravi C. Embryos and rhynchoteuthion paralarvae of the jumbo flying squid Dosidicus gigas (Cephalopoda) obtained through artificial fertilization from Peruvian waters. Fish Sci. 1999;65:904–8."
+          },
+          {
+            "id": "pone.0165334.ref112",
+            "reference": "112Staaf DJ, Camarillo-Coop S, Haddock SHD, Nyack AC, Payne J, Salinas-Zavala CA, et al. Natural egg mass deposition by the Humboldt squid (Dosidicus gigas) in the Gulf of California and characteristics of hatchlings and paralarvae. Journal of the Marine Biological Association of the United Kingdom. 2008;88(4):759–70. ISI:000257947000015."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref042",
+            "reference": "42Roper CFE, Nigmatullin CM, Jereb P. Family Ommastrephidae. In Jereb P. & Roper C.F.E., eds. Cephalopods of the world. An annotated and illustrated catalogue of species known to date. Volume 2. Myopsid and Oegopsid Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 2. Rome, FAO. pp. 269–347. 2010."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Gonatus madokai",
+      "group": "Oceanic squids",
+      "sourceCells": {
+        "species": "Gonatus madokai",
+        "mode": "P",
+        "hatchlingMm": "7.2* [113]",
+        "adultMantleMm": "470",
+        "relativeSizePercent": "1.5",
+        "latitude": "59°58'N, 40°35'N [114]",
+        "rangeKm": "2156"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref113",
+            "reference": "113Bower JR, Seki K, Kubodera T, Yamamoto J, Nobetsu T. Brooding in a Gonatid squid off Northern Japan. Biological Bulletin. 2012;223(3):259–62. WOS:000313389600003. doi: 10.1086/BBLv223n3p259"
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref114",
+            "reference": "114Roper CFE, Jorgensen EM, Katugin ON, Jereb P. Family Gonatidae. In P. Jereb & C.F.E. Roper, eds. Cephalopods of the world. An annotated and illustrated catalogue of species known to date. Volume 2. Myopsid and Oegopsid Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 2. Rome, FAO. pp. 200–222. 2010."
+          }
+        ],
+        "range": []
+      },
+      "holds": [
+        "Hatchling length is estimated using a pooled shrinkage correction; exclude from measured hatchling rankings."
+      ],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Gonatus onyx",
+      "group": "Oceanic squids",
+      "sourceCells": {
+        "species": "Gonatus onyx",
+        "mode": "P",
+        "hatchlingMm": "3.4 [115]",
+        "adultMantleMm": "150",
+        "relativeSizePercent": "2.3",
+        "latitude": "30°01'N, 60°00'N [116]",
+        "rangeKm": "3335"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref115",
+            "reference": "115Arkhipkin AI, Seibel BA. Statolith microstructure from hatchlings of the oceanic squid, Gonatus onyx (Cephalopoda, Gonatidae) from the Northeast Pacific. Journal of Plankton Research. 1999;21(2):401–4. ISI:000078695000013."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref116",
+            "reference": "116Okutani T, Kubodera T, Jefferts K. Diversity, distribution and ecology of gonatid squids in the subarctic Pacific: a review. Bulletin of the Ocean Research Institute University of Tokyo. 1988;26(1). ZOOR:ZOOR12500048282."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Illex argentinus",
+      "group": "Oceanic squids",
+      "sourceCells": {
+        "species": "Illex argentinus",
+        "mode": "P",
+        "hatchlingMm": "1.6 [117]",
+        "adultMantleMm": "400",
+        "relativeSizePercent": "0.4",
+        "latitude": "55°24'S, 21°24'S [42]",
+        "rangeKm": "3781"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref117",
+            "reference": "117Sakai M, Brunetti NE, Elena B, Sakurai Y. Embryonic development and hatchlings of Illex argentinus derived from artificial fertilization. South African Journal of Marine Science-Suid-Afrikaanse Tydskrif Vir Seewetenskap. 1998;20:255–65. ISI:000165531100028."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref042",
+            "reference": "42Roper CFE, Nigmatullin CM, Jereb P. Family Ommastrephidae. In Jereb P. & Roper C.F.E., eds. Cephalopods of the world. An annotated and illustrated catalogue of species known to date. Volume 2. Myopsid and Oegopsid Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 2. Rome, FAO. pp. 269–347. 2010."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Illex coindetii",
+      "group": "Oceanic squids",
+      "sourceCells": {
+        "species": "Illex coindetii",
+        "mode": "P",
+        "hatchlingMm": "1.4 [118]",
+        "adultMantleMm": "379",
+        "relativeSizePercent": "0.4",
+        "latitude": "19°26'S, 61°18'N [42]",
+        "rangeKm": "8978"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref118",
+            "reference": "118Villanueva R, Quintana D, Petroni G, Bozzano A. Factors influencing the embryonic development and hatchling size of the oceanic squid Illex coindetii following in vitro fertilization. Journal of Experimental Marine Biology and Ecology. 2011;407(1):54–62."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref042",
+            "reference": "42Roper CFE, Nigmatullin CM, Jereb P. Family Ommastrephidae. In Jereb P. & Roper C.F.E., eds. Cephalopods of the world. An annotated and illustrated catalogue of species known to date. Volume 2. Myopsid and Oegopsid Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 2. Rome, FAO. pp. 269–347. 2010."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Illex illecebrosus",
+      "group": "Oceanic squids",
+      "sourceCells": {
+        "species": "Illex illecebrosus",
+        "mode": "P",
+        "hatchlingMm": "1.2 [119, 120]",
+        "adultMantleMm": "340",
+        "relativeSizePercent": "0.3",
+        "latitude": "25°06'N, 67°14'N [42]",
+        "rangeKm": "4686"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref119",
+            "reference": "119Durward RD, Vessey E, O'Dor RK, Amaratunga T. Reproduction in the squid, Illex illecebrosus: first observation in captivity and implications for the life cycle. International Commision for the Nortwest Atlantic Fisheries Selected Papers. 1980;6:7–13."
+          },
+          {
+            "id": "pone.0165334.ref120",
+            "reference": "120O'Dor RK, Foy EA, Helm PL, Balch N. The locomotion and energetics of hatching squid, Illex illecebrosus. Am Malacol Bull. 1986;4(1):55–60."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref042",
+            "reference": "42Roper CFE, Nigmatullin CM, Jereb P. Family Ommastrephidae. In Jereb P. & Roper C.F.E., eds. Cephalopods of the world. An annotated and illustrated catalogue of species known to date. Volume 2. Myopsid and Oegopsid Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 2. Rome, FAO. pp. 269–347. 2010."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Ommastrephes bartramii",
+      "group": "Oceanic squids",
+      "sourceCells": {
+        "species": "Ommastrephes bartramii",
+        "mode": "P",
+        "hatchlingMm": "1.3 [121]",
+        "adultMantleMm": "600",
+        "relativeSizePercent": "0.2",
+        "latitude": "20°00'N, 55°00'N [42]",
+        "rangeKm": "3892"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref121",
+            "reference": "121Sakurai Y, Young RE, Hirota J, Mangold K, Vecchione M, Clarke MR, et al. Artificial fertilization and development through hatching in the oceanic squids Ommastrephes bartramii and Sthenoteuthis oualaniensis (Cephalopoda: Ommastrephidae). Veliger. 1995;38:185–91."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref042",
+            "reference": "42Roper CFE, Nigmatullin CM, Jereb P. Family Ommastrephidae. In Jereb P. & Roper C.F.E., eds. Cephalopods of the world. An annotated and illustrated catalogue of species known to date. Volume 2. Myopsid and Oegopsid Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 2. Rome, FAO. pp. 269–347. 2010."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Thysanoteuthis rhombus",
+      "group": "Oceanic squids",
+      "sourceCells": {
+        "species": "Thysanoteuthis rhombus",
+        "mode": "P",
+        "hatchlingMm": "1.4 [122]",
+        "adultMantleMm": "1000",
+        "relativeSizePercent": "0.1",
+        "latitude": "43°51'S, 51°45'N [123]",
+        "rangeKm": "10630"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref122",
+            "reference": "122Miyahara K, Katsuya F, Ota T, Minami T. Laboratory observations on the early life stages of the Diamond squid Thysanoteuthis rhombus. Journal of Molluscan Studies. 2006;72:199–205."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref123",
+            "reference": "123Roper CFE, Jereb P. Family Thysanoteuthidae. In P. Jereb & C.F.E. Roper, eds. Cephalopods of the world. An annotated and illustrated catalogue of species known to date. Volume 2. Myopsid and Oegopsid Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 2. Rome, FAO. pp. 384–387. 2010."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Todarodes pacficus",
+      "group": "Oceanic squids",
+      "sourceCells": {
+        "species": "Todarodes pacficus",
+        "mode": "P",
+        "hatchlingMm": "1.3 [124]",
+        "adultMantleMm": "500",
+        "relativeSizePercent": "0.3",
+        "latitude": "20°27'N, 62°29'N [42]",
+        "rangeKm": "4674"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref124",
+            "reference": "124Puneeta P, Vijai D, Yoo H-K, Matsui H, Sakurai Y. Observations on the spawning behavior, egg masses and paralarval development of the ommastrephid squid Todarodes pacificus in a laboratory mesocosm. J Exp Biol. 2015;218(Pt 23):3825–35. doi: 10.1242/jeb.127670 26632456"
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref042",
+            "reference": "42Roper CFE, Nigmatullin CM, Jereb P. Family Ommastrephidae. In Jereb P. & Roper C.F.E., eds. Cephalopods of the world. An annotated and illustrated catalogue of species known to date. Volume 2. Myopsid and Oegopsid Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 2. Rome, FAO. pp. 269–347. 2010."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Todarodes sagittatus",
+      "group": "Oceanic squids",
+      "sourceCells": {
+        "species": "Todarodes sagittatus",
+        "mode": "P",
+        "hatchlingMm": "1.8 [125]",
+        "adultMantleMm": "750",
+        "relativeSizePercent": "0.2",
+        "latitude": "10°45'N, 72°20'N [42]",
+        "rangeKm": "6848"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref125",
+            "reference": "125Fernández-Álvarez FA, Martins CPP, Vidal EAG, Villanueva R. Towards the identification of the ommastrephid squid paralarvae (Mollusca: Cephalopoda): morphological description of three species and a key to the Northeast Atlantic species. Zoological Journal of the Linnean Society. 2016;in press doi: 10.1371/journal.pone.0165334"
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref042",
+            "reference": "42Roper CFE, Nigmatullin CM, Jereb P. Family Ommastrephidae. In Jereb P. & Roper C.F.E., eds. Cephalopods of the world. An annotated and illustrated catalogue of species known to date. Volume 2. Myopsid and Oegopsid Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 2. Rome, FAO. pp. 269–347. 2010."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Todaropsis eblanae",
+      "group": "Oceanic squids",
+      "sourceCells": {
+        "species": "Todaropsis eblanae",
+        "mode": "P",
+        "hatchlingMm": "2.2 [125]",
+        "adultMantleMm": "290",
+        "relativeSizePercent": "0.8",
+        "latitude": "43°59'S, 73°34’N [42]",
+        "rangeKm": "13070"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref125",
+            "reference": "125Fernández-Álvarez FA, Martins CPP, Vidal EAG, Villanueva R. Towards the identification of the ommastrephid squid paralarvae (Mollusca: Cephalopoda): morphological description of three species and a key to the Northeast Atlantic species. Zoological Journal of the Linnean Society. 2016;in press doi: 10.1371/journal.pone.0165334"
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref042",
+            "reference": "42Roper CFE, Nigmatullin CM, Jereb P. Family Ommastrephidae. In Jereb P. & Roper C.F.E., eds. Cephalopods of the world. An annotated and illustrated catalogue of species known to date. Volume 2. Myopsid and Oegopsid Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 2. Rome, FAO. pp. 269–347. 2010."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Watasenia scintillans",
+      "group": "Oceanic squids",
+      "sourceCells": {
+        "species": "Watasenia scintillans",
+        "mode": "P",
+        "hatchlingMm": "1.4 [126]",
+        "adultMantleMm": "70",
+        "relativeSizePercent": "2.0",
+        "latitude": "22°54'N, 50°48'N [127]",
+        "rangeKm": "3103"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref126",
+            "reference": "126Hayashi S. Fishery biological studies of the firefly squid, Watasenia scintillans, in Toyama Bay. Bulletin of Toyama Prefectural Fisheries Research Institute. 1995;7:1–128."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref127",
+            "reference": "127Roper CFE, Jereb P. Family Enoploteuthidae. In P. Jereb & C.F.E. Roper, eds. Cephalopods of the world. An annotated and illustrated catalogue of species known to date. Volume 2. Myopsid and Oegopsid Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 2. Rome, FAO. pp. 183–200. 2010."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Bolitaena pygmaea",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Bolitaena pygmaea",
+        "mode": "P",
+        "hatchlingMm": "2.5* [128]",
+        "adultMantleMm": "60",
+        "relativeSizePercent": "4.2",
+        "latitude": "42°32’S, 37°12’N [129]",
+        "rangeKm": "8866"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref128",
+            "reference": "128Young RE. Brooding in a bathypelagic octopus. Pacific Science. 1972;26:400–4."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref129",
+            "reference": "129Thore S. Investigations on the \"Dana\" Octopoda. I. Bolitaenidae, Amphitrelidae, Vitreledonellidae, and Allopsidae. Dana Report. 1949;33:1–85."
+          }
+        ],
+        "range": []
+      },
+      "holds": [
+        "Hatchling length is estimated using a pooled shrinkage correction; exclude from measured hatchling rankings."
+      ],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Vitreledonella richardi",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Vitreledonella richardi",
+        "mode": "P",
+        "hatchlingMm": "2.8* [130]",
+        "adultMantleMm": "110",
+        "relativeSizePercent": "2.6",
+        "latitude": "31°24’S, 48°55'N [129]",
+        "rangeKm": "8930"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref130",
+            "reference": "130Hochberg FG, Nixon M, Toll RB. Order Octopoda Leach, 1818. In: Sweeney MJ, Roper CFE, Mangold KM, Clarke MR, Boletzky SV, editors. \"Larval\" and juvenile cephalopods: A manual for their identification. 513. Washington, D.C.: Smithsonian Institution Press; 1992. p. 213–80."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref129",
+            "reference": "129Thore S. Investigations on the \"Dana\" Octopoda. I. Bolitaenidae, Amphitrelidae, Vitreledonellidae, and Allopsidae. Dana Report. 1949;33:1–85."
+          }
+        ],
+        "range": []
+      },
+      "holds": [
+        "Hatchling length is estimated using a pooled shrinkage correction; exclude from measured hatchling rankings."
+      ],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Tremoctopus violaceus",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Tremoctopus violaceus",
+        "mode": "P",
+        "hatchlingMm": "1.9* [130]",
+        "adultMantleMm": "250",
+        "relativeSizePercent": "0.8",
+        "latitude": "36°01'S, 45°37'N [131]",
+        "rangeKm": "9076"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref130",
+            "reference": "130Hochberg FG, Nixon M, Toll RB. Order Octopoda Leach, 1818. In: Sweeney MJ, Roper CFE, Mangold KM, Clarke MR, Boletzky SV, editors. \"Larval\" and juvenile cephalopods: A manual for their identification. 513. Washington, D.C.: Smithsonian Institution Press; 1992. p. 213–80."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref131",
+            "reference": "131Thomas RF. Systematics, distribution, and biology of cephalopods of the genus Tremoctopus (Octopoda: Tremoctopodidae). Bulletin of Marine Science. 1977;27(3):353–92."
+          }
+        ],
+        "range": []
+      },
+      "holds": [
+        "Hatchling length is estimated using a pooled shrinkage correction; exclude from measured hatchling rankings."
+      ],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Argonauta argo",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Argonauta argo",
+        "mode": "P",
+        "hatchlingMm": "1.0* [130]",
+        "adultMantleMm": "97",
+        "relativeSizePercent": "1.1",
+        "latitude": "41°06'S, 45°28'N [132, 133]",
+        "rangeKm": "9625"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref130",
+            "reference": "130Hochberg FG, Nixon M, Toll RB. Order Octopoda Leach, 1818. In: Sweeney MJ, Roper CFE, Mangold KM, Clarke MR, Boletzky SV, editors. \"Larval\" and juvenile cephalopods: A manual for their identification. 513. Washington, D.C.: Smithsonian Institution Press; 1992. p. 213–80."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref132",
+            "reference": "132O'Shea S. The marine fauna of New Zealand: Octopoda (Mollusca: Cephalopoda). NIWA Biodiversity Memoir. 1999;112:280 p. ZOOR:ZOOR13600052945."
+          },
+          {
+            "id": "pone.0165334.ref133",
+            "reference": "133Finn J. Family Argonautidae. In P. Jereb, C.F.E. Roper, M.D. Norman & J. K Finn eds. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Volume 3. Octopods and Vampire Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 3. Rome, FAO. pp. 228–237. 2013."
+          }
+        ],
+        "range": []
+      },
+      "holds": [
+        "Hatchling length is estimated using a pooled shrinkage correction; exclude from measured hatchling rankings."
+      ],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Argonauta hians",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Argonauta hians",
+        "mode": "P",
+        "hatchlingMm": "0.6 [134]",
+        "adultMantleMm": "40",
+        "relativeSizePercent": "1.5",
+        "latitude": "17°27'S, 45°36'N [133]",
+        "rangeKm": "7012"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref134",
+            "reference": "134Sukhsangchan C, Nabhitabhata J. Embryonic development of muddy paper nautilus, Argonauta hians Lightfoot, 1786, from Andaman Sea, Thailand. Kasetsart J (Nat Sci). 2007;41:531–8."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref133",
+            "reference": "133Finn J. Family Argonautidae. In P. Jereb, C.F.E. Roper, M.D. Norman & J. K Finn eds. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Volume 3. Octopods and Vampire Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 3. Rome, FAO. pp. 228–237. 2013."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Amphioctopus aegina",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Amphioctopus aegina",
+        "mode": "P",
+        "hatchlingMm": "2.9 [135, 136]",
+        "adultMantleMm": "90",
+        "relativeSizePercent": "3.2",
+        "latitude": "03°03'S, 26°21'N [137]",
+        "rangeKm": "3270"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref135",
+            "reference": "135Ignatius B, Srinivasan M. Embryonic development in Octopus aegina Gray, 1849. Current Science. 2006;91(8):1089–92. CCC:000241849000025."
+          },
+          {
+            "id": "pone.0165334.ref136",
+            "reference": "136Promboon P, Nabhitabhata J, Duengdee T. Life cycle of the marbled octopus, Amphioctopus aegina (Gray) (Cephalopoda: Octopodidae) reared in the laboratory. Sci Mar. 2011;75(4):811–21. doi: 10.3989/scimar.2011.75n4811 WOS:000299491700017."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref137",
+            "reference": "137Norman MD, Finn J, Hochberg FG. Family Octopodidae. In P. Jereb, C.F.E. Roper, M.D. Norman & J.K. Finn eds. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Volume 3. Octopods and Vampire Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 3. Rome, FAO. pp. 36–215. 2013."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Amphioctopus burryi",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Amphioctopus burryi",
+        "mode": "P",
+        "hatchlingMm": "1.5 [138]",
+        "adultMantleMm": "70",
+        "relativeSizePercent": "2.2",
+        "latitude": "13°00'S, 34°00'N [139, 140]",
+        "rangeKm": "5227"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref138",
+            "reference": "138Forsythe JW, Hanlon RT. Aspects of egg development, post-hatching behaviour, growth and reproductive biology of Octopus burryi Voss, 1950 (Mollusca: Cephalopoda). Vie Milieu. 1985;35(3/4):273–82."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref139",
+            "reference": "139Adam W. Céphalopodes de l'archipel du Cap-Vert, de l'Angola et du Mozambique. Trabalhos do centro de biologia piscatoria: n° 32 a 35 Memorias da Junta do Investigaçoes do Ultramar. Lisboa1962. p. 7–64."
+          },
+          {
+            "id": "pone.0165334.ref140",
+            "reference": "140Hanlon RT, Hixon RF, Forshythe JW, Hendrix JP. Cephalopods attracted to experimental night lights during a saturation dive at St. Croix, U.S., Virgin Islands. The Bulletin of the American Malacological Union. 1980;1979:53–8."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Amphioctopus fangsiao",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Amphioctopus fangsiao",
+        "mode": "B",
+        "hatchlingMm": "2.9 [141–143]",
+        "adultMantleMm": "80",
+        "relativeSizePercent": "3.6",
+        "latitude": "22°12'N, 42°33'N [137]",
+        "rangeKm": "2262"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref141",
+            "reference": "141Segawa S, Nomoto A. Laboratory growth, feeding, oxygen consumption and ammonia excretion of Octopus ocellatus. Bulletin of Marine Science. 2002;71(2):801–13. ISI:000182787600017."
+          },
+          {
+            "id": "pone.0165334.ref143",
+            "reference": "143Yamazaki A, Yoshida M, Uematsu K. Post-hatching development of the brain in Octopus ocellatus. Zoological Science. 2002;19:763–71. doi: 10.2108/zsj.19.763 12149577"
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref137",
+            "reference": "137Norman MD, Finn J, Hochberg FG. Family Octopodidae. In P. Jereb, C.F.E. Roper, M.D. Norman & J.K. Finn eds. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Volume 3. Octopods and Vampire Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 3. Rome, FAO. pp. 36–215. 2013."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Amphioctopus neglectus",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Amphioctopus neglectus",
+        "mode": "P",
+        "hatchlingMm": "2.8 [144]",
+        "adultMantleMm": "64",
+        "relativeSizePercent": "4.4",
+        "latitude": "01°19'N, 25°52'N [137]",
+        "rangeKm": "2730"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref144",
+            "reference": "144Nabhitabhata J. personal observation."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref137",
+            "reference": "137Norman MD, Finn J, Hochberg FG. Family Octopodidae. In P. Jereb, C.F.E. Roper, M.D. Norman & J.K. Finn eds. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Volume 3. Octopods and Vampire Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 3. Rome, FAO. pp. 36–215. 2013."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Amphioctopus rex",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Amphioctopus rex",
+        "mode": "P",
+        "hatchlingMm": "2.3 [145]",
+        "adultMantleMm": "76",
+        "relativeSizePercent": "3.0",
+        "latitude": "13°40'S,16°52'N [137, 146]",
+        "rangeKm": "3394"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref145",
+            "reference": "145Nabhitabhata J, Nilphat P, Jaroongpattanon C, Promboon P. Culture, growth and behaviour of King Octopus, Octopus rex Nateewathana & Norman, 1999. Rayong Coastal Fisheries Research and Development Center, Bureau of Coastal Fisheries Research and Development, Department of Fisheries. 2003;Contribution No. 26:17."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref137",
+            "reference": "137Norman MD, Finn J, Hochberg FG. Family Octopodidae. In P. Jereb, C.F.E. Roper, M.D. Norman & J.K. Finn eds. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Volume 3. Octopods and Vampire Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 3. Rome, FAO. pp. 36–215. 2013."
+          },
+          {
+            "id": "pone.0165334.ref146",
+            "reference": "146Sreeja V, Bijukumar A, Norman MD. First report of Amphioctopus neglectus (Nateewathana & Norman, 1999) and A. rex (Nateewathana & Norman, 1999) (Mollusca: Cephalopoda) from the Indian coast. Molluscan Research. 2012;32(1):43–9. WOS:000305081200006."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Bathypolypus bairdii",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Bathypolypus bairdii",
+        "mode": "B",
+        "hatchlingMm": "7.7 [147]",
+        "adultMantleMm": "70",
+        "relativeSizePercent": "11.0",
+        "latitude": "27°01'N, 74°27'N [148]",
+        "rangeKm": "5275"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref147",
+            "reference": "147Wood JB, Kenchington E, O'Dor RK. Reproduction and embryonic development time of Bathypolypus arcticus, a deep-sea octopod (Cephalopoda: Octopoda). Malacologia. 1998;39(1–2):11–9. ISI:000073796800002."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref148",
+            "reference": "148Muus B. The Bathypolypus-Benthoctopus problem of the North Atlantic (Octopodidae, Cephalopoda). Malacologia. 2002;44(2):175–222. WOS:000177725100001."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Callistoctopus macropus",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Callistoctopus macropus",
+        "mode": "P",
+        "hatchlingMm": "4.0 [29]",
+        "adultMantleMm": "155",
+        "relativeSizePercent": "2.6",
+        "latitude": "16°02'S, 45°28'N [149]",
+        "rangeKm": "6838"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref029",
+            "reference": "29Boletzky SV, Fuentès M, Offner N. First record of spawning and embryonic development in Octopus macropus (Mollusca: Cephalopoda). Journal of the Marine Biological Association of the United Kingdom. 2001;81(4):703–4."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref149",
+            "reference": "149Mangold K. The Octopodinae from the eastern Atlantic Ocean and the Mediterranean Sea. Smithsonian Contributions to Zoology. 1998;586:521–8. ZOOR:ZOOR13500001895."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Callistoctopus ornatus",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Callistoctopus ornatus",
+        "mode": "P",
+        "hatchlingMm": "2.7* [150]",
+        "adultMantleMm": "130",
+        "relativeSizePercent": "2.1",
+        "latitude": "34°06'S, 34°49'N [151]",
+        "rangeKm": "7662"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref150",
+            "reference": "150Young RE, Harman RF, Hochberg FG. Octopodid paralarvae from Hawaiian waters. Veliger. 1989;32(2):152–65."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref151",
+            "reference": "151Norman MD. Octopus ornatus Gould, 1852 (Cephalopoda, Octopodidae) in Australian waters—morphology, distribution, and life-history. Proceedings of the Biological Society of Washington. 1993;106(4):645–60. ISI:A1993MN65500003."
+          }
+        ],
+        "range": []
+      },
+      "holds": [
+        "Hatchling length is estimated using a pooled shrinkage correction; exclude from measured hatchling rankings."
+      ],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Cistopus indicus",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Cistopus indicus",
+        "mode": "P",
+        "hatchlingMm": "2.6 [144]",
+        "adultMantleMm": "180",
+        "relativeSizePercent": "1.4",
+        "latitude": "02°15'N, 07°44'N [137]",
+        "rangeKm": "609"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref144",
+            "reference": "144Nabhitabhata J. personal observation."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref137",
+            "reference": "137Norman MD, Finn J, Hochberg FG. Family Octopodidae. In P. Jereb, C.F.E. Roper, M.D. Norman & J.K. Finn eds. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Volume 3. Octopods and Vampire Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 3. Rome, FAO. pp. 36–215. 2013."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Eledone cirrhosa",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Eledone cirrhosa",
+        "mode": "P",
+        "hatchlingMm": "4.5 [152]",
+        "adultMantleMm": "250",
+        "relativeSizePercent": "1.8",
+        "latitude": "30°32'N, 68°10′N [153]",
+        "rangeKm": "4184"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref152",
+            "reference": "152Mangold K, Boletzky SV, Frösch D. Reproductive biology and embryonic development of Eledone cirrhosa (Cephalopoda, Octopoda). Mar Biol. 1971;8:109–17."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref153",
+            "reference": "153Boyle PR. Eledone cirrhosa. In: Boyle PR, editor. Cephalopod life cycles Volume 1 Species accounts: Academic Press London; 1983. p. 365–86."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Eledone moschata",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Eledone moschata",
+        "mode": "B",
+        "hatchlingMm": "10.5 [30, 154]",
+        "adultMantleMm": "140",
+        "relativeSizePercent": "7.5",
+        "latitude": "30°32'N, 45°28'N [154]",
+        "rangeKm": "1660"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref030",
+            "reference": "30Boletzky SV. Le développment d'Eledone moschata (Mollusca, Cephalopoda) élevée au laboratoire. Bulletin de la Societé Zoologique de France. 1975;100(3):361–7."
+          },
+          {
+            "id": "pone.0165334.ref154",
+            "reference": "154Mangold K. Eledone moschata. In: Boyle PR, editor. Cephalopod life cycles Volume 1 Species accounts: Academic Press London; 1983. p. 387–400."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref154",
+            "reference": "154Mangold K. Eledone moschata. In: Boyle PR, editor. Cephalopod life cycles Volume 1 Species accounts: Academic Press London; 1983. p. 387–400."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Enteroctopus dofleini",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Enteroctopus dofleini",
+        "mode": "P",
+        "hatchlingMm": "5.4 [155]",
+        "adultMantleMm": "600",
+        "relativeSizePercent": "0.9",
+        "latitude": "32°32'N, 62°31'N [156, 157]",
+        "rangeKm": "3335"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref155",
+            "reference": "155Okubo S. Spawning and rearing of hatchlings of the Giant Pacific Octopus. Animals and Nature. 1979;9(3):2–6."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref156",
+            "reference": "156Lang MA, Hochberg FG, editors. Proccedings of the workshop on the fishery and market potential of octopus in California. Washington: Smithsonian Institution; 1997."
+          },
+          {
+            "id": "pone.0165334.ref157",
+            "reference": "157Hartwick B. Octopus dofleini. In: Boyle PR, editor. Cephalopod life cycles Volume 1 Species accounts: Academic Press London; 1983. p. 277–91."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Enteroctopus megalocyathus",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Enteroctopus megalocyathus",
+        "mode": "P",
+        "hatchlingMm": "8.4 [158]",
+        "adultMantleMm": "190",
+        "relativeSizePercent": "4.4",
+        "latitude": "56°10'S, 34°20’S [158]",
+        "rangeKm": "2428"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref158",
+            "reference": "158Ortiz N, Ré MA, Márquez F. First description of eggs, hatchlings and hatchling behaviour of Enteroctopus megalocyathus (Cephalopoda: Octopodidae). Journal of Plankton Research. 2006;28:881–90."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref158",
+            "reference": "158Ortiz N, Ré MA, Márquez F. First description of eggs, hatchlings and hatchling behaviour of Enteroctopus megalocyathus (Cephalopoda: Octopodidae). Journal of Plankton Research. 2006;28:881–90."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Graneledone boreopacifica",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Graneledone boreopacifica",
+        "mode": "B",
+        "hatchlingMm": "28.0 [31]",
+        "adultMantleMm": "145",
+        "relativeSizePercent": "19.3",
+        "latitude": "40°28'N, 50°00'N [31, 159]",
+        "rangeKm": "1061"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref031",
+            "reference": "31Voight JR, Drazen JC. Hatchlings of the deep-sea octopus Graneledone boreopacifica are the largest and most advanced known. Journal of Molluscan Studies. 2004;70:406–8."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref031",
+            "reference": "31Voight JR, Drazen JC. Hatchlings of the deep-sea octopus Graneledone boreopacifica are the largest and most advanced known. Journal of Molluscan Studies. 2004;70:406–8."
+          },
+          {
+            "id": "pone.0165334.ref159",
+            "reference": "159Voss GL, Pearcy WG. Deep-water octopods (Mollusca; Cephalopoda) of the northeastern Pacific. Proceedings of the California Academy of Sciences. 1990;47(3):47–94. ZOOR:ZOOR13100020378."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Hapalochlaena lunulata",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Hapalochlaena lunulata",
+        "mode": "P",
+        "hatchlingMm": "2.3 [160]",
+        "adultMantleMm": "50",
+        "relativeSizePercent": "4.6",
+        "latitude": "16°12'S, 18°28'N [137]",
+        "rangeKm": "3854"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref160",
+            "reference": "160Overath H, Boletzky SV. Laboratory observations on spawning and embryonic development of a blue-ringed octopus. Marine Biology. 1974;27:333–7."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref137",
+            "reference": "137Norman MD, Finn J, Hochberg FG. Family Octopodidae. In P. Jereb, C.F.E. Roper, M.D. Norman & J.K. Finn eds. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Volume 3. Octopods and Vampire Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 3. Rome, FAO. pp. 36–215. 2013."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Hapalochlaena maculosa",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Hapalochlaena maculosa",
+        "mode": "B",
+        "hatchlingMm": "4.0 [161]",
+        "adultMantleMm": "57",
+        "relativeSizePercent": "7.0",
+        "latitude": "41°09'S, 38°06'S [60, 161]",
+        "rangeKm": "339"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref161",
+            "reference": "161Tranter DJ, Augustine O. Observations on the life history of the blue-ringed octopus Hapalochlaena maculosa. Mar Biol. 1973;18:115–28."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref060",
+            "reference": "60Norman MD, Reid A. A guide to squid, cuttlefish and octopuses of Australasia. Victoria, Australia: CSIRO Publishing; 2000. 96 p."
+          },
+          {
+            "id": "pone.0165334.ref161",
+            "reference": "161Tranter DJ, Augustine O. Observations on the life history of the blue-ringed octopus Hapalochlaena maculosa. Mar Biol. 1973;18:115–28."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus maorum",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus maorum",
+        "mode": "P",
+        "hatchlingMm": "4.6 [162, 163]",
+        "adultMantleMm": "300",
+        "relativeSizePercent": "1.5",
+        "latitude": "52°25'S, 31°40'S [163]",
+        "rangeKm": "2307"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref162",
+            "reference": "162Batham EJ. Care of eggs by Octopus maorum. Transactions of the Royal Society of New Zealand. 1957;84:629–38."
+          },
+          {
+            "id": "pone.0165334.ref163",
+            "reference": "163Stranks TN. Biogeography of Octopus species (Cephalopoda: Octopodidae) from southeastern Australia. American Malacological Bulletin. 1996;12(1–2):145–51. ISI:A1996WD95300014."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref163",
+            "reference": "163Stranks TN. Biogeography of Octopus species (Cephalopoda: Octopodidae) from southeastern Australia. American Malacological Bulletin. 1996;12(1–2):145–51. ISI:A1996WD95300014."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus berrima",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus berrima",
+        "mode": "B",
+        "hatchlingMm": "4.5 [163]",
+        "adultMantleMm": "105",
+        "relativeSizePercent": "4.3",
+        "latitude": "43°41'S, 32°18'S [163]",
+        "rangeKm": "1266"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref163",
+            "reference": "163Stranks TN. Biogeography of Octopus species (Cephalopoda: Octopodidae) from southeastern Australia. American Malacological Bulletin. 1996;12(1–2):145–51. ISI:A1996WD95300014."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref163",
+            "reference": "163Stranks TN. Biogeography of Octopus species (Cephalopoda: Octopodidae) from southeastern Australia. American Malacological Bulletin. 1996;12(1–2):145–51. ISI:A1996WD95300014."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus bimaculoides",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus bimaculoides",
+        "mode": "B",
+        "hatchlingMm": "6.5 [164]",
+        "adultMantleMm": "85",
+        "relativeSizePercent": "7.6",
+        "latitude": "22°32'N, 35°31'N [137]",
+        "rangeKm": "1442"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref164",
+            "reference": "164Hanlon RT, Forsythe JW. Advances in the laboratory culture of octopuses for biomedical research. Laboratory Animal Science. 1985;35(1):33–40. ISI:A1985ABW3900001."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref137",
+            "reference": "137Norman MD, Finn J, Hochberg FG. Family Octopodidae. In P. Jereb, C.F.E. Roper, M.D. Norman & J.K. Finn eds. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Volume 3. Octopods and Vampire Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 3. Rome, FAO. pp. 36–215. 2013."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus bimaculatus",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus bimaculatus",
+        "mode": "P",
+        "hatchlingMm": "2.6 [165]",
+        "adultMantleMm": "200",
+        "relativeSizePercent": "1.3",
+        "latitude": "22°51'N, 34°30'N [137]",
+        "rangeKm": "1295"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref165",
+            "reference": "165Ambrose RF. Observations on the embryonic development and early post-embryonic behaviour of Octopus bimaculatus (Mollusca, Cephalopoda). Veliger. 1981;24:139–46."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref137",
+            "reference": "137Norman MD, Finn J, Hochberg FG. Family Octopodidae. In P. Jereb, C.F.E. Roper, M.D. Norman & J.K. Finn eds. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Volume 3. Octopods and Vampire Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 3. Rome, FAO. pp. 36–215. 2013."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus briareus",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus briareus",
+        "mode": "B",
+        "hatchlingMm": "6.3 [164, 166]",
+        "adultMantleMm": "120",
+        "relativeSizePercent": "5.2",
+        "latitude": "02°49'S, 27°28'N [167]",
+        "rangeKm": "3368"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref164",
+            "reference": "164Hanlon RT, Forsythe JW. Advances in the laboratory culture of octopuses for biomedical research. Laboratory Animal Science. 1985;35(1):33–40. ISI:A1985ABW3900001."
+          },
+          {
+            "id": "pone.0165334.ref166",
+            "reference": "166Hanlon RT. Octopus briareus. In: Boyle PR, editor. Cephalopod life cycles Volume 1 Species accounts: Academic Press London; 1983. p. 251–66."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref167",
+            "reference": "167Voss GL, Toll RB. The systematics and nomenclatural status of the Octopodinae described from the western Atlantic Ocean. Smithsonian Contributions to Zoology. 1998;586:457–74. ZOOR:ZOOR13500001892."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus chierchiae",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus chierchiae",
+        "mode": "B",
+        "hatchlingMm": "3.5 [168]",
+        "adultMantleMm": "25",
+        "relativeSizePercent": "14.0",
+        "latitude": "08°58'N, 29°33'N [169]",
+        "rangeKm": "2288"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref168",
+            "reference": "168Rodaniche AF. Iteroparity in the Lesser Pacific Striped Octopus Octopus chierchiae (Jatta, 1889). Bulletin of Marine Science. 1984;35(1):99–104. ISI:A1984TJ10000011."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref169",
+            "reference": "169Caldwell RL. personal communication."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus cyanea",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus cyanea",
+        "mode": "P",
+        "hatchlingMm": "2.1* [150]",
+        "adultMantleMm": "160",
+        "relativeSizePercent": "1.3",
+        "latitude": "24°26'S, 22°15'N [170]",
+        "rangeKm": "5192"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref150",
+            "reference": "150Young RE, Harman RF, Hochberg FG. Octopodid paralarvae from Hawaiian waters. Veliger. 1989;32(2):152–65."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref170",
+            "reference": "170Van Heukelem WF. Octopus cyanea. In: Boyle PR, editor. Cephalopod life cycles Volume 1 Species accounts: Academic Press London; 1983. p. 267–76."
+          }
+        ],
+        "range": []
+      },
+      "holds": [
+        "Hatchling length is estimated using a pooled shrinkage correction; exclude from measured hatchling rankings."
+      ],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus fitchi",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus fitchi",
+        "mode": "P",
+        "hatchlingMm": "2.5* [130]",
+        "adultMantleMm": "45",
+        "relativeSizePercent": "5.6",
+        "latitude": "24°00'N, 32°00'N [171]",
+        "rangeKm": "890"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref130",
+            "reference": "130Hochberg FG, Nixon M, Toll RB. Order Octopoda Leach, 1818. In: Sweeney MJ, Roper CFE, Mangold KM, Clarke MR, Boletzky SV, editors. \"Larval\" and juvenile cephalopods: A manual for their identification. 513. Washington, D.C.: Smithsonian Institution Press; 1992. p. 213–80."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref171",
+            "reference": "171Guzik MT. Molecular phylogenetics and evolutionary history of reproductive strategies in benthic shallow-water octopuses [PhD]. TownSVille: James Cook University; 2004."
+          }
+        ],
+        "range": []
+      },
+      "holds": [
+        "Hatchling length is estimated using a pooled shrinkage correction; exclude from measured hatchling rankings."
+      ],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus hubbsorum",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus hubbsorum",
+        "mode": "P",
+        "hatchlingMm": "1.2 [172]",
+        "adultMantleMm": "220",
+        "relativeSizePercent": "0.6",
+        "latitude": "04°00'N, 31°51'N [173]",
+        "rangeKm": "3097"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref172",
+            "reference": "172Alejo-Plata M, Herrera-Alejo S. First description of eggs and paralarvae of green octopus Octopus hubbsorum (Cephalopoda: Octopodidae) under laboratory conditions. Am Malacol Bull. 2014;32:132–9."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref173",
+            "reference": "173Domínguez-Contreras JF, Ceballos-Vázquez BP, Hochberg FG, Arellano-Martínez M. A new record in a well-established population of Octopus hubbsorum (Cephalopoda: Octopodidae) expands its known geographic distribution range and maximum size. American Malacological Bulletin. 2013;31(1):95–9. doi: 10.4003/006.031.0122"
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus huttoni",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus huttoni",
+        "mode": "P",
+        "hatchlingMm": "2.5 [130, 174] (as Robsonella australis),[175]",
+        "adultMantleMm": "57",
+        "relativeSizePercent": "4.3",
+        "latitude": "50°45'S, 31°31'S [132]",
+        "rangeKm": "2140"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref130",
+            "reference": "130Hochberg FG, Nixon M, Toll RB. Order Octopoda Leach, 1818. In: Sweeney MJ, Roper CFE, Mangold KM, Clarke MR, Boletzky SV, editors. \"Larval\" and juvenile cephalopods: A manual for their identification. 513. Washington, D.C.: Smithsonian Institution Press; 1992. p. 213–80."
+          },
+          {
+            "id": "pone.0165334.ref174",
+            "reference": "174Brough EJ. Egg-care, eggs and larvae in the midget octopus, Robsonella australis (Hoyle). Transactions of the Royal Society of New Zealand. 1965;6:7–19."
+          },
+          {
+            "id": "pone.0165334.ref175",
+            "reference": "175Higgins FA, Bates AE, Lamare MD. Heat tolerance, behavioural temperature selection and temperature-dependent respiration in larval Octopus huttoni. J Therm Biol. 2012;37(1):83–8. doi: 10.1016/j.jtherbio.2011.11.004 WOS:000300264600012."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref132",
+            "reference": "132O'Shea S. The marine fauna of New Zealand: Octopoda (Mollusca: Cephalopoda). NIWA Biodiversity Memoir. 1999;112:280 p. ZOOR:ZOOR13600052945."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus insularis",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus insularis",
+        "mode": "P",
+        "hatchlingMm": "1.7 [176]",
+        "adultMantleMm": "120",
+        "relativeSizePercent": "1.4",
+        "latitude": "25°32ʹS, 00°56’N [177, 178]",
+        "rangeKm": "2945"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref176",
+            "reference": "176Lenz TM, Elias NH, Leite TS, Vidal EAG. First description of the eggs and paralarvae of the tropical octopus, Octopus insularis, under culture conditions. Am Malacol Bull. 2015;33(1):101–9. doi: 10.4003/006.033.0115"
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref177",
+            "reference": "177Vidal EAG. personal observation."
+          },
+          {
+            "id": "pone.0165334.ref178",
+            "reference": "178Leite TS. personal communication."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus joubini",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus joubini",
+        "mode": "P",
+        "hatchlingMm": "2.5 [179]",
+        "adultMantleMm": "45",
+        "relativeSizePercent": "5.6",
+        "latitude": "18°13'N, 30°03'N [179]",
+        "rangeKm": "1317"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref179",
+            "reference": "179Forsythe JW, Toll RB. Clarification of the Western Atlantic ocean pygmy octopus complex: the identity and life history of Octopus joubini (Cephalopoda: Octopodinae). Bulletin of Marine Science. 1991;49(1–2):88–97. ISI:A1991HC56800008."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref179",
+            "reference": "179Forsythe JW, Toll RB. Clarification of the Western Atlantic ocean pygmy octopus complex: the identity and life history of Octopus joubini (Cephalopoda: Octopodinae). Bulletin of Marine Science. 1991;49(1–2):88–97. ISI:A1991HC56800008."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus sp. \"joubini\" undescribed",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus sp. \"joubini\" undescribed",
+        "mode": "B",
+        "hatchlingMm": "5.5 [180] (as O.joubini)",
+        "adultMantleMm": "40",
+        "relativeSizePercent": "13.8",
+        "latitude": "10°05'N, 30°03'N [179]",
+        "rangeKm": "2221"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref180",
+            "reference": "180Hanlon RT. Octopus joubini. In: Boyle PR, editor. Cephalopod life cycles Volume 1 Species accounts: Academic Press London; 1983. p. 293–310."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref179",
+            "reference": "179Forsythe JW, Toll RB. Clarification of the Western Atlantic ocean pygmy octopus complex: the identity and life history of Octopus joubini (Cephalopoda: Octopodinae). Bulletin of Marine Science. 1991;49(1–2):88–97. ISI:A1991HC56800008."
+          }
+        ],
+        "range": []
+      },
+      "holds": [
+        "Species complex or incomplete identification; do not merge into a named species."
+      ],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus maya",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus maya",
+        "mode": "B",
+        "hatchlingMm": "7.0 [164]",
+        "adultMantleMm": "120",
+        "relativeSizePercent": "5.8",
+        "latitude": "17°59'N, 21°32'N [137]",
+        "rangeKm": "1268"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref164",
+            "reference": "164Hanlon RT, Forsythe JW. Advances in the laboratory culture of octopuses for biomedical research. Laboratory Animal Science. 1985;35(1):33–40. ISI:A1985ABW3900001."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref137",
+            "reference": "137Norman MD, Finn J, Hochberg FG. Family Octopodidae. In P. Jereb, C.F.E. Roper, M.D. Norman & J.K. Finn eds. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Volume 3. Octopods and Vampire Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 3. Rome, FAO. pp. 36–215. 2013."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus mimus",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus mimus",
+        "mode": "P",
+        "hatchlingMm": "1.9 [181]",
+        "adultMantleMm": "190",
+        "relativeSizePercent": "1.0",
+        "latitude": "33°54'S, 03°27'S [137]",
+        "rangeKm": "3387"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref181",
+            "reference": "181Warnke K. Observations on the embryonic development of Octopus mimus (Mollusca: Cephalopoda) from Northern Chile. Veliger. 1999;42(3):211–7. ISI:000081353100002."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref137",
+            "reference": "137Norman MD, Finn J, Hochberg FG. Family Octopodidae. In P. Jereb, C.F.E. Roper, M.D. Norman & J.K. Finn eds. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Volume 3. Octopods and Vampire Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 3. Rome, FAO. pp. 36–215. 2013."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus minor",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus minor",
+        "mode": "B",
+        "hatchlingMm": "10.0 [182]",
+        "adultMantleMm": "80",
+        "relativeSizePercent": "12.5",
+        "latitude": "21°57'N, 46°42'N [137, 183]",
+        "rangeKm": "2752"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref182",
+            "reference": "182Zheng X-D, Qian Y-S, Liu C, Li Q. Octopus minor. In: Iglesias J, Fuentes L, Villanueva R, editors. Cephalopod Culture. New York: Springer; 2014. p. 415–26."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref137",
+            "reference": "137Norman MD, Finn J, Hochberg FG. Family Octopodidae. In P. Jereb, C.F.E. Roper, M.D. Norman & J.K. Finn eds. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Volume 3. Octopods and Vampire Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 3. Rome, FAO. pp. 36–215. 2013."
+          },
+          {
+            "id": "pone.0165334.ref183",
+            "reference": "183Cheng RB, Zheng XD, Lin XZ, Yang JM, Li Q. Determination of the complete mitochondrial DNA sequence of Octopus minor. Molecular Biology Reports. 2012;39(4):3461–70. doi: 10.1007/s11033-011-1118-2 WOS:000301108500011."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus oliveri",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus oliveri",
+        "mode": "P",
+        "hatchlingMm": "1.3* [184]",
+        "adultMantleMm": "70",
+        "relativeSizePercent": "1.8",
+        "latitude": "29°16'S, 27°06'N [185]",
+        "rangeKm": "6267"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref184",
+            "reference": "184Ylitalo HA, Watling L, Toonen RJ. First description of hatchlings and eggs of Octopus oliveri (Berry, 1914) (Cephalopoda: Octopodidae). Molluscan Research. 2014;34(2):79–83. doi: 10.1080/13235818.2013.860871"
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref185",
+            "reference": "185Kaneko N, Kubodera T, Iguchi A. Taxonomic study of shallow-water octopuses (Cephalopoda: Octopodidae) in Japan and adjacent waters using mitochondrial genes with perspectives on Octopus DNA barcoding. Malacologia. 2011;54(1–2):97–108. WOS:000296211300004."
+          }
+        ],
+        "range": []
+      },
+      "holds": [
+        "Hatchling length is estimated using a pooled shrinkage correction; exclude from measured hatchling rankings."
+      ],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus pallidus",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus pallidus",
+        "mode": "B",
+        "hatchlingMm": "6.5 [163, 186]",
+        "adultMantleMm": "150",
+        "relativeSizePercent": "4.3",
+        "latitude": "44°00'S, 31°40'S [163]",
+        "rangeKm": "1372"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref163",
+            "reference": "163Stranks TN. Biogeography of Octopus species (Cephalopoda: Octopodidae) from southeastern Australia. American Malacological Bulletin. 1996;12(1–2):145–51. ISI:A1996WD95300014."
+          },
+          {
+            "id": "pone.0165334.ref186",
+            "reference": "186Bozzano A, Pankhurst PM, Moltschaniwskyj NA, Villanueva R. Eye development in southern calamary, Sepioteuthis australis, embryos and hatchlings. Marine Biology. 2009;156(7):1359–73. ISI:000266010300001."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref163",
+            "reference": "163Stranks TN. Biogeography of Octopus species (Cephalopoda: Octopodidae) from southeastern Australia. American Malacological Bulletin. 1996;12(1–2):145–51. ISI:A1996WD95300014."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus rubescens",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus rubescens",
+        "mode": "P",
+        "hatchlingMm": "1.9 [130]",
+        "adultMantleMm": "100",
+        "relativeSizePercent": "1.9",
+        "latitude": "22°51'N, 61°06'N [156]",
+        "rangeKm": "4255"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref130",
+            "reference": "130Hochberg FG, Nixon M, Toll RB. Order Octopoda Leach, 1818. In: Sweeney MJ, Roper CFE, Mangold KM, Clarke MR, Boletzky SV, editors. \"Larval\" and juvenile cephalopods: A manual for their identification. 513. Washington, D.C.: Smithsonian Institution Press; 1992. p. 213–80."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref156",
+            "reference": "156Lang MA, Hochberg FG, editors. Proccedings of the workshop on the fishery and market potential of octopus in California. Washington: Smithsonian Institution; 1997."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus salutii",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus salutii",
+        "mode": "P",
+        "hatchlingMm": "3.8 [187]",
+        "adultMantleMm": "165",
+        "relativeSizePercent": "2.3",
+        "latitude": "30°21'N, 50°00'N [137, 188]",
+        "rangeKm": "2185"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref187",
+            "reference": "187Mangold-Wirz K, Boletzky SV, Mesnil B. Biologie de reproduction et distribution d'Octopus salutti Verany (Cephalopoda, Octopoda). Rapport de la Commission Internationale pour l'Exploration Scientifique de la Mer Méditerranée. 1976;23(8):83–97."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref137",
+            "reference": "137Norman MD, Finn J, Hochberg FG. Family Octopodidae. In P. Jereb, C.F.E. Roper, M.D. Norman & J.K. Finn eds. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Volume 3. Octopods and Vampire Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 3. Rome, FAO. pp. 36–215. 2013."
+          },
+          {
+            "id": "pone.0165334.ref188",
+            "reference": "188Collins MA, Yau C, Allcock L, Thurston MH. Distribution of deep-water benthic and bentho-pelagic cephalopods from the north-east Atlantic. Journal of the Marine Biological Association of the United Kingdom. 2001;81(1):105–17. ISI:000168203900012."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus tehuelchus",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus tehuelchus",
+        "mode": "B",
+        "hatchlingMm": "6.6 [189]",
+        "adultMantleMm": "200",
+        "relativeSizePercent": "3.3",
+        "latitude": "44°01'S, 20°00'S [137, 190]",
+        "rangeKm": "2670"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref189",
+            "reference": "189Iribarne OO. Life history and distribution of the small south-western Atlantic octopus, Octopus tehuelchus. Journal of Zoology. 1991;223:549–65. ISI:A1991FL02700002."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref137",
+            "reference": "137Norman MD, Finn J, Hochberg FG. Family Octopodidae. In P. Jereb, C.F.E. Roper, M.D. Norman & J.K. Finn eds. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Volume 3. Octopods and Vampire Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 3. Rome, FAO. pp. 36–215. 2013."
+          },
+          {
+            "id": "pone.0165334.ref190",
+            "reference": "190Haimovici M, Perez JAA. Coastal cephalopod fauna of Southern Brazil. Bulletin of Marine Science. 1991;49(1–2):221–30. ISI:A1991HC56800018."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus tetricus",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus tetricus",
+        "mode": "P",
+        "hatchlingMm": "1.5 [191]",
+        "adultMantleMm": "140",
+        "relativeSizePercent": "1.1",
+        "latitude": "40°00'S, 28°12'S [137, 192]",
+        "rangeKm": "1313"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref191",
+            "reference": "191Joll LM. Mating, egg-laying and hatching of Octopus tetricus (Mollusca: Cephalopoda) in the laboratory. Mar Biol. 1976;36:327–33."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref137",
+            "reference": "137Norman MD, Finn J, Hochberg FG. Family Octopodidae. In P. Jereb, C.F.E. Roper, M.D. Norman & J.K. Finn eds. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Volume 3. Octopods and Vampire Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 3. Rome, FAO. pp. 36–215. 2013."
+          },
+          {
+            "id": "pone.0165334.ref192",
+            "reference": "192Ramos JE, Pecl GT, Moltschaniwskyj NA, Strugnell JM, León RI, Semmens JM. Body size, growth and life span: implications for the polewards range shift of Octopus tetricus in south-eastern Australia. PLOS ONE. 2014;9(8):e103480. doi: 10.1371/journal.pone.0103480 25090250"
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus superciliosus",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus superciliosus",
+        "mode": "B",
+        "hatchlingMm": "4.5 [163]",
+        "adultMantleMm": "26",
+        "relativeSizePercent": "17.3",
+        "latitude": "47°11'S, 33°14'S [163]",
+        "rangeKm": "1552"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref163",
+            "reference": "163Stranks TN. Biogeography of Octopus species (Cephalopoda: Octopodidae) from southeastern Australia. American Malacological Bulletin. 1996;12(1–2):145–51. ISI:A1996WD95300014."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref163",
+            "reference": "163Stranks TN. Biogeography of Octopus species (Cephalopoda: Octopodidae) from southeastern Australia. American Malacological Bulletin. 1996;12(1–2):145–51. ISI:A1996WD95300014."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus vulgaris sensu stricto",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus vulgaris sensu stricto",
+        "mode": "P",
+        "hatchlingMm": "2.1 [193, 194]",
+        "adultMantleMm": "250",
+        "relativeSizePercent": "0.8",
+        "latitude": "07°04'N, 53°03'N [137]",
+        "rangeKm": "5113"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref193",
+            "reference": "193Villanueva R. Experimental rearing and growth of planktonic Octopus vulgaris from hatching to settlement. Canadian Journal of Fisheries and Aquatic Sciences. 1995;52(12):2639–50. ISI:A1995UA09600011."
+          },
+          {
+            "id": "pone.0165334.ref194",
+            "reference": "194Carrasco JF, Arronte JC, Rodríguez C. Paralarval rearing of the common octopus, Octopus vulgaris (Cuvier). Aquac Res. 2006;37:1601–5."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref137",
+            "reference": "137Norman MD, Finn J, Hochberg FG. Family Octopodidae. In P. Jereb, C.F.E. Roper, M.D. Norman & J.K. Finn eds. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Volume 3. Octopods and Vampire Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 3. Rome, FAO. pp. 36–215. 2013."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus vulgaris type II",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus vulgaris type II",
+        "mode": "P",
+        "hatchlingMm": "2.2 [195]",
+        "adultMantleMm": "210",
+        "relativeSizePercent": "1.1",
+        "latitude": "31°05'S, 02°00’N [137]",
+        "rangeKm": "3679"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref195",
+            "reference": "195Vidal ÉAG, Fuentes L, da Silva LB. Defining Octopus vulgaris populations: a comparative study of the morphology and chromatophore pattern of paralarvae from Northeastern and Southwestern Atlantic. Fisheries Research. 2010;106(2):199–208."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref137",
+            "reference": "137Norman MD, Finn J, Hochberg FG. Family Octopodidae. In P. Jereb, C.F.E. Roper, M.D. Norman & J.K. Finn eds. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Volume 3. Octopods and Vampire Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 3. Rome, FAO. pp. 36–215. 2013."
+          }
+        ],
+        "range": []
+      },
+      "holds": [
+        "Species complex or incomplete identification; do not merge into a named species."
+      ],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus vulgaris type IV",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus vulgaris type IV",
+        "mode": "P",
+        "hatchlingMm": "2.1 [196]",
+        "adultMantleMm": "168",
+        "relativeSizePercent": "1.3",
+        "latitude": "21°28'N, 45°20'N [137]",
+        "rangeKm": "2654"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref196",
+            "reference": "196Itami K, Izawa Y, Maeda S, Nakai K. Notes on the laboratory culture of octopus larvae. Bulletin of the Japanese Society of Scientific Fisheries. 1963; 29:514–20."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref137",
+            "reference": "137Norman MD, Finn J, Hochberg FG. Family Octopodidae. In P. Jereb, C.F.E. Roper, M.D. Norman & J.K. Finn eds. Cephalopods of the world. An annotated and illustrated catalogue of cephalopod species known to date. Volume 3. Octopods and Vampire Squids. FAO Species Catalogue for Fishery Purposes. No. 4, Vol. 3. Rome, FAO. pp. 36–215. 2013."
+          }
+        ],
+        "range": []
+      },
+      "holds": [
+        "Species complex or incomplete identification; do not merge into a named species."
+      ],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus warringa",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus warringa",
+        "mode": "P",
+        "hatchlingMm": "2.5 [163]",
+        "adultMantleMm": "35",
+        "relativeSizePercent": "7.1",
+        "latitude": "47°20'S, 33°33'S [163]",
+        "rangeKm": "1531"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref163",
+            "reference": "163Stranks TN. Biogeography of Octopus species (Cephalopoda: Octopodidae) from southeastern Australia. American Malacological Bulletin. 1996;12(1–2):145–51. ISI:A1996WD95300014."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref163",
+            "reference": "163Stranks TN. Biogeography of Octopus species (Cephalopoda: Octopodidae) from southeastern Australia. American Malacological Bulletin. 1996;12(1–2):145–51. ISI:A1996WD95300014."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Octopus conispadiceus",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Octopus conispadiceus",
+        "mode": "B",
+        "hatchlingMm": "12.0 [197]",
+        "adultMantleMm": "210",
+        "relativeSizePercent": "5.7",
+        "latitude": "41°43'N, 45°37'N [198]",
+        "rangeKm": "435"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref197",
+            "reference": "197Ito H. Temperature and salinity tolerances of larvae of Paroctopus conispadiceus (Mollusca: Cephalopoda). Bulletin of the Hokkaido Regional Fisheries Research Laboratory. 1985;50:99–115."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref198",
+            "reference": "198Okutani T, Tagawa M, Horikawa H. Cephalopods from continental shelf and slope around Japan. The intensive research of unexploited fishery resources of continental slopes. Tokyo: Japan Fisheries Resources Conservation Association; 1987."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Paroctopus digueti",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Paroctopus digueti",
+        "mode": "B",
+        "hatchlingMm": "5.3 [164, 199]",
+        "adultMantleMm": "74",
+        "relativeSizePercent": "7.2",
+        "latitude": "22°48'N, 31°27'N [200]",
+        "rangeKm": "963"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref164",
+            "reference": "164Hanlon RT, Forsythe JW. Advances in the laboratory culture of octopuses for biomedical research. Laboratory Animal Science. 1985;35(1):33–40. ISI:A1985ABW3900001."
+          },
+          {
+            "id": "pone.0165334.ref199",
+            "reference": "199DeRusha RH, Forsythe JW, Hanlon RT. Laboratory growth, reproduction and life span of the Pacific pygmy octopus, Octopus digueti. Pacific Science. 1987;41(1–4):104–21. ZOOR:ZOOR12600013438."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref200",
+            "reference": "200Norman MD. Cephalopods: a World Guide. Hackenheim: ConchBooks; 2000. 320 p."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Robsonella fontanianus",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Robsonella fontanianus",
+        "mode": "P",
+        "hatchlingMm": "2.9 [201–203]",
+        "adultMantleMm": "70",
+        "relativeSizePercent": "4.1",
+        "latitude": "55°00'S, 06°00'S [204]",
+        "rangeKm": "5449"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref201",
+            "reference": "201González ML, Arriagada SE, López DA, Pérez MC. Reproductive aspects, eggs and paralarvae of Robsonella fontanianus (d'Orbigny, 1834). Aquac Res. 2008;39:1569–73."
+          },
+          {
+            "id": "pone.0165334.ref203",
+            "reference": "203Ortiz N, Ré ME. The eggs and hatchlings of the octopus Robsonella fontaniana (Cephalopoda: Octopodidae). Journal of the Marine Biological Association of the United Kingdom. 2011;91(03):705–13."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref204",
+            "reference": "204Ortiz N, Ré ME, Márquez F, Glembocki NG. The reproductive cycle of the red octopus Enteroctopus megalocyathus in fishing areas of Northern Patagonian coast. Fisheries Research. 2011;110(1):217–23."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Scaeurgus unicirrhus",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Scaeurgus unicirrhus",
+        "mode": "P",
+        "hatchlingMm": "2.0 [32]",
+        "adultMantleMm": "90",
+        "relativeSizePercent": "2.2",
+        "latitude": "26°10’S, 45°28'N [149, 205]",
+        "rangeKm": "7965"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref032",
+            "reference": "32Boletzky SV. The embryonic development of the octopus Scaeurgus unicirrhus (Mollusca, Cephalopoda). Additional data and discussion. Vie et Milieu. 1984;334:87–93."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref149",
+            "reference": "149Mangold K. The Octopodinae from the eastern Atlantic Ocean and the Mediterranean Sea. Smithsonian Contributions to Zoology. 1998;586:521–8. ZOOR:ZOOR13500001895."
+          },
+          {
+            "id": "pone.0165334.ref205",
+            "reference": "205Sánchez P, Alvarez JA. Scaeurgus unicirrhus (Orbigny, 1840) (Cephalopoda, Octopodidae)—first record from the Southeast Atlantic. South African Journal of Marine Science-Suid-Afrikaanse Tydskrif Vir Seewetenskap. 1988;7:69–74. ISI:A1988T203700008."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    },
+    {
+      "sourceName": "Wunderpus photogenicus",
+      "group": "Octopods",
+      "sourceCells": {
+        "species": "Wunderpus photogenicus",
+        "mode": "P",
+        "hatchlingMm": "2.3 [206]",
+        "adultMantleMm": "36",
+        "relativeSizePercent": "6.4",
+        "latitude": "16°15’S, 14°34'N [207]",
+        "rangeKm": "3428"
+      },
+      "references": {
+        "species": [],
+        "mode": [],
+        "hatchling": [
+          {
+            "id": "pone.0165334.ref206",
+            "reference": "206Miske V, Kirchhauser J. First record of brooding and early life cycle stages in Wunderpus photogenicus Hochberg, Norman and Finn, 2006 (Cephalopoda: Octopodidae). Molluscan Research. 2006;26(3):169–71. CCC:000243238600007."
+          }
+        ],
+        "adult": [],
+        "relativeSize": [],
+        "latitude": [
+          {
+            "id": "pone.0165334.ref207",
+            "reference": "207Hochberg FG, Norman MD, Finn J. Wunderpus photogenicus n. gen. and sp., a new octopus from the shallow waters of the Indo-Malayan Archipelago (Cephalopoda: Octopodidae). Molluscan Research. 2006;26(3):128–40. CCC:000243238600005."
+          }
+        ],
+        "range": []
+      },
+      "holds": [],
+      "status": "research-only; identity and measurement review pending"
+    }
+  ]
+}

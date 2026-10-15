@@ -1,7 +1,7 @@
 {
   "updatedAt": "2026-10-14",
   "publishedBaseline": {
-    "commit": "e3cee29c24ae747ab71947634d87f613b37a4e90",
+    "commit": "eae754e44fc73dbd510d6c6e38452937f173ca27",
     "playableLabels": 202,
     "validBoards": 59451,
     "livingCatalogAnimals": 868,
@@ -13,7 +13,7 @@
       "id": 1,
       "task": "Expand useful categories",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "202 labels in the candidate release; the 200 minimum is met locally, but the 500 aspiration and broad mammal/sea-life expansion remain unfinished."
+      "evidenceAndRemainingWork": "202 playable labels published; the 200 minimum is met, while the 500 aspiration and broad mammal/sea-life expansion remain unfinished."
     },
     {
       "id": 2,
@@ -25,7 +25,7 @@
       "id": 3,
       "task": "Expand sea life",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "269 cephalopod and 529 pelagic candidates remain research-only."
+      "evidenceAndRemainingWork": "269 mantle-length candidates and 529 pelagic candidates remain research-only. New 110-row cephalopod hatchling/range source extracted with shrinkage estimates, species complexes and coordinate errors held."
     },
     {
       "id": 4,
@@ -73,7 +73,7 @@
       "id": 11,
       "task": "Research missing broad buckets",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Intelligence, senses, performance, migration, diet, reproduction, longevity, conservation and history need defensible bulk sources."
+      "evidenceAndRemainingWork": "193-species mammal vocalisation workbook staged; 49 exact catalog matches remain held pending original call context and repertoire-completeness review."
     },
     {
       "id": 12,
@@ -115,25 +115,25 @@
       "id": 18,
       "task": "Complete GeoStats formatting parity",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Shared GeoStats results components retained. Ranking performance and source retry fixes pass local checks; exact full parity and live checks remain unfinished."
+      "evidenceAndRemainingWork": "Shared GeoStats results components and performance ordering verified in a live Scout round. Exact full formatting parity remains unfinished."
     },
     {
       "id": 19,
       "task": "Complete live functionality checks",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Signed-in saving, cross-device stats, reporting and error recovery still require end-to-end evidence."
+      "evidenceAndRemainingWork": "Anonymous Scout placement in both click directions, removal, mode switch, result scoring, board rankings, detailed source loading and local save verified. Signed-in/cross-device, reporting, drag behavior and failure recovery still need end-to-end evidence."
     },
     {
       "id": 20,
       "task": "Improve loading performance",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Compact/progressive transports and verbatim source snapshots implemented; further live verification required."
+      "evidenceAndRemainingWork": "Packed catalog route published: 1,270,887 bytes versus 14,130,528 previously, a 91% reduction. Live 940-animal catalog, filtering and per-category full observations verified."
     },
     {
       "id": 21,
       "task": "Maintain no-scroll rule",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Earlier filled-board geometry checks passed; new artwork and portrait treatment require another check."
+      "evidenceAndRemainingWork": "Live Scout Cute and Static play-screen desktop geometry 1363×936 with no document overflow; phone and other difficulties remain unverified in this pass."
     },
     {
       "id": 22,
@@ -163,17 +163,20 @@
     "newBoards": 442,
     "reviewedExtinctStaticPhotographs": 8,
     "remainingExtinctStaticPlaceholders": 64,
-    "status": "202-label release published; live catalog count, full flight rankings, 28-row detailed CSV and Play opposite verified. Catalog-payload optimization pending publication."
+    "status": "202-label release and compact catalog published; live ranking details, desktop two-way click placement, removal, mode switching, performance ordering and local result saving verified."
   },
   "latestWork": [
     "Full data/source view: retry after fetch failure and explicit saved-record metadata in CSV.",
     "Ranking and catalog indexes avoid repeated full scans; catalog tie ranks preserved.",
     "Three more exact-species extinct Static skeleton photographs reviewed.",
     "Targeted generation made four vetted directions playable without relaxing composition, source, uncertainty or rank-gap rules.",
-    "Four land-travel values held pending absolute-scale conversion review; no existing playable boards removed."
+    "Four land-travel values held pending absolute-scale conversion review; no existing playable boards removed.",
+    "Catalog payload reduced by 91% without removing eligible values or detailed per-category source access.",
+    "Mammal vocalisation and cephalopod hatchling sources staged with explicit measurement/taxonomy holds; no research-only candidate counted as playable.",
+    "Visual clue audit refreshed to 59,451 boards; 12,310 need direct-anatomy review."
   ],
   "liveVerification": {
-    "deploymentId": "dpl_DHygg3ny8nT6ePdwqqswTRfEjLPo",
+    "deploymentId": "dpl_6sgpcFzgwiHsvfqfBh6XVPEKYv4T",
     "state": "READY",
     "categoryCount": 202,
     "fullFlightRankings": 28,
@@ -190,6 +193,30 @@
     ],
     "phoneVerified": false,
     "signedInVerification": false,
-    "rankingFailureRetrySimulated": false
+    "rankingFailureRetrySimulated": false,
+    "commit": "eae754e44fc73dbd510d6c6e38452937f173ca27",
+    "catalogAnimals": 940,
+    "fullObservationNotesAfterCompactCatalog": true,
+    "animalFirstClick": true,
+    "prizeFirstClick": true,
+    "removeAssignment": true,
+    "modeSwitchPreservesChoices": true,
+    "scoutResultScore": 235,
+    "scoutResultPoints": [
+      100,
+      65,
+      45,
+      25
+    ],
+    "resultPerformanceOrder": true,
+    "anonymousLocalSave": true,
+    "desktopStaticViewport": [
+      1363,
+      936
+    ],
+    "desktopStaticDocument": [
+      1363,
+      936
+    ]
   }
 }

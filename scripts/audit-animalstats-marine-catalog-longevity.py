@@ -55,7 +55,9 @@ def audit(frame):
         crossChecks=[dict(scientificName='Metacarcinus magister', reference='104779',
             referenceUrl='https://www.sealifebase.org/references/FBRefSummary.php?ID=104779',
             citation='Pauley, Armstrong and Heun (1986), Species profiles: life histories and environmental requirements of coastal fishes and invertebrates (Pacific Northwest) -- Dungeness crab. U.S. Fish Wildl. Serv. Biol. Rep. 82(11.63).',
-            result='SeaLifeBase summary agrees on a maximum reported age of 10 years. Original report and age-estimation method remain to be reviewed; not admitted.')],
+            originalReportUrl='https://repository.library.noaa.gov/view/noaa/43651/noaa_43651_DS1.pdf',
+            pdfPage=16, reportedRangeYears=[8, 10],
+            result='The original report gives a maximum lifespan range of 8 to 10 years, while the bulk dataset stores only 10. Do not present the upper endpoint as an exact observed individual age. Earlier age-determination studies and wild/captive context still require review; not admitted.')],
         coverageLimit='This is a selected-cell review queue for animals already in the catalog, not a count of new categories or playable animals. Full marine database is not redistributed.')
 
 

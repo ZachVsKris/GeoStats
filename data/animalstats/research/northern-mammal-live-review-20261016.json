@@ -1,0 +1,91 @@
+{
+  "reviewDate": "2026-10-16",
+  "codeCommit": "c4541061772cb9130febeeb6d4ecbaef0150667e",
+  "deploymentId": "dpl_64ihsD44wb4YKTcC8qpnPkb9xNLt",
+  "deploymentUrl": "https://geo-secondcoming-m69zyz6li-zachington.vercel.app",
+  "deploymentState": "READY",
+  "release": {
+    "playableLabels": 202,
+    "validBoards": 66608,
+    "livingRoundAnimals": 268,
+    "newBoards": 8241,
+    "newExpertBoards": 141,
+    "newCategoryLabels": 0,
+    "retiredOlderBoards": 0
+  },
+  "localChecks": {
+    "productionBuild": "passed",
+    "snapshotSeal": "exact-match",
+    "adjacentNumericChecks": 1435122,
+    "productionRoundAnimalImagesChecked": 340,
+    "identificationViewportsChecked": 13,
+    "sourceTranscriptionCellsChecked": 521,
+    "sourceTranscriptionLimitation": "Matches original source cells, not independent confirmation of every biological study.",
+    "pregnancyReapprovalAttemptsBlocked": 2
+  },
+  "liveChecks": [
+    {
+      "board": "northern-20261016-mammals-easy-d89fa73d896f",
+      "mode": "easy",
+      "score": 400,
+      "maximum": 400,
+      "optimalChoices": 4,
+      "saveStatus": "Saved on this device",
+      "presentations": [
+        "Static filled",
+        "Cute filled"
+      ],
+      "interactions": [
+        "Static animal-to-category drag: Muskox to Heaviest newborn",
+        "Static category-to-animal drag: Largest mapped range to Wolverine",
+        "Category-first click: Shortest gap between births to European rabbit",
+        "Animal-first click: Bighorn sheep to Lives at higher elevations",
+        "Remove Muskox, verify submit disabled, switch to Cute with other choices retained, reassign Muskox"
+      ]
+    },
+    {
+      "board": "northern-20261016-mammals-expert-410fb8e705cf",
+      "mode": "expert",
+      "score": 600,
+      "maximum": 600,
+      "optimalChoices": 6,
+      "saveStatus": "Saved on this device",
+      "presentations": [
+        "Cute filled",
+        "Static filled"
+      ],
+      "interactions": [
+        "Cute animal-to-podium drag: Hippopotamus to Heaviest newborn",
+        "Remaining five matches by click",
+        "Mode switch preserves all six assignments",
+        "No photo-unavailable indicators in Static"
+      ]
+    }
+  ],
+  "layout": {
+    "desktopViewport": [
+      1363,
+      936
+    ],
+    "desktopDocument": [
+      1363,
+      936
+    ],
+    "verified": [
+      "Scout Cute empty/filled",
+      "Scout Static filled",
+      "Expert Cute empty/filled",
+      "Expert Static filled"
+    ],
+    "phoneChecked": false
+  },
+  "screenshot": "animalstats-northern-mammals-1792177240209.jpg",
+  "remainingLimitations": [
+    "No fresh live Adventurer flow in this batch.",
+    "Phone and smaller desktop layout review unfinished.",
+    "Signed-in and cross-device score saving unverified.",
+    "Broader source accuracy, delayed implantation, artwork and visual-answer-cue audits unfinished.",
+    "New animals use existing facts; no additional category labels.",
+    "Daily schedule review remains separate from this random-board admission."
+  ]
+}

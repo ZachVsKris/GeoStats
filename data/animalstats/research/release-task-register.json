@@ -1,11 +1,11 @@
 {
   "updatedAt": "2026-10-16",
   "publishedBaseline": {
-    "commit": "8a2f970ce9b6083f38da7bb50666fd0add04eec3",
+    "commit": "c4541061772cb9130febeeb6d4ecbaef0150667e",
     "playableLabels": 202,
-    "validBoards": 58367,
+    "validBoards": 66608,
     "livingCatalogAnimals": 896,
-    "livingRoundAnimals": 265
+    "livingRoundAnimals": 268
   },
   "status": "unfinished; no task marked complete merely because a partial feature exists",
   "tasks": [
@@ -19,7 +19,7 @@
       "id": 2,
       "task": "Prioritize living mammals",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Candidate catalog has 896 living animals, 265 in rounds. Added 28 familiar mammals and 521 source measurements across existing life-history, distribution, diet, habitat and conservation comparisons. Broader mammal fact families remain unfinished. Published admission of pronghorn, caracal and quokka to all three difficulties, with existing sourced facts, dedicated cartoons and licensed photos."
+      "evidenceAndRemainingWork": "Candidate catalog has 896 living animals, 268 in rounds. Added 28 familiar mammals and 521 source measurements across existing life-history, distribution, diet, habitat and conservation comparisons. Broader mammal fact families remain unfinished. Published admission of pronghorn, caracal and quokka to all three difficulties, with existing sourced facts, dedicated cartoons and licensed photos. Wolverine, Muskox and Bighorn sheep published in all three difficulties with species-specific artwork and reviewed photos."
     },
     {
       "id": 3,
@@ -49,7 +49,7 @@
       "id": 7,
       "task": "Convert catalog entries into playable animals",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "628 of 896 living catalog animals do not appear in prepared rounds. Bounded validator search finds numeric lineups for 266 catalog-only animals; artwork and source-context review still required. Prepared admission of Wolverine, Muskox and Bighorn sheep."
+      "evidenceAndRemainingWork": "628 of 896 living catalog animals do not appear in published rounds. Bounded validator search finds numeric lineups for 266 catalog-only animals; artwork and source-context review still required. Published admission of Wolverine, Muskox and Bighorn sheep."
     },
     {
       "id": 8,
@@ -103,7 +103,7 @@
       "id": 16,
       "task": "Finish animal artwork",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Cephalopod anatomy code exists but manual species recognition review remains pending. Broad cartoon audit incomplete. Pronghorn, caracal and quokka now have dedicated anatomy and manually inspected renders."
+      "evidenceAndRemainingWork": "Cephalopod anatomy code exists but manual species recognition review remains pending. Broad cartoon audit incomplete. Pronghorn, caracal and quokka now have dedicated anatomy and manually inspected renders. Three additional species-specific mammal designs reviewed October 16; broad roster art audit remains."
     },
     {
       "id": 17,
@@ -121,7 +121,7 @@
       "id": 19,
       "task": "Complete live functionality checks",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Anonymous Scout placement in both click directions, removal, mode switch, result scoring, board rankings, detailed source loading and local save verified. Signed-in/cross-device, reporting, drag behavior and failure recovery still need end-to-end evidence. Latest c882eb7 release: new Scout round earned 400/400 and new Expert round 600/600. New-animal removal and both click directions worked; switching Cute/Static retained choices. No phone, drag, sign-in, reporting or cross-device verification claimed."
+      "evidenceAndRemainingWork": "Anonymous Scout placement in both click directions, removal, mode switch, result scoring, board rankings, detailed source loading and local save verified. Signed-in/cross-device, reporting, drag behavior and failure recovery still need end-to-end evidence. Latest c882eb7 release: new Scout round earned 400/400 and new Expert round 600/600. New-animal removal and both click directions worked; switching Cute/Static retained choices. No phone, drag, sign-in, reporting or cross-device verification claimed. October 16: live two-way Static dragging, Cute dragging, two-way clicks, removal/reassignment and mode persistence checked on the new mammal boards."
     },
     {
       "id": 20,
@@ -225,7 +225,7 @@
     "adultWeightDownloadedCsvRows": 346
   },
   "preparedRelease": {
-    "status": "local production build and snapshot seal passed; awaiting deployment and live review",
+    "status": "published; READY; live Scout 400/400 and Expert 600/600",
     "playableLabels": 202,
     "validBoards": 66608,
     "livingCatalogAnimals": 896,
@@ -244,19 +244,19 @@
     "phoneVerification": "unfinished"
   },
   "previousPublishedBaseline": {
-    "commit": "c882eb7168869a052cf42bca8fe58560009af963",
+    "commit": "8a2f970ce9b6083f38da7bb50666fd0add04eec3",
     "playableLabels": 202,
-    "validBoards": 57419,
+    "validBoards": 58367,
     "livingCatalogAnimals": 896,
-    "livingRoundAnimals": 262
+    "livingRoundAnimals": 265
   },
   "catalogAdmissionAudit": {
     "date": "2026-10-16",
     "report": "data/animalstats/research/catalog-admission-readiness-20261016.json",
-    "status": "research-only queue refreshed against prepared 66,608-board release",
+    "status": "research-only queue refreshed against published 66,608-board release",
     "numericWitnessAnimals": 266,
     "checks": 11637,
     "nextWork": "Review accurate licensed portraits and species-specific cartoons for familiar mammals and underrepresented fish/insects; obtain additional comparable facts for crustaceans, echinoderms and cnidarians."
   },
-  "liveReview": "data/animalstats/research/reviewed-fish-live-review-20261016.json"
+  "liveReview": "data/animalstats/research/northern-mammal-live-review-20261016.json"
 }

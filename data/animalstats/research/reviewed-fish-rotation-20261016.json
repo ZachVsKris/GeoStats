@@ -4,7 +4,7 @@
   "policy": "Unmodified production subject/category/animal rotation; latest 12 rounds supplied as history.",
   "modes": {
     "easy": {
-      "poolSize": 15268,
+      "poolSize": 15232,
       "groupCounts": {
         "bears": 23,
         "insects": 16,
@@ -19,14 +19,14 @@
         "pets": 18
       },
       "newAnimalAppearances": {
-        "carcharhinus_leucas": 3,
+        "carcharhinus_leucas": 5,
         "thunnus_thynnus": 2,
         "hippoglossus_hippoglossus": 3
       },
       "consecutiveExactBoardRepeats": 0
     },
     "normal": {
-      "poolSize": 12635,
+      "poolSize": 12585,
       "groupCounts": {
         "birds": 21,
         "pets": 19,
@@ -39,9 +39,9 @@
         "invertebrates": 22
       },
       "newAnimalAppearances": {
-        "carcharhinus_leucas": 14,
-        "thunnus_thynnus": 1,
-        "hippoglossus_hippoglossus": 2
+        "carcharhinus_leucas": 17,
+        "thunnus_thynnus": 2,
+        "hippoglossus_hippoglossus": 0
       },
       "consecutiveExactBoardRepeats": 0
     },

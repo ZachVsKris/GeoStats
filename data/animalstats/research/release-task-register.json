@@ -49,7 +49,7 @@
       "id": 7,
       "task": "Convert catalog entries into playable animals",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "631 of 896 living catalog animals do not appear in the prepared rounds. Updated bounded production-validator search found numeric lineups for 271 catalog-only animals. These remain research-only pending assets and source-context review. Prepared admission of bull shark, Atlantic bluefin tuna and Atlantic halibut; lionfish remains held."
+      "evidenceAndRemainingWork": "631 of 896 living catalog animals do not appear in prepared rounds. Updated source/semantic validator search found numeric lineups for 269 catalog-only animals; these remain research-only pending assets and source-context review. Prepared admission of bull shark, bluefin tuna and Atlantic halibut; lionfish held."
     },
     {
       "id": 8,
@@ -227,10 +227,10 @@
   "preparedRelease": {
     "status": "local production build and snapshot seal passed; awaiting deployment and live check",
     "playableLabels": 202,
-    "validBoards": 58453,
+    "validBoards": 58367,
     "livingCatalogAnimals": 896,
     "livingRoundAnimals": 265,
-    "newBoards": 1034,
+    "newBoards": 970,
     "newRoundAnimals": [
       "Bull shark",
       "Atlantic bluefin tuna",
@@ -239,7 +239,10 @@
     "newCategoryLabels": 0,
     "withheldDirectionalRecords": 8,
     "sourceGuardTests": "all eight attempted reapprovals blocked",
-    "phoneVerification": "unfinished"
+    "phoneVerification": "unfinished",
+    "retiredOlderBoards": 22,
+    "netBoardChange": 948,
+    "semanticRegressionTests": "172 overlap/opposite cases and a positive halibut control passed"
   },
   "previousPublishedBaseline": {
     "commit": "380c764e96c9afbf0053f4255c128cdf9e110fdd",
@@ -251,9 +254,9 @@
   "catalogAdmissionAudit": {
     "date": "2026-10-16",
     "report": "data/animalstats/research/catalog-admission-readiness-20261016.json",
-    "status": "research-only admission queue refreshed against prepared 58,453-board release",
-    "numericWitnessAnimals": 271,
-    "checks": 12004,
+    "status": "research-only admission queue refreshed against prepared 58,367-board release",
+    "numericWitnessAnimals": 269,
+    "checks": 12117,
     "nextWork": "Review accurate licensed portraits and species-specific cartoons for familiar mammals and underrepresented fish/insects; obtain additional comparable facts for crustaceans, echinoderms and cnidarians."
   }
 }

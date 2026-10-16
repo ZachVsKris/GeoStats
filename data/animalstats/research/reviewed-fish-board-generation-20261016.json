@@ -4,7 +4,8 @@
     "No publication cap or per-lineup variant cap. Runtime budget is resumable and does not determine eligibility.",
     "At least 3% between every adjacent numeric rank; exact ties remain blocked. Uncertainty overlap, source compatibility, unique winners and at least half intuitive remain required.",
     "Each sampled lineup contributes one new board per pass to prioritize animal diversity; later passes can add further variants.",
-    "Introduces only three explicitly reviewed fish alongside existing round animals. No biological values or eligibility rules changed."
+    "Introduces only three explicitly reviewed fish alongside existing round animals. No biological values or eligibility rules changed.",
+    "Final review retires overlapping body-length prizes across source databases; opposite directions normalized before semantic comparison."
   ],
   "groups": [
     {
@@ -154,11 +155,16 @@
     "thunnus_thynnus",
     "hippoglossus_hippoglossus"
   ],
-  "addedBoards": 1034,
+  "addedBoards": 970,
   "newAnimalBoardCounts": {
-    "carcharhinus_leucas": 916,
+    "carcharhinus_leucas": 887,
     "thunnus_thynnus": 118,
-    "hippoglossus_hippoglossus": 44
+    "hippoglossus_hippoglossus": 6
   },
-  "newlyPlayableTraitIds": []
+  "newlyPlayableTraitIds": [],
+  "generatedBeforeSemanticReview": 1034,
+  "retiredNewOverlappingLengthBoards": 64,
+  "retiredOlderOverlappingLengthBoards": 22,
+  "netChangeFromPreviousPublished57419": 948,
+  "totalLivingBoardsAfterSemanticReview": 42629
 }

@@ -1,0 +1,2342 @@
+{
+  "reviewDate": "2026-10-16",
+  "reason": "Multiple body-length prizes sourced from different databases on one board; comparisons overlap in player-facing meaning. Counter directions normalized before all semantic overlap checks.",
+  "retiredBoards": [
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-a90df4674b05",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carcharias_taurus",
+          "hippoglossus_hippoglossus",
+          "salmo_salar",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length",
+          "fish_record_length",
+          "marine_habitat_depth__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-6676d84c6362",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carcharhinus_leucas",
+          "negaprion_brevirostris",
+          "prionace_glauca",
+          "salmo_salar"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "marine_habitat_depth__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-0607cdc107d5",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carcharhinus_leucas",
+          "negaprion_brevirostris",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "marine_habitat_depth__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-6e2a8540ae7e",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carcharias_taurus",
+          "hippoglossus_hippoglossus",
+          "negaprion_brevirostris",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length__low",
+          "fish_record_length__low",
+          "marine_habitat_depth__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-fbdb28290354",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carcharhinus_leucas",
+          "cyprinus_carpio",
+          "negaprion_brevirostris",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length",
+          "fish_record_length",
+          "scientific_description_age"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-f80a667d936f",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "gadus_morhua",
+          "hippoglossus_hippoglossus",
+          "negaprion_brevirostris",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_habitat_depth__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-60c649bdd2a8",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carcharhinus_leucas",
+          "negaprion_brevirostris",
+          "salmo_salar",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_habitat_depth__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-6af92bd9748f",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carcharhinus_leucas",
+          "hippoglossus_hippoglossus",
+          "salmo_salar",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "fish_record_wild_age",
+          "marine_habitat_depth__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-ad518992b1a7",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carcharhinus_leucas",
+          "cyprinus_carpio",
+          "gadus_morhua",
+          "negaprion_brevirostris"
+        ],
+        "traitIds": [
+          "aquatic_cited_total_length__low",
+          "female_maturity",
+          "fish_record_length",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-58dab6da5265",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carassius_auratus",
+          "carcharhinus_leucas",
+          "gadus_morhua",
+          "negaprion_brevirostris"
+        ],
+        "traitIds": [
+          "aquatic_cited_total_length",
+          "fish_record_length",
+          "habitat_depth_ceiling",
+          "wild_recorded_lifespan"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-81dc04472f94",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carassius_auratus",
+          "carcharhinus_leucas",
+          "gadus_morhua",
+          "hippoglossus_hippoglossus"
+        ],
+        "traitIds": [
+          "aquatic_cited_total_length",
+          "fish_record_length",
+          "fish_record_wild_age__low",
+          "marine_habitat_depth__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-300c89244078",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carassius_auratus",
+          "carcharhinus_leucas",
+          "negaprion_brevirostris",
+          "salmo_salar"
+        ],
+        "traitIds": [
+          "aquatic_cited_total_length",
+          "fish_record_length",
+          "marine_habitat_depth__low",
+          "wild_recorded_lifespan__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-5565c2b5a687",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "hippoglossus_hippoglossus",
+          "pylodictis_olivaris",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_description_year__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-9c231926fa26",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "hippoglossus_hippoglossus",
+          "negaprion_brevirostris",
+          "pylodictis_olivaris",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_description_year__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-deff1718589d",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "cyprinus_carpio",
+          "hippoglossus_hippoglossus",
+          "negaprion_brevirostris",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length",
+          "fish_record_length",
+          "marine_habitat_depth__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-05456fbda35f",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carcharias_taurus",
+          "galeocerdo_cuvier",
+          "hippoglossus_hippoglossus",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length__low",
+          "fish_record_length__low",
+          "marine_description_year__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-1be1ba7e63b8",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carcharias_taurus",
+          "galeocerdo_cuvier",
+          "hippoglossus_hippoglossus",
+          "negaprion_brevirostris"
+        ],
+        "traitIds": [
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_description_year",
+          "marine_habitat_depth__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-6f23ff462323",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carcharhinus_leucas",
+          "gadus_morhua",
+          "negaprion_brevirostris",
+          "salmo_salar"
+        ],
+        "traitIds": [
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_habitat_depth",
+          "wild_recorded_lifespan"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-362d63a6e907",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "hippoglossus_hippoglossus",
+          "negaprion_brevirostris",
+          "salmo_salar",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_habitat_depth__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-d6e0b594c19a",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carcharhinus_leucas",
+          "cyprinus_carpio",
+          "galeocerdo_cuvier",
+          "negaprion_brevirostris"
+        ],
+        "traitIds": [
+          "aquatic_cited_total_length__low",
+          "female_maturity",
+          "fish_record_length",
+          "marine_description_year__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-d3de53d1363d",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carcharias_taurus",
+          "gadus_morhua",
+          "hippoglossus_hippoglossus",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_habitat_depth__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-2c30606a4a30",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carassius_auratus",
+          "carcharhinus_leucas",
+          "hippoglossus_hippoglossus",
+          "salmo_salar"
+        ],
+        "traitIds": [
+          "aquatic_cited_total_length",
+          "fish_record_length",
+          "fish_record_wild_age__low",
+          "marine_habitat_depth__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-5c98239f5ba9",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "hippoglossus_hippoglossus",
+          "negaprion_brevirostris",
+          "salmo_salar",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-2c170ff28431",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carcharias_taurus",
+          "hippoglossus_hippoglossus",
+          "salmo_salar",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-easy-c623b2853662",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "hippoglossus_hippoglossus",
+          "negaprion_brevirostris",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length",
+          "fish_record_length",
+          "marine_description_year__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-356b88390cb6",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharhinus_leucas",
+          "cyprinus_carpio",
+          "gadus_morhua",
+          "galeocerdo_cuvier",
+          "negaprion_brevirostris",
+          "prionace_glauca"
+        ],
+        "traitIds": [
+          "aquatic_cited_total_length__low",
+          "female_maturity__low",
+          "fish_record_length",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-35571b25524d",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharhinus_leucas",
+          "galeocerdo_cuvier",
+          "negaprion_brevirostris",
+          "prionace_glauca",
+          "salmo_salar",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-4f9ddd6d21b4",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "gadus_morhua",
+          "hippoglossus_hippoglossus",
+          "negaprion_brevirostris",
+          "salmo_salar",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length",
+          "fish_record_length",
+          "marine_habitat_depth__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-f55bfc04e318",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharhinus_leucas",
+          "cyprinus_carpio",
+          "negaprion_brevirostris",
+          "prionace_glauca",
+          "salmo_salar",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-5214ea85516e",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharhinus_leucas",
+          "cyprinus_carpio",
+          "galeocerdo_cuvier",
+          "negaprion_brevirostris",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-57f7b9474669",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "cyprinus_carpio",
+          "galeocerdo_cuvier",
+          "hippoglossus_hippoglossus",
+          "salmo_salar",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-66bea35ce2f5",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "cyprinus_carpio",
+          "galeocerdo_cuvier",
+          "hippoglossus_hippoglossus",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-47d93aa62f5d",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "cyprinus_carpio",
+          "galeocerdo_cuvier",
+          "hippoglossus_hippoglossus",
+          "negaprion_brevirostris",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-f6c8d7f6e4e3",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "cyprinus_carpio",
+          "galeocerdo_cuvier",
+          "hippoglossus_hippoglossus",
+          "prionace_glauca",
+          "salmo_salar",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-02f739d00aa5",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharhinus_leucas",
+          "cyprinus_carpio",
+          "gadus_morhua",
+          "negaprion_brevirostris",
+          "pylodictis_olivaris",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length",
+          "female_maturity__low",
+          "fish_record_length__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-ecf448fe1fdb",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "hippoglossus_hippoglossus",
+          "negaprion_brevirostris",
+          "prionace_glauca",
+          "salmo_salar",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length",
+          "fish_record_length",
+          "marine_habitat_depth__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-51b3f5d9a7a3",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharhinus_leucas",
+          "negaprion_brevirostris",
+          "prionace_glauca",
+          "salmo_salar",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-533f01f340b5",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "cyprinus_carpio",
+          "galeocerdo_cuvier",
+          "hippoglossus_hippoglossus",
+          "negaprion_brevirostris",
+          "prionace_glauca",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-a0402e2c5876",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "galeocerdo_cuvier",
+          "hippoglossus_hippoglossus",
+          "negaprion_brevirostris",
+          "salmo_salar",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-8909caf8227f",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "cyprinus_carpio",
+          "hippoglossus_hippoglossus",
+          "salmo_salar",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length",
+          "fish_record_length",
+          "marine_habitat_depth__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-bc3429ba34d4",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carassius_auratus",
+          "carcharhinus_leucas",
+          "gadus_morhua",
+          "negaprion_brevirostris",
+          "prionace_glauca",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "habitat_depth_ceiling",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-6ec303486a7a",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "cyprinus_carpio",
+          "galeocerdo_cuvier",
+          "hippoglossus_hippoglossus",
+          "prionace_glauca",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-a418c58c406b",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "gadus_morhua",
+          "hippoglossus_hippoglossus",
+          "negaprion_brevirostris",
+          "prionace_glauca",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_habitat_depth__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-9f65fa85bc12",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "cyprinus_carpio",
+          "hippoglossus_hippoglossus",
+          "negaprion_brevirostris",
+          "prionace_glauca",
+          "salmo_salar",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-fa030d2c5183",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharhinus_leucas",
+          "cyprinus_carpio",
+          "galeocerdo_cuvier",
+          "negaprion_brevirostris",
+          "prionace_glauca",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "aquatic_cited_total_length",
+          "female_maturity",
+          "fish_record_length__low",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-363c3c21e3ef",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharhinus_leucas",
+          "cyprinus_carpio",
+          "pylodictis_olivaris",
+          "salmo_salar",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "male_maturity"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-ac5f318841a9",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharhinus_leucas",
+          "cyprinus_carpio",
+          "galeocerdo_cuvier",
+          "negaprion_brevirostris",
+          "prionace_glauca",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-e552033fc876",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharhinus_leucas",
+          "cyprinus_carpio",
+          "gadus_morhua",
+          "galeocerdo_cuvier",
+          "negaprion_brevirostris",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "aquatic_cited_total_length__low",
+          "female_maturity",
+          "fish_record_length",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-ed7be68c89ca",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "cyprinus_carpio",
+          "galeocerdo_cuvier",
+          "hippoglossus_hippoglossus",
+          "negaprion_brevirostris",
+          "salmo_salar",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-f62aab74768d",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "cyprinus_carpio",
+          "hippoglossus_hippoglossus",
+          "negaprion_brevirostris",
+          "salmo_salar",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-37ece976db57",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "cyprinus_carpio",
+          "hippoglossus_hippoglossus",
+          "prionace_glauca",
+          "salmo_salar",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-27b235ad8036",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharhinus_leucas",
+          "gadus_morhua",
+          "negaprion_brevirostris",
+          "prionace_glauca",
+          "salmo_salar",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-4bb727fd6e4f",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharhinus_leucas",
+          "cyprinus_carpio",
+          "negaprion_brevirostris",
+          "prionace_glauca",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-1586325253bf",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharhinus_leucas",
+          "galeocerdo_cuvier",
+          "negaprion_brevirostris",
+          "salmo_salar",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_habitat_depth__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-4c8b5bc3b8d4",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "hippoglossus_hippoglossus",
+          "prionace_glauca",
+          "salmo_salar",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-9b13f2c999aa",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "galeocerdo_cuvier",
+          "hippoglossus_hippoglossus",
+          "prionace_glauca",
+          "salmo_salar",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-54d4214a3178",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "gadus_morhua",
+          "hippoglossus_hippoglossus",
+          "prionace_glauca",
+          "salmo_salar",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_habitat_depth__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-36b07355006a",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "cyprinus_carpio",
+          "hippoglossus_hippoglossus",
+          "negaprion_brevirostris",
+          "salmo_salar",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length",
+          "fish_record_length",
+          "marine_habitat_depth__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-3cad65cf0ecc",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "galeocerdo_cuvier",
+          "hippoglossus_hippoglossus",
+          "negaprion_brevirostris",
+          "prionace_glauca",
+          "salmo_salar",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "marine_habitat_depth__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-ea80547c21c7",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "cyprinus_carpio",
+          "hippoglossus_hippoglossus",
+          "prionace_glauca",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "marine_habitat_depth"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-2b35f8605c77",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "hippoglossus_hippoglossus",
+          "negaprion_brevirostris",
+          "salmo_salar",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "marine_habitat_depth__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-d438dd3f15a6",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharhinus_leucas",
+          "cyprinus_carpio",
+          "gadus_morhua",
+          "pylodictis_olivaris",
+          "salmo_salar",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "male_maturity__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-4b40fd966bde",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carassius_auratus",
+          "carcharhinus_leucas",
+          "galeocerdo_cuvier",
+          "negaprion_brevirostris",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "marine_habitat_depth",
+          "wild_recorded_lifespan__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "candidates",
+      "board": {
+        "id": "reviewed-fish-20261016-fish-normal-c8d8e7184ad0",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharhinus_leucas",
+          "cyprinus_carpio",
+          "gadus_morhua",
+          "negaprion_brevirostris",
+          "prionace_glauca",
+          "pylodictis_olivaris"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length__low",
+          "female_maturity__low",
+          "fish_record_length"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "group-boards-2",
+      "board": {
+        "id": "groups-fish-easy-cb74f1afae3f",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "pylodictis_olivaris",
+          "salmo_salar",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "male_maturity",
+          "scientific_description_age"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "group-boards-2",
+      "board": {
+        "id": "groups-fish-easy-fbfcd2dcfb8f",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carcharias_taurus",
+          "negaprion_brevirostris",
+          "pylodictis_olivaris",
+          "salmo_salar"
+        ],
+        "traitIds": [
+          "aquatic_cited_total_length__low",
+          "fish_record_length__low",
+          "iucn_extinction_risk",
+          "marine_description_year__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "group-boards-2",
+      "board": {
+        "id": "groups-fish-easy-ec8fa495841f",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carcharias_taurus",
+          "pylodictis_olivaris",
+          "salmo_salar",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "marine_description_year",
+          "wild_recorded_lifespan__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "group-boards-2",
+      "board": {
+        "id": "groups-fish-easy-0a1e441b5d47",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carcharias_taurus",
+          "pylodictis_olivaris",
+          "salmo_salar",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "male_maturity",
+          "scientific_description_age"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "group-boards-2",
+      "board": {
+        "id": "groups-fish-normal-75e6a6562307",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "galeocerdo_cuvier",
+          "pylodictis_olivaris",
+          "salmo_salar",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length__low",
+          "fish_record_length__low",
+          "wild_recorded_lifespan__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "group-boards-2",
+      "board": {
+        "id": "groups-fish-normal-8d8c71a5d9d4",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "cyprinus_carpio",
+          "pylodictis_olivaris",
+          "salmo_salar",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "male_maturity"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "group-boards-2",
+      "board": {
+        "id": "groups-fish-normal-8b79d538ad1c",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "cyprinus_carpio",
+          "gadus_morhua",
+          "pylodictis_olivaris",
+          "salmo_salar",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "male_maturity"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "group-boards-2",
+      "board": {
+        "id": "groups-fish-normal-f2ef82133d31",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "negaprion_brevirostris",
+          "pylodictis_olivaris",
+          "salmo_salar",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "scientific_description_age__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "group-boards-2",
+      "board": {
+        "id": "groups-fish-normal-645950595e9f",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "gadus_morhua",
+          "galeocerdo_cuvier",
+          "pylodictis_olivaris",
+          "salmo_salar",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "wild_recorded_lifespan__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "group-boards-2",
+      "board": {
+        "id": "groups-fish-easy-d5a20a34fbcf",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carcharias_taurus",
+          "pylodictis_olivaris",
+          "salmo_salar",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "aquatic_cited_total_length__low",
+          "fish_record_length__low",
+          "marine_description_year__low",
+          "wild_recorded_lifespan__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "group-boards-2",
+      "board": {
+        "id": "groups-fish-easy-d3f67c27bac9",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carcharias_taurus",
+          "negaprion_brevirostris",
+          "pylodictis_olivaris",
+          "salmo_salar"
+        ],
+        "traitIds": [
+          "aquatic_cited_total_length__low",
+          "fish_record_length__low",
+          "iucn_extinction_risk",
+          "scientific_description_age__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "group-boards-2",
+      "board": {
+        "id": "groups-fish-easy-8cfff6337993",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carcharias_taurus",
+          "gadus_morhua",
+          "pylodictis_olivaris",
+          "salmo_salar"
+        ],
+        "traitIds": [
+          "aquatic_cited_total_length__low",
+          "fish_record_length__low",
+          "male_maturity__low",
+          "wild_recorded_lifespan__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "group-boards-2",
+      "board": {
+        "id": "groups-fish-easy-d87ee71a618d",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "pylodictis_olivaris",
+          "salmo_salar",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "male_maturity",
+          "marine_description_year"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "group-boards-2",
+      "board": {
+        "id": "groups-fish-normal-4b60402de2ed",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "gadus_morhua",
+          "galeocerdo_cuvier",
+          "pylodictis_olivaris",
+          "salmo_salar",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length__low",
+          "fish_record_length__low",
+          "wild_recorded_lifespan__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "group-boards-2",
+      "board": {
+        "id": "groups-fish-normal-fbf6e3b469d6",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "cyprinus_carpio",
+          "gadus_morhua",
+          "pylodictis_olivaris",
+          "salmo_salar",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "male_maturity"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "group-boards-2",
+      "board": {
+        "id": "groups-fish-normal-6318905159dc",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "galeocerdo_cuvier",
+          "pylodictis_olivaris",
+          "salmo_salar",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length__low",
+          "fish_record_length__low",
+          "wild_recorded_lifespan"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "group-boards-2",
+      "board": {
+        "id": "groups-fish-normal-d1d7a1a36e8e",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "cyprinus_carpio",
+          "pylodictis_olivaris",
+          "salmo_salar",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "male_maturity"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "group-boards-2",
+      "board": {
+        "id": "groups-fish-normal-b27a33baa267",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "negaprion_brevirostris",
+          "pylodictis_olivaris",
+          "salmo_salar",
+          "sphyrna_lewini",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "marine_description_year"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "group-boards-2",
+      "board": {
+        "id": "groups-fish-easy-283ddf2eceb7",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carcharias_taurus",
+          "pylodictis_olivaris",
+          "salmo_salar",
+          "triakis_semifasciata"
+        ],
+        "traitIds": [
+          "adult_body_mass__low",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "male_maturity__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "group-boards-2",
+      "board": {
+        "id": "groups-fish-easy-5869c2c04d21",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carcharias_taurus",
+          "pylodictis_olivaris",
+          "salmo_salar",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length__low",
+          "fish_record_length__low",
+          "marine_description_year__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "group-boards-2",
+      "board": {
+        "id": "groups-fish-easy-efce1ce9644d",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "easy",
+        "animalIds": [
+          "carcharias_taurus",
+          "negaprion_brevirostris",
+          "pylodictis_olivaris",
+          "salmo_salar"
+        ],
+        "traitIds": [
+          "aquatic_cited_total_length",
+          "fish_record_length__low",
+          "iucn_extinction_risk",
+          "scientific_description_age"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    },
+    {
+      "file": "group-boards-2",
+      "board": {
+        "id": "groups-fish-normal-2ec05bc63ecc",
+        "title": "fish",
+        "collection": "living",
+        "boardType": "themed",
+        "mode": "normal",
+        "animalIds": [
+          "carcharias_taurus",
+          "cyprinus_carpio",
+          "gadus_morhua",
+          "pylodictis_olivaris",
+          "salmo_salar",
+          "sphyrna_lewini"
+        ],
+        "traitIds": [
+          "adult_body_mass",
+          "aquatic_cited_total_length__low",
+          "fish_record_length",
+          "male_maturity__low"
+        ],
+        "editorial": {
+          "policy": "intuitive-majority-distinct-winners-v6",
+          "intuitiveMinimum": 2
+        }
+      }
+    }
+  ]
+}

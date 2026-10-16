@@ -1,9 +1,9 @@
 {
   "generatedAt": "2026-10-16",
-  "defaultBoards": 58453,
+  "defaultBoards": 58367,
   "livingCatalogAnimals": 896,
   "livingRoundAnimals": 265,
-  "candidateBoards": 58453,
+  "candidateBoards": 58367,
   "playableLabels": 202,
   "playableTraitIds": 260,
   "counts": {
@@ -44,10 +44,10 @@
       "total": 3734
     },
     "fish": {
-      "easy": 1725,
-      "normal": 783,
+      "easy": 1689,
+      "normal": 733,
       "expert": 0,
-      "total": 2508
+      "total": 2422
     },
     "insects": {
       "easy": 93,

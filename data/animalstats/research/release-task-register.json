@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-15",
+  "updatedAt": "2026-10-16",
   "publishedBaseline": {
     "commit": "c882eb7168869a052cf42bca8fe58560009af963",
     "playableLabels": 202,
@@ -49,7 +49,7 @@
       "id": 7,
       "task": "Convert catalog entries into playable animals",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "637 of 896 living catalog animals do not appear in rounds; image and compatibility review remains essential."
+      "evidenceAndRemainingWork": "634 of 896 living catalog animals do not appear in rounds. The October 16 bounded production-validator search found numeric lineups for 270 catalog-only animals (79 mammals, 50 fish, 65 insects, 45 reptiles, 18 amphibians, 7 molluscs and 6 birds). These remain research-only pending photo, cartoon and source-context review. Zero board admissions from this audit."
     },
     {
       "id": 8,
@@ -241,5 +241,13 @@
     "validBoards": 59451,
     "livingCatalogAnimals": 896,
     "livingRoundAnimals": 259
+  },
+  "catalogAdmissionAudit": {
+    "date": "2026-10-16",
+    "report": "data/animalstats/research/catalog-admission-readiness-20261016.json",
+    "status": "research only; no new live animals, labels or boards",
+    "numericWitnessAnimals": 270,
+    "checks": 12256,
+    "nextWork": "Review accurate licensed portraits and species-specific cartoons for familiar mammals and underrepresented fish/insects; obtain additional comparable facts for crustaceans, echinoderms and cnidarians."
   }
 }

@@ -1,0 +1,65 @@
+{
+  "seed": 20261016,
+  "samplesPerMode": 200,
+  "policy": "Unmodified production subject/category/animal rotation; latest 12 rounds supplied as history.",
+  "modes": {
+    "easy": {
+      "poolSize": 15268,
+      "groupCounts": {
+        "bears": 23,
+        "insects": 16,
+        "reptiles": 11,
+        "fish": 16,
+        "mammals": 23,
+        "amphibians": 18,
+        "invertebrates": 17,
+        "mixed": 27,
+        "marine": 16,
+        "birds": 15,
+        "pets": 18
+      },
+      "newAnimalAppearances": {
+        "carcharhinus_leucas": 3,
+        "thunnus_thynnus": 2,
+        "hippoglossus_hippoglossus": 3
+      },
+      "consecutiveExactBoardRepeats": 0
+    },
+    "normal": {
+      "poolSize": 12635,
+      "groupCounts": {
+        "birds": 21,
+        "pets": 19,
+        "fish": 23,
+        "mixed": 19,
+        "mammals": 28,
+        "marine": 28,
+        "reptiles": 21,
+        "amphibians": 19,
+        "invertebrates": 22
+      },
+      "newAnimalAppearances": {
+        "carcharhinus_leucas": 14,
+        "thunnus_thynnus": 1,
+        "hippoglossus_hippoglossus": 2
+      },
+      "consecutiveExactBoardRepeats": 0
+    },
+    "expert": {
+      "poolSize": 14812,
+      "groupCounts": {
+        "birds": 31,
+        "mammals": 82,
+        "mixed": 38,
+        "pets": 22,
+        "reptiles": 27
+      },
+      "newAnimalAppearances": {
+        "carcharhinus_leucas": 0,
+        "thunnus_thynnus": 0,
+        "hippoglossus_hippoglossus": 0
+      },
+      "consecutiveExactBoardRepeats": 0
+    }
+  }
+}

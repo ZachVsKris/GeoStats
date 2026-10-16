@@ -49,7 +49,7 @@
       "id": 7,
       "task": "Convert catalog entries into playable animals",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "634 of 896 living catalog animals do not appear in rounds. The October 16 bounded production-validator search found numeric lineups for 270 catalog-only animals (79 mammals, 50 fish, 65 insects, 45 reptiles, 18 amphibians, 7 molluscs and 6 birds). These remain research-only pending photo, cartoon and source-context review. Zero board admissions from this audit."
+      "evidenceAndRemainingWork": "631 of 896 living catalog animals do not appear in the prepared rounds. Updated bounded production-validator search found numeric lineups for 271 catalog-only animals. These remain research-only pending assets and source-context review. Prepared admission of bull shark, Atlantic bluefin tuna and Atlantic halibut; lionfish remains held."
     },
     {
       "id": 8,
@@ -79,7 +79,7 @@
       "id": 12,
       "task": "Finish source-by-source accuracy audit",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Two seal land-travel comparisons (four directional values) now held pending original scale-conversion review; the source-by-source biological audit remains unfinished. Held 84 marine-mammal climate/elevation directions across 14 species; 11,214 affected combinations removed from the expanded pool, including older boards. Original source values retained for review."
+      "evidenceAndRemainingWork": "Two seal land-travel comparisons (four directional values) now held pending original scale-conversion review; the source-by-source biological audit remains unfinished. Held 84 marine-mammal climate/elevation directions across 14 species; 11,214 affected combinations removed from the expanded pool, including older boards. Original source values retained for review. October 16: held eight lionfish/bluefin directional records for species-complex identity, wild/captive context and numeric-note mismatch; build guard and eight reapproval-regression checks added."
     },
     {
       "id": 13,
@@ -225,15 +225,21 @@
     "adultWeightDownloadedCsvRows": 346
   },
   "preparedRelease": {
-    "releaseId": "familiar-mammals-20261015",
+    "status": "local production build and snapshot seal passed; awaiting deployment and live check",
     "playableLabels": 202,
-    "validBoards": 57419,
+    "validBoards": 58453,
     "livingCatalogAnimals": 896,
-    "livingRoundAnimals": 262,
-    "status": "published and live checked",
-    "heldAquaticClimateDirections": 84,
-    "retiredBoardCombinations": 11214,
-    "commit": "c882eb7168869a052cf42bca8fe58560009af963"
+    "livingRoundAnimals": 265,
+    "newBoards": 1034,
+    "newRoundAnimals": [
+      "Bull shark",
+      "Atlantic bluefin tuna",
+      "Atlantic halibut"
+    ],
+    "newCategoryLabels": 0,
+    "withheldDirectionalRecords": 8,
+    "sourceGuardTests": "all eight attempted reapprovals blocked",
+    "phoneVerification": "unfinished"
   },
   "previousPublishedBaseline": {
     "commit": "380c764e96c9afbf0053f4255c128cdf9e110fdd",
@@ -245,9 +251,9 @@
   "catalogAdmissionAudit": {
     "date": "2026-10-16",
     "report": "data/animalstats/research/catalog-admission-readiness-20261016.json",
-    "status": "research only; no new live animals, labels or boards",
-    "numericWitnessAnimals": 270,
-    "checks": 12256,
+    "status": "research-only admission queue refreshed against prepared 58,453-board release",
+    "numericWitnessAnimals": 271,
+    "checks": 12004,
     "nextWork": "Review accurate licensed portraits and species-specific cartoons for familiar mammals and underrepresented fish/insects; obtain additional comparable facts for crustaceans, echinoderms and cnidarians."
   }
 }

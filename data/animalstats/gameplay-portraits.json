@@ -88,5 +88,65 @@
     "reviewNote": "Rounded ears, broad short face and bare nose; excludes most torso, tail and food leaf.",
     "sourceSha256": "9c72e273d3518a6d2ffd6f71f02af1149fec7613363e0a001c21761b436684ea",
     "reviewedAt": "2026-10-15"
+  },
+  "carcharhinus_leucas": {
+    "scientificName": "Carcharhinus leucas",
+    "assetUrl": "/animalstats/carcharhinus_leucas.jpg",
+    "sourceWidth": 500,
+    "sourceHeight": 333,
+    "crop": [
+      313,
+      170,
+      145,
+      110
+    ],
+    "reviewNote": "Identification viewport around head and distinguishing features; excludes most body and tail without stretching. Natural scenery remains.",
+    "sourceSha256": "053e95f5602b8387974863cf133a9f81e8104804e7e85ba83ee8c02cfe07f897",
+    "reviewedAt": "2026-10-16"
+  },
+  "thunnus_thynnus": {
+    "scientificName": "Thunnus thynnus",
+    "assetUrl": "/animalstats/thunnus_thynnus.jpg",
+    "sourceWidth": 500,
+    "sourceHeight": 333,
+    "crop": [
+      230,
+      131,
+      125,
+      90
+    ],
+    "reviewNote": "Identification viewport around head and distinguishing features; excludes most body and tail without stretching. Natural scenery remains.",
+    "sourceSha256": "3fe1938831533e9423f34de0944c80a633e2fdfdf61a1f24afdeb2ff71f9a6fa",
+    "reviewedAt": "2026-10-16"
+  },
+  "hippoglossus_hippoglossus": {
+    "scientificName": "Hippoglossus hippoglossus",
+    "assetUrl": "/animalstats/hippoglossus_hippoglossus.jpg",
+    "sourceWidth": 500,
+    "sourceHeight": 375,
+    "crop": [
+      7,
+      40,
+      480,
+      300
+    ],
+    "reviewNote": "Identification viewport around head and distinguishing features; excludes most body and tail without stretching. Natural scenery remains.",
+    "sourceSha256": "30134911423ad6d85e386c67f936187005a90ba2b7151bada2999a0826855474",
+    "reviewedAt": "2026-10-16"
+  },
+  "pterois_volitans": {
+    "scientificName": "Pterois volitans",
+    "assetUrl": "/animalstats/pterois_volitans.jpg",
+    "sourceWidth": 375,
+    "sourceHeight": 500,
+    "crop": [
+      96,
+      135,
+      220,
+      220
+    ],
+    "reviewNote": "Identification viewport around head and distinguishing features; excludes most body and tail without stretching. Natural scenery remains.",
+    "sourceSha256": "56c7d86c3cab2da1cb6a911746952c01c52d7d0dffe5d2e98c932f6db04d94d1",
+    "reviewedAt": "2026-10-16"
   }
 }

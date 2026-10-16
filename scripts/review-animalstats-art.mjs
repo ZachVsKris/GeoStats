@@ -21,6 +21,8 @@ try {
  const componentPath = join(temp,'sprite.mjs');
  const cephalopodPath = join(temp,'cephalopod.mjs');
  const familiarMammalPath=join(temp,'familiar-mammal.mjs');
+ const reviewedFishPath=join(temp,'reviewed-fish.mjs');
+ await writeFile(reviewedFishPath,ts.transpileModule(await readFile(join(root,'components/AnimalReviewedFish.tsx'),'utf8'),{compilerOptions:options}).outputText.replaceAll('"react/jsx-runtime"',JSON.stringify(require.resolve('react/jsx-runtime'))));
  await writeFile(familiarMammalPath,ts.transpileModule(await readFile(join(root,'components/AnimalFamiliarMammal.tsx'),'utf8'),{compilerOptions:options}).outputText.replaceAll('"react/jsx-runtime"',JSON.stringify(require.resolve('react/jsx-runtime'))));
  await writeFile(cephalopodPath,ts.transpileModule(await readFile(join(root,'components/AnimalCephalopod.tsx'),'utf8'),{compilerOptions:options}).outputText.replaceAll('"react/jsx-runtime"',JSON.stringify(require.resolve('react/jsx-runtime'))));
  await writeFile(profilePath,ts.transpileModule(await readFile(join(root,'lib/animalstatsCartoons.ts'),'utf8'),{compilerOptions:options}).outputText);
@@ -29,7 +31,8 @@ try {
   .replaceAll('"react"',JSON.stringify(require.resolve('react')))
   .replaceAll('"../lib/animalstatsCartoons"',JSON.stringify(profilePath))
   .replaceAll('"./AnimalCephalopod"',JSON.stringify(cephalopodPath))
-  .replaceAll('"./AnimalFamiliarMammal"',JSON.stringify(familiarMammalPath));
+  .replaceAll('"./AnimalFamiliarMammal"',JSON.stringify(familiarMammalPath))
+  .replaceAll('"./AnimalReviewedFish"',JSON.stringify(reviewedFishPath));
  await writeFile(componentPath,code);
  const { AnimalSprite } = await import(pathToFileURL(componentPath));
  const { cartoonSpecies } = await import(pathToFileURL(profilePath));

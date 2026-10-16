@@ -8,13 +8,13 @@
     "Witness search is bounded to 1500 substitutions per difficulty per eligible catalog animal; absence of a witness is not proof no valid board exists."
   ],
   "livingCatalogAnimals": 896,
-  "livingRoundAnimals": 262,
-  "catalogOnlyAnimals": 634,
-  "validatorChecks": 12256,
-  "numericWitnessAnimals": 270,
+  "livingRoundAnimals": 265,
+  "catalogOnlyAnimals": 631,
+  "validatorChecks": 12004,
+  "numericWitnessAnimals": 271,
   "witnessCountsByMode": {
-    "easy": 267,
-    "normal": 179,
+    "easy": 270,
+    "normal": 177,
     "expert": 61
   },
   "groups": {
@@ -51,12 +51,12 @@
       "withNumericWitness": 18
     },
     "fish": {
-      "catalogOnly": 76,
-      "atLeastFourMetrics": 70,
-      "atLeastSixMetrics": 46,
-      "missingPhoto": 73,
+      "catalogOnly": 73,
+      "atLeastFourMetrics": 66,
+      "atLeastSixMetrics": 43,
+      "missingPhoto": 69,
       "missingRegisteredCartoon": 66,
-      "withNumericWitness": 50
+      "withNumericWitness": 51
     },
     "insect": {
       "catalogOnly": 106,
@@ -8501,24 +8501,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-29a7806e60bb",
+          "templateId": "reviewed-fish-20261016-fish-easy-bdf38028060f",
           "animalIds": [
-            "galeocerdo_cuvier",
-            "oncorhynchus_mykiss",
-            "sphyrna_lewini",
-            "triakis_semifasciata"
+            "cetorhinus_maximus",
+            "negaprion_brevirostris",
+            "thunnus_thynnus",
+            "oncorhynchus_mykiss"
           ],
           "traitIds": [
-            "adult_body_mass",
-            "fish_record_length__low",
-            "marine_habitat_depth",
-            "marine_description_year__low"
+            "adult_body_mass__low",
+            "field_swim_speed",
+            "marine_habitat_depth__low",
+            "wild_recorded_lifespan"
           ],
           "winners": {
-            "adult_body_mass": "galeocerdo_cuvier",
-            "fish_record_length__low": "oncorhynchus_mykiss",
-            "marine_habitat_depth": "sphyrna_lewini",
-            "marine_description_year__low": "triakis_semifasciata"
+            "adult_body_mass__low": "oncorhynchus_mykiss",
+            "field_swim_speed": "thunnus_thynnus",
+            "marine_habitat_depth__low": "negaprion_brevirostris",
+            "wild_recorded_lifespan": "cetorhinus_maximus"
           },
           "remainingValidatorReasons": [
             "animal oncorhynchus_mykiss: missing approved photo"
@@ -8527,26 +8527,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-6e08d537aafc",
+          "templateId": "reviewed-fish-20261016-fish-normal-e66194547790",
           "animalIds": [
-            "carcharias_taurus",
             "oncorhynchus_mykiss",
-            "galeocerdo_cuvier",
+            "gadus_morhua",
             "negaprion_brevirostris",
-            "sphyrna_lewini",
+            "perca_fluviatilis",
+            "salmo_salar",
             "triakis_semifasciata"
           ],
           "traitIds": [
             "adult_body_mass__low",
             "fish_record_length",
-            "marine_description_year",
-            "marine_habitat_depth"
+            "marine_habitat_depth",
+            "wild_recorded_lifespan"
           ],
           "winners": {
-            "adult_body_mass__low": "triakis_semifasciata",
-            "fish_record_length": "galeocerdo_cuvier",
-            "marine_description_year": "oncorhynchus_mykiss",
-            "marine_habitat_depth": "sphyrna_lewini"
+            "adult_body_mass__low": "perca_fluviatilis",
+            "fish_record_length": "negaprion_brevirostris",
+            "marine_habitat_depth": "gadus_morhua",
+            "wild_recorded_lifespan": "triakis_semifasciata"
           },
           "remainingValidatorReasons": [
             "animal oncorhynchus_mykiss: missing approved photo"
@@ -8705,24 +8705,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-29a7806e60bb",
+          "templateId": "reviewed-fish-20261016-fish-easy-6fe59e6a0fc8",
           "animalIds": [
-            "galeocerdo_cuvier",
+            "carcharhinus_leucas",
+            "prionace_glauca",
             "coryphaena_hippurus",
-            "sphyrna_lewini",
-            "triakis_semifasciata"
+            "sphyrna_lewini"
           ],
           "traitIds": [
             "adult_body_mass",
-            "fish_record_length__low",
+            "fish_record_length",
             "marine_habitat_depth",
-            "marine_description_year__low"
+            "wild_recorded_lifespan__low"
           ],
           "winners": {
-            "adult_body_mass": "galeocerdo_cuvier",
-            "fish_record_length__low": "coryphaena_hippurus",
-            "marine_habitat_depth": "sphyrna_lewini",
-            "marine_description_year__low": "triakis_semifasciata"
+            "adult_body_mass": "carcharhinus_leucas",
+            "fish_record_length": "sphyrna_lewini",
+            "marine_habitat_depth": "prionace_glauca",
+            "wild_recorded_lifespan__low": "coryphaena_hippurus"
           },
           "remainingValidatorReasons": [
             "animal coryphaena_hippurus: missing approved photo"
@@ -8731,26 +8731,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-6e08d537aafc",
+          "templateId": "reviewed-fish-20261016-fish-normal-35571b25524d",
           "animalIds": [
-            "carcharias_taurus",
             "coryphaena_hippurus",
             "galeocerdo_cuvier",
             "negaprion_brevirostris",
-            "sphyrna_lewini",
+            "prionace_glauca",
+            "salmo_salar",
             "triakis_semifasciata"
           ],
           "traitIds": [
             "adult_body_mass__low",
-            "fish_record_length",
-            "marine_description_year",
+            "aquatic_cited_total_length",
+            "fish_record_length__low",
             "marine_habitat_depth"
           ],
           "winners": {
             "adult_body_mass__low": "triakis_semifasciata",
-            "fish_record_length": "galeocerdo_cuvier",
-            "marine_description_year": "coryphaena_hippurus",
-            "marine_habitat_depth": "sphyrna_lewini"
+            "aquatic_cited_total_length": "galeocerdo_cuvier",
+            "fish_record_length__low": "salmo_salar",
+            "marine_habitat_depth": "prionace_glauca"
           },
           "remainingValidatorReasons": [
             "animal coryphaena_hippurus: missing approved photo"
@@ -9249,24 +9249,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-4a8f79ab51fc",
+          "templateId": "reviewed-fish-20261016-fish-easy-511691f3e648",
           "animalIds": [
-            "galeocerdo_cuvier",
+            "carcharhinus_leucas",
+            "gadus_morhua",
             "negaprion_brevirostris",
-            "micropterus_salmoides",
-            "sphyrna_lewini"
+            "micropterus_salmoides"
           ],
           "traitIds": [
-            "fish_record_length__low",
+            "adult_body_mass__low",
+            "fish_record_length",
             "marine_habitat_depth",
-            "marine_description_year__low",
-            "adult_body_mass"
+            "wild_recorded_lifespan"
           ],
           "winners": {
-            "fish_record_length__low": "micropterus_salmoides",
-            "marine_habitat_depth": "sphyrna_lewini",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "adult_body_mass": "galeocerdo_cuvier"
+            "adult_body_mass__low": "micropterus_salmoides",
+            "fish_record_length": "negaprion_brevirostris",
+            "marine_habitat_depth": "gadus_morhua",
+            "wild_recorded_lifespan": "carcharhinus_leucas"
           },
           "remainingValidatorReasons": [
             "animal micropterus_salmoides: missing approved photo"
@@ -9275,26 +9275,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-50b1739bebca",
+          "templateId": "reviewed-fish-20261016-fish-normal-e66194547790",
           "animalIds": [
             "micropterus_salmoides",
-            "galeocerdo_cuvier",
+            "gadus_morhua",
             "negaprion_brevirostris",
-            "prionace_glauca",
-            "sphyrna_lewini",
+            "perca_fluviatilis",
+            "salmo_salar",
             "triakis_semifasciata"
           ],
           "traitIds": [
-            "fish_igfa_record_mass__low",
+            "adult_body_mass__low",
             "fish_record_length",
-            "marine_description_year__low",
-            "marine_habitat_depth"
+            "marine_habitat_depth",
+            "wild_recorded_lifespan"
           ],
           "winners": {
-            "fish_igfa_record_mass__low": "micropterus_salmoides",
-            "fish_record_length": "galeocerdo_cuvier",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth": "prionace_glauca"
+            "adult_body_mass__low": "perca_fluviatilis",
+            "fish_record_length": "negaprion_brevirostris",
+            "marine_habitat_depth": "gadus_morhua",
+            "wild_recorded_lifespan": "triakis_semifasciata"
           },
           "remainingValidatorReasons": [
             "animal micropterus_salmoides: missing approved photo"
@@ -9508,74 +9508,6 @@
       ]
     },
     {
-      "animalId": "carcharhinus_leucas",
-      "commonName": "Bull shark",
-      "group": "fish",
-      "familiarity": "familiar",
-      "publishedTraitDirections": 26,
-      "distinctMetrics": 9,
-      "intuitiveMetrics": 6,
-      "hasApprovedPhoto": false,
-      "hasRasterPhoto": false,
-      "hasRegisteredCartoon": true,
-      "witnesses": [
-        {
-          "mode": "easy",
-          "templateId": "6c7601d7b5e5ec9e",
-          "animalIds": [
-            "triakis_semifasciata",
-            "carcharhinus_leucas",
-            "spheniscus_demersus",
-            "ornithorhynchus_anatinus"
-          ],
-          "traitIds": [
-            "scientific_description_age",
-            "habitat_depth_ceiling__low",
-            "iucn_extinction_risk__low",
-            "adult_body_mass"
-          ],
-          "winners": {
-            "scientific_description_age": "spheniscus_demersus",
-            "habitat_depth_ceiling__low": "ornithorhynchus_anatinus",
-            "iucn_extinction_risk__low": "triakis_semifasciata",
-            "adult_body_mass": "carcharhinus_leucas"
-          },
-          "remainingValidatorReasons": [
-            "animal carcharhinus_leucas: missing approved photo"
-          ],
-          "publicationStatus": "research only; requires asset and source-context review before admission"
-        },
-        {
-          "mode": "normal",
-          "templateId": "groups-fish-normal-a42d89a0919d",
-          "animalIds": [
-            "carcharias_taurus",
-            "cetorhinus_maximus",
-            "myliobatis_californica",
-            "rhincodon_typus",
-            "carcharhinus_leucas",
-            "thunnus_alalunga"
-          ],
-          "traitIds": [
-            "adult_body_mass__low",
-            "male_maturity",
-            "marine_description_year",
-            "marine_habitat_depth__low"
-          ],
-          "winners": {
-            "adult_body_mass__low": "thunnus_alalunga",
-            "male_maturity": "rhincodon_typus",
-            "marine_description_year": "cetorhinus_maximus",
-            "marine_habitat_depth__low": "myliobatis_californica"
-          },
-          "remainingValidatorReasons": [
-            "animal carcharhinus_leucas: missing approved photo"
-          ],
-          "publicationStatus": "research only; requires asset and source-context review before admission"
-        }
-      ]
-    },
-    {
       "animalId": "anguilla_anguilla",
       "commonName": "European eel",
       "group": "fish",
@@ -9589,24 +9521,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-4a8f79ab51fc",
+          "templateId": "reviewed-fish-20261016-fish-easy-a90df4674b05",
           "animalIds": [
-            "galeocerdo_cuvier",
-            "negaprion_brevirostris",
+            "carcharias_taurus",
+            "hippoglossus_hippoglossus",
             "anguilla_anguilla",
             "sphyrna_lewini"
           ],
           "traitIds": [
-            "fish_record_length__low",
-            "marine_habitat_depth",
-            "marine_description_year__low",
-            "adult_body_mass"
+            "adult_body_mass__low",
+            "aquatic_cited_total_length",
+            "fish_record_length",
+            "marine_habitat_depth__low"
           ],
           "winners": {
-            "fish_record_length__low": "anguilla_anguilla",
-            "marine_habitat_depth": "sphyrna_lewini",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "adult_body_mass": "galeocerdo_cuvier"
+            "adult_body_mass__low": "anguilla_anguilla",
+            "aquatic_cited_total_length": "hippoglossus_hippoglossus",
+            "fish_record_length": "sphyrna_lewini",
+            "marine_habitat_depth__low": "carcharias_taurus"
           },
           "remainingValidatorReasons": [
             "animal anguilla_anguilla: missing approved photo"
@@ -9615,26 +9547,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-273678e4753e",
+          "templateId": "reviewed-fish-20261016-fish-normal-35571b25524d",
           "animalIds": [
-            "carcharias_taurus",
             "anguilla_anguilla",
             "galeocerdo_cuvier",
             "negaprion_brevirostris",
-            "sphyrna_lewini",
+            "prionace_glauca",
+            "salmo_salar",
             "triakis_semifasciata"
           ],
           "traitIds": [
             "adult_body_mass__low",
-            "fish_record_length",
-            "marine_description_year__low",
+            "aquatic_cited_total_length",
+            "fish_record_length__low",
             "marine_habitat_depth"
           ],
           "winners": {
             "adult_body_mass__low": "anguilla_anguilla",
-            "fish_record_length": "galeocerdo_cuvier",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth": "sphyrna_lewini"
+            "aquatic_cited_total_length": "galeocerdo_cuvier",
+            "fish_record_length__low": "salmo_salar",
+            "marine_habitat_depth": "prionace_glauca"
           },
           "remainingValidatorReasons": [
             "animal anguilla_anguilla: missing approved photo"
@@ -9793,24 +9725,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-29a7806e60bb",
+          "templateId": "reviewed-fish-20261016-fish-easy-511691f3e648",
           "animalIds": [
-            "galeocerdo_cuvier",
-            "esox_lucius",
-            "sphyrna_lewini",
-            "triakis_semifasciata"
+            "carcharhinus_leucas",
+            "gadus_morhua",
+            "negaprion_brevirostris",
+            "esox_lucius"
           ],
           "traitIds": [
-            "adult_body_mass",
-            "fish_record_length__low",
+            "adult_body_mass__low",
+            "fish_record_length",
             "marine_habitat_depth",
-            "marine_description_year__low"
+            "wild_recorded_lifespan"
           ],
           "winners": {
-            "adult_body_mass": "galeocerdo_cuvier",
-            "fish_record_length__low": "esox_lucius",
-            "marine_habitat_depth": "sphyrna_lewini",
-            "marine_description_year__low": "triakis_semifasciata"
+            "adult_body_mass__low": "esox_lucius",
+            "fish_record_length": "negaprion_brevirostris",
+            "marine_habitat_depth": "gadus_morhua",
+            "wild_recorded_lifespan": "carcharhinus_leucas"
           },
           "remainingValidatorReasons": [
             "animal esox_lucius: missing approved photo"
@@ -9819,26 +9751,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-50b1739bebca",
+          "templateId": "reviewed-fish-20261016-fish-normal-e4f827a61f03",
           "animalIds": [
-            "carcharias_taurus",
             "galeocerdo_cuvier",
-            "negaprion_brevirostris",
-            "esox_lucius",
+            "myliobatis_californica",
+            "perca_flavescens",
             "sphyrna_lewini",
-            "triakis_semifasciata"
+            "thunnus_alalunga",
+            "esox_lucius"
           ],
           "traitIds": [
-            "fish_igfa_record_mass__low",
-            "fish_record_length",
-            "marine_description_year__low",
-            "marine_habitat_depth"
+            "adult_body_mass",
+            "marine_description_year",
+            "marine_habitat_depth",
+            "wild_recorded_lifespan__low"
           ],
           "winners": {
-            "fish_igfa_record_mass__low": "triakis_semifasciata",
-            "fish_record_length": "galeocerdo_cuvier",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth": "sphyrna_lewini"
+            "adult_body_mass": "galeocerdo_cuvier",
+            "marine_description_year": "esox_lucius",
+            "marine_habitat_depth": "sphyrna_lewini",
+            "wild_recorded_lifespan__low": "perca_flavescens"
           },
           "remainingValidatorReasons": [
             "animal esox_lucius: missing approved photo"
@@ -9859,6 +9791,32 @@
       "hasRasterPhoto": false,
       "hasRegisteredCartoon": false,
       "witnesses": [
+        {
+          "mode": "easy",
+          "templateId": "reviewed-fish-20261016-fish-easy-2eb6788be882",
+          "animalIds": [
+            "gadus_morhua",
+            "hippoglossus_hippoglossus",
+            "gasterosteus_aculeatus",
+            "salmo_trutta"
+          ],
+          "traitIds": [
+            "fish_egg_diameter",
+            "fish_record_length__low",
+            "fish_ripe_egg_count",
+            "marine_habitat_depth"
+          ],
+          "winners": {
+            "fish_egg_diameter": "salmo_trutta",
+            "fish_record_length__low": "gasterosteus_aculeatus",
+            "fish_ripe_egg_count": "gadus_morhua",
+            "marine_habitat_depth": "hippoglossus_hippoglossus"
+          },
+          "remainingValidatorReasons": [
+            "animal gasterosteus_aculeatus: missing approved photo"
+          ],
+          "publicationStatus": "research only; requires asset and source-context review before admission"
+        },
         {
           "mode": "normal",
           "templateId": "groups-fish-normal-62ddd1776855",
@@ -9890,74 +9848,6 @@
       ]
     },
     {
-      "animalId": "hippoglossus_hippoglossus",
-      "commonName": "Atlantic halibut",
-      "group": "fish",
-      "familiarity": "familiar",
-      "publishedTraitDirections": 16,
-      "distinctMetrics": 8,
-      "intuitiveMetrics": 6,
-      "hasApprovedPhoto": false,
-      "hasRasterPhoto": false,
-      "hasRegisteredCartoon": true,
-      "witnesses": [
-        {
-          "mode": "easy",
-          "templateId": "groups-fish-easy-9f004e78d620",
-          "animalIds": [
-            "galeocerdo_cuvier",
-            "negaprion_brevirostris",
-            "hippoglossus_hippoglossus",
-            "sphyrna_lewini"
-          ],
-          "traitIds": [
-            "marine_habitat_depth",
-            "fish_record_length",
-            "marine_description_year__low",
-            "adult_body_mass__low"
-          ],
-          "winners": {
-            "marine_habitat_depth": "hippoglossus_hippoglossus",
-            "fish_record_length": "galeocerdo_cuvier",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "adult_body_mass__low": "sphyrna_lewini"
-          },
-          "remainingValidatorReasons": [
-            "animal hippoglossus_hippoglossus: missing approved photo"
-          ],
-          "publicationStatus": "research only; requires asset and source-context review before admission"
-        },
-        {
-          "mode": "normal",
-          "templateId": "groups-fish-normal-273678e4753e",
-          "animalIds": [
-            "carcharias_taurus",
-            "hippoglossus_hippoglossus",
-            "galeocerdo_cuvier",
-            "negaprion_brevirostris",
-            "sphyrna_lewini",
-            "triakis_semifasciata"
-          ],
-          "traitIds": [
-            "adult_body_mass__low",
-            "fish_record_length",
-            "marine_description_year__low",
-            "marine_habitat_depth"
-          ],
-          "winners": {
-            "adult_body_mass__low": "triakis_semifasciata",
-            "fish_record_length": "galeocerdo_cuvier",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth": "hippoglossus_hippoglossus"
-          },
-          "remainingValidatorReasons": [
-            "animal hippoglossus_hippoglossus: missing approved photo"
-          ],
-          "publicationStatus": "research only; requires asset and source-context review before admission"
-        }
-      ]
-    },
-    {
       "animalId": "istiophorus_platypterus",
       "commonName": "Indo-Pacific sailfish",
       "group": "fish",
@@ -9971,24 +9861,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-4a8f79ab51fc",
+          "templateId": "reviewed-fish-20261016-fish-easy-35d81a5f050a",
           "animalIds": [
             "galeocerdo_cuvier",
-            "negaprion_brevirostris",
             "istiophorus_platypterus",
-            "sphyrna_lewini"
+            "thunnus_thynnus",
+            "triakis_semifasciata"
           ],
           "traitIds": [
-            "fish_record_length__low",
-            "marine_habitat_depth",
+            "adult_body_mass",
             "marine_description_year__low",
-            "adult_body_mass"
+            "marine_habitat_depth",
+            "wild_recorded_lifespan__low"
           ],
           "winners": {
-            "fish_record_length__low": "istiophorus_platypterus",
-            "marine_habitat_depth": "sphyrna_lewini",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "adult_body_mass": "galeocerdo_cuvier"
+            "adult_body_mass": "galeocerdo_cuvier",
+            "marine_description_year__low": "triakis_semifasciata",
+            "marine_habitat_depth": "thunnus_thynnus",
+            "wild_recorded_lifespan__low": "istiophorus_platypterus"
           },
           "remainingValidatorReasons": [
             "animal istiophorus_platypterus: missing approved photo"
@@ -9997,26 +9887,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-50b1739bebca",
+          "templateId": "reviewed-fish-20261016-fish-normal-e4f827a61f03",
           "animalIds": [
-            "istiophorus_platypterus",
             "galeocerdo_cuvier",
-            "negaprion_brevirostris",
-            "prionace_glauca",
+            "myliobatis_californica",
+            "perca_flavescens",
             "sphyrna_lewini",
-            "triakis_semifasciata"
+            "istiophorus_platypterus",
+            "thunnus_thynnus"
           ],
           "traitIds": [
-            "fish_igfa_record_mass__low",
-            "fish_record_length",
-            "marine_description_year__low",
-            "marine_habitat_depth"
+            "adult_body_mass",
+            "marine_description_year",
+            "marine_habitat_depth",
+            "wild_recorded_lifespan__low"
           ],
           "winners": {
-            "fish_igfa_record_mass__low": "triakis_semifasciata",
-            "fish_record_length": "galeocerdo_cuvier",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth": "prionace_glauca"
+            "adult_body_mass": "galeocerdo_cuvier",
+            "marine_description_year": "thunnus_thynnus",
+            "marine_habitat_depth": "sphyrna_lewini",
+            "wild_recorded_lifespan__low": "perca_flavescens"
           },
           "remainingValidatorReasons": [
             "animal istiophorus_platypterus: missing approved photo"
@@ -10039,24 +9929,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-fde7f04cf6b2",
+          "templateId": "reviewed-fish-20261016-fish-easy-bdf38028060f",
           "animalIds": [
-            "carassius_auratus",
+            "cetorhinus_maximus",
             "oncorhynchus_nerka",
-            "negaprion_brevirostris",
-            "sphyrna_lewini"
+            "thunnus_thynnus",
+            "triakis_semifasciata"
           ],
           "traitIds": [
-            "aquatic_cited_total_length",
-            "marine_description_year__low",
+            "adult_body_mass__low",
+            "field_swim_speed",
             "marine_habitat_depth__low",
-            "wild_recorded_lifespan__low"
+            "wild_recorded_lifespan"
           ],
           "winners": {
-            "aquatic_cited_total_length": "sphyrna_lewini",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth__low": "carassius_auratus",
-            "wild_recorded_lifespan__low": "oncorhynchus_nerka"
+            "adult_body_mass__low": "oncorhynchus_nerka",
+            "field_swim_speed": "thunnus_thynnus",
+            "marine_habitat_depth__low": "triakis_semifasciata",
+            "wild_recorded_lifespan": "cetorhinus_maximus"
           },
           "remainingValidatorReasons": [
             "animal oncorhynchus_nerka: missing approved photo"
@@ -10065,26 +9955,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-fe768e6c44ad",
+          "templateId": "reviewed-fish-20261016-fish-normal-55ed9ff353a6",
           "animalIds": [
+            "carcharhinus_leucas",
             "galeocerdo_cuvier",
             "oncorhynchus_nerka",
             "perca_flavescens",
-            "prionace_glauca",
-            "sphyrna_lewini",
-            "triakis_semifasciata"
+            "salmo_salar",
+            "sphyrna_lewini"
           ],
           "traitIds": [
+            "adult_body_mass",
             "aquatic_cited_total_length__low",
-            "fish_igfa_record_mass",
-            "marine_description_year__low",
-            "marine_habitat_depth"
+            "marine_habitat_depth",
+            "wild_recorded_lifespan__low"
           ],
           "winners": {
+            "adult_body_mass": "galeocerdo_cuvier",
             "aquatic_cited_total_length__low": "perca_flavescens",
-            "fish_igfa_record_mass": "galeocerdo_cuvier",
-            "marine_description_year__low": "triakis_semifasciata",
-            "marine_habitat_depth": "prionace_glauca"
+            "marine_habitat_depth": "sphyrna_lewini",
+            "wild_recorded_lifespan__low": "oncorhynchus_nerka"
           },
           "remainingValidatorReasons": [
             "animal oncorhynchus_nerka: missing approved photo"
@@ -10107,24 +9997,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-fde7f04cf6b2",
+          "templateId": "reviewed-fish-20261016-fish-easy-bdf38028060f",
           "animalIds": [
-            "carassius_auratus",
-            "oncorhynchus_tshawytscha",
+            "cetorhinus_maximus",
             "negaprion_brevirostris",
-            "sphyrna_lewini"
+            "thunnus_thynnus",
+            "oncorhynchus_tshawytscha"
           ],
           "traitIds": [
-            "aquatic_cited_total_length",
-            "marine_description_year__low",
+            "adult_body_mass__low",
+            "field_swim_speed",
             "marine_habitat_depth__low",
-            "wild_recorded_lifespan__low"
+            "wild_recorded_lifespan"
           ],
           "winners": {
-            "aquatic_cited_total_length": "sphyrna_lewini",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth__low": "carassius_auratus",
-            "wild_recorded_lifespan__low": "oncorhynchus_tshawytscha"
+            "adult_body_mass__low": "oncorhynchus_tshawytscha",
+            "field_swim_speed": "thunnus_thynnus",
+            "marine_habitat_depth__low": "negaprion_brevirostris",
+            "wild_recorded_lifespan": "cetorhinus_maximus"
           },
           "remainingValidatorReasons": [
             "animal oncorhynchus_tshawytscha: missing approved photo"
@@ -10133,26 +10023,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-f0db2183b605",
+          "templateId": "reviewed-fish-20261016-fish-normal-eea30f902aba",
           "animalIds": [
-            "cetorhinus_maximus",
-            "galeocerdo_cuvier",
-            "prionace_glauca",
             "oncorhynchus_tshawytscha",
+            "cetorhinus_maximus",
+            "negaprion_brevirostris",
             "sphyrna_lewini",
+            "thunnus_thynnus",
             "triakis_semifasciata"
           ],
           "traitIds": [
             "adult_body_mass__low",
-            "aquatic_cited_total_length__low",
-            "marine_habitat_depth",
-            "wild_recorded_lifespan"
+            "aquatic_cited_total_length",
+            "marine_habitat_depth__low",
+            "wild_recorded_lifespan__low"
           ],
           "winners": {
             "adult_body_mass__low": "triakis_semifasciata",
-            "aquatic_cited_total_length__low": "oncorhynchus_tshawytscha",
-            "marine_habitat_depth": "cetorhinus_maximus",
-            "wild_recorded_lifespan": "galeocerdo_cuvier"
+            "aquatic_cited_total_length": "cetorhinus_maximus",
+            "marine_habitat_depth__low": "negaprion_brevirostris",
+            "wild_recorded_lifespan__low": "oncorhynchus_tshawytscha"
           },
           "remainingValidatorReasons": [
             "animal oncorhynchus_tshawytscha: missing approved photo"
@@ -10243,24 +10133,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-fde7f04cf6b2",
+          "templateId": "reviewed-fish-20261016-fish-easy-6a79247f42a1",
           "animalIds": [
             "salvelinus_namaycush",
-            "carcharias_taurus",
-            "negaprion_brevirostris",
-            "sphyrna_lewini"
+            "sphyrna_lewini",
+            "thunnus_thynnus",
+            "triakis_semifasciata"
           ],
           "traitIds": [
-            "aquatic_cited_total_length",
+            "aquatic_cited_total_length__low",
             "marine_description_year__low",
-            "marine_habitat_depth__low",
+            "marine_habitat_depth",
             "wild_recorded_lifespan__low"
           ],
           "winners": {
-            "aquatic_cited_total_length": "sphyrna_lewini",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth__low": "salvelinus_namaycush",
-            "wild_recorded_lifespan__low": "carcharias_taurus"
+            "aquatic_cited_total_length__low": "salvelinus_namaycush",
+            "marine_description_year__low": "triakis_semifasciata",
+            "marine_habitat_depth": "sphyrna_lewini",
+            "wild_recorded_lifespan__low": "thunnus_thynnus"
           },
           "remainingValidatorReasons": [
             "animal salvelinus_namaycush: missing approved photo"
@@ -10269,26 +10159,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-fe768e6c44ad",
+          "templateId": "reviewed-fish-20261016-fish-normal-eea30f902aba",
           "animalIds": [
-            "galeocerdo_cuvier",
             "salvelinus_namaycush",
-            "perca_flavescens",
-            "prionace_glauca",
+            "cetorhinus_maximus",
+            "negaprion_brevirostris",
             "sphyrna_lewini",
+            "thunnus_thynnus",
             "triakis_semifasciata"
           ],
           "traitIds": [
-            "aquatic_cited_total_length__low",
-            "fish_igfa_record_mass",
-            "marine_description_year__low",
-            "marine_habitat_depth"
+            "adult_body_mass__low",
+            "aquatic_cited_total_length",
+            "marine_habitat_depth__low",
+            "wild_recorded_lifespan__low"
           ],
           "winners": {
-            "aquatic_cited_total_length__low": "perca_flavescens",
-            "fish_igfa_record_mass": "galeocerdo_cuvier",
-            "marine_description_year__low": "triakis_semifasciata",
-            "marine_habitat_depth": "prionace_glauca"
+            "adult_body_mass__low": "triakis_semifasciata",
+            "aquatic_cited_total_length": "cetorhinus_maximus",
+            "marine_habitat_depth__low": "salvelinus_namaycush",
+            "wild_recorded_lifespan__low": "thunnus_thynnus"
           },
           "remainingValidatorReasons": [
             "animal salvelinus_namaycush: missing approved photo"
@@ -10311,39 +10201,11 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-4060d40dea4b",
-          "animalIds": [
-            "negaprion_brevirostris",
-            "perca_flavescens",
-            "scomber_scombrus",
-            "sphyrna_lewini"
-          ],
-          "traitIds": [
-            "adult_body_mass",
-            "marine_description_year",
-            "marine_habitat_depth__low",
-            "wild_recorded_lifespan"
-          ],
-          "winners": {
-            "adult_body_mass": "negaprion_brevirostris",
-            "marine_description_year": "scomber_scombrus",
-            "marine_habitat_depth__low": "perca_flavescens",
-            "wild_recorded_lifespan": "sphyrna_lewini"
-          },
-          "remainingValidatorReasons": [
-            "animal scomber_scombrus: missing approved photo"
-          ],
-          "publicationStatus": "research only; requires asset and source-context review before admission"
-        },
-        {
-          "mode": "normal",
-          "templateId": "groups-fish-normal-6de419345d18",
+          "templateId": "reviewed-fish-20261016-fish-easy-35d81a5f050a",
           "animalIds": [
             "galeocerdo_cuvier",
+            "thunnus_alalunga",
             "scomber_scombrus",
-            "negaprion_brevirostris",
-            "perca_flavescens",
-            "sphyrna_lewini",
             "triakis_semifasciata"
           ],
           "traitIds": [
@@ -10354,9 +10216,37 @@
           ],
           "winners": {
             "adult_body_mass": "galeocerdo_cuvier",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth": "sphyrna_lewini",
-            "wild_recorded_lifespan__low": "perca_flavescens"
+            "marine_description_year__low": "triakis_semifasciata",
+            "marine_habitat_depth": "scomber_scombrus",
+            "wild_recorded_lifespan__low": "thunnus_alalunga"
+          },
+          "remainingValidatorReasons": [
+            "animal scomber_scombrus: missing approved photo"
+          ],
+          "publicationStatus": "research only; requires asset and source-context review before admission"
+        },
+        {
+          "mode": "normal",
+          "templateId": "reviewed-fish-20261016-fish-normal-7fb47d9dc497",
+          "animalIds": [
+            "carcharhinus_leucas",
+            "carcharias_taurus",
+            "galeocerdo_cuvier",
+            "myliobatis_californica",
+            "scomber_scombrus",
+            "thunnus_alalunga"
+          ],
+          "traitIds": [
+            "adult_body_mass",
+            "marine_description_year",
+            "marine_habitat_depth__low",
+            "wild_recorded_lifespan__low"
+          ],
+          "winners": {
+            "adult_body_mass": "galeocerdo_cuvier",
+            "marine_description_year": "scomber_scombrus",
+            "marine_habitat_depth__low": "myliobatis_californica",
+            "wild_recorded_lifespan__low": "carcharias_taurus"
           },
           "remainingValidatorReasons": [
             "animal scomber_scombrus: missing approved photo"
@@ -10379,24 +10269,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-d2c80a8c4b88",
+          "templateId": "reviewed-fish-20261016-fish-easy-a90df4674b05",
           "animalIds": [
-            "galeocerdo_cuvier",
             "silurus_glanis",
-            "sphyrna_lewini",
-            "triakis_semifasciata"
+            "hippoglossus_hippoglossus",
+            "salmo_salar",
+            "sphyrna_lewini"
           ],
           "traitIds": [
             "adult_body_mass__low",
+            "aquatic_cited_total_length",
             "fish_record_length",
-            "marine_habitat_depth",
-            "marine_description_year"
+            "marine_habitat_depth__low"
           ],
           "winners": {
-            "adult_body_mass__low": "triakis_semifasciata",
-            "fish_record_length": "galeocerdo_cuvier",
-            "marine_habitat_depth": "sphyrna_lewini",
-            "marine_description_year": "silurus_glanis"
+            "adult_body_mass__low": "salmo_salar",
+            "aquatic_cited_total_length": "hippoglossus_hippoglossus",
+            "fish_record_length": "sphyrna_lewini",
+            "marine_habitat_depth__low": "silurus_glanis"
           },
           "remainingValidatorReasons": [
             "animal silurus_glanis: missing approved photo"
@@ -10405,26 +10295,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-6e08d537aafc",
+          "templateId": "reviewed-fish-20261016-fish-normal-4f9ddd6d21b4",
           "animalIds": [
-            "carcharias_taurus",
             "silurus_glanis",
-            "galeocerdo_cuvier",
+            "gadus_morhua",
+            "hippoglossus_hippoglossus",
             "negaprion_brevirostris",
-            "sphyrna_lewini",
-            "triakis_semifasciata"
+            "salmo_salar",
+            "sphyrna_lewini"
           ],
           "traitIds": [
             "adult_body_mass__low",
+            "aquatic_cited_total_length",
             "fish_record_length",
-            "marine_description_year",
-            "marine_habitat_depth"
+            "marine_habitat_depth__low"
           ],
           "winners": {
-            "adult_body_mass__low": "triakis_semifasciata",
-            "fish_record_length": "galeocerdo_cuvier",
-            "marine_description_year": "silurus_glanis",
-            "marine_habitat_depth": "sphyrna_lewini"
+            "adult_body_mass__low": "salmo_salar",
+            "aquatic_cited_total_length": "hippoglossus_hippoglossus",
+            "fish_record_length": "sphyrna_lewini",
+            "marine_habitat_depth__low": "silurus_glanis"
           },
           "remainingValidatorReasons": [
             "animal silurus_glanis: missing approved photo"
@@ -10447,24 +10337,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-686e936a24c4",
+          "templateId": "reviewed-fish-20261016-fish-easy-b48d09433d61",
           "animalIds": [
-            "cyprinus_carpio",
-            "salmo_salar",
             "acipenser_transmontanus",
-            "triakis_semifasciata"
+            "lates_niloticus",
+            "negaprion_brevirostris",
+            "thunnus_alalunga"
           ],
           "traitIds": [
-            "adult_body_mass__low",
-            "fish_record_length",
-            "fish_record_wild_age__low",
-            "marine_habitat_depth__low"
+            "adult_body_mass",
+            "marine_description_year__low",
+            "marine_habitat_depth",
+            "wild_recorded_lifespan__low"
           ],
           "winners": {
-            "adult_body_mass__low": "triakis_semifasciata",
-            "fish_record_length": "acipenser_transmontanus",
-            "fish_record_wild_age__low": "salmo_salar",
-            "marine_habitat_depth__low": "cyprinus_carpio"
+            "adult_body_mass": "acipenser_transmontanus",
+            "marine_description_year__low": "negaprion_brevirostris",
+            "marine_habitat_depth": "thunnus_alalunga",
+            "wild_recorded_lifespan__low": "lates_niloticus"
           },
           "remainingValidatorReasons": [
             "animal acipenser_transmontanus: missing approved photo"
@@ -10473,26 +10363,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-f0db2183b605",
+          "templateId": "reviewed-fish-20261016-fish-normal-ddcf05638efa",
           "animalIds": [
             "cetorhinus_maximus",
             "acipenser_transmontanus",
-            "prionace_glauca",
-            "salmo_salar",
+            "negaprion_brevirostris",
             "sphyrna_lewini",
+            "thunnus_thynnus",
             "triakis_semifasciata"
           ],
           "traitIds": [
-            "adult_body_mass__low",
+            "adult_body_mass",
             "aquatic_cited_total_length__low",
-            "marine_habitat_depth",
-            "wild_recorded_lifespan"
+            "marine_habitat_depth__low",
+            "wild_recorded_lifespan__low"
           ],
           "winners": {
-            "adult_body_mass__low": "triakis_semifasciata",
-            "aquatic_cited_total_length__low": "salmo_salar",
-            "marine_habitat_depth": "cetorhinus_maximus",
-            "wild_recorded_lifespan": "acipenser_transmontanus"
+            "adult_body_mass": "cetorhinus_maximus",
+            "aquatic_cited_total_length__low": "triakis_semifasciata",
+            "marine_habitat_depth__low": "negaprion_brevirostris",
+            "wild_recorded_lifespan__low": "thunnus_thynnus"
           },
           "remainingValidatorReasons": [
             "animal acipenser_transmontanus: missing approved photo"
@@ -10583,24 +10473,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-fde7f04cf6b2",
+          "templateId": "reviewed-fish-20261016-fish-easy-b48d09433d61",
           "animalIds": [
-            "carassius_auratus",
-            "carcharias_taurus",
+            "carcharhinus_leucas",
             "makaira_nigricans",
-            "sphyrna_lewini"
+            "negaprion_brevirostris",
+            "thunnus_alalunga"
           ],
           "traitIds": [
-            "aquatic_cited_total_length",
+            "adult_body_mass",
             "marine_description_year__low",
-            "marine_habitat_depth__low",
+            "marine_habitat_depth",
             "wild_recorded_lifespan__low"
           ],
           "winners": {
-            "aquatic_cited_total_length": "makaira_nigricans",
-            "marine_description_year__low": "sphyrna_lewini",
-            "marine_habitat_depth__low": "carassius_auratus",
-            "wild_recorded_lifespan__low": "carcharias_taurus"
+            "adult_body_mass": "carcharhinus_leucas",
+            "marine_description_year__low": "negaprion_brevirostris",
+            "marine_habitat_depth": "makaira_nigricans",
+            "wild_recorded_lifespan__low": "thunnus_alalunga"
           },
           "remainingValidatorReasons": [
             "animal makaira_nigricans: missing approved photo"
@@ -10609,26 +10499,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-f0db2183b605",
+          "templateId": "reviewed-fish-20261016-fish-normal-64accab8cc7b",
           "animalIds": [
             "makaira_nigricans",
+            "carcharias_taurus",
             "galeocerdo_cuvier",
-            "prionace_glauca",
-            "salmo_salar",
-            "sphyrna_lewini",
+            "myliobatis_californica",
+            "thunnus_alalunga",
             "triakis_semifasciata"
           ],
           "traitIds": [
-            "adult_body_mass__low",
-            "aquatic_cited_total_length__low",
+            "fish_igfa_record_mass__low",
+            "marine_description_year__low",
             "marine_habitat_depth",
-            "wild_recorded_lifespan"
+            "wild_recorded_lifespan__low"
           ],
           "winners": {
-            "adult_body_mass__low": "triakis_semifasciata",
-            "aquatic_cited_total_length__low": "salmo_salar",
-            "marine_habitat_depth": "prionace_glauca",
-            "wild_recorded_lifespan": "galeocerdo_cuvier"
+            "fish_igfa_record_mass__low": "triakis_semifasciata",
+            "marine_description_year__low": "myliobatis_californica",
+            "marine_habitat_depth": "makaira_nigricans",
+            "wild_recorded_lifespan__low": "carcharias_taurus"
           },
           "remainingValidatorReasons": [
             "animal makaira_nigricans: missing approved photo"
@@ -10923,24 +10813,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-d2c80a8c4b88",
+          "templateId": "reviewed-fish-20261016-fish-easy-511691f3e648",
           "animalIds": [
-            "galeocerdo_cuvier",
-            "salmo_salar",
-            "sphyrna_lewini",
+            "carcharhinus_leucas",
+            "gadus_morhua",
+            "negaprion_brevirostris",
             "chanos_chanos"
           ],
           "traitIds": [
             "adult_body_mass__low",
             "fish_record_length",
             "marine_habitat_depth",
-            "marine_description_year"
+            "wild_recorded_lifespan"
           ],
           "winners": {
             "adult_body_mass__low": "chanos_chanos",
-            "fish_record_length": "galeocerdo_cuvier",
-            "marine_habitat_depth": "sphyrna_lewini",
-            "marine_description_year": "salmo_salar"
+            "fish_record_length": "negaprion_brevirostris",
+            "marine_habitat_depth": "gadus_morhua",
+            "wild_recorded_lifespan": "carcharhinus_leucas"
           },
           "remainingValidatorReasons": [
             "animal chanos_chanos: missing approved photo"
@@ -10949,26 +10839,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-6e08d537aafc",
+          "templateId": "reviewed-fish-20261016-fish-normal-e66194547790",
           "animalIds": [
-            "chanos_chanos",
-            "cyprinus_carpio",
-            "galeocerdo_cuvier",
+            "carcharhinus_leucas",
+            "gadus_morhua",
             "negaprion_brevirostris",
-            "sphyrna_lewini",
+            "chanos_chanos",
+            "salmo_salar",
             "triakis_semifasciata"
           ],
           "traitIds": [
             "adult_body_mass__low",
             "fish_record_length",
-            "marine_description_year",
-            "marine_habitat_depth"
+            "marine_habitat_depth",
+            "wild_recorded_lifespan"
           ],
           "winners": {
             "adult_body_mass__low": "chanos_chanos",
-            "fish_record_length": "galeocerdo_cuvier",
-            "marine_description_year": "cyprinus_carpio",
-            "marine_habitat_depth": "sphyrna_lewini"
+            "fish_record_length": "negaprion_brevirostris",
+            "marine_habitat_depth": "gadus_morhua",
+            "wild_recorded_lifespan": "carcharhinus_leucas"
           },
           "remainingValidatorReasons": [
             "animal chanos_chanos: missing approved photo"
@@ -11127,11 +11017,11 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-edaca8bfd438",
+          "templateId": "reviewed-fish-20261016-fish-easy-3a222c7e1b79",
           "animalIds": [
-            "galeocerdo_cuvier",
+            "carcharhinus_leucas",
             "katsuwonus_pelamis",
-            "sphyrna_lewini",
+            "thunnus_alalunga",
             "triakis_semifasciata"
           ],
           "traitIds": [
@@ -11141,9 +11031,37 @@
             "wild_recorded_lifespan__low"
           ],
           "winners": {
-            "adult_body_mass": "galeocerdo_cuvier",
+            "adult_body_mass": "carcharhinus_leucas",
             "marine_description_year__low": "triakis_semifasciata",
-            "marine_habitat_depth": "sphyrna_lewini",
+            "marine_habitat_depth": "thunnus_alalunga",
+            "wild_recorded_lifespan__low": "katsuwonus_pelamis"
+          },
+          "remainingValidatorReasons": [
+            "animal katsuwonus_pelamis: missing approved photo"
+          ],
+          "publicationStatus": "research only; requires asset and source-context review before admission"
+        },
+        {
+          "mode": "normal",
+          "templateId": "reviewed-fish-20261016-fish-normal-fdf7be538c15",
+          "animalIds": [
+            "carcharhinus_leucas",
+            "galeocerdo_cuvier",
+            "katsuwonus_pelamis",
+            "myliobatis_californica",
+            "thunnus_alalunga",
+            "triakis_semifasciata"
+          ],
+          "traitIds": [
+            "adult_body_mass__low",
+            "marine_description_year__low",
+            "marine_habitat_depth",
+            "wild_recorded_lifespan__low"
+          ],
+          "winners": {
+            "adult_body_mass__low": "triakis_semifasciata",
+            "marine_description_year__low": "myliobatis_californica",
+            "marine_habitat_depth": "galeocerdo_cuvier",
             "wild_recorded_lifespan__low": "katsuwonus_pelamis"
           },
           "remainingValidatorReasons": [
@@ -11164,7 +11082,34 @@
       "hasApprovedPhoto": false,
       "hasRasterPhoto": false,
       "hasRegisteredCartoon": false,
-      "witnesses": []
+      "witnesses": [
+        {
+          "mode": "easy",
+          "templateId": "reviewed-fish-20261016-fish-easy-1e4bb66b196a",
+          "animalIds": [
+            "hippoglossus_hippoglossus",
+            "lates_calcarifer",
+            "salmo_salar",
+            "salmo_trutta"
+          ],
+          "traitIds": [
+            "fish_egg_diameter__low",
+            "fish_record_length",
+            "fish_record_wild_age__low",
+            "marine_habitat_depth__low"
+          ],
+          "winners": {
+            "fish_egg_diameter__low": "lates_calcarifer",
+            "fish_record_length": "hippoglossus_hippoglossus",
+            "fish_record_wild_age__low": "salmo_salar",
+            "marine_habitat_depth__low": "salmo_trutta"
+          },
+          "remainingValidatorReasons": [
+            "animal lates_calcarifer: missing approved photo"
+          ],
+          "publicationStatus": "research only; requires asset and source-context review before admission"
+        }
+      ]
     },
     {
       "animalId": "lepisosteus_osseus",
@@ -11177,7 +11122,34 @@
       "hasApprovedPhoto": false,
       "hasRasterPhoto": false,
       "hasRegisteredCartoon": false,
-      "witnesses": []
+      "witnesses": [
+        {
+          "mode": "easy",
+          "templateId": "reviewed-fish-20261016-fish-easy-c66a66e01207",
+          "animalIds": [
+            "carassius_auratus",
+            "gadus_morhua",
+            "hippoglossus_hippoglossus",
+            "lepisosteus_osseus"
+          ],
+          "traitIds": [
+            "fish_egg_diameter",
+            "fish_record_length__low",
+            "fish_record_wild_age",
+            "fish_ripe_egg_count"
+          ],
+          "winners": {
+            "fish_egg_diameter": "lepisosteus_osseus",
+            "fish_record_length__low": "carassius_auratus",
+            "fish_record_wild_age": "hippoglossus_hippoglossus",
+            "fish_ripe_egg_count": "gadus_morhua"
+          },
+          "remainingValidatorReasons": [
+            "animal lepisosteus_osseus: missing approved photo"
+          ],
+          "publicationStatus": "research only; requires asset and source-context review before admission"
+        }
+      ]
     },
     {
       "animalId": "lithobates_clamitans",
@@ -11261,24 +11233,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-6dd4244ab2aa",
+          "templateId": "reviewed-fish-20261016-fish-easy-6a79247f42a1",
           "animalIds": [
-            "galeocerdo_cuvier",
             "negaprion_brevirostris",
-            "lutjanus_campechanus",
-            "sphyrna_lewini"
+            "sphyrna_lewini",
+            "thunnus_thynnus",
+            "lutjanus_campechanus"
           ],
           "traitIds": [
             "aquatic_cited_total_length__low",
-            "fish_igfa_record_mass",
             "marine_description_year__low",
-            "marine_habitat_depth"
+            "marine_habitat_depth",
+            "wild_recorded_lifespan__low"
           ],
           "winners": {
             "aquatic_cited_total_length__low": "lutjanus_campechanus",
-            "fish_igfa_record_mass": "galeocerdo_cuvier",
             "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth": "sphyrna_lewini"
+            "marine_habitat_depth": "sphyrna_lewini",
+            "wild_recorded_lifespan__low": "thunnus_thynnus"
           },
           "remainingValidatorReasons": [
             "animal lutjanus_campechanus: missing approved photo"
@@ -11287,26 +11259,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-fe768e6c44ad",
+          "templateId": "reviewed-fish-20261016-fish-normal-64accab8cc7b",
           "animalIds": [
-            "galeocerdo_cuvier",
+            "carcharhinus_leucas",
             "lutjanus_campechanus",
-            "perca_flavescens",
-            "prionace_glauca",
-            "sphyrna_lewini",
+            "galeocerdo_cuvier",
+            "myliobatis_californica",
+            "thunnus_alalunga",
             "triakis_semifasciata"
           ],
           "traitIds": [
-            "aquatic_cited_total_length__low",
-            "fish_igfa_record_mass",
+            "fish_igfa_record_mass__low",
             "marine_description_year__low",
-            "marine_habitat_depth"
+            "marine_habitat_depth",
+            "wild_recorded_lifespan__low"
           ],
           "winners": {
-            "aquatic_cited_total_length__low": "perca_flavescens",
-            "fish_igfa_record_mass": "galeocerdo_cuvier",
-            "marine_description_year__low": "lutjanus_campechanus",
-            "marine_habitat_depth": "prionace_glauca"
+            "fish_igfa_record_mass__low": "triakis_semifasciata",
+            "marine_description_year__low": "myliobatis_californica",
+            "marine_habitat_depth": "galeocerdo_cuvier",
+            "wild_recorded_lifespan__low": "thunnus_alalunga"
           },
           "remainingValidatorReasons": [
             "animal lutjanus_campechanus: missing approved photo"
@@ -11329,24 +11301,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-4a8f79ab51fc",
+          "templateId": "reviewed-fish-20261016-fish-easy-511691f3e648",
           "animalIds": [
-            "galeocerdo_cuvier",
+            "carcharhinus_leucas",
+            "gadus_morhua",
             "negaprion_brevirostris",
-            "mugil_cephalus",
-            "sphyrna_lewini"
+            "mugil_cephalus"
           ],
           "traitIds": [
-            "fish_record_length__low",
+            "adult_body_mass__low",
+            "fish_record_length",
             "marine_habitat_depth",
-            "marine_description_year__low",
-            "adult_body_mass"
+            "wild_recorded_lifespan"
           ],
           "winners": {
-            "fish_record_length__low": "mugil_cephalus",
-            "marine_habitat_depth": "sphyrna_lewini",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "adult_body_mass": "galeocerdo_cuvier"
+            "adult_body_mass__low": "mugil_cephalus",
+            "fish_record_length": "negaprion_brevirostris",
+            "marine_habitat_depth": "gadus_morhua",
+            "wild_recorded_lifespan": "carcharhinus_leucas"
           },
           "remainingValidatorReasons": [
             "animal mugil_cephalus: missing approved photo"
@@ -11355,26 +11327,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-273678e4753e",
+          "templateId": "reviewed-fish-20261016-fish-normal-e66194547790",
           "animalIds": [
-            "carcharias_taurus",
             "mugil_cephalus",
-            "galeocerdo_cuvier",
+            "gadus_morhua",
             "negaprion_brevirostris",
-            "sphyrna_lewini",
+            "perca_fluviatilis",
+            "salmo_salar",
             "triakis_semifasciata"
           ],
           "traitIds": [
             "adult_body_mass__low",
             "fish_record_length",
-            "marine_description_year__low",
-            "marine_habitat_depth"
+            "marine_habitat_depth",
+            "wild_recorded_lifespan"
           ],
           "winners": {
-            "adult_body_mass__low": "mugil_cephalus",
-            "fish_record_length": "galeocerdo_cuvier",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth": "sphyrna_lewini"
+            "adult_body_mass__low": "perca_fluviatilis",
+            "fish_record_length": "negaprion_brevirostris",
+            "marine_habitat_depth": "gadus_morhua",
+            "wild_recorded_lifespan": "triakis_semifasciata"
           },
           "remainingValidatorReasons": [
             "animal mugil_cephalus: missing approved photo"
@@ -11397,24 +11369,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-4a8f79ab51fc",
+          "templateId": "reviewed-fish-20261016-fish-easy-511691f3e648",
           "animalIds": [
-            "galeocerdo_cuvier",
+            "carcharhinus_leucas",
+            "gadus_morhua",
             "negaprion_brevirostris",
-            "oncorhynchus_kisutch",
-            "sphyrna_lewini"
+            "oncorhynchus_kisutch"
           ],
           "traitIds": [
-            "fish_record_length__low",
+            "adult_body_mass__low",
+            "fish_record_length",
             "marine_habitat_depth",
-            "marine_description_year__low",
-            "adult_body_mass"
+            "wild_recorded_lifespan"
           ],
           "winners": {
-            "fish_record_length__low": "oncorhynchus_kisutch",
-            "marine_habitat_depth": "sphyrna_lewini",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "adult_body_mass": "galeocerdo_cuvier"
+            "adult_body_mass__low": "oncorhynchus_kisutch",
+            "fish_record_length": "negaprion_brevirostris",
+            "marine_habitat_depth": "gadus_morhua",
+            "wild_recorded_lifespan": "carcharhinus_leucas"
           },
           "remainingValidatorReasons": [
             "animal oncorhynchus_kisutch: missing approved photo"
@@ -11423,26 +11395,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-50b1739bebca",
+          "templateId": "reviewed-fish-20261016-fish-normal-e66194547790",
           "animalIds": [
             "oncorhynchus_kisutch",
-            "galeocerdo_cuvier",
+            "gadus_morhua",
             "negaprion_brevirostris",
-            "prionace_glauca",
-            "sphyrna_lewini",
+            "perca_fluviatilis",
+            "salmo_salar",
             "triakis_semifasciata"
           ],
           "traitIds": [
-            "fish_igfa_record_mass__low",
+            "adult_body_mass__low",
             "fish_record_length",
-            "marine_description_year__low",
-            "marine_habitat_depth"
+            "marine_habitat_depth",
+            "wild_recorded_lifespan"
           ],
           "winners": {
-            "fish_igfa_record_mass__low": "oncorhynchus_kisutch",
-            "fish_record_length": "galeocerdo_cuvier",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth": "prionace_glauca"
+            "adult_body_mass__low": "perca_fluviatilis",
+            "fish_record_length": "negaprion_brevirostris",
+            "marine_habitat_depth": "gadus_morhua",
+            "wild_recorded_lifespan": "triakis_semifasciata"
           },
           "remainingValidatorReasons": [
             "animal oncorhynchus_kisutch: missing approved photo"
@@ -11465,24 +11437,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-4a8f79ab51fc",
+          "templateId": "reviewed-fish-20261016-fish-easy-511691f3e648",
           "animalIds": [
-            "galeocerdo_cuvier",
+            "carcharhinus_leucas",
+            "gadus_morhua",
             "negaprion_brevirostris",
-            "oreochromis_niloticus",
-            "sphyrna_lewini"
+            "oreochromis_niloticus"
           ],
           "traitIds": [
-            "fish_record_length__low",
+            "adult_body_mass__low",
+            "fish_record_length",
             "marine_habitat_depth",
-            "marine_description_year__low",
-            "adult_body_mass"
+            "wild_recorded_lifespan"
           ],
           "winners": {
-            "fish_record_length__low": "oreochromis_niloticus",
-            "marine_habitat_depth": "sphyrna_lewini",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "adult_body_mass": "galeocerdo_cuvier"
+            "adult_body_mass__low": "oreochromis_niloticus",
+            "fish_record_length": "negaprion_brevirostris",
+            "marine_habitat_depth": "gadus_morhua",
+            "wild_recorded_lifespan": "carcharhinus_leucas"
           },
           "remainingValidatorReasons": [
             "animal oreochromis_niloticus: missing approved photo"
@@ -11491,26 +11463,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-50b1739bebca",
+          "templateId": "reviewed-fish-20261016-fish-normal-e66194547790",
           "animalIds": [
-            "carcharias_taurus",
-            "galeocerdo_cuvier",
-            "negaprion_brevirostris",
             "oreochromis_niloticus",
-            "sphyrna_lewini",
+            "gadus_morhua",
+            "negaprion_brevirostris",
+            "perca_fluviatilis",
+            "salmo_salar",
             "triakis_semifasciata"
           ],
           "traitIds": [
-            "fish_igfa_record_mass__low",
+            "adult_body_mass__low",
             "fish_record_length",
-            "marine_description_year__low",
-            "marine_habitat_depth"
+            "marine_habitat_depth",
+            "wild_recorded_lifespan"
           ],
           "winners": {
-            "fish_igfa_record_mass__low": "oreochromis_niloticus",
-            "fish_record_length": "galeocerdo_cuvier",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth": "sphyrna_lewini"
+            "adult_body_mass__low": "oreochromis_niloticus",
+            "fish_record_length": "negaprion_brevirostris",
+            "marine_habitat_depth": "gadus_morhua",
+            "wild_recorded_lifespan": "triakis_semifasciata"
           },
           "remainingValidatorReasons": [
             "animal oreochromis_niloticus: missing approved photo"
@@ -11614,24 +11586,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-fde7f04cf6b2",
+          "templateId": "reviewed-fish-20261016-fish-easy-aa0957acb90f",
           "animalIds": [
-            "carassius_auratus",
+            "carcharhinus_leucas",
             "pomatomus_saltatrix",
-            "negaprion_brevirostris",
-            "sphyrna_lewini"
+            "thunnus_alalunga",
+            "triakis_semifasciata"
           ],
           "traitIds": [
-            "aquatic_cited_total_length",
+            "fish_igfa_record_mass__low",
             "marine_description_year__low",
-            "marine_habitat_depth__low",
-            "wild_recorded_lifespan__low"
+            "marine_habitat_depth",
+            "wild_recorded_lifespan"
           ],
           "winners": {
-            "aquatic_cited_total_length": "sphyrna_lewini",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth__low": "carassius_auratus",
-            "wild_recorded_lifespan__low": "pomatomus_saltatrix"
+            "fish_igfa_record_mass__low": "pomatomus_saltatrix",
+            "marine_description_year__low": "triakis_semifasciata",
+            "marine_habitat_depth": "thunnus_alalunga",
+            "wild_recorded_lifespan": "carcharhinus_leucas"
           },
           "remainingValidatorReasons": [
             "animal pomatomus_saltatrix: missing approved photo"
@@ -11640,26 +11612,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-fe768e6c44ad",
+          "templateId": "reviewed-fish-20261016-fish-normal-55ed9ff353a6",
           "animalIds": [
-            "galeocerdo_cuvier",
             "pomatomus_saltatrix",
+            "galeocerdo_cuvier",
+            "lates_niloticus",
             "perca_flavescens",
-            "prionace_glauca",
-            "sphyrna_lewini",
-            "triakis_semifasciata"
+            "salmo_salar",
+            "sphyrna_lewini"
           ],
           "traitIds": [
+            "adult_body_mass",
             "aquatic_cited_total_length__low",
-            "fish_igfa_record_mass",
-            "marine_description_year__low",
-            "marine_habitat_depth"
+            "marine_habitat_depth",
+            "wild_recorded_lifespan__low"
           ],
           "winners": {
+            "adult_body_mass": "galeocerdo_cuvier",
             "aquatic_cited_total_length__low": "perca_flavescens",
-            "fish_igfa_record_mass": "galeocerdo_cuvier",
-            "marine_description_year__low": "triakis_semifasciata",
-            "marine_habitat_depth": "prionace_glauca"
+            "marine_habitat_depth": "sphyrna_lewini",
+            "wild_recorded_lifespan__low": "lates_niloticus"
           },
           "remainingValidatorReasons": [
             "animal pomatomus_saltatrix: missing approved photo"
@@ -11682,24 +11654,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-29a7806e60bb",
+          "templateId": "reviewed-fish-20261016-fish-easy-511691f3e648",
           "animalIds": [
-            "galeocerdo_cuvier",
-            "sander_lucioperca",
-            "sphyrna_lewini",
-            "triakis_semifasciata"
+            "carcharhinus_leucas",
+            "gadus_morhua",
+            "negaprion_brevirostris",
+            "sander_lucioperca"
           ],
           "traitIds": [
-            "adult_body_mass",
-            "fish_record_length__low",
+            "adult_body_mass__low",
+            "fish_record_length",
             "marine_habitat_depth",
-            "marine_description_year__low"
+            "wild_recorded_lifespan"
           ],
           "winners": {
-            "adult_body_mass": "galeocerdo_cuvier",
-            "fish_record_length__low": "sander_lucioperca",
-            "marine_habitat_depth": "sphyrna_lewini",
-            "marine_description_year__low": "triakis_semifasciata"
+            "adult_body_mass__low": "sander_lucioperca",
+            "fish_record_length": "negaprion_brevirostris",
+            "marine_habitat_depth": "gadus_morhua",
+            "wild_recorded_lifespan": "carcharhinus_leucas"
           },
           "remainingValidatorReasons": [
             "animal sander_lucioperca: missing approved photo"
@@ -11708,26 +11680,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-6e08d537aafc",
+          "templateId": "reviewed-fish-20261016-fish-normal-e66194547790",
           "animalIds": [
-            "carcharias_taurus",
-            "sander_lucioperca",
-            "galeocerdo_cuvier",
+            "carcharhinus_leucas",
+            "gadus_morhua",
             "negaprion_brevirostris",
-            "sphyrna_lewini",
+            "sander_lucioperca",
+            "salmo_salar",
             "triakis_semifasciata"
           ],
           "traitIds": [
             "adult_body_mass__low",
             "fish_record_length",
-            "marine_description_year",
-            "marine_habitat_depth"
+            "marine_habitat_depth",
+            "wild_recorded_lifespan"
           ],
           "winners": {
             "adult_body_mass__low": "triakis_semifasciata",
-            "fish_record_length": "galeocerdo_cuvier",
-            "marine_description_year": "sander_lucioperca",
-            "marine_habitat_depth": "sphyrna_lewini"
+            "fish_record_length": "negaprion_brevirostris",
+            "marine_habitat_depth": "gadus_morhua",
+            "wild_recorded_lifespan": "carcharhinus_leucas"
           },
           "remainingValidatorReasons": [
             "animal sander_lucioperca: missing approved photo"
@@ -11750,24 +11722,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-9553cc174709",
+          "templateId": "reviewed-fish-20261016-fish-easy-511691f3e648",
           "animalIds": [
-            "sander_vitreus",
+            "carcharhinus_leucas",
+            "gadus_morhua",
             "negaprion_brevirostris",
-            "prionace_glauca",
-            "sphyrna_lewini"
+            "sander_vitreus"
           ],
           "traitIds": [
-            "fish_igfa_record_mass__low",
+            "adult_body_mass__low",
             "fish_record_length",
-            "marine_description_year__low",
-            "marine_habitat_depth"
+            "marine_habitat_depth",
+            "wild_recorded_lifespan"
           ],
           "winners": {
-            "fish_igfa_record_mass__low": "sander_vitreus",
-            "fish_record_length": "sphyrna_lewini",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth": "prionace_glauca"
+            "adult_body_mass__low": "sander_vitreus",
+            "fish_record_length": "negaprion_brevirostris",
+            "marine_habitat_depth": "gadus_morhua",
+            "wild_recorded_lifespan": "carcharhinus_leucas"
           },
           "remainingValidatorReasons": [
             "animal sander_vitreus: missing approved photo"
@@ -11776,26 +11748,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-b6ce75e3384e",
+          "templateId": "reviewed-fish-20261016-fish-normal-e66194547790",
           "animalIds": [
-            "sander_vitreus",
+            "carcharhinus_leucas",
             "gadus_morhua",
-            "galeocerdo_cuvier",
-            "prionace_glauca",
+            "negaprion_brevirostris",
+            "sander_vitreus",
             "salmo_salar",
-            "sphyrna_lewini"
+            "triakis_semifasciata"
           ],
           "traitIds": [
             "adult_body_mass__low",
             "fish_record_length",
             "marine_habitat_depth",
-            "wild_recorded_lifespan__low"
+            "wild_recorded_lifespan"
           ],
           "winners": {
-            "adult_body_mass__low": "sander_vitreus",
-            "fish_record_length": "galeocerdo_cuvier",
-            "marine_habitat_depth": "prionace_glauca",
-            "wild_recorded_lifespan__low": "salmo_salar"
+            "adult_body_mass__low": "triakis_semifasciata",
+            "fish_record_length": "negaprion_brevirostris",
+            "marine_habitat_depth": "gadus_morhua",
+            "wild_recorded_lifespan": "carcharhinus_leucas"
           },
           "remainingValidatorReasons": [
             "animal sander_vitreus: missing approved photo"
@@ -11815,7 +11787,62 @@
       "hasApprovedPhoto": false,
       "hasRasterPhoto": false,
       "hasRegisteredCartoon": false,
-      "witnesses": []
+      "witnesses": [
+        {
+          "mode": "easy",
+          "templateId": "reviewed-fish-20261016-fish-easy-6e2a8540ae7e",
+          "animalIds": [
+            "carcharias_taurus",
+            "hippoglossus_hippoglossus",
+            "acipenser_sturio",
+            "sphyrna_lewini"
+          ],
+          "traitIds": [
+            "adult_body_mass__low",
+            "aquatic_cited_total_length__low",
+            "fish_record_length__low",
+            "marine_habitat_depth__low"
+          ],
+          "winners": {
+            "adult_body_mass__low": "sphyrna_lewini",
+            "aquatic_cited_total_length__low": "carcharias_taurus",
+            "fish_record_length__low": "hippoglossus_hippoglossus",
+            "marine_habitat_depth__low": "acipenser_sturio"
+          },
+          "remainingValidatorReasons": [
+            "animal acipenser_sturio: missing approved photo"
+          ],
+          "publicationStatus": "research only; requires asset and source-context review before admission"
+        },
+        {
+          "mode": "normal",
+          "templateId": "reviewed-fish-20261016-fish-normal-57f7b9474669",
+          "animalIds": [
+            "carcharias_taurus",
+            "acipenser_sturio",
+            "galeocerdo_cuvier",
+            "hippoglossus_hippoglossus",
+            "salmo_salar",
+            "triakis_semifasciata"
+          ],
+          "traitIds": [
+            "adult_body_mass__low",
+            "aquatic_cited_total_length__low",
+            "fish_record_length",
+            "marine_habitat_depth"
+          ],
+          "winners": {
+            "adult_body_mass__low": "triakis_semifasciata",
+            "aquatic_cited_total_length__low": "salmo_salar",
+            "fish_record_length": "galeocerdo_cuvier",
+            "marine_habitat_depth": "hippoglossus_hippoglossus"
+          },
+          "remainingValidatorReasons": [
+            "animal acipenser_sturio: missing approved photo"
+          ],
+          "publicationStatus": "research only; requires asset and source-context review before admission"
+        }
+      ]
     },
     {
       "animalId": "apalone_ferox",
@@ -12007,24 +12034,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-fde7f04cf6b2",
+          "templateId": "reviewed-fish-20261016-fish-easy-b48d09433d61",
           "animalIds": [
-            "carassius_auratus",
-            "carcharias_taurus",
+            "carcharhinus_leucas",
             "carcharhinus_amblyrhynchos",
-            "sphyrna_lewini"
+            "negaprion_brevirostris",
+            "thunnus_alalunga"
           ],
           "traitIds": [
-            "aquatic_cited_total_length",
+            "adult_body_mass",
             "marine_description_year__low",
-            "marine_habitat_depth__low",
+            "marine_habitat_depth",
             "wild_recorded_lifespan__low"
           ],
           "winners": {
-            "aquatic_cited_total_length": "sphyrna_lewini",
-            "marine_description_year__low": "carcharhinus_amblyrhynchos",
-            "marine_habitat_depth__low": "carassius_auratus",
-            "wild_recorded_lifespan__low": "carcharias_taurus"
+            "adult_body_mass": "carcharhinus_leucas",
+            "marine_description_year__low": "negaprion_brevirostris",
+            "marine_habitat_depth": "carcharhinus_amblyrhynchos",
+            "wild_recorded_lifespan__low": "thunnus_alalunga"
           },
           "remainingValidatorReasons": [
             "animal carcharhinus_amblyrhynchos: missing approved photo"
@@ -12033,26 +12060,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-f0db2183b605",
+          "templateId": "reviewed-fish-20261016-fish-normal-eea30f902aba",
           "animalIds": [
-            "carcharhinus_amblyrhynchos",
-            "galeocerdo_cuvier",
-            "prionace_glauca",
-            "salmo_salar",
+            "carcharias_taurus",
+            "cetorhinus_maximus",
+            "negaprion_brevirostris",
             "sphyrna_lewini",
+            "carcharhinus_amblyrhynchos",
             "triakis_semifasciata"
           ],
           "traitIds": [
             "adult_body_mass__low",
-            "aquatic_cited_total_length__low",
-            "marine_habitat_depth",
-            "wild_recorded_lifespan"
+            "aquatic_cited_total_length",
+            "marine_habitat_depth__low",
+            "wild_recorded_lifespan__low"
           ],
           "winners": {
             "adult_body_mass__low": "triakis_semifasciata",
-            "aquatic_cited_total_length__low": "salmo_salar",
-            "marine_habitat_depth": "prionace_glauca",
-            "wild_recorded_lifespan": "galeocerdo_cuvier"
+            "aquatic_cited_total_length": "cetorhinus_maximus",
+            "marine_habitat_depth__low": "negaprion_brevirostris",
+            "wild_recorded_lifespan__low": "carcharias_taurus"
           },
           "remainingValidatorReasons": [
             "animal carcharhinus_amblyrhynchos: missing approved photo"
@@ -12302,7 +12329,34 @@
       "hasApprovedPhoto": false,
       "hasRasterPhoto": false,
       "hasRegisteredCartoon": false,
-      "witnesses": []
+      "witnesses": [
+        {
+          "mode": "easy",
+          "templateId": "reviewed-fish-20261016-fish-easy-81dc04472f94",
+          "animalIds": [
+            "carassius_auratus",
+            "carcharhinus_leucas",
+            "hippocampus_kuda",
+            "hippoglossus_hippoglossus"
+          ],
+          "traitIds": [
+            "aquatic_cited_total_length",
+            "fish_record_length",
+            "fish_record_wild_age__low",
+            "marine_habitat_depth__low"
+          ],
+          "winners": {
+            "aquatic_cited_total_length": "hippoglossus_hippoglossus",
+            "fish_record_length": "carcharhinus_leucas",
+            "fish_record_wild_age__low": "hippocampus_kuda",
+            "marine_habitat_depth__low": "carassius_auratus"
+          },
+          "remainingValidatorReasons": [
+            "animal hippocampus_kuda: missing approved photo"
+          ],
+          "publicationStatus": "research only; requires asset and source-context review before admission"
+        }
+      ]
     },
     {
       "animalId": "hippoglossus_stenolepis",
@@ -12318,24 +12372,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-d2c80a8c4b88",
+          "templateId": "reviewed-fish-20261016-fish-easy-6676d84c6362",
           "animalIds": [
-            "galeocerdo_cuvier",
-            "salmo_salar",
+            "carcharhinus_leucas",
+            "negaprion_brevirostris",
             "hippoglossus_stenolepis",
-            "triakis_semifasciata"
+            "salmo_salar"
           ],
           "traitIds": [
-            "adult_body_mass__low",
-            "fish_record_length",
-            "marine_habitat_depth",
-            "marine_description_year"
+            "adult_body_mass",
+            "aquatic_cited_total_length",
+            "fish_record_length__low",
+            "marine_habitat_depth__low"
           ],
           "winners": {
-            "adult_body_mass__low": "triakis_semifasciata",
-            "fish_record_length": "galeocerdo_cuvier",
-            "marine_habitat_depth": "hippoglossus_stenolepis",
-            "marine_description_year": "salmo_salar"
+            "adult_body_mass": "hippoglossus_stenolepis",
+            "aquatic_cited_total_length": "carcharhinus_leucas",
+            "fish_record_length__low": "salmo_salar",
+            "marine_habitat_depth__low": "negaprion_brevirostris"
           },
           "remainingValidatorReasons": [
             "animal hippoglossus_stenolepis: missing approved photo"
@@ -12344,25 +12398,25 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-6e08d537aafc",
+          "templateId": "reviewed-fish-20261016-fish-normal-35571b25524d",
           "animalIds": [
-            "hippoglossus_stenolepis",
-            "cyprinus_carpio",
+            "carcharhinus_leucas",
             "galeocerdo_cuvier",
             "negaprion_brevirostris",
-            "sphyrna_lewini",
+            "hippoglossus_stenolepis",
+            "salmo_salar",
             "triakis_semifasciata"
           ],
           "traitIds": [
             "adult_body_mass__low",
-            "fish_record_length",
-            "marine_description_year",
+            "aquatic_cited_total_length",
+            "fish_record_length__low",
             "marine_habitat_depth"
           ],
           "winners": {
             "adult_body_mass__low": "triakis_semifasciata",
-            "fish_record_length": "galeocerdo_cuvier",
-            "marine_description_year": "cyprinus_carpio",
+            "aquatic_cited_total_length": "galeocerdo_cuvier",
+            "fish_record_length__low": "salmo_salar",
             "marine_habitat_depth": "hippoglossus_stenolepis"
           },
           "remainingValidatorReasons": [
@@ -12386,24 +12440,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-9553cc174709",
+          "templateId": "reviewed-fish-20261016-fish-easy-511691f3e648",
           "animalIds": [
-            "ictalurus_punctatus",
+            "carcharhinus_leucas",
+            "gadus_morhua",
             "negaprion_brevirostris",
-            "prionace_glauca",
-            "sphyrna_lewini"
+            "ictalurus_punctatus"
           ],
           "traitIds": [
-            "fish_igfa_record_mass__low",
+            "adult_body_mass__low",
             "fish_record_length",
-            "marine_description_year__low",
-            "marine_habitat_depth"
+            "marine_habitat_depth",
+            "wild_recorded_lifespan"
           ],
           "winners": {
-            "fish_igfa_record_mass__low": "ictalurus_punctatus",
-            "fish_record_length": "sphyrna_lewini",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth": "prionace_glauca"
+            "adult_body_mass__low": "ictalurus_punctatus",
+            "fish_record_length": "negaprion_brevirostris",
+            "marine_habitat_depth": "gadus_morhua",
+            "wild_recorded_lifespan": "carcharhinus_leucas"
           },
           "remainingValidatorReasons": [
             "animal ictalurus_punctatus: missing approved photo"
@@ -12412,26 +12466,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-f0db2183b605",
+          "templateId": "reviewed-fish-20261016-fish-normal-e66194547790",
           "animalIds": [
             "ictalurus_punctatus",
-            "galeocerdo_cuvier",
-            "prionace_glauca",
+            "gadus_morhua",
+            "negaprion_brevirostris",
+            "perca_fluviatilis",
             "salmo_salar",
-            "sphyrna_lewini",
             "triakis_semifasciata"
           ],
           "traitIds": [
             "adult_body_mass__low",
-            "aquatic_cited_total_length__low",
+            "fish_record_length",
             "marine_habitat_depth",
             "wild_recorded_lifespan"
           ],
           "winners": {
-            "adult_body_mass__low": "triakis_semifasciata",
-            "aquatic_cited_total_length__low": "ictalurus_punctatus",
-            "marine_habitat_depth": "prionace_glauca",
-            "wild_recorded_lifespan": "galeocerdo_cuvier"
+            "adult_body_mass__low": "perca_fluviatilis",
+            "fish_record_length": "negaprion_brevirostris",
+            "marine_habitat_depth": "gadus_morhua",
+            "wild_recorded_lifespan": "triakis_semifasciata"
           },
           "remainingValidatorReasons": [
             "animal ictalurus_punctatus: missing approved photo"
@@ -12454,24 +12508,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-fde7f04cf6b2",
+          "templateId": "reviewed-fish-20261016-fish-easy-aa0957acb90f",
           "animalIds": [
+            "carcharhinus_leucas",
             "micropterus_dolomieu",
-            "carcharias_taurus",
-            "negaprion_brevirostris",
-            "sphyrna_lewini"
+            "thunnus_alalunga",
+            "triakis_semifasciata"
           ],
           "traitIds": [
-            "aquatic_cited_total_length",
+            "fish_igfa_record_mass__low",
             "marine_description_year__low",
-            "marine_habitat_depth__low",
-            "wild_recorded_lifespan__low"
+            "marine_habitat_depth",
+            "wild_recorded_lifespan"
           ],
           "winners": {
-            "aquatic_cited_total_length": "sphyrna_lewini",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth__low": "micropterus_dolomieu",
-            "wild_recorded_lifespan__low": "carcharias_taurus"
+            "fish_igfa_record_mass__low": "micropterus_dolomieu",
+            "marine_description_year__low": "triakis_semifasciata",
+            "marine_habitat_depth": "thunnus_alalunga",
+            "wild_recorded_lifespan": "carcharhinus_leucas"
           },
           "remainingValidatorReasons": [
             "animal micropterus_dolomieu: missing approved photo"
@@ -12480,26 +12534,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-fe768e6c44ad",
+          "templateId": "reviewed-fish-20261016-fish-normal-64accab8cc7b",
           "animalIds": [
-            "galeocerdo_cuvier",
             "micropterus_dolomieu",
-            "perca_flavescens",
-            "prionace_glauca",
-            "sphyrna_lewini",
+            "carcharias_taurus",
+            "galeocerdo_cuvier",
+            "myliobatis_californica",
+            "thunnus_alalunga",
             "triakis_semifasciata"
           ],
           "traitIds": [
-            "aquatic_cited_total_length__low",
-            "fish_igfa_record_mass",
+            "fish_igfa_record_mass__low",
             "marine_description_year__low",
-            "marine_habitat_depth"
+            "marine_habitat_depth",
+            "wild_recorded_lifespan__low"
           ],
           "winners": {
-            "aquatic_cited_total_length__low": "perca_flavescens",
-            "fish_igfa_record_mass": "galeocerdo_cuvier",
-            "marine_description_year__low": "triakis_semifasciata",
-            "marine_habitat_depth": "prionace_glauca"
+            "fish_igfa_record_mass__low": "micropterus_dolomieu",
+            "marine_description_year__low": "myliobatis_californica",
+            "marine_habitat_depth": "galeocerdo_cuvier",
+            "wild_recorded_lifespan__low": "carcharias_taurus"
           },
           "remainingValidatorReasons": [
             "animal micropterus_dolomieu: missing approved photo"
@@ -12535,24 +12589,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-fde7f04cf6b2",
+          "templateId": "reviewed-fish-20261016-fish-easy-35d81a5f050a",
           "animalIds": [
-            "carassius_auratus",
+            "galeocerdo_cuvier",
+            "thunnus_alalunga",
             "rachycentron_canadum",
-            "negaprion_brevirostris",
-            "sphyrna_lewini"
+            "triakis_semifasciata"
           ],
           "traitIds": [
-            "aquatic_cited_total_length",
+            "adult_body_mass",
             "marine_description_year__low",
-            "marine_habitat_depth__low",
+            "marine_habitat_depth",
             "wild_recorded_lifespan__low"
           ],
           "winners": {
-            "aquatic_cited_total_length": "sphyrna_lewini",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth__low": "carassius_auratus",
-            "wild_recorded_lifespan__low": "rachycentron_canadum"
+            "adult_body_mass": "galeocerdo_cuvier",
+            "marine_description_year__low": "triakis_semifasciata",
+            "marine_habitat_depth": "rachycentron_canadum",
+            "wild_recorded_lifespan__low": "thunnus_alalunga"
           },
           "remainingValidatorReasons": [
             "animal rachycentron_canadum: missing approved photo"
@@ -12561,26 +12615,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-4c934a7fb394",
+          "templateId": "reviewed-fish-20261016-fish-normal-7fb47d9dc497",
           "animalIds": [
-            "carcharias_taurus",
-            "cetorhinus_maximus",
             "rachycentron_canadum",
+            "carcharias_taurus",
             "galeocerdo_cuvier",
+            "myliobatis_californica",
             "prionace_glauca",
-            "sphyrna_lewini"
+            "thunnus_alalunga"
           ],
           "traitIds": [
             "adult_body_mass",
-            "aquatic_cited_total_length__low",
+            "marine_description_year",
             "marine_habitat_depth__low",
-            "wild_recorded_lifespan"
+            "wild_recorded_lifespan__low"
           ],
           "winners": {
-            "adult_body_mass": "cetorhinus_maximus",
-            "aquatic_cited_total_length__low": "rachycentron_canadum",
-            "marine_habitat_depth__low": "carcharias_taurus",
-            "wild_recorded_lifespan": "galeocerdo_cuvier"
+            "adult_body_mass": "galeocerdo_cuvier",
+            "marine_description_year": "prionace_glauca",
+            "marine_habitat_depth__low": "myliobatis_californica",
+            "wild_recorded_lifespan__low": "carcharias_taurus"
           },
           "remainingValidatorReasons": [
             "animal rachycentron_canadum: missing approved photo"
@@ -12671,24 +12725,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-d7fa29af10fb",
+          "templateId": "reviewed-fish-20261016-fish-easy-aa0957acb90f",
           "animalIds": [
-            "cetorhinus_maximus",
-            "negaprion_brevirostris",
+            "carcharhinus_leucas",
             "scomberomorus_maculatus",
-            "sphyrna_lewini"
+            "thunnus_alalunga",
+            "triakis_semifasciata"
           ],
           "traitIds": [
-            "adult_body_mass__low",
+            "fish_igfa_record_mass__low",
             "marine_description_year__low",
             "marine_habitat_depth",
             "wild_recorded_lifespan"
           ],
           "winners": {
-            "adult_body_mass__low": "scomberomorus_maculatus",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth": "cetorhinus_maximus",
-            "wild_recorded_lifespan": "sphyrna_lewini"
+            "fish_igfa_record_mass__low": "scomberomorus_maculatus",
+            "marine_description_year__low": "triakis_semifasciata",
+            "marine_habitat_depth": "thunnus_alalunga",
+            "wild_recorded_lifespan": "carcharhinus_leucas"
           },
           "remainingValidatorReasons": [
             "animal scomberomorus_maculatus: missing approved photo"
@@ -12697,14 +12751,14 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-6de419345d18",
+          "templateId": "reviewed-fish-20261016-fish-normal-e4d548e33a95",
           "animalIds": [
+            "carcharhinus_leucas",
             "galeocerdo_cuvier",
-            "lates_niloticus",
             "negaprion_brevirostris",
             "scomberomorus_maculatus",
-            "sphyrna_lewini",
-            "triakis_semifasciata"
+            "thunnus_alalunga",
+            "thunnus_thynnus"
           ],
           "traitIds": [
             "adult_body_mass",
@@ -12715,7 +12769,7 @@
           "winners": {
             "adult_body_mass": "galeocerdo_cuvier",
             "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth": "sphyrna_lewini",
+            "marine_habitat_depth": "thunnus_thynnus",
             "wild_recorded_lifespan__low": "scomberomorus_maculatus"
           },
           "remainingValidatorReasons": [
@@ -12739,24 +12793,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-29a7806e60bb",
+          "templateId": "reviewed-fish-20261016-fish-easy-0607cdc107d5",
           "animalIds": [
-            "galeocerdo_cuvier",
-            "sphyraena_barracuda",
+            "carcharhinus_leucas",
+            "negaprion_brevirostris",
             "sphyrna_lewini",
-            "triakis_semifasciata"
+            "sphyraena_barracuda"
           ],
           "traitIds": [
             "adult_body_mass",
+            "aquatic_cited_total_length",
             "fish_record_length__low",
-            "marine_habitat_depth",
-            "marine_description_year__low"
+            "marine_habitat_depth__low"
           ],
           "winners": {
-            "adult_body_mass": "galeocerdo_cuvier",
+            "adult_body_mass": "carcharhinus_leucas",
+            "aquatic_cited_total_length": "sphyrna_lewini",
             "fish_record_length__low": "sphyraena_barracuda",
-            "marine_habitat_depth": "sphyrna_lewini",
-            "marine_description_year__low": "triakis_semifasciata"
+            "marine_habitat_depth__low": "negaprion_brevirostris"
           },
           "remainingValidatorReasons": [
             "animal sphyraena_barracuda: missing approved photo"
@@ -12765,26 +12819,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-6e08d537aafc",
+          "templateId": "reviewed-fish-20261016-fish-normal-35571b25524d",
           "animalIds": [
-            "sphyraena_barracuda",
-            "cyprinus_carpio",
+            "carcharhinus_leucas",
             "galeocerdo_cuvier",
             "negaprion_brevirostris",
-            "sphyrna_lewini",
-            "triakis_semifasciata"
+            "prionace_glauca",
+            "salmo_salar",
+            "sphyraena_barracuda"
           ],
           "traitIds": [
             "adult_body_mass__low",
-            "fish_record_length",
-            "marine_description_year",
+            "aquatic_cited_total_length",
+            "fish_record_length__low",
             "marine_habitat_depth"
           ],
           "winners": {
-            "adult_body_mass__low": "triakis_semifasciata",
-            "fish_record_length": "galeocerdo_cuvier",
-            "marine_description_year": "cyprinus_carpio",
-            "marine_habitat_depth": "sphyrna_lewini"
+            "adult_body_mass__low": "sphyraena_barracuda",
+            "aquatic_cited_total_length": "galeocerdo_cuvier",
+            "fish_record_length__low": "salmo_salar",
+            "marine_habitat_depth": "prionace_glauca"
           },
           "remainingValidatorReasons": [
             "animal sphyraena_barracuda: missing approved photo"
@@ -12924,74 +12978,6 @@
           },
           "remainingValidatorReasons": [
             "animal terrapene_ornata: missing approved photo"
-          ],
-          "publicationStatus": "research only; requires asset and source-context review before admission"
-        }
-      ]
-    },
-    {
-      "animalId": "thunnus_thynnus",
-      "commonName": "Atlantic bluefin tuna",
-      "group": "fish",
-      "familiarity": "familiar",
-      "publishedTraitDirections": 14,
-      "distinctMetrics": 6,
-      "intuitiveMetrics": 5,
-      "hasApprovedPhoto": false,
-      "hasRasterPhoto": false,
-      "hasRegisteredCartoon": true,
-      "witnesses": [
-        {
-          "mode": "easy",
-          "templateId": "groups-fish-easy-013aeee00549",
-          "animalIds": [
-            "galeocerdo_cuvier",
-            "thunnus_thynnus",
-            "salmo_salar",
-            "triakis_semifasciata"
-          ],
-          "traitIds": [
-            "adult_body_mass__low",
-            "aquatic_cited_total_length__low",
-            "marine_habitat_depth",
-            "wild_recorded_lifespan"
-          ],
-          "winners": {
-            "adult_body_mass__low": "triakis_semifasciata",
-            "aquatic_cited_total_length__low": "salmo_salar",
-            "marine_habitat_depth": "thunnus_thynnus",
-            "wild_recorded_lifespan": "galeocerdo_cuvier"
-          },
-          "remainingValidatorReasons": [
-            "animal thunnus_thynnus: missing approved photo"
-          ],
-          "publicationStatus": "research only; requires asset and source-context review before admission"
-        },
-        {
-          "mode": "normal",
-          "templateId": "groups-fish-normal-f0db2183b605",
-          "animalIds": [
-            "thunnus_thynnus",
-            "galeocerdo_cuvier",
-            "prionace_glauca",
-            "salmo_salar",
-            "sphyrna_lewini",
-            "triakis_semifasciata"
-          ],
-          "traitIds": [
-            "adult_body_mass__low",
-            "aquatic_cited_total_length__low",
-            "marine_habitat_depth",
-            "wild_recorded_lifespan"
-          ],
-          "winners": {
-            "adult_body_mass__low": "triakis_semifasciata",
-            "aquatic_cited_total_length__low": "salmo_salar",
-            "marine_habitat_depth": "prionace_glauca",
-            "wild_recorded_lifespan": "galeocerdo_cuvier"
-          },
-          "remainingValidatorReasons": [
-            "animal thunnus_thynnus: missing approved photo"
           ],
           "publicationStatus": "research only; requires asset and source-context review before admission"
         }
@@ -13283,24 +13269,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-f6951e89fc5c",
+          "templateId": "reviewed-fish-20261016-fish-easy-2eb6788be882",
           "animalIds": [
-            "carcharias_taurus",
+            "gadus_morhua",
+            "hippoglossus_hippoglossus",
             "clupea_harengus",
-            "negaprion_brevirostris",
-            "sphyrna_lewini"
+            "salmo_trutta"
           ],
           "traitIds": [
-            "fish_record_length",
-            "marine_description_year",
-            "marine_habitat_depth__low",
-            "wild_recorded_lifespan__low"
+            "fish_egg_diameter",
+            "fish_record_length__low",
+            "fish_ripe_egg_count",
+            "marine_habitat_depth"
           ],
           "winners": {
-            "fish_record_length": "sphyrna_lewini",
-            "marine_description_year": "clupea_harengus",
-            "marine_habitat_depth__low": "negaprion_brevirostris",
-            "wild_recorded_lifespan__low": "carcharias_taurus"
+            "fish_egg_diameter": "salmo_trutta",
+            "fish_record_length__low": "clupea_harengus",
+            "fish_ripe_egg_count": "gadus_morhua",
+            "marine_habitat_depth": "hippoglossus_hippoglossus"
           },
           "remainingValidatorReasons": [
             "animal clupea_harengus: missing approved photo"
@@ -13351,24 +13337,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-feee8a442f77",
+          "templateId": "reviewed-fish-20261016-fish-easy-2eb6788be882",
           "animalIds": [
-            "cyprinus_carpio",
             "gadus_morhua",
+            "hippoglossus_hippoglossus",
             "engraulis_encrasicolus",
             "salmo_trutta"
           ],
           "traitIds": [
+            "fish_egg_diameter",
             "fish_record_length__low",
-            "fish_record_wild_age",
             "fish_ripe_egg_count",
-            "marine_habitat_depth__low"
+            "marine_habitat_depth"
           ],
           "winners": {
+            "fish_egg_diameter": "salmo_trutta",
             "fish_record_length__low": "engraulis_encrasicolus",
-            "fish_record_wild_age": "cyprinus_carpio",
             "fish_ripe_egg_count": "gadus_morhua",
-            "marine_habitat_depth__low": "salmo_trutta"
+            "marine_habitat_depth": "hippoglossus_hippoglossus"
           },
           "remainingValidatorReasons": [
             "animal engraulis_encrasicolus: missing approved photo"
@@ -13580,24 +13566,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-d7fa29af10fb",
+          "templateId": "reviewed-fish-20261016-fish-easy-659b9894bc0c",
           "animalIds": [
-            "cetorhinus_maximus",
-            "negaprion_brevirostris",
-            "salvelinus_fontinalis",
-            "sphyrna_lewini"
+            "carassius_auratus",
+            "gadus_morhua",
+            "hippoglossus_hippoglossus",
+            "salvelinus_fontinalis"
           ],
           "traitIds": [
-            "adult_body_mass__low",
-            "marine_description_year__low",
-            "marine_habitat_depth",
-            "wild_recorded_lifespan"
+            "fish_egg_diameter__low",
+            "fish_record_wild_age__low",
+            "fish_ripe_egg_count",
+            "marine_habitat_depth"
           ],
           "winners": {
-            "adult_body_mass__low": "salvelinus_fontinalis",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth": "cetorhinus_maximus",
-            "wild_recorded_lifespan": "sphyrna_lewini"
+            "fish_egg_diameter__low": "carassius_auratus",
+            "fish_record_wild_age__low": "salvelinus_fontinalis",
+            "fish_ripe_egg_count": "gadus_morhua",
+            "marine_habitat_depth": "hippoglossus_hippoglossus"
           },
           "remainingValidatorReasons": [
             "animal salvelinus_fontinalis: missing approved photo"
@@ -13606,14 +13592,14 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-6de419345d18",
+          "templateId": "reviewed-fish-20261016-fish-normal-e4d548e33a95",
           "animalIds": [
+            "carcharhinus_leucas",
             "galeocerdo_cuvier",
-            "lates_niloticus",
             "negaprion_brevirostris",
             "salvelinus_fontinalis",
-            "sphyrna_lewini",
-            "triakis_semifasciata"
+            "thunnus_alalunga",
+            "thunnus_thynnus"
           ],
           "traitIds": [
             "adult_body_mass",
@@ -13624,8 +13610,8 @@
           "winners": {
             "adult_body_mass": "galeocerdo_cuvier",
             "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth": "sphyrna_lewini",
-            "wild_recorded_lifespan__low": "lates_niloticus"
+            "marine_habitat_depth": "thunnus_thynnus",
+            "wild_recorded_lifespan__low": "thunnus_alalunga"
           },
           "remainingValidatorReasons": [
             "animal salvelinus_fontinalis: missing approved photo"
@@ -13674,24 +13660,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-29315e8b0c33",
+          "templateId": "reviewed-fish-20261016-fish-easy-41bac90bcce5",
           "animalIds": [
             "negaprion_brevirostris",
             "anguilla_rostrata",
-            "prionace_glauca",
-            "sphyrna_lewini"
+            "sphyrna_lewini",
+            "thunnus_thynnus"
           ],
           "traitIds": [
+            "adult_body_mass__low",
             "aquatic_cited_total_length",
-            "fish_igfa_record_mass__low",
             "marine_description_year__low",
             "marine_habitat_depth"
           ],
           "winners": {
-            "aquatic_cited_total_length": "sphyrna_lewini",
-            "fish_igfa_record_mass__low": "anguilla_rostrata",
+            "adult_body_mass__low": "anguilla_rostrata",
+            "aquatic_cited_total_length": "thunnus_thynnus",
             "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth": "prionace_glauca"
+            "marine_habitat_depth": "sphyrna_lewini"
           },
           "remainingValidatorReasons": [
             "animal anguilla_rostrata: missing approved photo"
@@ -13727,24 +13713,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-0b6d16641757",
+          "templateId": "reviewed-fish-20261016-fish-easy-35d81a5f050a",
           "animalIds": [
             "galeocerdo_cuvier",
             "centropomus_undecimalis",
-            "prionace_glauca",
-            "sphyrna_lewini"
+            "thunnus_thynnus",
+            "triakis_semifasciata"
           ],
           "traitIds": [
-            "aquatic_cited_total_length__low",
-            "fish_igfa_record_mass",
+            "adult_body_mass",
             "marine_description_year__low",
-            "marine_habitat_depth"
+            "marine_habitat_depth",
+            "wild_recorded_lifespan__low"
           ],
           "winners": {
-            "aquatic_cited_total_length__low": "centropomus_undecimalis",
-            "fish_igfa_record_mass": "galeocerdo_cuvier",
-            "marine_description_year__low": "sphyrna_lewini",
-            "marine_habitat_depth": "prionace_glauca"
+            "adult_body_mass": "galeocerdo_cuvier",
+            "marine_description_year__low": "triakis_semifasciata",
+            "marine_habitat_depth": "thunnus_thynnus",
+            "wild_recorded_lifespan__low": "centropomus_undecimalis"
           },
           "remainingValidatorReasons": [
             "animal centropomus_undecimalis: missing approved photo"
@@ -13753,26 +13739,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-f0db2183b605",
+          "templateId": "reviewed-fish-20261016-fish-normal-55ed9ff353a6",
           "animalIds": [
             "centropomus_undecimalis",
             "galeocerdo_cuvier",
-            "prionace_glauca",
+            "lates_niloticus",
+            "perca_flavescens",
             "salmo_salar",
-            "sphyrna_lewini",
-            "triakis_semifasciata"
+            "sphyrna_lewini"
           ],
           "traitIds": [
-            "adult_body_mass__low",
+            "adult_body_mass",
             "aquatic_cited_total_length__low",
             "marine_habitat_depth",
-            "wild_recorded_lifespan"
+            "wild_recorded_lifespan__low"
           ],
           "winners": {
-            "adult_body_mass__low": "triakis_semifasciata",
-            "aquatic_cited_total_length__low": "centropomus_undecimalis",
-            "marine_habitat_depth": "prionace_glauca",
-            "wild_recorded_lifespan": "galeocerdo_cuvier"
+            "adult_body_mass": "galeocerdo_cuvier",
+            "aquatic_cited_total_length__low": "perca_flavescens",
+            "marine_habitat_depth": "sphyrna_lewini",
+            "wild_recorded_lifespan__low": "centropomus_undecimalis"
           },
           "remainingValidatorReasons": [
             "animal centropomus_undecimalis: missing approved photo"
@@ -14011,12 +13997,12 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-eae8e4f5b257",
+          "templateId": "reviewed-fish-20261016-fish-easy-b1cf1919d06b",
           "animalIds": [
+            "carcharias_taurus",
             "esox_masquinongy",
-            "negaprion_brevirostris",
-            "salmo_salar",
-            "sphyrna_lewini"
+            "sphyrna_lewini",
+            "thunnus_thynnus"
           ],
           "traitIds": [
             "adult_body_mass__low",
@@ -14026,9 +14012,9 @@
           ],
           "winners": {
             "adult_body_mass__low": "esox_masquinongy",
-            "aquatic_cited_total_length": "sphyrna_lewini",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "wild_recorded_lifespan__low": "salmo_salar"
+            "aquatic_cited_total_length": "thunnus_thynnus",
+            "marine_description_year__low": "sphyrna_lewini",
+            "wild_recorded_lifespan__low": "carcharias_taurus"
           },
           "remainingValidatorReasons": [
             "animal esox_masquinongy: missing approved photo"
@@ -14051,23 +14037,23 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-0b6d16641757",
+          "templateId": "reviewed-fish-20261016-fish-easy-005f1cb4079a",
           "animalIds": [
+            "carcharhinus_leucas",
             "galeocerdo_cuvier",
             "euthynnus_alletteratus",
-            "prionace_glauca",
-            "sphyrna_lewini"
+            "prionace_glauca"
           ],
           "traitIds": [
-            "aquatic_cited_total_length__low",
-            "fish_igfa_record_mass",
+            "aquatic_cited_total_length",
+            "fish_igfa_record_mass__low",
             "marine_description_year__low",
             "marine_habitat_depth"
           ],
           "winners": {
-            "aquatic_cited_total_length__low": "euthynnus_alletteratus",
-            "fish_igfa_record_mass": "galeocerdo_cuvier",
-            "marine_description_year__low": "sphyrna_lewini",
+            "aquatic_cited_total_length": "galeocerdo_cuvier",
+            "fish_igfa_record_mass__low": "euthynnus_alletteratus",
+            "marine_description_year__low": "carcharhinus_leucas",
             "marine_habitat_depth": "prionace_glauca"
           },
           "remainingValidatorReasons": [
@@ -14499,48 +14485,6 @@
       ]
     },
     {
-      "animalId": "pterois_volitans",
-      "commonName": "Red lionfish",
-      "group": "fish",
-      "familiarity": "familiar",
-      "publishedTraitDirections": 12,
-      "distinctMetrics": 5,
-      "intuitiveMetrics": 4,
-      "hasApprovedPhoto": false,
-      "hasRasterPhoto": false,
-      "hasRegisteredCartoon": true,
-      "witnesses": [
-        {
-          "mode": "normal",
-          "templateId": "groups-fish-normal-62ddd1776855",
-          "animalIds": [
-            "pterois_volitans",
-            "carcharias_taurus",
-            "galeocerdo_cuvier",
-            "negaprion_brevirostris",
-            "sphyrna_lewini",
-            "triakis_semifasciata"
-          ],
-          "traitIds": [
-            "fish_record_length",
-            "marine_description_year__low",
-            "marine_habitat_depth",
-            "wild_recorded_lifespan__low"
-          ],
-          "winners": {
-            "fish_record_length": "galeocerdo_cuvier",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth": "sphyrna_lewini",
-            "wild_recorded_lifespan__low": "pterois_volitans"
-          },
-          "remainingValidatorReasons": [
-            "animal pterois_volitans: missing approved photo"
-          ],
-          "publicationStatus": "research only; requires asset and source-context review before admission"
-        }
-      ]
-    },
-    {
       "animalId": "rhyzobius__lophanthae",
       "commonName": "Red-headed Rhyzobius",
       "group": "insect",
@@ -14594,39 +14538,11 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-d7fa29af10fb",
-          "animalIds": [
-            "cetorhinus_maximus",
-            "negaprion_brevirostris",
-            "sarda_sarda",
-            "sphyrna_lewini"
-          ],
-          "traitIds": [
-            "adult_body_mass__low",
-            "marine_description_year__low",
-            "marine_habitat_depth",
-            "wild_recorded_lifespan"
-          ],
-          "winners": {
-            "adult_body_mass__low": "sarda_sarda",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "marine_habitat_depth": "cetorhinus_maximus",
-            "wild_recorded_lifespan": "sphyrna_lewini"
-          },
-          "remainingValidatorReasons": [
-            "animal sarda_sarda: missing approved photo"
-          ],
-          "publicationStatus": "research only; requires asset and source-context review before admission"
-        },
-        {
-          "mode": "normal",
-          "templateId": "groups-fish-normal-6de419345d18",
+          "templateId": "reviewed-fish-20261016-fish-easy-35d81a5f050a",
           "animalIds": [
             "galeocerdo_cuvier",
             "sarda_sarda",
-            "negaprion_brevirostris",
-            "perca_flavescens",
-            "sphyrna_lewini",
+            "thunnus_thynnus",
             "triakis_semifasciata"
           ],
           "traitIds": [
@@ -14637,7 +14553,35 @@
           ],
           "winners": {
             "adult_body_mass": "galeocerdo_cuvier",
-            "marine_description_year__low": "negaprion_brevirostris",
+            "marine_description_year__low": "triakis_semifasciata",
+            "marine_habitat_depth": "thunnus_thynnus",
+            "wild_recorded_lifespan__low": "sarda_sarda"
+          },
+          "remainingValidatorReasons": [
+            "animal sarda_sarda: missing approved photo"
+          ],
+          "publicationStatus": "research only; requires asset and source-context review before admission"
+        },
+        {
+          "mode": "normal",
+          "templateId": "reviewed-fish-20261016-fish-normal-e4f827a61f03",
+          "animalIds": [
+            "galeocerdo_cuvier",
+            "myliobatis_californica",
+            "perca_flavescens",
+            "sphyrna_lewini",
+            "sarda_sarda",
+            "thunnus_thynnus"
+          ],
+          "traitIds": [
+            "adult_body_mass",
+            "marine_description_year",
+            "marine_habitat_depth",
+            "wild_recorded_lifespan__low"
+          ],
+          "winners": {
+            "adult_body_mass": "galeocerdo_cuvier",
+            "marine_description_year": "thunnus_thynnus",
             "marine_habitat_depth": "sphyrna_lewini",
             "wild_recorded_lifespan__low": "sarda_sarda"
           },
@@ -14742,24 +14686,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-0272180ca9f1",
+          "templateId": "reviewed-fish-20261016-fish-easy-41bac90bcce5",
           "animalIds": [
-            "carcharias_taurus",
-            "squalus_acanthias",
-            "galeocerdo_cuvier",
-            "sphyrna_lewini"
+            "negaprion_brevirostris",
+            "perca_flavescens",
+            "sphyrna_lewini",
+            "squalus_acanthias"
           ],
           "traitIds": [
-            "adult_body_mass",
-            "aquatic_cited_total_length__low",
+            "adult_body_mass__low",
+            "aquatic_cited_total_length",
             "marine_description_year__low",
-            "marine_habitat_depth__low"
+            "marine_habitat_depth"
           ],
           "winners": {
-            "adult_body_mass": "galeocerdo_cuvier",
-            "aquatic_cited_total_length__low": "squalus_acanthias",
-            "marine_description_year__low": "sphyrna_lewini",
-            "marine_habitat_depth__low": "carcharias_taurus"
+            "adult_body_mass__low": "perca_flavescens",
+            "aquatic_cited_total_length": "sphyrna_lewini",
+            "marine_description_year__low": "negaprion_brevirostris",
+            "marine_habitat_depth": "squalus_acanthias"
           },
           "remainingValidatorReasons": [
             "animal squalus_acanthias: missing approved photo"
@@ -14986,24 +14930,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-013aeee00549",
+          "templateId": "reviewed-fish-20261016-fish-easy-35d81a5f050a",
           "animalIds": [
             "galeocerdo_cuvier",
-            "prionace_glauca",
-            "salmo_salar",
+            "thunnus_alalunga",
+            "thunnus_thynnus",
             "triaenodon_obesus"
           ],
           "traitIds": [
-            "adult_body_mass__low",
-            "aquatic_cited_total_length__low",
+            "adult_body_mass",
+            "marine_description_year__low",
             "marine_habitat_depth",
-            "wild_recorded_lifespan"
+            "wild_recorded_lifespan__low"
           ],
           "winners": {
-            "adult_body_mass__low": "triaenodon_obesus",
-            "aquatic_cited_total_length__low": "salmo_salar",
-            "marine_habitat_depth": "prionace_glauca",
-            "wild_recorded_lifespan": "galeocerdo_cuvier"
+            "adult_body_mass": "galeocerdo_cuvier",
+            "marine_description_year__low": "triaenodon_obesus",
+            "marine_habitat_depth": "thunnus_thynnus",
+            "wild_recorded_lifespan__low": "thunnus_alalunga"
           },
           "remainingValidatorReasons": [
             "animal triaenodon_obesus: missing approved photo"
@@ -15012,26 +14956,26 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-f0db2183b605",
+          "templateId": "reviewed-fish-20261016-fish-normal-ddcf05638efa",
           "animalIds": [
             "cetorhinus_maximus",
             "galeocerdo_cuvier",
-            "prionace_glauca",
-            "salmo_salar",
+            "negaprion_brevirostris",
             "sphyrna_lewini",
+            "thunnus_thynnus",
             "triaenodon_obesus"
           ],
           "traitIds": [
-            "adult_body_mass__low",
+            "adult_body_mass",
             "aquatic_cited_total_length__low",
-            "marine_habitat_depth",
-            "wild_recorded_lifespan"
+            "marine_habitat_depth__low",
+            "wild_recorded_lifespan__low"
           ],
           "winners": {
-            "adult_body_mass__low": "triaenodon_obesus",
-            "aquatic_cited_total_length__low": "salmo_salar",
-            "marine_habitat_depth": "cetorhinus_maximus",
-            "wild_recorded_lifespan": "galeocerdo_cuvier"
+            "adult_body_mass": "cetorhinus_maximus",
+            "aquatic_cited_total_length__low": "triaenodon_obesus",
+            "marine_habitat_depth__low": "negaprion_brevirostris",
+            "wild_recorded_lifespan__low": "thunnus_thynnus"
           },
           "remainingValidatorReasons": [
             "animal triaenodon_obesus: missing approved photo"
@@ -15334,7 +15278,34 @@
       "hasApprovedPhoto": false,
       "hasRasterPhoto": false,
       "hasRegisteredCartoon": false,
-      "witnesses": []
+      "witnesses": [
+        {
+          "mode": "easy",
+          "templateId": "reviewed-fish-20261016-fish-easy-005f1cb4079a",
+          "animalIds": [
+            "carcharhinus_leucas",
+            "galeocerdo_cuvier",
+            "seriola_lalandi",
+            "prionace_glauca"
+          ],
+          "traitIds": [
+            "aquatic_cited_total_length",
+            "fish_igfa_record_mass__low",
+            "marine_description_year__low",
+            "marine_habitat_depth"
+          ],
+          "winners": {
+            "aquatic_cited_total_length": "galeocerdo_cuvier",
+            "fish_igfa_record_mass__low": "seriola_lalandi",
+            "marine_description_year__low": "carcharhinus_leucas",
+            "marine_habitat_depth": "prionace_glauca"
+          },
+          "remainingValidatorReasons": [
+            "animal seriola_lalandi: missing approved photo"
+          ],
+          "publicationStatus": "research only; requires asset and source-context review before admission"
+        }
+      ]
     },
     {
       "animalId": "amphiprion_ocellaris",
@@ -15416,23 +15387,23 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-0b6d16641757",
+          "templateId": "reviewed-fish-20261016-fish-easy-005f1cb4079a",
           "animalIds": [
+            "carcharhinus_leucas",
             "galeocerdo_cuvier",
             "balistes_capriscus",
-            "prionace_glauca",
-            "sphyrna_lewini"
+            "prionace_glauca"
           ],
           "traitIds": [
-            "aquatic_cited_total_length__low",
-            "fish_igfa_record_mass",
+            "aquatic_cited_total_length",
+            "fish_igfa_record_mass__low",
             "marine_description_year__low",
             "marine_habitat_depth"
           ],
           "winners": {
-            "aquatic_cited_total_length__low": "balistes_capriscus",
-            "fish_igfa_record_mass": "galeocerdo_cuvier",
-            "marine_description_year__low": "sphyrna_lewini",
+            "aquatic_cited_total_length": "galeocerdo_cuvier",
+            "fish_igfa_record_mass__low": "balistes_capriscus",
+            "marine_description_year__low": "carcharhinus_leucas",
             "marine_habitat_depth": "prionace_glauca"
           },
           "remainingValidatorReasons": [
@@ -16111,23 +16082,23 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-b25439c181c4",
+          "templateId": "reviewed-fish-20261016-fish-easy-0da86dd12ce4",
           "animalIds": [
+            "carcharhinus_leucas",
             "carcharias_taurus",
             "galeocerdo_cuvier",
-            "mustelus_mustelus",
-            "sphyrna_lewini"
+            "mustelus_mustelus"
           ],
           "traitIds": [
-            "aquatic_cited_total_length",
-            "marine_description_year",
+            "aquatic_cited_total_length__low",
+            "marine_description_year__low",
             "marine_habitat_depth",
             "wild_recorded_lifespan__low"
           ],
           "winners": {
-            "aquatic_cited_total_length": "galeocerdo_cuvier",
-            "marine_description_year": "mustelus_mustelus",
-            "marine_habitat_depth": "sphyrna_lewini",
+            "aquatic_cited_total_length__low": "mustelus_mustelus",
+            "marine_description_year__low": "carcharhinus_leucas",
+            "marine_habitat_depth": "galeocerdo_cuvier",
             "wild_recorded_lifespan__low": "carcharias_taurus"
           },
           "remainingValidatorReasons": [
@@ -16507,12 +16478,12 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-eae8e4f5b257",
+          "templateId": "reviewed-fish-20261016-fish-easy-b1cf1919d06b",
           "animalIds": [
+            "carcharias_taurus",
             "sciaenops_ocellatus",
-            "negaprion_brevirostris",
-            "salmo_salar",
-            "sphyrna_lewini"
+            "sphyrna_lewini",
+            "thunnus_thynnus"
           ],
           "traitIds": [
             "adult_body_mass__low",
@@ -16522,9 +16493,9 @@
           ],
           "winners": {
             "adult_body_mass__low": "sciaenops_ocellatus",
-            "aquatic_cited_total_length": "sphyrna_lewini",
-            "marine_description_year__low": "negaprion_brevirostris",
-            "wild_recorded_lifespan__low": "salmo_salar"
+            "aquatic_cited_total_length": "thunnus_thynnus",
+            "marine_description_year__low": "sphyrna_lewini",
+            "wild_recorded_lifespan__low": "carcharias_taurus"
           },
           "remainingValidatorReasons": [
             "animal sciaenops_ocellatus: missing approved photo"
@@ -16769,23 +16740,23 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-0b6d16641757",
+          "templateId": "reviewed-fish-20261016-fish-easy-005f1cb4079a",
           "animalIds": [
+            "carcharhinus_leucas",
             "galeocerdo_cuvier",
             "trachinotus_carolinus",
-            "prionace_glauca",
-            "sphyrna_lewini"
+            "prionace_glauca"
           ],
           "traitIds": [
-            "aquatic_cited_total_length__low",
-            "fish_igfa_record_mass",
+            "aquatic_cited_total_length",
+            "fish_igfa_record_mass__low",
             "marine_description_year__low",
             "marine_habitat_depth"
           ],
           "winners": {
-            "aquatic_cited_total_length__low": "trachinotus_carolinus",
-            "fish_igfa_record_mass": "galeocerdo_cuvier",
-            "marine_description_year__low": "sphyrna_lewini",
+            "aquatic_cited_total_length": "galeocerdo_cuvier",
+            "fish_igfa_record_mass__low": "trachinotus_carolinus",
+            "marine_description_year__low": "carcharhinus_leucas",
             "marine_habitat_depth": "prionace_glauca"
           },
           "remainingValidatorReasons": [
@@ -17878,24 +17849,24 @@
       "witnesses": [
         {
           "mode": "easy",
-          "templateId": "groups-fish-easy-567a7be372f3",
+          "templateId": "reviewed-fish-20261016-fish-easy-407384fc72c4",
           "animalIds": [
-            "carcharias_taurus",
-            "dasyatis_americana",
             "manta_birostris",
-            "thunnus_alalunga"
+            "dasyatis_americana",
+            "galeocerdo_cuvier",
+            "sphyrna_lewini"
           ],
           "traitIds": [
             "adult_body_mass",
-            "female_maturity__low",
-            "habitat_depth_ceiling__low",
+            "female_maturity",
+            "habitat_depth_ceiling",
             "wild_recorded_lifespan__low"
           ],
           "winners": {
             "adult_body_mass": "manta_birostris",
-            "female_maturity__low": "thunnus_alalunga",
-            "habitat_depth_ceiling__low": "dasyatis_americana",
-            "wild_recorded_lifespan__low": "carcharias_taurus"
+            "female_maturity": "galeocerdo_cuvier",
+            "habitat_depth_ceiling": "sphyrna_lewini",
+            "wild_recorded_lifespan__low": "dasyatis_americana"
           },
           "remainingValidatorReasons": [
             "animal manta_birostris: missing approved photo"
@@ -17904,9 +17875,9 @@
         },
         {
           "mode": "normal",
-          "templateId": "groups-fish-normal-dea8d232af69",
+          "templateId": "reviewed-fish-20261016-fish-normal-bca97bba79f9",
           "animalIds": [
-            "carcharias_taurus",
+            "carcharhinus_leucas",
             "dasyatis_americana",
             "manta_birostris",
             "sphyrna_lewini",
@@ -17915,15 +17886,15 @@
           ],
           "traitIds": [
             "adult_body_mass__low",
-            "female_maturity__low",
+            "female_maturity",
             "habitat_depth_ceiling__low",
-            "wild_recorded_lifespan__low"
+            "wild_recorded_lifespan"
           ],
           "winners": {
             "adult_body_mass__low": "triakis_semifasciata",
-            "female_maturity__low": "sphyrna_lewini",
+            "female_maturity": "carcharhinus_leucas",
             "habitat_depth_ceiling__low": "dasyatis_americana",
-            "wild_recorded_lifespan__low": "carcharias_taurus"
+            "wild_recorded_lifespan": "sphyrna_lewini"
           },
           "remainingValidatorReasons": [
             "animal manta_birostris: missing approved photo"
@@ -20982,6 +20953,19 @@
       "hasApprovedPhoto": false,
       "hasRasterPhoto": false,
       "hasRegisteredCartoon": false,
+      "witnesses": []
+    },
+    {
+      "animalId": "pterois_volitans",
+      "commonName": "Red lionfish",
+      "group": "fish",
+      "familiarity": "familiar",
+      "publishedTraitDirections": 6,
+      "distinctMetrics": 3,
+      "intuitiveMetrics": 2,
+      "hasApprovedPhoto": true,
+      "hasRasterPhoto": true,
+      "hasRegisteredCartoon": true,
       "witnesses": []
     },
     {

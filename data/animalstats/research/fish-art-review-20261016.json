@@ -1,0 +1,84 @@
+{
+  "reviewDate": "2026-10-16",
+  "status": "reviewed licensed photos and dedicated cartoons; lionfish remains catalog-only after source holds",
+  "approvedPhotos": [
+    {
+      "animalId": "carcharhinus_leucas",
+      "assetUrl": "/animalstats/carcharhinus_leucas.jpg",
+      "originalUrl": "https://www.inaturalist.org/photos/168237268",
+      "creator": "Ewout Knoester",
+      "license": "CC BY-SA",
+      "attribution": "(c) Ewout Knoester, some rights reserved (CC BY-SA)",
+      "approved": true,
+      "reviewScientificName": "Carcharhinus leucas",
+      "reviewTaxonId": 84996,
+      "reviewPhotoId": 168237268,
+      "reviewSourceUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/168237268/medium.jpg",
+      "reviewObservationUrl": "https://www.inaturalist.org/observations/100783513",
+      "sourceSha256": "053e95f5602b8387974863cf133a9f81e8104804e7e85ba83ee8c02cfe07f897",
+      "reviewedAt": "2026-10-16"
+    },
+    {
+      "animalId": "thunnus_thynnus",
+      "assetUrl": "/animalstats/thunnus_thynnus.jpg",
+      "originalUrl": "https://www.inaturalist.org/photos/602084330",
+      "creator": "Shane Austin",
+      "license": "CC BY",
+      "attribution": "(c) Shane Austin, some rights reserved (CC BY)",
+      "approved": true,
+      "reviewScientificName": "Thunnus thynnus",
+      "reviewTaxonId": 114126,
+      "reviewPhotoId": 602084330,
+      "reviewSourceUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/602084330/medium.jpg",
+      "reviewObservationUrl": "https://www.inaturalist.org/observations/331843244",
+      "sourceSha256": "3fe1938831533e9423f34de0944c80a633e2fdfdf61a1f24afdeb2ff71f9a6fa",
+      "reviewedAt": "2026-10-16"
+    },
+    {
+      "animalId": "hippoglossus_hippoglossus",
+      "assetUrl": "/animalstats/hippoglossus_hippoglossus.jpg",
+      "originalUrl": "https://www.inaturalist.org/photos/297128375",
+      "creator": "Vsevolod Rudyi",
+      "license": "CC BY",
+      "attribution": "(c) Vsevolod Rudyi, some rights reserved (CC BY)",
+      "approved": true,
+      "reviewScientificName": "Hippoglossus hippoglossus",
+      "reviewTaxonId": 82349,
+      "reviewPhotoId": 297128375,
+      "reviewSourceUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/297128375/medium.jpg",
+      "reviewObservationUrl": "https://www.inaturalist.org/observations/171244304",
+      "sourceSha256": "30134911423ad6d85e386c67f936187005a90ba2b7151bada2999a0826855474",
+      "reviewedAt": "2026-10-16"
+    },
+    {
+      "animalId": "pterois_volitans",
+      "assetUrl": "/animalstats/pterois_volitans.jpg",
+      "originalUrl": "https://www.inaturalist.org/photos/613965135",
+      "creator": "Dan Schofield",
+      "license": "CC BY",
+      "attribution": "(c) Dan Schofield, some rights reserved (CC BY)",
+      "approved": true,
+      "reviewScientificName": "Pterois volitans",
+      "reviewTaxonId": 47280,
+      "reviewPhotoId": 613965135,
+      "reviewSourceUrl": "https://inaturalist-open-data.s3.amazonaws.com/photos/613965135/medium.jpg",
+      "reviewObservationUrl": "https://www.inaturalist.org/observations/337705864",
+      "sourceSha256": "56c7d86c3cab2da1cb6a911746952c01c52d7d0dffe5d2e98c932f6db04d94d1",
+      "reviewedAt": "2026-10-16"
+    }
+  ],
+  "anatomyReferences": {
+    "carcharhinus_leucas": "https://www.floridamuseum.ufl.edu/discover-fish/species-profiles/bull-shark/",
+    "thunnus_thynnus": "https://myfwc.com/wildlifehabitats/profiles/saltwater/tuna/bluefin-tuna/",
+    "hippoglossus_hippoglossus": "https://www.fisheries.noaa.gov/species/atlantic-halibut",
+    "pterois_volitans": "https://oceanservice.noaa.gov/facts/lionfish-facts.html"
+  },
+  "reviewNotes": [
+    "Bull shark: live underwater lateral view, stout body and short blunt snout. Reject handled juvenile and distant surface-fin candidates.",
+    "Bluefin: breaching live fish, no boat, people or size scale. Identification viewport focuses head/shoulder. Reject catch photos, detached remains and distant underwater silhouette.",
+    "Halibut: close live underwater head, both eyes visible on eyed side. Reject catch/deck, scale and washed-out surface photos.",
+    "Lionfish: sharp underwater head/striped body. Reject catches, measuring mat, crocodile predation and dark overhead candidates.",
+    "No photographic bytes edited. Viewports preserve aspect ratio. Backgrounds remain natural and varied.",
+    "Cartoon proportions are illustration choices, not measured body-size cues. Species appearance may still suggest answers."
+  ]
+}

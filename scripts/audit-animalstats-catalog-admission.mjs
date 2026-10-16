@@ -7,7 +7,7 @@ import {pathToFileURL} from 'node:url';
 // Research only. This script never changes facts, artwork approvals or live boards.
 const temporary = fs.mkdtempSync(path.join(os.tmpdir(), 'animal-admission-'));
 try {
-  for (const name of ['categorySemantics','gameRules','animalstats','animalstatsCoverage','animalstatsComposition','animalstatsCartoons']) {
+  for (const name of ['categorySemantics','gameRules','animalstats','animalstatsCoverage','animalstatsComposition','animalstatsCartoons','animalstatsDatasetAssembly']) {
     const output = ts.transpileModule(fs.readFileSync(`lib/${name}.ts`, 'utf8'), {
       compilerOptions: {module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022},
     }).outputText.replace(/from "\.\/([^".]+)"/g, 'from "./$1.mjs"');
@@ -19,10 +19,9 @@ try {
   const {animalBoardComposition} = await load('animalstatsComposition');
   const {cartoonSpecies} = await load('animalstatsCartoons');
   const parts = ['pilot','existing-coverage','fish-records','tetrapod-spatial','marine','aquatic-eggs','underrepresented','insect-ladybirds','extinct'].map(name => JSON.parse(fs.readFileSync(`data/animalstats/${name}.json`)));
+  const {assembleAnimalDataset} = await load('animalstatsDatasetAssembly');
   const data = Object.fromEntries(['animals','traits','values','sources','photos'].map(key => [key, parts.flatMap(part => part[key])]));
-  // Match production's authoritative marine portrait preference, not last-write wins.
-  const marinePhotos = new Set(parts[4].photos.map(photo => photo.animalId));
-  data.photos = parts.flatMap((part,index) => part.photos.filter(photo => index === 4 || !marinePhotos.has(photo.animalId)));
+  Object.assign(data,assembleAnimalDataset(parts,parts[4].photos));
   const boards = ['candidates','group-boards','group-boards-2'].flatMap(name => JSON.parse(fs.readFileSync(`data/animalstats/${name}.json`)).boards);
   const roundIds = new Set(boards.flatMap(board => board.animalIds));
   const published = publishedAnimalTraitIds(data);

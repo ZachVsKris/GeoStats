@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-10-15",
-  "defaultBoards": 57419,
+  "generatedAt": "2026-10-16",
+  "defaultBoards": 58453,
   "livingCatalogAnimals": 896,
-  "livingRoundAnimals": 262,
-  "candidateBoards": 57419,
+  "livingRoundAnimals": 265,
+  "candidateBoards": 58453,
   "playableLabels": 202,
   "playableTraitIds": 260,
   "counts": {
@@ -44,10 +44,10 @@
       "total": 3734
     },
     "fish": {
-      "easy": 1418,
-      "normal": 412,
+      "easy": 1725,
+      "normal": 783,
       "expert": 0,
-      "total": 1830
+      "total": 2508
     },
     "insects": {
       "easy": 93,
@@ -68,10 +68,10 @@
       "total": 763
     },
     "mixed": {
-      "easy": 3624,
-      "normal": 3711,
+      "easy": 3864,
+      "normal": 3827,
       "expert": 3078,
-      "total": 10413
+      "total": 10769
     },
     "extinct-dinosaurs": {
       "easy": 6262,

@@ -8,14 +8,14 @@
     "Witness search is bounded to 1500 substitutions per difficulty per eligible catalog animal; absence of a witness is not proof no valid board exists."
   ],
   "livingCatalogAnimals": 896,
-  "livingRoundAnimals": 265,
-  "catalogOnlyAnimals": 631,
-  "validatorChecks": 12117,
-  "numericWitnessAnimals": 269,
+  "livingRoundAnimals": 268,
+  "catalogOnlyAnimals": 628,
+  "validatorChecks": 11637,
+  "numericWitnessAnimals": 266,
   "witnessCountsByMode": {
-    "easy": 268,
-    "normal": 176,
-    "expert": 61
+    "easy": 265,
+    "normal": 173,
+    "expert": 58
   },
   "groups": {
     "bird": {
@@ -27,12 +27,12 @@
       "withNumericWitness": 6
     },
     "mammals": {
-      "catalogOnly": 98,
-      "atLeastFourMetrics": 84,
-      "atLeastSixMetrics": 82,
-      "missingPhoto": 92,
-      "missingRegisteredCartoon": 92,
-      "withNumericWitness": 79
+      "catalogOnly": 95,
+      "atLeastFourMetrics": 81,
+      "atLeastSixMetrics": 79,
+      "missingPhoto": 89,
+      "missingRegisteredCartoon": 89,
+      "withNumericWitness": 76
     },
     "reptiles": {
       "catalogOnly": 93,
@@ -823,108 +823,6 @@
       ]
     },
     {
-      "animalId": "ovis_canadensis",
-      "commonName": "Bighorn sheep",
-      "group": "mammals",
-      "familiarity": "core",
-      "publishedTraitDirections": 42,
-      "distinctMetrics": 18,
-      "intuitiveMetrics": 15,
-      "hasApprovedPhoto": false,
-      "hasRasterPhoto": false,
-      "hasRegisteredCartoon": false,
-      "witnesses": [
-        {
-          "mode": "easy",
-          "templateId": "ba4bee57f698f82c",
-          "animalIds": [
-            "ursus_maritimus",
-            "castor_canadensis",
-            "meles_meles",
-            "ovis_canadensis"
-          ],
-          "traitIds": [
-            "birth_weight",
-            "litter_size",
-            "adult_body_mass__low",
-            "maximum_documented_lifespan"
-          ],
-          "winners": {
-            "birth_weight": "ovis_canadensis",
-            "litter_size": "castor_canadensis",
-            "adult_body_mass__low": "meles_meles",
-            "maximum_documented_lifespan": "ursus_maritimus"
-          },
-          "remainingValidatorReasons": [
-            "animal ovis_canadensis: missing approved photo"
-          ],
-          "publicationStatus": "research only; requires asset and source-context review before admission"
-        },
-        {
-          "mode": "normal",
-          "templateId": "7b66cb287e183b3f",
-          "animalIds": [
-            "meles_meles",
-            "cervus_elaphus",
-            "ailuropoda_melanoleuca",
-            "bison_bison",
-            "ovis_canadensis",
-            "ursus_maritimus"
-          ],
-          "traitIds": [
-            "adult_body_mass__low",
-            "female_maturity",
-            "birth_weight",
-            "maximum_documented_lifespan"
-          ],
-          "winners": {
-            "adult_body_mass__low": "meles_meles",
-            "female_maturity": "ailuropoda_melanoleuca",
-            "birth_weight": "bison_bison",
-            "maximum_documented_lifespan": "ursus_maritimus"
-          },
-          "remainingValidatorReasons": [
-            "animal ovis_canadensis: missing approved photo"
-          ],
-          "publicationStatus": "research only; requires asset and source-context review before admission"
-        },
-        {
-          "mode": "expert",
-          "templateId": "familiar-20261015-mammals-expert-d1703613950c",
-          "animalIds": [
-            "ovis_canadensis",
-            "castor_canadensis",
-            "didelphis_marsupialis",
-            "gorilla_gorilla",
-            "lontra_canadensis",
-            "mesocricetus_auratus",
-            "syncerus_caffer",
-            "tachyglossus_aculeatus"
-          ],
-          "traitIds": [
-            "adult_body_mass__low",
-            "birth_weight",
-            "gestation__low",
-            "maximum_documented_lifespan",
-            "tt_range_area",
-            "tt_range_rainfall__low"
-          ],
-          "winners": {
-            "adult_body_mass__low": "mesocricetus_auratus",
-            "birth_weight": "syncerus_caffer",
-            "gestation__low": "didelphis_marsupialis",
-            "maximum_documented_lifespan": "gorilla_gorilla",
-            "tt_range_area": "lontra_canadensis",
-            "tt_range_rainfall__low": "ovis_canadensis"
-          },
-          "remainingValidatorReasons": [
-            "animal ovis_canadensis: missing approved photo"
-          ],
-          "publicationStatus": "research only; requires asset and source-context review before admission"
-        }
-      ]
-    },
-    {
       "animalId": "tamias_striatus",
       "commonName": "Eastern chipmunk",
       "group": "mammals",
@@ -1123,108 +1021,6 @@
           },
           "remainingValidatorReasons": [
             "animal cryptoprocta_ferox: missing approved photo"
-          ],
-          "publicationStatus": "research only; requires asset and source-context review before admission"
-        }
-      ]
-    },
-    {
-      "animalId": "gulo_gulo",
-      "commonName": "Wolverine",
-      "group": "mammals",
-      "familiarity": "core",
-      "publishedTraitDirections": 40,
-      "distinctMetrics": 18,
-      "intuitiveMetrics": 14,
-      "hasApprovedPhoto": false,
-      "hasRasterPhoto": false,
-      "hasRegisteredCartoon": false,
-      "witnesses": [
-        {
-          "mode": "easy",
-          "templateId": "ba4bee57f698f82c",
-          "animalIds": [
-            "ursus_maritimus",
-            "castor_canadensis",
-            "gulo_gulo",
-            "rangifer_tarandus"
-          ],
-          "traitIds": [
-            "birth_weight",
-            "litter_size",
-            "adult_body_mass__low",
-            "maximum_documented_lifespan"
-          ],
-          "winners": {
-            "birth_weight": "rangifer_tarandus",
-            "litter_size": "castor_canadensis",
-            "adult_body_mass__low": "gulo_gulo",
-            "maximum_documented_lifespan": "ursus_maritimus"
-          },
-          "remainingValidatorReasons": [
-            "animal gulo_gulo: missing approved photo"
-          ],
-          "publicationStatus": "research only; requires asset and source-context review before admission"
-        },
-        {
-          "mode": "normal",
-          "templateId": "7b66cb287e183b3f",
-          "animalIds": [
-            "gulo_gulo",
-            "cervus_elaphus",
-            "ailuropoda_melanoleuca",
-            "bison_bison",
-            "acinonyx_jubatus",
-            "ursus_maritimus"
-          ],
-          "traitIds": [
-            "adult_body_mass__low",
-            "female_maturity",
-            "birth_weight",
-            "maximum_documented_lifespan"
-          ],
-          "winners": {
-            "adult_body_mass__low": "gulo_gulo",
-            "female_maturity": "ailuropoda_melanoleuca",
-            "birth_weight": "bison_bison",
-            "maximum_documented_lifespan": "ursus_maritimus"
-          },
-          "remainingValidatorReasons": [
-            "animal gulo_gulo: missing approved photo"
-          ],
-          "publicationStatus": "research only; requires asset and source-context review before admission"
-        },
-        {
-          "mode": "expert",
-          "templateId": "familiar-20261015-mammals-expert-bf71567210d5",
-          "animalIds": [
-            "antilocapra_americana",
-            "gorilla_gorilla",
-            "gulo_gulo",
-            "lemur_catta",
-            "oryctolagus_cuniculus",
-            "panthera_pardus",
-            "suricata_suricatta",
-            "tremarctos_ornatus"
-          ],
-          "traitIds": [
-            "birth_weight",
-            "gestation__low",
-            "maximum_documented_lifespan",
-            "mdd_country_count__low",
-            "tt_range_elevation",
-            "tt_range_rainfall__low"
-          ],
-          "winners": {
-            "birth_weight": "antilocapra_americana",
-            "gestation__low": "oryctolagus_cuniculus",
-            "maximum_documented_lifespan": "gorilla_gorilla",
-            "mdd_country_count__low": "lemur_catta",
-            "tt_range_elevation": "tremarctos_ornatus",
-            "tt_range_rainfall__low": "suricata_suricatta"
-          },
-          "remainingValidatorReasons": [
-            "animal gulo_gulo: missing approved photo"
           ],
           "publicationStatus": "research only; requires asset and source-context review before admission"
         }
@@ -1735,108 +1531,6 @@
           },
           "remainingValidatorReasons": [
             "animal oreamnos_americanus: missing approved photo"
-          ],
-          "publicationStatus": "research only; requires asset and source-context review before admission"
-        }
-      ]
-    },
-    {
-      "animalId": "ovibos_moschatus",
-      "commonName": "Muskox",
-      "group": "mammals",
-      "familiarity": "core",
-      "publishedTraitDirections": 40,
-      "distinctMetrics": 18,
-      "intuitiveMetrics": 14,
-      "hasApprovedPhoto": false,
-      "hasRasterPhoto": false,
-      "hasRegisteredCartoon": false,
-      "witnesses": [
-        {
-          "mode": "easy",
-          "templateId": "fb4f1591370775fb",
-          "animalIds": [
-            "tachyglossus_aculeatus",
-            "ovibos_moschatus",
-            "phascolarctos_cinereus",
-            "procyon_lotor"
-          ],
-          "traitIds": [
-            "birth_weight__low",
-            "adult_body_mass",
-            "weaning_age__low",
-            "maximum_documented_lifespan"
-          ],
-          "winners": {
-            "birth_weight__low": "phascolarctos_cinereus",
-            "adult_body_mass": "ovibos_moschatus",
-            "weaning_age__low": "procyon_lotor",
-            "maximum_documented_lifespan": "tachyglossus_aculeatus"
-          },
-          "remainingValidatorReasons": [
-            "animal ovibos_moschatus: missing approved photo"
-          ],
-          "publicationStatus": "research only; requires asset and source-context review before admission"
-        },
-        {
-          "mode": "normal",
-          "templateId": "7b66cb287e183b3f",
-          "animalIds": [
-            "ovibos_moschatus",
-            "cervus_elaphus",
-            "ailuropoda_melanoleuca",
-            "bison_bison",
-            "acinonyx_jubatus",
-            "ursus_maritimus"
-          ],
-          "traitIds": [
-            "adult_body_mass__low",
-            "female_maturity",
-            "birth_weight",
-            "maximum_documented_lifespan"
-          ],
-          "winners": {
-            "adult_body_mass__low": "acinonyx_jubatus",
-            "female_maturity": "ailuropoda_melanoleuca",
-            "birth_weight": "bison_bison",
-            "maximum_documented_lifespan": "ursus_maritimus"
-          },
-          "remainingValidatorReasons": [
-            "animal ovibos_moschatus: missing approved photo"
-          ],
-          "publicationStatus": "research only; requires asset and source-context review before admission"
-        },
-        {
-          "mode": "expert",
-          "templateId": "familiar-20261015-mammals-expert-48808e29eece",
-          "animalIds": [
-            "ceratotherium_simum",
-            "didelphis_marsupialis",
-            "giraffa_camelopardalis",
-            "hippopotamus_amphibius",
-            "ovibos_moschatus",
-            "myrmecophaga_tridactyla",
-            "rangifer_tarandus",
-            "setonix_brachyurus"
-          ],
-          "traitIds": [
-            "adult_body_mass",
-            "birth_weight__low",
-            "litters_per_year__low",
-            "tt_range_area__low",
-            "tt_range_elevation",
-            "tt_range_rainfall__low"
-          ],
-          "winners": {
-            "adult_body_mass": "hippopotamus_amphibius",
-            "birth_weight__low": "didelphis_marsupialis",
-            "litters_per_year__low": "ceratotherium_simum",
-            "tt_range_area__low": "setonix_brachyurus",
-            "tt_range_elevation": "giraffa_camelopardalis",
-            "tt_range_rainfall__low": "ovibos_moschatus"
-          },
-          "remainingValidatorReasons": [
-            "animal ovibos_moschatus: missing approved photo"
           ],
           "publicationStatus": "research only; requires asset and source-context review before admission"
         }
@@ -4970,32 +4664,32 @@
         },
         {
           "mode": "expert",
-          "templateId": "groups-mammals-expert-90359899a5bc",
+          "templateId": "northern-20261016-mammals-expert-7ec502fa854d",
           "animalIds": [
-            "didelphis_marsupialis",
             "eubalaena_glacialis",
-            "gorilla_gorilla",
-            "hydrochoerus_hydrochaeris",
-            "mus_musculus",
-            "myotis_lucifugus",
-            "puma_concolor",
-            "vombatus_ursinus"
+            "canis_lupus",
+            "equus_quagga",
+            "hippopotamus_amphibius",
+            "ovis_canadensis",
+            "sciurus_carolinensis",
+            "syncerus_caffer",
+            "tachyglossus_aculeatus"
           ],
           "traitIds": [
             "adult_body_mass__low",
             "birth_weight__low",
             "gestation",
-            "interbirth_interval__low",
             "male_maturity",
-            "mdd_family_species_count__low"
+            "tt_range_area__low",
+            "weaning_age__low"
           ],
           "winners": {
-            "adult_body_mass__low": "myotis_lucifugus",
-            "birth_weight__low": "didelphis_marsupialis",
-            "gestation": "eubalaena_glacialis",
-            "interbirth_interval__low": "mus_musculus",
-            "male_maturity": "gorilla_gorilla",
-            "mdd_family_species_count__low": "vombatus_ursinus"
+            "adult_body_mass__low": "sciurus_carolinensis",
+            "birth_weight__low": "tachyglossus_aculeatus",
+            "gestation": "equus_quagga",
+            "male_maturity": "eubalaena_glacialis",
+            "tt_range_area__low": "ovis_canadensis",
+            "weaning_age__low": "canis_lupus"
           },
           "remainingValidatorReasons": [
             "animal eubalaena_glacialis: missing approved photo"
@@ -5514,32 +5208,32 @@
         },
         {
           "mode": "expert",
-          "templateId": "groups-mammals-expert-19766caae69d",
+          "templateId": "northern-20261016-mammals-expert-127059864da8",
           "animalIds": [
-            "didelphis_marsupialis",
-            "hydrochoerus_hydrochaeris",
-            "melursus_ursinus",
-            "mus_musculus",
-            "rattus_norvegicus",
-            "ursus_maritimus",
+            "balaenoptera_musculus",
+            "lontra_canadensis",
+            "loxodonta_africana",
+            "macaca_mulatta",
+            "macropus_rufus",
             "trichechus_manatus",
-            "zalophus_californianus"
+            "panthera_tigris",
+            "pongo_pygmaeus"
           ],
           "traitIds": [
-            "adult_body_mass",
-            "birth_weight__low",
-            "gestation",
-            "litter_size",
+            "adult_body_mass__low",
+            "birth_weight",
+            "gestation__low",
+            "interbirth_interval",
             "male_maturity__low",
             "tt_range_area__low"
           ],
           "winners": {
-            "adult_body_mass": "ursus_maritimus",
-            "birth_weight__low": "didelphis_marsupialis",
-            "gestation": "trichechus_manatus",
-            "litter_size": "rattus_norvegicus",
-            "male_maturity__low": "mus_musculus",
-            "tt_range_area__low": "zalophus_californianus"
+            "adult_body_mass__low": "macaca_mulatta",
+            "birth_weight": "balaenoptera_musculus",
+            "gestation__low": "macropus_rufus",
+            "interbirth_interval": "loxodonta_africana",
+            "male_maturity__low": "lontra_canadensis",
+            "tt_range_area__low": "pongo_pygmaeus"
           },
           "remainingValidatorReasons": [
             "animal trichechus_manatus: missing approved photo"
@@ -5616,32 +5310,32 @@
         },
         {
           "mode": "expert",
-          "templateId": "groups-mammals-expert-bf380baf0f3d",
+          "templateId": "northern-20261016-mammals-expert-127059864da8",
           "animalIds": [
-            "ailuropoda_melanoleuca",
-            "didelphis_marsupialis",
-            "hydrochoerus_hydrochaeris",
-            "mesocricetus_auratus",
-            "mus_musculus",
-            "rattus_norvegicus",
+            "balaenoptera_musculus",
+            "lontra_canadensis",
+            "loxodonta_africana",
+            "macaca_mulatta",
+            "macropus_rufus",
             "delphinapterus_leucas",
-            "zalophus_californianus"
+            "panthera_tigris",
+            "pongo_pygmaeus"
           ],
           "traitIds": [
             "adult_body_mass__low",
-            "birth_weight__low",
-            "female_maturity",
-            "gestation",
-            "litter_size",
+            "birth_weight",
+            "gestation__low",
+            "interbirth_interval",
+            "male_maturity__low",
             "tt_range_area__low"
           ],
           "winners": {
-            "adult_body_mass__low": "mus_musculus",
-            "birth_weight__low": "didelphis_marsupialis",
-            "female_maturity": "ailuropoda_melanoleuca",
-            "gestation": "delphinapterus_leucas",
-            "litter_size": "rattus_norvegicus",
-            "tt_range_area__low": "mesocricetus_auratus"
+            "adult_body_mass__low": "macaca_mulatta",
+            "birth_weight": "balaenoptera_musculus",
+            "gestation__low": "macropus_rufus",
+            "interbirth_interval": "loxodonta_africana",
+            "male_maturity__low": "lontra_canadensis",
+            "tt_range_area__low": "pongo_pygmaeus"
           },
           "remainingValidatorReasons": [
             "animal delphinapterus_leucas: missing approved photo"
@@ -5854,32 +5548,32 @@
         },
         {
           "mode": "expert",
-          "templateId": "groups-mammals-expert-19766caae69d",
+          "templateId": "northern-20261016-mammals-expert-127059864da8",
           "animalIds": [
-            "didelphis_marsupialis",
-            "hydrochoerus_hydrochaeris",
-            "melursus_ursinus",
-            "mus_musculus",
-            "rattus_norvegicus",
-            "ursus_maritimus",
+            "balaenoptera_musculus",
+            "lontra_canadensis",
             "dugong_dugon",
-            "zalophus_californianus"
+            "macaca_mulatta",
+            "macropus_rufus",
+            "ovibos_moschatus",
+            "panthera_tigris",
+            "pongo_pygmaeus"
           ],
           "traitIds": [
-            "adult_body_mass",
-            "birth_weight__low",
-            "gestation",
-            "litter_size",
+            "adult_body_mass__low",
+            "birth_weight",
+            "gestation__low",
+            "interbirth_interval",
             "male_maturity__low",
             "tt_range_area__low"
           ],
           "winners": {
-            "adult_body_mass": "ursus_maritimus",
-            "birth_weight__low": "didelphis_marsupialis",
-            "gestation": "dugong_dugon",
-            "litter_size": "rattus_norvegicus",
-            "male_maturity__low": "mus_musculus",
-            "tt_range_area__low": "zalophus_californianus"
+            "adult_body_mass__low": "macaca_mulatta",
+            "birth_weight": "balaenoptera_musculus",
+            "gestation__low": "macropus_rufus",
+            "interbirth_interval": "dugong_dugon",
+            "male_maturity__low": "lontra_canadensis",
+            "tt_range_area__low": "pongo_pygmaeus"
           },
           "remainingValidatorReasons": [
             "animal dugong_dugon: missing approved photo"

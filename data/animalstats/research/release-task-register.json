@@ -49,7 +49,7 @@
       "id": 7,
       "task": "Convert catalog entries into playable animals",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "631 of 896 living catalog animals do not appear in published rounds. Updated source/semantic validator search found numeric lineups for 269 catalog-only animals; these remain research-only pending assets and source-context review. Published admission of bull shark, bluefin tuna and Atlantic halibut; lionfish held."
+      "evidenceAndRemainingWork": "628 of 896 living catalog animals do not appear in prepared rounds. Bounded validator search finds numeric lineups for 266 catalog-only animals; artwork and source-context review still required. Prepared admission of Wolverine, Muskox and Bighorn sheep."
     },
     {
       "id": 8,
@@ -79,7 +79,7 @@
       "id": 12,
       "task": "Finish source-by-source accuracy audit",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Two seal land-travel comparisons (four directional values) now held pending original scale-conversion review; the source-by-source biological audit remains unfinished. Held 84 marine-mammal climate/elevation directions across 14 species; 11,214 affected combinations removed from the expanded pool, including older boards. Original source values retained for review. October 16: held eight lionfish/bluefin directional records for species-complex identity, wild/captive context and numeric-note mismatch; build guard and eight reapproval-regression checks added."
+      "evidenceAndRemainingWork": "Two seal land-travel comparisons (four directional values) now held pending original scale-conversion review; the source-by-source biological audit remains unfinished. Held 84 marine-mammal climate/elevation directions across 14 species; 11,214 affected combinations removed from the expanded pool, including older boards. Original source values retained for review. October 16: held eight lionfish/bluefin directional records for species-complex identity, wild/captive context and numeric-note mismatch; build guard and eight reapproval-regression checks added. Wolverine 35-day active gestation withheld from conception-to-birth rankings; broader delayed-implantation audit remains."
     },
     {
       "id": 13,
@@ -225,25 +225,23 @@
     "adultWeightDownloadedCsvRows": 346
   },
   "preparedRelease": {
-    "status": "published; READY and live Scout/Adventurer 400/400 verified",
+    "status": "local production build and snapshot seal passed; awaiting deployment and live review",
     "playableLabels": 202,
-    "validBoards": 58367,
+    "validBoards": 66608,
     "livingCatalogAnimals": 896,
-    "livingRoundAnimals": 265,
-    "newBoards": 970,
-    "newRoundAnimals": [
-      "Bull shark",
-      "Atlantic bluefin tuna",
-      "Atlantic halibut"
-    ],
+    "livingRoundAnimals": 268,
+    "newBoards": 8241,
+    "newExpertBoards": 141,
     "newCategoryLabels": 0,
-    "withheldDirectionalRecords": 8,
-    "sourceGuardTests": "all eight attempted reapprovals blocked",
-    "phoneVerification": "unfinished",
-    "retiredOlderBoards": 22,
-    "netBoardChange": 948,
-    "semanticRegressionTests": "172 overlap/opposite cases and a positive halibut control passed",
-    "clientPhotoCheck": "337 round animals have approved client-visible assets; extinct SVG placeholders remain a separate unfinished task"
+    "newRoundAnimals": [
+      "Wolverine",
+      "Muskox",
+      "Bighorn sheep"
+    ],
+    "withheldDirectionalRecordsThisBatch": 2,
+    "transcriptionAudit": "521 original source cells retained; Wolverine active-gestation cell held",
+    "productionRoundAnimalPhotosChecked": 340,
+    "phoneVerification": "unfinished"
   },
   "previousPublishedBaseline": {
     "commit": "c882eb7168869a052cf42bca8fe58560009af963",
@@ -255,9 +253,9 @@
   "catalogAdmissionAudit": {
     "date": "2026-10-16",
     "report": "data/animalstats/research/catalog-admission-readiness-20261016.json",
-    "status": "research-only admission queue refreshed against published 58,367-board release",
-    "numericWitnessAnimals": 269,
-    "checks": 12117,
+    "status": "research-only queue refreshed against prepared 66,608-board release",
+    "numericWitnessAnimals": 266,
+    "checks": 11637,
     "nextWork": "Review accurate licensed portraits and species-specific cartoons for familiar mammals and underrepresented fish/insects; obtain additional comparable facts for crustaceans, echinoderms and cnidarians."
   },
   "liveReview": "data/animalstats/research/reviewed-fish-live-review-20261016.json"

@@ -38,6 +38,9 @@ const base: Profile = {
   tail: 1,
 };
 const profiles: Record<string, Partial<Profile>> = {
+  gulo_gulo: {color:"#674c38",belly:"#bda06c",feature:"wolverine"},
+  ovibos_moschatus: {color:"#5b4837",belly:"#a48b61",feature:"muskox"},
+  ovis_canadensis: {color:"#a98c65",belly:"#f2e8ce",feature:"bighorn"},
   antilocapra_americana: {color:"#c28a50",belly:"#fff1d8",feature:"pronghorn"},
   caracal_caracal: {color:"#c5804d",belly:"#f8e5c5",feature:"caracal"},
   setonix_brachyurus: {color:"#a59170",belly:"#d6c5a0",feature:"quokka"},

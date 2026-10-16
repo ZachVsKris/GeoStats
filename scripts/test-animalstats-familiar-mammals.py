@@ -44,7 +44,9 @@ for selected in selection['animals']:
             continue
         assert entry['valueNumeric'] == float(row[field]) > 0, (name, trait)
         assert entry['unit'] == unit and entry['sourceId'] == 'anage-15'
-        assert entry['confidence'] == 'approved' and entry['observationType'] == 'compiled'
+        expected_review = name == 'Gulo gulo' and trait == 'gestation'
+        assert entry['confidence'] == ('review' if expected_review else 'approved')
+        assert entry['observationType'] == 'compiled'
         assert entry['uncertaintyStatus'] == 'not-reported'
         assert row['HAGRID'] in entry['notes'] and row['References'] in entry['notes']
         if trait == 'maximum_documented_lifespan':
@@ -56,6 +58,7 @@ for selected in selection['animals']:
         opposite = values[(animal['id'], trait + '__low')]
         assert opposite['valueNumeric'] == entry['valueNumeric']
         assert opposite['sourceId'] == entry['sourceId']
+        assert opposite['confidence'] == entry['confidence']
         checked.append((name, trait))
 assert len(checked) == 269
 # Independently reconcile added inventory and ecology measurements as well.

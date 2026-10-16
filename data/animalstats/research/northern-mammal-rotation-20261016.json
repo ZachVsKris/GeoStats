@@ -1,0 +1,65 @@
+{
+  "seed": 20261016,
+  "samplesPerMode": 200,
+  "policy": "Unmodified production subject/category/animal rotation; latest 12 rounds supplied as history.",
+  "modes": {
+    "easy": {
+      "poolSize": 18367,
+      "groupCounts": {
+        "bears": 23,
+        "insects": 16,
+        "reptiles": 11,
+        "fish": 16,
+        "mammals": 23,
+        "amphibians": 18,
+        "invertebrates": 17,
+        "mixed": 27,
+        "marine": 16,
+        "birds": 15,
+        "pets": 18
+      },
+      "newAnimalAppearances": {
+        "gulo_gulo": 3,
+        "ovibos_moschatus": 6,
+        "ovis_canadensis": 3
+      },
+      "consecutiveExactBoardRepeats": 0
+    },
+    "normal": {
+      "poolSize": 17550,
+      "groupCounts": {
+        "birds": 21,
+        "pets": 19,
+        "fish": 23,
+        "mixed": 19,
+        "mammals": 28,
+        "marine": 28,
+        "reptiles": 21,
+        "amphibians": 19,
+        "invertebrates": 22
+      },
+      "newAnimalAppearances": {
+        "gulo_gulo": 2,
+        "ovibos_moschatus": 5,
+        "ovis_canadensis": 4
+      },
+      "consecutiveExactBoardRepeats": 0
+    },
+    "expert": {
+      "poolSize": 14953,
+      "groupCounts": {
+        "birds": 31,
+        "mammals": 82,
+        "mixed": 38,
+        "pets": 22,
+        "reptiles": 27
+      },
+      "newAnimalAppearances": {
+        "gulo_gulo": 6,
+        "ovibos_moschatus": 14,
+        "ovis_canadensis": 13
+      },
+      "consecutiveExactBoardRepeats": 0
+    }
+  }
+}

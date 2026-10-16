@@ -1,0 +1,130 @@
+{
+  "policy": "intuitive-majority-distinct-winners-v6",
+  "notes": [
+    "No publication cap or per-lineup variant cap. Runtime budget is resumable and does not determine eligibility.",
+    "At least 3% between every adjacent numeric rank; exact ties remain blocked. Uncertainty overlap, source compatibility, unique winners and at least half intuitive remain required.",
+    "Each sampled lineup contributes one new board per pass to prioritize animal diversity; later passes can add further variants.",
+    "Introduces only the three explicitly reviewed familiar mammals alongside existing round animals. No biological values or eligibility rules changed."
+  ],
+  "groups": [
+    {
+      "group": "mammals",
+      "mode": "easy",
+      "portraitAnimals": 74,
+      "animalsWithEnoughMetrics": 74,
+      "attempts": 957,
+      "added": 750,
+      "rejections": {
+        "category winners compete for same animal": 213508,
+        "traits have nearly identical or reversed rankings": 3477,
+        "not enough compatible distinct metrics": 12,
+        "only one mapped-range prize per board": 396,
+        "trait: tupaia_glis ineligible": 178,
+        "trait: tachyglossus_aculeatus ineligible": 13,
+        "bat dominance": 3,
+        "trait: erinaceus_europaeus ineligible": 6,
+        "trait: oryctolagus_cuniculus ineligible": 4,
+        "sampled lineup already explored": 1
+      }
+    },
+    {
+      "group": "mammals",
+      "mode": "normal",
+      "portraitAnimals": 74,
+      "animalsWithEnoughMetrics": 74,
+      "attempts": 3116,
+      "added": 2169,
+      "rejections": {
+        "category winners compete for same animal": 80946,
+        "bat dominance": 12,
+        "too few animals compete across traits": 219,
+        "not enough compatible distinct metrics": 470,
+        "only one mapped-range prize per board": 572,
+        "traits have nearly identical or reversed rankings": 870,
+        "trait: tachyglossus_aculeatus ineligible": 142,
+        "trait: oryctolagus_cuniculus ineligible": 63,
+        "trait: tupaia_glis ineligible": 10,
+        "trait: erinaceus_europaeus ineligible": 54
+      }
+    },
+    {
+      "group": "mammals",
+      "mode": "expert",
+      "portraitAnimals": 74,
+      "animalsWithEnoughMetrics": 74,
+      "attempts": 2762,
+      "added": 136,
+      "rejections": {
+        "not enough compatible distinct metrics": 2433,
+        "category winners compete for same animal": 44990,
+        "trait: tupaia_glis ineligible": 3,
+        "bat dominance": 21,
+        "only one mapped-range prize per board": 32,
+        "traits have nearly identical or reversed rankings": 16,
+        "trait: erinaceus_europaeus ineligible": 3,
+        "trait: tachyglossus_aculeatus ineligible": 1
+      }
+    },
+    {
+      "group": "mixed",
+      "mode": "easy",
+      "portraitAnimals": 231,
+      "animalsWithEnoughMetrics": 231,
+      "attempts": 13121,
+      "added": 2385,
+      "rejections": {
+        "group composition": 5466,
+        "category winners compete for same animal": 127097,
+        "traits have nearly identical or reversed rankings": 4354,
+        "not enough compatible distinct metrics": 4164,
+        "at most two habitat-climate prizes per board": 76,
+        "sampled lineup already explored": 14
+      }
+    },
+    {
+      "group": "mixed",
+      "mode": "normal",
+      "portraitAnimals": 231,
+      "animalsWithEnoughMetrics": 231,
+      "attempts": 25378,
+      "added": 2796,
+      "rejections": {
+        "not enough compatible distinct metrics": 13087,
+        "group composition": 9245,
+        "category winners compete for same animal": 15299,
+        "too few animals compete across traits": 232,
+        "no familiar anchor": 80,
+        "traits have nearly identical or reversed rankings": 233,
+        "bat dominance": 10
+      }
+    },
+    {
+      "group": "mixed",
+      "mode": "expert",
+      "portraitAnimals": 231,
+      "animalsWithEnoughMetrics": 191,
+      "attempts": 35044,
+      "added": 5,
+      "rejections": {
+        "not enough compatible distinct metrics": 22322,
+        "group composition": 12682,
+        "no familiar anchor": 9,
+        "bat dominance": 25,
+        "category winners compete for same animal": 152
+      }
+    }
+  ],
+  "totalBoards": 50870,
+  "focusAnimalIds": [
+    "gulo_gulo",
+    "ovibos_moschatus",
+    "ovis_canadensis"
+  ],
+  "addedBoards": 8241,
+  "newAnimalBoardCounts": {
+    "gulo_gulo": 2542,
+    "ovibos_moschatus": 3174,
+    "ovis_canadensis": 3327
+  },
+  "newlyPlayableTraitIds": []
+}

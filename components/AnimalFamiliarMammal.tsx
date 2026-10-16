@@ -39,6 +39,54 @@ export default function AnimalFamiliarMammal({animal}: {animal: Animal}) {
       <path fill="#704c43" d="M140 86 L152 86 L147 93 Z"/><path fill="none" strokeWidth="1.2" d="M147 93 v4 m0-1 q-6 4-10 0 m10 0 q5 4 9-1 M131 91 l-15-2 M133 95 l-16 3 M158 90 l15-3 M158 94 l15 2"/>
     </g>
   </g>;
+  if (animal.id === 'gulo_gulo') return <g data-anatomy="wolverine-stocky-mustelid-pale-flank-stripe-bushy-tail">
+    <path className="cartoonWag" style={{transformOrigin:'48px 105px'}} fill="#5d4434" d="M49 100 Q34 103 24 89 Q13 83 12 95 L16 102 12 105 Q17 119 33 119 L51 112 Z"/>
+    <g fill="#49392f">{[56,75,114,133].map((x,i)=><g key={x} className={i%2?'cartoonStep':'cartoonStepBack'} style={{transformOrigin:`${x}px 108px`}}><path d={`M${x-7} 103 L${x-7} 130 Q${x-15} 135 ${x-10} 143 H${x+10} Q${x+14} 136 ${x+5} 132 L${x+7} 103 Z`}/>{[0,1,2,3,4].map(j=><path key={j} stroke="#e0ceb2" strokeWidth="1" d={`M${x-7+j*3} 139 l-1 4`}/>)}</g>)}</g>
+    <path fill="#674c38" d="M37 100 Q32 75 65 72 Q94 63 122 79 Q141 81 147 100 L140 117 Q111 133 60 120 Q40 119 37 100 Z"/>
+    <path fill="#bda06c" stroke="none" d="M42 104 Q67 119 100 105 Q114 92 127 85 L135 94 Q117 100 105 116 Q70 135 43 115 Z"/>
+    <path fill="none" stroke="#8b6b45" strokeWidth="1" d="M44 107 Q71 123 102 110 M45 111 Q69 127 91 118"/>
+    <g className="cartoonHead" style={{transformOrigin:'143px 88px'}}>
+      <ellipse fill="#5c4434" cx="128" cy="66" rx="9" ry="10"/><ellipse fill="#5c4434" cx="156" cy="64" rx="9" ry="10"/>
+      <ellipse fill="#bd9e73" stroke="none" cx="128" cy="66" rx="4" ry="5"/><ellipse fill="#bd9e73" stroke="none" cx="156" cy="64" rx="4" ry="5"/>
+      <path fill="#674c38" d="M122 77 Q127 61 146 66 Q166 67 170 88 L179 99 Q179 114 158 114 Q131 115 121 97 Z"/>
+      <path fill="#bfa475" stroke="none" d="M126 79 Q143 65 161 79 L164 84 Q144 76 126 88 Z M124 95 L141 103 147 112 Q133 111 126 103 Z"/>
+      <Eye x={145} y={86}/><path fill="#86684b" d="M153 96 Q168 91 177 99 Q178 111 164 112 Q150 112 153 96 Z"/>
+      <ellipse fill="#302c28" cx="174" cy="100" rx="7" ry="5"/><path fill="none" strokeWidth="1.3" d="M174 106 q-4 5-10 2"/>
+    </g>
+  </g>;
+  if (animal.id === 'ovibos_moschatus') return <g data-anatomy="muskox-long-shaggy-skirt-bull-horn-boss">
+    <path fill="#5f4c39" d="M39 103 Q24 101 25 114 L31 124 42 113 Z"/>
+    <g fill="#66503c">{[54,72,112,130].map((x,i)=><g key={x} className={i%2?'cartoonStep':'cartoonStepBack'} style={{transformOrigin:`${x}px 112px`}}><path d={`M${x-6} 107 L${x-6} 135 L${x-9} 143 H${x+7} L${x+5} 110 Z`}/><path fill="#38372e" d={`M${x-9} 138 H${x+7} V146 H${x-10} Z`}/><path fill="none" stroke="#b3a17c" strokeWidth="1" d={`M${x} 141 v5`}/></g>)}</g>
+    <path fill="#5b4837" d="M30 103 Q26 72 53 65 Q80 56 111 67 Q137 66 147 89 L146 122 138 135 133 129 125 140 119 134 108 141 101 134 91 142 83 135 73 140 65 132 55 137 48 128 40 132 37 119 31 122 Z"/>
+    <path fill="#a48b61" stroke="none" d="M39 82 Q53 58 94 66 L115 74 Q94 70 76 80 Q51 84 38 96 Z"/>
+    <path fill="none" stroke="#8a6f4d" strokeWidth="1.5" d="M42 91 l4 31 M55 86 l4 40 M68 86 l2 43 M82 84 l2 47 M96 81 l-1 46 M109 83 l-3 47 M121 90 l-4 39"/>
+    <g className="cartoonHead" style={{transformOrigin:'146px 96px'}}>
+      <ellipse fill="#806947" cx="125" cy="87" rx="10" ry="6"/><ellipse fill="#806947" cx="169" cy="88" rx="10" ry="6"/>
+      <path fill="#514132" d="M131 79 Q145 68 162 81 L170 104 Q171 128 149 133 Q129 127 124 107 Z"/>
+      <path fill="#8f7c5d" stroke="none" d="M137 86 Q145 77 154 87 L157 107 H140 Z"/>
+      <path fill="#d1c29a" d="M144 72 Q129 65 120 78 L116 95 Q109 103 102 92 L103 68 Q92 80 97 96 Q104 115 120 105 Q131 99 133 85 L145 82 Z M147 72 Q163 65 173 80 L177 96 Q184 104 188 93 L187 69 Q198 85 192 101 Q184 115 172 104 Q161 98 159 84 L147 82 Z"/>
+      <path fill="#b7a17c" strokeWidth="1.7" d="M133 69 Q139 65 146 72 Q151 65 159 70 L164 81 Q154 85 147 81 Q140 85 130 80 Z"/>
+      <Eye x={136} y={98}/><Eye x={158} y={98}/>
+      <path fill="#9d8a6a" d="M132 111 Q148 101 164 112 L163 122 Q148 133 134 122 Z"/>
+      <ellipse fill="#39352e" cx="148" cy="117" rx="10" ry="6"/><path fill="none" strokeWidth="1.2" d="M140 124 q8 5 16 0"/>
+    </g>
+  </g>;
+  if (animal.id === 'ovis_canadensis') return <g data-anatomy="bighorn-ram-curled-horns-short-coat-white-rump">
+    <path fill="#756148" d="M43 94 Q31 91 28 98 L34 108 47 104 Z"/>
+    <g fill="#927650">{[52,69,111,129].map((x,i)=><g key={x} className={i%2?'cartoonStep':'cartoonStepBack'} style={{transformOrigin:`${x}px 106px`}}><path d={`M${x-5} 99 L${x-5} 124 L${x-8} 140 H${x+5} L${x+7} 120 L${x+5} 99 Z`}/><path fill="#4b4639" d={`M${x-8} 138 H${x+5} V146 H${x-10} Z`}/></g>)}</g>
+    <path fill="#a98c65" d="M37 94 Q37 73 68 73 L102 76 Q118 66 131 56 L147 65 143 101 Q125 119 67 117 Q36 116 37 94 Z"/>
+    <path fill="#f2e8ce" stroke="none" d="M39 86 Q49 77 59 79 L63 107 Q54 120 44 112 Z M65 105 Q101 114 131 96 L140 101 Q114 122 67 117 Z"/>
+    <g className="cartoonHead" style={{transformOrigin:'147px 68px'}}>
+      <path fill="#b19b73" d="M150 47 Q169 33 179 53 Q187 74 164 84 L157 74 Q172 70 169 56 Q167 48 158 55 Z"/>
+      <path fill="#a98c65" d="M132 51 L119 47 Q114 56 131 65 Z M153 55 Q170 47 175 55 L157 67 Z"/>
+      <path fill="#ad8d65" d="M133 52 Q151 43 160 60 L169 79 Q174 88 163 94 L141 83 Q125 71 133 52 Z"/>
+      <path fill="#efe0bf" stroke="none" d="M150 74 L165 78 169 86 163 91 143 81 Z"/>
+      <Eye x={151} y={67}/><path fill="#51483b" d="M164 78 Q176 80 170 86 L164 85 Z"/><path fill="none" strokeWidth="1.3" d="M155 85 q4 5 9 2"/>
+      <path fill="#c9ae7e" d="M139 51 Q130 32 115 37 Q98 40 100 61 Q99 82 118 86 Q138 91 144 75 Q149 61 135 55 Q123 50 119 60 Q115 70 126 74 Q131 75 134 69 Q134 80 123 80 Q109 78 109 62 Q109 48 120 47 Q128 46 134 57 Z"/>
+      <path fill="none" stroke="#a58b60" strokeWidth="1" d="M108 46 l8 4 M103 55 l7 3 M103 65 l7-1 M108 76 l7-4 M120 83 l2-7 M132 80 l-3-7 M140 68 l-7-2"/>
+    </g>
+  </g>;
+
   if (animal.id !== "setonix_brachyurus") return null;
   return <g data-anatomy="quokka-stocky-body-rounded-ears-short-bare-tail">
     <path className="cartoonWag" style={{transformOrigin:"76px 128px"}} fill="#a0866e" d="M77 124 Q51 136 35 143 Q22 149 17 144 Q36 143 61 120 Z"/>

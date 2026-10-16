@@ -148,5 +148,50 @@
     "reviewNote": "Identification viewport around head and distinguishing features; excludes most body and tail without stretching. Natural scenery remains.",
     "sourceSha256": "56c7d86c3cab2da1cb6a911746952c01c52d7d0dffe5d2e98c932f6db04d94d1",
     "reviewedAt": "2026-10-16"
+  },
+  "gulo_gulo": {
+    "scientificName": "Gulo gulo",
+    "assetUrl": "/animalstats/gulo_gulo.jpg",
+    "sourceWidth": 1024,
+    "sourceHeight": 791,
+    "crop": [
+      422,
+      260,
+      205,
+      238
+    ],
+    "reviewNote": "Head identification viewport preserves distinguishing face/ear/horn features and excludes most torso and legs. No stretching or photographic edits.",
+    "sourceSha256": "6a0ce514c94fea7faeca5528ced5b7217a33bf1eb38bdfffc40642ed8e3cee54",
+    "reviewedAt": "2026-10-16"
+  },
+  "ovibos_moschatus": {
+    "scientificName": "Ovibos moschatus",
+    "assetUrl": "/animalstats/ovibos_moschatus.jpg",
+    "sourceWidth": 1024,
+    "sourceHeight": 1024,
+    "crop": [
+      362,
+      256,
+      594,
+      553
+    ],
+    "reviewNote": "Head identification viewport preserves distinguishing face/ear/horn features and excludes most torso and legs. No stretching or photographic edits.",
+    "sourceSha256": "a2fb6172816ddf4062029a12b5f9058fda3677c5be9b11ca9e269def27018af8",
+    "reviewedAt": "2026-10-16"
+  },
+  "ovis_canadensis": {
+    "scientificName": "Ovis canadensis",
+    "assetUrl": "/animalstats/ovis_canadensis.jpg",
+    "sourceWidth": 1024,
+    "sourceHeight": 683,
+    "crop": [
+      469,
+      164,
+      211,
+      232
+    ],
+    "reviewNote": "Head identification viewport preserves distinguishing face/ear/horn features and excludes most torso and legs. No stretching or photographic edits.",
+    "sourceSha256": "6b090009f86bbb9cda3fd8daf152962413f6302200475e5fd7b6d6a96d3da13c",
+    "reviewedAt": "2026-10-16"
   }
 }

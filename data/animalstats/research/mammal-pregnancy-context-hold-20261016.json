@@ -1,0 +1,49 @@
+{
+  "reviewDate": "2026-10-16",
+  "status": "withheld; source values retained",
+  "scope": "Wolverine only; broader delayed-implantation source audit unfinished",
+  "reason": "Pregnancy-context hold: the 35-day AnAge value describes active post-implantation gestation, not the full conception-to-birth period including delayed implantation. Do not rank it as total time pregnant.",
+  "sources": [
+    "https://research.fs.usda.gov/feis/species-reviews/gugu",
+    "https://www.adfg.alaska.gov/index.cfm?adfg=wolverine.main",
+    "https://animaldiversity.org/accounts/Gulo_gulo/"
+  ],
+  "records": [
+    {
+      "animalId": "gulo_gulo",
+      "traitId": "gestation",
+      "valueNumeric": 35,
+      "unit": "days",
+      "sex": "species-level",
+      "lifeStage": "species-level",
+      "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+      "sourceId": "anage-15",
+      "observationType": "compiled",
+      "confidence": "review",
+      "notes": "AnAge Build 15; exact taxon Gulo gulo; HAGRID 02174; original column Gestation/Incubation (days); original reference IDs 36,420,434,455,610,671,680,731,954; quality acceptable; longevity origin captivity. Existing comparison definition retained; no values inferred from relatives or breeds. Pregnancy-context hold: the 35-day AnAge value describes active post-implantation gestation, not the full conception-to-birth period including delayed implantation. Do not rank it as total time pregnant.",
+      "recordOrigin": "not-specified",
+      "uncertaintyStatus": "not-reported",
+      "sourceQuality": "acceptable",
+      "sampleSizeCategory": "not-reported",
+      "dataset": "existing-coverage"
+    },
+    {
+      "animalId": "gulo_gulo",
+      "traitId": "gestation__low",
+      "valueNumeric": 35,
+      "unit": "days",
+      "sex": "species-level",
+      "lifeStage": "species-level",
+      "measurementBasis": "Gestation length for this mammal, compiled by AnAge",
+      "sourceId": "anage-15",
+      "observationType": "compiled",
+      "confidence": "review",
+      "notes": "AnAge Build 15; exact taxon Gulo gulo; HAGRID 02174; original column Gestation/Incubation (days); original reference IDs 36,420,434,455,610,671,680,731,954; quality acceptable; longevity origin captivity. Existing comparison definition retained; no values inferred from relatives or breeds. Pregnancy-context hold: the 35-day AnAge value describes active post-implantation gestation, not the full conception-to-birth period including delayed implantation. Do not rank it as total time pregnant.",
+      "recordOrigin": "not-specified",
+      "uncertaintyStatus": "not-reported",
+      "sourceQuality": "acceptable",
+      "sampleSizeCategory": "not-reported",
+      "dataset": "existing-coverage"
+    }
+  ]
+}

@@ -1,11 +1,11 @@
 {
   "updatedAt": "2026-10-16",
   "publishedBaseline": {
-    "commit": "c882eb7168869a052cf42bca8fe58560009af963",
+    "commit": "8a2f970ce9b6083f38da7bb50666fd0add04eec3",
     "playableLabels": 202,
-    "validBoards": 57419,
+    "validBoards": 58367,
     "livingCatalogAnimals": 896,
-    "livingRoundAnimals": 262
+    "livingRoundAnimals": 265
   },
   "status": "unfinished; no task marked complete merely because a partial feature exists",
   "tasks": [
@@ -19,7 +19,7 @@
       "id": 2,
       "task": "Prioritize living mammals",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Candidate catalog has 896 living animals, 262 in rounds. Added 28 familiar mammals and 521 source measurements across existing life-history, distribution, diet, habitat and conservation comparisons. Broader mammal fact families remain unfinished. Published admission of pronghorn, caracal and quokka to all three difficulties, with existing sourced facts, dedicated cartoons and licensed photos."
+      "evidenceAndRemainingWork": "Candidate catalog has 896 living animals, 265 in rounds. Added 28 familiar mammals and 521 source measurements across existing life-history, distribution, diet, habitat and conservation comparisons. Broader mammal fact families remain unfinished. Published admission of pronghorn, caracal and quokka to all three difficulties, with existing sourced facts, dedicated cartoons and licensed photos."
     },
     {
       "id": 3,
@@ -49,7 +49,7 @@
       "id": 7,
       "task": "Convert catalog entries into playable animals",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "631 of 896 living catalog animals do not appear in prepared rounds. Updated source/semantic validator search found numeric lineups for 269 catalog-only animals; these remain research-only pending assets and source-context review. Prepared admission of bull shark, bluefin tuna and Atlantic halibut; lionfish held."
+      "evidenceAndRemainingWork": "631 of 896 living catalog animals do not appear in published rounds. Updated source/semantic validator search found numeric lineups for 269 catalog-only animals; these remain research-only pending assets and source-context review. Published admission of bull shark, bluefin tuna and Atlantic halibut; lionfish held."
     },
     {
       "id": 8,
@@ -109,7 +109,7 @@
       "id": 17,
       "task": "Finish Static-image consistency",
       "status": "unfinished",
-      "evidenceAndRemainingWork": "Six reviewed living identification viewports, including all three introduced mammals, crop without stretching. Eight extinct skeleton assets reviewed; 64 placeholders and broader framing work remain."
+      "evidenceAndRemainingWork": "Six reviewed living identification viewports, including all three introduced mammals, crop without stretching. Eight extinct skeleton assets reviewed; 64 placeholders and broader framing work remain. October 16: reviewed fish head viewports and unchanged licensed source bytes, plus client snapshot mismatch fixed. Natural photo backgrounds and broader visual-answer cues remain unfinished."
     },
     {
       "id": 18,
@@ -225,7 +225,7 @@
     "adultWeightDownloadedCsvRows": 346
   },
   "preparedRelease": {
-    "status": "local production build and snapshot seal passed; awaiting deployment and live check",
+    "status": "published; READY and live Scout/Adventurer 400/400 verified",
     "playableLabels": 202,
     "validBoards": 58367,
     "livingCatalogAnimals": 896,
@@ -242,21 +242,23 @@
     "phoneVerification": "unfinished",
     "retiredOlderBoards": 22,
     "netBoardChange": 948,
-    "semanticRegressionTests": "172 overlap/opposite cases and a positive halibut control passed"
+    "semanticRegressionTests": "172 overlap/opposite cases and a positive halibut control passed",
+    "clientPhotoCheck": "337 round animals have approved client-visible assets; extinct SVG placeholders remain a separate unfinished task"
   },
   "previousPublishedBaseline": {
-    "commit": "380c764e96c9afbf0053f4255c128cdf9e110fdd",
+    "commit": "c882eb7168869a052cf42bca8fe58560009af963",
     "playableLabels": 202,
-    "validBoards": 59451,
+    "validBoards": 57419,
     "livingCatalogAnimals": 896,
-    "livingRoundAnimals": 259
+    "livingRoundAnimals": 262
   },
   "catalogAdmissionAudit": {
     "date": "2026-10-16",
     "report": "data/animalstats/research/catalog-admission-readiness-20261016.json",
-    "status": "research-only admission queue refreshed against prepared 58,367-board release",
+    "status": "research-only admission queue refreshed against published 58,367-board release",
     "numericWitnessAnimals": 269,
     "checks": 12117,
     "nextWork": "Review accurate licensed portraits and species-specific cartoons for familiar mammals and underrepresented fish/insects; obtain additional comparable facts for crustaceans, echinoderms and cnidarians."
-  }
+  },
+  "liveReview": "data/animalstats/research/reviewed-fish-live-review-20261016.json"
 }

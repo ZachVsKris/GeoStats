@@ -1,0 +1,77 @@
+{
+  "reviewDate": "2026-10-16",
+  "codeCommit": "8a2f970ce9b6083f38da7bb50666fd0add04eec3",
+  "deploymentId": "dpl_5Y6SEzFrQEQub5buXx2xr6mD5DCy",
+  "status": "READY; Scout and Adventurer live checked in both modes",
+  "release": {
+    "playableLabels": 202,
+    "validBoards": 58367,
+    "livingRoundAnimals": 265,
+    "newBoards": 970,
+    "olderBoardsRetired": 22,
+    "netBoardChange": 948
+  },
+  "localChecks": {
+    "productionBuild": "passed",
+    "snapshotSeal": "exact-match",
+    "adjacentNumericChecks": 1292280,
+    "sourceReapprovalRegressionChecks": 8,
+    "bodyLengthOverlapRegressionChecks": 172,
+    "identificationViewportsChecked": 10,
+    "extinctSkeletonSeparationChecks": 8,
+    "productionRoundAnimalPhotosChecked": 337
+  },
+  "liveChecks": [
+    {
+      "board": "reviewed-fish-20261016-fish-easy-2eb6788be882",
+      "mode": "easy",
+      "score": 400,
+      "maximum": 400,
+      "optimalChoices": 4,
+      "saveStatus": "Saved on this device",
+      "presentations": [
+        "Static filled",
+        "Cute filled"
+      ]
+    },
+    {
+      "board": "reviewed-fish-20261016-fish-normal-e4d548e33a95",
+      "mode": "normal",
+      "score": 400,
+      "maximum": 400,
+      "optimalChoices": 4,
+      "saveStatus": "Saved on this device",
+      "presentations": [
+        "Cute filled",
+        "Static filled"
+      ]
+    },
+    {
+      "checks": [
+        "category-first and animal-first assignment",
+        "remove and reassign",
+        "switching modes preserves assignments",
+        "bull shark photo visible after client snapshot sync",
+        "Adventurer rendered no photo-unavailable indicators"
+      ],
+      "desktopViewport": [
+        1363,
+        936
+      ],
+      "desktopDocument": [
+        1363,
+        936
+      ],
+      "phoneChecked": false
+    }
+  ],
+  "remainingLimitations": [
+    "Phone and small-desktop layout verification unfinished.",
+    "Signed-in and cross-device score saving not checked.",
+    "No new category labels or fish Expert rounds in this batch.",
+    "Lionfish remains catalog-only after source-context holds.",
+    "Broader source accuracy, photo cue and artwork audits remain unfinished."
+  ],
+  "deploymentUrl": "https://geo-secondcoming-m3pyln04g-zachington.vercel.app",
+  "screenshot": "animalstats-reviewed-fish-1792176093372.jpg"
+}

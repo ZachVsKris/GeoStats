@@ -25,6 +25,17 @@ export default function CategorySourcePanel({ dataset, boardCountryIds = [], onC
   const boardIds = useMemo(() => new Set(boardCountryIds), [boardCountryIds]);
 
   useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const onKeyDown = (event: KeyboardEvent) => { if (event.key === "Escape") onClose(); };
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, [onClose]);
+
+  useEffect(() => {
     let cancelled = false;
     setFullDataset(dataset);
     setLoading(true);
@@ -92,7 +103,7 @@ export default function CategorySourcePanel({ dataset, boardCountryIds = [], onC
 
   return <div className="sourceModal" role="dialog" aria-modal="true" aria-label={`${category.name} data and source`} onMouseDown={(event) => event.currentTarget === event.target && onClose()}>
     <div className="sourcePanel sourcePanelSimple" data-measurement={categoryMeasurementLabel(category)}>
-      <button className="sourceClose" onClick={onClose} aria-label="Close data and source">×</button>
+      <button className="sourceClose" onClick={onClose} aria-label="Close data and source"><span aria-hidden="true">×</span><span className="sourceCloseLabel">Back to results</span></button>
 
       <header className="sourceHero" title={categoryMeasurementLabel(category)}>
         <div className="sourceHeroTop">

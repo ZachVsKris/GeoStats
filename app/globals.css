@@ -1352,3 +1352,12 @@ header{display:flex;align-items:center;justify-content:space-between;padding:6px
 @media (max-width: 1000px) { .personalStats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 850px) { .personalStats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .personalResults { padding: 1.2rem; } .personalStats { gap: .6rem; } .personalStats > div { padding: .8rem; } .personalStats strong { font-size: 1.35rem; } .personalModeTabs button { padding: .7rem .8rem; } }
+
+/* Keep source-panel navigation inside the phone's visible viewport. */
+.sourceCloseLabel{display:none}
+@media(max-width:760px){
+  .sourceModal{height:100dvh;box-sizing:border-box;overflow:hidden;padding:8px;min-height:0}
+  .sourcePanel.sourcePanelSimple{box-sizing:border-box;min-height:0;max-height:calc(100dvh - 16px);overscroll-behavior:contain;padding-top:68px}
+  .sourceModal .sourceClose{position:fixed;z-index:5;top:max(12px,env(safe-area-inset-top));right:max(12px,env(safe-area-inset-right));width:auto;min-height:44px;height:auto;padding:8px 12px;display:flex;align-items:center;gap:8px;border-radius:8px;background:var(--surface);box-shadow:0 2px 8px #0002}
+  .sourceCloseLabel{display:inline;font-size:14px;font-weight:700}
+}

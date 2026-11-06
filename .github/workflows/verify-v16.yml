@@ -27,6 +27,8 @@ jobs:
           python-version: "3.12"
       - name: Install JavaScript dependencies
         run: npm ci --include=dev --no-audit --no-fund
+      - name: Verify submission with full or blocked browser storage
+        run: node scripts/test-submit-storage.cjs
       - name: Install Python importer dependencies
         run: |
           python -m pip install --disable-pip-version-check \

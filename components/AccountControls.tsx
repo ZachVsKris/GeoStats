@@ -66,7 +66,13 @@ export default function AccountControls({
     // GeoSecondComingGame stores every completed Daily under a date-and-mode
     // key. Keeping the former key during rollout lets older browsers migrate
     // their final pending result into the complete-history transfer.
-    localStorage.setItem(`geostats-pending-daily-score-${pendingScore.difficulty}`, JSON.stringify(pendingScore));
+    try {
+      localStorage.setItem(`geostats-pending-daily-score-${pendingScore.difficulty}`, JSON.stringify(pendingScore));
+    } catch {
+      // Quota limits and privacy settings must never crash the results screen.
+      // pendingScore remains available in memory for direct account saving.
+      setMessage("This browser could not save a local copy. Sign in to save this result to your account.");
+    }
   }, [pendingSignature]);
 
   useEffect(() => {
@@ -127,7 +133,12 @@ export default function AccountControls({
     scoreSaveInFlight.current = true;
     setSaving(true);
     try {
-      const history = pendingDailyScores(localStorage);
+      let history: PendingDailyScore[] = [];
+      try { history = pendingDailyScores(localStorage); } catch { /* Browser storage may be disabled. */ }
+      // The current result must still reach the API if no local copy could be written.
+      if (pendingScore && !history.some((score) => score.challengeDate === pendingScore.challengeDate && score.difficulty === pendingScore.difficulty)) {
+        history.push(pendingScore);
+      }
       let savedCount = 0;
       for (const pending of history) {
         const response = await fetch("/api/scores", {
@@ -137,7 +148,10 @@ export default function AccountControls({
         });
         const data = await response.json().catch(() => ({}));
         if (response.ok) {
-          markDailyScoreSynced(localStorage, pending);
+          try { markDailyScoreSynced(localStorage, pending); } catch {
+            // The API has saved the result. A failed local marker is safe to retry;
+            // first-completion enforcement prevents duplicate account results.
+          }
           savedCount += data.alreadyCompleted ? 0 : 1;
           onScoreSaved?.({ challengeDate: pending.challengeDate, difficulty: pending.difficulty });
         } else if (response.status !== 401) {

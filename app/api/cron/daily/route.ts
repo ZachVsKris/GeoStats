@@ -9,8 +9,8 @@ export const maxDuration = 300;
 
 /**
  * Runs around New York midnight. The two-hour look-ahead lets the earlier UTC
- * run publish tomorrow's trio before it becomes public, while later runs repair
- * the current day if the first attempt failed.
+ * run publish tomorrow's trio before it becomes public. Two independent search
+ * attempts prevent one unlucky candidate pool from leaving the next day empty.
  */
 export async function GET(request: Request) {
   const secret = process.env.CRON_SECRET;
@@ -43,8 +43,8 @@ export async function GET(request: Request) {
     try {
       const result = await generateAndPublishDailyTrio(admin, date, {
         source: "cron-v16.2.7",
-        attempts: 1,
-        budgetMs: 105_000,
+        attempts: 2,
+        budgetMs: 125_000,
         candidateTarget: 160,
         jointSearch: true,
         jointFirst: true,

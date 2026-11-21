@@ -1,7 +1,7 @@
 import { createHash, timingSafeEqual } from "crypto";
-import { createSupabaseAdminClient } from "../../../../../lib/supabase/server";
-import { generateAndPublishDailyTrio } from "../../../../../lib/dailyBoardService";
-import { loadPublicDailyPayload } from "../../../../../lib/publicDaily";
+import { createSupabaseAdminClient } from "../../../../lib/supabase/server";
+import { generateAndPublishDailyTrio } from "../../../../lib/dailyBoardService";
+import { loadPublicDailyPayload } from "../../../../lib/publicDaily";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";

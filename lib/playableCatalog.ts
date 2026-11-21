@@ -308,7 +308,7 @@ function playerFacingTitle(row: PlayableCategoryRow) {
     ? reviewed.replace("{year}", String(row.common_year ?? row.minimum_year ?? "the reference year"))
     : legacyPlayerFacingTitle(row);
   // Remove ornamental compound hyphens, preserving numeric ranges and minus signs.
-  return title.replace(/(?<=[A-Za-z])[-–—](?=[A-Za-z])/g, " ");
+  return title.replace(/(?<=[A-Za-z])[-–—](?=[A-Za-z])/g, " ").replace(/continuous land area/gi, "contiguous land area");
 }
 
 function legacyPlayerFacingTitle(row: PlayableCategoryRow) {

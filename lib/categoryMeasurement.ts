@@ -40,3 +40,16 @@ export function categoryMeasurementBadgeLabel(category: Category): string {
     default: return "VALUE";
   }
 }
+
+/** Compact, explicit units for category prompts; never infer units from a topic. */
+export function categoryPromptUnit(category: Category): string {
+  const unit = (category.unit || "").trim();
+  const normalized = unit.toLowerCase();
+  if (categoryMeasurementType(category) === "historical_date") return category.historicalValueFormat === "date" ? "date" : "year";
+  if (/^(usd|usd\/person)$/.test(normalized) || /current us\$|current usd|u\.s\. dollars|us dollars/.test(normalized)) {
+    return /person|capita/.test(normalized) ? "$/person" : "$";
+  }
+  const shortUnits: Record<string, string> = { "square kilometers": "km²", "square kilometres": "km²", "metric tons": "tonnes", "metric tonnes": "tonnes", "kilograms": "kg", "kilometers": "km", "kilometres": "km", "meters": "m", "metres": "m", "degrees celsius": "°C", "an": "animals" };
+  if (["", "reported value", "value", "rate", "index"].includes(normalized)) return "";
+  return shortUnits[normalized] ?? unit;
+}

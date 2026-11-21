@@ -693,3 +693,15 @@ body { isolation: isolate; }
 
 /* Let the page scroll when a board exceeds the available screen height. */
 html:has(.shell.activePlay), body:has(.shell.activePlay) { overflow-y: auto; }
+
+/* Keep account navigation above both the board and its results. */
+.shell .resultsTopHeader{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.shell .resultsTopAccount .resultsAccountActions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+.categoryPromptUnit{white-space:nowrap;font-weight:600}
+.mobileStatsLink{display:none}
+@media(max-width:900px){
+  .shell .mobileStatsLink{display:inline-flex;align-items:center;min-height:40px;color:var(--ocean);font-size:12px;font-weight:600;white-space:nowrap}
+  .shell .resultsTopHeader{flex-wrap:wrap;gap:8px}
+  .shell .resultsTopAccount{margin-left:auto}
+  .shell .resultsTopAccount .resultsAccountActions{gap:8px}
+}

@@ -697,7 +697,7 @@ html:has(.shell.activePlay), body:has(.shell.activePlay) { overflow-y: auto; }
 /* Keep account navigation above both the board and its results. */
 .shell .resultsTopHeader{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
 .shell .resultsTopAccount .resultsAccountActions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end}
-.categoryPromptUnit{white-space:nowrap;font-weight:600}
+.categoryPromptUnit{white-space:normal;overflow-wrap:anywhere;font-weight:600}
 .mobileStatsLink{display:none}
 @media(max-width:900px){
   .shell .mobileStatsLink{display:inline-flex;align-items:center;min-height:40px;color:var(--ocean);font-size:12px;font-weight:600;white-space:nowrap}
@@ -705,3 +705,7 @@ html:has(.shell.activePlay), body:has(.shell.activePlay) { overflow-y: auto; }
   .shell .resultsTopAccount{margin-left:auto}
   .shell .resultsTopAccount .resultsAccountActions{gap:8px}
 }
+
+/* Unit suffixes may wrap with the prompt instead of extending outside its card. */
+.shell.activePlay .boardPanel .categoryCopy{min-width:0;max-width:100%}
+.shell.activePlay .boardPanel .category strong{max-width:100%;white-space:normal!important;overflow-wrap:anywhere;overflow:visible!important;max-height:none!important;-webkit-line-clamp:unset!important;line-clamp:unset!important}

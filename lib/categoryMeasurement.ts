@@ -45,6 +45,11 @@ export function categoryMeasurementBadgeLabel(category: Category): string {
 export function categoryPromptUnit(category: Category): string {
   const unit = (category.unit || "").trim();
   const normalized = unit.toLowerCase();
+  const title = category.name?.toLowerCase() ?? "";
+  // Titles that already state the denominator need no repeated unit suffix.
+  if (normalized && title.includes(normalized)) return "";
+  if (/^%|percent/.test(normalized)) return "%";
+  if (/^per 100 people$/.test(normalized) && /per 100 people/.test(title)) return "";
   if (categoryMeasurementType(category) === "historical_date") return category.historicalValueFormat === "date" ? "date" : "year";
   if (/^(usd|usd\/person)$/.test(normalized) || /current us\$|current usd|u\.s\. dollars|us dollars/.test(normalized)) {
     return /person|capita/.test(normalized) ? "$/person" : "$";
